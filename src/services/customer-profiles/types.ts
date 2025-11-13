@@ -1,39 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-  ValidationException,
-} from "../../error.ts";
-type CommonAwsError =
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | ValidationException
-  | AccessDeniedException
-  | ThrottlingException;
+import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException } from "../../error.ts";
+type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | ValidationException | AccessDeniedException | ThrottlingException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class CustomerProfiles extends AWSServiceClient {
@@ -41,907 +8,499 @@ export declare class CustomerProfiles extends AWSServiceClient {
     input: AddProfileKeyRequest,
   ): Effect.Effect<
     AddProfileKeyResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   batchGetCalculatedAttributeForProfile(
     input: BatchGetCalculatedAttributeForProfileRequest,
   ): Effect.Effect<
     BatchGetCalculatedAttributeForProfileResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   batchGetProfile(
     input: BatchGetProfileRequest,
   ): Effect.Effect<
     BatchGetProfileResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   createCalculatedAttributeDefinition(
     input: CreateCalculatedAttributeDefinitionRequest,
   ): Effect.Effect<
     CreateCalculatedAttributeDefinitionResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   createDomain(
     input: CreateDomainRequest,
   ): Effect.Effect<
     CreateDomainResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   createDomainLayout(
     input: CreateDomainLayoutRequest,
   ): Effect.Effect<
     CreateDomainLayoutResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   createEventStream(
     input: CreateEventStreamRequest,
   ): Effect.Effect<
     CreateEventStreamResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   createEventTrigger(
     input: CreateEventTriggerRequest,
   ): Effect.Effect<
     CreateEventTriggerResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   createIntegrationWorkflow(
     input: CreateIntegrationWorkflowRequest,
   ): Effect.Effect<
     CreateIntegrationWorkflowResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   createProfile(
     input: CreateProfileRequest,
   ): Effect.Effect<
     CreateProfileResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   createSegmentDefinition(
     input: CreateSegmentDefinitionRequest,
   ): Effect.Effect<
     CreateSegmentDefinitionResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   createSegmentEstimate(
     input: CreateSegmentEstimateRequest,
   ): Effect.Effect<
     CreateSegmentEstimateResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   createSegmentSnapshot(
     input: CreateSegmentSnapshotRequest,
   ): Effect.Effect<
     CreateSegmentSnapshotResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   createUploadJob(
     input: CreateUploadJobRequest,
   ): Effect.Effect<
     CreateUploadJobResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   deleteCalculatedAttributeDefinition(
     input: DeleteCalculatedAttributeDefinitionRequest,
   ): Effect.Effect<
     DeleteCalculatedAttributeDefinitionResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   deleteDomain(
     input: DeleteDomainRequest,
   ): Effect.Effect<
     DeleteDomainResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   deleteDomainLayout(
     input: DeleteDomainLayoutRequest,
   ): Effect.Effect<
     DeleteDomainLayoutResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   deleteEventStream(
     input: DeleteEventStreamRequest,
   ): Effect.Effect<
     DeleteEventStreamResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   deleteEventTrigger(
     input: DeleteEventTriggerRequest,
   ): Effect.Effect<
     DeleteEventTriggerResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   deleteIntegration(
     input: DeleteIntegrationRequest,
   ): Effect.Effect<
     DeleteIntegrationResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   deleteProfile(
     input: DeleteProfileRequest,
   ): Effect.Effect<
     DeleteProfileResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   deleteProfileKey(
     input: DeleteProfileKeyRequest,
   ): Effect.Effect<
     DeleteProfileKeyResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   deleteProfileObject(
     input: DeleteProfileObjectRequest,
   ): Effect.Effect<
     DeleteProfileObjectResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   deleteProfileObjectType(
     input: DeleteProfileObjectTypeRequest,
   ): Effect.Effect<
     DeleteProfileObjectTypeResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   deleteSegmentDefinition(
     input: DeleteSegmentDefinitionRequest,
   ): Effect.Effect<
     DeleteSegmentDefinitionResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   deleteWorkflow(
     input: DeleteWorkflowRequest,
   ): Effect.Effect<
     DeleteWorkflowResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   detectProfileObjectType(
     input: DetectProfileObjectTypeRequest,
   ): Effect.Effect<
     DetectProfileObjectTypeResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   getAutoMergingPreview(
     input: GetAutoMergingPreviewRequest,
   ): Effect.Effect<
     GetAutoMergingPreviewResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   getCalculatedAttributeDefinition(
     input: GetCalculatedAttributeDefinitionRequest,
   ): Effect.Effect<
     GetCalculatedAttributeDefinitionResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   getCalculatedAttributeForProfile(
     input: GetCalculatedAttributeForProfileRequest,
   ): Effect.Effect<
     GetCalculatedAttributeForProfileResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   getDomain(
     input: GetDomainRequest,
   ): Effect.Effect<
     GetDomainResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   getDomainLayout(
     input: GetDomainLayoutRequest,
   ): Effect.Effect<
     GetDomainLayoutResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   getEventStream(
     input: GetEventStreamRequest,
   ): Effect.Effect<
     GetEventStreamResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   getEventTrigger(
     input: GetEventTriggerRequest,
   ): Effect.Effect<
     GetEventTriggerResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   getIdentityResolutionJob(
     input: GetIdentityResolutionJobRequest,
   ): Effect.Effect<
     GetIdentityResolutionJobResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   getIntegration(
     input: GetIntegrationRequest,
   ): Effect.Effect<
     GetIntegrationResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   getMatches(
     input: GetMatchesRequest,
   ): Effect.Effect<
     GetMatchesResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   getProfileHistoryRecord(
     input: GetProfileHistoryRecordRequest,
   ): Effect.Effect<
     GetProfileHistoryRecordResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   getProfileObjectType(
     input: GetProfileObjectTypeRequest,
   ): Effect.Effect<
     GetProfileObjectTypeResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   getProfileObjectTypeTemplate(
     input: GetProfileObjectTypeTemplateRequest,
   ): Effect.Effect<
     GetProfileObjectTypeTemplateResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   getSegmentDefinition(
     input: GetSegmentDefinitionRequest,
   ): Effect.Effect<
     GetSegmentDefinitionResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   getSegmentEstimate(
     input: GetSegmentEstimateRequest,
   ): Effect.Effect<
     GetSegmentEstimateResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   getSegmentMembership(
     input: GetSegmentMembershipRequest,
   ): Effect.Effect<
     GetSegmentMembershipResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   getSegmentSnapshot(
     input: GetSegmentSnapshotRequest,
   ): Effect.Effect<
     GetSegmentSnapshotResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   getSimilarProfiles(
     input: GetSimilarProfilesRequest,
   ): Effect.Effect<
     GetSimilarProfilesResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   getUploadJob(
     input: GetUploadJobRequest,
   ): Effect.Effect<
     GetUploadJobResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   getUploadJobPath(
     input: GetUploadJobPathRequest,
   ): Effect.Effect<
     GetUploadJobPathResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   getWorkflow(
     input: GetWorkflowRequest,
   ): Effect.Effect<
     GetWorkflowResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   getWorkflowSteps(
     input: GetWorkflowStepsRequest,
   ): Effect.Effect<
     GetWorkflowStepsResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   listAccountIntegrations(
     input: ListAccountIntegrationsRequest,
   ): Effect.Effect<
     ListAccountIntegrationsResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   listCalculatedAttributeDefinitions(
     input: ListCalculatedAttributeDefinitionsRequest,
   ): Effect.Effect<
     ListCalculatedAttributeDefinitionsResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   listCalculatedAttributesForProfile(
     input: ListCalculatedAttributesForProfileRequest,
   ): Effect.Effect<
     ListCalculatedAttributesForProfileResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   listDomainLayouts(
     input: ListDomainLayoutsRequest,
   ): Effect.Effect<
     ListDomainLayoutsResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   listDomains(
     input: ListDomainsRequest,
   ): Effect.Effect<
     ListDomainsResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   listEventStreams(
     input: ListEventStreamsRequest,
   ): Effect.Effect<
     ListEventStreamsResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   listEventTriggers(
     input: ListEventTriggersRequest,
   ): Effect.Effect<
     ListEventTriggersResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   listIdentityResolutionJobs(
     input: ListIdentityResolutionJobsRequest,
   ): Effect.Effect<
     ListIdentityResolutionJobsResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   listIntegrations(
     input: ListIntegrationsRequest,
   ): Effect.Effect<
     ListIntegrationsResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   listObjectTypeAttributes(
     input: ListObjectTypeAttributesRequest,
   ): Effect.Effect<
     ListObjectTypeAttributesResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   listProfileAttributeValues(
     input: ProfileAttributeValuesRequest,
   ): Effect.Effect<
     ProfileAttributeValuesResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   listProfileHistoryRecords(
     input: ListProfileHistoryRecordsRequest,
   ): Effect.Effect<
     ListProfileHistoryRecordsResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   listProfileObjects(
     input: ListProfileObjectsRequest,
   ): Effect.Effect<
     ListProfileObjectsResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   listProfileObjectTypes(
     input: ListProfileObjectTypesRequest,
   ): Effect.Effect<
     ListProfileObjectTypesResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   listProfileObjectTypeTemplates(
     input: ListProfileObjectTypeTemplatesRequest,
   ): Effect.Effect<
     ListProfileObjectTypeTemplatesResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   listRuleBasedMatches(
     input: ListRuleBasedMatchesRequest,
   ): Effect.Effect<
     ListRuleBasedMatchesResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   listSegmentDefinitions(
     input: ListSegmentDefinitionsRequest,
   ): Effect.Effect<
     ListSegmentDefinitionsResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | CommonAwsError
+    BadRequestException | InternalServerException | ResourceNotFoundException | CommonAwsError
   >;
   listUploadJobs(
     input: ListUploadJobsRequest,
   ): Effect.Effect<
     ListUploadJobsResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   listWorkflows(
     input: ListWorkflowsRequest,
   ): Effect.Effect<
     ListWorkflowsResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   mergeProfiles(
     input: MergeProfilesRequest,
   ): Effect.Effect<
     MergeProfilesResponse,
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   putIntegration(
     input: PutIntegrationRequest,
   ): Effect.Effect<
     PutIntegrationResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   putProfileObject(
     input: PutProfileObjectRequest,
   ): Effect.Effect<
     PutProfileObjectResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   putProfileObjectType(
     input: PutProfileObjectTypeRequest,
   ): Effect.Effect<
     PutProfileObjectTypeResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   searchProfiles(
     input: SearchProfilesRequest,
   ): Effect.Effect<
     SearchProfilesResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   startUploadJob(
     input: StartUploadJobRequest,
   ): Effect.Effect<
     StartUploadJobResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   stopUploadJob(
     input: StopUploadJobRequest,
   ): Effect.Effect<
     StopUploadJobResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | CommonAwsError
+    BadRequestException | InternalServerException | ResourceNotFoundException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | CommonAwsError
+    BadRequestException | InternalServerException | ResourceNotFoundException | CommonAwsError
   >;
   updateCalculatedAttributeDefinition(
     input: UpdateCalculatedAttributeDefinitionRequest,
   ): Effect.Effect<
     UpdateCalculatedAttributeDefinitionResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   updateDomain(
     input: UpdateDomainRequest,
   ): Effect.Effect<
     UpdateDomainResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   updateDomainLayout(
     input: UpdateDomainLayoutRequest,
   ): Effect.Effect<
     UpdateDomainLayoutResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   updateEventTrigger(
     input: UpdateEventTriggerRequest,
   ): Effect.Effect<
     UpdateEventTriggerResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   updateProfile(
     input: UpdateProfileRequest,
   ): Effect.Effect<
     UpdateProfileResponse,
-    | AccessDeniedException
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
 }
 
@@ -950,16 +509,7 @@ export declare class AccessDeniedException extends EffectData.TaggedError(
 )<{
   readonly Message?: string;
 }> {}
-export type ActionType =
-  | "ADDED_PROFILE_KEY"
-  | "DELETED_PROFILE_KEY"
-  | "CREATED"
-  | "UPDATED"
-  | "INGESTED"
-  | "DELETED_BY_CUSTOMER"
-  | "EXPIRED"
-  | "MERGED"
-  | "DELETED_BY_MERGE";
+export type ActionType = "ADDED_PROFILE_KEY" | "DELETED_PROFILE_KEY" | "CREATED" | "UPDATED" | "INGESTED" | "DELETED_BY_CUSTOMER" | "EXPIRED" | "MERGED" | "DELETED_BY_MERGE";
 export interface AdditionalSearchKey {
   KeyName: string;
   Values: Array<string>;
@@ -1028,22 +578,7 @@ export interface AttributeDimension {
   DimensionType: AttributeDimensionType;
   Values: Array<string>;
 }
-export type AttributeDimensionType =
-  | "INCLUSIVE"
-  | "EXCLUSIVE"
-  | "CONTAINS"
-  | "BEGINS_WITH"
-  | "ENDS_WITH"
-  | "BEFORE"
-  | "AFTER"
-  | "BETWEEN"
-  | "NOT_BETWEEN"
-  | "ON"
-  | "GREATER_THAN"
-  | "LESS_THAN"
-  | "GREATER_THAN_OR_EQUAL"
-  | "LESS_THAN_OR_EQUAL"
-  | "EQUAL";
+export type AttributeDimensionType = "INCLUSIVE" | "EXCLUSIVE" | "CONTAINS" | "BEGINS_WITH" | "ENDS_WITH" | "BEFORE" | "AFTER" | "BETWEEN" | "NOT_BETWEEN" | "ON" | "GREATER_THAN" | "LESS_THAN" | "GREATER_THAN_OR_EQUAL" | "LESS_THAN_OR_EQUAL" | "EQUAL";
 export interface AttributeItem {
   Name: string;
 }
@@ -1085,8 +620,7 @@ export interface BatchGetCalculatedAttributeForProfileError {
   Message: string;
   ProfileId: string;
 }
-export type BatchGetCalculatedAttributeForProfileErrorList =
-  Array<BatchGetCalculatedAttributeForProfileError>;
+export type BatchGetCalculatedAttributeForProfileErrorList = Array<BatchGetCalculatedAttributeForProfileError>;
 export type BatchGetCalculatedAttributeForProfileIdList = Array<string>;
 export interface BatchGetCalculatedAttributeForProfileRequest {
   CalculatedAttributeName: string;
@@ -1120,15 +654,13 @@ export type BucketName = string;
 
 export type BucketPrefix = string;
 
-export type CalculatedAttributeDefinitionsList =
-  Array<ListCalculatedAttributeDefinitionItem>;
+export type CalculatedAttributeDefinitionsList = Array<ListCalculatedAttributeDefinitionItem>;
 export interface CalculatedAttributeDimension {
   DimensionType: AttributeDimensionType;
   Values: Array<string>;
   ConditionOverrides?: ConditionOverrides;
 }
-export type CalculatedAttributesForProfileList =
-  Array<ListCalculatedAttributeForProfileItem>;
+export type CalculatedAttributesForProfileList = Array<ListCalculatedAttributeForProfileItem>;
 export interface CalculatedAttributeValue {
   CalculatedAttributeName?: string;
   DisplayName?: string;
@@ -1138,26 +670,8 @@ export interface CalculatedAttributeValue {
   LastObjectTimestamp?: Date | string;
 }
 export type CalculatedAttributeValueList = Array<CalculatedAttributeValue>;
-export type CalculatedCustomAttributes = Record<
-  string,
-  CalculatedAttributeDimension
->;
-export type ComparisonOperator =
-  | "INCLUSIVE"
-  | "EXCLUSIVE"
-  | "CONTAINS"
-  | "BEGINS_WITH"
-  | "ENDS_WITH"
-  | "GREATER_THAN"
-  | "LESS_THAN"
-  | "GREATER_THAN_OR_EQUAL"
-  | "LESS_THAN_OR_EQUAL"
-  | "EQUAL"
-  | "BEFORE"
-  | "AFTER"
-  | "ON"
-  | "BETWEEN"
-  | "NOT_BETWEEN";
+export type CalculatedCustomAttributes = Record<string, CalculatedAttributeDimension>;
+export type ComparisonOperator = "INCLUSIVE" | "EXCLUSIVE" | "CONTAINS" | "BEGINS_WITH" | "ENDS_WITH" | "GREATER_THAN" | "LESS_THAN" | "GREATER_THAN_OR_EQUAL" | "LESS_THAN_OR_EQUAL" | "EQUAL" | "BEFORE" | "AFTER" | "ON" | "BETWEEN" | "NOT_BETWEEN";
 export interface ConditionOverrides {
   Range?: RangeOverride;
 }
@@ -1189,14 +703,7 @@ export interface ContactPreference {
   ProfileId?: string;
   ContactType?: ContactType;
 }
-export type ContactType =
-  | "PhoneNumber"
-  | "MobilePhoneNumber"
-  | "HomePhoneNumber"
-  | "BusinessPhoneNumber"
-  | "EmailAddress"
-  | "PersonalEmailAddress"
-  | "BusinessEmailAddress";
+export type ContactType = "PhoneNumber" | "MobilePhoneNumber" | "HomePhoneNumber" | "BusinessPhoneNumber" | "EmailAddress" | "PersonalEmailAddress" | "BusinessEmailAddress";
 export interface CreateCalculatedAttributeDefinitionRequest {
   DomainName: string;
   CalculatedAttributeName: string;
@@ -1395,12 +902,7 @@ export interface DateDimension {
   DimensionType: DateDimensionType;
   Values: Array<string>;
 }
-export type DateDimensionType =
-  | "BEFORE"
-  | "AFTER"
-  | "BETWEEN"
-  | "NOT_BETWEEN"
-  | "ON";
+export type DateDimensionType = "BEFORE" | "AFTER" | "BETWEEN" | "NOT_BETWEEN" | "ON";
 export type DatetimeTypeFieldName = string;
 
 export type DateValues = Array<string>;
@@ -1408,7 +910,8 @@ export interface DeleteCalculatedAttributeDefinitionRequest {
   DomainName: string;
   CalculatedAttributeName: string;
 }
-export interface DeleteCalculatedAttributeDefinitionResponse {}
+export interface DeleteCalculatedAttributeDefinitionResponse {
+}
 export interface DeleteDomainLayoutRequest {
   DomainName: string;
   LayoutDefinitionName: string;
@@ -1426,7 +929,8 @@ export interface DeleteEventStreamRequest {
   DomainName: string;
   EventStreamName: string;
 }
-export interface DeleteEventStreamResponse {}
+export interface DeleteEventStreamResponse {
+}
 export interface DeleteEventTriggerRequest {
   DomainName: string;
   EventTriggerName: string;
@@ -1484,7 +988,8 @@ export interface DeleteWorkflowRequest {
   DomainName: string;
   WorkflowId: string;
 }
-export interface DeleteWorkflowResponse {}
+export interface DeleteWorkflowResponse {
+}
 export type DestinationField = string;
 
 export interface DestinationSummary {
@@ -1510,11 +1015,7 @@ interface _Dimension {
   CalculatedAttributes?: Record<string, CalculatedAttributeDimension>;
 }
 
-export type Dimension =
-  | (_Dimension & { ProfileAttributes: ProfileAttributes })
-  | (_Dimension & {
-      CalculatedAttributes: Record<string, CalculatedAttributeDimension>;
-    });
+export type Dimension = (_Dimension & { ProfileAttributes: ProfileAttributes }) | (_Dimension & { CalculatedAttributes: Record<string, CalculatedAttributeDimension> });
 export type DimensionList = Array<Dimension>;
 export type displayName = string;
 
@@ -1597,12 +1098,7 @@ export interface ExtraLengthValueProfileDimension {
 }
 export type ExtraLengthValues = Array<string>;
 export type Failures = Array<ProfileQueryFailures>;
-export type FieldContentType =
-  | "STRING"
-  | "NUMBER"
-  | "PHONE_NUMBER"
-  | "EMAIL_ADDRESS"
-  | "NAME";
+export type FieldContentType = "STRING" | "NUMBER" | "PHONE_NUMBER" | "EMAIL_ADDRESS" | "NAME";
 export type FieldMap = Record<string, ObjectTypeField>;
 export type fieldName = string;
 
@@ -1644,22 +1140,7 @@ export interface FilterDimension {
   Attributes: Record<string, FilterAttributeDimension>;
 }
 export type FilterDimensionList = Array<FilterDimension>;
-export type FilterDimensionType =
-  | "INCLUSIVE"
-  | "EXCLUSIVE"
-  | "CONTAINS"
-  | "BEGINS_WITH"
-  | "ENDS_WITH"
-  | "BEFORE"
-  | "AFTER"
-  | "BETWEEN"
-  | "NOT_BETWEEN"
-  | "ON"
-  | "GREATER_THAN"
-  | "LESS_THAN"
-  | "GREATER_THAN_OR_EQUAL"
-  | "LESS_THAN_OR_EQUAL"
-  | "EQUAL";
+export type FilterDimensionType = "INCLUSIVE" | "EXCLUSIVE" | "CONTAINS" | "BEGINS_WITH" | "ENDS_WITH" | "BEFORE" | "AFTER" | "BETWEEN" | "NOT_BETWEEN" | "ON" | "GREATER_THAN" | "LESS_THAN" | "GREATER_THAN_OR_EQUAL" | "LESS_THAN_OR_EQUAL" | "EQUAL";
 export interface FilterGroup {
   Type: Type;
   Dimensions: Array<FilterDimension>;
@@ -2014,14 +1495,7 @@ export interface IdentityResolutionJob {
   Message?: string;
 }
 export type IdentityResolutionJobsList = Array<IdentityResolutionJob>;
-export type IdentityResolutionJobStatus =
-  | "PENDING"
-  | "PREPROCESSING"
-  | "FIND_MATCHING"
-  | "MERGING"
-  | "COMPLETED"
-  | "PARTIAL_SUCCESS"
-  | "FAILED";
+export type IdentityResolutionJobStatus = "PENDING" | "PREPROCESSING" | "FIND_MATCHING" | "MERGING" | "COMPLETED" | "PARTIAL_SUCCESS" | "FAILED";
 export type Include = "ALL" | "ANY" | "NONE";
 export type IncludeOptions = "ALL" | "ANY" | "NONE";
 export interface IncrementalPullConfig {
@@ -2040,14 +1514,7 @@ export interface JobSchedule {
   DayOfTheWeek: JobScheduleDayOfTheWeek;
   Time: string;
 }
-export type JobScheduleDayOfTheWeek =
-  | "SUNDAY"
-  | "MONDAY"
-  | "TUESDAY"
-  | "WEDNESDAY"
-  | "THURSDAY"
-  | "FRIDAY"
-  | "SATURDAY";
+export type JobScheduleDayOfTheWeek = "SUNDAY" | "MONDAY" | "TUESDAY" | "WEDNESDAY" | "THURSDAY" | "FRIDAY" | "SATURDAY";
 export type JobScheduleTime = string;
 
 export interface JobStats {
@@ -2322,23 +1789,7 @@ export interface ListWorkflowsResponse {
 export type logicalOperator = "AND" | "OR";
 export type long = number;
 
-export type MarketoConnectorOperator =
-  | "PROJECTION"
-  | "LESS_THAN"
-  | "GREATER_THAN"
-  | "BETWEEN"
-  | "ADDITION"
-  | "MULTIPLICATION"
-  | "DIVISION"
-  | "SUBTRACTION"
-  | "MASK_ALL"
-  | "MASK_FIRST_N"
-  | "MASK_LAST_N"
-  | "VALIDATE_NON_NULL"
-  | "VALIDATE_NON_ZERO"
-  | "VALIDATE_NON_NEGATIVE"
-  | "VALIDATE_NUMERIC"
-  | "NO_OP";
+export type MarketoConnectorOperator = "PROJECTION" | "LESS_THAN" | "GREATER_THAN" | "BETWEEN" | "ADDITION" | "MULTIPLICATION" | "DIVISION" | "SUBTRACTION" | "MASK_ALL" | "MASK_FIRST_N" | "MASK_LAST_N" | "VALIDATE_NON_NULL" | "VALIDATE_NON_ZERO" | "VALIDATE_NON_NEGATIVE" | "VALIDATE_NUMERIC" | "NO_OP";
 export interface MarketoSourceProperties {
   Object: string;
 }
@@ -2427,26 +1878,8 @@ export interface ObjectTypeKey {
 }
 export type ObjectTypeKeyList = Array<ObjectTypeKey>;
 export type ObjectTypeNames = Record<string, string>;
-export type Operator =
-  | "EQUAL_TO"
-  | "GREATER_THAN"
-  | "LESS_THAN"
-  | "NOT_EQUAL_TO";
-export type OperatorPropertiesKeys =
-  | "VALUE"
-  | "VALUES"
-  | "DATA_TYPE"
-  | "UPPER_BOUND"
-  | "LOWER_BOUND"
-  | "SOURCE_DATA_TYPE"
-  | "DESTINATION_DATA_TYPE"
-  | "VALIDATION_ACTION"
-  | "MASK_VALUE"
-  | "MASK_LENGTH"
-  | "TRUNCATE_LENGTH"
-  | "MATH_OPERATION_FIELDS_ORDER"
-  | "CONCAT_FORMAT"
-  | "SUBFIELD_CATEGORY_MAP";
+export type Operator = "EQUAL_TO" | "GREATER_THAN" | "LESS_THAN" | "NOT_EQUAL_TO";
+export type OperatorPropertiesKeys = "VALUE" | "VALUES" | "DATA_TYPE" | "UPPER_BOUND" | "LOWER_BOUND" | "SOURCE_DATA_TYPE" | "DESTINATION_DATA_TYPE" | "VALIDATION_ACTION" | "MASK_VALUE" | "MASK_LENGTH" | "TRUNCATE_LENGTH" | "MATH_OPERATION_FIELDS_ORDER" | "CONCAT_FORMAT" | "SUBFIELD_CATEGORY_MAP";
 export type optionalBoolean = boolean;
 
 export type optionalLong = number;
@@ -2549,8 +1982,7 @@ export type ProfileIdToBeMergedList = Array<string>;
 export type ProfileList = Array<Profile>;
 export type ProfileObjectList = Array<ListProfileObjectsItem>;
 export type ProfileObjectTypeList = Array<ListProfileObjectTypeItem>;
-export type ProfileObjectTypeTemplateList =
-  Array<ListProfileObjectTypeTemplateItem>;
+export type ProfileObjectTypeTemplateList = Array<ListProfileObjectTypeTemplateItem>;
 export interface ProfileQueryFailures {
   ProfileId: string;
   Message: string;
@@ -2650,11 +2082,7 @@ export interface Readiness {
   ProgressPercentage?: number;
   Message?: string;
 }
-export type ReadinessStatus =
-  | "PREPARING"
-  | "IN_PROGRESS"
-  | "COMPLETED"
-  | "FAILED";
+export type ReadinessStatus = "PREPARING" | "IN_PROGRESS" | "COMPLETED" | "FAILED";
 export type requestValueList = Array<string>;
 export declare class ResourceNotFoundException extends EffectData.TaggedError(
   "ResourceNotFoundException",
@@ -2692,27 +2120,7 @@ export type RuleLevel = number;
 
 export type s3BucketName = string;
 
-export type S3ConnectorOperator =
-  | "PROJECTION"
-  | "LESS_THAN"
-  | "GREATER_THAN"
-  | "BETWEEN"
-  | "LESS_THAN_OR_EQUAL_TO"
-  | "GREATER_THAN_OR_EQUAL_TO"
-  | "EQUAL_TO"
-  | "NOT_EQUAL_TO"
-  | "ADDITION"
-  | "MULTIPLICATION"
-  | "DIVISION"
-  | "SUBTRACTION"
-  | "MASK_ALL"
-  | "MASK_FIRST_N"
-  | "MASK_LAST_N"
-  | "VALIDATE_NON_NULL"
-  | "VALIDATE_NON_ZERO"
-  | "VALIDATE_NON_NEGATIVE"
-  | "VALIDATE_NUMERIC"
-  | "NO_OP";
+export type S3ConnectorOperator = "PROJECTION" | "LESS_THAN" | "GREATER_THAN" | "BETWEEN" | "LESS_THAN_OR_EQUAL_TO" | "GREATER_THAN_OR_EQUAL_TO" | "EQUAL_TO" | "NOT_EQUAL_TO" | "ADDITION" | "MULTIPLICATION" | "DIVISION" | "SUBTRACTION" | "MASK_ALL" | "MASK_FIRST_N" | "MASK_LAST_N" | "VALIDATE_NON_NULL" | "VALIDATE_NON_ZERO" | "VALIDATE_NON_NEGATIVE" | "VALIDATE_NUMERIC" | "NO_OP";
 export interface S3ExportingConfig {
   S3BucketName: string;
   S3KeyName?: string;
@@ -2729,28 +2137,7 @@ export interface S3SourceProperties {
   BucketName: string;
   BucketPrefix?: string;
 }
-export type SalesforceConnectorOperator =
-  | "PROJECTION"
-  | "LESS_THAN"
-  | "CONTAINS"
-  | "GREATER_THAN"
-  | "BETWEEN"
-  | "LESS_THAN_OR_EQUAL_TO"
-  | "GREATER_THAN_OR_EQUAL_TO"
-  | "EQUAL_TO"
-  | "NOT_EQUAL_TO"
-  | "ADDITION"
-  | "MULTIPLICATION"
-  | "DIVISION"
-  | "SUBTRACTION"
-  | "MASK_ALL"
-  | "MASK_FIRST_N"
-  | "MASK_LAST_N"
-  | "VALIDATE_NON_NULL"
-  | "VALIDATE_NON_ZERO"
-  | "VALIDATE_NON_NEGATIVE"
-  | "VALIDATE_NUMERIC"
-  | "NO_OP";
+export type SalesforceConnectorOperator = "PROJECTION" | "LESS_THAN" | "CONTAINS" | "GREATER_THAN" | "BETWEEN" | "LESS_THAN_OR_EQUAL_TO" | "GREATER_THAN_OR_EQUAL_TO" | "EQUAL_TO" | "NOT_EQUAL_TO" | "ADDITION" | "MULTIPLICATION" | "DIVISION" | "SUBTRACTION" | "MASK_ALL" | "MASK_FIRST_N" | "MASK_LAST_N" | "VALIDATE_NON_NULL" | "VALIDATE_NON_ZERO" | "VALIDATE_NON_NEGATIVE" | "VALIDATE_NUMERIC" | "NO_OP";
 export interface SalesforceSourceProperties {
   Object: string;
   EnableDynamicFieldUpdate?: boolean;
@@ -2815,28 +2202,7 @@ export type sensitiveString1To255 = string;
 
 export type sensitiveText = string;
 
-export type ServiceNowConnectorOperator =
-  | "PROJECTION"
-  | "CONTAINS"
-  | "LESS_THAN"
-  | "GREATER_THAN"
-  | "BETWEEN"
-  | "LESS_THAN_OR_EQUAL_TO"
-  | "GREATER_THAN_OR_EQUAL_TO"
-  | "EQUAL_TO"
-  | "NOT_EQUAL_TO"
-  | "ADDITION"
-  | "MULTIPLICATION"
-  | "DIVISION"
-  | "SUBTRACTION"
-  | "MASK_ALL"
-  | "MASK_FIRST_N"
-  | "MASK_LAST_N"
-  | "VALIDATE_NON_NULL"
-  | "VALIDATE_NON_ZERO"
-  | "VALIDATE_NON_NEGATIVE"
-  | "VALIDATE_NUMERIC"
-  | "NO_OP";
+export type ServiceNowConnectorOperator = "PROJECTION" | "CONTAINS" | "LESS_THAN" | "GREATER_THAN" | "BETWEEN" | "LESS_THAN_OR_EQUAL_TO" | "GREATER_THAN_OR_EQUAL_TO" | "EQUAL_TO" | "NOT_EQUAL_TO" | "ADDITION" | "MULTIPLICATION" | "DIVISION" | "SUBTRACTION" | "MASK_ALL" | "MASK_FIRST_N" | "MASK_LAST_N" | "VALIDATE_NON_NULL" | "VALIDATE_NON_ZERO" | "VALIDATE_NON_NEGATIVE" | "VALIDATE_NUMERIC" | "NO_OP";
 export interface ServiceNowSourceProperties {
   Object: string;
 }
@@ -2847,12 +2213,7 @@ export interface SourceConnectorProperties {
   ServiceNow?: ServiceNowSourceProperties;
   Zendesk?: ZendeskSourceProperties;
 }
-export type SourceConnectorType =
-  | "Salesforce"
-  | "Marketo"
-  | "Zendesk"
-  | "Servicenow"
-  | "S3";
+export type SourceConnectorType = "Salesforce" | "Marketo" | "Zendesk" | "Servicenow" | "S3";
 export type SourceFields = Array<string>;
 export interface SourceFlowConfig {
   ConnectorProfileName?: string;
@@ -2866,25 +2227,7 @@ export interface SourceSegment {
 export type SourceSegmentList = Array<SourceSegment>;
 export type sqsQueueUrl = string;
 
-export type StandardIdentifier =
-  | "PROFILE"
-  | "ASSET"
-  | "CASE"
-  | "ORDER"
-  | "COMMUNICATION_RECORD"
-  | "AIR_PREFERENCE"
-  | "HOTEL_PREFERENCE"
-  | "AIR_BOOKING"
-  | "AIR_SEGMENT"
-  | "HOTEL_RESERVATION"
-  | "HOTEL_STAY_REVENUE"
-  | "LOYALTY"
-  | "LOYALTY_TRANSACTION"
-  | "LOYALTY_PROMOTION"
-  | "UNIQUE"
-  | "SECONDARY"
-  | "LOOKUP_ONLY"
-  | "NEW_ONLY";
+export type StandardIdentifier = "PROFILE" | "ASSET" | "CASE" | "ORDER" | "COMMUNICATION_RECORD" | "AIR_PREFERENCE" | "HOTEL_PREFERENCE" | "AIR_BOOKING" | "AIR_SEGMENT" | "HOTEL_RESERVATION" | "HOTEL_STAY_REVENUE" | "LOYALTY" | "LOYALTY_TRANSACTION" | "LOYALTY_PROMOTION" | "UNIQUE" | "SECONDARY" | "LOOKUP_ONLY" | "NEW_ONLY";
 export type StandardIdentifierList = Array<StandardIdentifier>;
 export type Start = number;
 
@@ -2892,24 +2235,10 @@ export interface StartUploadJobRequest {
   DomainName: string;
   JobId: string;
 }
-export interface StartUploadJobResponse {}
-export type Statistic =
-  | "FIRST_OCCURRENCE"
-  | "LAST_OCCURRENCE"
-  | "COUNT"
-  | "SUM"
-  | "MINIMUM"
-  | "MAXIMUM"
-  | "AVERAGE"
-  | "MAX_OCCURRENCE";
-export type Status =
-  | "NOT_STARTED"
-  | "IN_PROGRESS"
-  | "COMPLETE"
-  | "FAILED"
-  | "SPLIT"
-  | "RETRY"
-  | "CANCELLED";
+export interface StartUploadJobResponse {
+}
+export type Statistic = "FIRST_OCCURRENCE" | "LAST_OCCURRENCE" | "COUNT" | "SUM" | "MINIMUM" | "MAXIMUM" | "AVERAGE" | "MAX_OCCURRENCE";
+export type Status = "NOT_STARTED" | "IN_PROGRESS" | "COMPLETE" | "FAILED" | "SPLIT" | "RETRY" | "CANCELLED";
 export type StatusCode = number;
 
 export type StatusReason = "VALIDATION_FAILURE" | "INTERNAL_FAILURE";
@@ -2917,19 +2246,15 @@ export interface StopUploadJobRequest {
   DomainName: string;
   JobId: string;
 }
-export interface StopUploadJobResponse {}
+export interface StopUploadJobResponse {
+}
 export type string0To255 = string;
 
 export type string1To1000 = string;
 
 export type string1To255 = string;
 
-export type StringDimensionType =
-  | "INCLUSIVE"
-  | "EXCLUSIVE"
-  | "CONTAINS"
-  | "BEGINS_WITH"
-  | "ENDS_WITH";
+export type StringDimensionType = "INCLUSIVE" | "EXCLUSIVE" | "CONTAINS" | "BEGINS_WITH" | "ENDS_WITH";
 export type stringifiedJson = string;
 
 export type stringTo2048 = string;
@@ -2944,7 +2269,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export interface Task {
@@ -2956,14 +2282,7 @@ export interface Task {
 }
 export type TaskPropertiesMap = Record<OperatorPropertiesKeys, string>;
 export type Tasks = Array<Task>;
-export type TaskType =
-  | "Arithmetic"
-  | "Filter"
-  | "Map"
-  | "Mask"
-  | "Merge"
-  | "Truncate"
-  | "Validate";
+export type TaskType = "Arithmetic" | "Filter" | "Map" | "Mask" | "Merge" | "Truncate" | "Validate";
 export type text = string;
 
 export interface Threshold {
@@ -2997,7 +2316,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateAddress {
   Address1?: string;
   Address2?: string;
@@ -3135,13 +2455,7 @@ export interface UploadJobItem {
   DataExpiry?: number;
 }
 export type UploadJobsList = Array<UploadJobItem>;
-export type UploadJobStatus =
-  | "CREATED"
-  | "IN_PROGRESS"
-  | "PARTIALLY_SUCCEEDED"
-  | "SUCCEEDED"
-  | "FAILED"
-  | "STOPPED";
+export type UploadJobStatus = "CREATED" | "IN_PROGRESS" | "PARTIALLY_SUCCEEDED" | "SUCCEEDED" | "FAILED" | "STOPPED";
 export type uuid = string;
 
 export type Value = number;
@@ -3168,21 +2482,7 @@ export interface WorkflowStepItem {
 }
 export type WorkflowStepsList = Array<WorkflowStepItem>;
 export type WorkflowType = "APPFLOW_INTEGRATION";
-export type ZendeskConnectorOperator =
-  | "PROJECTION"
-  | "GREATER_THAN"
-  | "ADDITION"
-  | "MULTIPLICATION"
-  | "DIVISION"
-  | "SUBTRACTION"
-  | "MASK_ALL"
-  | "MASK_FIRST_N"
-  | "MASK_LAST_N"
-  | "VALIDATE_NON_NULL"
-  | "VALIDATE_NON_ZERO"
-  | "VALIDATE_NON_NEGATIVE"
-  | "VALIDATE_NUMERIC"
-  | "NO_OP";
+export type ZendeskConnectorOperator = "PROJECTION" | "GREATER_THAN" | "ADDITION" | "MULTIPLICATION" | "DIVISION" | "SUBTRACTION" | "MASK_ALL" | "MASK_FIRST_N" | "MASK_LAST_N" | "VALIDATE_NON_NULL" | "VALIDATE_NON_ZERO" | "VALIDATE_NON_NEGATIVE" | "VALIDATE_NUMERIC" | "NO_OP";
 export interface ZendeskSourceProperties {
   Object: string;
 }
@@ -4175,10 +3475,5 @@ export declare namespace UpdateProfile {
     | CommonAwsError;
 }
 
-export type CustomerProfilesErrors =
-  | AccessDeniedException
-  | BadRequestException
-  | InternalServerException
-  | ResourceNotFoundException
-  | ThrottlingException
-  | CommonAwsError;
+export type CustomerProfilesErrors = AccessDeniedException | BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError;
+

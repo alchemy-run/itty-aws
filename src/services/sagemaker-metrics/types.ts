@@ -5,10 +5,16 @@ import { AWSServiceClient } from "../../client.ts";
 export declare class SageMakerMetrics extends AWSServiceClient {
   batchGetMetrics(
     input: BatchGetMetricsRequest,
-  ): Effect.Effect<BatchGetMetricsResponse, CommonAwsError>;
+  ): Effect.Effect<
+    BatchGetMetricsResponse,
+    CommonAwsError
+  >;
   batchPutMetrics(
     input: BatchPutMetricsRequest,
-  ): Effect.Effect<BatchPutMetricsResponse, CommonAwsError>;
+  ): Effect.Effect<
+    BatchPutMetricsResponse,
+    CommonAwsError
+  >;
 }
 
 export declare class SagemakerMetrics extends SageMakerMetrics {}
@@ -60,25 +66,11 @@ export interface MetricQueryResult {
   MetricValues: Array<number>;
 }
 export type MetricQueryResultList = Array<MetricQueryResult>;
-export type MetricQueryResultStatus =
-  | "Complete"
-  | "Truncated"
-  | "InternalError"
-  | "ValidationError";
-export type MetricStatistic =
-  | "Min"
-  | "Max"
-  | "Avg"
-  | "Count"
-  | "StdDev"
-  | "Last";
+export type MetricQueryResultStatus = "Complete" | "Truncated" | "InternalError" | "ValidationError";
+export type MetricStatistic = "Min" | "Max" | "Avg" | "Count" | "StdDev" | "Last";
 export type MetricValues = Array<number>;
 export type Period = "OneMinute" | "FiveMinute" | "OneHour" | "IterationNumber";
-export type PutMetricsErrorCode =
-  | "METRIC_LIMIT_EXCEEDED"
-  | "INTERNAL_ERROR"
-  | "VALIDATION_ERROR"
-  | "CONFLICT_ERROR";
+export type PutMetricsErrorCode = "METRIC_LIMIT_EXCEEDED" | "INTERNAL_ERROR" | "VALIDATION_ERROR" | "CONFLICT_ERROR";
 export interface RawMetricData {
   MetricName: string;
   Timestamp: Date | string;
@@ -97,13 +89,16 @@ export type XAxisValues = Array<number>;
 export declare namespace BatchGetMetrics {
   export type Input = BatchGetMetricsRequest;
   export type Output = BatchGetMetricsResponse;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace BatchPutMetrics {
   export type Input = BatchPutMetricsRequest;
   export type Output = BatchPutMetricsResponse;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export type SageMakerMetricsErrors = CommonAwsError;
+

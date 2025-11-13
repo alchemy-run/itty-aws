@@ -49,10 +49,7 @@ export declare class Athena extends AWSServiceClient {
     input: CreateNotebookInput,
   ): Effect.Effect<
     CreateNotebookOutput,
-    | InternalServerException
-    | InvalidRequestException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalServerException | InvalidRequestException | TooManyRequestsException | CommonAwsError
   >;
   createPreparedStatement(
     input: CreatePreparedStatementInput,
@@ -64,10 +61,7 @@ export declare class Athena extends AWSServiceClient {
     input: CreatePresignedNotebookUrlRequest,
   ): Effect.Effect<
     CreatePresignedNotebookUrlResponse,
-    | InternalServerException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServerException | InvalidRequestException | ResourceNotFoundException | CommonAwsError
   >;
   createWorkGroup(
     input: CreateWorkGroupInput,
@@ -97,19 +91,13 @@ export declare class Athena extends AWSServiceClient {
     input: DeleteNotebookInput,
   ): Effect.Effect<
     DeleteNotebookOutput,
-    | InternalServerException
-    | InvalidRequestException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalServerException | InvalidRequestException | TooManyRequestsException | CommonAwsError
   >;
   deletePreparedStatement(
     input: DeletePreparedStatementInput,
   ): Effect.Effect<
     DeletePreparedStatementOutput,
-    | InternalServerException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServerException | InvalidRequestException | ResourceNotFoundException | CommonAwsError
   >;
   deleteWorkGroup(
     input: DeleteWorkGroupInput,
@@ -121,37 +109,25 @@ export declare class Athena extends AWSServiceClient {
     input: ExportNotebookInput,
   ): Effect.Effect<
     ExportNotebookOutput,
-    | InternalServerException
-    | InvalidRequestException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalServerException | InvalidRequestException | TooManyRequestsException | CommonAwsError
   >;
   getCalculationExecution(
     input: GetCalculationExecutionRequest,
   ): Effect.Effect<
     GetCalculationExecutionResponse,
-    | InternalServerException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServerException | InvalidRequestException | ResourceNotFoundException | CommonAwsError
   >;
   getCalculationExecutionCode(
     input: GetCalculationExecutionCodeRequest,
   ): Effect.Effect<
     GetCalculationExecutionCodeResponse,
-    | InternalServerException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServerException | InvalidRequestException | ResourceNotFoundException | CommonAwsError
   >;
   getCalculationExecutionStatus(
     input: GetCalculationExecutionStatusRequest,
   ): Effect.Effect<
     GetCalculationExecutionStatusResponse,
-    | InternalServerException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServerException | InvalidRequestException | ResourceNotFoundException | CommonAwsError
   >;
   getCapacityAssignmentConfiguration(
     input: GetCapacityAssignmentConfigurationInput,
@@ -169,10 +145,7 @@ export declare class Athena extends AWSServiceClient {
     input: GetDatabaseInput,
   ): Effect.Effect<
     GetDatabaseOutput,
-    | InternalServerException
-    | InvalidRequestException
-    | MetadataException
-    | CommonAwsError
+    InternalServerException | InvalidRequestException | MetadataException | CommonAwsError
   >;
   getDataCatalog(
     input: GetDataCatalogInput,
@@ -190,19 +163,13 @@ export declare class Athena extends AWSServiceClient {
     input: GetNotebookMetadataInput,
   ): Effect.Effect<
     GetNotebookMetadataOutput,
-    | InternalServerException
-    | InvalidRequestException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalServerException | InvalidRequestException | TooManyRequestsException | CommonAwsError
   >;
   getPreparedStatement(
     input: GetPreparedStatementInput,
   ): Effect.Effect<
     GetPreparedStatementOutput,
-    | InternalServerException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServerException | InvalidRequestException | ResourceNotFoundException | CommonAwsError
   >;
   getQueryExecution(
     input: GetQueryExecutionInput,
@@ -214,10 +181,7 @@ export declare class Athena extends AWSServiceClient {
     input: GetQueryResultsInput,
   ): Effect.Effect<
     GetQueryResultsOutput,
-    | InternalServerException
-    | InvalidRequestException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalServerException | InvalidRequestException | TooManyRequestsException | CommonAwsError
   >;
   getQueryRuntimeStatistics(
     input: GetQueryRuntimeStatisticsInput,
@@ -229,28 +193,19 @@ export declare class Athena extends AWSServiceClient {
     input: GetSessionRequest,
   ): Effect.Effect<
     GetSessionResponse,
-    | InternalServerException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServerException | InvalidRequestException | ResourceNotFoundException | CommonAwsError
   >;
   getSessionStatus(
     input: GetSessionStatusRequest,
   ): Effect.Effect<
     GetSessionStatusResponse,
-    | InternalServerException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServerException | InvalidRequestException | ResourceNotFoundException | CommonAwsError
   >;
   getTableMetadata(
     input: GetTableMetadataInput,
   ): Effect.Effect<
     GetTableMetadataOutput,
-    | InternalServerException
-    | InvalidRequestException
-    | MetadataException
-    | CommonAwsError
+    InternalServerException | InvalidRequestException | MetadataException | CommonAwsError
   >;
   getWorkGroup(
     input: GetWorkGroupInput,
@@ -262,28 +217,19 @@ export declare class Athena extends AWSServiceClient {
     input: ImportNotebookInput,
   ): Effect.Effect<
     ImportNotebookOutput,
-    | InternalServerException
-    | InvalidRequestException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalServerException | InvalidRequestException | TooManyRequestsException | CommonAwsError
   >;
   listApplicationDPUSizes(
     input: ListApplicationDPUSizesInput,
   ): Effect.Effect<
     ListApplicationDPUSizesOutput,
-    | InternalServerException
-    | InvalidRequestException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalServerException | InvalidRequestException | TooManyRequestsException | CommonAwsError
   >;
   listCalculationExecutions(
     input: ListCalculationExecutionsRequest,
   ): Effect.Effect<
     ListCalculationExecutionsResponse,
-    | InternalServerException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServerException | InvalidRequestException | ResourceNotFoundException | CommonAwsError
   >;
   listCapacityReservations(
     input: ListCapacityReservationsInput,
@@ -295,10 +241,7 @@ export declare class Athena extends AWSServiceClient {
     input: ListDatabasesInput,
   ): Effect.Effect<
     ListDatabasesOutput,
-    | InternalServerException
-    | InvalidRequestException
-    | MetadataException
-    | CommonAwsError
+    InternalServerException | InvalidRequestException | MetadataException | CommonAwsError
   >;
   listDataCatalogs(
     input: ListDataCatalogsInput,
@@ -316,10 +259,7 @@ export declare class Athena extends AWSServiceClient {
     input: ListExecutorsRequest,
   ): Effect.Effect<
     ListExecutorsResponse,
-    | InternalServerException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServerException | InvalidRequestException | ResourceNotFoundException | CommonAwsError
   >;
   listNamedQueries(
     input: ListNamedQueriesInput,
@@ -331,19 +271,13 @@ export declare class Athena extends AWSServiceClient {
     input: ListNotebookMetadataInput,
   ): Effect.Effect<
     ListNotebookMetadataOutput,
-    | InternalServerException
-    | InvalidRequestException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalServerException | InvalidRequestException | TooManyRequestsException | CommonAwsError
   >;
   listNotebookSessions(
     input: ListNotebookSessionsRequest,
   ): Effect.Effect<
     ListNotebookSessionsResponse,
-    | InternalServerException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServerException | InvalidRequestException | ResourceNotFoundException | CommonAwsError
   >;
   listPreparedStatements(
     input: ListPreparedStatementsInput,
@@ -361,28 +295,19 @@ export declare class Athena extends AWSServiceClient {
     input: ListSessionsRequest,
   ): Effect.Effect<
     ListSessionsResponse,
-    | InternalServerException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServerException | InvalidRequestException | ResourceNotFoundException | CommonAwsError
   >;
   listTableMetadata(
     input: ListTableMetadataInput,
   ): Effect.Effect<
     ListTableMetadataOutput,
-    | InternalServerException
-    | InvalidRequestException
-    | MetadataException
-    | CommonAwsError
+    InternalServerException | InvalidRequestException | MetadataException | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceInput,
   ): Effect.Effect<
     ListTagsForResourceOutput,
-    | InternalServerException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServerException | InvalidRequestException | ResourceNotFoundException | CommonAwsError
   >;
   listWorkGroups(
     input: ListWorkGroupsInput,
@@ -400,39 +325,25 @@ export declare class Athena extends AWSServiceClient {
     input: StartCalculationExecutionRequest,
   ): Effect.Effect<
     StartCalculationExecutionResponse,
-    | InternalServerException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServerException | InvalidRequestException | ResourceNotFoundException | CommonAwsError
   >;
   startQueryExecution(
     input: StartQueryExecutionInput,
   ): Effect.Effect<
     StartQueryExecutionOutput,
-    | InternalServerException
-    | InvalidRequestException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalServerException | InvalidRequestException | TooManyRequestsException | CommonAwsError
   >;
   startSession(
     input: StartSessionRequest,
   ): Effect.Effect<
     StartSessionResponse,
-    | InternalServerException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | SessionAlreadyExistsException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalServerException | InvalidRequestException | ResourceNotFoundException | SessionAlreadyExistsException | TooManyRequestsException | CommonAwsError
   >;
   stopCalculationExecution(
     input: StopCalculationExecutionRequest,
   ): Effect.Effect<
     StopCalculationExecutionResponse,
-    | InternalServerException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServerException | InvalidRequestException | ResourceNotFoundException | CommonAwsError
   >;
   stopQueryExecution(
     input: StopQueryExecutionInput,
@@ -444,28 +355,19 @@ export declare class Athena extends AWSServiceClient {
     input: TagResourceInput,
   ): Effect.Effect<
     TagResourceOutput,
-    | InternalServerException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServerException | InvalidRequestException | ResourceNotFoundException | CommonAwsError
   >;
   terminateSession(
     input: TerminateSessionRequest,
   ): Effect.Effect<
     TerminateSessionResponse,
-    | InternalServerException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServerException | InvalidRequestException | ResourceNotFoundException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceInput,
   ): Effect.Effect<
     UntagResourceOutput,
-    | InternalServerException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServerException | InvalidRequestException | ResourceNotFoundException | CommonAwsError
   >;
   updateCapacityReservation(
     input: UpdateCapacityReservationInput,
@@ -489,28 +391,19 @@ export declare class Athena extends AWSServiceClient {
     input: UpdateNotebookInput,
   ): Effect.Effect<
     UpdateNotebookOutput,
-    | InternalServerException
-    | InvalidRequestException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalServerException | InvalidRequestException | TooManyRequestsException | CommonAwsError
   >;
   updateNotebookMetadata(
     input: UpdateNotebookMetadataInput,
   ): Effect.Effect<
     UpdateNotebookMetadataOutput,
-    | InternalServerException
-    | InvalidRequestException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalServerException | InvalidRequestException | TooManyRequestsException | CommonAwsError
   >;
   updatePreparedStatement(
     input: UpdatePreparedStatementInput,
   ): Effect.Effect<
     UpdatePreparedStatementOutput,
-    | InternalServerException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServerException | InvalidRequestException | ResourceNotFoundException | CommonAwsError
   >;
   updateWorkGroup(
     input: UpdateWorkGroupInput,
@@ -578,15 +471,7 @@ export interface CalculationConfiguration {
 }
 export type CalculationExecutionId = string;
 
-export type CalculationExecutionState =
-  | "CREATING"
-  | "CREATED"
-  | "QUEUED"
-  | "RUNNING"
-  | "CANCELING"
-  | "CANCELED"
-  | "COMPLETED"
-  | "FAILED";
+export type CalculationExecutionState = "CREATING" | "CREATED" | "QUEUED" | "RUNNING" | "CANCELING" | "CANCELED" | "COMPLETED" | "FAILED";
 export interface CalculationResult {
   StdOutS3Uri?: string;
   StdErrorS3Uri?: string;
@@ -614,7 +499,8 @@ export interface CalculationSummary {
 export interface CancelCapacityReservationInput {
   Name: string;
 }
-export interface CancelCapacityReservationOutput {}
+export interface CancelCapacityReservationOutput {
+}
 export interface CapacityAllocation {
   Status: CapacityAllocationStatus;
   StatusMessage?: string;
@@ -642,13 +528,7 @@ export interface CapacityReservation {
 export type CapacityReservationName = string;
 
 export type CapacityReservationsList = Array<CapacityReservation>;
-export type CapacityReservationStatus =
-  | "PENDING"
-  | "ACTIVE"
-  | "CANCELLING"
-  | "CANCELLED"
-  | "FAILED"
-  | "UPDATE_PENDING";
+export type CapacityReservationStatus = "PENDING" | "ACTIVE" | "CANCELLING" | "CANCELLED" | "FAILED" | "UPDATE_PENDING";
 export type CatalogNameString = string;
 
 export type ClientRequestToken = string;
@@ -677,27 +557,7 @@ export type ColumnList = Array<Column>;
 export type ColumnNullable = "NOT_NULL" | "NULLABLE" | "UNKNOWN";
 export type CommentString = string;
 
-export type ConnectionType =
-  | "DYNAMODB"
-  | "MYSQL"
-  | "POSTGRESQL"
-  | "REDSHIFT"
-  | "ORACLE"
-  | "SYNAPSE"
-  | "SQLSERVER"
-  | "DB2"
-  | "OPENSEARCH"
-  | "BIGQUERY"
-  | "GOOGLECLOUDSTORAGE"
-  | "HBASE"
-  | "DOCUMENTDB"
-  | "CMDB"
-  | "TPCDS"
-  | "TIMESTREAM"
-  | "SAPHANA"
-  | "SNOWFLAKE"
-  | "DATALAKEGEN2"
-  | "DB2AS400";
+export type ConnectionType = "DYNAMODB" | "MYSQL" | "POSTGRESQL" | "REDSHIFT" | "ORACLE" | "SYNAPSE" | "SQLSERVER" | "DB2" | "OPENSEARCH" | "BIGQUERY" | "GOOGLECLOUDSTORAGE" | "HBASE" | "DOCUMENTDB" | "CMDB" | "TPCDS" | "TIMESTREAM" | "SAPHANA" | "SNOWFLAKE" | "DATALAKEGEN2" | "DB2AS400";
 export type CoordinatorDpuSize = number;
 
 export interface CreateCapacityReservationInput {
@@ -705,7 +565,8 @@ export interface CreateCapacityReservationInput {
   Name: string;
   Tags?: Array<Tag>;
 }
-export interface CreateCapacityReservationOutput {}
+export interface CreateCapacityReservationOutput {
+}
 export interface CreateDataCatalogInput {
   Name: string;
   Type: DataCatalogType;
@@ -741,7 +602,8 @@ export interface CreatePreparedStatementInput {
   QueryStatement: string;
   Description?: string;
 }
-export interface CreatePreparedStatementOutput {}
+export interface CreatePreparedStatementOutput {
+}
 export interface CreatePresignedNotebookUrlRequest {
   SessionId: string;
 }
@@ -756,7 +618,8 @@ export interface CreateWorkGroupInput {
   Description?: string;
   Tags?: Array<Tag>;
 }
-export interface CreateWorkGroupOutput {}
+export interface CreateWorkGroupOutput {
+}
 export interface CustomerContentEncryptionConfiguration {
   KmsKey: string;
 }
@@ -777,16 +640,7 @@ export interface DataCatalog {
   ConnectionType?: ConnectionType;
   Error?: string;
 }
-export type DataCatalogStatus =
-  | "CREATE_IN_PROGRESS"
-  | "CREATE_COMPLETE"
-  | "CREATE_FAILED"
-  | "CREATE_FAILED_CLEANUP_IN_PROGRESS"
-  | "CREATE_FAILED_CLEANUP_COMPLETE"
-  | "CREATE_FAILED_CLEANUP_FAILED"
-  | "DELETE_IN_PROGRESS"
-  | "DELETE_COMPLETE"
-  | "DELETE_FAILED";
+export type DataCatalogStatus = "CREATE_IN_PROGRESS" | "CREATE_COMPLETE" | "CREATE_FAILED" | "CREATE_FAILED_CLEANUP_IN_PROGRESS" | "CREATE_FAILED_CLEANUP_COMPLETE" | "CREATE_FAILED_CLEANUP_FAILED" | "DELETE_IN_PROGRESS" | "DELETE_COMPLETE" | "DELETE_FAILED";
 export interface DataCatalogSummary {
   CatalogName?: string;
   Type?: DataCatalogType;
@@ -809,7 +663,8 @@ export type DefaultExecutorDpuSize = number;
 export interface DeleteCapacityReservationInput {
   Name: string;
 }
-export interface DeleteCapacityReservationOutput {}
+export interface DeleteCapacityReservationOutput {
+}
 export interface DeleteDataCatalogInput {
   Name: string;
   DeleteCatalogOnly?: boolean;
@@ -820,21 +675,25 @@ export interface DeleteDataCatalogOutput {
 export interface DeleteNamedQueryInput {
   NamedQueryId: string;
 }
-export interface DeleteNamedQueryOutput {}
+export interface DeleteNamedQueryOutput {
+}
 export interface DeleteNotebookInput {
   NotebookId: string;
 }
-export interface DeleteNotebookOutput {}
+export interface DeleteNotebookOutput {
+}
 export interface DeletePreparedStatementInput {
   StatementName: string;
   WorkGroup: string;
 }
-export interface DeletePreparedStatementOutput {}
+export interface DeletePreparedStatementOutput {
+}
 export interface DeleteWorkGroupInput {
   WorkGroup: string;
   RecursiveDeleteOption?: boolean;
 }
-export interface DeleteWorkGroupOutput {}
+export interface DeleteWorkGroupOutput {
+}
 export type DescriptionString = string;
 
 export interface EncryptionConfiguration {
@@ -876,13 +735,7 @@ export interface ExecutorsSummary {
   ExecutorSize?: number;
 }
 export type ExecutorsSummaryList = Array<ExecutorsSummary>;
-export type ExecutorState =
-  | "CREATING"
-  | "CREATED"
-  | "REGISTERED"
-  | "TERMINATING"
-  | "TERMINATED"
-  | "FAILED";
+export type ExecutorState = "CREATING" | "CREATED" | "REGISTERED" | "TERMINATING" | "TERMINATED" | "FAILED";
 export type ExecutorType = "COORDINATOR" | "GATEWAY" | "WORKER";
 export interface ExportNotebookInput {
   NotebookId: string;
@@ -1324,7 +1177,8 @@ export interface PutCapacityAssignmentConfigurationInput {
   CapacityReservationName: string;
   CapacityAssignments: Array<CapacityAssignment>;
 }
-export interface PutCapacityAssignmentConfigurationOutput {}
+export interface PutCapacityAssignmentConfigurationOutput {
+}
 export interface QueryExecution {
   QueryExecutionId?: string;
   Query?: string;
@@ -1349,12 +1203,7 @@ export type QueryExecutionId = string;
 
 export type QueryExecutionIdList = Array<string>;
 export type QueryExecutionList = Array<QueryExecution>;
-export type QueryExecutionState =
-  | "QUEUED"
-  | "RUNNING"
-  | "SUCCEEDED"
-  | "FAILED"
-  | "CANCELLED";
+export type QueryExecutionState = "QUEUED" | "RUNNING" | "SUCCEEDED" | "FAILED" | "CANCELLED";
 export interface QueryExecutionStatistics {
   EngineExecutionTimeInMillis?: number;
   DataScannedInBytes?: number;
@@ -1487,15 +1336,7 @@ export type SessionIdleTimeoutInMinutes = number;
 export type SessionManagerToken = string;
 
 export type SessionsList = Array<SessionSummary>;
-export type SessionState =
-  | "CREATING"
-  | "CREATED"
-  | "IDLE"
-  | "BUSY"
-  | "TERMINATING"
-  | "TERMINATED"
-  | "DEGRADED"
-  | "FAILED";
+export type SessionState = "CREATING" | "CREATED" | "IDLE" | "BUSY" | "TERMINATING" | "TERMINATED" | "DEGRADED" | "FAILED";
 export interface SessionStatistics {
   DpuExecutionInMillis?: number;
 }
@@ -1561,7 +1402,8 @@ export interface StopCalculationExecutionResponse {
 export interface StopQueryExecutionInput {
   QueryExecutionId: string;
 }
-export interface StopQueryExecutionOutput {}
+export interface StopQueryExecutionOutput {
+}
 export type AthenaString = string;
 
 export type StringList = Array<string>;
@@ -1590,7 +1432,8 @@ export interface TagResourceInput {
   ResourceARN: string;
   Tags: Array<Tag>;
 }
-export interface TagResourceOutput {}
+export interface TagResourceOutput {
+}
 export type TagValue = string;
 
 export type TargetDpusInteger = number;
@@ -1625,39 +1468,41 @@ export interface UnprocessedPreparedStatementName {
   ErrorCode?: string;
   ErrorMessage?: string;
 }
-export type UnprocessedPreparedStatementNameList =
-  Array<UnprocessedPreparedStatementName>;
+export type UnprocessedPreparedStatementNameList = Array<UnprocessedPreparedStatementName>;
 export interface UnprocessedQueryExecutionId {
   QueryExecutionId?: string;
   ErrorCode?: string;
   ErrorMessage?: string;
 }
-export type UnprocessedQueryExecutionIdList =
-  Array<UnprocessedQueryExecutionId>;
+export type UnprocessedQueryExecutionIdList = Array<UnprocessedQueryExecutionId>;
 export interface UntagResourceInput {
   ResourceARN: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceOutput {}
+export interface UntagResourceOutput {
+}
 export interface UpdateCapacityReservationInput {
   TargetDpus: number;
   Name: string;
 }
-export interface UpdateCapacityReservationOutput {}
+export interface UpdateCapacityReservationOutput {
+}
 export interface UpdateDataCatalogInput {
   Name: string;
   Type: DataCatalogType;
   Description?: string;
   Parameters?: Record<string, string>;
 }
-export interface UpdateDataCatalogOutput {}
+export interface UpdateDataCatalogOutput {
+}
 export interface UpdateNamedQueryInput {
   NamedQueryId: string;
   Name: string;
   Description?: string;
   QueryString: string;
 }
-export interface UpdateNamedQueryOutput {}
+export interface UpdateNamedQueryOutput {
+}
 export interface UpdateNotebookInput {
   NotebookId: string;
   Payload: string;
@@ -1670,22 +1515,26 @@ export interface UpdateNotebookMetadataInput {
   ClientRequestToken?: string;
   Name: string;
 }
-export interface UpdateNotebookMetadataOutput {}
-export interface UpdateNotebookOutput {}
+export interface UpdateNotebookMetadataOutput {
+}
+export interface UpdateNotebookOutput {
+}
 export interface UpdatePreparedStatementInput {
   StatementName: string;
   WorkGroup: string;
   QueryStatement: string;
   Description?: string;
 }
-export interface UpdatePreparedStatementOutput {}
+export interface UpdatePreparedStatementOutput {
+}
 export interface UpdateWorkGroupInput {
   WorkGroup: string;
   Description?: string;
   ConfigurationUpdates?: WorkGroupConfigurationUpdates;
   State?: WorkGroupState;
 }
-export interface UpdateWorkGroupOutput {}
+export interface UpdateWorkGroupOutput {
+}
 export interface WorkGroup {
   Name: string;
   State?: WorkGroupState;
@@ -2389,11 +2238,5 @@ export declare namespace UpdateWorkGroup {
     | CommonAwsError;
 }
 
-export type AthenaErrors =
-  | InternalServerException
-  | InvalidRequestException
-  | MetadataException
-  | ResourceNotFoundException
-  | SessionAlreadyExistsException
-  | TooManyRequestsException
-  | CommonAwsError;
+export type AthenaErrors = InternalServerException | InvalidRequestException | MetadataException | ResourceNotFoundException | SessionAlreadyExistsException | TooManyRequestsException | CommonAwsError;
+

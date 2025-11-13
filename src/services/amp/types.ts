@@ -1,38 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-} from "../../error.ts";
-type CommonAwsError =
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | AccessDeniedException
-  | ThrottlingException
-  | ValidationException;
+import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
+type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class amp extends AWSServiceClient {
@@ -40,502 +8,265 @@ export declare class amp extends AWSServiceClient {
     input: GetDefaultScraperConfigurationRequest,
   ): Effect.Effect<
     GetDefaultScraperConfigurationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createAlertManagerDefinition(
     input: CreateAlertManagerDefinitionRequest,
   ): Effect.Effect<
     CreateAlertManagerDefinitionResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createAnomalyDetector(
     input: CreateAnomalyDetectorRequest,
   ): Effect.Effect<
     CreateAnomalyDetectorResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createLoggingConfiguration(
     input: CreateLoggingConfigurationRequest,
   ): Effect.Effect<
     CreateLoggingConfigurationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   createQueryLoggingConfiguration(
     input: CreateQueryLoggingConfigurationRequest,
   ): Effect.Effect<
     CreateQueryLoggingConfigurationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   createRuleGroupsNamespace(
     input: CreateRuleGroupsNamespaceRequest,
   ): Effect.Effect<
     CreateRuleGroupsNamespaceResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createScraper(
     input: CreateScraperRequest,
   ): Effect.Effect<
     CreateScraperResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createWorkspace(
     input: CreateWorkspaceRequest,
   ): Effect.Effect<
     CreateWorkspaceResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteAlertManagerDefinition(
     input: DeleteAlertManagerDefinitionRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteAnomalyDetector(
     input: DeleteAnomalyDetectorRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteLoggingConfiguration(
     input: DeleteLoggingConfigurationRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   deleteQueryLoggingConfiguration(
     input: DeleteQueryLoggingConfigurationRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   deleteResourcePolicy(
     input: DeleteResourcePolicyRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteRuleGroupsNamespace(
     input: DeleteRuleGroupsNamespaceRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteScraper(
     input: DeleteScraperRequest,
   ): Effect.Effect<
     DeleteScraperResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteScraperLoggingConfiguration(
     input: DeleteScraperLoggingConfigurationRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   deleteWorkspace(
     input: DeleteWorkspaceRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   describeAlertManagerDefinition(
     input: DescribeAlertManagerDefinitionRequest,
   ): Effect.Effect<
     DescribeAlertManagerDefinitionResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   describeAnomalyDetector(
     input: DescribeAnomalyDetectorRequest,
   ): Effect.Effect<
     DescribeAnomalyDetectorResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   describeLoggingConfiguration(
     input: DescribeLoggingConfigurationRequest,
   ): Effect.Effect<
     DescribeLoggingConfigurationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   describeQueryLoggingConfiguration(
     input: DescribeQueryLoggingConfigurationRequest,
   ): Effect.Effect<
     DescribeQueryLoggingConfigurationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   describeResourcePolicy(
     input: DescribeResourcePolicyRequest,
   ): Effect.Effect<
     DescribeResourcePolicyResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   describeRuleGroupsNamespace(
     input: DescribeRuleGroupsNamespaceRequest,
   ): Effect.Effect<
     DescribeRuleGroupsNamespaceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   describeScraper(
     input: DescribeScraperRequest,
   ): Effect.Effect<
     DescribeScraperResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   describeScraperLoggingConfiguration(
     input: DescribeScraperLoggingConfigurationRequest,
   ): Effect.Effect<
     DescribeScraperLoggingConfigurationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   describeWorkspace(
     input: DescribeWorkspaceRequest,
   ): Effect.Effect<
     DescribeWorkspaceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   describeWorkspaceConfiguration(
     input: DescribeWorkspaceConfigurationRequest,
   ): Effect.Effect<
     DescribeWorkspaceConfigurationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listAnomalyDetectors(
     input: ListAnomalyDetectorsRequest,
   ): Effect.Effect<
     ListAnomalyDetectorsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listRuleGroupsNamespaces(
     input: ListRuleGroupsNamespacesRequest,
   ): Effect.Effect<
     ListRuleGroupsNamespacesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listScrapers(
     input: ListScrapersRequest,
   ): Effect.Effect<
     ListScrapersResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listWorkspaces(
     input: ListWorkspacesRequest,
   ): Effect.Effect<
     ListWorkspacesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   putAlertManagerDefinition(
     input: PutAlertManagerDefinitionRequest,
   ): Effect.Effect<
     PutAlertManagerDefinitionResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   putAnomalyDetector(
     input: PutAnomalyDetectorRequest,
   ): Effect.Effect<
     PutAnomalyDetectorResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   putResourcePolicy(
     input: PutResourcePolicyRequest,
   ): Effect.Effect<
     PutResourcePolicyResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   putRuleGroupsNamespace(
     input: PutRuleGroupsNamespaceRequest,
   ): Effect.Effect<
     PutRuleGroupsNamespaceResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateLoggingConfiguration(
     input: UpdateLoggingConfigurationRequest,
   ): Effect.Effect<
     UpdateLoggingConfigurationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   updateQueryLoggingConfiguration(
     input: UpdateQueryLoggingConfigurationRequest,
   ): Effect.Effect<
     UpdateQueryLoggingConfigurationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   updateScraper(
     input: UpdateScraperRequest,
   ): Effect.Effect<
     UpdateScraperResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateScraperLoggingConfiguration(
     input: UpdateScraperLoggingConfigurationRequest,
   ): Effect.Effect<
     UpdateScraperLoggingConfigurationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   updateWorkspaceAlias(
     input: UpdateWorkspaceAliasRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateWorkspaceConfiguration(
     input: UpdateWorkspaceConfigurationRequest,
   ): Effect.Effect<
     UpdateWorkspaceConfigurationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
 }
 
@@ -571,9 +302,7 @@ interface _AnomalyDetectorConfiguration {
   randomCutForest?: RandomCutForestConfiguration;
 }
 
-export type AnomalyDetectorConfiguration = _AnomalyDetectorConfiguration & {
-  randomCutForest: RandomCutForestConfiguration;
-};
+export type AnomalyDetectorConfiguration = (_AnomalyDetectorConfiguration & { randomCutForest: RandomCutForestConfiguration });
 export interface AnomalyDetectorDescription {
   arn: string;
   anomalyDetectorId: string;
@@ -596,21 +325,12 @@ interface _AnomalyDetectorMissingDataAction {
   skip?: boolean;
 }
 
-export type AnomalyDetectorMissingDataAction =
-  | (_AnomalyDetectorMissingDataAction & { markAsAnomaly: boolean })
-  | (_AnomalyDetectorMissingDataAction & { skip: boolean });
+export type AnomalyDetectorMissingDataAction = (_AnomalyDetectorMissingDataAction & { markAsAnomaly: boolean }) | (_AnomalyDetectorMissingDataAction & { skip: boolean });
 export interface AnomalyDetectorStatus {
   statusCode: AnomalyDetectorStatusCode;
   statusReason?: string;
 }
-export type AnomalyDetectorStatusCode =
-  | "CREATING"
-  | "ACTIVE"
-  | "UPDATING"
-  | "DELETING"
-  | "CREATION_FAILED"
-  | "UPDATE_FAILED"
-  | "DELETION_FAILED";
+export type AnomalyDetectorStatusCode = "CREATING" | "ACTIVE" | "UPDATING" | "DELETING" | "CREATION_FAILED" | "UPDATE_FAILED" | "DELETION_FAILED";
 export interface AnomalyDetectorSummary {
   arn: string;
   anomalyDetectorId: string;
@@ -832,7 +552,7 @@ interface _Destination {
   ampConfiguration?: AmpConfiguration;
 }
 
-export type Destination = _Destination & { ampConfiguration: AmpConfiguration };
+export type Destination = (_Destination & { ampConfiguration: AmpConfiguration });
 export interface EksConfiguration {
   clusterArn: string;
   securityGroupIds?: Array<string>;
@@ -843,7 +563,8 @@ export type FilterKey = string;
 export type FilterValue = string;
 
 export type FilterValues = Array<string>;
-export interface GetDefaultScraperConfigurationRequest {}
+export interface GetDefaultScraperConfigurationRequest {
+}
 export interface GetDefaultScraperConfigurationResponse {
   configuration: Uint8Array | string;
 }
@@ -856,9 +577,7 @@ interface _IgnoreNearExpected {
   ratio?: number;
 }
 
-export type IgnoreNearExpected =
-  | (_IgnoreNearExpected & { amount: number })
-  | (_IgnoreNearExpected & { ratio: number });
+export type IgnoreNearExpected = (_IgnoreNearExpected & { amount: number }) | (_IgnoreNearExpected & { ratio: number });
 export declare class InternalServerException extends EffectData.TaggedError(
   "InternalServerException",
 )<{
@@ -1066,9 +785,7 @@ interface _ScrapeConfiguration {
   configurationBlob?: Uint8Array | string;
 }
 
-export type ScrapeConfiguration = _ScrapeConfiguration & {
-  configurationBlob: Uint8Array | string;
-};
+export type ScrapeConfiguration = (_ScrapeConfiguration & { configurationBlob: Uint8Array | string });
 export type ScraperAlias = string;
 
 export type ScraperArn = string;
@@ -1108,9 +825,7 @@ interface _ScraperLoggingDestination {
   cloudWatchLogs?: CloudWatchLogDestination;
 }
 
-export type ScraperLoggingDestination = _ScraperLoggingDestination & {
-  cloudWatchLogs: CloudWatchLogDestination;
-};
+export type ScraperLoggingDestination = (_ScraperLoggingDestination & { cloudWatchLogs: CloudWatchLogDestination });
 export interface ScraperStatus {
   statusCode: string;
 }
@@ -1147,7 +862,7 @@ interface _Source {
   eksConfiguration?: EksConfiguration;
 }
 
-export type Source = _Source & { eksConfiguration: EksConfiguration };
+export type Source = (_Source & { eksConfiguration: EksConfiguration });
 export type StatusReason = string;
 
 export type StringMap = Record<string, string>;
@@ -1162,7 +877,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(
@@ -1177,7 +893,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateLoggingConfigurationRequest {
   workspaceId: string;
   logGroupArn: string;
@@ -1835,12 +1552,5 @@ export declare namespace UpdateWorkspaceConfiguration {
     | CommonAwsError;
 }
 
-export type ampErrors =
-  | AccessDeniedException
-  | ConflictException
-  | InternalServerException
-  | ResourceNotFoundException
-  | ServiceQuotaExceededException
-  | ThrottlingException
-  | ValidationException
-  | CommonAwsError;
+export type ampErrors = AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError;
+

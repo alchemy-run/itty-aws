@@ -1,38 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-} from "../../error.ts";
-type CommonAwsError =
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | AccessDeniedException
-  | ThrottlingException
-  | ValidationException;
+import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
+type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class BedrockDataAutomationRuntime extends AWSServiceClient {
@@ -40,57 +8,31 @@ export declare class BedrockDataAutomationRuntime extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getDataAutomationStatus(
     input: GetDataAutomationStatusRequest,
   ): Effect.Effect<
     GetDataAutomationStatusResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   invokeDataAutomationAsync(
     input: InvokeDataAutomationAsyncRequest,
   ): Effect.Effect<
     InvokeDataAutomationAsyncResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
 }
 
@@ -102,12 +44,7 @@ export declare class AccessDeniedException extends EffectData.TaggedError(
 export interface AssetProcessingConfiguration {
   video?: VideoAssetProcessingConfiguration;
 }
-export type AutomationJobStatus =
-  | "Created"
-  | "InProgress"
-  | "Success"
-  | "ServiceError"
-  | "ClientError";
+export type AutomationJobStatus = "Created" | "InProgress" | "Success" | "ServiceError" | "ClientError";
 export interface Blueprint {
   blueprintArn: string;
   version?: string;
@@ -218,7 +155,8 @@ export interface TagResourceRequest {
   resourceARN: string;
   tags: Array<Tag>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(
@@ -234,7 +172,8 @@ export interface UntagResourceRequest {
   resourceARN: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export declare class ValidationException extends EffectData.TaggedError(
   "ValidationException",
 )<{
@@ -247,9 +186,7 @@ interface _VideoSegmentConfiguration {
   timestampSegment?: TimestampSegment;
 }
 
-export type VideoSegmentConfiguration = _VideoSegmentConfiguration & {
-  timestampSegment: TimestampSegment;
-};
+export type VideoSegmentConfiguration = (_VideoSegmentConfiguration & { timestampSegment: TimestampSegment });
 export declare namespace ListTagsForResource {
   export type Input = ListTagsForResourceRequest;
   export type Output = ListTagsForResourceResponse;
@@ -311,11 +248,5 @@ export declare namespace InvokeDataAutomationAsync {
     | CommonAwsError;
 }
 
-export type BedrockDataAutomationRuntimeErrors =
-  | AccessDeniedException
-  | InternalServerException
-  | ResourceNotFoundException
-  | ServiceQuotaExceededException
-  | ThrottlingException
-  | ValidationException
-  | CommonAwsError;
+export type BedrockDataAutomationRuntimeErrors = AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError;
+

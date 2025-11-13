@@ -5,24 +5,7 @@ import type { codestarnotifications as _codestarnotificationsClient } from "./ty
 
 export * from "./types.ts";
 
-export {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  ThrottlingException,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-  type CommonAwsError,
-} from "../../error.ts";
+export {ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError, type CommonAwsError} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -32,19 +15,19 @@ const metadata = {
   sigV4ServiceName: "codestar-notifications",
   endpointPrefix: "codestar-notifications",
   operations: {
-    CreateNotificationRule: "POST /createNotificationRule",
-    DeleteNotificationRule: "POST /deleteNotificationRule",
-    DeleteTarget: "POST /deleteTarget",
-    DescribeNotificationRule: "POST /describeNotificationRule",
-    ListEventTypes: "POST /listEventTypes",
-    ListNotificationRules: "POST /listNotificationRules",
-    ListTagsForResource: "POST /listTagsForResource",
-    ListTargets: "POST /listTargets",
-    Subscribe: "POST /subscribe",
-    TagResource: "POST /tagResource",
-    Unsubscribe: "POST /unsubscribe",
-    UntagResource: "POST /untagResource/{Arn}",
-    UpdateNotificationRule: "POST /updateNotificationRule",
+    "CreateNotificationRule": "POST /createNotificationRule",
+    "DeleteNotificationRule": "POST /deleteNotificationRule",
+    "DeleteTarget": "POST /deleteTarget",
+    "DescribeNotificationRule": "POST /describeNotificationRule",
+    "ListEventTypes": "POST /listEventTypes",
+    "ListNotificationRules": "POST /listNotificationRules",
+    "ListTagsForResource": "POST /listTagsForResource",
+    "ListTargets": "POST /listTargets",
+    "Subscribe": "POST /subscribe",
+    "TagResource": "POST /tagResource",
+    "Unsubscribe": "POST /unsubscribe",
+    "UntagResource": "POST /untagResource/{Arn}",
+    "UpdateNotificationRule": "POST /updateNotificationRule",
   },
 } as const satisfies ServiceMetadata;
 

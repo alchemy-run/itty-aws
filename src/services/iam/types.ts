@@ -7,423 +7,253 @@ export declare class IAM extends AWSServiceClient {
     input: AddClientIDToOpenIDConnectProviderRequest,
   ): Effect.Effect<
     {},
-    | ConcurrentModificationException
-    | InvalidInputException
-    | LimitExceededException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | CommonAwsError
+    ConcurrentModificationException | InvalidInputException | LimitExceededException | NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
   addRoleToInstanceProfile(
     input: AddRoleToInstanceProfileRequest,
   ): Effect.Effect<
     {},
-    | EntityAlreadyExistsException
-    | LimitExceededException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | UnmodifiableEntityException
-    | CommonAwsError
+    EntityAlreadyExistsException | LimitExceededException | NoSuchEntityException | ServiceFailureException | UnmodifiableEntityException | CommonAwsError
   >;
   addUserToGroup(
     input: AddUserToGroupRequest,
   ): Effect.Effect<
     {},
-    | LimitExceededException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | CommonAwsError
+    LimitExceededException | NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
   attachGroupPolicy(
     input: AttachGroupPolicyRequest,
   ): Effect.Effect<
     {},
-    | InvalidInputException
-    | LimitExceededException
-    | NoSuchEntityException
-    | PolicyNotAttachableException
-    | ServiceFailureException
-    | CommonAwsError
+    InvalidInputException | LimitExceededException | NoSuchEntityException | PolicyNotAttachableException | ServiceFailureException | CommonAwsError
   >;
   attachRolePolicy(
     input: AttachRolePolicyRequest,
   ): Effect.Effect<
     {},
-    | InvalidInputException
-    | LimitExceededException
-    | NoSuchEntityException
-    | PolicyNotAttachableException
-    | ServiceFailureException
-    | UnmodifiableEntityException
-    | CommonAwsError
+    InvalidInputException | LimitExceededException | NoSuchEntityException | PolicyNotAttachableException | ServiceFailureException | UnmodifiableEntityException | CommonAwsError
   >;
   attachUserPolicy(
     input: AttachUserPolicyRequest,
   ): Effect.Effect<
     {},
-    | InvalidInputException
-    | LimitExceededException
-    | NoSuchEntityException
-    | PolicyNotAttachableException
-    | ServiceFailureException
-    | CommonAwsError
+    InvalidInputException | LimitExceededException | NoSuchEntityException | PolicyNotAttachableException | ServiceFailureException | CommonAwsError
   >;
   changePassword(
     input: ChangePasswordRequest,
   ): Effect.Effect<
     {},
-    | EntityTemporarilyUnmodifiableException
-    | InvalidUserTypeException
-    | LimitExceededException
-    | NoSuchEntityException
-    | PasswordPolicyViolationException
-    | ServiceFailureException
-    | CommonAwsError
+    EntityTemporarilyUnmodifiableException | InvalidUserTypeException | LimitExceededException | NoSuchEntityException | PasswordPolicyViolationException | ServiceFailureException | CommonAwsError
   >;
   createAccessKey(
     input: CreateAccessKeyRequest,
   ): Effect.Effect<
     CreateAccessKeyResponse,
-    | LimitExceededException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | CommonAwsError
+    LimitExceededException | NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
   createAccountAlias(
     input: CreateAccountAliasRequest,
   ): Effect.Effect<
     {},
-    | ConcurrentModificationException
-    | EntityAlreadyExistsException
-    | LimitExceededException
-    | ServiceFailureException
-    | CommonAwsError
+    ConcurrentModificationException | EntityAlreadyExistsException | LimitExceededException | ServiceFailureException | CommonAwsError
   >;
   createGroup(
     input: CreateGroupRequest,
   ): Effect.Effect<
     CreateGroupResponse,
-    | EntityAlreadyExistsException
-    | LimitExceededException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | CommonAwsError
+    EntityAlreadyExistsException | LimitExceededException | NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
   createInstanceProfile(
     input: CreateInstanceProfileRequest,
   ): Effect.Effect<
     CreateInstanceProfileResponse,
-    | ConcurrentModificationException
-    | EntityAlreadyExistsException
-    | InvalidInputException
-    | LimitExceededException
-    | ServiceFailureException
-    | CommonAwsError
+    ConcurrentModificationException | EntityAlreadyExistsException | InvalidInputException | LimitExceededException | ServiceFailureException | CommonAwsError
   >;
   createLoginProfile(
     input: CreateLoginProfileRequest,
   ): Effect.Effect<
     CreateLoginProfileResponse,
-    | EntityAlreadyExistsException
-    | LimitExceededException
-    | NoSuchEntityException
-    | PasswordPolicyViolationException
-    | ServiceFailureException
-    | CommonAwsError
+    EntityAlreadyExistsException | LimitExceededException | NoSuchEntityException | PasswordPolicyViolationException | ServiceFailureException | CommonAwsError
   >;
   createOpenIDConnectProvider(
     input: CreateOpenIDConnectProviderRequest,
   ): Effect.Effect<
     CreateOpenIDConnectProviderResponse,
-    | ConcurrentModificationException
-    | EntityAlreadyExistsException
-    | InvalidInputException
-    | LimitExceededException
-    | OpenIdIdpCommunicationErrorException
-    | ServiceFailureException
-    | CommonAwsError
+    ConcurrentModificationException | EntityAlreadyExistsException | InvalidInputException | LimitExceededException | OpenIdIdpCommunicationErrorException | ServiceFailureException | CommonAwsError
   >;
   createPolicy(
     input: CreatePolicyRequest,
   ): Effect.Effect<
     CreatePolicyResponse,
-    | ConcurrentModificationException
-    | EntityAlreadyExistsException
-    | InvalidInputException
-    | LimitExceededException
-    | MalformedPolicyDocumentException
-    | ServiceFailureException
-    | CommonAwsError
+    ConcurrentModificationException | EntityAlreadyExistsException | InvalidInputException | LimitExceededException | MalformedPolicyDocumentException | ServiceFailureException | CommonAwsError
   >;
   createPolicyVersion(
     input: CreatePolicyVersionRequest,
   ): Effect.Effect<
     CreatePolicyVersionResponse,
-    | InvalidInputException
-    | LimitExceededException
-    | MalformedPolicyDocumentException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | CommonAwsError
+    InvalidInputException | LimitExceededException | MalformedPolicyDocumentException | NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
   createRole(
     input: CreateRoleRequest,
   ): Effect.Effect<
     CreateRoleResponse,
-    | ConcurrentModificationException
-    | EntityAlreadyExistsException
-    | InvalidInputException
-    | LimitExceededException
-    | MalformedPolicyDocumentException
-    | ServiceFailureException
-    | CommonAwsError
+    ConcurrentModificationException | EntityAlreadyExistsException | InvalidInputException | LimitExceededException | MalformedPolicyDocumentException | ServiceFailureException | CommonAwsError
   >;
   createSAMLProvider(
     input: CreateSAMLProviderRequest,
   ): Effect.Effect<
     CreateSAMLProviderResponse,
-    | ConcurrentModificationException
-    | EntityAlreadyExistsException
-    | InvalidInputException
-    | LimitExceededException
-    | ServiceFailureException
-    | CommonAwsError
+    ConcurrentModificationException | EntityAlreadyExistsException | InvalidInputException | LimitExceededException | ServiceFailureException | CommonAwsError
   >;
   createServiceLinkedRole(
     input: CreateServiceLinkedRoleRequest,
   ): Effect.Effect<
     CreateServiceLinkedRoleResponse,
-    | InvalidInputException
-    | LimitExceededException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | CommonAwsError
+    InvalidInputException | LimitExceededException | NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
   createServiceSpecificCredential(
     input: CreateServiceSpecificCredentialRequest,
   ): Effect.Effect<
     CreateServiceSpecificCredentialResponse,
-    | LimitExceededException
-    | NoSuchEntityException
-    | ServiceNotSupportedException
-    | CommonAwsError
+    LimitExceededException | NoSuchEntityException | ServiceNotSupportedException | CommonAwsError
   >;
   createUser(
     input: CreateUserRequest,
   ): Effect.Effect<
     CreateUserResponse,
-    | ConcurrentModificationException
-    | EntityAlreadyExistsException
-    | InvalidInputException
-    | LimitExceededException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | CommonAwsError
+    ConcurrentModificationException | EntityAlreadyExistsException | InvalidInputException | LimitExceededException | NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
   createVirtualMFADevice(
     input: CreateVirtualMFADeviceRequest,
   ): Effect.Effect<
     CreateVirtualMFADeviceResponse,
-    | ConcurrentModificationException
-    | EntityAlreadyExistsException
-    | InvalidInputException
-    | LimitExceededException
-    | ServiceFailureException
-    | CommonAwsError
+    ConcurrentModificationException | EntityAlreadyExistsException | InvalidInputException | LimitExceededException | ServiceFailureException | CommonAwsError
   >;
   deactivateMFADevice(
     input: DeactivateMFADeviceRequest,
   ): Effect.Effect<
     {},
-    | ConcurrentModificationException
-    | EntityTemporarilyUnmodifiableException
-    | LimitExceededException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | CommonAwsError
+    ConcurrentModificationException | EntityTemporarilyUnmodifiableException | LimitExceededException | NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
   deleteAccessKey(
     input: DeleteAccessKeyRequest,
   ): Effect.Effect<
     {},
-    | LimitExceededException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | CommonAwsError
+    LimitExceededException | NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
   deleteAccountAlias(
     input: DeleteAccountAliasRequest,
   ): Effect.Effect<
     {},
-    | ConcurrentModificationException
-    | LimitExceededException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | CommonAwsError
+    ConcurrentModificationException | LimitExceededException | NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
-  deleteAccountPasswordPolicy(input: {}): Effect.Effect<
+  deleteAccountPasswordPolicy(
+    input: {},
+  ): Effect.Effect<
     {},
-    | LimitExceededException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | CommonAwsError
+    LimitExceededException | NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
   deleteGroup(
     input: DeleteGroupRequest,
   ): Effect.Effect<
     {},
-    | DeleteConflictException
-    | LimitExceededException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | CommonAwsError
+    DeleteConflictException | LimitExceededException | NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
   deleteGroupPolicy(
     input: DeleteGroupPolicyRequest,
   ): Effect.Effect<
     {},
-    | LimitExceededException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | CommonAwsError
+    LimitExceededException | NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
   deleteInstanceProfile(
     input: DeleteInstanceProfileRequest,
   ): Effect.Effect<
     {},
-    | DeleteConflictException
-    | LimitExceededException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | CommonAwsError
+    DeleteConflictException | LimitExceededException | NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
   deleteLoginProfile(
     input: DeleteLoginProfileRequest,
   ): Effect.Effect<
     {},
-    | EntityTemporarilyUnmodifiableException
-    | LimitExceededException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | CommonAwsError
+    EntityTemporarilyUnmodifiableException | LimitExceededException | NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
   deleteOpenIDConnectProvider(
     input: DeleteOpenIDConnectProviderRequest,
   ): Effect.Effect<
     {},
-    | InvalidInputException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | CommonAwsError
+    InvalidInputException | NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
   deletePolicy(
     input: DeletePolicyRequest,
   ): Effect.Effect<
     {},
-    | DeleteConflictException
-    | InvalidInputException
-    | LimitExceededException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | CommonAwsError
+    DeleteConflictException | InvalidInputException | LimitExceededException | NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
   deletePolicyVersion(
     input: DeletePolicyVersionRequest,
   ): Effect.Effect<
     {},
-    | DeleteConflictException
-    | InvalidInputException
-    | LimitExceededException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | CommonAwsError
+    DeleteConflictException | InvalidInputException | LimitExceededException | NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
   deleteRole(
     input: DeleteRoleRequest,
   ): Effect.Effect<
     {},
-    | ConcurrentModificationException
-    | DeleteConflictException
-    | LimitExceededException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | UnmodifiableEntityException
-    | CommonAwsError
+    ConcurrentModificationException | DeleteConflictException | LimitExceededException | NoSuchEntityException | ServiceFailureException | UnmodifiableEntityException | CommonAwsError
   >;
   deleteRolePermissionsBoundary(
     input: DeleteRolePermissionsBoundaryRequest,
   ): Effect.Effect<
     {},
-    | NoSuchEntityException
-    | ServiceFailureException
-    | UnmodifiableEntityException
-    | CommonAwsError
+    NoSuchEntityException | ServiceFailureException | UnmodifiableEntityException | CommonAwsError
   >;
   deleteRolePolicy(
     input: DeleteRolePolicyRequest,
   ): Effect.Effect<
     {},
-    | LimitExceededException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | UnmodifiableEntityException
-    | CommonAwsError
+    LimitExceededException | NoSuchEntityException | ServiceFailureException | UnmodifiableEntityException | CommonAwsError
   >;
   deleteSAMLProvider(
     input: DeleteSAMLProviderRequest,
   ): Effect.Effect<
     {},
-    | InvalidInputException
-    | LimitExceededException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | CommonAwsError
+    InvalidInputException | LimitExceededException | NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
   deleteServerCertificate(
     input: DeleteServerCertificateRequest,
   ): Effect.Effect<
     {},
-    | DeleteConflictException
-    | LimitExceededException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | CommonAwsError
+    DeleteConflictException | LimitExceededException | NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
   deleteServiceLinkedRole(
     input: DeleteServiceLinkedRoleRequest,
   ): Effect.Effect<
     DeleteServiceLinkedRoleResponse,
-    | LimitExceededException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | CommonAwsError
+    LimitExceededException | NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
   deleteServiceSpecificCredential(
     input: DeleteServiceSpecificCredentialRequest,
-  ): Effect.Effect<{}, NoSuchEntityException | CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    NoSuchEntityException | CommonAwsError
+  >;
   deleteSigningCertificate(
     input: DeleteSigningCertificateRequest,
   ): Effect.Effect<
     {},
-    | ConcurrentModificationException
-    | LimitExceededException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | CommonAwsError
+    ConcurrentModificationException | LimitExceededException | NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
   deleteSSHPublicKey(
     input: DeleteSSHPublicKeyRequest,
-  ): Effect.Effect<{}, NoSuchEntityException | CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    NoSuchEntityException | CommonAwsError
+  >;
   deleteUser(
     input: DeleteUserRequest,
   ): Effect.Effect<
     {},
-    | ConcurrentModificationException
-    | DeleteConflictException
-    | LimitExceededException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | CommonAwsError
+    ConcurrentModificationException | DeleteConflictException | LimitExceededException | NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
   deleteUserPermissionsBoundary(
     input: DeleteUserPermissionsBoundaryRequest,
@@ -435,109 +265,65 @@ export declare class IAM extends AWSServiceClient {
     input: DeleteUserPolicyRequest,
   ): Effect.Effect<
     {},
-    | LimitExceededException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | CommonAwsError
+    LimitExceededException | NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
   deleteVirtualMFADevice(
     input: DeleteVirtualMFADeviceRequest,
   ): Effect.Effect<
     {},
-    | ConcurrentModificationException
-    | DeleteConflictException
-    | LimitExceededException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | CommonAwsError
+    ConcurrentModificationException | DeleteConflictException | LimitExceededException | NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
   detachGroupPolicy(
     input: DetachGroupPolicyRequest,
   ): Effect.Effect<
     {},
-    | InvalidInputException
-    | LimitExceededException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | CommonAwsError
+    InvalidInputException | LimitExceededException | NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
   detachRolePolicy(
     input: DetachRolePolicyRequest,
   ): Effect.Effect<
     {},
-    | InvalidInputException
-    | LimitExceededException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | UnmodifiableEntityException
-    | CommonAwsError
+    InvalidInputException | LimitExceededException | NoSuchEntityException | ServiceFailureException | UnmodifiableEntityException | CommonAwsError
   >;
   detachUserPolicy(
     input: DetachUserPolicyRequest,
   ): Effect.Effect<
     {},
-    | InvalidInputException
-    | LimitExceededException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | CommonAwsError
+    InvalidInputException | LimitExceededException | NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
   disableOrganizationsRootCredentialsManagement(
     input: DisableOrganizationsRootCredentialsManagementRequest,
   ): Effect.Effect<
     DisableOrganizationsRootCredentialsManagementResponse,
-    | AccountNotManagementOrDelegatedAdministratorException
-    | OrganizationNotFoundException
-    | OrganizationNotInAllFeaturesModeException
-    | ServiceAccessNotEnabledException
-    | CommonAwsError
+    AccountNotManagementOrDelegatedAdministratorException | OrganizationNotFoundException | OrganizationNotInAllFeaturesModeException | ServiceAccessNotEnabledException | CommonAwsError
   >;
   disableOrganizationsRootSessions(
     input: DisableOrganizationsRootSessionsRequest,
   ): Effect.Effect<
     DisableOrganizationsRootSessionsResponse,
-    | AccountNotManagementOrDelegatedAdministratorException
-    | OrganizationNotFoundException
-    | OrganizationNotInAllFeaturesModeException
-    | ServiceAccessNotEnabledException
-    | CommonAwsError
+    AccountNotManagementOrDelegatedAdministratorException | OrganizationNotFoundException | OrganizationNotInAllFeaturesModeException | ServiceAccessNotEnabledException | CommonAwsError
   >;
   enableMFADevice(
     input: EnableMFADeviceRequest,
   ): Effect.Effect<
     {},
-    | ConcurrentModificationException
-    | EntityAlreadyExistsException
-    | EntityTemporarilyUnmodifiableException
-    | InvalidAuthenticationCodeException
-    | LimitExceededException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | CommonAwsError
+    ConcurrentModificationException | EntityAlreadyExistsException | EntityTemporarilyUnmodifiableException | InvalidAuthenticationCodeException | LimitExceededException | NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
   enableOrganizationsRootCredentialsManagement(
     input: EnableOrganizationsRootCredentialsManagementRequest,
   ): Effect.Effect<
     EnableOrganizationsRootCredentialsManagementResponse,
-    | AccountNotManagementOrDelegatedAdministratorException
-    | CallerIsNotManagementAccountException
-    | OrganizationNotFoundException
-    | OrganizationNotInAllFeaturesModeException
-    | ServiceAccessNotEnabledException
-    | CommonAwsError
+    AccountNotManagementOrDelegatedAdministratorException | CallerIsNotManagementAccountException | OrganizationNotFoundException | OrganizationNotInAllFeaturesModeException | ServiceAccessNotEnabledException | CommonAwsError
   >;
   enableOrganizationsRootSessions(
     input: EnableOrganizationsRootSessionsRequest,
   ): Effect.Effect<
     EnableOrganizationsRootSessionsResponse,
-    | AccountNotManagementOrDelegatedAdministratorException
-    | CallerIsNotManagementAccountException
-    | OrganizationNotFoundException
-    | OrganizationNotInAllFeaturesModeException
-    | ServiceAccessNotEnabledException
-    | CommonAwsError
+    AccountNotManagementOrDelegatedAdministratorException | CallerIsNotManagementAccountException | OrganizationNotFoundException | OrganizationNotInAllFeaturesModeException | ServiceAccessNotEnabledException | CommonAwsError
   >;
-  generateCredentialReport(input: {}): Effect.Effect<
+  generateCredentialReport(
+    input: {},
+  ): Effect.Effect<
     GenerateCredentialReportResponse,
     LimitExceededException | ServiceFailureException | CommonAwsError
   >;
@@ -555,18 +341,25 @@ export declare class IAM extends AWSServiceClient {
   >;
   getAccessKeyLastUsed(
     input: GetAccessKeyLastUsedRequest,
-  ): Effect.Effect<GetAccessKeyLastUsedResponse, CommonAwsError>;
+  ): Effect.Effect<
+    GetAccessKeyLastUsedResponse,
+    CommonAwsError
+  >;
   getAccountAuthorizationDetails(
     input: GetAccountAuthorizationDetailsRequest,
   ): Effect.Effect<
     GetAccountAuthorizationDetailsResponse,
     ServiceFailureException | CommonAwsError
   >;
-  getAccountPasswordPolicy(input: {}): Effect.Effect<
+  getAccountPasswordPolicy(
+    input: {},
+  ): Effect.Effect<
     GetAccountPasswordPolicyResponse,
     NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
-  getAccountSummary(input: {}): Effect.Effect<
+  getAccountSummary(
+    input: {},
+  ): Effect.Effect<
     GetAccountSummaryResponse,
     ServiceFailureException | CommonAwsError
   >;
@@ -582,13 +375,11 @@ export declare class IAM extends AWSServiceClient {
     GetContextKeysForPolicyResponse,
     InvalidInputException | NoSuchEntityException | CommonAwsError
   >;
-  getCredentialReport(input: {}): Effect.Effect<
+  getCredentialReport(
+    input: {},
+  ): Effect.Effect<
     GetCredentialReportResponse,
-    | CredentialReportExpiredException
-    | CredentialReportNotPresentException
-    | CredentialReportNotReadyException
-    | ServiceFailureException
-    | CommonAwsError
+    CredentialReportExpiredException | CredentialReportNotPresentException | CredentialReportNotReadyException | ServiceFailureException | CommonAwsError
   >;
   getGroup(
     input: GetGroupRequest,
@@ -624,10 +415,7 @@ export declare class IAM extends AWSServiceClient {
     input: GetOpenIDConnectProviderRequest,
   ): Effect.Effect<
     GetOpenIDConnectProviderResponse,
-    | InvalidInputException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | CommonAwsError
+    InvalidInputException | NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
   getOrganizationsAccessReport(
     input: GetOrganizationsAccessReportRequest,
@@ -639,29 +427,19 @@ export declare class IAM extends AWSServiceClient {
     input: GetPolicyRequest,
   ): Effect.Effect<
     GetPolicyResponse,
-    | InvalidInputException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | NoSuchEntity
-    | CommonAwsError
+    InvalidInputException | NoSuchEntityException | ServiceFailureException | NoSuchEntity | CommonAwsError
   >;
   getPolicyVersion(
     input: GetPolicyVersionRequest,
   ): Effect.Effect<
     GetPolicyVersionResponse,
-    | InvalidInputException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | CommonAwsError
+    InvalidInputException | NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
   getRole(
     input: GetRoleRequest,
   ): Effect.Effect<
     GetRoleResponse,
-    | NoSuchEntityException
-    | ServiceFailureException
-    | NoSuchEntity
-    | CommonAwsError
+    NoSuchEntityException | ServiceFailureException | NoSuchEntity | CommonAwsError
   >;
   getRolePolicy(
     input: GetRolePolicyRequest,
@@ -673,10 +451,7 @@ export declare class IAM extends AWSServiceClient {
     input: GetSAMLProviderRequest,
   ): Effect.Effect<
     GetSAMLProviderResponse,
-    | InvalidInputException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | CommonAwsError
+    InvalidInputException | NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
   getServerCertificate(
     input: GetServerCertificateRequest,
@@ -700,27 +475,19 @@ export declare class IAM extends AWSServiceClient {
     input: GetServiceLinkedRoleDeletionStatusRequest,
   ): Effect.Effect<
     GetServiceLinkedRoleDeletionStatusResponse,
-    | InvalidInputException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | CommonAwsError
+    InvalidInputException | NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
   getSSHPublicKey(
     input: GetSSHPublicKeyRequest,
   ): Effect.Effect<
     GetSSHPublicKeyResponse,
-    | NoSuchEntityException
-    | UnrecognizedPublicKeyEncodingException
-    | CommonAwsError
+    NoSuchEntityException | UnrecognizedPublicKeyEncodingException | CommonAwsError
   >;
   getUser(
     input: GetUserRequest,
   ): Effect.Effect<
     GetUserResponse,
-    | NoSuchEntityException
-    | ServiceFailureException
-    | NoSuchEntity
-    | CommonAwsError
+    NoSuchEntityException | ServiceFailureException | NoSuchEntity | CommonAwsError
   >;
   getUserPolicy(
     input: GetUserPolicyRequest,
@@ -744,37 +511,25 @@ export declare class IAM extends AWSServiceClient {
     input: ListAttachedGroupPoliciesRequest,
   ): Effect.Effect<
     ListAttachedGroupPoliciesResponse,
-    | InvalidInputException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | CommonAwsError
+    InvalidInputException | NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
   listAttachedRolePolicies(
     input: ListAttachedRolePoliciesRequest,
   ): Effect.Effect<
     ListAttachedRolePoliciesResponse,
-    | InvalidInputException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | CommonAwsError
+    InvalidInputException | NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
   listAttachedUserPolicies(
     input: ListAttachedUserPoliciesRequest,
   ): Effect.Effect<
     ListAttachedUserPoliciesResponse,
-    | InvalidInputException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | CommonAwsError
+    InvalidInputException | NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
   listEntitiesForPolicy(
     input: ListEntitiesForPolicyRequest,
   ): Effect.Effect<
     ListEntitiesForPolicyResponse,
-    | InvalidInputException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | CommonAwsError
+    InvalidInputException | NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
   listGroupPolicies(
     input: ListGroupPoliciesRequest,
@@ -822,10 +577,7 @@ export declare class IAM extends AWSServiceClient {
     input: ListMFADeviceTagsRequest,
   ): Effect.Effect<
     ListMFADeviceTagsResponse,
-    | InvalidInputException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | CommonAwsError
+    InvalidInputException | NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
   listOpenIDConnectProviders(
     input: ListOpenIDConnectProvidersRequest,
@@ -837,20 +589,13 @@ export declare class IAM extends AWSServiceClient {
     input: ListOpenIDConnectProviderTagsRequest,
   ): Effect.Effect<
     ListOpenIDConnectProviderTagsResponse,
-    | InvalidInputException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | CommonAwsError
+    InvalidInputException | NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
   listOrganizationsFeatures(
     input: ListOrganizationsFeaturesRequest,
   ): Effect.Effect<
     ListOrganizationsFeaturesResponse,
-    | AccountNotManagementOrDelegatedAdministratorException
-    | OrganizationNotFoundException
-    | OrganizationNotInAllFeaturesModeException
-    | ServiceAccessNotEnabledException
-    | CommonAwsError
+    AccountNotManagementOrDelegatedAdministratorException | OrganizationNotFoundException | OrganizationNotInAllFeaturesModeException | ServiceAccessNotEnabledException | CommonAwsError
   >;
   listPolicies(
     input: ListPoliciesRequest,
@@ -868,19 +613,13 @@ export declare class IAM extends AWSServiceClient {
     input: ListPolicyTagsRequest,
   ): Effect.Effect<
     ListPolicyTagsResponse,
-    | InvalidInputException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | CommonAwsError
+    InvalidInputException | NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
   listPolicyVersions(
     input: ListPolicyVersionsRequest,
   ): Effect.Effect<
     ListPolicyVersionsResponse,
-    | InvalidInputException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | CommonAwsError
+    InvalidInputException | NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
   listRolePolicies(
     input: ListRolePoliciesRequest,
@@ -890,7 +629,10 @@ export declare class IAM extends AWSServiceClient {
   >;
   listRoles(
     input: ListRolesRequest,
-  ): Effect.Effect<ListRolesResponse, ServiceFailureException | CommonAwsError>;
+  ): Effect.Effect<
+    ListRolesResponse,
+    ServiceFailureException | CommonAwsError
+  >;
   listRoleTags(
     input: ListRoleTagsRequest,
   ): Effect.Effect<
@@ -907,10 +649,7 @@ export declare class IAM extends AWSServiceClient {
     input: ListSAMLProviderTagsRequest,
   ): Effect.Effect<
     ListSAMLProviderTagsResponse,
-    | InvalidInputException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | CommonAwsError
+    InvalidInputException | NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
   listServerCertificates(
     input: ListServerCertificatesRequest,
@@ -950,7 +689,10 @@ export declare class IAM extends AWSServiceClient {
   >;
   listUsers(
     input: ListUsersRequest,
-  ): Effect.Effect<ListUsersResponse, ServiceFailureException | CommonAwsError>;
+  ): Effect.Effect<
+    ListUsersResponse,
+    ServiceFailureException | CommonAwsError
+  >;
   listUserTags(
     input: ListUserTagsRequest,
   ): Effect.Effect<
@@ -959,87 +701,57 @@ export declare class IAM extends AWSServiceClient {
   >;
   listVirtualMFADevices(
     input: ListVirtualMFADevicesRequest,
-  ): Effect.Effect<ListVirtualMFADevicesResponse, CommonAwsError>;
+  ): Effect.Effect<
+    ListVirtualMFADevicesResponse,
+    CommonAwsError
+  >;
   putGroupPolicy(
     input: PutGroupPolicyRequest,
   ): Effect.Effect<
     {},
-    | LimitExceededException
-    | MalformedPolicyDocumentException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | CommonAwsError
+    LimitExceededException | MalformedPolicyDocumentException | NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
   putRolePermissionsBoundary(
     input: PutRolePermissionsBoundaryRequest,
   ): Effect.Effect<
     {},
-    | InvalidInputException
-    | NoSuchEntityException
-    | PolicyNotAttachableException
-    | ServiceFailureException
-    | UnmodifiableEntityException
-    | CommonAwsError
+    InvalidInputException | NoSuchEntityException | PolicyNotAttachableException | ServiceFailureException | UnmodifiableEntityException | CommonAwsError
   >;
   putRolePolicy(
     input: PutRolePolicyRequest,
   ): Effect.Effect<
     {},
-    | LimitExceededException
-    | MalformedPolicyDocumentException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | UnmodifiableEntityException
-    | CommonAwsError
+    LimitExceededException | MalformedPolicyDocumentException | NoSuchEntityException | ServiceFailureException | UnmodifiableEntityException | CommonAwsError
   >;
   putUserPermissionsBoundary(
     input: PutUserPermissionsBoundaryRequest,
   ): Effect.Effect<
     {},
-    | InvalidInputException
-    | NoSuchEntityException
-    | PolicyNotAttachableException
-    | ServiceFailureException
-    | CommonAwsError
+    InvalidInputException | NoSuchEntityException | PolicyNotAttachableException | ServiceFailureException | CommonAwsError
   >;
   putUserPolicy(
     input: PutUserPolicyRequest,
   ): Effect.Effect<
     {},
-    | LimitExceededException
-    | MalformedPolicyDocumentException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | CommonAwsError
+    LimitExceededException | MalformedPolicyDocumentException | NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
   removeClientIDFromOpenIDConnectProvider(
     input: RemoveClientIDFromOpenIDConnectProviderRequest,
   ): Effect.Effect<
     {},
-    | ConcurrentModificationException
-    | InvalidInputException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | CommonAwsError
+    ConcurrentModificationException | InvalidInputException | NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
   removeRoleFromInstanceProfile(
     input: RemoveRoleFromInstanceProfileRequest,
   ): Effect.Effect<
     {},
-    | LimitExceededException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | UnmodifiableEntityException
-    | CommonAwsError
+    LimitExceededException | NoSuchEntityException | ServiceFailureException | UnmodifiableEntityException | CommonAwsError
   >;
   removeUserFromGroup(
     input: RemoveUserFromGroupRequest,
   ): Effect.Effect<
     {},
-    | LimitExceededException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | CommonAwsError
+    LimitExceededException | NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
   resetServiceSpecificCredential(
     input: ResetServiceSpecificCredentialRequest,
@@ -1051,26 +763,20 @@ export declare class IAM extends AWSServiceClient {
     input: ResyncMFADeviceRequest,
   ): Effect.Effect<
     {},
-    | ConcurrentModificationException
-    | InvalidAuthenticationCodeException
-    | LimitExceededException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | CommonAwsError
+    ConcurrentModificationException | InvalidAuthenticationCodeException | LimitExceededException | NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
   setDefaultPolicyVersion(
     input: SetDefaultPolicyVersionRequest,
   ): Effect.Effect<
     {},
-    | InvalidInputException
-    | LimitExceededException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | CommonAwsError
+    InvalidInputException | LimitExceededException | NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
   setSecurityTokenServicePreferences(
     input: SetSecurityTokenServicePreferencesRequest,
-  ): Effect.Effect<{}, ServiceFailureException | CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    ServiceFailureException | CommonAwsError
+  >;
   simulateCustomPolicy(
     input: SimulateCustomPolicyRequest,
   ): Effect.Effect<
@@ -1081,290 +787,175 @@ export declare class IAM extends AWSServiceClient {
     input: SimulatePrincipalPolicyRequest,
   ): Effect.Effect<
     SimulatePolicyResponse,
-    | InvalidInputException
-    | NoSuchEntityException
-    | PolicyEvaluationException
-    | CommonAwsError
+    InvalidInputException | NoSuchEntityException | PolicyEvaluationException | CommonAwsError
   >;
   tagInstanceProfile(
     input: TagInstanceProfileRequest,
   ): Effect.Effect<
     {},
-    | ConcurrentModificationException
-    | InvalidInputException
-    | LimitExceededException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | CommonAwsError
+    ConcurrentModificationException | InvalidInputException | LimitExceededException | NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
   tagMFADevice(
     input: TagMFADeviceRequest,
   ): Effect.Effect<
     {},
-    | ConcurrentModificationException
-    | InvalidInputException
-    | LimitExceededException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | CommonAwsError
+    ConcurrentModificationException | InvalidInputException | LimitExceededException | NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
   tagOpenIDConnectProvider(
     input: TagOpenIDConnectProviderRequest,
   ): Effect.Effect<
     {},
-    | ConcurrentModificationException
-    | InvalidInputException
-    | LimitExceededException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | CommonAwsError
+    ConcurrentModificationException | InvalidInputException | LimitExceededException | NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
   tagPolicy(
     input: TagPolicyRequest,
   ): Effect.Effect<
     {},
-    | ConcurrentModificationException
-    | InvalidInputException
-    | LimitExceededException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | CommonAwsError
+    ConcurrentModificationException | InvalidInputException | LimitExceededException | NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
   tagRole(
     input: TagRoleRequest,
   ): Effect.Effect<
     {},
-    | ConcurrentModificationException
-    | InvalidInputException
-    | LimitExceededException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | CommonAwsError
+    ConcurrentModificationException | InvalidInputException | LimitExceededException | NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
   tagSAMLProvider(
     input: TagSAMLProviderRequest,
   ): Effect.Effect<
     {},
-    | ConcurrentModificationException
-    | InvalidInputException
-    | LimitExceededException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | CommonAwsError
+    ConcurrentModificationException | InvalidInputException | LimitExceededException | NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
   tagServerCertificate(
     input: TagServerCertificateRequest,
   ): Effect.Effect<
     {},
-    | ConcurrentModificationException
-    | InvalidInputException
-    | LimitExceededException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | CommonAwsError
+    ConcurrentModificationException | InvalidInputException | LimitExceededException | NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
   tagUser(
     input: TagUserRequest,
   ): Effect.Effect<
     {},
-    | ConcurrentModificationException
-    | InvalidInputException
-    | LimitExceededException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | CommonAwsError
+    ConcurrentModificationException | InvalidInputException | LimitExceededException | NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
   untagInstanceProfile(
     input: UntagInstanceProfileRequest,
   ): Effect.Effect<
     {},
-    | ConcurrentModificationException
-    | InvalidInputException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | CommonAwsError
+    ConcurrentModificationException | InvalidInputException | NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
   untagMFADevice(
     input: UntagMFADeviceRequest,
   ): Effect.Effect<
     {},
-    | ConcurrentModificationException
-    | InvalidInputException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | CommonAwsError
+    ConcurrentModificationException | InvalidInputException | NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
   untagOpenIDConnectProvider(
     input: UntagOpenIDConnectProviderRequest,
   ): Effect.Effect<
     {},
-    | ConcurrentModificationException
-    | InvalidInputException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | CommonAwsError
+    ConcurrentModificationException | InvalidInputException | NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
   untagPolicy(
     input: UntagPolicyRequest,
   ): Effect.Effect<
     {},
-    | ConcurrentModificationException
-    | InvalidInputException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | CommonAwsError
+    ConcurrentModificationException | InvalidInputException | NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
   untagRole(
     input: UntagRoleRequest,
   ): Effect.Effect<
     {},
-    | ConcurrentModificationException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | CommonAwsError
+    ConcurrentModificationException | NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
   untagSAMLProvider(
     input: UntagSAMLProviderRequest,
   ): Effect.Effect<
     {},
-    | ConcurrentModificationException
-    | InvalidInputException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | CommonAwsError
+    ConcurrentModificationException | InvalidInputException | NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
   untagServerCertificate(
     input: UntagServerCertificateRequest,
   ): Effect.Effect<
     {},
-    | ConcurrentModificationException
-    | InvalidInputException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | CommonAwsError
+    ConcurrentModificationException | InvalidInputException | NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
   untagUser(
     input: UntagUserRequest,
   ): Effect.Effect<
     {},
-    | ConcurrentModificationException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | CommonAwsError
+    ConcurrentModificationException | NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
   updateAccessKey(
     input: UpdateAccessKeyRequest,
   ): Effect.Effect<
     {},
-    | InvalidInputException
-    | LimitExceededException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | CommonAwsError
+    InvalidInputException | LimitExceededException | NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
   updateAccountPasswordPolicy(
     input: UpdateAccountPasswordPolicyRequest,
   ): Effect.Effect<
     {},
-    | LimitExceededException
-    | MalformedPolicyDocumentException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | CommonAwsError
+    LimitExceededException | MalformedPolicyDocumentException | NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
   updateAssumeRolePolicy(
     input: UpdateAssumeRolePolicyRequest,
   ): Effect.Effect<
     {},
-    | LimitExceededException
-    | MalformedPolicyDocumentException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | UnmodifiableEntityException
-    | CommonAwsError
+    LimitExceededException | MalformedPolicyDocumentException | NoSuchEntityException | ServiceFailureException | UnmodifiableEntityException | CommonAwsError
   >;
   updateGroup(
     input: UpdateGroupRequest,
   ): Effect.Effect<
     {},
-    | EntityAlreadyExistsException
-    | LimitExceededException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | CommonAwsError
+    EntityAlreadyExistsException | LimitExceededException | NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
   updateLoginProfile(
     input: UpdateLoginProfileRequest,
   ): Effect.Effect<
     {},
-    | EntityTemporarilyUnmodifiableException
-    | LimitExceededException
-    | NoSuchEntityException
-    | PasswordPolicyViolationException
-    | ServiceFailureException
-    | CommonAwsError
+    EntityTemporarilyUnmodifiableException | LimitExceededException | NoSuchEntityException | PasswordPolicyViolationException | ServiceFailureException | CommonAwsError
   >;
   updateOpenIDConnectProviderThumbprint(
     input: UpdateOpenIDConnectProviderThumbprintRequest,
   ): Effect.Effect<
     {},
-    | ConcurrentModificationException
-    | InvalidInputException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | CommonAwsError
+    ConcurrentModificationException | InvalidInputException | NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
   updateRole(
     input: UpdateRoleRequest,
   ): Effect.Effect<
     UpdateRoleResponse,
-    | NoSuchEntityException
-    | ServiceFailureException
-    | UnmodifiableEntityException
-    | CommonAwsError
+    NoSuchEntityException | ServiceFailureException | UnmodifiableEntityException | CommonAwsError
   >;
   updateRoleDescription(
     input: UpdateRoleDescriptionRequest,
   ): Effect.Effect<
     UpdateRoleDescriptionResponse,
-    | NoSuchEntityException
-    | ServiceFailureException
-    | UnmodifiableEntityException
-    | CommonAwsError
+    NoSuchEntityException | ServiceFailureException | UnmodifiableEntityException | CommonAwsError
   >;
   updateSAMLProvider(
     input: UpdateSAMLProviderRequest,
   ): Effect.Effect<
     UpdateSAMLProviderResponse,
-    | ConcurrentModificationException
-    | InvalidInputException
-    | LimitExceededException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | CommonAwsError
+    ConcurrentModificationException | InvalidInputException | LimitExceededException | NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
   updateServerCertificate(
     input: UpdateServerCertificateRequest,
   ): Effect.Effect<
     {},
-    | EntityAlreadyExistsException
-    | LimitExceededException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | CommonAwsError
+    EntityAlreadyExistsException | LimitExceededException | NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
   updateServiceSpecificCredential(
     input: UpdateServiceSpecificCredentialRequest,
-  ): Effect.Effect<{}, NoSuchEntityException | CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    NoSuchEntityException | CommonAwsError
+  >;
   updateSigningCertificate(
     input: UpdateSigningCertificateRequest,
   ): Effect.Effect<
     {},
-    | InvalidInputException
-    | LimitExceededException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | CommonAwsError
+    InvalidInputException | LimitExceededException | NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
   updateSSHPublicKey(
     input: UpdateSSHPublicKeyRequest,
@@ -1376,59 +967,31 @@ export declare class IAM extends AWSServiceClient {
     input: UpdateUserRequest,
   ): Effect.Effect<
     {},
-    | ConcurrentModificationException
-    | EntityAlreadyExistsException
-    | EntityTemporarilyUnmodifiableException
-    | LimitExceededException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | CommonAwsError
+    ConcurrentModificationException | EntityAlreadyExistsException | EntityTemporarilyUnmodifiableException | LimitExceededException | NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
   uploadServerCertificate(
     input: UploadServerCertificateRequest,
   ): Effect.Effect<
     UploadServerCertificateResponse,
-    | ConcurrentModificationException
-    | EntityAlreadyExistsException
-    | InvalidInputException
-    | KeyPairMismatchException
-    | LimitExceededException
-    | MalformedCertificateException
-    | ServiceFailureException
-    | CommonAwsError
+    ConcurrentModificationException | EntityAlreadyExistsException | InvalidInputException | KeyPairMismatchException | LimitExceededException | MalformedCertificateException | ServiceFailureException | CommonAwsError
   >;
   uploadSigningCertificate(
     input: UploadSigningCertificateRequest,
   ): Effect.Effect<
     UploadSigningCertificateResponse,
-    | ConcurrentModificationException
-    | DuplicateCertificateException
-    | EntityAlreadyExistsException
-    | InvalidCertificateException
-    | LimitExceededException
-    | MalformedCertificateException
-    | NoSuchEntityException
-    | ServiceFailureException
-    | CommonAwsError
+    ConcurrentModificationException | DuplicateCertificateException | EntityAlreadyExistsException | InvalidCertificateException | LimitExceededException | MalformedCertificateException | NoSuchEntityException | ServiceFailureException | CommonAwsError
   >;
   uploadSSHPublicKey(
     input: UploadSSHPublicKeyRequest,
   ): Effect.Effect<
     UploadSSHPublicKeyResponse,
-    | DuplicateSSHPublicKeyException
-    | InvalidPublicKeyException
-    | LimitExceededException
-    | NoSuchEntityException
-    | UnrecognizedPublicKeyEncodingException
-    | CommonAwsError
+    DuplicateSSHPublicKeyException | InvalidPublicKeyException | LimitExceededException | NoSuchEntityException | UnrecognizedPublicKeyEncodingException | CommonAwsError
   >;
 }
 
 export declare class Iam extends IAM {}
 
-export type AccessAdvisorUsageGranularityType =
-  | "SERVICE_LEVEL"
-  | "ACTION_LEVEL";
+export type AccessAdvisorUsageGranularityType = "SERVICE_LEVEL" | "ACTION_LEVEL";
 export interface AccessDetail {
   ServiceName: string;
   ServiceNamespace: string;
@@ -1564,19 +1127,7 @@ export type ContextEntryListType = Array<ContextEntry>;
 export type ContextKeyNamesResultListType = Array<string>;
 export type ContextKeyNameType = string;
 
-export type ContextKeyTypeEnum =
-  | "string"
-  | "stringList"
-  | "numeric"
-  | "numericList"
-  | "boolean"
-  | "booleanList"
-  | "ip"
-  | "ipList"
-  | "binary"
-  | "binaryList"
-  | "date"
-  | "dateList";
+export type ContextKeyTypeEnum = "string" | "stringList" | "numeric" | "numericList" | "boolean" | "booleanList" | "ip" | "ipList" | "binary" | "binaryList" | "date" | "dateList";
 export type ContextKeyValueListType = Array<string>;
 export type ContextKeyValueType = string;
 
@@ -1817,11 +1368,7 @@ export interface DeletionTaskFailureReasonType {
 }
 export type DeletionTaskIdType = string;
 
-export type DeletionTaskStatusType =
-  | "SUCCEEDED"
-  | "IN_PROGRESS"
-  | "FAILED"
-  | "NOT_STARTED";
+export type DeletionTaskStatusType = "SUCCEEDED" | "IN_PROGRESS" | "FAILED" | "NOT_STARTED";
 export interface DetachGroupPolicyRequest {
   GroupName: string;
   PolicyArn: string;
@@ -1834,12 +1381,14 @@ export interface DetachUserPolicyRequest {
   UserName: string;
   PolicyArn: string;
 }
-export interface DisableOrganizationsRootCredentialsManagementRequest {}
+export interface DisableOrganizationsRootCredentialsManagementRequest {
+}
 export interface DisableOrganizationsRootCredentialsManagementResponse {
   OrganizationId?: string;
   EnabledFeatures?: Array<FeatureType>;
 }
-export interface DisableOrganizationsRootSessionsRequest {}
+export interface DisableOrganizationsRootSessionsRequest {
+}
 export interface DisableOrganizationsRootSessionsResponse {
   OrganizationId?: string;
   EnabledFeatures?: Array<FeatureType>;
@@ -1864,12 +1413,14 @@ export interface EnableMFADeviceRequest {
   AuthenticationCode1: string;
   AuthenticationCode2: string;
 }
-export interface EnableOrganizationsRootCredentialsManagementRequest {}
+export interface EnableOrganizationsRootCredentialsManagementRequest {
+}
 export interface EnableOrganizationsRootCredentialsManagementResponse {
   OrganizationId?: string;
   EnabledFeatures?: Array<FeatureType>;
 }
-export interface EnableOrganizationsRootSessionsRequest {}
+export interface EnableOrganizationsRootSessionsRequest {
+}
 export interface EnableOrganizationsRootSessionsResponse {
   OrganizationId?: string;
   EnabledFeatures?: Array<FeatureType>;
@@ -1904,20 +1455,12 @@ export declare class EntityTemporarilyUnmodifiableException extends EffectData.T
 }> {}
 export type entityTemporarilyUnmodifiableMessage = string;
 
-export type EntityType =
-  | "User"
-  | "Role"
-  | "Group"
-  | "LocalManagedPolicy"
-  | "AWSManagedPolicy";
+export type EntityType = "User" | "Role" | "Group" | "LocalManagedPolicy" | "AWSManagedPolicy";
 export interface ErrorDetails {
   Message: string;
   Code: string;
 }
-export type EvalDecisionDetailsType = Record<
-  string,
-  PolicyEvaluationDecisionType
->;
+export type EvalDecisionDetailsType = Record<string, PolicyEvaluationDecisionType>;
 export type EvalDecisionSourceType = string;
 
 export interface EvaluationResult {
@@ -2411,7 +1954,8 @@ export interface ListMFADeviceTagsResponse {
   IsTruncated?: boolean;
   Marker?: string;
 }
-export interface ListOpenIDConnectProvidersRequest {}
+export interface ListOpenIDConnectProvidersRequest {
+}
 export interface ListOpenIDConnectProvidersResponse {
   OpenIDConnectProviderList?: Array<OpenIDConnectProviderListEntry>;
 }
@@ -2425,7 +1969,8 @@ export interface ListOpenIDConnectProviderTagsResponse {
   IsTruncated?: boolean;
   Marker?: string;
 }
-export interface ListOrganizationsFeaturesRequest {}
+export interface ListOrganizationsFeaturesRequest {
+}
 export interface ListOrganizationsFeaturesResponse {
   OrganizationId?: string;
   EnabledFeatures?: Array<FeatureType>;
@@ -2457,8 +2002,7 @@ export interface ListPoliciesResponse {
   IsTruncated?: boolean;
   Marker?: string;
 }
-export type listPolicyGrantingServiceAccessResponseListType =
-  Array<ListPoliciesGrantingServiceAccessEntry>;
+export type listPolicyGrantingServiceAccessResponseListType = Array<ListPoliciesGrantingServiceAccessEntry>;
 export interface ListPolicyTagsRequest {
   PolicyArn: string;
   Marker?: string;
@@ -2509,7 +2053,8 @@ export interface ListRoleTagsResponse {
   IsTruncated?: boolean;
   Marker?: string;
 }
-export interface ListSAMLProvidersRequest {}
+export interface ListSAMLProvidersRequest {
+}
 export interface ListSAMLProvidersResponse {
   SAMLProviderList?: Array<SAMLProviderListEntry>;
 }
@@ -2673,8 +2218,7 @@ export type noSuchEntityMessage = string;
 export interface OpenIDConnectProviderListEntry {
   Arn?: string;
 }
-export type OpenIDConnectProviderListType =
-  Array<OpenIDConnectProviderListEntry>;
+export type OpenIDConnectProviderListType = Array<OpenIDConnectProviderListEntry>;
 export type OpenIDConnectProviderUrlType = string;
 
 export declare class OpenIdIdpCommunicationErrorException extends EffectData.TaggedError(
@@ -2758,10 +2302,7 @@ export type policyDetailListType = Array<PolicyDetail>;
 export type policyDocumentType = string;
 
 export type policyDocumentVersionListType = Array<PolicyVersion>;
-export type PolicyEvaluationDecisionType =
-  | "allowed"
-  | "explicitDeny"
-  | "implicitDeny";
+export type PolicyEvaluationDecisionType = "allowed" | "explicitDeny" | "implicitDeny";
 export type policyEvaluationErrorMessage = string;
 
 export declare class PolicyEvaluationException extends EffectData.TaggedError(
@@ -2776,8 +2317,7 @@ export interface PolicyGrantingServiceAccess {
   EntityType?: policyOwnerEntityType;
   EntityName?: string;
 }
-export type policyGrantingServiceAccessListType =
-  Array<PolicyGrantingServiceAccess>;
+export type policyGrantingServiceAccessListType = Array<PolicyGrantingServiceAccess>;
 export interface PolicyGroup {
   GroupName?: string;
   GroupId?: string;
@@ -2805,14 +2345,7 @@ export interface PolicyRole {
 }
 export type PolicyRoleListType = Array<PolicyRole>;
 export type policyScopeType = "All" | "AWS" | "Local";
-export type PolicySourceType =
-  | "user"
-  | "group"
-  | "role"
-  | "aws-managed"
-  | "user-managed"
-  | "resource"
-  | "none";
+export type PolicySourceType = "user" | "group" | "role" | "aws-managed" | "user-managed" | "resource" | "none";
 export type policyType = "INLINE" | "MANAGED";
 export type PolicyUsageType = "PermissionsPolicy" | "PermissionsBoundary";
 export interface PolicyUser {
@@ -2998,8 +2531,7 @@ export interface ServerCertificateMetadata {
   UploadDate?: Date | string;
   Expiration?: Date | string;
 }
-export type serverCertificateMetadataListType =
-  Array<ServerCertificateMetadata>;
+export type serverCertificateMetadataListType = Array<ServerCertificateMetadata>;
 export type serverCertificateNameType = string;
 
 export declare class ServiceAccessNotEnabledException extends EffectData.TaggedError(
@@ -3068,8 +2600,7 @@ export interface ServiceSpecificCredentialMetadata {
   ServiceSpecificCredentialId: string;
   ServiceName: string;
 }
-export type ServiceSpecificCredentialsListType =
-  Array<ServiceSpecificCredentialMetadata>;
+export type ServiceSpecificCredentialsListType = Array<ServiceSpecificCredentialMetadata>;
 export type serviceUserName = string;
 
 export interface SetDefaultPolicyVersionRequest {
@@ -3119,11 +2650,7 @@ export interface SimulatePrincipalPolicyRequest {
   Marker?: string;
 }
 export type SimulationPolicyListType = Array<string>;
-export type sortKeyType =
-  | "SERVICE_NAMESPACE_ASCENDING"
-  | "SERVICE_NAMESPACE_DESCENDING"
-  | "LAST_AUTHENTICATED_TIME_ASCENDING"
-  | "LAST_AUTHENTICATED_TIME_DESCENDING";
+export type sortKeyType = "SERVICE_NAMESPACE_ASCENDING" | "SERVICE_NAMESPACE_DESCENDING" | "LAST_AUTHENTICATED_TIME_ASCENDING" | "LAST_AUTHENTICATED_TIME_DESCENDING";
 export interface SSHPublicKey {
   UserName: string;
   SSHPublicKeyId: string;
@@ -3149,41 +2676,7 @@ export type StatementListType = Array<Statement>;
 export type statusType = "Active" | "Inactive" | "Expired";
 export type stringType = string;
 
-export type summaryKeyType =
-  | "Users"
-  | "UsersQuota"
-  | "Groups"
-  | "GroupsQuota"
-  | "ServerCertificates"
-  | "ServerCertificatesQuota"
-  | "UserPolicySizeQuota"
-  | "GroupPolicySizeQuota"
-  | "GroupsPerUserQuota"
-  | "SigningCertificatesPerUserQuota"
-  | "AccessKeysPerUserQuota"
-  | "MFADevices"
-  | "MFADevicesInUse"
-  | "AccountMFAEnabled"
-  | "AccountAccessKeysPresent"
-  | "AccountPasswordPresent"
-  | "AccountSigningCertificatesPresent"
-  | "AttachedPoliciesPerGroupQuota"
-  | "AttachedPoliciesPerRoleQuota"
-  | "AttachedPoliciesPerUserQuota"
-  | "Policies"
-  | "PoliciesQuota"
-  | "PolicySizeQuota"
-  | "PolicyVersionsInUse"
-  | "PolicyVersionsInUseQuota"
-  | "VersionsPerPolicyQuota"
-  | "GlobalEndpointTokenVersion"
-  | "AssumeRolePolicySizeQuota"
-  | "InstanceProfiles"
-  | "InstanceProfilesQuota"
-  | "Providers"
-  | "RolePolicySizeQuota"
-  | "Roles"
-  | "RolesQuota";
+export type summaryKeyType = "Users" | "UsersQuota" | "Groups" | "GroupsQuota" | "ServerCertificates" | "ServerCertificatesQuota" | "UserPolicySizeQuota" | "GroupPolicySizeQuota" | "GroupsPerUserQuota" | "SigningCertificatesPerUserQuota" | "AccessKeysPerUserQuota" | "MFADevices" | "MFADevicesInUse" | "AccountMFAEnabled" | "AccountAccessKeysPresent" | "AccountPasswordPresent" | "AccountSigningCertificatesPresent" | "AttachedPoliciesPerGroupQuota" | "AttachedPoliciesPerRoleQuota" | "AttachedPoliciesPerUserQuota" | "Policies" | "PoliciesQuota" | "PolicySizeQuota" | "PolicyVersionsInUse" | "PolicyVersionsInUseQuota" | "VersionsPerPolicyQuota" | "GlobalEndpointTokenVersion" | "AssumeRolePolicySizeQuota" | "InstanceProfiles" | "InstanceProfilesQuota" | "Providers" | "RolePolicySizeQuota" | "Roles" | "RolesQuota";
 export type summaryMapType = Record<summaryKeyType, number>;
 export type summaryValueType = number;
 
@@ -3331,7 +2824,8 @@ export interface UpdateRoleRequest {
   Description?: string;
   MaxSessionDuration?: number;
 }
-export interface UpdateRoleResponse {}
+export interface UpdateRoleResponse {
+}
 export interface UpdateSAMLProviderRequest {
   SAMLMetadataDocument?: string;
   SAMLProviderArn: string;
@@ -3872,7 +3366,9 @@ export declare namespace DeleteServiceLinkedRole {
 export declare namespace DeleteServiceSpecificCredential {
   export type Input = DeleteServiceSpecificCredentialRequest;
   export type Output = {};
-  export type Error = NoSuchEntityException | CommonAwsError;
+  export type Error =
+    | NoSuchEntityException
+    | CommonAwsError;
 }
 
 export declare namespace DeleteSigningCertificate {
@@ -3889,7 +3385,9 @@ export declare namespace DeleteSigningCertificate {
 export declare namespace DeleteSSHPublicKey {
   export type Input = DeleteSSHPublicKeyRequest;
   export type Output = {};
-  export type Error = NoSuchEntityException | CommonAwsError;
+  export type Error =
+    | NoSuchEntityException
+    | CommonAwsError;
 }
 
 export declare namespace DeleteUser {
@@ -4041,7 +3539,9 @@ export declare namespace GenerateCredentialReport {
 export declare namespace GenerateOrganizationsAccessReport {
   export type Input = GenerateOrganizationsAccessReportRequest;
   export type Output = GenerateOrganizationsAccessReportResponse;
-  export type Error = ReportGenerationLimitExceededException | CommonAwsError;
+  export type Error =
+    | ReportGenerationLimitExceededException
+    | CommonAwsError;
 }
 
 export declare namespace GenerateServiceLastAccessedDetails {
@@ -4056,13 +3556,16 @@ export declare namespace GenerateServiceLastAccessedDetails {
 export declare namespace GetAccessKeyLastUsed {
   export type Input = GetAccessKeyLastUsedRequest;
   export type Output = GetAccessKeyLastUsedResponse;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetAccountAuthorizationDetails {
   export type Input = GetAccountAuthorizationDetailsRequest;
   export type Output = GetAccountAuthorizationDetailsResponse;
-  export type Error = ServiceFailureException | CommonAwsError;
+  export type Error =
+    | ServiceFailureException
+    | CommonAwsError;
 }
 
 export declare namespace GetAccountPasswordPolicy {
@@ -4077,13 +3580,17 @@ export declare namespace GetAccountPasswordPolicy {
 export declare namespace GetAccountSummary {
   export type Input = {};
   export type Output = GetAccountSummaryResponse;
-  export type Error = ServiceFailureException | CommonAwsError;
+  export type Error =
+    | ServiceFailureException
+    | CommonAwsError;
 }
 
 export declare namespace GetContextKeysForCustomPolicy {
   export type Input = GetContextKeysForCustomPolicyRequest;
   export type Output = GetContextKeysForPolicyResponse;
-  export type Error = InvalidInputException | CommonAwsError;
+  export type Error =
+    | InvalidInputException
+    | CommonAwsError;
 }
 
 export declare namespace GetContextKeysForPrincipalPolicy {
@@ -4164,7 +3671,9 @@ export declare namespace GetOpenIDConnectProvider {
 export declare namespace GetOrganizationsAccessReport {
   export type Input = GetOrganizationsAccessReportRequest;
   export type Output = GetOrganizationsAccessReportResponse;
-  export type Error = NoSuchEntityException | CommonAwsError;
+  export type Error =
+    | NoSuchEntityException
+    | CommonAwsError;
 }
 
 export declare namespace GetPolicy {
@@ -4294,7 +3803,9 @@ export declare namespace ListAccessKeys {
 export declare namespace ListAccountAliases {
   export type Input = ListAccountAliasesRequest;
   export type Output = ListAccountAliasesResponse;
-  export type Error = ServiceFailureException | CommonAwsError;
+  export type Error =
+    | ServiceFailureException
+    | CommonAwsError;
 }
 
 export declare namespace ListAttachedGroupPolicies {
@@ -4349,7 +3860,9 @@ export declare namespace ListGroupPolicies {
 export declare namespace ListGroups {
   export type Input = ListGroupsRequest;
   export type Output = ListGroupsResponse;
-  export type Error = ServiceFailureException | CommonAwsError;
+  export type Error =
+    | ServiceFailureException
+    | CommonAwsError;
 }
 
 export declare namespace ListGroupsForUser {
@@ -4364,7 +3877,9 @@ export declare namespace ListGroupsForUser {
 export declare namespace ListInstanceProfiles {
   export type Input = ListInstanceProfilesRequest;
   export type Output = ListInstanceProfilesResponse;
-  export type Error = ServiceFailureException | CommonAwsError;
+  export type Error =
+    | ServiceFailureException
+    | CommonAwsError;
 }
 
 export declare namespace ListInstanceProfilesForRole {
@@ -4407,7 +3922,9 @@ export declare namespace ListMFADeviceTags {
 export declare namespace ListOpenIDConnectProviders {
   export type Input = ListOpenIDConnectProvidersRequest;
   export type Output = ListOpenIDConnectProvidersResponse;
-  export type Error = ServiceFailureException | CommonAwsError;
+  export type Error =
+    | ServiceFailureException
+    | CommonAwsError;
 }
 
 export declare namespace ListOpenIDConnectProviderTags {
@@ -4434,7 +3951,9 @@ export declare namespace ListOrganizationsFeatures {
 export declare namespace ListPolicies {
   export type Input = ListPoliciesRequest;
   export type Output = ListPoliciesResponse;
-  export type Error = ServiceFailureException | CommonAwsError;
+  export type Error =
+    | ServiceFailureException
+    | CommonAwsError;
 }
 
 export declare namespace ListPoliciesGrantingServiceAccess {
@@ -4478,7 +3997,9 @@ export declare namespace ListRolePolicies {
 export declare namespace ListRoles {
   export type Input = ListRolesRequest;
   export type Output = ListRolesResponse;
-  export type Error = ServiceFailureException | CommonAwsError;
+  export type Error =
+    | ServiceFailureException
+    | CommonAwsError;
 }
 
 export declare namespace ListRoleTags {
@@ -4493,7 +4014,9 @@ export declare namespace ListRoleTags {
 export declare namespace ListSAMLProviders {
   export type Input = ListSAMLProvidersRequest;
   export type Output = ListSAMLProvidersResponse;
-  export type Error = ServiceFailureException | CommonAwsError;
+  export type Error =
+    | ServiceFailureException
+    | CommonAwsError;
 }
 
 export declare namespace ListSAMLProviderTags {
@@ -4509,7 +4032,9 @@ export declare namespace ListSAMLProviderTags {
 export declare namespace ListServerCertificates {
   export type Input = ListServerCertificatesRequest;
   export type Output = ListServerCertificatesResponse;
-  export type Error = ServiceFailureException | CommonAwsError;
+  export type Error =
+    | ServiceFailureException
+    | CommonAwsError;
 }
 
 export declare namespace ListServerCertificateTags {
@@ -4542,7 +4067,9 @@ export declare namespace ListSigningCertificates {
 export declare namespace ListSSHPublicKeys {
   export type Input = ListSSHPublicKeysRequest;
   export type Output = ListSSHPublicKeysResponse;
-  export type Error = NoSuchEntityException | CommonAwsError;
+  export type Error =
+    | NoSuchEntityException
+    | CommonAwsError;
 }
 
 export declare namespace ListUserPolicies {
@@ -4557,7 +4084,9 @@ export declare namespace ListUserPolicies {
 export declare namespace ListUsers {
   export type Input = ListUsersRequest;
   export type Output = ListUsersResponse;
-  export type Error = ServiceFailureException | CommonAwsError;
+  export type Error =
+    | ServiceFailureException
+    | CommonAwsError;
 }
 
 export declare namespace ListUserTags {
@@ -4572,7 +4101,8 @@ export declare namespace ListUserTags {
 export declare namespace ListVirtualMFADevices {
   export type Input = ListVirtualMFADevicesRequest;
   export type Output = ListVirtualMFADevicesResponse;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace PutGroupPolicy {
@@ -4667,7 +4197,9 @@ export declare namespace RemoveUserFromGroup {
 export declare namespace ResetServiceSpecificCredential {
   export type Input = ResetServiceSpecificCredentialRequest;
   export type Output = ResetServiceSpecificCredentialResponse;
-  export type Error = NoSuchEntityException | CommonAwsError;
+  export type Error =
+    | NoSuchEntityException
+    | CommonAwsError;
 }
 
 export declare namespace ResyncMFADevice {
@@ -4696,7 +4228,9 @@ export declare namespace SetDefaultPolicyVersion {
 export declare namespace SetSecurityTokenServicePreferences {
   export type Input = SetSecurityTokenServicePreferencesRequest;
   export type Output = {};
-  export type Error = ServiceFailureException | CommonAwsError;
+  export type Error =
+    | ServiceFailureException
+    | CommonAwsError;
 }
 
 export declare namespace SimulateCustomPolicy {
@@ -5014,7 +4548,9 @@ export declare namespace UpdateServerCertificate {
 export declare namespace UpdateServiceSpecificCredential {
   export type Input = UpdateServiceSpecificCredentialRequest;
   export type Output = {};
-  export type Error = NoSuchEntityException | CommonAwsError;
+  export type Error =
+    | NoSuchEntityException
+    | CommonAwsError;
 }
 
 export declare namespace UpdateSigningCertificate {
@@ -5091,39 +4627,5 @@ export declare namespace UploadSSHPublicKey {
     | CommonAwsError;
 }
 
-export type IAMErrors =
-  | AccountNotManagementOrDelegatedAdministratorException
-  | CallerIsNotManagementAccountException
-  | ConcurrentModificationException
-  | CredentialReportExpiredException
-  | CredentialReportNotPresentException
-  | CredentialReportNotReadyException
-  | DeleteConflictException
-  | DuplicateCertificateException
-  | DuplicateSSHPublicKeyException
-  | EntityAlreadyExistsException
-  | EntityTemporarilyUnmodifiableException
-  | InvalidAuthenticationCodeException
-  | InvalidCertificateException
-  | InvalidInputException
-  | InvalidPublicKeyException
-  | InvalidUserTypeException
-  | KeyPairMismatchException
-  | LimitExceededException
-  | MalformedCertificateException
-  | MalformedPolicyDocumentException
-  | NoSuchEntityException
-  | OpenIdIdpCommunicationErrorException
-  | OrganizationNotFoundException
-  | OrganizationNotInAllFeaturesModeException
-  | PasswordPolicyViolationException
-  | PolicyEvaluationException
-  | PolicyNotAttachableException
-  | ReportGenerationLimitExceededException
-  | ServiceAccessNotEnabledException
-  | ServiceFailureException
-  | ServiceNotSupportedException
-  | UnmodifiableEntityException
-  | UnrecognizedPublicKeyEncodingException
-  | NoSuchEntity
-  | CommonAwsError;
+export type IAMErrors = AccountNotManagementOrDelegatedAdministratorException | CallerIsNotManagementAccountException | ConcurrentModificationException | CredentialReportExpiredException | CredentialReportNotPresentException | CredentialReportNotReadyException | DeleteConflictException | DuplicateCertificateException | DuplicateSSHPublicKeyException | EntityAlreadyExistsException | EntityTemporarilyUnmodifiableException | InvalidAuthenticationCodeException | InvalidCertificateException | InvalidInputException | InvalidPublicKeyException | InvalidUserTypeException | KeyPairMismatchException | LimitExceededException | MalformedCertificateException | MalformedPolicyDocumentException | NoSuchEntityException | OpenIdIdpCommunicationErrorException | OrganizationNotFoundException | OrganizationNotInAllFeaturesModeException | PasswordPolicyViolationException | PolicyEvaluationException | PolicyNotAttachableException | ReportGenerationLimitExceededException | ServiceAccessNotEnabledException | ServiceFailureException | ServiceNotSupportedException | UnmodifiableEntityException | UnrecognizedPublicKeyEncodingException | NoSuchEntity | CommonAwsError;
+

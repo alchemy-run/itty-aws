@@ -1,38 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-} from "../../error.ts";
-type CommonAwsError =
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | AccessDeniedException
-  | ThrottlingException
-  | ValidationException;
+import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
+type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class SSMQuickSetup extends AWSServiceClient {
@@ -40,157 +8,85 @@ export declare class SSMQuickSetup extends AWSServiceClient {
     input: CreateConfigurationManagerInput,
   ): Effect.Effect<
     CreateConfigurationManagerOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteConfigurationManager(
     input: DeleteConfigurationManagerInput,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getConfiguration(
     input: GetConfigurationInput,
   ): Effect.Effect<
     GetConfigurationOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getConfigurationManager(
     input: GetConfigurationManagerInput,
   ): Effect.Effect<
     GetConfigurationManagerOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
-  getServiceSettings(input: {}): Effect.Effect<
+  getServiceSettings(
+    input: {},
+  ): Effect.Effect<
     GetServiceSettingsOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | CommonAwsError
   >;
   listConfigurationManagers(
     input: ListConfigurationManagersInput,
   ): Effect.Effect<
     ListConfigurationManagersOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listConfigurations(
     input: ListConfigurationsInput,
   ): Effect.Effect<
     ListConfigurationsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
-  listQuickSetupTypes(input: {}): Effect.Effect<
+  listQuickSetupTypes(
+    input: {},
+  ): Effect.Effect<
     ListQuickSetupTypesOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   tagResource(
     input: TagResourceInput,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceInput,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateConfigurationDefinition(
     input: UpdateConfigurationDefinitionInput,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateConfigurationManager(
     input: UpdateConfigurationManagerInput,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateServiceSettings(
     input: UpdateServiceSettingsInput,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
 }
 
@@ -216,11 +112,9 @@ export interface ConfigurationDefinitionInput {
   LocalDeploymentExecutionRoleName?: string;
   LocalDeploymentAdministrationRoleArn?: string;
 }
-export type ConfigurationDefinitionsInputList =
-  Array<ConfigurationDefinitionInput>;
+export type ConfigurationDefinitionsInputList = Array<ConfigurationDefinitionInput>;
 export type ConfigurationDefinitionsList = Array<ConfigurationDefinition>;
-export type ConfigurationDefinitionSummariesList =
-  Array<ConfigurationDefinitionSummary>;
+export type ConfigurationDefinitionSummariesList = Array<ConfigurationDefinitionSummary>;
 export interface ConfigurationDefinitionSummary {
   Id?: string;
   Type?: string;
@@ -353,17 +247,7 @@ export declare class ResourceNotFoundException extends EffectData.TaggedError(
 export interface ServiceSettings {
   ExplorerEnablingRoleArn?: string;
 }
-export type Status =
-  | "INITIALIZING"
-  | "DEPLOYING"
-  | "SUCCEEDED"
-  | "DELETING"
-  | "STOPPING"
-  | "FAILED"
-  | "STOPPED"
-  | "DELETE_FAILED"
-  | "STOP_FAILED"
-  | "NONE";
+export type Status = "INITIALIZING" | "DEPLOYING" | "SUCCEEDED" | "DELETING" | "STOPPING" | "FAILED" | "STOPPED" | "DELETE_FAILED" | "STOP_FAILED" | "NONE";
 export type StatusDetails = Record<string, string>;
 export type StatusSummariesList = Array<StatusSummary>;
 export interface StatusSummary {
@@ -589,11 +473,5 @@ export declare namespace UpdateServiceSettings {
     | CommonAwsError;
 }
 
-export type SSMQuickSetupErrors =
-  | AccessDeniedException
-  | ConflictException
-  | InternalServerException
-  | ResourceNotFoundException
-  | ThrottlingException
-  | ValidationException
-  | CommonAwsError;
+export type SSMQuickSetupErrors = AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError;
+

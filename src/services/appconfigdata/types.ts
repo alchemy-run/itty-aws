@@ -1,40 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  AccessDeniedException,
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-  ValidationException,
-} from "../../error.ts";
-type CommonAwsError =
-  | AccessDeniedException
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | ValidationException
-  | ThrottlingException;
+import type { AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException } from "../../error.ts";
+type CommonAwsError = AccessDeniedException | ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | ValidationException | ThrottlingException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class AppConfigData extends AWSServiceClient {
@@ -42,21 +8,13 @@ export declare class AppConfigData extends AWSServiceClient {
     input: GetLatestConfigurationRequest,
   ): Effect.Effect<
     GetLatestConfigurationResponse,
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   startConfigurationSession(
     input: StartConfigurationSessionRequest,
   ): Effect.Effect<
     StartConfigurationSessionResponse,
-    | BadRequestException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
 }
 
@@ -66,9 +24,7 @@ interface _BadRequestDetails {
   InvalidParameters?: Record<string, InvalidParameterDetail>;
 }
 
-export type BadRequestDetails = _BadRequestDetails & {
-  InvalidParameters: Record<string, InvalidParameterDetail>;
-};
+export type BadRequestDetails = (_BadRequestDetails & { InvalidParameters: Record<string, InvalidParameterDetail> });
 export declare class BadRequestException extends EffectData.TaggedError(
   "BadRequestException",
 )<{
@@ -159,9 +115,5 @@ export declare namespace StartConfigurationSession {
     | CommonAwsError;
 }
 
-export type AppConfigDataErrors =
-  | BadRequestException
-  | InternalServerException
-  | ResourceNotFoundException
-  | ThrottlingException
-  | CommonAwsError;
+export type AppConfigDataErrors = BadRequestException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError;
+

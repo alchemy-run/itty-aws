@@ -1,38 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-} from "../../error.ts";
-type CommonAwsError =
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | AccessDeniedException
-  | ThrottlingException
-  | ValidationException;
+import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
+type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class QBusiness extends AWSServiceClient {
@@ -40,989 +8,499 @@ export declare class QBusiness extends AWSServiceClient {
     input: AssociatePermissionRequest,
   ): Effect.Effect<
     AssociatePermissionResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   batchDeleteDocument(
     input: BatchDeleteDocumentRequest,
   ): Effect.Effect<
     BatchDeleteDocumentResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   batchPutDocument(
     input: BatchPutDocumentRequest,
   ): Effect.Effect<
     BatchPutDocumentResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   cancelSubscription(
     input: CancelSubscriptionRequest,
   ): Effect.Effect<
     CancelSubscriptionResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   chat(
     input: ChatInput,
   ): Effect.Effect<
     ChatOutput,
-    | AccessDeniedException
-    | ConflictException
-    | ExternalResourceException
-    | InternalServerException
-    | LicenseNotFoundException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | ExternalResourceException | InternalServerException | LicenseNotFoundException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   chatSync(
     input: ChatSyncInput,
   ): Effect.Effect<
     ChatSyncOutput,
-    | AccessDeniedException
-    | ConflictException
-    | ExternalResourceException
-    | InternalServerException
-    | LicenseNotFoundException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | ExternalResourceException | InternalServerException | LicenseNotFoundException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   checkDocumentAccess(
     input: CheckDocumentAccessRequest,
   ): Effect.Effect<
     CheckDocumentAccessResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createAnonymousWebExperienceUrl(
     input: CreateAnonymousWebExperienceUrlRequest,
   ): Effect.Effect<
     CreateAnonymousWebExperienceUrlResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createChatResponseConfiguration(
     input: CreateChatResponseConfigurationRequest,
   ): Effect.Effect<
     CreateChatResponseConfigurationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createSubscription(
     input: CreateSubscriptionRequest,
   ): Effect.Effect<
     CreateSubscriptionResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createUser(
     input: CreateUserRequest,
   ): Effect.Effect<
     CreateUserResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteAttachment(
     input: DeleteAttachmentRequest,
   ): Effect.Effect<
     DeleteAttachmentResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | LicenseNotFoundException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | LicenseNotFoundException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteChatControlsConfiguration(
     input: DeleteChatControlsConfigurationRequest,
   ): Effect.Effect<
     DeleteChatControlsConfigurationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteChatResponseConfiguration(
     input: DeleteChatResponseConfigurationRequest,
   ): Effect.Effect<
     DeleteChatResponseConfigurationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteConversation(
     input: DeleteConversationRequest,
   ): Effect.Effect<
     DeleteConversationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | LicenseNotFoundException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | LicenseNotFoundException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteGroup(
     input: DeleteGroupRequest,
   ): Effect.Effect<
     DeleteGroupResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteUser(
     input: DeleteUserRequest,
   ): Effect.Effect<
     DeleteUserResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   disassociatePermission(
     input: DisassociatePermissionRequest,
   ): Effect.Effect<
     DisassociatePermissionResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getChatControlsConfiguration(
     input: GetChatControlsConfigurationRequest,
   ): Effect.Effect<
     GetChatControlsConfigurationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getChatResponseConfiguration(
     input: GetChatResponseConfigurationRequest,
   ): Effect.Effect<
     GetChatResponseConfigurationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getDocumentContent(
     input: GetDocumentContentRequest,
   ): Effect.Effect<
     GetDocumentContentResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getGroup(
     input: GetGroupRequest,
   ): Effect.Effect<
     GetGroupResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getMedia(
     input: GetMediaRequest,
   ): Effect.Effect<
     GetMediaResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | LicenseNotFoundException
-    | MediaTooLargeException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | LicenseNotFoundException | MediaTooLargeException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getPolicy(
     input: GetPolicyRequest,
   ): Effect.Effect<
     GetPolicyResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getUser(
     input: GetUserRequest,
   ): Effect.Effect<
     GetUserResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listAttachments(
     input: ListAttachmentsRequest,
   ): Effect.Effect<
     ListAttachmentsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | LicenseNotFoundException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | LicenseNotFoundException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listChatResponseConfigurations(
     input: ListChatResponseConfigurationsRequest,
   ): Effect.Effect<
     ListChatResponseConfigurationsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listConversations(
     input: ListConversationsRequest,
   ): Effect.Effect<
     ListConversationsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | LicenseNotFoundException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | LicenseNotFoundException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listDataSourceSyncJobs(
     input: ListDataSourceSyncJobsRequest,
   ): Effect.Effect<
     ListDataSourceSyncJobsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listDocuments(
     input: ListDocumentsRequest,
   ): Effect.Effect<
     ListDocumentsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listGroups(
     input: ListGroupsRequest,
   ): Effect.Effect<
     ListGroupsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listMessages(
     input: ListMessagesRequest,
   ): Effect.Effect<
     ListMessagesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | LicenseNotFoundException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | LicenseNotFoundException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listPluginActions(
     input: ListPluginActionsRequest,
   ): Effect.Effect<
     ListPluginActionsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listPluginTypeActions(
     input: ListPluginTypeActionsRequest,
   ): Effect.Effect<
     ListPluginTypeActionsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listPluginTypeMetadata(
     input: ListPluginTypeMetadataRequest,
   ): Effect.Effect<
     ListPluginTypeMetadataResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listSubscriptions(
     input: ListSubscriptionsRequest,
   ): Effect.Effect<
     ListSubscriptionsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   putFeedback(
     input: PutFeedbackRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   putGroup(
     input: PutGroupRequest,
   ): Effect.Effect<
     PutGroupResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   searchRelevantContent(
     input: SearchRelevantContentRequest,
   ): Effect.Effect<
     SearchRelevantContentResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | LicenseNotFoundException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | LicenseNotFoundException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   startDataSourceSyncJob(
     input: StartDataSourceSyncJobRequest,
   ): Effect.Effect<
     StartDataSourceSyncJobResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   stopDataSourceSyncJob(
     input: StopDataSourceSyncJobRequest,
   ): Effect.Effect<
     StopDataSourceSyncJobResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateChatControlsConfiguration(
     input: UpdateChatControlsConfigurationRequest,
   ): Effect.Effect<
     UpdateChatControlsConfigurationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateChatResponseConfiguration(
     input: UpdateChatResponseConfigurationRequest,
   ): Effect.Effect<
     UpdateChatResponseConfigurationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateSubscription(
     input: UpdateSubscriptionRequest,
   ): Effect.Effect<
     UpdateSubscriptionResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateUser(
     input: UpdateUserRequest,
   ): Effect.Effect<
     UpdateUserResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createApplication(
     input: CreateApplicationRequest,
   ): Effect.Effect<
     CreateApplicationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createDataAccessor(
     input: CreateDataAccessorRequest,
   ): Effect.Effect<
     CreateDataAccessorResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createDataSource(
     input: CreateDataSourceRequest,
   ): Effect.Effect<
     CreateDataSourceResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createIndex(
     input: CreateIndexRequest,
   ): Effect.Effect<
     CreateIndexResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createPlugin(
     input: CreatePluginRequest,
   ): Effect.Effect<
     CreatePluginResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createRetriever(
     input: CreateRetrieverRequest,
   ): Effect.Effect<
     CreateRetrieverResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createWebExperience(
     input: CreateWebExperienceRequest,
   ): Effect.Effect<
     CreateWebExperienceResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteApplication(
     input: DeleteApplicationRequest,
   ): Effect.Effect<
     DeleteApplicationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteDataAccessor(
     input: DeleteDataAccessorRequest,
   ): Effect.Effect<
     DeleteDataAccessorResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteDataSource(
     input: DeleteDataSourceRequest,
   ): Effect.Effect<
     DeleteDataSourceResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteIndex(
     input: DeleteIndexRequest,
   ): Effect.Effect<
     DeleteIndexResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deletePlugin(
     input: DeletePluginRequest,
   ): Effect.Effect<
     DeletePluginResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteRetriever(
     input: DeleteRetrieverRequest,
   ): Effect.Effect<
     DeleteRetrieverResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteWebExperience(
     input: DeleteWebExperienceRequest,
   ): Effect.Effect<
     DeleteWebExperienceResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getApplication(
     input: GetApplicationRequest,
   ): Effect.Effect<
     GetApplicationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getDataAccessor(
     input: GetDataAccessorRequest,
   ): Effect.Effect<
     GetDataAccessorResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getDataSource(
     input: GetDataSourceRequest,
   ): Effect.Effect<
     GetDataSourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getIndex(
     input: GetIndexRequest,
   ): Effect.Effect<
     GetIndexResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getPlugin(
     input: GetPluginRequest,
   ): Effect.Effect<
     GetPluginResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getRetriever(
     input: GetRetrieverRequest,
   ): Effect.Effect<
     GetRetrieverResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getWebExperience(
     input: GetWebExperienceRequest,
   ): Effect.Effect<
     GetWebExperienceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listApplications(
     input: ListApplicationsRequest,
   ): Effect.Effect<
     ListApplicationsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listDataAccessors(
     input: ListDataAccessorsRequest,
   ): Effect.Effect<
     ListDataAccessorsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listDataSources(
     input: ListDataSourcesRequest,
   ): Effect.Effect<
     ListDataSourcesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listIndices(
     input: ListIndicesRequest,
   ): Effect.Effect<
     ListIndicesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listPlugins(
     input: ListPluginsRequest,
   ): Effect.Effect<
     ListPluginsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listRetrievers(
     input: ListRetrieversRequest,
   ): Effect.Effect<
     ListRetrieversResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listWebExperiences(
     input: ListWebExperiencesRequest,
   ): Effect.Effect<
     ListWebExperiencesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateApplication(
     input: UpdateApplicationRequest,
   ): Effect.Effect<
     UpdateApplicationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateDataAccessor(
     input: UpdateDataAccessorRequest,
   ): Effect.Effect<
     UpdateDataAccessorResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateDataSource(
     input: UpdateDataSourceRequest,
   ): Effect.Effect<
     UpdateDataSourceResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateIndex(
     input: UpdateIndexRequest,
   ): Effect.Effect<
     UpdateIndexResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updatePlugin(
     input: UpdatePluginRequest,
   ): Effect.Effect<
     UpdatePluginResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateRetriever(
     input: UpdateRetrieverRequest,
   ): Effect.Effect<
     UpdateRetrieverResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateWebExperience(
     input: UpdateWebExperienceRequest,
   ): Effect.Effect<
     UpdateWebExperienceResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
 }
 
@@ -1057,10 +535,7 @@ export interface ActionExecutionEvent {
   payload: Record<string, ActionExecutionPayloadField>;
   payloadFieldNameSeparator: string;
 }
-export type ActionExecutionPayload = Record<
-  string,
-  ActionExecutionPayloadField
->;
+export type ActionExecutionPayload = Record<string, ActionExecutionPayloadField>;
 export interface ActionExecutionPayloadField {
   value: unknown;
 }
@@ -1105,8 +580,7 @@ export interface ActionReviewPayloadFieldAllowedValue {
   value?: unknown;
   displayValue?: unknown;
 }
-export type ActionReviewPayloadFieldAllowedValues =
-  Array<ActionReviewPayloadFieldAllowedValue>;
+export type ActionReviewPayloadFieldAllowedValues = Array<ActionReviewPayloadFieldAllowedValue>;
 export type ActionReviewPayloadFieldArrayItemJsonSchema = unknown;
 
 export type Actions = Array<ActionSummary>;
@@ -1123,9 +597,7 @@ interface _APISchema {
   s3?: S3;
 }
 
-export type APISchema =
-  | (_APISchema & { payload: string })
-  | (_APISchema & { s3: S3 });
+export type APISchema = (_APISchema & { payload: string }) | (_APISchema & { s3: S3 });
 export type APISchemaType = "OPEN_API_V3";
 export interface Application {
   displayName?: string;
@@ -1143,12 +615,7 @@ export type ApplicationId = string;
 export type ApplicationName = string;
 
 export type Applications = Array<Application>;
-export type ApplicationStatus =
-  | "CREATING"
-  | "ACTIVE"
-  | "DELETING"
-  | "FAILED"
-  | "UPDATING";
+export type ApplicationStatus = "CREATING" | "ACTIVE" | "DELETING" | "FAILED" | "UPDATING";
 export interface AppliedAttachmentsConfiguration {
   attachmentsControlMode?: AttachmentsControlMode;
 }
@@ -1338,23 +805,13 @@ interface _ChatInputStream {
   authChallengeResponseEvent?: AuthChallengeResponseEvent;
 }
 
-export type ChatInputStream =
-  | (_ChatInputStream & { configurationEvent: ConfigurationEvent })
-  | (_ChatInputStream & { textEvent: TextInputEvent })
-  | (_ChatInputStream & { attachmentEvent: AttachmentInputEvent })
-  | (_ChatInputStream & { actionExecutionEvent: ActionExecutionEvent })
-  | (_ChatInputStream & { endOfInputEvent: EndOfInputEvent })
-  | (_ChatInputStream & {
-      authChallengeResponseEvent: AuthChallengeResponseEvent;
-    });
+export type ChatInputStream = (_ChatInputStream & { configurationEvent: ConfigurationEvent }) | (_ChatInputStream & { textEvent: TextInputEvent }) | (_ChatInputStream & { attachmentEvent: AttachmentInputEvent }) | (_ChatInputStream & { actionExecutionEvent: ActionExecutionEvent }) | (_ChatInputStream & { endOfInputEvent: EndOfInputEvent }) | (_ChatInputStream & { authChallengeResponseEvent: AuthChallengeResponseEvent });
 export type ChatMode = "RETRIEVAL_MODE" | "CREATOR_MODE" | "PLUGIN_MODE";
 interface _ChatModeConfiguration {
   pluginConfiguration?: PluginConfiguration;
 }
 
-export type ChatModeConfiguration = _ChatModeConfiguration & {
-  pluginConfiguration: PluginConfiguration;
-};
+export type ChatModeConfiguration = (_ChatModeConfiguration & { pluginConfiguration: PluginConfiguration });
 export interface ChatOutput {
   outputStream?: ChatOutputStream;
 }
@@ -1366,14 +823,7 @@ interface _ChatOutputStream {
   authChallengeRequestEvent?: AuthChallengeRequestEvent;
 }
 
-export type ChatOutputStream =
-  | (_ChatOutputStream & { textEvent: TextOutputEvent })
-  | (_ChatOutputStream & { metadataEvent: MetadataEvent })
-  | (_ChatOutputStream & { actionReviewEvent: ActionReviewEvent })
-  | (_ChatOutputStream & { failedAttachmentEvent: FailedAttachmentEvent })
-  | (_ChatOutputStream & {
-      authChallengeRequestEvent: AuthChallengeRequestEvent;
-    });
+export type ChatOutputStream = (_ChatOutputStream & { textEvent: TextOutputEvent }) | (_ChatOutputStream & { metadataEvent: MetadataEvent }) | (_ChatOutputStream & { actionReviewEvent: ActionReviewEvent }) | (_ChatOutputStream & { failedAttachmentEvent: FailedAttachmentEvent }) | (_ChatOutputStream & { authChallengeRequestEvent: AuthChallengeRequestEvent });
 export interface ChatResponseConfiguration {
   chatResponseConfigurationId: string;
   chatResponseConfigurationArn: string;
@@ -1395,11 +845,7 @@ export interface ChatResponseConfigurationDetail {
 export type ChatResponseConfigurationId = string;
 
 export type ChatResponseConfigurations = Array<ChatResponseConfiguration>;
-export type ChatResponseConfigurationStatus =
-  | "CREATING"
-  | "UPDATING"
-  | "FAILED"
-  | "ACTIVE";
+export type ChatResponseConfigurationStatus = "CREATING" | "UPDATING" | "FAILED" | "ACTIVE";
 export interface ChatSyncInput {
   applicationId: string;
   userId?: string;
@@ -1467,22 +913,8 @@ interface _ContentSource {
   retriever?: RetrieverContentSource;
 }
 
-export type ContentSource = _ContentSource & {
-  retriever: RetrieverContentSource;
-};
-export type ContentType =
-  | "PDF"
-  | "HTML"
-  | "MS_WORD"
-  | "PLAIN_TEXT"
-  | "PPT"
-  | "RTF"
-  | "XML"
-  | "XSLT"
-  | "MS_EXCEL"
-  | "CSV"
-  | "JSON"
-  | "MD";
+export type ContentSource = (_ContentSource & { retriever: RetrieverContentSource });
+export type ContentType = "PDF" | "HTML" | "MS_WORD" | "PLAIN_TEXT" | "PPT" | "RTF" | "XML" | "XSLT" | "MS_EXCEL" | "CSV" | "JSON" | "MD";
 export interface Conversation {
   conversationId?: string;
   title?: string;
@@ -1501,9 +933,7 @@ interface _CopyFromSource {
   conversation?: ConversationSource;
 }
 
-export type CopyFromSource = _CopyFromSource & {
-  conversation: ConversationSource;
-};
+export type CopyFromSource = (_CopyFromSource & { conversation: ConversationSource });
 export interface CreateAnonymousWebExperienceUrlRequest {
   applicationId: string;
   webExperienceId: string;
@@ -1634,7 +1064,8 @@ export interface CreateUserRequest {
   userAliases?: Array<UserAlias>;
   clientToken?: string;
 }
-export interface CreateUserResponse {}
+export interface CreateUserResponse {
+}
 export interface CreateWebExperienceRequest {
   applicationId: string;
   title?: string;
@@ -1686,18 +1117,13 @@ interface _DataAccessorAuthenticationConfiguration {
   idcTrustedTokenIssuerConfiguration?: DataAccessorIdcTrustedTokenIssuerConfiguration;
 }
 
-export type DataAccessorAuthenticationConfiguration =
-  _DataAccessorAuthenticationConfiguration & {
-    idcTrustedTokenIssuerConfiguration: DataAccessorIdcTrustedTokenIssuerConfiguration;
-  };
+export type DataAccessorAuthenticationConfiguration = (_DataAccessorAuthenticationConfiguration & { idcTrustedTokenIssuerConfiguration: DataAccessorIdcTrustedTokenIssuerConfiguration });
 export interface DataAccessorAuthenticationDetail {
   authenticationType: DataAccessorAuthenticationType;
   authenticationConfiguration?: DataAccessorAuthenticationConfiguration;
   externalIds?: Array<string>;
 }
-export type DataAccessorAuthenticationType =
-  | "AWS_IAM_IDC_TTI"
-  | "AWS_IAM_IDC_AUTH_CODE";
+export type DataAccessorAuthenticationType = "AWS_IAM_IDC_TTI" | "AWS_IAM_IDC_AUTH_CODE";
 export type DataAccessorExternalId = string;
 
 export type DataAccessorExternalIds = Array<string>;
@@ -1727,13 +1153,7 @@ export type DataSourceIds = Array<string>;
 export type DataSourceName = string;
 
 export type DataSources = Array<DataSource>;
-export type DataSourceStatus =
-  | "PENDING_CREATION"
-  | "CREATING"
-  | "ACTIVE"
-  | "DELETING"
-  | "FAILED"
-  | "UPDATING";
+export type DataSourceStatus = "PENDING_CREATION" | "CREATING" | "ACTIVE" | "DELETING" | "FAILED" | "UPDATING";
 export interface DataSourceSyncJob {
   executionId?: string;
   startTime?: Date | string;
@@ -1751,14 +1171,7 @@ export interface DataSourceSyncJobMetrics {
   documentsScanned?: string;
 }
 export type DataSourceSyncJobs = Array<DataSourceSyncJob>;
-export type DataSourceSyncJobStatus =
-  | "FAILED"
-  | "SUCCEEDED"
-  | "SYNCING"
-  | "INCOMPLETE"
-  | "STOPPING"
-  | "ABORTED"
-  | "SYNCING_INDEXING";
+export type DataSourceSyncJobStatus = "FAILED" | "SUCCEEDED" | "SYNCING" | "INCOMPLETE" | "STOPPING" | "ABORTED" | "SYNCING_INDEXING";
 export type DataSourceUserId = string;
 
 export interface DataSourceVpcConfiguration {
@@ -1772,40 +1185,47 @@ export interface DateAttributeBoostingConfiguration {
 export interface DeleteApplicationRequest {
   applicationId: string;
 }
-export interface DeleteApplicationResponse {}
+export interface DeleteApplicationResponse {
+}
 export interface DeleteAttachmentRequest {
   applicationId: string;
   conversationId: string;
   attachmentId: string;
   userId?: string;
 }
-export interface DeleteAttachmentResponse {}
+export interface DeleteAttachmentResponse {
+}
 export interface DeleteChatControlsConfigurationRequest {
   applicationId: string;
 }
-export interface DeleteChatControlsConfigurationResponse {}
+export interface DeleteChatControlsConfigurationResponse {
+}
 export interface DeleteChatResponseConfigurationRequest {
   applicationId: string;
   chatResponseConfigurationId: string;
 }
-export interface DeleteChatResponseConfigurationResponse {}
+export interface DeleteChatResponseConfigurationResponse {
+}
 export interface DeleteConversationRequest {
   conversationId: string;
   applicationId: string;
   userId?: string;
 }
-export interface DeleteConversationResponse {}
+export interface DeleteConversationResponse {
+}
 export interface DeleteDataAccessorRequest {
   applicationId: string;
   dataAccessorId: string;
 }
-export interface DeleteDataAccessorResponse {}
+export interface DeleteDataAccessorResponse {
+}
 export interface DeleteDataSourceRequest {
   applicationId: string;
   indexId: string;
   dataSourceId: string;
 }
-export interface DeleteDataSourceResponse {}
+export interface DeleteDataSourceResponse {
+}
 export interface DeleteDocument {
   documentId: string;
 }
@@ -1816,39 +1236,46 @@ export interface DeleteGroupRequest {
   groupName: string;
   dataSourceId?: string;
 }
-export interface DeleteGroupResponse {}
+export interface DeleteGroupResponse {
+}
 export interface DeleteIndexRequest {
   applicationId: string;
   indexId: string;
 }
-export interface DeleteIndexResponse {}
+export interface DeleteIndexResponse {
+}
 export interface DeletePluginRequest {
   applicationId: string;
   pluginId: string;
 }
-export interface DeletePluginResponse {}
+export interface DeletePluginResponse {
+}
 export interface DeleteRetrieverRequest {
   applicationId: string;
   retrieverId: string;
 }
-export interface DeleteRetrieverResponse {}
+export interface DeleteRetrieverResponse {
+}
 export interface DeleteUserRequest {
   applicationId: string;
   userId: string;
 }
-export interface DeleteUserResponse {}
+export interface DeleteUserResponse {
+}
 export interface DeleteWebExperienceRequest {
   applicationId: string;
   webExperienceId: string;
 }
-export interface DeleteWebExperienceResponse {}
+export interface DeleteWebExperienceResponse {
+}
 export type Description = string;
 
 export interface DisassociatePermissionRequest {
   applicationId: string;
   statementId: string;
 }
-export interface DisassociatePermissionResponse {}
+export interface DisassociatePermissionResponse {
+}
 export type DisplayName = string;
 
 export interface Document {
@@ -1896,31 +1323,9 @@ interface _DocumentAttributeBoostingConfiguration {
   stringListConfiguration?: StringListAttributeBoostingConfiguration;
 }
 
-export type DocumentAttributeBoostingConfiguration =
-  | (_DocumentAttributeBoostingConfiguration & {
-      numberConfiguration: NumberAttributeBoostingConfiguration;
-    })
-  | (_DocumentAttributeBoostingConfiguration & {
-      stringConfiguration: StringAttributeBoostingConfiguration;
-    })
-  | (_DocumentAttributeBoostingConfiguration & {
-      dateConfiguration: DateAttributeBoostingConfiguration;
-    })
-  | (_DocumentAttributeBoostingConfiguration & {
-      stringListConfiguration: StringListAttributeBoostingConfiguration;
-    });
-export type DocumentAttributeBoostingLevel =
-  | "NONE"
-  | "LOW"
-  | "MEDIUM"
-  | "HIGH"
-  | "VERY_HIGH"
-  | "ONE"
-  | "TWO";
-export type DocumentAttributeBoostingOverrideMap = Record<
-  string,
-  DocumentAttributeBoostingConfiguration
->;
+export type DocumentAttributeBoostingConfiguration = (_DocumentAttributeBoostingConfiguration & { numberConfiguration: NumberAttributeBoostingConfiguration }) | (_DocumentAttributeBoostingConfiguration & { stringConfiguration: StringAttributeBoostingConfiguration }) | (_DocumentAttributeBoostingConfiguration & { dateConfiguration: DateAttributeBoostingConfiguration }) | (_DocumentAttributeBoostingConfiguration & { stringListConfiguration: StringListAttributeBoostingConfiguration });
+export type DocumentAttributeBoostingLevel = "NONE" | "LOW" | "MEDIUM" | "HIGH" | "VERY_HIGH" | "ONE" | "TWO";
+export type DocumentAttributeBoostingOverrideMap = Record<string, DocumentAttributeBoostingConfiguration>;
 export interface DocumentAttributeCondition {
   key: string;
   operator: DocumentEnrichmentConditionOperator;
@@ -1931,8 +1336,7 @@ export interface DocumentAttributeConfiguration {
   type?: AttributeType;
   search?: Status;
 }
-export type DocumentAttributeConfigurations =
-  Array<DocumentAttributeConfiguration>;
+export type DocumentAttributeConfigurations = Array<DocumentAttributeConfiguration>;
 export type DocumentAttributeKey = string;
 
 export type DocumentAttributes = Array<DocumentAttribute>;
@@ -1951,19 +1355,13 @@ interface _DocumentAttributeValue {
   dateValue?: Date | string;
 }
 
-export type DocumentAttributeValue =
-  | (_DocumentAttributeValue & { stringValue: string })
-  | (_DocumentAttributeValue & { stringListValue: Array<string> })
-  | (_DocumentAttributeValue & { longValue: number })
-  | (_DocumentAttributeValue & { dateValue: Date | string });
+export type DocumentAttributeValue = (_DocumentAttributeValue & { stringValue: string }) | (_DocumentAttributeValue & { stringListValue: Array<string> }) | (_DocumentAttributeValue & { longValue: number }) | (_DocumentAttributeValue & { dateValue: Date | string });
 interface _DocumentContent {
   blob?: Uint8Array | string;
   s3?: S3;
 }
 
-export type DocumentContent =
-  | (_DocumentContent & { blob: Uint8Array | string })
-  | (_DocumentContent & { s3: S3 });
+export type DocumentContent = (_DocumentContent & { blob: Uint8Array | string }) | (_DocumentContent & { s3: S3 });
 export type DocumentContentOperator = "DELETE";
 export type DocumentDetailList = Array<DocumentDetails>;
 export interface DocumentDetails {
@@ -1973,18 +1371,7 @@ export interface DocumentDetails {
   createdAt?: Date | string;
   updatedAt?: Date | string;
 }
-export type DocumentEnrichmentConditionOperator =
-  | "GREATER_THAN"
-  | "GREATER_THAN_OR_EQUALS"
-  | "LESS_THAN"
-  | "LESS_THAN_OR_EQUALS"
-  | "EQUALS"
-  | "NOT_EQUALS"
-  | "CONTAINS"
-  | "NOT_CONTAINS"
-  | "EXISTS"
-  | "NOT_EXISTS"
-  | "BEGINS_WITH";
+export type DocumentEnrichmentConditionOperator = "GREATER_THAN" | "GREATER_THAN_OR_EQUALS" | "LESS_THAN" | "LESS_THAN_OR_EQUALS" | "EQUALS" | "NOT_EQUALS" | "CONTAINS" | "NOT_CONTAINS" | "EXISTS" | "NOT_EXISTS" | "BEGINS_WITH";
 export interface DocumentEnrichmentConfiguration {
   inlineConfigurations?: Array<InlineDocumentEnrichmentConfiguration>;
   preExtractionHookConfiguration?: HookConfiguration;
@@ -1995,15 +1382,7 @@ export type DocumentId = string;
 export type DocumentMetadataConfigurationName = string;
 
 export type Documents = Array<Document>;
-export type DocumentStatus =
-  | "RECEIVED"
-  | "PROCESSING"
-  | "INDEXED"
-  | "UPDATED"
-  | "FAILED"
-  | "DELETING"
-  | "DELETED"
-  | "DOCUMENT_FAILED_TO_INDEX";
+export type DocumentStatus = "RECEIVED" | "PROCESSING" | "INDEXED" | "UPDATED" | "FAILED" | "DELETING" | "DELETED" | "DOCUMENT_FAILED_TO_INDEX";
 export interface EligibleDataSource {
   indexId?: string;
   dataSourceId?: string;
@@ -2012,12 +1391,9 @@ export type EligibleDataSources = Array<EligibleDataSource>;
 export interface EncryptionConfiguration {
   kmsKeyId?: string;
 }
-export interface EndOfInputEvent {}
-export type ErrorCode =
-  | "InternalError"
-  | "InvalidRequest"
-  | "ResourceInactive"
-  | "ResourceNotFound";
+export interface EndOfInputEvent {
+}
+export type ErrorCode = "InternalError" | "InvalidRequest" | "ResourceInactive" | "ResourceNotFound";
 export interface ErrorDetail {
   errorMessage?: string;
   errorCode?: ErrorCode;
@@ -2270,12 +1646,7 @@ export interface GroupMembers {
 }
 export type GroupName = string;
 
-export type GroupStatus =
-  | "FAILED"
-  | "SUCCEEDED"
-  | "PROCESSING"
-  | "DELETING"
-  | "DELETED";
+export type GroupStatus = "FAILED" | "SUCCEEDED" | "PROCESSING" | "DELETING" | "DELETED";
 export interface GroupStatusDetail {
   status?: GroupStatus;
   lastUpdatedAt?: Date | string;
@@ -2311,19 +1682,8 @@ interface _IdentityProviderConfiguration {
   openIDConnectConfiguration?: OpenIDConnectProviderConfiguration;
 }
 
-export type IdentityProviderConfiguration =
-  | (_IdentityProviderConfiguration & {
-      samlConfiguration: SamlProviderConfiguration;
-    })
-  | (_IdentityProviderConfiguration & {
-      openIDConnectConfiguration: OpenIDConnectProviderConfiguration;
-    });
-export type IdentityType =
-  | "AWS_IAM_IDP_SAML"
-  | "AWS_IAM_IDP_OIDC"
-  | "AWS_IAM_IDC"
-  | "AWS_QUICKSIGHT_IDP"
-  | "ANONYMOUS";
+export type IdentityProviderConfiguration = (_IdentityProviderConfiguration & { samlConfiguration: SamlProviderConfiguration }) | (_IdentityProviderConfiguration & { openIDConnectConfiguration: OpenIDConnectProviderConfiguration });
+export type IdentityType = "AWS_IAM_IDP_SAML" | "AWS_IAM_IDP_OIDC" | "AWS_IAM_IDC" | "AWS_QUICKSIGHT_IDP" | "ANONYMOUS";
 export interface ImageExtractionConfiguration {
   imageExtractionStatus: ImageExtractionStatus;
 }
@@ -2357,12 +1717,7 @@ export type IndexName = string;
 export interface IndexStatistics {
   textDocumentStatistics?: TextDocumentStatistics;
 }
-export type IndexStatus =
-  | "CREATING"
-  | "ACTIVE"
-  | "DELETING"
-  | "FAILED"
-  | "UPDATING";
+export type IndexStatus = "CREATING" | "ACTIVE" | "DELETING" | "FAILED" | "UPDATING";
 export type IndexType = "ENTERPRISE" | "STARTER";
 export type Indices = Array<Index>;
 export interface InlineDocumentEnrichmentConfiguration {
@@ -2370,8 +1725,7 @@ export interface InlineDocumentEnrichmentConfiguration {
   target?: DocumentAttributeTarget;
   documentContentOperator?: DocumentContentOperator;
 }
-export type InlineDocumentEnrichmentConfigurations =
-  Array<InlineDocumentEnrichmentConfiguration>;
+export type InlineDocumentEnrichmentConfigurations = Array<InlineDocumentEnrichmentConfiguration>;
 export type InstanceArn = string;
 
 export type Instruction = string;
@@ -2684,19 +2038,7 @@ export interface MessageUsefulnessFeedback {
   comment?: string;
   submittedAt: Date | string;
 }
-export type MessageUsefulnessReason =
-  | "NOT_FACTUALLY_CORRECT"
-  | "HARMFUL_OR_UNSAFE"
-  | "INCORRECT_OR_MISSING_SOURCES"
-  | "NOT_HELPFUL"
-  | "FACTUALLY_CORRECT"
-  | "COMPLETE"
-  | "RELEVANT_SOURCES"
-  | "HELPFUL"
-  | "NOT_BASED_ON_DOCUMENTS"
-  | "NOT_COMPLETE"
-  | "NOT_CONCISE"
-  | "OTHER";
+export type MessageUsefulnessReason = "NOT_FACTUALLY_CORRECT" | "HARMFUL_OR_UNSAFE" | "INCORRECT_OR_MISSING_SOURCES" | "NOT_HELPFUL" | "FACTUALLY_CORRECT" | "COMPLETE" | "RELEVANT_SOURCES" | "HELPFUL" | "NOT_BASED_ON_DOCUMENTS" | "NOT_COMPLETE" | "NOT_CONCISE" | "OTHER";
 export interface MetadataEvent {
   conversationId?: string;
   userMessageId?: string;
@@ -2715,14 +2057,13 @@ export type NextToken = string;
 
 export type NextToken1500 = string;
 
-export interface NoAuthConfiguration {}
+export interface NoAuthConfiguration {
+}
 export interface NumberAttributeBoostingConfiguration {
   boostingLevel: DocumentAttributeBoostingLevel;
   boostingType?: NumberAttributeBoostingType;
 }
-export type NumberAttributeBoostingType =
-  | "PRIORITIZE_LARGER_VALUES"
-  | "PRIORITIZE_SMALLER_VALUES";
+export type NumberAttributeBoostingType = "PRIORITIZE_LARGER_VALUES" | "PRIORITIZE_SMALLER_VALUES";
 export interface OAuth2ClientCredentialConfiguration {
   secretArn: string;
   roleArn: string;
@@ -2777,23 +2118,8 @@ interface _PluginAuthConfiguration {
   idcAuthConfiguration?: IdcAuthConfiguration;
 }
 
-export type PluginAuthConfiguration =
-  | (_PluginAuthConfiguration & {
-      basicAuthConfiguration: BasicAuthConfiguration;
-    })
-  | (_PluginAuthConfiguration & {
-      oAuth2ClientCredentialConfiguration: OAuth2ClientCredentialConfiguration;
-    })
-  | (_PluginAuthConfiguration & { noAuthConfiguration: NoAuthConfiguration })
-  | (_PluginAuthConfiguration & { idcAuthConfiguration: IdcAuthConfiguration });
-export type PluginBuildStatus =
-  | "READY"
-  | "CREATE_IN_PROGRESS"
-  | "CREATE_FAILED"
-  | "UPDATE_IN_PROGRESS"
-  | "UPDATE_FAILED"
-  | "DELETE_IN_PROGRESS"
-  | "DELETE_FAILED";
+export type PluginAuthConfiguration = (_PluginAuthConfiguration & { basicAuthConfiguration: BasicAuthConfiguration }) | (_PluginAuthConfiguration & { oAuth2ClientCredentialConfiguration: OAuth2ClientCredentialConfiguration }) | (_PluginAuthConfiguration & { noAuthConfiguration: NoAuthConfiguration }) | (_PluginAuthConfiguration & { idcAuthConfiguration: IdcAuthConfiguration });
+export type PluginBuildStatus = "READY" | "CREATE_IN_PROGRESS" | "CREATE_FAILED" | "UPDATE_IN_PROGRESS" | "UPDATE_FAILED" | "DELETE_IN_PROGRESS" | "DELETE_FAILED";
 export interface PluginConfiguration {
   pluginId: string;
 }
@@ -2805,30 +2131,8 @@ export type PluginName = string;
 
 export type Plugins = Array<Plugin>;
 export type PluginState = "ENABLED" | "DISABLED";
-export type PluginType =
-  | "SERVICE_NOW"
-  | "SALESFORCE"
-  | "JIRA"
-  | "ZENDESK"
-  | "CUSTOM"
-  | "QUICKSIGHT"
-  | "SERVICENOW_NOW_PLATFORM"
-  | "JIRA_CLOUD"
-  | "SALESFORCE_CRM"
-  | "ZENDESK_SUITE"
-  | "ATLASSIAN_CONFLUENCE"
-  | "GOOGLE_CALENDAR"
-  | "MICROSOFT_TEAMS"
-  | "MICROSOFT_EXCHANGE"
-  | "PAGERDUTY_ADVANCE"
-  | "SMARTSHEET"
-  | "ASANA";
-export type PluginTypeCategory =
-  | "Customer relationship management (CRM)"
-  | "Project management"
-  | "Communication"
-  | "Productivity"
-  | "Ticketing and incident management";
+export type PluginType = "SERVICE_NOW" | "SALESFORCE" | "JIRA" | "ZENDESK" | "CUSTOM" | "QUICKSIGHT" | "SERVICENOW_NOW_PLATFORM" | "JIRA_CLOUD" | "SALESFORCE_CRM" | "ZENDESK_SUITE" | "ATLASSIAN_CONFLUENCE" | "GOOGLE_CALENDAR" | "MICROSOFT_TEAMS" | "MICROSOFT_EXCHANGE" | "PAGERDUTY_ADVANCE" | "SMARTSHEET" | "ASANA";
+export type PluginTypeCategory = "Customer relationship management (CRM)" | "Project management" | "Communication" | "Productivity" | "Ticketing and incident management";
 export interface PluginTypeMetadataSummary {
   type?: PluginType;
   category?: PluginTypeCategory;
@@ -2839,9 +2143,7 @@ interface _Principal {
   group?: PrincipalGroup;
 }
 
-export type Principal =
-  | (_Principal & { user: PrincipalUser })
-  | (_Principal & { group: PrincipalGroup });
+export type Principal = (_Principal & { user: PrincipalUser }) | (_Principal & { group: PrincipalGroup });
 export interface PrincipalGroup {
   name?: string;
   access: ReadAccessType;
@@ -2872,7 +2174,8 @@ export interface PutGroupRequest {
   groupMembers: GroupMembers;
   roleArn?: string;
 }
-export interface PutGroupResponse {}
+export interface PutGroupResponse {
+}
 export interface QAppsConfiguration {
   qAppsControlMode: QAppsControlMode;
 }
@@ -2905,16 +2208,11 @@ export declare class ResourceNotFoundException extends EffectData.TaggedError(
 export interface ResponseConfiguration {
   instructionCollection?: InstructionCollection;
 }
-export type ResponseConfigurations = Record<
-  ResponseConfigurationType,
-  ResponseConfiguration
->;
+export type ResponseConfigurations = Record<ResponseConfigurationType, ResponseConfiguration>;
 export type ResponseConfigurationSummary = string;
 
 export type ResponseConfigurationType = "ALL";
-export type ResponseScope =
-  | "ENTERPRISE_CONTENT_ONLY"
-  | "EXTENDED_KNOWLEDGE_ENABLED";
+export type ResponseScope = "ENTERPRISE_CONTENT_ONLY" | "EXTENDED_KNOWLEDGE_ENABLED";
 export interface Retriever {
   applicationId?: string;
   retrieverId?: string;
@@ -2929,13 +2227,7 @@ interface _RetrieverConfiguration {
   kendraIndexConfiguration?: KendraIndexConfiguration;
 }
 
-export type RetrieverConfiguration =
-  | (_RetrieverConfiguration & {
-      nativeIndexConfiguration: NativeIndexConfiguration;
-    })
-  | (_RetrieverConfiguration & {
-      kendraIndexConfiguration: KendraIndexConfiguration;
-    });
+export type RetrieverConfiguration = (_RetrieverConfiguration & { nativeIndexConfiguration: NativeIndexConfiguration }) | (_RetrieverConfiguration & { kendraIndexConfiguration: KendraIndexConfiguration });
 export interface RetrieverContentSource {
   retrieverId: string;
 }
@@ -2959,9 +2251,7 @@ interface _RuleConfiguration {
   contentRetrievalRule?: ContentRetrievalRule;
 }
 
-export type RuleConfiguration =
-  | (_RuleConfiguration & { contentBlockerRule: ContentBlockerRule })
-  | (_RuleConfiguration & { contentRetrievalRule: ContentRetrievalRule });
+export type RuleConfiguration = (_RuleConfiguration & { contentBlockerRule: ContentBlockerRule }) | (_RuleConfiguration & { contentRetrievalRule: ContentRetrievalRule });
 export type Rules = Array<Rule>;
 export type RuleType = "CONTENT_BLOCKER_RULE" | "CONTENT_RETRIEVAL_RULE";
 export interface S3 {
@@ -2990,12 +2280,7 @@ export interface SamlProviderConfiguration {
 export interface ScoreAttributes {
   scoreConfidence?: ScoreConfidence;
 }
-export type ScoreConfidence =
-  | "VERY_HIGH"
-  | "HIGH"
-  | "MEDIUM"
-  | "LOW"
-  | "NOT_AVAILABLE";
+export type ScoreConfidence = "VERY_HIGH" | "HIGH" | "MEDIUM" | "LOW" | "NOT_AVAILABLE";
 export interface SearchRelevantContentRequest {
   applicationId: string;
   queryText: string;
@@ -3047,10 +2332,7 @@ interface _SourceDetails {
   videoSourceDetails?: VideoSourceDetails;
 }
 
-export type SourceDetails =
-  | (_SourceDetails & { imageSourceDetails: ImageSourceDetails })
-  | (_SourceDetails & { audioSourceDetails: AudioSourceDetails })
-  | (_SourceDetails & { videoSourceDetails: VideoSourceDetails });
+export type SourceDetails = (_SourceDetails & { imageSourceDetails: ImageSourceDetails }) | (_SourceDetails & { audioSourceDetails: AudioSourceDetails }) | (_SourceDetails & { videoSourceDetails: VideoSourceDetails });
 export interface StartDataSourceSyncJobRequest {
   dataSourceId: string;
   applicationId: string;
@@ -3067,27 +2349,16 @@ export interface StopDataSourceSyncJobRequest {
   applicationId: string;
   indexId: string;
 }
-export interface StopDataSourceSyncJobResponse {}
+export interface StopDataSourceSyncJobResponse {
+}
 export type QbusinessString = string;
 
 export interface StringAttributeBoostingConfiguration {
   boostingLevel: DocumentAttributeBoostingLevel;
   attributeValueBoosting?: Record<string, StringAttributeValueBoostingLevel>;
 }
-export type StringAttributeValueBoosting = Record<
-  string,
-  StringAttributeValueBoostingLevel
->;
-export type StringAttributeValueBoostingLevel =
-  | "LOW"
-  | "MEDIUM"
-  | "HIGH"
-  | "VERY_HIGH"
-  | "ONE"
-  | "TWO"
-  | "THREE"
-  | "FOUR"
-  | "FIVE";
+export type StringAttributeValueBoosting = Record<string, StringAttributeValueBoostingLevel>;
+export type StringAttributeValueBoostingLevel = "LOW" | "MEDIUM" | "HIGH" | "VERY_HIGH" | "ONE" | "TWO" | "THREE" | "FOUR" | "FIVE";
 export interface StringListAttributeBoostingConfiguration {
   boostingLevel: DocumentAttributeBoostingLevel;
 }
@@ -3113,9 +2384,7 @@ interface _SubscriptionPrincipal {
   group?: string;
 }
 
-export type SubscriptionPrincipal =
-  | (_SubscriptionPrincipal & { user: string })
-  | (_SubscriptionPrincipal & { group: string });
+export type SubscriptionPrincipal = (_SubscriptionPrincipal & { user: string }) | (_SubscriptionPrincipal & { group: string });
 export type Subscriptions = Array<Subscription>;
 export type SubscriptionType = "Q_LITE" | "Q_BUSINESS";
 export type SyncSchedule = string;
@@ -3136,7 +2405,8 @@ export interface TagResourceRequest {
   resourceARN: string;
   tags: Array<Tag>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type Tags = Array<Tag>;
 export type TagValue = string;
 
@@ -3187,7 +2457,8 @@ export interface UntagResourceRequest {
   resourceARN: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateApplicationRequest {
   applicationId: string;
   identityCenterInstanceArn?: string;
@@ -3199,7 +2470,8 @@ export interface UpdateApplicationRequest {
   personalizationConfiguration?: PersonalizationConfiguration;
   autoSubscriptionConfiguration?: AutoSubscriptionConfiguration;
 }
-export interface UpdateApplicationResponse {}
+export interface UpdateApplicationResponse {
+}
 export interface UpdateChatControlsConfigurationRequest {
   applicationId: string;
   clientToken?: string;
@@ -3211,7 +2483,8 @@ export interface UpdateChatControlsConfigurationRequest {
   creatorModeConfiguration?: CreatorModeConfiguration;
   hallucinationReductionConfiguration?: HallucinationReductionConfiguration;
 }
-export interface UpdateChatControlsConfigurationResponse {}
+export interface UpdateChatControlsConfigurationResponse {
+}
 export interface UpdateChatResponseConfigurationRequest {
   applicationId: string;
   chatResponseConfigurationId: string;
@@ -3219,7 +2492,8 @@ export interface UpdateChatResponseConfigurationRequest {
   responseConfigurations: { [key in ResponseConfigurationType]?: string };
   clientToken?: string;
 }
-export interface UpdateChatResponseConfigurationResponse {}
+export interface UpdateChatResponseConfigurationResponse {
+}
 export interface UpdateDataAccessorRequest {
   applicationId: string;
   dataAccessorId: string;
@@ -3227,7 +2501,8 @@ export interface UpdateDataAccessorRequest {
   authenticationDetail?: DataAccessorAuthenticationDetail;
   displayName?: string;
 }
-export interface UpdateDataAccessorResponse {}
+export interface UpdateDataAccessorResponse {
+}
 export interface UpdateDataSourceRequest {
   applicationId: string;
   indexId: string;
@@ -3241,7 +2516,8 @@ export interface UpdateDataSourceRequest {
   documentEnrichmentConfiguration?: DocumentEnrichmentConfiguration;
   mediaExtractionConfiguration?: MediaExtractionConfiguration;
 }
-export interface UpdateDataSourceResponse {}
+export interface UpdateDataSourceResponse {
+}
 export interface UpdateIndexRequest {
   applicationId: string;
   indexId: string;
@@ -3250,7 +2526,8 @@ export interface UpdateIndexRequest {
   capacityConfiguration?: IndexCapacityConfiguration;
   documentAttributeConfigurations?: Array<DocumentAttributeConfiguration>;
 }
-export interface UpdateIndexResponse {}
+export interface UpdateIndexResponse {
+}
 export interface UpdatePluginRequest {
   applicationId: string;
   pluginId: string;
@@ -3260,7 +2537,8 @@ export interface UpdatePluginRequest {
   customPluginConfiguration?: CustomPluginConfiguration;
   authConfiguration?: PluginAuthConfiguration;
 }
-export interface UpdatePluginResponse {}
+export interface UpdatePluginResponse {
+}
 export interface UpdateRetrieverRequest {
   applicationId: string;
   retrieverId: string;
@@ -3268,7 +2546,8 @@ export interface UpdateRetrieverRequest {
   displayName?: string;
   roleArn?: string;
 }
-export interface UpdateRetrieverResponse {}
+export interface UpdateRetrieverResponse {
+}
 export interface UpdateSubscriptionRequest {
   applicationId: string;
   subscriptionId: string;
@@ -3304,7 +2583,8 @@ export interface UpdateWebExperienceRequest {
   browserExtensionConfiguration?: BrowserExtensionConfiguration;
   customizationConfiguration?: CustomizationConfiguration;
 }
-export interface UpdateWebExperienceResponse {}
+export interface UpdateWebExperienceResponse {
+}
 export type Url = string;
 
 export interface UserAlias {
@@ -3337,10 +2617,7 @@ export interface ValidationExceptionField {
   message: string;
 }
 export type ValidationExceptionFields = Array<ValidationExceptionField>;
-export type ValidationExceptionReason =
-  | "CANNOT_PARSE"
-  | "FIELD_VALIDATION_FAILED"
-  | "UNKNOWN_OPERATION";
+export type ValidationExceptionReason = "CANNOT_PARSE" | "FIELD_VALIDATION_FAILED" | "UNKNOWN_OPERATION";
 export interface VideoExtractionConfiguration {
   videoExtractionStatus: VideoExtractionStatus;
 }
@@ -3366,20 +2643,13 @@ interface _WebExperienceAuthConfiguration {
   samlConfiguration?: SamlConfiguration;
 }
 
-export type WebExperienceAuthConfiguration = _WebExperienceAuthConfiguration & {
-  samlConfiguration: SamlConfiguration;
-};
+export type WebExperienceAuthConfiguration = (_WebExperienceAuthConfiguration & { samlConfiguration: SamlConfiguration });
 export type WebExperienceId = string;
 
 export type WebExperienceOrigins = Array<string>;
 export type WebExperiences = Array<WebExperience>;
 export type WebExperienceSamplePromptsControlMode = "ENABLED" | "DISABLED";
-export type WebExperienceStatus =
-  | "CREATING"
-  | "ACTIVE"
-  | "DELETING"
-  | "FAILED"
-  | "PENDING_AUTH_CONFIG";
+export type WebExperienceStatus = "CREATING" | "ACTIVE" | "DELETING" | "FAILED" | "PENDING_AUTH_CONFIG";
 export type WebExperienceSubtitle = string;
 
 export type WebExperienceTitle = string;
@@ -4457,15 +3727,5 @@ export declare namespace UpdateWebExperience {
     | CommonAwsError;
 }
 
-export type QBusinessErrors =
-  | AccessDeniedException
-  | ConflictException
-  | ExternalResourceException
-  | InternalServerException
-  | LicenseNotFoundException
-  | MediaTooLargeException
-  | ResourceNotFoundException
-  | ServiceQuotaExceededException
-  | ThrottlingException
-  | ValidationException
-  | CommonAwsError;
+export type QBusinessErrors = AccessDeniedException | ConflictException | ExternalResourceException | InternalServerException | LicenseNotFoundException | MediaTooLargeException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError;
+

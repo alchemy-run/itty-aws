@@ -1,40 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  AccessDeniedException,
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  ThrottlingException,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-} from "../../error.ts";
-type CommonAwsError =
-  | AccessDeniedException
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | ThrottlingException
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | ValidationException;
+import type { AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
+type CommonAwsError = AccessDeniedException | ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | ThrottlingException | UnrecognizedClientException | UnknownOperationException | ValidationError | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class CostandUsageReportService extends AWSServiceClient {
@@ -54,10 +20,7 @@ export declare class CostandUsageReportService extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | InternalErrorException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalErrorException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   modifyReportDefinition(
     input: ModifyReportDefinitionRequest,
@@ -69,30 +32,19 @@ export declare class CostandUsageReportService extends AWSServiceClient {
     input: PutReportDefinitionRequest,
   ): Effect.Effect<
     PutReportDefinitionResponse,
-    | DuplicateReportNameException
-    | InternalErrorException
-    | ReportLimitReachedException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    DuplicateReportNameException | InternalErrorException | ReportLimitReachedException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | InternalErrorException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalErrorException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | InternalErrorException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalErrorException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
 }
 
@@ -100,35 +52,7 @@ export declare class CostAndUsageReportService extends CostandUsageReportService
 
 export type AdditionalArtifact = "REDSHIFT" | "QUICKSIGHT" | "ATHENA";
 export type AdditionalArtifactList = Array<AdditionalArtifact>;
-export type AWSRegion =
-  | "af-south-1"
-  | "ap-east-1"
-  | "ap-south-1"
-  | "ap-south-2"
-  | "ap-southeast-1"
-  | "ap-southeast-2"
-  | "ap-southeast-3"
-  | "ap-northeast-1"
-  | "ap-northeast-2"
-  | "ap-northeast-3"
-  | "ca-central-1"
-  | "eu-central-1"
-  | "eu-central-2"
-  | "eu-west-1"
-  | "eu-west-2"
-  | "eu-west-3"
-  | "eu-north-1"
-  | "eu-south-1"
-  | "eu-south-2"
-  | "me-central-1"
-  | "me-south-1"
-  | "sa-east-1"
-  | "us-east-1"
-  | "us-east-2"
-  | "us-west-1"
-  | "us-west-2"
-  | "cn-north-1"
-  | "cn-northwest-1";
+export type AWSRegion = "af-south-1" | "ap-east-1" | "ap-south-1" | "ap-south-2" | "ap-southeast-1" | "ap-southeast-2" | "ap-southeast-3" | "ap-northeast-1" | "ap-northeast-2" | "ap-northeast-3" | "ca-central-1" | "eu-central-1" | "eu-central-2" | "eu-west-1" | "eu-west-2" | "eu-west-3" | "eu-north-1" | "eu-south-1" | "eu-south-2" | "me-central-1" | "me-south-1" | "sa-east-1" | "us-east-1" | "us-east-2" | "us-west-1" | "us-west-2" | "cn-north-1" | "cn-northwest-1";
 export type BillingViewArn = string;
 
 export type CompressionFormat = "ZIP" | "GZIP" | "Parquet";
@@ -177,12 +101,14 @@ export interface ModifyReportDefinitionRequest {
   ReportName: string;
   ReportDefinition: ReportDefinition;
 }
-export interface ModifyReportDefinitionResponse {}
+export interface ModifyReportDefinitionResponse {
+}
 export interface PutReportDefinitionRequest {
   ReportDefinition: ReportDefinition;
   Tags?: Array<Tag>;
 }
-export interface PutReportDefinitionResponse {}
+export interface PutReportDefinitionResponse {
+}
 export type RefreshClosedReports = boolean;
 
 export interface ReportDefinition {
@@ -223,10 +149,7 @@ export type S3Bucket = string;
 
 export type S3Prefix = string;
 
-export type SchemaElement =
-  | "RESOURCES"
-  | "SPLIT_COST_ALLOCATION_DATA"
-  | "MANUAL_DISCOUNT_COMPATIBILITY";
+export type SchemaElement = "RESOURCES" | "SPLIT_COST_ALLOCATION_DATA" | "MANUAL_DISCOUNT_COMPATIBILITY";
 export type SchemaElementList = Array<SchemaElement>;
 export interface Tag {
   Key: string;
@@ -240,7 +163,8 @@ export interface TagResourceRequest {
   ReportName: string;
   Tags: Array<Tag>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export type TimeUnit = "HOURLY" | "DAILY" | "MONTHLY";
@@ -248,7 +172,8 @@ export interface UntagResourceRequest {
   ReportName: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export declare class ValidationException extends EffectData.TaggedError(
   "ValidationException",
 )<{
@@ -266,7 +191,9 @@ export declare namespace DeleteReportDefinition {
 export declare namespace DescribeReportDefinitions {
   export type Input = DescribeReportDefinitionsRequest;
   export type Output = DescribeReportDefinitionsResponse;
-  export type Error = InternalErrorException | CommonAwsError;
+  export type Error =
+    | InternalErrorException
+    | CommonAwsError;
 }
 
 export declare namespace ListTagsForResource {
@@ -320,10 +247,5 @@ export declare namespace UntagResource {
     | CommonAwsError;
 }
 
-export type CostandUsageReportServiceErrors =
-  | DuplicateReportNameException
-  | InternalErrorException
-  | ReportLimitReachedException
-  | ResourceNotFoundException
-  | ValidationException
-  | CommonAwsError;
+export type CostandUsageReportServiceErrors = DuplicateReportNameException | InternalErrorException | ReportLimitReachedException | ResourceNotFoundException | ValidationException | CommonAwsError;
+

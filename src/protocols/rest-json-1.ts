@@ -128,7 +128,8 @@ export class RestJson1Handler implements ProtocolHandler {
   async parseError(
     response: Response,
     _statusCode: number,
-    headers?: Headers,
+    headers: Headers,
+    metadata: ServiceMetadata,
   ): Promise<ParsedError> {
     let errorData: any;
     const responseText = await response.text();
@@ -154,11 +155,21 @@ export class RestJson1Handler implements ProtocolHandler {
       headers?.get("x-amzn-requestid") ||
       headers?.get("x-amz-request-id") ||
       undefined;
+    const retryable =
+      metadata?.retryableErrors?.[errorType] != null
+        ? {
+            retryAfterSeconds:
+              headers?.get(
+                metadata?.retryableErrors?.[errorTypes]?.retryAfterSeconds,
+              ) ?? undefined,
+          }
+        : false;
 
     return {
       errorType,
       message,
       requestId,
+      retryable,
     };
   }
 

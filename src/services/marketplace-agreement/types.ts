@@ -1,38 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-} from "../../error.ts";
-type CommonAwsError =
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | AccessDeniedException
-  | ThrottlingException
-  | ValidationException;
+import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
+type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class MarketplaceAgreement extends AWSServiceClient {
@@ -40,33 +8,19 @@ export declare class MarketplaceAgreement extends AWSServiceClient {
     input: DescribeAgreementInput,
   ): Effect.Effect<
     DescribeAgreementOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getAgreementTerms(
     input: GetAgreementTermsInput,
   ): Effect.Effect<
     GetAgreementTermsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   searchAgreements(
     input: SearchAgreementsInput,
   ): Effect.Effect<
     SearchAgreementsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
 }
 
@@ -84,20 +38,7 @@ interface _AcceptedTerm {
   fixedUpfrontPricingTerm?: FixedUpfrontPricingTerm;
 }
 
-export type AcceptedTerm =
-  | (_AcceptedTerm & { legalTerm: LegalTerm })
-  | (_AcceptedTerm & { supportTerm: SupportTerm })
-  | (_AcceptedTerm & { renewalTerm: RenewalTerm })
-  | (_AcceptedTerm & { usageBasedPricingTerm: UsageBasedPricingTerm })
-  | (_AcceptedTerm & {
-      configurableUpfrontPricingTerm: ConfigurableUpfrontPricingTerm;
-    })
-  | (_AcceptedTerm & { byolPricingTerm: ByolPricingTerm })
-  | (_AcceptedTerm & { recurringPaymentTerm: RecurringPaymentTerm })
-  | (_AcceptedTerm & { validityTerm: ValidityTerm })
-  | (_AcceptedTerm & { paymentScheduleTerm: PaymentScheduleTerm })
-  | (_AcceptedTerm & { freeTrialPricingTerm: FreeTrialPricingTerm })
-  | (_AcceptedTerm & { fixedUpfrontPricingTerm: FixedUpfrontPricingTerm });
+export type AcceptedTerm = (_AcceptedTerm & { legalTerm: LegalTerm }) | (_AcceptedTerm & { supportTerm: SupportTerm }) | (_AcceptedTerm & { renewalTerm: RenewalTerm }) | (_AcceptedTerm & { usageBasedPricingTerm: UsageBasedPricingTerm }) | (_AcceptedTerm & { configurableUpfrontPricingTerm: ConfigurableUpfrontPricingTerm }) | (_AcceptedTerm & { byolPricingTerm: ByolPricingTerm }) | (_AcceptedTerm & { recurringPaymentTerm: RecurringPaymentTerm }) | (_AcceptedTerm & { validityTerm: ValidityTerm }) | (_AcceptedTerm & { paymentScheduleTerm: PaymentScheduleTerm }) | (_AcceptedTerm & { freeTrialPricingTerm: FreeTrialPricingTerm }) | (_AcceptedTerm & { fixedUpfrontPricingTerm: FixedUpfrontPricingTerm });
 export type AcceptedTermList = Array<AcceptedTerm>;
 export interface Acceptor {
   accountId?: string;
@@ -110,16 +51,7 @@ export declare class AccessDeniedException extends EffectData.TaggedError(
 }> {}
 export type AgreementResourceType = string;
 
-export type AgreementStatus =
-  | "ACTIVE"
-  | "ARCHIVED"
-  | "CANCELLED"
-  | "EXPIRED"
-  | "RENEWED"
-  | "REPLACED"
-  | "ROLLED_BACK"
-  | "SUPERSEDED"
-  | "TERMINATED";
+export type AgreementStatus = "ACTIVE" | "ARCHIVED" | "CANCELLED" | "EXPIRED" | "RENEWED" | "REPLACED" | "ROLLED_BACK" | "SUPERSEDED" | "TERMINATED";
 export type AgreementType = string;
 
 export interface AgreementViewSummary {
@@ -160,8 +92,7 @@ export interface ConfigurableUpfrontRateCardItem {
   constraints?: Constraints;
   rateCard?: Array<RateCardItem>;
 }
-export type ConfigurableUpfrontRateCardList =
-  Array<ConfigurableUpfrontRateCardItem>;
+export type ConfigurableUpfrontRateCardList = Array<ConfigurableUpfrontRateCardItem>;
 export interface Constraints {
   multipleDimensionSelection?: string;
   quantityConfiguration?: string;
@@ -365,18 +296,7 @@ export interface ValidationExceptionField {
   message: string;
 }
 export type ValidationExceptionFieldList = Array<ValidationExceptionField>;
-export type ValidationExceptionReason =
-  | "INVALID_AGREEMENT_ID"
-  | "MISSING_AGREEMENT_ID"
-  | "INVALID_CATALOG"
-  | "INVALID_FILTER_NAME"
-  | "INVALID_FILTER_VALUES"
-  | "INVALID_SORT_BY"
-  | "INVALID_SORT_ORDER"
-  | "INVALID_NEXT_TOKEN"
-  | "INVALID_MAX_RESULTS"
-  | "UNSUPPORTED_FILTERS"
-  | "OTHER";
+export type ValidationExceptionReason = "INVALID_AGREEMENT_ID" | "MISSING_AGREEMENT_ID" | "INVALID_CATALOG" | "INVALID_FILTER_NAME" | "INVALID_FILTER_VALUES" | "INVALID_SORT_BY" | "INVALID_SORT_ORDER" | "INVALID_NEXT_TOKEN" | "INVALID_MAX_RESULTS" | "UNSUPPORTED_FILTERS" | "OTHER";
 export interface ValidityTerm {
   type?: string;
   agreementDuration?: string;
@@ -420,10 +340,5 @@ export declare namespace SearchAgreements {
     | CommonAwsError;
 }
 
-export type MarketplaceAgreementErrors =
-  | AccessDeniedException
-  | InternalServerException
-  | ResourceNotFoundException
-  | ThrottlingException
-  | ValidationException
-  | CommonAwsError;
+export type MarketplaceAgreementErrors = AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError;
+

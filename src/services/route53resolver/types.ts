@@ -1,38 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-} from "../../error.ts";
-type CommonAwsError =
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | AccessDeniedException
-  | ThrottlingException
-  | ValidationException;
+import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
+type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class Route53Resolver extends AWSServiceClient {
@@ -40,795 +8,409 @@ export declare class Route53Resolver extends AWSServiceClient {
     input: AssociateFirewallRuleGroupRequest,
   ): Effect.Effect<
     AssociateFirewallRuleGroupResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServiceErrorException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServiceErrorException | LimitExceededException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   associateResolverEndpointIpAddress(
     input: AssociateResolverEndpointIpAddressRequest,
   ): Effect.Effect<
     AssociateResolverEndpointIpAddressResponse,
-    | InternalServiceErrorException
-    | InvalidParameterException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceErrorException | InvalidParameterException | InvalidRequestException | LimitExceededException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   associateResolverQueryLogConfig(
     input: AssociateResolverQueryLogConfigRequest,
   ): Effect.Effect<
     AssociateResolverQueryLogConfigResponse,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidParameterException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | InvalidParameterException | InvalidRequestException | LimitExceededException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   associateResolverRule(
     input: AssociateResolverRuleRequest,
   ): Effect.Effect<
     AssociateResolverRuleResponse,
-    | InternalServiceErrorException
-    | InvalidParameterException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceErrorException | InvalidParameterException | InvalidRequestException | LimitExceededException | ResourceExistsException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   >;
   createFirewallDomainList(
     input: CreateFirewallDomainListRequest,
   ): Effect.Effect<
     CreateFirewallDomainListResponse,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | LimitExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | LimitExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createFirewallRule(
     input: CreateFirewallRuleRequest,
   ): Effect.Effect<
     CreateFirewallRuleResponse,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | LimitExceededException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createFirewallRuleGroup(
     input: CreateFirewallRuleGroupRequest,
   ): Effect.Effect<
     CreateFirewallRuleGroupResponse,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | LimitExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | LimitExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createOutpostResolver(
     input: CreateOutpostResolverRequest,
   ): Effect.Effect<
     CreateOutpostResolverResponse,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createResolverEndpoint(
     input: CreateResolverEndpointRequest,
   ): Effect.Effect<
     CreateResolverEndpointResponse,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidParameterException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | InvalidParameterException | InvalidRequestException | LimitExceededException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   createResolverQueryLogConfig(
     input: CreateResolverQueryLogConfigRequest,
   ): Effect.Effect<
     CreateResolverQueryLogConfigResponse,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidParameterException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | InvalidParameterException | InvalidRequestException | LimitExceededException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   createResolverRule(
     input: CreateResolverRuleRequest,
   ): Effect.Effect<
     CreateResolverRuleResponse,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidParameterException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | InvalidParameterException | InvalidRequestException | LimitExceededException | ResourceExistsException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   >;
   deleteFirewallDomainList(
     input: DeleteFirewallDomainListRequest,
   ): Effect.Effect<
     DeleteFirewallDomainListResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServiceErrorException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServiceErrorException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   deleteFirewallRule(
     input: DeleteFirewallRuleRequest,
   ): Effect.Effect<
     DeleteFirewallRuleResponse,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteFirewallRuleGroup(
     input: DeleteFirewallRuleGroupRequest,
   ): Effect.Effect<
     DeleteFirewallRuleGroupResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServiceErrorException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServiceErrorException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteOutpostResolver(
     input: DeleteOutpostResolverRequest,
   ): Effect.Effect<
     DeleteOutpostResolverResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServiceErrorException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServiceErrorException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteResolverEndpoint(
     input: DeleteResolverEndpointRequest,
   ): Effect.Effect<
     DeleteResolverEndpointResponse,
-    | InternalServiceErrorException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceErrorException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   deleteResolverQueryLogConfig(
     input: DeleteResolverQueryLogConfigRequest,
   ): Effect.Effect<
     DeleteResolverQueryLogConfigResponse,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   deleteResolverRule(
     input: DeleteResolverRuleRequest,
   ): Effect.Effect<
     DeleteResolverRuleResponse,
-    | InternalServiceErrorException
-    | InvalidParameterException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceErrorException | InvalidParameterException | ResourceInUseException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   disassociateFirewallRuleGroup(
     input: DisassociateFirewallRuleGroupRequest,
   ): Effect.Effect<
     DisassociateFirewallRuleGroupResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServiceErrorException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServiceErrorException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   disassociateResolverEndpointIpAddress(
     input: DisassociateResolverEndpointIpAddressRequest,
   ): Effect.Effect<
     DisassociateResolverEndpointIpAddressResponse,
-    | InternalServiceErrorException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceErrorException | InvalidParameterException | InvalidRequestException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   disassociateResolverQueryLogConfig(
     input: DisassociateResolverQueryLogConfigRequest,
   ): Effect.Effect<
     DisassociateResolverQueryLogConfigResponse,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   disassociateResolverRule(
     input: DisassociateResolverRuleRequest,
   ): Effect.Effect<
     DisassociateResolverRuleResponse,
-    | InternalServiceErrorException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceErrorException | InvalidParameterException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   getFirewallConfig(
     input: GetFirewallConfigRequest,
   ): Effect.Effect<
     GetFirewallConfigResponse,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getFirewallDomainList(
     input: GetFirewallDomainListRequest,
   ): Effect.Effect<
     GetFirewallDomainListResponse,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   getFirewallRuleGroup(
     input: GetFirewallRuleGroupRequest,
   ): Effect.Effect<
     GetFirewallRuleGroupResponse,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   getFirewallRuleGroupAssociation(
     input: GetFirewallRuleGroupAssociationRequest,
   ): Effect.Effect<
     GetFirewallRuleGroupAssociationResponse,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   getFirewallRuleGroupPolicy(
     input: GetFirewallRuleGroupPolicyRequest,
   ): Effect.Effect<
     GetFirewallRuleGroupPolicyResponse,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getOutpostResolver(
     input: GetOutpostResolverRequest,
   ): Effect.Effect<
     GetOutpostResolverResponse,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getResolverConfig(
     input: GetResolverConfigRequest,
   ): Effect.Effect<
     GetResolverConfigResponse,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | InvalidParameterException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getResolverDnssecConfig(
     input: GetResolverDnssecConfigRequest,
   ): Effect.Effect<
     GetResolverDnssecConfigResponse,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   getResolverEndpoint(
     input: GetResolverEndpointRequest,
   ): Effect.Effect<
     GetResolverEndpointResponse,
-    | InternalServiceErrorException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceErrorException | InvalidParameterException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   getResolverQueryLogConfig(
     input: GetResolverQueryLogConfigRequest,
   ): Effect.Effect<
     GetResolverQueryLogConfigResponse,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   getResolverQueryLogConfigAssociation(
     input: GetResolverQueryLogConfigAssociationRequest,
   ): Effect.Effect<
     GetResolverQueryLogConfigAssociationResponse,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   getResolverQueryLogConfigPolicy(
     input: GetResolverQueryLogConfigPolicyRequest,
   ): Effect.Effect<
     GetResolverQueryLogConfigPolicyResponse,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidParameterException
-    | InvalidRequestException
-    | UnknownResourceException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | InvalidParameterException | InvalidRequestException | UnknownResourceException | CommonAwsError
   >;
   getResolverRule(
     input: GetResolverRuleRequest,
   ): Effect.Effect<
     GetResolverRuleResponse,
-    | InternalServiceErrorException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceErrorException | InvalidParameterException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   getResolverRuleAssociation(
     input: GetResolverRuleAssociationRequest,
   ): Effect.Effect<
     GetResolverRuleAssociationResponse,
-    | InternalServiceErrorException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceErrorException | InvalidParameterException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   getResolverRulePolicy(
     input: GetResolverRulePolicyRequest,
   ): Effect.Effect<
     GetResolverRulePolicyResponse,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidParameterException
-    | UnknownResourceException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | InvalidParameterException | UnknownResourceException | CommonAwsError
   >;
   importFirewallDomains(
     input: ImportFirewallDomainsRequest,
   ): Effect.Effect<
     ImportFirewallDomainsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServiceErrorException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServiceErrorException | LimitExceededException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listFirewallConfigs(
     input: ListFirewallConfigsRequest,
   ): Effect.Effect<
     ListFirewallConfigsResponse,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listFirewallDomainLists(
     input: ListFirewallDomainListsRequest,
   ): Effect.Effect<
     ListFirewallDomainListsResponse,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listFirewallDomains(
     input: ListFirewallDomainsRequest,
   ): Effect.Effect<
     ListFirewallDomainsResponse,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listFirewallRuleGroupAssociations(
     input: ListFirewallRuleGroupAssociationsRequest,
   ): Effect.Effect<
     ListFirewallRuleGroupAssociationsResponse,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listFirewallRuleGroups(
     input: ListFirewallRuleGroupsRequest,
   ): Effect.Effect<
     ListFirewallRuleGroupsResponse,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listFirewallRules(
     input: ListFirewallRulesRequest,
   ): Effect.Effect<
     ListFirewallRulesResponse,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listOutpostResolvers(
     input: ListOutpostResolversRequest,
   ): Effect.Effect<
     ListOutpostResolversResponse,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listResolverConfigs(
     input: ListResolverConfigsRequest,
   ): Effect.Effect<
     ListResolverConfigsResponse,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidNextTokenException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | InvalidNextTokenException | InvalidParameterException | InvalidRequestException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listResolverDnssecConfigs(
     input: ListResolverDnssecConfigsRequest,
   ): Effect.Effect<
     ListResolverDnssecConfigsResponse,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidNextTokenException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | InvalidNextTokenException | InvalidParameterException | InvalidRequestException | ThrottlingException | CommonAwsError
   >;
   listResolverEndpointIpAddresses(
     input: ListResolverEndpointIpAddressesRequest,
   ): Effect.Effect<
     ListResolverEndpointIpAddressesResponse,
-    | InternalServiceErrorException
-    | InvalidNextTokenException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceErrorException | InvalidNextTokenException | InvalidParameterException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   listResolverEndpoints(
     input: ListResolverEndpointsRequest,
   ): Effect.Effect<
     ListResolverEndpointsResponse,
-    | InternalServiceErrorException
-    | InvalidNextTokenException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceErrorException | InvalidNextTokenException | InvalidParameterException | InvalidRequestException | ThrottlingException | CommonAwsError
   >;
   listResolverQueryLogConfigAssociations(
     input: ListResolverQueryLogConfigAssociationsRequest,
   ): Effect.Effect<
     ListResolverQueryLogConfigAssociationsResponse,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidParameterException
-    | InvalidRequestException
-    | LimitExceededException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | InvalidParameterException | InvalidRequestException | LimitExceededException | ThrottlingException | CommonAwsError
   >;
   listResolverQueryLogConfigs(
     input: ListResolverQueryLogConfigsRequest,
   ): Effect.Effect<
     ListResolverQueryLogConfigsResponse,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidNextTokenException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | InvalidNextTokenException | InvalidParameterException | InvalidRequestException | ThrottlingException | CommonAwsError
   >;
   listResolverRuleAssociations(
     input: ListResolverRuleAssociationsRequest,
   ): Effect.Effect<
     ListResolverRuleAssociationsResponse,
-    | InternalServiceErrorException
-    | InvalidNextTokenException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceErrorException | InvalidNextTokenException | InvalidParameterException | InvalidRequestException | ThrottlingException | CommonAwsError
   >;
   listResolverRules(
     input: ListResolverRulesRequest,
   ): Effect.Effect<
     ListResolverRulesResponse,
-    | InternalServiceErrorException
-    | InvalidNextTokenException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceErrorException | InvalidNextTokenException | InvalidParameterException | InvalidRequestException | ThrottlingException | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | InternalServiceErrorException
-    | InvalidNextTokenException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceErrorException | InvalidNextTokenException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   putFirewallRuleGroupPolicy(
     input: PutFirewallRuleGroupPolicyRequest,
   ): Effect.Effect<
     PutFirewallRuleGroupPolicyResponse,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   putResolverQueryLogConfigPolicy(
     input: PutResolverQueryLogConfigPolicyRequest,
   ): Effect.Effect<
     PutResolverQueryLogConfigPolicyResponse,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidParameterException
-    | InvalidPolicyDocument
-    | InvalidRequestException
-    | UnknownResourceException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | InvalidParameterException | InvalidPolicyDocument | InvalidRequestException | UnknownResourceException | CommonAwsError
   >;
   putResolverRulePolicy(
     input: PutResolverRulePolicyRequest,
   ): Effect.Effect<
     PutResolverRulePolicyResponse,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidParameterException
-    | InvalidPolicyDocument
-    | UnknownResourceException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | InvalidParameterException | InvalidPolicyDocument | UnknownResourceException | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | InternalServiceErrorException
-    | InvalidParameterException
-    | InvalidRequestException
-    | InvalidTagException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceErrorException | InvalidParameterException | InvalidRequestException | InvalidTagException | LimitExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | InternalServiceErrorException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceErrorException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   updateFirewallConfig(
     input: UpdateFirewallConfigRequest,
   ): Effect.Effect<
     UpdateFirewallConfigResponse,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateFirewallDomains(
     input: UpdateFirewallDomainsRequest,
   ): Effect.Effect<
     UpdateFirewallDomainsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServiceErrorException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServiceErrorException | LimitExceededException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateFirewallRule(
     input: UpdateFirewallRuleRequest,
   ): Effect.Effect<
     UpdateFirewallRuleResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServiceErrorException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServiceErrorException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateFirewallRuleGroupAssociation(
     input: UpdateFirewallRuleGroupAssociationRequest,
   ): Effect.Effect<
     UpdateFirewallRuleGroupAssociationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServiceErrorException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServiceErrorException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateOutpostResolver(
     input: UpdateOutpostResolverRequest,
   ): Effect.Effect<
     UpdateOutpostResolverResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServiceErrorException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServiceErrorException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateResolverConfig(
     input: UpdateResolverConfigRequest,
   ): Effect.Effect<
     UpdateResolverConfigResponse,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidParameterException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | InvalidParameterException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateResolverDnssecConfig(
     input: UpdateResolverDnssecConfigRequest,
   ): Effect.Effect<
     UpdateResolverDnssecConfigResponse,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   updateResolverEndpoint(
     input: UpdateResolverEndpointRequest,
   ): Effect.Effect<
     UpdateResolverEndpointResponse,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidParameterException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   updateResolverRule(
     input: UpdateResolverRuleRequest,
   ): Effect.Effect<
     UpdateResolverRuleResponse,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidParameterException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | InvalidParameterException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   >;
 }
 
@@ -878,10 +460,7 @@ export interface AssociateResolverRuleRequest {
 export interface AssociateResolverRuleResponse {
   ResolverRuleAssociation?: ResolverRuleAssociation;
 }
-export type AutodefinedReverseFlag =
-  | "ENABLE"
-  | "DISABLE"
-  | "USE_LOCAL_RESOURCE_SETTING";
+export type AutodefinedReverseFlag = "ENABLE" | "DISABLE" | "USE_LOCAL_RESOURCE_SETTING";
 export type BlockOverrideDnsType = "CNAME";
 export type BlockOverrideDomain = string;
 
@@ -1104,23 +683,13 @@ export interface FirewallDomainListMetadata {
   ManagedOwnerName?: string;
 }
 export type FirewallDomainListMetadataList = Array<FirewallDomainListMetadata>;
-export type FirewallDomainListStatus =
-  | "COMPLETE"
-  | "COMPLETE_IMPORT_FAILED"
-  | "IMPORTING"
-  | "DELETING"
-  | "UPDATING";
+export type FirewallDomainListStatus = "COMPLETE" | "COMPLETE_IMPORT_FAILED" | "IMPORTING" | "DELETING" | "UPDATING";
 export type FirewallDomainName = string;
 
-export type FirewallDomainRedirectionAction =
-  | "INSPECT_REDIRECTION_DOMAIN"
-  | "TRUST_REDIRECTION_DOMAIN";
+export type FirewallDomainRedirectionAction = "INSPECT_REDIRECTION_DOMAIN" | "TRUST_REDIRECTION_DOMAIN";
 export type FirewallDomains = Array<string>;
 export type FirewallDomainUpdateOperation = "ADD" | "REMOVE" | "REPLACE";
-export type FirewallFailOpenStatus =
-  | "ENABLED"
-  | "DISABLED"
-  | "USE_LOCAL_RESOURCE_SETTING";
+export type FirewallFailOpenStatus = "ENABLED" | "DISABLED" | "USE_LOCAL_RESOURCE_SETTING";
 export interface FirewallRule {
   FirewallRuleGroupId?: string;
   FirewallDomainListId?: string;
@@ -1169,10 +738,7 @@ export interface FirewallRuleGroupAssociation {
   ModificationTime?: string;
 }
 export type FirewallRuleGroupAssociations = Array<FirewallRuleGroupAssociation>;
-export type FirewallRuleGroupAssociationStatus =
-  | "COMPLETE"
-  | "DELETING"
-  | "UPDATING";
+export type FirewallRuleGroupAssociationStatus = "COMPLETE" | "DELETING" | "UPDATING";
 export interface FirewallRuleGroupMetadata {
   Id?: string;
   Arn?: string;
@@ -1341,20 +907,7 @@ export interface IpAddressResponse {
   CreationTime?: string;
   ModificationTime?: string;
 }
-export type IpAddressStatus =
-  | "CREATING"
-  | "FAILED_CREATION"
-  | "ATTACHING"
-  | "ATTACHED"
-  | "REMAP_DETACHING"
-  | "REMAP_ATTACHING"
-  | "DETACHING"
-  | "FAILED_RESOURCE_GONE"
-  | "DELETING"
-  | "DELETE_FAILED_FAS_EXPIRED"
-  | "UPDATING"
-  | "UPDATE_FAILED"
-  | "ISOLATED";
+export type IpAddressStatus = "CREATING" | "FAILED_CREATION" | "ATTACHING" | "ATTACHED" | "REMAP_DETACHING" | "REMAP_ATTACHING" | "DETACHING" | "FAILED_RESOURCE_GONE" | "DELETING" | "DELETE_FAILED_FAS_EXPIRED" | "UPDATING" | "UPDATE_FAILED" | "ISOLATED";
 export interface IpAddressUpdate {
   IpId?: string;
   SubnetId?: string;
@@ -1559,14 +1112,7 @@ export interface OutpostResolver {
 export type OutpostResolverList = Array<OutpostResolver>;
 export type OutpostResolverName = string;
 
-export type OutpostResolverStatus =
-  | "CREATING"
-  | "OPERATIONAL"
-  | "UPDATING"
-  | "DELETING"
-  | "ACTION_NEEDED"
-  | "FAILED_CREATION"
-  | "FAILED_DELETION";
+export type OutpostResolverStatus = "CREATING" | "OPERATIONAL" | "UPDATING" | "DELETING" | "ACTION_NEEDED" | "FAILED_CREATION" | "FAILED_DELETION";
 export type OutpostResolverStatusMessage = string;
 
 export type Port = number;
@@ -1598,13 +1144,7 @@ export interface PutResolverRulePolicyResponse {
 }
 export type Qtype = string;
 
-export type ResolverAutodefinedReverseStatus =
-  | "ENABLING"
-  | "ENABLED"
-  | "DISABLING"
-  | "DISABLED"
-  | "UPDATING_TO_USE_LOCAL_RESOURCE_SETTING"
-  | "USE_LOCAL_RESOURCE_SETTING";
+export type ResolverAutodefinedReverseStatus = "ENABLING" | "ENABLED" | "DISABLING" | "DISABLED" | "UPDATING_TO_USE_LOCAL_RESOURCE_SETTING" | "USE_LOCAL_RESOURCE_SETTING";
 export interface ResolverConfig {
   Id?: string;
   ResourceId?: string;
@@ -1619,13 +1159,7 @@ export interface ResolverDnssecConfig {
   ValidationStatus?: ResolverDNSSECValidationStatus;
 }
 export type ResolverDnssecConfigList = Array<ResolverDnssecConfig>;
-export type ResolverDNSSECValidationStatus =
-  | "ENABLING"
-  | "ENABLED"
-  | "DISABLING"
-  | "DISABLED"
-  | "UPDATING_TO_USE_LOCAL_RESOURCE_SETTING"
-  | "USE_LOCAL_RESOURCE_SETTING";
+export type ResolverDNSSECValidationStatus = "ENABLING" | "ENABLED" | "DISABLING" | "DISABLED" | "UPDATING_TO_USE_LOCAL_RESOURCE_SETTING" | "USE_LOCAL_RESOURCE_SETTING";
 export interface ResolverEndpoint {
   Id?: string;
   CreatorRequestId?: string;
@@ -1644,18 +1178,9 @@ export interface ResolverEndpoint {
   ResolverEndpointType?: ResolverEndpointType;
   Protocols?: Array<Protocol>;
 }
-export type ResolverEndpointDirection =
-  | "INBOUND"
-  | "OUTBOUND"
-  | "INBOUND_DELEGATION";
+export type ResolverEndpointDirection = "INBOUND" | "OUTBOUND" | "INBOUND_DELEGATION";
 export type ResolverEndpoints = Array<ResolverEndpoint>;
-export type ResolverEndpointStatus =
-  | "CREATING"
-  | "OPERATIONAL"
-  | "UPDATING"
-  | "AUTO_RECOVERING"
-  | "ACTION_NEEDED"
-  | "DELETING";
+export type ResolverEndpointStatus = "CREATING" | "OPERATIONAL" | "UPDATING" | "AUTO_RECOVERING" | "ACTION_NEEDED" | "DELETING";
 export type ResolverEndpointType = "IPV6" | "IPV4" | "DUALSTACK";
 export interface ResolverQueryLogConfig {
   Id?: string;
@@ -1678,31 +1203,17 @@ export interface ResolverQueryLogConfigAssociation {
   ErrorMessage?: string;
   CreationTime?: string;
 }
-export type ResolverQueryLogConfigAssociationError =
-  | "NONE"
-  | "DESTINATION_NOT_FOUND"
-  | "ACCESS_DENIED"
-  | "INTERNAL_SERVICE_ERROR";
+export type ResolverQueryLogConfigAssociationError = "NONE" | "DESTINATION_NOT_FOUND" | "ACCESS_DENIED" | "INTERNAL_SERVICE_ERROR";
 export type ResolverQueryLogConfigAssociationErrorMessage = string;
 
-export type ResolverQueryLogConfigAssociationList =
-  Array<ResolverQueryLogConfigAssociation>;
-export type ResolverQueryLogConfigAssociationStatus =
-  | "CREATING"
-  | "ACTIVE"
-  | "ACTION_NEEDED"
-  | "DELETING"
-  | "FAILED";
+export type ResolverQueryLogConfigAssociationList = Array<ResolverQueryLogConfigAssociation>;
+export type ResolverQueryLogConfigAssociationStatus = "CREATING" | "ACTIVE" | "ACTION_NEEDED" | "DELETING" | "FAILED";
 export type ResolverQueryLogConfigList = Array<ResolverQueryLogConfig>;
 export type ResolverQueryLogConfigName = string;
 
 export type ResolverQueryLogConfigPolicy = string;
 
-export type ResolverQueryLogConfigStatus =
-  | "CREATING"
-  | "CREATED"
-  | "DELETING"
-  | "FAILED";
+export type ResolverQueryLogConfigStatus = "CREATING" | "CREATED" | "DELETING" | "FAILED";
 export interface ResolverRule {
   Id?: string;
   CreatorRequestId?: string;
@@ -1729,12 +1240,7 @@ export interface ResolverRuleAssociation {
   StatusMessage?: string;
 }
 export type ResolverRuleAssociations = Array<ResolverRuleAssociation>;
-export type ResolverRuleAssociationStatus =
-  | "CREATING"
-  | "COMPLETE"
-  | "DELETING"
-  | "FAILED"
-  | "OVERRIDDEN";
+export type ResolverRuleAssociationStatus = "CREATING" | "COMPLETE" | "DELETING" | "FAILED" | "OVERRIDDEN";
 export interface ResolverRuleConfig {
   Name?: string;
   TargetIps?: Array<TargetAddress>;
@@ -1743,11 +1249,7 @@ export interface ResolverRuleConfig {
 export type ResolverRulePolicy = string;
 
 export type ResolverRules = Array<ResolverRule>;
-export type ResolverRuleStatus =
-  | "COMPLETE"
-  | "DELETING"
-  | "UPDATING"
-  | "FAILED";
+export type ResolverRuleStatus = "COMPLETE" | "DELETING" | "UPDATING" | "FAILED";
 export declare class ResourceExistsException extends EffectData.TaggedError(
   "ResourceExistsException",
 )<{
@@ -1809,7 +1311,8 @@ export interface TagResourceRequest {
   ResourceArn: string;
   Tags: Array<Tag>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export interface TargetAddress {
@@ -1836,7 +1339,8 @@ export interface UntagResourceRequest {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateFirewallConfigRequest {
   ResourceId: string;
   FirewallFailOpen: FirewallFailOpenStatus;
@@ -2796,22 +2300,5 @@ export declare namespace UpdateResolverRule {
     | CommonAwsError;
 }
 
-export type Route53ResolverErrors =
-  | AccessDeniedException
-  | ConflictException
-  | InternalServiceErrorException
-  | InvalidNextTokenException
-  | InvalidParameterException
-  | InvalidPolicyDocument
-  | InvalidRequestException
-  | InvalidTagException
-  | LimitExceededException
-  | ResourceExistsException
-  | ResourceInUseException
-  | ResourceNotFoundException
-  | ResourceUnavailableException
-  | ServiceQuotaExceededException
-  | ThrottlingException
-  | UnknownResourceException
-  | ValidationException
-  | CommonAwsError;
+export type Route53ResolverErrors = AccessDeniedException | ConflictException | InternalServiceErrorException | InvalidNextTokenException | InvalidParameterException | InvalidPolicyDocument | InvalidRequestException | InvalidTagException | LimitExceededException | ResourceExistsException | ResourceInUseException | ResourceNotFoundException | ResourceUnavailableException | ServiceQuotaExceededException | ThrottlingException | UnknownResourceException | ValidationException | CommonAwsError;
+

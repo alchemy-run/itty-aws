@@ -1,38 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-} from "../../error.ts";
-type CommonAwsError =
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | AccessDeniedException
-  | ThrottlingException
-  | ValidationException;
+import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
+type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class TimestreamInfluxDB extends AWSServiceClient {
@@ -50,170 +18,93 @@ export declare class TimestreamInfluxDB extends AWSServiceClient {
   >;
   untagResource(
     input: UntagResourceRequest,
-  ): Effect.Effect<{}, ResourceNotFoundException | CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    ResourceNotFoundException | CommonAwsError
+  >;
   createDbCluster(
     input: CreateDbClusterInput,
   ): Effect.Effect<
     CreateDbClusterOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createDbInstance(
     input: CreateDbInstanceInput,
   ): Effect.Effect<
     CreateDbInstanceOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createDbParameterGroup(
     input: CreateDbParameterGroupInput,
   ): Effect.Effect<
     CreateDbParameterGroupOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteDbCluster(
     input: DeleteDbClusterInput,
   ): Effect.Effect<
     DeleteDbClusterOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteDbInstance(
     input: DeleteDbInstanceInput,
   ): Effect.Effect<
     DeleteDbInstanceOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getDbCluster(
     input: GetDbClusterInput,
   ): Effect.Effect<
     GetDbClusterOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getDbInstance(
     input: GetDbInstanceInput,
   ): Effect.Effect<
     GetDbInstanceOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getDbParameterGroup(
     input: GetDbParameterGroupInput,
   ): Effect.Effect<
     GetDbParameterGroupOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listDbClusters(
     input: ListDbClustersInput,
   ): Effect.Effect<
     ListDbClustersOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listDbInstances(
     input: ListDbInstancesInput,
   ): Effect.Effect<
     ListDbInstancesOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listDbInstancesForCluster(
     input: ListDbInstancesForClusterInput,
   ): Effect.Effect<
     ListDbInstancesForClusterOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listDbParameterGroups(
     input: ListDbParameterGroupsInput,
   ): Effect.Effect<
     ListDbParameterGroupsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateDbCluster(
     input: UpdateDbClusterInput,
   ): Effect.Effect<
     UpdateDbClusterOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateDbInstance(
     input: UpdateDbInstanceInput,
   ): Effect.Effect<
     UpdateDbInstanceOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
 }
 
@@ -231,14 +122,7 @@ export type Arn = string;
 export type Bucket = string;
 
 export type ClusterDeploymentType = "MULTI_NODE_READ_REPLICAS";
-export type ClusterStatus =
-  | "CREATING"
-  | "UPDATING"
-  | "DELETING"
-  | "AVAILABLE"
-  | "FAILED"
-  | "DELETED"
-  | "MAINTENANCE";
+export type ClusterStatus = "CREATING" | "UPDATING" | "DELETING" | "AVAILABLE" | "FAILED" | "DELETED" | "MAINTENANCE";
 export declare class ConflictException extends EffectData.TaggedError(
   "ConflictException",
 )<{
@@ -362,8 +246,7 @@ export interface DbInstanceForClusterSummary {
   instanceMode?: InstanceMode;
   instanceModes?: Array<InstanceMode>;
 }
-export type DbInstanceForClusterSummaryList =
-  Array<DbInstanceForClusterSummary>;
+export type DbInstanceForClusterSummaryList = Array<DbInstanceForClusterSummary>;
 export type DbInstanceId = string;
 
 export type DbInstanceIdentifier = string;
@@ -384,16 +267,7 @@ export interface DbInstanceSummary {
   deploymentType?: DeploymentType;
 }
 export type DbInstanceSummaryList = Array<DbInstanceSummary>;
-export type DbInstanceType =
-  | "db.influx.medium"
-  | "db.influx.large"
-  | "db.influx.xlarge"
-  | "db.influx.2xlarge"
-  | "db.influx.4xlarge"
-  | "db.influx.8xlarge"
-  | "db.influx.12xlarge"
-  | "db.influx.16xlarge"
-  | "db.influx.24xlarge";
+export type DbInstanceType = "db.influx.medium" | "db.influx.large" | "db.influx.xlarge" | "db.influx.2xlarge" | "db.influx.4xlarge" | "db.influx.8xlarge" | "db.influx.12xlarge" | "db.influx.16xlarge" | "db.influx.24xlarge";
 export type DbParameterGroupId = string;
 
 export type DbParameterGroupIdentifier = string;
@@ -407,10 +281,7 @@ export interface DbParameterGroupSummary {
   description?: string;
 }
 export type DbParameterGroupSummaryList = Array<DbParameterGroupSummary>;
-export type DbStorageType =
-  | "InfluxIOIncludedT1"
-  | "InfluxIOIncludedT2"
-  | "InfluxIOIncludedT3";
+export type DbStorageType = "InfluxIOIncludedT1" | "InfluxIOIncludedT2" | "InfluxIOIncludedT3";
 export interface DeleteDbClusterInput {
   dbClusterId: string;
 }
@@ -449,16 +320,8 @@ export interface Duration {
   durationType: DurationType;
   value: number;
 }
-export type DurationType =
-  | "hours"
-  | "minutes"
-  | "seconds"
-  | "milliseconds"
-  | "days";
-export type EngineType =
-  | "INFLUXDB_V2"
-  | "INFLUXDB_V3_CORE"
-  | "INFLUXDB_V3_ENTERPRISE";
+export type DurationType = "hours" | "minutes" | "seconds" | "milliseconds" | "days";
+export type EngineType = "INFLUXDB_V2" | "INFLUXDB_V3_CORE" | "INFLUXDB_V3_ENTERPRISE";
 export type FailoverMode = "AUTOMATIC" | "NO_FAILOVER";
 export interface GetDbClusterInput {
   dbClusterId: string;
@@ -653,14 +516,7 @@ export interface InfluxDBv3EnterpriseParameters {
   replicationInterval?: Duration;
   catalogSyncInterval?: Duration;
 }
-export type InstanceMode =
-  | "PRIMARY"
-  | "STANDBY"
-  | "REPLICA"
-  | "INGEST"
-  | "QUERY"
-  | "COMPACT"
-  | "PROCESS";
+export type InstanceMode = "PRIMARY" | "STANDBY" | "REPLICA" | "INGEST" | "QUERY" | "COMPACT" | "PROCESS";
 export type InstanceModeList = Array<InstanceMode>;
 export declare class InternalServerException extends EffectData.TaggedError(
   "InternalServerException",
@@ -724,10 +580,7 @@ interface _Parameters {
   InfluxDBv3Enterprise?: InfluxDBv3EnterpriseParameters;
 }
 
-export type Parameters =
-  | (_Parameters & { InfluxDBv2: InfluxDBv2Parameters })
-  | (_Parameters & { InfluxDBv3Core: InfluxDBv3CoreParameters })
-  | (_Parameters & { InfluxDBv3Enterprise: InfluxDBv3EnterpriseParameters });
+export type Parameters = (_Parameters & { InfluxDBv2: InfluxDBv2Parameters }) | (_Parameters & { InfluxDBv3Core: InfluxDBv3CoreParameters }) | (_Parameters & { InfluxDBv3Enterprise: InfluxDBv3EnterpriseParameters });
 export type Password = string;
 
 interface _PercentOrAbsoluteLong {
@@ -735,9 +588,7 @@ interface _PercentOrAbsoluteLong {
   absolute?: number;
 }
 
-export type PercentOrAbsoluteLong =
-  | (_PercentOrAbsoluteLong & { percent: string })
-  | (_PercentOrAbsoluteLong & { absolute: number });
+export type PercentOrAbsoluteLong = (_PercentOrAbsoluteLong & { percent: string }) | (_PercentOrAbsoluteLong & { absolute: number });
 export type Port = number;
 
 export type RequestTagMap = Record<string, string>;
@@ -758,17 +609,7 @@ export declare class ServiceQuotaExceededException extends EffectData.TaggedErro
 )<{
   readonly message: string;
 }> {}
-export type Status =
-  | "CREATING"
-  | "AVAILABLE"
-  | "DELETING"
-  | "MODIFYING"
-  | "UPDATING"
-  | "DELETED"
-  | "FAILED"
-  | "UPDATING_DEPLOYMENT_TYPE"
-  | "UPDATING_INSTANCE_TYPE"
-  | "MAINTENANCE";
+export type Status = "CREATING" | "AVAILABLE" | "DELETING" | "MODIFYING" | "UPDATING" | "DELETED" | "FAILED" | "UPDATING_DEPLOYMENT_TYPE" | "UPDATING_INSTANCE_TYPE" | "MAINTENANCE";
 export type TagKey = string;
 
 export type TagKeys = Array<string>;
@@ -852,7 +693,9 @@ export type VpcSubnetIdList = Array<string>;
 export declare namespace ListTagsForResource {
   export type Input = ListTagsForResourceRequest;
   export type Output = ListTagsForResourceResponse;
-  export type Error = ResourceNotFoundException | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundException
+    | CommonAwsError;
 }
 
 export declare namespace TagResource {
@@ -867,7 +710,9 @@ export declare namespace TagResource {
 export declare namespace UntagResource {
   export type Input = UntagResourceRequest;
   export type Output = {};
-  export type Error = ResourceNotFoundException | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundException
+    | CommonAwsError;
 }
 
 export declare namespace CreateDbCluster {
@@ -1048,12 +893,5 @@ export declare namespace UpdateDbInstance {
     | CommonAwsError;
 }
 
-export type TimestreamInfluxDBErrors =
-  | AccessDeniedException
-  | ConflictException
-  | InternalServerException
-  | ResourceNotFoundException
-  | ServiceQuotaExceededException
-  | ThrottlingException
-  | ValidationException
-  | CommonAwsError;
+export type TimestreamInfluxDBErrors = AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError;
+

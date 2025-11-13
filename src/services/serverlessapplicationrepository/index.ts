@@ -5,26 +5,7 @@ import type { ServerlessApplicationRepository as _ServerlessApplicationRepositor
 
 export * from "./types.ts";
 
-export {
-  AccessDeniedException,
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  ThrottlingException,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-  ValidationException,
-  type CommonAwsError,
-} from "../../error.ts";
+export {AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException, type CommonAwsError} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -34,32 +15,25 @@ const metadata = {
   sigV4ServiceName: "serverlessrepo",
   endpointPrefix: "serverlessrepo",
   operations: {
-    CreateApplication: "POST /applications",
-    CreateApplicationVersion:
-      "PUT /applications/{ApplicationId}/versions/{SemanticVersion}",
-    CreateCloudFormationChangeSet:
-      "POST /applications/{ApplicationId}/changesets",
-    CreateCloudFormationTemplate:
-      "POST /applications/{ApplicationId}/templates",
-    DeleteApplication: "DELETE /applications/{ApplicationId}",
-    GetApplication: "GET /applications/{ApplicationId}",
-    GetApplicationPolicy: "GET /applications/{ApplicationId}/policy",
-    GetCloudFormationTemplate:
-      "GET /applications/{ApplicationId}/templates/{TemplateId}",
-    ListApplicationDependencies:
-      "GET /applications/{ApplicationId}/dependencies",
-    ListApplications: "GET /applications",
-    ListApplicationVersions: "GET /applications/{ApplicationId}/versions",
-    PutApplicationPolicy: "PUT /applications/{ApplicationId}/policy",
-    UnshareApplication: "POST /applications/{ApplicationId}/unshare",
-    UpdateApplication: "PATCH /applications/{ApplicationId}",
+    "CreateApplication": "POST /applications",
+    "CreateApplicationVersion": "PUT /applications/{ApplicationId}/versions/{SemanticVersion}",
+    "CreateCloudFormationChangeSet": "POST /applications/{ApplicationId}/changesets",
+    "CreateCloudFormationTemplate": "POST /applications/{ApplicationId}/templates",
+    "DeleteApplication": "DELETE /applications/{ApplicationId}",
+    "GetApplication": "GET /applications/{ApplicationId}",
+    "GetApplicationPolicy": "GET /applications/{ApplicationId}/policy",
+    "GetCloudFormationTemplate": "GET /applications/{ApplicationId}/templates/{TemplateId}",
+    "ListApplicationDependencies": "GET /applications/{ApplicationId}/dependencies",
+    "ListApplications": "GET /applications",
+    "ListApplicationVersions": "GET /applications/{ApplicationId}/versions",
+    "PutApplicationPolicy": "PUT /applications/{ApplicationId}/policy",
+    "UnshareApplication": "POST /applications/{ApplicationId}/unshare",
+    "UpdateApplication": "PATCH /applications/{ApplicationId}",
   },
 } as const satisfies ServiceMetadata;
 
-export type _ServerlessApplicationRepository =
-  _ServerlessApplicationRepositoryClient;
-export interface ServerlessApplicationRepository
-  extends _ServerlessApplicationRepository {}
+export type _ServerlessApplicationRepository = _ServerlessApplicationRepositoryClient;
+export interface ServerlessApplicationRepository extends _ServerlessApplicationRepository {}
 export const ServerlessApplicationRepository = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

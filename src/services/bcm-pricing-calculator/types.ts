@@ -1,38 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-} from "../../error.ts";
-type CommonAwsError =
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | AccessDeniedException
-  | ThrottlingException
-  | ValidationException;
+import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
+type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class BCMPricingCalculator extends AWSServiceClient {
@@ -70,113 +38,73 @@ export declare class BCMPricingCalculator extends AWSServiceClient {
     input: BatchCreateBillScenarioCommitmentModificationRequest,
   ): Effect.Effect<
     BatchCreateBillScenarioCommitmentModificationResponse,
-    | ConflictException
-    | DataUnavailableException
-    | ResourceNotFoundException
-    | CommonAwsError
+    ConflictException | DataUnavailableException | ResourceNotFoundException | CommonAwsError
   >;
   batchCreateBillScenarioUsageModification(
     input: BatchCreateBillScenarioUsageModificationRequest,
   ): Effect.Effect<
     BatchCreateBillScenarioUsageModificationResponse,
-    | ConflictException
-    | DataUnavailableException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | CommonAwsError
+    ConflictException | DataUnavailableException | ResourceNotFoundException | ServiceQuotaExceededException | CommonAwsError
   >;
   batchCreateWorkloadEstimateUsage(
     input: BatchCreateWorkloadEstimateUsageRequest,
   ): Effect.Effect<
     BatchCreateWorkloadEstimateUsageResponse,
-    | ConflictException
-    | DataUnavailableException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | CommonAwsError
+    ConflictException | DataUnavailableException | ResourceNotFoundException | ServiceQuotaExceededException | CommonAwsError
   >;
   batchDeleteBillScenarioCommitmentModification(
     input: BatchDeleteBillScenarioCommitmentModificationRequest,
   ): Effect.Effect<
     BatchDeleteBillScenarioCommitmentModificationResponse,
-    | ConflictException
-    | DataUnavailableException
-    | ResourceNotFoundException
-    | CommonAwsError
+    ConflictException | DataUnavailableException | ResourceNotFoundException | CommonAwsError
   >;
   batchDeleteBillScenarioUsageModification(
     input: BatchDeleteBillScenarioUsageModificationRequest,
   ): Effect.Effect<
     BatchDeleteBillScenarioUsageModificationResponse,
-    | ConflictException
-    | DataUnavailableException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | CommonAwsError
+    ConflictException | DataUnavailableException | ResourceNotFoundException | ServiceQuotaExceededException | CommonAwsError
   >;
   batchDeleteWorkloadEstimateUsage(
     input: BatchDeleteWorkloadEstimateUsageRequest,
   ): Effect.Effect<
     BatchDeleteWorkloadEstimateUsageResponse,
-    | DataUnavailableException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | CommonAwsError
+    DataUnavailableException | ResourceNotFoundException | ServiceQuotaExceededException | CommonAwsError
   >;
   batchUpdateBillScenarioCommitmentModification(
     input: BatchUpdateBillScenarioCommitmentModificationRequest,
   ): Effect.Effect<
     BatchUpdateBillScenarioCommitmentModificationResponse,
-    | ConflictException
-    | DataUnavailableException
-    | ResourceNotFoundException
-    | CommonAwsError
+    ConflictException | DataUnavailableException | ResourceNotFoundException | CommonAwsError
   >;
   batchUpdateBillScenarioUsageModification(
     input: BatchUpdateBillScenarioUsageModificationRequest,
   ): Effect.Effect<
     BatchUpdateBillScenarioUsageModificationResponse,
-    | ConflictException
-    | DataUnavailableException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | CommonAwsError
+    ConflictException | DataUnavailableException | ResourceNotFoundException | ServiceQuotaExceededException | CommonAwsError
   >;
   batchUpdateWorkloadEstimateUsage(
     input: BatchUpdateWorkloadEstimateUsageRequest,
   ): Effect.Effect<
     BatchUpdateWorkloadEstimateUsageResponse,
-    | DataUnavailableException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | CommonAwsError
+    DataUnavailableException | ResourceNotFoundException | ServiceQuotaExceededException | CommonAwsError
   >;
   createBillEstimate(
     input: CreateBillEstimateRequest,
   ): Effect.Effect<
     CreateBillEstimateResponse,
-    | ConflictException
-    | DataUnavailableException
-    | ResourceNotFoundException
-    | CommonAwsError
+    ConflictException | DataUnavailableException | ResourceNotFoundException | CommonAwsError
   >;
   createBillScenario(
     input: CreateBillScenarioRequest,
   ): Effect.Effect<
     CreateBillScenarioResponse,
-    | ConflictException
-    | DataUnavailableException
-    | ServiceQuotaExceededException
-    | CommonAwsError
+    ConflictException | DataUnavailableException | ServiceQuotaExceededException | CommonAwsError
   >;
   createWorkloadEstimate(
     input: CreateWorkloadEstimateRequest,
   ): Effect.Effect<
     CreateWorkloadEstimateResponse,
-    | ConflictException
-    | DataUnavailableException
-    | ServiceQuotaExceededException
-    | CommonAwsError
+    ConflictException | DataUnavailableException | ServiceQuotaExceededException | CommonAwsError
   >;
   deleteBillEstimate(
     input: DeleteBillEstimateRequest,
@@ -278,28 +206,19 @@ export declare class BCMPricingCalculator extends AWSServiceClient {
     input: UpdateBillEstimateRequest,
   ): Effect.Effect<
     UpdateBillEstimateResponse,
-    | ConflictException
-    | DataUnavailableException
-    | ResourceNotFoundException
-    | CommonAwsError
+    ConflictException | DataUnavailableException | ResourceNotFoundException | CommonAwsError
   >;
   updateBillScenario(
     input: UpdateBillScenarioRequest,
   ): Effect.Effect<
     UpdateBillScenarioResponse,
-    | ConflictException
-    | DataUnavailableException
-    | ResourceNotFoundException
-    | CommonAwsError
+    ConflictException | DataUnavailableException | ResourceNotFoundException | CommonAwsError
   >;
   updateWorkloadEstimate(
     input: UpdateWorkloadEstimateRequest,
   ): Effect.Effect<
     UpdateWorkloadEstimateResponse,
-    | ConflictException
-    | DataUnavailableException
-    | ResourceNotFoundException
-    | CommonAwsError
+    ConflictException | DataUnavailableException | ResourceNotFoundException | CommonAwsError
   >;
 }
 
@@ -324,8 +243,7 @@ export type Arn = string;
 
 export type AvailabilityZone = string;
 
-export type BatchCreateBillScenarioCommitmentModificationEntries =
-  Array<BatchCreateBillScenarioCommitmentModificationEntry>;
+export type BatchCreateBillScenarioCommitmentModificationEntries = Array<BatchCreateBillScenarioCommitmentModificationEntry>;
 export interface BatchCreateBillScenarioCommitmentModificationEntry {
   key: string;
   group?: string;
@@ -337,12 +255,8 @@ export interface BatchCreateBillScenarioCommitmentModificationError {
   errorMessage?: string;
   errorCode?: BatchCreateBillScenarioCommitmentModificationErrorCode;
 }
-export type BatchCreateBillScenarioCommitmentModificationErrorCode =
-  | "CONFLICT"
-  | "INTERNAL_SERVER_ERROR"
-  | "INVALID_ACCOUNT";
-export type BatchCreateBillScenarioCommitmentModificationErrors =
-  Array<BatchCreateBillScenarioCommitmentModificationError>;
+export type BatchCreateBillScenarioCommitmentModificationErrorCode = "CONFLICT" | "INTERNAL_SERVER_ERROR" | "INVALID_ACCOUNT";
+export type BatchCreateBillScenarioCommitmentModificationErrors = Array<BatchCreateBillScenarioCommitmentModificationError>;
 export interface BatchCreateBillScenarioCommitmentModificationItem {
   key?: string;
   id?: string;
@@ -350,8 +264,7 @@ export interface BatchCreateBillScenarioCommitmentModificationItem {
   usageAccountId?: string;
   commitmentAction?: BillScenarioCommitmentModificationAction;
 }
-export type BatchCreateBillScenarioCommitmentModificationItems =
-  Array<BatchCreateBillScenarioCommitmentModificationItem>;
+export type BatchCreateBillScenarioCommitmentModificationItems = Array<BatchCreateBillScenarioCommitmentModificationItem>;
 export interface BatchCreateBillScenarioCommitmentModificationRequest {
   billScenarioId: string;
   commitmentModifications: Array<BatchCreateBillScenarioCommitmentModificationEntry>;
@@ -361,8 +274,7 @@ export interface BatchCreateBillScenarioCommitmentModificationResponse {
   items?: Array<BatchCreateBillScenarioCommitmentModificationItem>;
   errors?: Array<BatchCreateBillScenarioCommitmentModificationError>;
 }
-export type BatchCreateBillScenarioUsageModificationEntries =
-  Array<BatchCreateBillScenarioUsageModificationEntry>;
+export type BatchCreateBillScenarioUsageModificationEntries = Array<BatchCreateBillScenarioUsageModificationEntry>;
 export interface BatchCreateBillScenarioUsageModificationEntry {
   serviceCode: string;
   usageType: string;
@@ -379,13 +291,8 @@ export interface BatchCreateBillScenarioUsageModificationError {
   errorMessage?: string;
   errorCode?: BatchCreateBillScenarioUsageModificationErrorCode;
 }
-export type BatchCreateBillScenarioUsageModificationErrorCode =
-  | "BAD_REQUEST"
-  | "NOT_FOUND"
-  | "CONFLICT"
-  | "INTERNAL_SERVER_ERROR";
-export type BatchCreateBillScenarioUsageModificationErrors =
-  Array<BatchCreateBillScenarioUsageModificationError>;
+export type BatchCreateBillScenarioUsageModificationErrorCode = "BAD_REQUEST" | "NOT_FOUND" | "CONFLICT" | "INTERNAL_SERVER_ERROR";
+export type BatchCreateBillScenarioUsageModificationErrors = Array<BatchCreateBillScenarioUsageModificationError>;
 export interface BatchCreateBillScenarioUsageModificationItem {
   serviceCode: string;
   usageType: string;
@@ -399,8 +306,7 @@ export interface BatchCreateBillScenarioUsageModificationItem {
   historicalUsage?: HistoricalUsageEntity;
   key?: string;
 }
-export type BatchCreateBillScenarioUsageModificationItems =
-  Array<BatchCreateBillScenarioUsageModificationItem>;
+export type BatchCreateBillScenarioUsageModificationItems = Array<BatchCreateBillScenarioUsageModificationItem>;
 export interface BatchCreateBillScenarioUsageModificationRequest {
   billScenarioId: string;
   usageModifications: Array<BatchCreateBillScenarioUsageModificationEntry>;
@@ -410,13 +316,8 @@ export interface BatchCreateBillScenarioUsageModificationResponse {
   items?: Array<BatchCreateBillScenarioUsageModificationItem>;
   errors?: Array<BatchCreateBillScenarioUsageModificationError>;
 }
-export type BatchCreateWorkloadEstimateUsageCode =
-  | "BAD_REQUEST"
-  | "NOT_FOUND"
-  | "CONFLICT"
-  | "INTERNAL_SERVER_ERROR";
-export type BatchCreateWorkloadEstimateUsageEntries =
-  Array<BatchCreateWorkloadEstimateUsageEntry>;
+export type BatchCreateWorkloadEstimateUsageCode = "BAD_REQUEST" | "NOT_FOUND" | "CONFLICT" | "INTERNAL_SERVER_ERROR";
+export type BatchCreateWorkloadEstimateUsageEntries = Array<BatchCreateWorkloadEstimateUsageEntry>;
 export interface BatchCreateWorkloadEstimateUsageEntry {
   serviceCode: string;
   usageType: string;
@@ -432,8 +333,7 @@ export interface BatchCreateWorkloadEstimateUsageError {
   errorCode?: BatchCreateWorkloadEstimateUsageCode;
   errorMessage?: string;
 }
-export type BatchCreateWorkloadEstimateUsageErrors =
-  Array<BatchCreateWorkloadEstimateUsageError>;
+export type BatchCreateWorkloadEstimateUsageErrors = Array<BatchCreateWorkloadEstimateUsageError>;
 export interface BatchCreateWorkloadEstimateUsageItem {
   serviceCode: string;
   usageType: string;
@@ -449,8 +349,7 @@ export interface BatchCreateWorkloadEstimateUsageItem {
   historicalUsage?: HistoricalUsageEntity;
   key?: string;
 }
-export type BatchCreateWorkloadEstimateUsageItems =
-  Array<BatchCreateWorkloadEstimateUsageItem>;
+export type BatchCreateWorkloadEstimateUsageItems = Array<BatchCreateWorkloadEstimateUsageItem>;
 export interface BatchCreateWorkloadEstimateUsageRequest {
   workloadEstimateId: string;
   usage: Array<BatchCreateWorkloadEstimateUsageEntry>;
@@ -460,19 +359,14 @@ export interface BatchCreateWorkloadEstimateUsageResponse {
   items?: Array<BatchCreateWorkloadEstimateUsageItem>;
   errors?: Array<BatchCreateWorkloadEstimateUsageError>;
 }
-export type BatchDeleteBillScenarioCommitmentModificationEntries =
-  Array<string>;
+export type BatchDeleteBillScenarioCommitmentModificationEntries = Array<string>;
 export interface BatchDeleteBillScenarioCommitmentModificationError {
   id?: string;
   errorCode?: BatchDeleteBillScenarioCommitmentModificationErrorCode;
   errorMessage?: string;
 }
-export type BatchDeleteBillScenarioCommitmentModificationErrorCode =
-  | "BAD_REQUEST"
-  | "CONFLICT"
-  | "INTERNAL_SERVER_ERROR";
-export type BatchDeleteBillScenarioCommitmentModificationErrors =
-  Array<BatchDeleteBillScenarioCommitmentModificationError>;
+export type BatchDeleteBillScenarioCommitmentModificationErrorCode = "BAD_REQUEST" | "CONFLICT" | "INTERNAL_SERVER_ERROR";
+export type BatchDeleteBillScenarioCommitmentModificationErrors = Array<BatchDeleteBillScenarioCommitmentModificationError>;
 export interface BatchDeleteBillScenarioCommitmentModificationRequest {
   billScenarioId: string;
   ids: Array<string>;
@@ -486,12 +380,8 @@ export interface BatchDeleteBillScenarioUsageModificationError {
   errorMessage?: string;
   errorCode?: BatchDeleteBillScenarioUsageModificationErrorCode;
 }
-export type BatchDeleteBillScenarioUsageModificationErrorCode =
-  | "BAD_REQUEST"
-  | "CONFLICT"
-  | "INTERNAL_SERVER_ERROR";
-export type BatchDeleteBillScenarioUsageModificationErrors =
-  Array<BatchDeleteBillScenarioUsageModificationError>;
+export type BatchDeleteBillScenarioUsageModificationErrorCode = "BAD_REQUEST" | "CONFLICT" | "INTERNAL_SERVER_ERROR";
+export type BatchDeleteBillScenarioUsageModificationErrors = Array<BatchDeleteBillScenarioUsageModificationError>;
 export interface BatchDeleteBillScenarioUsageModificationRequest {
   billScenarioId: string;
   ids: Array<string>;
@@ -505,8 +395,7 @@ export interface BatchDeleteWorkloadEstimateUsageError {
   errorMessage?: string;
   errorCode?: WorkloadEstimateUpdateUsageErrorCode;
 }
-export type BatchDeleteWorkloadEstimateUsageErrors =
-  Array<BatchDeleteWorkloadEstimateUsageError>;
+export type BatchDeleteWorkloadEstimateUsageErrors = Array<BatchDeleteWorkloadEstimateUsageError>;
 export interface BatchDeleteWorkloadEstimateUsageRequest {
   workloadEstimateId: string;
   ids: Array<string>;
@@ -514,8 +403,7 @@ export interface BatchDeleteWorkloadEstimateUsageRequest {
 export interface BatchDeleteWorkloadEstimateUsageResponse {
   errors?: Array<BatchDeleteWorkloadEstimateUsageError>;
 }
-export type BatchUpdateBillScenarioCommitmentModificationEntries =
-  Array<BatchUpdateBillScenarioCommitmentModificationEntry>;
+export type BatchUpdateBillScenarioCommitmentModificationEntries = Array<BatchUpdateBillScenarioCommitmentModificationEntry>;
 export interface BatchUpdateBillScenarioCommitmentModificationEntry {
   id: string;
   group?: string;
@@ -525,13 +413,8 @@ export interface BatchUpdateBillScenarioCommitmentModificationError {
   errorCode?: BatchUpdateBillScenarioCommitmentModificationErrorCode;
   errorMessage?: string;
 }
-export type BatchUpdateBillScenarioCommitmentModificationErrorCode =
-  | "BAD_REQUEST"
-  | "NOT_FOUND"
-  | "CONFLICT"
-  | "INTERNAL_SERVER_ERROR";
-export type BatchUpdateBillScenarioCommitmentModificationErrors =
-  Array<BatchUpdateBillScenarioCommitmentModificationError>;
+export type BatchUpdateBillScenarioCommitmentModificationErrorCode = "BAD_REQUEST" | "NOT_FOUND" | "CONFLICT" | "INTERNAL_SERVER_ERROR";
+export type BatchUpdateBillScenarioCommitmentModificationErrors = Array<BatchUpdateBillScenarioCommitmentModificationError>;
 export interface BatchUpdateBillScenarioCommitmentModificationRequest {
   billScenarioId: string;
   commitmentModifications: Array<BatchUpdateBillScenarioCommitmentModificationEntry>;
@@ -540,8 +423,7 @@ export interface BatchUpdateBillScenarioCommitmentModificationResponse {
   items?: Array<BillScenarioCommitmentModificationItem>;
   errors?: Array<BatchUpdateBillScenarioCommitmentModificationError>;
 }
-export type BatchUpdateBillScenarioUsageModificationEntries =
-  Array<BatchUpdateBillScenarioUsageModificationEntry>;
+export type BatchUpdateBillScenarioUsageModificationEntries = Array<BatchUpdateBillScenarioUsageModificationEntry>;
 export interface BatchUpdateBillScenarioUsageModificationEntry {
   id: string;
   group?: string;
@@ -552,13 +434,8 @@ export interface BatchUpdateBillScenarioUsageModificationError {
   errorMessage?: string;
   errorCode?: BatchUpdateBillScenarioUsageModificationErrorCode;
 }
-export type BatchUpdateBillScenarioUsageModificationErrorCode =
-  | "BAD_REQUEST"
-  | "NOT_FOUND"
-  | "CONFLICT"
-  | "INTERNAL_SERVER_ERROR";
-export type BatchUpdateBillScenarioUsageModificationErrors =
-  Array<BatchUpdateBillScenarioUsageModificationError>;
+export type BatchUpdateBillScenarioUsageModificationErrorCode = "BAD_REQUEST" | "NOT_FOUND" | "CONFLICT" | "INTERNAL_SERVER_ERROR";
+export type BatchUpdateBillScenarioUsageModificationErrors = Array<BatchUpdateBillScenarioUsageModificationError>;
 export interface BatchUpdateBillScenarioUsageModificationRequest {
   billScenarioId: string;
   usageModifications: Array<BatchUpdateBillScenarioUsageModificationEntry>;
@@ -567,8 +444,7 @@ export interface BatchUpdateBillScenarioUsageModificationResponse {
   items?: Array<BillScenarioUsageModificationItem>;
   errors?: Array<BatchUpdateBillScenarioUsageModificationError>;
 }
-export type BatchUpdateWorkloadEstimateUsageEntries =
-  Array<BatchUpdateWorkloadEstimateUsageEntry>;
+export type BatchUpdateWorkloadEstimateUsageEntries = Array<BatchUpdateWorkloadEstimateUsageEntry>;
 export interface BatchUpdateWorkloadEstimateUsageEntry {
   id: string;
   group?: string;
@@ -579,8 +455,7 @@ export interface BatchUpdateWorkloadEstimateUsageError {
   errorMessage?: string;
   errorCode?: WorkloadEstimateUpdateUsageErrorCode;
 }
-export type BatchUpdateWorkloadEstimateUsageErrors =
-  Array<BatchUpdateWorkloadEstimateUsageError>;
+export type BatchUpdateWorkloadEstimateUsageErrors = Array<BatchUpdateWorkloadEstimateUsageError>;
 export interface BatchUpdateWorkloadEstimateUsageRequest {
   workloadEstimateId: string;
   usage: Array<BatchUpdateWorkloadEstimateUsageEntry>;
@@ -589,8 +464,7 @@ export interface BatchUpdateWorkloadEstimateUsageResponse {
   items?: Array<WorkloadEstimateUsageItem>;
   errors?: Array<BatchUpdateWorkloadEstimateUsageError>;
 }
-export type BillEstimateCommitmentSummaries =
-  Array<BillEstimateCommitmentSummary>;
+export type BillEstimateCommitmentSummaries = Array<BillEstimateCommitmentSummary>;
 export interface BillEstimateCommitmentSummary {
   id?: string;
   purchaseAgreementType?: PurchaseAgreementType;
@@ -606,16 +480,14 @@ export interface BillEstimateCostSummary {
   totalCostDifference?: CostDifference;
   serviceCostDifferences?: Record<string, CostDifference>;
 }
-export type BillEstimateInputCommitmentModificationSummaries =
-  Array<BillEstimateInputCommitmentModificationSummary>;
+export type BillEstimateInputCommitmentModificationSummaries = Array<BillEstimateInputCommitmentModificationSummary>;
 export interface BillEstimateInputCommitmentModificationSummary {
   id?: string;
   group?: string;
   usageAccountId?: string;
   commitmentAction?: BillScenarioCommitmentModificationAction;
 }
-export type BillEstimateInputUsageModificationSummaries =
-  Array<BillEstimateInputUsageModificationSummary>;
+export type BillEstimateInputUsageModificationSummaries = Array<BillEstimateInputUsageModificationSummary>;
 export interface BillEstimateInputUsageModificationSummary {
   serviceCode: string;
   usageType: string;
@@ -669,27 +541,14 @@ interface _BillScenarioCommitmentModificationAction {
   negateSavingsPlanAction?: NegateSavingsPlanAction;
 }
 
-export type BillScenarioCommitmentModificationAction =
-  | (_BillScenarioCommitmentModificationAction & {
-      addReservedInstanceAction: AddReservedInstanceAction;
-    })
-  | (_BillScenarioCommitmentModificationAction & {
-      addSavingsPlanAction: AddSavingsPlanAction;
-    })
-  | (_BillScenarioCommitmentModificationAction & {
-      negateReservedInstanceAction: NegateReservedInstanceAction;
-    })
-  | (_BillScenarioCommitmentModificationAction & {
-      negateSavingsPlanAction: NegateSavingsPlanAction;
-    });
+export type BillScenarioCommitmentModificationAction = (_BillScenarioCommitmentModificationAction & { addReservedInstanceAction: AddReservedInstanceAction }) | (_BillScenarioCommitmentModificationAction & { addSavingsPlanAction: AddSavingsPlanAction }) | (_BillScenarioCommitmentModificationAction & { negateReservedInstanceAction: NegateReservedInstanceAction }) | (_BillScenarioCommitmentModificationAction & { negateSavingsPlanAction: NegateSavingsPlanAction });
 export interface BillScenarioCommitmentModificationItem {
   id?: string;
   usageAccountId?: string;
   group?: string;
   commitmentAction?: BillScenarioCommitmentModificationAction;
 }
-export type BillScenarioCommitmentModificationItems =
-  Array<BillScenarioCommitmentModificationItem>;
+export type BillScenarioCommitmentModificationItems = Array<BillScenarioCommitmentModificationItem>;
 export type BillScenarioName = string;
 
 export type BillScenarioStatus = "READY" | "LOCKED" | "FAILED" | "STALE";
@@ -715,8 +574,7 @@ export interface BillScenarioUsageModificationItem {
   quantities?: Array<UsageQuantity>;
   historicalUsage?: HistoricalUsageEntity;
 }
-export type BillScenarioUsageModificationItems =
-  Array<BillScenarioUsageModificationItem>;
+export type BillScenarioUsageModificationItems = Array<BillScenarioUsageModificationItem>;
 export type ClientToken = string;
 
 export declare class ConflictException extends EffectData.TaggedError(
@@ -791,15 +649,18 @@ export declare class DataUnavailableException extends EffectData.TaggedError(
 export interface DeleteBillEstimateRequest {
   identifier: string;
 }
-export interface DeleteBillEstimateResponse {}
+export interface DeleteBillEstimateResponse {
+}
 export interface DeleteBillScenarioRequest {
   identifier: string;
 }
-export interface DeleteBillScenarioResponse {}
+export interface DeleteBillScenarioResponse {
+}
 export interface DeleteWorkloadEstimateRequest {
   identifier: string;
 }
-export interface DeleteWorkloadEstimateResponse {}
+export interface DeleteWorkloadEstimateResponse {
+}
 export interface Expression {
   and?: Array<Expression>;
   or?: Array<Expression>;
@@ -843,7 +704,8 @@ export interface GetBillScenarioResponse {
   expiresAt?: Date | string;
   failureMessage?: string;
 }
-export interface GetPreferencesRequest {}
+export interface GetPreferencesRequest {
+}
 export interface GetPreferencesResponse {
   managementAccountRateTypeSelections?: Array<RateType>;
   memberAccountRateTypeSelections?: Array<RateType>;
@@ -914,15 +776,8 @@ export interface ListBillEstimateLineItemsFilter {
   values: Array<string>;
   matchOption?: MatchOption;
 }
-export type ListBillEstimateLineItemsFilterName =
-  | "USAGE_ACCOUNT_ID"
-  | "SERVICE_CODE"
-  | "USAGE_TYPE"
-  | "OPERATION"
-  | "LOCATION"
-  | "LINE_ITEM_TYPE";
-export type ListBillEstimateLineItemsFilters =
-  Array<ListBillEstimateLineItemsFilter>;
+export type ListBillEstimateLineItemsFilterName = "USAGE_ACCOUNT_ID" | "SERVICE_CODE" | "USAGE_TYPE" | "OPERATION" | "LOCATION" | "LINE_ITEM_TYPE";
+export type ListBillEstimateLineItemsFilters = Array<ListBillEstimateLineItemsFilter>;
 export type ListBillEstimateLineItemsFilterValues = Array<string>;
 export interface ListBillEstimateLineItemsRequest {
   billEstimateId: string;
@@ -1002,18 +857,7 @@ export interface ListUsageFilter {
   values: Array<string>;
   matchOption?: MatchOption;
 }
-export type ListUsageFilterName =
-  | "USAGE_ACCOUNT_ID"
-  | "SERVICE_CODE"
-  | "USAGE_TYPE"
-  | "OPERATION"
-  | "LOCATION"
-  | "USAGE_GROUP"
-  | "HISTORICAL_USAGE_ACCOUNT_ID"
-  | "HISTORICAL_SERVICE_CODE"
-  | "HISTORICAL_USAGE_TYPE"
-  | "HISTORICAL_OPERATION"
-  | "HISTORICAL_LOCATION";
+export type ListUsageFilterName = "USAGE_ACCOUNT_ID" | "SERVICE_CODE" | "USAGE_TYPE" | "OPERATION" | "LOCATION" | "USAGE_GROUP" | "HISTORICAL_USAGE_ACCOUNT_ID" | "HISTORICAL_SERVICE_CODE" | "HISTORICAL_USAGE_TYPE" | "HISTORICAL_OPERATION" | "HISTORICAL_LOCATION";
 export type ListUsageFilters = Array<ListUsageFilter>;
 export type ListUsageFilterValues = Array<string>;
 export interface ListWorkloadEstimatesFilter {
@@ -1059,10 +903,7 @@ export type NextPageToken = string;
 export type Operation = string;
 
 export type PurchaseAgreementType = "SAVINGS_PLANS" | "RESERVED_INSTANCE";
-export type RateType =
-  | "BEFORE_DISCOUNTS"
-  | "AFTER_DISCOUNTS"
-  | "AFTER_DISCOUNTS_AND_COMMITMENTS";
+export type RateType = "BEFORE_DISCOUNTS" | "AFTER_DISCOUNTS" | "AFTER_DISCOUNTS_AND_COMMITMENTS";
 export type RateTypes = Array<RateType>;
 export type ReservedInstanceInstanceCount = number;
 
@@ -1100,7 +941,8 @@ export interface TagResourceRequest {
   arn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type Tags = Record<string, string>;
 export declare class ThrottlingException extends EffectData.TaggedError(
   "ThrottlingException",
@@ -1114,7 +956,8 @@ export interface UntagResourceRequest {
   arn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateBillEstimateRequest {
   identifier: string;
   name?: string;
@@ -1204,25 +1047,12 @@ export interface ValidationExceptionField {
   message: string;
 }
 export type ValidationExceptionFieldList = Array<ValidationExceptionField>;
-export type ValidationExceptionReason =
-  | "unknownOperation"
-  | "cannotParse"
-  | "fieldValidationFailed"
-  | "invalidRequestFromMember"
-  | "disallowedRate"
-  | "other";
+export type ValidationExceptionReason = "unknownOperation" | "cannotParse" | "fieldValidationFailed" | "invalidRequestFromMember" | "disallowedRate" | "other";
 export type WorkloadEstimateCostStatus = "VALID" | "INVALID" | "STALE";
 export type WorkloadEstimateName = string;
 
-export type WorkloadEstimateRateType =
-  | "BEFORE_DISCOUNTS"
-  | "AFTER_DISCOUNTS"
-  | "AFTER_DISCOUNTS_AND_COMMITMENTS";
-export type WorkloadEstimateStatus =
-  | "UPDATING"
-  | "VALID"
-  | "INVALID"
-  | "ACTION_NEEDED";
+export type WorkloadEstimateRateType = "BEFORE_DISCOUNTS" | "AFTER_DISCOUNTS" | "AFTER_DISCOUNTS_AND_COMMITMENTS";
+export type WorkloadEstimateStatus = "UPDATING" | "VALID" | "INVALID" | "ACTION_NEEDED";
 export type WorkloadEstimateSummaries = Array<WorkloadEstimateSummary>;
 export interface WorkloadEstimateSummary {
   id: string;
@@ -1236,11 +1066,7 @@ export interface WorkloadEstimateSummary {
   costCurrency?: CurrencyCode;
   failureMessage?: string;
 }
-export type WorkloadEstimateUpdateUsageErrorCode =
-  | "BAD_REQUEST"
-  | "NOT_FOUND"
-  | "CONFLICT"
-  | "INTERNAL_SERVER_ERROR";
+export type WorkloadEstimateUpdateUsageErrorCode = "BAD_REQUEST" | "NOT_FOUND" | "CONFLICT" | "INTERNAL_SERVER_ERROR";
 export interface WorkloadEstimateUsageItem {
   serviceCode: string;
   usageType: string;
@@ -1265,13 +1091,17 @@ export interface WorkloadEstimateUsageQuantity {
 export declare namespace GetPreferences {
   export type Input = GetPreferencesRequest;
   export type Output = GetPreferencesResponse;
-  export type Error = DataUnavailableException | CommonAwsError;
+  export type Error =
+    | DataUnavailableException
+    | CommonAwsError;
 }
 
 export declare namespace ListTagsForResource {
   export type Input = ListTagsForResourceRequest;
   export type Output = ListTagsForResourceResponse;
-  export type Error = ResourceNotFoundException | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundException
+    | CommonAwsError;
 }
 
 export declare namespace TagResource {
@@ -1286,7 +1116,9 @@ export declare namespace TagResource {
 export declare namespace UntagResource {
   export type Input = UntagResourceRequest;
   export type Output = UntagResourceResponse;
-  export type Error = ResourceNotFoundException | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundException
+    | CommonAwsError;
 }
 
 export declare namespace UpdatePreferences {
@@ -1443,7 +1275,9 @@ export declare namespace DeleteBillScenario {
 export declare namespace DeleteWorkloadEstimate {
   export type Input = DeleteWorkloadEstimateRequest;
   export type Output = DeleteWorkloadEstimateResponse;
-  export type Error = DataUnavailableException | CommonAwsError;
+  export type Error =
+    | DataUnavailableException
+    | CommonAwsError;
 }
 
 export declare namespace GetBillEstimate {
@@ -1512,7 +1346,9 @@ export declare namespace ListBillEstimateLineItems {
 export declare namespace ListBillEstimates {
   export type Input = ListBillEstimatesRequest;
   export type Output = ListBillEstimatesResponse;
-  export type Error = DataUnavailableException | CommonAwsError;
+  export type Error =
+    | DataUnavailableException
+    | CommonAwsError;
 }
 
 export declare namespace ListBillScenarioCommitmentModifications {
@@ -1536,7 +1372,9 @@ export declare namespace ListBillScenarioUsageModifications {
 export declare namespace ListBillScenarios {
   export type Input = ListBillScenariosRequest;
   export type Output = ListBillScenariosResponse;
-  export type Error = DataUnavailableException | CommonAwsError;
+  export type Error =
+    | DataUnavailableException
+    | CommonAwsError;
 }
 
 export declare namespace ListWorkloadEstimateUsage {
@@ -1551,7 +1389,9 @@ export declare namespace ListWorkloadEstimateUsage {
 export declare namespace ListWorkloadEstimates {
   export type Input = ListWorkloadEstimatesRequest;
   export type Output = ListWorkloadEstimatesResponse;
-  export type Error = DataUnavailableException | CommonAwsError;
+  export type Error =
+    | DataUnavailableException
+    | CommonAwsError;
 }
 
 export declare namespace UpdateBillEstimate {
@@ -1584,13 +1424,5 @@ export declare namespace UpdateWorkloadEstimate {
     | CommonAwsError;
 }
 
-export type BCMPricingCalculatorErrors =
-  | AccessDeniedException
-  | ConflictException
-  | DataUnavailableException
-  | InternalServerException
-  | ResourceNotFoundException
-  | ServiceQuotaExceededException
-  | ThrottlingException
-  | ValidationException
-  | CommonAwsError;
+export type BCMPricingCalculatorErrors = AccessDeniedException | ConflictException | DataUnavailableException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError;
+

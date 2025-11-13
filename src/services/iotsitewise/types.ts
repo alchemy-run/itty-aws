@@ -1,38 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-} from "../../error.ts";
-type CommonAwsError =
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | AccessDeniedException
-  | ThrottlingException
-  | ValidationException;
+import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
+type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class IoTSiteWise extends AWSServiceClient {
@@ -40,1126 +8,625 @@ export declare class IoTSiteWise extends AWSServiceClient {
     input: AssociateAssetsRequest,
   ): Effect.Effect<
     {},
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceAlreadyExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | LimitExceededException | ResourceAlreadyExistsException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   associateTimeSeriesToAssetProperty(
     input: AssociateTimeSeriesToAssetPropertyRequest,
   ): Effect.Effect<
     {},
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   batchAssociateProjectAssets(
     input: BatchAssociateProjectAssetsRequest,
   ): Effect.Effect<
     BatchAssociateProjectAssetsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   batchDisassociateProjectAssets(
     input: BatchDisassociateProjectAssetsRequest,
   ): Effect.Effect<
     BatchDisassociateProjectAssetsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   batchGetAssetPropertyAggregates(
     input: BatchGetAssetPropertyAggregatesRequest,
   ): Effect.Effect<
     BatchGetAssetPropertyAggregatesResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   >;
   batchGetAssetPropertyValue(
     input: BatchGetAssetPropertyValueRequest,
   ): Effect.Effect<
     BatchGetAssetPropertyValueResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   >;
   batchGetAssetPropertyValueHistory(
     input: BatchGetAssetPropertyValueHistoryRequest,
   ): Effect.Effect<
     BatchGetAssetPropertyValueHistoryResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   >;
   batchPutAssetPropertyValue(
     input: BatchPutAssetPropertyValueRequest,
   ): Effect.Effect<
     BatchPutAssetPropertyValueResponse,
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   >;
   createAccessPolicy(
     input: CreateAccessPolicyRequest,
   ): Effect.Effect<
     CreateAccessPolicyResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   createAsset(
     input: CreateAssetRequest,
   ): Effect.Effect<
     CreateAssetResponse,
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceAlreadyExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | LimitExceededException | ResourceAlreadyExistsException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   createAssetModel(
     input: CreateAssetModelRequest,
   ): Effect.Effect<
     CreateAssetModelResponse,
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceAlreadyExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | LimitExceededException | ResourceAlreadyExistsException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   createAssetModelCompositeModel(
     input: CreateAssetModelCompositeModelRequest,
   ): Effect.Effect<
     CreateAssetModelCompositeModelResponse,
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | PreconditionFailedException
-    | ResourceAlreadyExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | LimitExceededException | PreconditionFailedException | ResourceAlreadyExistsException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   createBulkImportJob(
     input: CreateBulkImportJobRequest,
   ): Effect.Effect<
     CreateBulkImportJobResponse,
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceAlreadyExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | LimitExceededException | ResourceAlreadyExistsException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   createComputationModel(
     input: CreateComputationModelRequest,
   ): Effect.Effect<
     CreateComputationModelResponse,
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceAlreadyExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | LimitExceededException | ResourceAlreadyExistsException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   createDashboard(
     input: CreateDashboardRequest,
   ): Effect.Effect<
     CreateDashboardResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   createDataset(
     input: CreateDatasetRequest,
   ): Effect.Effect<
     CreateDatasetResponse,
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceAlreadyExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | LimitExceededException | ResourceAlreadyExistsException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   createGateway(
     input: CreateGatewayRequest,
   ): Effect.Effect<
     CreateGatewayResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceAlreadyExistsException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceAlreadyExistsException | ThrottlingException | CommonAwsError
   >;
   createPortal(
     input: CreatePortalRequest,
   ): Effect.Effect<
     CreatePortalResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   createProject(
     input: CreateProjectRequest,
   ): Effect.Effect<
     CreateProjectResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   deleteAccessPolicy(
     input: DeleteAccessPolicyRequest,
   ): Effect.Effect<
     DeleteAccessPolicyResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   deleteAsset(
     input: DeleteAssetRequest,
   ): Effect.Effect<
     DeleteAssetResponse,
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   deleteAssetModel(
     input: DeleteAssetModelRequest,
   ): Effect.Effect<
     DeleteAssetModelResponse,
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | PreconditionFailedException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | PreconditionFailedException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   deleteAssetModelCompositeModel(
     input: DeleteAssetModelCompositeModelRequest,
   ): Effect.Effect<
     DeleteAssetModelCompositeModelResponse,
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | PreconditionFailedException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | PreconditionFailedException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   deleteAssetModelInterfaceRelationship(
     input: DeleteAssetModelInterfaceRelationshipRequest,
   ): Effect.Effect<
     DeleteAssetModelInterfaceRelationshipResponse,
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   deleteComputationModel(
     input: DeleteComputationModelRequest,
   ): Effect.Effect<
     DeleteComputationModelResponse,
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   deleteDashboard(
     input: DeleteDashboardRequest,
   ): Effect.Effect<
     DeleteDashboardResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   deleteDataset(
     input: DeleteDatasetRequest,
   ): Effect.Effect<
     DeleteDatasetResponse,
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   deleteGateway(
     input: DeleteGatewayRequest,
   ): Effect.Effect<
     {},
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   deletePortal(
     input: DeletePortalRequest,
   ): Effect.Effect<
     DeletePortalResponse,
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   deleteProject(
     input: DeleteProjectRequest,
   ): Effect.Effect<
     DeleteProjectResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   deleteTimeSeries(
     input: DeleteTimeSeriesRequest,
   ): Effect.Effect<
     {},
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   describeAccessPolicy(
     input: DescribeAccessPolicyRequest,
   ): Effect.Effect<
     DescribeAccessPolicyResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   describeAction(
     input: DescribeActionRequest,
   ): Effect.Effect<
     DescribeActionResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   describeAsset(
     input: DescribeAssetRequest,
   ): Effect.Effect<
     DescribeAssetResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   describeAssetCompositeModel(
     input: DescribeAssetCompositeModelRequest,
   ): Effect.Effect<
     DescribeAssetCompositeModelResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   describeAssetModel(
     input: DescribeAssetModelRequest,
   ): Effect.Effect<
     DescribeAssetModelResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   describeAssetModelCompositeModel(
     input: DescribeAssetModelCompositeModelRequest,
   ): Effect.Effect<
     DescribeAssetModelCompositeModelResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   describeAssetModelInterfaceRelationship(
     input: DescribeAssetModelInterfaceRelationshipRequest,
   ): Effect.Effect<
     DescribeAssetModelInterfaceRelationshipResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   describeAssetProperty(
     input: DescribeAssetPropertyRequest,
   ): Effect.Effect<
     DescribeAssetPropertyResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   describeBulkImportJob(
     input: DescribeBulkImportJobRequest,
   ): Effect.Effect<
     DescribeBulkImportJobResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   describeComputationModel(
     input: DescribeComputationModelRequest,
   ): Effect.Effect<
     DescribeComputationModelResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   describeComputationModelExecutionSummary(
     input: DescribeComputationModelExecutionSummaryRequest,
   ): Effect.Effect<
     DescribeComputationModelExecutionSummaryResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   describeDashboard(
     input: DescribeDashboardRequest,
   ): Effect.Effect<
     DescribeDashboardResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   describeDataset(
     input: DescribeDatasetRequest,
   ): Effect.Effect<
     DescribeDatasetResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   describeDefaultEncryptionConfiguration(
     input: DescribeDefaultEncryptionConfigurationRequest,
   ): Effect.Effect<
     DescribeDefaultEncryptionConfigurationResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ThrottlingException | CommonAwsError
   >;
   describeExecution(
     input: DescribeExecutionRequest,
   ): Effect.Effect<
     DescribeExecutionResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   describeGateway(
     input: DescribeGatewayRequest,
   ): Effect.Effect<
     DescribeGatewayResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   describeGatewayCapabilityConfiguration(
     input: DescribeGatewayCapabilityConfigurationRequest,
   ): Effect.Effect<
     DescribeGatewayCapabilityConfigurationResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   describeLoggingOptions(
     input: DescribeLoggingOptionsRequest,
   ): Effect.Effect<
     DescribeLoggingOptionsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   describePortal(
     input: DescribePortalRequest,
   ): Effect.Effect<
     DescribePortalResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   describeProject(
     input: DescribeProjectRequest,
   ): Effect.Effect<
     DescribeProjectResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   describeStorageConfiguration(
     input: DescribeStorageConfigurationRequest,
   ): Effect.Effect<
     DescribeStorageConfigurationResponse,
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   describeTimeSeries(
     input: DescribeTimeSeriesRequest,
   ): Effect.Effect<
     DescribeTimeSeriesResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   disassociateAssets(
     input: DisassociateAssetsRequest,
   ): Effect.Effect<
     {},
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   disassociateTimeSeriesFromAssetProperty(
     input: DisassociateTimeSeriesFromAssetPropertyRequest,
   ): Effect.Effect<
     {},
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   executeAction(
     input: ExecuteActionRequest,
   ): Effect.Effect<
     ExecuteActionResponse,
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   executeQuery(
     input: ExecuteQueryRequest,
   ): Effect.Effect<
     ExecuteQueryResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidRequestException
-    | QueryTimeoutException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidRequestException | QueryTimeoutException | ServiceUnavailableException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getAssetPropertyAggregates(
     input: GetAssetPropertyAggregatesRequest,
   ): Effect.Effect<
     GetAssetPropertyAggregatesResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   >;
   getAssetPropertyValue(
     input: GetAssetPropertyValueRequest,
   ): Effect.Effect<
     GetAssetPropertyValueResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   >;
   getAssetPropertyValueHistory(
     input: GetAssetPropertyValueHistoryRequest,
   ): Effect.Effect<
     GetAssetPropertyValueHistoryResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   >;
   getInterpolatedAssetPropertyValues(
     input: GetInterpolatedAssetPropertyValuesRequest,
   ): Effect.Effect<
     GetInterpolatedAssetPropertyValuesResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   >;
   invokeAssistant(
     input: InvokeAssistantRequest,
   ): Effect.Effect<
     InvokeAssistantResponse,
-    | AccessDeniedException
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictingOperationException | InternalFailureException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   listAccessPolicies(
     input: ListAccessPoliciesRequest,
   ): Effect.Effect<
     ListAccessPoliciesResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ThrottlingException | CommonAwsError
   >;
   listActions(
     input: ListActionsRequest,
   ): Effect.Effect<
     ListActionsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   listAssetModelCompositeModels(
     input: ListAssetModelCompositeModelsRequest,
   ): Effect.Effect<
     ListAssetModelCompositeModelsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   listAssetModelProperties(
     input: ListAssetModelPropertiesRequest,
   ): Effect.Effect<
     ListAssetModelPropertiesResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   listAssetModels(
     input: ListAssetModelsRequest,
   ): Effect.Effect<
     ListAssetModelsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ThrottlingException | CommonAwsError
   >;
   listAssetProperties(
     input: ListAssetPropertiesRequest,
   ): Effect.Effect<
     ListAssetPropertiesResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   listAssetRelationships(
     input: ListAssetRelationshipsRequest,
   ): Effect.Effect<
     ListAssetRelationshipsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   listAssets(
     input: ListAssetsRequest,
   ): Effect.Effect<
     ListAssetsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   listAssociatedAssets(
     input: ListAssociatedAssetsRequest,
   ): Effect.Effect<
     ListAssociatedAssetsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   listBulkImportJobs(
     input: ListBulkImportJobsRequest,
   ): Effect.Effect<
     ListBulkImportJobsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   listCompositionRelationships(
     input: ListCompositionRelationshipsRequest,
   ): Effect.Effect<
     ListCompositionRelationshipsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   listComputationModelDataBindingUsages(
     input: ListComputationModelDataBindingUsagesRequest,
   ): Effect.Effect<
     ListComputationModelDataBindingUsagesResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ThrottlingException | CommonAwsError
   >;
   listComputationModelResolveToResources(
     input: ListComputationModelResolveToResourcesRequest,
   ): Effect.Effect<
     ListComputationModelResolveToResourcesResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   listComputationModels(
     input: ListComputationModelsRequest,
   ): Effect.Effect<
     ListComputationModelsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ThrottlingException | CommonAwsError
   >;
   listDashboards(
     input: ListDashboardsRequest,
   ): Effect.Effect<
     ListDashboardsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ThrottlingException | CommonAwsError
   >;
   listDatasets(
     input: ListDatasetsRequest,
   ): Effect.Effect<
     ListDatasetsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ThrottlingException | CommonAwsError
   >;
   listExecutions(
     input: ListExecutionsRequest,
   ): Effect.Effect<
     ListExecutionsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   listGateways(
     input: ListGatewaysRequest,
   ): Effect.Effect<
     ListGatewaysResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ThrottlingException | CommonAwsError
   >;
   listInterfaceRelationships(
     input: ListInterfaceRelationshipsRequest,
   ): Effect.Effect<
     ListInterfaceRelationshipsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   listPortals(
     input: ListPortalsRequest,
   ): Effect.Effect<
     ListPortalsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ThrottlingException | CommonAwsError
   >;
   listProjectAssets(
     input: ListProjectAssetsRequest,
   ): Effect.Effect<
     ListProjectAssetsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ThrottlingException | CommonAwsError
   >;
   listProjects(
     input: ListProjectsRequest,
   ): Effect.Effect<
     ListProjectsResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ThrottlingException | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | CommonAwsError
   >;
   listTimeSeries(
     input: ListTimeSeriesRequest,
   ): Effect.Effect<
     ListTimeSeriesResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   putAssetModelInterfaceRelationship(
     input: PutAssetModelInterfaceRelationshipRequest,
   ): Effect.Effect<
     PutAssetModelInterfaceRelationshipResponse,
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   putDefaultEncryptionConfiguration(
     input: PutDefaultEncryptionConfigurationRequest,
   ): Effect.Effect<
     PutDefaultEncryptionConfigurationResponse,
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ThrottlingException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | LimitExceededException | ThrottlingException | CommonAwsError
   >;
   putLoggingOptions(
     input: PutLoggingOptionsRequest,
   ): Effect.Effect<
     PutLoggingOptionsResponse,
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   putStorageConfiguration(
     input: PutStorageConfigurationRequest,
   ): Effect.Effect<
     PutStorageConfigurationResponse,
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceAlreadyExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | LimitExceededException | ResourceAlreadyExistsException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | TooManyTagsException
-    | UnauthorizedException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ThrottlingException | TooManyTagsException | UnauthorizedException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnauthorizedException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | CommonAwsError
   >;
   updateAccessPolicy(
     input: UpdateAccessPolicyRequest,
   ): Effect.Effect<
     UpdateAccessPolicyResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   updateAsset(
     input: UpdateAssetRequest,
   ): Effect.Effect<
     UpdateAssetResponse,
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceAlreadyExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | ResourceAlreadyExistsException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   updateAssetModel(
     input: UpdateAssetModelRequest,
   ): Effect.Effect<
     UpdateAssetModelResponse,
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | PreconditionFailedException
-    | ResourceAlreadyExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | LimitExceededException | PreconditionFailedException | ResourceAlreadyExistsException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   updateAssetModelCompositeModel(
     input: UpdateAssetModelCompositeModelRequest,
   ): Effect.Effect<
     UpdateAssetModelCompositeModelResponse,
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | PreconditionFailedException
-    | ResourceAlreadyExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | LimitExceededException | PreconditionFailedException | ResourceAlreadyExistsException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   updateAssetProperty(
     input: UpdateAssetPropertyRequest,
   ): Effect.Effect<
     {},
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   updateComputationModel(
     input: UpdateComputationModelRequest,
   ): Effect.Effect<
     UpdateComputationModelResponse,
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceAlreadyExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | LimitExceededException | ResourceAlreadyExistsException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   updateDashboard(
     input: UpdateDashboardRequest,
   ): Effect.Effect<
     UpdateDashboardResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   updateDataset(
     input: UpdateDatasetRequest,
   ): Effect.Effect<
     UpdateDatasetResponse,
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   updateGateway(
     input: UpdateGatewayRequest,
   ): Effect.Effect<
     {},
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   updateGatewayCapabilityConfiguration(
     input: UpdateGatewayCapabilityConfigurationRequest,
   ): Effect.Effect<
     UpdateGatewayCapabilityConfigurationResponse,
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   updatePortal(
     input: UpdatePortalRequest,
   ): Effect.Effect<
     UpdatePortalResponse,
-    | ConflictingOperationException
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    ConflictingOperationException | InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   updateProject(
     input: UpdateProjectRequest,
   ): Effect.Effect<
     UpdateProjectResponse,
-    | InternalFailureException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
 }
 
@@ -1215,13 +682,7 @@ export interface Aggregates {
   sum?: number;
   standardDeviation?: number;
 }
-export type AggregateType =
-  | "AVERAGE"
-  | "COUNT"
-  | "MAXIMUM"
-  | "MINIMUM"
-  | "SUM"
-  | "STANDARD_DEVIATION";
+export type AggregateType = "AVERAGE" | "COUNT" | "MAXIMUM" | "MINIMUM" | "SUM" | "STANDARD_DEVIATION";
 export type AggregateTypes = Array<AggregateType>;
 export interface Alarms {
   alarmRoleArn: string;
@@ -1295,17 +756,14 @@ export interface AssetModelCompositeModelDefinition {
   type: string;
   properties?: Array<AssetModelPropertyDefinition>;
 }
-export type AssetModelCompositeModelDefinitions =
-  Array<AssetModelCompositeModelDefinition>;
-export type AssetModelCompositeModelPath =
-  Array<AssetModelCompositeModelPathSegment>;
+export type AssetModelCompositeModelDefinitions = Array<AssetModelCompositeModelDefinition>;
+export type AssetModelCompositeModelPath = Array<AssetModelCompositeModelPathSegment>;
 export interface AssetModelCompositeModelPathSegment {
   id?: string;
   name?: string;
 }
 export type AssetModelCompositeModels = Array<AssetModelCompositeModel>;
-export type AssetModelCompositeModelSummaries =
-  Array<AssetModelCompositeModelSummary>;
+export type AssetModelCompositeModelSummaries = Array<AssetModelCompositeModelSummary>;
 export interface AssetModelCompositeModelSummary {
   id: string;
   externalId?: string;
@@ -1327,8 +785,7 @@ export interface AssetModelHierarchyDefinition {
   name: string;
   childAssetModelId: string;
 }
-export type AssetModelHierarchyDefinitions =
-  Array<AssetModelHierarchyDefinition>;
+export type AssetModelHierarchyDefinitions = Array<AssetModelHierarchyDefinition>;
 export type AssetModelProperties = Array<AssetModelProperty>;
 export interface AssetModelProperty {
   id?: string;
@@ -1376,13 +833,7 @@ export interface AssetModelPropertySummary {
   path?: Array<AssetModelPropertyPathSegment>;
   interfaceSummaries?: Array<InterfaceSummary>;
 }
-export type AssetModelState =
-  | "CREATING"
-  | "ACTIVE"
-  | "UPDATING"
-  | "PROPAGATING"
-  | "DELETING"
-  | "FAILED";
+export type AssetModelState = "CREATING" | "ACTIVE" | "UPDATING" | "PROPAGATING" | "DELETING" | "FAILED";
 export interface AssetModelStatus {
   state: AssetModelState;
   error?: ErrorDetails;
@@ -1454,12 +905,7 @@ export interface AssetRelationshipSummary {
   relationshipType: AssetRelationshipType;
 }
 export type AssetRelationshipType = "HIERARCHY";
-export type AssetState =
-  | "CREATING"
-  | "ACTIVE"
-  | "UPDATING"
-  | "DELETING"
-  | "FAILED";
+export type AssetState = "CREATING" | "ACTIVE" | "UPDATING" | "DELETING" | "FAILED";
 export interface AssetStatus {
   state: AssetState;
   error?: ErrorDetails;
@@ -1525,8 +971,7 @@ export interface BatchDisassociateProjectAssetsResponse {
   errors?: Array<AssetErrorDetails>;
 }
 export type BatchEntryCompletionStatus = "SUCCESS" | "ERROR";
-export type BatchGetAssetPropertyAggregatesEntries =
-  Array<BatchGetAssetPropertyAggregatesEntry>;
+export type BatchGetAssetPropertyAggregatesEntries = Array<BatchGetAssetPropertyAggregatesEntry>;
 export interface BatchGetAssetPropertyAggregatesEntry {
   entryId: string;
   assetId?: string;
@@ -1539,12 +984,8 @@ export interface BatchGetAssetPropertyAggregatesEntry {
   qualities?: Array<Quality>;
   timeOrdering?: TimeOrdering;
 }
-export type BatchGetAssetPropertyAggregatesErrorCode =
-  | "ResourceNotFoundException"
-  | "InvalidRequestException"
-  | "AccessDeniedException";
-export type BatchGetAssetPropertyAggregatesErrorEntries =
-  Array<BatchGetAssetPropertyAggregatesErrorEntry>;
+export type BatchGetAssetPropertyAggregatesErrorCode = "ResourceNotFoundException" | "InvalidRequestException" | "AccessDeniedException";
+export type BatchGetAssetPropertyAggregatesErrorEntries = Array<BatchGetAssetPropertyAggregatesErrorEntry>;
 export interface BatchGetAssetPropertyAggregatesErrorEntry {
   errorCode: BatchGetAssetPropertyAggregatesErrorCode;
   errorMessage: string;
@@ -1567,33 +1008,26 @@ export interface BatchGetAssetPropertyAggregatesResponse {
   skippedEntries: Array<BatchGetAssetPropertyAggregatesSkippedEntry>;
   nextToken?: string;
 }
-export type BatchGetAssetPropertyAggregatesSkippedEntries =
-  Array<BatchGetAssetPropertyAggregatesSkippedEntry>;
+export type BatchGetAssetPropertyAggregatesSkippedEntries = Array<BatchGetAssetPropertyAggregatesSkippedEntry>;
 export interface BatchGetAssetPropertyAggregatesSkippedEntry {
   entryId: string;
   completionStatus: BatchEntryCompletionStatus;
   errorInfo?: BatchGetAssetPropertyAggregatesErrorInfo;
 }
-export type BatchGetAssetPropertyAggregatesSuccessEntries =
-  Array<BatchGetAssetPropertyAggregatesSuccessEntry>;
+export type BatchGetAssetPropertyAggregatesSuccessEntries = Array<BatchGetAssetPropertyAggregatesSuccessEntry>;
 export interface BatchGetAssetPropertyAggregatesSuccessEntry {
   entryId: string;
   aggregatedValues: Array<AggregatedValue>;
 }
-export type BatchGetAssetPropertyValueEntries =
-  Array<BatchGetAssetPropertyValueEntry>;
+export type BatchGetAssetPropertyValueEntries = Array<BatchGetAssetPropertyValueEntry>;
 export interface BatchGetAssetPropertyValueEntry {
   entryId: string;
   assetId?: string;
   propertyId?: string;
   propertyAlias?: string;
 }
-export type BatchGetAssetPropertyValueErrorCode =
-  | "ResourceNotFoundException"
-  | "InvalidRequestException"
-  | "AccessDeniedException";
-export type BatchGetAssetPropertyValueErrorEntries =
-  Array<BatchGetAssetPropertyValueErrorEntry>;
+export type BatchGetAssetPropertyValueErrorCode = "ResourceNotFoundException" | "InvalidRequestException" | "AccessDeniedException";
+export type BatchGetAssetPropertyValueErrorEntries = Array<BatchGetAssetPropertyValueErrorEntry>;
 export interface BatchGetAssetPropertyValueErrorEntry {
   errorCode: BatchGetAssetPropertyValueErrorCode;
   errorMessage: string;
@@ -1603,8 +1037,7 @@ export interface BatchGetAssetPropertyValueErrorInfo {
   errorCode: BatchGetAssetPropertyValueErrorCode;
   errorTimestamp: Date | string;
 }
-export type BatchGetAssetPropertyValueHistoryEntries =
-  Array<BatchGetAssetPropertyValueHistoryEntry>;
+export type BatchGetAssetPropertyValueHistoryEntries = Array<BatchGetAssetPropertyValueHistoryEntry>;
 export interface BatchGetAssetPropertyValueHistoryEntry {
   entryId: string;
   assetId?: string;
@@ -1615,12 +1048,8 @@ export interface BatchGetAssetPropertyValueHistoryEntry {
   qualities?: Array<Quality>;
   timeOrdering?: TimeOrdering;
 }
-export type BatchGetAssetPropertyValueHistoryErrorCode =
-  | "ResourceNotFoundException"
-  | "InvalidRequestException"
-  | "AccessDeniedException";
-export type BatchGetAssetPropertyValueHistoryErrorEntries =
-  Array<BatchGetAssetPropertyValueHistoryErrorEntry>;
+export type BatchGetAssetPropertyValueHistoryErrorCode = "ResourceNotFoundException" | "InvalidRequestException" | "AccessDeniedException";
+export type BatchGetAssetPropertyValueHistoryErrorEntries = Array<BatchGetAssetPropertyValueHistoryErrorEntry>;
 export interface BatchGetAssetPropertyValueHistoryErrorEntry {
   errorCode: BatchGetAssetPropertyValueHistoryErrorCode;
   errorMessage: string;
@@ -1643,15 +1072,13 @@ export interface BatchGetAssetPropertyValueHistoryResponse {
   skippedEntries: Array<BatchGetAssetPropertyValueHistorySkippedEntry>;
   nextToken?: string;
 }
-export type BatchGetAssetPropertyValueHistorySkippedEntries =
-  Array<BatchGetAssetPropertyValueHistorySkippedEntry>;
+export type BatchGetAssetPropertyValueHistorySkippedEntries = Array<BatchGetAssetPropertyValueHistorySkippedEntry>;
 export interface BatchGetAssetPropertyValueHistorySkippedEntry {
   entryId: string;
   completionStatus: BatchEntryCompletionStatus;
   errorInfo?: BatchGetAssetPropertyValueHistoryErrorInfo;
 }
-export type BatchGetAssetPropertyValueHistorySuccessEntries =
-  Array<BatchGetAssetPropertyValueHistorySuccessEntry>;
+export type BatchGetAssetPropertyValueHistorySuccessEntries = Array<BatchGetAssetPropertyValueHistorySuccessEntry>;
 export interface BatchGetAssetPropertyValueHistorySuccessEntry {
   entryId: string;
   assetPropertyValueHistory: Array<AssetPropertyValue>;
@@ -1666,15 +1093,13 @@ export interface BatchGetAssetPropertyValueResponse {
   skippedEntries: Array<BatchGetAssetPropertyValueSkippedEntry>;
   nextToken?: string;
 }
-export type BatchGetAssetPropertyValueSkippedEntries =
-  Array<BatchGetAssetPropertyValueSkippedEntry>;
+export type BatchGetAssetPropertyValueSkippedEntries = Array<BatchGetAssetPropertyValueSkippedEntry>;
 export interface BatchGetAssetPropertyValueSkippedEntry {
   entryId: string;
   completionStatus: BatchEntryCompletionStatus;
   errorInfo?: BatchGetAssetPropertyValueErrorInfo;
 }
-export type BatchGetAssetPropertyValueSuccessEntries =
-  Array<BatchGetAssetPropertyValueSuccessEntry>;
+export type BatchGetAssetPropertyValueSuccessEntries = Array<BatchGetAssetPropertyValueSuccessEntry>;
 export interface BatchGetAssetPropertyValueSuccessEntry {
   entryId: string;
   assetPropertyValue?: AssetPropertyValue;
@@ -1684,23 +1109,13 @@ export interface BatchPutAssetPropertyError {
   errorMessage: string;
   timestamps: Array<TimeInNanos>;
 }
-export type BatchPutAssetPropertyErrorEntries =
-  Array<BatchPutAssetPropertyErrorEntry>;
+export type BatchPutAssetPropertyErrorEntries = Array<BatchPutAssetPropertyErrorEntry>;
 export interface BatchPutAssetPropertyErrorEntry {
   entryId: string;
   errors: Array<BatchPutAssetPropertyError>;
 }
 export type BatchPutAssetPropertyErrors = Array<BatchPutAssetPropertyError>;
-export type BatchPutAssetPropertyValueErrorCode =
-  | "ResourceNotFoundException"
-  | "InvalidRequestException"
-  | "InternalFailureException"
-  | "ServiceUnavailableException"
-  | "ThrottlingException"
-  | "LimitExceededException"
-  | "ConflictingOperationException"
-  | "TimestampOutOfRangeException"
-  | "AccessDeniedException";
+export type BatchPutAssetPropertyValueErrorCode = "ResourceNotFoundException" | "InvalidRequestException" | "InternalFailureException" | "ServiceUnavailableException" | "ThrottlingException" | "LimitExceededException" | "ConflictingOperationException" | "TimestampOutOfRangeException" | "AccessDeniedException";
 export interface BatchPutAssetPropertyValueRequest {
   enablePartialEntryProcessing?: boolean;
   entries: Array<PutAssetPropertyValueEntry>;
@@ -1717,12 +1132,7 @@ export type CapabilityConfiguration = string;
 
 export type CapabilityNamespace = string;
 
-export type CapabilitySyncStatus =
-  | "IN_SYNC"
-  | "OUT_OF_SYNC"
-  | "SYNC_FAILED"
-  | "UNKNOWN"
-  | "NOT_APPLICABLE";
+export type CapabilitySyncStatus = "IN_SYNC" | "OUT_OF_SYNC" | "SYNC_FAILED" | "UNKNOWN" | "NOT_APPLICABLE";
 export interface Citation {
   reference?: Reference;
   content?: Content;
@@ -1734,15 +1144,7 @@ export interface ColumnInfo {
   name?: string;
   type?: ColumnType;
 }
-export type ColumnName =
-  | "ALIAS"
-  | "ASSET_ID"
-  | "PROPERTY_ID"
-  | "DATA_TYPE"
-  | "TIMESTAMP_SECONDS"
-  | "TIMESTAMP_NANO_OFFSET"
-  | "QUALITY"
-  | "VALUE";
+export type ColumnName = "ALIAS" | "ASSET_ID" | "PROPERTY_ID" | "DATA_TYPE" | "TIMESTAMP_SECONDS" | "TIMESTAMP_NANO_OFFSET" | "QUALITY" | "VALUE";
 export type ColumnNames = Array<ColumnName>;
 export type ColumnsList = Array<ColumnInfo>;
 export interface ColumnType {
@@ -1762,8 +1164,7 @@ export type CompositionRelationship = Array<CompositionRelationshipItem>;
 export interface CompositionRelationshipItem {
   id?: string;
 }
-export type CompositionRelationshipSummaries =
-  Array<CompositionRelationshipSummary>;
+export type CompositionRelationshipSummaries = Array<CompositionRelationshipSummary>;
 export interface CompositionRelationshipSummary {
   assetModelId: string;
   assetModelCompositeModelId: string;
@@ -1776,12 +1177,8 @@ export interface ComputationModelAnomalyDetectionConfiguration {
 export interface ComputationModelConfiguration {
   anomalyDetection?: ComputationModelAnomalyDetectionConfiguration;
 }
-export type ComputationModelDataBinding = Record<
-  string,
-  ComputationModelDataBindingValue
->;
-export type ComputationModelDataBindingUsageSummaries =
-  Array<ComputationModelDataBindingUsageSummary>;
+export type ComputationModelDataBinding = Record<string, ComputationModelDataBindingValue>;
+export type ComputationModelDataBindingUsageSummaries = Array<ComputationModelDataBindingUsageSummary>;
 export interface ComputationModelDataBindingUsageSummary {
   computationModelIds: Array<string>;
   matchedDataBinding: MatchedDataBinding;
@@ -1799,17 +1196,11 @@ export type ComputationModelExecutionSummaryKey = string;
 export type ComputationModelExecutionSummaryValue = string;
 
 export type ComputationModelIdList = Array<string>;
-export type ComputationModelResolveToResourceSummaries =
-  Array<ComputationModelResolveToResourceSummary>;
+export type ComputationModelResolveToResourceSummaries = Array<ComputationModelResolveToResourceSummary>;
 export interface ComputationModelResolveToResourceSummary {
   resolveTo?: ResolveTo;
 }
-export type ComputationModelState =
-  | "CREATING"
-  | "ACTIVE"
-  | "UPDATING"
-  | "DELETING"
-  | "FAILED";
+export type ComputationModelState = "CREATING" | "ACTIVE" | "UPDATING" | "DELETING" | "FAILED";
 export interface ComputationModelStatus {
   state: ComputationModelState;
   error?: ErrorDetails;
@@ -1834,10 +1225,7 @@ export interface ConfigurationErrorDetails {
   code: ErrorCode;
   message: string;
 }
-export type ConfigurationState =
-  | "ACTIVE"
-  | "UPDATE_IN_PROGRESS"
-  | "UPDATE_FAILED";
+export type ConfigurationState = "ACTIVE" | "UPDATE_IN_PROGRESS" | "UPDATE_FAILED";
 export interface ConfigurationStatus {
   state: ConfigurationState;
   error?: ConfigurationErrorDetails;
@@ -1854,10 +1242,7 @@ export interface Content {
 }
 export type ConversationId = string;
 
-export type CoreDeviceOperatingSystem =
-  | "LINUX_AARCH64"
-  | "LINUX_AMD64"
-  | "WINDOWS_AMD64";
+export type CoreDeviceOperatingSystem = "LINUX_AARCH64" | "LINUX_AMD64" | "WINDOWS_AMD64";
 export type CoreDeviceThingName = string;
 
 export interface CreateAccessPolicyRequest {
@@ -2058,12 +1443,7 @@ export interface DatasetSource {
 }
 export type DatasetSourceFormat = "KNOWLEDGE_BASE";
 export type DatasetSourceType = "KENDRA";
-export type DatasetState =
-  | "CREATING"
-  | "ACTIVE"
-  | "UPDATING"
-  | "DELETING"
-  | "FAILED";
+export type DatasetState = "CREATING" | "ACTIVE" | "UPDATING" | "DELETING" | "FAILED";
 export interface DatasetStatus {
   state: DatasetState;
   error?: ErrorDetails;
@@ -2091,7 +1471,8 @@ export interface DeleteAccessPolicyRequest {
   accessPolicyId: string;
   clientToken?: string;
 }
-export interface DeleteAccessPolicyResponse {}
+export interface DeleteAccessPolicyResponse {
+}
 export interface DeleteAssetModelCompositeModelRequest {
   assetModelId: string;
   assetModelCompositeModelId: string;
@@ -2142,7 +1523,8 @@ export interface DeleteDashboardRequest {
   dashboardId: string;
   clientToken?: string;
 }
-export interface DeleteDashboardResponse {}
+export interface DeleteDashboardResponse {
+}
 export interface DeleteDatasetRequest {
   datasetId: string;
   clientToken?: string;
@@ -2166,7 +1548,8 @@ export interface DeleteProjectRequest {
   projectId: string;
   clientToken?: string;
 }
-export interface DeleteProjectResponse {}
+export interface DeleteProjectResponse {
+}
 export interface DeleteTimeSeriesRequest {
   alias?: string;
   assetId?: string;
@@ -2364,7 +1747,8 @@ export interface DescribeDatasetResponse {
   datasetLastUpdateDate: Date | string;
   datasetVersion?: string;
 }
-export interface DescribeDefaultEncryptionConfigurationRequest {}
+export interface DescribeDefaultEncryptionConfigurationRequest {
+}
 export interface DescribeDefaultEncryptionConfigurationResponse {
   encryptionType: EncryptionType;
   kmsKeyArn?: string;
@@ -2409,7 +1793,8 @@ export interface DescribeGatewayResponse {
   creationDate: Date | string;
   lastUpdateDate: Date | string;
 }
-export interface DescribeLoggingOptionsRequest {}
+export interface DescribeLoggingOptionsRequest {
+}
 export interface DescribeLoggingOptionsResponse {
   loggingOptions: LoggingOptions;
 }
@@ -2447,7 +1832,8 @@ export interface DescribeProjectResponse {
   projectCreationDate: Date | string;
   projectLastUpdateDate: Date | string;
 }
-export interface DescribeStorageConfigurationRequest {}
+export interface DescribeStorageConfigurationRequest {
+}
 export interface DescribeStorageConfigurationResponse {
   storageType: StorageType;
   multiLayerStorage?: MultiLayerStorage;
@@ -2481,9 +1867,7 @@ export interface DetailedError {
   code: DetailedErrorCode;
   message: string;
 }
-export type DetailedErrorCode =
-  | "INCOMPATIBLE_COMPUTE_LOCATION"
-  | "INCOMPATIBLE_FORWARDING_CONFIGURATION";
+export type DetailedErrorCode = "INCOMPATIBLE_COMPUTE_LOCATION" | "INCOMPATIBLE_FORWARDING_CONFIGURATION";
 export type DetailedErrorMessage = string;
 
 export type DetailedErrors = Array<DetailedError>;
@@ -2504,9 +1888,7 @@ export interface DisassociateTimeSeriesFromAssetPropertyRequest {
 }
 export type Email = string;
 
-export type EncryptionType =
-  | "SITEWISE_DEFAULT_ENCRYPTION"
-  | "KMS_BASED_ENCRYPTION";
+export type EncryptionType = "SITEWISE_DEFAULT_ENCRYPTION" | "KMS_BASED_ENCRYPTION";
 export type EntryId = string;
 
 export type ErrorCode = "VALIDATION_ERROR" | "INTERNAL_FAILURE";
@@ -2744,8 +2126,7 @@ export type InterfaceDetails = Array<InterfaceRelationship>;
 export interface InterfaceRelationship {
   id: string;
 }
-export type InterfaceRelationshipSummaries =
-  Array<InterfaceRelationshipSummary>;
+export type InterfaceRelationshipSummaries = Array<InterfaceRelationshipSummary>;
 export interface InterfaceRelationshipSummary {
   id: string;
 }
@@ -2763,8 +2144,7 @@ export interface InterpolatedAssetPropertyValue {
   timestamp: TimeInNanos;
   value: Variant;
 }
-export type InterpolatedAssetPropertyValues =
-  Array<InterpolatedAssetPropertyValue>;
+export type InterpolatedAssetPropertyValues = Array<InterpolatedAssetPropertyValue>;
 export type InterpolationType = string;
 
 export type Interval = string;
@@ -2796,13 +2176,7 @@ export type IotCoreThingName = string;
 export interface JobConfiguration {
   fileFormat: FileFormat;
 }
-export type JobStatus =
-  | "PENDING"
-  | "CANCELLED"
-  | "RUNNING"
-  | "COMPLETED"
-  | "FAILED"
-  | "COMPLETED_WITH_FAILURES";
+export type JobStatus = "PENDING" | "CANCELLED" | "RUNNING" | "COMPLETED" | "FAILED" | "COMPLETED_WITH_FAILURES";
 export type JobSummaries = Array<JobSummary>;
 export interface JobSummary {
   id: string;
@@ -2921,14 +2295,7 @@ export interface ListAssociatedAssetsResponse {
   assetSummaries: Array<AssociatedAssetsSummary>;
   nextToken?: string;
 }
-export type ListBulkImportJobsFilter =
-  | "ALL"
-  | "PENDING"
-  | "RUNNING"
-  | "CANCELLED"
-  | "FAILED"
-  | "COMPLETED_WITH_FAILURES"
-  | "COMPLETED";
+export type ListBulkImportJobsFilter = "ALL" | "PENDING" | "RUNNING" | "CANCELLED" | "FAILED" | "COMPLETED_WITH_FAILURES" | "COMPLETED";
 export interface ListBulkImportJobsRequest {
   nextToken?: string;
   maxResults?: number;
@@ -3104,10 +2471,7 @@ export interface MetricProcessingConfig {
 export interface MetricWindow {
   tumbling?: TumblingWindow;
 }
-export type MonitorErrorCode =
-  | "INTERNAL_FAILURE"
-  | "VALIDATION_ERROR"
-  | "LIMIT_EXCEEDED";
+export type MonitorErrorCode = "INTERNAL_FAILURE" | "VALIDATION_ERROR" | "LIMIT_EXCEEDED";
 export interface MonitorErrorDetails {
   code?: MonitorErrorCode;
   message?: string;
@@ -3129,20 +2493,15 @@ export type Offset = string;
 
 export type OffsetInNanos = number;
 
-export interface Parquet {}
+export interface Parquet {
+}
 export type Permission = "ADMINISTRATOR" | "VIEWER";
 export type PortalClientId = string;
 
 export interface PortalResource {
   id: string;
 }
-export type PortalState =
-  | "CREATING"
-  | "PENDING"
-  | "UPDATING"
-  | "DELETING"
-  | "ACTIVE"
-  | "FAILED";
+export type PortalState = "CREATING" | "PENDING" | "UPDATING" | "DELETING" | "ACTIVE" | "FAILED";
 export interface PortalStatus {
   state: PortalState;
   error?: MonitorErrorDetails;
@@ -3198,12 +2557,7 @@ export interface Property {
 }
 export type PropertyAlias = string;
 
-export type PropertyDataType =
-  | "STRING"
-  | "INTEGER"
-  | "DOUBLE"
-  | "BOOLEAN"
-  | "STRUCT";
+export type PropertyDataType = "STRING" | "INTEGER" | "DOUBLE" | "BOOLEAN" | "STRUCT";
 export interface PropertyMapping {
   assetModelPropertyId: string;
   interfaceAssetModelPropertyId: string;
@@ -3272,7 +2626,8 @@ export interface PutDefaultEncryptionConfigurationResponse {
 export interface PutLoggingOptionsRequest {
   loggingOptions: LoggingOptions;
 }
-export interface PutLoggingOptionsResponse {}
+export interface PutLoggingOptionsResponse {
+}
 export interface PutStorageConfigurationRequest {
   storageType: StorageType;
   multiLayerStorage?: MultiLayerStorage;
@@ -3344,18 +2699,7 @@ interface _ResponseStream {
   throttlingException?: ThrottlingException;
 }
 
-export type ResponseStream =
-  | (_ResponseStream & { trace: Trace })
-  | (_ResponseStream & { output: InvocationOutput })
-  | (_ResponseStream & { accessDeniedException: AccessDeniedException })
-  | (_ResponseStream & {
-      conflictingOperationException: ConflictingOperationException;
-    })
-  | (_ResponseStream & { internalFailureException: InternalFailureException })
-  | (_ResponseStream & { invalidRequestException: InvalidRequestException })
-  | (_ResponseStream & { limitExceededException: LimitExceededException })
-  | (_ResponseStream & { resourceNotFoundException: ResourceNotFoundException })
-  | (_ResponseStream & { throttlingException: ThrottlingException });
+export type ResponseStream = (_ResponseStream & { trace: Trace }) | (_ResponseStream & { output: InvocationOutput }) | (_ResponseStream & { accessDeniedException: AccessDeniedException }) | (_ResponseStream & { conflictingOperationException: ConflictingOperationException }) | (_ResponseStream & { internalFailureException: InternalFailureException }) | (_ResponseStream & { invalidRequestException: InvalidRequestException }) | (_ResponseStream & { limitExceededException: LimitExceededException }) | (_ResponseStream & { resourceNotFoundException: ResourceNotFoundException }) | (_ResponseStream & { throttlingException: ThrottlingException });
 export type RestrictedDescription = string;
 
 export type RestrictedName = string;
@@ -3403,7 +2747,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export interface TargetResource {
@@ -3475,7 +2820,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateAccessPolicyRequest {
   accessPolicyId: string;
   accessPolicyIdentity: Identity;
@@ -3483,7 +2829,8 @@ export interface UpdateAccessPolicyRequest {
   accessPolicyPermission: Permission;
   clientToken?: string;
 }
-export interface UpdateAccessPolicyResponse {}
+export interface UpdateAccessPolicyResponse {
+}
 export interface UpdateAssetModelCompositeModelRequest {
   assetModelId: string;
   assetModelCompositeModelId: string;
@@ -3552,7 +2899,8 @@ export interface UpdateDashboardRequest {
   dashboardDefinition: string;
   clientToken?: string;
 }
-export interface UpdateDashboardResponse {}
+export interface UpdateDashboardResponse {
+}
 export interface UpdateDatasetRequest {
   datasetId: string;
   datasetName: string;
@@ -3600,7 +2948,8 @@ export interface UpdateProjectRequest {
   projectDescription?: string;
   clientToken?: string;
 }
-export interface UpdateProjectResponse {}
+export interface UpdateProjectResponse {
+}
 export type Url = string;
 
 export interface UserIdentity {
@@ -4861,19 +4210,5 @@ export declare namespace UpdateProject {
     | CommonAwsError;
 }
 
-export type IoTSiteWiseErrors =
-  | AccessDeniedException
-  | ConflictingOperationException
-  | InternalFailureException
-  | InvalidRequestException
-  | LimitExceededException
-  | PreconditionFailedException
-  | QueryTimeoutException
-  | ResourceAlreadyExistsException
-  | ResourceNotFoundException
-  | ServiceUnavailableException
-  | ThrottlingException
-  | TooManyTagsException
-  | UnauthorizedException
-  | ValidationException
-  | CommonAwsError;
+export type IoTSiteWiseErrors = AccessDeniedException | ConflictingOperationException | InternalFailureException | InvalidRequestException | LimitExceededException | PreconditionFailedException | QueryTimeoutException | ResourceAlreadyExistsException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | TooManyTagsException | UnauthorizedException | ValidationException | CommonAwsError;
+

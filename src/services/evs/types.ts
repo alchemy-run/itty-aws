@@ -1,39 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  AccessDeniedException,
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-} from "../../error.ts";
-type CommonAwsError =
-  | AccessDeniedException
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | ThrottlingException
-  | ValidationException;
+import type { AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
+type CommonAwsError = AccessDeniedException | ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | ThrottlingException | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class evs extends AWSServiceClient {
@@ -47,11 +14,7 @@ export declare class evs extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | TagPolicyException
-    | TooManyTagsException
-    | CommonAwsError
+    ResourceNotFoundException | ServiceQuotaExceededException | TagPolicyException | TooManyTagsException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
@@ -63,10 +26,7 @@ export declare class evs extends AWSServiceClient {
     input: AssociateEipToVlanRequest,
   ): Effect.Effect<
     AssociateEipToVlanResponse,
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createEnvironment(
     input: CreateEnvironmentRequest,
@@ -96,10 +56,7 @@ export declare class evs extends AWSServiceClient {
     input: DisassociateEipFromVlanRequest,
   ): Effect.Effect<
     DisassociateEipFromVlanResponse,
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getEnvironment(
     input: GetEnvironmentRequest,
@@ -151,11 +108,7 @@ export interface Check {
 }
 export type CheckResult = "PASSED" | "FAILED" | "UNKNOWN";
 export type ChecksList = Array<Check>;
-export type CheckType =
-  | "KEY_REUSE"
-  | "KEY_COVERAGE"
-  | "REACHABILITY"
-  | "HOST_COUNT";
+export type CheckType = "KEY_REUSE" | "KEY_COVERAGE" | "REACHABILITY" | "HOST_COUNT";
 export type Cidr = string;
 
 export type ClientToken = string;
@@ -251,12 +204,7 @@ export type EnvironmentId = string;
 
 export type EnvironmentName = string;
 
-export type EnvironmentState =
-  | "CREATING"
-  | "CREATED"
-  | "DELETING"
-  | "DELETED"
-  | "CREATE_FAILED";
+export type EnvironmentState = "CREATING" | "CREATED" | "DELETING" | "DELETED" | "CREATE_FAILED";
 export type EnvironmentStateList = Array<EnvironmentState>;
 export interface EnvironmentSummary {
   environmentId?: string;
@@ -300,14 +248,7 @@ export type HostInfoForCreateList = Array<HostInfoForCreate>;
 export type HostList = Array<Host>;
 export type HostName = string;
 
-export type HostState =
-  | "CREATING"
-  | "CREATED"
-  | "UPDATING"
-  | "DELETING"
-  | "DELETED"
-  | "CREATE_FAILED"
-  | "UPDATE_FAILED";
+export type HostState = "CREATING" | "CREATED" | "UPDATING" | "DELETING" | "DELETED" | "CREATE_FAILED" | "UPDATE_FAILED";
 export interface InitialVlanInfo {
   cidr: string;
 }
@@ -427,7 +368,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(
@@ -445,7 +387,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export declare class ValidationException extends EffectData.TaggedError(
   "ValidationException",
 )<{
@@ -458,11 +401,7 @@ export interface ValidationExceptionField {
   message: string;
 }
 export type ValidationExceptionFieldList = Array<ValidationExceptionField>;
-export type ValidationExceptionReason =
-  | "unknownOperation"
-  | "cannotParse"
-  | "fieldValidationFailed"
-  | "other";
+export type ValidationExceptionReason = "unknownOperation" | "cannotParse" | "fieldValidationFailed" | "other";
 export interface VcfHostnames {
   vCenter: string;
   nsx: string;
@@ -492,12 +431,7 @@ export interface Vlan {
 export type VlanId = number;
 
 export type VlanList = Array<Vlan>;
-export type VlanState =
-  | "CREATING"
-  | "CREATED"
-  | "DELETING"
-  | "DELETED"
-  | "CREATE_FAILED";
+export type VlanState = "CREATING" | "CREATED" | "DELETING" | "DELETED" | "CREATE_FAILED";
 export type VpcId = string;
 
 export type VSanLicenseKey = string;
@@ -505,7 +439,9 @@ export type VSanLicenseKey = string;
 export declare namespace ListTagsForResource {
   export type Input = ListTagsForResourceRequest;
   export type Output = ListTagsForResourceResponse;
-  export type Error = ResourceNotFoundException | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundException
+    | CommonAwsError;
 }
 
 export declare namespace TagResource {
@@ -541,7 +477,9 @@ export declare namespace AssociateEipToVlan {
 export declare namespace CreateEnvironment {
   export type Input = CreateEnvironmentRequest;
   export type Output = CreateEnvironmentResponse;
-  export type Error = ValidationException | CommonAwsError;
+  export type Error =
+    | ValidationException
+    | CommonAwsError;
 }
 
 export declare namespace CreateEnvironmentHost {
@@ -611,14 +549,10 @@ export declare namespace ListEnvironmentVlans {
 export declare namespace ListEnvironments {
   export type Input = ListEnvironmentsRequest;
   export type Output = ListEnvironmentsResponse;
-  export type Error = ValidationException | CommonAwsError;
+  export type Error =
+    | ValidationException
+    | CommonAwsError;
 }
 
-export type evsErrors =
-  | ResourceNotFoundException
-  | ServiceQuotaExceededException
-  | TagPolicyException
-  | ThrottlingException
-  | TooManyTagsException
-  | ValidationException
-  | CommonAwsError;
+export type evsErrors = ResourceNotFoundException | ServiceQuotaExceededException | TagPolicyException | ThrottlingException | TooManyTagsException | ValidationException | CommonAwsError;
+

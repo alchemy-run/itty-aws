@@ -5,24 +5,7 @@ import type { Pipes as _PipesClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {
-  AccessDeniedException,
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-  type CommonAwsError,
-} from "../../error.ts";
+export {AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, type CommonAwsError} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -32,16 +15,16 @@ const metadata = {
   sigV4ServiceName: "pipes",
   endpointPrefix: "pipes",
   operations: {
-    ListTagsForResource: "GET /tags/{resourceArn}",
-    TagResource: "POST /tags/{resourceArn}",
-    UntagResource: "DELETE /tags/{resourceArn}",
-    CreatePipe: "POST /v1/pipes/{Name}",
-    DeletePipe: "DELETE /v1/pipes/{Name}",
-    DescribePipe: "GET /v1/pipes/{Name}",
-    ListPipes: "GET /v1/pipes",
-    StartPipe: "POST /v1/pipes/{Name}/start",
-    StopPipe: "POST /v1/pipes/{Name}/stop",
-    UpdatePipe: "PUT /v1/pipes/{Name}",
+    "ListTagsForResource": "GET /tags/{resourceArn}",
+    "TagResource": "POST /tags/{resourceArn}",
+    "UntagResource": "DELETE /tags/{resourceArn}",
+    "CreatePipe": "POST /v1/pipes/{Name}",
+    "DeletePipe": "DELETE /v1/pipes/{Name}",
+    "DescribePipe": "GET /v1/pipes/{Name}",
+    "ListPipes": "GET /v1/pipes",
+    "StartPipe": "POST /v1/pipes/{Name}/start",
+    "StopPipe": "POST /v1/pipes/{Name}/stop",
+    "UpdatePipe": "PUT /v1/pipes/{Name}",
   },
 } as const satisfies ServiceMetadata;
 

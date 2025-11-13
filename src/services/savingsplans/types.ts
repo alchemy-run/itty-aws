@@ -1,40 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  AccessDeniedException,
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  ThrottlingException,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-} from "../../error.ts";
-type CommonAwsError =
-  | AccessDeniedException
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | ThrottlingException
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | ValidationException;
+import type { AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
+type CommonAwsError = AccessDeniedException | ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | ThrottlingException | UnrecognizedClientException | UnknownOperationException | ValidationError | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class savingsplans extends AWSServiceClient {
@@ -42,21 +8,13 @@ export declare class savingsplans extends AWSServiceClient {
     input: CreateSavingsPlanRequest,
   ): Effect.Effect<
     CreateSavingsPlanResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   >;
   deleteQueuedSavingsPlan(
     input: DeleteQueuedSavingsPlanRequest,
   ): Effect.Effect<
     DeleteQueuedSavingsPlanResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   >;
   describeSavingsPlanRates(
     input: DescribeSavingsPlanRatesRequest,
@@ -86,39 +44,25 @@ export declare class savingsplans extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   returnSavingsPlan(
     input: ReturnSavingsPlanRequest,
   ): Effect.Effect<
     ReturnSavingsPlanResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
 }
 
@@ -146,7 +90,8 @@ export type DateTime = Date | string;
 export interface DeleteQueuedSavingsPlanRequest {
   savingsPlanId: string;
 }
-export interface DeleteQueuedSavingsPlanResponse {}
+export interface DeleteQueuedSavingsPlanResponse {
+}
 export interface DescribeSavingsPlanRatesRequest {
   savingsPlanId: string;
   filters?: Array<SavingsPlanRateFilter>;
@@ -305,8 +250,7 @@ export interface SavingsPlanOfferingFilterElement {
   name?: SavingsPlanOfferingFilterAttribute;
   values?: Array<string>;
 }
-export type SavingsPlanOfferingFiltersList =
-  Array<SavingsPlanOfferingFilterElement>;
+export type SavingsPlanOfferingFiltersList = Array<SavingsPlanOfferingFilterElement>;
 export type SavingsPlanOfferingId = string;
 
 export interface SavingsPlanOfferingProperty {
@@ -314,8 +258,7 @@ export interface SavingsPlanOfferingProperty {
   value?: string;
 }
 export type SavingsPlanOfferingPropertyKey = "region" | "instanceFamily";
-export type SavingsPlanOfferingPropertyList =
-  Array<SavingsPlanOfferingProperty>;
+export type SavingsPlanOfferingPropertyList = Array<SavingsPlanOfferingProperty>;
 export interface SavingsPlanOfferingRate {
   savingsPlanOffering?: ParentSavingsPlanOffering;
   rate?: string;
@@ -330,23 +273,18 @@ export interface SavingsPlanOfferingRateFilterElement {
   name?: SavingsPlanRateFilterAttribute;
   values?: Array<string>;
 }
-export type SavingsPlanOfferingRateFiltersList =
-  Array<SavingsPlanOfferingRateFilterElement>;
+export type SavingsPlanOfferingRateFiltersList = Array<SavingsPlanOfferingRateFilterElement>;
 export interface SavingsPlanOfferingRateProperty {
   name?: string;
   value?: string;
 }
-export type SavingsPlanOfferingRatePropertyList =
-  Array<SavingsPlanOfferingRateProperty>;
+export type SavingsPlanOfferingRatePropertyList = Array<SavingsPlanOfferingRateProperty>;
 export type SavingsPlanOfferingRatesList = Array<SavingsPlanOfferingRate>;
 export type SavingsPlanOfferingsList = Array<SavingsPlanOffering>;
 export type SavingsPlanOperation = string;
 
 export type SavingsPlanOperationList = Array<string>;
-export type SavingsPlanPaymentOption =
-  | "All Upfront"
-  | "Partial Upfront"
-  | "No Upfront";
+export type SavingsPlanPaymentOption = "All Upfront" | "Partial Upfront" | "No Upfront";
 export type SavingsPlanPaymentOptionList = Array<SavingsPlanPaymentOption>;
 export type SavingsPlanProductType = "EC2" | "Fargate" | "Lambda" | "SageMaker";
 export type SavingsPlanProductTypeList = Array<SavingsPlanProductType>;
@@ -364,23 +302,9 @@ export interface SavingsPlanRateFilter {
   name?: SavingsPlanRateFilterName;
   values?: Array<string>;
 }
-export type SavingsPlanRateFilterAttribute =
-  | "region"
-  | "instanceFamily"
-  | "instanceType"
-  | "productDescription"
-  | "tenancy"
-  | "productId";
+export type SavingsPlanRateFilterAttribute = "region" | "instanceFamily" | "instanceType" | "productDescription" | "tenancy" | "productId";
 export type SavingsPlanRateFilterList = Array<SavingsPlanRateFilter>;
-export type SavingsPlanRateFilterName =
-  | "region"
-  | "instanceType"
-  | "productDescription"
-  | "tenancy"
-  | "productType"
-  | "serviceCode"
-  | "usageType"
-  | "operation";
+export type SavingsPlanRateFilterName = "region" | "instanceType" | "productDescription" | "tenancy" | "productType" | "serviceCode" | "usageType" | "operation";
 export type SavingsPlanRateList = Array<SavingsPlanRate>;
 export type SavingsPlanRateOperation = string;
 
@@ -391,19 +315,9 @@ export interface SavingsPlanRateProperty {
   name?: SavingsPlanRatePropertyKey;
   value?: string;
 }
-export type SavingsPlanRatePropertyKey =
-  | "region"
-  | "instanceType"
-  | "instanceFamily"
-  | "productDescription"
-  | "tenancy";
+export type SavingsPlanRatePropertyKey = "region" | "instanceType" | "instanceFamily" | "productDescription" | "tenancy";
 export type SavingsPlanRatePropertyList = Array<SavingsPlanRateProperty>;
-export type SavingsPlanRateServiceCode =
-  | "AmazonEC2"
-  | "AmazonECS"
-  | "AmazonEKS"
-  | "AWSLambda"
-  | "AmazonSageMaker";
+export type SavingsPlanRateServiceCode = "AmazonEC2" | "AmazonECS" | "AmazonEKS" | "AWSLambda" | "AmazonSageMaker";
 export type SavingsPlanRateServiceCodeList = Array<SavingsPlanRateServiceCode>;
 export type SavingsPlanRateUnit = "Hrs" | "Lambda-GB-Second" | "Request";
 export type SavingsPlanRateUsageType = string;
@@ -414,25 +328,8 @@ export type SavingsPlansDuration = number;
 export type SavingsPlanServiceCode = string;
 
 export type SavingsPlanServiceCodeList = Array<string>;
-export type SavingsPlansFilterName =
-  | "region"
-  | "ec2-instance-family"
-  | "commitment"
-  | "upfront"
-  | "term"
-  | "savings-plan-type"
-  | "payment-option"
-  | "start"
-  | "end";
-export type SavingsPlanState =
-  | "payment-pending"
-  | "payment-failed"
-  | "active"
-  | "retired"
-  | "queued"
-  | "queued-deleted"
-  | "pending-return"
-  | "returned";
+export type SavingsPlansFilterName = "region" | "ec2-instance-family" | "commitment" | "upfront" | "term" | "savings-plan-type" | "payment-option" | "start" | "end";
+export type SavingsPlanState = "payment-pending" | "payment-failed" | "active" | "retired" | "queued" | "queued-deleted" | "pending-return" | "returned";
 export type SavingsPlanStateList = Array<SavingsPlanState>;
 export type SavingsPlanType = "Compute" | "EC2Instance" | "SageMaker";
 export type SavingsPlanTypeList = Array<SavingsPlanType>;
@@ -454,7 +351,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export type TermDurationInSeconds = number;
@@ -463,7 +361,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export type UUID = string;
 
 export type UUIDs = Array<string>;
@@ -572,9 +471,5 @@ export declare namespace UntagResource {
     | CommonAwsError;
 }
 
-export type savingsplansErrors =
-  | InternalServerException
-  | ResourceNotFoundException
-  | ServiceQuotaExceededException
-  | ValidationException
-  | CommonAwsError;
+export type savingsplansErrors = InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError;
+

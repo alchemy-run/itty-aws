@@ -1,39 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-  ValidationException,
-} from "../../error.ts";
-type CommonAwsError =
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | ValidationException
-  | AccessDeniedException
-  | ThrottlingException;
+import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException } from "../../error.ts";
+type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | ValidationException | AccessDeniedException | ThrottlingException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class MigrationHubConfig extends AWSServiceClient {
@@ -41,46 +8,25 @@ export declare class MigrationHubConfig extends AWSServiceClient {
     input: CreateHomeRegionControlRequest,
   ): Effect.Effect<
     CreateHomeRegionControlResult,
-    | AccessDeniedException
-    | DryRunOperation
-    | InternalServerError
-    | InvalidInputException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | DryRunOperation | InternalServerError | InvalidInputException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   >;
   deleteHomeRegionControl(
     input: DeleteHomeRegionControlRequest,
   ): Effect.Effect<
     DeleteHomeRegionControlResult,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidInputException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidInputException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   >;
   describeHomeRegionControls(
     input: DescribeHomeRegionControlsRequest,
   ): Effect.Effect<
     DescribeHomeRegionControlsResult,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidInputException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidInputException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   >;
   getHomeRegion(
     input: GetHomeRegionRequest,
   ): Effect.Effect<
     GetHomeRegionResult,
-    | AccessDeniedException
-    | InternalServerError
-    | InvalidInputException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerError | InvalidInputException | ServiceUnavailableException | ThrottlingException | CommonAwsError
   >;
 }
 
@@ -104,7 +50,8 @@ export interface CreateHomeRegionControlResult {
 export interface DeleteHomeRegionControlRequest {
   ControlId: string;
 }
-export interface DeleteHomeRegionControlResult {}
+export interface DeleteHomeRegionControlResult {
+}
 export type DescribeHomeRegionControlsMaxResults = number;
 
 export interface DescribeHomeRegionControlsRequest {
@@ -127,7 +74,8 @@ export declare class DryRunOperation extends EffectData.TaggedError(
 }> {}
 export type ErrorMessage = string;
 
-export interface GetHomeRegionRequest {}
+export interface GetHomeRegionRequest {
+}
 export interface GetHomeRegionResult {
   HomeRegion?: string;
 }
@@ -223,11 +171,5 @@ export declare namespace GetHomeRegion {
     | CommonAwsError;
 }
 
-export type MigrationHubConfigErrors =
-  | AccessDeniedException
-  | DryRunOperation
-  | InternalServerError
-  | InvalidInputException
-  | ServiceUnavailableException
-  | ThrottlingException
-  | CommonAwsError;
+export type MigrationHubConfigErrors = AccessDeniedException | DryRunOperation | InternalServerError | InvalidInputException | ServiceUnavailableException | ThrottlingException | CommonAwsError;
+

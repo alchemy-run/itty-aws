@@ -1,39 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  AccessDeniedException,
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-} from "../../error.ts";
-type CommonAwsError =
-  | AccessDeniedException
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | ThrottlingException
-  | ValidationException;
+import type { AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
+type CommonAwsError = AccessDeniedException | ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | ThrottlingException | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class Pipes extends AWSServiceClient {
@@ -59,76 +26,43 @@ export declare class Pipes extends AWSServiceClient {
     input: CreatePipeRequest,
   ): Effect.Effect<
     CreatePipeResponse,
-    | ConflictException
-    | InternalException
-    | NotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalException | NotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deletePipe(
     input: DeletePipeRequest,
   ): Effect.Effect<
     DeletePipeResponse,
-    | ConflictException
-    | InternalException
-    | NotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalException | NotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   describePipe(
     input: DescribePipeRequest,
   ): Effect.Effect<
     DescribePipeResponse,
-    | InternalException
-    | NotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalException | NotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listPipes(
     input: ListPipesRequest,
   ): Effect.Effect<
     ListPipesResponse,
-    | InternalException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalException | ThrottlingException | ValidationException | CommonAwsError
   >;
   startPipe(
     input: StartPipeRequest,
   ): Effect.Effect<
     StartPipeResponse,
-    | ConflictException
-    | InternalException
-    | NotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalException | NotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   stopPipe(
     input: StopPipeRequest,
   ): Effect.Effect<
     StopPipeResponse,
-    | ConflictException
-    | InternalException
-    | NotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalException | NotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updatePipe(
     input: UpdatePipeRequest,
   ): Effect.Effect<
     UpdatePipeResponse,
-    | ConflictException
-    | InternalException
-    | NotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalException | NotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
 }
 
@@ -318,8 +252,7 @@ export interface EcsInferenceAcceleratorOverride {
   deviceName?: string;
   deviceType?: string;
 }
-export type EcsInferenceAcceleratorOverrideList =
-  Array<EcsInferenceAcceleratorOverride>;
+export type EcsInferenceAcceleratorOverrideList = Array<EcsInferenceAcceleratorOverride>;
 export interface EcsResourceRequirement {
   type: string;
   value: string;
@@ -448,9 +381,7 @@ interface _MQBrokerAccessCredentials {
   BasicAuth?: string;
 }
 
-export type MQBrokerAccessCredentials = _MQBrokerAccessCredentials & {
-  BasicAuth: string;
-};
+export type MQBrokerAccessCredentials = (_MQBrokerAccessCredentials & { BasicAuth: string });
 export type MQBrokerQueueName = string;
 
 interface _MSKAccessCredentials {
@@ -458,9 +389,7 @@ interface _MSKAccessCredentials {
   ClientCertificateTlsAuth?: string;
 }
 
-export type MSKAccessCredentials =
-  | (_MSKAccessCredentials & { SaslScram512Auth: string })
-  | (_MSKAccessCredentials & { ClientCertificateTlsAuth: string });
+export type MSKAccessCredentials = (_MSKAccessCredentials & { SaslScram512Auth: string }) | (_MSKAccessCredentials & { ClientCertificateTlsAuth: string });
 export type MSKStartPosition = string;
 
 export interface MultiMeasureAttributeMapping {
@@ -776,17 +705,7 @@ interface _SelfManagedKafkaAccessConfigurationCredentials {
   ClientCertificateTlsAuth?: string;
 }
 
-export type SelfManagedKafkaAccessConfigurationCredentials =
-  | (_SelfManagedKafkaAccessConfigurationCredentials & { BasicAuth: string })
-  | (_SelfManagedKafkaAccessConfigurationCredentials & {
-      SaslScram512Auth: string;
-    })
-  | (_SelfManagedKafkaAccessConfigurationCredentials & {
-      SaslScram256Auth: string;
-    })
-  | (_SelfManagedKafkaAccessConfigurationCredentials & {
-      ClientCertificateTlsAuth: string;
-    });
+export type SelfManagedKafkaAccessConfigurationCredentials = (_SelfManagedKafkaAccessConfigurationCredentials & { BasicAuth: string }) | (_SelfManagedKafkaAccessConfigurationCredentials & { SaslScram512Auth: string }) | (_SelfManagedKafkaAccessConfigurationCredentials & { SaslScram256Auth: string }) | (_SelfManagedKafkaAccessConfigurationCredentials & { ClientCertificateTlsAuth: string });
 export interface SelfManagedKafkaAccessConfigurationVpc {
   Subnets?: Array<string>;
   SecurityGroup?: Array<string>;
@@ -857,7 +776,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(
@@ -880,7 +800,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdatePipeRequest {
   Name: string;
   Description?: string;
@@ -1083,11 +1004,5 @@ export declare namespace UpdatePipe {
     | CommonAwsError;
 }
 
-export type PipesErrors =
-  | ConflictException
-  | InternalException
-  | NotFoundException
-  | ServiceQuotaExceededException
-  | ThrottlingException
-  | ValidationException
-  | CommonAwsError;
+export type PipesErrors = ConflictException | InternalException | NotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError;
+

@@ -7,23 +7,13 @@ export declare class KinesisVideoSignaling extends AWSServiceClient {
     input: GetIceServerConfigRequest,
   ): Effect.Effect<
     GetIceServerConfigResponse,
-    | ClientLimitExceededException
-    | InvalidArgumentException
-    | InvalidClientException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | SessionExpiredException
-    | CommonAwsError
+    ClientLimitExceededException | InvalidArgumentException | InvalidClientException | NotAuthorizedException | ResourceNotFoundException | SessionExpiredException | CommonAwsError
   >;
   sendAlexaOfferToMaster(
     input: SendAlexaOfferToMasterRequest,
   ): Effect.Effect<
     SendAlexaOfferToMasterResponse,
-    | ClientLimitExceededException
-    | InvalidArgumentException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | CommonAwsError
+    ClientLimitExceededException | InvalidArgumentException | NotAuthorizedException | ResourceNotFoundException | CommonAwsError
   >;
 }
 
@@ -125,11 +115,5 @@ export declare namespace SendAlexaOfferToMaster {
     | CommonAwsError;
 }
 
-export type KinesisVideoSignalingErrors =
-  | ClientLimitExceededException
-  | InvalidArgumentException
-  | InvalidClientException
-  | NotAuthorizedException
-  | ResourceNotFoundException
-  | SessionExpiredException
-  | CommonAwsError;
+export type KinesisVideoSignalingErrors = ClientLimitExceededException | InvalidArgumentException | InvalidClientException | NotAuthorizedException | ResourceNotFoundException | SessionExpiredException | CommonAwsError;
+

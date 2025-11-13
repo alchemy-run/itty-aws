@@ -1,38 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-} from "../../error.ts";
-type CommonAwsError =
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | AccessDeniedException
-  | ThrottlingException
-  | ValidationException;
+import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
+type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class TrustedAdvisor extends AWSServiceClient {
@@ -40,121 +8,67 @@ export declare class TrustedAdvisor extends AWSServiceClient {
     input: BatchUpdateRecommendationResourceExclusionRequest,
   ): Effect.Effect<
     BatchUpdateRecommendationResourceExclusionResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getOrganizationRecommendation(
     input: GetOrganizationRecommendationRequest,
   ): Effect.Effect<
     GetOrganizationRecommendationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getRecommendation(
     input: GetRecommendationRequest,
   ): Effect.Effect<
     GetRecommendationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listChecks(
     input: ListChecksRequest,
   ): Effect.Effect<
     ListChecksResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listOrganizationRecommendationAccounts(
     input: ListOrganizationRecommendationAccountsRequest,
   ): Effect.Effect<
     ListOrganizationRecommendationAccountsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listOrganizationRecommendationResources(
     input: ListOrganizationRecommendationResourcesRequest,
   ): Effect.Effect<
     ListOrganizationRecommendationResourcesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listOrganizationRecommendations(
     input: ListOrganizationRecommendationsRequest,
   ): Effect.Effect<
     ListOrganizationRecommendationsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listRecommendationResources(
     input: ListRecommendationResourcesRequest,
   ): Effect.Effect<
     ListRecommendationResourcesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listRecommendations(
     input: ListRecommendationsRequest,
   ): Effect.Effect<
     ListRecommendationsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateOrganizationRecommendationLifecycle(
     input: UpdateOrganizationRecommendationLifecycleRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateRecommendationLifecycle(
     input: UpdateRecommendationLifecycleRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
 }
 
@@ -181,8 +95,7 @@ export interface AccountRecommendationLifecycleSummary {
   updateReasonCode?: UpdateRecommendationLifecycleStageReasonCode;
   lastUpdatedAt?: Date | string;
 }
-export type AccountRecommendationLifecycleSummaryList =
-  Array<AccountRecommendationLifecycleSummary>;
+export type AccountRecommendationLifecycleSummaryList = Array<AccountRecommendationLifecycleSummary>;
 export interface BatchUpdateRecommendationResourceExclusionRequest {
   recommendationResourceExclusions: Array<RecommendationResourceExclusion>;
 }
@@ -345,8 +258,7 @@ export interface OrganizationRecommendationResourceSummary {
   accountId?: string;
   recommendationArn: string;
 }
-export type OrganizationRecommendationResourceSummaryList =
-  Array<OrganizationRecommendationResourceSummary>;
+export type OrganizationRecommendationResourceSummaryList = Array<OrganizationRecommendationResourceSummary>;
 export interface OrganizationRecommendationSummary {
   id: string;
   type: RecommendationType;
@@ -363,8 +275,7 @@ export interface OrganizationRecommendationSummary {
   lastUpdatedAt?: Date | string;
   arn: string;
 }
-export type OrganizationRecommendationSummaryList =
-  Array<OrganizationRecommendationSummary>;
+export type OrganizationRecommendationSummaryList = Array<OrganizationRecommendationSummary>;
 export interface Recommendation {
   id: string;
   type: RecommendationType;
@@ -395,30 +306,9 @@ export interface RecommendationCostOptimizingAggregates {
   estimatedMonthlySavings: number;
   estimatedPercentMonthlySavings: number;
 }
-export type RecommendationLanguage =
-  | "en"
-  | "ja"
-  | "zh"
-  | "fr"
-  | "de"
-  | "ko"
-  | "zh_TW"
-  | "it"
-  | "es"
-  | "pt_BR"
-  | "id";
-export type RecommendationLifecycleStage =
-  | "in_progress"
-  | "pending_response"
-  | "dismissed"
-  | "resolved";
-export type RecommendationPillar =
-  | "cost_optimizing"
-  | "performance"
-  | "security"
-  | "service_limits"
-  | "fault_tolerance"
-  | "operational_excellence";
+export type RecommendationLanguage = "en" | "ja" | "zh" | "fr" | "de" | "ko" | "zh_TW" | "it" | "es" | "pt_BR" | "id";
+export type RecommendationLifecycleStage = "in_progress" | "pending_response" | "dismissed" | "resolved";
+export type RecommendationPillar = "cost_optimizing" | "performance" | "security" | "service_limits" | "fault_tolerance" | "operational_excellence";
 export type RecommendationPillarList = Array<RecommendationPillar>;
 export interface RecommendationPillarSpecificAggregates {
   costOptimizing?: RecommendationCostOptimizingAggregates;
@@ -431,8 +321,7 @@ export interface RecommendationResourceExclusion {
   arn: string;
   isExcluded: boolean;
 }
-export type RecommendationResourceExclusionList =
-  Array<RecommendationResourceExclusion>;
+export type RecommendationResourceExclusionList = Array<RecommendationResourceExclusion>;
 export interface RecommendationResourcesAggregates {
   okCount: number;
   warningCount: number;
@@ -449,22 +338,8 @@ export interface RecommendationResourceSummary {
   exclusionStatus?: ExclusionStatus;
   recommendationArn: string;
 }
-export type RecommendationResourceSummaryList =
-  Array<RecommendationResourceSummary>;
-export type RecommendationSource =
-  | "aws_config"
-  | "compute_optimizer"
-  | "cost_explorer"
-  | "lse"
-  | "manual"
-  | "pse"
-  | "rds"
-  | "resilience"
-  | "resilience_hub"
-  | "security_hub"
-  | "stir"
-  | "ta_check"
-  | "well_architected";
+export type RecommendationResourceSummaryList = Array<RecommendationResourceSummary>;
+export type RecommendationSource = "aws_config" | "compute_optimizer" | "cost_explorer" | "lse" | "manual" | "pse" | "rds" | "resilience" | "resilience_hub" | "security_hub" | "stir" | "ta_check" | "well_architected";
 export type RecommendationStatus = "ok" | "warning" | "error";
 export interface RecommendationSummary {
   id: string;
@@ -510,26 +385,14 @@ export interface UpdateRecommendationLifecycleRequest {
   updateReasonCode?: UpdateRecommendationLifecycleStageReasonCode;
   recommendationIdentifier: string;
 }
-export type UpdateRecommendationLifecycleStage =
-  | "pending_response"
-  | "in_progress"
-  | "dismissed"
-  | "resolved";
-export type UpdateRecommendationLifecycleStageReasonCode =
-  | "non_critical_account"
-  | "temporary_account"
-  | "valid_business_case"
-  | "other_methods_available"
-  | "low_priority"
-  | "not_applicable"
-  | "other";
+export type UpdateRecommendationLifecycleStage = "pending_response" | "in_progress" | "dismissed" | "resolved";
+export type UpdateRecommendationLifecycleStageReasonCode = "non_critical_account" | "temporary_account" | "valid_business_case" | "other_methods_available" | "low_priority" | "not_applicable" | "other";
 export interface UpdateRecommendationResourceExclusionError {
   arn?: string;
   errorCode?: string;
   errorMessage?: string;
 }
-export type UpdateRecommendationResourceExclusionErrorList =
-  Array<UpdateRecommendationResourceExclusionError>;
+export type UpdateRecommendationResourceExclusionErrorList = Array<UpdateRecommendationResourceExclusionError>;
 export declare class ValidationException extends EffectData.TaggedError(
   "ValidationException",
 )<{
@@ -666,11 +529,5 @@ export declare namespace UpdateRecommendationLifecycle {
     | CommonAwsError;
 }
 
-export type TrustedAdvisorErrors =
-  | AccessDeniedException
-  | ConflictException
-  | InternalServerException
-  | ResourceNotFoundException
-  | ThrottlingException
-  | ValidationException
-  | CommonAwsError;
+export type TrustedAdvisorErrors = AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError;
+

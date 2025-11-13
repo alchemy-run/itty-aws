@@ -17,7 +17,10 @@ export declare class SagemakerEdge extends AWSServiceClient {
   >;
   sendHeartbeat(
     input: SendHeartbeatRequest,
-  ): Effect.Effect<{}, InternalServiceException | CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    InternalServiceException | CommonAwsError
+  >;
 }
 
 export type CacheTTLSeconds = string;
@@ -138,19 +141,26 @@ export type Version = string;
 export declare namespace GetDeployments {
   export type Input = GetDeploymentsRequest;
   export type Output = GetDeploymentsResult;
-  export type Error = InternalServiceException | CommonAwsError;
+  export type Error =
+    | InternalServiceException
+    | CommonAwsError;
 }
 
 export declare namespace GetDeviceRegistration {
   export type Input = GetDeviceRegistrationRequest;
   export type Output = GetDeviceRegistrationResult;
-  export type Error = InternalServiceException | CommonAwsError;
+  export type Error =
+    | InternalServiceException
+    | CommonAwsError;
 }
 
 export declare namespace SendHeartbeat {
   export type Input = SendHeartbeatRequest;
   export type Output = {};
-  export type Error = InternalServiceException | CommonAwsError;
+  export type Error =
+    | InternalServiceException
+    | CommonAwsError;
 }
 
 export type SagemakerEdgeErrors = InternalServiceException | CommonAwsError;
+

@@ -7,274 +7,139 @@ export declare class CognitoIdentity extends AWSServiceClient {
     input: CreateIdentityPoolInput,
   ): Effect.Effect<
     IdentityPool,
-    | InternalErrorException
-    | InvalidParameterException
-    | LimitExceededException
-    | NotAuthorizedException
-    | ResourceConflictException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | LimitExceededException | NotAuthorizedException | ResourceConflictException | TooManyRequestsException | CommonAwsError
   >;
   deleteIdentities(
     input: DeleteIdentitiesInput,
   ): Effect.Effect<
     DeleteIdentitiesResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | TooManyRequestsException | CommonAwsError
   >;
   deleteIdentityPool(
     input: DeleteIdentityPoolInput,
   ): Effect.Effect<
     {},
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   describeIdentity(
     input: DescribeIdentityInput,
   ): Effect.Effect<
     IdentityDescription,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   describeIdentityPool(
     input: DescribeIdentityPoolInput,
   ): Effect.Effect<
     IdentityPool,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   getCredentialsForIdentity(
     input: GetCredentialsForIdentityInput,
   ): Effect.Effect<
     GetCredentialsForIdentityResponse,
-    | ExternalServiceException
-    | InternalErrorException
-    | InvalidIdentityPoolConfigurationException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceConflictException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    ExternalServiceException | InternalErrorException | InvalidIdentityPoolConfigurationException | InvalidParameterException | NotAuthorizedException | ResourceConflictException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   getId(
     input: GetIdInput,
   ): Effect.Effect<
     GetIdResponse,
-    | ExternalServiceException
-    | InternalErrorException
-    | InvalidParameterException
-    | LimitExceededException
-    | NotAuthorizedException
-    | ResourceConflictException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    ExternalServiceException | InternalErrorException | InvalidParameterException | LimitExceededException | NotAuthorizedException | ResourceConflictException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   getIdentityPoolRoles(
     input: GetIdentityPoolRolesInput,
   ): Effect.Effect<
     GetIdentityPoolRolesResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceConflictException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceConflictException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   getOpenIdToken(
     input: GetOpenIdTokenInput,
   ): Effect.Effect<
     GetOpenIdTokenResponse,
-    | ExternalServiceException
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceConflictException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    ExternalServiceException | InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceConflictException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   getOpenIdTokenForDeveloperIdentity(
     input: GetOpenIdTokenForDeveloperIdentityInput,
   ): Effect.Effect<
     GetOpenIdTokenForDeveloperIdentityResponse,
-    | DeveloperUserAlreadyRegisteredException
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceConflictException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    DeveloperUserAlreadyRegisteredException | InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceConflictException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   getPrincipalTagAttributeMap(
     input: GetPrincipalTagAttributeMapInput,
   ): Effect.Effect<
     GetPrincipalTagAttributeMapResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   listIdentities(
     input: ListIdentitiesInput,
   ): Effect.Effect<
     ListIdentitiesResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   listIdentityPools(
     input: ListIdentityPoolsInput,
   ): Effect.Effect<
     ListIdentityPoolsResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceInput,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   lookupDeveloperIdentity(
     input: LookupDeveloperIdentityInput,
   ): Effect.Effect<
     LookupDeveloperIdentityResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceConflictException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceConflictException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   mergeDeveloperIdentities(
     input: MergeDeveloperIdentitiesInput,
   ): Effect.Effect<
     MergeDeveloperIdentitiesResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceConflictException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceConflictException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   setIdentityPoolRoles(
     input: SetIdentityPoolRolesInput,
   ): Effect.Effect<
     {},
-    | ConcurrentModificationException
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceConflictException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    ConcurrentModificationException | InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceConflictException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   setPrincipalTagAttributeMap(
     input: SetPrincipalTagAttributeMapInput,
   ): Effect.Effect<
     SetPrincipalTagAttributeMapResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   tagResource(
     input: TagResourceInput,
   ): Effect.Effect<
     TagResourceResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   unlinkDeveloperIdentity(
     input: UnlinkDeveloperIdentityInput,
   ): Effect.Effect<
     {},
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceConflictException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceConflictException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   unlinkIdentity(
     input: UnlinkIdentityInput,
   ): Effect.Effect<
     {},
-    | ExternalServiceException
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceConflictException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    ExternalServiceException | InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceConflictException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceInput,
   ): Effect.Effect<
     UntagResourceResponse,
-    | InternalErrorException
-    | InvalidParameterException
-    | NotAuthorizedException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalErrorException | InvalidParameterException | NotAuthorizedException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   updateIdentityPool(
     input: IdentityPool,
   ): Effect.Effect<
     IdentityPool,
-    | ConcurrentModificationException
-    | InternalErrorException
-    | InvalidParameterException
-    | LimitExceededException
-    | NotAuthorizedException
-    | ResourceConflictException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    ConcurrentModificationException | InternalErrorException | InvalidParameterException | LimitExceededException | NotAuthorizedException | ResourceConflictException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
 }
 
@@ -521,11 +386,7 @@ export interface MappingRule {
   Value: string;
   RoleARN: string;
 }
-export type MappingRuleMatchType =
-  | "Equals"
-  | "Contains"
-  | "StartsWith"
-  | "NotEqual";
+export type MappingRuleMatchType = "Equals" | "Contains" | "StartsWith" | "NotEqual";
 export type MappingRulesList = Array<MappingRule>;
 export interface MergeDeveloperIdentitiesInput {
   SourceUserIdentifier: string;
@@ -606,7 +467,8 @@ export interface TagResourceInput {
   ResourceArn: string;
   Tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValueType = string;
 
 export type TokenDuration = number;
@@ -636,7 +498,8 @@ export interface UntagResourceInput {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export type UseDefaults = boolean;
 
 export declare namespace CreateIdentityPool {
@@ -935,16 +798,5 @@ export declare namespace UpdateIdentityPool {
     | CommonAwsError;
 }
 
-export type CognitoIdentityErrors =
-  | ConcurrentModificationException
-  | DeveloperUserAlreadyRegisteredException
-  | ExternalServiceException
-  | InternalErrorException
-  | InvalidIdentityPoolConfigurationException
-  | InvalidParameterException
-  | LimitExceededException
-  | NotAuthorizedException
-  | ResourceConflictException
-  | ResourceNotFoundException
-  | TooManyRequestsException
-  | CommonAwsError;
+export type CognitoIdentityErrors = ConcurrentModificationException | DeveloperUserAlreadyRegisteredException | ExternalServiceException | InternalErrorException | InvalidIdentityPoolConfigurationException | InvalidParameterException | LimitExceededException | NotAuthorizedException | ResourceConflictException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError;
+

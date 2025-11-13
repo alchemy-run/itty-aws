@@ -6,6 +6,12 @@ export interface ParsedError {
   readonly errorType: string;
   readonly message: string;
   readonly requestId?: string;
+  readonly retryable?:
+    | {
+        retryAfterSeconds?: number;
+        retryAttempts?: number;
+      }
+    | false;
 }
 
 export interface ProtocolRequest {
@@ -37,6 +43,7 @@ export interface ProtocolHandler {
   parseError(
     responseText: Response,
     statusCode: number,
-    headers?: Headers,
+    headers: Headers,
+    serviceMetadata: ServiceMetadata,
   ): Promise<ParsedError>;
 }

@@ -25,10 +25,7 @@ export declare class Polly extends AWSServiceClient {
     input: GetSpeechSynthesisTaskInput,
   ): Effect.Effect<
     GetSpeechSynthesisTaskOutput,
-    | InvalidTaskIdException
-    | ServiceFailureException
-    | SynthesisTaskNotFoundException
-    | CommonAwsError
+    InvalidTaskIdException | ServiceFailureException | SynthesisTaskNotFoundException | CommonAwsError
   >;
   listLexicons(
     input: ListLexiconsInput,
@@ -46,47 +43,19 @@ export declare class Polly extends AWSServiceClient {
     input: PutLexiconInput,
   ): Effect.Effect<
     PutLexiconOutput,
-    | InvalidLexiconException
-    | LexiconSizeExceededException
-    | MaxLexemeLengthExceededException
-    | MaxLexiconsNumberExceededException
-    | ServiceFailureException
-    | UnsupportedPlsAlphabetException
-    | UnsupportedPlsLanguageException
-    | CommonAwsError
+    InvalidLexiconException | LexiconSizeExceededException | MaxLexemeLengthExceededException | MaxLexiconsNumberExceededException | ServiceFailureException | UnsupportedPlsAlphabetException | UnsupportedPlsLanguageException | CommonAwsError
   >;
   startSpeechSynthesisTask(
     input: StartSpeechSynthesisTaskInput,
   ): Effect.Effect<
     StartSpeechSynthesisTaskOutput,
-    | EngineNotSupportedException
-    | InvalidS3BucketException
-    | InvalidS3KeyException
-    | InvalidSampleRateException
-    | InvalidSnsTopicArnException
-    | InvalidSsmlException
-    | LanguageNotSupportedException
-    | LexiconNotFoundException
-    | MarksNotSupportedForFormatException
-    | ServiceFailureException
-    | SsmlMarksNotSupportedForTextTypeException
-    | TextLengthExceededException
-    | CommonAwsError
+    EngineNotSupportedException | InvalidS3BucketException | InvalidS3KeyException | InvalidSampleRateException | InvalidSnsTopicArnException | InvalidSsmlException | LanguageNotSupportedException | LexiconNotFoundException | MarksNotSupportedForFormatException | ServiceFailureException | SsmlMarksNotSupportedForTextTypeException | TextLengthExceededException | CommonAwsError
   >;
   synthesizeSpeech(
     input: SynthesizeSpeechInput,
   ): Effect.Effect<
     SynthesizeSpeechOutput,
-    | EngineNotSupportedException
-    | InvalidSampleRateException
-    | InvalidSsmlException
-    | LanguageNotSupportedException
-    | LexiconNotFoundException
-    | MarksNotSupportedForFormatException
-    | ServiceFailureException
-    | SsmlMarksNotSupportedForTextTypeException
-    | TextLengthExceededException
-    | CommonAwsError
+    EngineNotSupportedException | InvalidSampleRateException | InvalidSsmlException | LanguageNotSupportedException | LexiconNotFoundException | MarksNotSupportedForFormatException | ServiceFailureException | SsmlMarksNotSupportedForTextTypeException | TextLengthExceededException | CommonAwsError
   >;
 }
 
@@ -101,7 +70,8 @@ export type DateTime = Date | string;
 export interface DeleteLexiconInput {
   Name: string;
 }
-export interface DeleteLexiconOutput {}
+export interface DeleteLexiconOutput {
+}
 export interface DescribeVoicesInput {
   Engine?: Engine;
   LanguageCode?: LanguageCode;
@@ -177,49 +147,7 @@ export declare class InvalidTaskIdException extends EffectData.TaggedError(
 )<{
   readonly message?: string;
 }> {}
-export type LanguageCode =
-  | "arb"
-  | "cmn-CN"
-  | "cy-GB"
-  | "da-DK"
-  | "de-DE"
-  | "en-AU"
-  | "en-GB"
-  | "en-GB-WLS"
-  | "en-IN"
-  | "en-US"
-  | "es-ES"
-  | "es-MX"
-  | "es-US"
-  | "fr-CA"
-  | "fr-FR"
-  | "is-IS"
-  | "it-IT"
-  | "ja-JP"
-  | "hi-IN"
-  | "ko-KR"
-  | "nb-NO"
-  | "nl-NL"
-  | "pl-PL"
-  | "pt-BR"
-  | "pt-PT"
-  | "ro-RO"
-  | "ru-RU"
-  | "sv-SE"
-  | "tr-TR"
-  | "en-NZ"
-  | "en-ZA"
-  | "ca-ES"
-  | "de-AT"
-  | "yue-CN"
-  | "ar-AE"
-  | "fi-FI"
-  | "en-IE"
-  | "nl-BE"
-  | "fr-BE"
-  | "cs-CZ"
-  | "de-CH"
-  | "en-SG";
+export type LanguageCode = "arb" | "cmn-CN" | "cy-GB" | "da-DK" | "de-DE" | "en-AU" | "en-GB" | "en-GB-WLS" | "en-IN" | "en-US" | "es-ES" | "es-MX" | "es-US" | "fr-CA" | "fr-FR" | "is-IS" | "it-IT" | "ja-JP" | "hi-IN" | "ko-KR" | "nb-NO" | "nl-NL" | "pl-PL" | "pt-BR" | "pt-PT" | "ro-RO" | "ru-RU" | "sv-SE" | "tr-TR" | "en-NZ" | "en-ZA" | "ca-ES" | "de-AT" | "yue-CN" | "ar-AE" | "fi-FI" | "en-IE" | "nl-BE" | "fr-BE" | "cs-CZ" | "de-CH" | "en-SG";
 export type LanguageCodeList = Array<LanguageCode>;
 export type LanguageName = string;
 
@@ -312,7 +240,8 @@ export interface PutLexiconInput {
   Name: string;
   Content: string;
 }
-export interface PutLexiconOutput {}
+export interface PutLexiconOutput {
+}
 export type RequestCharacters = number;
 
 export type SampleRate = string;
@@ -421,107 +350,7 @@ export interface Voice {
   AdditionalLanguageCodes?: Array<LanguageCode>;
   SupportedEngines?: Array<Engine>;
 }
-export type VoiceId =
-  | "Aditi"
-  | "Amy"
-  | "Astrid"
-  | "Bianca"
-  | "Brian"
-  | "Camila"
-  | "Carla"
-  | "Carmen"
-  | "Celine"
-  | "Chantal"
-  | "Conchita"
-  | "Cristiano"
-  | "Dora"
-  | "Emma"
-  | "Enrique"
-  | "Ewa"
-  | "Filiz"
-  | "Gabrielle"
-  | "Geraint"
-  | "Giorgio"
-  | "Gwyneth"
-  | "Hans"
-  | "Ines"
-  | "Ivy"
-  | "Jacek"
-  | "Jan"
-  | "Joanna"
-  | "Joey"
-  | "Justin"
-  | "Karl"
-  | "Kendra"
-  | "Kevin"
-  | "Kimberly"
-  | "Lea"
-  | "Liv"
-  | "Lotte"
-  | "Lucia"
-  | "Lupe"
-  | "Mads"
-  | "Maja"
-  | "Marlene"
-  | "Mathieu"
-  | "Matthew"
-  | "Maxim"
-  | "Mia"
-  | "Miguel"
-  | "Mizuki"
-  | "Naja"
-  | "Nicole"
-  | "Olivia"
-  | "Penelope"
-  | "Raveena"
-  | "Ricardo"
-  | "Ruben"
-  | "Russell"
-  | "Salli"
-  | "Seoyeon"
-  | "Takumi"
-  | "Tatyana"
-  | "Vicki"
-  | "Vitoria"
-  | "Zeina"
-  | "Zhiyu"
-  | "Aria"
-  | "Ayanda"
-  | "Arlet"
-  | "Hannah"
-  | "Arthur"
-  | "Daniel"
-  | "Liam"
-  | "Pedro"
-  | "Kajal"
-  | "Hiujin"
-  | "Laura"
-  | "Elin"
-  | "Ida"
-  | "Suvi"
-  | "Ola"
-  | "Hala"
-  | "Andres"
-  | "Sergio"
-  | "Remi"
-  | "Adriano"
-  | "Thiago"
-  | "Ruth"
-  | "Stephen"
-  | "Kazuha"
-  | "Tomoko"
-  | "Niamh"
-  | "Sofie"
-  | "Lisa"
-  | "Isabelle"
-  | "Zayd"
-  | "Danielle"
-  | "Gregory"
-  | "Burcu"
-  | "Jitka"
-  | "Sabrina"
-  | "Jasmine"
-  | "Jihye";
+export type VoiceId = "Aditi" | "Amy" | "Astrid" | "Bianca" | "Brian" | "Camila" | "Carla" | "Carmen" | "Celine" | "Chantal" | "Conchita" | "Cristiano" | "Dora" | "Emma" | "Enrique" | "Ewa" | "Filiz" | "Gabrielle" | "Geraint" | "Giorgio" | "Gwyneth" | "Hans" | "Ines" | "Ivy" | "Jacek" | "Jan" | "Joanna" | "Joey" | "Justin" | "Karl" | "Kendra" | "Kevin" | "Kimberly" | "Lea" | "Liv" | "Lotte" | "Lucia" | "Lupe" | "Mads" | "Maja" | "Marlene" | "Mathieu" | "Matthew" | "Maxim" | "Mia" | "Miguel" | "Mizuki" | "Naja" | "Nicole" | "Olivia" | "Penelope" | "Raveena" | "Ricardo" | "Ruben" | "Russell" | "Salli" | "Seoyeon" | "Takumi" | "Tatyana" | "Vicki" | "Vitoria" | "Zeina" | "Zhiyu" | "Aria" | "Ayanda" | "Arlet" | "Hannah" | "Arthur" | "Daniel" | "Liam" | "Pedro" | "Kajal" | "Hiujin" | "Laura" | "Elin" | "Ida" | "Suvi" | "Ola" | "Hala" | "Andres" | "Sergio" | "Remi" | "Adriano" | "Thiago" | "Ruth" | "Stephen" | "Kazuha" | "Tomoko" | "Niamh" | "Sofie" | "Lisa" | "Isabelle" | "Zayd" | "Danielle" | "Gregory" | "Burcu" | "Jitka" | "Sabrina" | "Jasmine" | "Jihye";
 export type VoiceList = Array<Voice>;
 export type VoiceName = string;
 
@@ -629,26 +458,5 @@ export declare namespace SynthesizeSpeech {
     | CommonAwsError;
 }
 
-export type PollyErrors =
-  | EngineNotSupportedException
-  | InvalidLexiconException
-  | InvalidNextTokenException
-  | InvalidS3BucketException
-  | InvalidS3KeyException
-  | InvalidSampleRateException
-  | InvalidSnsTopicArnException
-  | InvalidSsmlException
-  | InvalidTaskIdException
-  | LanguageNotSupportedException
-  | LexiconNotFoundException
-  | LexiconSizeExceededException
-  | MarksNotSupportedForFormatException
-  | MaxLexemeLengthExceededException
-  | MaxLexiconsNumberExceededException
-  | ServiceFailureException
-  | SsmlMarksNotSupportedForTextTypeException
-  | SynthesisTaskNotFoundException
-  | TextLengthExceededException
-  | UnsupportedPlsAlphabetException
-  | UnsupportedPlsLanguageException
-  | CommonAwsError;
+export type PollyErrors = EngineNotSupportedException | InvalidLexiconException | InvalidNextTokenException | InvalidS3BucketException | InvalidS3KeyException | InvalidSampleRateException | InvalidSnsTopicArnException | InvalidSsmlException | InvalidTaskIdException | LanguageNotSupportedException | LexiconNotFoundException | LexiconSizeExceededException | MarksNotSupportedForFormatException | MaxLexemeLengthExceededException | MaxLexiconsNumberExceededException | ServiceFailureException | SsmlMarksNotSupportedForTextTypeException | SynthesisTaskNotFoundException | TextLengthExceededException | UnsupportedPlsAlphabetException | UnsupportedPlsLanguageException | CommonAwsError;
+

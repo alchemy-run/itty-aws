@@ -1,38 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-} from "../../error.ts";
-type CommonAwsError =
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | AccessDeniedException
-  | ThrottlingException
-  | ValidationException;
+import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
+type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class finspacedata extends AWSServiceClient {
@@ -40,362 +8,187 @@ export declare class finspacedata extends AWSServiceClient {
     input: AssociateUserToPermissionGroupRequest,
   ): Effect.Effect<
     AssociateUserToPermissionGroupResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createChangeset(
     input: CreateChangesetRequest,
   ): Effect.Effect<
     CreateChangesetResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | LimitExceededException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createDataset(
     input: CreateDatasetRequest,
   ): Effect.Effect<
     CreateDatasetResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | LimitExceededException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createDataView(
     input: CreateDataViewRequest,
   ): Effect.Effect<
     CreateDataViewResponse,
-    | ConflictException
-    | InternalServerException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | LimitExceededException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createPermissionGroup(
     input: CreatePermissionGroupRequest,
   ): Effect.Effect<
     CreatePermissionGroupResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | LimitExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | LimitExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createUser(
     input: CreateUserRequest,
   ): Effect.Effect<
     CreateUserResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | LimitExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | LimitExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteDataset(
     input: DeleteDatasetRequest,
   ): Effect.Effect<
     DeleteDatasetResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | LimitExceededException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deletePermissionGroup(
     input: DeletePermissionGroupRequest,
   ): Effect.Effect<
     DeletePermissionGroupResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | LimitExceededException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   disableUser(
     input: DisableUserRequest,
   ): Effect.Effect<
     DisableUserResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   disassociateUserFromPermissionGroup(
     input: DisassociateUserFromPermissionGroupRequest,
   ): Effect.Effect<
     DisassociateUserFromPermissionGroupResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   enableUser(
     input: EnableUserRequest,
   ): Effect.Effect<
     EnableUserResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | LimitExceededException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getChangeset(
     input: GetChangesetRequest,
   ): Effect.Effect<
     GetChangesetResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getDataset(
     input: GetDatasetRequest,
   ): Effect.Effect<
     GetDatasetResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getDataView(
     input: GetDataViewRequest,
   ): Effect.Effect<
     GetDataViewResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getExternalDataViewAccessDetails(
     input: GetExternalDataViewAccessDetailsRequest,
   ): Effect.Effect<
     GetExternalDataViewAccessDetailsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getPermissionGroup(
     input: GetPermissionGroupRequest,
   ): Effect.Effect<
     GetPermissionGroupResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getProgrammaticAccessCredentials(
     input: GetProgrammaticAccessCredentialsRequest,
   ): Effect.Effect<
     GetProgrammaticAccessCredentialsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getUser(
     input: GetUserRequest,
   ): Effect.Effect<
     GetUserResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getWorkingLocation(
     input: GetWorkingLocationRequest,
   ): Effect.Effect<
     GetWorkingLocationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listChangesets(
     input: ListChangesetsRequest,
   ): Effect.Effect<
     ListChangesetsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listDatasets(
     input: ListDatasetsRequest,
   ): Effect.Effect<
     ListDatasetsResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listDataViews(
     input: ListDataViewsRequest,
   ): Effect.Effect<
     ListDataViewsResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listPermissionGroups(
     input: ListPermissionGroupsRequest,
   ): Effect.Effect<
     ListPermissionGroupsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listPermissionGroupsByUser(
     input: ListPermissionGroupsByUserRequest,
   ): Effect.Effect<
     ListPermissionGroupsByUserResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listUsers(
     input: ListUsersRequest,
   ): Effect.Effect<
     ListUsersResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listUsersByPermissionGroup(
     input: ListUsersByPermissionGroupRequest,
   ): Effect.Effect<
     ListUsersByPermissionGroupResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   resetUserPassword(
     input: ResetUserPasswordRequest,
   ): Effect.Effect<
     ResetUserPasswordResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateChangeset(
     input: UpdateChangesetRequest,
   ): Effect.Effect<
     UpdateChangesetResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateDataset(
     input: UpdateDatasetRequest,
   ): Effect.Effect<
     UpdateDatasetResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updatePermissionGroup(
     input: UpdatePermissionGroupRequest,
   ): Effect.Effect<
     UpdatePermissionGroupResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateUser(
     input: UpdateUserRequest,
   ): Effect.Effect<
     UpdateUserResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
 }
 
@@ -411,14 +204,7 @@ export type AccessKeyId = string;
 export type AliasString = string;
 
 export type ApiAccess = "ENABLED" | "DISABLED";
-export type ApplicationPermission =
-  | "CreateDataset"
-  | "ManageClusters"
-  | "ManageUsersAndGroups"
-  | "ManageAttributeSets"
-  | "ViewAuditData"
-  | "AccessNotebooks"
-  | "GetTemporaryCredentials";
+export type ApplicationPermission = "CreateDataset" | "ManageClusters" | "ManageUsersAndGroups" | "ManageAttributeSets" | "ViewAuditData" | "AccessNotebooks" | "GetTemporaryCredentials";
 export type ApplicationPermissionList = Array<ApplicationPermission>;
 export interface AssociateUserToPermissionGroupRequest {
   permissionGroupId: string;
@@ -463,19 +249,7 @@ export interface ChangesetSummary {
 export type ChangeType = "REPLACE" | "APPEND" | "MODIFY";
 export type ClientToken = string;
 
-export type ColumnDataType =
-  | "STRING"
-  | "CHAR"
-  | "INTEGER"
-  | "TINYINT"
-  | "SMALLINT"
-  | "BIGINT"
-  | "FLOAT"
-  | "DOUBLE"
-  | "DATE"
-  | "DATETIME"
-  | "BOOLEAN"
-  | "BINARY";
+export type ColumnDataType = "STRING" | "CHAR" | "INTEGER" | "TINYINT" | "SMALLINT" | "BIGINT" | "FLOAT" | "DOUBLE" | "DATE" | "DATETIME" | "BOOLEAN" | "BINARY";
 export interface ColumnDefinition {
   dataType?: ColumnDataType;
   columnName?: string;
@@ -600,15 +374,7 @@ export interface DataViewErrorInfo {
 export type DataViewId = string;
 
 export type DataViewList = Array<DataViewSummary>;
-export type DataViewStatus =
-  | "RUNNING"
-  | "STARTING"
-  | "FAILED"
-  | "CANCELLED"
-  | "TIMEOUT"
-  | "SUCCESS"
-  | "PENDING"
-  | "FAILED_CLEANUP_FAILED";
+export type DataViewStatus = "RUNNING" | "STARTING" | "FAILED" | "CANCELLED" | "TIMEOUT" | "SUCCESS" | "PENDING" | "FAILED_CLEANUP_FAILED";
 export interface DataViewSummary {
   dataViewId?: string;
   dataViewArn?: string;
@@ -661,15 +427,7 @@ export interface EnableUserRequest {
 export interface EnableUserResponse {
   userId?: string;
 }
-export type ErrorCategory =
-  | "VALIDATION"
-  | "SERVICE_QUOTA_EXCEEDED"
-  | "ACCESS_DENIED"
-  | "RESOURCE_NOT_FOUND"
-  | "THROTTLING"
-  | "INTERNAL_SERVICE_EXCEPTION"
-  | "CANCELLED"
-  | "USER_RECOVERABLE";
+export type ErrorCategory = "VALIDATION" | "SERVICE_QUOTA_EXCEEDED" | "ACCESS_DENIED" | "RESOURCE_NOT_FOUND" | "THROTTLING" | "INTERNAL_SERVICE_EXCEPTION" | "CANCELLED" | "USER_RECOVERABLE";
 export type ErrorMessage = string;
 
 export type ErrorMessage2 = string;
@@ -780,12 +538,7 @@ export interface GetWorkingLocationResponse {
 }
 export type IdType = string;
 
-export type IngestionStatus =
-  | "PENDING"
-  | "FAILED"
-  | "SUCCESS"
-  | "RUNNING"
-  | "STOP_REQUESTED";
+export type IngestionStatus = "PENDING" | "FAILED" | "SUCCESS" | "RUNNING" | "STOP_REQUESTED";
 export declare class InternalServerException extends EffectData.TaggedError(
   "InternalServerException",
 )<{
@@ -886,10 +639,7 @@ export type PermissionGroupDescription = string;
 export type PermissionGroupId = string;
 
 export type PermissionGroupList = Array<PermissionGroup>;
-export type PermissionGroupMembershipStatus =
-  | "ADDITION_IN_PROGRESS"
-  | "ADDITION_SUCCESS"
-  | "REMOVAL_IN_PROGRESS";
+export type PermissionGroupMembershipStatus = "ADDITION_IN_PROGRESS" | "ADDITION_SUCCESS" | "REMOVAL_IN_PROGRESS";
 export type PermissionGroupName = string;
 
 export interface PermissionGroupParams {
@@ -964,7 +714,8 @@ export type stringValueMaxLength1000 = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(
   "ThrottlingException",
-)<{}> {}
+)<{
+}> {}
 export type TimestampEpoch = number;
 
 export interface UpdateChangesetRequest {
@@ -1442,12 +1193,5 @@ export declare namespace UpdateUser {
     | CommonAwsError;
 }
 
-export type finspacedataErrors =
-  | AccessDeniedException
-  | ConflictException
-  | InternalServerException
-  | LimitExceededException
-  | ResourceNotFoundException
-  | ThrottlingException
-  | ValidationException
-  | CommonAwsError;
+export type finspacedataErrors = AccessDeniedException | ConflictException | InternalServerException | LimitExceededException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError;
+

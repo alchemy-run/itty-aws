@@ -7,21 +7,13 @@ export declare class DataPipeline extends AWSServiceClient {
     input: ActivatePipelineInput,
   ): Effect.Effect<
     ActivatePipelineOutput,
-    | InternalServiceError
-    | InvalidRequestException
-    | PipelineDeletedException
-    | PipelineNotFoundException
-    | CommonAwsError
+    InternalServiceError | InvalidRequestException | PipelineDeletedException | PipelineNotFoundException | CommonAwsError
   >;
   addTags(
     input: AddTagsInput,
   ): Effect.Effect<
     AddTagsOutput,
-    | InternalServiceError
-    | InvalidRequestException
-    | PipelineDeletedException
-    | PipelineNotFoundException
-    | CommonAwsError
+    InternalServiceError | InvalidRequestException | PipelineDeletedException | PipelineNotFoundException | CommonAwsError
   >;
   createPipeline(
     input: CreatePipelineInput,
@@ -33,61 +25,37 @@ export declare class DataPipeline extends AWSServiceClient {
     input: DeactivatePipelineInput,
   ): Effect.Effect<
     DeactivatePipelineOutput,
-    | InternalServiceError
-    | InvalidRequestException
-    | PipelineDeletedException
-    | PipelineNotFoundException
-    | CommonAwsError
+    InternalServiceError | InvalidRequestException | PipelineDeletedException | PipelineNotFoundException | CommonAwsError
   >;
   deletePipeline(
     input: DeletePipelineInput,
   ): Effect.Effect<
     {},
-    | InternalServiceError
-    | InvalidRequestException
-    | PipelineNotFoundException
-    | CommonAwsError
+    InternalServiceError | InvalidRequestException | PipelineNotFoundException | CommonAwsError
   >;
   describeObjects(
     input: DescribeObjectsInput,
   ): Effect.Effect<
     DescribeObjectsOutput,
-    | InternalServiceError
-    | InvalidRequestException
-    | PipelineDeletedException
-    | PipelineNotFoundException
-    | CommonAwsError
+    InternalServiceError | InvalidRequestException | PipelineDeletedException | PipelineNotFoundException | CommonAwsError
   >;
   describePipelines(
     input: DescribePipelinesInput,
   ): Effect.Effect<
     DescribePipelinesOutput,
-    | InternalServiceError
-    | InvalidRequestException
-    | PipelineDeletedException
-    | PipelineNotFoundException
-    | CommonAwsError
+    InternalServiceError | InvalidRequestException | PipelineDeletedException | PipelineNotFoundException | CommonAwsError
   >;
   evaluateExpression(
     input: EvaluateExpressionInput,
   ): Effect.Effect<
     EvaluateExpressionOutput,
-    | InternalServiceError
-    | InvalidRequestException
-    | PipelineDeletedException
-    | PipelineNotFoundException
-    | TaskNotFoundException
-    | CommonAwsError
+    InternalServiceError | InvalidRequestException | PipelineDeletedException | PipelineNotFoundException | TaskNotFoundException | CommonAwsError
   >;
   getPipelineDefinition(
     input: GetPipelineDefinitionInput,
   ): Effect.Effect<
     GetPipelineDefinitionOutput,
-    | InternalServiceError
-    | InvalidRequestException
-    | PipelineDeletedException
-    | PipelineNotFoundException
-    | CommonAwsError
+    InternalServiceError | InvalidRequestException | PipelineDeletedException | PipelineNotFoundException | CommonAwsError
   >;
   listPipelines(
     input: ListPipelinesInput,
@@ -99,51 +67,31 @@ export declare class DataPipeline extends AWSServiceClient {
     input: PollForTaskInput,
   ): Effect.Effect<
     PollForTaskOutput,
-    | InternalServiceError
-    | InvalidRequestException
-    | TaskNotFoundException
-    | CommonAwsError
+    InternalServiceError | InvalidRequestException | TaskNotFoundException | CommonAwsError
   >;
   putPipelineDefinition(
     input: PutPipelineDefinitionInput,
   ): Effect.Effect<
     PutPipelineDefinitionOutput,
-    | InternalServiceError
-    | InvalidRequestException
-    | PipelineDeletedException
-    | PipelineNotFoundException
-    | CommonAwsError
+    InternalServiceError | InvalidRequestException | PipelineDeletedException | PipelineNotFoundException | CommonAwsError
   >;
   queryObjects(
     input: QueryObjectsInput,
   ): Effect.Effect<
     QueryObjectsOutput,
-    | InternalServiceError
-    | InvalidRequestException
-    | PipelineDeletedException
-    | PipelineNotFoundException
-    | CommonAwsError
+    InternalServiceError | InvalidRequestException | PipelineDeletedException | PipelineNotFoundException | CommonAwsError
   >;
   removeTags(
     input: RemoveTagsInput,
   ): Effect.Effect<
     RemoveTagsOutput,
-    | InternalServiceError
-    | InvalidRequestException
-    | PipelineDeletedException
-    | PipelineNotFoundException
-    | CommonAwsError
+    InternalServiceError | InvalidRequestException | PipelineDeletedException | PipelineNotFoundException | CommonAwsError
   >;
   reportTaskProgress(
     input: ReportTaskProgressInput,
   ): Effect.Effect<
     ReportTaskProgressOutput,
-    | InternalServiceError
-    | InvalidRequestException
-    | PipelineDeletedException
-    | PipelineNotFoundException
-    | TaskNotFoundException
-    | CommonAwsError
+    InternalServiceError | InvalidRequestException | PipelineDeletedException | PipelineNotFoundException | TaskNotFoundException | CommonAwsError
   >;
   reportTaskRunnerHeartbeat(
     input: ReportTaskRunnerHeartbeatInput,
@@ -155,32 +103,19 @@ export declare class DataPipeline extends AWSServiceClient {
     input: SetStatusInput,
   ): Effect.Effect<
     {},
-    | InternalServiceError
-    | InvalidRequestException
-    | PipelineDeletedException
-    | PipelineNotFoundException
-    | CommonAwsError
+    InternalServiceError | InvalidRequestException | PipelineDeletedException | PipelineNotFoundException | CommonAwsError
   >;
   setTaskStatus(
     input: SetTaskStatusInput,
   ): Effect.Effect<
     SetTaskStatusOutput,
-    | InternalServiceError
-    | InvalidRequestException
-    | PipelineDeletedException
-    | PipelineNotFoundException
-    | TaskNotFoundException
-    | CommonAwsError
+    InternalServiceError | InvalidRequestException | PipelineDeletedException | PipelineNotFoundException | TaskNotFoundException | CommonAwsError
   >;
   validatePipelineDefinition(
     input: ValidatePipelineDefinitionInput,
   ): Effect.Effect<
     ValidatePipelineDefinitionOutput,
-    | InternalServiceError
-    | InvalidRequestException
-    | PipelineDeletedException
-    | PipelineNotFoundException
-    | CommonAwsError
+    InternalServiceError | InvalidRequestException | PipelineDeletedException | PipelineNotFoundException | CommonAwsError
   >;
 }
 
@@ -189,12 +124,14 @@ export interface ActivatePipelineInput {
   parameterValues?: Array<ParameterValue>;
   startTimestamp?: Date | string;
 }
-export interface ActivatePipelineOutput {}
+export interface ActivatePipelineOutput {
+}
 export interface AddTagsInput {
   pipelineId: string;
   tags: Array<Tag>;
 }
-export interface AddTagsOutput {}
+export interface AddTagsOutput {
+}
 export type attributeNameString = string;
 
 export type attributeValueString = string;
@@ -216,7 +153,8 @@ export interface DeactivatePipelineInput {
   pipelineId: string;
   cancelActive?: boolean;
 }
-export interface DeactivatePipelineOutput {}
+export interface DeactivatePipelineOutput {
+}
 export interface DeletePipelineInput {
   pipelineId: string;
 }
@@ -383,7 +321,8 @@ export interface RemoveTagsInput {
   pipelineId: string;
   tagKeys: Array<string>;
 }
-export interface RemoveTagsOutput {}
+export interface RemoveTagsOutput {
+}
 export interface ReportTaskProgressInput {
   taskId: string;
   fields?: Array<Field>;
@@ -416,7 +355,8 @@ export interface SetTaskStatusInput {
   errorMessage?: string;
   errorStackTrace?: string;
 }
-export interface SetTaskStatusOutput {}
+export interface SetTaskStatusOutput {
+}
 export type DataPipelinestring = string;
 
 export type stringList = Array<string>;
@@ -673,10 +613,5 @@ export declare namespace ValidatePipelineDefinition {
     | CommonAwsError;
 }
 
-export type DataPipelineErrors =
-  | InternalServiceError
-  | InvalidRequestException
-  | PipelineDeletedException
-  | PipelineNotFoundException
-  | TaskNotFoundException
-  | CommonAwsError;
+export type DataPipelineErrors = InternalServiceError | InvalidRequestException | PipelineDeletedException | PipelineNotFoundException | TaskNotFoundException | CommonAwsError;
+

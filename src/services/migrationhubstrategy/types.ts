@@ -1,38 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-} from "../../error.ts";
-type CommonAwsError =
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | AccessDeniedException
-  | ThrottlingException
-  | ValidationException;
+import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
+type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class MigrationHubStrategy extends AWSServiceClient {
@@ -40,225 +8,133 @@ export declare class MigrationHubStrategy extends AWSServiceClient {
     input: GetApplicationComponentDetailsRequest,
   ): Effect.Effect<
     GetApplicationComponentDetailsResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   getApplicationComponentStrategies(
     input: GetApplicationComponentStrategiesRequest,
   ): Effect.Effect<
     GetApplicationComponentStrategiesResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   getAssessment(
     input: GetAssessmentRequest,
   ): Effect.Effect<
     GetAssessmentResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   getImportFileTask(
     input: GetImportFileTaskRequest,
   ): Effect.Effect<
     GetImportFileTaskResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getLatestAssessmentId(
     input: GetLatestAssessmentIdRequest,
   ): Effect.Effect<
     GetLatestAssessmentIdResponse,
-    | AccessDeniedException
-    | DependencyException
-    | InternalServerException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DependencyException | InternalServerException | ValidationException | CommonAwsError
   >;
   getPortfolioPreferences(
     input: GetPortfolioPreferencesRequest,
   ): Effect.Effect<
     GetPortfolioPreferencesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   getPortfolioSummary(
     input: GetPortfolioSummaryRequest,
   ): Effect.Effect<
     GetPortfolioSummaryResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | CommonAwsError
   >;
   getRecommendationReportDetails(
     input: GetRecommendationReportDetailsRequest,
   ): Effect.Effect<
     GetRecommendationReportDetailsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getServerDetails(
     input: GetServerDetailsRequest,
   ): Effect.Effect<
     GetServerDetailsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getServerStrategies(
     input: GetServerStrategiesRequest,
   ): Effect.Effect<
     GetServerStrategiesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listAnalyzableServers(
     input: ListAnalyzableServersRequest,
   ): Effect.Effect<
     ListAnalyzableServersResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listApplicationComponents(
     input: ListApplicationComponentsRequest,
   ): Effect.Effect<
     ListApplicationComponentsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ServiceLinkedRoleLockClientException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ServiceLinkedRoleLockClientException | ValidationException | CommonAwsError
   >;
   listCollectors(
     input: ListCollectorsRequest,
   ): Effect.Effect<
     ListCollectorsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listImportFileTask(
     input: ListImportFileTaskRequest,
   ): Effect.Effect<
     ListImportFileTaskResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listServers(
     input: ListServersRequest,
   ): Effect.Effect<
     ListServersResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   putPortfolioPreferences(
     input: PutPortfolioPreferencesRequest,
   ): Effect.Effect<
     PutPortfolioPreferencesResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   startAssessment(
     input: StartAssessmentRequest,
   ): Effect.Effect<
     StartAssessmentResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | CommonAwsError
   >;
   startImportFileTask(
     input: StartImportFileTaskRequest,
   ): Effect.Effect<
     StartImportFileTaskResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   startRecommendationReportGeneration(
     input: StartRecommendationReportGenerationRequest,
   ): Effect.Effect<
     StartRecommendationReportGenerationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   stopAssessment(
     input: StopAssessmentRequest,
   ): Effect.Effect<
     StopAssessmentResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateApplicationComponentConfig(
     input: UpdateApplicationComponentConfigRequest,
   ): Effect.Effect<
     UpdateApplicationComponentConfigResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateServerConfig(
     input: UpdateServerConfigRequest,
   ): Effect.Effect<
     UpdateServerConfigResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
 }
 
@@ -274,9 +150,7 @@ interface _AnalysisStatusUnion {
   srcCodeOrDbAnalysisStatus?: string;
 }
 
-export type AnalysisStatusUnion =
-  | (_AnalysisStatusUnion & { runtimeAnalysisStatus: string })
-  | (_AnalysisStatusUnion & { srcCodeOrDbAnalysisStatus: string });
+export type AnalysisStatusUnion = (_AnalysisStatusUnion & { runtimeAnalysisStatus: string }) | (_AnalysisStatusUnion & { srcCodeOrDbAnalysisStatus: string });
 export type AnalysisType = string;
 
 export interface AnalyzableServerSummary {
@@ -292,10 +166,7 @@ interface _AnalyzerNameUnion {
   sourceCodeAnalyzerName?: string;
 }
 
-export type AnalyzerNameUnion =
-  | (_AnalyzerNameUnion & { binaryAnalyzerName: string })
-  | (_AnalyzerNameUnion & { runTimeAnalyzerName: string })
-  | (_AnalyzerNameUnion & { sourceCodeAnalyzerName: string });
+export type AnalyzerNameUnion = (_AnalyzerNameUnion & { binaryAnalyzerName: string }) | (_AnalyzerNameUnion & { runTimeAnalyzerName: string }) | (_AnalyzerNameUnion & { sourceCodeAnalyzerName: string });
 export interface AntipatternReportResult {
   analyzerName?: AnalyzerNameUnion;
   antiPatternReportS3Object?: S3Object;
@@ -343,8 +214,7 @@ export interface ApplicationComponentStatusSummary {
   srcCodeOrDbAnalysisStatus?: string;
   count?: number;
 }
-export type ApplicationComponentStrategies =
-  Array<ApplicationComponentStrategy>;
+export type ApplicationComponentStrategies = Array<ApplicationComponentStrategy>;
 export interface ApplicationComponentStrategy {
   recommendation?: RecommendationSet;
   status?: string;
@@ -458,12 +328,7 @@ interface _DatabaseMigrationPreference {
   noPreference?: NoDatabaseMigrationPreference;
 }
 
-export type DatabaseMigrationPreference =
-  | (_DatabaseMigrationPreference & { heterogeneous: Heterogeneous })
-  | (_DatabaseMigrationPreference & { homogeneous: Homogeneous })
-  | (_DatabaseMigrationPreference & {
-      noPreference: NoDatabaseMigrationPreference;
-    });
+export type DatabaseMigrationPreference = (_DatabaseMigrationPreference & { heterogeneous: Heterogeneous }) | (_DatabaseMigrationPreference & { homogeneous: Homogeneous }) | (_DatabaseMigrationPreference & { noPreference: NoDatabaseMigrationPreference });
 export interface DatabasePreferences {
   databaseManagementPreference?: string;
   databaseMigrationPreference?: DatabaseMigrationPreference;
@@ -526,18 +391,21 @@ export interface GetImportFileTaskResponse {
   numberOfRecordsFailed?: number;
   importName?: string;
 }
-export interface GetLatestAssessmentIdRequest {}
+export interface GetLatestAssessmentIdRequest {
+}
 export interface GetLatestAssessmentIdResponse {
   id?: string;
 }
-export interface GetPortfolioPreferencesRequest {}
+export interface GetPortfolioPreferencesRequest {
+}
 export interface GetPortfolioPreferencesResponse {
   prioritizeBusinessGoals?: PrioritizeBusinessGoals;
   applicationPreferences?: ApplicationPreferences;
   databasePreferences?: DatabasePreferences;
   applicationMode?: string;
 }
-export interface GetPortfolioSummaryRequest {}
+export interface GetPortfolioSummaryRequest {
+}
 export interface GetPortfolioSummaryResponse {
   assessmentSummary?: AssessmentSummary;
 }
@@ -643,10 +511,8 @@ export interface ListApplicationComponentsResponse {
   applicationComponentInfos?: Array<ApplicationComponentDetail>;
   nextToken?: string;
 }
-export type ListApplicationComponentStatusSummary =
-  Array<ApplicationComponentStatusSummary>;
-export type ListApplicationComponentSummary =
-  Array<ApplicationComponentSummary>;
+export type ListApplicationComponentStatusSummary = Array<ApplicationComponentStatusSummary>;
+export type ListApplicationComponentSummary = Array<ApplicationComponentSummary>;
 export interface ListCollectorsRequest {
   nextToken?: string;
   maxResults?: number;
@@ -689,10 +555,7 @@ interface _ManagementPreference {
   noPreference?: NoManagementPreference;
 }
 
-export type ManagementPreference =
-  | (_ManagementPreference & { awsManagedResources: AwsManagedResources })
-  | (_ManagementPreference & { selfManageResources: SelfManageResources })
-  | (_ManagementPreference & { noPreference: NoManagementPreference });
+export type ManagementPreference = (_ManagementPreference & { awsManagedResources: AwsManagedResources }) | (_ManagementPreference & { selfManageResources: SelfManageResources }) | (_ManagementPreference & { noPreference: NoManagementPreference });
 export type MaxResult = number;
 
 export type NetMask = string;
@@ -743,7 +606,8 @@ export interface PutPortfolioPreferencesRequest {
   databasePreferences?: DatabasePreferences;
   applicationMode?: string;
 }
-export interface PutPortfolioPreferencesResponse {}
+export interface PutPortfolioPreferencesResponse {
+}
 export interface RecommendationReportDetails {
   status?: string;
   statusMessage?: string;
@@ -918,7 +782,8 @@ export type StatusMessage = string;
 export interface StopAssessmentRequest {
   assessmentId: string;
 }
-export interface StopAssessmentResponse {}
+export interface StopAssessmentResponse {
+}
 export type Strategy = string;
 
 export interface StrategyOption {
@@ -973,12 +838,14 @@ export interface UpdateApplicationComponentConfigRequest {
   configureOnly?: boolean;
   appType?: string;
 }
-export interface UpdateApplicationComponentConfigResponse {}
+export interface UpdateApplicationComponentConfigResponse {
+}
 export interface UpdateServerConfigRequest {
   serverId: string;
   strategyOption?: StrategyOption;
 }
-export interface UpdateServerConfigResponse {}
+export interface UpdateServerConfigResponse {
+}
 export declare class ValidationException extends EffectData.TaggedError(
   "ValidationException",
 )<{
@@ -1244,14 +1111,5 @@ export declare namespace UpdateServerConfig {
     | CommonAwsError;
 }
 
-export type MigrationHubStrategyErrors =
-  | AccessDeniedException
-  | ConflictException
-  | DependencyException
-  | InternalServerException
-  | ResourceNotFoundException
-  | ServiceLinkedRoleLockClientException
-  | ServiceQuotaExceededException
-  | ThrottlingException
-  | ValidationException
-  | CommonAwsError;
+export type MigrationHubStrategyErrors = AccessDeniedException | ConflictException | DependencyException | InternalServerException | ResourceNotFoundException | ServiceLinkedRoleLockClientException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError;
+

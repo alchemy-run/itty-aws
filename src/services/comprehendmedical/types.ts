@@ -1,40 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  AccessDeniedException,
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  ThrottlingException,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-} from "../../error.ts";
-type CommonAwsError =
-  | AccessDeniedException
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | ThrottlingException
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | ValidationException;
+import type { AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
+type CommonAwsError = AccessDeniedException | ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | ThrottlingException | UnrecognizedClientException | UnknownOperationException | ValidationError | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class ComprehendMedical extends AWSServiceClient {
@@ -42,269 +8,157 @@ export declare class ComprehendMedical extends AWSServiceClient {
     input: DescribeEntitiesDetectionV2JobRequest,
   ): Effect.Effect<
     DescribeEntitiesDetectionV2JobResponse,
-    | InternalServerException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalServerException | InvalidRequestException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   describeICD10CMInferenceJob(
     input: DescribeICD10CMInferenceJobRequest,
   ): Effect.Effect<
     DescribeICD10CMInferenceJobResponse,
-    | InternalServerException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalServerException | InvalidRequestException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   describePHIDetectionJob(
     input: DescribePHIDetectionJobRequest,
   ): Effect.Effect<
     DescribePHIDetectionJobResponse,
-    | InternalServerException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalServerException | InvalidRequestException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   describeRxNormInferenceJob(
     input: DescribeRxNormInferenceJobRequest,
   ): Effect.Effect<
     DescribeRxNormInferenceJobResponse,
-    | InternalServerException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalServerException | InvalidRequestException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   describeSNOMEDCTInferenceJob(
     input: DescribeSNOMEDCTInferenceJobRequest,
   ): Effect.Effect<
     DescribeSNOMEDCTInferenceJobResponse,
-    | InternalServerException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalServerException | InvalidRequestException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   detectEntities(
     input: DetectEntitiesRequest,
   ): Effect.Effect<
     DetectEntitiesResponse,
-    | InternalServerException
-    | InvalidEncodingException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | TextSizeLimitExceededException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalServerException | InvalidEncodingException | InvalidRequestException | ServiceUnavailableException | TextSizeLimitExceededException | TooManyRequestsException | CommonAwsError
   >;
   detectEntitiesV2(
     input: DetectEntitiesV2Request,
   ): Effect.Effect<
     DetectEntitiesV2Response,
-    | InternalServerException
-    | InvalidEncodingException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | TextSizeLimitExceededException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalServerException | InvalidEncodingException | InvalidRequestException | ServiceUnavailableException | TextSizeLimitExceededException | TooManyRequestsException | CommonAwsError
   >;
   detectPHI(
     input: DetectPHIRequest,
   ): Effect.Effect<
     DetectPHIResponse,
-    | InternalServerException
-    | InvalidEncodingException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | TextSizeLimitExceededException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalServerException | InvalidEncodingException | InvalidRequestException | ServiceUnavailableException | TextSizeLimitExceededException | TooManyRequestsException | CommonAwsError
   >;
   inferICD10CM(
     input: InferICD10CMRequest,
   ): Effect.Effect<
     InferICD10CMResponse,
-    | InternalServerException
-    | InvalidEncodingException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | TextSizeLimitExceededException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalServerException | InvalidEncodingException | InvalidRequestException | ServiceUnavailableException | TextSizeLimitExceededException | TooManyRequestsException | CommonAwsError
   >;
   inferRxNorm(
     input: InferRxNormRequest,
   ): Effect.Effect<
     InferRxNormResponse,
-    | InternalServerException
-    | InvalidEncodingException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | TextSizeLimitExceededException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalServerException | InvalidEncodingException | InvalidRequestException | ServiceUnavailableException | TextSizeLimitExceededException | TooManyRequestsException | CommonAwsError
   >;
   inferSNOMEDCT(
     input: InferSNOMEDCTRequest,
   ): Effect.Effect<
     InferSNOMEDCTResponse,
-    | InternalServerException
-    | InvalidEncodingException
-    | InvalidRequestException
-    | ServiceUnavailableException
-    | TextSizeLimitExceededException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalServerException | InvalidEncodingException | InvalidRequestException | ServiceUnavailableException | TextSizeLimitExceededException | TooManyRequestsException | CommonAwsError
   >;
   listEntitiesDetectionV2Jobs(
     input: ListEntitiesDetectionV2JobsRequest,
   ): Effect.Effect<
     ListEntitiesDetectionV2JobsResponse,
-    | InternalServerException
-    | InvalidRequestException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | InvalidRequestException | TooManyRequestsException | ValidationException | CommonAwsError
   >;
   listICD10CMInferenceJobs(
     input: ListICD10CMInferenceJobsRequest,
   ): Effect.Effect<
     ListICD10CMInferenceJobsResponse,
-    | InternalServerException
-    | InvalidRequestException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | InvalidRequestException | TooManyRequestsException | ValidationException | CommonAwsError
   >;
   listPHIDetectionJobs(
     input: ListPHIDetectionJobsRequest,
   ): Effect.Effect<
     ListPHIDetectionJobsResponse,
-    | InternalServerException
-    | InvalidRequestException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | InvalidRequestException | TooManyRequestsException | ValidationException | CommonAwsError
   >;
   listRxNormInferenceJobs(
     input: ListRxNormInferenceJobsRequest,
   ): Effect.Effect<
     ListRxNormInferenceJobsResponse,
-    | InternalServerException
-    | InvalidRequestException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | InvalidRequestException | TooManyRequestsException | ValidationException | CommonAwsError
   >;
   listSNOMEDCTInferenceJobs(
     input: ListSNOMEDCTInferenceJobsRequest,
   ): Effect.Effect<
     ListSNOMEDCTInferenceJobsResponse,
-    | InternalServerException
-    | InvalidRequestException
-    | TooManyRequestsException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | InvalidRequestException | TooManyRequestsException | ValidationException | CommonAwsError
   >;
   startEntitiesDetectionV2Job(
     input: StartEntitiesDetectionV2JobRequest,
   ): Effect.Effect<
     StartEntitiesDetectionV2JobResponse,
-    | InternalServerException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalServerException | InvalidRequestException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   startICD10CMInferenceJob(
     input: StartICD10CMInferenceJobRequest,
   ): Effect.Effect<
     StartICD10CMInferenceJobResponse,
-    | InternalServerException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalServerException | InvalidRequestException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   startPHIDetectionJob(
     input: StartPHIDetectionJobRequest,
   ): Effect.Effect<
     StartPHIDetectionJobResponse,
-    | InternalServerException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalServerException | InvalidRequestException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   startRxNormInferenceJob(
     input: StartRxNormInferenceJobRequest,
   ): Effect.Effect<
     StartRxNormInferenceJobResponse,
-    | InternalServerException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalServerException | InvalidRequestException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   startSNOMEDCTInferenceJob(
     input: StartSNOMEDCTInferenceJobRequest,
   ): Effect.Effect<
     StartSNOMEDCTInferenceJobResponse,
-    | InternalServerException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalServerException | InvalidRequestException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
   stopEntitiesDetectionV2Job(
     input: StopEntitiesDetectionV2JobRequest,
   ): Effect.Effect<
     StopEntitiesDetectionV2JobResponse,
-    | InternalServerException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServerException | InvalidRequestException | ResourceNotFoundException | CommonAwsError
   >;
   stopICD10CMInferenceJob(
     input: StopICD10CMInferenceJobRequest,
   ): Effect.Effect<
     StopICD10CMInferenceJobResponse,
-    | InternalServerException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServerException | InvalidRequestException | ResourceNotFoundException | CommonAwsError
   >;
   stopPHIDetectionJob(
     input: StopPHIDetectionJobRequest,
   ): Effect.Effect<
     StopPHIDetectionJobResponse,
-    | InternalServerException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServerException | InvalidRequestException | ResourceNotFoundException | CommonAwsError
   >;
   stopRxNormInferenceJob(
     input: StopRxNormInferenceJobRequest,
   ): Effect.Effect<
     StopRxNormInferenceJobResponse,
-    | InternalServerException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServerException | InvalidRequestException | ResourceNotFoundException | CommonAwsError
   >;
   stopSNOMEDCTInferenceJob(
     input: StopSNOMEDCTInferenceJobRequest,
   ): Effect.Effect<
     StopSNOMEDCTInferenceJobResponse,
-    | InternalServerException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | TooManyRequestsException
-    | CommonAwsError
+    InternalServerException | InvalidRequestException | ResourceNotFoundException | TooManyRequestsException | CommonAwsError
   >;
 }
 
@@ -325,16 +179,7 @@ export interface Attribute {
   Traits?: Array<Trait>;
 }
 export type AttributeList = Array<Attribute>;
-export type AttributeName =
-  | "SIGN"
-  | "SYMPTOM"
-  | "DIAGNOSIS"
-  | "NEGATION"
-  | "PERTAINS_TO_FAMILY"
-  | "HYPOTHETICAL"
-  | "LOW_CONFIDENCE"
-  | "PAST_HISTORY"
-  | "FUTURE";
+export type AttributeName = "SIGN" | "SYMPTOM" | "DIAGNOSIS" | "NEGATION" | "PERTAINS_TO_FAMILY" | "HYPOTHETICAL" | "LOW_CONFIDENCE" | "PAST_HISTORY" | "FUTURE";
 export type BoundedLengthString = string;
 
 export interface Characters {
@@ -364,8 +209,7 @@ export interface ComprehendMedicalAsyncJobProperties {
   KMSKey?: string;
   ModelVersion?: string;
 }
-export type ComprehendMedicalAsyncJobPropertiesList =
-  Array<ComprehendMedicalAsyncJobProperties>;
+export type ComprehendMedicalAsyncJobPropertiesList = Array<ComprehendMedicalAsyncJobProperties>;
 export interface DescribeEntitiesDetectionV2JobRequest {
   JobId: string;
 }
@@ -434,60 +278,8 @@ export interface Entity {
   Attributes?: Array<Attribute>;
 }
 export type EntityList = Array<Entity>;
-export type EntitySubType =
-  | "NAME"
-  | "DX_NAME"
-  | "DOSAGE"
-  | "ROUTE_OR_MODE"
-  | "FORM"
-  | "FREQUENCY"
-  | "DURATION"
-  | "GENERIC_NAME"
-  | "BRAND_NAME"
-  | "STRENGTH"
-  | "RATE"
-  | "ACUITY"
-  | "TEST_NAME"
-  | "TEST_VALUE"
-  | "TEST_UNITS"
-  | "TEST_UNIT"
-  | "PROCEDURE_NAME"
-  | "TREATMENT_NAME"
-  | "DATE"
-  | "AGE"
-  | "CONTACT_POINT"
-  | "PHONE_OR_FAX"
-  | "EMAIL"
-  | "IDENTIFIER"
-  | "ID"
-  | "URL"
-  | "ADDRESS"
-  | "PROFESSION"
-  | "SYSTEM_ORGAN_SITE"
-  | "DIRECTION"
-  | "QUALITY"
-  | "QUANTITY"
-  | "TIME_EXPRESSION"
-  | "TIME_TO_MEDICATION_NAME"
-  | "TIME_TO_DX_NAME"
-  | "TIME_TO_TEST_NAME"
-  | "TIME_TO_PROCEDURE_NAME"
-  | "TIME_TO_TREATMENT_NAME"
-  | "AMOUNT"
-  | "GENDER"
-  | "RACE_ETHNICITY"
-  | "ALLERGIES"
-  | "TOBACCO_USE"
-  | "ALCOHOL_CONSUMPTION"
-  | "REC_DRUG_USE";
-export type EntityType =
-  | "MEDICATION"
-  | "MEDICAL_CONDITION"
-  | "PROTECTED_HEALTH_INFORMATION"
-  | "TEST_TREATMENT_PROCEDURE"
-  | "ANATOMY"
-  | "TIME_EXPRESSION"
-  | "BEHAVIORAL_ENVIRONMENTAL_SOCIAL";
+export type EntitySubType = "NAME" | "DX_NAME" | "DOSAGE" | "ROUTE_OR_MODE" | "FORM" | "FREQUENCY" | "DURATION" | "GENERIC_NAME" | "BRAND_NAME" | "STRENGTH" | "RATE" | "ACUITY" | "TEST_NAME" | "TEST_VALUE" | "TEST_UNITS" | "TEST_UNIT" | "PROCEDURE_NAME" | "TREATMENT_NAME" | "DATE" | "AGE" | "CONTACT_POINT" | "PHONE_OR_FAX" | "EMAIL" | "IDENTIFIER" | "ID" | "URL" | "ADDRESS" | "PROFESSION" | "SYSTEM_ORGAN_SITE" | "DIRECTION" | "QUALITY" | "QUANTITY" | "TIME_EXPRESSION" | "TIME_TO_MEDICATION_NAME" | "TIME_TO_DX_NAME" | "TIME_TO_TEST_NAME" | "TIME_TO_PROCEDURE_NAME" | "TIME_TO_TREATMENT_NAME" | "AMOUNT" | "GENDER" | "RACE_ETHNICITY" | "ALLERGIES" | "TOBACCO_USE" | "ALCOHOL_CONSUMPTION" | "REC_DRUG_USE";
+export type EntityType = "MEDICATION" | "MEDICAL_CONDITION" | "PROTECTED_HEALTH_INFORMATION" | "TEST_TREATMENT_PROCEDURE" | "ANATOMY" | "TIME_EXPRESSION" | "BEHAVIORAL_ENVIRONMENTAL_SOCIAL";
 export type Float = number;
 
 export type IamRoleArn = string;
@@ -505,14 +297,7 @@ export interface ICD10CMAttribute {
   RelationshipType?: ICD10CMRelationshipType;
 }
 export type ICD10CMAttributeList = Array<ICD10CMAttribute>;
-export type ICD10CMAttributeType =
-  | "ACUITY"
-  | "DIRECTION"
-  | "SYSTEM_ORGAN_SITE"
-  | "QUALITY"
-  | "QUANTITY"
-  | "TIME_TO_DX_NAME"
-  | "TIME_EXPRESSION";
+export type ICD10CMAttributeType = "ACUITY" | "DIRECTION" | "SYSTEM_ORGAN_SITE" | "QUALITY" | "QUANTITY" | "TIME_TO_DX_NAME" | "TIME_EXPRESSION";
 export interface ICD10CMConcept {
   Description?: string;
   Code?: string;
@@ -534,23 +319,13 @@ export interface ICD10CMEntity {
 export type ICD10CMEntityCategory = "MEDICAL_CONDITION";
 export type ICD10CMEntityList = Array<ICD10CMEntity>;
 export type ICD10CMEntityType = "DX_NAME" | "TIME_EXPRESSION";
-export type ICD10CMRelationshipType =
-  | "OVERLAP"
-  | "SYSTEM_ORGAN_SITE"
-  | "QUALITY";
+export type ICD10CMRelationshipType = "OVERLAP" | "SYSTEM_ORGAN_SITE" | "QUALITY";
 export interface ICD10CMTrait {
   Name?: ICD10CMTraitName;
   Score?: number;
 }
 export type ICD10CMTraitList = Array<ICD10CMTrait>;
-export type ICD10CMTraitName =
-  | "NEGATION"
-  | "DIAGNOSIS"
-  | "SIGN"
-  | "SYMPTOM"
-  | "PERTAINS_TO_FAMILY"
-  | "HYPOTHETICAL"
-  | "LOW_CONFIDENCE";
+export type ICD10CMTraitName = "NEGATION" | "DIAGNOSIS" | "SIGN" | "SYMPTOM" | "PERTAINS_TO_FAMILY" | "HYPOTHETICAL" | "LOW_CONFIDENCE";
 export interface InferICD10CMRequest {
   Text: string;
 }
@@ -602,14 +377,7 @@ export type JobId = string;
 
 export type JobName = string;
 
-export type JobStatus =
-  | "SUBMITTED"
-  | "IN_PROGRESS"
-  | "COMPLETED"
-  | "PARTIAL_SUCCESS"
-  | "FAILED"
-  | "STOP_REQUESTED"
-  | "STOPPED";
+export type JobStatus = "SUBMITTED" | "IN_PROGRESS" | "COMPLETED" | "PARTIAL_SUCCESS" | "FAILED" | "STOP_REQUESTED" | "STOPPED";
 export type KMSKey = string;
 
 export type LanguageCode = "en";
@@ -670,29 +438,7 @@ export interface OutputDataConfig {
   S3Bucket: string;
   S3Key?: string;
 }
-export type RelationshipType =
-  | "EVERY"
-  | "WITH_DOSAGE"
-  | "ADMINISTERED_VIA"
-  | "FOR"
-  | "NEGATIVE"
-  | "OVERLAP"
-  | "DOSAGE"
-  | "ROUTE_OR_MODE"
-  | "FORM"
-  | "FREQUENCY"
-  | "DURATION"
-  | "STRENGTH"
-  | "RATE"
-  | "ACUITY"
-  | "TEST_VALUE"
-  | "TEST_UNITS"
-  | "TEST_UNIT"
-  | "DIRECTION"
-  | "SYSTEM_ORGAN_SITE"
-  | "AMOUNT"
-  | "USAGE"
-  | "QUALITY";
+export type RelationshipType = "EVERY" | "WITH_DOSAGE" | "ADMINISTERED_VIA" | "FOR" | "NEGATIVE" | "OVERLAP" | "DOSAGE" | "ROUTE_OR_MODE" | "FORM" | "FREQUENCY" | "DURATION" | "STRENGTH" | "RATE" | "ACUITY" | "TEST_VALUE" | "TEST_UNITS" | "TEST_UNIT" | "DIRECTION" | "SYSTEM_ORGAN_SITE" | "AMOUNT" | "USAGE" | "QUALITY";
 export declare class ResourceNotFoundException extends EffectData.TaggedError(
   "ResourceNotFoundException",
 )<{
@@ -709,14 +455,7 @@ export interface RxNormAttribute {
   Traits?: Array<RxNormTrait>;
 }
 export type RxNormAttributeList = Array<RxNormAttribute>;
-export type RxNormAttributeType =
-  | "DOSAGE"
-  | "DURATION"
-  | "FORM"
-  | "FREQUENCY"
-  | "RATE"
-  | "ROUTE_OR_MODE"
-  | "STRENGTH";
+export type RxNormAttributeType = "DOSAGE" | "DURATION" | "FORM" | "FREQUENCY" | "RATE" | "ROUTE_OR_MODE" | "STRENGTH";
 export interface RxNormConcept {
   Description?: string;
   Code?: string;
@@ -767,13 +506,7 @@ export interface SNOMEDCTAttribute {
   SNOMEDCTConcepts?: Array<SNOMEDCTConcept>;
 }
 export type SNOMEDCTAttributeList = Array<SNOMEDCTAttribute>;
-export type SNOMEDCTAttributeType =
-  | "ACUITY"
-  | "QUALITY"
-  | "DIRECTION"
-  | "SYSTEM_ORGAN_SITE"
-  | "TEST_VALUE"
-  | "TEST_UNIT";
+export type SNOMEDCTAttributeType = "ACUITY" | "QUALITY" | "DIRECTION" | "SYSTEM_ORGAN_SITE" | "TEST_VALUE" | "TEST_UNIT";
 export interface SNOMEDCTConcept {
   Description?: string;
   Code?: string;
@@ -797,39 +530,16 @@ export interface SNOMEDCTEntity {
   Traits?: Array<SNOMEDCTTrait>;
   SNOMEDCTConcepts?: Array<SNOMEDCTConcept>;
 }
-export type SNOMEDCTEntityCategory =
-  | "MEDICAL_CONDITION"
-  | "ANATOMY"
-  | "TEST_TREATMENT_PROCEDURE";
+export type SNOMEDCTEntityCategory = "MEDICAL_CONDITION" | "ANATOMY" | "TEST_TREATMENT_PROCEDURE";
 export type SNOMEDCTEntityList = Array<SNOMEDCTEntity>;
-export type SNOMEDCTEntityType =
-  | "DX_NAME"
-  | "TEST_NAME"
-  | "PROCEDURE_NAME"
-  | "TREATMENT_NAME";
-export type SNOMEDCTRelationshipType =
-  | "ACUITY"
-  | "QUALITY"
-  | "TEST_VALUE"
-  | "TEST_UNITS"
-  | "DIRECTION"
-  | "SYSTEM_ORGAN_SITE"
-  | "TEST_UNIT";
+export type SNOMEDCTEntityType = "DX_NAME" | "TEST_NAME" | "PROCEDURE_NAME" | "TREATMENT_NAME";
+export type SNOMEDCTRelationshipType = "ACUITY" | "QUALITY" | "TEST_VALUE" | "TEST_UNITS" | "DIRECTION" | "SYSTEM_ORGAN_SITE" | "TEST_UNIT";
 export interface SNOMEDCTTrait {
   Name?: SNOMEDCTTraitName;
   Score?: number;
 }
 export type SNOMEDCTTraitList = Array<SNOMEDCTTrait>;
-export type SNOMEDCTTraitName =
-  | "NEGATION"
-  | "DIAGNOSIS"
-  | "SIGN"
-  | "SYMPTOM"
-  | "PERTAINS_TO_FAMILY"
-  | "HYPOTHETICAL"
-  | "LOW_CONFIDENCE"
-  | "PAST_HISTORY"
-  | "FUTURE";
+export type SNOMEDCTTraitName = "NEGATION" | "DIAGNOSIS" | "SIGN" | "SYMPTOM" | "PERTAINS_TO_FAMILY" | "HYPOTHETICAL" | "LOW_CONFIDENCE" | "PAST_HISTORY" | "FUTURE";
 export interface StartEntitiesDetectionV2JobRequest {
   InputDataConfig: InputDataConfig;
   OutputDataConfig: OutputDataConfig;
@@ -1243,13 +953,5 @@ export declare namespace StopSNOMEDCTInferenceJob {
     | CommonAwsError;
 }
 
-export type ComprehendMedicalErrors =
-  | InternalServerException
-  | InvalidEncodingException
-  | InvalidRequestException
-  | ResourceNotFoundException
-  | ServiceUnavailableException
-  | TextSizeLimitExceededException
-  | TooManyRequestsException
-  | ValidationException
-  | CommonAwsError;
+export type ComprehendMedicalErrors = InternalServerException | InvalidEncodingException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | TextSizeLimitExceededException | TooManyRequestsException | ValidationException | CommonAwsError;
+

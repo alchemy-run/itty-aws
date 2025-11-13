@@ -1,38 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-} from "../../error.ts";
-type CommonAwsError =
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | AccessDeniedException
-  | ThrottlingException
-  | ValidationException;
+import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
+type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class ApplicationCostProfiler extends AWSServiceClient {
@@ -40,62 +8,37 @@ export declare class ApplicationCostProfiler extends AWSServiceClient {
     input: DeleteReportDefinitionRequest,
   ): Effect.Effect<
     DeleteReportDefinitionResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getReportDefinition(
     input: GetReportDefinitionRequest,
   ): Effect.Effect<
     GetReportDefinitionResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   importApplicationUsage(
     input: ImportApplicationUsageRequest,
   ): Effect.Effect<
     ImportApplicationUsageResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listReportDefinitions(
     input: ListReportDefinitionsRequest,
   ): Effect.Effect<
     ListReportDefinitionsResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   putReportDefinition(
     input: PutReportDefinitionRequest,
   ): Effect.Effect<
     PutReportDefinitionResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateReportDefinition(
     input: UpdateReportDefinitionRequest,
   ): Effect.Effect<
     UpdateReportDefinitionResult,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
 }
 
@@ -177,11 +120,7 @@ export type ReportId = string;
 
 export type S3Bucket = string;
 
-export type S3BucketRegion =
-  | "ap-east-1"
-  | "me-south-1"
-  | "eu-south-1"
-  | "af-south-1";
+export type S3BucketRegion = "ap-east-1" | "me-south-1" | "eu-south-1" | "af-south-1";
 export type S3Key = string;
 
 export interface S3Location {
@@ -291,10 +230,5 @@ export declare namespace UpdateReportDefinition {
     | CommonAwsError;
 }
 
-export type ApplicationCostProfilerErrors =
-  | AccessDeniedException
-  | InternalServerException
-  | ServiceQuotaExceededException
-  | ThrottlingException
-  | ValidationException
-  | CommonAwsError;
+export type ApplicationCostProfilerErrors = AccessDeniedException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError;
+

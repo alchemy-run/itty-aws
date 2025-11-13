@@ -1,38 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-} from "../../error.ts";
-type CommonAwsError =
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | AccessDeniedException
-  | ThrottlingException
-  | ValidationException;
+import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
+type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class AppFabric extends AWSServiceClient {
@@ -40,295 +8,157 @@ export declare class AppFabric extends AWSServiceClient {
     input: BatchGetUserAccessTasksRequest,
   ): Effect.Effect<
     BatchGetUserAccessTasksResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   connectAppAuthorization(
     input: ConnectAppAuthorizationRequest,
   ): Effect.Effect<
     ConnectAppAuthorizationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createAppAuthorization(
     input: CreateAppAuthorizationRequest,
   ): Effect.Effect<
     CreateAppAuthorizationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createAppBundle(
     input: CreateAppBundleRequest,
   ): Effect.Effect<
     CreateAppBundleResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createIngestion(
     input: CreateIngestionRequest,
   ): Effect.Effect<
     CreateIngestionResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createIngestionDestination(
     input: CreateIngestionDestinationRequest,
   ): Effect.Effect<
     CreateIngestionDestinationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteAppAuthorization(
     input: DeleteAppAuthorizationRequest,
   ): Effect.Effect<
     DeleteAppAuthorizationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteAppBundle(
     input: DeleteAppBundleRequest,
   ): Effect.Effect<
     DeleteAppBundleResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteIngestion(
     input: DeleteIngestionRequest,
   ): Effect.Effect<
     DeleteIngestionResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteIngestionDestination(
     input: DeleteIngestionDestinationRequest,
   ): Effect.Effect<
     DeleteIngestionDestinationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getAppAuthorization(
     input: GetAppAuthorizationRequest,
   ): Effect.Effect<
     GetAppAuthorizationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getAppBundle(
     input: GetAppBundleRequest,
   ): Effect.Effect<
     GetAppBundleResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getIngestion(
     input: GetIngestionRequest,
   ): Effect.Effect<
     GetIngestionResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getIngestionDestination(
     input: GetIngestionDestinationRequest,
   ): Effect.Effect<
     GetIngestionDestinationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listAppAuthorizations(
     input: ListAppAuthorizationsRequest,
   ): Effect.Effect<
     ListAppAuthorizationsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listAppBundles(
     input: ListAppBundlesRequest,
   ): Effect.Effect<
     ListAppBundlesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listIngestionDestinations(
     input: ListIngestionDestinationsRequest,
   ): Effect.Effect<
     ListIngestionDestinationsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listIngestions(
     input: ListIngestionsRequest,
   ): Effect.Effect<
     ListIngestionsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   startIngestion(
     input: StartIngestionRequest,
   ): Effect.Effect<
     StartIngestionResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   startUserAccessTasks(
     input: StartUserAccessTasksRequest,
   ): Effect.Effect<
     StartUserAccessTasksResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   stopIngestion(
     input: StopIngestionRequest,
   ): Effect.Effect<
     StopIngestionResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateAppAuthorization(
     input: UpdateAppAuthorizationRequest,
   ): Effect.Effect<
     UpdateAppAuthorizationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateIngestionDestination(
     input: UpdateIngestionDestinationRequest,
   ): Effect.Effect<
     UpdateIngestionDestinationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
 }
 
@@ -354,11 +184,7 @@ export interface AppAuthorization {
   persona?: Persona;
   authUrl?: string;
 }
-export type AppAuthorizationStatus =
-  | "PendingConnect"
-  | "Connected"
-  | "ConnectionValidationFailed"
-  | "TokenAutoRotationFailed";
+export type AppAuthorizationStatus = "PendingConnect" | "Connected" | "ConnectionValidationFailed" | "TokenAutoRotationFailed";
 export interface AppAuthorizationSummary {
   appAuthorizationArn: string;
   appBundleArn: string;
@@ -459,46 +285,44 @@ interface _Credential {
   apiKeyCredential?: ApiKeyCredential;
 }
 
-export type Credential =
-  | (_Credential & { oauth2Credential: Oauth2Credential })
-  | (_Credential & { apiKeyCredential: ApiKeyCredential });
+export type Credential = (_Credential & { oauth2Credential: Oauth2Credential }) | (_Credential & { apiKeyCredential: ApiKeyCredential });
 export type DateTime = Date | string;
 
 export interface DeleteAppAuthorizationRequest {
   appBundleIdentifier: string;
   appAuthorizationIdentifier: string;
 }
-export interface DeleteAppAuthorizationResponse {}
+export interface DeleteAppAuthorizationResponse {
+}
 export interface DeleteAppBundleRequest {
   appBundleIdentifier: string;
 }
-export interface DeleteAppBundleResponse {}
+export interface DeleteAppBundleResponse {
+}
 export interface DeleteIngestionDestinationRequest {
   appBundleIdentifier: string;
   ingestionIdentifier: string;
   ingestionDestinationIdentifier: string;
 }
-export interface DeleteIngestionDestinationResponse {}
+export interface DeleteIngestionDestinationResponse {
+}
 export interface DeleteIngestionRequest {
   appBundleIdentifier: string;
   ingestionIdentifier: string;
 }
-export interface DeleteIngestionResponse {}
+export interface DeleteIngestionResponse {
+}
 interface _Destination {
   s3Bucket?: S3Bucket;
   firehoseStream?: FirehoseStream;
 }
 
-export type Destination =
-  | (_Destination & { s3Bucket: S3Bucket })
-  | (_Destination & { firehoseStream: FirehoseStream });
+export type Destination = (_Destination & { s3Bucket: S3Bucket }) | (_Destination & { firehoseStream: FirehoseStream });
 interface _DestinationConfiguration {
   auditLog?: AuditLogDestinationConfiguration;
 }
 
-export type DestinationConfiguration = _DestinationConfiguration & {
-  auditLog: AuditLogDestinationConfiguration;
-};
+export type DestinationConfiguration = (_DestinationConfiguration & { auditLog: AuditLogDestinationConfiguration });
 export type Email = string;
 
 export interface FirehoseStream {
@@ -630,9 +454,7 @@ interface _ProcessingConfiguration {
   auditLog?: AuditLogProcessingConfiguration;
 }
 
-export type ProcessingConfiguration = _ProcessingConfiguration & {
-  auditLog: AuditLogProcessingConfiguration;
-};
+export type ProcessingConfiguration = (_ProcessingConfiguration & { auditLog: AuditLogProcessingConfiguration });
 export type RedirectUri = string;
 
 export declare class ResourceNotFoundException extends EffectData.TaggedError(
@@ -663,7 +485,8 @@ export interface StartIngestionRequest {
   ingestionIdentifier: string;
   appBundleIdentifier: string;
 }
-export interface StartIngestionResponse {}
+export interface StartIngestionResponse {
+}
 export interface StartUserAccessTasksRequest {
   appBundleIdentifier: string;
   email: string;
@@ -675,7 +498,8 @@ export interface StopIngestionRequest {
   ingestionIdentifier: string;
   appBundleIdentifier: string;
 }
-export interface StopIngestionResponse {}
+export interface StopIngestionResponse {
+}
 export type String120 = string;
 
 export type String2048 = string;
@@ -698,7 +522,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Array<Tag>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export interface TaskError {
@@ -724,7 +549,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateAppAuthorizationRequest {
   appBundleIdentifier: string;
   appAuthorizationIdentifier: string;
@@ -779,11 +605,7 @@ export interface ValidationExceptionField {
   message: string;
 }
 export type ValidationExceptionFieldList = Array<ValidationExceptionField>;
-export type ValidationExceptionReason =
-  | "unknownOperation"
-  | "cannotParse"
-  | "fieldValidationFailed"
-  | "other";
+export type ValidationExceptionReason = "unknownOperation" | "cannotParse" | "fieldValidationFailed" | "other";
 export declare namespace BatchGetUserAccessTasks {
   export type Input = BatchGetUserAccessTasksRequest;
   export type Output = BatchGetUserAccessTasksResponse;
@@ -1104,12 +926,5 @@ export declare namespace UpdateIngestionDestination {
     | CommonAwsError;
 }
 
-export type AppFabricErrors =
-  | AccessDeniedException
-  | ConflictException
-  | InternalServerException
-  | ResourceNotFoundException
-  | ServiceQuotaExceededException
-  | ThrottlingException
-  | ValidationException
-  | CommonAwsError;
+export type AppFabricErrors = AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError;
+

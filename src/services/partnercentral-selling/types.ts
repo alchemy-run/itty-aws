@@ -1,38 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-} from "../../error.ts";
-type CommonAwsError =
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | AccessDeniedException
-  | ThrottlingException
-  | ValidationException;
+import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
+type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class PartnerCentralSelling extends AWSServiceClient {
@@ -40,418 +8,229 @@ export declare class PartnerCentralSelling extends AWSServiceClient {
     input: GetSellingSystemSettingsRequest,
   ): Effect.Effect<
     GetSellingSystemSettingsResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   putSellingSystemSettings(
     input: PutSellingSystemSettingsRequest,
   ): Effect.Effect<
     PutSellingSystemSettingsResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   acceptEngagementInvitation(
     input: AcceptEngagementInvitationRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   assignOpportunity(
     input: AssignOpportunityRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   associateOpportunity(
     input: AssociateOpportunityRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createEngagement(
     input: CreateEngagementRequest,
   ): Effect.Effect<
     CreateEngagementResponse,
-    | AccessDeniedException
-    | ConflictException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createEngagementInvitation(
     input: CreateEngagementInvitationRequest,
   ): Effect.Effect<
     CreateEngagementInvitationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createOpportunity(
     input: CreateOpportunityRequest,
   ): Effect.Effect<
     CreateOpportunityResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createResourceSnapshot(
     input: CreateResourceSnapshotRequest,
   ): Effect.Effect<
     CreateResourceSnapshotResponse,
-    | AccessDeniedException
-    | ConflictException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createResourceSnapshotJob(
     input: CreateResourceSnapshotJobRequest,
   ): Effect.Effect<
     CreateResourceSnapshotJobResponse,
-    | AccessDeniedException
-    | ConflictException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteResourceSnapshotJob(
     input: DeleteResourceSnapshotJobRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   disassociateOpportunity(
     input: DisassociateOpportunityRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getAwsOpportunitySummary(
     input: GetAwsOpportunitySummaryRequest,
   ): Effect.Effect<
     GetAwsOpportunitySummaryResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getEngagement(
     input: GetEngagementRequest,
   ): Effect.Effect<
     GetEngagementResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getEngagementInvitation(
     input: GetEngagementInvitationRequest,
   ): Effect.Effect<
     GetEngagementInvitationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getOpportunity(
     input: GetOpportunityRequest,
   ): Effect.Effect<
     GetOpportunityResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getResourceSnapshot(
     input: GetResourceSnapshotRequest,
   ): Effect.Effect<
     GetResourceSnapshotResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getResourceSnapshotJob(
     input: GetResourceSnapshotJobRequest,
   ): Effect.Effect<
     GetResourceSnapshotJobResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listEngagementByAcceptingInvitationTasks(
     input: ListEngagementByAcceptingInvitationTasksRequest,
   ): Effect.Effect<
     ListEngagementByAcceptingInvitationTasksResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listEngagementFromOpportunityTasks(
     input: ListEngagementFromOpportunityTasksRequest,
   ): Effect.Effect<
     ListEngagementFromOpportunityTasksResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listEngagementInvitations(
     input: ListEngagementInvitationsRequest,
   ): Effect.Effect<
     ListEngagementInvitationsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listEngagementMembers(
     input: ListEngagementMembersRequest,
   ): Effect.Effect<
     ListEngagementMembersResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listEngagementResourceAssociations(
     input: ListEngagementResourceAssociationsRequest,
   ): Effect.Effect<
     ListEngagementResourceAssociationsResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listEngagements(
     input: ListEngagementsRequest,
   ): Effect.Effect<
     ListEngagementsResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listOpportunities(
     input: ListOpportunitiesRequest,
   ): Effect.Effect<
     ListOpportunitiesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listResourceSnapshotJobs(
     input: ListResourceSnapshotJobsRequest,
   ): Effect.Effect<
     ListResourceSnapshotJobsResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listResourceSnapshots(
     input: ListResourceSnapshotsRequest,
   ): Effect.Effect<
     ListResourceSnapshotsResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listSolutions(
     input: ListSolutionsRequest,
   ): Effect.Effect<
     ListSolutionsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   rejectEngagementInvitation(
     input: RejectEngagementInvitationRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   startEngagementByAcceptingInvitationTask(
     input: StartEngagementByAcceptingInvitationTaskRequest,
   ): Effect.Effect<
     StartEngagementByAcceptingInvitationTaskResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   startEngagementFromOpportunityTask(
     input: StartEngagementFromOpportunityTaskRequest,
   ): Effect.Effect<
     StartEngagementFromOpportunityTaskResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   startResourceSnapshotJob(
     input: StartResourceSnapshotJobRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   stopResourceSnapshotJob(
     input: StopResourceSnapshotJobRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   submitOpportunity(
     input: SubmitOpportunityRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateOpportunity(
     input: UpdateOpportunityRequest,
   ): Effect.Effect<
     UpdateOpportunityResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
 }
 
@@ -527,66 +306,12 @@ export type AwsAccount = string;
 
 export type AwsAccountIdOrAliasList = Array<string>;
 export type AwsAccountList = Array<string>;
-export type AwsClosedLostReason =
-  | "Administrative"
-  | "Business Associate Agreement"
-  | "Company Acquired/Dissolved"
-  | "Competitive Offering"
-  | "Customer Data Requirement"
-  | "Customer Deficiency"
-  | "Customer Experience"
-  | "Delay / Cancellation of Project"
-  | "Duplicate"
-  | "Duplicate Opportunity"
-  | "Executive Blocker"
-  | "Failed Vetting"
-  | "Feature Limitation"
-  | "Financial/Commercial"
-  | "Insufficient Amazon Value"
-  | "Insufficient AWS Value"
-  | "International Constraints"
-  | "Legal / Tax / Regulatory"
-  | "Legal Terms and Conditions"
-  | "Lost to Competitor"
-  | "Lost to Competitor - Google"
-  | "Lost to Competitor - Microsoft"
-  | "Lost to Competitor - Other"
-  | "Lost to Competitor - Rackspace"
-  | "Lost to Competitor - SoftLayer"
-  | "Lost to Competitor - VMWare"
-  | "No Customer Reference"
-  | "No Integration Resources"
-  | "No Opportunity"
-  | "No Perceived Value of MP"
-  | "No Response"
-  | "Not Committed to AWS"
-  | "No Update"
-  | "On Premises Deployment"
-  | "Other"
-  | "Other (Details in Description)"
-  | "Partner Gap"
-  | "Past Due"
-  | "People/Relationship/Governance"
-  | "Platform Technology Limitation"
-  | "Preference for Competitor"
-  | "Price"
-  | "Product/Technology"
-  | "Product Not on AWS"
-  | "Security / Compliance"
-  | "Self-Service"
-  | "Technical Limitations"
-  | "Term Sheet Impasse";
+export type AwsClosedLostReason = "Administrative" | "Business Associate Agreement" | "Company Acquired/Dissolved" | "Competitive Offering" | "Customer Data Requirement" | "Customer Deficiency" | "Customer Experience" | "Delay / Cancellation of Project" | "Duplicate" | "Duplicate Opportunity" | "Executive Blocker" | "Failed Vetting" | "Feature Limitation" | "Financial/Commercial" | "Insufficient Amazon Value" | "Insufficient AWS Value" | "International Constraints" | "Legal / Tax / Regulatory" | "Legal Terms and Conditions" | "Lost to Competitor" | "Lost to Competitor - Google" | "Lost to Competitor - Microsoft" | "Lost to Competitor - Other" | "Lost to Competitor - Rackspace" | "Lost to Competitor - SoftLayer" | "Lost to Competitor - VMWare" | "No Customer Reference" | "No Integration Resources" | "No Opportunity" | "No Perceived Value of MP" | "No Response" | "Not Committed to AWS" | "No Update" | "On Premises Deployment" | "Other" | "Other (Details in Description)" | "Partner Gap" | "Past Due" | "People/Relationship/Governance" | "Platform Technology Limitation" | "Preference for Competitor" | "Price" | "Product/Technology" | "Product Not on AWS" | "Security / Compliance" | "Self-Service" | "Technical Limitations" | "Term Sheet Impasse";
 export type AwsFundingUsed = "Yes" | "No";
 export type AwsMarketplaceOfferIdentifier = string;
 
 export type AwsMarketplaceOfferIdentifiers = Array<string>;
-export type AwsMemberBusinessTitle =
-  | "AWSSalesRep"
-  | "AWSAccountOwner"
-  | "WWPSPDM"
-  | "PDM"
-  | "PSM"
-  | "ISVSM";
+export type AwsMemberBusinessTitle = "AWSSalesRep" | "AWSAccountOwner" | "WWPSPDM" | "PDM" | "PSM" | "ISVSM";
 export interface AwsOpportunityCustomer {
   Contacts?: Array<Contact>;
 }
@@ -608,31 +333,7 @@ export interface AwsOpportunityRelatedEntities {
   AwsProducts?: Array<string>;
   Solutions?: Array<string>;
 }
-export type AwsOpportunityStage =
-  | "Not Started"
-  | "In Progress"
-  | "Prospect"
-  | "Engaged"
-  | "Identified"
-  | "Qualify"
-  | "Research"
-  | "Seller Engaged"
-  | "Evaluating"
-  | "Seller Registered"
-  | "Term Sheet Negotiation"
-  | "Contract Negotiation"
-  | "Onboarding"
-  | "Building Integration"
-  | "Qualified"
-  | "On-hold"
-  | "Technical Validation"
-  | "Business Validation"
-  | "Committed"
-  | "Launched"
-  | "Deferred to Partner"
-  | "Closed Lost"
-  | "Completed"
-  | "Closed Incomplete";
+export type AwsOpportunityStage = "Not Started" | "In Progress" | "Prospect" | "Engaged" | "Identified" | "Qualify" | "Research" | "Seller Engaged" | "Evaluating" | "Seller Registered" | "Term Sheet Negotiation" | "Contract Negotiation" | "Onboarding" | "Building Integration" | "Qualified" | "On-hold" | "Technical Validation" | "Business Validation" | "Committed" | "Launched" | "Deferred to Partner" | "Closed Lost" | "Completed" | "Closed Incomplete";
 export type AwsOpportunityTeamMembersList = Array<AwsTeamMember>;
 export type AwsProductIdentifier = string;
 
@@ -649,59 +350,16 @@ export interface AwsTeamMember {
 }
 export type CatalogIdentifier = string;
 
-export type Channel =
-  | "AWS Marketing Central"
-  | "Content Syndication"
-  | "Display"
-  | "Email"
-  | "Live Event"
-  | "Out Of Home (OOH)"
-  | "Print"
-  | "Search"
-  | "Social"
-  | "Telemarketing"
-  | "TV"
-  | "Video"
-  | "Virtual Event";
+export type Channel = "AWS Marketing Central" | "Content Syndication" | "Display" | "Email" | "Live Event" | "Out Of Home (OOH)" | "Print" | "Search" | "Social" | "Telemarketing" | "TV" | "Video" | "Virtual Event";
 export type Channels = Array<Channel>;
 export type ClientToken = string;
 
-export type ClosedLostReason =
-  | "Customer Deficiency"
-  | "Delay / Cancellation of Project"
-  | "Legal / Tax / Regulatory"
-  | "Lost to Competitor - Google"
-  | "Lost to Competitor - Microsoft"
-  | "Lost to Competitor - SoftLayer"
-  | "Lost to Competitor - VMWare"
-  | "Lost to Competitor - Other"
-  | "No Opportunity"
-  | "On Premises Deployment"
-  | "Partner Gap"
-  | "Price"
-  | "Security / Compliance"
-  | "Technical Limitations"
-  | "Customer Experience"
-  | "Other"
-  | "People/Relationship/Governance"
-  | "Product/Technology"
-  | "Financial/Commercial";
+export type ClosedLostReason = "Customer Deficiency" | "Delay / Cancellation of Project" | "Legal / Tax / Regulatory" | "Lost to Competitor - Google" | "Lost to Competitor - Microsoft" | "Lost to Competitor - SoftLayer" | "Lost to Competitor - VMWare" | "Lost to Competitor - Other" | "No Opportunity" | "On Premises Deployment" | "Partner Gap" | "Price" | "Security / Compliance" | "Technical Limitations" | "Customer Experience" | "Other" | "People/Relationship/Governance" | "Product/Technology" | "Financial/Commercial";
 export type CompanyName = string;
 
 export type CompanyWebsiteUrl = string;
 
-export type CompetitorName =
-  | "Oracle Cloud"
-  | "On-Prem"
-  | "Co-location"
-  | "Akamai"
-  | "AliCloud"
-  | "Google Cloud Platform"
-  | "IBM Softlayer"
-  | "Microsoft Azure"
-  | "Other- Cost Optimization"
-  | "No Competition"
-  | "*Other";
+export type CompetitorName = "Oracle Cloud" | "On-Prem" | "Co-location" | "Akamai" | "AliCloud" | "Google Cloud Platform" | "IBM Softlayer" | "Microsoft Azure" | "Other- Cost Optimization" | "No Competition" | "*Other";
 export declare class ConflictException extends EffectData.TaggedError(
   "ConflictException",
 )<{
@@ -714,256 +372,7 @@ export interface Contact {
   BusinessTitle?: string;
   Phone?: string;
 }
-export type CountryCode =
-  | "US"
-  | "AF"
-  | "AX"
-  | "AL"
-  | "DZ"
-  | "AS"
-  | "AD"
-  | "AO"
-  | "AI"
-  | "AQ"
-  | "AG"
-  | "AR"
-  | "AM"
-  | "AW"
-  | "AU"
-  | "AT"
-  | "AZ"
-  | "BS"
-  | "BH"
-  | "BD"
-  | "BB"
-  | "BY"
-  | "BE"
-  | "BZ"
-  | "BJ"
-  | "BM"
-  | "BT"
-  | "BO"
-  | "BQ"
-  | "BA"
-  | "BW"
-  | "BV"
-  | "BR"
-  | "IO"
-  | "BN"
-  | "BG"
-  | "BF"
-  | "BI"
-  | "KH"
-  | "CM"
-  | "CA"
-  | "CV"
-  | "KY"
-  | "CF"
-  | "TD"
-  | "CL"
-  | "CN"
-  | "CX"
-  | "CC"
-  | "CO"
-  | "KM"
-  | "CG"
-  | "CK"
-  | "CR"
-  | "CI"
-  | "HR"
-  | "CU"
-  | "CW"
-  | "CY"
-  | "CZ"
-  | "CD"
-  | "DK"
-  | "DJ"
-  | "DM"
-  | "DO"
-  | "EC"
-  | "EG"
-  | "SV"
-  | "GQ"
-  | "ER"
-  | "EE"
-  | "ET"
-  | "FK"
-  | "FO"
-  | "FJ"
-  | "FI"
-  | "FR"
-  | "GF"
-  | "PF"
-  | "TF"
-  | "GA"
-  | "GM"
-  | "GE"
-  | "DE"
-  | "GH"
-  | "GI"
-  | "GR"
-  | "GL"
-  | "GD"
-  | "GP"
-  | "GU"
-  | "GT"
-  | "GG"
-  | "GN"
-  | "GW"
-  | "GY"
-  | "HT"
-  | "HM"
-  | "VA"
-  | "HN"
-  | "HK"
-  | "HU"
-  | "IS"
-  | "IN"
-  | "ID"
-  | "IR"
-  | "IQ"
-  | "IE"
-  | "IM"
-  | "IL"
-  | "IT"
-  | "JM"
-  | "JP"
-  | "JE"
-  | "JO"
-  | "KZ"
-  | "KE"
-  | "KI"
-  | "KR"
-  | "KW"
-  | "KG"
-  | "LA"
-  | "LV"
-  | "LB"
-  | "LS"
-  | "LR"
-  | "LY"
-  | "LI"
-  | "LT"
-  | "LU"
-  | "MO"
-  | "MK"
-  | "MG"
-  | "MW"
-  | "MY"
-  | "MV"
-  | "ML"
-  | "MT"
-  | "MH"
-  | "MQ"
-  | "MR"
-  | "MU"
-  | "YT"
-  | "MX"
-  | "FM"
-  | "MD"
-  | "MC"
-  | "MN"
-  | "ME"
-  | "MS"
-  | "MA"
-  | "MZ"
-  | "MM"
-  | "NA"
-  | "NR"
-  | "NP"
-  | "NL"
-  | "AN"
-  | "NC"
-  | "NZ"
-  | "NI"
-  | "NE"
-  | "NG"
-  | "NU"
-  | "NF"
-  | "MP"
-  | "NO"
-  | "OM"
-  | "PK"
-  | "PW"
-  | "PS"
-  | "PA"
-  | "PG"
-  | "PY"
-  | "PE"
-  | "PH"
-  | "PN"
-  | "PL"
-  | "PT"
-  | "PR"
-  | "QA"
-  | "RE"
-  | "RO"
-  | "RU"
-  | "RW"
-  | "BL"
-  | "SH"
-  | "KN"
-  | "LC"
-  | "MF"
-  | "PM"
-  | "VC"
-  | "WS"
-  | "SM"
-  | "ST"
-  | "SA"
-  | "SN"
-  | "RS"
-  | "SC"
-  | "SL"
-  | "SG"
-  | "SX"
-  | "SK"
-  | "SI"
-  | "SB"
-  | "SO"
-  | "ZA"
-  | "GS"
-  | "SS"
-  | "ES"
-  | "LK"
-  | "SD"
-  | "SR"
-  | "SJ"
-  | "SZ"
-  | "SE"
-  | "CH"
-  | "SY"
-  | "TW"
-  | "TJ"
-  | "TZ"
-  | "TH"
-  | "TL"
-  | "TG"
-  | "TK"
-  | "TO"
-  | "TT"
-  | "TN"
-  | "TR"
-  | "TM"
-  | "TC"
-  | "TV"
-  | "UG"
-  | "UA"
-  | "AE"
-  | "GB"
-  | "UM"
-  | "UY"
-  | "UZ"
-  | "VU"
-  | "VE"
-  | "VN"
-  | "VG"
-  | "VI"
-  | "WF"
-  | "EH"
-  | "YE"
-  | "ZM"
-  | "ZW";
+export type CountryCode = "US" | "AF" | "AX" | "AL" | "DZ" | "AS" | "AD" | "AO" | "AI" | "AQ" | "AG" | "AR" | "AM" | "AW" | "AU" | "AT" | "AZ" | "BS" | "BH" | "BD" | "BB" | "BY" | "BE" | "BZ" | "BJ" | "BM" | "BT" | "BO" | "BQ" | "BA" | "BW" | "BV" | "BR" | "IO" | "BN" | "BG" | "BF" | "BI" | "KH" | "CM" | "CA" | "CV" | "KY" | "CF" | "TD" | "CL" | "CN" | "CX" | "CC" | "CO" | "KM" | "CG" | "CK" | "CR" | "CI" | "HR" | "CU" | "CW" | "CY" | "CZ" | "CD" | "DK" | "DJ" | "DM" | "DO" | "EC" | "EG" | "SV" | "GQ" | "ER" | "EE" | "ET" | "FK" | "FO" | "FJ" | "FI" | "FR" | "GF" | "PF" | "TF" | "GA" | "GM" | "GE" | "DE" | "GH" | "GI" | "GR" | "GL" | "GD" | "GP" | "GU" | "GT" | "GG" | "GN" | "GW" | "GY" | "HT" | "HM" | "VA" | "HN" | "HK" | "HU" | "IS" | "IN" | "ID" | "IR" | "IQ" | "IE" | "IM" | "IL" | "IT" | "JM" | "JP" | "JE" | "JO" | "KZ" | "KE" | "KI" | "KR" | "KW" | "KG" | "LA" | "LV" | "LB" | "LS" | "LR" | "LY" | "LI" | "LT" | "LU" | "MO" | "MK" | "MG" | "MW" | "MY" | "MV" | "ML" | "MT" | "MH" | "MQ" | "MR" | "MU" | "YT" | "MX" | "FM" | "MD" | "MC" | "MN" | "ME" | "MS" | "MA" | "MZ" | "MM" | "NA" | "NR" | "NP" | "NL" | "AN" | "NC" | "NZ" | "NI" | "NE" | "NG" | "NU" | "NF" | "MP" | "NO" | "OM" | "PK" | "PW" | "PS" | "PA" | "PG" | "PY" | "PE" | "PH" | "PN" | "PL" | "PT" | "PR" | "QA" | "RE" | "RO" | "RU" | "RW" | "BL" | "SH" | "KN" | "LC" | "MF" | "PM" | "VC" | "WS" | "SM" | "ST" | "SA" | "SN" | "RS" | "SC" | "SL" | "SG" | "SX" | "SK" | "SI" | "SB" | "SO" | "ZA" | "GS" | "SS" | "ES" | "LK" | "SD" | "SR" | "SJ" | "SZ" | "SE" | "CH" | "SY" | "TW" | "TJ" | "TZ" | "TH" | "TL" | "TG" | "TK" | "TO" | "TT" | "TN" | "TR" | "TM" | "TC" | "TV" | "UG" | "UA" | "AE" | "GB" | "UM" | "UY" | "UZ" | "VU" | "VE" | "VN" | "VG" | "VI" | "WF" | "EH" | "YE" | "ZM" | "ZW";
 export interface CreateEngagementInvitationRequest {
   Catalog: string;
   ClientToken: string;
@@ -1031,175 +440,7 @@ export interface CreateResourceSnapshotResponse {
   Arn?: string;
   Revision?: number;
 }
-export type CurrencyCode =
-  | "USD"
-  | "EUR"
-  | "GBP"
-  | "AUD"
-  | "CAD"
-  | "CNY"
-  | "NZD"
-  | "INR"
-  | "JPY"
-  | "CHF"
-  | "SEK"
-  | "AED"
-  | "AFN"
-  | "ALL"
-  | "AMD"
-  | "ANG"
-  | "AOA"
-  | "ARS"
-  | "AWG"
-  | "AZN"
-  | "BAM"
-  | "BBD"
-  | "BDT"
-  | "BGN"
-  | "BHD"
-  | "BIF"
-  | "BMD"
-  | "BND"
-  | "BOB"
-  | "BOV"
-  | "BRL"
-  | "BSD"
-  | "BTN"
-  | "BWP"
-  | "BYN"
-  | "BZD"
-  | "CDF"
-  | "CHE"
-  | "CHW"
-  | "CLF"
-  | "CLP"
-  | "COP"
-  | "COU"
-  | "CRC"
-  | "CUC"
-  | "CUP"
-  | "CVE"
-  | "CZK"
-  | "DJF"
-  | "DKK"
-  | "DOP"
-  | "DZD"
-  | "EGP"
-  | "ERN"
-  | "ETB"
-  | "FJD"
-  | "FKP"
-  | "GEL"
-  | "GHS"
-  | "GIP"
-  | "GMD"
-  | "GNF"
-  | "GTQ"
-  | "GYD"
-  | "HKD"
-  | "HNL"
-  | "HRK"
-  | "HTG"
-  | "HUF"
-  | "IDR"
-  | "ILS"
-  | "IQD"
-  | "IRR"
-  | "ISK"
-  | "JMD"
-  | "JOD"
-  | "KES"
-  | "KGS"
-  | "KHR"
-  | "KMF"
-  | "KPW"
-  | "KRW"
-  | "KWD"
-  | "KYD"
-  | "KZT"
-  | "LAK"
-  | "LBP"
-  | "LKR"
-  | "LRD"
-  | "LSL"
-  | "LYD"
-  | "MAD"
-  | "MDL"
-  | "MGA"
-  | "MKD"
-  | "MMK"
-  | "MNT"
-  | "MOP"
-  | "MRU"
-  | "MUR"
-  | "MVR"
-  | "MWK"
-  | "MXN"
-  | "MXV"
-  | "MYR"
-  | "MZN"
-  | "NAD"
-  | "NGN"
-  | "NIO"
-  | "NOK"
-  | "NPR"
-  | "OMR"
-  | "PAB"
-  | "PEN"
-  | "PGK"
-  | "PHP"
-  | "PKR"
-  | "PLN"
-  | "PYG"
-  | "QAR"
-  | "RON"
-  | "RSD"
-  | "RUB"
-  | "RWF"
-  | "SAR"
-  | "SBD"
-  | "SCR"
-  | "SDG"
-  | "SGD"
-  | "SHP"
-  | "SLL"
-  | "SOS"
-  | "SRD"
-  | "SSP"
-  | "STN"
-  | "SVC"
-  | "SYP"
-  | "SZL"
-  | "THB"
-  | "TJS"
-  | "TMT"
-  | "TND"
-  | "TOP"
-  | "TRY"
-  | "TTD"
-  | "TWD"
-  | "TZS"
-  | "UAH"
-  | "UGX"
-  | "USN"
-  | "UYI"
-  | "UYU"
-  | "UZS"
-  | "VEF"
-  | "VND"
-  | "VUV"
-  | "WST"
-  | "XAF"
-  | "XCD"
-  | "XDR"
-  | "XOF"
-  | "XPF"
-  | "XSU"
-  | "XUA"
-  | "YER"
-  | "ZAR"
-  | "ZMW"
-  | "ZWL";
+export type CurrencyCode = "USD" | "EUR" | "GBP" | "AUD" | "CAD" | "CNY" | "NZD" | "INR" | "JPY" | "CHF" | "SEK" | "AED" | "AFN" | "ALL" | "AMD" | "ANG" | "AOA" | "ARS" | "AWG" | "AZN" | "BAM" | "BBD" | "BDT" | "BGN" | "BHD" | "BIF" | "BMD" | "BND" | "BOB" | "BOV" | "BRL" | "BSD" | "BTN" | "BWP" | "BYN" | "BZD" | "CDF" | "CHE" | "CHW" | "CLF" | "CLP" | "COP" | "COU" | "CRC" | "CUC" | "CUP" | "CVE" | "CZK" | "DJF" | "DKK" | "DOP" | "DZD" | "EGP" | "ERN" | "ETB" | "FJD" | "FKP" | "GEL" | "GHS" | "GIP" | "GMD" | "GNF" | "GTQ" | "GYD" | "HKD" | "HNL" | "HRK" | "HTG" | "HUF" | "IDR" | "ILS" | "IQD" | "IRR" | "ISK" | "JMD" | "JOD" | "KES" | "KGS" | "KHR" | "KMF" | "KPW" | "KRW" | "KWD" | "KYD" | "KZT" | "LAK" | "LBP" | "LKR" | "LRD" | "LSL" | "LYD" | "MAD" | "MDL" | "MGA" | "MKD" | "MMK" | "MNT" | "MOP" | "MRU" | "MUR" | "MVR" | "MWK" | "MXN" | "MXV" | "MYR" | "MZN" | "NAD" | "NGN" | "NIO" | "NOK" | "NPR" | "OMR" | "PAB" | "PEN" | "PGK" | "PHP" | "PKR" | "PLN" | "PYG" | "QAR" | "RON" | "RSD" | "RUB" | "RWF" | "SAR" | "SBD" | "SCR" | "SDG" | "SGD" | "SHP" | "SLL" | "SOS" | "SRD" | "SSP" | "STN" | "SVC" | "SYP" | "SZL" | "THB" | "TJS" | "TMT" | "TND" | "TOP" | "TRY" | "TTD" | "TWD" | "TZS" | "UAH" | "UGX" | "USN" | "UYI" | "UYU" | "UZS" | "VEF" | "VND" | "VUV" | "WST" | "XAF" | "XCD" | "XDR" | "XOF" | "XPF" | "XSU" | "XUA" | "YER" | "ZAR" | "ZMW" | "ZWL";
 export interface Customer {
   Account?: Account;
   Contacts?: Array<Contact>;
@@ -1220,13 +461,7 @@ export interface DeleteResourceSnapshotJobRequest {
   Catalog: string;
   ResourceSnapshotJobIdentifier: string;
 }
-export type DeliveryModel =
-  | "SaaS or PaaS"
-  | "BYOL or AMI"
-  | "Managed Services"
-  | "Professional Services"
-  | "Resell"
-  | "Other";
+export type DeliveryModel = "SaaS or PaaS" | "BYOL or AMI" | "Managed Services" | "Professional Services" | "Resell" | "Other";
 export type DeliveryModels = Array<DeliveryModel>;
 export interface DisassociateOpportunityRequest {
   Catalog: string;
@@ -1250,9 +485,7 @@ interface _EngagementContextPayload {
   CustomerProject?: CustomerProjectsContext;
 }
 
-export type EngagementContextPayload = _EngagementContextPayload & {
-  CustomerProject: CustomerProjectsContext;
-};
+export type EngagementContextPayload = (_EngagementContextPayload & { CustomerProject: CustomerProjectsContext });
 export type EngagementContexts = Array<EngagementContextDetails>;
 export type EngagementContextType = "CustomerProject";
 export interface EngagementCustomer {
@@ -1283,8 +516,7 @@ export type EngagementInvitationIdentifier = string;
 
 export type EngagementInvitationIdentifiers = Array<string>;
 export type EngagementInvitationPayloadType = "OpportunityInvitation";
-export type EngagementInvitationsPayloadType =
-  Array<EngagementInvitationPayloadType>;
+export type EngagementInvitationsPayloadType = Array<EngagementInvitationPayloadType>;
 export type EngagementInvitationSummaries = Array<EngagementInvitationSummary>;
 export interface EngagementInvitationSummary {
   Arn?: string;
@@ -1321,8 +553,7 @@ export interface EngagementResourceAssociationSummary {
   ResourceId?: string;
   CreatedBy?: string;
 }
-export type EngagementResourceAssociationSummaryList =
-  Array<EngagementResourceAssociationSummary>;
+export type EngagementResourceAssociationSummaryList = Array<EngagementResourceAssociationSummary>;
 export type EngagementScore = "High" | "Medium" | "Low";
 export interface EngagementSort {
   SortOrder: SortOrder;
@@ -1474,35 +705,7 @@ export interface GetSellingSystemSettingsResponse {
   Catalog: string;
   ResourceSnapshotJobRoleArn?: string;
 }
-export type Industry =
-  | "Aerospace"
-  | "Agriculture"
-  | "Automotive"
-  | "Computers and Electronics"
-  | "Consumer Goods"
-  | "Education"
-  | "Energy - Oil and Gas"
-  | "Energy - Power and Utilities"
-  | "Financial Services"
-  | "Gaming"
-  | "Government"
-  | "Healthcare"
-  | "Hospitality"
-  | "Life Sciences"
-  | "Manufacturing"
-  | "Marketing and Advertising"
-  | "Media and Entertainment"
-  | "Mining"
-  | "Non-Profit Organization"
-  | "Professional Services"
-  | "Real Estate and Construction"
-  | "Retail"
-  | "Software and Internet"
-  | "Telecommunications"
-  | "Transportation and Logistics"
-  | "Travel"
-  | "Wholesale and Distribution"
-  | "Other";
+export type Industry = "Aerospace" | "Agriculture" | "Automotive" | "Computers and Electronics" | "Consumer Goods" | "Education" | "Energy - Oil and Gas" | "Energy - Power and Utilities" | "Financial Services" | "Gaming" | "Government" | "Healthcare" | "Hospitality" | "Life Sciences" | "Manufacturing" | "Marketing and Advertising" | "Media and Entertainment" | "Mining" | "Non-Profit Organization" | "Professional Services" | "Real Estate and Construction" | "Retail" | "Software and Internet" | "Telecommunications" | "Transportation and Logistics" | "Travel" | "Wholesale and Distribution" | "Other";
 export declare class InternalServerException extends EffectData.TaggedError(
   "InternalServerException",
 )<{
@@ -1517,12 +720,7 @@ export type InvitationMessage = string;
 
 export type InvitationStatus = "ACCEPTED" | "PENDING" | "REJECTED" | "EXPIRED";
 export type InvitationStatusList = Array<InvitationStatus>;
-export type InvolvementTypeChangeReason =
-  | "Expansion Opportunity"
-  | "Change in Deal Information"
-  | "Customer Requested"
-  | "Technical Complexity"
-  | "Risk Mitigation";
+export type InvolvementTypeChangeReason = "Expansion Opportunity" | "Change in Deal Information" | "Customer Requested" | "Technical Complexity" | "Risk Mitigation";
 export type JobTitle = string;
 
 export interface LastModifiedDate {
@@ -1568,8 +766,7 @@ export interface ListEngagementByAcceptingInvitationTasksResponse {
   TaskSummaries?: Array<ListEngagementByAcceptingInvitationTaskSummary>;
   NextToken?: string;
 }
-export type ListEngagementByAcceptingInvitationTaskSummaries =
-  Array<ListEngagementByAcceptingInvitationTaskSummary>;
+export type ListEngagementByAcceptingInvitationTaskSummaries = Array<ListEngagementByAcceptingInvitationTaskSummary>;
 export interface ListEngagementByAcceptingInvitationTaskSummary {
   TaskId?: string;
   TaskArn?: string;
@@ -1595,8 +792,7 @@ export interface ListEngagementFromOpportunityTasksResponse {
   TaskSummaries?: Array<ListEngagementFromOpportunityTaskSummary>;
   NextToken?: string;
 }
-export type ListEngagementFromOpportunityTaskSummaries =
-  Array<ListEngagementFromOpportunityTaskSummary>;
+export type ListEngagementFromOpportunityTaskSummaries = Array<ListEngagementFromOpportunityTaskSummary>;
 export interface ListEngagementFromOpportunityTaskSummary {
   TaskId?: string;
   TaskArn?: string;
@@ -1770,10 +966,7 @@ export interface OpportunitySort {
   SortOrder: SortOrder;
   SortBy: OpportunitySortName;
 }
-export type OpportunitySortName =
-  | "LastModifiedDate"
-  | "Identifier"
-  | "CustomerCompanyName";
+export type OpportunitySortName = "LastModifiedDate" | "Identifier" | "CustomerCompanyName";
 export type OpportunitySummaries = Array<OpportunitySummary>;
 export interface OpportunitySummary {
   Catalog: string;
@@ -1805,23 +998,13 @@ interface _Payload {
   OpportunityInvitation?: OpportunityInvitationPayload;
 }
 
-export type Payload = _Payload & {
-  OpportunityInvitation: OpportunityInvitationPayload;
-};
+export type Payload = (_Payload & { OpportunityInvitation: OpportunityInvitationPayload });
 export type PaymentFrequency = "Monthly";
 export type PhoneNumber = string;
 
 export type PiiString = string;
 
-export type PrimaryNeedFromAws =
-  | "Co-Sell - Architectural Validation"
-  | "Co-Sell - Business Presentation"
-  | "Co-Sell - Competitive Information"
-  | "Co-Sell - Pricing Assistance"
-  | "Co-Sell - Technical Consultation"
-  | "Co-Sell - Total Cost of Ownership Evaluation"
-  | "Co-Sell - Deal Support"
-  | "Co-Sell - Support for Public Tender / RFx";
+export type PrimaryNeedFromAws = "Co-Sell - Architectural Validation" | "Co-Sell - Business Presentation" | "Co-Sell - Competitive Information" | "Co-Sell - Pricing Assistance" | "Co-Sell - Technical Consultation" | "Co-Sell - Total Cost of Ownership Evaluation" | "Co-Sell - Deal Support" | "Co-Sell - Support for Public Tender / RFx";
 export type PrimaryNeedsFromAws = Array<PrimaryNeedFromAws>;
 export type ProfileNextStepsHistories = Array<ProfileNextStepsHistory>;
 export interface ProfileNextStepsHistory {
@@ -1867,41 +1050,13 @@ export interface PutSellingSystemSettingsResponse {
   Catalog: string;
   ResourceSnapshotJobRoleArn?: string;
 }
-export type ReasonCode =
-  | "InvitationAccessDenied"
-  | "InvitationValidationFailed"
-  | "EngagementAccessDenied"
-  | "OpportunityAccessDenied"
-  | "ResourceSnapshotJobAccessDenied"
-  | "ResourceSnapshotJobValidationFailed"
-  | "ResourceSnapshotJobConflict"
-  | "EngagementValidationFailed"
-  | "EngagementConflict"
-  | "OpportunitySubmissionFailed"
-  | "EngagementInvitationConflict"
-  | "InternalError"
-  | "OpportunityValidationFailed"
-  | "OpportunityConflict"
-  | "ResourceSnapshotAccessDenied"
-  | "ResourceSnapshotValidationFailed"
-  | "ResourceSnapshotConflict"
-  | "ServiceQuotaExceeded"
-  | "RequestThrottled";
+export type ReasonCode = "InvitationAccessDenied" | "InvitationValidationFailed" | "EngagementAccessDenied" | "OpportunityAccessDenied" | "ResourceSnapshotJobAccessDenied" | "ResourceSnapshotJobValidationFailed" | "ResourceSnapshotJobConflict" | "EngagementValidationFailed" | "EngagementConflict" | "OpportunitySubmissionFailed" | "EngagementInvitationConflict" | "InternalError" | "OpportunityValidationFailed" | "OpportunityConflict" | "ResourceSnapshotAccessDenied" | "ResourceSnapshotValidationFailed" | "ResourceSnapshotConflict" | "ServiceQuotaExceeded" | "RequestThrottled";
 interface _Receiver {
   Account?: AccountReceiver;
 }
 
-export type Receiver = _Receiver & { Account: AccountReceiver };
-export type ReceiverResponsibility =
-  | "Distributor"
-  | "Reseller"
-  | "Hardware Partner"
-  | "Managed Service Provider"
-  | "Software Partner"
-  | "Services Partner"
-  | "Training Partner"
-  | "Co-Sell Facilitator"
-  | "Facilitator";
+export type Receiver = (_Receiver & { Account: AccountReceiver });
+export type ReceiverResponsibility = "Distributor" | "Reseller" | "Hardware Partner" | "Managed Service Provider" | "Software Partner" | "Services Partner" | "Training Partner" | "Co-Sell Facilitator" | "Facilitator";
 export type ReceiverResponsibilityList = Array<ReceiverResponsibility>;
 export interface RejectEngagementInvitationRequest {
   Catalog: string;
@@ -1915,10 +1070,7 @@ export interface RelatedEntityIdentifiers {
   Solutions?: Array<string>;
   AwsProducts?: Array<string>;
 }
-export type RelatedEntityType =
-  | "Solutions"
-  | "AwsProducts"
-  | "AwsMarketplaceOffers";
+export type RelatedEntityType = "Solutions" | "AwsProducts" | "AwsMarketplaceOffers";
 export type ResourceArn = string;
 
 export type ResourceIdentifier = string;
@@ -1950,9 +1102,7 @@ interface _ResourceSnapshotPayload {
   OpportunitySummary?: OpportunitySummaryView;
 }
 
-export type ResourceSnapshotPayload = _ResourceSnapshotPayload & {
-  OpportunitySummary: OpportunitySummaryView;
-};
+export type ResourceSnapshotPayload = (_ResourceSnapshotPayload & { OpportunitySummary: OpportunitySummaryView });
 export type ResourceSnapshotRevision = number;
 
 export interface ResourceSnapshotSummary {
@@ -1968,23 +1118,9 @@ export type ResourceTemplateName = string;
 
 export type ResourceType = "Opportunity";
 export type RevenueModel = "Contract" | "Pay-as-you-go" | "Subscription";
-export type ReviewStatus =
-  | "Pending Submission"
-  | "Submitted"
-  | "In review"
-  | "Approved"
-  | "Rejected"
-  | "Action Required";
+export type ReviewStatus = "Pending Submission" | "Submitted" | "In review" | "Approved" | "Rejected" | "Action Required";
 export type SalesActivities = Array<SalesActivity>;
-export type SalesActivity =
-  | "Initialized discussions with customer"
-  | "Customer has shown interest in solution"
-  | "Conducted POC / Demo"
-  | "In evaluation / planning stage"
-  | "Agreed on solution to Business Problem"
-  | "Completed Action Plan"
-  | "Finalized Deployment Need"
-  | "SOW Signed";
+export type SalesActivity = "Initialized discussions with customer" | "Customer has shown interest in solution" | "Conducted POC / Demo" | "In evaluation / planning stage" | "Agreed on solution to Business Problem" | "Completed Action Plan" | "Finalized Deployment Need" | "SOW Signed";
 export type SalesInvolvementType = "For Visibility Only" | "Co-Sell";
 export interface SenderContact {
   Email: string;
@@ -2026,12 +1162,7 @@ export interface SolutionSort {
   SortOrder: SortOrder;
   SortBy: SolutionSortName;
 }
-export type SolutionSortName =
-  | "Identifier"
-  | "Name"
-  | "Status"
-  | "Category"
-  | "CreatedDate";
+export type SolutionSortName = "Identifier" | "Name" | "Status" | "Category" | "CreatedDate";
 export type SolutionStatus = "Active" | "Inactive" | "Draft";
 export type SortBy = "CreatedDate";
 export interface SortObject {
@@ -2039,14 +1170,7 @@ export interface SortObject {
   SortOrder?: SortOrder;
 }
 export type SortOrder = "ASCENDING" | "DESCENDING";
-export type Stage =
-  | "Prospect"
-  | "Qualified"
-  | "Technical Validation"
-  | "Business Validation"
-  | "Committed"
-  | "Launched"
-  | "Closed Lost";
+export type Stage = "Prospect" | "Qualified" | "Technical Validation" | "Business Validation" | "Committed" | "Launched" | "Closed Lost";
 export interface StartEngagementByAcceptingInvitationTaskRequest {
   Catalog: string;
   ClientToken: string;
@@ -2112,7 +1236,8 @@ export interface TagResourceRequest {
   ResourceArn: string;
   Tags: Array<Tag>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export type TaskArn = string;
@@ -2133,7 +1258,8 @@ export interface UntagResourceRequest {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateOpportunityRequest {
   Catalog: string;
   PrimaryNeedsFromAws?: Array<PrimaryNeedFromAws>;
@@ -2165,20 +1291,9 @@ export interface ValidationExceptionError {
   Message: string;
   Code: ValidationExceptionErrorCode;
 }
-export type ValidationExceptionErrorCode =
-  | "REQUIRED_FIELD_MISSING"
-  | "INVALID_ENUM_VALUE"
-  | "INVALID_STRING_FORMAT"
-  | "INVALID_VALUE"
-  | "TOO_MANY_VALUES"
-  | "INVALID_RESOURCE_STATE"
-  | "DUPLICATE_KEY_VALUE"
-  | "VALUE_OUT_OF_RANGE"
-  | "ACTION_NOT_PERMITTED";
+export type ValidationExceptionErrorCode = "REQUIRED_FIELD_MISSING" | "INVALID_ENUM_VALUE" | "INVALID_STRING_FORMAT" | "INVALID_VALUE" | "TOO_MANY_VALUES" | "INVALID_RESOURCE_STATE" | "DUPLICATE_KEY_VALUE" | "VALUE_OUT_OF_RANGE" | "ACTION_NOT_PERMITTED";
 export type ValidationExceptionErrorList = Array<ValidationExceptionError>;
-export type ValidationExceptionReason =
-  | "REQUEST_VALIDATION_FAILED"
-  | "BUSINESS_VALIDATION_FAILED";
+export type ValidationExceptionReason = "REQUEST_VALIDATION_FAILED" | "BUSINESS_VALIDATION_FAILED";
 export type Visibility = "Full" | "Limited";
 export type WebsiteUrl = string;
 
@@ -2637,12 +1752,5 @@ export declare namespace UpdateOpportunity {
     | CommonAwsError;
 }
 
-export type PartnerCentralSellingErrors =
-  | AccessDeniedException
-  | ConflictException
-  | InternalServerException
-  | ResourceNotFoundException
-  | ServiceQuotaExceededException
-  | ThrottlingException
-  | ValidationException
-  | CommonAwsError;
+export type PartnerCentralSellingErrors = AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError;
+

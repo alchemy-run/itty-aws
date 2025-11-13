@@ -5,26 +5,7 @@ import type { PersonalizeEvents as _PersonalizeEventsClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {
-  AccessDeniedException,
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  ThrottlingException,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-  ValidationException,
-  type CommonAwsError,
-} from "../../error.ts";
+export {AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException, type CommonAwsError} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -34,11 +15,11 @@ const metadata = {
   sigV4ServiceName: "personalize",
   endpointPrefix: "personalize-events",
   operations: {
-    PutActionInteractions: "POST /action-interactions",
-    PutActions: "POST /actions",
-    PutEvents: "POST /events",
-    PutItems: "POST /items",
-    PutUsers: "POST /users",
+    "PutActionInteractions": "POST /action-interactions",
+    "PutActions": "POST /actions",
+    "PutEvents": "POST /events",
+    "PutItems": "POST /items",
+    "PutUsers": "POST /users",
   },
 } as const satisfies ServiceMetadata;
 

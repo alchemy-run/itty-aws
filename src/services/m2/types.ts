@@ -1,464 +1,230 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-} from "../../error.ts";
-type CommonAwsError =
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | AccessDeniedException
-  | ThrottlingException
-  | ValidationException;
+import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
+type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class m2 extends AWSServiceClient {
-  getSignedBluinsightsUrl(input: {}): Effect.Effect<
+  getSignedBluinsightsUrl(
+    input: {},
+  ): Effect.Effect<
     GetSignedBluinsightsUrlResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | CommonAwsError
   >;
   listEngineVersions(
     input: ListEngineVersionsRequest,
   ): Effect.Effect<
     ListEngineVersionsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   cancelBatchJobExecution(
     input: CancelBatchJobExecutionRequest,
   ): Effect.Effect<
     CancelBatchJobExecutionResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createApplication(
     input: CreateApplicationRequest,
   ): Effect.Effect<
     CreateApplicationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createDataSetExportTask(
     input: CreateDataSetExportTaskRequest,
   ): Effect.Effect<
     CreateDataSetExportTaskResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createDataSetImportTask(
     input: CreateDataSetImportTaskRequest,
   ): Effect.Effect<
     CreateDataSetImportTaskResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createDeployment(
     input: CreateDeploymentRequest,
   ): Effect.Effect<
     CreateDeploymentResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createEnvironment(
     input: CreateEnvironmentRequest,
   ): Effect.Effect<
     CreateEnvironmentResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteApplication(
     input: DeleteApplicationRequest,
   ): Effect.Effect<
     DeleteApplicationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteApplicationFromEnvironment(
     input: DeleteApplicationFromEnvironmentRequest,
   ): Effect.Effect<
     DeleteApplicationFromEnvironmentResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteEnvironment(
     input: DeleteEnvironmentRequest,
   ): Effect.Effect<
     DeleteEnvironmentResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getApplication(
     input: GetApplicationRequest,
   ): Effect.Effect<
     GetApplicationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getApplicationVersion(
     input: GetApplicationVersionRequest,
   ): Effect.Effect<
     GetApplicationVersionResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getBatchJobExecution(
     input: GetBatchJobExecutionRequest,
   ): Effect.Effect<
     GetBatchJobExecutionResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getDataSetDetails(
     input: GetDataSetDetailsRequest,
   ): Effect.Effect<
     GetDataSetDetailsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | ExecutionTimeoutException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | ExecutionTimeoutException | InternalServerException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getDataSetExportTask(
     input: GetDataSetExportTaskRequest,
   ): Effect.Effect<
     GetDataSetExportTaskResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getDataSetImportTask(
     input: GetDataSetImportTaskRequest,
   ): Effect.Effect<
     GetDataSetImportTaskResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getDeployment(
     input: GetDeploymentRequest,
   ): Effect.Effect<
     GetDeploymentResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getEnvironment(
     input: GetEnvironmentRequest,
   ): Effect.Effect<
     GetEnvironmentResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listApplicationVersions(
     input: ListApplicationVersionsRequest,
   ): Effect.Effect<
     ListApplicationVersionsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listApplications(
     input: ListApplicationsRequest,
   ): Effect.Effect<
     ListApplicationsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listBatchJobDefinitions(
     input: ListBatchJobDefinitionsRequest,
   ): Effect.Effect<
     ListBatchJobDefinitionsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listBatchJobExecutions(
     input: ListBatchJobExecutionsRequest,
   ): Effect.Effect<
     ListBatchJobExecutionsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listBatchJobRestartPoints(
     input: ListBatchJobRestartPointsRequest,
   ): Effect.Effect<
     ListBatchJobRestartPointsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listDataSetExportHistory(
     input: ListDataSetExportHistoryRequest,
   ): Effect.Effect<
     ListDataSetExportHistoryResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listDataSetImportHistory(
     input: ListDataSetImportHistoryRequest,
   ): Effect.Effect<
     ListDataSetImportHistoryResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listDataSets(
     input: ListDataSetsRequest,
   ): Effect.Effect<
     ListDataSetsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | ExecutionTimeoutException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceUnavailableException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | ExecutionTimeoutException | InternalServerException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listDeployments(
     input: ListDeploymentsRequest,
   ): Effect.Effect<
     ListDeploymentsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listEnvironments(
     input: ListEnvironmentsRequest,
   ): Effect.Effect<
     ListEnvironmentsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   startApplication(
     input: StartApplicationRequest,
   ): Effect.Effect<
     StartApplicationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   startBatchJob(
     input: StartBatchJobRequest,
   ): Effect.Effect<
     StartBatchJobResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   stopApplication(
     input: StopApplicationRequest,
   ): Effect.Effect<
     StopApplicationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateApplication(
     input: UpdateApplicationRequest,
   ): Effect.Effect<
     UpdateApplicationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateEnvironment(
     input: UpdateEnvironmentRequest,
   ): Effect.Effect<
     UpdateEnvironmentResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
 }
 
@@ -515,11 +281,7 @@ interface _BatchJobDefinition {
   scriptBatchJobDefinition?: ScriptBatchJobDefinition;
 }
 
-export type BatchJobDefinition =
-  | (_BatchJobDefinition & { fileBatchJobDefinition: FileBatchJobDefinition })
-  | (_BatchJobDefinition & {
-      scriptBatchJobDefinition: ScriptBatchJobDefinition;
-    });
+export type BatchJobDefinition = (_BatchJobDefinition & { fileBatchJobDefinition: FileBatchJobDefinition }) | (_BatchJobDefinition & { scriptBatchJobDefinition: ScriptBatchJobDefinition });
 export type BatchJobDefinitions = Array<BatchJobDefinition>;
 export type BatchJobExecutionStatus = string;
 
@@ -543,15 +305,7 @@ interface _BatchJobIdentifier {
   restartBatchJobIdentifier?: RestartBatchJobIdentifier;
 }
 
-export type BatchJobIdentifier =
-  | (_BatchJobIdentifier & { fileBatchJobIdentifier: FileBatchJobIdentifier })
-  | (_BatchJobIdentifier & {
-      scriptBatchJobIdentifier: ScriptBatchJobIdentifier;
-    })
-  | (_BatchJobIdentifier & { s3BatchJobIdentifier: S3BatchJobIdentifier })
-  | (_BatchJobIdentifier & {
-      restartBatchJobIdentifier: RestartBatchJobIdentifier;
-    });
+export type BatchJobIdentifier = (_BatchJobIdentifier & { fileBatchJobIdentifier: FileBatchJobIdentifier }) | (_BatchJobIdentifier & { scriptBatchJobIdentifier: ScriptBatchJobIdentifier }) | (_BatchJobIdentifier & { s3BatchJobIdentifier: S3BatchJobIdentifier }) | (_BatchJobIdentifier & { restartBatchJobIdentifier: RestartBatchJobIdentifier });
 export type BatchJobParametersMap = Record<string, string>;
 export type BatchJobStepList = Array<JobStep>;
 export type BatchJobType = string;
@@ -567,7 +321,8 @@ export interface CancelBatchJobExecutionRequest {
   executionId: string;
   authSecretsManagerArn?: string;
 }
-export interface CancelBatchJobExecutionResponse {}
+export interface CancelBatchJobExecutionResponse {
+}
 export type CapacityValue = number;
 
 export type ClientToken = string;
@@ -654,19 +409,13 @@ interface _DatasetDetailOrgAttributes {
   ps?: PsDetailAttributes;
 }
 
-export type DatasetDetailOrgAttributes =
-  | (_DatasetDetailOrgAttributes & { vsam: VsamDetailAttributes })
-  | (_DatasetDetailOrgAttributes & { gdg: GdgDetailAttributes })
-  | (_DatasetDetailOrgAttributes & { po: PoDetailAttributes })
-  | (_DatasetDetailOrgAttributes & { ps: PsDetailAttributes });
+export type DatasetDetailOrgAttributes = (_DatasetDetailOrgAttributes & { vsam: VsamDetailAttributes }) | (_DatasetDetailOrgAttributes & { gdg: GdgDetailAttributes }) | (_DatasetDetailOrgAttributes & { po: PoDetailAttributes }) | (_DatasetDetailOrgAttributes & { ps: PsDetailAttributes });
 interface _DataSetExportConfig {
   s3Location?: string;
   dataSets?: Array<DataSetExportItem>;
 }
 
-export type DataSetExportConfig =
-  | (_DataSetExportConfig & { s3Location: string })
-  | (_DataSetExportConfig & { dataSets: Array<DataSetExportItem> });
+export type DataSetExportConfig = (_DataSetExportConfig & { s3Location: string }) | (_DataSetExportConfig & { dataSets: Array<DataSetExportItem> });
 export interface DataSetExportItem {
   datasetName: string;
   externalLocation: ExternalLocation;
@@ -691,9 +440,7 @@ interface _DataSetImportConfig {
   dataSets?: Array<DataSetImportItem>;
 }
 
-export type DataSetImportConfig =
-  | (_DataSetImportConfig & { s3Location: string })
-  | (_DataSetImportConfig & { dataSets: Array<DataSetImportItem> });
+export type DataSetImportConfig = (_DataSetImportConfig & { s3Location: string }) | (_DataSetImportConfig & { dataSets: Array<DataSetImportItem> });
 export interface DataSetImportItem {
   dataSet: DataSet;
   externalLocation: ExternalLocation;
@@ -720,11 +467,7 @@ interface _DatasetOrgAttributes {
   ps?: PsAttributes;
 }
 
-export type DatasetOrgAttributes =
-  | (_DatasetOrgAttributes & { vsam: VsamAttributes })
-  | (_DatasetOrgAttributes & { gdg: GdgAttributes })
-  | (_DatasetOrgAttributes & { po: PoAttributes })
-  | (_DatasetOrgAttributes & { ps: PsAttributes });
+export type DatasetOrgAttributes = (_DatasetOrgAttributes & { vsam: VsamAttributes }) | (_DatasetOrgAttributes & { gdg: GdgAttributes }) | (_DatasetOrgAttributes & { po: PoAttributes }) | (_DatasetOrgAttributes & { ps: PsAttributes });
 export type DataSetsSummaryList = Array<DataSetSummary>;
 export interface DataSetSummary {
   dataSetName: string;
@@ -741,22 +484,23 @@ interface _Definition {
   content?: string;
 }
 
-export type Definition =
-  | (_Definition & { s3Location: string })
-  | (_Definition & { content: string });
+export type Definition = (_Definition & { s3Location: string }) | (_Definition & { content: string });
 export interface DeleteApplicationFromEnvironmentRequest {
   applicationId: string;
   environmentId: string;
 }
-export interface DeleteApplicationFromEnvironmentResponse {}
+export interface DeleteApplicationFromEnvironmentResponse {
+}
 export interface DeleteApplicationRequest {
   applicationId: string;
 }
-export interface DeleteApplicationResponse {}
+export interface DeleteApplicationResponse {
+}
 export interface DeleteEnvironmentRequest {
   environmentId: string;
 }
-export interface DeleteEnvironmentResponse {}
+export interface DeleteEnvironmentResponse {
+}
 export interface DeployedVersionSummary {
   applicationVersion: number;
   status: string;
@@ -815,7 +559,7 @@ interface _ExternalLocation {
   s3Location?: string;
 }
 
-export type ExternalLocation = _ExternalLocation & { s3Location: string };
+export type ExternalLocation = (_ExternalLocation & { s3Location: string });
 export interface FileBatchJobDefinition {
   fileName: string;
   folderPath?: string;
@@ -991,9 +735,7 @@ interface _JobIdentifier {
   scriptName?: string;
 }
 
-export type JobIdentifier =
-  | (_JobIdentifier & { fileName: string })
-  | (_JobIdentifier & { scriptName: string });
+export type JobIdentifier = (_JobIdentifier & { fileName: string }) | (_JobIdentifier & { scriptName: string });
 export interface JobStep {
   stepNumber?: number;
   stepName?: string;
@@ -1216,7 +958,8 @@ export declare class ServiceUnavailableException extends EffectData.TaggedError(
 export interface StartApplicationRequest {
   applicationId: string;
 }
-export interface StartApplicationResponse {}
+export interface StartApplicationResponse {
+}
 export interface StartBatchJobRequest {
   applicationId: string;
   batchJobIdentifier: BatchJobIdentifier;
@@ -1230,15 +973,14 @@ export interface StopApplicationRequest {
   applicationId: string;
   forceStop?: boolean;
 }
-export interface StopApplicationResponse {}
+export interface StopApplicationResponse {
+}
 interface _StorageConfiguration {
   efs?: EfsStorageConfiguration;
   fsx?: FsxStorageConfiguration;
 }
 
-export type StorageConfiguration =
-  | (_StorageConfiguration & { efs: EfsStorageConfiguration })
-  | (_StorageConfiguration & { fsx: FsxStorageConfiguration });
+export type StorageConfiguration = (_StorageConfiguration & { efs: EfsStorageConfiguration }) | (_StorageConfiguration & { fsx: FsxStorageConfiguration });
 export type StorageConfigurationList = Array<StorageConfiguration>;
 export type String100 = string;
 
@@ -1262,7 +1004,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(
@@ -1279,7 +1022,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateApplicationRequest {
   applicationId: string;
   description?: string;
@@ -1795,14 +1539,5 @@ export declare namespace UpdateEnvironment {
     | CommonAwsError;
 }
 
-export type m2Errors =
-  | AccessDeniedException
-  | ConflictException
-  | ExecutionTimeoutException
-  | InternalServerException
-  | ResourceNotFoundException
-  | ServiceQuotaExceededException
-  | ServiceUnavailableException
-  | ThrottlingException
-  | ValidationException
-  | CommonAwsError;
+export type m2Errors = AccessDeniedException | ConflictException | ExecutionTimeoutException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ServiceUnavailableException | ThrottlingException | ValidationException | CommonAwsError;
+

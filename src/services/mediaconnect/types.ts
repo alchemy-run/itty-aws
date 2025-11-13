@@ -7,622 +7,313 @@ export declare class MediaConnect extends AWSServiceClient {
     input: ListEntitlementsRequest,
   ): Effect.Effect<
     ListEntitlementsResponse,
-    | BadRequestException
-    | InternalServerErrorException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | InternalServerErrorException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | BadRequestException
-    | InternalServerErrorException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | InternalServerErrorException | NotFoundException | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | InternalServerErrorException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | InternalServerErrorException | NotFoundException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     {},
-    | BadRequestException
-    | InternalServerErrorException
-    | NotFoundException
-    | CommonAwsError
+    BadRequestException | InternalServerErrorException | NotFoundException | CommonAwsError
   >;
   addBridgeOutputs(
     input: AddBridgeOutputsRequest,
   ): Effect.Effect<
     AddBridgeOutputsResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
   >;
   addBridgeSources(
     input: AddBridgeSourcesRequest,
   ): Effect.Effect<
     AddBridgeSourcesResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
   >;
   addFlowMediaStreams(
     input: AddFlowMediaStreamsRequest,
   ): Effect.Effect<
     AddFlowMediaStreamsResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
   >;
   addFlowOutputs(
     input: AddFlowOutputsRequest,
   ): Effect.Effect<
     AddFlowOutputsResponse,
-    | AddFlowOutputs420Exception
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | CommonAwsError
+    AddFlowOutputs420Exception | BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
   >;
   addFlowSources(
     input: AddFlowSourcesRequest,
   ): Effect.Effect<
     AddFlowSourcesResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
   >;
   addFlowVpcInterfaces(
     input: AddFlowVpcInterfacesRequest,
   ): Effect.Effect<
     AddFlowVpcInterfacesResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
   >;
   createBridge(
     input: CreateBridgeRequest,
   ): Effect.Effect<
     CreateBridgeResponse,
-    | BadRequestException
-    | ConflictException
-    | CreateBridge420Exception
-    | ForbiddenException
-    | InternalServerErrorException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | CreateBridge420Exception | ForbiddenException | InternalServerErrorException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
   >;
   createFlow(
     input: CreateFlowRequest,
   ): Effect.Effect<
     CreateFlowResponse,
-    | BadRequestException
-    | CreateFlow420Exception
-    | ForbiddenException
-    | InternalServerErrorException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | CreateFlow420Exception | ForbiddenException | InternalServerErrorException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
   >;
   createGateway(
     input: CreateGatewayRequest,
   ): Effect.Effect<
     CreateGatewayResponse,
-    | BadRequestException
-    | ConflictException
-    | CreateGateway420Exception
-    | ForbiddenException
-    | InternalServerErrorException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | CreateGateway420Exception | ForbiddenException | InternalServerErrorException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
   >;
   deleteBridge(
     input: DeleteBridgeRequest,
   ): Effect.Effect<
     DeleteBridgeResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
   >;
   deleteFlow(
     input: DeleteFlowRequest,
   ): Effect.Effect<
     DeleteFlowResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
   >;
   deleteGateway(
     input: DeleteGatewayRequest,
   ): Effect.Effect<
     DeleteGatewayResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
   >;
   deregisterGatewayInstance(
     input: DeregisterGatewayInstanceRequest,
   ): Effect.Effect<
     DeregisterGatewayInstanceResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
   >;
   describeBridge(
     input: DescribeBridgeRequest,
   ): Effect.Effect<
     DescribeBridgeResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
   >;
   describeFlow(
     input: DescribeFlowRequest,
   ): Effect.Effect<
     DescribeFlowResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
   >;
   describeFlowSourceMetadata(
     input: DescribeFlowSourceMetadataRequest,
   ): Effect.Effect<
     DescribeFlowSourceMetadataResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
   >;
   describeFlowSourceThumbnail(
     input: DescribeFlowSourceThumbnailRequest,
   ): Effect.Effect<
     DescribeFlowSourceThumbnailResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
   >;
   describeGateway(
     input: DescribeGatewayRequest,
   ): Effect.Effect<
     DescribeGatewayResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
   >;
   describeGatewayInstance(
     input: DescribeGatewayInstanceRequest,
   ): Effect.Effect<
     DescribeGatewayInstanceResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
   >;
   describeOffering(
     input: DescribeOfferingRequest,
   ): Effect.Effect<
     DescribeOfferingResponse,
-    | BadRequestException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
   >;
   describeReservation(
     input: DescribeReservationRequest,
   ): Effect.Effect<
     DescribeReservationResponse,
-    | BadRequestException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
   >;
   grantFlowEntitlements(
     input: GrantFlowEntitlementsRequest,
   ): Effect.Effect<
     GrantFlowEntitlementsResponse,
-    | BadRequestException
-    | ForbiddenException
-    | GrantFlowEntitlements420Exception
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | GrantFlowEntitlements420Exception | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
   >;
   listBridges(
     input: ListBridgesRequest,
   ): Effect.Effect<
     ListBridgesResponse,
-    | BadRequestException
-    | ConflictException
-    | InternalServerErrorException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | InternalServerErrorException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
   >;
   listFlows(
     input: ListFlowsRequest,
   ): Effect.Effect<
     ListFlowsResponse,
-    | BadRequestException
-    | InternalServerErrorException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | InternalServerErrorException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
   >;
   listGatewayInstances(
     input: ListGatewayInstancesRequest,
   ): Effect.Effect<
     ListGatewayInstancesResponse,
-    | BadRequestException
-    | ConflictException
-    | InternalServerErrorException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | InternalServerErrorException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
   >;
   listGateways(
     input: ListGatewaysRequest,
   ): Effect.Effect<
     ListGatewaysResponse,
-    | BadRequestException
-    | ConflictException
-    | InternalServerErrorException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | InternalServerErrorException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
   >;
   listOfferings(
     input: ListOfferingsRequest,
   ): Effect.Effect<
     ListOfferingsResponse,
-    | BadRequestException
-    | InternalServerErrorException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | InternalServerErrorException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
   >;
   listReservations(
     input: ListReservationsRequest,
   ): Effect.Effect<
     ListReservationsResponse,
-    | BadRequestException
-    | InternalServerErrorException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | InternalServerErrorException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
   >;
   purchaseOffering(
     input: PurchaseOfferingRequest,
   ): Effect.Effect<
     PurchaseOfferingResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
   >;
   removeBridgeOutput(
     input: RemoveBridgeOutputRequest,
   ): Effect.Effect<
     RemoveBridgeOutputResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
   >;
   removeBridgeSource(
     input: RemoveBridgeSourceRequest,
   ): Effect.Effect<
     RemoveBridgeSourceResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
   >;
   removeFlowMediaStream(
     input: RemoveFlowMediaStreamRequest,
   ): Effect.Effect<
     RemoveFlowMediaStreamResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
   >;
   removeFlowOutput(
     input: RemoveFlowOutputRequest,
   ): Effect.Effect<
     RemoveFlowOutputResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
   >;
   removeFlowSource(
     input: RemoveFlowSourceRequest,
   ): Effect.Effect<
     RemoveFlowSourceResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
   >;
   removeFlowVpcInterface(
     input: RemoveFlowVpcInterfaceRequest,
   ): Effect.Effect<
     RemoveFlowVpcInterfaceResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
   >;
   revokeFlowEntitlement(
     input: RevokeFlowEntitlementRequest,
   ): Effect.Effect<
     RevokeFlowEntitlementResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
   >;
   startFlow(
     input: StartFlowRequest,
   ): Effect.Effect<
     StartFlowResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
   >;
   stopFlow(
     input: StopFlowRequest,
   ): Effect.Effect<
     StopFlowResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
   >;
   updateBridge(
     input: UpdateBridgeRequest,
   ): Effect.Effect<
     UpdateBridgeResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
   >;
   updateBridgeOutput(
     input: UpdateBridgeOutputRequest,
   ): Effect.Effect<
     UpdateBridgeOutputResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
   >;
   updateBridgeSource(
     input: UpdateBridgeSourceRequest,
   ): Effect.Effect<
     UpdateBridgeSourceResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
   >;
   updateBridgeState(
     input: UpdateBridgeStateRequest,
   ): Effect.Effect<
     UpdateBridgeStateResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
   >;
   updateFlow(
     input: UpdateFlowRequest,
   ): Effect.Effect<
     UpdateFlowResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
   >;
   updateFlowEntitlement(
     input: UpdateFlowEntitlementRequest,
   ): Effect.Effect<
     UpdateFlowEntitlementResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
   >;
   updateFlowMediaStream(
     input: UpdateFlowMediaStreamRequest,
   ): Effect.Effect<
     UpdateFlowMediaStreamResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
   >;
   updateFlowOutput(
     input: UpdateFlowOutputRequest,
   ): Effect.Effect<
     UpdateFlowOutputResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
   >;
   updateFlowSource(
     input: UpdateFlowSourceRequest,
   ): Effect.Effect<
     UpdateFlowSourceResponse,
-    | BadRequestException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
   >;
   updateGatewayInstance(
     input: UpdateGatewayInstanceRequest,
   ): Effect.Effect<
     UpdateGatewayInstanceResponse,
-    | BadRequestException
-    | ConflictException
-    | ForbiddenException
-    | InternalServerErrorException
-    | NotFoundException
-    | ServiceUnavailableException
-    | TooManyRequestsException
-    | CommonAwsError
+    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
   >;
 }
 
@@ -636,14 +327,12 @@ export type __listOfAudioMonitoringSetting = Array<AudioMonitoringSetting>;
 export type __listOfBridgeOutput = Array<BridgeOutput>;
 export type __listOfBridgeSource = Array<BridgeSource>;
 export type __listOfDestinationConfiguration = Array<DestinationConfiguration>;
-export type __listOfDestinationConfigurationRequest =
-  Array<DestinationConfigurationRequest>;
+export type __listOfDestinationConfigurationRequest = Array<DestinationConfigurationRequest>;
 export type __listOfEntitlement = Array<Entitlement>;
 export type __listOfGatewayNetwork = Array<GatewayNetwork>;
 export type __listOfGrantEntitlementRequest = Array<GrantEntitlementRequest>;
 export type __listOfInputConfiguration = Array<InputConfiguration>;
-export type __listOfInputConfigurationRequest =
-  Array<InputConfigurationRequest>;
+export type __listOfInputConfigurationRequest = Array<InputConfigurationRequest>;
 export type __listOfInteger = Array<number>;
 export type __listOfListedBridge = Array<ListedBridge>;
 export type __listOfListedEntitlement = Array<ListedEntitlement>;
@@ -651,14 +340,10 @@ export type __listOfListedFlow = Array<ListedFlow>;
 export type __listOfListedGateway = Array<ListedGateway>;
 export type __listOfListedGatewayInstance = Array<ListedGatewayInstance>;
 export type __listOfMediaStream = Array<MediaStream>;
-export type __listOfMediaStreamOutputConfiguration =
-  Array<MediaStreamOutputConfiguration>;
-export type __listOfMediaStreamOutputConfigurationRequest =
-  Array<MediaStreamOutputConfigurationRequest>;
-export type __listOfMediaStreamSourceConfiguration =
-  Array<MediaStreamSourceConfiguration>;
-export type __listOfMediaStreamSourceConfigurationRequest =
-  Array<MediaStreamSourceConfigurationRequest>;
+export type __listOfMediaStreamOutputConfiguration = Array<MediaStreamOutputConfiguration>;
+export type __listOfMediaStreamOutputConfigurationRequest = Array<MediaStreamOutputConfigurationRequest>;
+export type __listOfMediaStreamSourceConfiguration = Array<MediaStreamSourceConfiguration>;
+export type __listOfMediaStreamSourceConfigurationRequest = Array<MediaStreamSourceConfigurationRequest>;
 export type __listOfMessageDetail = Array<MessageDetail>;
 export type __listOfNdiDiscoveryServerConfig = Array<NdiDiscoveryServerConfig>;
 export type __listOfOffering = Array<Offering>;
@@ -859,27 +544,8 @@ export interface BridgeSource {
   FlowSource?: BridgeFlowSource;
   NetworkSource?: BridgeNetworkSource;
 }
-export type BridgeState =
-  | "CREATING"
-  | "STANDBY"
-  | "STARTING"
-  | "DEPLOYING"
-  | "ACTIVE"
-  | "STOPPING"
-  | "DELETING"
-  | "DELETED"
-  | "START_FAILED"
-  | "START_PENDING"
-  | "STOP_FAILED"
-  | "UPDATING";
-export type Colorimetry =
-  | "BT601"
-  | "BT709"
-  | "BT2020"
-  | "BT2100"
-  | "ST2065-1"
-  | "ST2065-3"
-  | "XYZ";
+export type BridgeState = "CREATING" | "STANDBY" | "STARTING" | "DEPLOYING" | "ACTIVE" | "STOPPING" | "DELETING" | "DELETED" | "START_FAILED" | "START_PENDING" | "STOP_FAILED" | "UPDATING";
+export type Colorimetry = "BT601" | "BT709" | "BT2020" | "BT2100" | "ST2065-1" | "ST2065-3" | "XYZ";
 export declare class ConflictException extends EffectData.TaggedError(
   "ConflictException",
 )<{
@@ -1158,13 +824,7 @@ export interface GatewayNetwork {
   CidrBlock: string;
   Name: string;
 }
-export type GatewayState =
-  | "CREATING"
-  | "ACTIVE"
-  | "UPDATING"
-  | "ERROR"
-  | "DELETING"
-  | "DELETED";
+export type GatewayState = "CREATING" | "ACTIVE" | "UPDATING" | "ERROR" | "DELETING" | "DELETED";
 export interface GrantEntitlementRequest {
   DataTransferSubscriberFeePercent?: number;
   Description?: string;
@@ -1201,13 +861,7 @@ export interface InputConfigurationRequest {
   InputPort: number;
   Interface: InterfaceRequest;
 }
-export type InstanceState =
-  | "REGISTERING"
-  | "ACTIVE"
-  | "DEREGISTERING"
-  | "DEREGISTERED"
-  | "REGISTRATION_ERROR"
-  | "DEREGISTRATION_ERROR";
+export type InstanceState = "REGISTERING" | "ACTIVE" | "DEREGISTERING" | "DEREGISTERED" | "REGISTRATION_ERROR" | "DEREGISTRATION_ERROR";
 export interface Interface {
   Name: string;
 }
@@ -1322,14 +976,7 @@ export interface Maintenance {
   MaintenanceScheduledDate?: string;
   MaintenanceStartHour?: string;
 }
-export type MaintenanceDay =
-  | "Monday"
-  | "Tuesday"
-  | "Wednesday"
-  | "Thursday"
-  | "Friday"
-  | "Saturday"
-  | "Sunday";
+export type MaintenanceDay = "Monday" | "Tuesday" | "Wednesday" | "Thursday" | "Friday" | "Saturday" | "Sunday";
 export type MaxResults = number;
 
 export interface MediaStream {
@@ -1440,19 +1087,7 @@ export interface Output {
 }
 export type OutputStatus = "ENABLED" | "DISABLED";
 export type PriceUnits = "HOURLY";
-export type Protocol =
-  | "zixi-push"
-  | "rtp-fec"
-  | "rtp"
-  | "zixi-pull"
-  | "rist"
-  | "st2110-jpegxs"
-  | "cdi"
-  | "srt-listener"
-  | "srt-caller"
-  | "fujitsu-qos"
-  | "udp"
-  | "ndi-speed-hq";
+export type Protocol = "zixi-push" | "rtp-fec" | "rtp" | "zixi-pull" | "rist" | "st2110-jpegxs" | "cdi" | "srt-listener" | "srt-caller" | "fujitsu-qos" | "udp" | "ndi-speed-hq";
 export interface PurchaseOfferingRequest {
   OfferingArn: string;
   ReservationName: string;
@@ -1542,10 +1177,7 @@ export interface RevokeFlowEntitlementResponse {
   EntitlementArn?: string;
   FlowArn?: string;
 }
-export type ScanMode =
-  | "progressive"
-  | "interlace"
-  | "progressive-segmented-frame";
+export type ScanMode = "progressive" | "interlace" | "progressive-segmented-frame";
 export declare class ServiceUnavailableException extends EffectData.TaggedError(
   "ServiceUnavailableException",
 )<{
@@ -1611,14 +1243,7 @@ export interface StartFlowResponse {
   Status?: Status;
 }
 export type State = "ENABLED" | "DISABLED";
-export type Status =
-  | "STANDBY"
-  | "ACTIVE"
-  | "UPDATING"
-  | "DELETING"
-  | "STARTING"
-  | "STOPPING"
-  | "ERROR";
+export type Status = "STANDBY" | "ACTIVE" | "UPDATING" | "DELETING" | "STARTING" | "STOPPING" | "ERROR";
 export interface StopFlowRequest {
   FlowArn: string;
 }
@@ -1630,16 +1255,7 @@ export interface TagResourceRequest {
   ResourceArn: string;
   Tags: Record<string, string>;
 }
-export type Tcs =
-  | "SDR"
-  | "PQ"
-  | "HLG"
-  | "LINEAR"
-  | "BT2100LINPQ"
-  | "BT2100LINHLG"
-  | "ST2065-1"
-  | "ST428-1"
-  | "DENSITY";
+export type Tcs = "SDR" | "PQ" | "HLG" | "LINEAR" | "BT2100LINPQ" | "BT2100LINHLG" | "ST2065-1" | "ST428-1" | "DENSITY";
 export interface ThumbnailDetails {
   FlowArn: string;
   Thumbnail?: string;
@@ -2573,17 +2189,5 @@ export declare namespace UpdateGatewayInstance {
     | CommonAwsError;
 }
 
-export type MediaConnectErrors =
-  | AddFlowOutputs420Exception
-  | BadRequestException
-  | ConflictException
-  | CreateBridge420Exception
-  | CreateFlow420Exception
-  | CreateGateway420Exception
-  | ForbiddenException
-  | GrantFlowEntitlements420Exception
-  | InternalServerErrorException
-  | NotFoundException
-  | ServiceUnavailableException
-  | TooManyRequestsException
-  | CommonAwsError;
+export type MediaConnectErrors = AddFlowOutputs420Exception | BadRequestException | ConflictException | CreateBridge420Exception | CreateFlow420Exception | CreateGateway420Exception | ForbiddenException | GrantFlowEntitlements420Exception | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError;
+

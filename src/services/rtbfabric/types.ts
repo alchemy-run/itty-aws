@@ -1,38 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-} from "../../error.ts";
-type CommonAwsError =
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | AccessDeniedException
-  | ThrottlingException
-  | ValidationException;
+import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
+type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class RTBFabric extends AWSServiceClient {
@@ -52,294 +20,151 @@ export declare class RTBFabric extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   acceptLink(
     input: AcceptLinkRequest,
   ): Effect.Effect<
     AcceptLinkResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createInboundExternalLink(
     input: CreateInboundExternalLinkRequest,
   ): Effect.Effect<
     CreateInboundExternalLinkResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createLink(
     input: CreateLinkRequest,
   ): Effect.Effect<
     CreateLinkResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createOutboundExternalLink(
     input: CreateOutboundExternalLinkRequest,
   ): Effect.Effect<
     CreateOutboundExternalLinkResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createRequesterGateway(
     input: CreateRequesterGatewayRequest,
   ): Effect.Effect<
     CreateRequesterGatewayResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createResponderGateway(
     input: CreateResponderGatewayRequest,
   ): Effect.Effect<
     CreateResponderGatewayResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteInboundExternalLink(
     input: DeleteInboundExternalLinkRequest,
   ): Effect.Effect<
     DeleteInboundExternalLinkResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteLink(
     input: DeleteLinkRequest,
   ): Effect.Effect<
     DeleteLinkResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteOutboundExternalLink(
     input: DeleteOutboundExternalLinkRequest,
   ): Effect.Effect<
     DeleteOutboundExternalLinkResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteRequesterGateway(
     input: DeleteRequesterGatewayRequest,
   ): Effect.Effect<
     DeleteRequesterGatewayResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteResponderGateway(
     input: DeleteResponderGatewayRequest,
   ): Effect.Effect<
     DeleteResponderGatewayResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getInboundExternalLink(
     input: GetInboundExternalLinkRequest,
   ): Effect.Effect<
     GetInboundExternalLinkResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getLink(
     input: GetLinkRequest,
   ): Effect.Effect<
     GetLinkResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getOutboundExternalLink(
     input: GetOutboundExternalLinkRequest,
   ): Effect.Effect<
     GetOutboundExternalLinkResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getRequesterGateway(
     input: GetRequesterGatewayRequest,
   ): Effect.Effect<
     GetRequesterGatewayResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getResponderGateway(
     input: GetResponderGatewayRequest,
   ): Effect.Effect<
     GetResponderGatewayResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listLinks(
     input: ListLinksRequest,
   ): Effect.Effect<
     ListLinksResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   rejectLink(
     input: RejectLinkRequest,
   ): Effect.Effect<
     RejectLinkResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateLink(
     input: UpdateLinkRequest,
   ): Effect.Effect<
     UpdateLinkResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateLinkModuleFlow(
     input: UpdateLinkModuleFlowRequest,
   ): Effect.Effect<
     UpdateLinkModuleFlowResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateRequesterGateway(
     input: UpdateRequesterGatewayRequest,
   ): Effect.Effect<
     UpdateRequesterGatewayResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateResponderGateway(
     input: UpdateResponderGatewayRequest,
   ): Effect.Effect<
     UpdateResponderGatewayResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
 }
 
@@ -373,9 +198,7 @@ interface _Action {
   headerTag?: HeaderTagAction;
 }
 
-export type Action =
-  | (_Action & { noBid: NoBidAction })
-  | (_Action & { headerTag: HeaderTagAction });
+export type Action = (_Action & { noBid: NoBidAction }) | (_Action & { headerTag: HeaderTagAction });
 export type AutoScalingGroupName = string;
 
 export type AutoScalingGroupNameList = Array<string>;
@@ -650,20 +473,7 @@ export type LinkList = Array<ListLinksResponseStructure>;
 export interface LinkLogSettings {
   applicationLogs: LinkApplicationLogConfiguration;
 }
-export type LinkStatus =
-  | "PENDING_CREATION"
-  | "PENDING_REQUEST"
-  | "REQUESTED"
-  | "ACCEPTED"
-  | "ACTIVE"
-  | "REJECTED"
-  | "FAILED"
-  | "PENDING_DELETION"
-  | "DELETED"
-  | "PENDING_UPDATE"
-  | "PENDING_ISOLATION"
-  | "ISOLATED"
-  | "PENDING_RESTORATION";
+export type LinkStatus = "PENDING_CREATION" | "PENDING_REQUEST" | "REQUESTED" | "ACCEPTED" | "ACTIVE" | "REJECTED" | "FAILED" | "PENDING_DELETION" | "DELETED" | "PENDING_UPDATE" | "PENDING_ISOLATION" | "ISOLATED" | "PENDING_RESTORATION";
 export interface ListLinksRequest {
   gatewayId: string;
   nextToken?: string;
@@ -713,13 +523,7 @@ interface _ManagedEndpointConfiguration {
   eksEndpoints?: EksEndpointsConfiguration;
 }
 
-export type ManagedEndpointConfiguration =
-  | (_ManagedEndpointConfiguration & {
-      autoScalingGroups: AutoScalingGroupsConfiguration;
-    })
-  | (_ManagedEndpointConfiguration & {
-      eksEndpoints: EksEndpointsConfiguration;
-    });
+export type ManagedEndpointConfiguration = (_ManagedEndpointConfiguration & { autoScalingGroups: AutoScalingGroupsConfiguration }) | (_ManagedEndpointConfiguration & { eksEndpoints: EksEndpointsConfiguration });
 export interface ModuleConfiguration {
   version?: string;
   name: string;
@@ -733,10 +537,7 @@ interface _ModuleParameters {
   rateLimiter?: RateLimiterModuleParameters;
 }
 
-export type ModuleParameters =
-  | (_ModuleParameters & { noBid: NoBidModuleParameters })
-  | (_ModuleParameters & { openRtbAttribute: OpenRtbAttributeModuleParameters })
-  | (_ModuleParameters & { rateLimiter: RateLimiterModuleParameters });
+export type ModuleParameters = (_ModuleParameters & { noBid: NoBidModuleParameters }) | (_ModuleParameters & { openRtbAttribute: OpenRtbAttributeModuleParameters }) | (_ModuleParameters & { rateLimiter: RateLimiterModuleParameters });
 export interface NoBidAction {
   noBidReasonCode?: number;
 }
@@ -771,16 +572,7 @@ export interface RejectLinkResponse {
   attributes?: LinkAttributes;
   linkId: string;
 }
-export type RequesterGatewayStatus =
-  | "PENDING_CREATION"
-  | "ACTIVE"
-  | "PENDING_DELETION"
-  | "DELETED"
-  | "ERROR"
-  | "PENDING_UPDATE"
-  | "ISOLATED"
-  | "PENDING_ISOLATION"
-  | "PENDING_RESTORATION";
+export type RequesterGatewayStatus = "PENDING_CREATION" | "ACTIVE" | "PENDING_DELETION" | "DELETED" | "ERROR" | "PENDING_UPDATE" | "ISOLATED" | "PENDING_ISOLATION" | "PENDING_RESTORATION";
 export declare class ResourceNotFoundException extends EffectData.TaggedError(
   "ResourceNotFoundException",
 )<{
@@ -795,18 +587,8 @@ export interface ResponderErrorMaskingForHttpCode {
   responseLoggingPercentage?: number;
 }
 export type ResponderErrorMaskingLoggingType = "NONE" | "METRIC" | "RESPONSE";
-export type ResponderErrorMaskingLoggingTypes =
-  Array<ResponderErrorMaskingLoggingType>;
-export type ResponderGatewayStatus =
-  | "PENDING_CREATION"
-  | "ACTIVE"
-  | "PENDING_DELETION"
-  | "DELETED"
-  | "ERROR"
-  | "PENDING_UPDATE"
-  | "ISOLATED"
-  | "PENDING_ISOLATION"
-  | "PENDING_RESTORATION";
+export type ResponderErrorMaskingLoggingTypes = Array<ResponderErrorMaskingLoggingType>;
+export type ResponderGatewayStatus = "PENDING_CREATION" | "ACTIVE" | "PENDING_DELETION" | "DELETED" | "ERROR" | "PENDING_UPDATE" | "ISOLATED" | "PENDING_ISOLATION" | "PENDING_RESTORATION";
 export type RtbTaggableResourceArn = string;
 
 export type SecurityGroupId = string;
@@ -827,7 +609,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagsMap = Record<string, string>;
 export type TagValue = string;
 
@@ -843,7 +626,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateLinkModuleFlowRequest {
   clientToken: string;
   gatewayId: string;
@@ -1237,12 +1021,5 @@ export declare namespace UpdateResponderGateway {
     | CommonAwsError;
 }
 
-export type RTBFabricErrors =
-  | AccessDeniedException
-  | ConflictException
-  | InternalServerException
-  | ResourceNotFoundException
-  | ServiceQuotaExceededException
-  | ThrottlingException
-  | ValidationException
-  | CommonAwsError;
+export type RTBFabricErrors = AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError;
+

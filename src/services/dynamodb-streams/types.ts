@@ -13,21 +13,13 @@ export declare class DynamoDBStreams extends AWSServiceClient {
     input: GetRecordsInput,
   ): Effect.Effect<
     GetRecordsOutput,
-    | ExpiredIteratorException
-    | InternalServerError
-    | LimitExceededException
-    | ResourceNotFoundException
-    | TrimmedDataAccessException
-    | CommonAwsError
+    ExpiredIteratorException | InternalServerError | LimitExceededException | ResourceNotFoundException | TrimmedDataAccessException | CommonAwsError
   >;
   getShardIterator(
     input: GetShardIteratorInput,
   ): Effect.Effect<
     GetShardIteratorOutput,
-    | InternalServerError
-    | ResourceNotFoundException
-    | TrimmedDataAccessException
-    | CommonAwsError
+    InternalServerError | ResourceNotFoundException | TrimmedDataAccessException | CommonAwsError
   >;
   listStreams(
     input: ListStreamsInput,
@@ -55,17 +47,7 @@ interface _AttributeValue {
   BOOL?: boolean;
 }
 
-export type AttributeValue =
-  | (_AttributeValue & { S: string })
-  | (_AttributeValue & { N: string })
-  | (_AttributeValue & { B: Uint8Array | string })
-  | (_AttributeValue & { SS: Array<string> })
-  | (_AttributeValue & { NS: Array<string> })
-  | (_AttributeValue & { BS: Array<Uint8Array | string> })
-  | (_AttributeValue & { M: Record<string, AttributeValue> })
-  | (_AttributeValue & { L: Array<AttributeValue> })
-  | (_AttributeValue & { NULL: boolean })
-  | (_AttributeValue & { BOOL: boolean });
+export type AttributeValue = (_AttributeValue & { S: string }) | (_AttributeValue & { N: string }) | (_AttributeValue & { B: Uint8Array | string }) | (_AttributeValue & { SS: Array<string> }) | (_AttributeValue & { NS: Array<string> }) | (_AttributeValue & { BS: Array<Uint8Array | string> }) | (_AttributeValue & { M: Record<string, AttributeValue> }) | (_AttributeValue & { L: Array<AttributeValue> }) | (_AttributeValue & { NULL: boolean }) | (_AttributeValue & { BOOL: boolean });
 export type BinaryAttributeValue = Uint8Array | string;
 
 export type BinarySetAttributeValue = Array<Uint8Array | string>;
@@ -185,11 +167,7 @@ export type ShardId = string;
 
 export type ShardIterator = string;
 
-export type ShardIteratorType =
-  | "TRIM_HORIZON"
-  | "LATEST"
-  | "AT_SEQUENCE_NUMBER"
-  | "AFTER_SEQUENCE_NUMBER";
+export type ShardIteratorType = "TRIM_HORIZON" | "LATEST" | "AT_SEQUENCE_NUMBER" | "AFTER_SEQUENCE_NUMBER";
 export interface Stream {
   StreamArn?: string;
   TableName?: string;
@@ -219,11 +197,7 @@ export interface StreamRecord {
   StreamViewType?: StreamViewType;
 }
 export type StreamStatus = "ENABLING" | "ENABLED" | "DISABLING" | "DISABLED";
-export type StreamViewType =
-  | "NEW_IMAGE"
-  | "OLD_IMAGE"
-  | "NEW_AND_OLD_IMAGES"
-  | "KEYS_ONLY";
+export type StreamViewType = "NEW_IMAGE" | "OLD_IMAGE" | "NEW_AND_OLD_IMAGES" | "KEYS_ONLY";
 export type DynamodbStreamsString = string;
 
 export type StringAttributeValue = string;
@@ -276,10 +250,5 @@ export declare namespace ListStreams {
     | CommonAwsError;
 }
 
-export type DynamoDBStreamsErrors =
-  | ExpiredIteratorException
-  | InternalServerError
-  | LimitExceededException
-  | ResourceNotFoundException
-  | TrimmedDataAccessException
-  | CommonAwsError;
+export type DynamoDBStreamsErrors = ExpiredIteratorException | InternalServerError | LimitExceededException | ResourceNotFoundException | TrimmedDataAccessException | CommonAwsError;
+

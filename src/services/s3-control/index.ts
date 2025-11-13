@@ -5,26 +5,7 @@ import type { S3Control as _S3ControlClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {
-  AccessDeniedException,
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  ThrottlingException,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-  ValidationException,
-  type CommonAwsError,
-} from "../../error.ts";
+export {AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException, type CommonAwsError} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -34,615 +15,614 @@ const metadata = {
   sigV4ServiceName: "s3",
   endpointPrefix: "s3-control",
   operations: {
-    AssociateAccessGrantsIdentityCenter: {
+    "AssociateAccessGrantsIdentityCenter": {
       http: "POST /v20180820/accessgrantsinstance/identitycenter",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    CreateAccessGrant: {
+    "CreateAccessGrant": {
       http: "POST /v20180820/accessgrantsinstance/grant",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    CreateAccessGrantsInstance: {
+    "CreateAccessGrantsInstance": {
       http: "POST /v20180820/accessgrantsinstance",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    CreateAccessGrantsLocation: {
+    "CreateAccessGrantsLocation": {
       http: "POST /v20180820/accessgrantsinstance/location",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    CreateAccessPoint: {
+    "CreateAccessPoint": {
       http: "PUT /v20180820/accesspoint/{Name}",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    CreateAccessPointForObjectLambda: {
+    "CreateAccessPointForObjectLambda": {
       http: "PUT /v20180820/accesspointforobjectlambda/{Name}",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    CreateBucket: {
+    "CreateBucket": {
       http: "PUT /v20180820/bucket/{Bucket}",
       inputTraits: {
-        ACL: "x-amz-acl",
-        CreateBucketConfiguration: "httpPayload",
-        GrantFullControl: "x-amz-grant-full-control",
-        GrantRead: "x-amz-grant-read",
-        GrantReadACP: "x-amz-grant-read-acp",
-        GrantWrite: "x-amz-grant-write",
-        GrantWriteACP: "x-amz-grant-write-acp",
-        ObjectLockEnabledForBucket: "x-amz-bucket-object-lock-enabled",
-        OutpostId: "x-amz-outpost-id",
+        "ACL": "x-amz-acl",
+        "CreateBucketConfiguration": "httpPayload",
+        "GrantFullControl": "x-amz-grant-full-control",
+        "GrantRead": "x-amz-grant-read",
+        "GrantReadACP": "x-amz-grant-read-acp",
+        "GrantWrite": "x-amz-grant-write",
+        "GrantWriteACP": "x-amz-grant-write-acp",
+        "ObjectLockEnabledForBucket": "x-amz-bucket-object-lock-enabled",
+        "OutpostId": "x-amz-outpost-id",
       },
       outputTraits: {
-        Location: "Location",
+        "Location": "Location",
       },
     },
-    CreateJob: {
+    "CreateJob": {
       http: "POST /v20180820/jobs",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    CreateMultiRegionAccessPoint: {
+    "CreateMultiRegionAccessPoint": {
       http: "POST /v20180820/async-requests/mrap/create",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    CreateStorageLensGroup: {
+    "CreateStorageLensGroup": {
       http: "POST /v20180820/storagelensgroup",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    DeleteAccessGrant: {
+    "DeleteAccessGrant": {
       http: "DELETE /v20180820/accessgrantsinstance/grant/{AccessGrantId}",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    DeleteAccessGrantsInstance: {
+    "DeleteAccessGrantsInstance": {
       http: "DELETE /v20180820/accessgrantsinstance",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    DeleteAccessGrantsInstanceResourcePolicy: {
+    "DeleteAccessGrantsInstanceResourcePolicy": {
       http: "DELETE /v20180820/accessgrantsinstance/resourcepolicy",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    DeleteAccessGrantsLocation: {
+    "DeleteAccessGrantsLocation": {
       http: "DELETE /v20180820/accessgrantsinstance/location/{AccessGrantsLocationId}",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    DeleteAccessPoint: {
+    "DeleteAccessPoint": {
       http: "DELETE /v20180820/accesspoint/{Name}",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    DeleteAccessPointForObjectLambda: {
+    "DeleteAccessPointForObjectLambda": {
       http: "DELETE /v20180820/accesspointforobjectlambda/{Name}",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    DeleteAccessPointPolicy: {
+    "DeleteAccessPointPolicy": {
       http: "DELETE /v20180820/accesspoint/{Name}/policy",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    DeleteAccessPointPolicyForObjectLambda: {
+    "DeleteAccessPointPolicyForObjectLambda": {
       http: "DELETE /v20180820/accesspointforobjectlambda/{Name}/policy",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    DeleteAccessPointScope: {
+    "DeleteAccessPointScope": {
       http: "DELETE /v20180820/accesspoint/{Name}/scope",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    DeleteBucket: {
+    "DeleteBucket": {
       http: "DELETE /v20180820/bucket/{Bucket}",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    DeleteBucketLifecycleConfiguration: {
+    "DeleteBucketLifecycleConfiguration": {
       http: "DELETE /v20180820/bucket/{Bucket}/lifecycleconfiguration",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    DeleteBucketPolicy: {
+    "DeleteBucketPolicy": {
       http: "DELETE /v20180820/bucket/{Bucket}/policy",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    DeleteBucketReplication: {
+    "DeleteBucketReplication": {
       http: "DELETE /v20180820/bucket/{Bucket}/replication",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    DeleteBucketTagging: {
+    "DeleteBucketTagging": {
       http: "DELETE /v20180820/bucket/{Bucket}/tagging",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    DeleteJobTagging: {
+    "DeleteJobTagging": {
       http: "DELETE /v20180820/jobs/{JobId}/tagging",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    DeleteMultiRegionAccessPoint: {
+    "DeleteMultiRegionAccessPoint": {
       http: "POST /v20180820/async-requests/mrap/delete",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    DeletePublicAccessBlock: {
+    "DeletePublicAccessBlock": {
       http: "DELETE /v20180820/configuration/publicAccessBlock",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    DeleteStorageLensConfiguration: {
+    "DeleteStorageLensConfiguration": {
       http: "DELETE /v20180820/storagelens/{ConfigId}",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    DeleteStorageLensConfigurationTagging: {
+    "DeleteStorageLensConfigurationTagging": {
       http: "DELETE /v20180820/storagelens/{ConfigId}/tagging",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    DeleteStorageLensGroup: {
+    "DeleteStorageLensGroup": {
       http: "DELETE /v20180820/storagelensgroup/{Name}",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    DescribeJob: {
+    "DescribeJob": {
       http: "GET /v20180820/jobs/{JobId}",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    DescribeMultiRegionAccessPointOperation: {
+    "DescribeMultiRegionAccessPointOperation": {
       http: "GET /v20180820/async-requests/mrap/{RequestTokenARN+}",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    DissociateAccessGrantsIdentityCenter: {
+    "DissociateAccessGrantsIdentityCenter": {
       http: "DELETE /v20180820/accessgrantsinstance/identitycenter",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    GetAccessGrant: {
+    "GetAccessGrant": {
       http: "GET /v20180820/accessgrantsinstance/grant/{AccessGrantId}",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    GetAccessGrantsInstance: {
+    "GetAccessGrantsInstance": {
       http: "GET /v20180820/accessgrantsinstance",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    GetAccessGrantsInstanceForPrefix: {
+    "GetAccessGrantsInstanceForPrefix": {
       http: "GET /v20180820/accessgrantsinstance/prefix",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    GetAccessGrantsInstanceResourcePolicy: {
+    "GetAccessGrantsInstanceResourcePolicy": {
       http: "GET /v20180820/accessgrantsinstance/resourcepolicy",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    GetAccessGrantsLocation: {
+    "GetAccessGrantsLocation": {
       http: "GET /v20180820/accessgrantsinstance/location/{AccessGrantsLocationId}",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    GetAccessPoint: {
+    "GetAccessPoint": {
       http: "GET /v20180820/accesspoint/{Name}",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    GetAccessPointConfigurationForObjectLambda: {
+    "GetAccessPointConfigurationForObjectLambda": {
       http: "GET /v20180820/accesspointforobjectlambda/{Name}/configuration",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    GetAccessPointForObjectLambda: {
+    "GetAccessPointForObjectLambda": {
       http: "GET /v20180820/accesspointforobjectlambda/{Name}",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    GetAccessPointPolicy: {
+    "GetAccessPointPolicy": {
       http: "GET /v20180820/accesspoint/{Name}/policy",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    GetAccessPointPolicyForObjectLambda: {
+    "GetAccessPointPolicyForObjectLambda": {
       http: "GET /v20180820/accesspointforobjectlambda/{Name}/policy",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    GetAccessPointPolicyStatus: {
+    "GetAccessPointPolicyStatus": {
       http: "GET /v20180820/accesspoint/{Name}/policyStatus",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    GetAccessPointPolicyStatusForObjectLambda: {
+    "GetAccessPointPolicyStatusForObjectLambda": {
       http: "GET /v20180820/accesspointforobjectlambda/{Name}/policyStatus",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    GetAccessPointScope: {
+    "GetAccessPointScope": {
       http: "GET /v20180820/accesspoint/{Name}/scope",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    GetBucket: {
+    "GetBucket": {
       http: "GET /v20180820/bucket/{Bucket}",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    GetBucketLifecycleConfiguration: {
+    "GetBucketLifecycleConfiguration": {
       http: "GET /v20180820/bucket/{Bucket}/lifecycleconfiguration",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    GetBucketPolicy: {
+    "GetBucketPolicy": {
       http: "GET /v20180820/bucket/{Bucket}/policy",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    GetBucketReplication: {
+    "GetBucketReplication": {
       http: "GET /v20180820/bucket/{Bucket}/replication",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    GetBucketTagging: {
+    "GetBucketTagging": {
       http: "GET /v20180820/bucket/{Bucket}/tagging",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    GetBucketVersioning: {
+    "GetBucketVersioning": {
       http: "GET /v20180820/bucket/{Bucket}/versioning",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    GetDataAccess: {
+    "GetDataAccess": {
       http: "GET /v20180820/accessgrantsinstance/dataaccess",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    GetJobTagging: {
+    "GetJobTagging": {
       http: "GET /v20180820/jobs/{JobId}/tagging",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    GetMultiRegionAccessPoint: {
+    "GetMultiRegionAccessPoint": {
       http: "GET /v20180820/mrap/instances/{Name+}",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    GetMultiRegionAccessPointPolicy: {
+    "GetMultiRegionAccessPointPolicy": {
       http: "GET /v20180820/mrap/instances/{Name+}/policy",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    GetMultiRegionAccessPointPolicyStatus: {
+    "GetMultiRegionAccessPointPolicyStatus": {
       http: "GET /v20180820/mrap/instances/{Name+}/policystatus",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    GetMultiRegionAccessPointRoutes: {
+    "GetMultiRegionAccessPointRoutes": {
       http: "GET /v20180820/mrap/instances/{Mrap+}/routes",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    GetPublicAccessBlock: {
+    "GetPublicAccessBlock": {
       http: "GET /v20180820/configuration/publicAccessBlock",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
       outputTraits: {
-        PublicAccessBlockConfiguration: "httpPayload",
+        "PublicAccessBlockConfiguration": "httpPayload",
       },
     },
-    GetStorageLensConfiguration: {
+    "GetStorageLensConfiguration": {
       http: "GET /v20180820/storagelens/{ConfigId}",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
       outputTraits: {
-        StorageLensConfiguration: "httpPayload",
+        "StorageLensConfiguration": "httpPayload",
       },
     },
-    GetStorageLensConfigurationTagging: {
+    "GetStorageLensConfigurationTagging": {
       http: "GET /v20180820/storagelens/{ConfigId}/tagging",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    GetStorageLensGroup: {
+    "GetStorageLensGroup": {
       http: "GET /v20180820/storagelensgroup/{Name}",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
       outputTraits: {
-        StorageLensGroup: "httpPayload",
+        "StorageLensGroup": "httpPayload",
       },
     },
-    ListAccessGrants: {
+    "ListAccessGrants": {
       http: "GET /v20180820/accessgrantsinstance/grants",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    ListAccessGrantsInstances: {
+    "ListAccessGrantsInstances": {
       http: "GET /v20180820/accessgrantsinstances",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    ListAccessGrantsLocations: {
+    "ListAccessGrantsLocations": {
       http: "GET /v20180820/accessgrantsinstance/locations",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    ListAccessPoints: {
+    "ListAccessPoints": {
       http: "GET /v20180820/accesspoint",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    ListAccessPointsForDirectoryBuckets: {
+    "ListAccessPointsForDirectoryBuckets": {
       http: "GET /v20180820/accesspointfordirectory",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    ListAccessPointsForObjectLambda: {
+    "ListAccessPointsForObjectLambda": {
       http: "GET /v20180820/accesspointforobjectlambda",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    ListCallerAccessGrants: {
+    "ListCallerAccessGrants": {
       http: "GET /v20180820/accessgrantsinstance/caller/grants",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    ListJobs: {
+    "ListJobs": {
       http: "GET /v20180820/jobs",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    ListMultiRegionAccessPoints: {
+    "ListMultiRegionAccessPoints": {
       http: "GET /v20180820/mrap/instances",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    ListRegionalBuckets: {
+    "ListRegionalBuckets": {
       http: "GET /v20180820/bucket",
       inputTraits: {
-        AccountId: "x-amz-account-id",
-        OutpostId: "x-amz-outpost-id",
+        "AccountId": "x-amz-account-id",
+        "OutpostId": "x-amz-outpost-id",
       },
     },
-    ListStorageLensConfigurations: {
+    "ListStorageLensConfigurations": {
       http: "GET /v20180820/storagelens",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    ListStorageLensGroups: {
+    "ListStorageLensGroups": {
       http: "GET /v20180820/storagelensgroup",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    ListTagsForResource: {
+    "ListTagsForResource": {
       http: "GET /v20180820/tags/{ResourceArn+}",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    PutAccessGrantsInstanceResourcePolicy: {
+    "PutAccessGrantsInstanceResourcePolicy": {
       http: "PUT /v20180820/accessgrantsinstance/resourcepolicy",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    PutAccessPointConfigurationForObjectLambda: {
+    "PutAccessPointConfigurationForObjectLambda": {
       http: "PUT /v20180820/accesspointforobjectlambda/{Name}/configuration",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    PutAccessPointPolicy: {
+    "PutAccessPointPolicy": {
       http: "PUT /v20180820/accesspoint/{Name}/policy",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    PutAccessPointPolicyForObjectLambda: {
+    "PutAccessPointPolicyForObjectLambda": {
       http: "PUT /v20180820/accesspointforobjectlambda/{Name}/policy",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    PutAccessPointScope: {
+    "PutAccessPointScope": {
       http: "PUT /v20180820/accesspoint/{Name}/scope",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    PutBucketLifecycleConfiguration: {
+    "PutBucketLifecycleConfiguration": {
       http: "PUT /v20180820/bucket/{Bucket}/lifecycleconfiguration",
       inputTraits: {
-        AccountId: "x-amz-account-id",
-        LifecycleConfiguration: "httpPayload",
+        "AccountId": "x-amz-account-id",
+        "LifecycleConfiguration": "httpPayload",
       },
     },
-    PutBucketPolicy: {
+    "PutBucketPolicy": {
       http: "PUT /v20180820/bucket/{Bucket}/policy",
       inputTraits: {
-        AccountId: "x-amz-account-id",
-        ConfirmRemoveSelfBucketAccess:
-          "x-amz-confirm-remove-self-bucket-access",
+        "AccountId": "x-amz-account-id",
+        "ConfirmRemoveSelfBucketAccess": "x-amz-confirm-remove-self-bucket-access",
       },
     },
-    PutBucketReplication: {
+    "PutBucketReplication": {
       http: "PUT /v20180820/bucket/{Bucket}/replication",
       inputTraits: {
-        AccountId: "x-amz-account-id",
-        ReplicationConfiguration: "httpPayload",
+        "AccountId": "x-amz-account-id",
+        "ReplicationConfiguration": "httpPayload",
       },
     },
-    PutBucketTagging: {
+    "PutBucketTagging": {
       http: "PUT /v20180820/bucket/{Bucket}/tagging",
       inputTraits: {
-        AccountId: "x-amz-account-id",
-        Tagging: "httpPayload",
+        "AccountId": "x-amz-account-id",
+        "Tagging": "httpPayload",
       },
     },
-    PutBucketVersioning: {
+    "PutBucketVersioning": {
       http: "PUT /v20180820/bucket/{Bucket}/versioning",
       inputTraits: {
-        AccountId: "x-amz-account-id",
-        MFA: "x-amz-mfa",
-        VersioningConfiguration: "httpPayload",
+        "AccountId": "x-amz-account-id",
+        "MFA": "x-amz-mfa",
+        "VersioningConfiguration": "httpPayload",
       },
     },
-    PutJobTagging: {
+    "PutJobTagging": {
       http: "PUT /v20180820/jobs/{JobId}/tagging",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    PutMultiRegionAccessPointPolicy: {
+    "PutMultiRegionAccessPointPolicy": {
       http: "POST /v20180820/async-requests/mrap/put-policy",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    PutPublicAccessBlock: {
+    "PutPublicAccessBlock": {
       http: "PUT /v20180820/configuration/publicAccessBlock",
       inputTraits: {
-        PublicAccessBlockConfiguration: "httpPayload",
-        AccountId: "x-amz-account-id",
+        "PublicAccessBlockConfiguration": "httpPayload",
+        "AccountId": "x-amz-account-id",
       },
     },
-    PutStorageLensConfiguration: {
+    "PutStorageLensConfiguration": {
       http: "PUT /v20180820/storagelens/{ConfigId}",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    PutStorageLensConfigurationTagging: {
+    "PutStorageLensConfigurationTagging": {
       http: "PUT /v20180820/storagelens/{ConfigId}/tagging",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    SubmitMultiRegionAccessPointRoutes: {
+    "SubmitMultiRegionAccessPointRoutes": {
       http: "PATCH /v20180820/mrap/instances/{Mrap+}/routes",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    TagResource: {
+    "TagResource": {
       http: "POST /v20180820/tags/{ResourceArn+}",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    UntagResource: {
+    "UntagResource": {
       http: "DELETE /v20180820/tags/{ResourceArn+}",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    UpdateAccessGrantsLocation: {
+    "UpdateAccessGrantsLocation": {
       http: "PUT /v20180820/accessgrantsinstance/location/{AccessGrantsLocationId}",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    UpdateJobPriority: {
+    "UpdateJobPriority": {
       http: "POST /v20180820/jobs/{JobId}/priority",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    UpdateJobStatus: {
+    "UpdateJobStatus": {
       http: "POST /v20180820/jobs/{JobId}/status",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
-    UpdateStorageLensGroup: {
+    "UpdateStorageLensGroup": {
       http: "PUT /v20180820/storagelensgroup/{Name}",
       inputTraits: {
-        AccountId: "x-amz-account-id",
+        "AccountId": "x-amz-account-id",
       },
     },
   },

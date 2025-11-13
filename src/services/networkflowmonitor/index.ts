@@ -5,23 +5,7 @@ import type { NetworkFlowMonitor as _NetworkFlowMonitorClient } from "./types.ts
 
 export * from "./types.ts";
 
-export {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-  type CommonAwsError,
-} from "../../error.ts";
+export {ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, type CommonAwsError} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -30,43 +14,35 @@ const metadata = {
   protocol: "restJson1",
   sigV4ServiceName: "networkflowmonitor",
   operations: {
-    ListTagsForResource: "GET /tags/{resourceArn}",
-    TagResource: "POST /tags/{resourceArn}",
-    UntagResource: "DELETE /tags/{resourceArn}",
-    CreateMonitor: "POST /monitors",
-    CreateScope: "POST /scopes",
-    DeleteMonitor: "DELETE /monitors/{monitorName}",
-    DeleteScope: "DELETE /scopes/{scopeId}",
-    GetMonitor: "GET /monitors/{monitorName}",
-    GetQueryResultsMonitorTopContributors:
-      "GET /monitors/{monitorName}/topContributorsQueries/{queryId}/results",
-    GetQueryResultsWorkloadInsightsTopContributors:
-      "GET /workloadInsights/{scopeId}/topContributorsQueries/{queryId}/results",
-    GetQueryResultsWorkloadInsightsTopContributorsData:
-      "GET /workloadInsights/{scopeId}/topContributorsDataQueries/{queryId}/results",
-    GetQueryStatusMonitorTopContributors:
-      "GET /monitors/{monitorName}/topContributorsQueries/{queryId}/status",
-    GetQueryStatusWorkloadInsightsTopContributors:
-      "GET /workloadInsights/{scopeId}/topContributorsQueries/{queryId}/status",
-    GetQueryStatusWorkloadInsightsTopContributorsData:
-      "GET /workloadInsights/{scopeId}/topContributorsDataQueries/{queryId}/status",
-    GetScope: "GET /scopes/{scopeId}",
-    ListMonitors: "GET /monitors",
-    ListScopes: "GET /scopes",
-    StartQueryMonitorTopContributors:
-      "POST /monitors/{monitorName}/topContributorsQueries",
-    StartQueryWorkloadInsightsTopContributors:
-      "POST /workloadInsights/{scopeId}/topContributorsQueries",
-    StartQueryWorkloadInsightsTopContributorsData:
-      "POST /workloadInsights/{scopeId}/topContributorsDataQueries",
-    StopQueryMonitorTopContributors:
-      "DELETE /monitors/{monitorName}/topContributorsQueries/{queryId}",
-    StopQueryWorkloadInsightsTopContributors:
-      "DELETE /workloadInsights/{scopeId}/topContributorsQueries/{queryId}",
-    StopQueryWorkloadInsightsTopContributorsData:
-      "DELETE /workloadInsights/{scopeId}/topContributorsDataQueries/{queryId}",
-    UpdateMonitor: "PATCH /monitors/{monitorName}",
-    UpdateScope: "PATCH /scopes/{scopeId}",
+    "ListTagsForResource": "GET /tags/{resourceArn}",
+    "TagResource": "POST /tags/{resourceArn}",
+    "UntagResource": "DELETE /tags/{resourceArn}",
+    "CreateMonitor": "POST /monitors",
+    "CreateScope": "POST /scopes",
+    "DeleteMonitor": "DELETE /monitors/{monitorName}",
+    "DeleteScope": "DELETE /scopes/{scopeId}",
+    "GetMonitor": "GET /monitors/{monitorName}",
+    "GetQueryResultsMonitorTopContributors": "GET /monitors/{monitorName}/topContributorsQueries/{queryId}/results",
+    "GetQueryResultsWorkloadInsightsTopContributors": "GET /workloadInsights/{scopeId}/topContributorsQueries/{queryId}/results",
+    "GetQueryResultsWorkloadInsightsTopContributorsData": "GET /workloadInsights/{scopeId}/topContributorsDataQueries/{queryId}/results",
+    "GetQueryStatusMonitorTopContributors": "GET /monitors/{monitorName}/topContributorsQueries/{queryId}/status",
+    "GetQueryStatusWorkloadInsightsTopContributors": "GET /workloadInsights/{scopeId}/topContributorsQueries/{queryId}/status",
+    "GetQueryStatusWorkloadInsightsTopContributorsData": "GET /workloadInsights/{scopeId}/topContributorsDataQueries/{queryId}/status",
+    "GetScope": "GET /scopes/{scopeId}",
+    "ListMonitors": "GET /monitors",
+    "ListScopes": "GET /scopes",
+    "StartQueryMonitorTopContributors": "POST /monitors/{monitorName}/topContributorsQueries",
+    "StartQueryWorkloadInsightsTopContributors": "POST /workloadInsights/{scopeId}/topContributorsQueries",
+    "StartQueryWorkloadInsightsTopContributorsData": "POST /workloadInsights/{scopeId}/topContributorsDataQueries",
+    "StopQueryMonitorTopContributors": "DELETE /monitors/{monitorName}/topContributorsQueries/{queryId}",
+    "StopQueryWorkloadInsightsTopContributors": "DELETE /workloadInsights/{scopeId}/topContributorsQueries/{queryId}",
+    "StopQueryWorkloadInsightsTopContributorsData": "DELETE /workloadInsights/{scopeId}/topContributorsDataQueries/{queryId}",
+    "UpdateMonitor": "PATCH /monitors/{monitorName}",
+    "UpdateScope": "PATCH /scopes/{scopeId}",
+  },
+  retryableErrors: {
+    "InternalServerException": {},
+    "ThrottlingException": {},
   },
 } as const satisfies ServiceMetadata;
 

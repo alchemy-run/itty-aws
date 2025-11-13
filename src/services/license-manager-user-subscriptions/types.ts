@@ -1,38 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-} from "../../error.ts";
-type CommonAwsError =
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | AccessDeniedException
-  | ThrottlingException
-  | ValidationException;
+import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
+type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class LicenseManagerUserSubscriptions extends AWSServiceClient {
@@ -40,187 +8,91 @@ export declare class LicenseManagerUserSubscriptions extends AWSServiceClient {
     input: AssociateUserRequest,
   ): Effect.Effect<
     AssociateUserResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createLicenseServerEndpoint(
     input: CreateLicenseServerEndpointRequest,
   ): Effect.Effect<
     CreateLicenseServerEndpointResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteLicenseServerEndpoint(
     input: DeleteLicenseServerEndpointRequest,
   ): Effect.Effect<
     DeleteLicenseServerEndpointResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deregisterIdentityProvider(
     input: DeregisterIdentityProviderRequest,
   ): Effect.Effect<
     DeregisterIdentityProviderResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   disassociateUser(
     input: DisassociateUserRequest,
   ): Effect.Effect<
     DisassociateUserResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listIdentityProviders(
     input: ListIdentityProvidersRequest,
   ): Effect.Effect<
     ListIdentityProvidersResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listInstances(
     input: ListInstancesRequest,
   ): Effect.Effect<
     ListInstancesResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listLicenseServerEndpoints(
     input: ListLicenseServerEndpointsRequest,
   ): Effect.Effect<
     ListLicenseServerEndpointsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listProductSubscriptions(
     input: ListProductSubscriptionsRequest,
   ): Effect.Effect<
     ListProductSubscriptionsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   listUserAssociations(
     input: ListUserAssociationsRequest,
   ): Effect.Effect<
     ListUserAssociationsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   registerIdentityProvider(
     input: RegisterIdentityProviderRequest,
   ): Effect.Effect<
     RegisterIdentityProviderResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   startProductSubscription(
     input: StartProductSubscriptionRequest,
   ): Effect.Effect<
     StartProductSubscriptionResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   stopProductSubscription(
     input: StopProductSubscriptionRequest,
   ): Effect.Effect<
     StopProductSubscriptionResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
@@ -232,11 +104,7 @@ export declare class LicenseManagerUserSubscriptions extends AWSServiceClient {
     input: UpdateIdentityProviderSettingsRequest,
   ): Effect.Effect<
     UpdateIdentityProviderSettingsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
 }
 
@@ -292,9 +160,7 @@ interface _CredentialsProvider {
   SecretsManagerCredentialsProvider?: SecretsManagerCredentialsProvider;
 }
 
-export type CredentialsProvider = _CredentialsProvider & {
-  SecretsManagerCredentialsProvider: SecretsManagerCredentialsProvider;
-};
+export type CredentialsProvider = (_CredentialsProvider & { SecretsManagerCredentialsProvider: SecretsManagerCredentialsProvider });
 export interface DeleteLicenseServerEndpointRequest {
   LicenseServerEndpointArn: string;
   ServerType: string;
@@ -335,9 +201,7 @@ interface _IdentityProvider {
   ActiveDirectoryIdentityProvider?: ActiveDirectoryIdentityProvider;
 }
 
-export type IdentityProvider = _IdentityProvider & {
-  ActiveDirectoryIdentityProvider: ActiveDirectoryIdentityProvider;
-};
+export type IdentityProvider = (_IdentityProvider & { ActiveDirectoryIdentityProvider: ActiveDirectoryIdentityProvider });
 export interface IdentityProviderSummary {
   IdentityProvider: IdentityProvider;
   Settings: Settings;
@@ -508,9 +372,7 @@ interface _ServerSettings {
   RdsSalSettings?: RdsSalSettings;
 }
 
-export type ServerSettings = _ServerSettings & {
-  RdsSalSettings: RdsSalSettings;
-};
+export type ServerSettings = (_ServerSettings & { RdsSalSettings: RdsSalSettings });
 export type ServerType = string;
 
 export declare class ServiceQuotaExceededException extends EffectData.TaggedError(
@@ -551,7 +413,8 @@ export interface TagResourceRequest {
   ResourceArn: string;
   Tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type Tags = Record<string, string>;
 export declare class ThrottlingException extends EffectData.TaggedError(
   "ThrottlingException",
@@ -562,7 +425,8 @@ export interface UntagResourceRequest {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateIdentityProviderSettingsRequest {
   IdentityProvider?: IdentityProvider;
   Product?: string;
@@ -803,12 +667,5 @@ export declare namespace UpdateIdentityProviderSettings {
     | CommonAwsError;
 }
 
-export type LicenseManagerUserSubscriptionsErrors =
-  | AccessDeniedException
-  | ConflictException
-  | InternalServerException
-  | ResourceNotFoundException
-  | ServiceQuotaExceededException
-  | ThrottlingException
-  | ValidationException
-  | CommonAwsError;
+export type LicenseManagerUserSubscriptionsErrors = AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError;
+

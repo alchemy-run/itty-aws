@@ -1,40 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  AccessDeniedException,
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  ThrottlingException,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-} from "../../error.ts";
-type CommonAwsError =
-  | AccessDeniedException
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | ThrottlingException
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | ValidationException;
+import type { AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
+type CommonAwsError = AccessDeniedException | ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | ThrottlingException | UnrecognizedClientException | UnknownOperationException | ValidationError | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class SsmSap extends AWSServiceClient {
@@ -42,19 +8,13 @@ export declare class SsmSap extends AWSServiceClient {
     input: DeleteResourcePermissionInput,
   ): Effect.Effect<
     DeleteResourcePermissionOutput,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   deregisterApplication(
     input: DeregisterApplicationInput,
   ): Effect.Effect<
     DeregisterApplicationOutput,
-    | InternalServerException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | UnauthorizedException | ValidationException | CommonAwsError
   >;
   getApplication(
     input: GetApplicationInput,
@@ -66,10 +26,7 @@ export declare class SsmSap extends AWSServiceClient {
     input: GetComponentInput,
   ): Effect.Effect<
     GetComponentOutput,
-    | InternalServerException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | UnauthorizedException | ValidationException | CommonAwsError
   >;
   getConfigurationCheckOperation(
     input: GetConfigurationCheckOperationInput,
@@ -93,29 +50,19 @@ export declare class SsmSap extends AWSServiceClient {
     input: GetResourcePermissionInput,
   ): Effect.Effect<
     GetResourcePermissionOutput,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   listApplications(
     input: ListApplicationsInput,
   ): Effect.Effect<
     ListApplicationsOutput,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   listComponents(
     input: ListComponentsInput,
   ): Effect.Effect<
     ListComponentsOutput,
-    | InternalServerException
-    | ResourceNotFoundException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | UnauthorizedException | ValidationException | CommonAwsError
   >;
   listConfigurationCheckDefinitions(
     input: ListConfigurationCheckDefinitionsInput,
@@ -127,19 +74,13 @@ export declare class SsmSap extends AWSServiceClient {
     input: ListConfigurationCheckOperationsInput,
   ): Effect.Effect<
     ListConfigurationCheckOperationsOutput,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   listDatabases(
     input: ListDatabasesInput,
   ): Effect.Effect<
     ListDatabasesOutput,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   listOperationEvents(
     input: ListOperationEventsInput,
@@ -169,107 +110,65 @@ export declare class SsmSap extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | ConflictException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   putResourcePermission(
     input: PutResourcePermissionInput,
   ): Effect.Effect<
     PutResourcePermissionOutput,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   registerApplication(
     input: RegisterApplicationInput,
   ): Effect.Effect<
     RegisterApplicationOutput,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   startApplication(
     input: StartApplicationInput,
   ): Effect.Effect<
     StartApplicationOutput,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   startApplicationRefresh(
     input: StartApplicationRefreshInput,
   ): Effect.Effect<
     StartApplicationRefreshOutput,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | UnauthorizedException | ValidationException | CommonAwsError
   >;
   startConfigurationChecks(
     input: StartConfigurationChecksInput,
   ): Effect.Effect<
     StartConfigurationChecksOutput,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   stopApplication(
     input: StopApplicationInput,
   ): Effect.Effect<
     StopApplicationOutput,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | ConflictException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | ConflictException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   updateApplicationSettings(
     input: UpdateApplicationSettingsInput,
   ): Effect.Effect<
     UpdateApplicationSettingsOutput,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | UnauthorizedException | ValidationException | CommonAwsError
   >;
 }
 
-export type AllocationType =
-  | "VPC_SUBNET"
-  | "ELASTIC_IP"
-  | "OVERLAY"
-  | "UNKNOWN";
+export type AllocationType = "VPC_SUBNET" | "ELASTIC_IP" | "OVERLAY" | "UNKNOWN";
 export interface Application {
   Id?: string;
   Type?: ApplicationType;
@@ -289,23 +188,10 @@ export interface ApplicationCredential {
   SecretId: string;
 }
 export type ApplicationCredentialList = Array<ApplicationCredential>;
-export type ApplicationDiscoveryStatus =
-  | "SUCCESS"
-  | "REGISTRATION_FAILED"
-  | "REFRESH_FAILED"
-  | "REGISTERING"
-  | "DELETING";
+export type ApplicationDiscoveryStatus = "SUCCESS" | "REGISTRATION_FAILED" | "REFRESH_FAILED" | "REGISTERING" | "DELETING";
 export type ApplicationId = string;
 
-export type ApplicationStatus =
-  | "ACTIVATED"
-  | "STARTING"
-  | "STOPPED"
-  | "STOPPING"
-  | "FAILED"
-  | "REGISTERING"
-  | "DELETING"
-  | "UNKNOWN";
+export type ApplicationStatus = "ACTIVATED" | "STARTING" | "STOPPED" | "STOPPING" | "FAILED" | "REGISTERING" | "DELETING" | "UNKNOWN";
 export interface ApplicationSummary {
   Id?: string;
   DiscoveryStatus?: ApplicationDiscoveryStatus;
@@ -331,12 +217,7 @@ export interface BackintConfig {
   EnsureNoBackupInProcess: boolean;
 }
 export type BackintMode = "AWSBackup";
-export type ClusterStatus =
-  | "ONLINE"
-  | "STANDBY"
-  | "MAINTENANCE"
-  | "OFFLINE"
-  | "NONE";
+export type ClusterStatus = "ONLINE" | "STANDBY" | "MAINTENANCE" | "OFFLINE" | "NONE";
 export interface Component {
   ComponentId?: string;
   Sid?: string;
@@ -369,14 +250,7 @@ export interface ComponentInfo {
   Ec2InstanceId: string;
 }
 export type ComponentInfoList = Array<ComponentInfo>;
-export type ComponentStatus =
-  | "ACTIVATED"
-  | "STARTING"
-  | "STOPPED"
-  | "STOPPING"
-  | "RUNNING"
-  | "RUNNING_WITH_ERROR"
-  | "UNDEFINED";
+export type ComponentStatus = "ACTIVATED" | "STARTING" | "STOPPED" | "STOPPING" | "RUNNING" | "RUNNING_WITH_ERROR" | "UNDEFINED";
 export interface ComponentSummary {
   ApplicationId?: string;
   ComponentId?: string;
@@ -385,23 +259,14 @@ export interface ComponentSummary {
   Arn?: string;
 }
 export type ComponentSummaryList = Array<ComponentSummary>;
-export type ComponentType =
-  | "HANA"
-  | "HANA_NODE"
-  | "ABAP"
-  | "ASCS"
-  | "DIALOG"
-  | "WEBDISP"
-  | "WD"
-  | "ERS";
+export type ComponentType = "HANA" | "HANA_NODE" | "ABAP" | "ASCS" | "DIALOG" | "WEBDISP" | "WD" | "ERS";
 export interface ConfigurationCheckDefinition {
   Id?: ConfigurationCheckType;
   Name?: string;
   Description?: string;
   ApplicableApplicationTypes?: Array<ApplicationType>;
 }
-export type ConfigurationCheckDefinitionList =
-  Array<ConfigurationCheckDefinition>;
+export type ConfigurationCheckDefinitionList = Array<ConfigurationCheckDefinition>;
 export interface ConfigurationCheckOperation {
   Id?: string;
   ApplicationId?: string;
@@ -414,15 +279,9 @@ export interface ConfigurationCheckOperation {
   EndTime?: Date | string;
   RuleStatusCounts?: RuleStatusCounts;
 }
-export type ConfigurationCheckOperationList =
-  Array<ConfigurationCheckOperation>;
-export type ConfigurationCheckOperationListingMode =
-  | "ALL_OPERATIONS"
-  | "LATEST_PER_CHECK";
-export type ConfigurationCheckType =
-  | "SAP_CHECK_01"
-  | "SAP_CHECK_02"
-  | "SAP_CHECK_03";
+export type ConfigurationCheckOperationList = Array<ConfigurationCheckOperation>;
+export type ConfigurationCheckOperationListingMode = "ALL_OPERATIONS" | "LATEST_PER_CHECK";
+export type ConfigurationCheckType = "SAP_CHECK_01" | "SAP_CHECK_02" | "SAP_CHECK_03";
 export type ConfigurationCheckTypeList = Array<ConfigurationCheckType>;
 export declare class ConflictException extends EffectData.TaggedError(
   "ConflictException",
@@ -456,13 +315,7 @@ export type DatabaseId = string;
 export type DatabaseIdList = Array<string>;
 export type DatabaseName = string;
 
-export type DatabaseStatus =
-  | "RUNNING"
-  | "STARTING"
-  | "STOPPED"
-  | "WARNING"
-  | "UNKNOWN"
-  | "ERROR";
+export type DatabaseStatus = "RUNNING" | "STARTING" | "STOPPED" | "WARNING" | "UNKNOWN" | "ERROR";
 export interface DatabaseSummary {
   ApplicationId?: string;
   ComponentId?: string;
@@ -484,7 +337,8 @@ export interface DeleteResourcePermissionOutput {
 export interface DeregisterApplicationInput {
   ApplicationId: string;
 }
-export interface DeregisterApplicationOutput {}
+export interface DeregisterApplicationOutput {
+}
 export interface Filter {
   Name: string;
   Value: string;
@@ -493,10 +347,7 @@ export interface Filter {
 export type FilterList = Array<Filter>;
 export type FilterName = string;
 
-export type FilterOperator =
-  | "Equals"
-  | "GreaterThanOrEquals"
-  | "LessThanOrEquals";
+export type FilterOperator = "Equals" | "GreaterThanOrEquals" | "LessThanOrEquals";
 export type FilterValue = string;
 
 export interface GetApplicationInput {
@@ -692,12 +543,7 @@ export type OperationId = string;
 
 export type OperationIdList = Array<string>;
 export type OperationList = Array<Operation>;
-export type OperationMode =
-  | "PRIMARY"
-  | "LOGREPLAY"
-  | "DELTA_DATASHIPPING"
-  | "LOGREPLAY_READACCESS"
-  | "NONE";
+export type OperationMode = "PRIMARY" | "LOGREPLAY" | "DELTA_DATASHIPPING" | "LOGREPLAY_READACCESS" | "NONE";
 export type OperationProperties = Record<string, string>;
 export type OperationStatus = "INPROGRESS" | "SUCCESS" | "ERROR";
 export type OperationType = string;
@@ -762,12 +608,7 @@ export type RuleResultMetadataKey = string;
 
 export type RuleResultMetadataValue = string;
 
-export type RuleResultStatus =
-  | "PASSED"
-  | "FAILED"
-  | "WARNING"
-  | "INFO"
-  | "UNKNOWN";
+export type RuleResultStatus = "PASSED" | "FAILED" | "WARNING" | "INFO" | "UNKNOWN";
 export interface RuleStatusCounts {
   Failed?: number;
   Warning?: number;
@@ -828,7 +669,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export declare class UnauthorizedException extends EffectData.TaggedError(
@@ -840,7 +682,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateApplicationSettingsInput {
   ApplicationId: string;
   CredentialsToAddOrUpdate?: Array<ApplicationCredential>;
@@ -1127,10 +970,5 @@ export declare namespace UpdateApplicationSettings {
     | CommonAwsError;
 }
 
-export type SsmSapErrors =
-  | ConflictException
-  | InternalServerException
-  | ResourceNotFoundException
-  | UnauthorizedException
-  | ValidationException
-  | CommonAwsError;
+export type SsmSapErrors = ConflictException | InternalServerException | ResourceNotFoundException | UnauthorizedException | ValidationException | CommonAwsError;
+

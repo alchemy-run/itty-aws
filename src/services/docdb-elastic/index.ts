@@ -5,23 +5,7 @@ import type { DocDBElastic as _DocDBElasticClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-  type CommonAwsError,
-} from "../../error.ts";
+export {ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, type CommonAwsError} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -30,25 +14,29 @@ const metadata = {
   protocol: "restJson1",
   sigV4ServiceName: "docdb-elastic",
   operations: {
-    ApplyPendingMaintenanceAction: "POST /pending-action",
-    CopyClusterSnapshot: "POST /cluster-snapshot/{snapshotArn}/copy",
-    CreateCluster: "POST /cluster",
-    CreateClusterSnapshot: "POST /cluster-snapshot",
-    DeleteCluster: "DELETE /cluster/{clusterArn}",
-    DeleteClusterSnapshot: "DELETE /cluster-snapshot/{snapshotArn}",
-    GetCluster: "GET /cluster/{clusterArn}",
-    GetClusterSnapshot: "GET /cluster-snapshot/{snapshotArn}",
-    GetPendingMaintenanceAction: "GET /pending-action/{resourceArn}",
-    ListClusters: "GET /clusters",
-    ListClusterSnapshots: "GET /cluster-snapshots",
-    ListPendingMaintenanceActions: "GET /pending-actions",
-    ListTagsForResource: "GET /tags/{resourceArn}",
-    RestoreClusterFromSnapshot: "POST /cluster-snapshot/{snapshotArn}/restore",
-    StartCluster: "POST /cluster/{clusterArn}/start",
-    StopCluster: "POST /cluster/{clusterArn}/stop",
-    TagResource: "POST /tags/{resourceArn}",
-    UntagResource: "DELETE /tags/{resourceArn}",
-    UpdateCluster: "PUT /cluster/{clusterArn}",
+    "ApplyPendingMaintenanceAction": "POST /pending-action",
+    "CopyClusterSnapshot": "POST /cluster-snapshot/{snapshotArn}/copy",
+    "CreateCluster": "POST /cluster",
+    "CreateClusterSnapshot": "POST /cluster-snapshot",
+    "DeleteCluster": "DELETE /cluster/{clusterArn}",
+    "DeleteClusterSnapshot": "DELETE /cluster-snapshot/{snapshotArn}",
+    "GetCluster": "GET /cluster/{clusterArn}",
+    "GetClusterSnapshot": "GET /cluster-snapshot/{snapshotArn}",
+    "GetPendingMaintenanceAction": "GET /pending-action/{resourceArn}",
+    "ListClusters": "GET /clusters",
+    "ListClusterSnapshots": "GET /cluster-snapshots",
+    "ListPendingMaintenanceActions": "GET /pending-actions",
+    "ListTagsForResource": "GET /tags/{resourceArn}",
+    "RestoreClusterFromSnapshot": "POST /cluster-snapshot/{snapshotArn}/restore",
+    "StartCluster": "POST /cluster/{clusterArn}/start",
+    "StopCluster": "POST /cluster/{clusterArn}/stop",
+    "TagResource": "POST /tags/{resourceArn}",
+    "UntagResource": "DELETE /tags/{resourceArn}",
+    "UpdateCluster": "PUT /cluster/{clusterArn}",
+  },
+  retryableErrors: {
+    "InternalServerException": {},
+    "ThrottlingException": {"retryAfterSeconds":"Retry-After"},
   },
 } as const satisfies ServiceMetadata;
 

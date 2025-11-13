@@ -1,39 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  ThrottlingException,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-} from "../../error.ts";
-type CommonAwsError =
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | ThrottlingException
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | AccessDeniedException
-  | ValidationException;
+import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
+type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | ThrottlingException | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class OSIS extends AWSServiceClient {
@@ -41,252 +8,133 @@ export declare class OSIS extends AWSServiceClient {
     input: CreatePipelineRequest,
   ): Effect.Effect<
     CreatePipelineResponse,
-    | AccessDeniedException
-    | DisabledOperationException
-    | InternalException
-    | LimitExceededException
-    | ResourceAlreadyExistsException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DisabledOperationException | InternalException | LimitExceededException | ResourceAlreadyExistsException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   createPipelineEndpoint(
     input: CreatePipelineEndpointRequest,
   ): Effect.Effect<
     CreatePipelineEndpointResponse,
-    | AccessDeniedException
-    | DisabledOperationException
-    | InternalException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DisabledOperationException | InternalException | LimitExceededException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   deletePipeline(
     input: DeletePipelineRequest,
   ): Effect.Effect<
     DeletePipelineResponse,
-    | AccessDeniedException
-    | ConflictException
-    | DisabledOperationException
-    | InternalException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | DisabledOperationException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   deletePipelineEndpoint(
     input: DeletePipelineEndpointRequest,
   ): Effect.Effect<
     DeletePipelineEndpointResponse,
-    | AccessDeniedException
-    | DisabledOperationException
-    | InternalException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DisabledOperationException | InternalException | ValidationException | CommonAwsError
   >;
   deleteResourcePolicy(
     input: DeleteResourcePolicyRequest,
   ): Effect.Effect<
     DeleteResourcePolicyResponse,
-    | AccessDeniedException
-    | DisabledOperationException
-    | InternalException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DisabledOperationException | InternalException | LimitExceededException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   getPipeline(
     input: GetPipelineRequest,
   ): Effect.Effect<
     GetPipelineResponse,
-    | AccessDeniedException
-    | DisabledOperationException
-    | InternalException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DisabledOperationException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   getPipelineBlueprint(
     input: GetPipelineBlueprintRequest,
   ): Effect.Effect<
     GetPipelineBlueprintResponse,
-    | AccessDeniedException
-    | DisabledOperationException
-    | InternalException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DisabledOperationException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   getPipelineChangeProgress(
     input: GetPipelineChangeProgressRequest,
   ): Effect.Effect<
     GetPipelineChangeProgressResponse,
-    | AccessDeniedException
-    | DisabledOperationException
-    | InternalException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DisabledOperationException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   getResourcePolicy(
     input: GetResourcePolicyRequest,
   ): Effect.Effect<
     GetResourcePolicyResponse,
-    | AccessDeniedException
-    | DisabledOperationException
-    | InternalException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DisabledOperationException | InternalException | LimitExceededException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   listPipelineBlueprints(
     input: ListPipelineBlueprintsRequest,
   ): Effect.Effect<
     ListPipelineBlueprintsResponse,
-    | AccessDeniedException
-    | DisabledOperationException
-    | InternalException
-    | InvalidPaginationTokenException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DisabledOperationException | InternalException | InvalidPaginationTokenException | ValidationException | CommonAwsError
   >;
   listPipelineEndpointConnections(
     input: ListPipelineEndpointConnectionsRequest,
   ): Effect.Effect<
     ListPipelineEndpointConnectionsResponse,
-    | AccessDeniedException
-    | DisabledOperationException
-    | InternalException
-    | LimitExceededException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DisabledOperationException | InternalException | LimitExceededException | ValidationException | CommonAwsError
   >;
   listPipelineEndpoints(
     input: ListPipelineEndpointsRequest,
   ): Effect.Effect<
     ListPipelineEndpointsResponse,
-    | AccessDeniedException
-    | DisabledOperationException
-    | InternalException
-    | LimitExceededException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DisabledOperationException | InternalException | LimitExceededException | ValidationException | CommonAwsError
   >;
   listPipelines(
     input: ListPipelinesRequest,
   ): Effect.Effect<
     ListPipelinesResponse,
-    | AccessDeniedException
-    | DisabledOperationException
-    | InternalException
-    | InvalidPaginationTokenException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DisabledOperationException | InternalException | InvalidPaginationTokenException | ValidationException | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessDeniedException
-    | DisabledOperationException
-    | InternalException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DisabledOperationException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   putResourcePolicy(
     input: PutResourcePolicyRequest,
   ): Effect.Effect<
     PutResourcePolicyResponse,
-    | AccessDeniedException
-    | DisabledOperationException
-    | InternalException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DisabledOperationException | InternalException | LimitExceededException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   revokePipelineEndpointConnections(
     input: RevokePipelineEndpointConnectionsRequest,
   ): Effect.Effect<
     RevokePipelineEndpointConnectionsResponse,
-    | AccessDeniedException
-    | DisabledOperationException
-    | InternalException
-    | LimitExceededException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DisabledOperationException | InternalException | LimitExceededException | ValidationException | CommonAwsError
   >;
   startPipeline(
     input: StartPipelineRequest,
   ): Effect.Effect<
     StartPipelineResponse,
-    | AccessDeniedException
-    | ConflictException
-    | DisabledOperationException
-    | InternalException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | DisabledOperationException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   stopPipeline(
     input: StopPipelineRequest,
   ): Effect.Effect<
     StopPipelineResponse,
-    | AccessDeniedException
-    | ConflictException
-    | DisabledOperationException
-    | InternalException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | DisabledOperationException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | AccessDeniedException
-    | DisabledOperationException
-    | InternalException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DisabledOperationException | InternalException | LimitExceededException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | AccessDeniedException
-    | DisabledOperationException
-    | InternalException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DisabledOperationException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   updatePipeline(
     input: UpdatePipelineRequest,
   ): Effect.Effect<
     UpdatePipelineResponse,
-    | AccessDeniedException
-    | ConflictException
-    | DisabledOperationException
-    | InternalException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | DisabledOperationException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   validatePipeline(
     input: ValidatePipelineRequest,
   ): Effect.Effect<
     ValidatePipelineResponse,
-    | AccessDeniedException
-    | DisabledOperationException
-    | InternalException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DisabledOperationException | InternalException | ValidationException | CommonAwsError
   >;
 }
 
@@ -313,22 +161,14 @@ export interface ChangeProgressStage {
   LastUpdatedAt?: Date | string;
 }
 export type ChangeProgressStageList = Array<ChangeProgressStage>;
-export type ChangeProgressStageStatuses =
-  | "PENDING"
-  | "IN_PROGRESS"
-  | "COMPLETED"
-  | "FAILED";
+export type ChangeProgressStageStatuses = "PENDING" | "IN_PROGRESS" | "COMPLETED" | "FAILED";
 export interface ChangeProgressStatus {
   StartTime?: Date | string;
   Status?: ChangeProgressStatuses;
   TotalNumberOfStages?: number;
   ChangeProgressStages?: Array<ChangeProgressStage>;
 }
-export type ChangeProgressStatuses =
-  | "PENDING"
-  | "IN_PROGRESS"
-  | "COMPLETED"
-  | "FAILED";
+export type ChangeProgressStatuses = "PENDING" | "IN_PROGRESS" | "COMPLETED" | "FAILED";
 export type ChangeProgressStatusList = Array<ChangeProgressStatus>;
 export type CidrBlock = string;
 
@@ -368,15 +208,18 @@ export interface CreatePipelineResponse {
 export interface DeletePipelineEndpointRequest {
   EndpointId: string;
 }
-export interface DeletePipelineEndpointResponse {}
+export interface DeletePipelineEndpointResponse {
+}
 export interface DeletePipelineRequest {
   PipelineName: string;
 }
-export interface DeletePipelineResponse {}
+export interface DeletePipelineResponse {
+}
 export interface DeleteResourcePolicyRequest {
   ResourceArn: string;
 }
-export interface DeleteResourcePolicyResponse {}
+export interface DeleteResourcePolicyResponse {
+}
 export declare class DisabledOperationException extends EffectData.TaggedError(
   "DisabledOperationException",
 )<{
@@ -434,7 +277,8 @@ export declare class LimitExceededException extends EffectData.TaggedError(
 )<{
   readonly message?: string;
 }> {}
-export interface ListPipelineBlueprintsRequest {}
+export interface ListPipelineBlueprintsRequest {
+}
 export interface ListPipelineBlueprintsResponse {
   Blueprints?: Array<PipelineBlueprintSummary>;
 }
@@ -538,19 +382,12 @@ export interface PipelineEndpointConnection {
   Status?: PipelineEndpointStatus;
   VpcEndpointOwner?: string;
 }
-export type PipelineEndpointConnectionsSummaryList =
-  Array<PipelineEndpointConnection>;
+export type PipelineEndpointConnectionsSummaryList = Array<PipelineEndpointConnection>;
 export type PipelineEndpointId = string;
 
 export type PipelineEndpointIdsList = Array<string>;
 export type PipelineEndpointsSummaryList = Array<PipelineEndpoint>;
-export type PipelineEndpointStatus =
-  | "CREATING"
-  | "ACTIVE"
-  | "CREATE_FAILED"
-  | "DELETING"
-  | "REVOKING"
-  | "REVOKED";
+export type PipelineEndpointStatus = "CREATING" | "ACTIVE" | "CREATE_FAILED" | "DELETING" | "REVOKING" | "REVOKED";
 export interface PipelineEndpointVpcOptions {
   SubnetIds?: Array<string>;
   SecurityGroupIds?: Array<string>;
@@ -559,17 +396,7 @@ export type PipelineName = string;
 
 export type PipelineRoleArn = string;
 
-export type PipelineStatus =
-  | "CREATING"
-  | "ACTIVE"
-  | "UPDATING"
-  | "DELETING"
-  | "CREATE_FAILED"
-  | "UPDATE_FAILED"
-  | "STARTING"
-  | "START_FAILED"
-  | "STOPPING"
-  | "STOPPED";
+export type PipelineStatus = "CREATING" | "ACTIVE" | "UPDATING" | "DELETING" | "CREATE_FAILED" | "UPDATE_FAILED" | "STARTING" | "START_FAILED" | "STOPPING" | "STOPPED";
 export interface PipelineStatusReason {
   Description?: string;
 }
@@ -652,7 +479,8 @@ export interface TagResourceRequest {
   Arn: string;
   Tags: Array<Tag>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export type Timestamp = Date | string;
@@ -661,7 +489,8 @@ export interface UntagResourceRequest {
   Arn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdatePipelineRequest {
   PipelineName: string;
   MinUnits?: number;
@@ -982,14 +811,5 @@ export declare namespace ValidatePipeline {
     | CommonAwsError;
 }
 
-export type OSISErrors =
-  | AccessDeniedException
-  | ConflictException
-  | DisabledOperationException
-  | InternalException
-  | InvalidPaginationTokenException
-  | LimitExceededException
-  | ResourceAlreadyExistsException
-  | ResourceNotFoundException
-  | ValidationException
-  | CommonAwsError;
+export type OSISErrors = AccessDeniedException | ConflictException | DisabledOperationException | InternalException | InvalidPaginationTokenException | LimitExceededException | ResourceAlreadyExistsException | ResourceNotFoundException | ValidationException | CommonAwsError;
+

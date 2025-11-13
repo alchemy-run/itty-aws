@@ -6,6 +6,8 @@ import { Credentials, fromStaticCredentials } from "./credentials.ts";
 import type { AwsErrorMeta } from "./error.ts";
 import { DefaultFetch, Fetch } from "./fetch.service.ts";
 import type { ProtocolHandler } from "./protocols/interface.ts";
+import * as Schedule from "effect/Schedule";
+import * as Duration from "effect/Duration";
 
 const errorTags: {
   [serviceName: string]: {
@@ -17,7 +19,14 @@ const errorTags: {
 function createServiceError(
   serviceName: string,
   errorName: string,
-  errorMeta: AwsErrorMeta & { message?: string },
+  errorMeta: AwsErrorMeta & {
+    message?: string;
+    retryable?:
+      | {
+          retryAfterSeconds?: number;
+        }
+      | false;
+  },
 ) {
   // Create a tagged error dynamically with the correct error name
   return new ((errorTags[serviceName] ??= {})[errorName] ??= (() =>
@@ -46,6 +55,7 @@ export interface ServiceMetadata {
         readonly outputTraits?: Record<string, string>;
       }
   >; // Operation mappings for restJson1 and trait mappings
+  retryableErrors?: Record<string, { retryAfterSeconds?: string }>;
 }
 
 export interface AwsCredentials {
@@ -213,6 +223,7 @@ export function createServiceProxy<T>(
                   response,
                   statusCode,
                   response.headers,
+                  metadata,
                 ),
               );
 
@@ -229,12 +240,35 @@ export function createServiceProxy<T>(
                   {
                     ...errorMeta,
                     message: parsedError.message,
+                    retryable: parsedError.retryable,
                   },
                 ),
               );
             }
           });
-          return program;
+          return program.pipe(
+            Effect.catchAll((e) => {
+              if (e.retryable === false) return Effect.fail(e);
+
+              const delay =
+                e.retryable &&
+                typeof e.retryable === "object" &&
+                e.retryable.retryAfterSeconds
+                  ? Duration.seconds(e.retryable.retryAfterSeconds)
+                  : Duration.millis(100);
+
+              return Effect.sleep(delay).pipe(
+                Effect.flatMap(() => Effect.fail(e)),
+              );
+            }),
+            Effect.retry({
+              schedule: Schedule.intersect(
+                Schedule.exponential("100 millis"),
+                Schedule.recurs(5),
+              ),
+              while: (e) => e.retryable !== false,
+            }),
+          );
         };
       },
     },

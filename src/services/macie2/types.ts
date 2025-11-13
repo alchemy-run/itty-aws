@@ -1,38 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-} from "../../error.ts";
-type CommonAwsError =
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | AccessDeniedException
-  | ThrottlingException
-  | ValidationException;
+import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
+type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class Macie2 extends AWSServiceClient {
@@ -40,966 +8,487 @@ export declare class Macie2 extends AWSServiceClient {
     input: AcceptInvitationRequest,
   ): Effect.Effect<
     AcceptInvitationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   batchGetCustomDataIdentifiers(
     input: BatchGetCustomDataIdentifiersRequest,
   ): Effect.Effect<
     BatchGetCustomDataIdentifiersResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   batchUpdateAutomatedDiscoveryAccounts(
     input: BatchUpdateAutomatedDiscoveryAccountsRequest,
   ): Effect.Effect<
     BatchUpdateAutomatedDiscoveryAccountsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createAllowList(
     input: CreateAllowListRequest,
   ): Effect.Effect<
     CreateAllowListResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createClassificationJob(
     input: CreateClassificationJobRequest,
   ): Effect.Effect<
     CreateClassificationJobResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createCustomDataIdentifier(
     input: CreateCustomDataIdentifierRequest,
   ): Effect.Effect<
     CreateCustomDataIdentifierResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createFindingsFilter(
     input: CreateFindingsFilterRequest,
   ): Effect.Effect<
     CreateFindingsFilterResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createInvitations(
     input: CreateInvitationsRequest,
   ): Effect.Effect<
     CreateInvitationsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createMember(
     input: CreateMemberRequest,
   ): Effect.Effect<
     CreateMemberResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createSampleFindings(
     input: CreateSampleFindingsRequest,
   ): Effect.Effect<
     CreateSampleFindingsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   declineInvitations(
     input: DeclineInvitationsRequest,
   ): Effect.Effect<
     DeclineInvitationsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteAllowList(
     input: DeleteAllowListRequest,
   ): Effect.Effect<
     DeleteAllowListResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteCustomDataIdentifier(
     input: DeleteCustomDataIdentifierRequest,
   ): Effect.Effect<
     DeleteCustomDataIdentifierResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteFindingsFilter(
     input: DeleteFindingsFilterRequest,
   ): Effect.Effect<
     DeleteFindingsFilterResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteInvitations(
     input: DeleteInvitationsRequest,
   ): Effect.Effect<
     DeleteInvitationsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteMember(
     input: DeleteMemberRequest,
   ): Effect.Effect<
     DeleteMemberResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   describeBuckets(
     input: DescribeBucketsRequest,
   ): Effect.Effect<
     DescribeBucketsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   describeClassificationJob(
     input: DescribeClassificationJobRequest,
   ): Effect.Effect<
     DescribeClassificationJobResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   describeOrganizationConfiguration(
     input: DescribeOrganizationConfigurationRequest,
   ): Effect.Effect<
     DescribeOrganizationConfigurationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   disableMacie(
     input: DisableMacieRequest,
   ): Effect.Effect<
     DisableMacieResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   disableOrganizationAdminAccount(
     input: DisableOrganizationAdminAccountRequest,
   ): Effect.Effect<
     DisableOrganizationAdminAccountResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   disassociateFromAdministratorAccount(
     input: DisassociateFromAdministratorAccountRequest,
   ): Effect.Effect<
     DisassociateFromAdministratorAccountResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   disassociateFromMasterAccount(
     input: DisassociateFromMasterAccountRequest,
   ): Effect.Effect<
     DisassociateFromMasterAccountResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   disassociateMember(
     input: DisassociateMemberRequest,
   ): Effect.Effect<
     DisassociateMemberResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   enableMacie(
     input: EnableMacieRequest,
   ): Effect.Effect<
     EnableMacieResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   enableOrganizationAdminAccount(
     input: EnableOrganizationAdminAccountRequest,
   ): Effect.Effect<
     EnableOrganizationAdminAccountResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getAdministratorAccount(
     input: GetAdministratorAccountRequest,
   ): Effect.Effect<
     GetAdministratorAccountResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getAllowList(
     input: GetAllowListRequest,
   ): Effect.Effect<
     GetAllowListResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getAutomatedDiscoveryConfiguration(
     input: GetAutomatedDiscoveryConfigurationRequest,
   ): Effect.Effect<
     GetAutomatedDiscoveryConfigurationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getBucketStatistics(
     input: GetBucketStatisticsRequest,
   ): Effect.Effect<
     GetBucketStatisticsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getClassificationExportConfiguration(
     input: GetClassificationExportConfigurationRequest,
   ): Effect.Effect<
     GetClassificationExportConfigurationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getClassificationScope(
     input: GetClassificationScopeRequest,
   ): Effect.Effect<
     GetClassificationScopeResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getCustomDataIdentifier(
     input: GetCustomDataIdentifierRequest,
   ): Effect.Effect<
     GetCustomDataIdentifierResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getFindings(
     input: GetFindingsRequest,
   ): Effect.Effect<
     GetFindingsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getFindingsFilter(
     input: GetFindingsFilterRequest,
   ): Effect.Effect<
     GetFindingsFilterResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getFindingsPublicationConfiguration(
     input: GetFindingsPublicationConfigurationRequest,
   ): Effect.Effect<
     GetFindingsPublicationConfigurationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getFindingStatistics(
     input: GetFindingStatisticsRequest,
   ): Effect.Effect<
     GetFindingStatisticsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getInvitationsCount(
     input: GetInvitationsCountRequest,
   ): Effect.Effect<
     GetInvitationsCountResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getMacieSession(
     input: GetMacieSessionRequest,
   ): Effect.Effect<
     GetMacieSessionResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getMasterAccount(
     input: GetMasterAccountRequest,
   ): Effect.Effect<
     GetMasterAccountResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getMember(
     input: GetMemberRequest,
   ): Effect.Effect<
     GetMemberResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getResourceProfile(
     input: GetResourceProfileRequest,
   ): Effect.Effect<
     GetResourceProfileResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getRevealConfiguration(
     input: GetRevealConfigurationRequest,
   ): Effect.Effect<
     GetRevealConfigurationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getSensitiveDataOccurrences(
     input: GetSensitiveDataOccurrencesRequest,
   ): Effect.Effect<
     GetSensitiveDataOccurrencesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | UnprocessableEntityException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | UnprocessableEntityException | CommonAwsError
   >;
   getSensitiveDataOccurrencesAvailability(
     input: GetSensitiveDataOccurrencesAvailabilityRequest,
   ): Effect.Effect<
     GetSensitiveDataOccurrencesAvailabilityResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   getSensitivityInspectionTemplate(
     input: GetSensitivityInspectionTemplateRequest,
   ): Effect.Effect<
     GetSensitivityInspectionTemplateResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getUsageStatistics(
     input: GetUsageStatisticsRequest,
   ): Effect.Effect<
     GetUsageStatisticsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getUsageTotals(
     input: GetUsageTotalsRequest,
   ): Effect.Effect<
     GetUsageTotalsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listAllowLists(
     input: ListAllowListsRequest,
   ): Effect.Effect<
     ListAllowListsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listAutomatedDiscoveryAccounts(
     input: ListAutomatedDiscoveryAccountsRequest,
   ): Effect.Effect<
     ListAutomatedDiscoveryAccountsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listClassificationJobs(
     input: ListClassificationJobsRequest,
   ): Effect.Effect<
     ListClassificationJobsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listClassificationScopes(
     input: ListClassificationScopesRequest,
   ): Effect.Effect<
     ListClassificationScopesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listCustomDataIdentifiers(
     input: ListCustomDataIdentifiersRequest,
   ): Effect.Effect<
     ListCustomDataIdentifiersResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listFindings(
     input: ListFindingsRequest,
   ): Effect.Effect<
     ListFindingsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listFindingsFilters(
     input: ListFindingsFiltersRequest,
   ): Effect.Effect<
     ListFindingsFiltersResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listInvitations(
     input: ListInvitationsRequest,
   ): Effect.Effect<
     ListInvitationsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listManagedDataIdentifiers(
     input: ListManagedDataIdentifiersRequest,
-  ): Effect.Effect<ListManagedDataIdentifiersResponse, CommonAwsError>;
+  ): Effect.Effect<
+    ListManagedDataIdentifiersResponse,
+    CommonAwsError
+  >;
   listMembers(
     input: ListMembersRequest,
   ): Effect.Effect<
     ListMembersResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listOrganizationAdminAccounts(
     input: ListOrganizationAdminAccountsRequest,
   ): Effect.Effect<
     ListOrganizationAdminAccountsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listResourceProfileArtifacts(
     input: ListResourceProfileArtifactsRequest,
   ): Effect.Effect<
     ListResourceProfileArtifactsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listResourceProfileDetections(
     input: ListResourceProfileDetectionsRequest,
   ): Effect.Effect<
     ListResourceProfileDetectionsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listSensitivityInspectionTemplates(
     input: ListSensitivityInspectionTemplatesRequest,
   ): Effect.Effect<
     ListSensitivityInspectionTemplatesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
-  ): Effect.Effect<ListTagsForResourceResponse, CommonAwsError>;
+  ): Effect.Effect<
+    ListTagsForResourceResponse,
+    CommonAwsError
+  >;
   putClassificationExportConfiguration(
     input: PutClassificationExportConfigurationRequest,
   ): Effect.Effect<
     PutClassificationExportConfigurationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   putFindingsPublicationConfiguration(
     input: PutFindingsPublicationConfigurationRequest,
   ): Effect.Effect<
     PutFindingsPublicationConfigurationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   searchResources(
     input: SearchResourcesRequest,
   ): Effect.Effect<
     SearchResourcesResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
-  ): Effect.Effect<TagResourceResponse, CommonAwsError>;
+  ): Effect.Effect<
+    TagResourceResponse,
+    CommonAwsError
+  >;
   testCustomDataIdentifier(
     input: TestCustomDataIdentifierRequest,
   ): Effect.Effect<
     TestCustomDataIdentifierResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
-  ): Effect.Effect<UntagResourceResponse, CommonAwsError>;
+  ): Effect.Effect<
+    UntagResourceResponse,
+    CommonAwsError
+  >;
   updateAllowList(
     input: UpdateAllowListRequest,
   ): Effect.Effect<
     UpdateAllowListResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateAutomatedDiscoveryConfiguration(
     input: UpdateAutomatedDiscoveryConfigurationRequest,
   ): Effect.Effect<
     UpdateAutomatedDiscoveryConfigurationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateClassificationJob(
     input: UpdateClassificationJobRequest,
   ): Effect.Effect<
     UpdateClassificationJobResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateClassificationScope(
     input: UpdateClassificationScopeRequest,
   ): Effect.Effect<
     UpdateClassificationScopeResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateFindingsFilter(
     input: UpdateFindingsFilterRequest,
   ): Effect.Effect<
     UpdateFindingsFilterResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateMacieSession(
     input: UpdateMacieSessionRequest,
   ): Effect.Effect<
     UpdateMacieSessionResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateMemberSession(
     input: UpdateMemberSessionRequest,
   ): Effect.Effect<
     UpdateMemberSessionResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateOrganizationConfiguration(
     input: UpdateOrganizationConfigurationRequest,
   ): Effect.Effect<
     UpdateOrganizationConfigurationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateResourceProfile(
     input: UpdateResourceProfileRequest,
   ): Effect.Effect<
     UpdateResourceProfileResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateResourceProfileDetections(
     input: UpdateResourceProfileDetectionsRequest,
   ): Effect.Effect<
     UpdateResourceProfileDetectionsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateRevealConfiguration(
     input: UpdateRevealConfigurationRequest,
   ): Effect.Effect<
     UpdateRevealConfigurationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateSensitivityInspectionTemplate(
     input: UpdateSensitivityInspectionTemplateRequest,
   ): Effect.Effect<
     UpdateSensitivityInspectionTemplateResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
 }
 
@@ -1012,20 +501,14 @@ export type __integer = number;
 export type __listOf__string = Array<string>;
 export type __listOfAdminAccount = Array<AdminAccount>;
 export type __listOfAllowListSummary = Array<AllowListSummary>;
-export type __listOfAutomatedDiscoveryAccount =
-  Array<AutomatedDiscoveryAccount>;
-export type __listOfAutomatedDiscoveryAccountUpdate =
-  Array<AutomatedDiscoveryAccountUpdate>;
-export type __listOfAutomatedDiscoveryAccountUpdateError =
-  Array<AutomatedDiscoveryAccountUpdateError>;
-export type __listOfBatchGetCustomDataIdentifierSummary =
-  Array<BatchGetCustomDataIdentifierSummary>;
+export type __listOfAutomatedDiscoveryAccount = Array<AutomatedDiscoveryAccount>;
+export type __listOfAutomatedDiscoveryAccountUpdate = Array<AutomatedDiscoveryAccountUpdate>;
+export type __listOfAutomatedDiscoveryAccountUpdateError = Array<AutomatedDiscoveryAccountUpdateError>;
+export type __listOfBatchGetCustomDataIdentifierSummary = Array<BatchGetCustomDataIdentifierSummary>;
 export type __listOfBucketMetadata = Array<BucketMetadata>;
-export type __listOfClassificationScopeSummary =
-  Array<ClassificationScopeSummary>;
+export type __listOfClassificationScopeSummary = Array<ClassificationScopeSummary>;
 export type __listOfCriteriaForJob = Array<CriteriaForJob>;
-export type __listOfCustomDataIdentifierSummary =
-  Array<CustomDataIdentifierSummary>;
+export type __listOfCustomDataIdentifierSummary = Array<CustomDataIdentifierSummary>;
 export type __listOfDetectedDataDetails = Array<DetectedDataDetails>;
 export type __listOfDetection = Array<Detection>;
 export type __listOfFinding = Array<Finding>;
@@ -1037,18 +520,15 @@ export type __listOfJobScopeTerm = Array<JobScopeTerm>;
 export type __listOfJobSummary = Array<JobSummary>;
 export type __listOfKeyValuePair = Array<KeyValuePair>;
 export type __listOfListJobsFilterTerm = Array<ListJobsFilterTerm>;
-export type __listOfManagedDataIdentifierSummary =
-  Array<ManagedDataIdentifierSummary>;
+export type __listOfManagedDataIdentifierSummary = Array<ManagedDataIdentifierSummary>;
 export type __listOfMatchingResource = Array<MatchingResource>;
 export type __listOfMember = Array<Member>;
 export type __listOfResourceProfileArtifact = Array<ResourceProfileArtifact>;
 export type __listOfS3BucketDefinitionForJob = Array<S3BucketDefinitionForJob>;
 export type __listOfS3BucketName = Array<string>;
 export type __listOfSearchResourcesCriteria = Array<SearchResourcesCriteria>;
-export type __listOfSearchResourcesTagCriterionPair =
-  Array<SearchResourcesTagCriterionPair>;
-export type __listOfSensitivityInspectionTemplatesEntry =
-  Array<SensitivityInspectionTemplatesEntry>;
+export type __listOfSearchResourcesTagCriterionPair = Array<SearchResourcesTagCriterionPair>;
+export type __listOfSensitivityInspectionTemplatesEntry = Array<SensitivityInspectionTemplatesEntry>;
 export type __listOfSuppressDataIdentifier = Array<SuppressDataIdentifier>;
 export type __listOfTagCriterionPairForJob = Array<TagCriterionPairForJob>;
 export type __listOfTagValuePair = Array<TagValuePair>;
@@ -1078,8 +558,7 @@ export type __stringMin22Max22PatternAZ0922 = string;
 
 export type __stringMin3Max255PatternAZaZ093255 = string;
 
-export type __stringMin71Max89PatternArnAwsAwsCnAwsUsGovMacie2AZ19920D12AllowListAZ0922 =
-  string;
+export type __stringMin71Max89PatternArnAwsAwsCnAwsUsGovMacie2AZ19920D12AllowListAZ0922 = string;
 
 export type __timestampIso8601 = Date | string;
 
@@ -1088,7 +567,8 @@ export interface AcceptInvitationRequest {
   invitationId: string;
   masterAccount?: string;
 }
-export interface AcceptInvitationResponse {}
+export interface AcceptInvitationResponse {
+}
 export interface AccessControlList {
   allowsPublicReadAccess?: boolean;
   allowsPublicWriteAccess?: boolean;
@@ -1118,15 +598,7 @@ export interface AllowListStatus {
   code: AllowListStatusCode;
   description?: string;
 }
-export type AllowListStatusCode =
-  | "OK"
-  | "S3_OBJECT_NOT_FOUND"
-  | "S3_USER_ACCESS_DENIED"
-  | "S3_OBJECT_ACCESS_DENIED"
-  | "S3_THROTTLED"
-  | "S3_OBJECT_OVERSIZE"
-  | "S3_OBJECT_EMPTY"
-  | "UNKNOWN_ERROR";
+export type AllowListStatusCode = "OK" | "S3_OBJECT_NOT_FOUND" | "S3_USER_ACCESS_DENIED" | "S3_OBJECT_ACCESS_DENIED" | "S3_THROTTLED" | "S3_OBJECT_OVERSIZE" | "S3_OBJECT_EMPTY" | "UNKNOWN_ERROR";
 export interface AllowListSummary {
   arn?: string;
   createdAt?: Date | string;
@@ -1163,9 +635,7 @@ export interface AutomatedDiscoveryAccountUpdateError {
   accountId?: string;
   errorCode?: AutomatedDiscoveryAccountUpdateErrorCode;
 }
-export type AutomatedDiscoveryAccountUpdateErrorCode =
-  | "ACCOUNT_PAUSED"
-  | "ACCOUNT_NOT_FOUND";
+export type AutomatedDiscoveryAccountUpdateErrorCode = "ACCOUNT_PAUSED" | "ACCOUNT_NOT_FOUND";
 export type AutomatedDiscoveryMonitoringStatus = "MONITORED" | "NOT_MONITORED";
 export type AutomatedDiscoveryStatus = "ENABLED" | "DISABLED";
 export type AvailabilityCode = "AVAILABLE" | "UNAVAILABLE";
@@ -1270,9 +740,7 @@ export interface BucketMetadata {
   unclassifiableObjectSizeInBytes?: ObjectLevelStatistics;
   versioning?: boolean;
 }
-export type BucketMetadataErrorCode =
-  | "ACCESS_DENIED"
-  | "BUCKET_COUNT_EXCEEDS_QUOTA";
+export type BucketMetadataErrorCode = "ACCESS_DENIED" | "BUCKET_COUNT_EXCEEDS_QUOTA";
 export interface BucketPermissionConfiguration {
   accountLevelPermissions?: AccountLevelPermissions;
   bucketLevelPermissions?: BucketLevelPermissions;
@@ -1417,7 +885,8 @@ export interface CreateMemberResponse {
 export interface CreateSampleFindingsRequest {
   findingTypes?: Array<FindingType>;
 }
-export interface CreateSampleFindingsResponse {}
+export interface CreateSampleFindingsResponse {
+}
 export interface CriteriaBlockForJob {
   and?: Array<CriteriaForJob>;
 }
@@ -1454,17 +923,11 @@ export interface CustomDetection {
   occurrences?: Occurrences;
 }
 export type CustomDetections = Array<CustomDetection>;
-export interface DailySchedule {}
+export interface DailySchedule {
+}
 export type DataIdentifierSeverity = "LOW" | "MEDIUM" | "HIGH";
 export type DataIdentifierType = "CUSTOM" | "MANAGED";
-export type DayOfWeek =
-  | "SUNDAY"
-  | "MONDAY"
-  | "TUESDAY"
-  | "WEDNESDAY"
-  | "THURSDAY"
-  | "FRIDAY"
-  | "SATURDAY";
+export type DayOfWeek = "SUNDAY" | "MONDAY" | "TUESDAY" | "WEDNESDAY" | "THURSDAY" | "FRIDAY" | "SATURDAY";
 export interface DeclineInvitationsRequest {
   accountIds: Array<string>;
 }
@@ -1481,15 +944,18 @@ export interface DeleteAllowListRequest {
   id: string;
   ignoreJobChecks?: string;
 }
-export interface DeleteAllowListResponse {}
+export interface DeleteAllowListResponse {
+}
 export interface DeleteCustomDataIdentifierRequest {
   id: string;
 }
-export interface DeleteCustomDataIdentifierResponse {}
+export interface DeleteCustomDataIdentifierResponse {
+}
 export interface DeleteFindingsFilterRequest {
   id: string;
 }
-export interface DeleteFindingsFilterResponse {}
+export interface DeleteFindingsFilterResponse {
+}
 export interface DeleteInvitationsRequest {
   accountIds: Array<string>;
 }
@@ -1499,7 +965,8 @@ export interface DeleteInvitationsResponse {
 export interface DeleteMemberRequest {
   id: string;
 }
-export interface DeleteMemberResponse {}
+export interface DeleteMemberResponse {
+}
 export interface DescribeBucketsRequest {
   criteria?: Record<string, BucketCriteriaAdditionalProperties>;
   maxResults?: number;
@@ -1536,7 +1003,8 @@ export interface DescribeClassificationJobResponse {
   tags?: Record<string, string>;
   userPausedDetails?: UserPausedDetails;
 }
-export interface DescribeOrganizationConfigurationRequest {}
+export interface DescribeOrganizationConfigurationRequest {
+}
 export interface DescribeOrganizationConfigurationResponse {
   autoEnable?: boolean;
   maxAccountLimitReached?: boolean;
@@ -1552,20 +1020,28 @@ export interface Detection {
   suppressed?: boolean;
   type?: DataIdentifierType;
 }
-export interface DisableMacieRequest {}
-export interface DisableMacieResponse {}
+export interface DisableMacieRequest {
+}
+export interface DisableMacieResponse {
+}
 export interface DisableOrganizationAdminAccountRequest {
   adminAccountId: string;
 }
-export interface DisableOrganizationAdminAccountResponse {}
-export interface DisassociateFromAdministratorAccountRequest {}
-export interface DisassociateFromAdministratorAccountResponse {}
-export interface DisassociateFromMasterAccountRequest {}
-export interface DisassociateFromMasterAccountResponse {}
+export interface DisableOrganizationAdminAccountResponse {
+}
+export interface DisassociateFromAdministratorAccountRequest {
+}
+export interface DisassociateFromAdministratorAccountResponse {
+}
+export interface DisassociateFromMasterAccountRequest {
+}
+export interface DisassociateFromMasterAccountResponse {
+}
 export interface DisassociateMemberRequest {
   id: string;
 }
-export interface DisassociateMemberResponse {}
+export interface DisassociateMemberResponse {
+}
 export interface DomainDetails {
   domainName?: string;
 }
@@ -1575,18 +1051,15 @@ export interface EnableMacieRequest {
   findingPublishingFrequency?: FindingPublishingFrequency;
   status?: MacieStatus;
 }
-export interface EnableMacieResponse {}
+export interface EnableMacieResponse {
+}
 export interface EnableOrganizationAdminAccountRequest {
   adminAccountId: string;
   clientToken?: string;
 }
-export interface EnableOrganizationAdminAccountResponse {}
-export type EncryptionType =
-  | "NONE"
-  | "AES256"
-  | "aws:kms"
-  | "UNKNOWN"
-  | "aws:kms:dsse";
+export interface EnableOrganizationAdminAccountResponse {
+}
+export type EncryptionType = "NONE" | "AES256" | "aws:kms" | "UNKNOWN" | "aws:kms:dsse";
 export type ErrorCode = "ClientError" | "InternalError";
 export interface FederatedUser {
   accessKeyId?: string;
@@ -1629,10 +1102,7 @@ export type FindingCategory = "CLASSIFICATION" | "POLICY";
 export interface FindingCriteria {
   criterion?: Record<string, CriterionAdditionalProperties>;
 }
-export type FindingPublishingFrequency =
-  | "FIFTEEN_MINUTES"
-  | "ONE_HOUR"
-  | "SIX_HOURS";
+export type FindingPublishingFrequency = "FIFTEEN_MINUTES" | "ONE_HOUR" | "SIX_HOURS";
 export type FindingsFilterAction = "ARCHIVE" | "NOOP";
 export interface FindingsFilterListItem {
   action?: FindingsFilterAction;
@@ -1646,19 +1116,9 @@ export interface FindingStatisticsSortCriteria {
   attributeName?: FindingStatisticsSortAttributeName;
   orderBy?: OrderBy;
 }
-export type FindingType =
-  | "SensitiveData:S3Object/Multiple"
-  | "SensitiveData:S3Object/Financial"
-  | "SensitiveData:S3Object/Personal"
-  | "SensitiveData:S3Object/Credentials"
-  | "SensitiveData:S3Object/CustomIdentifier"
-  | "Policy:IAMUser/S3BucketPublic"
-  | "Policy:IAMUser/S3BucketSharedExternally"
-  | "Policy:IAMUser/S3BucketReplicatedExternally"
-  | "Policy:IAMUser/S3BucketEncryptionDisabled"
-  | "Policy:IAMUser/S3BlockPublicAccessDisabled"
-  | "Policy:IAMUser/S3BucketSharedWithCloudFront";
-export interface GetAdministratorAccountRequest {}
+export type FindingType = "SensitiveData:S3Object/Multiple" | "SensitiveData:S3Object/Financial" | "SensitiveData:S3Object/Personal" | "SensitiveData:S3Object/Credentials" | "SensitiveData:S3Object/CustomIdentifier" | "Policy:IAMUser/S3BucketPublic" | "Policy:IAMUser/S3BucketSharedExternally" | "Policy:IAMUser/S3BucketReplicatedExternally" | "Policy:IAMUser/S3BucketEncryptionDisabled" | "Policy:IAMUser/S3BlockPublicAccessDisabled" | "Policy:IAMUser/S3BucketSharedWithCloudFront";
+export interface GetAdministratorAccountRequest {
+}
 export interface GetAdministratorAccountResponse {
   administrator?: Invitation;
 }
@@ -1676,7 +1136,8 @@ export interface GetAllowListResponse {
   tags?: Record<string, string>;
   updatedAt?: Date | string;
 }
-export interface GetAutomatedDiscoveryConfigurationRequest {}
+export interface GetAutomatedDiscoveryConfigurationRequest {
+}
 export interface GetAutomatedDiscoveryConfigurationResponse {
   autoEnableOrganizationMembers?: AutoEnableMode;
   classificationScopeId?: string;
@@ -1705,7 +1166,8 @@ export interface GetBucketStatisticsResponse {
   unclassifiableObjectCount?: ObjectLevelStatistics;
   unclassifiableObjectSizeInBytes?: ObjectLevelStatistics;
 }
-export interface GetClassificationExportConfigurationRequest {}
+export interface GetClassificationExportConfigurationRequest {
+}
 export interface GetClassificationExportConfigurationResponse {
   configuration?: ClassificationExportConfiguration;
 }
@@ -1747,7 +1209,8 @@ export interface GetFindingsFilterResponse {
   position?: number;
   tags?: Record<string, string>;
 }
-export interface GetFindingsPublicationConfigurationRequest {}
+export interface GetFindingsPublicationConfigurationRequest {
+}
 export interface GetFindingsPublicationConfigurationResponse {
   securityHubConfiguration?: SecurityHubConfiguration;
 }
@@ -1767,11 +1230,13 @@ export interface GetFindingStatisticsRequest {
 export interface GetFindingStatisticsResponse {
   countsByGroup?: Array<GroupCount>;
 }
-export interface GetInvitationsCountRequest {}
+export interface GetInvitationsCountRequest {
+}
 export interface GetInvitationsCountResponse {
   invitationsCount?: number;
 }
-export interface GetMacieSessionRequest {}
+export interface GetMacieSessionRequest {
+}
 export interface GetMacieSessionResponse {
   createdAt?: Date | string;
   findingPublishingFrequency?: FindingPublishingFrequency;
@@ -1779,7 +1244,8 @@ export interface GetMacieSessionResponse {
   status?: MacieStatus;
   updatedAt?: Date | string;
 }
-export interface GetMasterAccountRequest {}
+export interface GetMasterAccountRequest {
+}
 export interface GetMasterAccountResponse {
   master?: Invitation;
 }
@@ -1806,7 +1272,8 @@ export interface GetResourceProfileResponse {
   sensitivityScoreOverridden?: boolean;
   statistics?: ResourceStatistics;
 }
-export interface GetRevealConfigurationRequest {}
+export interface GetRevealConfigurationRequest {
+}
 export interface GetRevealConfigurationResponse {
   configuration?: RevealConfiguration;
   retrievalConfiguration?: RetrievalConfiguration;
@@ -1855,11 +1322,7 @@ export interface GetUsageTotalsResponse {
   timeRange?: TimeRange;
   usageTotals?: Array<UsageTotal>;
 }
-export type GroupBy =
-  | "resourcesAffected.s3Bucket.name"
-  | "type"
-  | "classificationDetails.jobId"
-  | "severity.description";
+export type GroupBy = "resourcesAffected.s3Bucket.name" | "type" | "classificationDetails.jobId" | "severity.description";
 export interface GroupCount {
   count?: number;
   groupKey?: string;
@@ -1907,15 +1370,7 @@ export interface IpOwner {
 }
 export type IsDefinedInJob = "TRUE" | "FALSE" | "UNKNOWN";
 export type IsMonitoredByJob = "TRUE" | "FALSE" | "UNKNOWN";
-export type JobComparator =
-  | "EQ"
-  | "GT"
-  | "GTE"
-  | "LT"
-  | "LTE"
-  | "NE"
-  | "CONTAINS"
-  | "STARTS_WITH";
+export type JobComparator = "EQ" | "GT" | "GTE" | "LT" | "LTE" | "NE" | "CONTAINS" | "STARTS_WITH";
 export interface JobDetails {
   isDefinedInJob?: IsDefinedInJob;
   isMonitoredByJob?: IsMonitoredByJob;
@@ -1934,13 +1389,7 @@ export interface JobScopeTerm {
 export interface JobScopingBlock {
   and?: Array<JobScopeTerm>;
 }
-export type JobStatus =
-  | "RUNNING"
-  | "PAUSED"
-  | "CANCELLED"
-  | "COMPLETE"
-  | "IDLE"
-  | "USER_PAUSED";
+export type JobStatus = "RUNNING" | "PAUSED" | "CANCELLED" | "COMPLETE" | "IDLE" | "USER_PAUSED";
 export interface JobSummary {
   bucketCriteria?: S3BucketCriteriaForJob;
   bucketDefinitions?: Array<S3BucketDefinitionForJob>;
@@ -2041,11 +1490,7 @@ export interface ListJobsFilterTerm {
   key?: ListJobsFilterKey;
   values?: Array<string>;
 }
-export type ListJobsSortAttributeName =
-  | "createdAt"
-  | "jobStatus"
-  | "name"
-  | "jobType";
+export type ListJobsSortAttributeName = "createdAt" | "jobStatus" | "name" | "jobType";
 export interface ListJobsSortCriteria {
   attributeName?: ListJobsSortAttributeName;
   orderBy?: OrderBy;
@@ -2106,12 +1551,7 @@ export interface ListTagsForResourceResponse {
   tags?: Record<string, string>;
 }
 export type MacieStatus = "PAUSED" | "ENABLED";
-export type ManagedDataIdentifierSelector =
-  | "ALL"
-  | "EXCLUDE"
-  | "INCLUDE"
-  | "NONE"
-  | "RECOMMENDED";
+export type ManagedDataIdentifierSelector = "ALL" | "EXCLUDE" | "INCLUDE" | "NONE" | "RECOMMENDED";
 export interface ManagedDataIdentifierSummary {
   category?: SensitiveDataItemCategory;
   id?: string;
@@ -2175,9 +1615,7 @@ export interface Occurrences {
   records?: Array<Macie2Record>;
 }
 export type OrderBy = "ASC" | "DESC";
-export type OriginType =
-  | "SENSITIVE_DATA_DISCOVERY_JOB"
-  | "AUTOMATED_SENSITIVE_DATA_DISCOVERY";
+export type OriginType = "SENSITIVE_DATA_DISCOVERY_JOB" | "AUTOMATED_SENSITIVE_DATA_DISCOVERY";
 export interface Page {
   lineRange?: Range;
   offsetRange?: Range;
@@ -2198,7 +1636,8 @@ export interface PutFindingsPublicationConfigurationRequest {
   clientToken?: string;
   securityHubConfiguration?: SecurityHubConfiguration;
 }
-export interface PutFindingsPublicationConfigurationResponse {}
+export interface PutFindingsPublicationConfigurationResponse {
+}
 export interface Range {
   end?: number;
   start?: number;
@@ -2210,17 +1649,7 @@ export interface Macie2Record {
   recordIndex?: number;
 }
 export type Records = Array<Macie2Record>;
-export type RelationshipStatus =
-  | "Enabled"
-  | "Paused"
-  | "Invited"
-  | "Created"
-  | "Removed"
-  | "Resigned"
-  | "EmailVerificationInProgress"
-  | "EmailVerificationFailed"
-  | "RegionDisabled"
-  | "AccountSuspended";
+export type RelationshipStatus = "Enabled" | "Paused" | "Invited" | "Created" | "Removed" | "Resigned" | "EmailVerificationInProgress" | "EmailVerificationFailed" | "RegionDisabled" | "AccountSuspended";
 export interface ReplicationDetails {
   replicated?: boolean;
   replicatedExternally?: boolean;
@@ -2328,11 +1757,7 @@ export interface S3WordsList {
   bucketName: string;
   objectKey: string;
 }
-export type ScopeFilterKey =
-  | "OBJECT_EXTENSION"
-  | "OBJECT_LAST_MODIFIED_DATE"
-  | "OBJECT_SIZE"
-  | "OBJECT_KEY";
+export type ScopeFilterKey = "OBJECT_EXTENSION" | "OBJECT_LAST_MODIFIED_DATE" | "OBJECT_SIZE" | "OBJECT_KEY";
 export interface Scoping {
   excludes?: JobScopingBlock;
   includes?: JobScopingBlock;
@@ -2364,17 +1789,8 @@ export interface SearchResourcesSimpleCriterion {
   key?: SearchResourcesSimpleCriterionKey;
   values?: Array<string>;
 }
-export type SearchResourcesSimpleCriterionKey =
-  | "ACCOUNT_ID"
-  | "S3_BUCKET_NAME"
-  | "S3_BUCKET_EFFECTIVE_PERMISSION"
-  | "S3_BUCKET_SHARED_ACCESS"
-  | "AUTOMATED_DISCOVERY_MONITORING_STATUS";
-export type SearchResourcesSortAttributeName =
-  | "ACCOUNT_ID"
-  | "RESOURCE_NAME"
-  | "S3_CLASSIFIABLE_OBJECT_COUNT"
-  | "S3_CLASSIFIABLE_SIZE_IN_BYTES";
+export type SearchResourcesSimpleCriterionKey = "ACCOUNT_ID" | "S3_BUCKET_NAME" | "S3_BUCKET_EFFECTIVE_PERMISSION" | "S3_BUCKET_SHARED_ACCESS" | "AUTOMATED_DISCOVERY_MONITORING_STATUS";
+export type SearchResourcesSortAttributeName = "ACCOUNT_ID" | "RESOURCE_NAME" | "S3_CLASSIFIABLE_OBJECT_COUNT" | "S3_CLASSIFIABLE_SIZE_IN_BYTES";
 export interface SearchResourcesSortCriteria {
   attributeName?: SearchResourcesSortAttributeName;
   orderBy?: OrderBy;
@@ -2397,15 +1813,8 @@ export interface SensitiveDataItem {
   detections?: Array<DefaultDetection>;
   totalCount?: number;
 }
-export type SensitiveDataItemCategory =
-  | "FINANCIAL_INFORMATION"
-  | "PERSONAL_INFORMATION"
-  | "CREDENTIALS"
-  | "CUSTOM_IDENTIFIER";
-export type SensitiveDataOccurrences = Record<
-  string,
-  Array<DetectedDataDetails>
->;
+export type SensitiveDataItemCategory = "FINANCIAL_INFORMATION" | "PERSONAL_INFORMATION" | "CREDENTIALS" | "CUSTOM_IDENTIFIER";
+export type SensitiveDataOccurrences = Record<string, Array<DetectedDataDetails>>;
 export interface SensitivityAggregations {
   classifiableSizeInBytes?: number;
   publiclyAccessibleCount?: number;
@@ -2471,11 +1880,7 @@ export interface SimpleCriterionForJob {
   key?: SimpleCriterionKeyForJob;
   values?: Array<string>;
 }
-export type SimpleCriterionKeyForJob =
-  | "ACCOUNT_ID"
-  | "S3_BUCKET_NAME"
-  | "S3_BUCKET_EFFECTIVE_PERMISSION"
-  | "S3_BUCKET_SHARED_ACCESS";
+export type SimpleCriterionKeyForJob = "ACCOUNT_ID" | "S3_BUCKET_NAME" | "S3_BUCKET_EFFECTIVE_PERMISSION" | "S3_BUCKET_SHARED_ACCESS";
 export interface SimpleScopeTerm {
   comparator?: JobComparator;
   key?: ScopeFilterKey;
@@ -2489,16 +1894,7 @@ export interface Statistics {
   approximateNumberOfObjectsToProcess?: number;
   numberOfRuns?: number;
 }
-export type StorageClass =
-  | "STANDARD"
-  | "REDUCED_REDUNDANCY"
-  | "STANDARD_IA"
-  | "INTELLIGENT_TIERING"
-  | "DEEP_ARCHIVE"
-  | "ONEZONE_IA"
-  | "GLACIER"
-  | "GLACIER_IR"
-  | "OUTPOSTS";
+export type StorageClass = "STANDARD" | "REDUCED_REDUNDANCY" | "STANDARD_IA" | "INTELLIGENT_TIERING" | "DEEP_ARCHIVE" | "ONEZONE_IA" | "GLACIER" | "GLACIER_IR" | "OUTPOSTS";
 export interface SuppressDataIdentifier {
   id?: string;
   type?: DataIdentifierType;
@@ -2516,7 +1912,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export interface TagScopeTerm {
   comparator?: JobComparator;
   key?: string;
@@ -2547,18 +1944,7 @@ export type TimeRange = "MONTH_TO_DATE" | "PAST_30_DAYS";
 export type Timestamp = Date | string;
 
 export type Type = "NONE" | "AES256" | "aws:kms" | "aws:kms:dsse";
-export type UnavailabilityReasonCode =
-  | "OBJECT_EXCEEDS_SIZE_QUOTA"
-  | "UNSUPPORTED_OBJECT_TYPE"
-  | "UNSUPPORTED_FINDING_TYPE"
-  | "INVALID_CLASSIFICATION_RESULT"
-  | "OBJECT_UNAVAILABLE"
-  | "ACCOUNT_NOT_IN_ORGANIZATION"
-  | "MISSING_GET_MEMBER_PERMISSION"
-  | "ROLE_TOO_PERMISSIVE"
-  | "MEMBER_ROLE_TOO_PERMISSIVE"
-  | "INVALID_RESULT_SIGNATURE"
-  | "RESULT_NOT_SIGNED";
+export type UnavailabilityReasonCode = "OBJECT_EXCEEDS_SIZE_QUOTA" | "UNSUPPORTED_OBJECT_TYPE" | "UNSUPPORTED_FINDING_TYPE" | "INVALID_CLASSIFICATION_RESULT" | "OBJECT_UNAVAILABLE" | "ACCOUNT_NOT_IN_ORGANIZATION" | "MISSING_GET_MEMBER_PERMISSION" | "ROLE_TOO_PERMISSIVE" | "MEMBER_ROLE_TOO_PERMISSIVE" | "INVALID_RESULT_SIGNATURE" | "RESULT_NOT_SIGNED";
 export type Unit = "TERABYTES";
 export declare class UnprocessableEntityException extends EffectData.TaggedError(
   "UnprocessableEntityException",
@@ -2574,7 +1960,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateAllowListRequest {
   criteria: AllowListCriteria;
   description?: string;
@@ -2589,17 +1976,20 @@ export interface UpdateAutomatedDiscoveryConfigurationRequest {
   autoEnableOrganizationMembers?: AutoEnableMode;
   status: AutomatedDiscoveryStatus;
 }
-export interface UpdateAutomatedDiscoveryConfigurationResponse {}
+export interface UpdateAutomatedDiscoveryConfigurationResponse {
+}
 export interface UpdateClassificationJobRequest {
   jobId: string;
   jobStatus: JobStatus;
 }
-export interface UpdateClassificationJobResponse {}
+export interface UpdateClassificationJobResponse {
+}
 export interface UpdateClassificationScopeRequest {
   id: string;
   s3?: S3ClassificationScopeUpdate;
 }
-export interface UpdateClassificationScopeResponse {}
+export interface UpdateClassificationScopeResponse {
+}
 export interface UpdateFindingsFilterRequest {
   action?: FindingsFilterAction;
   clientToken?: string;
@@ -2617,26 +2007,31 @@ export interface UpdateMacieSessionRequest {
   findingPublishingFrequency?: FindingPublishingFrequency;
   status?: MacieStatus;
 }
-export interface UpdateMacieSessionResponse {}
+export interface UpdateMacieSessionResponse {
+}
 export interface UpdateMemberSessionRequest {
   id: string;
   status: MacieStatus;
 }
-export interface UpdateMemberSessionResponse {}
+export interface UpdateMemberSessionResponse {
+}
 export interface UpdateOrganizationConfigurationRequest {
   autoEnable: boolean;
 }
-export interface UpdateOrganizationConfigurationResponse {}
+export interface UpdateOrganizationConfigurationResponse {
+}
 export interface UpdateResourceProfileDetectionsRequest {
   resourceArn: string;
   suppressDataIdentifiers?: Array<SuppressDataIdentifier>;
 }
-export interface UpdateResourceProfileDetectionsResponse {}
+export interface UpdateResourceProfileDetectionsResponse {
+}
 export interface UpdateResourceProfileRequest {
   resourceArn: string;
   sensitivityScoreOverride?: number;
 }
-export interface UpdateResourceProfileResponse {}
+export interface UpdateResourceProfileResponse {
+}
 export interface UpdateRetrievalConfiguration {
   retrievalMode: RetrievalMode;
   roleName?: string;
@@ -2655,7 +2050,8 @@ export interface UpdateSensitivityInspectionTemplateRequest {
   id: string;
   includes?: SensitivityInspectionTemplateIncludes;
 }
-export interface UpdateSensitivityInspectionTemplateResponse {}
+export interface UpdateSensitivityInspectionTemplateResponse {
+}
 export interface UsageByAccount {
   currency?: Currency;
   estimatedCost?: string;
@@ -2673,38 +2069,19 @@ export interface UsageStatisticsFilter {
   key?: UsageStatisticsFilterKey;
   values?: Array<string>;
 }
-export type UsageStatisticsFilterComparator =
-  | "GT"
-  | "GTE"
-  | "LT"
-  | "LTE"
-  | "EQ"
-  | "NE"
-  | "CONTAINS";
-export type UsageStatisticsFilterKey =
-  | "accountId"
-  | "serviceLimit"
-  | "freeTrialStartDate"
-  | "total";
+export type UsageStatisticsFilterComparator = "GT" | "GTE" | "LT" | "LTE" | "EQ" | "NE" | "CONTAINS";
+export type UsageStatisticsFilterKey = "accountId" | "serviceLimit" | "freeTrialStartDate" | "total";
 export interface UsageStatisticsSortBy {
   key?: UsageStatisticsSortKey;
   orderBy?: OrderBy;
 }
-export type UsageStatisticsSortKey =
-  | "accountId"
-  | "total"
-  | "serviceLimitValue"
-  | "freeTrialStartDate";
+export type UsageStatisticsSortKey = "accountId" | "total" | "serviceLimitValue" | "freeTrialStartDate";
 export interface UsageTotal {
   currency?: Currency;
   estimatedCost?: string;
   type?: UsageType;
 }
-export type UsageType =
-  | "DATA_INVENTORY_EVALUATION"
-  | "SENSITIVE_DATA_DISCOVERY"
-  | "AUTOMATED_SENSITIVE_DATA_DISCOVERY"
-  | "AUTOMATED_OBJECT_MONITORING";
+export type UsageType = "DATA_INVENTORY_EVALUATION" | "SENSITIVE_DATA_DISCOVERY" | "AUTOMATED_SENSITIVE_DATA_DISCOVERY" | "AUTOMATED_OBJECT_MONITORING";
 export interface UserIdentity {
   assumedRole?: AssumedRole;
   awsAccount?: AwsAccount;
@@ -2719,13 +2096,7 @@ export interface UserIdentityRoot {
   arn?: string;
   principalId?: string;
 }
-export type UserIdentityType =
-  | "AssumedRole"
-  | "IAMUser"
-  | "FederatedUser"
-  | "Root"
-  | "AWSAccount"
-  | "AWSService";
+export type UserIdentityType = "AssumedRole" | "IAMUser" | "FederatedUser" | "Root" | "AWSAccount" | "AWSService";
 export interface UserPausedDetails {
   jobExpiresAt?: Date | string;
   jobImminentExpirationHealthEventArn?: string;
@@ -3497,7 +2868,8 @@ export declare namespace ListInvitations {
 export declare namespace ListManagedDataIdentifiers {
   export type Input = ListManagedDataIdentifiersRequest;
   export type Output = ListManagedDataIdentifiersResponse;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ListMembers {
@@ -3568,7 +2940,8 @@ export declare namespace ListSensitivityInspectionTemplates {
 export declare namespace ListTagsForResource {
   export type Input = ListTagsForResourceRequest;
   export type Output = ListTagsForResourceResponse;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace PutClassificationExportConfiguration {
@@ -3616,7 +2989,8 @@ export declare namespace SearchResources {
 export declare namespace TagResource {
   export type Input = TagResourceRequest;
   export type Output = TagResourceResponse;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace TestCustomDataIdentifier {
@@ -3636,7 +3010,8 @@ export declare namespace TestCustomDataIdentifier {
 export declare namespace UntagResource {
   export type Input = UntagResourceRequest;
   export type Output = UntagResourceResponse;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace UpdateAllowList {
@@ -3793,13 +3168,5 @@ export declare namespace UpdateSensitivityInspectionTemplate {
     | CommonAwsError;
 }
 
-export type Macie2Errors =
-  | AccessDeniedException
-  | ConflictException
-  | InternalServerException
-  | ResourceNotFoundException
-  | ServiceQuotaExceededException
-  | ThrottlingException
-  | UnprocessableEntityException
-  | ValidationException
-  | CommonAwsError;
+export type Macie2Errors = AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | UnprocessableEntityException | ValidationException | CommonAwsError;
+

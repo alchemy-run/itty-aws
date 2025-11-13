@@ -1,38 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-} from "../../error.ts";
-type CommonAwsError =
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | AccessDeniedException
-  | ThrottlingException
-  | ValidationException;
+import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
+type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class DSQL extends AWSServiceClient {
@@ -50,15 +18,15 @@ export declare class DSQL extends AWSServiceClient {
   >;
   untagResource(
     input: UntagResourceInput,
-  ): Effect.Effect<{}, ResourceNotFoundException | CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    ResourceNotFoundException | CommonAwsError
+  >;
   createCluster(
     input: CreateClusterInput,
   ): Effect.Effect<
     CreateClusterOutput,
-    | ConflictException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   >;
   deleteCluster(
     input: DeleteClusterInput,
@@ -70,10 +38,7 @@ export declare class DSQL extends AWSServiceClient {
     input: DeleteClusterPolicyInput,
   ): Effect.Effect<
     DeleteClusterPolicyOutput,
-    | ConflictException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   getCluster(
     input: GetClusterInput,
@@ -91,11 +56,7 @@ export declare class DSQL extends AWSServiceClient {
     input: GetVpcEndpointServiceNameInput,
   ): Effect.Effect<
     GetVpcEndpointServiceNameOutput,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listClusters(
     input: ListClustersInput,
@@ -107,19 +68,13 @@ export declare class DSQL extends AWSServiceClient {
     input: PutClusterPolicyInput,
   ): Effect.Effect<
     PutClusterPolicyOutput,
-    | ConflictException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   updateCluster(
     input: UpdateClusterInput,
   ): Effect.Effect<
     UpdateClusterOutput,
-    | ConflictException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
 }
 
@@ -144,17 +99,7 @@ export type ClusterCreationTime = Date | string;
 export type ClusterId = string;
 
 export type ClusterList = Array<ClusterSummary>;
-export type ClusterStatus =
-  | "CREATING"
-  | "ACTIVE"
-  | "IDLE"
-  | "INACTIVE"
-  | "UPDATING"
-  | "DELETING"
-  | "DELETED"
-  | "FAILED"
-  | "PENDING_SETUP"
-  | "PENDING_DELETE";
+export type ClusterStatus = "CREATING" | "ACTIVE" | "IDLE" | "INACTIVE" | "UPDATING" | "DELETING" | "DELETED" | "FAILED" | "PENDING_SETUP" | "PENDING_DELETE";
 export interface ClusterSummary {
   identifier: string;
   arn: string;
@@ -209,11 +154,7 @@ export interface EncryptionDetails {
   kmsKeyArn?: string;
   encryptionStatus: EncryptionStatus;
 }
-export type EncryptionStatus =
-  | "ENABLED"
-  | "UPDATING"
-  | "KMS_KEY_INACCESSIBLE"
-  | "ENABLING";
+export type EncryptionStatus = "ENABLED" | "UPDATING" | "KMS_KEY_INACCESSIBLE" | "ENABLING";
 export type EncryptionType = "AWS_OWNED_KMS_KEY" | "CUSTOMER_MANAGED_KMS_KEY";
 export interface GetClusterInput {
   identifier: string;
@@ -354,16 +295,13 @@ export interface ValidationExceptionField {
   message: string;
 }
 export type ValidationExceptionFieldList = Array<ValidationExceptionField>;
-export type ValidationExceptionReason =
-  | "unknownOperation"
-  | "cannotParse"
-  | "fieldValidationFailed"
-  | "deletionProtectionEnabled"
-  | "other";
+export type ValidationExceptionReason = "unknownOperation" | "cannotParse" | "fieldValidationFailed" | "deletionProtectionEnabled" | "other";
 export declare namespace ListTagsForResource {
   export type Input = ListTagsForResourceInput;
   export type Output = ListTagsForResourceOutput;
-  export type Error = ResourceNotFoundException | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundException
+    | CommonAwsError;
 }
 
 export declare namespace TagResource {
@@ -378,7 +316,9 @@ export declare namespace TagResource {
 export declare namespace UntagResource {
   export type Input = UntagResourceInput;
   export type Output = {};
-  export type Error = ResourceNotFoundException | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundException
+    | CommonAwsError;
 }
 
 export declare namespace CreateCluster {
@@ -413,7 +353,9 @@ export declare namespace DeleteClusterPolicy {
 export declare namespace GetCluster {
   export type Input = GetClusterInput;
   export type Output = GetClusterOutput;
-  export type Error = ResourceNotFoundException | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundException
+    | CommonAwsError;
 }
 
 export declare namespace GetClusterPolicy {
@@ -439,7 +381,9 @@ export declare namespace GetVpcEndpointServiceName {
 export declare namespace ListClusters {
   export type Input = ListClustersInput;
   export type Output = ListClustersOutput;
-  export type Error = ResourceNotFoundException | CommonAwsError;
+  export type Error =
+    | ResourceNotFoundException
+    | CommonAwsError;
 }
 
 export declare namespace PutClusterPolicy {
@@ -462,12 +406,5 @@ export declare namespace UpdateCluster {
     | CommonAwsError;
 }
 
-export type DSQLErrors =
-  | AccessDeniedException
-  | ConflictException
-  | InternalServerException
-  | ResourceNotFoundException
-  | ServiceQuotaExceededException
-  | ThrottlingException
-  | ValidationException
-  | CommonAwsError;
+export type DSQLErrors = AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError;
+

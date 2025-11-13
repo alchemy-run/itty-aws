@@ -1,38 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-} from "../../error.ts";
-type CommonAwsError =
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | AccessDeniedException
-  | ThrottlingException
-  | ValidationException;
+import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
+type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class BedrockAgentCoreControl extends AWSServiceClient {
@@ -40,667 +8,331 @@ export declare class BedrockAgentCoreControl extends AWSServiceClient {
     input: GetTokenVaultRequest,
   ): Effect.Effect<
     GetTokenVaultResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   setTokenVaultCMK(
     input: SetTokenVaultCMKRequest,
   ): Effect.Effect<
     SetTokenVaultCMKResponse,
-    | AccessDeniedException
-    | ConcurrentModificationException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConcurrentModificationException | InternalServerException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createAgentRuntime(
     input: CreateAgentRuntimeRequest,
   ): Effect.Effect<
     CreateAgentRuntimeResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createAgentRuntimeEndpoint(
     input: CreateAgentRuntimeEndpointRequest,
   ): Effect.Effect<
     CreateAgentRuntimeEndpointResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createApiKeyCredentialProvider(
     input: CreateApiKeyCredentialProviderRequest,
   ): Effect.Effect<
     CreateApiKeyCredentialProviderResponse,
-    | AccessDeniedException
-    | ConflictException
-    | DecryptionFailure
-    | EncryptionFailure
-    | InternalServerException
-    | ResourceLimitExceededException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | DecryptionFailure | EncryptionFailure | InternalServerException | ResourceLimitExceededException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
   >;
   createBrowser(
     input: CreateBrowserRequest,
   ): Effect.Effect<
     CreateBrowserResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createCodeInterpreter(
     input: CreateCodeInterpreterRequest,
   ): Effect.Effect<
     CreateCodeInterpreterResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createGateway(
     input: CreateGatewayRequest,
   ): Effect.Effect<
     CreateGatewayResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createGatewayTarget(
     input: CreateGatewayTargetRequest,
   ): Effect.Effect<
     CreateGatewayTargetResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createMemory(
     input: CreateMemoryInput,
   ): Effect.Effect<
     CreateMemoryOutput,
-    | AccessDeniedException
-    | ConflictException
-    | ResourceNotFoundException
-    | ServiceException
-    | ServiceQuotaExceededException
-    | ThrottledException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | ResourceNotFoundException | ServiceException | ServiceQuotaExceededException | ThrottledException | ValidationException | CommonAwsError
   >;
   createOauth2CredentialProvider(
     input: CreateOauth2CredentialProviderRequest,
   ): Effect.Effect<
     CreateOauth2CredentialProviderResponse,
-    | AccessDeniedException
-    | ConflictException
-    | DecryptionFailure
-    | EncryptionFailure
-    | InternalServerException
-    | ResourceLimitExceededException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | DecryptionFailure | EncryptionFailure | InternalServerException | ResourceLimitExceededException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
   >;
   createWorkloadIdentity(
     input: CreateWorkloadIdentityRequest,
   ): Effect.Effect<
     CreateWorkloadIdentityResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
   >;
   deleteAgentRuntime(
     input: DeleteAgentRuntimeRequest,
   ): Effect.Effect<
     DeleteAgentRuntimeResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   deleteAgentRuntimeEndpoint(
     input: DeleteAgentRuntimeEndpointRequest,
   ): Effect.Effect<
     DeleteAgentRuntimeEndpointResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   deleteApiKeyCredentialProvider(
     input: DeleteApiKeyCredentialProviderRequest,
   ): Effect.Effect<
     DeleteApiKeyCredentialProviderResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
   >;
   deleteBrowser(
     input: DeleteBrowserRequest,
   ): Effect.Effect<
     DeleteBrowserResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteCodeInterpreter(
     input: DeleteCodeInterpreterRequest,
   ): Effect.Effect<
     DeleteCodeInterpreterResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteGateway(
     input: DeleteGatewayRequest,
   ): Effect.Effect<
     DeleteGatewayResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteGatewayTarget(
     input: DeleteGatewayTargetRequest,
   ): Effect.Effect<
     DeleteGatewayTargetResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteMemory(
     input: DeleteMemoryInput,
   ): Effect.Effect<
     DeleteMemoryOutput,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ServiceException
-    | ThrottledException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ServiceException | ThrottledException | ValidationException | CommonAwsError
   >;
   deleteOauth2CredentialProvider(
     input: DeleteOauth2CredentialProviderRequest,
   ): Effect.Effect<
     DeleteOauth2CredentialProviderResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
   >;
   deleteWorkloadIdentity(
     input: DeleteWorkloadIdentityRequest,
   ): Effect.Effect<
     DeleteWorkloadIdentityResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
   >;
   getAgentRuntime(
     input: GetAgentRuntimeRequest,
   ): Effect.Effect<
     GetAgentRuntimeResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getAgentRuntimeEndpoint(
     input: GetAgentRuntimeEndpointRequest,
   ): Effect.Effect<
     GetAgentRuntimeEndpointResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getApiKeyCredentialProvider(
     input: GetApiKeyCredentialProviderRequest,
   ): Effect.Effect<
     GetApiKeyCredentialProviderResponse,
-    | AccessDeniedException
-    | DecryptionFailure
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DecryptionFailure | InternalServerException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
   >;
   getBrowser(
     input: GetBrowserRequest,
   ): Effect.Effect<
     GetBrowserResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | CommonAwsError
   >;
   getCodeInterpreter(
     input: GetCodeInterpreterRequest,
   ): Effect.Effect<
     GetCodeInterpreterResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | CommonAwsError
   >;
   getGateway(
     input: GetGatewayRequest,
   ): Effect.Effect<
     GetGatewayResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getGatewayTarget(
     input: GetGatewayTargetRequest,
   ): Effect.Effect<
     GetGatewayTargetResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getMemory(
     input: GetMemoryInput,
   ): Effect.Effect<
     GetMemoryOutput,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ServiceException
-    | ThrottledException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ServiceException | ThrottledException | ValidationException | CommonAwsError
   >;
   getOauth2CredentialProvider(
     input: GetOauth2CredentialProviderRequest,
   ): Effect.Effect<
     GetOauth2CredentialProviderResponse,
-    | AccessDeniedException
-    | DecryptionFailure
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | DecryptionFailure | InternalServerException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
   >;
   getWorkloadIdentity(
     input: GetWorkloadIdentityRequest,
   ): Effect.Effect<
     GetWorkloadIdentityResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
   >;
   listAgentRuntimeEndpoints(
     input: ListAgentRuntimeEndpointsRequest,
   ): Effect.Effect<
     ListAgentRuntimeEndpointsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listAgentRuntimeVersions(
     input: ListAgentRuntimeVersionsRequest,
   ): Effect.Effect<
     ListAgentRuntimeVersionsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listAgentRuntimes(
     input: ListAgentRuntimesRequest,
   ): Effect.Effect<
     ListAgentRuntimesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listApiKeyCredentialProviders(
     input: ListApiKeyCredentialProvidersRequest,
   ): Effect.Effect<
     ListApiKeyCredentialProvidersResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
   >;
   listBrowsers(
     input: ListBrowsersRequest,
   ): Effect.Effect<
     ListBrowsersResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listCodeInterpreters(
     input: ListCodeInterpretersRequest,
   ): Effect.Effect<
     ListCodeInterpretersResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listGatewayTargets(
     input: ListGatewayTargetsRequest,
   ): Effect.Effect<
     ListGatewayTargetsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listGateways(
     input: ListGatewaysRequest,
   ): Effect.Effect<
     ListGatewaysResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listMemories(
     input: ListMemoriesInput,
   ): Effect.Effect<
     ListMemoriesOutput,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ServiceException
-    | ThrottledException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ServiceException | ThrottledException | ValidationException | CommonAwsError
   >;
   listOauth2CredentialProviders(
     input: ListOauth2CredentialProvidersRequest,
   ): Effect.Effect<
     ListOauth2CredentialProvidersResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
   >;
   listWorkloadIdentities(
     input: ListWorkloadIdentitiesRequest,
   ): Effect.Effect<
     ListWorkloadIdentitiesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
   >;
   synchronizeGatewayTargets(
     input: SynchronizeGatewayTargetsRequest,
   ): Effect.Effect<
     SynchronizeGatewayTargetsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateAgentRuntime(
     input: UpdateAgentRuntimeRequest,
   ): Effect.Effect<
     UpdateAgentRuntimeResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateAgentRuntimeEndpoint(
     input: UpdateAgentRuntimeEndpointRequest,
   ): Effect.Effect<
     UpdateAgentRuntimeEndpointResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateApiKeyCredentialProvider(
     input: UpdateApiKeyCredentialProviderRequest,
   ): Effect.Effect<
     UpdateApiKeyCredentialProviderResponse,
-    | AccessDeniedException
-    | ConflictException
-    | DecryptionFailure
-    | EncryptionFailure
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | DecryptionFailure | EncryptionFailure | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
   >;
   updateGateway(
     input: UpdateGatewayRequest,
   ): Effect.Effect<
     UpdateGatewayResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateGatewayTarget(
     input: UpdateGatewayTargetRequest,
   ): Effect.Effect<
     UpdateGatewayTargetResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateMemory(
     input: UpdateMemoryInput,
   ): Effect.Effect<
     UpdateMemoryOutput,
-    | AccessDeniedException
-    | ConflictException
-    | ResourceNotFoundException
-    | ServiceException
-    | ServiceQuotaExceededException
-    | ThrottledException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | ResourceNotFoundException | ServiceException | ServiceQuotaExceededException | ThrottledException | ValidationException | CommonAwsError
   >;
   updateOauth2CredentialProvider(
     input: UpdateOauth2CredentialProviderRequest,
   ): Effect.Effect<
     UpdateOauth2CredentialProviderResponse,
-    | AccessDeniedException
-    | ConflictException
-    | DecryptionFailure
-    | EncryptionFailure
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | DecryptionFailure | EncryptionFailure | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
   >;
   updateWorkloadIdentity(
     input: UpdateWorkloadIdentityRequest,
   ): Effect.Effect<
     UpdateWorkloadIdentityResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnauthorizedException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
   >;
 }
 
@@ -713,11 +345,7 @@ export declare class AccessDeniedException extends EffectData.TaggedError(
 }> {}
 export type AgentEndpointDescription = string;
 
-export type AgentManagedRuntimeType =
-  | "PYTHON_3_10"
-  | "PYTHON_3_11"
-  | "PYTHON_3_12"
-  | "PYTHON_3_13";
+export type AgentManagedRuntimeType = "PYTHON_3_10" | "PYTHON_3_11" | "PYTHON_3_12" | "PYTHON_3_13";
 export interface AgentRuntime {
   agentRuntimeArn: string;
   agentRuntimeId: string;
@@ -734,9 +362,7 @@ interface _AgentRuntimeArtifact {
   codeConfiguration?: CodeConfiguration;
 }
 
-export type AgentRuntimeArtifact =
-  | (_AgentRuntimeArtifact & { containerConfiguration: ContainerConfiguration })
-  | (_AgentRuntimeArtifact & { codeConfiguration: CodeConfiguration });
+export type AgentRuntimeArtifact = (_AgentRuntimeArtifact & { containerConfiguration: ContainerConfiguration }) | (_AgentRuntimeArtifact & { codeConfiguration: CodeConfiguration });
 export interface AgentRuntimeEndpoint {
   name: string;
   liveVersion?: string;
@@ -754,25 +380,13 @@ export type AgentRuntimeEndpointArn = string;
 export type AgentRuntimeEndpointId = string;
 
 export type AgentRuntimeEndpoints = Array<AgentRuntimeEndpoint>;
-export type AgentRuntimeEndpointStatus =
-  | "CREATING"
-  | "CREATE_FAILED"
-  | "UPDATING"
-  | "UPDATE_FAILED"
-  | "READY"
-  | "DELETING";
+export type AgentRuntimeEndpointStatus = "CREATING" | "CREATE_FAILED" | "UPDATING" | "UPDATE_FAILED" | "READY" | "DELETING";
 export type AgentRuntimeId = string;
 
 export type AgentRuntimeName = string;
 
 export type AgentRuntimes = Array<AgentRuntime>;
-export type AgentRuntimeStatus =
-  | "CREATING"
-  | "CREATE_FAILED"
-  | "UPDATING"
-  | "UPDATE_FAILED"
-  | "READY"
-  | "DELETING";
+export type AgentRuntimeStatus = "CREATING" | "CREATE_FAILED" | "UPDATING" | "UPDATE_FAILED" | "READY" | "DELETING";
 export type AgentRuntimeVersion = string;
 
 export type AllowedAudience = string;
@@ -804,9 +418,7 @@ interface _ApiSchemaConfiguration {
   inlinePayload?: string;
 }
 
-export type ApiSchemaConfiguration =
-  | (_ApiSchemaConfiguration & { s3: S3Configuration })
-  | (_ApiSchemaConfiguration & { inlinePayload: string });
+export type ApiSchemaConfiguration = (_ApiSchemaConfiguration & { s3: S3Configuration }) | (_ApiSchemaConfiguration & { inlinePayload: string });
 export type Arn = string;
 
 export interface AtlassianOauth2ProviderConfigInput {
@@ -823,9 +435,7 @@ interface _AuthorizerConfiguration {
   customJWTAuthorizer?: CustomJWTAuthorizerConfiguration;
 }
 
-export type AuthorizerConfiguration = _AuthorizerConfiguration & {
-  customJWTAuthorizer: CustomJWTAuthorizerConfiguration;
-};
+export type AuthorizerConfiguration = (_AuthorizerConfiguration & { customJWTAuthorizer: CustomJWTAuthorizerConfiguration });
 export type AuthorizerType = "CUSTOM_JWT" | "AWS_IAM";
 export type AwsAccountId = string;
 
@@ -844,13 +454,7 @@ export interface BrowserSigningConfigInput {
 export interface BrowserSigningConfigOutput {
   enabled: boolean;
 }
-export type BrowserStatus =
-  | "CREATING"
-  | "CREATE_FAILED"
-  | "READY"
-  | "DELETING"
-  | "DELETE_FAILED"
-  | "DELETED";
+export type BrowserStatus = "CREATING" | "CREATE_FAILED" | "READY" | "DELETING" | "DELETE_FAILED" | "DELETED";
 export type BrowserSummaries = Array<BrowserSummary>;
 export interface BrowserSummary {
   browserId: string;
@@ -871,7 +475,7 @@ interface _Code {
   s3?: S3Location;
 }
 
-export type Code = _Code & { s3: S3Location };
+export type Code = (_Code & { s3: S3Location });
 export interface CodeConfiguration {
   code: Code;
   runtime: AgentManagedRuntimeType;
@@ -886,13 +490,7 @@ export interface CodeInterpreterNetworkConfiguration {
   vpcConfig?: VpcConfig;
 }
 export type CodeInterpreterNetworkMode = "PUBLIC" | "SANDBOX" | "VPC";
-export type CodeInterpreterStatus =
-  | "CREATING"
-  | "CREATE_FAILED"
-  | "READY"
-  | "DELETING"
-  | "DELETE_FAILED"
-  | "DELETED";
+export type CodeInterpreterStatus = "CREATING" | "CREATE_FAILED" | "READY" | "DELETING" | "DELETE_FAILED" | "DELETED";
 export type CodeInterpreterSummaries = Array<CodeInterpreterSummary>;
 export interface CodeInterpreterSummary {
   codeInterpreterId: string;
@@ -917,9 +515,7 @@ interface _ConsolidationConfiguration {
   customConsolidationConfiguration?: CustomConsolidationConfiguration;
 }
 
-export type ConsolidationConfiguration = _ConsolidationConfiguration & {
-  customConsolidationConfiguration: CustomConsolidationConfiguration;
-};
+export type ConsolidationConfiguration = (_ConsolidationConfiguration & { customConsolidationConfiguration: CustomConsolidationConfiguration });
 export interface ContainerConfiguration {
   containerUri: string;
 }
@@ -1096,48 +692,18 @@ interface _CredentialProvider {
   apiKeyCredentialProvider?: GatewayApiKeyCredentialProvider;
 }
 
-export type CredentialProvider =
-  | (_CredentialProvider & { oauthCredentialProvider: OAuthCredentialProvider })
-  | (_CredentialProvider & {
-      apiKeyCredentialProvider: GatewayApiKeyCredentialProvider;
-    });
+export type CredentialProvider = (_CredentialProvider & { oauthCredentialProvider: OAuthCredentialProvider }) | (_CredentialProvider & { apiKeyCredentialProvider: GatewayApiKeyCredentialProvider });
 export type CredentialProviderArnType = string;
 
 export interface CredentialProviderConfiguration {
   credentialProviderType: CredentialProviderType;
   credentialProvider?: CredentialProvider;
 }
-export type CredentialProviderConfigurations =
-  Array<CredentialProviderConfiguration>;
+export type CredentialProviderConfigurations = Array<CredentialProviderConfiguration>;
 export type CredentialProviderName = string;
 
 export type CredentialProviderType = "GATEWAY_IAM_ROLE" | "OAUTH" | "API_KEY";
-export type CredentialProviderVendorType =
-  | "GoogleOauth2"
-  | "GithubOauth2"
-  | "SlackOauth2"
-  | "SalesforceOauth2"
-  | "MicrosoftOauth2"
-  | "CustomOauth2"
-  | "AtlassianOauth2"
-  | "LinkedinOauth2"
-  | "XOauth2"
-  | "OktaOauth2"
-  | "OneLoginOauth2"
-  | "PingOneOauth2"
-  | "FacebookOauth2"
-  | "YandexOauth2"
-  | "RedditOauth2"
-  | "ZoomOauth2"
-  | "TwitchOauth2"
-  | "SpotifyOauth2"
-  | "DropboxOauth2"
-  | "NotionOauth2"
-  | "HubspotOauth2"
-  | "CyberArkOauth2"
-  | "FusionAuthOauth2"
-  | "Auth0Oauth2"
-  | "CognitoOauth2";
+export type CredentialProviderVendorType = "GoogleOauth2" | "GithubOauth2" | "SlackOauth2" | "SalesforceOauth2" | "MicrosoftOauth2" | "CustomOauth2" | "AtlassianOauth2" | "LinkedinOauth2" | "XOauth2" | "OktaOauth2" | "OneLoginOauth2" | "PingOneOauth2" | "FacebookOauth2" | "YandexOauth2" | "RedditOauth2" | "ZoomOauth2" | "TwitchOauth2" | "SpotifyOauth2" | "DropboxOauth2" | "NotionOauth2" | "HubspotOauth2" | "CyberArkOauth2" | "FusionAuthOauth2" | "Auth0Oauth2" | "CognitoOauth2";
 interface _CustomConfigurationInput {
   semanticOverride?: SemanticOverrideConfigurationInput;
   summaryOverride?: SummaryOverrideConfigurationInput;
@@ -1145,75 +711,33 @@ interface _CustomConfigurationInput {
   selfManagedConfiguration?: SelfManagedConfigurationInput;
 }
 
-export type CustomConfigurationInput =
-  | (_CustomConfigurationInput & {
-      semanticOverride: SemanticOverrideConfigurationInput;
-    })
-  | (_CustomConfigurationInput & {
-      summaryOverride: SummaryOverrideConfigurationInput;
-    })
-  | (_CustomConfigurationInput & {
-      userPreferenceOverride: UserPreferenceOverrideConfigurationInput;
-    })
-  | (_CustomConfigurationInput & {
-      selfManagedConfiguration: SelfManagedConfigurationInput;
-    });
+export type CustomConfigurationInput = (_CustomConfigurationInput & { semanticOverride: SemanticOverrideConfigurationInput }) | (_CustomConfigurationInput & { summaryOverride: SummaryOverrideConfigurationInput }) | (_CustomConfigurationInput & { userPreferenceOverride: UserPreferenceOverrideConfigurationInput }) | (_CustomConfigurationInput & { selfManagedConfiguration: SelfManagedConfigurationInput });
 interface _CustomConsolidationConfiguration {
   semanticConsolidationOverride?: SemanticConsolidationOverride;
   summaryConsolidationOverride?: SummaryConsolidationOverride;
   userPreferenceConsolidationOverride?: UserPreferenceConsolidationOverride;
 }
 
-export type CustomConsolidationConfiguration =
-  | (_CustomConsolidationConfiguration & {
-      semanticConsolidationOverride: SemanticConsolidationOverride;
-    })
-  | (_CustomConsolidationConfiguration & {
-      summaryConsolidationOverride: SummaryConsolidationOverride;
-    })
-  | (_CustomConsolidationConfiguration & {
-      userPreferenceConsolidationOverride: UserPreferenceConsolidationOverride;
-    });
+export type CustomConsolidationConfiguration = (_CustomConsolidationConfiguration & { semanticConsolidationOverride: SemanticConsolidationOverride }) | (_CustomConsolidationConfiguration & { summaryConsolidationOverride: SummaryConsolidationOverride }) | (_CustomConsolidationConfiguration & { userPreferenceConsolidationOverride: UserPreferenceConsolidationOverride });
 interface _CustomConsolidationConfigurationInput {
   semanticConsolidationOverride?: SemanticOverrideConsolidationConfigurationInput;
   summaryConsolidationOverride?: SummaryOverrideConsolidationConfigurationInput;
   userPreferenceConsolidationOverride?: UserPreferenceOverrideConsolidationConfigurationInput;
 }
 
-export type CustomConsolidationConfigurationInput =
-  | (_CustomConsolidationConfigurationInput & {
-      semanticConsolidationOverride: SemanticOverrideConsolidationConfigurationInput;
-    })
-  | (_CustomConsolidationConfigurationInput & {
-      summaryConsolidationOverride: SummaryOverrideConsolidationConfigurationInput;
-    })
-  | (_CustomConsolidationConfigurationInput & {
-      userPreferenceConsolidationOverride: UserPreferenceOverrideConsolidationConfigurationInput;
-    });
+export type CustomConsolidationConfigurationInput = (_CustomConsolidationConfigurationInput & { semanticConsolidationOverride: SemanticOverrideConsolidationConfigurationInput }) | (_CustomConsolidationConfigurationInput & { summaryConsolidationOverride: SummaryOverrideConsolidationConfigurationInput }) | (_CustomConsolidationConfigurationInput & { userPreferenceConsolidationOverride: UserPreferenceOverrideConsolidationConfigurationInput });
 interface _CustomExtractionConfiguration {
   semanticExtractionOverride?: SemanticExtractionOverride;
   userPreferenceExtractionOverride?: UserPreferenceExtractionOverride;
 }
 
-export type CustomExtractionConfiguration =
-  | (_CustomExtractionConfiguration & {
-      semanticExtractionOverride: SemanticExtractionOverride;
-    })
-  | (_CustomExtractionConfiguration & {
-      userPreferenceExtractionOverride: UserPreferenceExtractionOverride;
-    });
+export type CustomExtractionConfiguration = (_CustomExtractionConfiguration & { semanticExtractionOverride: SemanticExtractionOverride }) | (_CustomExtractionConfiguration & { userPreferenceExtractionOverride: UserPreferenceExtractionOverride });
 interface _CustomExtractionConfigurationInput {
   semanticExtractionOverride?: SemanticOverrideExtractionConfigurationInput;
   userPreferenceExtractionOverride?: UserPreferenceOverrideExtractionConfigurationInput;
 }
 
-export type CustomExtractionConfigurationInput =
-  | (_CustomExtractionConfigurationInput & {
-      semanticExtractionOverride: SemanticOverrideExtractionConfigurationInput;
-    })
-  | (_CustomExtractionConfigurationInput & {
-      userPreferenceExtractionOverride: UserPreferenceOverrideExtractionConfigurationInput;
-    });
+export type CustomExtractionConfigurationInput = (_CustomExtractionConfigurationInput & { semanticExtractionOverride: SemanticOverrideExtractionConfigurationInput }) | (_CustomExtractionConfigurationInput & { userPreferenceExtractionOverride: UserPreferenceOverrideExtractionConfigurationInput });
 export interface CustomJWTAuthorizerConfiguration {
   discoveryUrl: string;
   allowedAudience?: Array<string>;
@@ -1262,7 +786,8 @@ export interface DeleteAgentRuntimeResponse {
 export interface DeleteApiKeyCredentialProviderRequest {
   name: string;
 }
-export interface DeleteApiKeyCredentialProviderResponse {}
+export interface DeleteApiKeyCredentialProviderResponse {
+}
 export interface DeleteBrowserRequest {
   browserId: string;
   clientToken?: string;
@@ -1314,11 +839,13 @@ export interface DeleteMemoryStrategyInput {
 export interface DeleteOauth2CredentialProviderRequest {
   name: string;
 }
-export interface DeleteOauth2CredentialProviderResponse {}
+export interface DeleteOauth2CredentialProviderResponse {
+}
 export interface DeleteWorkloadIdentityRequest {
   name: string;
 }
-export interface DeleteWorkloadIdentityResponse {}
+export interface DeleteWorkloadIdentityResponse {
+}
 export type Description = string;
 
 export type DiscoveryUrl = string;
@@ -1345,9 +872,7 @@ interface _ExtractionConfiguration {
   customExtractionConfiguration?: CustomExtractionConfiguration;
 }
 
-export type ExtractionConfiguration = _ExtractionConfiguration & {
-  customExtractionConfiguration: CustomExtractionConfiguration;
-};
+export type ExtractionConfiguration = (_ExtractionConfiguration & { customExtractionConfiguration: CustomExtractionConfiguration });
 export interface GatewayApiKeyCredentialProvider {
   providerArn: string;
   credentialParameterName?: string;
@@ -1372,17 +897,9 @@ interface _GatewayProtocolConfiguration {
   mcp?: MCPGatewayConfiguration;
 }
 
-export type GatewayProtocolConfiguration = _GatewayProtocolConfiguration & {
-  mcp: MCPGatewayConfiguration;
-};
+export type GatewayProtocolConfiguration = (_GatewayProtocolConfiguration & { mcp: MCPGatewayConfiguration });
 export type GatewayProtocolType = "MCP";
-export type GatewayStatus =
-  | "CREATING"
-  | "UPDATING"
-  | "UPDATE_UNSUCCESSFUL"
-  | "DELETING"
-  | "READY"
-  | "FAILED";
+export type GatewayStatus = "CREATING" | "UPDATING" | "UPDATE_UNSUCCESSFUL" | "DELETING" | "READY" | "FAILED";
 export type GatewaySummaries = Array<GatewaySummary>;
 export interface GatewaySummary {
   gatewayId: string;
@@ -1758,11 +1275,7 @@ interface _McpTargetConfiguration {
   mcpServer?: McpServerTargetConfiguration;
 }
 
-export type McpTargetConfiguration =
-  | (_McpTargetConfiguration & { openApiSchema: ApiSchemaConfiguration })
-  | (_McpTargetConfiguration & { smithyModel: ApiSchemaConfiguration })
-  | (_McpTargetConfiguration & { lambda: McpLambdaTargetConfiguration })
-  | (_McpTargetConfiguration & { mcpServer: McpServerTargetConfiguration });
+export type McpTargetConfiguration = (_McpTargetConfiguration & { openApiSchema: ApiSchemaConfiguration }) | (_McpTargetConfiguration & { smithyModel: ApiSchemaConfiguration }) | (_McpTargetConfiguration & { lambda: McpLambdaTargetConfiguration }) | (_McpTargetConfiguration & { mcpServer: McpServerTargetConfiguration });
 export type McpVersion = string;
 
 export interface Memory {
@@ -1804,31 +1317,11 @@ interface _MemoryStrategyInput {
   customMemoryStrategy?: CustomMemoryStrategyInput;
 }
 
-export type MemoryStrategyInput =
-  | (_MemoryStrategyInput & {
-      semanticMemoryStrategy: SemanticMemoryStrategyInput;
-    })
-  | (_MemoryStrategyInput & {
-      summaryMemoryStrategy: SummaryMemoryStrategyInput;
-    })
-  | (_MemoryStrategyInput & {
-      userPreferenceMemoryStrategy: UserPreferenceMemoryStrategyInput;
-    })
-  | (_MemoryStrategyInput & {
-      customMemoryStrategy: CustomMemoryStrategyInput;
-    });
+export type MemoryStrategyInput = (_MemoryStrategyInput & { semanticMemoryStrategy: SemanticMemoryStrategyInput }) | (_MemoryStrategyInput & { summaryMemoryStrategy: SummaryMemoryStrategyInput }) | (_MemoryStrategyInput & { userPreferenceMemoryStrategy: UserPreferenceMemoryStrategyInput }) | (_MemoryStrategyInput & { customMemoryStrategy: CustomMemoryStrategyInput });
 export type MemoryStrategyInputList = Array<MemoryStrategyInput>;
 export type MemoryStrategyList = Array<MemoryStrategy>;
-export type MemoryStrategyStatus =
-  | "CREATING"
-  | "ACTIVE"
-  | "DELETING"
-  | "FAILED";
-export type MemoryStrategyType =
-  | "SEMANTIC"
-  | "SUMMARIZATION"
-  | "USER_PREFERENCE"
-  | "CUSTOM";
+export type MemoryStrategyStatus = "CREATING" | "ACTIVE" | "DELETING" | "FAILED";
+export type MemoryStrategyType = "SEMANTIC" | "SUMMARIZATION" | "USER_PREFERENCE" | "CUSTOM";
 export interface MemorySummary {
   arn?: string;
   id?: string;
@@ -1856,17 +1349,12 @@ interface _ModifyConsolidationConfiguration {
   customConsolidationConfiguration?: CustomConsolidationConfigurationInput;
 }
 
-export type ModifyConsolidationConfiguration =
-  _ModifyConsolidationConfiguration & {
-    customConsolidationConfiguration: CustomConsolidationConfigurationInput;
-  };
+export type ModifyConsolidationConfiguration = (_ModifyConsolidationConfiguration & { customConsolidationConfiguration: CustomConsolidationConfigurationInput });
 interface _ModifyExtractionConfiguration {
   customExtractionConfiguration?: CustomExtractionConfigurationInput;
 }
 
-export type ModifyExtractionConfiguration = _ModifyExtractionConfiguration & {
-  customExtractionConfiguration: CustomExtractionConfigurationInput;
-};
+export type ModifyExtractionConfiguration = (_ModifyExtractionConfiguration & { customExtractionConfiguration: CustomExtractionConfigurationInput });
 export interface ModifyInvocationConfigurationInput {
   topicArn?: string;
   payloadDeliveryBucketName?: string;
@@ -1929,11 +1417,7 @@ interface _Oauth2Discovery {
   authorizationServerMetadata?: Oauth2AuthorizationServerMetadata;
 }
 
-export type Oauth2Discovery =
-  | (_Oauth2Discovery & { discoveryUrl: string })
-  | (_Oauth2Discovery & {
-      authorizationServerMetadata: Oauth2AuthorizationServerMetadata;
-    });
+export type Oauth2Discovery = (_Oauth2Discovery & { discoveryUrl: string }) | (_Oauth2Discovery & { authorizationServerMetadata: Oauth2AuthorizationServerMetadata });
 interface _Oauth2ProviderConfigInput {
   customOauth2ProviderConfig?: CustomOauth2ProviderConfigInput;
   googleOauth2ProviderConfig?: GoogleOauth2ProviderConfigInput;
@@ -1946,34 +1430,7 @@ interface _Oauth2ProviderConfigInput {
   includedOauth2ProviderConfig?: IncludedOauth2ProviderConfigInput;
 }
 
-export type Oauth2ProviderConfigInput =
-  | (_Oauth2ProviderConfigInput & {
-      customOauth2ProviderConfig: CustomOauth2ProviderConfigInput;
-    })
-  | (_Oauth2ProviderConfigInput & {
-      googleOauth2ProviderConfig: GoogleOauth2ProviderConfigInput;
-    })
-  | (_Oauth2ProviderConfigInput & {
-      githubOauth2ProviderConfig: GithubOauth2ProviderConfigInput;
-    })
-  | (_Oauth2ProviderConfigInput & {
-      slackOauth2ProviderConfig: SlackOauth2ProviderConfigInput;
-    })
-  | (_Oauth2ProviderConfigInput & {
-      salesforceOauth2ProviderConfig: SalesforceOauth2ProviderConfigInput;
-    })
-  | (_Oauth2ProviderConfigInput & {
-      microsoftOauth2ProviderConfig: MicrosoftOauth2ProviderConfigInput;
-    })
-  | (_Oauth2ProviderConfigInput & {
-      atlassianOauth2ProviderConfig: AtlassianOauth2ProviderConfigInput;
-    })
-  | (_Oauth2ProviderConfigInput & {
-      linkedinOauth2ProviderConfig: LinkedinOauth2ProviderConfigInput;
-    })
-  | (_Oauth2ProviderConfigInput & {
-      includedOauth2ProviderConfig: IncludedOauth2ProviderConfigInput;
-    });
+export type Oauth2ProviderConfigInput = (_Oauth2ProviderConfigInput & { customOauth2ProviderConfig: CustomOauth2ProviderConfigInput }) | (_Oauth2ProviderConfigInput & { googleOauth2ProviderConfig: GoogleOauth2ProviderConfigInput }) | (_Oauth2ProviderConfigInput & { githubOauth2ProviderConfig: GithubOauth2ProviderConfigInput }) | (_Oauth2ProviderConfigInput & { slackOauth2ProviderConfig: SlackOauth2ProviderConfigInput }) | (_Oauth2ProviderConfigInput & { salesforceOauth2ProviderConfig: SalesforceOauth2ProviderConfigInput }) | (_Oauth2ProviderConfigInput & { microsoftOauth2ProviderConfig: MicrosoftOauth2ProviderConfigInput }) | (_Oauth2ProviderConfigInput & { atlassianOauth2ProviderConfig: AtlassianOauth2ProviderConfigInput }) | (_Oauth2ProviderConfigInput & { linkedinOauth2ProviderConfig: LinkedinOauth2ProviderConfigInput }) | (_Oauth2ProviderConfigInput & { includedOauth2ProviderConfig: IncludedOauth2ProviderConfigInput });
 interface _Oauth2ProviderConfigOutput {
   customOauth2ProviderConfig?: CustomOauth2ProviderConfigOutput;
   googleOauth2ProviderConfig?: GoogleOauth2ProviderConfigOutput;
@@ -1986,34 +1443,7 @@ interface _Oauth2ProviderConfigOutput {
   includedOauth2ProviderConfig?: IncludedOauth2ProviderConfigOutput;
 }
 
-export type Oauth2ProviderConfigOutput =
-  | (_Oauth2ProviderConfigOutput & {
-      customOauth2ProviderConfig: CustomOauth2ProviderConfigOutput;
-    })
-  | (_Oauth2ProviderConfigOutput & {
-      googleOauth2ProviderConfig: GoogleOauth2ProviderConfigOutput;
-    })
-  | (_Oauth2ProviderConfigOutput & {
-      githubOauth2ProviderConfig: GithubOauth2ProviderConfigOutput;
-    })
-  | (_Oauth2ProviderConfigOutput & {
-      slackOauth2ProviderConfig: SlackOauth2ProviderConfigOutput;
-    })
-  | (_Oauth2ProviderConfigOutput & {
-      salesforceOauth2ProviderConfig: SalesforceOauth2ProviderConfigOutput;
-    })
-  | (_Oauth2ProviderConfigOutput & {
-      microsoftOauth2ProviderConfig: MicrosoftOauth2ProviderConfigOutput;
-    })
-  | (_Oauth2ProviderConfigOutput & {
-      atlassianOauth2ProviderConfig: AtlassianOauth2ProviderConfigOutput;
-    })
-  | (_Oauth2ProviderConfigOutput & {
-      linkedinOauth2ProviderConfig: LinkedinOauth2ProviderConfigOutput;
-    })
-  | (_Oauth2ProviderConfigOutput & {
-      includedOauth2ProviderConfig: IncludedOauth2ProviderConfigOutput;
-    });
+export type Oauth2ProviderConfigOutput = (_Oauth2ProviderConfigOutput & { customOauth2ProviderConfig: CustomOauth2ProviderConfigOutput }) | (_Oauth2ProviderConfigOutput & { googleOauth2ProviderConfig: GoogleOauth2ProviderConfigOutput }) | (_Oauth2ProviderConfigOutput & { githubOauth2ProviderConfig: GithubOauth2ProviderConfigOutput }) | (_Oauth2ProviderConfigOutput & { slackOauth2ProviderConfig: SlackOauth2ProviderConfigOutput }) | (_Oauth2ProviderConfigOutput & { salesforceOauth2ProviderConfig: SalesforceOauth2ProviderConfigOutput }) | (_Oauth2ProviderConfigOutput & { microsoftOauth2ProviderConfig: MicrosoftOauth2ProviderConfigOutput }) | (_Oauth2ProviderConfigOutput & { atlassianOauth2ProviderConfig: AtlassianOauth2ProviderConfigOutput }) | (_Oauth2ProviderConfigOutput & { linkedinOauth2ProviderConfig: LinkedinOauth2ProviderConfigOutput }) | (_Oauth2ProviderConfigOutput & { includedOauth2ProviderConfig: IncludedOauth2ProviderConfigOutput });
 export interface OAuthCredentialProvider {
   providerArn: string;
   scopes: Array<string>;
@@ -2029,11 +1459,7 @@ export type OAuthCustomParametersValue = string;
 export type OAuthScope = string;
 
 export type OAuthScopes = Array<string>;
-export type OverrideType =
-  | "SEMANTIC_OVERRIDE"
-  | "SUMMARY_OVERRIDE"
-  | "USER_PREFERENCE_OVERRIDE"
-  | "SELF_MANAGED";
+export type OverrideType = "SEMANTIC_OVERRIDE" | "SUMMARY_OVERRIDE" | "USER_PREFERENCE_OVERRIDE" | "SELF_MANAGED";
 export type Prompt = string;
 
 export interface ProtocolConfiguration {
@@ -2048,9 +1474,7 @@ interface _RequestHeaderConfiguration {
   requestHeaderAllowlist?: Array<string>;
 }
 
-export type RequestHeaderConfiguration = _RequestHeaderConfiguration & {
-  requestHeaderAllowlist: Array<string>;
-};
+export type RequestHeaderConfiguration = (_RequestHeaderConfiguration & { requestHeaderAllowlist: Array<string> });
 export type RequiredProperties = Array<string>;
 export declare class ResourceLimitExceededException extends EffectData.TaggedError(
   "ResourceLimitExceededException",
@@ -2102,13 +1526,7 @@ export interface SchemaDefinition {
   description?: string;
 }
 export type SchemaProperties = Record<string, SchemaDefinition>;
-export type SchemaType =
-  | "string"
-  | "number"
-  | "object"
-  | "array"
-  | "boolean"
-  | "integer";
+export type SchemaType = "string" | "number" | "object" | "array" | "boolean" | "integer";
 export type SearchType = "SEMANTIC";
 export interface Secret {
   secretArn: string;
@@ -2225,7 +1643,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagsMap = Record<string, string>;
 export type TagValue = string;
 
@@ -2233,9 +1652,7 @@ interface _TargetConfiguration {
   mcp?: McpTargetConfiguration;
 }
 
-export type TargetConfiguration = _TargetConfiguration & {
-  mcp: McpTargetConfiguration;
-};
+export type TargetConfiguration = (_TargetConfiguration & { mcp: McpTargetConfiguration });
 export type TargetDescription = string;
 
 export type TargetId = string;
@@ -2247,15 +1664,7 @@ export type TargetName = string;
 
 export type TargetNextToken = string;
 
-export type TargetStatus =
-  | "CREATING"
-  | "UPDATING"
-  | "UPDATE_UNSUCCESSFUL"
-  | "DELETING"
-  | "READY"
-  | "FAILED"
-  | "SYNCHRONIZING"
-  | "SYNCHRONIZE_UNSUCCESSFUL";
+export type TargetStatus = "CREATING" | "UPDATING" | "UPDATE_UNSUCCESSFUL" | "DELETING" | "READY" | "FAILED" | "SYNCHRONIZING" | "SYNCHRONIZE_UNSUCCESSFUL";
 export type TargetSummaries = Array<TargetSummary>;
 export interface TargetSummary {
   targetId: string;
@@ -2308,29 +1717,21 @@ interface _ToolSchema {
   inlinePayload?: Array<ToolDefinition>;
 }
 
-export type ToolSchema =
-  | (_ToolSchema & { s3: S3Configuration })
-  | (_ToolSchema & { inlinePayload: Array<ToolDefinition> });
+export type ToolSchema = (_ToolSchema & { s3: S3Configuration }) | (_ToolSchema & { inlinePayload: Array<ToolDefinition> });
 interface _TriggerCondition {
   messageBasedTrigger?: MessageBasedTrigger;
   tokenBasedTrigger?: TokenBasedTrigger;
   timeBasedTrigger?: TimeBasedTrigger;
 }
 
-export type TriggerCondition =
-  | (_TriggerCondition & { messageBasedTrigger: MessageBasedTrigger })
-  | (_TriggerCondition & { tokenBasedTrigger: TokenBasedTrigger })
-  | (_TriggerCondition & { timeBasedTrigger: TimeBasedTrigger });
+export type TriggerCondition = (_TriggerCondition & { messageBasedTrigger: MessageBasedTrigger }) | (_TriggerCondition & { tokenBasedTrigger: TokenBasedTrigger }) | (_TriggerCondition & { timeBasedTrigger: TimeBasedTrigger });
 interface _TriggerConditionInput {
   messageBasedTrigger?: MessageBasedTriggerInput;
   tokenBasedTrigger?: TokenBasedTriggerInput;
   timeBasedTrigger?: TimeBasedTriggerInput;
 }
 
-export type TriggerConditionInput =
-  | (_TriggerConditionInput & { messageBasedTrigger: MessageBasedTriggerInput })
-  | (_TriggerConditionInput & { tokenBasedTrigger: TokenBasedTriggerInput })
-  | (_TriggerConditionInput & { timeBasedTrigger: TimeBasedTriggerInput });
+export type TriggerConditionInput = (_TriggerConditionInput & { messageBasedTrigger: MessageBasedTriggerInput }) | (_TriggerConditionInput & { tokenBasedTrigger: TokenBasedTriggerInput }) | (_TriggerConditionInput & { timeBasedTrigger: TimeBasedTriggerInput });
 export type TriggerConditionInputList = Array<TriggerConditionInput>;
 export type TriggerConditionsList = Array<TriggerCondition>;
 export declare class UnauthorizedException extends EffectData.TaggedError(
@@ -2342,7 +1743,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateAgentRuntimeEndpointRequest {
   agentRuntimeId: string;
   endpointName: string;
@@ -2518,12 +1920,7 @@ export interface ValidationExceptionField {
   message: string;
 }
 export type ValidationExceptionFieldList = Array<ValidationExceptionField>;
-export type ValidationExceptionReason =
-  | "CannotParse"
-  | "FieldValidationFailed"
-  | "IdempotentParameterMismatchException"
-  | "EventInOtherSession"
-  | "ResourceConflict";
+export type ValidationExceptionReason = "CannotParse" | "FieldValidationFailed" | "IdempotentParameterMismatchException" | "EventInOtherSession" | "ResourceConflict";
 export interface VpcConfig {
   securityGroups: Array<string>;
   subnets: Array<string>;
@@ -3263,19 +2660,5 @@ export declare namespace UpdateWorkloadIdentity {
     | CommonAwsError;
 }
 
-export type BedrockAgentCoreControlErrors =
-  | AccessDeniedException
-  | ConcurrentModificationException
-  | ConflictException
-  | DecryptionFailure
-  | EncryptionFailure
-  | InternalServerException
-  | ResourceLimitExceededException
-  | ResourceNotFoundException
-  | ServiceException
-  | ServiceQuotaExceededException
-  | ThrottledException
-  | ThrottlingException
-  | UnauthorizedException
-  | ValidationException
-  | CommonAwsError;
+export type BedrockAgentCoreControlErrors = AccessDeniedException | ConcurrentModificationException | ConflictException | DecryptionFailure | EncryptionFailure | InternalServerException | ResourceLimitExceededException | ResourceNotFoundException | ServiceException | ServiceQuotaExceededException | ThrottledException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError;
+

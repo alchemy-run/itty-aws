@@ -1,39 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  ThrottlingException,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-  ValidationException,
-} from "../../error.ts";
-type CommonAwsError =
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | ThrottlingException
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | ValidationException
-  | AccessDeniedException
-  | ExpiredTokenException;
+import type { IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException } from "../../error.ts";
+type CommonAwsError = IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | ThrottlingException | UnrecognizedClientException | UnknownOperationException | ValidationError | ValidationException | AccessDeniedException | ExpiredTokenException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class SSOOIDC extends AWSServiceClient {
@@ -41,60 +8,25 @@ export declare class SSOOIDC extends AWSServiceClient {
     input: CreateTokenRequest,
   ): Effect.Effect<
     CreateTokenResponse,
-    | AccessDeniedException
-    | AuthorizationPendingException
-    | ExpiredTokenException
-    | InternalServerException
-    | InvalidClientException
-    | InvalidGrantException
-    | InvalidRequestException
-    | InvalidScopeException
-    | SlowDownException
-    | UnauthorizedClientException
-    | UnsupportedGrantTypeException
-    | CommonAwsError
+    AccessDeniedException | AuthorizationPendingException | ExpiredTokenException | InternalServerException | InvalidClientException | InvalidGrantException | InvalidRequestException | InvalidScopeException | SlowDownException | UnauthorizedClientException | UnsupportedGrantTypeException | CommonAwsError
   >;
   createTokenWithIAM(
     input: CreateTokenWithIAMRequest,
   ): Effect.Effect<
     CreateTokenWithIAMResponse,
-    | AccessDeniedException
-    | AuthorizationPendingException
-    | ExpiredTokenException
-    | InternalServerException
-    | InvalidClientException
-    | InvalidGrantException
-    | InvalidRequestException
-    | InvalidRequestRegionException
-    | InvalidScopeException
-    | SlowDownException
-    | UnauthorizedClientException
-    | UnsupportedGrantTypeException
-    | CommonAwsError
+    AccessDeniedException | AuthorizationPendingException | ExpiredTokenException | InternalServerException | InvalidClientException | InvalidGrantException | InvalidRequestException | InvalidRequestRegionException | InvalidScopeException | SlowDownException | UnauthorizedClientException | UnsupportedGrantTypeException | CommonAwsError
   >;
   registerClient(
     input: RegisterClientRequest,
   ): Effect.Effect<
     RegisterClientResponse,
-    | InternalServerException
-    | InvalidClientMetadataException
-    | InvalidRedirectUriException
-    | InvalidRequestException
-    | InvalidScopeException
-    | SlowDownException
-    | UnsupportedGrantTypeException
-    | CommonAwsError
+    InternalServerException | InvalidClientMetadataException | InvalidRedirectUriException | InvalidRequestException | InvalidScopeException | SlowDownException | UnsupportedGrantTypeException | CommonAwsError
   >;
   startDeviceAuthorization(
     input: StartDeviceAuthorizationRequest,
   ): Effect.Effect<
     StartDeviceAuthorizationResponse,
-    | InternalServerException
-    | InvalidClientException
-    | InvalidRequestException
-    | SlowDownException
-    | UnauthorizedClientException
-    | CommonAwsError
+    InternalServerException | InvalidClientException | InvalidRequestException | SlowDownException | UnauthorizedClientException | CommonAwsError
   >;
 }
 
@@ -236,11 +168,7 @@ export declare class InvalidRequestException extends EffectData.TaggedError(
   readonly reason?: InvalidRequestExceptionReason;
   readonly error_description?: string;
 }> {}
-export type InvalidRequestExceptionReason =
-  | "KMS_NotFoundException"
-  | "KMS_InvalidKeyUsageException"
-  | "KMS_InvalidStateException"
-  | "KMS_DisabledException";
+export type InvalidRequestExceptionReason = "KMS_NotFoundException" | "KMS_InvalidKeyUsageException" | "KMS_InvalidStateException" | "KMS_DisabledException";
 export declare class InvalidRequestRegionException extends EffectData.TaggedError(
   "InvalidRequestRegionException",
 )<{
@@ -388,19 +316,5 @@ export declare namespace StartDeviceAuthorization {
     | CommonAwsError;
 }
 
-export type SSOOIDCErrors =
-  | AccessDeniedException
-  | AuthorizationPendingException
-  | ExpiredTokenException
-  | InternalServerException
-  | InvalidClientException
-  | InvalidClientMetadataException
-  | InvalidGrantException
-  | InvalidRedirectUriException
-  | InvalidRequestException
-  | InvalidRequestRegionException
-  | InvalidScopeException
-  | SlowDownException
-  | UnauthorizedClientException
-  | UnsupportedGrantTypeException
-  | CommonAwsError;
+export type SSOOIDCErrors = AccessDeniedException | AuthorizationPendingException | ExpiredTokenException | InternalServerException | InvalidClientException | InvalidClientMetadataException | InvalidGrantException | InvalidRedirectUriException | InvalidRequestException | InvalidRequestRegionException | InvalidScopeException | SlowDownException | UnauthorizedClientException | UnsupportedGrantTypeException | CommonAwsError;
+

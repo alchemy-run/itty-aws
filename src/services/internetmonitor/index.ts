@@ -5,23 +5,7 @@ import type { InternetMonitor as _InternetMonitorClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-  type CommonAwsError,
-} from "../../error.ts";
+export {ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, type CommonAwsError} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -30,25 +14,28 @@ const metadata = {
   protocol: "restJson1",
   sigV4ServiceName: "internetmonitor",
   operations: {
-    ListTagsForResource: "GET /tags/{ResourceArn}",
-    TagResource: "POST /tags/{ResourceArn}",
-    UntagResource: "DELETE /tags/{ResourceArn}",
-    CreateMonitor: "POST /v20210603/Monitors",
-    DeleteMonitor: "DELETE /v20210603/Monitors/{MonitorName}",
-    GetHealthEvent:
-      "GET /v20210603/Monitors/{MonitorName}/HealthEvents/{EventId}",
-    GetInternetEvent: "GET /v20210603/InternetEvents/{EventId}",
-    GetMonitor: "GET /v20210603/Monitors/{MonitorName}",
-    GetQueryResults:
-      "GET /v20210603/Monitors/{MonitorName}/Queries/{QueryId}/Results",
-    GetQueryStatus:
-      "GET /v20210603/Monitors/{MonitorName}/Queries/{QueryId}/Status",
-    ListHealthEvents: "GET /v20210603/Monitors/{MonitorName}/HealthEvents",
-    ListInternetEvents: "GET /v20210603/InternetEvents",
-    ListMonitors: "GET /v20210603/Monitors",
-    StartQuery: "POST /v20210603/Monitors/{MonitorName}/Queries",
-    StopQuery: "DELETE /v20210603/Monitors/{MonitorName}/Queries/{QueryId}",
-    UpdateMonitor: "PATCH /v20210603/Monitors/{MonitorName}",
+    "ListTagsForResource": "GET /tags/{ResourceArn}",
+    "TagResource": "POST /tags/{ResourceArn}",
+    "UntagResource": "DELETE /tags/{ResourceArn}",
+    "CreateMonitor": "POST /v20210603/Monitors",
+    "DeleteMonitor": "DELETE /v20210603/Monitors/{MonitorName}",
+    "GetHealthEvent": "GET /v20210603/Monitors/{MonitorName}/HealthEvents/{EventId}",
+    "GetInternetEvent": "GET /v20210603/InternetEvents/{EventId}",
+    "GetMonitor": "GET /v20210603/Monitors/{MonitorName}",
+    "GetQueryResults": "GET /v20210603/Monitors/{MonitorName}/Queries/{QueryId}/Results",
+    "GetQueryStatus": "GET /v20210603/Monitors/{MonitorName}/Queries/{QueryId}/Status",
+    "ListHealthEvents": "GET /v20210603/Monitors/{MonitorName}/HealthEvents",
+    "ListInternetEvents": "GET /v20210603/InternetEvents",
+    "ListMonitors": "GET /v20210603/Monitors",
+    "StartQuery": "POST /v20210603/Monitors/{MonitorName}/Queries",
+    "StopQuery": "DELETE /v20210603/Monitors/{MonitorName}/Queries/{QueryId}",
+    "UpdateMonitor": "PATCH /v20210603/Monitors/{MonitorName}",
+  },
+  retryableErrors: {
+    "InternalServerErrorException": {},
+    "TooManyRequestsException": {},
+    "InternalServerException": {},
+    "ThrottlingException": {},
   },
 } as const satisfies ServiceMetadata;
 

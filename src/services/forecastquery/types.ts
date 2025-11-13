@@ -7,23 +7,13 @@ export declare class forecastquery extends AWSServiceClient {
     input: QueryForecastRequest,
   ): Effect.Effect<
     QueryForecastResponse,
-    | InvalidInputException
-    | InvalidNextTokenException
-    | LimitExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InvalidInputException | InvalidNextTokenException | LimitExceededException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
   >;
   queryWhatIfForecast(
     input: QueryWhatIfForecastRequest,
   ): Effect.Effect<
     QueryWhatIfForecastResponse,
-    | InvalidInputException
-    | InvalidNextTokenException
-    | LimitExceededException
-    | ResourceInUseException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InvalidInputException | InvalidNextTokenException | LimitExceededException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
   >;
 }
 
@@ -128,10 +118,5 @@ export declare namespace QueryWhatIfForecast {
     | CommonAwsError;
 }
 
-export type forecastqueryErrors =
-  | InvalidInputException
-  | InvalidNextTokenException
-  | LimitExceededException
-  | ResourceInUseException
-  | ResourceNotFoundException
-  | CommonAwsError;
+export type forecastqueryErrors = InvalidInputException | InvalidNextTokenException | LimitExceededException | ResourceInUseException | ResourceNotFoundException | CommonAwsError;
+

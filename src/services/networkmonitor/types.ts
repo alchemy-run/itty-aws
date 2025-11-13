@@ -1,38 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-} from "../../error.ts";
-type CommonAwsError =
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | AccessDeniedException
-  | ThrottlingException
-  | ValidationException;
+import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
+type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class NetworkMonitor extends AWSServiceClient {
@@ -40,140 +8,73 @@ export declare class NetworkMonitor extends AWSServiceClient {
     input: ListTagsForResourceInput,
   ): Effect.Effect<
     ListTagsForResourceOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   tagResource(
     input: TagResourceInput,
   ): Effect.Effect<
     TagResourceOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceInput,
   ): Effect.Effect<
     UntagResourceOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createMonitor(
     input: CreateMonitorInput,
   ): Effect.Effect<
     CreateMonitorOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createProbe(
     input: CreateProbeInput,
   ): Effect.Effect<
     CreateProbeOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteMonitor(
     input: DeleteMonitorInput,
   ): Effect.Effect<
     DeleteMonitorOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteProbe(
     input: DeleteProbeInput,
   ): Effect.Effect<
     DeleteProbeOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getMonitor(
     input: GetMonitorInput,
   ): Effect.Effect<
     GetMonitorOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getProbe(
     input: GetProbeInput,
   ): Effect.Effect<
     GetProbeOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listMonitors(
     input: ListMonitorsInput,
   ): Effect.Effect<
     ListMonitorsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateMonitor(
     input: UpdateMonitorInput,
   ): Effect.Effect<
     UpdateMonitorOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateProbe(
     input: UpdateProbeInput,
   ): Effect.Effect<
     UpdateProbeOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
 }
 
@@ -241,12 +142,14 @@ export interface CreateProbeOutput {
 export interface DeleteMonitorInput {
   monitorName: string;
 }
-export interface DeleteMonitorOutput {}
+export interface DeleteMonitorOutput {
+}
 export interface DeleteProbeInput {
   monitorName: string;
   probeId: string;
 }
-export interface DeleteProbeOutput {}
+export interface DeleteProbeOutput {
+}
 export type Destination = string;
 
 export interface GetMonitorInput {
@@ -308,12 +211,7 @@ export type MaxResults = number;
 export type MonitorArn = string;
 
 export type MonitorList = Array<MonitorSummary>;
-export type MonitorState =
-  | "PENDING"
-  | "ACTIVE"
-  | "INACTIVE"
-  | "ERROR"
-  | "DELETING";
+export type MonitorState = "PENDING" | "ACTIVE" | "INACTIVE" | "ERROR" | "DELETING";
 export interface MonitorSummary {
   monitorArn: string;
   monitorName: string;
@@ -353,13 +251,7 @@ export interface ProbeInput {
   tags?: Record<string, string>;
 }
 export type ProbeList = Array<Probe>;
-export type ProbeState =
-  | "PENDING"
-  | "ACTIVE"
-  | "INACTIVE"
-  | "ERROR"
-  | "DELETING"
-  | "DELETED";
+export type ProbeState = "PENDING" | "ACTIVE" | "INACTIVE" | "ERROR" | "DELETING" | "DELETED";
 export type Protocol = "TCP" | "ICMP";
 export type ResourceName = string;
 
@@ -381,7 +273,8 @@ export interface TagResourceInput {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceOutput {}
+export interface TagResourceOutput {
+}
 export type TagValue = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(
@@ -393,7 +286,8 @@ export interface UntagResourceInput {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceOutput {}
+export interface UntagResourceOutput {
+}
 export interface UpdateMonitorInput {
   monitorName: string;
   aggregationPeriod: number;
@@ -587,12 +481,5 @@ export declare namespace UpdateProbe {
     | CommonAwsError;
 }
 
-export type NetworkMonitorErrors =
-  | AccessDeniedException
-  | ConflictException
-  | InternalServerException
-  | ResourceNotFoundException
-  | ServiceQuotaExceededException
-  | ThrottlingException
-  | ValidationException
-  | CommonAwsError;
+export type NetworkMonitorErrors = AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError;
+

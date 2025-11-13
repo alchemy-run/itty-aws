@@ -1,39 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  ThrottlingException,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-} from "../../error.ts";
-type CommonAwsError =
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | ThrottlingException
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | AccessDeniedException
-  | ValidationException;
+import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
+type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | ThrottlingException | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class SocialMessaging extends AWSServiceClient {
@@ -41,224 +8,127 @@ export declare class SocialMessaging extends AWSServiceClient {
     input: CreateWhatsAppMessageTemplateInput,
   ): Effect.Effect<
     CreateWhatsAppMessageTemplateOutput,
-    | DependencyException
-    | InternalServiceException
-    | InvalidParametersException
-    | ResourceNotFoundException
-    | ThrottledRequestException
-    | CommonAwsError
+    DependencyException | InternalServiceException | InvalidParametersException | ResourceNotFoundException | ThrottledRequestException | CommonAwsError
   >;
   createWhatsAppMessageTemplateFromLibrary(
     input: CreateWhatsAppMessageTemplateFromLibraryInput,
   ): Effect.Effect<
     CreateWhatsAppMessageTemplateFromLibraryOutput,
-    | DependencyException
-    | InternalServiceException
-    | InvalidParametersException
-    | ResourceNotFoundException
-    | ThrottledRequestException
-    | CommonAwsError
+    DependencyException | InternalServiceException | InvalidParametersException | ResourceNotFoundException | ThrottledRequestException | CommonAwsError
   >;
   createWhatsAppMessageTemplateMedia(
     input: CreateWhatsAppMessageTemplateMediaInput,
   ): Effect.Effect<
     CreateWhatsAppMessageTemplateMediaOutput,
-    | DependencyException
-    | InternalServiceException
-    | InvalidParametersException
-    | ResourceNotFoundException
-    | ThrottledRequestException
-    | CommonAwsError
+    DependencyException | InternalServiceException | InvalidParametersException | ResourceNotFoundException | ThrottledRequestException | CommonAwsError
   >;
   deleteWhatsAppMessageTemplate(
     input: DeleteWhatsAppMessageTemplateInput,
   ): Effect.Effect<
     DeleteWhatsAppMessageTemplateOutput,
-    | DependencyException
-    | InternalServiceException
-    | InvalidParametersException
-    | ResourceNotFoundException
-    | ThrottledRequestException
-    | CommonAwsError
+    DependencyException | InternalServiceException | InvalidParametersException | ResourceNotFoundException | ThrottledRequestException | CommonAwsError
   >;
   getWhatsAppMessageTemplate(
     input: GetWhatsAppMessageTemplateInput,
   ): Effect.Effect<
     GetWhatsAppMessageTemplateOutput,
-    | DependencyException
-    | InternalServiceException
-    | InvalidParametersException
-    | ResourceNotFoundException
-    | ThrottledRequestException
-    | CommonAwsError
+    DependencyException | InternalServiceException | InvalidParametersException | ResourceNotFoundException | ThrottledRequestException | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceInput,
   ): Effect.Effect<
     ListTagsForResourceOutput,
-    | InternalServiceException
-    | InvalidParametersException
-    | ThrottledRequestException
-    | CommonAwsError
+    InternalServiceException | InvalidParametersException | ThrottledRequestException | CommonAwsError
   >;
   listWhatsAppMessageTemplates(
     input: ListWhatsAppMessageTemplatesInput,
   ): Effect.Effect<
     ListWhatsAppMessageTemplatesOutput,
-    | DependencyException
-    | InternalServiceException
-    | InvalidParametersException
-    | ResourceNotFoundException
-    | ThrottledRequestException
-    | CommonAwsError
+    DependencyException | InternalServiceException | InvalidParametersException | ResourceNotFoundException | ThrottledRequestException | CommonAwsError
   >;
   listWhatsAppTemplateLibrary(
     input: ListWhatsAppTemplateLibraryInput,
   ): Effect.Effect<
     ListWhatsAppTemplateLibraryOutput,
-    | DependencyException
-    | InternalServiceException
-    | InvalidParametersException
-    | ResourceNotFoundException
-    | ThrottledRequestException
-    | CommonAwsError
+    DependencyException | InternalServiceException | InvalidParametersException | ResourceNotFoundException | ThrottledRequestException | CommonAwsError
   >;
   tagResource(
     input: TagResourceInput,
   ): Effect.Effect<
     TagResourceOutput,
-    | InternalServiceException
-    | InvalidParametersException
-    | ThrottledRequestException
-    | CommonAwsError
+    InternalServiceException | InvalidParametersException | ThrottledRequestException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceInput,
   ): Effect.Effect<
     UntagResourceOutput,
-    | InternalServiceException
-    | InvalidParametersException
-    | ThrottledRequestException
-    | CommonAwsError
+    InternalServiceException | InvalidParametersException | ThrottledRequestException | CommonAwsError
   >;
   updateWhatsAppMessageTemplate(
     input: UpdateWhatsAppMessageTemplateInput,
   ): Effect.Effect<
     UpdateWhatsAppMessageTemplateOutput,
-    | DependencyException
-    | InternalServiceException
-    | InvalidParametersException
-    | ResourceNotFoundException
-    | ThrottledRequestException
-    | CommonAwsError
+    DependencyException | InternalServiceException | InvalidParametersException | ResourceNotFoundException | ThrottledRequestException | CommonAwsError
   >;
   associateWhatsAppBusinessAccount(
     input: AssociateWhatsAppBusinessAccountInput,
   ): Effect.Effect<
     AssociateWhatsAppBusinessAccountOutput,
-    | DependencyException
-    | InvalidParametersException
-    | LimitExceededException
-    | ThrottledRequestException
-    | CommonAwsError
+    DependencyException | InvalidParametersException | LimitExceededException | ThrottledRequestException | CommonAwsError
   >;
   deleteWhatsAppMessageMedia(
     input: DeleteWhatsAppMessageMediaInput,
   ): Effect.Effect<
     DeleteWhatsAppMessageMediaOutput,
-    | AccessDeniedByMetaException
-    | DependencyException
-    | InternalServiceException
-    | InvalidParametersException
-    | ResourceNotFoundException
-    | ThrottledRequestException
-    | CommonAwsError
+    AccessDeniedByMetaException | DependencyException | InternalServiceException | InvalidParametersException | ResourceNotFoundException | ThrottledRequestException | CommonAwsError
   >;
   disassociateWhatsAppBusinessAccount(
     input: DisassociateWhatsAppBusinessAccountInput,
   ): Effect.Effect<
     DisassociateWhatsAppBusinessAccountOutput,
-    | DependencyException
-    | InvalidParametersException
-    | ResourceNotFoundException
-    | ThrottledRequestException
-    | CommonAwsError
+    DependencyException | InvalidParametersException | ResourceNotFoundException | ThrottledRequestException | CommonAwsError
   >;
   getLinkedWhatsAppBusinessAccount(
     input: GetLinkedWhatsAppBusinessAccountInput,
   ): Effect.Effect<
     GetLinkedWhatsAppBusinessAccountOutput,
-    | DependencyException
-    | InternalServiceException
-    | InvalidParametersException
-    | ResourceNotFoundException
-    | ThrottledRequestException
-    | CommonAwsError
+    DependencyException | InternalServiceException | InvalidParametersException | ResourceNotFoundException | ThrottledRequestException | CommonAwsError
   >;
   getLinkedWhatsAppBusinessAccountPhoneNumber(
     input: GetLinkedWhatsAppBusinessAccountPhoneNumberInput,
   ): Effect.Effect<
     GetLinkedWhatsAppBusinessAccountPhoneNumberOutput,
-    | DependencyException
-    | InternalServiceException
-    | InvalidParametersException
-    | ResourceNotFoundException
-    | ThrottledRequestException
-    | CommonAwsError
+    DependencyException | InternalServiceException | InvalidParametersException | ResourceNotFoundException | ThrottledRequestException | CommonAwsError
   >;
   getWhatsAppMessageMedia(
     input: GetWhatsAppMessageMediaInput,
   ): Effect.Effect<
     GetWhatsAppMessageMediaOutput,
-    | AccessDeniedByMetaException
-    | DependencyException
-    | InternalServiceException
-    | InvalidParametersException
-    | ResourceNotFoundException
-    | ThrottledRequestException
-    | CommonAwsError
+    AccessDeniedByMetaException | DependencyException | InternalServiceException | InvalidParametersException | ResourceNotFoundException | ThrottledRequestException | CommonAwsError
   >;
   listLinkedWhatsAppBusinessAccounts(
     input: ListLinkedWhatsAppBusinessAccountsInput,
   ): Effect.Effect<
     ListLinkedWhatsAppBusinessAccountsOutput,
-    | InternalServiceException
-    | InvalidParametersException
-    | ResourceNotFoundException
-    | ThrottledRequestException
-    | CommonAwsError
+    InternalServiceException | InvalidParametersException | ResourceNotFoundException | ThrottledRequestException | CommonAwsError
   >;
   postWhatsAppMessageMedia(
     input: PostWhatsAppMessageMediaInput,
   ): Effect.Effect<
     PostWhatsAppMessageMediaOutput,
-    | AccessDeniedByMetaException
-    | DependencyException
-    | InternalServiceException
-    | InvalidParametersException
-    | ResourceNotFoundException
-    | ThrottledRequestException
-    | CommonAwsError
+    AccessDeniedByMetaException | DependencyException | InternalServiceException | InvalidParametersException | ResourceNotFoundException | ThrottledRequestException | CommonAwsError
   >;
   putWhatsAppBusinessAccountEventDestinations(
     input: PutWhatsAppBusinessAccountEventDestinationsInput,
   ): Effect.Effect<
     PutWhatsAppBusinessAccountEventDestinationsOutput,
-    | InternalServiceException
-    | InvalidParametersException
-    | ThrottledRequestException
-    | CommonAwsError
+    InternalServiceException | InvalidParametersException | ThrottledRequestException | CommonAwsError
   >;
   sendWhatsAppMessage(
     input: SendWhatsAppMessageInput,
   ): Effect.Effect<
     SendWhatsAppMessageOutput,
-    | DependencyException
-    | InternalServiceException
-    | InvalidParametersException
-    | ResourceNotFoundException
-    | ThrottledRequestException
-    | CommonAwsError
+    DependencyException | InternalServiceException | InvalidParametersException | ResourceNotFoundException | ThrottledRequestException | CommonAwsError
   >;
 }
 
@@ -338,7 +208,8 @@ export interface DeleteWhatsAppMessageTemplateInput {
   id: string;
   templateName: string;
 }
-export interface DeleteWhatsAppMessageTemplateOutput {}
+export interface DeleteWhatsAppMessageTemplateOutput {
+}
 export declare class DependencyException extends EffectData.TaggedError(
   "DependencyException",
 )<{
@@ -347,7 +218,8 @@ export declare class DependencyException extends EffectData.TaggedError(
 export interface DisassociateWhatsAppBusinessAccountInput {
   id: string;
 }
-export interface DisassociateWhatsAppBusinessAccountOutput {}
+export interface DisassociateWhatsAppBusinessAccountOutput {
+}
 export type ErrorMessage = string;
 
 export type EventDestinationArn = string;
@@ -426,10 +298,7 @@ export declare class LimitExceededException extends EffectData.TaggedError(
 )<{
   readonly message?: string;
 }> {}
-export type LinkedAccountWithIncompleteSetup = Record<
-  string,
-  LinkedWhatsAppBusinessAccountIdMetaData
->;
+export type LinkedAccountWithIncompleteSetup = Record<string, LinkedWhatsAppBusinessAccountIdMetaData>;
 export interface LinkedWhatsAppBusinessAccount {
   arn: string;
   id: string;
@@ -459,8 +328,7 @@ export interface LinkedWhatsAppBusinessAccountSummary {
   wabaName: string;
   eventDestinations: Array<WhatsAppBusinessAccountEventDestination>;
 }
-export type LinkedWhatsAppBusinessAccountSummaryList =
-  Array<LinkedWhatsAppBusinessAccountSummary>;
+export type LinkedWhatsAppBusinessAccountSummaryList = Array<LinkedWhatsAppBusinessAccountSummary>;
 export type LinkedWhatsAppPhoneNumberArn = string;
 
 export interface ListLinkedWhatsAppBusinessAccountsInput {
@@ -574,7 +442,8 @@ export interface PutWhatsAppBusinessAccountEventDestinationsInput {
   id: string;
   eventDestinations: Array<WhatsAppBusinessAccountEventDestination>;
 }
-export interface PutWhatsAppBusinessAccountEventDestinationsOutput {}
+export interface PutWhatsAppBusinessAccountEventDestinationsOutput {
+}
 export type RegistrationStatus = "COMPLETE" | "INCOMPLETE";
 export declare class ResourceNotFoundException extends EffectData.TaggedError(
   "ResourceNotFoundException",
@@ -643,7 +512,8 @@ export interface UpdateWhatsAppMessageTemplateInput {
   templateCategory?: string;
   templateComponents?: Uint8Array | string;
 }
-export interface UpdateWhatsAppMessageTemplateOutput {}
+export interface UpdateWhatsAppMessageTemplateOutput {
+}
 export declare class ValidationException extends EffectData.TaggedError(
   "ValidationException",
 )<{
@@ -655,8 +525,7 @@ export interface WabaPhoneNumberSetupFinalization {
   dataLocalizationRegion?: string;
   tags?: Array<Tag>;
 }
-export type WabaPhoneNumberSetupFinalizationList =
-  Array<WabaPhoneNumberSetupFinalization>;
+export type WabaPhoneNumberSetupFinalizationList = Array<WabaPhoneNumberSetupFinalization>;
 export interface WabaSetupFinalization {
   id?: string;
   eventDestinations?: Array<WhatsAppBusinessAccountEventDestination>;
@@ -666,8 +535,7 @@ export interface WhatsAppBusinessAccountEventDestination {
   eventDestinationArn: string;
   roleArn?: string;
 }
-export type WhatsAppBusinessAccountEventDestinations =
-  Array<WhatsAppBusinessAccountEventDestination>;
+export type WhatsAppBusinessAccountEventDestinations = Array<WhatsAppBusinessAccountEventDestination>;
 export type WhatsAppBusinessAccountId = string;
 
 export type WhatsAppBusinessAccountLinkDate = Date | string;
@@ -722,10 +590,7 @@ export interface WhatsAppSignupCallback {
 }
 export interface WhatsAppSignupCallbackResult {
   associateInProgressToken?: string;
-  linkedAccountsWithIncompleteSetup?: Record<
-    string,
-    LinkedWhatsAppBusinessAccountIdMetaData
-  >;
+  linkedAccountsWithIncompleteSetup?: Record<string, LinkedWhatsAppBusinessAccountIdMetaData>;
 }
 export type ZeroTapTermsAccepted = boolean;
 
@@ -973,14 +838,5 @@ export declare namespace SendWhatsAppMessage {
     | CommonAwsError;
 }
 
-export type SocialMessagingErrors =
-  | AccessDeniedByMetaException
-  | AccessDeniedException
-  | DependencyException
-  | InternalServiceException
-  | InvalidParametersException
-  | LimitExceededException
-  | ResourceNotFoundException
-  | ThrottledRequestException
-  | ValidationException
-  | CommonAwsError;
+export type SocialMessagingErrors = AccessDeniedByMetaException | AccessDeniedException | DependencyException | InternalServiceException | InvalidParametersException | LimitExceededException | ResourceNotFoundException | ThrottledRequestException | ValidationException | CommonAwsError;
+

@@ -1,40 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  ThrottlingException,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-  ValidationException,
-} from "../../error.ts";
-type CommonAwsError =
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | ThrottlingException
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | ValidationException
-  | AccessDeniedException;
+import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException } from "../../error.ts";
+type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | ThrottlingException | UnrecognizedClientException | UnknownOperationException | ValidationError | ValidationException | AccessDeniedException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class GlobalAccelerator extends AWSServiceClient {
@@ -42,332 +8,193 @@ export declare class GlobalAccelerator extends AWSServiceClient {
     input: AddCustomRoutingEndpointsRequest,
   ): Effect.Effect<
     AddCustomRoutingEndpointsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | EndpointAlreadyExistsException
-    | EndpointGroupNotFoundException
-    | InternalServiceErrorException
-    | InvalidArgumentException
-    | LimitExceededException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | EndpointAlreadyExistsException | EndpointGroupNotFoundException | InternalServiceErrorException | InvalidArgumentException | LimitExceededException | CommonAwsError
   >;
   addEndpoints(
     input: AddEndpointsRequest,
   ): Effect.Effect<
     AddEndpointsResponse,
-    | AccessDeniedException
-    | EndpointGroupNotFoundException
-    | InternalServiceErrorException
-    | InvalidArgumentException
-    | LimitExceededException
-    | TransactionInProgressException
-    | CommonAwsError
+    AccessDeniedException | EndpointGroupNotFoundException | InternalServiceErrorException | InvalidArgumentException | LimitExceededException | TransactionInProgressException | CommonAwsError
   >;
   advertiseByoipCidr(
     input: AdvertiseByoipCidrRequest,
   ): Effect.Effect<
     AdvertiseByoipCidrResponse,
-    | AccessDeniedException
-    | ByoipCidrNotFoundException
-    | IncorrectCidrStateException
-    | InternalServiceErrorException
-    | InvalidArgumentException
-    | CommonAwsError
+    AccessDeniedException | ByoipCidrNotFoundException | IncorrectCidrStateException | InternalServiceErrorException | InvalidArgumentException | CommonAwsError
   >;
   allowCustomRoutingTraffic(
     input: AllowCustomRoutingTrafficRequest,
   ): Effect.Effect<
     {},
-    | EndpointGroupNotFoundException
-    | InternalServiceErrorException
-    | InvalidArgumentException
-    | CommonAwsError
+    EndpointGroupNotFoundException | InternalServiceErrorException | InvalidArgumentException | CommonAwsError
   >;
   createAccelerator(
     input: CreateAcceleratorRequest,
   ): Effect.Effect<
     CreateAcceleratorResponse,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidArgumentException
-    | LimitExceededException
-    | TransactionInProgressException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | InvalidArgumentException | LimitExceededException | TransactionInProgressException | CommonAwsError
   >;
   createCrossAccountAttachment(
     input: CreateCrossAccountAttachmentRequest,
   ): Effect.Effect<
     CreateCrossAccountAttachmentResponse,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidArgumentException
-    | LimitExceededException
-    | TransactionInProgressException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | InvalidArgumentException | LimitExceededException | TransactionInProgressException | CommonAwsError
   >;
   createCustomRoutingAccelerator(
     input: CreateCustomRoutingAcceleratorRequest,
   ): Effect.Effect<
     CreateCustomRoutingAcceleratorResponse,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidArgumentException
-    | LimitExceededException
-    | TransactionInProgressException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | InvalidArgumentException | LimitExceededException | TransactionInProgressException | CommonAwsError
   >;
   createCustomRoutingEndpointGroup(
     input: CreateCustomRoutingEndpointGroupRequest,
   ): Effect.Effect<
     CreateCustomRoutingEndpointGroupResponse,
-    | AcceleratorNotFoundException
-    | AccessDeniedException
-    | EndpointGroupAlreadyExistsException
-    | InternalServiceErrorException
-    | InvalidArgumentException
-    | InvalidPortRangeException
-    | LimitExceededException
-    | ListenerNotFoundException
-    | CommonAwsError
+    AcceleratorNotFoundException | AccessDeniedException | EndpointGroupAlreadyExistsException | InternalServiceErrorException | InvalidArgumentException | InvalidPortRangeException | LimitExceededException | ListenerNotFoundException | CommonAwsError
   >;
   createCustomRoutingListener(
     input: CreateCustomRoutingListenerRequest,
   ): Effect.Effect<
     CreateCustomRoutingListenerResponse,
-    | AcceleratorNotFoundException
-    | InternalServiceErrorException
-    | InvalidArgumentException
-    | InvalidPortRangeException
-    | LimitExceededException
-    | CommonAwsError
+    AcceleratorNotFoundException | InternalServiceErrorException | InvalidArgumentException | InvalidPortRangeException | LimitExceededException | CommonAwsError
   >;
   createEndpointGroup(
     input: CreateEndpointGroupRequest,
   ): Effect.Effect<
     CreateEndpointGroupResponse,
-    | AcceleratorNotFoundException
-    | AccessDeniedException
-    | EndpointGroupAlreadyExistsException
-    | InternalServiceErrorException
-    | InvalidArgumentException
-    | LimitExceededException
-    | ListenerNotFoundException
-    | CommonAwsError
+    AcceleratorNotFoundException | AccessDeniedException | EndpointGroupAlreadyExistsException | InternalServiceErrorException | InvalidArgumentException | LimitExceededException | ListenerNotFoundException | CommonAwsError
   >;
   createListener(
     input: CreateListenerRequest,
   ): Effect.Effect<
     CreateListenerResponse,
-    | AcceleratorNotFoundException
-    | InternalServiceErrorException
-    | InvalidArgumentException
-    | InvalidPortRangeException
-    | LimitExceededException
-    | CommonAwsError
+    AcceleratorNotFoundException | InternalServiceErrorException | InvalidArgumentException | InvalidPortRangeException | LimitExceededException | CommonAwsError
   >;
   deleteAccelerator(
     input: DeleteAcceleratorRequest,
   ): Effect.Effect<
     {},
-    | AcceleratorNotDisabledException
-    | AcceleratorNotFoundException
-    | AssociatedListenerFoundException
-    | InternalServiceErrorException
-    | InvalidArgumentException
-    | TransactionInProgressException
-    | CommonAwsError
+    AcceleratorNotDisabledException | AcceleratorNotFoundException | AssociatedListenerFoundException | InternalServiceErrorException | InvalidArgumentException | TransactionInProgressException | CommonAwsError
   >;
   deleteCrossAccountAttachment(
     input: DeleteCrossAccountAttachmentRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | AttachmentNotFoundException
-    | InternalServiceErrorException
-    | InvalidArgumentException
-    | TransactionInProgressException
-    | CommonAwsError
+    AccessDeniedException | AttachmentNotFoundException | InternalServiceErrorException | InvalidArgumentException | TransactionInProgressException | CommonAwsError
   >;
   deleteCustomRoutingAccelerator(
     input: DeleteCustomRoutingAcceleratorRequest,
   ): Effect.Effect<
     {},
-    | AcceleratorNotDisabledException
-    | AcceleratorNotFoundException
-    | AssociatedListenerFoundException
-    | InternalServiceErrorException
-    | InvalidArgumentException
-    | TransactionInProgressException
-    | CommonAwsError
+    AcceleratorNotDisabledException | AcceleratorNotFoundException | AssociatedListenerFoundException | InternalServiceErrorException | InvalidArgumentException | TransactionInProgressException | CommonAwsError
   >;
   deleteCustomRoutingEndpointGroup(
     input: DeleteCustomRoutingEndpointGroupRequest,
   ): Effect.Effect<
     {},
-    | EndpointGroupNotFoundException
-    | InternalServiceErrorException
-    | InvalidArgumentException
-    | CommonAwsError
+    EndpointGroupNotFoundException | InternalServiceErrorException | InvalidArgumentException | CommonAwsError
   >;
   deleteCustomRoutingListener(
     input: DeleteCustomRoutingListenerRequest,
   ): Effect.Effect<
     {},
-    | AssociatedEndpointGroupFoundException
-    | InternalServiceErrorException
-    | InvalidArgumentException
-    | ListenerNotFoundException
-    | CommonAwsError
+    AssociatedEndpointGroupFoundException | InternalServiceErrorException | InvalidArgumentException | ListenerNotFoundException | CommonAwsError
   >;
   deleteEndpointGroup(
     input: DeleteEndpointGroupRequest,
   ): Effect.Effect<
     {},
-    | EndpointGroupNotFoundException
-    | InternalServiceErrorException
-    | InvalidArgumentException
-    | CommonAwsError
+    EndpointGroupNotFoundException | InternalServiceErrorException | InvalidArgumentException | CommonAwsError
   >;
   deleteListener(
     input: DeleteListenerRequest,
   ): Effect.Effect<
     {},
-    | AssociatedEndpointGroupFoundException
-    | InternalServiceErrorException
-    | InvalidArgumentException
-    | ListenerNotFoundException
-    | CommonAwsError
+    AssociatedEndpointGroupFoundException | InternalServiceErrorException | InvalidArgumentException | ListenerNotFoundException | CommonAwsError
   >;
   denyCustomRoutingTraffic(
     input: DenyCustomRoutingTrafficRequest,
   ): Effect.Effect<
     {},
-    | EndpointGroupNotFoundException
-    | InternalServiceErrorException
-    | InvalidArgumentException
-    | CommonAwsError
+    EndpointGroupNotFoundException | InternalServiceErrorException | InvalidArgumentException | CommonAwsError
   >;
   deprovisionByoipCidr(
     input: DeprovisionByoipCidrRequest,
   ): Effect.Effect<
     DeprovisionByoipCidrResponse,
-    | AccessDeniedException
-    | ByoipCidrNotFoundException
-    | IncorrectCidrStateException
-    | InternalServiceErrorException
-    | InvalidArgumentException
-    | CommonAwsError
+    AccessDeniedException | ByoipCidrNotFoundException | IncorrectCidrStateException | InternalServiceErrorException | InvalidArgumentException | CommonAwsError
   >;
   describeAccelerator(
     input: DescribeAcceleratorRequest,
   ): Effect.Effect<
     DescribeAcceleratorResponse,
-    | AcceleratorNotFoundException
-    | InternalServiceErrorException
-    | InvalidArgumentException
-    | CommonAwsError
+    AcceleratorNotFoundException | InternalServiceErrorException | InvalidArgumentException | CommonAwsError
   >;
   describeAcceleratorAttributes(
     input: DescribeAcceleratorAttributesRequest,
   ): Effect.Effect<
     DescribeAcceleratorAttributesResponse,
-    | AcceleratorNotFoundException
-    | InternalServiceErrorException
-    | InvalidArgumentException
-    | CommonAwsError
+    AcceleratorNotFoundException | InternalServiceErrorException | InvalidArgumentException | CommonAwsError
   >;
   describeCrossAccountAttachment(
     input: DescribeCrossAccountAttachmentRequest,
   ): Effect.Effect<
     DescribeCrossAccountAttachmentResponse,
-    | AccessDeniedException
-    | AttachmentNotFoundException
-    | InternalServiceErrorException
-    | InvalidArgumentException
-    | CommonAwsError
+    AccessDeniedException | AttachmentNotFoundException | InternalServiceErrorException | InvalidArgumentException | CommonAwsError
   >;
   describeCustomRoutingAccelerator(
     input: DescribeCustomRoutingAcceleratorRequest,
   ): Effect.Effect<
     DescribeCustomRoutingAcceleratorResponse,
-    | AcceleratorNotFoundException
-    | InternalServiceErrorException
-    | InvalidArgumentException
-    | CommonAwsError
+    AcceleratorNotFoundException | InternalServiceErrorException | InvalidArgumentException | CommonAwsError
   >;
   describeCustomRoutingAcceleratorAttributes(
     input: DescribeCustomRoutingAcceleratorAttributesRequest,
   ): Effect.Effect<
     DescribeCustomRoutingAcceleratorAttributesResponse,
-    | AcceleratorNotFoundException
-    | InternalServiceErrorException
-    | InvalidArgumentException
-    | CommonAwsError
+    AcceleratorNotFoundException | InternalServiceErrorException | InvalidArgumentException | CommonAwsError
   >;
   describeCustomRoutingEndpointGroup(
     input: DescribeCustomRoutingEndpointGroupRequest,
   ): Effect.Effect<
     DescribeCustomRoutingEndpointGroupResponse,
-    | EndpointGroupNotFoundException
-    | InternalServiceErrorException
-    | InvalidArgumentException
-    | CommonAwsError
+    EndpointGroupNotFoundException | InternalServiceErrorException | InvalidArgumentException | CommonAwsError
   >;
   describeCustomRoutingListener(
     input: DescribeCustomRoutingListenerRequest,
   ): Effect.Effect<
     DescribeCustomRoutingListenerResponse,
-    | InternalServiceErrorException
-    | InvalidArgumentException
-    | ListenerNotFoundException
-    | CommonAwsError
+    InternalServiceErrorException | InvalidArgumentException | ListenerNotFoundException | CommonAwsError
   >;
   describeEndpointGroup(
     input: DescribeEndpointGroupRequest,
   ): Effect.Effect<
     DescribeEndpointGroupResponse,
-    | EndpointGroupNotFoundException
-    | InternalServiceErrorException
-    | InvalidArgumentException
-    | CommonAwsError
+    EndpointGroupNotFoundException | InternalServiceErrorException | InvalidArgumentException | CommonAwsError
   >;
   describeListener(
     input: DescribeListenerRequest,
   ): Effect.Effect<
     DescribeListenerResponse,
-    | InternalServiceErrorException
-    | InvalidArgumentException
-    | ListenerNotFoundException
-    | CommonAwsError
+    InternalServiceErrorException | InvalidArgumentException | ListenerNotFoundException | CommonAwsError
   >;
   listAccelerators(
     input: ListAcceleratorsRequest,
   ): Effect.Effect<
     ListAcceleratorsResponse,
-    | InternalServiceErrorException
-    | InvalidArgumentException
-    | InvalidNextTokenException
-    | CommonAwsError
+    InternalServiceErrorException | InvalidArgumentException | InvalidNextTokenException | CommonAwsError
   >;
   listByoipCidrs(
     input: ListByoipCidrsRequest,
   ): Effect.Effect<
     ListByoipCidrsResponse,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidArgumentException
-    | InvalidNextTokenException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | InvalidArgumentException | InvalidNextTokenException | CommonAwsError
   >;
   listCrossAccountAttachments(
     input: ListCrossAccountAttachmentsRequest,
   ): Effect.Effect<
     ListCrossAccountAttachmentsResponse,
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidArgumentException
-    | InvalidNextTokenException
-    | CommonAwsError
+    AccessDeniedException | InternalServiceErrorException | InvalidArgumentException | InvalidNextTokenException | CommonAwsError
   >;
   listCrossAccountResourceAccounts(
     input: ListCrossAccountResourceAccountsRequest,
@@ -379,247 +206,139 @@ export declare class GlobalAccelerator extends AWSServiceClient {
     input: ListCrossAccountResourcesRequest,
   ): Effect.Effect<
     ListCrossAccountResourcesResponse,
-    | AcceleratorNotFoundException
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidArgumentException
-    | InvalidNextTokenException
-    | CommonAwsError
+    AcceleratorNotFoundException | AccessDeniedException | InternalServiceErrorException | InvalidArgumentException | InvalidNextTokenException | CommonAwsError
   >;
   listCustomRoutingAccelerators(
     input: ListCustomRoutingAcceleratorsRequest,
   ): Effect.Effect<
     ListCustomRoutingAcceleratorsResponse,
-    | InternalServiceErrorException
-    | InvalidArgumentException
-    | InvalidNextTokenException
-    | CommonAwsError
+    InternalServiceErrorException | InvalidArgumentException | InvalidNextTokenException | CommonAwsError
   >;
   listCustomRoutingEndpointGroups(
     input: ListCustomRoutingEndpointGroupsRequest,
   ): Effect.Effect<
     ListCustomRoutingEndpointGroupsResponse,
-    | InternalServiceErrorException
-    | InvalidArgumentException
-    | InvalidNextTokenException
-    | ListenerNotFoundException
-    | CommonAwsError
+    InternalServiceErrorException | InvalidArgumentException | InvalidNextTokenException | ListenerNotFoundException | CommonAwsError
   >;
   listCustomRoutingListeners(
     input: ListCustomRoutingListenersRequest,
   ): Effect.Effect<
     ListCustomRoutingListenersResponse,
-    | AcceleratorNotFoundException
-    | InternalServiceErrorException
-    | InvalidArgumentException
-    | InvalidNextTokenException
-    | CommonAwsError
+    AcceleratorNotFoundException | InternalServiceErrorException | InvalidArgumentException | InvalidNextTokenException | CommonAwsError
   >;
   listCustomRoutingPortMappings(
     input: ListCustomRoutingPortMappingsRequest,
   ): Effect.Effect<
     ListCustomRoutingPortMappingsResponse,
-    | AcceleratorNotFoundException
-    | EndpointGroupNotFoundException
-    | InternalServiceErrorException
-    | InvalidArgumentException
-    | InvalidNextTokenException
-    | CommonAwsError
+    AcceleratorNotFoundException | EndpointGroupNotFoundException | InternalServiceErrorException | InvalidArgumentException | InvalidNextTokenException | CommonAwsError
   >;
   listCustomRoutingPortMappingsByDestination(
     input: ListCustomRoutingPortMappingsByDestinationRequest,
   ): Effect.Effect<
     ListCustomRoutingPortMappingsByDestinationResponse,
-    | EndpointNotFoundException
-    | InternalServiceErrorException
-    | InvalidArgumentException
-    | InvalidNextTokenException
-    | CommonAwsError
+    EndpointNotFoundException | InternalServiceErrorException | InvalidArgumentException | InvalidNextTokenException | CommonAwsError
   >;
   listEndpointGroups(
     input: ListEndpointGroupsRequest,
   ): Effect.Effect<
     ListEndpointGroupsResponse,
-    | InternalServiceErrorException
-    | InvalidArgumentException
-    | InvalidNextTokenException
-    | ListenerNotFoundException
-    | CommonAwsError
+    InternalServiceErrorException | InvalidArgumentException | InvalidNextTokenException | ListenerNotFoundException | CommonAwsError
   >;
   listListeners(
     input: ListListenersRequest,
   ): Effect.Effect<
     ListListenersResponse,
-    | AcceleratorNotFoundException
-    | InternalServiceErrorException
-    | InvalidArgumentException
-    | InvalidNextTokenException
-    | CommonAwsError
+    AcceleratorNotFoundException | InternalServiceErrorException | InvalidArgumentException | InvalidNextTokenException | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AcceleratorNotFoundException
-    | AttachmentNotFoundException
-    | EndpointGroupNotFoundException
-    | InternalServiceErrorException
-    | InvalidArgumentException
-    | ListenerNotFoundException
-    | CommonAwsError
+    AcceleratorNotFoundException | AttachmentNotFoundException | EndpointGroupNotFoundException | InternalServiceErrorException | InvalidArgumentException | ListenerNotFoundException | CommonAwsError
   >;
   provisionByoipCidr(
     input: ProvisionByoipCidrRequest,
   ): Effect.Effect<
     ProvisionByoipCidrResponse,
-    | AccessDeniedException
-    | IncorrectCidrStateException
-    | InternalServiceErrorException
-    | InvalidArgumentException
-    | LimitExceededException
-    | CommonAwsError
+    AccessDeniedException | IncorrectCidrStateException | InternalServiceErrorException | InvalidArgumentException | LimitExceededException | CommonAwsError
   >;
   removeCustomRoutingEndpoints(
     input: RemoveCustomRoutingEndpointsRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | EndpointGroupNotFoundException
-    | EndpointNotFoundException
-    | InternalServiceErrorException
-    | InvalidArgumentException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | EndpointGroupNotFoundException | EndpointNotFoundException | InternalServiceErrorException | InvalidArgumentException | CommonAwsError
   >;
   removeEndpoints(
     input: RemoveEndpointsRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | EndpointGroupNotFoundException
-    | InternalServiceErrorException
-    | InvalidArgumentException
-    | TransactionInProgressException
-    | CommonAwsError
+    AccessDeniedException | EndpointGroupNotFoundException | InternalServiceErrorException | InvalidArgumentException | TransactionInProgressException | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | AcceleratorNotFoundException
-    | InternalServiceErrorException
-    | InvalidArgumentException
-    | CommonAwsError
+    AcceleratorNotFoundException | InternalServiceErrorException | InvalidArgumentException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | AcceleratorNotFoundException
-    | InternalServiceErrorException
-    | InvalidArgumentException
-    | CommonAwsError
+    AcceleratorNotFoundException | InternalServiceErrorException | InvalidArgumentException | CommonAwsError
   >;
   updateAccelerator(
     input: UpdateAcceleratorRequest,
   ): Effect.Effect<
     UpdateAcceleratorResponse,
-    | AcceleratorNotFoundException
-    | AccessDeniedException
-    | ConflictException
-    | InternalServiceErrorException
-    | InvalidArgumentException
-    | TransactionInProgressException
-    | CommonAwsError
+    AcceleratorNotFoundException | AccessDeniedException | ConflictException | InternalServiceErrorException | InvalidArgumentException | TransactionInProgressException | CommonAwsError
   >;
   updateAcceleratorAttributes(
     input: UpdateAcceleratorAttributesRequest,
   ): Effect.Effect<
     UpdateAcceleratorAttributesResponse,
-    | AcceleratorNotFoundException
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidArgumentException
-    | TransactionInProgressException
-    | CommonAwsError
+    AcceleratorNotFoundException | AccessDeniedException | InternalServiceErrorException | InvalidArgumentException | TransactionInProgressException | CommonAwsError
   >;
   updateCrossAccountAttachment(
     input: UpdateCrossAccountAttachmentRequest,
   ): Effect.Effect<
     UpdateCrossAccountAttachmentResponse,
-    | AccessDeniedException
-    | AttachmentNotFoundException
-    | InternalServiceErrorException
-    | InvalidArgumentException
-    | LimitExceededException
-    | TransactionInProgressException
-    | CommonAwsError
+    AccessDeniedException | AttachmentNotFoundException | InternalServiceErrorException | InvalidArgumentException | LimitExceededException | TransactionInProgressException | CommonAwsError
   >;
   updateCustomRoutingAccelerator(
     input: UpdateCustomRoutingAcceleratorRequest,
   ): Effect.Effect<
     UpdateCustomRoutingAcceleratorResponse,
-    | AcceleratorNotFoundException
-    | ConflictException
-    | InternalServiceErrorException
-    | InvalidArgumentException
-    | TransactionInProgressException
-    | CommonAwsError
+    AcceleratorNotFoundException | ConflictException | InternalServiceErrorException | InvalidArgumentException | TransactionInProgressException | CommonAwsError
   >;
   updateCustomRoutingAcceleratorAttributes(
     input: UpdateCustomRoutingAcceleratorAttributesRequest,
   ): Effect.Effect<
     UpdateCustomRoutingAcceleratorAttributesResponse,
-    | AcceleratorNotFoundException
-    | AccessDeniedException
-    | InternalServiceErrorException
-    | InvalidArgumentException
-    | TransactionInProgressException
-    | CommonAwsError
+    AcceleratorNotFoundException | AccessDeniedException | InternalServiceErrorException | InvalidArgumentException | TransactionInProgressException | CommonAwsError
   >;
   updateCustomRoutingListener(
     input: UpdateCustomRoutingListenerRequest,
   ): Effect.Effect<
     UpdateCustomRoutingListenerResponse,
-    | InternalServiceErrorException
-    | InvalidArgumentException
-    | InvalidPortRangeException
-    | LimitExceededException
-    | ListenerNotFoundException
-    | CommonAwsError
+    InternalServiceErrorException | InvalidArgumentException | InvalidPortRangeException | LimitExceededException | ListenerNotFoundException | CommonAwsError
   >;
   updateEndpointGroup(
     input: UpdateEndpointGroupRequest,
   ): Effect.Effect<
     UpdateEndpointGroupResponse,
-    | AccessDeniedException
-    | EndpointGroupNotFoundException
-    | InternalServiceErrorException
-    | InvalidArgumentException
-    | LimitExceededException
-    | CommonAwsError
+    AccessDeniedException | EndpointGroupNotFoundException | InternalServiceErrorException | InvalidArgumentException | LimitExceededException | CommonAwsError
   >;
   updateListener(
     input: UpdateListenerRequest,
   ): Effect.Effect<
     UpdateListenerResponse,
-    | InternalServiceErrorException
-    | InvalidArgumentException
-    | InvalidPortRangeException
-    | LimitExceededException
-    | ListenerNotFoundException
-    | CommonAwsError
+    InternalServiceErrorException | InvalidArgumentException | InvalidPortRangeException | LimitExceededException | ListenerNotFoundException | CommonAwsError
   >;
   withdrawByoipCidr(
     input: WithdrawByoipCidrRequest,
   ): Effect.Effect<
     WithdrawByoipCidrResponse,
-    | AccessDeniedException
-    | ByoipCidrNotFoundException
-    | IncorrectCidrStateException
-    | InternalServiceErrorException
-    | InvalidArgumentException
-    | CommonAwsError
+    AccessDeniedException | ByoipCidrNotFoundException | IncorrectCidrStateException | InternalServiceErrorException | InvalidArgumentException | CommonAwsError
   >;
 }
 
@@ -737,18 +456,7 @@ export declare class ByoipCidrNotFoundException extends EffectData.TaggedError(
   readonly Message?: string;
 }> {}
 export type ByoipCidrs = Array<ByoipCidr>;
-export type ByoipCidrState =
-  | "PENDING_PROVISIONING"
-  | "READY"
-  | "PENDING_ADVERTISING"
-  | "ADVERTISING"
-  | "PENDING_WITHDRAWING"
-  | "PENDING_DEPROVISIONING"
-  | "DEPROVISIONED"
-  | "FAILED_PROVISION"
-  | "FAILED_ADVERTISING"
-  | "FAILED_WITHDRAW"
-  | "FAILED_DEPROVISION";
+export type ByoipCidrState = "PENDING_PROVISIONING" | "READY" | "PENDING_ADVERTISING" | "ADVERTISING" | "PENDING_WITHDRAWING" | "PENDING_DEPROVISIONING" | "DEPROVISIONED" | "FAILED_PROVISION" | "FAILED_ADVERTISING" | "FAILED_WITHDRAW" | "FAILED_DEPROVISION";
 export interface CidrAuthorizationContext {
   Message: string;
   Signature: string;
@@ -863,27 +571,23 @@ export interface CustomRoutingDestinationConfiguration {
   ToPort: number;
   Protocols: Array<CustomRoutingProtocol>;
 }
-export type CustomRoutingDestinationConfigurations =
-  Array<CustomRoutingDestinationConfiguration>;
+export type CustomRoutingDestinationConfigurations = Array<CustomRoutingDestinationConfiguration>;
 export interface CustomRoutingDestinationDescription {
   FromPort?: number;
   ToPort?: number;
   Protocols?: Array<Protocol>;
 }
-export type CustomRoutingDestinationDescriptions =
-  Array<CustomRoutingDestinationDescription>;
+export type CustomRoutingDestinationDescriptions = Array<CustomRoutingDestinationDescription>;
 export type CustomRoutingDestinationTrafficState = "ALLOW" | "DENY";
 export interface CustomRoutingEndpointConfiguration {
   EndpointId?: string;
   AttachmentArn?: string;
 }
-export type CustomRoutingEndpointConfigurations =
-  Array<CustomRoutingEndpointConfiguration>;
+export type CustomRoutingEndpointConfigurations = Array<CustomRoutingEndpointConfiguration>;
 export interface CustomRoutingEndpointDescription {
   EndpointId?: string;
 }
-export type CustomRoutingEndpointDescriptions =
-  Array<CustomRoutingEndpointDescription>;
+export type CustomRoutingEndpointDescriptions = Array<CustomRoutingEndpointDescription>;
 export interface CustomRoutingEndpointGroup {
   EndpointGroupArn?: string;
   EndpointGroupRegion?: string;
@@ -1136,7 +840,8 @@ export interface ListCrossAccountAttachmentsResponse {
   CrossAccountAttachments?: Array<Attachment>;
   NextToken?: string;
 }
-export interface ListCrossAccountResourceAccountsRequest {}
+export interface ListCrossAccountResourceAccountsRequest {
+}
 export interface ListCrossAccountResourceAccountsResponse {
   ResourceOwnerAwsAccountIds?: Array<string>;
 }
@@ -1301,7 +1006,8 @@ export interface TagResourceRequest {
   ResourceArn: string;
   Tags: Array<Tag>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type Tags = Array<Tag>;
 export type TagValue = string;
 
@@ -1320,7 +1026,8 @@ export interface UntagResourceRequest {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateAcceleratorAttributesRequest {
   AcceleratorArn: string;
   FlowLogsEnabled?: boolean;
@@ -2047,25 +1754,5 @@ export declare namespace WithdrawByoipCidr {
     | CommonAwsError;
 }
 
-export type GlobalAcceleratorErrors =
-  | AcceleratorNotDisabledException
-  | AcceleratorNotFoundException
-  | AccessDeniedException
-  | AssociatedEndpointGroupFoundException
-  | AssociatedListenerFoundException
-  | AttachmentNotFoundException
-  | ByoipCidrNotFoundException
-  | ConflictException
-  | EndpointAlreadyExistsException
-  | EndpointGroupAlreadyExistsException
-  | EndpointGroupNotFoundException
-  | EndpointNotFoundException
-  | IncorrectCidrStateException
-  | InternalServiceErrorException
-  | InvalidArgumentException
-  | InvalidNextTokenException
-  | InvalidPortRangeException
-  | LimitExceededException
-  | ListenerNotFoundException
-  | TransactionInProgressException
-  | CommonAwsError;
+export type GlobalAcceleratorErrors = AcceleratorNotDisabledException | AcceleratorNotFoundException | AccessDeniedException | AssociatedEndpointGroupFoundException | AssociatedListenerFoundException | AttachmentNotFoundException | ByoipCidrNotFoundException | ConflictException | EndpointAlreadyExistsException | EndpointGroupAlreadyExistsException | EndpointGroupNotFoundException | EndpointNotFoundException | IncorrectCidrStateException | InternalServiceErrorException | InvalidArgumentException | InvalidNextTokenException | InvalidPortRangeException | LimitExceededException | ListenerNotFoundException | TransactionInProgressException | CommonAwsError;
+

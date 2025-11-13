@@ -1,39 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  AccessDeniedException,
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-} from "../../error.ts";
-type CommonAwsError =
-  | AccessDeniedException
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | ThrottlingException
-  | ValidationException;
+import type { AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
+type CommonAwsError = AccessDeniedException | ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | ThrottlingException | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class CodeGuruProfiler extends AWSServiceClient {
@@ -41,160 +8,97 @@ export declare class CodeGuruProfiler extends AWSServiceClient {
     input: GetFindingsReportAccountSummaryRequest,
   ): Effect.Effect<
     GetFindingsReportAccountSummaryResponse,
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   addNotificationChannels(
     input: AddNotificationChannelsRequest,
   ): Effect.Effect<
     AddNotificationChannelsResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   batchGetFrameMetricData(
     input: BatchGetFrameMetricDataRequest,
   ): Effect.Effect<
     BatchGetFrameMetricDataResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   configureAgent(
     input: ConfigureAgentRequest,
   ): Effect.Effect<
     ConfigureAgentResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createProfilingGroup(
     input: CreateProfilingGroupRequest,
   ): Effect.Effect<
     CreateProfilingGroupResponse,
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteProfilingGroup(
     input: DeleteProfilingGroupRequest,
   ): Effect.Effect<
     DeleteProfilingGroupResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   describeProfilingGroup(
     input: DescribeProfilingGroupRequest,
   ): Effect.Effect<
     DescribeProfilingGroupResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getNotificationConfiguration(
     input: GetNotificationConfigurationRequest,
   ): Effect.Effect<
     GetNotificationConfigurationResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getPolicy(
     input: GetPolicyRequest,
   ): Effect.Effect<
     GetPolicyResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   getProfile(
     input: GetProfileRequest,
   ): Effect.Effect<
     GetProfileResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getRecommendations(
     input: GetRecommendationsRequest,
   ): Effect.Effect<
     GetRecommendationsResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listFindingsReports(
     input: ListFindingsReportsRequest,
   ): Effect.Effect<
     ListFindingsReportsResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listProfileTimes(
     input: ListProfileTimesRequest,
   ): Effect.Effect<
     ListProfileTimesResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listProfilingGroups(
     input: ListProfilingGroupsRequest,
@@ -206,64 +110,37 @@ export declare class CodeGuruProfiler extends AWSServiceClient {
     input: PostAgentProfileRequest,
   ): Effect.Effect<
     PostAgentProfileResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   putPermission(
     input: PutPermissionRequest,
   ): Effect.Effect<
     PutPermissionResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   removeNotificationChannel(
     input: RemoveNotificationChannelRequest,
   ): Effect.Effect<
     RemoveNotificationChannelResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   removePermission(
     input: RemovePermissionRequest,
   ): Effect.Effect<
     RemovePermissionResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   submitFeedback(
     input: SubmitFeedbackRequest,
   ): Effect.Effect<
     SubmitFeedbackResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateProfilingGroup(
     input: UpdateProfilingGroupRequest,
   ): Effect.Effect<
     UpdateProfilingGroupResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
 }
 
@@ -370,7 +247,8 @@ export interface CreateProfilingGroupResponse {
 export interface DeleteProfilingGroupRequest {
   profilingGroupName: string;
 }
-export interface DeleteProfilingGroupResponse {}
+export interface DeleteProfilingGroupResponse {
+}
 export interface DescribeProfilingGroupRequest {
   profilingGroupName: string;
 }
@@ -551,7 +429,8 @@ export interface PostAgentProfileRequest {
   profileToken?: string;
   contentType: string;
 }
-export interface PostAgentProfileResponse {}
+export interface PostAgentProfileResponse {
+}
 export type Principal = string;
 
 export type Principals = Array<string>;
@@ -634,13 +513,15 @@ export interface SubmitFeedbackRequest {
   type: string;
   comment?: string;
 }
-export interface SubmitFeedbackResponse {}
+export interface SubmitFeedbackResponse {
+}
 export type TagKeys = Array<string>;
 export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagsMap = Record<string, string>;
 export type TargetFrame = Array<string>;
 export type TargetFrames = Array<Array<string>>;
@@ -660,7 +541,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateProfilingGroupRequest {
   profilingGroupName: string;
   agentOrchestrationConfig: AgentOrchestrationConfig;
@@ -929,11 +811,5 @@ export declare namespace UpdateProfilingGroup {
     | CommonAwsError;
 }
 
-export type CodeGuruProfilerErrors =
-  | ConflictException
-  | InternalServerException
-  | ResourceNotFoundException
-  | ServiceQuotaExceededException
-  | ThrottlingException
-  | ValidationException
-  | CommonAwsError;
+export type CodeGuruProfilerErrors = ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError;
+

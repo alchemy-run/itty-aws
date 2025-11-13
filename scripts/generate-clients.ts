@@ -1014,6 +1014,16 @@ const generateServiceIndex = (
     });
     code += "  },\n";
   }
+  if (
+    metadata.retryableErrors &&
+    Object.keys(metadata.retryableErrors).length > 0
+  ) {
+    code += "  retryableErrors: {\n";
+    Object.entries(metadata.retryableErrors).forEach(([errorName, error]) => {
+      code += `    "${errorName}": ${JSON.stringify(error)},\n`;
+    });
+    code += "  },\n";
+  }
   code += "} as const satisfies ServiceMetadata;\n\n";
 
   // // Re-export all types from types.ts for backward compatibility
@@ -1707,6 +1717,42 @@ const generateServiceTypes = (serviceName: string, manifest: Manifest) =>
     // Extract operation HTTP mappings and trait mappings
     let operationMappings: Record<string, any> = {};
 
+    const extractRetryableError = (
+      shapeId: string,
+    ): [string, Record<string, string>] => {
+      const shape = manifest.shapes[shapeId];
+      if (!shape || shape.type !== "structure" || !shape.members)
+        return ["", {}];
+
+      if (shape.traits["smithy.api#retryable"] == null) return ["", {}];
+      // const isEmptyTrait = Object.keys(shape.members).length === 0;
+
+      // return shape;
+      const name = extractShapeName(shapeId);
+
+      return [
+        name,
+        {
+          retryAfterSeconds:
+            shape?.members?.retryAfterSeconds?.traits?.[
+              "smithy.api#httpHeader"
+            ],
+          // members: Object.entries(shape.members).reduce(
+          //   (acc, [key, value]) => {
+          //     if (value?.traits?.["smithy.api#httpHeader"]) {
+          //       acc[key] = value?.traits?.["smithy.api#httpHeader"];
+          //     }
+          //     return acc;
+          //   },
+          //   {} as Record<string, string>,
+          // ),
+          // ...(Object.keys(shape.traits["smithy.api#retryable"]).length > 0
+          //   ? shape.traits["smithy.api#retryable"]
+          //   : {}),
+        },
+      ];
+    };
+
     const extractHttpTraits = (shapeId: string): Record<string, string> => {
       const shape = manifest.shapes[shapeId];
       if (!shape || shape.type !== "structure" || !shape.members) return {};
@@ -1742,6 +1788,8 @@ const generateServiceTypes = (serviceName: string, manifest: Manifest) =>
       ) as Record<string, string>;
     };
 
+    let retryableErrors = {};
+
     if (protocol === "restJson1") {
       for (const operation of operations) {
         const httpTrait = operation.shape.traits?.["smithy.api#http"];
@@ -1753,6 +1801,13 @@ const generateServiceTypes = (serviceName: string, manifest: Manifest) =>
           const outputTraits = operation.shape.output
             ? extractHttpTraits(operation.shape.output.target)
             : {};
+          const errorList =
+            operation?.shape?.errors
+              ?.map((e) => extractRetryableError(e.target))
+              .filter((error) => Object.keys(error[1]).length > 0) ?? [];
+          for (const error of errorList) {
+            retryableErrors[error[0]] = error[1];
+          }
 
           if (Object.keys(outputTraits).length > 0) {
             // Store both HTTP mapping and trait mappings
@@ -1839,6 +1894,7 @@ const generateServiceTypes = (serviceName: string, manifest: Manifest) =>
       ...(Object.keys(operationMappings).length > 0 && {
         operations: operationMappings,
       }),
+      retryableErrors,
     };
 
     return { code, metadata };

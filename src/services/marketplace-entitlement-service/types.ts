@@ -1,40 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  AccessDeniedException,
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-  ValidationException,
-} from "../../error.ts";
-type CommonAwsError =
-  | AccessDeniedException
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | ValidationException
-  | ThrottlingException;
+import type { AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException } from "../../error.ts";
+type CommonAwsError = AccessDeniedException | ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | ValidationException | ThrottlingException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class MarketplaceEntitlementService extends AWSServiceClient {
@@ -42,10 +8,7 @@ export declare class MarketplaceEntitlementService extends AWSServiceClient {
     input: GetEntitlementsRequest,
   ): Effect.Effect<
     GetEntitlementsResult,
-    | InternalServiceErrorException
-    | InvalidParameterException
-    | ThrottlingException
-    | CommonAwsError
+    InternalServiceErrorException | InvalidParameterException | ThrottlingException | CommonAwsError
   >;
 }
 
@@ -73,14 +36,8 @@ export type ErrorMessage = string;
 export type FilterValue = string;
 
 export type FilterValueList = Array<string>;
-export type GetEntitlementFilterName =
-  | "CUSTOMER_IDENTIFIER"
-  | "DIMENSION"
-  | "CUSTOMER_AWS_ACCOUNT_ID";
-export type GetEntitlementFilters = Record<
-  GetEntitlementFilterName,
-  Array<string>
->;
+export type GetEntitlementFilterName = "CUSTOMER_IDENTIFIER" | "DIMENSION" | "CUSTOMER_AWS_ACCOUNT_ID";
+export type GetEntitlementFilters = Record<GetEntitlementFilterName, Array<string>>;
 export interface GetEntitlementsRequest {
   ProductCode: string;
   Filter?: { [key in GetEntitlementFilterName]?: string };
@@ -128,8 +85,5 @@ export declare namespace GetEntitlements {
     | CommonAwsError;
 }
 
-export type MarketplaceEntitlementServiceErrors =
-  | InternalServiceErrorException
-  | InvalidParameterException
-  | ThrottlingException
-  | CommonAwsError;
+export type MarketplaceEntitlementServiceErrors = InternalServiceErrorException | InvalidParameterException | ThrottlingException | CommonAwsError;
+

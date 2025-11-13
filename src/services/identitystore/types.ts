@@ -1,38 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-} from "../../error.ts";
-type CommonAwsError =
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | AccessDeniedException
-  | ThrottlingException
-  | ValidationException;
+import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
+type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class identitystore extends AWSServiceClient {
@@ -70,58 +38,37 @@ export declare class identitystore extends AWSServiceClient {
     input: CreateGroupRequest,
   ): Effect.Effect<
     CreateGroupResponse,
-    | ConflictException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   >;
   createGroupMembership(
     input: CreateGroupMembershipRequest,
   ): Effect.Effect<
     CreateGroupMembershipResponse,
-    | ConflictException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   >;
   createUser(
     input: CreateUserRequest,
   ): Effect.Effect<
     CreateUserResponse,
-    | ConflictException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   >;
   deleteGroup(
     input: DeleteGroupRequest,
   ): Effect.Effect<
     DeleteGroupResponse,
-    | ConflictException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   deleteGroupMembership(
     input: DeleteGroupMembershipRequest,
   ): Effect.Effect<
     DeleteGroupMembershipResponse,
-    | ConflictException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   deleteUser(
     input: DeleteUserRequest,
   ): Effect.Effect<
     DeleteUserResponse,
-    | ConflictException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   describeGroup(
     input: DescribeGroupRequest,
@@ -163,21 +110,13 @@ export declare class identitystore extends AWSServiceClient {
     input: UpdateGroupRequest,
   ): Effect.Effect<
     UpdateGroupResponse,
-    | ConflictException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   >;
   updateUser(
     input: UpdateUserRequest,
   ): Effect.Effect<
     UpdateUserResponse,
-    | ConflictException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   >;
 }
 
@@ -205,9 +144,7 @@ interface _AlternateIdentifier {
   UniqueAttribute?: UniqueAttribute;
 }
 
-export type AlternateIdentifier =
-  | (_AlternateIdentifier & { ExternalId: ExternalId })
-  | (_AlternateIdentifier & { UniqueAttribute: UniqueAttribute });
+export type AlternateIdentifier = (_AlternateIdentifier & { ExternalId: ExternalId }) | (_AlternateIdentifier & { UniqueAttribute: UniqueAttribute });
 export interface AttributeOperation {
   AttributePath: string;
   AttributeValue?: unknown;
@@ -268,17 +205,20 @@ export interface DeleteGroupMembershipRequest {
   IdentityStoreId: string;
   MembershipId: string;
 }
-export interface DeleteGroupMembershipResponse {}
+export interface DeleteGroupMembershipResponse {
+}
 export interface DeleteGroupRequest {
   IdentityStoreId: string;
   GroupId: string;
 }
-export interface DeleteGroupResponse {}
+export interface DeleteGroupResponse {
+}
 export interface DeleteUserRequest {
   IdentityStoreId: string;
   UserId: string;
 }
-export interface DeleteUserResponse {}
+export interface DeleteUserResponse {
+}
 export interface DescribeGroupMembershipRequest {
   IdentityStoreId: string;
   MembershipId: string;
@@ -390,8 +330,7 @@ export interface GroupMembershipExistenceResult {
   MemberId?: MemberId;
   MembershipExists?: boolean;
 }
-export type GroupMembershipExistenceResults =
-  Array<GroupMembershipExistenceResult>;
+export type GroupMembershipExistenceResults = Array<GroupMembershipExistenceResult>;
 export type GroupMemberships = Array<GroupMembership>;
 export type Groups = Array<Group>;
 export type IdentityStoreId = string;
@@ -457,7 +396,7 @@ interface _MemberId {
   UserId?: string;
 }
 
-export type MemberId = _MemberId & { UserId: string };
+export type MemberId = (_MemberId & { UserId: string });
 export interface Name {
   Formatted?: string;
   FamilyName?: string;
@@ -516,13 +455,15 @@ export interface UpdateGroupRequest {
   GroupId: string;
   Operations: Array<AttributeOperation>;
 }
-export interface UpdateGroupResponse {}
+export interface UpdateGroupResponse {
+}
 export interface UpdateUserRequest {
   IdentityStoreId: string;
   UserId: string;
   Operations: Array<AttributeOperation>;
 }
-export interface UpdateUserResponse {}
+export interface UpdateUserResponse {
+}
 export interface User {
   UserName?: string;
   UserId: string;
@@ -734,12 +675,5 @@ export declare namespace UpdateUser {
     | CommonAwsError;
 }
 
-export type identitystoreErrors =
-  | AccessDeniedException
-  | ConflictException
-  | InternalServerException
-  | ResourceNotFoundException
-  | ServiceQuotaExceededException
-  | ThrottlingException
-  | ValidationException
-  | CommonAwsError;
+export type identitystoreErrors = AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError;
+

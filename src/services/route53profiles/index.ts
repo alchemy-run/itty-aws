@@ -5,23 +5,7 @@ import type { Route53Profiles as _Route53ProfilesClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-  type CommonAwsError,
-} from "../../error.ts";
+export {ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, type CommonAwsError} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -30,27 +14,22 @@ const metadata = {
   protocol: "restJson1",
   sigV4ServiceName: "route53profiles",
   operations: {
-    AssociateProfile: "POST /profileassociation",
-    AssociateResourceToProfile: "POST /profileresourceassociation",
-    CreateProfile: "POST /profile",
-    DeleteProfile: "DELETE /profile/{ProfileId}",
-    DisassociateProfile:
-      "DELETE /profileassociation/Profileid/{ProfileId}/resourceid/{ResourceId}",
-    DisassociateResourceFromProfile:
-      "DELETE /profileresourceassociation/profileid/{ProfileId}/resourcearn/{ResourceArn}",
-    GetProfile: "GET /profile/{ProfileId}",
-    GetProfileAssociation: "GET /profileassociation/{ProfileAssociationId}",
-    GetProfileResourceAssociation:
-      "GET /profileresourceassociation/{ProfileResourceAssociationId}",
-    ListProfileAssociations: "GET /profileassociations",
-    ListProfileResourceAssociations:
-      "GET /profileresourceassociations/profileid/{ProfileId}",
-    ListProfiles: "GET /profiles",
-    ListTagsForResource: "GET /tags/{ResourceArn}",
-    TagResource: "POST /tags/{ResourceArn}",
-    UntagResource: "DELETE /tags/{ResourceArn}",
-    UpdateProfileResourceAssociation:
-      "PATCH /profileresourceassociation/{ProfileResourceAssociationId}",
+    "AssociateProfile": "POST /profileassociation",
+    "AssociateResourceToProfile": "POST /profileresourceassociation",
+    "CreateProfile": "POST /profile",
+    "DeleteProfile": "DELETE /profile/{ProfileId}",
+    "DisassociateProfile": "DELETE /profileassociation/Profileid/{ProfileId}/resourceid/{ResourceId}",
+    "DisassociateResourceFromProfile": "DELETE /profileresourceassociation/profileid/{ProfileId}/resourcearn/{ResourceArn}",
+    "GetProfile": "GET /profile/{ProfileId}",
+    "GetProfileAssociation": "GET /profileassociation/{ProfileAssociationId}",
+    "GetProfileResourceAssociation": "GET /profileresourceassociation/{ProfileResourceAssociationId}",
+    "ListProfileAssociations": "GET /profileassociations",
+    "ListProfileResourceAssociations": "GET /profileresourceassociations/profileid/{ProfileId}",
+    "ListProfiles": "GET /profiles",
+    "ListTagsForResource": "GET /tags/{ResourceArn}",
+    "TagResource": "POST /tags/{ResourceArn}",
+    "UntagResource": "DELETE /tags/{ResourceArn}",
+    "UpdateProfileResourceAssociation": "PATCH /profileresourceassociation/{ProfileResourceAssociationId}",
   },
 } as const satisfies ServiceMetadata;
 

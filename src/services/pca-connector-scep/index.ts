@@ -5,23 +5,7 @@ import type { PcaConnectorScep as _PcaConnectorScepClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-  type CommonAwsError,
-} from "../../error.ts";
+export {ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, type CommonAwsError} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -30,18 +14,22 @@ const metadata = {
   protocol: "restJson1",
   sigV4ServiceName: "pca-connector-scep",
   operations: {
-    ListTagsForResource: "GET /tags/{ResourceArn}",
-    TagResource: "POST /tags/{ResourceArn}",
-    UntagResource: "DELETE /tags/{ResourceArn}",
-    CreateChallenge: "POST /challenges",
-    CreateConnector: "POST /connectors",
-    DeleteChallenge: "DELETE /challenges/{ChallengeArn}",
-    DeleteConnector: "DELETE /connectors/{ConnectorArn}",
-    GetChallengeMetadata: "GET /challengeMetadata/{ChallengeArn}",
-    GetChallengePassword: "GET /challengePasswords/{ChallengeArn}",
-    GetConnector: "GET /connectors/{ConnectorArn}",
-    ListChallengeMetadata: "GET /challengeMetadata",
-    ListConnectors: "GET /connectors",
+    "ListTagsForResource": "GET /tags/{ResourceArn}",
+    "TagResource": "POST /tags/{ResourceArn}",
+    "UntagResource": "DELETE /tags/{ResourceArn}",
+    "CreateChallenge": "POST /challenges",
+    "CreateConnector": "POST /connectors",
+    "DeleteChallenge": "DELETE /challenges/{ChallengeArn}",
+    "DeleteConnector": "DELETE /connectors/{ConnectorArn}",
+    "GetChallengeMetadata": "GET /challengeMetadata/{ChallengeArn}",
+    "GetChallengePassword": "GET /challengePasswords/{ChallengeArn}",
+    "GetConnector": "GET /connectors/{ConnectorArn}",
+    "ListChallengeMetadata": "GET /challengeMetadata",
+    "ListConnectors": "GET /connectors",
+  },
+  retryableErrors: {
+    "InternalServerException": {},
+    "ThrottlingException": {},
   },
 } as const satisfies ServiceMetadata;
 

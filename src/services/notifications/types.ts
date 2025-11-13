@@ -1,38 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-} from "../../error.ts";
-type CommonAwsError =
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | AccessDeniedException
-  | ThrottlingException
-  | ValidationException;
+import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
+type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class Notifications extends AWSServiceClient {
@@ -40,445 +8,235 @@ export declare class Notifications extends AWSServiceClient {
     input: ListManagedNotificationChannelAssociationsRequest,
   ): Effect.Effect<
     ListManagedNotificationChannelAssociationsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listMemberAccounts(
     input: ListMemberAccountsRequest,
   ): Effect.Effect<
     ListMemberAccountsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   associateChannel(
     input: AssociateChannelRequest,
   ): Effect.Effect<
     AssociateChannelResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   associateManagedNotificationAccountContact(
     input: AssociateManagedNotificationAccountContactRequest,
   ): Effect.Effect<
     AssociateManagedNotificationAccountContactResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   associateManagedNotificationAdditionalChannel(
     input: AssociateManagedNotificationAdditionalChannelRequest,
   ): Effect.Effect<
     AssociateManagedNotificationAdditionalChannelResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   associateOrganizationalUnit(
     input: AssociateOrganizationalUnitRequest,
   ): Effect.Effect<
     AssociateOrganizationalUnitResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createEventRule(
     input: CreateEventRuleRequest,
   ): Effect.Effect<
     CreateEventRuleResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createNotificationConfiguration(
     input: CreateNotificationConfigurationRequest,
   ): Effect.Effect<
     CreateNotificationConfigurationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteEventRule(
     input: DeleteEventRuleRequest,
   ): Effect.Effect<
     DeleteEventRuleResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteNotificationConfiguration(
     input: DeleteNotificationConfigurationRequest,
   ): Effect.Effect<
     DeleteNotificationConfigurationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deregisterNotificationHub(
     input: DeregisterNotificationHubRequest,
   ): Effect.Effect<
     DeregisterNotificationHubResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   disableNotificationsAccessForOrganization(
     input: DisableNotificationsAccessForOrganizationRequest,
   ): Effect.Effect<
     DisableNotificationsAccessForOrganizationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   disassociateChannel(
     input: DisassociateChannelRequest,
   ): Effect.Effect<
     DisassociateChannelResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   disassociateManagedNotificationAccountContact(
     input: DisassociateManagedNotificationAccountContactRequest,
   ): Effect.Effect<
     DisassociateManagedNotificationAccountContactResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   disassociateManagedNotificationAdditionalChannel(
     input: DisassociateManagedNotificationAdditionalChannelRequest,
   ): Effect.Effect<
     DisassociateManagedNotificationAdditionalChannelResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   disassociateOrganizationalUnit(
     input: DisassociateOrganizationalUnitRequest,
   ): Effect.Effect<
     DisassociateOrganizationalUnitResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   enableNotificationsAccessForOrganization(
     input: EnableNotificationsAccessForOrganizationRequest,
   ): Effect.Effect<
     EnableNotificationsAccessForOrganizationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getEventRule(
     input: GetEventRuleRequest,
   ): Effect.Effect<
     GetEventRuleResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getManagedNotificationChildEvent(
     input: GetManagedNotificationChildEventRequest,
   ): Effect.Effect<
     GetManagedNotificationChildEventResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getManagedNotificationConfiguration(
     input: GetManagedNotificationConfigurationRequest,
   ): Effect.Effect<
     GetManagedNotificationConfigurationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getManagedNotificationEvent(
     input: GetManagedNotificationEventRequest,
   ): Effect.Effect<
     GetManagedNotificationEventResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getNotificationConfiguration(
     input: GetNotificationConfigurationRequest,
   ): Effect.Effect<
     GetNotificationConfigurationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getNotificationEvent(
     input: GetNotificationEventRequest,
   ): Effect.Effect<
     GetNotificationEventResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getNotificationsAccessForOrganization(
     input: GetNotificationsAccessForOrganizationRequest,
   ): Effect.Effect<
     GetNotificationsAccessForOrganizationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listChannels(
     input: ListChannelsRequest,
   ): Effect.Effect<
     ListChannelsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listEventRules(
     input: ListEventRulesRequest,
   ): Effect.Effect<
     ListEventRulesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listManagedNotificationChildEvents(
     input: ListManagedNotificationChildEventsRequest,
   ): Effect.Effect<
     ListManagedNotificationChildEventsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listManagedNotificationConfigurations(
     input: ListManagedNotificationConfigurationsRequest,
   ): Effect.Effect<
     ListManagedNotificationConfigurationsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listManagedNotificationEvents(
     input: ListManagedNotificationEventsRequest,
   ): Effect.Effect<
     ListManagedNotificationEventsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listNotificationConfigurations(
     input: ListNotificationConfigurationsRequest,
   ): Effect.Effect<
     ListNotificationConfigurationsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listNotificationEvents(
     input: ListNotificationEventsRequest,
   ): Effect.Effect<
     ListNotificationEventsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listNotificationHubs(
     input: ListNotificationHubsRequest,
   ): Effect.Effect<
     ListNotificationHubsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listOrganizationalUnits(
     input: ListOrganizationalUnitsRequest,
   ): Effect.Effect<
     ListOrganizationalUnitsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   registerNotificationHub(
     input: RegisterNotificationHubRequest,
   ): Effect.Effect<
     RegisterNotificationHubResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateEventRule(
     input: UpdateEventRuleRequest,
   ): Effect.Effect<
     UpdateEventRuleResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateNotificationConfiguration(
     input: UpdateNotificationConfigurationRequest,
   ): Effect.Effect<
     UpdateNotificationConfigurationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
 }
 
@@ -519,22 +277,26 @@ export interface AssociateChannelRequest {
   arn: string;
   notificationConfigurationArn: string;
 }
-export interface AssociateChannelResponse {}
+export interface AssociateChannelResponse {
+}
 export interface AssociateManagedNotificationAccountContactRequest {
   contactIdentifier: string;
   managedNotificationConfigurationArn: string;
 }
-export interface AssociateManagedNotificationAccountContactResponse {}
+export interface AssociateManagedNotificationAccountContactResponse {
+}
 export interface AssociateManagedNotificationAdditionalChannelRequest {
   channelArn: string;
   managedNotificationConfigurationArn: string;
 }
-export interface AssociateManagedNotificationAdditionalChannelResponse {}
+export interface AssociateManagedNotificationAdditionalChannelResponse {
+}
 export interface AssociateOrganizationalUnitRequest {
   organizationalUnitId: string;
   notificationConfigurationArn: string;
 }
-export interface AssociateOrganizationalUnitResponse {}
+export interface AssociateOrganizationalUnitResponse {
+}
 export type ChannelArn = string;
 
 export type ChannelAssociationOverrideOption = string;
@@ -577,11 +339,13 @@ export type CreationTime = Date | string;
 export interface DeleteEventRuleRequest {
   arn: string;
 }
-export interface DeleteEventRuleResponse {}
+export interface DeleteEventRuleResponse {
+}
 export interface DeleteNotificationConfigurationRequest {
   arn: string;
 }
-export interface DeleteNotificationConfigurationResponse {}
+export interface DeleteNotificationConfigurationResponse {
+}
 export interface DeregisterNotificationHubRequest {
   notificationHubRegion: string;
 }
@@ -594,30 +358,38 @@ export interface Dimension {
   value: string;
 }
 export type Dimensions = Array<Dimension>;
-export interface DisableNotificationsAccessForOrganizationRequest {}
-export interface DisableNotificationsAccessForOrganizationResponse {}
+export interface DisableNotificationsAccessForOrganizationRequest {
+}
+export interface DisableNotificationsAccessForOrganizationResponse {
+}
 export interface DisassociateChannelRequest {
   arn: string;
   notificationConfigurationArn: string;
 }
-export interface DisassociateChannelResponse {}
+export interface DisassociateChannelResponse {
+}
 export interface DisassociateManagedNotificationAccountContactRequest {
   contactIdentifier: string;
   managedNotificationConfigurationArn: string;
 }
-export interface DisassociateManagedNotificationAccountContactResponse {}
+export interface DisassociateManagedNotificationAccountContactResponse {
+}
 export interface DisassociateManagedNotificationAdditionalChannelRequest {
   channelArn: string;
   managedNotificationConfigurationArn: string;
 }
-export interface DisassociateManagedNotificationAdditionalChannelResponse {}
+export interface DisassociateManagedNotificationAdditionalChannelResponse {
+}
 export interface DisassociateOrganizationalUnitRequest {
   organizationalUnitId: string;
   notificationConfigurationArn: string;
 }
-export interface DisassociateOrganizationalUnitResponse {}
-export interface EnableNotificationsAccessForOrganizationRequest {}
-export interface EnableNotificationsAccessForOrganizationResponse {}
+export interface DisassociateOrganizationalUnitResponse {
+}
+export interface EnableNotificationsAccessForOrganizationRequest {
+}
+export interface EnableNotificationsAccessForOrganizationResponse {
+}
 export type ErrorMessage = string;
 
 export type EventRuleArn = string;
@@ -714,7 +486,8 @@ export interface GetNotificationEventResponse {
   creationTime: Date | string;
   content: NotificationEventSchema;
 }
-export interface GetNotificationsAccessForOrganizationRequest {}
+export interface GetNotificationsAccessForOrganizationRequest {
+}
 export interface GetNotificationsAccessForOrganizationResponse {
   notificationsAccessForOrganization: NotificationsAccessForOrganization;
 }
@@ -853,8 +626,7 @@ export interface ListTagsForResourceResponse {
 }
 export type LocaleCode = string;
 
-export type ManagedNotificationChannelAssociations =
-  Array<ManagedNotificationChannelAssociationSummary>;
+export type ManagedNotificationChannelAssociations = Array<ManagedNotificationChannelAssociationSummary>;
 export interface ManagedNotificationChannelAssociationSummary {
   channelIdentifier: string;
   channelType: string;
@@ -886,8 +658,7 @@ export interface ManagedNotificationChildEventOverview {
   aggregateManagedNotificationEventArn: string;
   organizationalUnitId?: string;
 }
-export type ManagedNotificationChildEvents =
-  Array<ManagedNotificationChildEventOverview>;
+export type ManagedNotificationChildEvents = Array<ManagedNotificationChildEventOverview>;
 export interface ManagedNotificationChildEventSummary {
   schemaVersion: string;
   sourceEventMetadata: ManagedSourceEventMetadataSummary;
@@ -902,8 +673,7 @@ export type ManagedNotificationConfigurationName = string;
 
 export type ManagedNotificationConfigurationOsArn = string;
 
-export type ManagedNotificationConfigurations =
-  Array<ManagedNotificationConfigurationStructure>;
+export type ManagedNotificationConfigurations = Array<ManagedNotificationConfigurationStructure>;
 export interface ManagedNotificationConfigurationStructure {
   arn: string;
   name: string;
@@ -991,8 +761,7 @@ export type NotificationConfigurationDescription = string;
 
 export type NotificationConfigurationName = string;
 
-export type NotificationConfigurations =
-  Array<NotificationConfigurationStructure>;
+export type NotificationConfigurations = Array<NotificationConfigurationStructure>;
 export type NotificationConfigurationStatus = string;
 
 export interface NotificationConfigurationStructure {
@@ -1143,8 +912,7 @@ export interface SummarizationDimensionOverview {
   count: number;
   sampleValues?: Array<string>;
 }
-export type SummarizationDimensionOverviews =
-  Array<SummarizationDimensionOverview>;
+export type SummarizationDimensionOverviews = Array<SummarizationDimensionOverview>;
 export type TagKey = string;
 
 export type TagKeys = Array<string>;
@@ -1153,7 +921,8 @@ export interface TagResourceRequest {
   arn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type Tags = Array<string>;
 export type TagValue = string;
 
@@ -1183,7 +952,8 @@ export interface UntagResourceRequest {
   arn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateEventRuleRequest {
   arn: string;
   eventPattern?: string;
@@ -1702,12 +1472,5 @@ export declare namespace UpdateNotificationConfiguration {
     | CommonAwsError;
 }
 
-export type NotificationsErrors =
-  | AccessDeniedException
-  | ConflictException
-  | InternalServerException
-  | ResourceNotFoundException
-  | ServiceQuotaExceededException
-  | ThrottlingException
-  | ValidationException
-  | CommonAwsError;
+export type NotificationsErrors = AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError;
+

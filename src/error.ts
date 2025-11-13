@@ -3,6 +3,7 @@ import * as Data from "effect/Data";
 export interface AwsErrorMeta {
   readonly statusCode: number;
   readonly requestId?: string;
+  readonly retryAfterSeconds?: number;
 }
 
 // Common AWS errors that can occur across all services

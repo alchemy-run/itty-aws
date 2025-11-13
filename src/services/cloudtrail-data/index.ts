@@ -5,26 +5,7 @@ import type { CloudTrailData as _CloudTrailDataClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {
-  AccessDeniedException,
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  ThrottlingException,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-  ValidationException,
-  type CommonAwsError,
-} from "../../error.ts";
+export {AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException, type CommonAwsError} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -34,7 +15,7 @@ const metadata = {
   sigV4ServiceName: "cloudtrail-data",
   endpointPrefix: "cloudtrail-data",
   operations: {
-    PutAuditEvents: "POST /PutAuditEvents",
+    "PutAuditEvents": "POST /PutAuditEvents",
   },
 } as const satisfies ServiceMetadata;
 

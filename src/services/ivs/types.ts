@@ -1,240 +1,134 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-} from "../../error.ts";
-type CommonAwsError =
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | AccessDeniedException
-  | ThrottlingException
-  | ValidationException;
+import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
+type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class ivs extends AWSServiceClient {
   batchGetChannel(
     input: BatchGetChannelRequest,
-  ): Effect.Effect<BatchGetChannelResponse, CommonAwsError>;
+  ): Effect.Effect<
+    BatchGetChannelResponse,
+    CommonAwsError
+  >;
   batchGetStreamKey(
     input: BatchGetStreamKeyRequest,
-  ): Effect.Effect<BatchGetStreamKeyResponse, CommonAwsError>;
+  ): Effect.Effect<
+    BatchGetStreamKeyResponse,
+    CommonAwsError
+  >;
   batchStartViewerSessionRevocation(
     input: BatchStartViewerSessionRevocationRequest,
   ): Effect.Effect<
     BatchStartViewerSessionRevocationResponse,
-    | AccessDeniedException
-    | PendingVerification
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | PendingVerification | ThrottlingException | ValidationException | CommonAwsError
   >;
   createChannel(
     input: CreateChannelRequest,
   ): Effect.Effect<
     CreateChannelResponse,
-    | AccessDeniedException
-    | PendingVerification
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | PendingVerification | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   >;
   createPlaybackRestrictionPolicy(
     input: CreatePlaybackRestrictionPolicyRequest,
   ): Effect.Effect<
     CreatePlaybackRestrictionPolicyResponse,
-    | AccessDeniedException
-    | PendingVerification
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | PendingVerification | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   createRecordingConfiguration(
     input: CreateRecordingConfigurationRequest,
   ): Effect.Effect<
     CreateRecordingConfigurationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | PendingVerification
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | PendingVerification | ServiceQuotaExceededException | ValidationException | CommonAwsError
   >;
   createStreamKey(
     input: CreateStreamKeyRequest,
   ): Effect.Effect<
     CreateStreamKeyResponse,
-    | AccessDeniedException
-    | PendingVerification
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | PendingVerification | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   >;
   deleteChannel(
     input: DeleteChannelRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | PendingVerification
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | PendingVerification | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   deletePlaybackKeyPair(
     input: DeletePlaybackKeyPairRequest,
   ): Effect.Effect<
     DeletePlaybackKeyPairResponse,
-    | AccessDeniedException
-    | PendingVerification
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | PendingVerification | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   deletePlaybackRestrictionPolicy(
     input: DeletePlaybackRestrictionPolicyRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | PendingVerification
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | PendingVerification | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   deleteRecordingConfiguration(
     input: DeleteRecordingConfigurationRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   deleteStreamKey(
     input: DeleteStreamKeyRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | PendingVerification
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | PendingVerification | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   getChannel(
     input: GetChannelRequest,
   ): Effect.Effect<
     GetChannelResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   getPlaybackKeyPair(
     input: GetPlaybackKeyPairRequest,
   ): Effect.Effect<
     GetPlaybackKeyPairResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   getPlaybackRestrictionPolicy(
     input: GetPlaybackRestrictionPolicyRequest,
   ): Effect.Effect<
     GetPlaybackRestrictionPolicyResponse,
-    | AccessDeniedException
-    | PendingVerification
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | PendingVerification | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   getRecordingConfiguration(
     input: GetRecordingConfigurationRequest,
   ): Effect.Effect<
     GetRecordingConfigurationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   getStream(
     input: GetStreamRequest,
   ): Effect.Effect<
     GetStreamResponse,
-    | AccessDeniedException
-    | ChannelNotBroadcasting
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ChannelNotBroadcasting | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   getStreamKey(
     input: GetStreamKeyRequest,
   ): Effect.Effect<
     GetStreamKeyResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   getStreamSession(
     input: GetStreamSessionRequest,
   ): Effect.Effect<
     GetStreamSessionResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   importPlaybackKeyPair(
     input: ImportPlaybackKeyPairRequest,
   ): Effect.Effect<
     ImportPlaybackKeyPairResponse,
-    | AccessDeniedException
-    | ConflictException
-    | PendingVerification
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | PendingVerification | ServiceQuotaExceededException | ValidationException | CommonAwsError
   >;
   listChannels(
     input: ListChannelsRequest,
   ): Effect.Effect<
     ListChannelsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | ValidationException | CommonAwsError
   >;
   listPlaybackKeyPairs(
     input: ListPlaybackKeyPairsRequest,
@@ -246,29 +140,19 @@ export declare class ivs extends AWSServiceClient {
     input: ListPlaybackRestrictionPoliciesRequest,
   ): Effect.Effect<
     ListPlaybackRestrictionPoliciesResponse,
-    | AccessDeniedException
-    | ConflictException
-    | PendingVerification
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | PendingVerification | ValidationException | CommonAwsError
   >;
   listRecordingConfigurations(
     input: ListRecordingConfigurationsRequest,
   ): Effect.Effect<
     ListRecordingConfigurationsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ValidationException | CommonAwsError
   >;
   listStreamKeys(
     input: ListStreamKeysRequest,
   ): Effect.Effect<
     ListStreamKeysResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   listStreams(
     input: ListStreamsRequest,
@@ -280,93 +164,55 @@ export declare class ivs extends AWSServiceClient {
     input: ListStreamSessionsRequest,
   ): Effect.Effect<
     ListStreamSessionsResponse,
-    | AccessDeniedException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   putMetadata(
     input: PutMetadataRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ChannelNotBroadcasting
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ChannelNotBroadcasting | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   startViewerSessionRevocation(
     input: StartViewerSessionRevocationRequest,
   ): Effect.Effect<
     StartViewerSessionRevocationResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | PendingVerification
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | PendingVerification | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   stopStream(
     input: StopStreamRequest,
   ): Effect.Effect<
     StopStreamResponse,
-    | AccessDeniedException
-    | ChannelNotBroadcasting
-    | ResourceNotFoundException
-    | StreamUnavailable
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ChannelNotBroadcasting | ResourceNotFoundException | StreamUnavailable | ValidationException | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   updateChannel(
     input: UpdateChannelRequest,
   ): Effect.Effect<
     UpdateChannelResponse,
-    | AccessDeniedException
-    | ConflictException
-    | PendingVerification
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | PendingVerification | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   updatePlaybackRestrictionPolicy(
     input: UpdatePlaybackRestrictionPolicyRequest,
   ): Effect.Effect<
     UpdatePlaybackRestrictionPolicyResponse,
-    | AccessDeniedException
-    | ConflictException
-    | PendingVerification
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | PendingVerification | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
 }
 
@@ -411,8 +257,7 @@ export interface BatchStartViewerSessionRevocationError {
   code?: string;
   message?: string;
 }
-export type BatchStartViewerSessionRevocationErrors =
-  Array<BatchStartViewerSessionRevocationError>;
+export type BatchStartViewerSessionRevocationErrors = Array<BatchStartViewerSessionRevocationError>;
 export interface BatchStartViewerSessionRevocationRequest {
   viewerSessions: Array<BatchStartViewerSessionRevocationViewerSession>;
 }
@@ -424,8 +269,7 @@ export interface BatchStartViewerSessionRevocationViewerSession {
   viewerId: string;
   viewerSessionVersionsLessThanOrEqualTo?: number;
 }
-export type BatchStartViewerSessionRevocationViewerSessionList =
-  Array<BatchStartViewerSessionRevocationViewerSession>;
+export type BatchStartViewerSessionRevocationViewerSessionList = Array<BatchStartViewerSessionRevocationViewerSession>;
 export type IvsBoolean = boolean;
 
 export interface Channel {
@@ -534,7 +378,8 @@ export interface DeleteChannelRequest {
 export interface DeletePlaybackKeyPairRequest {
   arn: string;
 }
-export interface DeletePlaybackKeyPairResponse {}
+export interface DeletePlaybackKeyPairResponse {
+}
 export interface DeletePlaybackRestrictionPolicyRequest {
   arn: string;
 }
@@ -757,8 +602,7 @@ export type PlaybackRestrictionPolicyArn = string;
 
 export type PlaybackRestrictionPolicyEnableStrictOriginEnforcement = boolean;
 
-export type PlaybackRestrictionPolicyList =
-  Array<PlaybackRestrictionPolicySummary>;
+export type PlaybackRestrictionPolicyList = Array<PlaybackRestrictionPolicySummary>;
 export type PlaybackRestrictionPolicyName = string;
 
 export interface PlaybackRestrictionPolicySummary {
@@ -807,13 +651,8 @@ export interface RenditionConfiguration {
   renditionSelection?: string;
   renditions?: Array<RenditionConfigurationRendition>;
 }
-export type RenditionConfigurationRendition =
-  | "SD"
-  | "HD"
-  | "FULL_HD"
-  | "LOWEST_RESOLUTION";
-export type RenditionConfigurationRenditionList =
-  Array<RenditionConfigurationRendition>;
+export type RenditionConfigurationRendition = "SD" | "HD" | "FULL_HD" | "LOWEST_RESOLUTION";
+export type RenditionConfigurationRenditionList = Array<RenditionConfigurationRendition>;
 export type RenditionConfigurationRenditionSelection = string;
 
 export type ResourceArn = string;
@@ -846,11 +685,13 @@ export interface StartViewerSessionRevocationRequest {
   viewerId: string;
   viewerSessionVersionsLessThanOrEqualTo?: number;
 }
-export interface StartViewerSessionRevocationResponse {}
+export interface StartViewerSessionRevocationResponse {
+}
 export interface StopStreamRequest {
   channelArn: string;
 }
-export interface StopStreamResponse {}
+export interface StopStreamResponse {
+}
 export interface Stream {
   channelArn?: string;
   streamId?: string;
@@ -940,7 +781,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type Tags = Record<string, string>;
 export type TagValue = string;
 
@@ -957,24 +799,19 @@ export interface ThumbnailConfiguration {
   resolution?: ThumbnailConfigurationResolution;
   storage?: Array<string>;
 }
-export type ThumbnailConfigurationResolution =
-  | "SD"
-  | "HD"
-  | "FULL_HD"
-  | "LOWEST_RESOLUTION";
+export type ThumbnailConfigurationResolution = "SD" | "HD" | "FULL_HD" | "LOWEST_RESOLUTION";
 export type ThumbnailConfigurationStorage = string;
 
 export type ThumbnailConfigurationStorageList = Array<string>;
 export type Time = Date | string;
 
-export type TranscodePreset =
-  | "HIGHER_BANDWIDTH_DELIVERY"
-  | "CONSTRAINED_BANDWIDTH_DELIVERY";
+export type TranscodePreset = "HIGHER_BANDWIDTH_DELIVERY" | "CONSTRAINED_BANDWIDTH_DELIVERY";
 export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateChannelRequest {
   arn: string;
   name?: string;
@@ -1027,13 +864,15 @@ export type ViewerSessionVersion = number;
 export declare namespace BatchGetChannel {
   export type Input = BatchGetChannelRequest;
   export type Output = BatchGetChannelResponse;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace BatchGetStreamKey {
   export type Input = BatchGetStreamKeyRequest;
   export type Output = BatchGetStreamKeyResponse;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace BatchStartViewerSessionRevocation {
@@ -1399,15 +1238,5 @@ export declare namespace UpdatePlaybackRestrictionPolicy {
     | CommonAwsError;
 }
 
-export type ivsErrors =
-  | AccessDeniedException
-  | ChannelNotBroadcasting
-  | ConflictException
-  | InternalServerException
-  | PendingVerification
-  | ResourceNotFoundException
-  | ServiceQuotaExceededException
-  | StreamUnavailable
-  | ThrottlingException
-  | ValidationException
-  | CommonAwsError;
+export type ivsErrors = AccessDeniedException | ChannelNotBroadcasting | ConflictException | InternalServerException | PendingVerification | ResourceNotFoundException | ServiceQuotaExceededException | StreamUnavailable | ThrottlingException | ValidationException | CommonAwsError;
+

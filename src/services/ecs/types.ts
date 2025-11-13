@@ -1,40 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  ThrottlingException,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-  ValidationException,
-} from "../../error.ts";
-type CommonAwsError =
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | ThrottlingException
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | ValidationException
-  | AccessDeniedException;
+import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException } from "../../error.ts";
+type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | ThrottlingException | UnrecognizedClientException | UnknownOperationException | ValidationError | ValidationException | AccessDeniedException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class ECS extends AWSServiceClient {
@@ -42,254 +8,133 @@ export declare class ECS extends AWSServiceClient {
     input: CreateCapacityProviderRequest,
   ): Effect.Effect<
     CreateCapacityProviderResponse,
-    | ClientException
-    | ClusterNotFoundException
-    | InvalidParameterException
-    | LimitExceededException
-    | ServerException
-    | UnsupportedFeatureException
-    | UpdateInProgressException
-    | CommonAwsError
+    ClientException | ClusterNotFoundException | InvalidParameterException | LimitExceededException | ServerException | UnsupportedFeatureException | UpdateInProgressException | CommonAwsError
   >;
   createCluster(
     input: CreateClusterRequest,
   ): Effect.Effect<
     CreateClusterResponse,
-    | ClientException
-    | InvalidParameterException
-    | NamespaceNotFoundException
-    | ServerException
-    | CommonAwsError
+    ClientException | InvalidParameterException | NamespaceNotFoundException | ServerException | CommonAwsError
   >;
   createService(
     input: CreateServiceRequest,
   ): Effect.Effect<
     CreateServiceResponse,
-    | AccessDeniedException
-    | ClientException
-    | ClusterNotFoundException
-    | InvalidParameterException
-    | NamespaceNotFoundException
-    | PlatformTaskDefinitionIncompatibilityException
-    | PlatformUnknownException
-    | ServerException
-    | UnsupportedFeatureException
-    | CommonAwsError
+    AccessDeniedException | ClientException | ClusterNotFoundException | InvalidParameterException | NamespaceNotFoundException | PlatformTaskDefinitionIncompatibilityException | PlatformUnknownException | ServerException | UnsupportedFeatureException | CommonAwsError
   >;
   createTaskSet(
     input: CreateTaskSetRequest,
   ): Effect.Effect<
     CreateTaskSetResponse,
-    | AccessDeniedException
-    | ClientException
-    | ClusterNotFoundException
-    | InvalidParameterException
-    | NamespaceNotFoundException
-    | PlatformTaskDefinitionIncompatibilityException
-    | PlatformUnknownException
-    | ServerException
-    | ServiceNotActiveException
-    | ServiceNotFoundException
-    | UnsupportedFeatureException
-    | CommonAwsError
+    AccessDeniedException | ClientException | ClusterNotFoundException | InvalidParameterException | NamespaceNotFoundException | PlatformTaskDefinitionIncompatibilityException | PlatformUnknownException | ServerException | ServiceNotActiveException | ServiceNotFoundException | UnsupportedFeatureException | CommonAwsError
   >;
   deleteAccountSetting(
     input: DeleteAccountSettingRequest,
   ): Effect.Effect<
     DeleteAccountSettingResponse,
-    | ClientException
-    | InvalidParameterException
-    | ServerException
-    | CommonAwsError
+    ClientException | InvalidParameterException | ServerException | CommonAwsError
   >;
   deleteAttributes(
     input: DeleteAttributesRequest,
   ): Effect.Effect<
     DeleteAttributesResponse,
-    | ClusterNotFoundException
-    | InvalidParameterException
-    | TargetNotFoundException
-    | CommonAwsError
+    ClusterNotFoundException | InvalidParameterException | TargetNotFoundException | CommonAwsError
   >;
   deleteCapacityProvider(
     input: DeleteCapacityProviderRequest,
   ): Effect.Effect<
     DeleteCapacityProviderResponse,
-    | ClientException
-    | ClusterNotFoundException
-    | InvalidParameterException
-    | ServerException
-    | UnsupportedFeatureException
-    | CommonAwsError
+    ClientException | ClusterNotFoundException | InvalidParameterException | ServerException | UnsupportedFeatureException | CommonAwsError
   >;
   deleteCluster(
     input: DeleteClusterRequest,
   ): Effect.Effect<
     DeleteClusterResponse,
-    | ClientException
-    | ClusterContainsCapacityProviderException
-    | ClusterContainsContainerInstancesException
-    | ClusterContainsServicesException
-    | ClusterContainsTasksException
-    | ClusterNotFoundException
-    | InvalidParameterException
-    | ServerException
-    | UpdateInProgressException
-    | CommonAwsError
+    ClientException | ClusterContainsCapacityProviderException | ClusterContainsContainerInstancesException | ClusterContainsServicesException | ClusterContainsTasksException | ClusterNotFoundException | InvalidParameterException | ServerException | UpdateInProgressException | CommonAwsError
   >;
   deleteService(
     input: DeleteServiceRequest,
   ): Effect.Effect<
     DeleteServiceResponse,
-    | ClientException
-    | ClusterNotFoundException
-    | InvalidParameterException
-    | ServerException
-    | ServiceNotFoundException
-    | CommonAwsError
+    ClientException | ClusterNotFoundException | InvalidParameterException | ServerException | ServiceNotFoundException | CommonAwsError
   >;
   deleteTaskDefinitions(
     input: DeleteTaskDefinitionsRequest,
   ): Effect.Effect<
     DeleteTaskDefinitionsResponse,
-    | AccessDeniedException
-    | ClientException
-    | InvalidParameterException
-    | ServerException
-    | CommonAwsError
+    AccessDeniedException | ClientException | InvalidParameterException | ServerException | CommonAwsError
   >;
   deleteTaskSet(
     input: DeleteTaskSetRequest,
   ): Effect.Effect<
     DeleteTaskSetResponse,
-    | AccessDeniedException
-    | ClientException
-    | ClusterNotFoundException
-    | InvalidParameterException
-    | ServerException
-    | ServiceNotActiveException
-    | ServiceNotFoundException
-    | TaskSetNotFoundException
-    | UnsupportedFeatureException
-    | CommonAwsError
+    AccessDeniedException | ClientException | ClusterNotFoundException | InvalidParameterException | ServerException | ServiceNotActiveException | ServiceNotFoundException | TaskSetNotFoundException | UnsupportedFeatureException | CommonAwsError
   >;
   deregisterContainerInstance(
     input: DeregisterContainerInstanceRequest,
   ): Effect.Effect<
     DeregisterContainerInstanceResponse,
-    | ClientException
-    | ClusterNotFoundException
-    | InvalidParameterException
-    | ServerException
-    | CommonAwsError
+    ClientException | ClusterNotFoundException | InvalidParameterException | ServerException | CommonAwsError
   >;
   deregisterTaskDefinition(
     input: DeregisterTaskDefinitionRequest,
   ): Effect.Effect<
     DeregisterTaskDefinitionResponse,
-    | ClientException
-    | InvalidParameterException
-    | ServerException
-    | CommonAwsError
+    ClientException | InvalidParameterException | ServerException | CommonAwsError
   >;
   describeCapacityProviders(
     input: DescribeCapacityProvidersRequest,
   ): Effect.Effect<
     DescribeCapacityProvidersResponse,
-    | ClientException
-    | ClusterNotFoundException
-    | InvalidParameterException
-    | ServerException
-    | UnsupportedFeatureException
-    | CommonAwsError
+    ClientException | ClusterNotFoundException | InvalidParameterException | ServerException | UnsupportedFeatureException | CommonAwsError
   >;
   describeClusters(
     input: DescribeClustersRequest,
   ): Effect.Effect<
     DescribeClustersResponse,
-    | ClientException
-    | InvalidParameterException
-    | ServerException
-    | CommonAwsError
+    ClientException | InvalidParameterException | ServerException | CommonAwsError
   >;
   describeContainerInstances(
     input: DescribeContainerInstancesRequest,
   ): Effect.Effect<
     DescribeContainerInstancesResponse,
-    | ClientException
-    | ClusterNotFoundException
-    | InvalidParameterException
-    | ServerException
-    | CommonAwsError
+    ClientException | ClusterNotFoundException | InvalidParameterException | ServerException | CommonAwsError
   >;
   describeServiceDeployments(
     input: DescribeServiceDeploymentsRequest,
   ): Effect.Effect<
     DescribeServiceDeploymentsResponse,
-    | AccessDeniedException
-    | ClientException
-    | ClusterNotFoundException
-    | InvalidParameterException
-    | ServerException
-    | ServiceNotFoundException
-    | UnsupportedFeatureException
-    | CommonAwsError
+    AccessDeniedException | ClientException | ClusterNotFoundException | InvalidParameterException | ServerException | ServiceNotFoundException | UnsupportedFeatureException | CommonAwsError
   >;
   describeServiceRevisions(
     input: DescribeServiceRevisionsRequest,
   ): Effect.Effect<
     DescribeServiceRevisionsResponse,
-    | AccessDeniedException
-    | ClientException
-    | ClusterNotFoundException
-    | InvalidParameterException
-    | ServerException
-    | ServiceNotFoundException
-    | UnsupportedFeatureException
-    | CommonAwsError
+    AccessDeniedException | ClientException | ClusterNotFoundException | InvalidParameterException | ServerException | ServiceNotFoundException | UnsupportedFeatureException | CommonAwsError
   >;
   describeServices(
     input: DescribeServicesRequest,
   ): Effect.Effect<
     DescribeServicesResponse,
-    | ClientException
-    | ClusterNotFoundException
-    | InvalidParameterException
-    | ServerException
-    | CommonAwsError
+    ClientException | ClusterNotFoundException | InvalidParameterException | ServerException | CommonAwsError
   >;
   describeTaskDefinition(
     input: DescribeTaskDefinitionRequest,
   ): Effect.Effect<
     DescribeTaskDefinitionResponse,
-    | ClientException
-    | InvalidParameterException
-    | ServerException
-    | CommonAwsError
+    ClientException | InvalidParameterException | ServerException | CommonAwsError
   >;
   describeTasks(
     input: DescribeTasksRequest,
   ): Effect.Effect<
     DescribeTasksResponse,
-    | ClientException
-    | ClusterNotFoundException
-    | InvalidParameterException
-    | ServerException
-    | CommonAwsError
+    ClientException | ClusterNotFoundException | InvalidParameterException | ServerException | CommonAwsError
   >;
   describeTaskSets(
     input: DescribeTaskSetsRequest,
   ): Effect.Effect<
     DescribeTaskSetsResponse,
-    | AccessDeniedException
-    | ClientException
-    | ClusterNotFoundException
-    | InvalidParameterException
-    | ServerException
-    | ServiceNotActiveException
-    | ServiceNotFoundException
-    | UnsupportedFeatureException
-    | CommonAwsError
+    AccessDeniedException | ClientException | ClusterNotFoundException | InvalidParameterException | ServerException | ServiceNotActiveException | ServiceNotFoundException | UnsupportedFeatureException | CommonAwsError
   >;
   discoverPollEndpoint(
     input: DiscoverPollEndpointRequest,
@@ -301,35 +146,19 @@ export declare class ECS extends AWSServiceClient {
     input: ExecuteCommandRequest,
   ): Effect.Effect<
     ExecuteCommandResponse,
-    | AccessDeniedException
-    | ClientException
-    | ClusterNotFoundException
-    | InvalidParameterException
-    | ServerException
-    | TargetNotConnectedException
-    | CommonAwsError
+    AccessDeniedException | ClientException | ClusterNotFoundException | InvalidParameterException | ServerException | TargetNotConnectedException | CommonAwsError
   >;
   getTaskProtection(
     input: GetTaskProtectionRequest,
   ): Effect.Effect<
     GetTaskProtectionResponse,
-    | AccessDeniedException
-    | ClientException
-    | ClusterNotFoundException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ServerException
-    | UnsupportedFeatureException
-    | CommonAwsError
+    AccessDeniedException | ClientException | ClusterNotFoundException | InvalidParameterException | ResourceNotFoundException | ServerException | UnsupportedFeatureException | CommonAwsError
   >;
   listAccountSettings(
     input: ListAccountSettingsRequest,
   ): Effect.Effect<
     ListAccountSettingsResponse,
-    | ClientException
-    | InvalidParameterException
-    | ServerException
-    | CommonAwsError
+    ClientException | InvalidParameterException | ServerException | CommonAwsError
   >;
   listAttributes(
     input: ListAttributesRequest,
@@ -341,209 +170,121 @@ export declare class ECS extends AWSServiceClient {
     input: ListClustersRequest,
   ): Effect.Effect<
     ListClustersResponse,
-    | ClientException
-    | InvalidParameterException
-    | ServerException
-    | CommonAwsError
+    ClientException | InvalidParameterException | ServerException | CommonAwsError
   >;
   listContainerInstances(
     input: ListContainerInstancesRequest,
   ): Effect.Effect<
     ListContainerInstancesResponse,
-    | ClientException
-    | ClusterNotFoundException
-    | InvalidParameterException
-    | ServerException
-    | CommonAwsError
+    ClientException | ClusterNotFoundException | InvalidParameterException | ServerException | CommonAwsError
   >;
   listServiceDeployments(
     input: ListServiceDeploymentsRequest,
   ): Effect.Effect<
     ListServiceDeploymentsResponse,
-    | AccessDeniedException
-    | ClientException
-    | InvalidParameterException
-    | ServerException
-    | ServiceNotFoundException
-    | UnsupportedFeatureException
-    | CommonAwsError
+    AccessDeniedException | ClientException | InvalidParameterException | ServerException | ServiceNotFoundException | UnsupportedFeatureException | CommonAwsError
   >;
   listServices(
     input: ListServicesRequest,
   ): Effect.Effect<
     ListServicesResponse,
-    | ClientException
-    | ClusterNotFoundException
-    | InvalidParameterException
-    | ServerException
-    | CommonAwsError
+    ClientException | ClusterNotFoundException | InvalidParameterException | ServerException | CommonAwsError
   >;
   listServicesByNamespace(
     input: ListServicesByNamespaceRequest,
   ): Effect.Effect<
     ListServicesByNamespaceResponse,
-    | ClientException
-    | InvalidParameterException
-    | NamespaceNotFoundException
-    | ServerException
-    | CommonAwsError
+    ClientException | InvalidParameterException | NamespaceNotFoundException | ServerException | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | ClientException
-    | ClusterNotFoundException
-    | InvalidParameterException
-    | ServerException
-    | CommonAwsError
+    ClientException | ClusterNotFoundException | InvalidParameterException | ServerException | CommonAwsError
   >;
   listTaskDefinitionFamilies(
     input: ListTaskDefinitionFamiliesRequest,
   ): Effect.Effect<
     ListTaskDefinitionFamiliesResponse,
-    | ClientException
-    | InvalidParameterException
-    | ServerException
-    | CommonAwsError
+    ClientException | InvalidParameterException | ServerException | CommonAwsError
   >;
   listTaskDefinitions(
     input: ListTaskDefinitionsRequest,
   ): Effect.Effect<
     ListTaskDefinitionsResponse,
-    | ClientException
-    | InvalidParameterException
-    | ServerException
-    | CommonAwsError
+    ClientException | InvalidParameterException | ServerException | CommonAwsError
   >;
   listTasks(
     input: ListTasksRequest,
   ): Effect.Effect<
     ListTasksResponse,
-    | ClientException
-    | ClusterNotFoundException
-    | InvalidParameterException
-    | ServerException
-    | ServiceNotFoundException
-    | CommonAwsError
+    ClientException | ClusterNotFoundException | InvalidParameterException | ServerException | ServiceNotFoundException | CommonAwsError
   >;
   putAccountSetting(
     input: PutAccountSettingRequest,
   ): Effect.Effect<
     PutAccountSettingResponse,
-    | ClientException
-    | InvalidParameterException
-    | ServerException
-    | CommonAwsError
+    ClientException | InvalidParameterException | ServerException | CommonAwsError
   >;
   putAccountSettingDefault(
     input: PutAccountSettingDefaultRequest,
   ): Effect.Effect<
     PutAccountSettingDefaultResponse,
-    | ClientException
-    | InvalidParameterException
-    | ServerException
-    | CommonAwsError
+    ClientException | InvalidParameterException | ServerException | CommonAwsError
   >;
   putAttributes(
     input: PutAttributesRequest,
   ): Effect.Effect<
     PutAttributesResponse,
-    | AttributeLimitExceededException
-    | ClusterNotFoundException
-    | InvalidParameterException
-    | TargetNotFoundException
-    | CommonAwsError
+    AttributeLimitExceededException | ClusterNotFoundException | InvalidParameterException | TargetNotFoundException | CommonAwsError
   >;
   putClusterCapacityProviders(
     input: PutClusterCapacityProvidersRequest,
   ): Effect.Effect<
     PutClusterCapacityProvidersResponse,
-    | ClientException
-    | ClusterNotFoundException
-    | InvalidParameterException
-    | ResourceInUseException
-    | ServerException
-    | UpdateInProgressException
-    | CommonAwsError
+    ClientException | ClusterNotFoundException | InvalidParameterException | ResourceInUseException | ServerException | UpdateInProgressException | CommonAwsError
   >;
   registerContainerInstance(
     input: RegisterContainerInstanceRequest,
   ): Effect.Effect<
     RegisterContainerInstanceResponse,
-    | ClientException
-    | InvalidParameterException
-    | ServerException
-    | CommonAwsError
+    ClientException | InvalidParameterException | ServerException | CommonAwsError
   >;
   registerTaskDefinition(
     input: RegisterTaskDefinitionRequest,
   ): Effect.Effect<
     RegisterTaskDefinitionResponse,
-    | ClientException
-    | InvalidParameterException
-    | ServerException
-    | CommonAwsError
+    ClientException | InvalidParameterException | ServerException | CommonAwsError
   >;
   runTask(
     input: RunTaskRequest,
   ): Effect.Effect<
     RunTaskResponse,
-    | AccessDeniedException
-    | BlockedException
-    | ClientException
-    | ClusterNotFoundException
-    | ConflictException
-    | InvalidParameterException
-    | PlatformTaskDefinitionIncompatibilityException
-    | PlatformUnknownException
-    | ServerException
-    | UnsupportedFeatureException
-    | CommonAwsError
+    AccessDeniedException | BlockedException | ClientException | ClusterNotFoundException | ConflictException | InvalidParameterException | PlatformTaskDefinitionIncompatibilityException | PlatformUnknownException | ServerException | UnsupportedFeatureException | CommonAwsError
   >;
   startTask(
     input: StartTaskRequest,
   ): Effect.Effect<
     StartTaskResponse,
-    | ClientException
-    | ClusterNotFoundException
-    | InvalidParameterException
-    | ServerException
-    | UnsupportedFeatureException
-    | CommonAwsError
+    ClientException | ClusterNotFoundException | InvalidParameterException | ServerException | UnsupportedFeatureException | CommonAwsError
   >;
   stopServiceDeployment(
     input: StopServiceDeploymentRequest,
   ): Effect.Effect<
     StopServiceDeploymentResponse,
-    | AccessDeniedException
-    | ClientException
-    | ConflictException
-    | InvalidParameterException
-    | ServerException
-    | ServiceDeploymentNotFoundException
-    | UnsupportedFeatureException
-    | CommonAwsError
+    AccessDeniedException | ClientException | ConflictException | InvalidParameterException | ServerException | ServiceDeploymentNotFoundException | UnsupportedFeatureException | CommonAwsError
   >;
   stopTask(
     input: StopTaskRequest,
   ): Effect.Effect<
     StopTaskResponse,
-    | ClientException
-    | ClusterNotFoundException
-    | InvalidParameterException
-    | ServerException
-    | CommonAwsError
+    ClientException | ClusterNotFoundException | InvalidParameterException | ServerException | CommonAwsError
   >;
   submitAttachmentStateChanges(
     input: SubmitAttachmentStateChangesRequest,
   ): Effect.Effect<
     SubmitAttachmentStateChangesResponse,
-    | AccessDeniedException
-    | ClientException
-    | InvalidParameterException
-    | ServerException
-    | CommonAwsError
+    AccessDeniedException | ClientException | InvalidParameterException | ServerException | CommonAwsError
   >;
   submitContainerStateChange(
     input: SubmitContainerStateChangeRequest,
@@ -555,148 +296,73 @@ export declare class ECS extends AWSServiceClient {
     input: SubmitTaskStateChangeRequest,
   ): Effect.Effect<
     SubmitTaskStateChangeResponse,
-    | AccessDeniedException
-    | ClientException
-    | InvalidParameterException
-    | ServerException
-    | CommonAwsError
+    AccessDeniedException | ClientException | InvalidParameterException | ServerException | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | ClientException
-    | ClusterNotFoundException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ServerException
-    | CommonAwsError
+    ClientException | ClusterNotFoundException | InvalidParameterException | ResourceNotFoundException | ServerException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | ClientException
-    | ClusterNotFoundException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ServerException
-    | CommonAwsError
+    ClientException | ClusterNotFoundException | InvalidParameterException | ResourceNotFoundException | ServerException | CommonAwsError
   >;
   updateCapacityProvider(
     input: UpdateCapacityProviderRequest,
   ): Effect.Effect<
     UpdateCapacityProviderResponse,
-    | ClientException
-    | ClusterNotFoundException
-    | InvalidParameterException
-    | ServerException
-    | UnsupportedFeatureException
-    | CommonAwsError
+    ClientException | ClusterNotFoundException | InvalidParameterException | ServerException | UnsupportedFeatureException | CommonAwsError
   >;
   updateCluster(
     input: UpdateClusterRequest,
   ): Effect.Effect<
     UpdateClusterResponse,
-    | ClientException
-    | ClusterNotFoundException
-    | InvalidParameterException
-    | NamespaceNotFoundException
-    | ServerException
-    | CommonAwsError
+    ClientException | ClusterNotFoundException | InvalidParameterException | NamespaceNotFoundException | ServerException | CommonAwsError
   >;
   updateClusterSettings(
     input: UpdateClusterSettingsRequest,
   ): Effect.Effect<
     UpdateClusterSettingsResponse,
-    | ClientException
-    | ClusterNotFoundException
-    | InvalidParameterException
-    | ServerException
-    | CommonAwsError
+    ClientException | ClusterNotFoundException | InvalidParameterException | ServerException | CommonAwsError
   >;
   updateContainerAgent(
     input: UpdateContainerAgentRequest,
   ): Effect.Effect<
     UpdateContainerAgentResponse,
-    | ClientException
-    | ClusterNotFoundException
-    | InvalidParameterException
-    | MissingVersionException
-    | NoUpdateAvailableException
-    | ServerException
-    | UpdateInProgressException
-    | CommonAwsError
+    ClientException | ClusterNotFoundException | InvalidParameterException | MissingVersionException | NoUpdateAvailableException | ServerException | UpdateInProgressException | CommonAwsError
   >;
   updateContainerInstancesState(
     input: UpdateContainerInstancesStateRequest,
   ): Effect.Effect<
     UpdateContainerInstancesStateResponse,
-    | ClientException
-    | ClusterNotFoundException
-    | InvalidParameterException
-    | ServerException
-    | CommonAwsError
+    ClientException | ClusterNotFoundException | InvalidParameterException | ServerException | CommonAwsError
   >;
   updateService(
     input: UpdateServiceRequest,
   ): Effect.Effect<
     UpdateServiceResponse,
-    | AccessDeniedException
-    | ClientException
-    | ClusterNotFoundException
-    | InvalidParameterException
-    | NamespaceNotFoundException
-    | PlatformTaskDefinitionIncompatibilityException
-    | PlatformUnknownException
-    | ServerException
-    | ServiceNotActiveException
-    | ServiceNotFoundException
-    | UnsupportedFeatureException
-    | CommonAwsError
+    AccessDeniedException | ClientException | ClusterNotFoundException | InvalidParameterException | NamespaceNotFoundException | PlatformTaskDefinitionIncompatibilityException | PlatformUnknownException | ServerException | ServiceNotActiveException | ServiceNotFoundException | UnsupportedFeatureException | CommonAwsError
   >;
   updateServicePrimaryTaskSet(
     input: UpdateServicePrimaryTaskSetRequest,
   ): Effect.Effect<
     UpdateServicePrimaryTaskSetResponse,
-    | AccessDeniedException
-    | ClientException
-    | ClusterNotFoundException
-    | InvalidParameterException
-    | ServerException
-    | ServiceNotActiveException
-    | ServiceNotFoundException
-    | TaskSetNotFoundException
-    | UnsupportedFeatureException
-    | CommonAwsError
+    AccessDeniedException | ClientException | ClusterNotFoundException | InvalidParameterException | ServerException | ServiceNotActiveException | ServiceNotFoundException | TaskSetNotFoundException | UnsupportedFeatureException | CommonAwsError
   >;
   updateTaskProtection(
     input: UpdateTaskProtectionRequest,
   ): Effect.Effect<
     UpdateTaskProtectionResponse,
-    | AccessDeniedException
-    | ClientException
-    | ClusterNotFoundException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ServerException
-    | UnsupportedFeatureException
-    | CommonAwsError
+    AccessDeniedException | ClientException | ClusterNotFoundException | InvalidParameterException | ResourceNotFoundException | ServerException | UnsupportedFeatureException | CommonAwsError
   >;
   updateTaskSet(
     input: UpdateTaskSetRequest,
   ): Effect.Effect<
     UpdateTaskSetResponse,
-    | AccessDeniedException
-    | ClientException
-    | ClusterNotFoundException
-    | InvalidParameterException
-    | ServerException
-    | ServiceNotActiveException
-    | ServiceNotFoundException
-    | TaskSetNotFoundException
-    | UnsupportedFeatureException
-    | CommonAwsError
+    AccessDeniedException | ClientException | ClusterNotFoundException | InvalidParameterException | ServerException | ServiceNotActiveException | ServiceNotFoundException | TaskSetNotFoundException | UnsupportedFeatureException | CommonAwsError
   >;
 }
 
@@ -706,26 +372,9 @@ export interface AcceleratorCountRequest {
   min?: number;
   max?: number;
 }
-export type AcceleratorManufacturer =
-  | "amazon-web-services"
-  | "amd"
-  | "nvidia"
-  | "xilinx"
-  | "habana";
+export type AcceleratorManufacturer = "amazon-web-services" | "amd" | "nvidia" | "xilinx" | "habana";
 export type AcceleratorManufacturerSet = Array<AcceleratorManufacturer>;
-export type AcceleratorName =
-  | "a100"
-  | "inferentia"
-  | "k520"
-  | "k80"
-  | "m60"
-  | "radeon-pro-v520"
-  | "t4"
-  | "vu9p"
-  | "v100"
-  | "a10g"
-  | "h100"
-  | "t4g";
+export type AcceleratorName = "a100" | "inferentia" | "k520" | "k80" | "m60" | "radeon-pro-v520" | "t4" | "vu9p" | "v100" | "a10g" | "h100" | "t4g";
 export type AcceleratorNameSet = Array<AcceleratorName>;
 export interface AcceleratorTotalMemoryMiBRequest {
   min?: number;
@@ -744,13 +393,7 @@ export interface AdvancedConfiguration {
   testListenerRule?: string;
   roleArn?: string;
 }
-export type AgentUpdateStatus =
-  | "PENDING"
-  | "STAGING"
-  | "STAGED"
-  | "UPDATING"
-  | "UPDATED"
-  | "FAILED";
+export type AgentUpdateStatus = "PENDING" | "STAGING" | "STAGED" | "UPDATING" | "UPDATED" | "FAILED";
 export type AllowedInstanceType = string;
 
 export type AllowedInstanceTypeSet = Array<string>;
@@ -836,11 +479,7 @@ export interface CapacityProvider {
 export type CapacityProviderField = "TAGS";
 export type CapacityProviderFieldList = Array<CapacityProviderField>;
 export type CapacityProviders = Array<CapacityProvider>;
-export type CapacityProviderStatus =
-  | "PROVISIONING"
-  | "ACTIVE"
-  | "DEPROVISIONING"
-  | "INACTIVE";
+export type CapacityProviderStatus = "PROVISIONING" | "ACTIVE" | "DEPROVISIONING" | "INACTIVE";
 export type CapacityProviderStrategy = Array<CapacityProviderStrategyItem>;
 export interface CapacityProviderStrategyItem {
   capacityProvider: string;
@@ -851,21 +490,8 @@ export type CapacityProviderStrategyItemBase = number;
 
 export type CapacityProviderStrategyItemWeight = number;
 
-export type CapacityProviderType =
-  | "EC2_AUTOSCALING"
-  | "MANAGED_INSTANCES"
-  | "FARGATE"
-  | "FARGATE_SPOT";
-export type CapacityProviderUpdateStatus =
-  | "CREATE_IN_PROGRESS"
-  | "CREATE_COMPLETE"
-  | "CREATE_FAILED"
-  | "DELETE_IN_PROGRESS"
-  | "DELETE_COMPLETE"
-  | "DELETE_FAILED"
-  | "UPDATE_IN_PROGRESS"
-  | "UPDATE_COMPLETE"
-  | "UPDATE_FAILED";
+export type CapacityProviderType = "EC2_AUTOSCALING" | "MANAGED_INSTANCES" | "FARGATE" | "FARGATE_SPOT";
+export type CapacityProviderUpdateStatus = "CREATE_IN_PROGRESS" | "CREATE_COMPLETE" | "CREATE_FAILED" | "DELETE_IN_PROGRESS" | "DELETE_COMPLETE" | "DELETE_FAILED" | "UPDATE_IN_PROGRESS" | "UPDATE_COMPLETE" | "UPDATE_FAILED";
 export declare class ClientException extends EffectData.TaggedError(
   "ClientException",
 )<{
@@ -913,12 +539,7 @@ export declare class ClusterContainsTasksException extends EffectData.TaggedErro
 )<{
   readonly message?: string;
 }> {}
-export type ClusterField =
-  | "ATTACHMENTS"
-  | "CONFIGURATIONS"
-  | "SETTINGS"
-  | "STATISTICS"
-  | "TAGS";
+export type ClusterField = "ATTACHMENTS" | "CONFIGURATIONS" | "SETTINGS" | "STATISTICS" | "TAGS";
 export type ClusterFieldList = Array<ClusterField>;
 export declare class ClusterNotFoundException extends EffectData.TaggedError(
   "ClusterNotFoundException",
@@ -938,11 +559,7 @@ export interface ClusterSetting {
 }
 export type ClusterSettingName = "containerInsights";
 export type ClusterSettings = Array<ClusterSetting>;
-export type Compatibility =
-  | "EC2"
-  | "FARGATE"
-  | "EXTERNAL"
-  | "MANAGED_INSTANCES";
+export type Compatibility = "EC2" | "FARGATE" | "EXTERNAL" | "MANAGED_INSTANCES";
 export type CompatibilityList = Array<Compatibility>;
 export declare class ConflictException extends EffectData.TaggedError(
   "ConflictException",
@@ -1054,12 +671,7 @@ export interface ContainerInstanceHealthStatus {
   details?: Array<InstanceHealthCheckResult>;
 }
 export type ContainerInstances = Array<ContainerInstance>;
-export type ContainerInstanceStatus =
-  | "ACTIVE"
-  | "DRAINING"
-  | "REGISTERING"
-  | "DEREGISTERING"
-  | "REGISTRATION_FAILED";
+export type ContainerInstanceStatus = "ACTIVE" | "DRAINING" | "REGISTERING" | "DEREGISTERING" | "REGISTRATION_FAILED";
 export interface ContainerOverride {
   name?: string;
   command?: Array<string>;
@@ -1278,16 +890,8 @@ export interface DeploymentLifecycleHook {
   hookDetails?: unknown;
 }
 export type DeploymentLifecycleHookList = Array<DeploymentLifecycleHook>;
-export type DeploymentLifecycleHookStage =
-  | "RECONCILE_SERVICE"
-  | "PRE_SCALE_UP"
-  | "POST_SCALE_UP"
-  | "TEST_TRAFFIC_SHIFT"
-  | "POST_TEST_TRAFFIC_SHIFT"
-  | "PRODUCTION_TRAFFIC_SHIFT"
-  | "POST_PRODUCTION_TRAFFIC_SHIFT";
-export type DeploymentLifecycleHookStageList =
-  Array<DeploymentLifecycleHookStage>;
+export type DeploymentLifecycleHookStage = "RECONCILE_SERVICE" | "PRE_SCALE_UP" | "POST_SCALE_UP" | "TEST_TRAFFIC_SHIFT" | "POST_TEST_TRAFFIC_SHIFT" | "PRODUCTION_TRAFFIC_SHIFT" | "POST_PRODUCTION_TRAFFIC_SHIFT";
+export type DeploymentLifecycleHookStageList = Array<DeploymentLifecycleHookStage>;
 export type DeploymentRolloutState = "COMPLETED" | "FAILED" | "IN_PROGRESS";
 export type Deployments = Array<Deployment>;
 export type DeploymentStrategy = "ROLLING" | "BLUE_GREEN" | "LINEAR" | "CANARY";
@@ -1552,11 +1156,7 @@ export interface InstanceHealthCheckResult {
   lastStatusChange?: Date | string;
 }
 export type InstanceHealthCheckResultList = Array<InstanceHealthCheckResult>;
-export type InstanceHealthCheckState =
-  | "OK"
-  | "IMPAIRED"
-  | "INSUFFICIENT_DATA"
-  | "INITIALIZING";
+export type InstanceHealthCheckState = "OK" | "IMPAIRED" | "INSUFFICIENT_DATA" | "INITIALIZING";
 export type InstanceHealthCheckType = "CONTAINER_RUNTIME";
 export interface InstanceLaunchTemplate {
   ec2InstanceProfileArn: string;
@@ -1768,15 +1368,7 @@ export interface LogConfiguration {
   secretOptions?: Array<Secret>;
 }
 export type LogConfigurationOptionsMap = Record<string, string>;
-export type LogDriver =
-  | "json-file"
-  | "syslog"
-  | "journald"
-  | "gelf"
-  | "fluentd"
-  | "awslogs"
-  | "splunk"
-  | "awsfirelens";
+export type LogDriver = "json-file" | "syslog" | "journald" | "gelf" | "fluentd" | "awslogs" | "splunk" | "awsfirelens";
 export type Long = number;
 
 export interface ManagedAgent {
@@ -1883,17 +1475,7 @@ export declare class NoUpdateAvailableException extends EffectData.TaggedError(
 )<{
   readonly message?: string;
 }> {}
-export type OSFamily =
-  | "WINDOWS_SERVER_2019_FULL"
-  | "WINDOWS_SERVER_2019_CORE"
-  | "WINDOWS_SERVER_2016_FULL"
-  | "WINDOWS_SERVER_2004_CORE"
-  | "WINDOWS_SERVER_2022_CORE"
-  | "WINDOWS_SERVER_2022_FULL"
-  | "WINDOWS_SERVER_2025_CORE"
-  | "WINDOWS_SERVER_2025_FULL"
-  | "WINDOWS_SERVER_20H2_CORE"
-  | "LINUX";
+export type OSFamily = "WINDOWS_SERVER_2019_FULL" | "WINDOWS_SERVER_2019_CORE" | "WINDOWS_SERVER_2016_FULL" | "WINDOWS_SERVER_2004_CORE" | "WINDOWS_SERVER_2022_CORE" | "WINDOWS_SERVER_2022_FULL" | "WINDOWS_SERVER_2025_CORE" | "WINDOWS_SERVER_2025_FULL" | "WINDOWS_SERVER_20H2_CORE" | "LINUX";
 export type PidMode = "host" | "task";
 export interface PlacementConstraint {
   type?: PlacementConstraintType;
@@ -2169,8 +1751,7 @@ export interface ServiceConnectServiceResource {
   discoveryName?: string;
   discoveryArn?: string;
 }
-export type ServiceConnectServiceResourceList =
-  Array<ServiceConnectServiceResource>;
+export type ServiceConnectServiceResourceList = Array<ServiceConnectServiceResource>;
 export interface ServiceConnectTestTrafficHeaderMatchRules {
   exact: string;
 }
@@ -2229,39 +1810,16 @@ export interface ServiceDeploymentCircuitBreaker {
   failureCount?: number;
   threshold?: number;
 }
-export type ServiceDeploymentLifecycleStage =
-  | "RECONCILE_SERVICE"
-  | "PRE_SCALE_UP"
-  | "SCALE_UP"
-  | "POST_SCALE_UP"
-  | "TEST_TRAFFIC_SHIFT"
-  | "POST_TEST_TRAFFIC_SHIFT"
-  | "PRODUCTION_TRAFFIC_SHIFT"
-  | "POST_PRODUCTION_TRAFFIC_SHIFT"
-  | "BAKE_TIME"
-  | "CLEAN_UP";
+export type ServiceDeploymentLifecycleStage = "RECONCILE_SERVICE" | "PRE_SCALE_UP" | "SCALE_UP" | "POST_SCALE_UP" | "TEST_TRAFFIC_SHIFT" | "POST_TEST_TRAFFIC_SHIFT" | "PRODUCTION_TRAFFIC_SHIFT" | "POST_PRODUCTION_TRAFFIC_SHIFT" | "BAKE_TIME" | "CLEAN_UP";
 export declare class ServiceDeploymentNotFoundException extends EffectData.TaggedError(
   "ServiceDeploymentNotFoundException",
 )<{
   readonly message?: string;
 }> {}
-export type ServiceDeploymentRollbackMonitorsStatus =
-  | "TRIGGERED"
-  | "MONITORING"
-  | "MONITORING_COMPLETE"
-  | "DISABLED";
+export type ServiceDeploymentRollbackMonitorsStatus = "TRIGGERED" | "MONITORING" | "MONITORING_COMPLETE" | "DISABLED";
 export type ServiceDeployments = Array<ServiceDeployment>;
 export type ServiceDeploymentsBrief = Array<ServiceDeploymentBrief>;
-export type ServiceDeploymentStatus =
-  | "PENDING"
-  | "SUCCESSFUL"
-  | "STOPPED"
-  | "STOP_REQUESTED"
-  | "IN_PROGRESS"
-  | "ROLLBACK_REQUESTED"
-  | "ROLLBACK_IN_PROGRESS"
-  | "ROLLBACK_SUCCESSFUL"
-  | "ROLLBACK_FAILED";
+export type ServiceDeploymentStatus = "PENDING" | "SUCCESSFUL" | "STOPPED" | "STOP_REQUESTED" | "IN_PROGRESS" | "ROLLBACK_REQUESTED" | "ROLLBACK_IN_PROGRESS" | "ROLLBACK_SUCCESSFUL" | "ROLLBACK_FAILED";
 export type ServiceDeploymentStatusList = Array<ServiceDeploymentStatus>;
 export interface ServiceEvent {
   id?: string;
@@ -2354,17 +1912,7 @@ export interface Setting {
   principalArn?: string;
   type?: SettingType;
 }
-export type SettingName =
-  | "serviceLongArnFormat"
-  | "taskLongArnFormat"
-  | "containerInstanceLongArnFormat"
-  | "awsvpcTrunking"
-  | "containerInsights"
-  | "fargateFIPSMode"
-  | "tagResourceAuthorization"
-  | "fargateTaskRetirementWaitPeriod"
-  | "guardDutyActivate"
-  | "defaultLogDriverMode";
+export type SettingName = "serviceLongArnFormat" | "taskLongArnFormat" | "containerInstanceLongArnFormat" | "awsvpcTrunking" | "containerInsights" | "fargateFIPSMode" | "tagResourceAuthorization" | "fargateTaskRetirementWaitPeriod" | "guardDutyActivate" | "defaultLogDriverMode";
 export type Settings = Array<Setting>;
 export type SettingType = "user" | "aws_managed";
 export type SortOrder = "ASC" | "DESC";
@@ -2460,7 +2008,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Array<Tag>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type Tags = Array<Tag>;
 export type TagValue = string;
 
@@ -2549,8 +2098,7 @@ export interface TaskDefinitionPlacementConstraint {
   type?: TaskDefinitionPlacementConstraintType;
   expression?: string;
 }
-export type TaskDefinitionPlacementConstraints =
-  Array<TaskDefinitionPlacementConstraint>;
+export type TaskDefinitionPlacementConstraints = Array<TaskDefinitionPlacementConstraint>;
 export type TaskDefinitionPlacementConstraintType = "memberOf";
 export type TaskDefinitionStatus = "ACTIVE" | "INACTIVE" | "DELETE_IN_PROGRESS";
 export interface TaskEphemeralStorage {
@@ -2622,13 +2170,7 @@ export declare class TaskSetNotFoundException extends EffectData.TaggedError(
   readonly message?: string;
 }> {}
 export type TaskSets = Array<TaskSet>;
-export type TaskStopCode =
-  | "TaskFailedToStart"
-  | "EssentialContainerExited"
-  | "UserInitiated"
-  | "ServiceSchedulerInitiated"
-  | "SpotInterruption"
-  | "TerminationNotice";
+export type TaskStopCode = "TaskFailedToStart" | "EssentialContainerExited" | "UserInitiated" | "ServiceSchedulerInitiated" | "SpotInterruption" | "TerminationNotice";
 export interface TaskVolumeConfiguration {
   name: string;
   managedEBSVolume?: TaskManagedEBSVolumeConfiguration;
@@ -2659,22 +2201,7 @@ export interface Ulimit {
   hardLimit: number;
 }
 export type UlimitList = Array<Ulimit>;
-export type UlimitName =
-  | "core"
-  | "cpu"
-  | "data"
-  | "fsize"
-  | "locks"
-  | "memlock"
-  | "msgqueue"
-  | "nice"
-  | "nofile"
-  | "nproc"
-  | "rss"
-  | "rtprio"
-  | "rttime"
-  | "sigpending"
-  | "stack";
+export type UlimitName = "core" | "cpu" | "data" | "fsize" | "locks" | "memlock" | "msgqueue" | "nice" | "nofile" | "nproc" | "rss" | "rtprio" | "rttime" | "sigpending" | "stack";
 export declare class UnsupportedFeatureException extends EffectData.TaggedError(
   "UnsupportedFeatureException",
 )<{
@@ -2684,7 +2211,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateCapacityProviderRequest {
   name: string;
   cluster?: string;
@@ -3098,7 +2626,10 @@ export declare namespace DescribeTaskSets {
 export declare namespace DiscoverPollEndpoint {
   export type Input = DiscoverPollEndpointRequest;
   export type Output = DiscoverPollEndpointResponse;
-  export type Error = ClientException | ServerException | CommonAwsError;
+  export type Error =
+    | ClientException
+    | ServerException
+    | CommonAwsError;
 }
 
 export declare namespace ExecuteCommand {
@@ -3544,33 +3075,5 @@ export declare namespace UpdateTaskSet {
     | CommonAwsError;
 }
 
-export type ECSErrors =
-  | AccessDeniedException
-  | AttributeLimitExceededException
-  | BlockedException
-  | ClientException
-  | ClusterContainsCapacityProviderException
-  | ClusterContainsContainerInstancesException
-  | ClusterContainsServicesException
-  | ClusterContainsTasksException
-  | ClusterNotFoundException
-  | ConflictException
-  | InvalidParameterException
-  | LimitExceededException
-  | MissingVersionException
-  | NamespaceNotFoundException
-  | NoUpdateAvailableException
-  | PlatformTaskDefinitionIncompatibilityException
-  | PlatformUnknownException
-  | ResourceInUseException
-  | ResourceNotFoundException
-  | ServerException
-  | ServiceDeploymentNotFoundException
-  | ServiceNotActiveException
-  | ServiceNotFoundException
-  | TargetNotConnectedException
-  | TargetNotFoundException
-  | TaskSetNotFoundException
-  | UnsupportedFeatureException
-  | UpdateInProgressException
-  | CommonAwsError;
+export type ECSErrors = AccessDeniedException | AttributeLimitExceededException | BlockedException | ClientException | ClusterContainsCapacityProviderException | ClusterContainsContainerInstancesException | ClusterContainsServicesException | ClusterContainsTasksException | ClusterNotFoundException | ConflictException | InvalidParameterException | LimitExceededException | MissingVersionException | NamespaceNotFoundException | NoUpdateAvailableException | PlatformTaskDefinitionIncompatibilityException | PlatformUnknownException | ResourceInUseException | ResourceNotFoundException | ServerException | ServiceDeploymentNotFoundException | ServiceNotActiveException | ServiceNotFoundException | TargetNotConnectedException | TargetNotFoundException | TaskSetNotFoundException | UnsupportedFeatureException | UpdateInProgressException | CommonAwsError;
+

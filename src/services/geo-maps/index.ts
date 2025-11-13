@@ -5,23 +5,7 @@ import type { GeoMaps as _GeoMapsClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-  type CommonAwsError,
-} from "../../error.ts";
+export {ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, type CommonAwsError} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -30,53 +14,57 @@ const metadata = {
   protocol: "restJson1",
   sigV4ServiceName: "geo-maps",
   operations: {
-    GetGlyphs: {
+    "GetGlyphs": {
       http: "GET /glyphs/{FontStack}/{FontUnicodeRange}",
       traits: {
-        Blob: "httpPayload",
-        ContentType: "Content-Type",
-        CacheControl: "Cache-Control",
-        ETag: "ETag",
+        "Blob": "httpPayload",
+        "ContentType": "Content-Type",
+        "CacheControl": "Cache-Control",
+        "ETag": "ETag",
       },
     },
-    GetSprites: {
+    "GetSprites": {
       http: "GET /styles/{Style}/{ColorScheme}/{Variant}/sprites/{FileName}",
       traits: {
-        Blob: "httpPayload",
-        ContentType: "Content-Type",
-        CacheControl: "Cache-Control",
-        ETag: "ETag",
+        "Blob": "httpPayload",
+        "ContentType": "Content-Type",
+        "CacheControl": "Cache-Control",
+        "ETag": "ETag",
       },
     },
-    GetStaticMap: {
+    "GetStaticMap": {
       http: "GET /static/{FileName}",
       traits: {
-        Blob: "httpPayload",
-        ContentType: "Content-Type",
-        CacheControl: "Cache-Control",
-        ETag: "ETag",
-        PricingBucket: "x-amz-geo-pricing-bucket",
+        "Blob": "httpPayload",
+        "ContentType": "Content-Type",
+        "CacheControl": "Cache-Control",
+        "ETag": "ETag",
+        "PricingBucket": "x-amz-geo-pricing-bucket",
       },
     },
-    GetStyleDescriptor: {
+    "GetStyleDescriptor": {
       http: "GET /styles/{Style}/descriptor",
       traits: {
-        Blob: "httpPayload",
-        ContentType: "Content-Type",
-        CacheControl: "Cache-Control",
-        ETag: "ETag",
+        "Blob": "httpPayload",
+        "ContentType": "Content-Type",
+        "CacheControl": "Cache-Control",
+        "ETag": "ETag",
       },
     },
-    GetTile: {
+    "GetTile": {
       http: "GET /tiles/{Tileset}/{Z}/{X}/{Y}",
       traits: {
-        Blob: "httpPayload",
-        ContentType: "Content-Type",
-        CacheControl: "Cache-Control",
-        ETag: "ETag",
-        PricingBucket: "x-amz-geo-pricing-bucket",
+        "Blob": "httpPayload",
+        "ContentType": "Content-Type",
+        "CacheControl": "Cache-Control",
+        "ETag": "ETag",
+        "PricingBucket": "x-amz-geo-pricing-bucket",
       },
     },
+  },
+  retryableErrors: {
+    "InternalServerException": {},
+    "ThrottlingException": {},
   },
 } as const satisfies ServiceMetadata;
 

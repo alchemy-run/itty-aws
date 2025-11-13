@@ -5,7 +5,10 @@ import { AWSServiceClient } from "../../client.ts";
 export declare class EC2 extends AWSServiceClient {
   acceptAddressTransfer(
     input: AcceptAddressTransferRequest,
-  ): Effect.Effect<AcceptAddressTransferResult, CommonAwsError>;
+  ): Effect.Effect<
+    AcceptAddressTransferResult,
+    CommonAwsError
+  >;
   acceptCapacityReservationBillingOwnership(
     input: AcceptCapacityReservationBillingOwnershipRequest,
   ): Effect.Effect<
@@ -14,7 +17,10 @@ export declare class EC2 extends AWSServiceClient {
   >;
   acceptReservedInstancesExchangeQuote(
     input: AcceptReservedInstancesExchangeQuoteRequest,
-  ): Effect.Effect<AcceptReservedInstancesExchangeQuoteResult, CommonAwsError>;
+  ): Effect.Effect<
+    AcceptReservedInstancesExchangeQuoteResult,
+    CommonAwsError
+  >;
   acceptTransitGatewayMulticastDomainAssociations(
     input: AcceptTransitGatewayMulticastDomainAssociationsRequest,
   ): Effect.Effect<
@@ -23,28 +29,52 @@ export declare class EC2 extends AWSServiceClient {
   >;
   acceptTransitGatewayPeeringAttachment(
     input: AcceptTransitGatewayPeeringAttachmentRequest,
-  ): Effect.Effect<AcceptTransitGatewayPeeringAttachmentResult, CommonAwsError>;
+  ): Effect.Effect<
+    AcceptTransitGatewayPeeringAttachmentResult,
+    CommonAwsError
+  >;
   acceptTransitGatewayVpcAttachment(
     input: AcceptTransitGatewayVpcAttachmentRequest,
-  ): Effect.Effect<AcceptTransitGatewayVpcAttachmentResult, CommonAwsError>;
+  ): Effect.Effect<
+    AcceptTransitGatewayVpcAttachmentResult,
+    CommonAwsError
+  >;
   acceptVpcEndpointConnections(
     input: AcceptVpcEndpointConnectionsRequest,
-  ): Effect.Effect<AcceptVpcEndpointConnectionsResult, CommonAwsError>;
+  ): Effect.Effect<
+    AcceptVpcEndpointConnectionsResult,
+    CommonAwsError
+  >;
   acceptVpcPeeringConnection(
     input: AcceptVpcPeeringConnectionRequest,
-  ): Effect.Effect<AcceptVpcPeeringConnectionResult, CommonAwsError>;
+  ): Effect.Effect<
+    AcceptVpcPeeringConnectionResult,
+    CommonAwsError
+  >;
   advertiseByoipCidr(
     input: AdvertiseByoipCidrRequest,
-  ): Effect.Effect<AdvertiseByoipCidrResult, CommonAwsError>;
+  ): Effect.Effect<
+    AdvertiseByoipCidrResult,
+    CommonAwsError
+  >;
   allocateAddress(
     input: AllocateAddressRequest,
-  ): Effect.Effect<AllocateAddressResult, CommonAwsError>;
+  ): Effect.Effect<
+    AllocateAddressResult,
+    CommonAwsError
+  >;
   allocateHosts(
     input: AllocateHostsRequest,
-  ): Effect.Effect<AllocateHostsResult, CommonAwsError>;
+  ): Effect.Effect<
+    AllocateHostsResult,
+    CommonAwsError
+  >;
   allocateIpamPoolCidr(
     input: AllocateIpamPoolCidrRequest,
-  ): Effect.Effect<AllocateIpamPoolCidrResult, CommonAwsError>;
+  ): Effect.Effect<
+    AllocateIpamPoolCidrResult,
+    CommonAwsError
+  >;
   applySecurityGroupsToClientVpnTargetNetwork(
     input: ApplySecurityGroupsToClientVpnTargetNetworkRequest,
   ): Effect.Effect<
@@ -53,16 +83,28 @@ export declare class EC2 extends AWSServiceClient {
   >;
   assignIpv6Addresses(
     input: AssignIpv6AddressesRequest,
-  ): Effect.Effect<AssignIpv6AddressesResult, CommonAwsError>;
+  ): Effect.Effect<
+    AssignIpv6AddressesResult,
+    CommonAwsError
+  >;
   assignPrivateIpAddresses(
     input: AssignPrivateIpAddressesRequest,
-  ): Effect.Effect<AssignPrivateIpAddressesResult, CommonAwsError>;
+  ): Effect.Effect<
+    AssignPrivateIpAddressesResult,
+    CommonAwsError
+  >;
   assignPrivateNatGatewayAddress(
     input: AssignPrivateNatGatewayAddressRequest,
-  ): Effect.Effect<AssignPrivateNatGatewayAddressResult, CommonAwsError>;
+  ): Effect.Effect<
+    AssignPrivateNatGatewayAddressResult,
+    CommonAwsError
+  >;
   associateAddress(
     input: AssociateAddressRequest,
-  ): Effect.Effect<AssociateAddressResult, CommonAwsError>;
+  ): Effect.Effect<
+    AssociateAddressResult,
+    CommonAwsError
+  >;
   associateCapacityReservationBillingOwner(
     input: AssociateCapacityReservationBillingOwnerRequest,
   ): Effect.Effect<
@@ -71,40 +113,76 @@ export declare class EC2 extends AWSServiceClient {
   >;
   associateClientVpnTargetNetwork(
     input: AssociateClientVpnTargetNetworkRequest,
-  ): Effect.Effect<AssociateClientVpnTargetNetworkResult, CommonAwsError>;
+  ): Effect.Effect<
+    AssociateClientVpnTargetNetworkResult,
+    CommonAwsError
+  >;
   associateDhcpOptions(
     input: AssociateDhcpOptionsRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   associateEnclaveCertificateIamRole(
     input: AssociateEnclaveCertificateIamRoleRequest,
-  ): Effect.Effect<AssociateEnclaveCertificateIamRoleResult, CommonAwsError>;
+  ): Effect.Effect<
+    AssociateEnclaveCertificateIamRoleResult,
+    CommonAwsError
+  >;
   associateIamInstanceProfile(
     input: AssociateIamInstanceProfileRequest,
-  ): Effect.Effect<AssociateIamInstanceProfileResult, CommonAwsError>;
+  ): Effect.Effect<
+    AssociateIamInstanceProfileResult,
+    CommonAwsError
+  >;
   associateInstanceEventWindow(
     input: AssociateInstanceEventWindowRequest,
-  ): Effect.Effect<AssociateInstanceEventWindowResult, CommonAwsError>;
+  ): Effect.Effect<
+    AssociateInstanceEventWindowResult,
+    CommonAwsError
+  >;
   associateIpamByoasn(
     input: AssociateIpamByoasnRequest,
-  ): Effect.Effect<AssociateIpamByoasnResult, CommonAwsError>;
+  ): Effect.Effect<
+    AssociateIpamByoasnResult,
+    CommonAwsError
+  >;
   associateIpamResourceDiscovery(
     input: AssociateIpamResourceDiscoveryRequest,
-  ): Effect.Effect<AssociateIpamResourceDiscoveryResult, CommonAwsError>;
+  ): Effect.Effect<
+    AssociateIpamResourceDiscoveryResult,
+    CommonAwsError
+  >;
   associateNatGatewayAddress(
     input: AssociateNatGatewayAddressRequest,
-  ): Effect.Effect<AssociateNatGatewayAddressResult, CommonAwsError>;
+  ): Effect.Effect<
+    AssociateNatGatewayAddressResult,
+    CommonAwsError
+  >;
   associateRouteServer(
     input: AssociateRouteServerRequest,
-  ): Effect.Effect<AssociateRouteServerResult, CommonAwsError>;
+  ): Effect.Effect<
+    AssociateRouteServerResult,
+    CommonAwsError
+  >;
   associateRouteTable(
     input: AssociateRouteTableRequest,
-  ): Effect.Effect<AssociateRouteTableResult, CommonAwsError>;
+  ): Effect.Effect<
+    AssociateRouteTableResult,
+    CommonAwsError
+  >;
   associateSecurityGroupVpc(
     input: AssociateSecurityGroupVpcRequest,
-  ): Effect.Effect<AssociateSecurityGroupVpcResult, CommonAwsError>;
+  ): Effect.Effect<
+    AssociateSecurityGroupVpcResult,
+    CommonAwsError
+  >;
   associateSubnetCidrBlock(
     input: AssociateSubnetCidrBlockRequest,
-  ): Effect.Effect<AssociateSubnetCidrBlockResult, CommonAwsError>;
+  ): Effect.Effect<
+    AssociateSubnetCidrBlockResult,
+    CommonAwsError
+  >;
   associateTransitGatewayMulticastDomain(
     input: AssociateTransitGatewayMulticastDomainRequest,
   ): Effect.Effect<
@@ -113,169 +191,334 @@ export declare class EC2 extends AWSServiceClient {
   >;
   associateTransitGatewayPolicyTable(
     input: AssociateTransitGatewayPolicyTableRequest,
-  ): Effect.Effect<AssociateTransitGatewayPolicyTableResult, CommonAwsError>;
+  ): Effect.Effect<
+    AssociateTransitGatewayPolicyTableResult,
+    CommonAwsError
+  >;
   associateTransitGatewayRouteTable(
     input: AssociateTransitGatewayRouteTableRequest,
-  ): Effect.Effect<AssociateTransitGatewayRouteTableResult, CommonAwsError>;
+  ): Effect.Effect<
+    AssociateTransitGatewayRouteTableResult,
+    CommonAwsError
+  >;
   associateTrunkInterface(
     input: AssociateTrunkInterfaceRequest,
-  ): Effect.Effect<AssociateTrunkInterfaceResult, CommonAwsError>;
+  ): Effect.Effect<
+    AssociateTrunkInterfaceResult,
+    CommonAwsError
+  >;
   associateVpcCidrBlock(
     input: AssociateVpcCidrBlockRequest,
-  ): Effect.Effect<AssociateVpcCidrBlockResult, CommonAwsError>;
+  ): Effect.Effect<
+    AssociateVpcCidrBlockResult,
+    CommonAwsError
+  >;
   attachClassicLinkVpc(
     input: AttachClassicLinkVpcRequest,
-  ): Effect.Effect<AttachClassicLinkVpcResult, CommonAwsError>;
+  ): Effect.Effect<
+    AttachClassicLinkVpcResult,
+    CommonAwsError
+  >;
   attachInternetGateway(
     input: AttachInternetGatewayRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   attachNetworkInterface(
     input: AttachNetworkInterfaceRequest,
-  ): Effect.Effect<AttachNetworkInterfaceResult, CommonAwsError>;
+  ): Effect.Effect<
+    AttachNetworkInterfaceResult,
+    CommonAwsError
+  >;
   attachVerifiedAccessTrustProvider(
     input: AttachVerifiedAccessTrustProviderRequest,
-  ): Effect.Effect<AttachVerifiedAccessTrustProviderResult, CommonAwsError>;
+  ): Effect.Effect<
+    AttachVerifiedAccessTrustProviderResult,
+    CommonAwsError
+  >;
   attachVolume(
     input: AttachVolumeRequest,
-  ): Effect.Effect<VolumeAttachment, CommonAwsError>;
+  ): Effect.Effect<
+    VolumeAttachment,
+    CommonAwsError
+  >;
   attachVpnGateway(
     input: AttachVpnGatewayRequest,
-  ): Effect.Effect<AttachVpnGatewayResult, CommonAwsError>;
+  ): Effect.Effect<
+    AttachVpnGatewayResult,
+    CommonAwsError
+  >;
   authorizeClientVpnIngress(
     input: AuthorizeClientVpnIngressRequest,
-  ): Effect.Effect<AuthorizeClientVpnIngressResult, CommonAwsError>;
+  ): Effect.Effect<
+    AuthorizeClientVpnIngressResult,
+    CommonAwsError
+  >;
   authorizeSecurityGroupEgress(
     input: AuthorizeSecurityGroupEgressRequest,
-  ): Effect.Effect<AuthorizeSecurityGroupEgressResult, CommonAwsError>;
+  ): Effect.Effect<
+    AuthorizeSecurityGroupEgressResult,
+    CommonAwsError
+  >;
   authorizeSecurityGroupIngress(
     input: AuthorizeSecurityGroupIngressRequest,
-  ): Effect.Effect<AuthorizeSecurityGroupIngressResult, CommonAwsError>;
+  ): Effect.Effect<
+    AuthorizeSecurityGroupIngressResult,
+    CommonAwsError
+  >;
   bundleInstance(
     input: BundleInstanceRequest,
-  ): Effect.Effect<BundleInstanceResult, CommonAwsError>;
+  ): Effect.Effect<
+    BundleInstanceResult,
+    CommonAwsError
+  >;
   cancelBundleTask(
     input: CancelBundleTaskRequest,
-  ): Effect.Effect<CancelBundleTaskResult, CommonAwsError>;
+  ): Effect.Effect<
+    CancelBundleTaskResult,
+    CommonAwsError
+  >;
   cancelCapacityReservation(
     input: CancelCapacityReservationRequest,
-  ): Effect.Effect<CancelCapacityReservationResult, CommonAwsError>;
+  ): Effect.Effect<
+    CancelCapacityReservationResult,
+    CommonAwsError
+  >;
   cancelCapacityReservationFleets(
     input: CancelCapacityReservationFleetsRequest,
-  ): Effect.Effect<CancelCapacityReservationFleetsResult, CommonAwsError>;
+  ): Effect.Effect<
+    CancelCapacityReservationFleetsResult,
+    CommonAwsError
+  >;
   cancelConversionTask(
     input: CancelConversionRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   cancelDeclarativePoliciesReport(
     input: CancelDeclarativePoliciesReportRequest,
-  ): Effect.Effect<CancelDeclarativePoliciesReportResult, CommonAwsError>;
+  ): Effect.Effect<
+    CancelDeclarativePoliciesReportResult,
+    CommonAwsError
+  >;
   cancelExportTask(
     input: CancelExportTaskRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   cancelImageLaunchPermission(
     input: CancelImageLaunchPermissionRequest,
-  ): Effect.Effect<CancelImageLaunchPermissionResult, CommonAwsError>;
+  ): Effect.Effect<
+    CancelImageLaunchPermissionResult,
+    CommonAwsError
+  >;
   cancelImportTask(
     input: CancelImportTaskRequest,
-  ): Effect.Effect<CancelImportTaskResult, CommonAwsError>;
+  ): Effect.Effect<
+    CancelImportTaskResult,
+    CommonAwsError
+  >;
   cancelReservedInstancesListing(
     input: CancelReservedInstancesListingRequest,
-  ): Effect.Effect<CancelReservedInstancesListingResult, CommonAwsError>;
+  ): Effect.Effect<
+    CancelReservedInstancesListingResult,
+    CommonAwsError
+  >;
   cancelSpotFleetRequests(
     input: CancelSpotFleetRequestsRequest,
-  ): Effect.Effect<CancelSpotFleetRequestsResponse, CommonAwsError>;
+  ): Effect.Effect<
+    CancelSpotFleetRequestsResponse,
+    CommonAwsError
+  >;
   cancelSpotInstanceRequests(
     input: CancelSpotInstanceRequestsRequest,
-  ): Effect.Effect<CancelSpotInstanceRequestsResult, CommonAwsError>;
+  ): Effect.Effect<
+    CancelSpotInstanceRequestsResult,
+    CommonAwsError
+  >;
   confirmProductInstance(
     input: ConfirmProductInstanceRequest,
-  ): Effect.Effect<ConfirmProductInstanceResult, CommonAwsError>;
+  ): Effect.Effect<
+    ConfirmProductInstanceResult,
+    CommonAwsError
+  >;
   copyFpgaImage(
     input: CopyFpgaImageRequest,
-  ): Effect.Effect<CopyFpgaImageResult, CommonAwsError>;
+  ): Effect.Effect<
+    CopyFpgaImageResult,
+    CommonAwsError
+  >;
   copyImage(
     input: CopyImageRequest,
-  ): Effect.Effect<CopyImageResult, CommonAwsError>;
+  ): Effect.Effect<
+    CopyImageResult,
+    CommonAwsError
+  >;
   copySnapshot(
     input: CopySnapshotRequest,
-  ): Effect.Effect<CopySnapshotResult, CommonAwsError>;
+  ): Effect.Effect<
+    CopySnapshotResult,
+    CommonAwsError
+  >;
   copyVolumes(
     input: CopyVolumesRequest,
-  ): Effect.Effect<CopyVolumesResult, CommonAwsError>;
+  ): Effect.Effect<
+    CopyVolumesResult,
+    CommonAwsError
+  >;
   createCapacityManagerDataExport(
     input: CreateCapacityManagerDataExportRequest,
-  ): Effect.Effect<CreateCapacityManagerDataExportResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateCapacityManagerDataExportResult,
+    CommonAwsError
+  >;
   createCapacityReservation(
     input: CreateCapacityReservationRequest,
-  ): Effect.Effect<CreateCapacityReservationResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateCapacityReservationResult,
+    CommonAwsError
+  >;
   createCapacityReservationBySplitting(
     input: CreateCapacityReservationBySplittingRequest,
-  ): Effect.Effect<CreateCapacityReservationBySplittingResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateCapacityReservationBySplittingResult,
+    CommonAwsError
+  >;
   createCapacityReservationFleet(
     input: CreateCapacityReservationFleetRequest,
-  ): Effect.Effect<CreateCapacityReservationFleetResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateCapacityReservationFleetResult,
+    CommonAwsError
+  >;
   createCarrierGateway(
     input: CreateCarrierGatewayRequest,
-  ): Effect.Effect<CreateCarrierGatewayResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateCarrierGatewayResult,
+    CommonAwsError
+  >;
   createClientVpnEndpoint(
     input: CreateClientVpnEndpointRequest,
-  ): Effect.Effect<CreateClientVpnEndpointResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateClientVpnEndpointResult,
+    CommonAwsError
+  >;
   createClientVpnRoute(
     input: CreateClientVpnRouteRequest,
-  ): Effect.Effect<CreateClientVpnRouteResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateClientVpnRouteResult,
+    CommonAwsError
+  >;
   createCoipCidr(
     input: CreateCoipCidrRequest,
-  ): Effect.Effect<CreateCoipCidrResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateCoipCidrResult,
+    CommonAwsError
+  >;
   createCoipPool(
     input: CreateCoipPoolRequest,
-  ): Effect.Effect<CreateCoipPoolResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateCoipPoolResult,
+    CommonAwsError
+  >;
   createCustomerGateway(
     input: CreateCustomerGatewayRequest,
-  ): Effect.Effect<CreateCustomerGatewayResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateCustomerGatewayResult,
+    CommonAwsError
+  >;
   createDefaultSubnet(
     input: CreateDefaultSubnetRequest,
-  ): Effect.Effect<CreateDefaultSubnetResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateDefaultSubnetResult,
+    CommonAwsError
+  >;
   createDefaultVpc(
     input: CreateDefaultVpcRequest,
-  ): Effect.Effect<CreateDefaultVpcResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateDefaultVpcResult,
+    CommonAwsError
+  >;
   createDelegateMacVolumeOwnershipTask(
     input: CreateDelegateMacVolumeOwnershipTaskRequest,
-  ): Effect.Effect<CreateDelegateMacVolumeOwnershipTaskResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateDelegateMacVolumeOwnershipTaskResult,
+    CommonAwsError
+  >;
   createDhcpOptions(
     input: CreateDhcpOptionsRequest,
-  ): Effect.Effect<CreateDhcpOptionsResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateDhcpOptionsResult,
+    CommonAwsError
+  >;
   createEgressOnlyInternetGateway(
     input: CreateEgressOnlyInternetGatewayRequest,
-  ): Effect.Effect<CreateEgressOnlyInternetGatewayResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateEgressOnlyInternetGatewayResult,
+    CommonAwsError
+  >;
   createFleet(
     input: CreateFleetRequest,
-  ): Effect.Effect<CreateFleetResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateFleetResult,
+    CommonAwsError
+  >;
   createFlowLogs(
     input: CreateFlowLogsRequest,
-  ): Effect.Effect<CreateFlowLogsResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateFlowLogsResult,
+    CommonAwsError
+  >;
   createFpgaImage(
     input: CreateFpgaImageRequest,
-  ): Effect.Effect<CreateFpgaImageResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateFpgaImageResult,
+    CommonAwsError
+  >;
   createImage(
     input: CreateImageRequest,
-  ): Effect.Effect<CreateImageResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateImageResult,
+    CommonAwsError
+  >;
   createImageUsageReport(
     input: CreateImageUsageReportRequest,
-  ): Effect.Effect<CreateImageUsageReportResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateImageUsageReportResult,
+    CommonAwsError
+  >;
   createInstanceConnectEndpoint(
     input: CreateInstanceConnectEndpointRequest,
-  ): Effect.Effect<CreateInstanceConnectEndpointResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateInstanceConnectEndpointResult,
+    CommonAwsError
+  >;
   createInstanceEventWindow(
     input: CreateInstanceEventWindowRequest,
-  ): Effect.Effect<CreateInstanceEventWindowResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateInstanceEventWindowResult,
+    CommonAwsError
+  >;
   createInstanceExportTask(
     input: CreateInstanceExportTaskRequest,
-  ): Effect.Effect<CreateInstanceExportTaskResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateInstanceExportTaskResult,
+    CommonAwsError
+  >;
   createInternetGateway(
     input: CreateInternetGatewayRequest,
-  ): Effect.Effect<CreateInternetGatewayResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateInternetGatewayResult,
+    CommonAwsError
+  >;
   createIpam(
     input: CreateIpamRequest,
-  ): Effect.Effect<CreateIpamResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateIpamResult,
+    CommonAwsError
+  >;
   createIpamExternalResourceVerificationToken(
     input: CreateIpamExternalResourceVerificationTokenRequest,
   ): Effect.Effect<
@@ -284,34 +527,64 @@ export declare class EC2 extends AWSServiceClient {
   >;
   createIpamPool(
     input: CreateIpamPoolRequest,
-  ): Effect.Effect<CreateIpamPoolResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateIpamPoolResult,
+    CommonAwsError
+  >;
   createIpamPrefixListResolver(
     input: CreateIpamPrefixListResolverRequest,
-  ): Effect.Effect<CreateIpamPrefixListResolverResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateIpamPrefixListResolverResult,
+    CommonAwsError
+  >;
   createIpamPrefixListResolverTarget(
     input: CreateIpamPrefixListResolverTargetRequest,
-  ): Effect.Effect<CreateIpamPrefixListResolverTargetResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateIpamPrefixListResolverTargetResult,
+    CommonAwsError
+  >;
   createIpamResourceDiscovery(
     input: CreateIpamResourceDiscoveryRequest,
-  ): Effect.Effect<CreateIpamResourceDiscoveryResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateIpamResourceDiscoveryResult,
+    CommonAwsError
+  >;
   createIpamScope(
     input: CreateIpamScopeRequest,
-  ): Effect.Effect<CreateIpamScopeResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateIpamScopeResult,
+    CommonAwsError
+  >;
   createKeyPair(
     input: CreateKeyPairRequest,
-  ): Effect.Effect<KeyPair, CommonAwsError>;
+  ): Effect.Effect<
+    KeyPair,
+    CommonAwsError
+  >;
   createLaunchTemplate(
     input: CreateLaunchTemplateRequest,
-  ): Effect.Effect<CreateLaunchTemplateResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateLaunchTemplateResult,
+    CommonAwsError
+  >;
   createLaunchTemplateVersion(
     input: CreateLaunchTemplateVersionRequest,
-  ): Effect.Effect<CreateLaunchTemplateVersionResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateLaunchTemplateVersionResult,
+    CommonAwsError
+  >;
   createLocalGatewayRoute(
     input: CreateLocalGatewayRouteRequest,
-  ): Effect.Effect<CreateLocalGatewayRouteResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateLocalGatewayRouteResult,
+    CommonAwsError
+  >;
   createLocalGatewayRouteTable(
     input: CreateLocalGatewayRouteTableRequest,
-  ): Effect.Effect<CreateLocalGatewayRouteTableResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateLocalGatewayRouteTableResult,
+    CommonAwsError
+  >;
   createLocalGatewayRouteTableVirtualInterfaceGroupAssociation(
     input: CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest,
   ): Effect.Effect<
@@ -326,7 +599,10 @@ export declare class EC2 extends AWSServiceClient {
   >;
   createLocalGatewayVirtualInterface(
     input: CreateLocalGatewayVirtualInterfaceRequest,
-  ): Effect.Effect<CreateLocalGatewayVirtualInterfaceResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateLocalGatewayVirtualInterfaceResult,
+    CommonAwsError
+  >;
   createLocalGatewayVirtualInterfaceGroup(
     input: CreateLocalGatewayVirtualInterfaceGroupRequest,
   ): Effect.Effect<
@@ -341,110 +617,220 @@ export declare class EC2 extends AWSServiceClient {
   >;
   createManagedPrefixList(
     input: CreateManagedPrefixListRequest,
-  ): Effect.Effect<CreateManagedPrefixListResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateManagedPrefixListResult,
+    CommonAwsError
+  >;
   createNatGateway(
     input: CreateNatGatewayRequest,
-  ): Effect.Effect<CreateNatGatewayResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateNatGatewayResult,
+    CommonAwsError
+  >;
   createNetworkAcl(
     input: CreateNetworkAclRequest,
-  ): Effect.Effect<CreateNetworkAclResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateNetworkAclResult,
+    CommonAwsError
+  >;
   createNetworkAclEntry(
     input: CreateNetworkAclEntryRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   createNetworkInsightsAccessScope(
     input: CreateNetworkInsightsAccessScopeRequest,
-  ): Effect.Effect<CreateNetworkInsightsAccessScopeResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateNetworkInsightsAccessScopeResult,
+    CommonAwsError
+  >;
   createNetworkInsightsPath(
     input: CreateNetworkInsightsPathRequest,
-  ): Effect.Effect<CreateNetworkInsightsPathResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateNetworkInsightsPathResult,
+    CommonAwsError
+  >;
   createNetworkInterface(
     input: CreateNetworkInterfaceRequest,
-  ): Effect.Effect<CreateNetworkInterfaceResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateNetworkInterfaceResult,
+    CommonAwsError
+  >;
   createNetworkInterfacePermission(
     input: CreateNetworkInterfacePermissionRequest,
-  ): Effect.Effect<CreateNetworkInterfacePermissionResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateNetworkInterfacePermissionResult,
+    CommonAwsError
+  >;
   createPlacementGroup(
     input: CreatePlacementGroupRequest,
-  ): Effect.Effect<CreatePlacementGroupResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreatePlacementGroupResult,
+    CommonAwsError
+  >;
   createPublicIpv4Pool(
     input: CreatePublicIpv4PoolRequest,
-  ): Effect.Effect<CreatePublicIpv4PoolResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreatePublicIpv4PoolResult,
+    CommonAwsError
+  >;
   createReplaceRootVolumeTask(
     input: CreateReplaceRootVolumeTaskRequest,
-  ): Effect.Effect<CreateReplaceRootVolumeTaskResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateReplaceRootVolumeTaskResult,
+    CommonAwsError
+  >;
   createReservedInstancesListing(
     input: CreateReservedInstancesListingRequest,
-  ): Effect.Effect<CreateReservedInstancesListingResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateReservedInstancesListingResult,
+    CommonAwsError
+  >;
   createRestoreImageTask(
     input: CreateRestoreImageTaskRequest,
-  ): Effect.Effect<CreateRestoreImageTaskResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateRestoreImageTaskResult,
+    CommonAwsError
+  >;
   createRoute(
     input: CreateRouteRequest,
-  ): Effect.Effect<CreateRouteResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateRouteResult,
+    CommonAwsError
+  >;
   createRouteServer(
     input: CreateRouteServerRequest,
-  ): Effect.Effect<CreateRouteServerResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateRouteServerResult,
+    CommonAwsError
+  >;
   createRouteServerEndpoint(
     input: CreateRouteServerEndpointRequest,
-  ): Effect.Effect<CreateRouteServerEndpointResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateRouteServerEndpointResult,
+    CommonAwsError
+  >;
   createRouteServerPeer(
     input: CreateRouteServerPeerRequest,
-  ): Effect.Effect<CreateRouteServerPeerResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateRouteServerPeerResult,
+    CommonAwsError
+  >;
   createRouteTable(
     input: CreateRouteTableRequest,
-  ): Effect.Effect<CreateRouteTableResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateRouteTableResult,
+    CommonAwsError
+  >;
   createSecurityGroup(
     input: CreateSecurityGroupRequest,
-  ): Effect.Effect<CreateSecurityGroupResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateSecurityGroupResult,
+    CommonAwsError
+  >;
   createSnapshot(
     input: CreateSnapshotRequest,
-  ): Effect.Effect<Snapshot, CommonAwsError>;
+  ): Effect.Effect<
+    Snapshot,
+    CommonAwsError
+  >;
   createSnapshots(
     input: CreateSnapshotsRequest,
-  ): Effect.Effect<CreateSnapshotsResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateSnapshotsResult,
+    CommonAwsError
+  >;
   createSpotDatafeedSubscription(
     input: CreateSpotDatafeedSubscriptionRequest,
-  ): Effect.Effect<CreateSpotDatafeedSubscriptionResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateSpotDatafeedSubscriptionResult,
+    CommonAwsError
+  >;
   createStoreImageTask(
     input: CreateStoreImageTaskRequest,
-  ): Effect.Effect<CreateStoreImageTaskResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateStoreImageTaskResult,
+    CommonAwsError
+  >;
   createSubnet(
     input: CreateSubnetRequest,
-  ): Effect.Effect<CreateSubnetResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateSubnetResult,
+    CommonAwsError
+  >;
   createSubnetCidrReservation(
     input: CreateSubnetCidrReservationRequest,
-  ): Effect.Effect<CreateSubnetCidrReservationResult, CommonAwsError>;
-  createTags(input: CreateTagsRequest): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    CreateSubnetCidrReservationResult,
+    CommonAwsError
+  >;
+  createTags(
+    input: CreateTagsRequest,
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   createTrafficMirrorFilter(
     input: CreateTrafficMirrorFilterRequest,
-  ): Effect.Effect<CreateTrafficMirrorFilterResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateTrafficMirrorFilterResult,
+    CommonAwsError
+  >;
   createTrafficMirrorFilterRule(
     input: CreateTrafficMirrorFilterRuleRequest,
-  ): Effect.Effect<CreateTrafficMirrorFilterRuleResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateTrafficMirrorFilterRuleResult,
+    CommonAwsError
+  >;
   createTrafficMirrorSession(
     input: CreateTrafficMirrorSessionRequest,
-  ): Effect.Effect<CreateTrafficMirrorSessionResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateTrafficMirrorSessionResult,
+    CommonAwsError
+  >;
   createTrafficMirrorTarget(
     input: CreateTrafficMirrorTargetRequest,
-  ): Effect.Effect<CreateTrafficMirrorTargetResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateTrafficMirrorTargetResult,
+    CommonAwsError
+  >;
   createTransitGateway(
     input: CreateTransitGatewayRequest,
-  ): Effect.Effect<CreateTransitGatewayResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateTransitGatewayResult,
+    CommonAwsError
+  >;
   createTransitGatewayConnect(
     input: CreateTransitGatewayConnectRequest,
-  ): Effect.Effect<CreateTransitGatewayConnectResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateTransitGatewayConnectResult,
+    CommonAwsError
+  >;
   createTransitGatewayConnectPeer(
     input: CreateTransitGatewayConnectPeerRequest,
-  ): Effect.Effect<CreateTransitGatewayConnectPeerResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateTransitGatewayConnectPeerResult,
+    CommonAwsError
+  >;
   createTransitGatewayMulticastDomain(
     input: CreateTransitGatewayMulticastDomainRequest,
-  ): Effect.Effect<CreateTransitGatewayMulticastDomainResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateTransitGatewayMulticastDomainResult,
+    CommonAwsError
+  >;
   createTransitGatewayPeeringAttachment(
     input: CreateTransitGatewayPeeringAttachmentRequest,
-  ): Effect.Effect<CreateTransitGatewayPeeringAttachmentResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateTransitGatewayPeeringAttachmentResult,
+    CommonAwsError
+  >;
   createTransitGatewayPolicyTable(
     input: CreateTransitGatewayPolicyTableRequest,
-  ): Effect.Effect<CreateTransitGatewayPolicyTableResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateTransitGatewayPolicyTableResult,
+    CommonAwsError
+  >;
   createTransitGatewayPrefixListReference(
     input: CreateTransitGatewayPrefixListReferenceRequest,
   ): Effect.Effect<
@@ -453,10 +839,16 @@ export declare class EC2 extends AWSServiceClient {
   >;
   createTransitGatewayRoute(
     input: CreateTransitGatewayRouteRequest,
-  ): Effect.Effect<CreateTransitGatewayRouteResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateTransitGatewayRouteResult,
+    CommonAwsError
+  >;
   createTransitGatewayRouteTable(
     input: CreateTransitGatewayRouteTableRequest,
-  ): Effect.Effect<CreateTransitGatewayRouteTableResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateTransitGatewayRouteTableResult,
+    CommonAwsError
+  >;
   createTransitGatewayRouteTableAnnouncement(
     input: CreateTransitGatewayRouteTableAnnouncementRequest,
   ): Effect.Effect<
@@ -465,31 +857,58 @@ export declare class EC2 extends AWSServiceClient {
   >;
   createTransitGatewayVpcAttachment(
     input: CreateTransitGatewayVpcAttachmentRequest,
-  ): Effect.Effect<CreateTransitGatewayVpcAttachmentResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateTransitGatewayVpcAttachmentResult,
+    CommonAwsError
+  >;
   createVerifiedAccessEndpoint(
     input: CreateVerifiedAccessEndpointRequest,
-  ): Effect.Effect<CreateVerifiedAccessEndpointResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateVerifiedAccessEndpointResult,
+    CommonAwsError
+  >;
   createVerifiedAccessGroup(
     input: CreateVerifiedAccessGroupRequest,
-  ): Effect.Effect<CreateVerifiedAccessGroupResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateVerifiedAccessGroupResult,
+    CommonAwsError
+  >;
   createVerifiedAccessInstance(
     input: CreateVerifiedAccessInstanceRequest,
-  ): Effect.Effect<CreateVerifiedAccessInstanceResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateVerifiedAccessInstanceResult,
+    CommonAwsError
+  >;
   createVerifiedAccessTrustProvider(
     input: CreateVerifiedAccessTrustProviderRequest,
-  ): Effect.Effect<CreateVerifiedAccessTrustProviderResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateVerifiedAccessTrustProviderResult,
+    CommonAwsError
+  >;
   createVolume(
     input: CreateVolumeRequest,
-  ): Effect.Effect<Volume, CommonAwsError>;
+  ): Effect.Effect<
+    Volume,
+    CommonAwsError
+  >;
   createVpc(
     input: CreateVpcRequest,
-  ): Effect.Effect<CreateVpcResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateVpcResult,
+    CommonAwsError
+  >;
   createVpcBlockPublicAccessExclusion(
     input: CreateVpcBlockPublicAccessExclusionRequest,
-  ): Effect.Effect<CreateVpcBlockPublicAccessExclusionResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateVpcBlockPublicAccessExclusionResult,
+    CommonAwsError
+  >;
   createVpcEndpoint(
     input: CreateVpcEndpointRequest,
-  ): Effect.Effect<CreateVpcEndpointResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateVpcEndpointResult,
+    CommonAwsError
+  >;
   createVpcEndpointConnectionNotification(
     input: CreateVpcEndpointConnectionNotificationRequest,
   ): Effect.Effect<
@@ -498,70 +917,136 @@ export declare class EC2 extends AWSServiceClient {
   >;
   createVpcEndpointServiceConfiguration(
     input: CreateVpcEndpointServiceConfigurationRequest,
-  ): Effect.Effect<CreateVpcEndpointServiceConfigurationResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateVpcEndpointServiceConfigurationResult,
+    CommonAwsError
+  >;
   createVpcPeeringConnection(
     input: CreateVpcPeeringConnectionRequest,
-  ): Effect.Effect<CreateVpcPeeringConnectionResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateVpcPeeringConnectionResult,
+    CommonAwsError
+  >;
   createVpnConnection(
     input: CreateVpnConnectionRequest,
-  ): Effect.Effect<CreateVpnConnectionResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateVpnConnectionResult,
+    CommonAwsError
+  >;
   createVpnConnectionRoute(
     input: CreateVpnConnectionRouteRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   createVpnGateway(
     input: CreateVpnGatewayRequest,
-  ): Effect.Effect<CreateVpnGatewayResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateVpnGatewayResult,
+    CommonAwsError
+  >;
   deleteCapacityManagerDataExport(
     input: DeleteCapacityManagerDataExportRequest,
-  ): Effect.Effect<DeleteCapacityManagerDataExportResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteCapacityManagerDataExportResult,
+    CommonAwsError
+  >;
   deleteCarrierGateway(
     input: DeleteCarrierGatewayRequest,
-  ): Effect.Effect<DeleteCarrierGatewayResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteCarrierGatewayResult,
+    CommonAwsError
+  >;
   deleteClientVpnEndpoint(
     input: DeleteClientVpnEndpointRequest,
-  ): Effect.Effect<DeleteClientVpnEndpointResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteClientVpnEndpointResult,
+    CommonAwsError
+  >;
   deleteClientVpnRoute(
     input: DeleteClientVpnRouteRequest,
-  ): Effect.Effect<DeleteClientVpnRouteResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteClientVpnRouteResult,
+    CommonAwsError
+  >;
   deleteCoipCidr(
     input: DeleteCoipCidrRequest,
-  ): Effect.Effect<DeleteCoipCidrResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteCoipCidrResult,
+    CommonAwsError
+  >;
   deleteCoipPool(
     input: DeleteCoipPoolRequest,
-  ): Effect.Effect<DeleteCoipPoolResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteCoipPoolResult,
+    CommonAwsError
+  >;
   deleteCustomerGateway(
     input: DeleteCustomerGatewayRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   deleteDhcpOptions(
     input: DeleteDhcpOptionsRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   deleteEgressOnlyInternetGateway(
     input: DeleteEgressOnlyInternetGatewayRequest,
-  ): Effect.Effect<DeleteEgressOnlyInternetGatewayResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteEgressOnlyInternetGatewayResult,
+    CommonAwsError
+  >;
   deleteFleets(
     input: DeleteFleetsRequest,
-  ): Effect.Effect<DeleteFleetsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteFleetsResult,
+    CommonAwsError
+  >;
   deleteFlowLogs(
     input: DeleteFlowLogsRequest,
-  ): Effect.Effect<DeleteFlowLogsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteFlowLogsResult,
+    CommonAwsError
+  >;
   deleteFpgaImage(
     input: DeleteFpgaImageRequest,
-  ): Effect.Effect<DeleteFpgaImageResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteFpgaImageResult,
+    CommonAwsError
+  >;
   deleteImageUsageReport(
     input: DeleteImageUsageReportRequest,
-  ): Effect.Effect<DeleteImageUsageReportResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteImageUsageReportResult,
+    CommonAwsError
+  >;
   deleteInstanceConnectEndpoint(
     input: DeleteInstanceConnectEndpointRequest,
-  ): Effect.Effect<DeleteInstanceConnectEndpointResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteInstanceConnectEndpointResult,
+    CommonAwsError
+  >;
   deleteInstanceEventWindow(
     input: DeleteInstanceEventWindowRequest,
-  ): Effect.Effect<DeleteInstanceEventWindowResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteInstanceEventWindowResult,
+    CommonAwsError
+  >;
   deleteInternetGateway(
     input: DeleteInternetGatewayRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   deleteIpam(
     input: DeleteIpamRequest,
-  ): Effect.Effect<DeleteIpamResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteIpamResult,
+    CommonAwsError
+  >;
   deleteIpamExternalResourceVerificationToken(
     input: DeleteIpamExternalResourceVerificationTokenRequest,
   ): Effect.Effect<
@@ -570,34 +1055,64 @@ export declare class EC2 extends AWSServiceClient {
   >;
   deleteIpamPool(
     input: DeleteIpamPoolRequest,
-  ): Effect.Effect<DeleteIpamPoolResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteIpamPoolResult,
+    CommonAwsError
+  >;
   deleteIpamPrefixListResolver(
     input: DeleteIpamPrefixListResolverRequest,
-  ): Effect.Effect<DeleteIpamPrefixListResolverResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteIpamPrefixListResolverResult,
+    CommonAwsError
+  >;
   deleteIpamPrefixListResolverTarget(
     input: DeleteIpamPrefixListResolverTargetRequest,
-  ): Effect.Effect<DeleteIpamPrefixListResolverTargetResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteIpamPrefixListResolverTargetResult,
+    CommonAwsError
+  >;
   deleteIpamResourceDiscovery(
     input: DeleteIpamResourceDiscoveryRequest,
-  ): Effect.Effect<DeleteIpamResourceDiscoveryResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteIpamResourceDiscoveryResult,
+    CommonAwsError
+  >;
   deleteIpamScope(
     input: DeleteIpamScopeRequest,
-  ): Effect.Effect<DeleteIpamScopeResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteIpamScopeResult,
+    CommonAwsError
+  >;
   deleteKeyPair(
     input: DeleteKeyPairRequest,
-  ): Effect.Effect<DeleteKeyPairResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteKeyPairResult,
+    CommonAwsError
+  >;
   deleteLaunchTemplate(
     input: DeleteLaunchTemplateRequest,
-  ): Effect.Effect<DeleteLaunchTemplateResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteLaunchTemplateResult,
+    CommonAwsError
+  >;
   deleteLaunchTemplateVersions(
     input: DeleteLaunchTemplateVersionsRequest,
-  ): Effect.Effect<DeleteLaunchTemplateVersionsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteLaunchTemplateVersionsResult,
+    CommonAwsError
+  >;
   deleteLocalGatewayRoute(
     input: DeleteLocalGatewayRouteRequest,
-  ): Effect.Effect<DeleteLocalGatewayRouteResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteLocalGatewayRouteResult,
+    CommonAwsError
+  >;
   deleteLocalGatewayRouteTable(
     input: DeleteLocalGatewayRouteTableRequest,
-  ): Effect.Effect<DeleteLocalGatewayRouteTableResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteLocalGatewayRouteTableResult,
+    CommonAwsError
+  >;
   deleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation(
     input: DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest,
   ): Effect.Effect<
@@ -612,7 +1127,10 @@ export declare class EC2 extends AWSServiceClient {
   >;
   deleteLocalGatewayVirtualInterface(
     input: DeleteLocalGatewayVirtualInterfaceRequest,
-  ): Effect.Effect<DeleteLocalGatewayVirtualInterfaceResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteLocalGatewayVirtualInterfaceResult,
+    CommonAwsError
+  >;
   deleteLocalGatewayVirtualInterfaceGroup(
     input: DeleteLocalGatewayVirtualInterfaceGroupRequest,
   ): Effect.Effect<
@@ -621,19 +1139,34 @@ export declare class EC2 extends AWSServiceClient {
   >;
   deleteManagedPrefixList(
     input: DeleteManagedPrefixListRequest,
-  ): Effect.Effect<DeleteManagedPrefixListResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteManagedPrefixListResult,
+    CommonAwsError
+  >;
   deleteNatGateway(
     input: DeleteNatGatewayRequest,
-  ): Effect.Effect<DeleteNatGatewayResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteNatGatewayResult,
+    CommonAwsError
+  >;
   deleteNetworkAcl(
     input: DeleteNetworkAclRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   deleteNetworkAclEntry(
     input: DeleteNetworkAclEntryRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   deleteNetworkInsightsAccessScope(
     input: DeleteNetworkInsightsAccessScopeRequest,
-  ): Effect.Effect<DeleteNetworkInsightsAccessScopeResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteNetworkInsightsAccessScopeResult,
+    CommonAwsError
+  >;
   deleteNetworkInsightsAccessScopeAnalysis(
     input: DeleteNetworkInsightsAccessScopeAnalysisRequest,
   ): Effect.Effect<
@@ -642,82 +1175,172 @@ export declare class EC2 extends AWSServiceClient {
   >;
   deleteNetworkInsightsAnalysis(
     input: DeleteNetworkInsightsAnalysisRequest,
-  ): Effect.Effect<DeleteNetworkInsightsAnalysisResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteNetworkInsightsAnalysisResult,
+    CommonAwsError
+  >;
   deleteNetworkInsightsPath(
     input: DeleteNetworkInsightsPathRequest,
-  ): Effect.Effect<DeleteNetworkInsightsPathResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteNetworkInsightsPathResult,
+    CommonAwsError
+  >;
   deleteNetworkInterface(
     input: DeleteNetworkInterfaceRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   deleteNetworkInterfacePermission(
     input: DeleteNetworkInterfacePermissionRequest,
-  ): Effect.Effect<DeleteNetworkInterfacePermissionResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteNetworkInterfacePermissionResult,
+    CommonAwsError
+  >;
   deletePlacementGroup(
     input: DeletePlacementGroupRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   deletePublicIpv4Pool(
     input: DeletePublicIpv4PoolRequest,
-  ): Effect.Effect<DeletePublicIpv4PoolResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeletePublicIpv4PoolResult,
+    CommonAwsError
+  >;
   deleteQueuedReservedInstances(
     input: DeleteQueuedReservedInstancesRequest,
-  ): Effect.Effect<DeleteQueuedReservedInstancesResult, CommonAwsError>;
-  deleteRoute(input: DeleteRouteRequest): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteQueuedReservedInstancesResult,
+    CommonAwsError
+  >;
+  deleteRoute(
+    input: DeleteRouteRequest,
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   deleteRouteServer(
     input: DeleteRouteServerRequest,
-  ): Effect.Effect<DeleteRouteServerResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteRouteServerResult,
+    CommonAwsError
+  >;
   deleteRouteServerEndpoint(
     input: DeleteRouteServerEndpointRequest,
-  ): Effect.Effect<DeleteRouteServerEndpointResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteRouteServerEndpointResult,
+    CommonAwsError
+  >;
   deleteRouteServerPeer(
     input: DeleteRouteServerPeerRequest,
-  ): Effect.Effect<DeleteRouteServerPeerResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteRouteServerPeerResult,
+    CommonAwsError
+  >;
   deleteRouteTable(
     input: DeleteRouteTableRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   deleteSecurityGroup(
     input: DeleteSecurityGroupRequest,
-  ): Effect.Effect<DeleteSecurityGroupResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteSecurityGroupResult,
+    CommonAwsError
+  >;
   deleteSnapshot(
     input: DeleteSnapshotRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   deleteSpotDatafeedSubscription(
     input: DeleteSpotDatafeedSubscriptionRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
-  deleteSubnet(input: DeleteSubnetRequest): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
+  deleteSubnet(
+    input: DeleteSubnetRequest,
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   deleteSubnetCidrReservation(
     input: DeleteSubnetCidrReservationRequest,
-  ): Effect.Effect<DeleteSubnetCidrReservationResult, CommonAwsError>;
-  deleteTags(input: DeleteTagsRequest): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteSubnetCidrReservationResult,
+    CommonAwsError
+  >;
+  deleteTags(
+    input: DeleteTagsRequest,
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   deleteTrafficMirrorFilter(
     input: DeleteTrafficMirrorFilterRequest,
-  ): Effect.Effect<DeleteTrafficMirrorFilterResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteTrafficMirrorFilterResult,
+    CommonAwsError
+  >;
   deleteTrafficMirrorFilterRule(
     input: DeleteTrafficMirrorFilterRuleRequest,
-  ): Effect.Effect<DeleteTrafficMirrorFilterRuleResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteTrafficMirrorFilterRuleResult,
+    CommonAwsError
+  >;
   deleteTrafficMirrorSession(
     input: DeleteTrafficMirrorSessionRequest,
-  ): Effect.Effect<DeleteTrafficMirrorSessionResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteTrafficMirrorSessionResult,
+    CommonAwsError
+  >;
   deleteTrafficMirrorTarget(
     input: DeleteTrafficMirrorTargetRequest,
-  ): Effect.Effect<DeleteTrafficMirrorTargetResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteTrafficMirrorTargetResult,
+    CommonAwsError
+  >;
   deleteTransitGateway(
     input: DeleteTransitGatewayRequest,
-  ): Effect.Effect<DeleteTransitGatewayResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteTransitGatewayResult,
+    CommonAwsError
+  >;
   deleteTransitGatewayConnect(
     input: DeleteTransitGatewayConnectRequest,
-  ): Effect.Effect<DeleteTransitGatewayConnectResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteTransitGatewayConnectResult,
+    CommonAwsError
+  >;
   deleteTransitGatewayConnectPeer(
     input: DeleteTransitGatewayConnectPeerRequest,
-  ): Effect.Effect<DeleteTransitGatewayConnectPeerResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteTransitGatewayConnectPeerResult,
+    CommonAwsError
+  >;
   deleteTransitGatewayMulticastDomain(
     input: DeleteTransitGatewayMulticastDomainRequest,
-  ): Effect.Effect<DeleteTransitGatewayMulticastDomainResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteTransitGatewayMulticastDomainResult,
+    CommonAwsError
+  >;
   deleteTransitGatewayPeeringAttachment(
     input: DeleteTransitGatewayPeeringAttachmentRequest,
-  ): Effect.Effect<DeleteTransitGatewayPeeringAttachmentResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteTransitGatewayPeeringAttachmentResult,
+    CommonAwsError
+  >;
   deleteTransitGatewayPolicyTable(
     input: DeleteTransitGatewayPolicyTableRequest,
-  ): Effect.Effect<DeleteTransitGatewayPolicyTableResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteTransitGatewayPolicyTableResult,
+    CommonAwsError
+  >;
   deleteTransitGatewayPrefixListReference(
     input: DeleteTransitGatewayPrefixListReferenceRequest,
   ): Effect.Effect<
@@ -726,10 +1349,16 @@ export declare class EC2 extends AWSServiceClient {
   >;
   deleteTransitGatewayRoute(
     input: DeleteTransitGatewayRouteRequest,
-  ): Effect.Effect<DeleteTransitGatewayRouteResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteTransitGatewayRouteResult,
+    CommonAwsError
+  >;
   deleteTransitGatewayRouteTable(
     input: DeleteTransitGatewayRouteTableRequest,
-  ): Effect.Effect<DeleteTransitGatewayRouteTableResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteTransitGatewayRouteTableResult,
+    CommonAwsError
+  >;
   deleteTransitGatewayRouteTableAnnouncement(
     input: DeleteTransitGatewayRouteTableAnnouncementRequest,
   ): Effect.Effect<
@@ -738,26 +1367,52 @@ export declare class EC2 extends AWSServiceClient {
   >;
   deleteTransitGatewayVpcAttachment(
     input: DeleteTransitGatewayVpcAttachmentRequest,
-  ): Effect.Effect<DeleteTransitGatewayVpcAttachmentResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteTransitGatewayVpcAttachmentResult,
+    CommonAwsError
+  >;
   deleteVerifiedAccessEndpoint(
     input: DeleteVerifiedAccessEndpointRequest,
-  ): Effect.Effect<DeleteVerifiedAccessEndpointResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteVerifiedAccessEndpointResult,
+    CommonAwsError
+  >;
   deleteVerifiedAccessGroup(
     input: DeleteVerifiedAccessGroupRequest,
-  ): Effect.Effect<DeleteVerifiedAccessGroupResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteVerifiedAccessGroupResult,
+    CommonAwsError
+  >;
   deleteVerifiedAccessInstance(
     input: DeleteVerifiedAccessInstanceRequest,
-  ): Effect.Effect<DeleteVerifiedAccessInstanceResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteVerifiedAccessInstanceResult,
+    CommonAwsError
+  >;
   deleteVerifiedAccessTrustProvider(
     input: DeleteVerifiedAccessTrustProviderRequest,
-  ): Effect.Effect<DeleteVerifiedAccessTrustProviderResult, CommonAwsError>;
-  deleteVolume(input: DeleteVolumeRequest): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteVerifiedAccessTrustProviderResult,
+    CommonAwsError
+  >;
+  deleteVolume(
+    input: DeleteVolumeRequest,
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   deleteVpc(
     input: DeleteVpcRequest,
-  ): Effect.Effect<{}, InvalidVpcIDNotFound | CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    InvalidVpcIDNotFound | CommonAwsError
+  >;
   deleteVpcBlockPublicAccessExclusion(
     input: DeleteVpcBlockPublicAccessExclusionRequest,
-  ): Effect.Effect<DeleteVpcBlockPublicAccessExclusionResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteVpcBlockPublicAccessExclusionResult,
+    CommonAwsError
+  >;
   deleteVpcEndpointConnectionNotifications(
     input: DeleteVpcEndpointConnectionNotificationsRequest,
   ): Effect.Effect<
@@ -766,7 +1421,10 @@ export declare class EC2 extends AWSServiceClient {
   >;
   deleteVpcEndpoints(
     input: DeleteVpcEndpointsRequest,
-  ): Effect.Effect<DeleteVpcEndpointsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteVpcEndpointsResult,
+    CommonAwsError
+  >;
   deleteVpcEndpointServiceConfigurations(
     input: DeleteVpcEndpointServiceConfigurationsRequest,
   ): Effect.Effect<
@@ -775,31 +1433,58 @@ export declare class EC2 extends AWSServiceClient {
   >;
   deleteVpcPeeringConnection(
     input: DeleteVpcPeeringConnectionRequest,
-  ): Effect.Effect<DeleteVpcPeeringConnectionResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteVpcPeeringConnectionResult,
+    CommonAwsError
+  >;
   deleteVpnConnection(
     input: DeleteVpnConnectionRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   deleteVpnConnectionRoute(
     input: DeleteVpnConnectionRouteRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   deleteVpnGateway(
     input: DeleteVpnGatewayRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   deprovisionByoipCidr(
     input: DeprovisionByoipCidrRequest,
-  ): Effect.Effect<DeprovisionByoipCidrResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeprovisionByoipCidrResult,
+    CommonAwsError
+  >;
   deprovisionIpamByoasn(
     input: DeprovisionIpamByoasnRequest,
-  ): Effect.Effect<DeprovisionIpamByoasnResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeprovisionIpamByoasnResult,
+    CommonAwsError
+  >;
   deprovisionIpamPoolCidr(
     input: DeprovisionIpamPoolCidrRequest,
-  ): Effect.Effect<DeprovisionIpamPoolCidrResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeprovisionIpamPoolCidrResult,
+    CommonAwsError
+  >;
   deprovisionPublicIpv4PoolCidr(
     input: DeprovisionPublicIpv4PoolCidrRequest,
-  ): Effect.Effect<DeprovisionPublicIpv4PoolCidrResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeprovisionPublicIpv4PoolCidrResult,
+    CommonAwsError
+  >;
   deregisterImage(
     input: DeregisterImageRequest,
-  ): Effect.Effect<DeregisterImageResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeregisterImageResult,
+    CommonAwsError
+  >;
   deregisterInstanceEventNotificationAttributes(
     input: DeregisterInstanceEventNotificationAttributesRequest,
   ): Effect.Effect<
@@ -820,22 +1505,40 @@ export declare class EC2 extends AWSServiceClient {
   >;
   describeAccountAttributes(
     input: DescribeAccountAttributesRequest,
-  ): Effect.Effect<DescribeAccountAttributesResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeAccountAttributesResult,
+    CommonAwsError
+  >;
   describeAddresses(
     input: DescribeAddressesRequest,
-  ): Effect.Effect<DescribeAddressesResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeAddressesResult,
+    CommonAwsError
+  >;
   describeAddressesAttribute(
     input: DescribeAddressesAttributeRequest,
-  ): Effect.Effect<DescribeAddressesAttributeResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeAddressesAttributeResult,
+    CommonAwsError
+  >;
   describeAddressTransfers(
     input: DescribeAddressTransfersRequest,
-  ): Effect.Effect<DescribeAddressTransfersResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeAddressTransfersResult,
+    CommonAwsError
+  >;
   describeAggregateIdFormat(
     input: DescribeAggregateIdFormatRequest,
-  ): Effect.Effect<DescribeAggregateIdFormatResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeAggregateIdFormatResult,
+    CommonAwsError
+  >;
   describeAvailabilityZones(
     input: DescribeAvailabilityZonesRequest,
-  ): Effect.Effect<DescribeAvailabilityZonesResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeAvailabilityZonesResult,
+    CommonAwsError
+  >;
   describeAwsNetworkPerformanceMetricSubscriptions(
     input: DescribeAwsNetworkPerformanceMetricSubscriptionsRequest,
   ): Effect.Effect<
@@ -844,13 +1547,22 @@ export declare class EC2 extends AWSServiceClient {
   >;
   describeBundleTasks(
     input: DescribeBundleTasksRequest,
-  ): Effect.Effect<DescribeBundleTasksResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeBundleTasksResult,
+    CommonAwsError
+  >;
   describeByoipCidrs(
     input: DescribeByoipCidrsRequest,
-  ): Effect.Effect<DescribeByoipCidrsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeByoipCidrsResult,
+    CommonAwsError
+  >;
   describeCapacityBlockExtensionHistory(
     input: DescribeCapacityBlockExtensionHistoryRequest,
-  ): Effect.Effect<DescribeCapacityBlockExtensionHistoryResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeCapacityBlockExtensionHistoryResult,
+    CommonAwsError
+  >;
   describeCapacityBlockExtensionOfferings(
     input: DescribeCapacityBlockExtensionOfferingsRequest,
   ): Effect.Effect<
@@ -859,16 +1571,28 @@ export declare class EC2 extends AWSServiceClient {
   >;
   describeCapacityBlockOfferings(
     input: DescribeCapacityBlockOfferingsRequest,
-  ): Effect.Effect<DescribeCapacityBlockOfferingsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeCapacityBlockOfferingsResult,
+    CommonAwsError
+  >;
   describeCapacityBlocks(
     input: DescribeCapacityBlocksRequest,
-  ): Effect.Effect<DescribeCapacityBlocksResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeCapacityBlocksResult,
+    CommonAwsError
+  >;
   describeCapacityBlockStatus(
     input: DescribeCapacityBlockStatusRequest,
-  ): Effect.Effect<DescribeCapacityBlockStatusResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeCapacityBlockStatusResult,
+    CommonAwsError
+  >;
   describeCapacityManagerDataExports(
     input: DescribeCapacityManagerDataExportsRequest,
-  ): Effect.Effect<DescribeCapacityManagerDataExportsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeCapacityManagerDataExportsResult,
+    CommonAwsError
+  >;
   describeCapacityReservationBillingRequests(
     input: DescribeCapacityReservationBillingRequestsRequest,
   ): Effect.Effect<
@@ -877,94 +1601,184 @@ export declare class EC2 extends AWSServiceClient {
   >;
   describeCapacityReservationFleets(
     input: DescribeCapacityReservationFleetsRequest,
-  ): Effect.Effect<DescribeCapacityReservationFleetsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeCapacityReservationFleetsResult,
+    CommonAwsError
+  >;
   describeCapacityReservations(
     input: DescribeCapacityReservationsRequest,
-  ): Effect.Effect<DescribeCapacityReservationsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeCapacityReservationsResult,
+    CommonAwsError
+  >;
   describeCapacityReservationTopology(
     input: DescribeCapacityReservationTopologyRequest,
-  ): Effect.Effect<DescribeCapacityReservationTopologyResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeCapacityReservationTopologyResult,
+    CommonAwsError
+  >;
   describeCarrierGateways(
     input: DescribeCarrierGatewaysRequest,
-  ): Effect.Effect<DescribeCarrierGatewaysResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeCarrierGatewaysResult,
+    CommonAwsError
+  >;
   describeClassicLinkInstances(
     input: DescribeClassicLinkInstancesRequest,
-  ): Effect.Effect<DescribeClassicLinkInstancesResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeClassicLinkInstancesResult,
+    CommonAwsError
+  >;
   describeClientVpnAuthorizationRules(
     input: DescribeClientVpnAuthorizationRulesRequest,
-  ): Effect.Effect<DescribeClientVpnAuthorizationRulesResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeClientVpnAuthorizationRulesResult,
+    CommonAwsError
+  >;
   describeClientVpnConnections(
     input: DescribeClientVpnConnectionsRequest,
-  ): Effect.Effect<DescribeClientVpnConnectionsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeClientVpnConnectionsResult,
+    CommonAwsError
+  >;
   describeClientVpnEndpoints(
     input: DescribeClientVpnEndpointsRequest,
-  ): Effect.Effect<DescribeClientVpnEndpointsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeClientVpnEndpointsResult,
+    CommonAwsError
+  >;
   describeClientVpnRoutes(
     input: DescribeClientVpnRoutesRequest,
-  ): Effect.Effect<DescribeClientVpnRoutesResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeClientVpnRoutesResult,
+    CommonAwsError
+  >;
   describeClientVpnTargetNetworks(
     input: DescribeClientVpnTargetNetworksRequest,
-  ): Effect.Effect<DescribeClientVpnTargetNetworksResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeClientVpnTargetNetworksResult,
+    CommonAwsError
+  >;
   describeCoipPools(
     input: DescribeCoipPoolsRequest,
-  ): Effect.Effect<DescribeCoipPoolsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeCoipPoolsResult,
+    CommonAwsError
+  >;
   describeConversionTasks(
     input: DescribeConversionTasksRequest,
-  ): Effect.Effect<DescribeConversionTasksResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeConversionTasksResult,
+    CommonAwsError
+  >;
   describeCustomerGateways(
     input: DescribeCustomerGatewaysRequest,
-  ): Effect.Effect<DescribeCustomerGatewaysResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeCustomerGatewaysResult,
+    CommonAwsError
+  >;
   describeDeclarativePoliciesReports(
     input: DescribeDeclarativePoliciesReportsRequest,
-  ): Effect.Effect<DescribeDeclarativePoliciesReportsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeDeclarativePoliciesReportsResult,
+    CommonAwsError
+  >;
   describeDhcpOptions(
     input: DescribeDhcpOptionsRequest,
-  ): Effect.Effect<DescribeDhcpOptionsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeDhcpOptionsResult,
+    CommonAwsError
+  >;
   describeEgressOnlyInternetGateways(
     input: DescribeEgressOnlyInternetGatewaysRequest,
-  ): Effect.Effect<DescribeEgressOnlyInternetGatewaysResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeEgressOnlyInternetGatewaysResult,
+    CommonAwsError
+  >;
   describeElasticGpus(
     input: DescribeElasticGpusRequest,
-  ): Effect.Effect<DescribeElasticGpusResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeElasticGpusResult,
+    CommonAwsError
+  >;
   describeExportImageTasks(
     input: DescribeExportImageTasksRequest,
-  ): Effect.Effect<DescribeExportImageTasksResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeExportImageTasksResult,
+    CommonAwsError
+  >;
   describeExportTasks(
     input: DescribeExportTasksRequest,
-  ): Effect.Effect<DescribeExportTasksResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeExportTasksResult,
+    CommonAwsError
+  >;
   describeFastLaunchImages(
     input: DescribeFastLaunchImagesRequest,
-  ): Effect.Effect<DescribeFastLaunchImagesResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeFastLaunchImagesResult,
+    CommonAwsError
+  >;
   describeFastSnapshotRestores(
     input: DescribeFastSnapshotRestoresRequest,
-  ): Effect.Effect<DescribeFastSnapshotRestoresResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeFastSnapshotRestoresResult,
+    CommonAwsError
+  >;
   describeFleetHistory(
     input: DescribeFleetHistoryRequest,
-  ): Effect.Effect<DescribeFleetHistoryResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeFleetHistoryResult,
+    CommonAwsError
+  >;
   describeFleetInstances(
     input: DescribeFleetInstancesRequest,
-  ): Effect.Effect<DescribeFleetInstancesResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeFleetInstancesResult,
+    CommonAwsError
+  >;
   describeFleets(
     input: DescribeFleetsRequest,
-  ): Effect.Effect<DescribeFleetsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeFleetsResult,
+    CommonAwsError
+  >;
   describeFlowLogs(
     input: DescribeFlowLogsRequest,
-  ): Effect.Effect<DescribeFlowLogsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeFlowLogsResult,
+    CommonAwsError
+  >;
   describeFpgaImageAttribute(
     input: DescribeFpgaImageAttributeRequest,
-  ): Effect.Effect<DescribeFpgaImageAttributeResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeFpgaImageAttributeResult,
+    CommonAwsError
+  >;
   describeFpgaImages(
     input: DescribeFpgaImagesRequest,
-  ): Effect.Effect<DescribeFpgaImagesResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeFpgaImagesResult,
+    CommonAwsError
+  >;
   describeHostReservationOfferings(
     input: DescribeHostReservationOfferingsRequest,
-  ): Effect.Effect<DescribeHostReservationOfferingsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeHostReservationOfferingsResult,
+    CommonAwsError
+  >;
   describeHostReservations(
     input: DescribeHostReservationsRequest,
-  ): Effect.Effect<DescribeHostReservationsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeHostReservationsResult,
+    CommonAwsError
+  >;
   describeHosts(
     input: DescribeHostsRequest,
-  ): Effect.Effect<DescribeHostsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeHostsResult,
+    CommonAwsError
+  >;
   describeIamInstanceProfileAssociations(
     input: DescribeIamInstanceProfileAssociationsRequest,
   ): Effect.Effect<
@@ -973,40 +1787,76 @@ export declare class EC2 extends AWSServiceClient {
   >;
   describeIdentityIdFormat(
     input: DescribeIdentityIdFormatRequest,
-  ): Effect.Effect<DescribeIdentityIdFormatResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeIdentityIdFormatResult,
+    CommonAwsError
+  >;
   describeIdFormat(
     input: DescribeIdFormatRequest,
-  ): Effect.Effect<DescribeIdFormatResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeIdFormatResult,
+    CommonAwsError
+  >;
   describeImageAttribute(
     input: DescribeImageAttributeRequest,
-  ): Effect.Effect<ImageAttribute, CommonAwsError>;
+  ): Effect.Effect<
+    ImageAttribute,
+    CommonAwsError
+  >;
   describeImageReferences(
     input: DescribeImageReferencesRequest,
-  ): Effect.Effect<DescribeImageReferencesResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeImageReferencesResult,
+    CommonAwsError
+  >;
   describeImages(
     input: DescribeImagesRequest,
-  ): Effect.Effect<DescribeImagesResult, InvalidAMIIDNotFound | CommonAwsError>;
+  ): Effect.Effect<
+    DescribeImagesResult,
+    InvalidAMIIDNotFound | CommonAwsError
+  >;
   describeImageUsageReportEntries(
     input: DescribeImageUsageReportEntriesRequest,
-  ): Effect.Effect<DescribeImageUsageReportEntriesResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeImageUsageReportEntriesResult,
+    CommonAwsError
+  >;
   describeImageUsageReports(
     input: DescribeImageUsageReportsRequest,
-  ): Effect.Effect<DescribeImageUsageReportsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeImageUsageReportsResult,
+    CommonAwsError
+  >;
   describeImportImageTasks(
     input: DescribeImportImageTasksRequest,
-  ): Effect.Effect<DescribeImportImageTasksResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeImportImageTasksResult,
+    CommonAwsError
+  >;
   describeImportSnapshotTasks(
     input: DescribeImportSnapshotTasksRequest,
-  ): Effect.Effect<DescribeImportSnapshotTasksResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeImportSnapshotTasksResult,
+    CommonAwsError
+  >;
   describeInstanceAttribute(
     input: DescribeInstanceAttributeRequest,
-  ): Effect.Effect<InstanceAttribute, CommonAwsError>;
+  ): Effect.Effect<
+    InstanceAttribute,
+    CommonAwsError
+  >;
   describeInstanceConnectEndpoints(
     input: DescribeInstanceConnectEndpointsRequest,
-  ): Effect.Effect<DescribeInstanceConnectEndpointsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeInstanceConnectEndpointsResult,
+    CommonAwsError
+  >;
   describeInstanceCreditSpecifications(
     input: DescribeInstanceCreditSpecificationsRequest,
-  ): Effect.Effect<DescribeInstanceCreditSpecificationsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeInstanceCreditSpecificationsResult,
+    CommonAwsError
+  >;
   describeInstanceEventNotificationAttributes(
     input: DescribeInstanceEventNotificationAttributesRequest,
   ): Effect.Effect<
@@ -1015,10 +1865,16 @@ export declare class EC2 extends AWSServiceClient {
   >;
   describeInstanceEventWindows(
     input: DescribeInstanceEventWindowsRequest,
-  ): Effect.Effect<DescribeInstanceEventWindowsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeInstanceEventWindowsResult,
+    CommonAwsError
+  >;
   describeInstanceImageMetadata(
     input: DescribeInstanceImageMetadataRequest,
-  ): Effect.Effect<DescribeInstanceImageMetadataResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeInstanceImageMetadataResult,
+    CommonAwsError
+  >;
   describeInstances(
     input: DescribeInstancesRequest,
   ): Effect.Effect<
@@ -1033,13 +1889,22 @@ export declare class EC2 extends AWSServiceClient {
   >;
   describeInstanceTopology(
     input: DescribeInstanceTopologyRequest,
-  ): Effect.Effect<DescribeInstanceTopologyResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeInstanceTopologyResult,
+    CommonAwsError
+  >;
   describeInstanceTypeOfferings(
     input: DescribeInstanceTypeOfferingsRequest,
-  ): Effect.Effect<DescribeInstanceTypeOfferingsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeInstanceTypeOfferingsResult,
+    CommonAwsError
+  >;
   describeInstanceTypes(
     input: DescribeInstanceTypesRequest,
-  ): Effect.Effect<DescribeInstanceTypesResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeInstanceTypesResult,
+    CommonAwsError
+  >;
   describeInternetGateways(
     input: DescribeInternetGatewaysRequest,
   ): Effect.Effect<
@@ -1048,7 +1913,10 @@ export declare class EC2 extends AWSServiceClient {
   >;
   describeIpamByoasn(
     input: DescribeIpamByoasnRequest,
-  ): Effect.Effect<DescribeIpamByoasnResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeIpamByoasnResult,
+    CommonAwsError
+  >;
   describeIpamExternalResourceVerificationTokens(
     input: DescribeIpamExternalResourceVerificationTokensRequest,
   ): Effect.Effect<
@@ -1057,16 +1925,28 @@ export declare class EC2 extends AWSServiceClient {
   >;
   describeIpamPools(
     input: DescribeIpamPoolsRequest,
-  ): Effect.Effect<DescribeIpamPoolsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeIpamPoolsResult,
+    CommonAwsError
+  >;
   describeIpamPrefixListResolvers(
     input: DescribeIpamPrefixListResolversRequest,
-  ): Effect.Effect<DescribeIpamPrefixListResolversResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeIpamPrefixListResolversResult,
+    CommonAwsError
+  >;
   describeIpamPrefixListResolverTargets(
     input: DescribeIpamPrefixListResolverTargetsRequest,
-  ): Effect.Effect<DescribeIpamPrefixListResolverTargetsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeIpamPrefixListResolverTargetsResult,
+    CommonAwsError
+  >;
   describeIpamResourceDiscoveries(
     input: DescribeIpamResourceDiscoveriesRequest,
-  ): Effect.Effect<DescribeIpamResourceDiscoveriesResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeIpamResourceDiscoveriesResult,
+    CommonAwsError
+  >;
   describeIpamResourceDiscoveryAssociations(
     input: DescribeIpamResourceDiscoveryAssociationsRequest,
   ): Effect.Effect<
@@ -1075,13 +1955,22 @@ export declare class EC2 extends AWSServiceClient {
   >;
   describeIpams(
     input: DescribeIpamsRequest,
-  ): Effect.Effect<DescribeIpamsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeIpamsResult,
+    CommonAwsError
+  >;
   describeIpamScopes(
     input: DescribeIpamScopesRequest,
-  ): Effect.Effect<DescribeIpamScopesResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeIpamScopesResult,
+    CommonAwsError
+  >;
   describeIpv6Pools(
     input: DescribeIpv6PoolsRequest,
-  ): Effect.Effect<DescribeIpv6PoolsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeIpv6PoolsResult,
+    CommonAwsError
+  >;
   describeKeyPairs(
     input: DescribeKeyPairsRequest,
   ): Effect.Effect<
@@ -1090,13 +1979,22 @@ export declare class EC2 extends AWSServiceClient {
   >;
   describeLaunchTemplates(
     input: DescribeLaunchTemplatesRequest,
-  ): Effect.Effect<DescribeLaunchTemplatesResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeLaunchTemplatesResult,
+    CommonAwsError
+  >;
   describeLaunchTemplateVersions(
     input: DescribeLaunchTemplateVersionsRequest,
-  ): Effect.Effect<DescribeLaunchTemplateVersionsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeLaunchTemplateVersionsResult,
+    CommonAwsError
+  >;
   describeLocalGatewayRouteTables(
     input: DescribeLocalGatewayRouteTablesRequest,
-  ): Effect.Effect<DescribeLocalGatewayRouteTablesResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeLocalGatewayRouteTablesResult,
+    CommonAwsError
+  >;
   describeLocalGatewayRouteTableVirtualInterfaceGroupAssociations(
     input: DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest,
   ): Effect.Effect<
@@ -1111,7 +2009,10 @@ export declare class EC2 extends AWSServiceClient {
   >;
   describeLocalGateways(
     input: DescribeLocalGatewaysRequest,
-  ): Effect.Effect<DescribeLocalGatewaysResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeLocalGatewaysResult,
+    CommonAwsError
+  >;
   describeLocalGatewayVirtualInterfaceGroups(
     input: DescribeLocalGatewayVirtualInterfaceGroupsRequest,
   ): Effect.Effect<
@@ -1120,22 +2021,40 @@ export declare class EC2 extends AWSServiceClient {
   >;
   describeLocalGatewayVirtualInterfaces(
     input: DescribeLocalGatewayVirtualInterfacesRequest,
-  ): Effect.Effect<DescribeLocalGatewayVirtualInterfacesResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeLocalGatewayVirtualInterfacesResult,
+    CommonAwsError
+  >;
   describeLockedSnapshots(
     input: DescribeLockedSnapshotsRequest,
-  ): Effect.Effect<DescribeLockedSnapshotsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeLockedSnapshotsResult,
+    CommonAwsError
+  >;
   describeMacHosts(
     input: DescribeMacHostsRequest,
-  ): Effect.Effect<DescribeMacHostsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeMacHostsResult,
+    CommonAwsError
+  >;
   describeMacModificationTasks(
     input: DescribeMacModificationTasksRequest,
-  ): Effect.Effect<DescribeMacModificationTasksResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeMacModificationTasksResult,
+    CommonAwsError
+  >;
   describeManagedPrefixLists(
     input: DescribeManagedPrefixListsRequest,
-  ): Effect.Effect<DescribeManagedPrefixListsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeManagedPrefixListsResult,
+    CommonAwsError
+  >;
   describeMovingAddresses(
     input: DescribeMovingAddressesRequest,
-  ): Effect.Effect<DescribeMovingAddressesResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeMovingAddressesResult,
+    CommonAwsError
+  >;
   describeNatGateways(
     input: DescribeNatGatewaysRequest,
   ): Effect.Effect<
@@ -1144,7 +2063,10 @@ export declare class EC2 extends AWSServiceClient {
   >;
   describeNetworkAcls(
     input: DescribeNetworkAclsRequest,
-  ): Effect.Effect<DescribeNetworkAclsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeNetworkAclsResult,
+    CommonAwsError
+  >;
   describeNetworkInsightsAccessScopeAnalyses(
     input: DescribeNetworkInsightsAccessScopeAnalysesRequest,
   ): Effect.Effect<
@@ -1153,19 +2075,34 @@ export declare class EC2 extends AWSServiceClient {
   >;
   describeNetworkInsightsAccessScopes(
     input: DescribeNetworkInsightsAccessScopesRequest,
-  ): Effect.Effect<DescribeNetworkInsightsAccessScopesResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeNetworkInsightsAccessScopesResult,
+    CommonAwsError
+  >;
   describeNetworkInsightsAnalyses(
     input: DescribeNetworkInsightsAnalysesRequest,
-  ): Effect.Effect<DescribeNetworkInsightsAnalysesResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeNetworkInsightsAnalysesResult,
+    CommonAwsError
+  >;
   describeNetworkInsightsPaths(
     input: DescribeNetworkInsightsPathsRequest,
-  ): Effect.Effect<DescribeNetworkInsightsPathsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeNetworkInsightsPathsResult,
+    CommonAwsError
+  >;
   describeNetworkInterfaceAttribute(
     input: DescribeNetworkInterfaceAttributeRequest,
-  ): Effect.Effect<DescribeNetworkInterfaceAttributeResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeNetworkInterfaceAttributeResult,
+    CommonAwsError
+  >;
   describeNetworkInterfacePermissions(
     input: DescribeNetworkInterfacePermissionsRequest,
-  ): Effect.Effect<DescribeNetworkInterfacePermissionsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeNetworkInterfacePermissionsResult,
+    CommonAwsError
+  >;
   describeNetworkInterfaces(
     input: DescribeNetworkInterfacesRequest,
   ): Effect.Effect<
@@ -1174,31 +2111,58 @@ export declare class EC2 extends AWSServiceClient {
   >;
   describeOutpostLags(
     input: DescribeOutpostLagsRequest,
-  ): Effect.Effect<DescribeOutpostLagsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeOutpostLagsResult,
+    CommonAwsError
+  >;
   describePlacementGroups(
     input: DescribePlacementGroupsRequest,
-  ): Effect.Effect<DescribePlacementGroupsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribePlacementGroupsResult,
+    CommonAwsError
+  >;
   describePrefixLists(
     input: DescribePrefixListsRequest,
-  ): Effect.Effect<DescribePrefixListsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribePrefixListsResult,
+    CommonAwsError
+  >;
   describePrincipalIdFormat(
     input: DescribePrincipalIdFormatRequest,
-  ): Effect.Effect<DescribePrincipalIdFormatResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribePrincipalIdFormatResult,
+    CommonAwsError
+  >;
   describePublicIpv4Pools(
     input: DescribePublicIpv4PoolsRequest,
-  ): Effect.Effect<DescribePublicIpv4PoolsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribePublicIpv4PoolsResult,
+    CommonAwsError
+  >;
   describeRegions(
     input: DescribeRegionsRequest,
-  ): Effect.Effect<DescribeRegionsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeRegionsResult,
+    CommonAwsError
+  >;
   describeReplaceRootVolumeTasks(
     input: DescribeReplaceRootVolumeTasksRequest,
-  ): Effect.Effect<DescribeReplaceRootVolumeTasksResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeReplaceRootVolumeTasksResult,
+    CommonAwsError
+  >;
   describeReservedInstances(
     input: DescribeReservedInstancesRequest,
-  ): Effect.Effect<DescribeReservedInstancesResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeReservedInstancesResult,
+    CommonAwsError
+  >;
   describeReservedInstancesListings(
     input: DescribeReservedInstancesListingsRequest,
-  ): Effect.Effect<DescribeReservedInstancesListingsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeReservedInstancesListingsResult,
+    CommonAwsError
+  >;
   describeReservedInstancesModifications(
     input: DescribeReservedInstancesModificationsRequest,
   ): Effect.Effect<
@@ -1207,31 +2171,58 @@ export declare class EC2 extends AWSServiceClient {
   >;
   describeReservedInstancesOfferings(
     input: DescribeReservedInstancesOfferingsRequest,
-  ): Effect.Effect<DescribeReservedInstancesOfferingsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeReservedInstancesOfferingsResult,
+    CommonAwsError
+  >;
   describeRouteServerEndpoints(
     input: DescribeRouteServerEndpointsRequest,
-  ): Effect.Effect<DescribeRouteServerEndpointsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeRouteServerEndpointsResult,
+    CommonAwsError
+  >;
   describeRouteServerPeers(
     input: DescribeRouteServerPeersRequest,
-  ): Effect.Effect<DescribeRouteServerPeersResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeRouteServerPeersResult,
+    CommonAwsError
+  >;
   describeRouteServers(
     input: DescribeRouteServersRequest,
-  ): Effect.Effect<DescribeRouteServersResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeRouteServersResult,
+    CommonAwsError
+  >;
   describeRouteTables(
     input: DescribeRouteTablesRequest,
-  ): Effect.Effect<DescribeRouteTablesResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeRouteTablesResult,
+    CommonAwsError
+  >;
   describeScheduledInstanceAvailability(
     input: DescribeScheduledInstanceAvailabilityRequest,
-  ): Effect.Effect<DescribeScheduledInstanceAvailabilityResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeScheduledInstanceAvailabilityResult,
+    CommonAwsError
+  >;
   describeScheduledInstances(
     input: DescribeScheduledInstancesRequest,
-  ): Effect.Effect<DescribeScheduledInstancesResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeScheduledInstancesResult,
+    CommonAwsError
+  >;
   describeSecurityGroupReferences(
     input: DescribeSecurityGroupReferencesRequest,
-  ): Effect.Effect<DescribeSecurityGroupReferencesResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeSecurityGroupReferencesResult,
+    CommonAwsError
+  >;
   describeSecurityGroupRules(
     input: DescribeSecurityGroupRulesRequest,
-  ): Effect.Effect<DescribeSecurityGroupRulesResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeSecurityGroupRulesResult,
+    CommonAwsError
+  >;
   describeSecurityGroups(
     input: DescribeSecurityGroupsRequest,
   ): Effect.Effect<
@@ -1240,31 +2231,58 @@ export declare class EC2 extends AWSServiceClient {
   >;
   describeSecurityGroupVpcAssociations(
     input: DescribeSecurityGroupVpcAssociationsRequest,
-  ): Effect.Effect<DescribeSecurityGroupVpcAssociationsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeSecurityGroupVpcAssociationsResult,
+    CommonAwsError
+  >;
   describeServiceLinkVirtualInterfaces(
     input: DescribeServiceLinkVirtualInterfacesRequest,
-  ): Effect.Effect<DescribeServiceLinkVirtualInterfacesResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeServiceLinkVirtualInterfacesResult,
+    CommonAwsError
+  >;
   describeSnapshotAttribute(
     input: DescribeSnapshotAttributeRequest,
-  ): Effect.Effect<DescribeSnapshotAttributeResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeSnapshotAttributeResult,
+    CommonAwsError
+  >;
   describeSnapshots(
     input: DescribeSnapshotsRequest,
-  ): Effect.Effect<DescribeSnapshotsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeSnapshotsResult,
+    CommonAwsError
+  >;
   describeSnapshotTierStatus(
     input: DescribeSnapshotTierStatusRequest,
-  ): Effect.Effect<DescribeSnapshotTierStatusResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeSnapshotTierStatusResult,
+    CommonAwsError
+  >;
   describeSpotDatafeedSubscription(
     input: DescribeSpotDatafeedSubscriptionRequest,
-  ): Effect.Effect<DescribeSpotDatafeedSubscriptionResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeSpotDatafeedSubscriptionResult,
+    CommonAwsError
+  >;
   describeSpotFleetInstances(
     input: DescribeSpotFleetInstancesRequest,
-  ): Effect.Effect<DescribeSpotFleetInstancesResponse, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeSpotFleetInstancesResponse,
+    CommonAwsError
+  >;
   describeSpotFleetRequestHistory(
     input: DescribeSpotFleetRequestHistoryRequest,
-  ): Effect.Effect<DescribeSpotFleetRequestHistoryResponse, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeSpotFleetRequestHistoryResponse,
+    CommonAwsError
+  >;
   describeSpotFleetRequests(
     input: DescribeSpotFleetRequestsRequest,
-  ): Effect.Effect<DescribeSpotFleetRequestsResponse, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeSpotFleetRequestsResponse,
+    CommonAwsError
+  >;
   describeSpotInstanceRequests(
     input: DescribeSpotInstanceRequestsRequest,
   ): Effect.Effect<
@@ -1273,40 +2291,76 @@ export declare class EC2 extends AWSServiceClient {
   >;
   describeSpotPriceHistory(
     input: DescribeSpotPriceHistoryRequest,
-  ): Effect.Effect<DescribeSpotPriceHistoryResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeSpotPriceHistoryResult,
+    CommonAwsError
+  >;
   describeStaleSecurityGroups(
     input: DescribeStaleSecurityGroupsRequest,
-  ): Effect.Effect<DescribeStaleSecurityGroupsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeStaleSecurityGroupsResult,
+    CommonAwsError
+  >;
   describeStoreImageTasks(
     input: DescribeStoreImageTasksRequest,
-  ): Effect.Effect<DescribeStoreImageTasksResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeStoreImageTasksResult,
+    CommonAwsError
+  >;
   describeSubnets(
     input: DescribeSubnetsRequest,
-  ): Effect.Effect<DescribeSubnetsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeSubnetsResult,
+    CommonAwsError
+  >;
   describeTags(
     input: DescribeTagsRequest,
-  ): Effect.Effect<DescribeTagsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeTagsResult,
+    CommonAwsError
+  >;
   describeTrafficMirrorFilterRules(
     input: DescribeTrafficMirrorFilterRulesRequest,
-  ): Effect.Effect<DescribeTrafficMirrorFilterRulesResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeTrafficMirrorFilterRulesResult,
+    CommonAwsError
+  >;
   describeTrafficMirrorFilters(
     input: DescribeTrafficMirrorFiltersRequest,
-  ): Effect.Effect<DescribeTrafficMirrorFiltersResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeTrafficMirrorFiltersResult,
+    CommonAwsError
+  >;
   describeTrafficMirrorSessions(
     input: DescribeTrafficMirrorSessionsRequest,
-  ): Effect.Effect<DescribeTrafficMirrorSessionsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeTrafficMirrorSessionsResult,
+    CommonAwsError
+  >;
   describeTrafficMirrorTargets(
     input: DescribeTrafficMirrorTargetsRequest,
-  ): Effect.Effect<DescribeTrafficMirrorTargetsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeTrafficMirrorTargetsResult,
+    CommonAwsError
+  >;
   describeTransitGatewayAttachments(
     input: DescribeTransitGatewayAttachmentsRequest,
-  ): Effect.Effect<DescribeTransitGatewayAttachmentsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeTransitGatewayAttachmentsResult,
+    CommonAwsError
+  >;
   describeTransitGatewayConnectPeers(
     input: DescribeTransitGatewayConnectPeersRequest,
-  ): Effect.Effect<DescribeTransitGatewayConnectPeersResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeTransitGatewayConnectPeersResult,
+    CommonAwsError
+  >;
   describeTransitGatewayConnects(
     input: DescribeTransitGatewayConnectsRequest,
-  ): Effect.Effect<DescribeTransitGatewayConnectsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeTransitGatewayConnectsResult,
+    CommonAwsError
+  >;
   describeTransitGatewayMulticastDomains(
     input: DescribeTransitGatewayMulticastDomainsRequest,
   ): Effect.Effect<
@@ -1321,7 +2375,10 @@ export declare class EC2 extends AWSServiceClient {
   >;
   describeTransitGatewayPolicyTables(
     input: DescribeTransitGatewayPolicyTablesRequest,
-  ): Effect.Effect<DescribeTransitGatewayPolicyTablesResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeTransitGatewayPolicyTablesResult,
+    CommonAwsError
+  >;
   describeTransitGatewayRouteTableAnnouncements(
     input: DescribeTransitGatewayRouteTableAnnouncementsRequest,
   ): Effect.Effect<
@@ -1330,22 +2387,40 @@ export declare class EC2 extends AWSServiceClient {
   >;
   describeTransitGatewayRouteTables(
     input: DescribeTransitGatewayRouteTablesRequest,
-  ): Effect.Effect<DescribeTransitGatewayRouteTablesResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeTransitGatewayRouteTablesResult,
+    CommonAwsError
+  >;
   describeTransitGateways(
     input: DescribeTransitGatewaysRequest,
-  ): Effect.Effect<DescribeTransitGatewaysResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeTransitGatewaysResult,
+    CommonAwsError
+  >;
   describeTransitGatewayVpcAttachments(
     input: DescribeTransitGatewayVpcAttachmentsRequest,
-  ): Effect.Effect<DescribeTransitGatewayVpcAttachmentsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeTransitGatewayVpcAttachmentsResult,
+    CommonAwsError
+  >;
   describeTrunkInterfaceAssociations(
     input: DescribeTrunkInterfaceAssociationsRequest,
-  ): Effect.Effect<DescribeTrunkInterfaceAssociationsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeTrunkInterfaceAssociationsResult,
+    CommonAwsError
+  >;
   describeVerifiedAccessEndpoints(
     input: DescribeVerifiedAccessEndpointsRequest,
-  ): Effect.Effect<DescribeVerifiedAccessEndpointsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeVerifiedAccessEndpointsResult,
+    CommonAwsError
+  >;
   describeVerifiedAccessGroups(
     input: DescribeVerifiedAccessGroupsRequest,
-  ): Effect.Effect<DescribeVerifiedAccessGroupsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeVerifiedAccessGroupsResult,
+    CommonAwsError
+  >;
   describeVerifiedAccessInstanceLoggingConfigurations(
     input: DescribeVerifiedAccessInstanceLoggingConfigurationsRequest,
   ): Effect.Effect<
@@ -1354,13 +2429,22 @@ export declare class EC2 extends AWSServiceClient {
   >;
   describeVerifiedAccessInstances(
     input: DescribeVerifiedAccessInstancesRequest,
-  ): Effect.Effect<DescribeVerifiedAccessInstancesResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeVerifiedAccessInstancesResult,
+    CommonAwsError
+  >;
   describeVerifiedAccessTrustProviders(
     input: DescribeVerifiedAccessTrustProvidersRequest,
-  ): Effect.Effect<DescribeVerifiedAccessTrustProvidersResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeVerifiedAccessTrustProvidersResult,
+    CommonAwsError
+  >;
   describeVolumeAttribute(
     input: DescribeVolumeAttributeRequest,
-  ): Effect.Effect<DescribeVolumeAttributeResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeVolumeAttributeResult,
+    CommonAwsError
+  >;
   describeVolumes(
     input: DescribeVolumesRequest,
   ): Effect.Effect<
@@ -1369,13 +2453,22 @@ export declare class EC2 extends AWSServiceClient {
   >;
   describeVolumesModifications(
     input: DescribeVolumesModificationsRequest,
-  ): Effect.Effect<DescribeVolumesModificationsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeVolumesModificationsResult,
+    CommonAwsError
+  >;
   describeVolumeStatus(
     input: DescribeVolumeStatusRequest,
-  ): Effect.Effect<DescribeVolumeStatusResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeVolumeStatusResult,
+    CommonAwsError
+  >;
   describeVpcAttribute(
     input: DescribeVpcAttributeRequest,
-  ): Effect.Effect<DescribeVpcAttributeResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeVpcAttributeResult,
+    CommonAwsError
+  >;
   describeVpcBlockPublicAccessExclusions(
     input: DescribeVpcBlockPublicAccessExclusionsRequest,
   ): Effect.Effect<
@@ -1384,16 +2477,28 @@ export declare class EC2 extends AWSServiceClient {
   >;
   describeVpcBlockPublicAccessOptions(
     input: DescribeVpcBlockPublicAccessOptionsRequest,
-  ): Effect.Effect<DescribeVpcBlockPublicAccessOptionsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeVpcBlockPublicAccessOptionsResult,
+    CommonAwsError
+  >;
   describeVpcClassicLink(
     input: DescribeVpcClassicLinkRequest,
-  ): Effect.Effect<DescribeVpcClassicLinkResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeVpcClassicLinkResult,
+    CommonAwsError
+  >;
   describeVpcClassicLinkDnsSupport(
     input: DescribeVpcClassicLinkDnsSupportRequest,
-  ): Effect.Effect<DescribeVpcClassicLinkDnsSupportResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeVpcClassicLinkDnsSupportResult,
+    CommonAwsError
+  >;
   describeVpcEndpointAssociations(
     input: DescribeVpcEndpointAssociationsRequest,
-  ): Effect.Effect<DescribeVpcEndpointAssociationsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeVpcEndpointAssociationsResult,
+    CommonAwsError
+  >;
   describeVpcEndpointConnectionNotifications(
     input: DescribeVpcEndpointConnectionNotificationsRequest,
   ): Effect.Effect<
@@ -1402,10 +2507,16 @@ export declare class EC2 extends AWSServiceClient {
   >;
   describeVpcEndpointConnections(
     input: DescribeVpcEndpointConnectionsRequest,
-  ): Effect.Effect<DescribeVpcEndpointConnectionsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeVpcEndpointConnectionsResult,
+    CommonAwsError
+  >;
   describeVpcEndpoints(
     input: DescribeVpcEndpointsRequest,
-  ): Effect.Effect<DescribeVpcEndpointsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeVpcEndpointsResult,
+    CommonAwsError
+  >;
   describeVpcEndpointServiceConfigurations(
     input: DescribeVpcEndpointServiceConfigurationsRequest,
   ): Effect.Effect<
@@ -1414,10 +2525,16 @@ export declare class EC2 extends AWSServiceClient {
   >;
   describeVpcEndpointServicePermissions(
     input: DescribeVpcEndpointServicePermissionsRequest,
-  ): Effect.Effect<DescribeVpcEndpointServicePermissionsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeVpcEndpointServicePermissionsResult,
+    CommonAwsError
+  >;
   describeVpcEndpointServices(
     input: DescribeVpcEndpointServicesRequest,
-  ): Effect.Effect<DescribeVpcEndpointServicesResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeVpcEndpointServicesResult,
+    CommonAwsError
+  >;
   describeVpcPeeringConnections(
     input: DescribeVpcPeeringConnectionsRequest,
   ): Effect.Effect<
@@ -1426,37 +2543,70 @@ export declare class EC2 extends AWSServiceClient {
   >;
   describeVpcs(
     input: DescribeVpcsRequest,
-  ): Effect.Effect<DescribeVpcsResult, InvalidVpcIDNotFound | CommonAwsError>;
+  ): Effect.Effect<
+    DescribeVpcsResult,
+    InvalidVpcIDNotFound | CommonAwsError
+  >;
   describeVpnConnections(
     input: DescribeVpnConnectionsRequest,
-  ): Effect.Effect<DescribeVpnConnectionsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeVpnConnectionsResult,
+    CommonAwsError
+  >;
   describeVpnGateways(
     input: DescribeVpnGatewaysRequest,
-  ): Effect.Effect<DescribeVpnGatewaysResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeVpnGatewaysResult,
+    CommonAwsError
+  >;
   detachClassicLinkVpc(
     input: DetachClassicLinkVpcRequest,
-  ): Effect.Effect<DetachClassicLinkVpcResult, CommonAwsError>;
+  ): Effect.Effect<
+    DetachClassicLinkVpcResult,
+    CommonAwsError
+  >;
   detachInternetGateway(
     input: DetachInternetGatewayRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   detachNetworkInterface(
     input: DetachNetworkInterfaceRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   detachVerifiedAccessTrustProvider(
     input: DetachVerifiedAccessTrustProviderRequest,
-  ): Effect.Effect<DetachVerifiedAccessTrustProviderResult, CommonAwsError>;
+  ): Effect.Effect<
+    DetachVerifiedAccessTrustProviderResult,
+    CommonAwsError
+  >;
   detachVolume(
     input: DetachVolumeRequest,
-  ): Effect.Effect<VolumeAttachment, CommonAwsError>;
+  ): Effect.Effect<
+    VolumeAttachment,
+    CommonAwsError
+  >;
   detachVpnGateway(
     input: DetachVpnGatewayRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   disableAddressTransfer(
     input: DisableAddressTransferRequest,
-  ): Effect.Effect<DisableAddressTransferResult, CommonAwsError>;
+  ): Effect.Effect<
+    DisableAddressTransferResult,
+    CommonAwsError
+  >;
   disableAllowedImagesSettings(
     input: DisableAllowedImagesSettingsRequest,
-  ): Effect.Effect<DisableAllowedImagesSettingsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DisableAllowedImagesSettingsResult,
+    CommonAwsError
+  >;
   disableAwsNetworkPerformanceMetricSubscription(
     input: DisableAwsNetworkPerformanceMetricSubscriptionRequest,
   ): Effect.Effect<
@@ -1465,40 +2615,76 @@ export declare class EC2 extends AWSServiceClient {
   >;
   disableCapacityManager(
     input: DisableCapacityManagerRequest,
-  ): Effect.Effect<DisableCapacityManagerResult, CommonAwsError>;
+  ): Effect.Effect<
+    DisableCapacityManagerResult,
+    CommonAwsError
+  >;
   disableEbsEncryptionByDefault(
     input: DisableEbsEncryptionByDefaultRequest,
-  ): Effect.Effect<DisableEbsEncryptionByDefaultResult, CommonAwsError>;
+  ): Effect.Effect<
+    DisableEbsEncryptionByDefaultResult,
+    CommonAwsError
+  >;
   disableFastLaunch(
     input: DisableFastLaunchRequest,
-  ): Effect.Effect<DisableFastLaunchResult, CommonAwsError>;
+  ): Effect.Effect<
+    DisableFastLaunchResult,
+    CommonAwsError
+  >;
   disableFastSnapshotRestores(
     input: DisableFastSnapshotRestoresRequest,
-  ): Effect.Effect<DisableFastSnapshotRestoresResult, CommonAwsError>;
+  ): Effect.Effect<
+    DisableFastSnapshotRestoresResult,
+    CommonAwsError
+  >;
   disableImage(
     input: DisableImageRequest,
-  ): Effect.Effect<DisableImageResult, CommonAwsError>;
+  ): Effect.Effect<
+    DisableImageResult,
+    CommonAwsError
+  >;
   disableImageBlockPublicAccess(
     input: DisableImageBlockPublicAccessRequest,
-  ): Effect.Effect<DisableImageBlockPublicAccessResult, CommonAwsError>;
+  ): Effect.Effect<
+    DisableImageBlockPublicAccessResult,
+    CommonAwsError
+  >;
   disableImageDeprecation(
     input: DisableImageDeprecationRequest,
-  ): Effect.Effect<DisableImageDeprecationResult, CommonAwsError>;
+  ): Effect.Effect<
+    DisableImageDeprecationResult,
+    CommonAwsError
+  >;
   disableImageDeregistrationProtection(
     input: DisableImageDeregistrationProtectionRequest,
-  ): Effect.Effect<DisableImageDeregistrationProtectionResult, CommonAwsError>;
+  ): Effect.Effect<
+    DisableImageDeregistrationProtectionResult,
+    CommonAwsError
+  >;
   disableIpamOrganizationAdminAccount(
     input: DisableIpamOrganizationAdminAccountRequest,
-  ): Effect.Effect<DisableIpamOrganizationAdminAccountResult, CommonAwsError>;
+  ): Effect.Effect<
+    DisableIpamOrganizationAdminAccountResult,
+    CommonAwsError
+  >;
   disableRouteServerPropagation(
     input: DisableRouteServerPropagationRequest,
-  ): Effect.Effect<DisableRouteServerPropagationResult, CommonAwsError>;
+  ): Effect.Effect<
+    DisableRouteServerPropagationResult,
+    CommonAwsError
+  >;
   disableSerialConsoleAccess(
     input: DisableSerialConsoleAccessRequest,
-  ): Effect.Effect<DisableSerialConsoleAccessResult, CommonAwsError>;
+  ): Effect.Effect<
+    DisableSerialConsoleAccessResult,
+    CommonAwsError
+  >;
   disableSnapshotBlockPublicAccess(
     input: DisableSnapshotBlockPublicAccessRequest,
-  ): Effect.Effect<DisableSnapshotBlockPublicAccessResult, CommonAwsError>;
+  ): Effect.Effect<
+    DisableSnapshotBlockPublicAccessResult,
+    CommonAwsError
+  >;
   disableTransitGatewayRouteTablePropagation(
     input: DisableTransitGatewayRouteTablePropagationRequest,
   ): Effect.Effect<
@@ -1507,16 +2693,28 @@ export declare class EC2 extends AWSServiceClient {
   >;
   disableVgwRoutePropagation(
     input: DisableVgwRoutePropagationRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   disableVpcClassicLink(
     input: DisableVpcClassicLinkRequest,
-  ): Effect.Effect<DisableVpcClassicLinkResult, CommonAwsError>;
+  ): Effect.Effect<
+    DisableVpcClassicLinkResult,
+    CommonAwsError
+  >;
   disableVpcClassicLinkDnsSupport(
     input: DisableVpcClassicLinkDnsSupportRequest,
-  ): Effect.Effect<DisableVpcClassicLinkDnsSupportResult, CommonAwsError>;
+  ): Effect.Effect<
+    DisableVpcClassicLinkDnsSupportResult,
+    CommonAwsError
+  >;
   disassociateAddress(
     input: DisassociateAddressRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   disassociateCapacityReservationBillingOwner(
     input: DisassociateCapacityReservationBillingOwnerRequest,
   ): Effect.Effect<
@@ -1525,37 +2723,70 @@ export declare class EC2 extends AWSServiceClient {
   >;
   disassociateClientVpnTargetNetwork(
     input: DisassociateClientVpnTargetNetworkRequest,
-  ): Effect.Effect<DisassociateClientVpnTargetNetworkResult, CommonAwsError>;
+  ): Effect.Effect<
+    DisassociateClientVpnTargetNetworkResult,
+    CommonAwsError
+  >;
   disassociateEnclaveCertificateIamRole(
     input: DisassociateEnclaveCertificateIamRoleRequest,
-  ): Effect.Effect<DisassociateEnclaveCertificateIamRoleResult, CommonAwsError>;
+  ): Effect.Effect<
+    DisassociateEnclaveCertificateIamRoleResult,
+    CommonAwsError
+  >;
   disassociateIamInstanceProfile(
     input: DisassociateIamInstanceProfileRequest,
-  ): Effect.Effect<DisassociateIamInstanceProfileResult, CommonAwsError>;
+  ): Effect.Effect<
+    DisassociateIamInstanceProfileResult,
+    CommonAwsError
+  >;
   disassociateInstanceEventWindow(
     input: DisassociateInstanceEventWindowRequest,
-  ): Effect.Effect<DisassociateInstanceEventWindowResult, CommonAwsError>;
+  ): Effect.Effect<
+    DisassociateInstanceEventWindowResult,
+    CommonAwsError
+  >;
   disassociateIpamByoasn(
     input: DisassociateIpamByoasnRequest,
-  ): Effect.Effect<DisassociateIpamByoasnResult, CommonAwsError>;
+  ): Effect.Effect<
+    DisassociateIpamByoasnResult,
+    CommonAwsError
+  >;
   disassociateIpamResourceDiscovery(
     input: DisassociateIpamResourceDiscoveryRequest,
-  ): Effect.Effect<DisassociateIpamResourceDiscoveryResult, CommonAwsError>;
+  ): Effect.Effect<
+    DisassociateIpamResourceDiscoveryResult,
+    CommonAwsError
+  >;
   disassociateNatGatewayAddress(
     input: DisassociateNatGatewayAddressRequest,
-  ): Effect.Effect<DisassociateNatGatewayAddressResult, CommonAwsError>;
+  ): Effect.Effect<
+    DisassociateNatGatewayAddressResult,
+    CommonAwsError
+  >;
   disassociateRouteServer(
     input: DisassociateRouteServerRequest,
-  ): Effect.Effect<DisassociateRouteServerResult, CommonAwsError>;
+  ): Effect.Effect<
+    DisassociateRouteServerResult,
+    CommonAwsError
+  >;
   disassociateRouteTable(
     input: DisassociateRouteTableRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   disassociateSecurityGroupVpc(
     input: DisassociateSecurityGroupVpcRequest,
-  ): Effect.Effect<DisassociateSecurityGroupVpcResult, CommonAwsError>;
+  ): Effect.Effect<
+    DisassociateSecurityGroupVpcResult,
+    CommonAwsError
+  >;
   disassociateSubnetCidrBlock(
     input: DisassociateSubnetCidrBlockRequest,
-  ): Effect.Effect<DisassociateSubnetCidrBlockResult, CommonAwsError>;
+  ): Effect.Effect<
+    DisassociateSubnetCidrBlockResult,
+    CommonAwsError
+  >;
   disassociateTransitGatewayMulticastDomain(
     input: DisassociateTransitGatewayMulticastDomainRequest,
   ): Effect.Effect<
@@ -1564,22 +2795,40 @@ export declare class EC2 extends AWSServiceClient {
   >;
   disassociateTransitGatewayPolicyTable(
     input: DisassociateTransitGatewayPolicyTableRequest,
-  ): Effect.Effect<DisassociateTransitGatewayPolicyTableResult, CommonAwsError>;
+  ): Effect.Effect<
+    DisassociateTransitGatewayPolicyTableResult,
+    CommonAwsError
+  >;
   disassociateTransitGatewayRouteTable(
     input: DisassociateTransitGatewayRouteTableRequest,
-  ): Effect.Effect<DisassociateTransitGatewayRouteTableResult, CommonAwsError>;
+  ): Effect.Effect<
+    DisassociateTransitGatewayRouteTableResult,
+    CommonAwsError
+  >;
   disassociateTrunkInterface(
     input: DisassociateTrunkInterfaceRequest,
-  ): Effect.Effect<DisassociateTrunkInterfaceResult, CommonAwsError>;
+  ): Effect.Effect<
+    DisassociateTrunkInterfaceResult,
+    CommonAwsError
+  >;
   disassociateVpcCidrBlock(
     input: DisassociateVpcCidrBlockRequest,
-  ): Effect.Effect<DisassociateVpcCidrBlockResult, CommonAwsError>;
+  ): Effect.Effect<
+    DisassociateVpcCidrBlockResult,
+    CommonAwsError
+  >;
   enableAddressTransfer(
     input: EnableAddressTransferRequest,
-  ): Effect.Effect<EnableAddressTransferResult, CommonAwsError>;
+  ): Effect.Effect<
+    EnableAddressTransferResult,
+    CommonAwsError
+  >;
   enableAllowedImagesSettings(
     input: EnableAllowedImagesSettingsRequest,
-  ): Effect.Effect<EnableAllowedImagesSettingsResult, CommonAwsError>;
+  ): Effect.Effect<
+    EnableAllowedImagesSettingsResult,
+    CommonAwsError
+  >;
   enableAwsNetworkPerformanceMetricSubscription(
     input: EnableAwsNetworkPerformanceMetricSubscriptionRequest,
   ): Effect.Effect<
@@ -1588,31 +2837,58 @@ export declare class EC2 extends AWSServiceClient {
   >;
   enableCapacityManager(
     input: EnableCapacityManagerRequest,
-  ): Effect.Effect<EnableCapacityManagerResult, CommonAwsError>;
+  ): Effect.Effect<
+    EnableCapacityManagerResult,
+    CommonAwsError
+  >;
   enableEbsEncryptionByDefault(
     input: EnableEbsEncryptionByDefaultRequest,
-  ): Effect.Effect<EnableEbsEncryptionByDefaultResult, CommonAwsError>;
+  ): Effect.Effect<
+    EnableEbsEncryptionByDefaultResult,
+    CommonAwsError
+  >;
   enableFastLaunch(
     input: EnableFastLaunchRequest,
-  ): Effect.Effect<EnableFastLaunchResult, CommonAwsError>;
+  ): Effect.Effect<
+    EnableFastLaunchResult,
+    CommonAwsError
+  >;
   enableFastSnapshotRestores(
     input: EnableFastSnapshotRestoresRequest,
-  ): Effect.Effect<EnableFastSnapshotRestoresResult, CommonAwsError>;
+  ): Effect.Effect<
+    EnableFastSnapshotRestoresResult,
+    CommonAwsError
+  >;
   enableImage(
     input: EnableImageRequest,
-  ): Effect.Effect<EnableImageResult, CommonAwsError>;
+  ): Effect.Effect<
+    EnableImageResult,
+    CommonAwsError
+  >;
   enableImageBlockPublicAccess(
     input: EnableImageBlockPublicAccessRequest,
-  ): Effect.Effect<EnableImageBlockPublicAccessResult, CommonAwsError>;
+  ): Effect.Effect<
+    EnableImageBlockPublicAccessResult,
+    CommonAwsError
+  >;
   enableImageDeprecation(
     input: EnableImageDeprecationRequest,
-  ): Effect.Effect<EnableImageDeprecationResult, CommonAwsError>;
+  ): Effect.Effect<
+    EnableImageDeprecationResult,
+    CommonAwsError
+  >;
   enableImageDeregistrationProtection(
     input: EnableImageDeregistrationProtectionRequest,
-  ): Effect.Effect<EnableImageDeregistrationProtectionResult, CommonAwsError>;
+  ): Effect.Effect<
+    EnableImageDeregistrationProtectionResult,
+    CommonAwsError
+  >;
   enableIpamOrganizationAdminAccount(
     input: EnableIpamOrganizationAdminAccountRequest,
-  ): Effect.Effect<EnableIpamOrganizationAdminAccountResult, CommonAwsError>;
+  ): Effect.Effect<
+    EnableIpamOrganizationAdminAccountResult,
+    CommonAwsError
+  >;
   enableReachabilityAnalyzerOrganizationSharing(
     input: EnableReachabilityAnalyzerOrganizationSharingRequest,
   ): Effect.Effect<
@@ -1621,13 +2897,22 @@ export declare class EC2 extends AWSServiceClient {
   >;
   enableRouteServerPropagation(
     input: EnableRouteServerPropagationRequest,
-  ): Effect.Effect<EnableRouteServerPropagationResult, CommonAwsError>;
+  ): Effect.Effect<
+    EnableRouteServerPropagationResult,
+    CommonAwsError
+  >;
   enableSerialConsoleAccess(
     input: EnableSerialConsoleAccessRequest,
-  ): Effect.Effect<EnableSerialConsoleAccessResult, CommonAwsError>;
+  ): Effect.Effect<
+    EnableSerialConsoleAccessResult,
+    CommonAwsError
+  >;
   enableSnapshotBlockPublicAccess(
     input: EnableSnapshotBlockPublicAccessRequest,
-  ): Effect.Effect<EnableSnapshotBlockPublicAccessResult, CommonAwsError>;
+  ): Effect.Effect<
+    EnableSnapshotBlockPublicAccessResult,
+    CommonAwsError
+  >;
   enableTransitGatewayRouteTablePropagation(
     input: EnableTransitGatewayRouteTablePropagationRequest,
   ): Effect.Effect<
@@ -1636,16 +2921,28 @@ export declare class EC2 extends AWSServiceClient {
   >;
   enableVgwRoutePropagation(
     input: EnableVgwRoutePropagationRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   enableVolumeIO(
     input: EnableVolumeIORequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   enableVpcClassicLink(
     input: EnableVpcClassicLinkRequest,
-  ): Effect.Effect<EnableVpcClassicLinkResult, CommonAwsError>;
+  ): Effect.Effect<
+    EnableVpcClassicLinkResult,
+    CommonAwsError
+  >;
   enableVpcClassicLinkDnsSupport(
     input: EnableVpcClassicLinkDnsSupportRequest,
-  ): Effect.Effect<EnableVpcClassicLinkDnsSupportResult, CommonAwsError>;
+  ): Effect.Effect<
+    EnableVpcClassicLinkDnsSupportResult,
+    CommonAwsError
+  >;
   exportClientVpnClientCertificateRevocationList(
     input: ExportClientVpnClientCertificateRevocationListRequest,
   ): Effect.Effect<
@@ -1654,13 +2951,22 @@ export declare class EC2 extends AWSServiceClient {
   >;
   exportClientVpnClientConfiguration(
     input: ExportClientVpnClientConfigurationRequest,
-  ): Effect.Effect<ExportClientVpnClientConfigurationResult, CommonAwsError>;
+  ): Effect.Effect<
+    ExportClientVpnClientConfigurationResult,
+    CommonAwsError
+  >;
   exportImage(
     input: ExportImageRequest,
-  ): Effect.Effect<ExportImageResult, CommonAwsError>;
+  ): Effect.Effect<
+    ExportImageResult,
+    CommonAwsError
+  >;
   exportTransitGatewayRoutes(
     input: ExportTransitGatewayRoutesRequest,
-  ): Effect.Effect<ExportTransitGatewayRoutesResult, CommonAwsError>;
+  ): Effect.Effect<
+    ExportTransitGatewayRoutesResult,
+    CommonAwsError
+  >;
   exportVerifiedAccessInstanceClientConfiguration(
     input: ExportVerifiedAccessInstanceClientConfigurationRequest,
   ): Effect.Effect<
@@ -1669,10 +2975,16 @@ export declare class EC2 extends AWSServiceClient {
   >;
   getActiveVpnTunnelStatus(
     input: GetActiveVpnTunnelStatusRequest,
-  ): Effect.Effect<GetActiveVpnTunnelStatusResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetActiveVpnTunnelStatusResult,
+    CommonAwsError
+  >;
   getAllowedImagesSettings(
     input: GetAllowedImagesSettingsRequest,
-  ): Effect.Effect<GetAllowedImagesSettingsResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetAllowedImagesSettingsResult,
+    CommonAwsError
+  >;
   getAssociatedEnclaveCertificateIamRoles(
     input: GetAssociatedEnclaveCertificateIamRolesRequest,
   ): Effect.Effect<
@@ -1681,61 +2993,118 @@ export declare class EC2 extends AWSServiceClient {
   >;
   getAssociatedIpv6PoolCidrs(
     input: GetAssociatedIpv6PoolCidrsRequest,
-  ): Effect.Effect<GetAssociatedIpv6PoolCidrsResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetAssociatedIpv6PoolCidrsResult,
+    CommonAwsError
+  >;
   getAwsNetworkPerformanceData(
     input: GetAwsNetworkPerformanceDataRequest,
-  ): Effect.Effect<GetAwsNetworkPerformanceDataResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetAwsNetworkPerformanceDataResult,
+    CommonAwsError
+  >;
   getCapacityManagerAttributes(
     input: GetCapacityManagerAttributesRequest,
-  ): Effect.Effect<GetCapacityManagerAttributesResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetCapacityManagerAttributesResult,
+    CommonAwsError
+  >;
   getCapacityManagerMetricData(
     input: GetCapacityManagerMetricDataRequest,
-  ): Effect.Effect<GetCapacityManagerMetricDataResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetCapacityManagerMetricDataResult,
+    CommonAwsError
+  >;
   getCapacityManagerMetricDimensions(
     input: GetCapacityManagerMetricDimensionsRequest,
-  ): Effect.Effect<GetCapacityManagerMetricDimensionsResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetCapacityManagerMetricDimensionsResult,
+    CommonAwsError
+  >;
   getCapacityReservationUsage(
     input: GetCapacityReservationUsageRequest,
-  ): Effect.Effect<GetCapacityReservationUsageResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetCapacityReservationUsageResult,
+    CommonAwsError
+  >;
   getCoipPoolUsage(
     input: GetCoipPoolUsageRequest,
-  ): Effect.Effect<GetCoipPoolUsageResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetCoipPoolUsageResult,
+    CommonAwsError
+  >;
   getConsoleOutput(
     input: GetConsoleOutputRequest,
-  ): Effect.Effect<GetConsoleOutputResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetConsoleOutputResult,
+    CommonAwsError
+  >;
   getConsoleScreenshot(
     input: GetConsoleScreenshotRequest,
-  ): Effect.Effect<GetConsoleScreenshotResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetConsoleScreenshotResult,
+    CommonAwsError
+  >;
   getDeclarativePoliciesReportSummary(
     input: GetDeclarativePoliciesReportSummaryRequest,
-  ): Effect.Effect<GetDeclarativePoliciesReportSummaryResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetDeclarativePoliciesReportSummaryResult,
+    CommonAwsError
+  >;
   getDefaultCreditSpecification(
     input: GetDefaultCreditSpecificationRequest,
-  ): Effect.Effect<GetDefaultCreditSpecificationResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetDefaultCreditSpecificationResult,
+    CommonAwsError
+  >;
   getEbsDefaultKmsKeyId(
     input: GetEbsDefaultKmsKeyIdRequest,
-  ): Effect.Effect<GetEbsDefaultKmsKeyIdResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetEbsDefaultKmsKeyIdResult,
+    CommonAwsError
+  >;
   getEbsEncryptionByDefault(
     input: GetEbsEncryptionByDefaultRequest,
-  ): Effect.Effect<GetEbsEncryptionByDefaultResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetEbsEncryptionByDefaultResult,
+    CommonAwsError
+  >;
   getFlowLogsIntegrationTemplate(
     input: GetFlowLogsIntegrationTemplateRequest,
-  ): Effect.Effect<GetFlowLogsIntegrationTemplateResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetFlowLogsIntegrationTemplateResult,
+    CommonAwsError
+  >;
   getGroupsForCapacityReservation(
     input: GetGroupsForCapacityReservationRequest,
-  ): Effect.Effect<GetGroupsForCapacityReservationResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetGroupsForCapacityReservationResult,
+    CommonAwsError
+  >;
   getHostReservationPurchasePreview(
     input: GetHostReservationPurchasePreviewRequest,
-  ): Effect.Effect<GetHostReservationPurchasePreviewResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetHostReservationPurchasePreviewResult,
+    CommonAwsError
+  >;
   getImageBlockPublicAccessState(
     input: GetImageBlockPublicAccessStateRequest,
-  ): Effect.Effect<GetImageBlockPublicAccessStateResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetImageBlockPublicAccessStateResult,
+    CommonAwsError
+  >;
   getInstanceMetadataDefaults(
     input: GetInstanceMetadataDefaultsRequest,
-  ): Effect.Effect<GetInstanceMetadataDefaultsResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetInstanceMetadataDefaultsResult,
+    CommonAwsError
+  >;
   getInstanceTpmEkPub(
     input: GetInstanceTpmEkPubRequest,
-  ): Effect.Effect<GetInstanceTpmEkPubResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetInstanceTpmEkPubResult,
+    CommonAwsError
+  >;
   getInstanceTypesFromInstanceRequirements(
     input: GetInstanceTypesFromInstanceRequirementsRequest,
   ): Effect.Effect<
@@ -1744,28 +3113,52 @@ export declare class EC2 extends AWSServiceClient {
   >;
   getInstanceUefiData(
     input: GetInstanceUefiDataRequest,
-  ): Effect.Effect<GetInstanceUefiDataResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetInstanceUefiDataResult,
+    CommonAwsError
+  >;
   getIpamAddressHistory(
     input: GetIpamAddressHistoryRequest,
-  ): Effect.Effect<GetIpamAddressHistoryResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetIpamAddressHistoryResult,
+    CommonAwsError
+  >;
   getIpamDiscoveredAccounts(
     input: GetIpamDiscoveredAccountsRequest,
-  ): Effect.Effect<GetIpamDiscoveredAccountsResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetIpamDiscoveredAccountsResult,
+    CommonAwsError
+  >;
   getIpamDiscoveredPublicAddresses(
     input: GetIpamDiscoveredPublicAddressesRequest,
-  ): Effect.Effect<GetIpamDiscoveredPublicAddressesResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetIpamDiscoveredPublicAddressesResult,
+    CommonAwsError
+  >;
   getIpamDiscoveredResourceCidrs(
     input: GetIpamDiscoveredResourceCidrsRequest,
-  ): Effect.Effect<GetIpamDiscoveredResourceCidrsResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetIpamDiscoveredResourceCidrsResult,
+    CommonAwsError
+  >;
   getIpamPoolAllocations(
     input: GetIpamPoolAllocationsRequest,
-  ): Effect.Effect<GetIpamPoolAllocationsResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetIpamPoolAllocationsResult,
+    CommonAwsError
+  >;
   getIpamPoolCidrs(
     input: GetIpamPoolCidrsRequest,
-  ): Effect.Effect<GetIpamPoolCidrsResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetIpamPoolCidrsResult,
+    CommonAwsError
+  >;
   getIpamPrefixListResolverRules(
     input: GetIpamPrefixListResolverRulesRequest,
-  ): Effect.Effect<GetIpamPrefixListResolverRulesResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetIpamPrefixListResolverRulesResult,
+    CommonAwsError
+  >;
   getIpamPrefixListResolverVersionEntries(
     input: GetIpamPrefixListResolverVersionEntriesRequest,
   ): Effect.Effect<
@@ -1774,19 +3167,34 @@ export declare class EC2 extends AWSServiceClient {
   >;
   getIpamPrefixListResolverVersions(
     input: GetIpamPrefixListResolverVersionsRequest,
-  ): Effect.Effect<GetIpamPrefixListResolverVersionsResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetIpamPrefixListResolverVersionsResult,
+    CommonAwsError
+  >;
   getIpamResourceCidrs(
     input: GetIpamResourceCidrsRequest,
-  ): Effect.Effect<GetIpamResourceCidrsResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetIpamResourceCidrsResult,
+    CommonAwsError
+  >;
   getLaunchTemplateData(
     input: GetLaunchTemplateDataRequest,
-  ): Effect.Effect<GetLaunchTemplateDataResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetLaunchTemplateDataResult,
+    CommonAwsError
+  >;
   getManagedPrefixListAssociations(
     input: GetManagedPrefixListAssociationsRequest,
-  ): Effect.Effect<GetManagedPrefixListAssociationsResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetManagedPrefixListAssociationsResult,
+    CommonAwsError
+  >;
   getManagedPrefixListEntries(
     input: GetManagedPrefixListEntriesRequest,
-  ): Effect.Effect<GetManagedPrefixListEntriesResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetManagedPrefixListEntriesResult,
+    CommonAwsError
+  >;
   getNetworkInsightsAccessScopeAnalysisFindings(
     input: GetNetworkInsightsAccessScopeAnalysisFindingsRequest,
   ): Effect.Effect<
@@ -1795,37 +3203,70 @@ export declare class EC2 extends AWSServiceClient {
   >;
   getNetworkInsightsAccessScopeContent(
     input: GetNetworkInsightsAccessScopeContentRequest,
-  ): Effect.Effect<GetNetworkInsightsAccessScopeContentResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetNetworkInsightsAccessScopeContentResult,
+    CommonAwsError
+  >;
   getPasswordData(
     input: GetPasswordDataRequest,
-  ): Effect.Effect<GetPasswordDataResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetPasswordDataResult,
+    CommonAwsError
+  >;
   getReservedInstancesExchangeQuote(
     input: GetReservedInstancesExchangeQuoteRequest,
-  ): Effect.Effect<GetReservedInstancesExchangeQuoteResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetReservedInstancesExchangeQuoteResult,
+    CommonAwsError
+  >;
   getRouteServerAssociations(
     input: GetRouteServerAssociationsRequest,
-  ): Effect.Effect<GetRouteServerAssociationsResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetRouteServerAssociationsResult,
+    CommonAwsError
+  >;
   getRouteServerPropagations(
     input: GetRouteServerPropagationsRequest,
-  ): Effect.Effect<GetRouteServerPropagationsResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetRouteServerPropagationsResult,
+    CommonAwsError
+  >;
   getRouteServerRoutingDatabase(
     input: GetRouteServerRoutingDatabaseRequest,
-  ): Effect.Effect<GetRouteServerRoutingDatabaseResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetRouteServerRoutingDatabaseResult,
+    CommonAwsError
+  >;
   getSecurityGroupsForVpc(
     input: GetSecurityGroupsForVpcRequest,
-  ): Effect.Effect<GetSecurityGroupsForVpcResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetSecurityGroupsForVpcResult,
+    CommonAwsError
+  >;
   getSerialConsoleAccessStatus(
     input: GetSerialConsoleAccessStatusRequest,
-  ): Effect.Effect<GetSerialConsoleAccessStatusResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetSerialConsoleAccessStatusResult,
+    CommonAwsError
+  >;
   getSnapshotBlockPublicAccessState(
     input: GetSnapshotBlockPublicAccessStateRequest,
-  ): Effect.Effect<GetSnapshotBlockPublicAccessStateResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetSnapshotBlockPublicAccessStateResult,
+    CommonAwsError
+  >;
   getSpotPlacementScores(
     input: GetSpotPlacementScoresRequest,
-  ): Effect.Effect<GetSpotPlacementScoresResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetSpotPlacementScoresResult,
+    CommonAwsError
+  >;
   getSubnetCidrReservations(
     input: GetSubnetCidrReservationsRequest,
-  ): Effect.Effect<GetSubnetCidrReservationsResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetSubnetCidrReservationsResult,
+    CommonAwsError
+  >;
   getTransitGatewayAttachmentPropagations(
     input: GetTransitGatewayAttachmentPropagationsRequest,
   ): Effect.Effect<
@@ -1846,10 +3287,16 @@ export declare class EC2 extends AWSServiceClient {
   >;
   getTransitGatewayPolicyTableEntries(
     input: GetTransitGatewayPolicyTableEntriesRequest,
-  ): Effect.Effect<GetTransitGatewayPolicyTableEntriesResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetTransitGatewayPolicyTableEntriesResult,
+    CommonAwsError
+  >;
   getTransitGatewayPrefixListReferences(
     input: GetTransitGatewayPrefixListReferencesRequest,
-  ): Effect.Effect<GetTransitGatewayPrefixListReferencesResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetTransitGatewayPrefixListReferencesResult,
+    CommonAwsError
+  >;
   getTransitGatewayRouteTableAssociations(
     input: GetTransitGatewayRouteTableAssociationsRequest,
   ): Effect.Effect<
@@ -1864,13 +3311,22 @@ export declare class EC2 extends AWSServiceClient {
   >;
   getVerifiedAccessEndpointPolicy(
     input: GetVerifiedAccessEndpointPolicyRequest,
-  ): Effect.Effect<GetVerifiedAccessEndpointPolicyResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetVerifiedAccessEndpointPolicyResult,
+    CommonAwsError
+  >;
   getVerifiedAccessEndpointTargets(
     input: GetVerifiedAccessEndpointTargetsRequest,
-  ): Effect.Effect<GetVerifiedAccessEndpointTargetsResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetVerifiedAccessEndpointTargetsResult,
+    CommonAwsError
+  >;
   getVerifiedAccessGroupPolicy(
     input: GetVerifiedAccessGroupPolicyRequest,
-  ): Effect.Effect<GetVerifiedAccessGroupPolicyResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetVerifiedAccessGroupPolicyResult,
+    CommonAwsError
+  >;
   getVpnConnectionDeviceSampleConfiguration(
     input: GetVpnConnectionDeviceSampleConfigurationRequest,
   ): Effect.Effect<
@@ -1879,10 +3335,16 @@ export declare class EC2 extends AWSServiceClient {
   >;
   getVpnConnectionDeviceTypes(
     input: GetVpnConnectionDeviceTypesRequest,
-  ): Effect.Effect<GetVpnConnectionDeviceTypesResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetVpnConnectionDeviceTypesResult,
+    CommonAwsError
+  >;
   getVpnTunnelReplacementStatus(
     input: GetVpnTunnelReplacementStatusRequest,
-  ): Effect.Effect<GetVpnTunnelReplacementStatusResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetVpnTunnelReplacementStatusResult,
+    CommonAwsError
+  >;
   importClientVpnClientCertificateRevocationList(
     input: ImportClientVpnClientCertificateRevocationListRequest,
   ): Effect.Effect<
@@ -1891,70 +3353,136 @@ export declare class EC2 extends AWSServiceClient {
   >;
   importImage(
     input: ImportImageRequest,
-  ): Effect.Effect<ImportImageResult, CommonAwsError>;
+  ): Effect.Effect<
+    ImportImageResult,
+    CommonAwsError
+  >;
   importInstance(
     input: ImportInstanceRequest,
-  ): Effect.Effect<ImportInstanceResult, CommonAwsError>;
+  ): Effect.Effect<
+    ImportInstanceResult,
+    CommonAwsError
+  >;
   importKeyPair(
     input: ImportKeyPairRequest,
-  ): Effect.Effect<ImportKeyPairResult, CommonAwsError>;
+  ): Effect.Effect<
+    ImportKeyPairResult,
+    CommonAwsError
+  >;
   importSnapshot(
     input: ImportSnapshotRequest,
-  ): Effect.Effect<ImportSnapshotResult, CommonAwsError>;
+  ): Effect.Effect<
+    ImportSnapshotResult,
+    CommonAwsError
+  >;
   importVolume(
     input: ImportVolumeRequest,
-  ): Effect.Effect<ImportVolumeResult, CommonAwsError>;
+  ): Effect.Effect<
+    ImportVolumeResult,
+    CommonAwsError
+  >;
   listImagesInRecycleBin(
     input: ListImagesInRecycleBinRequest,
-  ): Effect.Effect<ListImagesInRecycleBinResult, CommonAwsError>;
+  ): Effect.Effect<
+    ListImagesInRecycleBinResult,
+    CommonAwsError
+  >;
   listSnapshotsInRecycleBin(
     input: ListSnapshotsInRecycleBinRequest,
-  ): Effect.Effect<ListSnapshotsInRecycleBinResult, CommonAwsError>;
+  ): Effect.Effect<
+    ListSnapshotsInRecycleBinResult,
+    CommonAwsError
+  >;
   lockSnapshot(
     input: LockSnapshotRequest,
-  ): Effect.Effect<LockSnapshotResult, CommonAwsError>;
+  ): Effect.Effect<
+    LockSnapshotResult,
+    CommonAwsError
+  >;
   modifyAddressAttribute(
     input: ModifyAddressAttributeRequest,
-  ): Effect.Effect<ModifyAddressAttributeResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyAddressAttributeResult,
+    CommonAwsError
+  >;
   modifyAvailabilityZoneGroup(
     input: ModifyAvailabilityZoneGroupRequest,
-  ): Effect.Effect<ModifyAvailabilityZoneGroupResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyAvailabilityZoneGroupResult,
+    CommonAwsError
+  >;
   modifyCapacityReservation(
     input: ModifyCapacityReservationRequest,
-  ): Effect.Effect<ModifyCapacityReservationResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyCapacityReservationResult,
+    CommonAwsError
+  >;
   modifyCapacityReservationFleet(
     input: ModifyCapacityReservationFleetRequest,
-  ): Effect.Effect<ModifyCapacityReservationFleetResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyCapacityReservationFleetResult,
+    CommonAwsError
+  >;
   modifyClientVpnEndpoint(
     input: ModifyClientVpnEndpointRequest,
-  ): Effect.Effect<ModifyClientVpnEndpointResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyClientVpnEndpointResult,
+    CommonAwsError
+  >;
   modifyDefaultCreditSpecification(
     input: ModifyDefaultCreditSpecificationRequest,
-  ): Effect.Effect<ModifyDefaultCreditSpecificationResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyDefaultCreditSpecificationResult,
+    CommonAwsError
+  >;
   modifyEbsDefaultKmsKeyId(
     input: ModifyEbsDefaultKmsKeyIdRequest,
-  ): Effect.Effect<ModifyEbsDefaultKmsKeyIdResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyEbsDefaultKmsKeyIdResult,
+    CommonAwsError
+  >;
   modifyFleet(
     input: ModifyFleetRequest,
-  ): Effect.Effect<ModifyFleetResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyFleetResult,
+    CommonAwsError
+  >;
   modifyFpgaImageAttribute(
     input: ModifyFpgaImageAttributeRequest,
-  ): Effect.Effect<ModifyFpgaImageAttributeResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyFpgaImageAttributeResult,
+    CommonAwsError
+  >;
   modifyHosts(
     input: ModifyHostsRequest,
-  ): Effect.Effect<ModifyHostsResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyHostsResult,
+    CommonAwsError
+  >;
   modifyIdentityIdFormat(
     input: ModifyIdentityIdFormatRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   modifyIdFormat(
     input: ModifyIdFormatRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   modifyImageAttribute(
     input: ModifyImageAttributeRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   modifyInstanceAttribute(
     input: ModifyInstanceAttributeRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   modifyInstanceCapacityReservationAttributes(
     input: ModifyInstanceCapacityReservationAttributesRequest,
   ): Effect.Effect<
@@ -1963,94 +3491,184 @@ export declare class EC2 extends AWSServiceClient {
   >;
   modifyInstanceConnectEndpoint(
     input: ModifyInstanceConnectEndpointRequest,
-  ): Effect.Effect<ModifyInstanceConnectEndpointResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyInstanceConnectEndpointResult,
+    CommonAwsError
+  >;
   modifyInstanceCpuOptions(
     input: ModifyInstanceCpuOptionsRequest,
-  ): Effect.Effect<ModifyInstanceCpuOptionsResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyInstanceCpuOptionsResult,
+    CommonAwsError
+  >;
   modifyInstanceCreditSpecification(
     input: ModifyInstanceCreditSpecificationRequest,
-  ): Effect.Effect<ModifyInstanceCreditSpecificationResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyInstanceCreditSpecificationResult,
+    CommonAwsError
+  >;
   modifyInstanceEventStartTime(
     input: ModifyInstanceEventStartTimeRequest,
-  ): Effect.Effect<ModifyInstanceEventStartTimeResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyInstanceEventStartTimeResult,
+    CommonAwsError
+  >;
   modifyInstanceEventWindow(
     input: ModifyInstanceEventWindowRequest,
-  ): Effect.Effect<ModifyInstanceEventWindowResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyInstanceEventWindowResult,
+    CommonAwsError
+  >;
   modifyInstanceMaintenanceOptions(
     input: ModifyInstanceMaintenanceOptionsRequest,
-  ): Effect.Effect<ModifyInstanceMaintenanceOptionsResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyInstanceMaintenanceOptionsResult,
+    CommonAwsError
+  >;
   modifyInstanceMetadataDefaults(
     input: ModifyInstanceMetadataDefaultsRequest,
-  ): Effect.Effect<ModifyInstanceMetadataDefaultsResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyInstanceMetadataDefaultsResult,
+    CommonAwsError
+  >;
   modifyInstanceMetadataOptions(
     input: ModifyInstanceMetadataOptionsRequest,
-  ): Effect.Effect<ModifyInstanceMetadataOptionsResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyInstanceMetadataOptionsResult,
+    CommonAwsError
+  >;
   modifyInstanceNetworkPerformanceOptions(
     input: ModifyInstanceNetworkPerformanceRequest,
-  ): Effect.Effect<ModifyInstanceNetworkPerformanceResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyInstanceNetworkPerformanceResult,
+    CommonAwsError
+  >;
   modifyInstancePlacement(
     input: ModifyInstancePlacementRequest,
-  ): Effect.Effect<ModifyInstancePlacementResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyInstancePlacementResult,
+    CommonAwsError
+  >;
   modifyIpam(
     input: ModifyIpamRequest,
-  ): Effect.Effect<ModifyIpamResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyIpamResult,
+    CommonAwsError
+  >;
   modifyIpamPool(
     input: ModifyIpamPoolRequest,
-  ): Effect.Effect<ModifyIpamPoolResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyIpamPoolResult,
+    CommonAwsError
+  >;
   modifyIpamPrefixListResolver(
     input: ModifyIpamPrefixListResolverRequest,
-  ): Effect.Effect<ModifyIpamPrefixListResolverResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyIpamPrefixListResolverResult,
+    CommonAwsError
+  >;
   modifyIpamPrefixListResolverTarget(
     input: ModifyIpamPrefixListResolverTargetRequest,
-  ): Effect.Effect<ModifyIpamPrefixListResolverTargetResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyIpamPrefixListResolverTargetResult,
+    CommonAwsError
+  >;
   modifyIpamResourceCidr(
     input: ModifyIpamResourceCidrRequest,
-  ): Effect.Effect<ModifyIpamResourceCidrResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyIpamResourceCidrResult,
+    CommonAwsError
+  >;
   modifyIpamResourceDiscovery(
     input: ModifyIpamResourceDiscoveryRequest,
-  ): Effect.Effect<ModifyIpamResourceDiscoveryResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyIpamResourceDiscoveryResult,
+    CommonAwsError
+  >;
   modifyIpamScope(
     input: ModifyIpamScopeRequest,
-  ): Effect.Effect<ModifyIpamScopeResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyIpamScopeResult,
+    CommonAwsError
+  >;
   modifyLaunchTemplate(
     input: ModifyLaunchTemplateRequest,
-  ): Effect.Effect<ModifyLaunchTemplateResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyLaunchTemplateResult,
+    CommonAwsError
+  >;
   modifyLocalGatewayRoute(
     input: ModifyLocalGatewayRouteRequest,
-  ): Effect.Effect<ModifyLocalGatewayRouteResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyLocalGatewayRouteResult,
+    CommonAwsError
+  >;
   modifyManagedPrefixList(
     input: ModifyManagedPrefixListRequest,
-  ): Effect.Effect<ModifyManagedPrefixListResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyManagedPrefixListResult,
+    CommonAwsError
+  >;
   modifyNetworkInterfaceAttribute(
     input: ModifyNetworkInterfaceAttributeRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   modifyPrivateDnsNameOptions(
     input: ModifyPrivateDnsNameOptionsRequest,
-  ): Effect.Effect<ModifyPrivateDnsNameOptionsResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyPrivateDnsNameOptionsResult,
+    CommonAwsError
+  >;
   modifyPublicIpDnsNameOptions(
     input: ModifyPublicIpDnsNameOptionsRequest,
-  ): Effect.Effect<ModifyPublicIpDnsNameOptionsResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyPublicIpDnsNameOptionsResult,
+    CommonAwsError
+  >;
   modifyReservedInstances(
     input: ModifyReservedInstancesRequest,
-  ): Effect.Effect<ModifyReservedInstancesResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyReservedInstancesResult,
+    CommonAwsError
+  >;
   modifyRouteServer(
     input: ModifyRouteServerRequest,
-  ): Effect.Effect<ModifyRouteServerResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyRouteServerResult,
+    CommonAwsError
+  >;
   modifySecurityGroupRules(
     input: ModifySecurityGroupRulesRequest,
-  ): Effect.Effect<ModifySecurityGroupRulesResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifySecurityGroupRulesResult,
+    CommonAwsError
+  >;
   modifySnapshotAttribute(
     input: ModifySnapshotAttributeRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   modifySnapshotTier(
     input: ModifySnapshotTierRequest,
-  ): Effect.Effect<ModifySnapshotTierResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifySnapshotTierResult,
+    CommonAwsError
+  >;
   modifySpotFleetRequest(
     input: ModifySpotFleetRequestRequest,
-  ): Effect.Effect<ModifySpotFleetRequestResponse, CommonAwsError>;
+  ): Effect.Effect<
+    ModifySpotFleetRequestResponse,
+    CommonAwsError
+  >;
   modifySubnetAttribute(
     input: ModifySubnetAttributeRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   modifyTrafficMirrorFilterNetworkServices(
     input: ModifyTrafficMirrorFilterNetworkServicesRequest,
   ): Effect.Effect<
@@ -2059,13 +3677,22 @@ export declare class EC2 extends AWSServiceClient {
   >;
   modifyTrafficMirrorFilterRule(
     input: ModifyTrafficMirrorFilterRuleRequest,
-  ): Effect.Effect<ModifyTrafficMirrorFilterRuleResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyTrafficMirrorFilterRuleResult,
+    CommonAwsError
+  >;
   modifyTrafficMirrorSession(
     input: ModifyTrafficMirrorSessionRequest,
-  ): Effect.Effect<ModifyTrafficMirrorSessionResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyTrafficMirrorSessionResult,
+    CommonAwsError
+  >;
   modifyTransitGateway(
     input: ModifyTransitGatewayRequest,
-  ): Effect.Effect<ModifyTransitGatewayResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyTransitGatewayResult,
+    CommonAwsError
+  >;
   modifyTransitGatewayPrefixListReference(
     input: ModifyTransitGatewayPrefixListReferenceRequest,
   ): Effect.Effect<
@@ -2074,22 +3701,40 @@ export declare class EC2 extends AWSServiceClient {
   >;
   modifyTransitGatewayVpcAttachment(
     input: ModifyTransitGatewayVpcAttachmentRequest,
-  ): Effect.Effect<ModifyTransitGatewayVpcAttachmentResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyTransitGatewayVpcAttachmentResult,
+    CommonAwsError
+  >;
   modifyVerifiedAccessEndpoint(
     input: ModifyVerifiedAccessEndpointRequest,
-  ): Effect.Effect<ModifyVerifiedAccessEndpointResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyVerifiedAccessEndpointResult,
+    CommonAwsError
+  >;
   modifyVerifiedAccessEndpointPolicy(
     input: ModifyVerifiedAccessEndpointPolicyRequest,
-  ): Effect.Effect<ModifyVerifiedAccessEndpointPolicyResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyVerifiedAccessEndpointPolicyResult,
+    CommonAwsError
+  >;
   modifyVerifiedAccessGroup(
     input: ModifyVerifiedAccessGroupRequest,
-  ): Effect.Effect<ModifyVerifiedAccessGroupResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyVerifiedAccessGroupResult,
+    CommonAwsError
+  >;
   modifyVerifiedAccessGroupPolicy(
     input: ModifyVerifiedAccessGroupPolicyRequest,
-  ): Effect.Effect<ModifyVerifiedAccessGroupPolicyResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyVerifiedAccessGroupPolicyResult,
+    CommonAwsError
+  >;
   modifyVerifiedAccessInstance(
     input: ModifyVerifiedAccessInstanceRequest,
-  ): Effect.Effect<ModifyVerifiedAccessInstanceResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyVerifiedAccessInstanceResult,
+    CommonAwsError
+  >;
   modifyVerifiedAccessInstanceLoggingConfiguration(
     input: ModifyVerifiedAccessInstanceLoggingConfigurationRequest,
   ): Effect.Effect<
@@ -2098,25 +3743,46 @@ export declare class EC2 extends AWSServiceClient {
   >;
   modifyVerifiedAccessTrustProvider(
     input: ModifyVerifiedAccessTrustProviderRequest,
-  ): Effect.Effect<ModifyVerifiedAccessTrustProviderResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyVerifiedAccessTrustProviderResult,
+    CommonAwsError
+  >;
   modifyVolume(
     input: ModifyVolumeRequest,
-  ): Effect.Effect<ModifyVolumeResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyVolumeResult,
+    CommonAwsError
+  >;
   modifyVolumeAttribute(
     input: ModifyVolumeAttributeRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   modifyVpcAttribute(
     input: ModifyVpcAttributeRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   modifyVpcBlockPublicAccessExclusion(
     input: ModifyVpcBlockPublicAccessExclusionRequest,
-  ): Effect.Effect<ModifyVpcBlockPublicAccessExclusionResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyVpcBlockPublicAccessExclusionResult,
+    CommonAwsError
+  >;
   modifyVpcBlockPublicAccessOptions(
     input: ModifyVpcBlockPublicAccessOptionsRequest,
-  ): Effect.Effect<ModifyVpcBlockPublicAccessOptionsResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyVpcBlockPublicAccessOptionsResult,
+    CommonAwsError
+  >;
   modifyVpcEndpoint(
     input: ModifyVpcEndpointRequest,
-  ): Effect.Effect<ModifyVpcEndpointResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyVpcEndpointResult,
+    CommonAwsError
+  >;
   modifyVpcEndpointConnectionNotification(
     input: ModifyVpcEndpointConnectionNotificationRequest,
   ): Effect.Effect<
@@ -2125,7 +3791,10 @@ export declare class EC2 extends AWSServiceClient {
   >;
   modifyVpcEndpointServiceConfiguration(
     input: ModifyVpcEndpointServiceConfigurationRequest,
-  ): Effect.Effect<ModifyVpcEndpointServiceConfigurationResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyVpcEndpointServiceConfigurationResult,
+    CommonAwsError
+  >;
   modifyVpcEndpointServicePayerResponsibility(
     input: ModifyVpcEndpointServicePayerResponsibilityRequest,
   ): Effect.Effect<
@@ -2134,70 +3803,136 @@ export declare class EC2 extends AWSServiceClient {
   >;
   modifyVpcEndpointServicePermissions(
     input: ModifyVpcEndpointServicePermissionsRequest,
-  ): Effect.Effect<ModifyVpcEndpointServicePermissionsResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyVpcEndpointServicePermissionsResult,
+    CommonAwsError
+  >;
   modifyVpcPeeringConnectionOptions(
     input: ModifyVpcPeeringConnectionOptionsRequest,
-  ): Effect.Effect<ModifyVpcPeeringConnectionOptionsResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyVpcPeeringConnectionOptionsResult,
+    CommonAwsError
+  >;
   modifyVpcTenancy(
     input: ModifyVpcTenancyRequest,
-  ): Effect.Effect<ModifyVpcTenancyResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyVpcTenancyResult,
+    CommonAwsError
+  >;
   modifyVpnConnection(
     input: ModifyVpnConnectionRequest,
-  ): Effect.Effect<ModifyVpnConnectionResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyVpnConnectionResult,
+    CommonAwsError
+  >;
   modifyVpnConnectionOptions(
     input: ModifyVpnConnectionOptionsRequest,
-  ): Effect.Effect<ModifyVpnConnectionOptionsResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyVpnConnectionOptionsResult,
+    CommonAwsError
+  >;
   modifyVpnTunnelCertificate(
     input: ModifyVpnTunnelCertificateRequest,
-  ): Effect.Effect<ModifyVpnTunnelCertificateResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyVpnTunnelCertificateResult,
+    CommonAwsError
+  >;
   modifyVpnTunnelOptions(
     input: ModifyVpnTunnelOptionsRequest,
-  ): Effect.Effect<ModifyVpnTunnelOptionsResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyVpnTunnelOptionsResult,
+    CommonAwsError
+  >;
   monitorInstances(
     input: MonitorInstancesRequest,
-  ): Effect.Effect<MonitorInstancesResult, CommonAwsError>;
+  ): Effect.Effect<
+    MonitorInstancesResult,
+    CommonAwsError
+  >;
   moveAddressToVpc(
     input: MoveAddressToVpcRequest,
-  ): Effect.Effect<MoveAddressToVpcResult, CommonAwsError>;
+  ): Effect.Effect<
+    MoveAddressToVpcResult,
+    CommonAwsError
+  >;
   moveByoipCidrToIpam(
     input: MoveByoipCidrToIpamRequest,
-  ): Effect.Effect<MoveByoipCidrToIpamResult, CommonAwsError>;
+  ): Effect.Effect<
+    MoveByoipCidrToIpamResult,
+    CommonAwsError
+  >;
   moveCapacityReservationInstances(
     input: MoveCapacityReservationInstancesRequest,
-  ): Effect.Effect<MoveCapacityReservationInstancesResult, CommonAwsError>;
+  ): Effect.Effect<
+    MoveCapacityReservationInstancesResult,
+    CommonAwsError
+  >;
   provisionByoipCidr(
     input: ProvisionByoipCidrRequest,
-  ): Effect.Effect<ProvisionByoipCidrResult, CommonAwsError>;
+  ): Effect.Effect<
+    ProvisionByoipCidrResult,
+    CommonAwsError
+  >;
   provisionIpamByoasn(
     input: ProvisionIpamByoasnRequest,
-  ): Effect.Effect<ProvisionIpamByoasnResult, CommonAwsError>;
+  ): Effect.Effect<
+    ProvisionIpamByoasnResult,
+    CommonAwsError
+  >;
   provisionIpamPoolCidr(
     input: ProvisionIpamPoolCidrRequest,
-  ): Effect.Effect<ProvisionIpamPoolCidrResult, CommonAwsError>;
+  ): Effect.Effect<
+    ProvisionIpamPoolCidrResult,
+    CommonAwsError
+  >;
   provisionPublicIpv4PoolCidr(
     input: ProvisionPublicIpv4PoolCidrRequest,
-  ): Effect.Effect<ProvisionPublicIpv4PoolCidrResult, CommonAwsError>;
+  ): Effect.Effect<
+    ProvisionPublicIpv4PoolCidrResult,
+    CommonAwsError
+  >;
   purchaseCapacityBlock(
     input: PurchaseCapacityBlockRequest,
-  ): Effect.Effect<PurchaseCapacityBlockResult, CommonAwsError>;
+  ): Effect.Effect<
+    PurchaseCapacityBlockResult,
+    CommonAwsError
+  >;
   purchaseCapacityBlockExtension(
     input: PurchaseCapacityBlockExtensionRequest,
-  ): Effect.Effect<PurchaseCapacityBlockExtensionResult, CommonAwsError>;
+  ): Effect.Effect<
+    PurchaseCapacityBlockExtensionResult,
+    CommonAwsError
+  >;
   purchaseHostReservation(
     input: PurchaseHostReservationRequest,
-  ): Effect.Effect<PurchaseHostReservationResult, CommonAwsError>;
+  ): Effect.Effect<
+    PurchaseHostReservationResult,
+    CommonAwsError
+  >;
   purchaseReservedInstancesOffering(
     input: PurchaseReservedInstancesOfferingRequest,
-  ): Effect.Effect<PurchaseReservedInstancesOfferingResult, CommonAwsError>;
+  ): Effect.Effect<
+    PurchaseReservedInstancesOfferingResult,
+    CommonAwsError
+  >;
   purchaseScheduledInstances(
     input: PurchaseScheduledInstancesRequest,
-  ): Effect.Effect<PurchaseScheduledInstancesResult, CommonAwsError>;
+  ): Effect.Effect<
+    PurchaseScheduledInstancesResult,
+    CommonAwsError
+  >;
   rebootInstances(
     input: RebootInstancesRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   registerImage(
     input: RegisterImageRequest,
-  ): Effect.Effect<RegisterImageResult, CommonAwsError>;
+  ): Effect.Effect<
+    RegisterImageResult,
+    CommonAwsError
+  >;
   registerInstanceEventNotificationAttributes(
     input: RegisterInstanceEventNotificationAttributesRequest,
   ): Effect.Effect<
@@ -2230,28 +3965,52 @@ export declare class EC2 extends AWSServiceClient {
   >;
   rejectTransitGatewayPeeringAttachment(
     input: RejectTransitGatewayPeeringAttachmentRequest,
-  ): Effect.Effect<RejectTransitGatewayPeeringAttachmentResult, CommonAwsError>;
+  ): Effect.Effect<
+    RejectTransitGatewayPeeringAttachmentResult,
+    CommonAwsError
+  >;
   rejectTransitGatewayVpcAttachment(
     input: RejectTransitGatewayVpcAttachmentRequest,
-  ): Effect.Effect<RejectTransitGatewayVpcAttachmentResult, CommonAwsError>;
+  ): Effect.Effect<
+    RejectTransitGatewayVpcAttachmentResult,
+    CommonAwsError
+  >;
   rejectVpcEndpointConnections(
     input: RejectVpcEndpointConnectionsRequest,
-  ): Effect.Effect<RejectVpcEndpointConnectionsResult, CommonAwsError>;
+  ): Effect.Effect<
+    RejectVpcEndpointConnectionsResult,
+    CommonAwsError
+  >;
   rejectVpcPeeringConnection(
     input: RejectVpcPeeringConnectionRequest,
-  ): Effect.Effect<RejectVpcPeeringConnectionResult, CommonAwsError>;
+  ): Effect.Effect<
+    RejectVpcPeeringConnectionResult,
+    CommonAwsError
+  >;
   releaseAddress(
     input: ReleaseAddressRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   releaseHosts(
     input: ReleaseHostsRequest,
-  ): Effect.Effect<ReleaseHostsResult, CommonAwsError>;
+  ): Effect.Effect<
+    ReleaseHostsResult,
+    CommonAwsError
+  >;
   releaseIpamPoolAllocation(
     input: ReleaseIpamPoolAllocationRequest,
-  ): Effect.Effect<ReleaseIpamPoolAllocationResult, CommonAwsError>;
+  ): Effect.Effect<
+    ReleaseIpamPoolAllocationResult,
+    CommonAwsError
+  >;
   replaceIamInstanceProfileAssociation(
     input: ReplaceIamInstanceProfileAssociationRequest,
-  ): Effect.Effect<ReplaceIamInstanceProfileAssociationResult, CommonAwsError>;
+  ): Effect.Effect<
+    ReplaceIamInstanceProfileAssociationResult,
+    CommonAwsError
+  >;
   replaceImageCriteriaInAllowedImagesSettings(
     input: ReplaceImageCriteriaInAllowedImagesSettingsRequest,
   ): Effect.Effect<
@@ -2260,98 +4019,196 @@ export declare class EC2 extends AWSServiceClient {
   >;
   replaceNetworkAclAssociation(
     input: ReplaceNetworkAclAssociationRequest,
-  ): Effect.Effect<ReplaceNetworkAclAssociationResult, CommonAwsError>;
+  ): Effect.Effect<
+    ReplaceNetworkAclAssociationResult,
+    CommonAwsError
+  >;
   replaceNetworkAclEntry(
     input: ReplaceNetworkAclEntryRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
-  replaceRoute(input: ReplaceRouteRequest): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
+  replaceRoute(
+    input: ReplaceRouteRequest,
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   replaceRouteTableAssociation(
     input: ReplaceRouteTableAssociationRequest,
-  ): Effect.Effect<ReplaceRouteTableAssociationResult, CommonAwsError>;
+  ): Effect.Effect<
+    ReplaceRouteTableAssociationResult,
+    CommonAwsError
+  >;
   replaceTransitGatewayRoute(
     input: ReplaceTransitGatewayRouteRequest,
-  ): Effect.Effect<ReplaceTransitGatewayRouteResult, CommonAwsError>;
+  ): Effect.Effect<
+    ReplaceTransitGatewayRouteResult,
+    CommonAwsError
+  >;
   replaceVpnTunnel(
     input: ReplaceVpnTunnelRequest,
-  ): Effect.Effect<ReplaceVpnTunnelResult, CommonAwsError>;
+  ): Effect.Effect<
+    ReplaceVpnTunnelResult,
+    CommonAwsError
+  >;
   reportInstanceStatus(
     input: ReportInstanceStatusRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   requestSpotFleet(
     input: RequestSpotFleetRequest,
-  ): Effect.Effect<RequestSpotFleetResponse, CommonAwsError>;
+  ): Effect.Effect<
+    RequestSpotFleetResponse,
+    CommonAwsError
+  >;
   requestSpotInstances(
     input: RequestSpotInstancesRequest,
-  ): Effect.Effect<RequestSpotInstancesResult, CommonAwsError>;
+  ): Effect.Effect<
+    RequestSpotInstancesResult,
+    CommonAwsError
+  >;
   resetAddressAttribute(
     input: ResetAddressAttributeRequest,
-  ): Effect.Effect<ResetAddressAttributeResult, CommonAwsError>;
+  ): Effect.Effect<
+    ResetAddressAttributeResult,
+    CommonAwsError
+  >;
   resetEbsDefaultKmsKeyId(
     input: ResetEbsDefaultKmsKeyIdRequest,
-  ): Effect.Effect<ResetEbsDefaultKmsKeyIdResult, CommonAwsError>;
+  ): Effect.Effect<
+    ResetEbsDefaultKmsKeyIdResult,
+    CommonAwsError
+  >;
   resetFpgaImageAttribute(
     input: ResetFpgaImageAttributeRequest,
-  ): Effect.Effect<ResetFpgaImageAttributeResult, CommonAwsError>;
+  ): Effect.Effect<
+    ResetFpgaImageAttributeResult,
+    CommonAwsError
+  >;
   resetImageAttribute(
     input: ResetImageAttributeRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   resetInstanceAttribute(
     input: ResetInstanceAttributeRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   resetNetworkInterfaceAttribute(
     input: ResetNetworkInterfaceAttributeRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   resetSnapshotAttribute(
     input: ResetSnapshotAttributeRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   restoreAddressToClassic(
     input: RestoreAddressToClassicRequest,
-  ): Effect.Effect<RestoreAddressToClassicResult, CommonAwsError>;
+  ): Effect.Effect<
+    RestoreAddressToClassicResult,
+    CommonAwsError
+  >;
   restoreImageFromRecycleBin(
     input: RestoreImageFromRecycleBinRequest,
-  ): Effect.Effect<RestoreImageFromRecycleBinResult, CommonAwsError>;
+  ): Effect.Effect<
+    RestoreImageFromRecycleBinResult,
+    CommonAwsError
+  >;
   restoreManagedPrefixListVersion(
     input: RestoreManagedPrefixListVersionRequest,
-  ): Effect.Effect<RestoreManagedPrefixListVersionResult, CommonAwsError>;
+  ): Effect.Effect<
+    RestoreManagedPrefixListVersionResult,
+    CommonAwsError
+  >;
   restoreSnapshotFromRecycleBin(
     input: RestoreSnapshotFromRecycleBinRequest,
-  ): Effect.Effect<RestoreSnapshotFromRecycleBinResult, CommonAwsError>;
+  ): Effect.Effect<
+    RestoreSnapshotFromRecycleBinResult,
+    CommonAwsError
+  >;
   restoreSnapshotTier(
     input: RestoreSnapshotTierRequest,
-  ): Effect.Effect<RestoreSnapshotTierResult, CommonAwsError>;
+  ): Effect.Effect<
+    RestoreSnapshotTierResult,
+    CommonAwsError
+  >;
   revokeClientVpnIngress(
     input: RevokeClientVpnIngressRequest,
-  ): Effect.Effect<RevokeClientVpnIngressResult, CommonAwsError>;
+  ): Effect.Effect<
+    RevokeClientVpnIngressResult,
+    CommonAwsError
+  >;
   revokeSecurityGroupEgress(
     input: RevokeSecurityGroupEgressRequest,
-  ): Effect.Effect<RevokeSecurityGroupEgressResult, CommonAwsError>;
+  ): Effect.Effect<
+    RevokeSecurityGroupEgressResult,
+    CommonAwsError
+  >;
   revokeSecurityGroupIngress(
     input: RevokeSecurityGroupIngressRequest,
-  ): Effect.Effect<RevokeSecurityGroupIngressResult, CommonAwsError>;
+  ): Effect.Effect<
+    RevokeSecurityGroupIngressResult,
+    CommonAwsError
+  >;
   runInstances(
     input: RunInstancesRequest,
-  ): Effect.Effect<Reservation, CommonAwsError>;
+  ): Effect.Effect<
+    Reservation,
+    CommonAwsError
+  >;
   runScheduledInstances(
     input: RunScheduledInstancesRequest,
-  ): Effect.Effect<RunScheduledInstancesResult, CommonAwsError>;
+  ): Effect.Effect<
+    RunScheduledInstancesResult,
+    CommonAwsError
+  >;
   searchLocalGatewayRoutes(
     input: SearchLocalGatewayRoutesRequest,
-  ): Effect.Effect<SearchLocalGatewayRoutesResult, CommonAwsError>;
+  ): Effect.Effect<
+    SearchLocalGatewayRoutesResult,
+    CommonAwsError
+  >;
   searchTransitGatewayMulticastGroups(
     input: SearchTransitGatewayMulticastGroupsRequest,
-  ): Effect.Effect<SearchTransitGatewayMulticastGroupsResult, CommonAwsError>;
+  ): Effect.Effect<
+    SearchTransitGatewayMulticastGroupsResult,
+    CommonAwsError
+  >;
   searchTransitGatewayRoutes(
     input: SearchTransitGatewayRoutesRequest,
-  ): Effect.Effect<SearchTransitGatewayRoutesResult, CommonAwsError>;
+  ): Effect.Effect<
+    SearchTransitGatewayRoutesResult,
+    CommonAwsError
+  >;
   sendDiagnosticInterrupt(
     input: SendDiagnosticInterruptRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   startDeclarativePoliciesReport(
     input: StartDeclarativePoliciesReportRequest,
-  ): Effect.Effect<StartDeclarativePoliciesReportResult, CommonAwsError>;
+  ): Effect.Effect<
+    StartDeclarativePoliciesReportResult,
+    CommonAwsError
+  >;
   startInstances(
     input: StartInstancesRequest,
-  ): Effect.Effect<StartInstancesResult, CommonAwsError>;
+  ): Effect.Effect<
+    StartInstancesResult,
+    CommonAwsError
+  >;
   startNetworkInsightsAccessScopeAnalysis(
     input: StartNetworkInsightsAccessScopeAnalysisRequest,
   ): Effect.Effect<
@@ -2360,7 +4217,10 @@ export declare class EC2 extends AWSServiceClient {
   >;
   startNetworkInsightsAnalysis(
     input: StartNetworkInsightsAnalysisRequest,
-  ): Effect.Effect<StartNetworkInsightsAnalysisResult, CommonAwsError>;
+  ): Effect.Effect<
+    StartNetworkInsightsAnalysisResult,
+    CommonAwsError
+  >;
   startVpcEndpointServicePrivateDnsVerification(
     input: StartVpcEndpointServicePrivateDnsVerificationRequest,
   ): Effect.Effect<
@@ -2369,28 +4229,52 @@ export declare class EC2 extends AWSServiceClient {
   >;
   stopInstances(
     input: StopInstancesRequest,
-  ): Effect.Effect<StopInstancesResult, CommonAwsError>;
+  ): Effect.Effect<
+    StopInstancesResult,
+    CommonAwsError
+  >;
   terminateClientVpnConnections(
     input: TerminateClientVpnConnectionsRequest,
-  ): Effect.Effect<TerminateClientVpnConnectionsResult, CommonAwsError>;
+  ): Effect.Effect<
+    TerminateClientVpnConnectionsResult,
+    CommonAwsError
+  >;
   terminateInstances(
     input: TerminateInstancesRequest,
-  ): Effect.Effect<TerminateInstancesResult, CommonAwsError>;
+  ): Effect.Effect<
+    TerminateInstancesResult,
+    CommonAwsError
+  >;
   unassignIpv6Addresses(
     input: UnassignIpv6AddressesRequest,
-  ): Effect.Effect<UnassignIpv6AddressesResult, CommonAwsError>;
+  ): Effect.Effect<
+    UnassignIpv6AddressesResult,
+    CommonAwsError
+  >;
   unassignPrivateIpAddresses(
     input: UnassignPrivateIpAddressesRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   unassignPrivateNatGatewayAddress(
     input: UnassignPrivateNatGatewayAddressRequest,
-  ): Effect.Effect<UnassignPrivateNatGatewayAddressResult, CommonAwsError>;
+  ): Effect.Effect<
+    UnassignPrivateNatGatewayAddressResult,
+    CommonAwsError
+  >;
   unlockSnapshot(
     input: UnlockSnapshotRequest,
-  ): Effect.Effect<UnlockSnapshotResult, CommonAwsError>;
+  ): Effect.Effect<
+    UnlockSnapshotResult,
+    CommonAwsError
+  >;
   unmonitorInstances(
     input: UnmonitorInstancesRequest,
-  ): Effect.Effect<UnmonitorInstancesResult, CommonAwsError>;
+  ): Effect.Effect<
+    UnmonitorInstancesResult,
+    CommonAwsError
+  >;
   updateCapacityManagerOrganizationsAccess(
     input: UpdateCapacityManagerOrganizationsAccessRequest,
   ): Effect.Effect<
@@ -2411,7 +4295,10 @@ export declare class EC2 extends AWSServiceClient {
   >;
   withdrawByoipCidr(
     input: WithdrawByoipCidrRequest,
-  ): Effect.Effect<WithdrawByoipCidrResult, CommonAwsError>;
+  ): Effect.Effect<
+    WithdrawByoipCidrResult,
+    CommonAwsError
+  >;
 }
 
 export declare class Ec2 extends EC2 {}
@@ -2424,26 +4311,9 @@ export interface AcceleratorCountRequest {
   Min?: number;
   Max?: number;
 }
-export type AcceleratorManufacturer =
-  | "amazon-web-services"
-  | "amd"
-  | "nvidia"
-  | "xilinx"
-  | "habana";
+export type AcceleratorManufacturer = "amazon-web-services" | "amd" | "nvidia" | "xilinx" | "habana";
 export type AcceleratorManufacturerSet = Array<AcceleratorManufacturer>;
-export type AcceleratorName =
-  | "a100"
-  | "inferentia"
-  | "k520"
-  | "k80"
-  | "m60"
-  | "radeon-pro-v520"
-  | "t4"
-  | "vu9p"
-  | "v100"
-  | "a10g"
-  | "h100"
-  | "t4g";
+export type AcceleratorName = "a100" | "inferentia" | "k520" | "k80" | "m60" | "radeon-pro-v520" | "t4" | "vu9p" | "v100" | "a10g" | "h100" | "t4g";
 export type AcceleratorNameSet = Array<AcceleratorName>;
 export interface AcceleratorTotalMemoryMiB {
   Min?: number;
@@ -2566,11 +4436,7 @@ export interface ActiveVpnTunnelStatus {
   ProvisioningStatus?: VpnTunnelProvisioningStatus;
   ProvisioningStatusReason?: string;
 }
-export type ActivityStatus =
-  | "error"
-  | "pending_fulfillment"
-  | "pending_termination"
-  | "fulfilled";
+export type ActivityStatus = "error" | "pending_fulfillment" | "pending_termination" | "fulfilled";
 export interface AddedPrincipal {
   PrincipalType?: PrincipalType;
   Principal?: string;
@@ -2585,8 +4451,7 @@ export type AddIpamOperatingRegionSet = Array<AddIpamOperatingRegion>;
 export interface AddIpamOrganizationalUnitExclusion {
   OrganizationsEntityPath?: string;
 }
-export type AddIpamOrganizationalUnitExclusionSet =
-  Array<AddIpamOrganizationalUnitExclusion>;
+export type AddIpamOrganizationalUnitExclusionSet = Array<AddIpamOrganizationalUnitExclusion>;
 export interface AdditionalDetail {
   AdditionalDetailType?: string;
   Component?: AnalysisComponent;
@@ -2708,19 +4573,8 @@ export type AllocationId = string;
 
 export type AllocationIdList = Array<string>;
 export type AllocationIds = Array<string>;
-export type AllocationState =
-  | "available"
-  | "under-assessment"
-  | "permanent-failure"
-  | "released"
-  | "released-permanent-failure"
-  | "pending";
-export type AllocationStrategy =
-  | "lowestPrice"
-  | "diversified"
-  | "capacityOptimized"
-  | "capacityOptimizedPrioritized"
-  | "priceCapacityOptimized";
+export type AllocationState = "available" | "under-assessment" | "permanent-failure" | "released" | "released-permanent-failure" | "pending";
+export type AllocationStrategy = "lowestPrice" | "diversified" | "capacityOptimized" | "capacityOptimizedPrioritized" | "priceCapacityOptimized";
 export type AllocationType = "used" | "future";
 export type AllowedImagesSettingsDisabledState = "disabled";
 export type AllowedImagesSettingsEnabledState = "enabled" | "audit-mode";
@@ -2809,20 +4663,10 @@ export interface ApplySecurityGroupsToClientVpnTargetNetworkRequest {
 export interface ApplySecurityGroupsToClientVpnTargetNetworkResult {
   SecurityGroupIds?: Array<string>;
 }
-export type ArchitectureType =
-  | "i386"
-  | "x86_64"
-  | "arm64"
-  | "x86_64_mac"
-  | "arm64_mac";
+export type ArchitectureType = "i386" | "x86_64" | "arm64" | "x86_64_mac" | "arm64_mac";
 export type ArchitectureTypeList = Array<ArchitectureType>;
 export type ArchitectureTypeSet = Array<ArchitectureType>;
-export type ArchitectureValues =
-  | "i386"
-  | "x86_64"
-  | "arm64"
-  | "x86_64_mac"
-  | "arm64_mac";
+export type ArchitectureValues = "i386" | "x86_64" | "arm64" | "x86_64_mac" | "arm64_mac";
 export type ArnList = Array<string>;
 export interface AsnAssociation {
   Asn?: string;
@@ -2831,24 +4675,12 @@ export interface AsnAssociation {
   State?: AsnAssociationState;
 }
 export type AsnAssociationSet = Array<AsnAssociation>;
-export type AsnAssociationState =
-  | "disassociated"
-  | "failed-disassociation"
-  | "failed-association"
-  | "pending-disassociation"
-  | "pending-association"
-  | "associated";
+export type AsnAssociationState = "disassociated" | "failed-disassociation" | "failed-association" | "pending-disassociation" | "pending-association" | "associated";
 export interface AsnAuthorizationContext {
   Message: string;
   Signature: string;
 }
-export type AsnState =
-  | "deprovisioned"
-  | "failed-deprovision"
-  | "failed-provision"
-  | "pending-deprovision"
-  | "pending-provision"
-  | "provisioned";
+export type AsnState = "deprovisioned" | "failed-deprovision" | "failed-provision" | "pending-deprovision" | "pending-provision" | "provisioned";
 export type AsPath = Array<string>;
 export type AssetId = string;
 
@@ -3090,12 +4922,7 @@ export interface AssociationStatus {
   Code?: AssociationStatusCode;
   Message?: string;
 }
-export type AssociationStatusCode =
-  | "associating"
-  | "associated"
-  | "association-failed"
-  | "disassociating"
-  | "disassociated";
+export type AssociationStatusCode = "associating" | "associated" | "association-failed" | "disassociating" | "disassociated";
 export interface AthenaIntegration {
   IntegrationResultS3DestinationArn: string;
   PartitionLoadFrequency: PartitionLoadFrequency;
@@ -3125,11 +4952,7 @@ export interface AttachmentEnaSrdUdpSpecification {
   EnaSrdUdpEnabled?: boolean;
 }
 export type AttachmentLimitType = "shared" | "dedicated";
-export type AttachmentStatus =
-  | "attaching"
-  | "attached"
-  | "detaching"
-  | "detached";
+export type AttachmentStatus = "attaching" | "attached" | "detaching" | "detached";
 export interface AttachNetworkInterfaceRequest {
   NetworkCardIndex?: number;
   EnaSrdSpecification?: EnaSrdSpecification;
@@ -3264,16 +5087,8 @@ export interface AvailabilityZoneMessage {
 export type AvailabilityZoneMessageList = Array<AvailabilityZoneMessage>;
 export type AvailabilityZoneName = string;
 
-export type AvailabilityZoneOptInStatus =
-  | "opt-in-not-required"
-  | "opted-in"
-  | "not-opted-in";
-export type AvailabilityZoneState =
-  | "available"
-  | "information"
-  | "impaired"
-  | "unavailable"
-  | "constrained";
+export type AvailabilityZoneOptInStatus = "opt-in-not-required" | "opted-in" | "not-opted-in";
+export type AvailabilityZoneState = "available" | "information" | "impaired" | "unavailable" | "constrained";
 export type AvailabilityZoneStringList = Array<string>;
 export interface AvailableCapacity {
   AvailableInstanceCapacity?: Array<InstanceCapacity>;
@@ -3307,14 +5122,7 @@ export interface BaselinePerformanceFactorsRequest {
 }
 export type BaselineThroughputInMBps = number;
 
-export type BatchState =
-  | "submitted"
-  | "active"
-  | "cancelled"
-  | "failed"
-  | "cancelled_running"
-  | "cancelled_terminating"
-  | "modifying";
+export type BatchState = "submitted" | "active" | "cancelled" | "failed" | "cancelled_running" | "cancelled_terminating" | "modifying";
 export type BgpStatus = "up" | "down";
 export type BillingProductList = Array<string>;
 export type Blob = Uint8Array | string;
@@ -3337,10 +5145,7 @@ export interface BlockDeviceMappingResponse {
   NoDevice?: string;
 }
 export type BlockDeviceMappingResponseList = Array<BlockDeviceMappingResponse>;
-export type BlockPublicAccessMode =
-  | "off"
-  | "block-bidirectional"
-  | "block-ingress";
+export type BlockPublicAccessMode = "off" | "block-bidirectional" | "block-ingress";
 export interface BlockPublicAccessStates {
   InternetGatewayBlockMode?: BlockPublicAccessMode;
 }
@@ -3383,14 +5188,7 @@ export interface BundleTaskError {
   Message?: string;
 }
 export type BundleTaskList = Array<BundleTask>;
-export type BundleTaskState =
-  | "pending"
-  | "waiting-for-shutdown"
-  | "bundling"
-  | "storing"
-  | "cancelling"
-  | "complete"
-  | "failed";
+export type BundleTaskState = "pending" | "waiting-for-shutdown" | "bundling" | "storing" | "cancelling" | "complete" | "failed";
 export type BurstablePerformance = "included" | "required" | "excluded";
 export type BurstablePerformanceFlag = boolean;
 
@@ -3410,21 +5208,9 @@ export interface ByoipCidr {
   NetworkBorderGroup?: string;
 }
 export type ByoipCidrSet = Array<ByoipCidr>;
-export type ByoipCidrState =
-  | "advertised"
-  | "deprovisioned"
-  | "failed-deprovision"
-  | "failed-provision"
-  | "pending-deprovision"
-  | "pending-provision"
-  | "provisioned"
-  | "provisioned-not-publicly-advertisable";
+export type ByoipCidrState = "advertised" | "deprovisioned" | "failed-deprovision" | "failed-provision" | "pending-deprovision" | "pending-provision" | "provisioned" | "provisioned-not-publicly-advertisable";
 export type CallerRole = "odcr-owner" | "unused-reservation-billing-owner";
-export type CancelBatchErrorCode =
-  | "fleetRequestIdDoesNotExist"
-  | "fleetRequestIdMalformed"
-  | "fleetRequestNotInCancellableState"
-  | "unexpectedError";
+export type CancelBatchErrorCode = "fleetRequestIdDoesNotExist" | "fleetRequestIdMalformed" | "fleetRequestNotInCancellableState" | "unexpectedError";
 export interface CancelBundleTaskRequest {
   BundleId: string;
   DryRun?: boolean;
@@ -3491,8 +5277,7 @@ export interface CancelledSpotInstanceRequest {
   SpotInstanceRequestId?: string;
   State?: CancelSpotInstanceRequestState;
 }
-export type CancelledSpotInstanceRequestList =
-  Array<CancelledSpotInstanceRequest>;
+export type CancelledSpotInstanceRequestList = Array<CancelledSpotInstanceRequest>;
 export interface CancelReservedInstancesListingRequest {
   ReservedInstancesListingId: string;
 }
@@ -3507,8 +5292,7 @@ export interface CancelSpotFleetRequestsErrorItem {
   Error?: CancelSpotFleetRequestsError;
   SpotFleetRequestId?: string;
 }
-export type CancelSpotFleetRequestsErrorSet =
-  Array<CancelSpotFleetRequestsErrorItem>;
+export type CancelSpotFleetRequestsErrorSet = Array<CancelSpotFleetRequestsErrorItem>;
 export interface CancelSpotFleetRequestsRequest {
   DryRun?: boolean;
   SpotFleetRequestIds: Array<string>;
@@ -3523,8 +5307,7 @@ export interface CancelSpotFleetRequestsSuccessItem {
   PreviousSpotFleetRequestState?: BatchState;
   SpotFleetRequestId?: string;
 }
-export type CancelSpotFleetRequestsSuccessSet =
-  Array<CancelSpotFleetRequestsSuccessItem>;
+export type CancelSpotFleetRequestsSuccessSet = Array<CancelSpotFleetRequestsSuccessItem>;
 export interface CancelSpotInstanceRequestsRequest {
   DryRun?: boolean;
   SpotInstanceRequestIds: Array<string>;
@@ -3532,12 +5315,7 @@ export interface CancelSpotInstanceRequestsRequest {
 export interface CancelSpotInstanceRequestsResult {
   CancelledSpotInstanceRequests?: Array<CancelledSpotInstanceRequest>;
 }
-export type CancelSpotInstanceRequestState =
-  | "active"
-  | "open"
-  | "closed"
-  | "cancelled"
-  | "completed";
+export type CancelSpotInstanceRequestState = "active" | "open" | "closed" | "cancelled" | "completed";
 export interface CapacityAllocation {
   AllocationType?: AllocationType;
   Count?: number;
@@ -3584,20 +5362,13 @@ export interface CapacityBlockExtensionOffering {
   CurrencyCode?: string;
   Tenancy?: CapacityReservationTenancy;
 }
-export type CapacityBlockExtensionOfferingSet =
-  Array<CapacityBlockExtensionOffering>;
+export type CapacityBlockExtensionOfferingSet = Array<CapacityBlockExtensionOffering>;
 export type CapacityBlockExtensionSet = Array<CapacityBlockExtension>;
-export type CapacityBlockExtensionStatus =
-  | "payment-pending"
-  | "payment-failed"
-  | "payment-succeeded";
+export type CapacityBlockExtensionStatus = "payment-pending" | "payment-failed" | "payment-succeeded";
 export type CapacityBlockId = string;
 
 export type CapacityBlockIds = Array<string>;
-export type CapacityBlockInterconnectStatus =
-  | "ok"
-  | "impaired"
-  | "insufficient-data";
+export type CapacityBlockInterconnectStatus = "ok" | "impaired" | "insufficient-data";
 export interface CapacityBlockOffering {
   CapacityBlockOfferingId?: string;
   InstanceType?: string;
@@ -3614,15 +5385,7 @@ export interface CapacityBlockOffering {
   CapacityBlockDurationMinutes?: number;
 }
 export type CapacityBlockOfferingSet = Array<CapacityBlockOffering>;
-export type CapacityBlockResourceState =
-  | "active"
-  | "expired"
-  | "unavailable"
-  | "cancelled"
-  | "failed"
-  | "scheduled"
-  | "payment-pending"
-  | "payment-failed";
+export type CapacityBlockResourceState = "active" | "expired" | "unavailable" | "cancelled" | "failed" | "scheduled" | "payment-pending" | "payment-failed";
 export type CapacityBlockSet = Array<CapacityBlock>;
 export interface CapacityBlockStatus {
   CapacityBlockId?: string;
@@ -3653,13 +5416,8 @@ export interface CapacityManagerDataExportResponse {
   LatestDeliveryTime?: Date | string;
   Tags?: Array<Tag>;
 }
-export type CapacityManagerDataExportResponseSet =
-  Array<CapacityManagerDataExportResponse>;
-export type CapacityManagerDataExportStatus =
-  | "pending"
-  | "in-progress"
-  | "delivered"
-  | "failed";
+export type CapacityManagerDataExportResponseSet = Array<CapacityManagerDataExportResponse>;
+export type CapacityManagerDataExportStatus = "pending" | "in-progress" | "delivered" | "failed";
 export interface CapacityManagerDimension {
   ResourceRegion?: string;
   AvailabilityZoneId?: string;
@@ -3719,15 +5477,8 @@ export interface CapacityReservationBillingRequest {
   StatusMessage?: string;
   CapacityReservationInfo?: CapacityReservationInfo;
 }
-export type CapacityReservationBillingRequestSet =
-  Array<CapacityReservationBillingRequest>;
-export type CapacityReservationBillingRequestStatus =
-  | "pending"
-  | "accepted"
-  | "rejected"
-  | "cancelled"
-  | "revoked"
-  | "expired";
+export type CapacityReservationBillingRequestSet = Array<CapacityReservationBillingRequest>;
+export type CapacityReservationBillingRequestStatus = "pending" | "accepted" | "rejected" | "cancelled" | "revoked" | "expired";
 export type CapacityReservationCommitmentDuration = number;
 
 export interface CapacityReservationCommitmentInfo {
@@ -3754,22 +5505,12 @@ export interface CapacityReservationFleetCancellationState {
   PreviousFleetState?: CapacityReservationFleetState;
   CapacityReservationFleetId?: string;
 }
-export type CapacityReservationFleetCancellationStateSet =
-  Array<CapacityReservationFleetCancellationState>;
+export type CapacityReservationFleetCancellationStateSet = Array<CapacityReservationFleetCancellationState>;
 export type CapacityReservationFleetId = string;
 
 export type CapacityReservationFleetIdSet = Array<string>;
 export type CapacityReservationFleetSet = Array<CapacityReservationFleet>;
-export type CapacityReservationFleetState =
-  | "submitted"
-  | "modifying"
-  | "active"
-  | "partially_fulfilled"
-  | "expiring"
-  | "expired"
-  | "cancelling"
-  | "cancelled"
-  | "failed";
+export type CapacityReservationFleetState = "submitted" | "modifying" | "active" | "partially_fulfilled" | "expiring" | "expired" | "cancelling" | "cancelled" | "failed";
 export interface CapacityReservationGroup {
   GroupArn?: string;
   OwnerId?: string;
@@ -3784,35 +5525,14 @@ export interface CapacityReservationInfo {
   Tenancy?: CapacityReservationTenancy;
   AvailabilityZoneId?: string;
 }
-export type CapacityReservationInstancePlatform =
-  | "Linux/UNIX"
-  | "Red Hat Enterprise Linux"
-  | "SUSE Linux"
-  | "Windows"
-  | "Windows with SQL Server"
-  | "Windows with SQL Server Enterprise"
-  | "Windows with SQL Server Standard"
-  | "Windows with SQL Server Web"
-  | "Linux with SQL Server Standard"
-  | "Linux with SQL Server Web"
-  | "Linux with SQL Server Enterprise"
-  | "RHEL with SQL Server Standard"
-  | "RHEL with SQL Server Enterprise"
-  | "RHEL with SQL Server Web"
-  | "RHEL with HA"
-  | "RHEL with HA and SQL Server Standard"
-  | "RHEL with HA and SQL Server Enterprise"
-  | "Ubuntu Pro";
+export type CapacityReservationInstancePlatform = "Linux/UNIX" | "Red Hat Enterprise Linux" | "SUSE Linux" | "Windows" | "Windows with SQL Server" | "Windows with SQL Server Enterprise" | "Windows with SQL Server Standard" | "Windows with SQL Server Web" | "Linux with SQL Server Standard" | "Linux with SQL Server Web" | "Linux with SQL Server Enterprise" | "RHEL with SQL Server Standard" | "RHEL with SQL Server Enterprise" | "RHEL with SQL Server Web" | "RHEL with HA" | "RHEL with HA and SQL Server Standard" | "RHEL with HA and SQL Server Enterprise" | "Ubuntu Pro";
 export interface CapacityReservationOptions {
   UsageStrategy?: FleetCapacityReservationUsageStrategy;
 }
 export interface CapacityReservationOptionsRequest {
   UsageStrategy?: FleetCapacityReservationUsageStrategy;
 }
-export type CapacityReservationPreference =
-  | "capacity-reservations-only"
-  | "open"
-  | "none";
+export type CapacityReservationPreference = "capacity-reservations-only" | "open" | "none";
 export type CapacityReservationSet = Array<CapacityReservation>;
 export interface CapacityReservationSpecification {
   CapacityReservationPreference?: CapacityReservationPreference;
@@ -3822,19 +5542,7 @@ export interface CapacityReservationSpecificationResponse {
   CapacityReservationPreference?: CapacityReservationPreference;
   CapacityReservationTarget?: CapacityReservationTargetResponse;
 }
-export type CapacityReservationState =
-  | "active"
-  | "expired"
-  | "cancelled"
-  | "pending"
-  | "failed"
-  | "scheduled"
-  | "payment-pending"
-  | "payment-failed"
-  | "assessing"
-  | "delayed"
-  | "unsupported"
-  | "unavailable";
+export type CapacityReservationState = "active" | "expired" | "cancelled" | "pending" | "failed" | "scheduled" | "payment-pending" | "payment-failed" | "assessing" | "delayed" | "unsupported" | "unavailable";
 export interface CapacityReservationStatus {
   CapacityReservationId?: string;
   TotalCapacity?: number;
@@ -3877,11 +5585,7 @@ export type CarrierGatewayIdSet = Array<string>;
 export type CarrierGatewayMaxResults = number;
 
 export type CarrierGatewaySet = Array<CarrierGateway>;
-export type CarrierGatewayState =
-  | "pending"
-  | "available"
-  | "deleting"
-  | "deleted";
+export type CarrierGatewayState = "pending" | "available" | "deleting" | "deleted";
 export type CertificateArn = string;
 
 export interface CertificateAuthentication {
@@ -3968,21 +5672,13 @@ export interface ClientVpnAuthenticationRequest {
   MutualAuthentication?: CertificateAuthenticationRequest;
   FederatedAuthentication?: FederatedAuthenticationRequest;
 }
-export type ClientVpnAuthenticationRequestList =
-  Array<ClientVpnAuthenticationRequest>;
-export type ClientVpnAuthenticationType =
-  | "certificate-authentication"
-  | "directory-service-authentication"
-  | "federated-authentication";
+export type ClientVpnAuthenticationRequestList = Array<ClientVpnAuthenticationRequest>;
+export type ClientVpnAuthenticationType = "certificate-authentication" | "directory-service-authentication" | "federated-authentication";
 export interface ClientVpnAuthorizationRuleStatus {
   Code?: ClientVpnAuthorizationRuleStatusCode;
   Message?: string;
 }
-export type ClientVpnAuthorizationRuleStatusCode =
-  | "authorizing"
-  | "active"
-  | "failed"
-  | "revoking";
+export type ClientVpnAuthorizationRuleStatusCode = "authorizing" | "active" | "failed" | "revoking";
 export interface ClientVpnConnection {
   ClientVpnEndpointId?: string;
   Timestamp?: string;
@@ -4005,11 +5701,7 @@ export interface ClientVpnConnectionStatus {
   Code?: ClientVpnConnectionStatusCode;
   Message?: string;
 }
-export type ClientVpnConnectionStatusCode =
-  | "active"
-  | "failed-to-terminate"
-  | "terminating"
-  | "terminated";
+export type ClientVpnConnectionStatusCode = "active" | "failed-to-terminate" | "terminating" | "terminated";
 export interface ClientVpnEndpoint {
   ClientVpnEndpointId?: string;
   Description?: string;
@@ -4051,11 +5743,7 @@ export interface ClientVpnEndpointStatus {
   Code?: ClientVpnEndpointStatusCode;
   Message?: string;
 }
-export type ClientVpnEndpointStatusCode =
-  | "pending-associate"
-  | "available"
-  | "deleting"
-  | "deleted";
+export type ClientVpnEndpointStatusCode = "pending-associate" | "available" | "deleting" | "deleted";
 export interface ClientVpnRoute {
   ClientVpnEndpointId?: string;
   DestinationCidr?: string;
@@ -4070,11 +5758,7 @@ export interface ClientVpnRouteStatus {
   Code?: ClientVpnRouteStatusCode;
   Message?: string;
 }
-export type ClientVpnRouteStatusCode =
-  | "creating"
-  | "active"
-  | "failed"
-  | "deleting";
+export type ClientVpnRouteStatusCode = "creating" | "active" | "failed" | "deleting";
 export type ClientVpnSecurityGroupIdSet = Array<string>;
 export type CloudWatchLogGroupArn = string;
 
@@ -4188,11 +5872,7 @@ export interface ConversionTask {
 }
 export type ConversionTaskId = string;
 
-export type ConversionTaskState =
-  | "active"
-  | "cancelling"
-  | "cancelled"
-  | "completed";
+export type ConversionTaskState = "active" | "cancelling" | "cancelled" | "completed";
 export type CoolOffPeriodRequestHours = number;
 
 export type CoolOffPeriodResponseHours = number;
@@ -5327,8 +7007,7 @@ export interface CreateVerifiedAccessEndpointPortRange {
   FromPort?: number;
   ToPort?: number;
 }
-export type CreateVerifiedAccessEndpointPortRangeList =
-  Array<CreateVerifiedAccessEndpointPortRange>;
+export type CreateVerifiedAccessEndpointPortRangeList = Array<CreateVerifiedAccessEndpointPortRange>;
 export interface CreateVerifiedAccessEndpointRdsOptions {
   Protocol?: VerifiedAccessEndpointProtocol;
   Port?: number;
@@ -5644,14 +7323,8 @@ export type DefaultEnaQueueCountPerInterface = number;
 
 export type DefaultingDhcpOptionsId = string;
 
-export type DefaultInstanceMetadataEndpointState =
-  | "disabled"
-  | "enabled"
-  | "no-preference";
-export type DefaultInstanceMetadataTagsState =
-  | "disabled"
-  | "enabled"
-  | "no-preference";
+export type DefaultInstanceMetadataEndpointState = "disabled" | "enabled" | "no-preference";
+export type DefaultInstanceMetadataTagsState = "disabled" | "enabled" | "no-preference";
 export type DefaultNetworkCardIndex = number;
 
 export type DefaultRouteTableAssociationValue = "enable" | "disable";
@@ -5721,11 +7394,7 @@ export interface DeleteFleetError {
   Code?: DeleteFleetErrorCode;
   Message?: string;
 }
-export type DeleteFleetErrorCode =
-  | "fleetIdDoesNotExist"
-  | "fleetIdMalformed"
-  | "fleetNotInDeletableState"
-  | "unexpectedError";
+export type DeleteFleetErrorCode = "fleetIdDoesNotExist" | "fleetIdMalformed" | "fleetNotInDeletableState" | "unexpectedError";
 export interface DeleteFleetErrorItem {
   Error?: DeleteFleetError;
   FleetId?: string;
@@ -5866,15 +7535,13 @@ export interface DeleteLaunchTemplateVersionsResponseErrorItem {
   VersionNumber?: number;
   ResponseError?: ResponseError;
 }
-export type DeleteLaunchTemplateVersionsResponseErrorSet =
-  Array<DeleteLaunchTemplateVersionsResponseErrorItem>;
+export type DeleteLaunchTemplateVersionsResponseErrorSet = Array<DeleteLaunchTemplateVersionsResponseErrorItem>;
 export interface DeleteLaunchTemplateVersionsResponseSuccessItem {
   LaunchTemplateId?: string;
   LaunchTemplateName?: string;
   VersionNumber?: number;
 }
-export type DeleteLaunchTemplateVersionsResponseSuccessSet =
-  Array<DeleteLaunchTemplateVersionsResponseSuccessItem>;
+export type DeleteLaunchTemplateVersionsResponseSuccessSet = Array<DeleteLaunchTemplateVersionsResponseSuccessItem>;
 export interface DeleteLaunchTemplateVersionsResult {
   SuccessfullyDeletedLaunchTemplateVersions?: Array<DeleteLaunchTemplateVersionsResponseSuccessItem>;
   UnsuccessfullyDeletedLaunchTemplateVersions?: Array<DeleteLaunchTemplateVersionsResponseErrorItem>;
@@ -6003,10 +7670,7 @@ export interface DeleteQueuedReservedInstancesError {
   Code?: DeleteQueuedReservedInstancesErrorCode;
   Message?: string;
 }
-export type DeleteQueuedReservedInstancesErrorCode =
-  | "reserved-instances-id-invalid"
-  | "reserved-instances-not-in-queued-state"
-  | "unexpected-error";
+export type DeleteQueuedReservedInstancesErrorCode = "reserved-instances-id-invalid" | "reserved-instances-not-in-queued-state" | "unexpected-error";
 export type DeleteQueuedReservedInstancesIdList = Array<string>;
 export interface DeleteQueuedReservedInstancesRequest {
   DryRun?: boolean;
@@ -6530,8 +8194,7 @@ export interface DescribeCapacityReservationBillingRequestsRequest {
   Filters?: Array<Filter>;
   DryRun?: boolean;
 }
-export type DescribeCapacityReservationBillingRequestsRequestMaxResults =
-  number;
+export type DescribeCapacityReservationBillingRequestsRequestMaxResults = number;
 
 export interface DescribeCapacityReservationBillingRequestsResult {
   NextToken?: string;
@@ -6787,8 +8450,7 @@ export interface DescribeFastLaunchImagesSuccessItem {
   StateTransitionReason?: string;
   StateTransitionTime?: Date | string;
 }
-export type DescribeFastLaunchImagesSuccessSet =
-  Array<DescribeFastLaunchImagesSuccessItem>;
+export type DescribeFastLaunchImagesSuccessSet = Array<DescribeFastLaunchImagesSuccessItem>;
 export type DescribeFastSnapshotRestoresMaxResults = number;
 
 export interface DescribeFastSnapshotRestoresRequest {
@@ -6815,8 +8477,7 @@ export interface DescribeFastSnapshotRestoreSuccessItem {
   DisablingTime?: Date | string;
   DisabledTime?: Date | string;
 }
-export type DescribeFastSnapshotRestoreSuccessSet =
-  Array<DescribeFastSnapshotRestoreSuccessItem>;
+export type DescribeFastSnapshotRestoreSuccessSet = Array<DescribeFastSnapshotRestoreSuccessItem>;
 export interface DescribeFleetError {
   LaunchTemplateAndOverrides?: LaunchTemplateAndOverridesResponse;
   Lifecycle?: InstanceLifecycle;
@@ -8186,8 +9847,7 @@ export interface DescribeVerifiedAccessGroupsResult {
   VerifiedAccessGroups?: Array<VerifiedAccessGroup>;
   NextToken?: string;
 }
-export type DescribeVerifiedAccessInstanceLoggingConfigurationsMaxResults =
-  number;
+export type DescribeVerifiedAccessInstanceLoggingConfigurationsMaxResults = number;
 
 export interface DescribeVerifiedAccessInstanceLoggingConfigurationsRequest {
   VerifiedAccessInstanceIds?: Array<string>;
@@ -8582,8 +10242,7 @@ export interface DisableFastSnapshotRestoreErrorItem {
   SnapshotId?: string;
   FastSnapshotRestoreStateErrors?: Array<DisableFastSnapshotRestoreStateErrorItem>;
 }
-export type DisableFastSnapshotRestoreErrorSet =
-  Array<DisableFastSnapshotRestoreErrorItem>;
+export type DisableFastSnapshotRestoreErrorSet = Array<DisableFastSnapshotRestoreErrorItem>;
 export interface DisableFastSnapshotRestoresRequest {
   AvailabilityZones?: Array<string>;
   AvailabilityZoneIds?: Array<string>;
@@ -8603,8 +10262,7 @@ export interface DisableFastSnapshotRestoreStateErrorItem {
   AvailabilityZoneId?: string;
   Error?: DisableFastSnapshotRestoreStateError;
 }
-export type DisableFastSnapshotRestoreStateErrorSet =
-  Array<DisableFastSnapshotRestoreStateErrorItem>;
+export type DisableFastSnapshotRestoreStateErrorSet = Array<DisableFastSnapshotRestoreStateErrorItem>;
 export interface DisableFastSnapshotRestoreSuccessItem {
   SnapshotId?: string;
   AvailabilityZone?: string;
@@ -8619,8 +10277,7 @@ export interface DisableFastSnapshotRestoreSuccessItem {
   DisablingTime?: Date | string;
   DisabledTime?: Date | string;
 }
-export type DisableFastSnapshotRestoreSuccessSet =
-  Array<DisableFastSnapshotRestoreSuccessItem>;
+export type DisableFastSnapshotRestoreSuccessSet = Array<DisableFastSnapshotRestoreSuccessItem>;
 export interface DisableImageBlockPublicAccessRequest {
   DryRun?: boolean;
 }
@@ -8992,16 +10649,7 @@ export interface Ec2InstanceConnectEndpoint {
   IpAddressType?: IpAddressType;
   PublicDnsNames?: InstanceConnectEndpointPublicDnsNames;
 }
-export type Ec2InstanceConnectEndpointState =
-  | "create-in-progress"
-  | "create-complete"
-  | "create-failed"
-  | "delete-in-progress"
-  | "delete-complete"
-  | "delete-failed"
-  | "update-in-progress"
-  | "update-complete"
-  | "update-failed";
+export type Ec2InstanceConnectEndpointState = "create-in-progress" | "create-complete" | "create-failed" | "delete-in-progress" | "delete-complete" | "delete-failed" | "update-in-progress" | "update-complete" | "update-failed";
 export interface EfaInfo {
   MaximumEfaInterfaces?: number;
 }
@@ -9053,8 +10701,7 @@ export type ElasticGpuSpecificationList = Array<ElasticGpuSpecification>;
 export interface ElasticGpuSpecificationResponse {
   Type?: string;
 }
-export type ElasticGpuSpecificationResponseList =
-  Array<ElasticGpuSpecificationResponse>;
+export type ElasticGpuSpecificationResponseList = Array<ElasticGpuSpecificationResponse>;
 export type ElasticGpuSpecifications = Array<ElasticGpuSpecification>;
 export type ElasticGpuState = "ATTACHED";
 export type ElasticGpuStatus = "OK" | "IMPAIRED";
@@ -9068,8 +10715,7 @@ export interface ElasticInferenceAcceleratorAssociation {
   ElasticInferenceAcceleratorAssociationState?: string;
   ElasticInferenceAcceleratorAssociationTime?: Date | string;
 }
-export type ElasticInferenceAcceleratorAssociationList =
-  Array<ElasticInferenceAcceleratorAssociation>;
+export type ElasticInferenceAcceleratorAssociationList = Array<ElasticInferenceAcceleratorAssociation>;
 export type ElasticInferenceAcceleratorCount = number;
 
 export type ElasticInferenceAccelerators = Array<ElasticInferenceAccelerator>;
@@ -9138,8 +10784,7 @@ export interface EnableFastSnapshotRestoreErrorItem {
   SnapshotId?: string;
   FastSnapshotRestoreStateErrors?: Array<EnableFastSnapshotRestoreStateErrorItem>;
 }
-export type EnableFastSnapshotRestoreErrorSet =
-  Array<EnableFastSnapshotRestoreErrorItem>;
+export type EnableFastSnapshotRestoreErrorSet = Array<EnableFastSnapshotRestoreErrorItem>;
 export interface EnableFastSnapshotRestoresRequest {
   AvailabilityZones?: Array<string>;
   AvailabilityZoneIds?: Array<string>;
@@ -9159,8 +10804,7 @@ export interface EnableFastSnapshotRestoreStateErrorItem {
   AvailabilityZoneId?: string;
   Error?: EnableFastSnapshotRestoreStateError;
 }
-export type EnableFastSnapshotRestoreStateErrorSet =
-  Array<EnableFastSnapshotRestoreStateErrorItem>;
+export type EnableFastSnapshotRestoreStateErrorSet = Array<EnableFastSnapshotRestoreStateErrorItem>;
 export interface EnableFastSnapshotRestoreSuccessItem {
   SnapshotId?: string;
   AvailabilityZone?: string;
@@ -9175,8 +10819,7 @@ export interface EnableFastSnapshotRestoreSuccessItem {
   DisablingTime?: Date | string;
   DisabledTime?: Date | string;
 }
-export type EnableFastSnapshotRestoreSuccessSet =
-  Array<EnableFastSnapshotRestoreSuccessItem>;
+export type EnableFastSnapshotRestoreSuccessSet = Array<EnableFastSnapshotRestoreSuccessItem>;
 export interface EnableImageBlockPublicAccessRequest {
   ImageBlockPublicAccessState: ImageBlockPublicAccessEnabledState;
   DryRun?: boolean;
@@ -9302,22 +10945,13 @@ export type EndpointIpAddressType = "ipv4" | "ipv6" | "dual-stack";
 export type EndpointSet = Array<ClientVpnEndpoint>;
 export type EphemeralNvmeSupport = "unsupported" | "supported" | "required";
 export type ErrorSet = Array<_ValidationError>;
-export type EventCode =
-  | "instance-reboot"
-  | "system-reboot"
-  | "system-maintenance"
-  | "instance-retirement"
-  | "instance-stop";
+export type EventCode = "instance-reboot" | "system-reboot" | "system-maintenance" | "instance-retirement" | "instance-stop";
 export interface EventInformation {
   EventDescription?: string;
   EventSubType?: string;
   InstanceId?: string;
 }
-export type EventType =
-  | "instanceChange"
-  | "fleetRequestChange"
-  | "error"
-  | "information";
+export type EventType = "instanceChange" | "fleetRequestChange" | "error" | "information";
 export type ExcessCapacityTerminationPolicy = "noTermination" | "default";
 export type ExcludedInstanceType = string;
 
@@ -9453,11 +11087,7 @@ export interface ExportTaskS3LocationRequest {
   S3Bucket: string;
   S3Prefix?: string;
 }
-export type ExportTaskState =
-  | "active"
-  | "cancelling"
-  | "cancelled"
-  | "completed";
+export type ExportTaskState = "active" | "cancelling" | "cancelled" | "completed";
 export interface ExportToS3Task {
   ContainerFormat?: ContainerFormat;
   DiskImageFormat?: DiskImageFormat;
@@ -9497,14 +11127,12 @@ export interface FailedCapacityReservationFleetCancellationResult {
   CapacityReservationFleetId?: string;
   CancelCapacityReservationFleetError?: CancelCapacityReservationFleetError;
 }
-export type FailedCapacityReservationFleetCancellationResultSet =
-  Array<FailedCapacityReservationFleetCancellationResult>;
+export type FailedCapacityReservationFleetCancellationResultSet = Array<FailedCapacityReservationFleetCancellationResult>;
 export interface FailedQueuedPurchaseDeletion {
   Error?: DeleteQueuedReservedInstancesError;
   ReservedInstancesId?: string;
 }
-export type FailedQueuedPurchaseDeletionSet =
-  Array<FailedQueuedPurchaseDeletion>;
+export type FailedQueuedPurchaseDeletionSet = Array<FailedQueuedPurchaseDeletion>;
 export type FastLaunchImageIdList = Array<string>;
 export interface FastLaunchLaunchTemplateSpecificationRequest {
   LaunchTemplateId?: string;
@@ -9523,19 +11151,8 @@ export interface FastLaunchSnapshotConfigurationRequest {
 export interface FastLaunchSnapshotConfigurationResponse {
   TargetResourceCount?: number;
 }
-export type FastLaunchStateCode =
-  | "enabling"
-  | "enabling-failed"
-  | "enabled"
-  | "enabled-failed"
-  | "disabling"
-  | "disabling-failed";
-export type FastSnapshotRestoreStateCode =
-  | "enabling"
-  | "optimizing"
-  | "enabled"
-  | "disabling"
-  | "disabled";
+export type FastLaunchStateCode = "enabling" | "enabling-failed" | "enabled" | "enabled-failed" | "disabling" | "disabling-failed";
+export type FastSnapshotRestoreStateCode = "enabling" | "optimizing" | "enabled" | "disabling" | "disabled";
 export interface FederatedAuthentication {
   SamlProviderArn?: string;
   SelfServiceSamlProviderArn?: string;
@@ -9548,24 +11165,7 @@ export interface Filter {
   Name?: string;
   Values?: Array<string>;
 }
-export type FilterByDimension =
-  | "resource-region"
-  | "availability-zone-id"
-  | "account-id"
-  | "instance-family"
-  | "instance-type"
-  | "instance-platform"
-  | "reservation-arn"
-  | "reservation-id"
-  | "reservation-type"
-  | "reservation-create-timestamp"
-  | "reservation-start-timestamp"
-  | "reservation-end-timestamp"
-  | "reservation-end-date-type"
-  | "tenancy"
-  | "reservation-state"
-  | "reservation-instance-match-criteria"
-  | "reservation-unused-financial-owner";
+export type FilterByDimension = "resource-region" | "availability-zone-id" | "account-id" | "instance-family" | "instance-type" | "instance-platform" | "reservation-arn" | "reservation-id" | "reservation-type" | "reservation-create-timestamp" | "reservation-start-timestamp" | "reservation-end-timestamp" | "reservation-end-date-type" | "tenancy" | "reservation-state" | "reservation-instance-match-criteria" | "reservation-unused-financial-owner";
 export type FilterList = Array<Filter>;
 export interface FilterPortRange {
   FromPort?: number;
@@ -9592,19 +11192,14 @@ export interface FirewallStatelessRule {
   RuleAction?: string;
   Priority?: number;
 }
-export type FleetActivityStatus =
-  | "error"
-  | "pending_fulfillment"
-  | "pending_termination"
-  | "fulfilled";
+export type FleetActivityStatus = "error" | "pending_fulfillment" | "pending_termination" | "fulfilled";
 export interface FleetBlockDeviceMappingRequest {
   DeviceName?: string;
   VirtualName?: string;
   Ebs?: FleetEbsBlockDeviceRequest;
   NoDevice?: string;
 }
-export type FleetBlockDeviceMappingRequestList =
-  Array<FleetBlockDeviceMappingRequest>;
+export type FleetBlockDeviceMappingRequestList = Array<FleetBlockDeviceMappingRequest>;
 export interface FleetCapacityReservation {
   CapacityReservationId?: string;
   AvailabilityZoneId?: string;
@@ -9620,8 +11215,7 @@ export interface FleetCapacityReservation {
 }
 export type FleetCapacityReservationSet = Array<FleetCapacityReservation>;
 export type FleetCapacityReservationTenancy = "default";
-export type FleetCapacityReservationUsageStrategy =
-  "use-capacity-reservations-first";
+export type FleetCapacityReservationUsageStrategy = "use-capacity-reservations-first";
 export interface FleetData {
   ActivityStatus?: FleetActivityStatus;
   CreateTime?: Date | string;
@@ -9655,13 +11249,8 @@ export interface FleetEbsBlockDeviceRequest {
   VolumeSize?: number;
   VolumeType?: VolumeType;
 }
-export type FleetEventType =
-  | "instance-change"
-  | "fleet-change"
-  | "service-error";
-export type FleetExcessCapacityTerminationPolicy =
-  | "no-termination"
-  | "termination";
+export type FleetEventType = "instance-change" | "fleet-change" | "service-error";
+export type FleetExcessCapacityTerminationPolicy = "no-termination" | "termination";
 export type FleetId = string;
 
 export type FleetIdSet = Array<string>;
@@ -9671,8 +11260,7 @@ export interface FleetLaunchTemplateConfig {
   Overrides?: Array<FleetLaunchTemplateOverrides>;
 }
 export type FleetLaunchTemplateConfigList = Array<FleetLaunchTemplateConfig>;
-export type FleetLaunchTemplateConfigListRequest =
-  Array<FleetLaunchTemplateConfigRequest>;
+export type FleetLaunchTemplateConfigListRequest = Array<FleetLaunchTemplateConfigRequest>;
 export interface FleetLaunchTemplateConfigRequest {
   LaunchTemplateSpecification?: FleetLaunchTemplateSpecificationRequest;
   Overrides?: Array<FleetLaunchTemplateOverridesRequest>;
@@ -9689,10 +11277,8 @@ export interface FleetLaunchTemplateOverrides {
   ImageId?: string;
   BlockDeviceMappings?: Array<BlockDeviceMappingResponse>;
 }
-export type FleetLaunchTemplateOverridesList =
-  Array<FleetLaunchTemplateOverrides>;
-export type FleetLaunchTemplateOverridesListRequest =
-  Array<FleetLaunchTemplateOverridesRequest>;
+export type FleetLaunchTemplateOverridesList = Array<FleetLaunchTemplateOverrides>;
+export type FleetLaunchTemplateOverridesListRequest = Array<FleetLaunchTemplateOverridesRequest>;
 export interface FleetLaunchTemplateOverridesRequest {
   InstanceType?: InstanceType;
   MaxPrice?: string;
@@ -9732,14 +11318,7 @@ export interface FleetSpotMaintenanceStrategies {
 export interface FleetSpotMaintenanceStrategiesRequest {
   CapacityRebalance?: FleetSpotCapacityRebalanceRequest;
 }
-export type FleetStateCode =
-  | "submitted"
-  | "active"
-  | "deleted"
-  | "failed"
-  | "deleted_running"
-  | "deleted_terminating"
-  | "modifying";
+export type FleetStateCode = "submitted" | "active" | "deleted" | "failed" | "deleted_running" | "deleted_terminating" | "modifying";
 export type FleetType = "request" | "maintain" | "instant";
 export type FlexibleEnaQueuesSupport = "unsupported" | "supported";
 export type Float = number;
@@ -9767,12 +11346,7 @@ export type FlowLogResourceId = string;
 
 export type FlowLogResourceIds = Array<string>;
 export type FlowLogSet = Array<FlowLog>;
-export type FlowLogsResourceType =
-  | "VPC"
-  | "Subnet"
-  | "NetworkInterface"
-  | "TransitGateway"
-  | "TransitGatewayAttachment";
+export type FlowLogsResourceType = "VPC" | "Subnet" | "NetworkInterface" | "TransitGateway" | "TransitGatewayAttachment";
 export type FpgaDeviceCount = number;
 
 export interface FpgaDeviceInfo {
@@ -9816,11 +11390,7 @@ export interface FpgaImageAttribute {
   LoadPermissions?: Array<LoadPermission>;
   ProductCodes?: Array<ProductCode>;
 }
-export type FpgaImageAttributeName =
-  | "description"
-  | "name"
-  | "loadPermission"
-  | "productCodes";
+export type FpgaImageAttributeName = "description" | "name" | "loadPermission" | "productCodes";
 export type FpgaImageId = string;
 
 export type FpgaImageIdList = Array<string>;
@@ -9829,22 +11399,14 @@ export interface FpgaImageState {
   Code?: FpgaImageStateCode;
   Message?: string;
 }
-export type FpgaImageStateCode =
-  | "pending"
-  | "failed"
-  | "available"
-  | "unavailable";
+export type FpgaImageStateCode = "pending" | "failed" | "available" | "unavailable";
 export interface FpgaInfo {
   Fpgas?: Array<FpgaDeviceInfo>;
   TotalFpgaMemoryInMiB?: number;
 }
 export type FreeTierEligibleFlag = boolean;
 
-export type GatewayAssociationState =
-  | "associated"
-  | "not-associated"
-  | "associating"
-  | "disassociating";
+export type GatewayAssociationState = "associated" | "not-associated" | "associating" | "disassociating";
 export type GatewayType = "ipsec.1";
 export interface GetActiveVpnTunnelStatusRequest {
   VpnConnectionId: string;
@@ -10536,24 +12098,7 @@ export interface GpuInfo {
   Gpus?: Array<GpuDeviceInfo>;
   TotalGpuMemoryInMiB?: number;
 }
-export type GroupBy =
-  | "resource-region"
-  | "availability-zone-id"
-  | "account-id"
-  | "instance-family"
-  | "instance-type"
-  | "instance-platform"
-  | "reservation-arn"
-  | "reservation-id"
-  | "reservation-type"
-  | "reservation-create-timestamp"
-  | "reservation-start-timestamp"
-  | "reservation-end-timestamp"
-  | "reservation-end-date-type"
-  | "tenancy"
-  | "reservation-state"
-  | "reservation-instance-match-criteria"
-  | "reservation-unused-financial-owner";
+export type GroupBy = "resource-region" | "availability-zone-id" | "account-id" | "instance-family" | "instance-type" | "instance-platform" | "reservation-arn" | "reservation-id" | "reservation-type" | "reservation-create-timestamp" | "reservation-start-timestamp" | "reservation-end-timestamp" | "reservation-end-date-type" | "tenancy" | "reservation-state" | "reservation-instance-match-criteria" | "reservation-unused-financial-owner";
 export type GroupBySet = Array<GroupBy>;
 export interface GroupIdentifier {
   GroupId?: string;
@@ -10673,13 +12218,8 @@ export interface IamInstanceProfileAssociation {
 }
 export type IamInstanceProfileAssociationId = string;
 
-export type IamInstanceProfileAssociationSet =
-  Array<IamInstanceProfileAssociation>;
-export type IamInstanceProfileAssociationState =
-  | "associating"
-  | "associated"
-  | "disassociating"
-  | "disassociated";
+export type IamInstanceProfileAssociationSet = Array<IamInstanceProfileAssociation>;
+export type IamInstanceProfileAssociationState = "associating" | "associated" | "disassociating" | "disassociated";
 export interface IamInstanceProfileSpecification {
   Arn?: string;
   Name?: string;
@@ -10758,20 +12298,7 @@ export interface ImageAttribute {
   ProductCodes?: Array<ProductCode>;
   BlockDeviceMappings?: Array<BlockDeviceMapping>;
 }
-export type ImageAttributeName =
-  | "description"
-  | "kernel"
-  | "ramdisk"
-  | "launchPermission"
-  | "productCodes"
-  | "blockDeviceMapping"
-  | "sriovNetSupport"
-  | "bootMode"
-  | "tpmSupport"
-  | "uefiData"
-  | "lastLaunchedTime"
-  | "imdsSupport"
-  | "deregistrationProtection";
+export type ImageAttributeName = "description" | "kernel" | "ramdisk" | "launchPermission" | "productCodes" | "blockDeviceMapping" | "sriovNetSupport" | "bootMode" | "tpmSupport" | "uefiData" | "lastLaunchedTime" | "imdsSupport" | "deregistrationProtection";
 export type ImageBlockPublicAccessDisabledState = "unblocked";
 export type ImageBlockPublicAccessEnabledState = "block-new-sharing";
 export interface ImageCriterion {
@@ -10842,21 +12369,8 @@ export interface ImageReference {
 }
 export type ImageReferenceList = Array<ImageReference>;
 export type ImageReferenceOptionName = "state-name" | "version-depth";
-export type ImageReferenceResourceType =
-  | "ec2:Instance"
-  | "ec2:LaunchTemplate"
-  | "ssm:Parameter"
-  | "imagebuilder:ImageRecipe"
-  | "imagebuilder:ContainerRecipe";
-export type ImageState =
-  | "pending"
-  | "available"
-  | "invalid"
-  | "deregistered"
-  | "transient"
-  | "failed"
-  | "error"
-  | "disabled";
+export type ImageReferenceResourceType = "ec2:Instance" | "ec2:LaunchTemplate" | "ssm:Parameter" | "imagebuilder:ImageRecipe" | "imagebuilder:ContainerRecipe";
+export type ImageState = "pending" | "available" | "invalid" | "deregistered" | "transient" | "failed" | "error" | "disabled";
 export type ImageTypeValues = "machine" | "kernel" | "ramdisk";
 export interface ImageUsageReport {
   ImageId?: string;
@@ -10898,14 +12412,12 @@ export interface ImageUsageResourceTypeOption {
   OptionName?: string;
   OptionValues?: Array<string>;
 }
-export type ImageUsageResourceTypeOptionList =
-  Array<ImageUsageResourceTypeOption>;
+export type ImageUsageResourceTypeOptionList = Array<ImageUsageResourceTypeOption>;
 export interface ImageUsageResourceTypeOptionRequest {
   OptionName?: string;
   OptionValues?: Array<string>;
 }
-export type ImageUsageResourceTypeOptionRequestList =
-  Array<ImageUsageResourceTypeOptionRequest>;
+export type ImageUsageResourceTypeOptionRequestList = Array<ImageUsageResourceTypeOptionRequest>;
 export type ImageUsageResourceTypeOptionValue = string;
 
 export type ImageUsageResourceTypeOptionValuesList = Array<string>;
@@ -10913,8 +12425,7 @@ export interface ImageUsageResourceTypeRequest {
   ResourceType?: string;
   ResourceTypeOptions?: Array<ImageUsageResourceTypeOptionRequest>;
 }
-export type ImageUsageResourceTypeRequestList =
-  Array<ImageUsageResourceTypeRequest>;
+export type ImageUsageResourceTypeRequestList = Array<ImageUsageResourceTypeRequest>;
 export type ImdsSupportValues = "v2.0";
 export interface ImportClientVpnClientCertificateRevocationListRequest {
   ClientVpnEndpointId: string;
@@ -10930,10 +12441,8 @@ export interface ImportImageLicenseConfigurationRequest {
 export interface ImportImageLicenseConfigurationResponse {
   LicenseConfigurationArn?: string;
 }
-export type ImportImageLicenseSpecificationListRequest =
-  Array<ImportImageLicenseConfigurationRequest>;
-export type ImportImageLicenseSpecificationListResponse =
-  Array<ImportImageLicenseConfigurationResponse>;
+export type ImportImageLicenseSpecificationListRequest = Array<ImportImageLicenseConfigurationRequest>;
+export type ImportImageLicenseSpecificationListResponse = Array<ImportImageLicenseConfigurationResponse>;
 export interface ImportImageRequest {
   Architecture?: string;
   ClientData?: ClientData;
@@ -11031,8 +12540,7 @@ export interface ImportInstanceVolumeDetailItem {
   StatusMessage?: string;
   Volume?: DiskImageVolumeDescription;
 }
-export type ImportInstanceVolumeDetailSet =
-  Array<ImportInstanceVolumeDetailItem>;
+export type ImportInstanceVolumeDetailSet = Array<ImportInstanceVolumeDetailItem>;
 export interface ImportKeyPairRequest {
   TagSpecifications?: Array<TagSpecification>;
   DryRun?: boolean;
@@ -11118,10 +12626,7 @@ export type InferenceDeviceMemorySize = number;
 
 export type InferenceDeviceName = string;
 
-export type IngestionStatus =
-  | "initial-ingestion-in-progress"
-  | "ingestion-complete"
-  | "ingestion-failed";
+export type IngestionStatus = "initial-ingestion-in-progress" | "ingestion-complete" | "ingestion-failed";
 export interface InitializationStatusDetails {
   InitializationType?: InitializationType;
   Progress?: number;
@@ -11217,23 +12722,7 @@ export interface InstanceAttribute {
   DisableApiStop?: AttributeBooleanValue;
   Groups?: Array<GroupIdentifier>;
 }
-export type InstanceAttributeName =
-  | "instanceType"
-  | "kernel"
-  | "ramdisk"
-  | "userData"
-  | "disableApiTermination"
-  | "instanceInitiatedShutdownBehavior"
-  | "rootDeviceName"
-  | "blockDeviceMapping"
-  | "productCodes"
-  | "sourceDestCheck"
-  | "groupSet"
-  | "ebsOptimized"
-  | "sriovNetSupport"
-  | "enaSupport"
-  | "enclaveOptions"
-  | "disableApiStop";
+export type InstanceAttributeName = "instanceType" | "kernel" | "ramdisk" | "userData" | "disableApiTermination" | "instanceInitiatedShutdownBehavior" | "rootDeviceName" | "blockDeviceMapping" | "productCodes" | "sourceDestCheck" | "groupSet" | "ebsOptimized" | "sriovNetSupport" | "enaSupport" | "enclaveOptions" | "disableApiStop";
 export type InstanceAutoRecoveryState = "disabled" | "default";
 export type InstanceBandwidthWeighting = "default" | "vpc-1" | "ebs-1";
 export interface InstanceBlockDeviceMapping {
@@ -11247,8 +12736,7 @@ export interface InstanceBlockDeviceMappingSpecification {
   VirtualName?: string;
   NoDevice?: string;
 }
-export type InstanceBlockDeviceMappingSpecificationList =
-  Array<InstanceBlockDeviceMappingSpecification>;
+export type InstanceBlockDeviceMappingSpecificationList = Array<InstanceBlockDeviceMappingSpecification>;
 export type InstanceBootModeValues = "legacy-bios" | "uefi";
 export interface InstanceCapacity {
   AvailableCapacity?: number;
@@ -11277,10 +12765,8 @@ export interface InstanceCreditSpecification {
   InstanceId?: string;
   CpuCredits?: string;
 }
-export type InstanceCreditSpecificationList =
-  Array<InstanceCreditSpecification>;
-export type InstanceCreditSpecificationListRequest =
-  Array<InstanceCreditSpecificationRequest>;
+export type InstanceCreditSpecificationList = Array<InstanceCreditSpecification>;
+export type InstanceCreditSpecificationListRequest = Array<InstanceCreditSpecificationRequest>;
 export interface InstanceCreditSpecificationRequest {
   InstanceId: string;
   CpuCredits?: string;
@@ -11317,11 +12803,7 @@ export type InstanceEventWindowId = string;
 
 export type InstanceEventWindowIdSet = Array<string>;
 export type InstanceEventWindowSet = Array<InstanceEventWindow>;
-export type InstanceEventWindowState =
-  | "creating"
-  | "deleting"
-  | "active"
-  | "deleted";
+export type InstanceEventWindowState = "creating" | "deleting" | "active" | "deleted";
 export interface InstanceEventWindowStateChange {
   InstanceEventWindowId?: string;
   State?: InstanceEventWindowState;
@@ -11332,16 +12814,14 @@ export interface InstanceEventWindowTimeRange {
   EndWeekDay?: WeekDay;
   EndHour?: number;
 }
-export type InstanceEventWindowTimeRangeList =
-  Array<InstanceEventWindowTimeRange>;
+export type InstanceEventWindowTimeRangeList = Array<InstanceEventWindowTimeRange>;
 export interface InstanceEventWindowTimeRangeRequest {
   StartWeekDay?: WeekDay;
   StartHour?: number;
   EndWeekDay?: WeekDay;
   EndHour?: number;
 }
-export type InstanceEventWindowTimeRangeRequestSet =
-  Array<InstanceEventWindowTimeRangeRequest>;
+export type InstanceEventWindowTimeRangeRequestSet = Array<InstanceEventWindowTimeRangeRequest>;
 export interface InstanceExportDetails {
   InstanceId?: string;
   TargetEnvironment?: ExportEnvironment;
@@ -11506,8 +12986,7 @@ export interface InstanceNetworkInterfaceSpecification {
   ConnectionTrackingSpecification?: ConnectionTrackingSpecificationRequest;
   EnaQueueCount?: number;
 }
-export type InstanceNetworkInterfaceSpecificationList =
-  Array<InstanceNetworkInterfaceSpecification>;
+export type InstanceNetworkInterfaceSpecificationList = Array<InstanceNetworkInterfaceSpecification>;
 export interface InstanceNetworkPerformanceOptions {
   BandwidthWeighting?: InstanceBandwidthWeighting;
 }
@@ -11597,13 +13076,7 @@ export interface InstanceStateChange {
   PreviousState?: InstanceState;
 }
 export type InstanceStateChangeList = Array<InstanceStateChange>;
-export type InstanceStateName =
-  | "pending"
-  | "running"
-  | "shutting-down"
-  | "terminated"
-  | "stopping"
-  | "stopped";
+export type InstanceStateName = "pending" | "running" | "shutting-down" | "terminated" | "stopping" | "stopped";
 export interface InstanceStatus {
   AvailabilityZone?: string;
   AvailabilityZoneId?: string;
@@ -11659,1080 +13132,7 @@ export interface InstanceTopology {
   ZoneId?: string;
   CapacityBlockId?: string;
 }
-export type InstanceType =
-  | "a1.medium"
-  | "a1.large"
-  | "a1.xlarge"
-  | "a1.2xlarge"
-  | "a1.4xlarge"
-  | "a1.metal"
-  | "c1.medium"
-  | "c1.xlarge"
-  | "c3.large"
-  | "c3.xlarge"
-  | "c3.2xlarge"
-  | "c3.4xlarge"
-  | "c3.8xlarge"
-  | "c4.large"
-  | "c4.xlarge"
-  | "c4.2xlarge"
-  | "c4.4xlarge"
-  | "c4.8xlarge"
-  | "c5.large"
-  | "c5.xlarge"
-  | "c5.2xlarge"
-  | "c5.4xlarge"
-  | "c5.9xlarge"
-  | "c5.12xlarge"
-  | "c5.18xlarge"
-  | "c5.24xlarge"
-  | "c5.metal"
-  | "c5a.large"
-  | "c5a.xlarge"
-  | "c5a.2xlarge"
-  | "c5a.4xlarge"
-  | "c5a.8xlarge"
-  | "c5a.12xlarge"
-  | "c5a.16xlarge"
-  | "c5a.24xlarge"
-  | "c5ad.large"
-  | "c5ad.xlarge"
-  | "c5ad.2xlarge"
-  | "c5ad.4xlarge"
-  | "c5ad.8xlarge"
-  | "c5ad.12xlarge"
-  | "c5ad.16xlarge"
-  | "c5ad.24xlarge"
-  | "c5d.large"
-  | "c5d.xlarge"
-  | "c5d.2xlarge"
-  | "c5d.4xlarge"
-  | "c5d.9xlarge"
-  | "c5d.12xlarge"
-  | "c5d.18xlarge"
-  | "c5d.24xlarge"
-  | "c5d.metal"
-  | "c5n.large"
-  | "c5n.xlarge"
-  | "c5n.2xlarge"
-  | "c5n.4xlarge"
-  | "c5n.9xlarge"
-  | "c5n.18xlarge"
-  | "c5n.metal"
-  | "c6g.medium"
-  | "c6g.large"
-  | "c6g.xlarge"
-  | "c6g.2xlarge"
-  | "c6g.4xlarge"
-  | "c6g.8xlarge"
-  | "c6g.12xlarge"
-  | "c6g.16xlarge"
-  | "c6g.metal"
-  | "c6gd.medium"
-  | "c6gd.large"
-  | "c6gd.xlarge"
-  | "c6gd.2xlarge"
-  | "c6gd.4xlarge"
-  | "c6gd.8xlarge"
-  | "c6gd.12xlarge"
-  | "c6gd.16xlarge"
-  | "c6gd.metal"
-  | "c6gn.medium"
-  | "c6gn.large"
-  | "c6gn.xlarge"
-  | "c6gn.2xlarge"
-  | "c6gn.4xlarge"
-  | "c6gn.8xlarge"
-  | "c6gn.12xlarge"
-  | "c6gn.16xlarge"
-  | "c6i.large"
-  | "c6i.xlarge"
-  | "c6i.2xlarge"
-  | "c6i.4xlarge"
-  | "c6i.8xlarge"
-  | "c6i.12xlarge"
-  | "c6i.16xlarge"
-  | "c6i.24xlarge"
-  | "c6i.32xlarge"
-  | "c6i.metal"
-  | "cc1.4xlarge"
-  | "cc2.8xlarge"
-  | "cg1.4xlarge"
-  | "cr1.8xlarge"
-  | "d2.xlarge"
-  | "d2.2xlarge"
-  | "d2.4xlarge"
-  | "d2.8xlarge"
-  | "d3.xlarge"
-  | "d3.2xlarge"
-  | "d3.4xlarge"
-  | "d3.8xlarge"
-  | "d3en.xlarge"
-  | "d3en.2xlarge"
-  | "d3en.4xlarge"
-  | "d3en.6xlarge"
-  | "d3en.8xlarge"
-  | "d3en.12xlarge"
-  | "dl1.24xlarge"
-  | "f1.2xlarge"
-  | "f1.4xlarge"
-  | "f1.16xlarge"
-  | "g2.2xlarge"
-  | "g2.8xlarge"
-  | "g3.4xlarge"
-  | "g3.8xlarge"
-  | "g3.16xlarge"
-  | "g3s.xlarge"
-  | "g4ad.xlarge"
-  | "g4ad.2xlarge"
-  | "g4ad.4xlarge"
-  | "g4ad.8xlarge"
-  | "g4ad.16xlarge"
-  | "g4dn.xlarge"
-  | "g4dn.2xlarge"
-  | "g4dn.4xlarge"
-  | "g4dn.8xlarge"
-  | "g4dn.12xlarge"
-  | "g4dn.16xlarge"
-  | "g4dn.metal"
-  | "g5.xlarge"
-  | "g5.2xlarge"
-  | "g5.4xlarge"
-  | "g5.8xlarge"
-  | "g5.12xlarge"
-  | "g5.16xlarge"
-  | "g5.24xlarge"
-  | "g5.48xlarge"
-  | "g5g.xlarge"
-  | "g5g.2xlarge"
-  | "g5g.4xlarge"
-  | "g5g.8xlarge"
-  | "g5g.16xlarge"
-  | "g5g.metal"
-  | "hi1.4xlarge"
-  | "hpc6a.48xlarge"
-  | "hs1.8xlarge"
-  | "h1.2xlarge"
-  | "h1.4xlarge"
-  | "h1.8xlarge"
-  | "h1.16xlarge"
-  | "i2.xlarge"
-  | "i2.2xlarge"
-  | "i2.4xlarge"
-  | "i2.8xlarge"
-  | "i3.large"
-  | "i3.xlarge"
-  | "i3.2xlarge"
-  | "i3.4xlarge"
-  | "i3.8xlarge"
-  | "i3.16xlarge"
-  | "i3.metal"
-  | "i3en.large"
-  | "i3en.xlarge"
-  | "i3en.2xlarge"
-  | "i3en.3xlarge"
-  | "i3en.6xlarge"
-  | "i3en.12xlarge"
-  | "i3en.24xlarge"
-  | "i3en.metal"
-  | "im4gn.large"
-  | "im4gn.xlarge"
-  | "im4gn.2xlarge"
-  | "im4gn.4xlarge"
-  | "im4gn.8xlarge"
-  | "im4gn.16xlarge"
-  | "inf1.xlarge"
-  | "inf1.2xlarge"
-  | "inf1.6xlarge"
-  | "inf1.24xlarge"
-  | "is4gen.medium"
-  | "is4gen.large"
-  | "is4gen.xlarge"
-  | "is4gen.2xlarge"
-  | "is4gen.4xlarge"
-  | "is4gen.8xlarge"
-  | "m1.small"
-  | "m1.medium"
-  | "m1.large"
-  | "m1.xlarge"
-  | "m2.xlarge"
-  | "m2.2xlarge"
-  | "m2.4xlarge"
-  | "m3.medium"
-  | "m3.large"
-  | "m3.xlarge"
-  | "m3.2xlarge"
-  | "m4.large"
-  | "m4.xlarge"
-  | "m4.2xlarge"
-  | "m4.4xlarge"
-  | "m4.10xlarge"
-  | "m4.16xlarge"
-  | "m5.large"
-  | "m5.xlarge"
-  | "m5.2xlarge"
-  | "m5.4xlarge"
-  | "m5.8xlarge"
-  | "m5.12xlarge"
-  | "m5.16xlarge"
-  | "m5.24xlarge"
-  | "m5.metal"
-  | "m5a.large"
-  | "m5a.xlarge"
-  | "m5a.2xlarge"
-  | "m5a.4xlarge"
-  | "m5a.8xlarge"
-  | "m5a.12xlarge"
-  | "m5a.16xlarge"
-  | "m5a.24xlarge"
-  | "m5ad.large"
-  | "m5ad.xlarge"
-  | "m5ad.2xlarge"
-  | "m5ad.4xlarge"
-  | "m5ad.8xlarge"
-  | "m5ad.12xlarge"
-  | "m5ad.16xlarge"
-  | "m5ad.24xlarge"
-  | "m5d.large"
-  | "m5d.xlarge"
-  | "m5d.2xlarge"
-  | "m5d.4xlarge"
-  | "m5d.8xlarge"
-  | "m5d.12xlarge"
-  | "m5d.16xlarge"
-  | "m5d.24xlarge"
-  | "m5d.metal"
-  | "m5dn.large"
-  | "m5dn.xlarge"
-  | "m5dn.2xlarge"
-  | "m5dn.4xlarge"
-  | "m5dn.8xlarge"
-  | "m5dn.12xlarge"
-  | "m5dn.16xlarge"
-  | "m5dn.24xlarge"
-  | "m5dn.metal"
-  | "m5n.large"
-  | "m5n.xlarge"
-  | "m5n.2xlarge"
-  | "m5n.4xlarge"
-  | "m5n.8xlarge"
-  | "m5n.12xlarge"
-  | "m5n.16xlarge"
-  | "m5n.24xlarge"
-  | "m5n.metal"
-  | "m5zn.large"
-  | "m5zn.xlarge"
-  | "m5zn.2xlarge"
-  | "m5zn.3xlarge"
-  | "m5zn.6xlarge"
-  | "m5zn.12xlarge"
-  | "m5zn.metal"
-  | "m6a.large"
-  | "m6a.xlarge"
-  | "m6a.2xlarge"
-  | "m6a.4xlarge"
-  | "m6a.8xlarge"
-  | "m6a.12xlarge"
-  | "m6a.16xlarge"
-  | "m6a.24xlarge"
-  | "m6a.32xlarge"
-  | "m6a.48xlarge"
-  | "m6g.metal"
-  | "m6g.medium"
-  | "m6g.large"
-  | "m6g.xlarge"
-  | "m6g.2xlarge"
-  | "m6g.4xlarge"
-  | "m6g.8xlarge"
-  | "m6g.12xlarge"
-  | "m6g.16xlarge"
-  | "m6gd.metal"
-  | "m6gd.medium"
-  | "m6gd.large"
-  | "m6gd.xlarge"
-  | "m6gd.2xlarge"
-  | "m6gd.4xlarge"
-  | "m6gd.8xlarge"
-  | "m6gd.12xlarge"
-  | "m6gd.16xlarge"
-  | "m6i.large"
-  | "m6i.xlarge"
-  | "m6i.2xlarge"
-  | "m6i.4xlarge"
-  | "m6i.8xlarge"
-  | "m6i.12xlarge"
-  | "m6i.16xlarge"
-  | "m6i.24xlarge"
-  | "m6i.32xlarge"
-  | "m6i.metal"
-  | "mac1.metal"
-  | "p2.xlarge"
-  | "p2.8xlarge"
-  | "p2.16xlarge"
-  | "p3.2xlarge"
-  | "p3.8xlarge"
-  | "p3.16xlarge"
-  | "p3dn.24xlarge"
-  | "p4d.24xlarge"
-  | "r3.large"
-  | "r3.xlarge"
-  | "r3.2xlarge"
-  | "r3.4xlarge"
-  | "r3.8xlarge"
-  | "r4.large"
-  | "r4.xlarge"
-  | "r4.2xlarge"
-  | "r4.4xlarge"
-  | "r4.8xlarge"
-  | "r4.16xlarge"
-  | "r5.large"
-  | "r5.xlarge"
-  | "r5.2xlarge"
-  | "r5.4xlarge"
-  | "r5.8xlarge"
-  | "r5.12xlarge"
-  | "r5.16xlarge"
-  | "r5.24xlarge"
-  | "r5.metal"
-  | "r5a.large"
-  | "r5a.xlarge"
-  | "r5a.2xlarge"
-  | "r5a.4xlarge"
-  | "r5a.8xlarge"
-  | "r5a.12xlarge"
-  | "r5a.16xlarge"
-  | "r5a.24xlarge"
-  | "r5ad.large"
-  | "r5ad.xlarge"
-  | "r5ad.2xlarge"
-  | "r5ad.4xlarge"
-  | "r5ad.8xlarge"
-  | "r5ad.12xlarge"
-  | "r5ad.16xlarge"
-  | "r5ad.24xlarge"
-  | "r5b.large"
-  | "r5b.xlarge"
-  | "r5b.2xlarge"
-  | "r5b.4xlarge"
-  | "r5b.8xlarge"
-  | "r5b.12xlarge"
-  | "r5b.16xlarge"
-  | "r5b.24xlarge"
-  | "r5b.metal"
-  | "r5d.large"
-  | "r5d.xlarge"
-  | "r5d.2xlarge"
-  | "r5d.4xlarge"
-  | "r5d.8xlarge"
-  | "r5d.12xlarge"
-  | "r5d.16xlarge"
-  | "r5d.24xlarge"
-  | "r5d.metal"
-  | "r5dn.large"
-  | "r5dn.xlarge"
-  | "r5dn.2xlarge"
-  | "r5dn.4xlarge"
-  | "r5dn.8xlarge"
-  | "r5dn.12xlarge"
-  | "r5dn.16xlarge"
-  | "r5dn.24xlarge"
-  | "r5dn.metal"
-  | "r5n.large"
-  | "r5n.xlarge"
-  | "r5n.2xlarge"
-  | "r5n.4xlarge"
-  | "r5n.8xlarge"
-  | "r5n.12xlarge"
-  | "r5n.16xlarge"
-  | "r5n.24xlarge"
-  | "r5n.metal"
-  | "r6g.medium"
-  | "r6g.large"
-  | "r6g.xlarge"
-  | "r6g.2xlarge"
-  | "r6g.4xlarge"
-  | "r6g.8xlarge"
-  | "r6g.12xlarge"
-  | "r6g.16xlarge"
-  | "r6g.metal"
-  | "r6gd.medium"
-  | "r6gd.large"
-  | "r6gd.xlarge"
-  | "r6gd.2xlarge"
-  | "r6gd.4xlarge"
-  | "r6gd.8xlarge"
-  | "r6gd.12xlarge"
-  | "r6gd.16xlarge"
-  | "r6gd.metal"
-  | "r6i.large"
-  | "r6i.xlarge"
-  | "r6i.2xlarge"
-  | "r6i.4xlarge"
-  | "r6i.8xlarge"
-  | "r6i.12xlarge"
-  | "r6i.16xlarge"
-  | "r6i.24xlarge"
-  | "r6i.32xlarge"
-  | "r6i.metal"
-  | "t1.micro"
-  | "t2.nano"
-  | "t2.micro"
-  | "t2.small"
-  | "t2.medium"
-  | "t2.large"
-  | "t2.xlarge"
-  | "t2.2xlarge"
-  | "t3.nano"
-  | "t3.micro"
-  | "t3.small"
-  | "t3.medium"
-  | "t3.large"
-  | "t3.xlarge"
-  | "t3.2xlarge"
-  | "t3a.nano"
-  | "t3a.micro"
-  | "t3a.small"
-  | "t3a.medium"
-  | "t3a.large"
-  | "t3a.xlarge"
-  | "t3a.2xlarge"
-  | "t4g.nano"
-  | "t4g.micro"
-  | "t4g.small"
-  | "t4g.medium"
-  | "t4g.large"
-  | "t4g.xlarge"
-  | "t4g.2xlarge"
-  | "u-6tb1.56xlarge"
-  | "u-6tb1.112xlarge"
-  | "u-9tb1.112xlarge"
-  | "u-12tb1.112xlarge"
-  | "u-6tb1.metal"
-  | "u-9tb1.metal"
-  | "u-12tb1.metal"
-  | "u-18tb1.metal"
-  | "u-24tb1.metal"
-  | "vt1.3xlarge"
-  | "vt1.6xlarge"
-  | "vt1.24xlarge"
-  | "x1.16xlarge"
-  | "x1.32xlarge"
-  | "x1e.xlarge"
-  | "x1e.2xlarge"
-  | "x1e.4xlarge"
-  | "x1e.8xlarge"
-  | "x1e.16xlarge"
-  | "x1e.32xlarge"
-  | "x2iezn.2xlarge"
-  | "x2iezn.4xlarge"
-  | "x2iezn.6xlarge"
-  | "x2iezn.8xlarge"
-  | "x2iezn.12xlarge"
-  | "x2iezn.metal"
-  | "x2gd.medium"
-  | "x2gd.large"
-  | "x2gd.xlarge"
-  | "x2gd.2xlarge"
-  | "x2gd.4xlarge"
-  | "x2gd.8xlarge"
-  | "x2gd.12xlarge"
-  | "x2gd.16xlarge"
-  | "x2gd.metal"
-  | "z1d.large"
-  | "z1d.xlarge"
-  | "z1d.2xlarge"
-  | "z1d.3xlarge"
-  | "z1d.6xlarge"
-  | "z1d.12xlarge"
-  | "z1d.metal"
-  | "x2idn.16xlarge"
-  | "x2idn.24xlarge"
-  | "x2idn.32xlarge"
-  | "x2iedn.xlarge"
-  | "x2iedn.2xlarge"
-  | "x2iedn.4xlarge"
-  | "x2iedn.8xlarge"
-  | "x2iedn.16xlarge"
-  | "x2iedn.24xlarge"
-  | "x2iedn.32xlarge"
-  | "c6a.large"
-  | "c6a.xlarge"
-  | "c6a.2xlarge"
-  | "c6a.4xlarge"
-  | "c6a.8xlarge"
-  | "c6a.12xlarge"
-  | "c6a.16xlarge"
-  | "c6a.24xlarge"
-  | "c6a.32xlarge"
-  | "c6a.48xlarge"
-  | "c6a.metal"
-  | "m6a.metal"
-  | "i4i.large"
-  | "i4i.xlarge"
-  | "i4i.2xlarge"
-  | "i4i.4xlarge"
-  | "i4i.8xlarge"
-  | "i4i.16xlarge"
-  | "i4i.32xlarge"
-  | "i4i.metal"
-  | "x2idn.metal"
-  | "x2iedn.metal"
-  | "c7g.medium"
-  | "c7g.large"
-  | "c7g.xlarge"
-  | "c7g.2xlarge"
-  | "c7g.4xlarge"
-  | "c7g.8xlarge"
-  | "c7g.12xlarge"
-  | "c7g.16xlarge"
-  | "mac2.metal"
-  | "c6id.large"
-  | "c6id.xlarge"
-  | "c6id.2xlarge"
-  | "c6id.4xlarge"
-  | "c6id.8xlarge"
-  | "c6id.12xlarge"
-  | "c6id.16xlarge"
-  | "c6id.24xlarge"
-  | "c6id.32xlarge"
-  | "c6id.metal"
-  | "m6id.large"
-  | "m6id.xlarge"
-  | "m6id.2xlarge"
-  | "m6id.4xlarge"
-  | "m6id.8xlarge"
-  | "m6id.12xlarge"
-  | "m6id.16xlarge"
-  | "m6id.24xlarge"
-  | "m6id.32xlarge"
-  | "m6id.metal"
-  | "r6id.large"
-  | "r6id.xlarge"
-  | "r6id.2xlarge"
-  | "r6id.4xlarge"
-  | "r6id.8xlarge"
-  | "r6id.12xlarge"
-  | "r6id.16xlarge"
-  | "r6id.24xlarge"
-  | "r6id.32xlarge"
-  | "r6id.metal"
-  | "r6a.large"
-  | "r6a.xlarge"
-  | "r6a.2xlarge"
-  | "r6a.4xlarge"
-  | "r6a.8xlarge"
-  | "r6a.12xlarge"
-  | "r6a.16xlarge"
-  | "r6a.24xlarge"
-  | "r6a.32xlarge"
-  | "r6a.48xlarge"
-  | "r6a.metal"
-  | "p4de.24xlarge"
-  | "u-3tb1.56xlarge"
-  | "u-18tb1.112xlarge"
-  | "u-24tb1.112xlarge"
-  | "trn1.2xlarge"
-  | "trn1.32xlarge"
-  | "hpc6id.32xlarge"
-  | "c6in.large"
-  | "c6in.xlarge"
-  | "c6in.2xlarge"
-  | "c6in.4xlarge"
-  | "c6in.8xlarge"
-  | "c6in.12xlarge"
-  | "c6in.16xlarge"
-  | "c6in.24xlarge"
-  | "c6in.32xlarge"
-  | "m6in.large"
-  | "m6in.xlarge"
-  | "m6in.2xlarge"
-  | "m6in.4xlarge"
-  | "m6in.8xlarge"
-  | "m6in.12xlarge"
-  | "m6in.16xlarge"
-  | "m6in.24xlarge"
-  | "m6in.32xlarge"
-  | "m6idn.large"
-  | "m6idn.xlarge"
-  | "m6idn.2xlarge"
-  | "m6idn.4xlarge"
-  | "m6idn.8xlarge"
-  | "m6idn.12xlarge"
-  | "m6idn.16xlarge"
-  | "m6idn.24xlarge"
-  | "m6idn.32xlarge"
-  | "r6in.large"
-  | "r6in.xlarge"
-  | "r6in.2xlarge"
-  | "r6in.4xlarge"
-  | "r6in.8xlarge"
-  | "r6in.12xlarge"
-  | "r6in.16xlarge"
-  | "r6in.24xlarge"
-  | "r6in.32xlarge"
-  | "r6idn.large"
-  | "r6idn.xlarge"
-  | "r6idn.2xlarge"
-  | "r6idn.4xlarge"
-  | "r6idn.8xlarge"
-  | "r6idn.12xlarge"
-  | "r6idn.16xlarge"
-  | "r6idn.24xlarge"
-  | "r6idn.32xlarge"
-  | "c7g.metal"
-  | "m7g.medium"
-  | "m7g.large"
-  | "m7g.xlarge"
-  | "m7g.2xlarge"
-  | "m7g.4xlarge"
-  | "m7g.8xlarge"
-  | "m7g.12xlarge"
-  | "m7g.16xlarge"
-  | "m7g.metal"
-  | "r7g.medium"
-  | "r7g.large"
-  | "r7g.xlarge"
-  | "r7g.2xlarge"
-  | "r7g.4xlarge"
-  | "r7g.8xlarge"
-  | "r7g.12xlarge"
-  | "r7g.16xlarge"
-  | "r7g.metal"
-  | "c6in.metal"
-  | "m6in.metal"
-  | "m6idn.metal"
-  | "r6in.metal"
-  | "r6idn.metal"
-  | "inf2.xlarge"
-  | "inf2.8xlarge"
-  | "inf2.24xlarge"
-  | "inf2.48xlarge"
-  | "trn1n.32xlarge"
-  | "i4g.large"
-  | "i4g.xlarge"
-  | "i4g.2xlarge"
-  | "i4g.4xlarge"
-  | "i4g.8xlarge"
-  | "i4g.16xlarge"
-  | "hpc7g.4xlarge"
-  | "hpc7g.8xlarge"
-  | "hpc7g.16xlarge"
-  | "c7gn.medium"
-  | "c7gn.large"
-  | "c7gn.xlarge"
-  | "c7gn.2xlarge"
-  | "c7gn.4xlarge"
-  | "c7gn.8xlarge"
-  | "c7gn.12xlarge"
-  | "c7gn.16xlarge"
-  | "p5.48xlarge"
-  | "m7i.large"
-  | "m7i.xlarge"
-  | "m7i.2xlarge"
-  | "m7i.4xlarge"
-  | "m7i.8xlarge"
-  | "m7i.12xlarge"
-  | "m7i.16xlarge"
-  | "m7i.24xlarge"
-  | "m7i.48xlarge"
-  | "m7i-flex.large"
-  | "m7i-flex.xlarge"
-  | "m7i-flex.2xlarge"
-  | "m7i-flex.4xlarge"
-  | "m7i-flex.8xlarge"
-  | "m7a.medium"
-  | "m7a.large"
-  | "m7a.xlarge"
-  | "m7a.2xlarge"
-  | "m7a.4xlarge"
-  | "m7a.8xlarge"
-  | "m7a.12xlarge"
-  | "m7a.16xlarge"
-  | "m7a.24xlarge"
-  | "m7a.32xlarge"
-  | "m7a.48xlarge"
-  | "m7a.metal-48xl"
-  | "hpc7a.12xlarge"
-  | "hpc7a.24xlarge"
-  | "hpc7a.48xlarge"
-  | "hpc7a.96xlarge"
-  | "c7gd.medium"
-  | "c7gd.large"
-  | "c7gd.xlarge"
-  | "c7gd.2xlarge"
-  | "c7gd.4xlarge"
-  | "c7gd.8xlarge"
-  | "c7gd.12xlarge"
-  | "c7gd.16xlarge"
-  | "m7gd.medium"
-  | "m7gd.large"
-  | "m7gd.xlarge"
-  | "m7gd.2xlarge"
-  | "m7gd.4xlarge"
-  | "m7gd.8xlarge"
-  | "m7gd.12xlarge"
-  | "m7gd.16xlarge"
-  | "r7gd.medium"
-  | "r7gd.large"
-  | "r7gd.xlarge"
-  | "r7gd.2xlarge"
-  | "r7gd.4xlarge"
-  | "r7gd.8xlarge"
-  | "r7gd.12xlarge"
-  | "r7gd.16xlarge"
-  | "r7a.medium"
-  | "r7a.large"
-  | "r7a.xlarge"
-  | "r7a.2xlarge"
-  | "r7a.4xlarge"
-  | "r7a.8xlarge"
-  | "r7a.12xlarge"
-  | "r7a.16xlarge"
-  | "r7a.24xlarge"
-  | "r7a.32xlarge"
-  | "r7a.48xlarge"
-  | "c7i.large"
-  | "c7i.xlarge"
-  | "c7i.2xlarge"
-  | "c7i.4xlarge"
-  | "c7i.8xlarge"
-  | "c7i.12xlarge"
-  | "c7i.16xlarge"
-  | "c7i.24xlarge"
-  | "c7i.48xlarge"
-  | "mac2-m2pro.metal"
-  | "r7iz.large"
-  | "r7iz.xlarge"
-  | "r7iz.2xlarge"
-  | "r7iz.4xlarge"
-  | "r7iz.8xlarge"
-  | "r7iz.12xlarge"
-  | "r7iz.16xlarge"
-  | "r7iz.32xlarge"
-  | "c7a.medium"
-  | "c7a.large"
-  | "c7a.xlarge"
-  | "c7a.2xlarge"
-  | "c7a.4xlarge"
-  | "c7a.8xlarge"
-  | "c7a.12xlarge"
-  | "c7a.16xlarge"
-  | "c7a.24xlarge"
-  | "c7a.32xlarge"
-  | "c7a.48xlarge"
-  | "c7a.metal-48xl"
-  | "r7a.metal-48xl"
-  | "r7i.large"
-  | "r7i.xlarge"
-  | "r7i.2xlarge"
-  | "r7i.4xlarge"
-  | "r7i.8xlarge"
-  | "r7i.12xlarge"
-  | "r7i.16xlarge"
-  | "r7i.24xlarge"
-  | "r7i.48xlarge"
-  | "dl2q.24xlarge"
-  | "mac2-m2.metal"
-  | "i4i.12xlarge"
-  | "i4i.24xlarge"
-  | "c7i.metal-24xl"
-  | "c7i.metal-48xl"
-  | "m7i.metal-24xl"
-  | "m7i.metal-48xl"
-  | "r7i.metal-24xl"
-  | "r7i.metal-48xl"
-  | "r7iz.metal-16xl"
-  | "r7iz.metal-32xl"
-  | "c7gd.metal"
-  | "m7gd.metal"
-  | "r7gd.metal"
-  | "g6.xlarge"
-  | "g6.2xlarge"
-  | "g6.4xlarge"
-  | "g6.8xlarge"
-  | "g6.12xlarge"
-  | "g6.16xlarge"
-  | "g6.24xlarge"
-  | "g6.48xlarge"
-  | "gr6.4xlarge"
-  | "gr6.8xlarge"
-  | "c7i-flex.large"
-  | "c7i-flex.xlarge"
-  | "c7i-flex.2xlarge"
-  | "c7i-flex.4xlarge"
-  | "c7i-flex.8xlarge"
-  | "u7i-12tb.224xlarge"
-  | "u7in-16tb.224xlarge"
-  | "u7in-24tb.224xlarge"
-  | "u7in-32tb.224xlarge"
-  | "u7ib-12tb.224xlarge"
-  | "c7gn.metal"
-  | "r8g.medium"
-  | "r8g.large"
-  | "r8g.xlarge"
-  | "r8g.2xlarge"
-  | "r8g.4xlarge"
-  | "r8g.8xlarge"
-  | "r8g.12xlarge"
-  | "r8g.16xlarge"
-  | "r8g.24xlarge"
-  | "r8g.48xlarge"
-  | "r8g.metal-24xl"
-  | "r8g.metal-48xl"
-  | "mac2-m1ultra.metal"
-  | "g6e.xlarge"
-  | "g6e.2xlarge"
-  | "g6e.4xlarge"
-  | "g6e.8xlarge"
-  | "g6e.12xlarge"
-  | "g6e.16xlarge"
-  | "g6e.24xlarge"
-  | "g6e.48xlarge"
-  | "c8g.medium"
-  | "c8g.large"
-  | "c8g.xlarge"
-  | "c8g.2xlarge"
-  | "c8g.4xlarge"
-  | "c8g.8xlarge"
-  | "c8g.12xlarge"
-  | "c8g.16xlarge"
-  | "c8g.24xlarge"
-  | "c8g.48xlarge"
-  | "c8g.metal-24xl"
-  | "c8g.metal-48xl"
-  | "m8g.medium"
-  | "m8g.large"
-  | "m8g.xlarge"
-  | "m8g.2xlarge"
-  | "m8g.4xlarge"
-  | "m8g.8xlarge"
-  | "m8g.12xlarge"
-  | "m8g.16xlarge"
-  | "m8g.24xlarge"
-  | "m8g.48xlarge"
-  | "m8g.metal-24xl"
-  | "m8g.metal-48xl"
-  | "x8g.medium"
-  | "x8g.large"
-  | "x8g.xlarge"
-  | "x8g.2xlarge"
-  | "x8g.4xlarge"
-  | "x8g.8xlarge"
-  | "x8g.12xlarge"
-  | "x8g.16xlarge"
-  | "x8g.24xlarge"
-  | "x8g.48xlarge"
-  | "x8g.metal-24xl"
-  | "x8g.metal-48xl"
-  | "i7ie.large"
-  | "i7ie.xlarge"
-  | "i7ie.2xlarge"
-  | "i7ie.3xlarge"
-  | "i7ie.6xlarge"
-  | "i7ie.12xlarge"
-  | "i7ie.18xlarge"
-  | "i7ie.24xlarge"
-  | "i7ie.48xlarge"
-  | "i8g.large"
-  | "i8g.xlarge"
-  | "i8g.2xlarge"
-  | "i8g.4xlarge"
-  | "i8g.8xlarge"
-  | "i8g.12xlarge"
-  | "i8g.16xlarge"
-  | "i8g.24xlarge"
-  | "i8g.metal-24xl"
-  | "u7i-6tb.112xlarge"
-  | "u7i-8tb.112xlarge"
-  | "u7inh-32tb.480xlarge"
-  | "p5e.48xlarge"
-  | "p5en.48xlarge"
-  | "f2.12xlarge"
-  | "f2.48xlarge"
-  | "trn2.48xlarge"
-  | "c7i-flex.12xlarge"
-  | "c7i-flex.16xlarge"
-  | "m7i-flex.12xlarge"
-  | "m7i-flex.16xlarge"
-  | "i7ie.metal-24xl"
-  | "i7ie.metal-48xl"
-  | "i8g.48xlarge"
-  | "c8gd.medium"
-  | "c8gd.large"
-  | "c8gd.xlarge"
-  | "c8gd.2xlarge"
-  | "c8gd.4xlarge"
-  | "c8gd.8xlarge"
-  | "c8gd.12xlarge"
-  | "c8gd.16xlarge"
-  | "c8gd.24xlarge"
-  | "c8gd.48xlarge"
-  | "c8gd.metal-24xl"
-  | "c8gd.metal-48xl"
-  | "i7i.large"
-  | "i7i.xlarge"
-  | "i7i.2xlarge"
-  | "i7i.4xlarge"
-  | "i7i.8xlarge"
-  | "i7i.12xlarge"
-  | "i7i.16xlarge"
-  | "i7i.24xlarge"
-  | "i7i.48xlarge"
-  | "i7i.metal-24xl"
-  | "i7i.metal-48xl"
-  | "p6-b200.48xlarge"
-  | "m8gd.medium"
-  | "m8gd.large"
-  | "m8gd.xlarge"
-  | "m8gd.2xlarge"
-  | "m8gd.4xlarge"
-  | "m8gd.8xlarge"
-  | "m8gd.12xlarge"
-  | "m8gd.16xlarge"
-  | "m8gd.24xlarge"
-  | "m8gd.48xlarge"
-  | "m8gd.metal-24xl"
-  | "m8gd.metal-48xl"
-  | "r8gd.medium"
-  | "r8gd.large"
-  | "r8gd.xlarge"
-  | "r8gd.2xlarge"
-  | "r8gd.4xlarge"
-  | "r8gd.8xlarge"
-  | "r8gd.12xlarge"
-  | "r8gd.16xlarge"
-  | "r8gd.24xlarge"
-  | "r8gd.48xlarge"
-  | "r8gd.metal-24xl"
-  | "r8gd.metal-48xl"
-  | "c8gn.medium"
-  | "c8gn.large"
-  | "c8gn.xlarge"
-  | "c8gn.2xlarge"
-  | "c8gn.4xlarge"
-  | "c8gn.8xlarge"
-  | "c8gn.12xlarge"
-  | "c8gn.16xlarge"
-  | "c8gn.24xlarge"
-  | "c8gn.48xlarge"
-  | "c8gn.metal-24xl"
-  | "c8gn.metal-48xl"
-  | "f2.6xlarge"
-  | "p6e-gb200.36xlarge"
-  | "g6f.large"
-  | "g6f.xlarge"
-  | "g6f.2xlarge"
-  | "g6f.4xlarge"
-  | "gr6f.4xlarge"
-  | "p5.4xlarge"
-  | "r8i.large"
-  | "r8i.xlarge"
-  | "r8i.2xlarge"
-  | "r8i.4xlarge"
-  | "r8i.8xlarge"
-  | "r8i.12xlarge"
-  | "r8i.16xlarge"
-  | "r8i.24xlarge"
-  | "r8i.32xlarge"
-  | "r8i.48xlarge"
-  | "r8i.96xlarge"
-  | "r8i.metal-48xl"
-  | "r8i.metal-96xl"
-  | "r8i-flex.large"
-  | "r8i-flex.xlarge"
-  | "r8i-flex.2xlarge"
-  | "r8i-flex.4xlarge"
-  | "r8i-flex.8xlarge"
-  | "r8i-flex.12xlarge"
-  | "r8i-flex.16xlarge"
-  | "m8i.large"
-  | "m8i.xlarge"
-  | "m8i.2xlarge"
-  | "m8i.4xlarge"
-  | "m8i.8xlarge"
-  | "m8i.12xlarge"
-  | "m8i.16xlarge"
-  | "m8i.24xlarge"
-  | "m8i.32xlarge"
-  | "m8i.48xlarge"
-  | "m8i.96xlarge"
-  | "m8i.metal-48xl"
-  | "m8i.metal-96xl"
-  | "m8i-flex.large"
-  | "m8i-flex.xlarge"
-  | "m8i-flex.2xlarge"
-  | "m8i-flex.4xlarge"
-  | "m8i-flex.8xlarge"
-  | "m8i-flex.12xlarge"
-  | "m8i-flex.16xlarge"
-  | "i8ge.large"
-  | "i8ge.xlarge"
-  | "i8ge.2xlarge"
-  | "i8ge.3xlarge"
-  | "i8ge.6xlarge"
-  | "i8ge.12xlarge"
-  | "i8ge.18xlarge"
-  | "i8ge.24xlarge"
-  | "i8ge.48xlarge"
-  | "i8ge.metal-24xl"
-  | "i8ge.metal-48xl"
-  | "mac-m4.metal"
-  | "mac-m4pro.metal"
-  | "r8gn.medium"
-  | "r8gn.large"
-  | "r8gn.xlarge"
-  | "r8gn.2xlarge"
-  | "r8gn.4xlarge"
-  | "r8gn.8xlarge"
-  | "r8gn.12xlarge"
-  | "r8gn.16xlarge"
-  | "r8gn.24xlarge"
-  | "r8gn.48xlarge"
-  | "r8gn.metal-24xl"
-  | "r8gn.metal-48xl"
-  | "c8i.large"
-  | "c8i.xlarge"
-  | "c8i.2xlarge"
-  | "c8i.4xlarge"
-  | "c8i.8xlarge"
-  | "c8i.12xlarge"
-  | "c8i.16xlarge"
-  | "c8i.24xlarge"
-  | "c8i.32xlarge"
-  | "c8i.48xlarge"
-  | "c8i.96xlarge"
-  | "c8i.metal-48xl"
-  | "c8i.metal-96xl"
-  | "c8i-flex.large"
-  | "c8i-flex.xlarge"
-  | "c8i-flex.2xlarge"
-  | "c8i-flex.4xlarge"
-  | "c8i-flex.8xlarge"
-  | "c8i-flex.12xlarge"
-  | "c8i-flex.16xlarge"
-  | "r8gb.medium"
-  | "r8gb.large"
-  | "r8gb.xlarge"
-  | "r8gb.2xlarge"
-  | "r8gb.4xlarge"
-  | "r8gb.8xlarge"
-  | "r8gb.12xlarge"
-  | "r8gb.16xlarge"
-  | "r8gb.24xlarge"
-  | "r8gb.metal-24xl"
-  | "m8a.medium"
-  | "m8a.large"
-  | "m8a.xlarge"
-  | "m8a.2xlarge"
-  | "m8a.4xlarge"
-  | "m8a.8xlarge"
-  | "m8a.12xlarge"
-  | "m8a.16xlarge"
-  | "m8a.24xlarge"
-  | "m8a.48xlarge"
-  | "m8a.metal-24xl"
-  | "m8a.metal-48xl"
-  | "trn2.3xlarge";
+export type InstanceType = "a1.medium" | "a1.large" | "a1.xlarge" | "a1.2xlarge" | "a1.4xlarge" | "a1.metal" | "c1.medium" | "c1.xlarge" | "c3.large" | "c3.xlarge" | "c3.2xlarge" | "c3.4xlarge" | "c3.8xlarge" | "c4.large" | "c4.xlarge" | "c4.2xlarge" | "c4.4xlarge" | "c4.8xlarge" | "c5.large" | "c5.xlarge" | "c5.2xlarge" | "c5.4xlarge" | "c5.9xlarge" | "c5.12xlarge" | "c5.18xlarge" | "c5.24xlarge" | "c5.metal" | "c5a.large" | "c5a.xlarge" | "c5a.2xlarge" | "c5a.4xlarge" | "c5a.8xlarge" | "c5a.12xlarge" | "c5a.16xlarge" | "c5a.24xlarge" | "c5ad.large" | "c5ad.xlarge" | "c5ad.2xlarge" | "c5ad.4xlarge" | "c5ad.8xlarge" | "c5ad.12xlarge" | "c5ad.16xlarge" | "c5ad.24xlarge" | "c5d.large" | "c5d.xlarge" | "c5d.2xlarge" | "c5d.4xlarge" | "c5d.9xlarge" | "c5d.12xlarge" | "c5d.18xlarge" | "c5d.24xlarge" | "c5d.metal" | "c5n.large" | "c5n.xlarge" | "c5n.2xlarge" | "c5n.4xlarge" | "c5n.9xlarge" | "c5n.18xlarge" | "c5n.metal" | "c6g.medium" | "c6g.large" | "c6g.xlarge" | "c6g.2xlarge" | "c6g.4xlarge" | "c6g.8xlarge" | "c6g.12xlarge" | "c6g.16xlarge" | "c6g.metal" | "c6gd.medium" | "c6gd.large" | "c6gd.xlarge" | "c6gd.2xlarge" | "c6gd.4xlarge" | "c6gd.8xlarge" | "c6gd.12xlarge" | "c6gd.16xlarge" | "c6gd.metal" | "c6gn.medium" | "c6gn.large" | "c6gn.xlarge" | "c6gn.2xlarge" | "c6gn.4xlarge" | "c6gn.8xlarge" | "c6gn.12xlarge" | "c6gn.16xlarge" | "c6i.large" | "c6i.xlarge" | "c6i.2xlarge" | "c6i.4xlarge" | "c6i.8xlarge" | "c6i.12xlarge" | "c6i.16xlarge" | "c6i.24xlarge" | "c6i.32xlarge" | "c6i.metal" | "cc1.4xlarge" | "cc2.8xlarge" | "cg1.4xlarge" | "cr1.8xlarge" | "d2.xlarge" | "d2.2xlarge" | "d2.4xlarge" | "d2.8xlarge" | "d3.xlarge" | "d3.2xlarge" | "d3.4xlarge" | "d3.8xlarge" | "d3en.xlarge" | "d3en.2xlarge" | "d3en.4xlarge" | "d3en.6xlarge" | "d3en.8xlarge" | "d3en.12xlarge" | "dl1.24xlarge" | "f1.2xlarge" | "f1.4xlarge" | "f1.16xlarge" | "g2.2xlarge" | "g2.8xlarge" | "g3.4xlarge" | "g3.8xlarge" | "g3.16xlarge" | "g3s.xlarge" | "g4ad.xlarge" | "g4ad.2xlarge" | "g4ad.4xlarge" | "g4ad.8xlarge" | "g4ad.16xlarge" | "g4dn.xlarge" | "g4dn.2xlarge" | "g4dn.4xlarge" | "g4dn.8xlarge" | "g4dn.12xlarge" | "g4dn.16xlarge" | "g4dn.metal" | "g5.xlarge" | "g5.2xlarge" | "g5.4xlarge" | "g5.8xlarge" | "g5.12xlarge" | "g5.16xlarge" | "g5.24xlarge" | "g5.48xlarge" | "g5g.xlarge" | "g5g.2xlarge" | "g5g.4xlarge" | "g5g.8xlarge" | "g5g.16xlarge" | "g5g.metal" | "hi1.4xlarge" | "hpc6a.48xlarge" | "hs1.8xlarge" | "h1.2xlarge" | "h1.4xlarge" | "h1.8xlarge" | "h1.16xlarge" | "i2.xlarge" | "i2.2xlarge" | "i2.4xlarge" | "i2.8xlarge" | "i3.large" | "i3.xlarge" | "i3.2xlarge" | "i3.4xlarge" | "i3.8xlarge" | "i3.16xlarge" | "i3.metal" | "i3en.large" | "i3en.xlarge" | "i3en.2xlarge" | "i3en.3xlarge" | "i3en.6xlarge" | "i3en.12xlarge" | "i3en.24xlarge" | "i3en.metal" | "im4gn.large" | "im4gn.xlarge" | "im4gn.2xlarge" | "im4gn.4xlarge" | "im4gn.8xlarge" | "im4gn.16xlarge" | "inf1.xlarge" | "inf1.2xlarge" | "inf1.6xlarge" | "inf1.24xlarge" | "is4gen.medium" | "is4gen.large" | "is4gen.xlarge" | "is4gen.2xlarge" | "is4gen.4xlarge" | "is4gen.8xlarge" | "m1.small" | "m1.medium" | "m1.large" | "m1.xlarge" | "m2.xlarge" | "m2.2xlarge" | "m2.4xlarge" | "m3.medium" | "m3.large" | "m3.xlarge" | "m3.2xlarge" | "m4.large" | "m4.xlarge" | "m4.2xlarge" | "m4.4xlarge" | "m4.10xlarge" | "m4.16xlarge" | "m5.large" | "m5.xlarge" | "m5.2xlarge" | "m5.4xlarge" | "m5.8xlarge" | "m5.12xlarge" | "m5.16xlarge" | "m5.24xlarge" | "m5.metal" | "m5a.large" | "m5a.xlarge" | "m5a.2xlarge" | "m5a.4xlarge" | "m5a.8xlarge" | "m5a.12xlarge" | "m5a.16xlarge" | "m5a.24xlarge" | "m5ad.large" | "m5ad.xlarge" | "m5ad.2xlarge" | "m5ad.4xlarge" | "m5ad.8xlarge" | "m5ad.12xlarge" | "m5ad.16xlarge" | "m5ad.24xlarge" | "m5d.large" | "m5d.xlarge" | "m5d.2xlarge" | "m5d.4xlarge" | "m5d.8xlarge" | "m5d.12xlarge" | "m5d.16xlarge" | "m5d.24xlarge" | "m5d.metal" | "m5dn.large" | "m5dn.xlarge" | "m5dn.2xlarge" | "m5dn.4xlarge" | "m5dn.8xlarge" | "m5dn.12xlarge" | "m5dn.16xlarge" | "m5dn.24xlarge" | "m5dn.metal" | "m5n.large" | "m5n.xlarge" | "m5n.2xlarge" | "m5n.4xlarge" | "m5n.8xlarge" | "m5n.12xlarge" | "m5n.16xlarge" | "m5n.24xlarge" | "m5n.metal" | "m5zn.large" | "m5zn.xlarge" | "m5zn.2xlarge" | "m5zn.3xlarge" | "m5zn.6xlarge" | "m5zn.12xlarge" | "m5zn.metal" | "m6a.large" | "m6a.xlarge" | "m6a.2xlarge" | "m6a.4xlarge" | "m6a.8xlarge" | "m6a.12xlarge" | "m6a.16xlarge" | "m6a.24xlarge" | "m6a.32xlarge" | "m6a.48xlarge" | "m6g.metal" | "m6g.medium" | "m6g.large" | "m6g.xlarge" | "m6g.2xlarge" | "m6g.4xlarge" | "m6g.8xlarge" | "m6g.12xlarge" | "m6g.16xlarge" | "m6gd.metal" | "m6gd.medium" | "m6gd.large" | "m6gd.xlarge" | "m6gd.2xlarge" | "m6gd.4xlarge" | "m6gd.8xlarge" | "m6gd.12xlarge" | "m6gd.16xlarge" | "m6i.large" | "m6i.xlarge" | "m6i.2xlarge" | "m6i.4xlarge" | "m6i.8xlarge" | "m6i.12xlarge" | "m6i.16xlarge" | "m6i.24xlarge" | "m6i.32xlarge" | "m6i.metal" | "mac1.metal" | "p2.xlarge" | "p2.8xlarge" | "p2.16xlarge" | "p3.2xlarge" | "p3.8xlarge" | "p3.16xlarge" | "p3dn.24xlarge" | "p4d.24xlarge" | "r3.large" | "r3.xlarge" | "r3.2xlarge" | "r3.4xlarge" | "r3.8xlarge" | "r4.large" | "r4.xlarge" | "r4.2xlarge" | "r4.4xlarge" | "r4.8xlarge" | "r4.16xlarge" | "r5.large" | "r5.xlarge" | "r5.2xlarge" | "r5.4xlarge" | "r5.8xlarge" | "r5.12xlarge" | "r5.16xlarge" | "r5.24xlarge" | "r5.metal" | "r5a.large" | "r5a.xlarge" | "r5a.2xlarge" | "r5a.4xlarge" | "r5a.8xlarge" | "r5a.12xlarge" | "r5a.16xlarge" | "r5a.24xlarge" | "r5ad.large" | "r5ad.xlarge" | "r5ad.2xlarge" | "r5ad.4xlarge" | "r5ad.8xlarge" | "r5ad.12xlarge" | "r5ad.16xlarge" | "r5ad.24xlarge" | "r5b.large" | "r5b.xlarge" | "r5b.2xlarge" | "r5b.4xlarge" | "r5b.8xlarge" | "r5b.12xlarge" | "r5b.16xlarge" | "r5b.24xlarge" | "r5b.metal" | "r5d.large" | "r5d.xlarge" | "r5d.2xlarge" | "r5d.4xlarge" | "r5d.8xlarge" | "r5d.12xlarge" | "r5d.16xlarge" | "r5d.24xlarge" | "r5d.metal" | "r5dn.large" | "r5dn.xlarge" | "r5dn.2xlarge" | "r5dn.4xlarge" | "r5dn.8xlarge" | "r5dn.12xlarge" | "r5dn.16xlarge" | "r5dn.24xlarge" | "r5dn.metal" | "r5n.large" | "r5n.xlarge" | "r5n.2xlarge" | "r5n.4xlarge" | "r5n.8xlarge" | "r5n.12xlarge" | "r5n.16xlarge" | "r5n.24xlarge" | "r5n.metal" | "r6g.medium" | "r6g.large" | "r6g.xlarge" | "r6g.2xlarge" | "r6g.4xlarge" | "r6g.8xlarge" | "r6g.12xlarge" | "r6g.16xlarge" | "r6g.metal" | "r6gd.medium" | "r6gd.large" | "r6gd.xlarge" | "r6gd.2xlarge" | "r6gd.4xlarge" | "r6gd.8xlarge" | "r6gd.12xlarge" | "r6gd.16xlarge" | "r6gd.metal" | "r6i.large" | "r6i.xlarge" | "r6i.2xlarge" | "r6i.4xlarge" | "r6i.8xlarge" | "r6i.12xlarge" | "r6i.16xlarge" | "r6i.24xlarge" | "r6i.32xlarge" | "r6i.metal" | "t1.micro" | "t2.nano" | "t2.micro" | "t2.small" | "t2.medium" | "t2.large" | "t2.xlarge" | "t2.2xlarge" | "t3.nano" | "t3.micro" | "t3.small" | "t3.medium" | "t3.large" | "t3.xlarge" | "t3.2xlarge" | "t3a.nano" | "t3a.micro" | "t3a.small" | "t3a.medium" | "t3a.large" | "t3a.xlarge" | "t3a.2xlarge" | "t4g.nano" | "t4g.micro" | "t4g.small" | "t4g.medium" | "t4g.large" | "t4g.xlarge" | "t4g.2xlarge" | "u-6tb1.56xlarge" | "u-6tb1.112xlarge" | "u-9tb1.112xlarge" | "u-12tb1.112xlarge" | "u-6tb1.metal" | "u-9tb1.metal" | "u-12tb1.metal" | "u-18tb1.metal" | "u-24tb1.metal" | "vt1.3xlarge" | "vt1.6xlarge" | "vt1.24xlarge" | "x1.16xlarge" | "x1.32xlarge" | "x1e.xlarge" | "x1e.2xlarge" | "x1e.4xlarge" | "x1e.8xlarge" | "x1e.16xlarge" | "x1e.32xlarge" | "x2iezn.2xlarge" | "x2iezn.4xlarge" | "x2iezn.6xlarge" | "x2iezn.8xlarge" | "x2iezn.12xlarge" | "x2iezn.metal" | "x2gd.medium" | "x2gd.large" | "x2gd.xlarge" | "x2gd.2xlarge" | "x2gd.4xlarge" | "x2gd.8xlarge" | "x2gd.12xlarge" | "x2gd.16xlarge" | "x2gd.metal" | "z1d.large" | "z1d.xlarge" | "z1d.2xlarge" | "z1d.3xlarge" | "z1d.6xlarge" | "z1d.12xlarge" | "z1d.metal" | "x2idn.16xlarge" | "x2idn.24xlarge" | "x2idn.32xlarge" | "x2iedn.xlarge" | "x2iedn.2xlarge" | "x2iedn.4xlarge" | "x2iedn.8xlarge" | "x2iedn.16xlarge" | "x2iedn.24xlarge" | "x2iedn.32xlarge" | "c6a.large" | "c6a.xlarge" | "c6a.2xlarge" | "c6a.4xlarge" | "c6a.8xlarge" | "c6a.12xlarge" | "c6a.16xlarge" | "c6a.24xlarge" | "c6a.32xlarge" | "c6a.48xlarge" | "c6a.metal" | "m6a.metal" | "i4i.large" | "i4i.xlarge" | "i4i.2xlarge" | "i4i.4xlarge" | "i4i.8xlarge" | "i4i.16xlarge" | "i4i.32xlarge" | "i4i.metal" | "x2idn.metal" | "x2iedn.metal" | "c7g.medium" | "c7g.large" | "c7g.xlarge" | "c7g.2xlarge" | "c7g.4xlarge" | "c7g.8xlarge" | "c7g.12xlarge" | "c7g.16xlarge" | "mac2.metal" | "c6id.large" | "c6id.xlarge" | "c6id.2xlarge" | "c6id.4xlarge" | "c6id.8xlarge" | "c6id.12xlarge" | "c6id.16xlarge" | "c6id.24xlarge" | "c6id.32xlarge" | "c6id.metal" | "m6id.large" | "m6id.xlarge" | "m6id.2xlarge" | "m6id.4xlarge" | "m6id.8xlarge" | "m6id.12xlarge" | "m6id.16xlarge" | "m6id.24xlarge" | "m6id.32xlarge" | "m6id.metal" | "r6id.large" | "r6id.xlarge" | "r6id.2xlarge" | "r6id.4xlarge" | "r6id.8xlarge" | "r6id.12xlarge" | "r6id.16xlarge" | "r6id.24xlarge" | "r6id.32xlarge" | "r6id.metal" | "r6a.large" | "r6a.xlarge" | "r6a.2xlarge" | "r6a.4xlarge" | "r6a.8xlarge" | "r6a.12xlarge" | "r6a.16xlarge" | "r6a.24xlarge" | "r6a.32xlarge" | "r6a.48xlarge" | "r6a.metal" | "p4de.24xlarge" | "u-3tb1.56xlarge" | "u-18tb1.112xlarge" | "u-24tb1.112xlarge" | "trn1.2xlarge" | "trn1.32xlarge" | "hpc6id.32xlarge" | "c6in.large" | "c6in.xlarge" | "c6in.2xlarge" | "c6in.4xlarge" | "c6in.8xlarge" | "c6in.12xlarge" | "c6in.16xlarge" | "c6in.24xlarge" | "c6in.32xlarge" | "m6in.large" | "m6in.xlarge" | "m6in.2xlarge" | "m6in.4xlarge" | "m6in.8xlarge" | "m6in.12xlarge" | "m6in.16xlarge" | "m6in.24xlarge" | "m6in.32xlarge" | "m6idn.large" | "m6idn.xlarge" | "m6idn.2xlarge" | "m6idn.4xlarge" | "m6idn.8xlarge" | "m6idn.12xlarge" | "m6idn.16xlarge" | "m6idn.24xlarge" | "m6idn.32xlarge" | "r6in.large" | "r6in.xlarge" | "r6in.2xlarge" | "r6in.4xlarge" | "r6in.8xlarge" | "r6in.12xlarge" | "r6in.16xlarge" | "r6in.24xlarge" | "r6in.32xlarge" | "r6idn.large" | "r6idn.xlarge" | "r6idn.2xlarge" | "r6idn.4xlarge" | "r6idn.8xlarge" | "r6idn.12xlarge" | "r6idn.16xlarge" | "r6idn.24xlarge" | "r6idn.32xlarge" | "c7g.metal" | "m7g.medium" | "m7g.large" | "m7g.xlarge" | "m7g.2xlarge" | "m7g.4xlarge" | "m7g.8xlarge" | "m7g.12xlarge" | "m7g.16xlarge" | "m7g.metal" | "r7g.medium" | "r7g.large" | "r7g.xlarge" | "r7g.2xlarge" | "r7g.4xlarge" | "r7g.8xlarge" | "r7g.12xlarge" | "r7g.16xlarge" | "r7g.metal" | "c6in.metal" | "m6in.metal" | "m6idn.metal" | "r6in.metal" | "r6idn.metal" | "inf2.xlarge" | "inf2.8xlarge" | "inf2.24xlarge" | "inf2.48xlarge" | "trn1n.32xlarge" | "i4g.large" | "i4g.xlarge" | "i4g.2xlarge" | "i4g.4xlarge" | "i4g.8xlarge" | "i4g.16xlarge" | "hpc7g.4xlarge" | "hpc7g.8xlarge" | "hpc7g.16xlarge" | "c7gn.medium" | "c7gn.large" | "c7gn.xlarge" | "c7gn.2xlarge" | "c7gn.4xlarge" | "c7gn.8xlarge" | "c7gn.12xlarge" | "c7gn.16xlarge" | "p5.48xlarge" | "m7i.large" | "m7i.xlarge" | "m7i.2xlarge" | "m7i.4xlarge" | "m7i.8xlarge" | "m7i.12xlarge" | "m7i.16xlarge" | "m7i.24xlarge" | "m7i.48xlarge" | "m7i-flex.large" | "m7i-flex.xlarge" | "m7i-flex.2xlarge" | "m7i-flex.4xlarge" | "m7i-flex.8xlarge" | "m7a.medium" | "m7a.large" | "m7a.xlarge" | "m7a.2xlarge" | "m7a.4xlarge" | "m7a.8xlarge" | "m7a.12xlarge" | "m7a.16xlarge" | "m7a.24xlarge" | "m7a.32xlarge" | "m7a.48xlarge" | "m7a.metal-48xl" | "hpc7a.12xlarge" | "hpc7a.24xlarge" | "hpc7a.48xlarge" | "hpc7a.96xlarge" | "c7gd.medium" | "c7gd.large" | "c7gd.xlarge" | "c7gd.2xlarge" | "c7gd.4xlarge" | "c7gd.8xlarge" | "c7gd.12xlarge" | "c7gd.16xlarge" | "m7gd.medium" | "m7gd.large" | "m7gd.xlarge" | "m7gd.2xlarge" | "m7gd.4xlarge" | "m7gd.8xlarge" | "m7gd.12xlarge" | "m7gd.16xlarge" | "r7gd.medium" | "r7gd.large" | "r7gd.xlarge" | "r7gd.2xlarge" | "r7gd.4xlarge" | "r7gd.8xlarge" | "r7gd.12xlarge" | "r7gd.16xlarge" | "r7a.medium" | "r7a.large" | "r7a.xlarge" | "r7a.2xlarge" | "r7a.4xlarge" | "r7a.8xlarge" | "r7a.12xlarge" | "r7a.16xlarge" | "r7a.24xlarge" | "r7a.32xlarge" | "r7a.48xlarge" | "c7i.large" | "c7i.xlarge" | "c7i.2xlarge" | "c7i.4xlarge" | "c7i.8xlarge" | "c7i.12xlarge" | "c7i.16xlarge" | "c7i.24xlarge" | "c7i.48xlarge" | "mac2-m2pro.metal" | "r7iz.large" | "r7iz.xlarge" | "r7iz.2xlarge" | "r7iz.4xlarge" | "r7iz.8xlarge" | "r7iz.12xlarge" | "r7iz.16xlarge" | "r7iz.32xlarge" | "c7a.medium" | "c7a.large" | "c7a.xlarge" | "c7a.2xlarge" | "c7a.4xlarge" | "c7a.8xlarge" | "c7a.12xlarge" | "c7a.16xlarge" | "c7a.24xlarge" | "c7a.32xlarge" | "c7a.48xlarge" | "c7a.metal-48xl" | "r7a.metal-48xl" | "r7i.large" | "r7i.xlarge" | "r7i.2xlarge" | "r7i.4xlarge" | "r7i.8xlarge" | "r7i.12xlarge" | "r7i.16xlarge" | "r7i.24xlarge" | "r7i.48xlarge" | "dl2q.24xlarge" | "mac2-m2.metal" | "i4i.12xlarge" | "i4i.24xlarge" | "c7i.metal-24xl" | "c7i.metal-48xl" | "m7i.metal-24xl" | "m7i.metal-48xl" | "r7i.metal-24xl" | "r7i.metal-48xl" | "r7iz.metal-16xl" | "r7iz.metal-32xl" | "c7gd.metal" | "m7gd.metal" | "r7gd.metal" | "g6.xlarge" | "g6.2xlarge" | "g6.4xlarge" | "g6.8xlarge" | "g6.12xlarge" | "g6.16xlarge" | "g6.24xlarge" | "g6.48xlarge" | "gr6.4xlarge" | "gr6.8xlarge" | "c7i-flex.large" | "c7i-flex.xlarge" | "c7i-flex.2xlarge" | "c7i-flex.4xlarge" | "c7i-flex.8xlarge" | "u7i-12tb.224xlarge" | "u7in-16tb.224xlarge" | "u7in-24tb.224xlarge" | "u7in-32tb.224xlarge" | "u7ib-12tb.224xlarge" | "c7gn.metal" | "r8g.medium" | "r8g.large" | "r8g.xlarge" | "r8g.2xlarge" | "r8g.4xlarge" | "r8g.8xlarge" | "r8g.12xlarge" | "r8g.16xlarge" | "r8g.24xlarge" | "r8g.48xlarge" | "r8g.metal-24xl" | "r8g.metal-48xl" | "mac2-m1ultra.metal" | "g6e.xlarge" | "g6e.2xlarge" | "g6e.4xlarge" | "g6e.8xlarge" | "g6e.12xlarge" | "g6e.16xlarge" | "g6e.24xlarge" | "g6e.48xlarge" | "c8g.medium" | "c8g.large" | "c8g.xlarge" | "c8g.2xlarge" | "c8g.4xlarge" | "c8g.8xlarge" | "c8g.12xlarge" | "c8g.16xlarge" | "c8g.24xlarge" | "c8g.48xlarge" | "c8g.metal-24xl" | "c8g.metal-48xl" | "m8g.medium" | "m8g.large" | "m8g.xlarge" | "m8g.2xlarge" | "m8g.4xlarge" | "m8g.8xlarge" | "m8g.12xlarge" | "m8g.16xlarge" | "m8g.24xlarge" | "m8g.48xlarge" | "m8g.metal-24xl" | "m8g.metal-48xl" | "x8g.medium" | "x8g.large" | "x8g.xlarge" | "x8g.2xlarge" | "x8g.4xlarge" | "x8g.8xlarge" | "x8g.12xlarge" | "x8g.16xlarge" | "x8g.24xlarge" | "x8g.48xlarge" | "x8g.metal-24xl" | "x8g.metal-48xl" | "i7ie.large" | "i7ie.xlarge" | "i7ie.2xlarge" | "i7ie.3xlarge" | "i7ie.6xlarge" | "i7ie.12xlarge" | "i7ie.18xlarge" | "i7ie.24xlarge" | "i7ie.48xlarge" | "i8g.large" | "i8g.xlarge" | "i8g.2xlarge" | "i8g.4xlarge" | "i8g.8xlarge" | "i8g.12xlarge" | "i8g.16xlarge" | "i8g.24xlarge" | "i8g.metal-24xl" | "u7i-6tb.112xlarge" | "u7i-8tb.112xlarge" | "u7inh-32tb.480xlarge" | "p5e.48xlarge" | "p5en.48xlarge" | "f2.12xlarge" | "f2.48xlarge" | "trn2.48xlarge" | "c7i-flex.12xlarge" | "c7i-flex.16xlarge" | "m7i-flex.12xlarge" | "m7i-flex.16xlarge" | "i7ie.metal-24xl" | "i7ie.metal-48xl" | "i8g.48xlarge" | "c8gd.medium" | "c8gd.large" | "c8gd.xlarge" | "c8gd.2xlarge" | "c8gd.4xlarge" | "c8gd.8xlarge" | "c8gd.12xlarge" | "c8gd.16xlarge" | "c8gd.24xlarge" | "c8gd.48xlarge" | "c8gd.metal-24xl" | "c8gd.metal-48xl" | "i7i.large" | "i7i.xlarge" | "i7i.2xlarge" | "i7i.4xlarge" | "i7i.8xlarge" | "i7i.12xlarge" | "i7i.16xlarge" | "i7i.24xlarge" | "i7i.48xlarge" | "i7i.metal-24xl" | "i7i.metal-48xl" | "p6-b200.48xlarge" | "m8gd.medium" | "m8gd.large" | "m8gd.xlarge" | "m8gd.2xlarge" | "m8gd.4xlarge" | "m8gd.8xlarge" | "m8gd.12xlarge" | "m8gd.16xlarge" | "m8gd.24xlarge" | "m8gd.48xlarge" | "m8gd.metal-24xl" | "m8gd.metal-48xl" | "r8gd.medium" | "r8gd.large" | "r8gd.xlarge" | "r8gd.2xlarge" | "r8gd.4xlarge" | "r8gd.8xlarge" | "r8gd.12xlarge" | "r8gd.16xlarge" | "r8gd.24xlarge" | "r8gd.48xlarge" | "r8gd.metal-24xl" | "r8gd.metal-48xl" | "c8gn.medium" | "c8gn.large" | "c8gn.xlarge" | "c8gn.2xlarge" | "c8gn.4xlarge" | "c8gn.8xlarge" | "c8gn.12xlarge" | "c8gn.16xlarge" | "c8gn.24xlarge" | "c8gn.48xlarge" | "c8gn.metal-24xl" | "c8gn.metal-48xl" | "f2.6xlarge" | "p6e-gb200.36xlarge" | "g6f.large" | "g6f.xlarge" | "g6f.2xlarge" | "g6f.4xlarge" | "gr6f.4xlarge" | "p5.4xlarge" | "r8i.large" | "r8i.xlarge" | "r8i.2xlarge" | "r8i.4xlarge" | "r8i.8xlarge" | "r8i.12xlarge" | "r8i.16xlarge" | "r8i.24xlarge" | "r8i.32xlarge" | "r8i.48xlarge" | "r8i.96xlarge" | "r8i.metal-48xl" | "r8i.metal-96xl" | "r8i-flex.large" | "r8i-flex.xlarge" | "r8i-flex.2xlarge" | "r8i-flex.4xlarge" | "r8i-flex.8xlarge" | "r8i-flex.12xlarge" | "r8i-flex.16xlarge" | "m8i.large" | "m8i.xlarge" | "m8i.2xlarge" | "m8i.4xlarge" | "m8i.8xlarge" | "m8i.12xlarge" | "m8i.16xlarge" | "m8i.24xlarge" | "m8i.32xlarge" | "m8i.48xlarge" | "m8i.96xlarge" | "m8i.metal-48xl" | "m8i.metal-96xl" | "m8i-flex.large" | "m8i-flex.xlarge" | "m8i-flex.2xlarge" | "m8i-flex.4xlarge" | "m8i-flex.8xlarge" | "m8i-flex.12xlarge" | "m8i-flex.16xlarge" | "i8ge.large" | "i8ge.xlarge" | "i8ge.2xlarge" | "i8ge.3xlarge" | "i8ge.6xlarge" | "i8ge.12xlarge" | "i8ge.18xlarge" | "i8ge.24xlarge" | "i8ge.48xlarge" | "i8ge.metal-24xl" | "i8ge.metal-48xl" | "mac-m4.metal" | "mac-m4pro.metal" | "r8gn.medium" | "r8gn.large" | "r8gn.xlarge" | "r8gn.2xlarge" | "r8gn.4xlarge" | "r8gn.8xlarge" | "r8gn.12xlarge" | "r8gn.16xlarge" | "r8gn.24xlarge" | "r8gn.48xlarge" | "r8gn.metal-24xl" | "r8gn.metal-48xl" | "c8i.large" | "c8i.xlarge" | "c8i.2xlarge" | "c8i.4xlarge" | "c8i.8xlarge" | "c8i.12xlarge" | "c8i.16xlarge" | "c8i.24xlarge" | "c8i.32xlarge" | "c8i.48xlarge" | "c8i.96xlarge" | "c8i.metal-48xl" | "c8i.metal-96xl" | "c8i-flex.large" | "c8i-flex.xlarge" | "c8i-flex.2xlarge" | "c8i-flex.4xlarge" | "c8i-flex.8xlarge" | "c8i-flex.12xlarge" | "c8i-flex.16xlarge" | "r8gb.medium" | "r8gb.large" | "r8gb.xlarge" | "r8gb.2xlarge" | "r8gb.4xlarge" | "r8gb.8xlarge" | "r8gb.12xlarge" | "r8gb.16xlarge" | "r8gb.24xlarge" | "r8gb.metal-24xl" | "m8a.medium" | "m8a.large" | "m8a.xlarge" | "m8a.2xlarge" | "m8a.4xlarge" | "m8a.8xlarge" | "m8a.12xlarge" | "m8a.16xlarge" | "m8a.24xlarge" | "m8a.48xlarge" | "m8a.metal-24xl" | "m8a.metal-48xl" | "trn2.3xlarge";
 export type InstanceTypeHypervisor = "nitro" | "xen";
 export interface InstanceTypeInfo {
   InstanceType?: InstanceType;
@@ -12770,8 +13170,7 @@ export interface InstanceTypeInfo {
 export interface InstanceTypeInfoFromInstanceRequirements {
   InstanceType?: string;
 }
-export type InstanceTypeInfoFromInstanceRequirementsSet =
-  Array<InstanceTypeInfoFromInstanceRequirements>;
+export type InstanceTypeInfoFromInstanceRequirementsSet = Array<InstanceTypeInfoFromInstanceRequirements>;
 export type InstanceTypeInfoList = Array<InstanceTypeInfo>;
 export type InstanceTypeList = Array<InstanceType>;
 export interface InstanceTypeOffering {
@@ -12807,13 +13206,8 @@ export interface InternetGatewayAttachment {
   VpcId?: string;
 }
 export type InternetGatewayAttachmentList = Array<InternetGatewayAttachment>;
-export type InternetGatewayBlockMode =
-  | "off"
-  | "block-bidirectional"
-  | "block-ingress";
-export type InternetGatewayExclusionMode =
-  | "allow-bidirectional"
-  | "allow-egress";
+export type InternetGatewayBlockMode = "off" | "block-bidirectional" | "block-ingress";
+export type InternetGatewayExclusionMode = "allow-bidirectional" | "allow-egress";
 export type InternetGatewayId = string;
 
 export type InternetGatewayIdList = Array<string>;
@@ -12858,22 +13252,13 @@ export interface IpamAddressHistoryRecord {
   SampledEndTime?: Date | string;
 }
 export type IpamAddressHistoryRecordSet = Array<IpamAddressHistoryRecord>;
-export type IpamAddressHistoryResourceType =
-  | "eip"
-  | "vpc"
-  | "subnet"
-  | "network-interface"
-  | "instance";
+export type IpamAddressHistoryResourceType = "eip" | "vpc" | "subnet" | "network-interface" | "instance";
 export type IpamAssociatedResourceDiscoveryStatus = "active" | "not-found";
 export interface IpamCidrAuthorizationContext {
   Message?: string;
   Signature?: string;
 }
-export type IpamComplianceStatus =
-  | "compliant"
-  | "noncompliant"
-  | "unmanaged"
-  | "ignored";
+export type IpamComplianceStatus = "compliant" | "noncompliant" | "unmanaged" | "ignored";
 export interface IpamDiscoveredAccount {
   AccountId?: string;
   DiscoveryRegion?: string;
@@ -12922,10 +13307,7 @@ export interface IpamDiscoveredResourceCidr {
   AvailabilityZoneId?: string;
 }
 export type IpamDiscoveredResourceCidrSet = Array<IpamDiscoveredResourceCidr>;
-export type IpamDiscoveryFailureCode =
-  | "assume-role-failure"
-  | "throttling-failure"
-  | "unauthorized-failure";
+export type IpamDiscoveryFailureCode = "assume-role-failure" | "throttling-failure" | "unauthorized-failure";
 export interface IpamDiscoveryFailureReason {
   Code?: IpamDiscoveryFailureCode;
   Message?: string;
@@ -12945,15 +13327,8 @@ export interface IpamExternalResourceVerificationToken {
 }
 export type IpamExternalResourceVerificationTokenId = string;
 
-export type IpamExternalResourceVerificationTokenSet =
-  Array<IpamExternalResourceVerificationToken>;
-export type IpamExternalResourceVerificationTokenState =
-  | "create-in-progress"
-  | "create-complete"
-  | "create-failed"
-  | "delete-in-progress"
-  | "delete-complete"
-  | "delete-failed";
+export type IpamExternalResourceVerificationTokenSet = Array<IpamExternalResourceVerificationToken>;
+export type IpamExternalResourceVerificationTokenState = "create-in-progress" | "create-complete" | "create-failed" | "delete-in-progress" | "delete-complete" | "delete-failed";
 export type IpamId = string;
 
 export type IpamManagementState = "managed" | "unmanaged" | "ignored";
@@ -12970,8 +13345,7 @@ export type IpamOperatingRegionSet = Array<IpamOperatingRegion>;
 export interface IpamOrganizationalUnitExclusion {
   OrganizationsEntityPath?: string;
 }
-export type IpamOrganizationalUnitExclusionSet =
-  Array<IpamOrganizationalUnitExclusion>;
+export type IpamOrganizationalUnitExclusionSet = Array<IpamOrganizationalUnitExclusion>;
 export type IpamOverlapStatus = "overlapping" | "nonoverlapping" | "ignored";
 export interface IpamPool {
   OwnerId?: string;
@@ -13012,13 +13386,7 @@ export type IpamPoolAllocationAllowedCidrs = Array<string>;
 export type IpamPoolAllocationDisallowedCidrs = Array<string>;
 export type IpamPoolAllocationId = string;
 
-export type IpamPoolAllocationResourceType =
-  | "ipam-pool"
-  | "vpc"
-  | "ec2-public-ipv4-pool"
-  | "custom"
-  | "subnet"
-  | "eip";
+export type IpamPoolAllocationResourceType = "ipam-pool" | "vpc" | "ec2-public-ipv4-pool" | "custom" | "subnet" | "eip";
 export type IpamPoolAllocationSet = Array<IpamPoolAllocation>;
 export type IpamPoolAwsService = "ec2";
 export interface IpamPoolCidr {
@@ -13036,15 +13404,7 @@ export interface IpamPoolCidrFailureReason {
 export type IpamPoolCidrId = string;
 
 export type IpamPoolCidrSet = Array<IpamPoolCidr>;
-export type IpamPoolCidrState =
-  | "pending-provision"
-  | "provisioned"
-  | "failed-provision"
-  | "pending-deprovision"
-  | "deprovisioned"
-  | "failed-deprovision"
-  | "pending-import"
-  | "failed-import";
+export type IpamPoolCidrState = "pending-provision" | "provisioned" | "failed-provision" | "pending-deprovision" | "deprovisioned" | "failed-deprovision" | "pending-import" | "failed-import";
 export type IpamPoolId = string;
 
 export type IpamPoolPublicIpSource = "amazon" | "byoip";
@@ -13062,19 +13422,7 @@ export interface IpamPoolSourceResourceRequest {
   ResourceOwner?: string;
 }
 export type IpamPoolSourceResourceType = "vpc";
-export type IpamPoolState =
-  | "create-in-progress"
-  | "create-complete"
-  | "create-failed"
-  | "modify-in-progress"
-  | "modify-complete"
-  | "modify-failed"
-  | "delete-in-progress"
-  | "delete-complete"
-  | "delete-failed"
-  | "isolate-in-progress"
-  | "isolate-complete"
-  | "restore-in-progress";
+export type IpamPoolState = "create-in-progress" | "create-complete" | "create-failed" | "modify-in-progress" | "modify-complete" | "modify-failed" | "delete-in-progress" | "delete-complete" | "delete-failed" | "isolate-in-progress" | "isolate-complete" | "restore-in-progress";
 export interface IpamPrefixListResolver {
   OwnerId?: string;
   IpamPrefixListResolverId?: string;
@@ -13106,10 +13454,7 @@ export interface IpamPrefixListResolverRuleCondition {
   ResourceTag?: IpamResourceTag;
   Cidr?: string;
 }
-export type IpamPrefixListResolverRuleConditionOperation =
-  | "equals"
-  | "not-equals"
-  | "subnet-of";
+export type IpamPrefixListResolverRuleConditionOperation = "equals" | "not-equals" | "subnet-of";
 export interface IpamPrefixListResolverRuleConditionRequest {
   Operation: IpamPrefixListResolverRuleConditionOperation;
   IpamPoolId?: string;
@@ -13119,10 +13464,8 @@ export interface IpamPrefixListResolverRuleConditionRequest {
   ResourceTag?: RequestIpamResourceTag;
   Cidr?: string;
 }
-export type IpamPrefixListResolverRuleConditionRequestSet =
-  Array<IpamPrefixListResolverRuleConditionRequest>;
-export type IpamPrefixListResolverRuleConditionSet =
-  Array<IpamPrefixListResolverRuleCondition>;
+export type IpamPrefixListResolverRuleConditionRequestSet = Array<IpamPrefixListResolverRuleConditionRequest>;
+export type IpamPrefixListResolverRuleConditionSet = Array<IpamPrefixListResolverRuleCondition>;
 export interface IpamPrefixListResolverRuleRequest {
   RuleType: IpamPrefixListResolverRuleType;
   StaticCidr?: string;
@@ -13130,27 +13473,11 @@ export interface IpamPrefixListResolverRuleRequest {
   ResourceType?: IpamResourceType;
   Conditions?: Array<IpamPrefixListResolverRuleConditionRequest>;
 }
-export type IpamPrefixListResolverRuleRequestSet =
-  Array<IpamPrefixListResolverRuleRequest>;
+export type IpamPrefixListResolverRuleRequestSet = Array<IpamPrefixListResolverRuleRequest>;
 export type IpamPrefixListResolverRuleSet = Array<IpamPrefixListResolverRule>;
-export type IpamPrefixListResolverRuleType =
-  | "static-cidr"
-  | "ipam-resource-cidr"
-  | "ipam-pool-cidr";
+export type IpamPrefixListResolverRuleType = "static-cidr" | "ipam-resource-cidr" | "ipam-pool-cidr";
 export type IpamPrefixListResolverSet = Array<IpamPrefixListResolver>;
-export type IpamPrefixListResolverState =
-  | "create-in-progress"
-  | "create-complete"
-  | "create-failed"
-  | "modify-in-progress"
-  | "modify-complete"
-  | "modify-failed"
-  | "delete-in-progress"
-  | "delete-complete"
-  | "delete-failed"
-  | "isolate-in-progress"
-  | "isolate-complete"
-  | "restore-in-progress";
+export type IpamPrefixListResolverState = "create-in-progress" | "create-complete" | "create-failed" | "modify-in-progress" | "modify-complete" | "modify-failed" | "delete-in-progress" | "delete-complete" | "delete-failed" | "isolate-in-progress" | "isolate-complete" | "restore-in-progress";
 export interface IpamPrefixListResolverTarget {
   IpamPrefixListResolverTargetId?: string;
   IpamPrefixListResolverTargetArn?: string;
@@ -13167,56 +13494,25 @@ export interface IpamPrefixListResolverTarget {
 }
 export type IpamPrefixListResolverTargetId = string;
 
-export type IpamPrefixListResolverTargetSet =
-  Array<IpamPrefixListResolverTarget>;
-export type IpamPrefixListResolverTargetState =
-  | "create-in-progress"
-  | "create-complete"
-  | "create-failed"
-  | "modify-in-progress"
-  | "modify-complete"
-  | "modify-failed"
-  | "sync-in-progress"
-  | "sync-complete"
-  | "sync-failed"
-  | "delete-in-progress"
-  | "delete-complete"
-  | "delete-failed"
-  | "isolate-in-progress"
-  | "isolate-complete"
-  | "restore-in-progress";
+export type IpamPrefixListResolverTargetSet = Array<IpamPrefixListResolverTarget>;
+export type IpamPrefixListResolverTargetState = "create-in-progress" | "create-complete" | "create-failed" | "modify-in-progress" | "modify-complete" | "modify-failed" | "sync-in-progress" | "sync-complete" | "sync-failed" | "delete-in-progress" | "delete-complete" | "delete-failed" | "isolate-in-progress" | "isolate-complete" | "restore-in-progress";
 export interface IpamPrefixListResolverVersion {
   Version?: number;
 }
-export type IpamPrefixListResolverVersionCreationStatus =
-  | "pending"
-  | "success"
-  | "failure";
+export type IpamPrefixListResolverVersionCreationStatus = "pending" | "success" | "failure";
 export interface IpamPrefixListResolverVersionEntry {
   Cidr?: string;
 }
-export type IpamPrefixListResolverVersionEntrySet =
-  Array<IpamPrefixListResolverVersionEntry>;
+export type IpamPrefixListResolverVersionEntrySet = Array<IpamPrefixListResolverVersionEntry>;
 export type IpamPrefixListResolverVersionNumberSet = Array<number>;
-export type IpamPrefixListResolverVersionSet =
-  Array<IpamPrefixListResolverVersion>;
+export type IpamPrefixListResolverVersionSet = Array<IpamPrefixListResolverVersion>;
 export type IpamPublicAddressAssociationStatus = "associated" | "disassociated";
-export type IpamPublicAddressAwsService =
-  | "nat-gateway"
-  | "database-migration-service"
-  | "redshift"
-  | "elastic-container-service"
-  | "relational-database-service"
-  | "site-to-site-vpn"
-  | "load-balancer"
-  | "global-accelerator"
-  | "other";
+export type IpamPublicAddressAwsService = "nat-gateway" | "database-migration-service" | "redshift" | "elastic-container-service" | "relational-database-service" | "site-to-site-vpn" | "load-balancer" | "global-accelerator" | "other";
 export interface IpamPublicAddressSecurityGroup {
   GroupName?: string;
   GroupId?: string;
 }
-export type IpamPublicAddressSecurityGroupList =
-  Array<IpamPublicAddressSecurityGroup>;
+export type IpamPublicAddressSecurityGroupList = Array<IpamPublicAddressSecurityGroup>;
 export interface IpamPublicAddressTag {
   Key?: string;
   Value?: string;
@@ -13225,13 +13521,7 @@ export type IpamPublicAddressTagList = Array<IpamPublicAddressTag>;
 export interface IpamPublicAddressTags {
   EipTags?: Array<IpamPublicAddressTag>;
 }
-export type IpamPublicAddressType =
-  | "service-managed-ip"
-  | "service-managed-byoip"
-  | "amazon-owned-eip"
-  | "amazon-owned-contig"
-  | "byoip"
-  | "ec2-public-ip";
+export type IpamPublicAddressType = "service-managed-ip" | "service-managed-byoip" | "amazon-owned-eip" | "amazon-owned-contig" | "byoip" | "ec2-public-ip";
 export interface IpamResourceCidr {
   IpamId?: string;
   IpamScopeId?: string;
@@ -13279,46 +13569,18 @@ export interface IpamResourceDiscoveryAssociation {
 }
 export type IpamResourceDiscoveryAssociationId = string;
 
-export type IpamResourceDiscoveryAssociationSet =
-  Array<IpamResourceDiscoveryAssociation>;
-export type IpamResourceDiscoveryAssociationState =
-  | "associate-in-progress"
-  | "associate-complete"
-  | "associate-failed"
-  | "disassociate-in-progress"
-  | "disassociate-complete"
-  | "disassociate-failed"
-  | "isolate-in-progress"
-  | "isolate-complete"
-  | "restore-in-progress";
+export type IpamResourceDiscoveryAssociationSet = Array<IpamResourceDiscoveryAssociation>;
+export type IpamResourceDiscoveryAssociationState = "associate-in-progress" | "associate-complete" | "associate-failed" | "disassociate-in-progress" | "disassociate-complete" | "disassociate-failed" | "isolate-in-progress" | "isolate-complete" | "restore-in-progress";
 export type IpamResourceDiscoveryId = string;
 
 export type IpamResourceDiscoverySet = Array<IpamResourceDiscovery>;
-export type IpamResourceDiscoveryState =
-  | "create-in-progress"
-  | "create-complete"
-  | "create-failed"
-  | "modify-in-progress"
-  | "modify-complete"
-  | "modify-failed"
-  | "delete-in-progress"
-  | "delete-complete"
-  | "delete-failed"
-  | "isolate-in-progress"
-  | "isolate-complete"
-  | "restore-in-progress";
+export type IpamResourceDiscoveryState = "create-in-progress" | "create-complete" | "create-failed" | "modify-in-progress" | "modify-complete" | "modify-failed" | "delete-in-progress" | "delete-complete" | "delete-failed" | "isolate-in-progress" | "isolate-complete" | "restore-in-progress";
 export interface IpamResourceTag {
   Key?: string;
   Value?: string;
 }
 export type IpamResourceTagList = Array<IpamResourceTag>;
-export type IpamResourceType =
-  | "vpc"
-  | "subnet"
-  | "eip"
-  | "public-ipv4-pool"
-  | "ipv6-pool"
-  | "eni";
+export type IpamResourceType = "vpc" | "subnet" | "eip" | "public-ipv4-pool" | "ipv6-pool" | "eni";
 export interface IpamScope {
   OwnerId?: string;
   IpamScopeId?: string;
@@ -13335,34 +13597,10 @@ export interface IpamScope {
 export type IpamScopeId = string;
 
 export type IpamScopeSet = Array<IpamScope>;
-export type IpamScopeState =
-  | "create-in-progress"
-  | "create-complete"
-  | "create-failed"
-  | "modify-in-progress"
-  | "modify-complete"
-  | "modify-failed"
-  | "delete-in-progress"
-  | "delete-complete"
-  | "delete-failed"
-  | "isolate-in-progress"
-  | "isolate-complete"
-  | "restore-in-progress";
+export type IpamScopeState = "create-in-progress" | "create-complete" | "create-failed" | "modify-in-progress" | "modify-complete" | "modify-failed" | "delete-in-progress" | "delete-complete" | "delete-failed" | "isolate-in-progress" | "isolate-complete" | "restore-in-progress";
 export type IpamScopeType = "public" | "private";
 export type IpamSet = Array<Ipam>;
-export type IpamState =
-  | "create-in-progress"
-  | "create-complete"
-  | "create-failed"
-  | "modify-in-progress"
-  | "modify-complete"
-  | "modify-failed"
-  | "delete-in-progress"
-  | "delete-complete"
-  | "delete-failed"
-  | "isolate-in-progress"
-  | "isolate-complete"
-  | "restore-in-progress";
+export type IpamState = "create-in-progress" | "create-complete" | "create-failed" | "modify-in-progress" | "modify-complete" | "modify-failed" | "delete-in-progress" | "delete-complete" | "delete-failed" | "isolate-in-progress" | "isolate-complete" | "restore-in-progress";
 export type IpamTier = "free" | "advanced";
 export type IpList = Array<string>;
 export interface IpPermission {
@@ -13531,16 +13769,14 @@ export interface LaunchTemplateBlockDeviceMapping {
   Ebs?: LaunchTemplateEbsBlockDevice;
   NoDevice?: string;
 }
-export type LaunchTemplateBlockDeviceMappingList =
-  Array<LaunchTemplateBlockDeviceMapping>;
+export type LaunchTemplateBlockDeviceMappingList = Array<LaunchTemplateBlockDeviceMapping>;
 export interface LaunchTemplateBlockDeviceMappingRequest {
   DeviceName?: string;
   VirtualName?: string;
   Ebs?: LaunchTemplateEbsBlockDeviceRequest;
   NoDevice?: string;
 }
-export type LaunchTemplateBlockDeviceMappingRequestList =
-  Array<LaunchTemplateBlockDeviceMappingRequest>;
+export type LaunchTemplateBlockDeviceMappingRequestList = Array<LaunchTemplateBlockDeviceMappingRequest>;
 export interface LaunchTemplateCapacityReservationSpecificationRequest {
   CapacityReservationPreference?: CapacityReservationPreference;
   CapacityReservationTarget?: CapacityReservationTarget;
@@ -13592,14 +13828,12 @@ export interface LaunchTemplateElasticInferenceAccelerator {
 }
 export type LaunchTemplateElasticInferenceAcceleratorCount = number;
 
-export type LaunchTemplateElasticInferenceAcceleratorList =
-  Array<LaunchTemplateElasticInferenceAccelerator>;
+export type LaunchTemplateElasticInferenceAcceleratorList = Array<LaunchTemplateElasticInferenceAccelerator>;
 export interface LaunchTemplateElasticInferenceAcceleratorResponse {
   Type?: string;
   Count?: number;
 }
-export type LaunchTemplateElasticInferenceAcceleratorResponseList =
-  Array<LaunchTemplateElasticInferenceAcceleratorResponse>;
+export type LaunchTemplateElasticInferenceAcceleratorResponseList = Array<LaunchTemplateElasticInferenceAcceleratorResponse>;
 export interface LaunchTemplateEnaSrdSpecification {
   EnaSrdEnabled?: boolean;
   EnaSrdUdpSpecification?: LaunchTemplateEnaSrdUdpSpecification;
@@ -13613,13 +13847,7 @@ export interface LaunchTemplateEnclaveOptions {
 export interface LaunchTemplateEnclaveOptionsRequest {
   Enabled?: boolean;
 }
-export type LaunchTemplateErrorCode =
-  | "launchTemplateIdDoesNotExist"
-  | "launchTemplateIdMalformed"
-  | "launchTemplateNameDoesNotExist"
-  | "launchTemplateNameMalformed"
-  | "launchTemplateVersionDoesNotExist"
-  | "unexpectedError";
+export type LaunchTemplateErrorCode = "launchTemplateIdDoesNotExist" | "launchTemplateIdMalformed" | "launchTemplateNameDoesNotExist" | "launchTemplateNameMalformed" | "launchTemplateVersionDoesNotExist" | "unexpectedError";
 export interface LaunchTemplateHibernationOptions {
   Configured?: boolean;
 }
@@ -13652,9 +13880,7 @@ export interface LaunchTemplateInstanceMarketOptionsRequest {
   MarketType?: MarketType;
   SpotOptions?: LaunchTemplateSpotMarketOptionsRequest;
 }
-export type LaunchTemplateInstanceMetadataEndpointState =
-  | "disabled"
-  | "enabled";
+export type LaunchTemplateInstanceMetadataEndpointState = "disabled" | "enabled";
 export interface LaunchTemplateInstanceMetadataOptions {
   State?: LaunchTemplateInstanceMetadataOptionsState;
   HttpTokens?: LaunchTemplateHttpTokensState;
@@ -13698,8 +13924,7 @@ export interface LaunchTemplateInstanceNetworkInterfaceSpecification {
   ConnectionTrackingSpecification?: ConnectionTrackingSpecification;
   EnaQueueCount?: number;
 }
-export type LaunchTemplateInstanceNetworkInterfaceSpecificationList =
-  Array<LaunchTemplateInstanceNetworkInterfaceSpecification>;
+export type LaunchTemplateInstanceNetworkInterfaceSpecificationList = Array<LaunchTemplateInstanceNetworkInterfaceSpecification>;
 export interface LaunchTemplateInstanceNetworkInterfaceSpecificationRequest {
   AssociateCarrierIpAddress?: boolean;
   AssociatePublicIpAddress?: boolean;
@@ -13725,18 +13950,15 @@ export interface LaunchTemplateInstanceNetworkInterfaceSpecificationRequest {
   ConnectionTrackingSpecification?: ConnectionTrackingSpecificationRequest;
   EnaQueueCount?: number;
 }
-export type LaunchTemplateInstanceNetworkInterfaceSpecificationRequestList =
-  Array<LaunchTemplateInstanceNetworkInterfaceSpecificationRequest>;
+export type LaunchTemplateInstanceNetworkInterfaceSpecificationRequestList = Array<LaunchTemplateInstanceNetworkInterfaceSpecificationRequest>;
 export interface LaunchTemplateLicenseConfiguration {
   LicenseConfigurationArn?: string;
 }
 export interface LaunchTemplateLicenseConfigurationRequest {
   LicenseConfigurationArn?: string;
 }
-export type LaunchTemplateLicenseList =
-  Array<LaunchTemplateLicenseConfiguration>;
-export type LaunchTemplateLicenseSpecificationListRequest =
-  Array<LaunchTemplateLicenseConfigurationRequest>;
+export type LaunchTemplateLicenseList = Array<LaunchTemplateLicenseConfiguration>;
+export type LaunchTemplateLicenseSpecificationListRequest = Array<LaunchTemplateLicenseConfigurationRequest>;
 export type LaunchTemplateName = string;
 
 export type LaunchTemplateNameStringList = Array<string>;
@@ -13820,14 +14042,12 @@ export interface LaunchTemplateTagSpecification {
   ResourceType?: ResourceType;
   Tags?: Array<Tag>;
 }
-export type LaunchTemplateTagSpecificationList =
-  Array<LaunchTemplateTagSpecification>;
+export type LaunchTemplateTagSpecificationList = Array<LaunchTemplateTagSpecification>;
 export interface LaunchTemplateTagSpecificationRequest {
   ResourceType?: ResourceType;
   Tags?: Array<Tag>;
 }
-export type LaunchTemplateTagSpecificationRequestList =
-  Array<LaunchTemplateTagSpecificationRequest>;
+export type LaunchTemplateTagSpecificationRequestList = Array<LaunchTemplateTagSpecificationRequest>;
 export interface LaunchTemplateVersion {
   LaunchTemplateId?: string;
   LaunchTemplateName?: string;
@@ -13847,8 +14067,7 @@ export interface LicenseConfigurationRequest {
   LicenseConfigurationArn?: string;
 }
 export type LicenseList = Array<LicenseConfiguration>;
-export type LicenseSpecificationListRequest =
-  Array<LicenseConfigurationRequest>;
+export type LicenseSpecificationListRequest = Array<LicenseConfigurationRequest>;
 export type ListImagesInRecycleBinMaxResults = number;
 
 export interface ListImagesInRecycleBinRequest {
@@ -13921,12 +14140,7 @@ export interface LocalGatewayRoute {
   DestinationPrefixListId?: string;
 }
 export type LocalGatewayRouteList = Array<LocalGatewayRoute>;
-export type LocalGatewayRouteState =
-  | "pending"
-  | "active"
-  | "blackhole"
-  | "deleting"
-  | "deleted";
+export type LocalGatewayRouteState = "pending" | "active" | "blackhole" | "deleting" | "deleted";
 export interface LocalGatewayRouteTable {
   LocalGatewayRouteTableId?: string;
   LocalGatewayRouteTableArn?: string;
@@ -13955,10 +14169,8 @@ export interface LocalGatewayRouteTableVirtualInterfaceGroupAssociation {
 }
 export type LocalGatewayRouteTableVirtualInterfaceGroupAssociationId = string;
 
-export type LocalGatewayRouteTableVirtualInterfaceGroupAssociationIdSet =
-  Array<string>;
-export type LocalGatewayRouteTableVirtualInterfaceGroupAssociationSet =
-  Array<LocalGatewayRouteTableVirtualInterfaceGroupAssociation>;
+export type LocalGatewayRouteTableVirtualInterfaceGroupAssociationIdSet = Array<string>;
+export type LocalGatewayRouteTableVirtualInterfaceGroupAssociationSet = Array<LocalGatewayRouteTableVirtualInterfaceGroupAssociation>;
 export interface LocalGatewayRouteTableVpcAssociation {
   LocalGatewayRouteTableVpcAssociationId?: string;
   LocalGatewayRouteTableId?: string;
@@ -13972,8 +14184,7 @@ export interface LocalGatewayRouteTableVpcAssociation {
 export type LocalGatewayRouteTableVpcAssociationId = string;
 
 export type LocalGatewayRouteTableVpcAssociationIdSet = Array<string>;
-export type LocalGatewayRouteTableVpcAssociationSet =
-  Array<LocalGatewayRouteTableVpcAssociation>;
+export type LocalGatewayRouteTableVpcAssociationSet = Array<LocalGatewayRouteTableVpcAssociation>;
 export type LocalGatewayRouteType = "static" | "propagated";
 export type LocalGatewaySet = Array<LocalGateway>;
 export interface LocalGatewayVirtualInterface {
@@ -13992,11 +14203,7 @@ export interface LocalGatewayVirtualInterface {
   Tags?: Array<Tag>;
   ConfigurationState?: LocalGatewayVirtualInterfaceConfigurationState;
 }
-export type LocalGatewayVirtualInterfaceConfigurationState =
-  | "pending"
-  | "available"
-  | "deleting"
-  | "deleted";
+export type LocalGatewayVirtualInterfaceConfigurationState = "pending" | "available" | "deleting" | "deleted";
 export interface LocalGatewayVirtualInterfaceGroup {
   LocalGatewayVirtualInterfaceGroupId?: string;
   LocalGatewayVirtualInterfaceIds?: Array<string>;
@@ -14008,32 +14215,21 @@ export interface LocalGatewayVirtualInterfaceGroup {
   Tags?: Array<Tag>;
   ConfigurationState?: LocalGatewayVirtualInterfaceGroupConfigurationState;
 }
-export type LocalGatewayVirtualInterfaceGroupConfigurationState =
-  | "pending"
-  | "incomplete"
-  | "available"
-  | "deleting"
-  | "deleted";
+export type LocalGatewayVirtualInterfaceGroupConfigurationState = "pending" | "incomplete" | "available" | "deleting" | "deleted";
 export type LocalGatewayVirtualInterfaceGroupId = string;
 
 export type LocalGatewayVirtualInterfaceGroupIdSet = Array<string>;
-export type LocalGatewayVirtualInterfaceGroupSet =
-  Array<LocalGatewayVirtualInterfaceGroup>;
+export type LocalGatewayVirtualInterfaceGroupSet = Array<LocalGatewayVirtualInterfaceGroup>;
 export type LocalGatewayVirtualInterfaceId = string;
 
 export type LocalGatewayVirtualInterfaceIdSet = Array<string>;
-export type LocalGatewayVirtualInterfaceSet =
-  Array<LocalGatewayVirtualInterface>;
+export type LocalGatewayVirtualInterfaceSet = Array<LocalGatewayVirtualInterface>;
 export type LocalStorage = "included" | "required" | "excluded";
 export type LocalStorageType = "hdd" | "ssd";
 export type LocalStorageTypeSet = Array<LocalStorageType>;
 export type Location = string;
 
-export type LocationType =
-  | "region"
-  | "availability-zone"
-  | "availability-zone-id"
-  | "outpost";
+export type LocationType = "region" | "availability-zone" | "availability-zone-id" | "outpost";
 export interface LockedSnapshotsInfo {
   OwnerId?: string;
   SnapshotId?: string;
@@ -14065,15 +14261,8 @@ export interface LockSnapshotResult {
   LockExpiresOn?: Date | string;
   LockDurationStartTime?: Date | string;
 }
-export type LockState =
-  | "compliance"
-  | "governance"
-  | "compliance-cooloff"
-  | "expired";
-export type LogDestinationType =
-  | "cloud-watch-logs"
-  | "s3"
-  | "kinesis-data-firehose";
+export type LockState = "compliance" | "governance" | "compliance-cooloff" | "expired";
+export type LogDestinationType = "cloud-watch-logs" | "s3" | "kinesis-data-firehose";
 export type Long = number;
 
 export interface MacHost {
@@ -14094,14 +14283,8 @@ export type MacModificationTaskId = string;
 
 export type MacModificationTaskIdList = Array<string>;
 export type MacModificationTaskList = Array<MacModificationTask>;
-export type MacModificationTaskState =
-  | "successful"
-  | "failed"
-  | "in-progress"
-  | "pending";
-export type MacModificationTaskType =
-  | "sip-modification"
-  | "volume-ownership-delegation";
+export type MacModificationTaskState = "successful" | "failed" | "in-progress" | "pending";
+export type MacModificationTaskType = "sip-modification" | "volume-ownership-delegation";
 export type MacOSVersionStringList = Array<string>;
 export interface MacSystemIntegrityProtectionConfiguration {
   AppleInternal?: MacSystemIntegrityProtectionSettingStatus;
@@ -14227,54 +14410,8 @@ export interface MemoryMiBRequest {
 }
 export type MemorySize = number;
 
-export type MetadataDefaultHttpTokensState =
-  | "optional"
-  | "required"
-  | "no-preference";
-export type Metric =
-  | "reservation-total-capacity-hrs-vcpu"
-  | "reservation-total-capacity-hrs-inst"
-  | "reservation-max-size-vcpu"
-  | "reservation-max-size-inst"
-  | "reservation-min-size-vcpu"
-  | "reservation-min-size-inst"
-  | "reservation-unused-total-capacity-hrs-vcpu"
-  | "reservation-unused-total-capacity-hrs-inst"
-  | "reservation-unused-total-estimated-cost"
-  | "reservation-max-unused-size-vcpu"
-  | "reservation-max-unused-size-inst"
-  | "reservation-min-unused-size-vcpu"
-  | "reservation-min-unused-size-inst"
-  | "reservation-max-utilization"
-  | "reservation-min-utilization"
-  | "reservation-avg-utilization-vcpu"
-  | "reservation-avg-utilization-inst"
-  | "reservation-total-count"
-  | "reservation-total-estimated-cost"
-  | "reservation-avg-future-size-vcpu"
-  | "reservation-avg-future-size-inst"
-  | "reservation-min-future-size-vcpu"
-  | "reservation-min-future-size-inst"
-  | "reservation-max-future-size-vcpu"
-  | "reservation-max-future-size-inst"
-  | "reservation-avg-committed-size-vcpu"
-  | "reservation-avg-committed-size-inst"
-  | "reservation-max-committed-size-vcpu"
-  | "reservation-max-committed-size-inst"
-  | "reservation-min-committed-size-vcpu"
-  | "reservation-min-committed-size-inst"
-  | "reserved-total-usage-hrs-vcpu"
-  | "reserved-total-usage-hrs-inst"
-  | "reserved-total-estimated-cost"
-  | "unreserved-total-usage-hrs-vcpu"
-  | "unreserved-total-usage-hrs-inst"
-  | "unreserved-total-estimated-cost"
-  | "spot-total-usage-hrs-vcpu"
-  | "spot-total-usage-hrs-inst"
-  | "spot-total-estimated-cost"
-  | "spot-avg-run-time-before-interruption-inst"
-  | "spot-max-run-time-before-interruption-inst"
-  | "spot-min-run-time-before-interruption-inst";
+export type MetadataDefaultHttpTokensState = "optional" | "required" | "no-preference";
+export type Metric = "reservation-total-capacity-hrs-vcpu" | "reservation-total-capacity-hrs-inst" | "reservation-max-size-vcpu" | "reservation-max-size-inst" | "reservation-min-size-vcpu" | "reservation-min-size-inst" | "reservation-unused-total-capacity-hrs-vcpu" | "reservation-unused-total-capacity-hrs-inst" | "reservation-unused-total-estimated-cost" | "reservation-max-unused-size-vcpu" | "reservation-max-unused-size-inst" | "reservation-min-unused-size-vcpu" | "reservation-min-unused-size-inst" | "reservation-max-utilization" | "reservation-min-utilization" | "reservation-avg-utilization-vcpu" | "reservation-avg-utilization-inst" | "reservation-total-count" | "reservation-total-estimated-cost" | "reservation-avg-future-size-vcpu" | "reservation-avg-future-size-inst" | "reservation-min-future-size-vcpu" | "reservation-min-future-size-inst" | "reservation-max-future-size-vcpu" | "reservation-max-future-size-inst" | "reservation-avg-committed-size-vcpu" | "reservation-avg-committed-size-inst" | "reservation-max-committed-size-vcpu" | "reservation-max-committed-size-inst" | "reservation-min-committed-size-vcpu" | "reservation-min-committed-size-inst" | "reserved-total-usage-hrs-vcpu" | "reserved-total-usage-hrs-inst" | "reserved-total-estimated-cost" | "unreserved-total-usage-hrs-vcpu" | "unreserved-total-usage-hrs-inst" | "unreserved-total-estimated-cost" | "spot-total-usage-hrs-vcpu" | "spot-total-usage-hrs-inst" | "spot-total-estimated-cost" | "spot-avg-run-time-before-interruption-inst" | "spot-max-run-time-before-interruption-inst" | "spot-min-run-time-before-interruption-inst";
 export interface MetricDataResult {
   Dimension?: CapacityManagerDimension;
   Timestamp?: Date | string;
@@ -14899,8 +15036,7 @@ export interface ModifyVerifiedAccessEndpointPortRange {
   FromPort?: number;
   ToPort?: number;
 }
-export type ModifyVerifiedAccessEndpointPortRangeList =
-  Array<ModifyVerifiedAccessEndpointPortRange>;
+export type ModifyVerifiedAccessEndpointPortRangeList = Array<ModifyVerifiedAccessEndpointPortRange>;
 export interface ModifyVerifiedAccessEndpointRdsOptions {
   SubnetIds?: Array<string>;
   Port?: number;
@@ -15252,23 +15388,12 @@ export interface NatGatewayAddress {
   Status?: NatGatewayAddressStatus;
 }
 export type NatGatewayAddressList = Array<NatGatewayAddress>;
-export type NatGatewayAddressStatus =
-  | "assigning"
-  | "unassigning"
-  | "associating"
-  | "disassociating"
-  | "succeeded"
-  | "failed";
+export type NatGatewayAddressStatus = "assigning" | "unassigning" | "associating" | "disassociating" | "succeeded" | "failed";
 export type NatGatewayId = string;
 
 export type NatGatewayIdStringList = Array<string>;
 export type NatGatewayList = Array<NatGateway>;
-export type NatGatewayState =
-  | "pending"
-  | "failed"
-  | "available"
-  | "deleting"
-  | "deleted";
+export type NatGatewayState = "pending" | "failed" | "available" | "deleting" | "deleted";
 export interface NativeApplicationOidcOptions {
   PublicSigningKeyEndpoint?: string;
   Issuer?: string;
@@ -15373,8 +15498,7 @@ export interface NetworkInsightsAccessScopeAnalysis {
 export type NetworkInsightsAccessScopeAnalysisId = string;
 
 export type NetworkInsightsAccessScopeAnalysisIdList = Array<string>;
-export type NetworkInsightsAccessScopeAnalysisList =
-  Array<NetworkInsightsAccessScopeAnalysis>;
+export type NetworkInsightsAccessScopeAnalysisList = Array<NetworkInsightsAccessScopeAnalysis>;
 export interface NetworkInsightsAccessScopeContent {
   NetworkInsightsAccessScopeId?: string;
   MatchPaths?: Array<AccessScopePath>;
@@ -15494,12 +15618,7 @@ export interface NetworkInterfaceAttachmentChanges {
 }
 export type NetworkInterfaceAttachmentId = string;
 
-export type NetworkInterfaceAttribute =
-  | "description"
-  | "groupSet"
-  | "sourceDestCheck"
-  | "attachment"
-  | "associatePublicIpAddress";
+export type NetworkInterfaceAttribute = "description" | "groupSet" | "sourceDestCheck" | "attachment" | "associatePublicIpAddress";
 export interface NetworkInterfaceCount {
   Min?: number;
   Max?: number;
@@ -15508,11 +15627,7 @@ export interface NetworkInterfaceCountRequest {
   Min?: number;
   Max?: number;
 }
-export type NetworkInterfaceCreationType =
-  | "efa"
-  | "efa-only"
-  | "branch"
-  | "trunk";
+export type NetworkInterfaceCreationType = "efa" | "efa-only" | "branch" | "trunk";
 export type NetworkInterfaceId = string;
 
 export type NetworkInterfaceIdList = Array<string>;
@@ -15522,8 +15637,7 @@ export interface NetworkInterfaceIpv6Address {
   PublicIpv6DnsName?: string;
   IsPrimaryIpv6?: boolean;
 }
-export type NetworkInterfaceIpv6AddressesList =
-  Array<NetworkInterfaceIpv6Address>;
+export type NetworkInterfaceIpv6AddressesList = Array<NetworkInterfaceIpv6Address>;
 export type NetworkInterfaceList = Array<NetworkInterface>;
 export interface NetworkInterfacePermission {
   NetworkInterfacePermissionId?: string;
@@ -15541,44 +15655,16 @@ export interface NetworkInterfacePermissionState {
   State?: NetworkInterfacePermissionStateCode;
   StatusMessage?: string;
 }
-export type NetworkInterfacePermissionStateCode =
-  | "pending"
-  | "granted"
-  | "revoking"
-  | "revoked";
+export type NetworkInterfacePermissionStateCode = "pending" | "granted" | "revoking" | "revoked";
 export interface NetworkInterfacePrivateIpAddress {
   Association?: NetworkInterfaceAssociation;
   Primary?: boolean;
   PrivateDnsName?: string;
   PrivateIpAddress?: string;
 }
-export type NetworkInterfacePrivateIpAddressList =
-  Array<NetworkInterfacePrivateIpAddress>;
-export type NetworkInterfaceStatus =
-  | "available"
-  | "associated"
-  | "attaching"
-  | "in-use"
-  | "detaching";
-export type NetworkInterfaceType =
-  | "interface"
-  | "natGateway"
-  | "efa"
-  | "efa-only"
-  | "trunk"
-  | "load_balancer"
-  | "network_load_balancer"
-  | "vpc_endpoint"
-  | "branch"
-  | "transit_gateway"
-  | "lambda"
-  | "quicksight"
-  | "global_accelerator_managed"
-  | "api_gateway_managed"
-  | "gateway_load_balancer"
-  | "gateway_load_balancer_endpoint"
-  | "iot_rules_managed"
-  | "aws_codestar_connections_managed";
+export type NetworkInterfacePrivateIpAddressList = Array<NetworkInterfacePrivateIpAddress>;
+export type NetworkInterfaceStatus = "available" | "associated" | "attaching" | "in-use" | "detaching";
+export type NetworkInterfaceType = "interface" | "natGateway" | "efa" | "efa-only" | "trunk" | "load_balancer" | "network_load_balancer" | "vpc_endpoint" | "branch" | "transit_gateway" | "lambda" | "quicksight" | "global_accelerator_managed" | "api_gateway_managed" | "gateway_load_balancer" | "gateway_load_balancer_endpoint" | "iot_rules_managed" | "aws_codestar_connections_managed";
 export type NetworkNodeSet = Array<string>;
 export type NetworkNodesList = Array<string>;
 export type NetworkPerformance = string;
@@ -15633,13 +15719,7 @@ export type OdbNetworkArn = string;
 export type OfferingClassType = "standard" | "convertible";
 export type OfferingId = string;
 
-export type OfferingTypeValues =
-  | "Heavy Utilization"
-  | "Medium Utilization"
-  | "Light Utilization"
-  | "No Upfront"
-  | "Partial Upfront"
-  | "All Upfront";
+export type OfferingTypeValues = "Heavy Utilization" | "Medium Utilization" | "Light Utilization" | "No Upfront" | "Partial Upfront" | "All Upfront";
 export interface OidcOptions {
   Issuer?: string;
   AuthorizationEndpoint?: string;
@@ -15796,44 +15876,32 @@ export interface PerformanceFactorReferenceRequest {
   InstanceFamily?: string;
 }
 export type PerformanceFactorReferenceSet = Array<PerformanceFactorReference>;
-export type PerformanceFactorReferenceSetRequest =
-  Array<PerformanceFactorReferenceRequest>;
+export type PerformanceFactorReferenceSetRequest = Array<PerformanceFactorReferenceRequest>;
 export type Period = number;
 
-export type PeriodType =
-  | "five-minutes"
-  | "fifteen-minutes"
-  | "one-hour"
-  | "three-hours"
-  | "one-day"
-  | "one-week";
+export type PeriodType = "five-minutes" | "fifteen-minutes" | "one-hour" | "three-hours" | "one-day" | "one-week";
 export type PermissionGroup = "all";
 export type Phase1DHGroupNumbersList = Array<Phase1DHGroupNumbersListValue>;
 export interface Phase1DHGroupNumbersListValue {
   Value?: number;
 }
-export type Phase1DHGroupNumbersRequestList =
-  Array<Phase1DHGroupNumbersRequestListValue>;
+export type Phase1DHGroupNumbersRequestList = Array<Phase1DHGroupNumbersRequestListValue>;
 export interface Phase1DHGroupNumbersRequestListValue {
   Value?: number;
 }
-export type Phase1EncryptionAlgorithmsList =
-  Array<Phase1EncryptionAlgorithmsListValue>;
+export type Phase1EncryptionAlgorithmsList = Array<Phase1EncryptionAlgorithmsListValue>;
 export interface Phase1EncryptionAlgorithmsListValue {
   Value?: string;
 }
-export type Phase1EncryptionAlgorithmsRequestList =
-  Array<Phase1EncryptionAlgorithmsRequestListValue>;
+export type Phase1EncryptionAlgorithmsRequestList = Array<Phase1EncryptionAlgorithmsRequestListValue>;
 export interface Phase1EncryptionAlgorithmsRequestListValue {
   Value?: string;
 }
-export type Phase1IntegrityAlgorithmsList =
-  Array<Phase1IntegrityAlgorithmsListValue>;
+export type Phase1IntegrityAlgorithmsList = Array<Phase1IntegrityAlgorithmsListValue>;
 export interface Phase1IntegrityAlgorithmsListValue {
   Value?: string;
 }
-export type Phase1IntegrityAlgorithmsRequestList =
-  Array<Phase1IntegrityAlgorithmsRequestListValue>;
+export type Phase1IntegrityAlgorithmsRequestList = Array<Phase1IntegrityAlgorithmsRequestListValue>;
 export interface Phase1IntegrityAlgorithmsRequestListValue {
   Value?: string;
 }
@@ -15841,28 +15909,23 @@ export type Phase2DHGroupNumbersList = Array<Phase2DHGroupNumbersListValue>;
 export interface Phase2DHGroupNumbersListValue {
   Value?: number;
 }
-export type Phase2DHGroupNumbersRequestList =
-  Array<Phase2DHGroupNumbersRequestListValue>;
+export type Phase2DHGroupNumbersRequestList = Array<Phase2DHGroupNumbersRequestListValue>;
 export interface Phase2DHGroupNumbersRequestListValue {
   Value?: number;
 }
-export type Phase2EncryptionAlgorithmsList =
-  Array<Phase2EncryptionAlgorithmsListValue>;
+export type Phase2EncryptionAlgorithmsList = Array<Phase2EncryptionAlgorithmsListValue>;
 export interface Phase2EncryptionAlgorithmsListValue {
   Value?: string;
 }
-export type Phase2EncryptionAlgorithmsRequestList =
-  Array<Phase2EncryptionAlgorithmsRequestListValue>;
+export type Phase2EncryptionAlgorithmsRequestList = Array<Phase2EncryptionAlgorithmsRequestListValue>;
 export interface Phase2EncryptionAlgorithmsRequestListValue {
   Value?: string;
 }
-export type Phase2IntegrityAlgorithmsList =
-  Array<Phase2IntegrityAlgorithmsListValue>;
+export type Phase2IntegrityAlgorithmsList = Array<Phase2IntegrityAlgorithmsListValue>;
 export interface Phase2IntegrityAlgorithmsListValue {
   Value?: string;
 }
-export type Phase2IntegrityAlgorithmsRequestList =
-  Array<Phase2IntegrityAlgorithmsRequestListValue>;
+export type Phase2IntegrityAlgorithmsRequestList = Array<Phase2IntegrityAlgorithmsRequestListValue>;
 export interface Phase2IntegrityAlgorithmsRequestListValue {
   Value?: string;
 }
@@ -15900,11 +15963,7 @@ export interface PlacementGroupInfo {
 export type PlacementGroupList = Array<PlacementGroup>;
 export type PlacementGroupName = string;
 
-export type PlacementGroupState =
-  | "pending"
-  | "available"
-  | "deleting"
-  | "deleted";
+export type PlacementGroupState = "pending" | "available" | "deleting" | "deleted";
 export type PlacementGroupStrategy = "cluster" | "partition" | "spread";
 export type PlacementGroupStrategyList = Array<PlacementGroupStrategy>;
 export type PlacementGroupStringList = Array<string>;
@@ -15953,19 +16012,7 @@ export type PrefixListResourceId = string;
 
 export type PrefixListResourceIdStringList = Array<string>;
 export type PrefixListSet = Array<PrefixList>;
-export type PrefixListState =
-  | "create-in-progress"
-  | "create-complete"
-  | "create-failed"
-  | "modify-in-progress"
-  | "modify-complete"
-  | "modify-failed"
-  | "restore-in-progress"
-  | "restore-complete"
-  | "restore-failed"
-  | "delete-in-progress"
-  | "delete-complete"
-  | "delete-failed";
+export type PrefixListState = "create-in-progress" | "create-complete" | "create-failed" | "modify-in-progress" | "modify-complete" | "modify-failed" | "restore-in-progress" | "restore-complete" | "restore-failed" | "delete-in-progress" | "delete-complete" | "delete-failed";
 export type preSharedKey = string;
 
 export interface PriceSchedule {
@@ -15991,13 +16038,7 @@ export interface PrincipalIdFormat {
   Statuses?: Array<IdFormat>;
 }
 export type PrincipalIdFormatList = Array<PrincipalIdFormat>;
-export type PrincipalType =
-  | "All"
-  | "Service"
-  | "OrganizationUnit"
-  | "Account"
-  | "User"
-  | "Role";
+export type PrincipalType = "All" | "Service" | "OrganizationUnit" | "Account" | "User" | "Role";
 export type Priority = number;
 
 export interface PrivateDnsDetails {
@@ -16025,16 +16066,14 @@ export interface PrivateDnsNameOptionsResponse {
   EnableResourceNameDnsARecord?: boolean;
   EnableResourceNameDnsAAAARecord?: boolean;
 }
-export type PrivateIpAddressConfigSet =
-  Array<ScheduledInstancesPrivateIpAddressConfig>;
+export type PrivateIpAddressConfigSet = Array<ScheduledInstancesPrivateIpAddressConfig>;
 export type PrivateIpAddressCount = number;
 
 export interface PrivateIpAddressSpecification {
   Primary?: boolean;
   PrivateIpAddress?: string;
 }
-export type PrivateIpAddressSpecificationList =
-  Array<PrivateIpAddressSpecification>;
+export type PrivateIpAddressSpecificationList = Array<PrivateIpAddressSpecification>;
 export type PrivateIpAddressStringList = Array<string>;
 export interface ProcessorInfo {
   SupportedArchitectures?: Array<ArchitectureType>;
@@ -16128,10 +16167,7 @@ export interface PublicIpDnsNameOptions {
   PublicIpv6DnsName?: string;
   PublicDualStackDnsName?: string;
 }
-export type PublicIpDnsOption =
-  | "public-dual-stack-dns-name"
-  | "public-ipv4-dns-name"
-  | "public-ipv6-dns-name";
+export type PublicIpDnsOption = "public-dual-stack-dns-name" | "public-ipv4-dns-name" | "public-ipv6-dns-name";
 export type PublicIpStringList = Array<string>;
 export interface PublicIpv4Pool {
   PoolId?: string;
@@ -16386,8 +16422,7 @@ export type RemoveIpamOperatingRegionSet = Array<RemoveIpamOperatingRegion>;
 export interface RemoveIpamOrganizationalUnitExclusion {
   OrganizationsEntityPath?: string;
 }
-export type RemoveIpamOrganizationalUnitExclusionSet =
-  Array<RemoveIpamOrganizationalUnitExclusion>;
+export type RemoveIpamOrganizationalUnitExclusionSet = Array<RemoveIpamOrganizationalUnitExclusion>;
 export type RemovePrefixListEntries = Array<RemovePrefixListEntry>;
 export interface RemovePrefixListEntry {
   Cidr: string;
@@ -16442,13 +16477,7 @@ export type ReplaceRootVolumeTaskId = string;
 
 export type ReplaceRootVolumeTaskIds = Array<string>;
 export type ReplaceRootVolumeTasks = Array<ReplaceRootVolumeTask>;
-export type ReplaceRootVolumeTaskState =
-  | "pending"
-  | "in-progress"
-  | "failing"
-  | "succeeded"
-  | "failed"
-  | "failed-detached";
+export type ReplaceRootVolumeTaskState = "pending" | "in-progress" | "failing" | "succeeded" | "failed" | "failed-detached";
 export interface ReplaceRouteRequest {
   DestinationPrefixListId?: string;
   VpcEndpointId?: string;
@@ -16497,16 +16526,7 @@ export interface ReplaceVpnTunnelRequest {
 export interface ReplaceVpnTunnelResult {
   Return?: boolean;
 }
-export type ReportInstanceReasonCodes =
-  | "instance-stuck-in-state"
-  | "unresponsive"
-  | "not-accepting-credentials"
-  | "password-not-available"
-  | "performance-network"
-  | "performance-instance-store"
-  | "performance-ebs-volume"
-  | "performance-other"
-  | "other";
+export type ReportInstanceReasonCodes = "instance-stuck-in-state" | "unresponsive" | "not-accepting-credentials" | "password-not-available" | "performance-network" | "performance-instance-store" | "performance-ebs-volume" | "performance-other" | "other";
 export interface ReportInstanceStatusRequest {
   DryRun?: boolean;
   Instances: Array<string>;
@@ -16629,23 +16649,11 @@ export interface ReservationFleetInstanceSpecification {
   EbsOptimized?: boolean;
   Priority?: number;
 }
-export type ReservationFleetInstanceSpecificationList =
-  Array<ReservationFleetInstanceSpecification>;
+export type ReservationFleetInstanceSpecificationList = Array<ReservationFleetInstanceSpecification>;
 export type ReservationId = string;
 
 export type ReservationList = Array<Reservation>;
-export type ReservationState =
-  | "active"
-  | "expired"
-  | "cancelled"
-  | "scheduled"
-  | "pending"
-  | "failed"
-  | "delayed"
-  | "unsupported"
-  | "payment-pending"
-  | "payment-failed"
-  | "retired";
+export type ReservationState = "active" | "expired" | "cancelled" | "scheduled" | "pending" | "failed" | "delayed" | "unsupported" | "payment-pending" | "payment-failed" | "retired";
 export type ReservationType = "capacity-block" | "odcr";
 export interface ReservationValue {
   HourlyPrice?: string;
@@ -16661,8 +16669,7 @@ export interface ReservedInstanceReservationValue {
   ReservationValue?: ReservationValue;
   ReservedInstanceId?: string;
 }
-export type ReservedInstanceReservationValueSet =
-  Array<ReservedInstanceReservationValue>;
+export type ReservedInstanceReservationValueSet = Array<ReservedInstanceReservationValue>;
 export interface ReservedInstances {
   CurrencyCode?: CurrencyCodeValues;
   InstanceTenancy?: Tenancy;
@@ -16692,8 +16699,7 @@ export interface ReservedInstancesConfiguration {
   Scope?: scope;
   AvailabilityZoneId?: string;
 }
-export type ReservedInstancesConfigurationList =
-  Array<ReservedInstancesConfiguration>;
+export type ReservedInstancesConfigurationList = Array<ReservedInstancesConfiguration>;
 export interface ReservedInstancesId {
   ReservedInstancesId?: string;
 }
@@ -16728,14 +16734,12 @@ export interface ReservedInstancesModification {
 export type ReservedInstancesModificationId = string;
 
 export type ReservedInstancesModificationIdStringList = Array<string>;
-export type ReservedInstancesModificationList =
-  Array<ReservedInstancesModification>;
+export type ReservedInstancesModificationList = Array<ReservedInstancesModification>;
 export interface ReservedInstancesModificationResult {
   ReservedInstancesId?: string;
   TargetConfiguration?: ReservedInstancesConfiguration;
 }
-export type ReservedInstancesModificationResultList =
-  Array<ReservedInstancesModificationResult>;
+export type ReservedInstancesModificationResultList = Array<ReservedInstancesModificationResult>;
 export interface ReservedInstancesOffering {
   CurrencyCode?: CurrencyCodeValues;
   InstanceTenancy?: Tenancy;
@@ -16758,13 +16762,7 @@ export type ReservedInstancesOfferingId = string;
 
 export type ReservedInstancesOfferingIdStringList = Array<string>;
 export type ReservedInstancesOfferingList = Array<ReservedInstancesOffering>;
-export type ReservedInstanceState =
-  | "payment-pending"
-  | "active"
-  | "payment-failed"
-  | "retired"
-  | "queued"
-  | "queued-deleted";
+export type ReservedInstanceState = "payment-pending" | "active" | "payment-failed" | "retired" | "queued" | "queued-deleted";
 export type ReservedIntancesIds = Array<ReservedInstancesId>;
 export interface ResetAddressAttributeRequest {
   AllocationId: string;
@@ -16824,107 +16822,7 @@ export interface ResourceStatementRequest {
   Resources?: Array<string>;
   ResourceTypes?: Array<string>;
 }
-export type ResourceType =
-  | "capacity-reservation"
-  | "client-vpn-endpoint"
-  | "customer-gateway"
-  | "carrier-gateway"
-  | "coip-pool"
-  | "declarative-policies-report"
-  | "dedicated-host"
-  | "dhcp-options"
-  | "egress-only-internet-gateway"
-  | "elastic-ip"
-  | "elastic-gpu"
-  | "export-image-task"
-  | "export-instance-task"
-  | "fleet"
-  | "fpga-image"
-  | "host-reservation"
-  | "image"
-  | "image-usage-report"
-  | "import-image-task"
-  | "import-snapshot-task"
-  | "instance"
-  | "instance-event-window"
-  | "internet-gateway"
-  | "ipam"
-  | "ipam-pool"
-  | "ipam-scope"
-  | "ipv4pool-ec2"
-  | "ipv6pool-ec2"
-  | "key-pair"
-  | "launch-template"
-  | "local-gateway"
-  | "local-gateway-route-table"
-  | "local-gateway-virtual-interface"
-  | "local-gateway-virtual-interface-group"
-  | "local-gateway-route-table-vpc-association"
-  | "local-gateway-route-table-virtual-interface-group-association"
-  | "natgateway"
-  | "network-acl"
-  | "network-interface"
-  | "network-insights-analysis"
-  | "network-insights-path"
-  | "network-insights-access-scope"
-  | "network-insights-access-scope-analysis"
-  | "outpost-lag"
-  | "placement-group"
-  | "prefix-list"
-  | "replace-root-volume-task"
-  | "reserved-instances"
-  | "route-table"
-  | "security-group"
-  | "security-group-rule"
-  | "service-link-virtual-interface"
-  | "snapshot"
-  | "spot-fleet-request"
-  | "spot-instances-request"
-  | "subnet"
-  | "subnet-cidr-reservation"
-  | "traffic-mirror-filter"
-  | "traffic-mirror-session"
-  | "traffic-mirror-target"
-  | "transit-gateway"
-  | "transit-gateway-attachment"
-  | "transit-gateway-connect-peer"
-  | "transit-gateway-multicast-domain"
-  | "transit-gateway-policy-table"
-  | "transit-gateway-route-table"
-  | "transit-gateway-route-table-announcement"
-  | "volume"
-  | "vpc"
-  | "vpc-endpoint"
-  | "vpc-endpoint-connection"
-  | "vpc-endpoint-service"
-  | "vpc-endpoint-service-permission"
-  | "vpc-peering-connection"
-  | "vpn-connection"
-  | "vpn-gateway"
-  | "vpc-flow-log"
-  | "capacity-reservation-fleet"
-  | "traffic-mirror-filter-rule"
-  | "vpc-endpoint-connection-device-type"
-  | "verified-access-instance"
-  | "verified-access-group"
-  | "verified-access-endpoint"
-  | "verified-access-policy"
-  | "verified-access-trust-provider"
-  | "vpn-connection-device-type"
-  | "vpc-block-public-access-exclusion"
-  | "route-server"
-  | "route-server-endpoint"
-  | "route-server-peer"
-  | "ipam-resource-discovery"
-  | "ipam-resource-discovery-association"
-  | "instance-connect-endpoint"
-  | "verified-access-endpoint-target"
-  | "ipam-external-resource-verification-token"
-  | "capacity-block"
-  | "mac-modification-task"
-  | "ipam-prefix-list-resolver"
-  | "ipam-prefix-list-resolver-target"
-  | "capacity-manager-data-export";
+export type ResourceType = "capacity-reservation" | "client-vpn-endpoint" | "customer-gateway" | "carrier-gateway" | "coip-pool" | "declarative-policies-report" | "dedicated-host" | "dhcp-options" | "egress-only-internet-gateway" | "elastic-ip" | "elastic-gpu" | "export-image-task" | "export-instance-task" | "fleet" | "fpga-image" | "host-reservation" | "image" | "image-usage-report" | "import-image-task" | "import-snapshot-task" | "instance" | "instance-event-window" | "internet-gateway" | "ipam" | "ipam-pool" | "ipam-scope" | "ipv4pool-ec2" | "ipv6pool-ec2" | "key-pair" | "launch-template" | "local-gateway" | "local-gateway-route-table" | "local-gateway-virtual-interface" | "local-gateway-virtual-interface-group" | "local-gateway-route-table-vpc-association" | "local-gateway-route-table-virtual-interface-group-association" | "natgateway" | "network-acl" | "network-interface" | "network-insights-analysis" | "network-insights-path" | "network-insights-access-scope" | "network-insights-access-scope-analysis" | "outpost-lag" | "placement-group" | "prefix-list" | "replace-root-volume-task" | "reserved-instances" | "route-table" | "security-group" | "security-group-rule" | "service-link-virtual-interface" | "snapshot" | "spot-fleet-request" | "spot-instances-request" | "subnet" | "subnet-cidr-reservation" | "traffic-mirror-filter" | "traffic-mirror-session" | "traffic-mirror-target" | "transit-gateway" | "transit-gateway-attachment" | "transit-gateway-connect-peer" | "transit-gateway-multicast-domain" | "transit-gateway-policy-table" | "transit-gateway-route-table" | "transit-gateway-route-table-announcement" | "volume" | "vpc" | "vpc-endpoint" | "vpc-endpoint-connection" | "vpc-endpoint-service" | "vpc-endpoint-service-permission" | "vpc-peering-connection" | "vpn-connection" | "vpn-gateway" | "vpc-flow-log" | "capacity-reservation-fleet" | "traffic-mirror-filter-rule" | "vpc-endpoint-connection-device-type" | "verified-access-instance" | "verified-access-group" | "verified-access-endpoint" | "verified-access-policy" | "verified-access-trust-provider" | "vpn-connection-device-type" | "vpc-block-public-access-exclusion" | "route-server" | "route-server-endpoint" | "route-server-peer" | "ipam-resource-discovery" | "ipam-resource-discovery-association" | "instance-connect-endpoint" | "verified-access-endpoint-target" | "ipam-external-resource-verification-token" | "capacity-block" | "mac-modification-task" | "ipam-prefix-list-resolver" | "ipam-prefix-list-resolver-target" | "capacity-manager-data-export";
 export interface ResourceTypeOption {
   OptionName?: ImageReferenceOptionName;
   OptionValues?: Array<string>;
@@ -17100,11 +16998,7 @@ export interface RevokeSecurityGroupIngressResult {
   UnknownIpPermissions?: Array<IpPermission>;
   RevokedSecurityGroupRules?: Array<RevokedSecurityGroupRule>;
 }
-export type RIProductDescription =
-  | "Linux/UNIX"
-  | "Linux/UNIX (Amazon VPC)"
-  | "Windows"
-  | "Windows (Amazon VPC)";
+export type RIProductDescription = "Linux/UNIX" | "Linux/UNIX (Amazon VPC)" | "Windows" | "Windows (Amazon VPC)";
 export type RoleId = string;
 
 export type RootDeviceType = "ebs" | "instance-store";
@@ -17132,11 +17026,7 @@ export interface Route {
 export type RouteGatewayId = string;
 
 export type RouteList = Array<Route>;
-export type RouteOrigin =
-  | "CreateRouteTable"
-  | "CreateRoute"
-  | "EnableVgwRoutePropagation"
-  | "Advertisement";
+export type RouteOrigin = "CreateRouteTable" | "CreateRoute" | "EnableVgwRoutePropagation" | "Advertisement";
 export interface RouteServer {
   RouteServerId?: string;
   AmazonSideAsn?: number;
@@ -17153,10 +17043,7 @@ export interface RouteServerAssociation {
   State?: RouteServerAssociationState;
 }
 export type RouteServerAssociationsList = Array<RouteServerAssociation>;
-export type RouteServerAssociationState =
-  | "associating"
-  | "associated"
-  | "disassociating";
+export type RouteServerAssociationState = "associating" | "associated" | "disassociating";
 export type RouteServerBfdState = "up" | "down";
 export interface RouteServerBfdStatus {
   Status?: RouteServerBfdState;
@@ -17188,14 +17075,7 @@ export type RouteServerEndpointId = string;
 
 export type RouteServerEndpointIdsList = Array<string>;
 export type RouteServerEndpointsList = Array<RouteServerEndpoint>;
-export type RouteServerEndpointState =
-  | "pending"
-  | "available"
-  | "deleting"
-  | "deleted"
-  | "failing"
-  | "failed"
-  | "delete-failed";
+export type RouteServerEndpointState = "pending" | "available" | "deleting" | "deleted" | "failing" | "failed" | "delete-failed";
 export type RouteServerId = string;
 
 export type RouteServerIdsList = Array<string>;
@@ -17222,21 +17102,9 @@ export type RouteServerPeerId = string;
 export type RouteServerPeerIdsList = Array<string>;
 export type RouteServerPeerLivenessMode = "bfd" | "bgp-keepalive";
 export type RouteServerPeersList = Array<RouteServerPeer>;
-export type RouteServerPeerState =
-  | "pending"
-  | "available"
-  | "deleting"
-  | "deleted"
-  | "failing"
-  | "failed";
+export type RouteServerPeerState = "pending" | "available" | "deleting" | "deleted" | "failing" | "failed";
 export type RouteServerPersistRoutesAction = "enable" | "disable" | "reset";
-export type RouteServerPersistRoutesState =
-  | "enabling"
-  | "enabled"
-  | "resetting"
-  | "disabling"
-  | "disabled"
-  | "modifying";
+export type RouteServerPersistRoutesState = "enabling" | "enabled" | "resetting" | "disabling" | "disabled" | "modifying";
 export interface RouteServerPropagation {
   RouteServerId?: string;
   RouteTableId?: string;
@@ -17259,18 +17127,12 @@ export interface RouteServerRouteInstallationDetail {
   RouteInstallationStatus?: RouteServerRouteInstallationStatus;
   RouteInstallationStatusReason?: string;
 }
-export type RouteServerRouteInstallationDetails =
-  Array<RouteServerRouteInstallationDetail>;
+export type RouteServerRouteInstallationDetails = Array<RouteServerRouteInstallationDetail>;
 export type RouteServerRouteInstallationStatus = "installed" | "rejected";
 export type RouteServerRouteList = Array<RouteServerRoute>;
 export type RouteServerRouteStatus = "in-rib" | "in-fib";
 export type RouteServersList = Array<RouteServer>;
-export type RouteServerState =
-  | "pending"
-  | "available"
-  | "modifying"
-  | "deleting"
-  | "deleted";
+export type RouteServerState = "pending" | "available" | "modifying" | "deleting" | "deleted";
 export type RouteState = "active" | "blackhole" | "filtered";
 export interface RouteTable {
   Associations?: Array<RouteTableAssociation>;
@@ -17297,12 +17159,7 @@ export interface RouteTableAssociationState {
   State?: RouteTableAssociationStateCode;
   StatusMessage?: string;
 }
-export type RouteTableAssociationStateCode =
-  | "associating"
-  | "associated"
-  | "disassociating"
-  | "disassociated"
-  | "failed";
+export type RouteTableAssociationStateCode = "associating" | "associated" | "disassociating" | "disassociated" | "failed";
 export type RouteTableId = string;
 
 export type RouteTableIdStringList = Array<string>;
@@ -17430,8 +17287,7 @@ export interface ScheduledInstanceAvailability {
   SlotDurationInHours?: number;
   TotalScheduledInstanceHours?: number;
 }
-export type ScheduledInstanceAvailabilitySet =
-  Array<ScheduledInstanceAvailability>;
+export type ScheduledInstanceAvailabilitySet = Array<ScheduledInstanceAvailability>;
 export type ScheduledInstanceId = string;
 
 export type ScheduledInstanceIdRequestSet = Array<string>;
@@ -17455,8 +17311,7 @@ export interface ScheduledInstancesBlockDeviceMapping {
   NoDevice?: string;
   VirtualName?: string;
 }
-export type ScheduledInstancesBlockDeviceMappingSet =
-  Array<ScheduledInstancesBlockDeviceMapping>;
+export type ScheduledInstancesBlockDeviceMappingSet = Array<ScheduledInstancesBlockDeviceMapping>;
 export interface ScheduledInstancesEbs {
   DeleteOnTermination?: boolean;
   Encrypted?: boolean;
@@ -17473,8 +17328,7 @@ export interface ScheduledInstancesIamInstanceProfile {
 export interface ScheduledInstancesIpv6Address {
   Ipv6Address?: string;
 }
-export type ScheduledInstancesIpv6AddressList =
-  Array<ScheduledInstancesIpv6Address>;
+export type ScheduledInstancesIpv6AddressList = Array<ScheduledInstancesIpv6Address>;
 export interface ScheduledInstancesLaunchSpecification {
   BlockDeviceMappings?: Array<ScheduledInstancesBlockDeviceMapping>;
   EbsOptimized?: boolean;
@@ -17508,8 +17362,7 @@ export interface ScheduledInstancesNetworkInterface {
   SecondaryPrivateIpAddressCount?: number;
   SubnetId?: string;
 }
-export type ScheduledInstancesNetworkInterfaceSet =
-  Array<ScheduledInstancesNetworkInterface>;
+export type ScheduledInstancesNetworkInterfaceSet = Array<ScheduledInstancesNetworkInterface>;
 export interface ScheduledInstancesPlacement {
   AvailabilityZone?: string;
   GroupName?: string;
@@ -17613,8 +17466,7 @@ export interface SecurityGroupRuleDescription {
   SecurityGroupRuleId?: string;
   Description?: string;
 }
-export type SecurityGroupRuleDescriptionList =
-  Array<SecurityGroupRuleDescription>;
+export type SecurityGroupRuleDescriptionList = Array<SecurityGroupRuleDescription>;
 export type SecurityGroupRuleId = string;
 
 export type SecurityGroupRuleIdList = Array<string>;
@@ -17643,15 +17495,8 @@ export interface SecurityGroupVpcAssociation {
   StateReason?: string;
   GroupOwnerId?: string;
 }
-export type SecurityGroupVpcAssociationList =
-  Array<SecurityGroupVpcAssociation>;
-export type SecurityGroupVpcAssociationState =
-  | "associating"
-  | "associated"
-  | "association-failed"
-  | "disassociating"
-  | "disassociated"
-  | "disassociation-failed";
+export type SecurityGroupVpcAssociationList = Array<SecurityGroupVpcAssociation>;
+export type SecurityGroupVpcAssociationState = "associating" | "associated" | "association-failed" | "disassociating" | "disassociated" | "disassociation-failed";
 export type SelfServicePortal = "enabled" | "disabled";
 export interface SendDiagnosticInterruptRequest {
   InstanceId: string;
@@ -17721,11 +17566,7 @@ export interface ServiceLinkVirtualInterface {
   Tags?: Array<Tag>;
   ConfigurationState?: ServiceLinkVirtualInterfaceConfigurationState;
 }
-export type ServiceLinkVirtualInterfaceConfigurationState =
-  | "pending"
-  | "available"
-  | "deleting"
-  | "deleted";
+export type ServiceLinkVirtualInterfaceConfigurationState = "pending" | "available" | "deleting" | "deleted";
 export type ServiceLinkVirtualInterfaceId = string;
 
 export type ServiceLinkVirtualInterfaceIdSet = Array<string>;
@@ -17733,12 +17574,7 @@ export type ServiceLinkVirtualInterfaceSet = Array<ServiceLinkVirtualInterface>;
 export type ServiceManaged = "alb" | "nlb" | "rnat";
 export type ServiceNetworkArn = string;
 
-export type ServiceState =
-  | "Pending"
-  | "Available"
-  | "Deleting"
-  | "Deleted"
-  | "Failed";
+export type ServiceState = "Pending" | "Available" | "Deleting" | "Deleted" | "Failed";
 export type ServiceType = "Interface" | "Gateway" | "GatewayLoadBalancer";
 export interface ServiceTypeDetail {
   ServiceType?: ServiceType;
@@ -17779,10 +17615,7 @@ export interface Snapshot {
   DataEncryptionKeyId?: string;
 }
 export type SnapshotAttributeName = "productCodes" | "createVolumePermission";
-export type SnapshotBlockPublicAccessState =
-  | "block-all-sharing"
-  | "block-new-sharing"
-  | "unblocked";
+export type SnapshotBlockPublicAccessState = "block-all-sharing" | "block-new-sharing" | "unblocked";
 export type SnapshotCompletionDurationMinutesRequest = number;
 
 export type SnapshotCompletionDurationMinutesResponse = number;
@@ -17834,19 +17667,9 @@ export interface SnapshotRecycleBinInfo {
   VolumeId?: string;
 }
 export type SnapshotRecycleBinInfoList = Array<SnapshotRecycleBinInfo>;
-export type SnapshotReturnCodes =
-  | "success"
-  | "skipped"
-  | "missing-permissions"
-  | "internal-error"
-  | "client-error";
+export type SnapshotReturnCodes = "success" | "skipped" | "missing-permissions" | "internal-error" | "client-error";
 export type SnapshotSet = Array<SnapshotInfo>;
-export type SnapshotState =
-  | "pending"
-  | "completed"
-  | "error"
-  | "recoverable"
-  | "recovering";
+export type SnapshotState = "pending" | "completed" | "error" | "recoverable" | "recovering";
 export interface SnapshotTaskDetail {
   Description?: string;
   DiskImageSize?: number;
@@ -17875,12 +17698,7 @@ export interface SnapshotTierStatus {
   RestoreExpiryTime?: Date | string;
 }
 export type snapshotTierStatusSet = Array<SnapshotTierStatus>;
-export type SpotAllocationStrategy =
-  | "lowest-price"
-  | "diversified"
-  | "capacity-optimized"
-  | "capacity-optimized-prioritized"
-  | "price-capacity-optimized";
+export type SpotAllocationStrategy = "lowest-price" | "diversified" | "capacity-optimized" | "capacity-optimized-prioritized" | "price-capacity-optimized";
 export interface SpotCapacityRebalance {
   ReplacementStrategy?: ReplacementStrategy;
   TerminationDelay?: number;
@@ -17961,10 +17779,7 @@ export interface SpotFleetTagSpecification {
   Tags?: Array<Tag>;
 }
 export type SpotFleetTagSpecificationList = Array<SpotFleetTagSpecification>;
-export type SpotInstanceInterruptionBehavior =
-  | "hibernate"
-  | "stop"
-  | "terminate";
+export type SpotInstanceInterruptionBehavior = "hibernate" | "stop" | "terminate";
 export interface SpotInstanceRequest {
   ActualBlockHourlyPrice?: string;
   AvailabilityZoneGroup?: string;
@@ -17991,13 +17806,7 @@ export type SpotInstanceRequestId = string;
 
 export type SpotInstanceRequestIdList = Array<string>;
 export type SpotInstanceRequestList = Array<SpotInstanceRequest>;
-export type SpotInstanceState =
-  | "open"
-  | "active"
-  | "closed"
-  | "cancelled"
-  | "failed"
-  | "disabled";
+export type SpotInstanceState = "open" | "active" | "closed" | "cancelled" | "failed" | "disabled";
 export interface SpotInstanceStateFault {
   Code?: string;
   Message?: string;
@@ -18128,16 +17937,7 @@ export interface StartVpcEndpointServicePrivateDnsVerificationRequest {
 export interface StartVpcEndpointServicePrivateDnsVerificationResult {
   ReturnValue?: boolean;
 }
-export type State =
-  | "PendingAcceptance"
-  | "Pending"
-  | "Available"
-  | "Deleting"
-  | "Deleted"
-  | "Rejected"
-  | "Failed"
-  | "Expired"
-  | "Partial";
+export type State = "PendingAcceptance" | "Pending" | "Available" | "Deleting" | "Deleted" | "Rejected" | "Failed" | "Expired" | "Partial";
 export interface StateReason {
   Code?: string;
   Message?: string;
@@ -18146,11 +17946,7 @@ export type StaticSourcesSupportValue = "enable" | "disable";
 export type StatisticType = "p50";
 export type Status = "MoveInProgress" | "InVpc" | "InClassic";
 export type StatusName = "reachability";
-export type StatusType =
-  | "passed"
-  | "failed"
-  | "insufficient-data"
-  | "initializing";
+export type StatusType = "passed" | "failed" | "insufficient-data" | "initializing";
 export interface StopInstancesRequest {
   InstanceIds: Array<string>;
   Hibernate?: boolean;
@@ -18220,13 +18016,7 @@ export interface SubnetCidrBlockState {
   State?: SubnetCidrBlockStateCode;
   StatusMessage?: string;
 }
-export type SubnetCidrBlockStateCode =
-  | "associating"
-  | "associated"
-  | "disassociating"
-  | "disassociated"
-  | "failing"
-  | "failed";
+export type SubnetCidrBlockStateCode = "associating" | "associated" | "disassociating" | "disassociated" | "failing" | "failed";
 export interface SubnetCidrReservation {
   SubnetCidrReservationId?: string;
   SubnetId?: string;
@@ -18262,15 +18052,9 @@ export interface SubnetIpv6CidrBlockAssociation {
   Ipv6AddressAttribute?: Ipv6AddressAttribute;
   IpSource?: IpSource;
 }
-export type SubnetIpv6CidrBlockAssociationSet =
-  Array<SubnetIpv6CidrBlockAssociation>;
+export type SubnetIpv6CidrBlockAssociationSet = Array<SubnetIpv6CidrBlockAssociation>;
 export type SubnetList = Array<Subnet>;
-export type SubnetState =
-  | "pending"
-  | "available"
-  | "unavailable"
-  | "failed"
-  | "failed-insufficient-capacity";
+export type SubnetState = "pending" | "available" | "unavailable" | "failed" | "failed-insufficient-capacity";
 export interface Subscription {
   Source?: string;
   Destination?: string;
@@ -18282,22 +18066,14 @@ export type SubscriptionList = Array<Subscription>;
 export interface SuccessfulInstanceCreditSpecificationItem {
   InstanceId?: string;
 }
-export type SuccessfulInstanceCreditSpecificationSet =
-  Array<SuccessfulInstanceCreditSpecificationItem>;
+export type SuccessfulInstanceCreditSpecificationSet = Array<SuccessfulInstanceCreditSpecificationItem>;
 export interface SuccessfulQueuedPurchaseDeletion {
   ReservedInstancesId?: string;
 }
-export type SuccessfulQueuedPurchaseDeletionSet =
-  Array<SuccessfulQueuedPurchaseDeletion>;
-export type SummaryStatus =
-  | "ok"
-  | "impaired"
-  | "insufficient-data"
-  | "not-applicable"
-  | "initializing";
+export type SuccessfulQueuedPurchaseDeletionSet = Array<SuccessfulQueuedPurchaseDeletion>;
+export type SummaryStatus = "ok" | "impaired" | "insufficient-data" | "not-applicable" | "initializing";
 export type SupportedAdditionalProcessorFeature = "amd-sev-snp";
-export type SupportedAdditionalProcessorFeatureList =
-  Array<SupportedAdditionalProcessorFeature>;
+export type SupportedAdditionalProcessorFeatureList = Array<SupportedAdditionalProcessorFeature>;
 export type SupportedIpAddressTypes = Array<ServiceConnectivityType>;
 export interface SupportedRegionDetail {
   Region?: string;
@@ -18407,18 +18183,8 @@ export type ThroughResourcesStatementList = Array<ThroughResourcesStatement>;
 export interface ThroughResourcesStatementRequest {
   ResourceStatement?: ResourceStatementRequest;
 }
-export type ThroughResourcesStatementRequestList =
-  Array<ThroughResourcesStatementRequest>;
-export type TieringOperationStatus =
-  | "archival-in-progress"
-  | "archival-completed"
-  | "archival-failed"
-  | "temporary-restore-in-progress"
-  | "temporary-restore-completed"
-  | "temporary-restore-failed"
-  | "permanent-restore-in-progress"
-  | "permanent-restore-completed"
-  | "permanent-restore-failed";
+export type ThroughResourcesStatementRequestList = Array<ThroughResourcesStatementRequest>;
+export type TieringOperationStatus = "archival-in-progress" | "archival-completed" | "archival-failed" | "temporary-restore-in-progress" | "temporary-restore-completed" | "temporary-restore-failed" | "permanent-restore-in-progress" | "permanent-restore-completed" | "permanent-restore-failed";
 export type TokenState = "valid" | "expired";
 export type totalFpgaMemory = number;
 
@@ -18466,13 +18232,8 @@ export interface TrafficMirrorFilterRule {
   Description?: string;
   Tags?: Array<Tag>;
 }
-export type TrafficMirrorFilterRuleField =
-  | "destination-port-range"
-  | "source-port-range"
-  | "protocol"
-  | "description";
-export type TrafficMirrorFilterRuleFieldList =
-  Array<TrafficMirrorFilterRuleField>;
+export type TrafficMirrorFilterRuleField = "destination-port-range" | "source-port-range" | "protocol" | "description";
+export type TrafficMirrorFilterRuleFieldList = Array<TrafficMirrorFilterRuleField>;
 export type TrafficMirrorFilterRuleIdList = Array<string>;
 export type TrafficMirrorFilterRuleIdWithResolver = string;
 
@@ -18482,8 +18243,7 @@ export type TrafficMirrorFilterSet = Array<TrafficMirrorFilter>;
 export type TrafficMirroringMaxResults = number;
 
 export type TrafficMirrorNetworkService = "amazon-dns";
-export type TrafficMirrorNetworkServiceList =
-  Array<TrafficMirrorNetworkService>;
+export type TrafficMirrorNetworkServiceList = Array<TrafficMirrorNetworkService>;
 export interface TrafficMirrorPortRange {
   FromPort?: number;
   ToPort?: number;
@@ -18505,10 +18265,7 @@ export interface TrafficMirrorSession {
   Description?: string;
   Tags?: Array<Tag>;
 }
-export type TrafficMirrorSessionField =
-  | "packet-length"
-  | "description"
-  | "virtual-network-id";
+export type TrafficMirrorSessionField = "packet-length" | "description" | "virtual-network-id";
 export type TrafficMirrorSessionFieldList = Array<TrafficMirrorSessionField>;
 export type TrafficMirrorSessionId = string;
 
@@ -18528,10 +18285,7 @@ export type TrafficMirrorTargetId = string;
 
 export type TrafficMirrorTargetIdList = Array<string>;
 export type TrafficMirrorTargetSet = Array<TrafficMirrorTarget>;
-export type TrafficMirrorTargetType =
-  | "network-interface"
-  | "network-load-balancer"
-  | "gateway-load-balancer-endpoint";
+export type TrafficMirrorTargetType = "network-interface" | "network-load-balancer" | "gateway-load-balancer-endpoint";
 export type TrafficType = "ACCEPT" | "REJECT" | "ALL";
 export type TransferType = "time-based" | "standard";
 export type TransitAssociationGatewayId = string;
@@ -18553,11 +18307,7 @@ export interface TransitGatewayAssociation {
   ResourceType?: TransitGatewayAttachmentResourceType;
   State?: TransitGatewayAssociationState;
 }
-export type TransitGatewayAssociationState =
-  | "associating"
-  | "associated"
-  | "disassociating"
-  | "disassociated";
+export type TransitGatewayAssociationState = "associating" | "associated" | "disassociating" | "disassociated";
 export interface TransitGatewayAttachment {
   TransitGatewayAttachmentId?: string;
   TransitGatewayId?: string;
@@ -18581,8 +18331,7 @@ export interface TransitGatewayAttachmentBgpConfiguration {
   PeerAddress?: string;
   BgpStatus?: BgpStatus;
 }
-export type TransitGatewayAttachmentBgpConfigurationList =
-  Array<TransitGatewayAttachmentBgpConfiguration>;
+export type TransitGatewayAttachmentBgpConfigurationList = Array<TransitGatewayAttachmentBgpConfiguration>;
 export type TransitGatewayAttachmentId = string;
 
 export type TransitGatewayAttachmentIdStringList = Array<string>;
@@ -18591,30 +18340,9 @@ export interface TransitGatewayAttachmentPropagation {
   TransitGatewayRouteTableId?: string;
   State?: TransitGatewayPropagationState;
 }
-export type TransitGatewayAttachmentPropagationList =
-  Array<TransitGatewayAttachmentPropagation>;
-export type TransitGatewayAttachmentResourceType =
-  | "vpc"
-  | "vpn"
-  | "direct-connect-gateway"
-  | "connect"
-  | "peering"
-  | "tgw-peering"
-  | "network-function";
-export type TransitGatewayAttachmentState =
-  | "initiating"
-  | "initiatingRequest"
-  | "pendingAcceptance"
-  | "rollingBack"
-  | "pending"
-  | "available"
-  | "modifying"
-  | "deleting"
-  | "deleted"
-  | "failed"
-  | "rejected"
-  | "rejecting"
-  | "failing";
+export type TransitGatewayAttachmentPropagationList = Array<TransitGatewayAttachmentPropagation>;
+export type TransitGatewayAttachmentResourceType = "vpc" | "vpn" | "direct-connect-gateway" | "connect" | "peering" | "tgw-peering" | "network-function";
+export type TransitGatewayAttachmentState = "initiating" | "initiatingRequest" | "pendingAcceptance" | "rollingBack" | "pending" | "available" | "modifying" | "deleting" | "deleted" | "failed" | "rejected" | "rejecting" | "failing";
 export type TransitGatewayCidrBlockStringList = Array<string>;
 export interface TransitGatewayConnect {
   TransitGatewayAttachmentId?: string;
@@ -18648,11 +18376,7 @@ export type TransitGatewayConnectPeerId = string;
 
 export type TransitGatewayConnectPeerIdStringList = Array<string>;
 export type TransitGatewayConnectPeerList = Array<TransitGatewayConnectPeer>;
-export type TransitGatewayConnectPeerState =
-  | "pending"
-  | "available"
-  | "deleting"
-  | "deleted";
+export type TransitGatewayConnectPeerState = "pending" | "available" | "deleting" | "deleted";
 export interface TransitGatewayConnectRequestBgpOptions {
   PeerAsn?: number;
 }
@@ -18662,14 +18386,7 @@ export type TransitGatewayIdStringList = Array<string>;
 export type TransitGatewayList = Array<TransitGateway>;
 export type TransitGatewayMaxResults = number;
 
-export type TransitGatewayMulitcastDomainAssociationState =
-  | "pendingAcceptance"
-  | "associating"
-  | "associated"
-  | "disassociating"
-  | "disassociated"
-  | "rejected"
-  | "failed";
+export type TransitGatewayMulitcastDomainAssociationState = "pendingAcceptance" | "associating" | "associated" | "disassociating" | "disassociated" | "rejected" | "failed";
 export interface TransitGatewayMulticastDeregisteredGroupMembers {
   TransitGatewayMulticastDomainId?: string;
   DeregisteredNetworkInterfaceIds?: Array<string>;
@@ -18697,8 +18414,7 @@ export interface TransitGatewayMulticastDomainAssociation {
   ResourceOwnerId?: string;
   Subnet?: SubnetAssociation;
 }
-export type TransitGatewayMulticastDomainAssociationList =
-  Array<TransitGatewayMulticastDomainAssociation>;
+export type TransitGatewayMulticastDomainAssociationList = Array<TransitGatewayMulticastDomainAssociation>;
 export interface TransitGatewayMulticastDomainAssociations {
   TransitGatewayMulticastDomainId?: string;
   TransitGatewayAttachmentId?: string;
@@ -18710,18 +18426,13 @@ export interface TransitGatewayMulticastDomainAssociations {
 export type TransitGatewayMulticastDomainId = string;
 
 export type TransitGatewayMulticastDomainIdStringList = Array<string>;
-export type TransitGatewayMulticastDomainList =
-  Array<TransitGatewayMulticastDomain>;
+export type TransitGatewayMulticastDomainList = Array<TransitGatewayMulticastDomain>;
 export interface TransitGatewayMulticastDomainOptions {
   Igmpv2Support?: Igmpv2SupportValue;
   StaticSourcesSupport?: StaticSourcesSupportValue;
   AutoAcceptSharedAssociations?: AutoAcceptSharedAssociationsValue;
 }
-export type TransitGatewayMulticastDomainState =
-  | "pending"
-  | "available"
-  | "deleting"
-  | "deleted";
+export type TransitGatewayMulticastDomainState = "pending" | "available" | "deleting" | "deleted";
 export interface TransitGatewayMulticastGroup {
   GroupIpAddress?: string;
   TransitGatewayAttachmentId?: string;
@@ -18735,8 +18446,7 @@ export interface TransitGatewayMulticastGroup {
   MemberType?: MembershipType;
   SourceType?: MembershipType;
 }
-export type TransitGatewayMulticastGroupList =
-  Array<TransitGatewayMulticastGroup>;
+export type TransitGatewayMulticastGroupList = Array<TransitGatewayMulticastGroup>;
 export interface TransitGatewayMulticastRegisteredGroupMembers {
   TransitGatewayMulticastDomainId?: string;
   RegisteredNetworkInterfaceIds?: Array<string>;
@@ -18772,8 +18482,7 @@ export interface TransitGatewayPeeringAttachment {
   CreationTime?: Date | string;
   Tags?: Array<Tag>;
 }
-export type TransitGatewayPeeringAttachmentList =
-  Array<TransitGatewayPeeringAttachment>;
+export type TransitGatewayPeeringAttachmentList = Array<TransitGatewayPeeringAttachment>;
 export interface TransitGatewayPeeringAttachmentOptions {
   DynamicRouting?: DynamicRoutingValue;
 }
@@ -18803,24 +18512,18 @@ export interface TransitGatewayPolicyTableAssociation {
   ResourceType?: TransitGatewayAttachmentResourceType;
   State?: TransitGatewayAssociationState;
 }
-export type TransitGatewayPolicyTableAssociationList =
-  Array<TransitGatewayPolicyTableAssociation>;
+export type TransitGatewayPolicyTableAssociationList = Array<TransitGatewayPolicyTableAssociation>;
 export interface TransitGatewayPolicyTableEntry {
   PolicyRuleNumber?: string;
   PolicyRule?: TransitGatewayPolicyRule;
   TargetRouteTableId?: string;
 }
-export type TransitGatewayPolicyTableEntryList =
-  Array<TransitGatewayPolicyTableEntry>;
+export type TransitGatewayPolicyTableEntryList = Array<TransitGatewayPolicyTableEntry>;
 export type TransitGatewayPolicyTableId = string;
 
 export type TransitGatewayPolicyTableIdStringList = Array<string>;
 export type TransitGatewayPolicyTableList = Array<TransitGatewayPolicyTable>;
-export type TransitGatewayPolicyTableState =
-  | "pending"
-  | "available"
-  | "deleting"
-  | "deleted";
+export type TransitGatewayPolicyTableState = "pending" | "available" | "deleting" | "deleted";
 export interface TransitGatewayPrefixListAttachment {
   TransitGatewayAttachmentId?: string;
   ResourceType?: TransitGatewayAttachmentResourceType;
@@ -18834,13 +18537,8 @@ export interface TransitGatewayPrefixListReference {
   Blackhole?: boolean;
   TransitGatewayAttachment?: TransitGatewayPrefixListAttachment;
 }
-export type TransitGatewayPrefixListReferenceSet =
-  Array<TransitGatewayPrefixListReference>;
-export type TransitGatewayPrefixListReferenceState =
-  | "pending"
-  | "available"
-  | "modifying"
-  | "deleting";
+export type TransitGatewayPrefixListReferenceSet = Array<TransitGatewayPrefixListReference>;
+export type TransitGatewayPrefixListReferenceState = "pending" | "available" | "modifying" | "deleting";
 export interface TransitGatewayPropagation {
   TransitGatewayAttachmentId?: string;
   ResourceId?: string;
@@ -18849,11 +18547,7 @@ export interface TransitGatewayPropagation {
   State?: TransitGatewayPropagationState;
   TransitGatewayRouteTableAnnouncementId?: string;
 }
-export type TransitGatewayPropagationState =
-  | "enabling"
-  | "enabled"
-  | "disabling"
-  | "disabled";
+export type TransitGatewayPropagationState = "enabling" | "enabled" | "disabling" | "disabled";
 export interface TransitGatewayRequestOptions {
   AmazonSideAsn?: number;
   AutoAcceptSharedAttachments?: AutoAcceptSharedAttachmentsValue;
@@ -18878,15 +18572,9 @@ export interface TransitGatewayRouteAttachment {
   TransitGatewayAttachmentId?: string;
   ResourceType?: TransitGatewayAttachmentResourceType;
 }
-export type TransitGatewayRouteAttachmentList =
-  Array<TransitGatewayRouteAttachment>;
+export type TransitGatewayRouteAttachmentList = Array<TransitGatewayRouteAttachment>;
 export type TransitGatewayRouteList = Array<TransitGatewayRoute>;
-export type TransitGatewayRouteState =
-  | "pending"
-  | "active"
-  | "blackhole"
-  | "deleting"
-  | "deleted";
+export type TransitGatewayRouteState = "pending" | "active" | "blackhole" | "deleting" | "deleted";
 export interface TransitGatewayRouteTable {
   TransitGatewayRouteTableId?: string;
   TransitGatewayId?: string;
@@ -18909,29 +18597,19 @@ export interface TransitGatewayRouteTableAnnouncement {
   CreationTime?: Date | string;
   Tags?: Array<Tag>;
 }
-export type TransitGatewayRouteTableAnnouncementDirection =
-  | "outgoing"
-  | "incoming";
+export type TransitGatewayRouteTableAnnouncementDirection = "outgoing" | "incoming";
 export type TransitGatewayRouteTableAnnouncementId = string;
 
 export type TransitGatewayRouteTableAnnouncementIdStringList = Array<string>;
-export type TransitGatewayRouteTableAnnouncementList =
-  Array<TransitGatewayRouteTableAnnouncement>;
-export type TransitGatewayRouteTableAnnouncementState =
-  | "available"
-  | "pending"
-  | "failing"
-  | "failed"
-  | "deleting"
-  | "deleted";
+export type TransitGatewayRouteTableAnnouncementList = Array<TransitGatewayRouteTableAnnouncement>;
+export type TransitGatewayRouteTableAnnouncementState = "available" | "pending" | "failing" | "failed" | "deleting" | "deleted";
 export interface TransitGatewayRouteTableAssociation {
   TransitGatewayAttachmentId?: string;
   ResourceId?: string;
   ResourceType?: TransitGatewayAttachmentResourceType;
   State?: TransitGatewayAssociationState;
 }
-export type TransitGatewayRouteTableAssociationList =
-  Array<TransitGatewayRouteTableAssociation>;
+export type TransitGatewayRouteTableAssociationList = Array<TransitGatewayRouteTableAssociation>;
 export type TransitGatewayRouteTableId = string;
 
 export type TransitGatewayRouteTableIdStringList = Array<string>;
@@ -18943,8 +18621,7 @@ export interface TransitGatewayRouteTablePropagation {
   State?: TransitGatewayPropagationState;
   TransitGatewayRouteTableAnnouncementId?: string;
 }
-export type TransitGatewayRouteTablePropagationList =
-  Array<TransitGatewayRouteTablePropagation>;
+export type TransitGatewayRouteTablePropagationList = Array<TransitGatewayRouteTablePropagation>;
 export interface TransitGatewayRouteTableRoute {
   DestinationCidr?: string;
   State?: string;
@@ -18954,18 +18631,9 @@ export interface TransitGatewayRouteTableRoute {
   ResourceId?: string;
   ResourceType?: string;
 }
-export type TransitGatewayRouteTableState =
-  | "pending"
-  | "available"
-  | "deleting"
-  | "deleted";
+export type TransitGatewayRouteTableState = "pending" | "available" | "deleting" | "deleted";
 export type TransitGatewayRouteType = "static" | "propagated";
-export type TransitGatewayState =
-  | "pending"
-  | "available"
-  | "modifying"
-  | "deleting"
-  | "deleted";
+export type TransitGatewayState = "pending" | "available" | "modifying" | "deleting" | "deleted";
 export type TransitGatewaySubnetIdList = Array<string>;
 export interface TransitGatewayVpcAttachment {
   TransitGatewayAttachmentId?: string;
@@ -18978,8 +18646,7 @@ export interface TransitGatewayVpcAttachment {
   Options?: TransitGatewayVpcAttachmentOptions;
   Tags?: Array<Tag>;
 }
-export type TransitGatewayVpcAttachmentList =
-  Array<TransitGatewayVpcAttachment>;
+export type TransitGatewayVpcAttachmentList = Array<TransitGatewayVpcAttachment>;
 export interface TransitGatewayVpcAttachmentOptions {
   DnsSupport?: DnsSupportValue;
   SecurityGroupReferencingSupport?: SecurityGroupReferencingSupportValue;
@@ -19066,11 +18733,7 @@ export interface UnmonitorInstancesRequest {
 export interface UnmonitorInstancesResult {
   InstanceMonitorings?: Array<InstanceMonitoring>;
 }
-export type UnsuccessfulInstanceCreditSpecificationErrorCode =
-  | "InvalidInstanceID.Malformed"
-  | "InvalidInstanceID.NotFound"
-  | "IncorrectInstanceState"
-  | "InstanceCreditSpecification.NotSupported";
+export type UnsuccessfulInstanceCreditSpecificationErrorCode = "InvalidInstanceID.Malformed" | "InvalidInstanceID.NotFound" | "IncorrectInstanceState" | "InstanceCreditSpecification.NotSupported";
 export interface UnsuccessfulInstanceCreditSpecificationItem {
   InstanceId?: string;
   Error?: UnsuccessfulInstanceCreditSpecificationItemError;
@@ -19079,8 +18742,7 @@ export interface UnsuccessfulInstanceCreditSpecificationItemError {
   Code?: UnsuccessfulInstanceCreditSpecificationErrorCode;
   Message?: string;
 }
-export type UnsuccessfulInstanceCreditSpecificationSet =
-  Array<UnsuccessfulInstanceCreditSpecificationItem>;
+export type UnsuccessfulInstanceCreditSpecificationSet = Array<UnsuccessfulInstanceCreditSpecificationItem>;
 export interface UnsuccessfulItem {
   Error?: UnsuccessfulItemError;
   ResourceId?: string;
@@ -19227,8 +18889,7 @@ export interface VerifiedAccessEndpointPortRange {
   FromPort?: number;
   ToPort?: number;
 }
-export type VerifiedAccessEndpointPortRangeList =
-  Array<VerifiedAccessEndpointPortRange>;
+export type VerifiedAccessEndpointPortRangeList = Array<VerifiedAccessEndpointPortRange>;
 export type VerifiedAccessEndpointProtocol = "http" | "https" | "tcp";
 export interface VerifiedAccessEndpointRdsOptions {
   Protocol?: VerifiedAccessEndpointProtocol;
@@ -19243,25 +18904,15 @@ export interface VerifiedAccessEndpointStatus {
   Code?: VerifiedAccessEndpointStatusCode;
   Message?: string;
 }
-export type VerifiedAccessEndpointStatusCode =
-  | "pending"
-  | "active"
-  | "updating"
-  | "deleting"
-  | "deleted";
+export type VerifiedAccessEndpointStatusCode = "pending" | "active" | "updating" | "deleting" | "deleted";
 export type VerifiedAccessEndpointSubnetIdList = Array<string>;
 export interface VerifiedAccessEndpointTarget {
   VerifiedAccessEndpointId?: string;
   VerifiedAccessEndpointTargetIpAddress?: string;
   VerifiedAccessEndpointTargetDns?: string;
 }
-export type VerifiedAccessEndpointTargetList =
-  Array<VerifiedAccessEndpointTarget>;
-export type VerifiedAccessEndpointType =
-  | "load-balancer"
-  | "network-interface"
-  | "rds"
-  | "cidr";
+export type VerifiedAccessEndpointTargetList = Array<VerifiedAccessEndpointTarget>;
+export type VerifiedAccessEndpointType = "load-balancer" | "network-interface" | "rds" | "cidr";
 export interface VerifiedAccessGroup {
   VerifiedAccessGroupId?: string;
   VerifiedAccessInstanceId?: string;
@@ -19300,19 +18951,16 @@ export interface VerifiedAccessInstanceLoggingConfiguration {
   VerifiedAccessInstanceId?: string;
   AccessLogs?: VerifiedAccessLogs;
 }
-export type VerifiedAccessInstanceLoggingConfigurationList =
-  Array<VerifiedAccessInstanceLoggingConfiguration>;
+export type VerifiedAccessInstanceLoggingConfigurationList = Array<VerifiedAccessInstanceLoggingConfiguration>;
 export interface VerifiedAccessInstanceOpenVpnClientConfiguration {
   Config?: string;
   Routes?: Array<VerifiedAccessInstanceOpenVpnClientConfigurationRoute>;
 }
-export type VerifiedAccessInstanceOpenVpnClientConfigurationList =
-  Array<VerifiedAccessInstanceOpenVpnClientConfiguration>;
+export type VerifiedAccessInstanceOpenVpnClientConfigurationList = Array<VerifiedAccessInstanceOpenVpnClientConfiguration>;
 export interface VerifiedAccessInstanceOpenVpnClientConfigurationRoute {
   Cidr?: string;
 }
-export type VerifiedAccessInstanceOpenVpnClientConfigurationRouteList =
-  Array<VerifiedAccessInstanceOpenVpnClientConfigurationRoute>;
+export type VerifiedAccessInstanceOpenVpnClientConfigurationRouteList = Array<VerifiedAccessInstanceOpenVpnClientConfigurationRoute>;
 export interface VerifiedAccessInstanceUserTrustProviderClientConfiguration {
   Type?: UserTrustProviderType;
   Scopes?: string;
@@ -19405,13 +19053,11 @@ export interface VerifiedAccessTrustProviderCondensed {
   UserTrustProviderType?: UserTrustProviderType;
   DeviceTrustProviderType?: DeviceTrustProviderType;
 }
-export type VerifiedAccessTrustProviderCondensedList =
-  Array<VerifiedAccessTrustProviderCondensed>;
+export type VerifiedAccessTrustProviderCondensedList = Array<VerifiedAccessTrustProviderCondensed>;
 export type VerifiedAccessTrustProviderId = string;
 
 export type VerifiedAccessTrustProviderIdList = Array<string>;
-export type VerifiedAccessTrustProviderList =
-  Array<VerifiedAccessTrustProvider>;
+export type VerifiedAccessTrustProviderList = Array<VerifiedAccessTrustProvider>;
 export type VersionDescription = string;
 
 export type VersionStringList = Array<string>;
@@ -19461,12 +19107,7 @@ export interface VolumeAttachment {
   AttachTime?: Date | string;
 }
 export type VolumeAttachmentList = Array<VolumeAttachment>;
-export type VolumeAttachmentState =
-  | "attaching"
-  | "attached"
-  | "detaching"
-  | "detached"
-  | "busy";
+export type VolumeAttachmentState = "attaching" | "attached" | "detaching" | "detached" | "busy";
 export type VolumeAttributeName = "autoEnableIO" | "productCodes";
 export interface VolumeDetail {
   Size: number;
@@ -19496,18 +19137,8 @@ export interface VolumeModification {
   EndTime?: Date | string;
 }
 export type VolumeModificationList = Array<VolumeModification>;
-export type VolumeModificationState =
-  | "modifying"
-  | "optimizing"
-  | "completed"
-  | "failed";
-export type VolumeState =
-  | "creating"
-  | "available"
-  | "in-use"
-  | "deleting"
-  | "deleted"
-  | "error";
+export type VolumeModificationState = "modifying" | "optimizing" | "completed" | "failed";
+export type VolumeState = "creating" | "available" | "in-use" | "deleting" | "deleted" | "error";
 export interface VolumeStatusAction {
   Code?: string;
   Description?: string;
@@ -19519,8 +19150,7 @@ export interface VolumeStatusAttachmentStatus {
   IoPerformance?: string;
   InstanceId?: string;
 }
-export type VolumeStatusAttachmentStatusList =
-  Array<VolumeStatusAttachmentStatus>;
+export type VolumeStatusAttachmentStatusList = Array<VolumeStatusAttachmentStatus>;
 export interface VolumeStatusDetails {
   Name?: VolumeStatusName;
   Status?: string;
@@ -19539,11 +19169,7 @@ export interface VolumeStatusInfo {
   Details?: Array<VolumeStatusDetails>;
   Status?: VolumeStatusInfoStatus;
 }
-export type VolumeStatusInfoStatus =
-  | "ok"
-  | "impaired"
-  | "insufficient-data"
-  | "warning";
+export type VolumeStatusInfoStatus = "ok" | "impaired" | "insufficient-data" | "warning";
 export interface VolumeStatusItem {
   Actions?: Array<VolumeStatusAction>;
   AvailabilityZone?: string;
@@ -19556,18 +19182,8 @@ export interface VolumeStatusItem {
   AvailabilityZoneId?: string;
 }
 export type VolumeStatusList = Array<VolumeStatusItem>;
-export type VolumeStatusName =
-  | "io-enabled"
-  | "io-performance"
-  | "initialization-state";
-export type VolumeType =
-  | "standard"
-  | "io1"
-  | "io2"
-  | "gp2"
-  | "sc1"
-  | "st1"
-  | "gp3";
+export type VolumeStatusName = "io-enabled" | "io-performance" | "initialization-state";
+export type VolumeType = "standard" | "io1" | "io2" | "gp2" | "sc1" | "st1" | "gp3";
 export interface Vpc {
   OwnerId?: string;
   InstanceTenancy?: Tenancy;
@@ -19587,10 +19203,7 @@ export interface VpcAttachment {
   State?: AttachmentStatus;
 }
 export type VpcAttachmentList = Array<VpcAttachment>;
-export type VpcAttributeName =
-  | "enableDnsSupport"
-  | "enableDnsHostnames"
-  | "enableNetworkAddressUsageMetrics";
+export type VpcAttributeName = "enableDnsSupport" | "enableDnsHostnames" | "enableNetworkAddressUsageMetrics";
 export interface VpcBlockPublicAccessExclusion {
   ExclusionId?: string;
   InternetGatewayExclusionMode?: InternetGatewayExclusionMode;
@@ -19605,20 +19218,9 @@ export interface VpcBlockPublicAccessExclusion {
 export type VpcBlockPublicAccessExclusionId = string;
 
 export type VpcBlockPublicAccessExclusionIdList = Array<string>;
-export type VpcBlockPublicAccessExclusionList =
-  Array<VpcBlockPublicAccessExclusion>;
+export type VpcBlockPublicAccessExclusionList = Array<VpcBlockPublicAccessExclusion>;
 export type VpcBlockPublicAccessExclusionsAllowed = "allowed" | "not-allowed";
-export type VpcBlockPublicAccessExclusionState =
-  | "create-in-progress"
-  | "create-complete"
-  | "create-failed"
-  | "update-in-progress"
-  | "update-complete"
-  | "update-failed"
-  | "delete-in-progress"
-  | "delete-complete"
-  | "disable-in-progress"
-  | "disable-complete";
+export type VpcBlockPublicAccessExclusionState = "create-in-progress" | "create-complete" | "create-failed" | "update-in-progress" | "update-complete" | "update-failed" | "delete-in-progress" | "delete-complete" | "disable-in-progress" | "disable-complete";
 export interface VpcBlockPublicAccessOptions {
   AwsAccountId?: string;
   AwsRegion?: string;
@@ -19629,10 +19231,7 @@ export interface VpcBlockPublicAccessOptions {
   ManagedBy?: ManagedBy;
   ExclusionsAllowed?: VpcBlockPublicAccessExclusionsAllowed;
 }
-export type VpcBlockPublicAccessState =
-  | "default-state"
-  | "update-in-progress"
-  | "update-complete";
+export type VpcBlockPublicAccessState = "default-state" | "update-in-progress" | "update-complete";
 export type VpcCidrAssociationId = string;
 
 export interface VpcCidrBlockAssociation {
@@ -19645,13 +19244,7 @@ export interface VpcCidrBlockState {
   State?: VpcCidrBlockStateCode;
   StatusMessage?: string;
 }
-export type VpcCidrBlockStateCode =
-  | "associating"
-  | "associated"
-  | "disassociating"
-  | "disassociated"
-  | "failing"
-  | "failed";
+export type VpcCidrBlockStateCode = "associating" | "associated" | "disassociating" | "disassociated" | "failing" | "failed";
 export interface VpcClassicLink {
   ClassicLinkEnabled?: boolean;
   Tags?: Array<Tag>;
@@ -19682,24 +19275,11 @@ export interface VpcEncryptionControlExclusions {
   VpcLattice?: VpcEncryptionControlExclusion;
   ElasticFileSystem?: VpcEncryptionControlExclusion;
 }
-export type VpcEncryptionControlExclusionState =
-  | "enabling"
-  | "enabled"
-  | "disabling"
-  | "disabled";
+export type VpcEncryptionControlExclusionState = "enabling" | "enabled" | "disabling" | "disabled";
 export type VpcEncryptionControlId = string;
 
 export type VpcEncryptionControlMode = "monitor" | "enforce";
-export type VpcEncryptionControlState =
-  | "enforce-in-progress"
-  | "monitor-in-progress"
-  | "enforce-failed"
-  | "monitor-failed"
-  | "deleting"
-  | "deleted"
-  | "available"
-  | "creating"
-  | "delete-failed";
+export type VpcEncryptionControlState = "enforce-in-progress" | "monitor-in-progress" | "enforce-failed" | "monitor-failed" | "deleting" | "deleted" | "available" | "creating" | "delete-failed";
 export interface VpcEndpoint {
   VpcEndpointId?: string;
   VpcEndpointType?: VpcEndpointType;
@@ -19767,12 +19347,7 @@ export type VpcEndpointServiceId = string;
 export type VpcEndpointServiceIdList = Array<string>;
 export type VpcEndpointSet = Array<VpcEndpoint>;
 export type VpcEndpointSubnetIdList = Array<string>;
-export type VpcEndpointType =
-  | "Interface"
-  | "Gateway"
-  | "GatewayLoadBalancer"
-  | "Resource"
-  | "ServiceNetwork";
+export type VpcEndpointType = "Interface" | "Gateway" | "GatewayLoadBalancer" | "Resource" | "ServiceNetwork";
 export type VpcFlowLogId = string;
 
 export type VpcId = string;
@@ -19812,16 +19387,7 @@ export interface VpcPeeringConnectionStateReason {
   Code?: VpcPeeringConnectionStateReasonCode;
   Message?: string;
 }
-export type VpcPeeringConnectionStateReasonCode =
-  | "initiating-request"
-  | "pending-acceptance"
-  | "active"
-  | "deleted"
-  | "rejected"
-  | "failed"
-  | "expired"
-  | "provisioning"
-  | "deleting";
+export type VpcPeeringConnectionStateReasonCode = "initiating-request" | "pending-acceptance" | "active" | "deleted" | "rejected" | "failed" | "expired" | "provisioning" | "deleting";
 export interface VpcPeeringConnectionVpcInfo {
   CidrBlock?: string;
   Ipv6CidrBlockSet?: Array<Ipv6CidrBlock>;
@@ -19941,17 +19507,9 @@ export interface VpnTunnelOptionsSpecification {
   LogOptions?: VpnTunnelLogOptionsSpecification;
   EnableTunnelLifecycleControl?: boolean;
 }
-export type VpnTunnelOptionsSpecificationsList =
-  Array<VpnTunnelOptionsSpecification>;
+export type VpnTunnelOptionsSpecificationsList = Array<VpnTunnelOptionsSpecification>;
 export type VpnTunnelProvisioningStatus = "available" | "pending" | "failed";
-export type WeekDay =
-  | "sunday"
-  | "monday"
-  | "tuesday"
-  | "wednesday"
-  | "thursday"
-  | "friday"
-  | "saturday";
+export type WeekDay = "sunday" | "monday" | "tuesday" | "wednesday" | "thursday" | "friday" | "saturday";
 export interface WithdrawByoipCidrRequest {
   Cidr: string;
   DryRun?: boolean;
@@ -20008,4317 +19566,5027 @@ export declare class InvalidVpcPeeringConnectionIDNotFound extends EffectData.Ta
 export declare namespace AcceptAddressTransfer {
   export type Input = AcceptAddressTransferRequest;
   export type Output = AcceptAddressTransferResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace AcceptCapacityReservationBillingOwnership {
   export type Input = AcceptCapacityReservationBillingOwnershipRequest;
   export type Output = AcceptCapacityReservationBillingOwnershipResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace AcceptReservedInstancesExchangeQuote {
   export type Input = AcceptReservedInstancesExchangeQuoteRequest;
   export type Output = AcceptReservedInstancesExchangeQuoteResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace AcceptTransitGatewayMulticastDomainAssociations {
   export type Input = AcceptTransitGatewayMulticastDomainAssociationsRequest;
   export type Output = AcceptTransitGatewayMulticastDomainAssociationsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace AcceptTransitGatewayPeeringAttachment {
   export type Input = AcceptTransitGatewayPeeringAttachmentRequest;
   export type Output = AcceptTransitGatewayPeeringAttachmentResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace AcceptTransitGatewayVpcAttachment {
   export type Input = AcceptTransitGatewayVpcAttachmentRequest;
   export type Output = AcceptTransitGatewayVpcAttachmentResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace AcceptVpcEndpointConnections {
   export type Input = AcceptVpcEndpointConnectionsRequest;
   export type Output = AcceptVpcEndpointConnectionsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace AcceptVpcPeeringConnection {
   export type Input = AcceptVpcPeeringConnectionRequest;
   export type Output = AcceptVpcPeeringConnectionResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace AdvertiseByoipCidr {
   export type Input = AdvertiseByoipCidrRequest;
   export type Output = AdvertiseByoipCidrResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace AllocateAddress {
   export type Input = AllocateAddressRequest;
   export type Output = AllocateAddressResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace AllocateHosts {
   export type Input = AllocateHostsRequest;
   export type Output = AllocateHostsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace AllocateIpamPoolCidr {
   export type Input = AllocateIpamPoolCidrRequest;
   export type Output = AllocateIpamPoolCidrResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ApplySecurityGroupsToClientVpnTargetNetwork {
   export type Input = ApplySecurityGroupsToClientVpnTargetNetworkRequest;
   export type Output = ApplySecurityGroupsToClientVpnTargetNetworkResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace AssignIpv6Addresses {
   export type Input = AssignIpv6AddressesRequest;
   export type Output = AssignIpv6AddressesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace AssignPrivateIpAddresses {
   export type Input = AssignPrivateIpAddressesRequest;
   export type Output = AssignPrivateIpAddressesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace AssignPrivateNatGatewayAddress {
   export type Input = AssignPrivateNatGatewayAddressRequest;
   export type Output = AssignPrivateNatGatewayAddressResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace AssociateAddress {
   export type Input = AssociateAddressRequest;
   export type Output = AssociateAddressResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace AssociateCapacityReservationBillingOwner {
   export type Input = AssociateCapacityReservationBillingOwnerRequest;
   export type Output = AssociateCapacityReservationBillingOwnerResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace AssociateClientVpnTargetNetwork {
   export type Input = AssociateClientVpnTargetNetworkRequest;
   export type Output = AssociateClientVpnTargetNetworkResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace AssociateDhcpOptions {
   export type Input = AssociateDhcpOptionsRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace AssociateEnclaveCertificateIamRole {
   export type Input = AssociateEnclaveCertificateIamRoleRequest;
   export type Output = AssociateEnclaveCertificateIamRoleResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace AssociateIamInstanceProfile {
   export type Input = AssociateIamInstanceProfileRequest;
   export type Output = AssociateIamInstanceProfileResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace AssociateInstanceEventWindow {
   export type Input = AssociateInstanceEventWindowRequest;
   export type Output = AssociateInstanceEventWindowResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace AssociateIpamByoasn {
   export type Input = AssociateIpamByoasnRequest;
   export type Output = AssociateIpamByoasnResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace AssociateIpamResourceDiscovery {
   export type Input = AssociateIpamResourceDiscoveryRequest;
   export type Output = AssociateIpamResourceDiscoveryResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace AssociateNatGatewayAddress {
   export type Input = AssociateNatGatewayAddressRequest;
   export type Output = AssociateNatGatewayAddressResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace AssociateRouteServer {
   export type Input = AssociateRouteServerRequest;
   export type Output = AssociateRouteServerResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace AssociateRouteTable {
   export type Input = AssociateRouteTableRequest;
   export type Output = AssociateRouteTableResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace AssociateSecurityGroupVpc {
   export type Input = AssociateSecurityGroupVpcRequest;
   export type Output = AssociateSecurityGroupVpcResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace AssociateSubnetCidrBlock {
   export type Input = AssociateSubnetCidrBlockRequest;
   export type Output = AssociateSubnetCidrBlockResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace AssociateTransitGatewayMulticastDomain {
   export type Input = AssociateTransitGatewayMulticastDomainRequest;
   export type Output = AssociateTransitGatewayMulticastDomainResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace AssociateTransitGatewayPolicyTable {
   export type Input = AssociateTransitGatewayPolicyTableRequest;
   export type Output = AssociateTransitGatewayPolicyTableResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace AssociateTransitGatewayRouteTable {
   export type Input = AssociateTransitGatewayRouteTableRequest;
   export type Output = AssociateTransitGatewayRouteTableResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace AssociateTrunkInterface {
   export type Input = AssociateTrunkInterfaceRequest;
   export type Output = AssociateTrunkInterfaceResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace AssociateVpcCidrBlock {
   export type Input = AssociateVpcCidrBlockRequest;
   export type Output = AssociateVpcCidrBlockResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace AttachClassicLinkVpc {
   export type Input = AttachClassicLinkVpcRequest;
   export type Output = AttachClassicLinkVpcResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace AttachInternetGateway {
   export type Input = AttachInternetGatewayRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace AttachNetworkInterface {
   export type Input = AttachNetworkInterfaceRequest;
   export type Output = AttachNetworkInterfaceResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace AttachVerifiedAccessTrustProvider {
   export type Input = AttachVerifiedAccessTrustProviderRequest;
   export type Output = AttachVerifiedAccessTrustProviderResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace AttachVolume {
   export type Input = AttachVolumeRequest;
   export type Output = VolumeAttachment;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace AttachVpnGateway {
   export type Input = AttachVpnGatewayRequest;
   export type Output = AttachVpnGatewayResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace AuthorizeClientVpnIngress {
   export type Input = AuthorizeClientVpnIngressRequest;
   export type Output = AuthorizeClientVpnIngressResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace AuthorizeSecurityGroupEgress {
   export type Input = AuthorizeSecurityGroupEgressRequest;
   export type Output = AuthorizeSecurityGroupEgressResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace AuthorizeSecurityGroupIngress {
   export type Input = AuthorizeSecurityGroupIngressRequest;
   export type Output = AuthorizeSecurityGroupIngressResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace BundleInstance {
   export type Input = BundleInstanceRequest;
   export type Output = BundleInstanceResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CancelBundleTask {
   export type Input = CancelBundleTaskRequest;
   export type Output = CancelBundleTaskResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CancelCapacityReservation {
   export type Input = CancelCapacityReservationRequest;
   export type Output = CancelCapacityReservationResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CancelCapacityReservationFleets {
   export type Input = CancelCapacityReservationFleetsRequest;
   export type Output = CancelCapacityReservationFleetsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CancelConversionTask {
   export type Input = CancelConversionRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CancelDeclarativePoliciesReport {
   export type Input = CancelDeclarativePoliciesReportRequest;
   export type Output = CancelDeclarativePoliciesReportResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CancelExportTask {
   export type Input = CancelExportTaskRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CancelImageLaunchPermission {
   export type Input = CancelImageLaunchPermissionRequest;
   export type Output = CancelImageLaunchPermissionResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CancelImportTask {
   export type Input = CancelImportTaskRequest;
   export type Output = CancelImportTaskResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CancelReservedInstancesListing {
   export type Input = CancelReservedInstancesListingRequest;
   export type Output = CancelReservedInstancesListingResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CancelSpotFleetRequests {
   export type Input = CancelSpotFleetRequestsRequest;
   export type Output = CancelSpotFleetRequestsResponse;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CancelSpotInstanceRequests {
   export type Input = CancelSpotInstanceRequestsRequest;
   export type Output = CancelSpotInstanceRequestsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ConfirmProductInstance {
   export type Input = ConfirmProductInstanceRequest;
   export type Output = ConfirmProductInstanceResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CopyFpgaImage {
   export type Input = CopyFpgaImageRequest;
   export type Output = CopyFpgaImageResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CopyImage {
   export type Input = CopyImageRequest;
   export type Output = CopyImageResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CopySnapshot {
   export type Input = CopySnapshotRequest;
   export type Output = CopySnapshotResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CopyVolumes {
   export type Input = CopyVolumesRequest;
   export type Output = CopyVolumesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateCapacityManagerDataExport {
   export type Input = CreateCapacityManagerDataExportRequest;
   export type Output = CreateCapacityManagerDataExportResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateCapacityReservation {
   export type Input = CreateCapacityReservationRequest;
   export type Output = CreateCapacityReservationResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateCapacityReservationBySplitting {
   export type Input = CreateCapacityReservationBySplittingRequest;
   export type Output = CreateCapacityReservationBySplittingResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateCapacityReservationFleet {
   export type Input = CreateCapacityReservationFleetRequest;
   export type Output = CreateCapacityReservationFleetResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateCarrierGateway {
   export type Input = CreateCarrierGatewayRequest;
   export type Output = CreateCarrierGatewayResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateClientVpnEndpoint {
   export type Input = CreateClientVpnEndpointRequest;
   export type Output = CreateClientVpnEndpointResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateClientVpnRoute {
   export type Input = CreateClientVpnRouteRequest;
   export type Output = CreateClientVpnRouteResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateCoipCidr {
   export type Input = CreateCoipCidrRequest;
   export type Output = CreateCoipCidrResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateCoipPool {
   export type Input = CreateCoipPoolRequest;
   export type Output = CreateCoipPoolResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateCustomerGateway {
   export type Input = CreateCustomerGatewayRequest;
   export type Output = CreateCustomerGatewayResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateDefaultSubnet {
   export type Input = CreateDefaultSubnetRequest;
   export type Output = CreateDefaultSubnetResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateDefaultVpc {
   export type Input = CreateDefaultVpcRequest;
   export type Output = CreateDefaultVpcResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateDelegateMacVolumeOwnershipTask {
   export type Input = CreateDelegateMacVolumeOwnershipTaskRequest;
   export type Output = CreateDelegateMacVolumeOwnershipTaskResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateDhcpOptions {
   export type Input = CreateDhcpOptionsRequest;
   export type Output = CreateDhcpOptionsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateEgressOnlyInternetGateway {
   export type Input = CreateEgressOnlyInternetGatewayRequest;
   export type Output = CreateEgressOnlyInternetGatewayResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateFleet {
   export type Input = CreateFleetRequest;
   export type Output = CreateFleetResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateFlowLogs {
   export type Input = CreateFlowLogsRequest;
   export type Output = CreateFlowLogsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateFpgaImage {
   export type Input = CreateFpgaImageRequest;
   export type Output = CreateFpgaImageResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateImage {
   export type Input = CreateImageRequest;
   export type Output = CreateImageResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateImageUsageReport {
   export type Input = CreateImageUsageReportRequest;
   export type Output = CreateImageUsageReportResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateInstanceConnectEndpoint {
   export type Input = CreateInstanceConnectEndpointRequest;
   export type Output = CreateInstanceConnectEndpointResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateInstanceEventWindow {
   export type Input = CreateInstanceEventWindowRequest;
   export type Output = CreateInstanceEventWindowResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateInstanceExportTask {
   export type Input = CreateInstanceExportTaskRequest;
   export type Output = CreateInstanceExportTaskResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateInternetGateway {
   export type Input = CreateInternetGatewayRequest;
   export type Output = CreateInternetGatewayResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateIpam {
   export type Input = CreateIpamRequest;
   export type Output = CreateIpamResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateIpamExternalResourceVerificationToken {
   export type Input = CreateIpamExternalResourceVerificationTokenRequest;
   export type Output = CreateIpamExternalResourceVerificationTokenResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateIpamPool {
   export type Input = CreateIpamPoolRequest;
   export type Output = CreateIpamPoolResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateIpamPrefixListResolver {
   export type Input = CreateIpamPrefixListResolverRequest;
   export type Output = CreateIpamPrefixListResolverResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateIpamPrefixListResolverTarget {
   export type Input = CreateIpamPrefixListResolverTargetRequest;
   export type Output = CreateIpamPrefixListResolverTargetResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateIpamResourceDiscovery {
   export type Input = CreateIpamResourceDiscoveryRequest;
   export type Output = CreateIpamResourceDiscoveryResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateIpamScope {
   export type Input = CreateIpamScopeRequest;
   export type Output = CreateIpamScopeResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateKeyPair {
   export type Input = CreateKeyPairRequest;
   export type Output = KeyPair;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateLaunchTemplate {
   export type Input = CreateLaunchTemplateRequest;
   export type Output = CreateLaunchTemplateResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateLaunchTemplateVersion {
   export type Input = CreateLaunchTemplateVersionRequest;
   export type Output = CreateLaunchTemplateVersionResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateLocalGatewayRoute {
   export type Input = CreateLocalGatewayRouteRequest;
   export type Output = CreateLocalGatewayRouteResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateLocalGatewayRouteTable {
   export type Input = CreateLocalGatewayRouteTableRequest;
   export type Output = CreateLocalGatewayRouteTableResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation {
-  export type Input =
-    CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest;
-  export type Output =
-    CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult;
-  export type Error = CommonAwsError;
+  export type Input = CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest;
+  export type Output = CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateLocalGatewayRouteTableVpcAssociation {
   export type Input = CreateLocalGatewayRouteTableVpcAssociationRequest;
   export type Output = CreateLocalGatewayRouteTableVpcAssociationResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateLocalGatewayVirtualInterface {
   export type Input = CreateLocalGatewayVirtualInterfaceRequest;
   export type Output = CreateLocalGatewayVirtualInterfaceResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateLocalGatewayVirtualInterfaceGroup {
   export type Input = CreateLocalGatewayVirtualInterfaceGroupRequest;
   export type Output = CreateLocalGatewayVirtualInterfaceGroupResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateMacSystemIntegrityProtectionModificationTask {
   export type Input = CreateMacSystemIntegrityProtectionModificationTaskRequest;
   export type Output = CreateMacSystemIntegrityProtectionModificationTaskResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateManagedPrefixList {
   export type Input = CreateManagedPrefixListRequest;
   export type Output = CreateManagedPrefixListResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateNatGateway {
   export type Input = CreateNatGatewayRequest;
   export type Output = CreateNatGatewayResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateNetworkAcl {
   export type Input = CreateNetworkAclRequest;
   export type Output = CreateNetworkAclResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateNetworkAclEntry {
   export type Input = CreateNetworkAclEntryRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateNetworkInsightsAccessScope {
   export type Input = CreateNetworkInsightsAccessScopeRequest;
   export type Output = CreateNetworkInsightsAccessScopeResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateNetworkInsightsPath {
   export type Input = CreateNetworkInsightsPathRequest;
   export type Output = CreateNetworkInsightsPathResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateNetworkInterface {
   export type Input = CreateNetworkInterfaceRequest;
   export type Output = CreateNetworkInterfaceResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateNetworkInterfacePermission {
   export type Input = CreateNetworkInterfacePermissionRequest;
   export type Output = CreateNetworkInterfacePermissionResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreatePlacementGroup {
   export type Input = CreatePlacementGroupRequest;
   export type Output = CreatePlacementGroupResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreatePublicIpv4Pool {
   export type Input = CreatePublicIpv4PoolRequest;
   export type Output = CreatePublicIpv4PoolResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateReplaceRootVolumeTask {
   export type Input = CreateReplaceRootVolumeTaskRequest;
   export type Output = CreateReplaceRootVolumeTaskResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateReservedInstancesListing {
   export type Input = CreateReservedInstancesListingRequest;
   export type Output = CreateReservedInstancesListingResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateRestoreImageTask {
   export type Input = CreateRestoreImageTaskRequest;
   export type Output = CreateRestoreImageTaskResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateRoute {
   export type Input = CreateRouteRequest;
   export type Output = CreateRouteResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateRouteServer {
   export type Input = CreateRouteServerRequest;
   export type Output = CreateRouteServerResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateRouteServerEndpoint {
   export type Input = CreateRouteServerEndpointRequest;
   export type Output = CreateRouteServerEndpointResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateRouteServerPeer {
   export type Input = CreateRouteServerPeerRequest;
   export type Output = CreateRouteServerPeerResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateRouteTable {
   export type Input = CreateRouteTableRequest;
   export type Output = CreateRouteTableResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateSecurityGroup {
   export type Input = CreateSecurityGroupRequest;
   export type Output = CreateSecurityGroupResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateSnapshot {
   export type Input = CreateSnapshotRequest;
   export type Output = Snapshot;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateSnapshots {
   export type Input = CreateSnapshotsRequest;
   export type Output = CreateSnapshotsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateSpotDatafeedSubscription {
   export type Input = CreateSpotDatafeedSubscriptionRequest;
   export type Output = CreateSpotDatafeedSubscriptionResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateStoreImageTask {
   export type Input = CreateStoreImageTaskRequest;
   export type Output = CreateStoreImageTaskResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateSubnet {
   export type Input = CreateSubnetRequest;
   export type Output = CreateSubnetResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateSubnetCidrReservation {
   export type Input = CreateSubnetCidrReservationRequest;
   export type Output = CreateSubnetCidrReservationResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateTags {
   export type Input = CreateTagsRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateTrafficMirrorFilter {
   export type Input = CreateTrafficMirrorFilterRequest;
   export type Output = CreateTrafficMirrorFilterResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateTrafficMirrorFilterRule {
   export type Input = CreateTrafficMirrorFilterRuleRequest;
   export type Output = CreateTrafficMirrorFilterRuleResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateTrafficMirrorSession {
   export type Input = CreateTrafficMirrorSessionRequest;
   export type Output = CreateTrafficMirrorSessionResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateTrafficMirrorTarget {
   export type Input = CreateTrafficMirrorTargetRequest;
   export type Output = CreateTrafficMirrorTargetResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateTransitGateway {
   export type Input = CreateTransitGatewayRequest;
   export type Output = CreateTransitGatewayResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateTransitGatewayConnect {
   export type Input = CreateTransitGatewayConnectRequest;
   export type Output = CreateTransitGatewayConnectResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateTransitGatewayConnectPeer {
   export type Input = CreateTransitGatewayConnectPeerRequest;
   export type Output = CreateTransitGatewayConnectPeerResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateTransitGatewayMulticastDomain {
   export type Input = CreateTransitGatewayMulticastDomainRequest;
   export type Output = CreateTransitGatewayMulticastDomainResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateTransitGatewayPeeringAttachment {
   export type Input = CreateTransitGatewayPeeringAttachmentRequest;
   export type Output = CreateTransitGatewayPeeringAttachmentResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateTransitGatewayPolicyTable {
   export type Input = CreateTransitGatewayPolicyTableRequest;
   export type Output = CreateTransitGatewayPolicyTableResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateTransitGatewayPrefixListReference {
   export type Input = CreateTransitGatewayPrefixListReferenceRequest;
   export type Output = CreateTransitGatewayPrefixListReferenceResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateTransitGatewayRoute {
   export type Input = CreateTransitGatewayRouteRequest;
   export type Output = CreateTransitGatewayRouteResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateTransitGatewayRouteTable {
   export type Input = CreateTransitGatewayRouteTableRequest;
   export type Output = CreateTransitGatewayRouteTableResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateTransitGatewayRouteTableAnnouncement {
   export type Input = CreateTransitGatewayRouteTableAnnouncementRequest;
   export type Output = CreateTransitGatewayRouteTableAnnouncementResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateTransitGatewayVpcAttachment {
   export type Input = CreateTransitGatewayVpcAttachmentRequest;
   export type Output = CreateTransitGatewayVpcAttachmentResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateVerifiedAccessEndpoint {
   export type Input = CreateVerifiedAccessEndpointRequest;
   export type Output = CreateVerifiedAccessEndpointResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateVerifiedAccessGroup {
   export type Input = CreateVerifiedAccessGroupRequest;
   export type Output = CreateVerifiedAccessGroupResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateVerifiedAccessInstance {
   export type Input = CreateVerifiedAccessInstanceRequest;
   export type Output = CreateVerifiedAccessInstanceResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateVerifiedAccessTrustProvider {
   export type Input = CreateVerifiedAccessTrustProviderRequest;
   export type Output = CreateVerifiedAccessTrustProviderResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateVolume {
   export type Input = CreateVolumeRequest;
   export type Output = Volume;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateVpc {
   export type Input = CreateVpcRequest;
   export type Output = CreateVpcResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateVpcBlockPublicAccessExclusion {
   export type Input = CreateVpcBlockPublicAccessExclusionRequest;
   export type Output = CreateVpcBlockPublicAccessExclusionResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateVpcEndpoint {
   export type Input = CreateVpcEndpointRequest;
   export type Output = CreateVpcEndpointResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateVpcEndpointConnectionNotification {
   export type Input = CreateVpcEndpointConnectionNotificationRequest;
   export type Output = CreateVpcEndpointConnectionNotificationResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateVpcEndpointServiceConfiguration {
   export type Input = CreateVpcEndpointServiceConfigurationRequest;
   export type Output = CreateVpcEndpointServiceConfigurationResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateVpcPeeringConnection {
   export type Input = CreateVpcPeeringConnectionRequest;
   export type Output = CreateVpcPeeringConnectionResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateVpnConnection {
   export type Input = CreateVpnConnectionRequest;
   export type Output = CreateVpnConnectionResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateVpnConnectionRoute {
   export type Input = CreateVpnConnectionRouteRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace CreateVpnGateway {
   export type Input = CreateVpnGatewayRequest;
   export type Output = CreateVpnGatewayResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteCapacityManagerDataExport {
   export type Input = DeleteCapacityManagerDataExportRequest;
   export type Output = DeleteCapacityManagerDataExportResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteCarrierGateway {
   export type Input = DeleteCarrierGatewayRequest;
   export type Output = DeleteCarrierGatewayResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteClientVpnEndpoint {
   export type Input = DeleteClientVpnEndpointRequest;
   export type Output = DeleteClientVpnEndpointResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteClientVpnRoute {
   export type Input = DeleteClientVpnRouteRequest;
   export type Output = DeleteClientVpnRouteResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteCoipCidr {
   export type Input = DeleteCoipCidrRequest;
   export type Output = DeleteCoipCidrResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteCoipPool {
   export type Input = DeleteCoipPoolRequest;
   export type Output = DeleteCoipPoolResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteCustomerGateway {
   export type Input = DeleteCustomerGatewayRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteDhcpOptions {
   export type Input = DeleteDhcpOptionsRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteEgressOnlyInternetGateway {
   export type Input = DeleteEgressOnlyInternetGatewayRequest;
   export type Output = DeleteEgressOnlyInternetGatewayResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteFleets {
   export type Input = DeleteFleetsRequest;
   export type Output = DeleteFleetsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteFlowLogs {
   export type Input = DeleteFlowLogsRequest;
   export type Output = DeleteFlowLogsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteFpgaImage {
   export type Input = DeleteFpgaImageRequest;
   export type Output = DeleteFpgaImageResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteImageUsageReport {
   export type Input = DeleteImageUsageReportRequest;
   export type Output = DeleteImageUsageReportResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteInstanceConnectEndpoint {
   export type Input = DeleteInstanceConnectEndpointRequest;
   export type Output = DeleteInstanceConnectEndpointResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteInstanceEventWindow {
   export type Input = DeleteInstanceEventWindowRequest;
   export type Output = DeleteInstanceEventWindowResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteInternetGateway {
   export type Input = DeleteInternetGatewayRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteIpam {
   export type Input = DeleteIpamRequest;
   export type Output = DeleteIpamResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteIpamExternalResourceVerificationToken {
   export type Input = DeleteIpamExternalResourceVerificationTokenRequest;
   export type Output = DeleteIpamExternalResourceVerificationTokenResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteIpamPool {
   export type Input = DeleteIpamPoolRequest;
   export type Output = DeleteIpamPoolResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteIpamPrefixListResolver {
   export type Input = DeleteIpamPrefixListResolverRequest;
   export type Output = DeleteIpamPrefixListResolverResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteIpamPrefixListResolverTarget {
   export type Input = DeleteIpamPrefixListResolverTargetRequest;
   export type Output = DeleteIpamPrefixListResolverTargetResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteIpamResourceDiscovery {
   export type Input = DeleteIpamResourceDiscoveryRequest;
   export type Output = DeleteIpamResourceDiscoveryResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteIpamScope {
   export type Input = DeleteIpamScopeRequest;
   export type Output = DeleteIpamScopeResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteKeyPair {
   export type Input = DeleteKeyPairRequest;
   export type Output = DeleteKeyPairResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteLaunchTemplate {
   export type Input = DeleteLaunchTemplateRequest;
   export type Output = DeleteLaunchTemplateResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteLaunchTemplateVersions {
   export type Input = DeleteLaunchTemplateVersionsRequest;
   export type Output = DeleteLaunchTemplateVersionsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteLocalGatewayRoute {
   export type Input = DeleteLocalGatewayRouteRequest;
   export type Output = DeleteLocalGatewayRouteResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteLocalGatewayRouteTable {
   export type Input = DeleteLocalGatewayRouteTableRequest;
   export type Output = DeleteLocalGatewayRouteTableResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation {
-  export type Input =
-    DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest;
-  export type Output =
-    DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult;
-  export type Error = CommonAwsError;
+  export type Input = DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest;
+  export type Output = DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteLocalGatewayRouteTableVpcAssociation {
   export type Input = DeleteLocalGatewayRouteTableVpcAssociationRequest;
   export type Output = DeleteLocalGatewayRouteTableVpcAssociationResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteLocalGatewayVirtualInterface {
   export type Input = DeleteLocalGatewayVirtualInterfaceRequest;
   export type Output = DeleteLocalGatewayVirtualInterfaceResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteLocalGatewayVirtualInterfaceGroup {
   export type Input = DeleteLocalGatewayVirtualInterfaceGroupRequest;
   export type Output = DeleteLocalGatewayVirtualInterfaceGroupResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteManagedPrefixList {
   export type Input = DeleteManagedPrefixListRequest;
   export type Output = DeleteManagedPrefixListResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteNatGateway {
   export type Input = DeleteNatGatewayRequest;
   export type Output = DeleteNatGatewayResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteNetworkAcl {
   export type Input = DeleteNetworkAclRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteNetworkAclEntry {
   export type Input = DeleteNetworkAclEntryRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteNetworkInsightsAccessScope {
   export type Input = DeleteNetworkInsightsAccessScopeRequest;
   export type Output = DeleteNetworkInsightsAccessScopeResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteNetworkInsightsAccessScopeAnalysis {
   export type Input = DeleteNetworkInsightsAccessScopeAnalysisRequest;
   export type Output = DeleteNetworkInsightsAccessScopeAnalysisResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteNetworkInsightsAnalysis {
   export type Input = DeleteNetworkInsightsAnalysisRequest;
   export type Output = DeleteNetworkInsightsAnalysisResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteNetworkInsightsPath {
   export type Input = DeleteNetworkInsightsPathRequest;
   export type Output = DeleteNetworkInsightsPathResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteNetworkInterface {
   export type Input = DeleteNetworkInterfaceRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteNetworkInterfacePermission {
   export type Input = DeleteNetworkInterfacePermissionRequest;
   export type Output = DeleteNetworkInterfacePermissionResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeletePlacementGroup {
   export type Input = DeletePlacementGroupRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeletePublicIpv4Pool {
   export type Input = DeletePublicIpv4PoolRequest;
   export type Output = DeletePublicIpv4PoolResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteQueuedReservedInstances {
   export type Input = DeleteQueuedReservedInstancesRequest;
   export type Output = DeleteQueuedReservedInstancesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteRoute {
   export type Input = DeleteRouteRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteRouteServer {
   export type Input = DeleteRouteServerRequest;
   export type Output = DeleteRouteServerResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteRouteServerEndpoint {
   export type Input = DeleteRouteServerEndpointRequest;
   export type Output = DeleteRouteServerEndpointResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteRouteServerPeer {
   export type Input = DeleteRouteServerPeerRequest;
   export type Output = DeleteRouteServerPeerResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteRouteTable {
   export type Input = DeleteRouteTableRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteSecurityGroup {
   export type Input = DeleteSecurityGroupRequest;
   export type Output = DeleteSecurityGroupResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteSnapshot {
   export type Input = DeleteSnapshotRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteSpotDatafeedSubscription {
   export type Input = DeleteSpotDatafeedSubscriptionRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteSubnet {
   export type Input = DeleteSubnetRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteSubnetCidrReservation {
   export type Input = DeleteSubnetCidrReservationRequest;
   export type Output = DeleteSubnetCidrReservationResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteTags {
   export type Input = DeleteTagsRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteTrafficMirrorFilter {
   export type Input = DeleteTrafficMirrorFilterRequest;
   export type Output = DeleteTrafficMirrorFilterResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteTrafficMirrorFilterRule {
   export type Input = DeleteTrafficMirrorFilterRuleRequest;
   export type Output = DeleteTrafficMirrorFilterRuleResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteTrafficMirrorSession {
   export type Input = DeleteTrafficMirrorSessionRequest;
   export type Output = DeleteTrafficMirrorSessionResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteTrafficMirrorTarget {
   export type Input = DeleteTrafficMirrorTargetRequest;
   export type Output = DeleteTrafficMirrorTargetResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteTransitGateway {
   export type Input = DeleteTransitGatewayRequest;
   export type Output = DeleteTransitGatewayResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteTransitGatewayConnect {
   export type Input = DeleteTransitGatewayConnectRequest;
   export type Output = DeleteTransitGatewayConnectResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteTransitGatewayConnectPeer {
   export type Input = DeleteTransitGatewayConnectPeerRequest;
   export type Output = DeleteTransitGatewayConnectPeerResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteTransitGatewayMulticastDomain {
   export type Input = DeleteTransitGatewayMulticastDomainRequest;
   export type Output = DeleteTransitGatewayMulticastDomainResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteTransitGatewayPeeringAttachment {
   export type Input = DeleteTransitGatewayPeeringAttachmentRequest;
   export type Output = DeleteTransitGatewayPeeringAttachmentResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteTransitGatewayPolicyTable {
   export type Input = DeleteTransitGatewayPolicyTableRequest;
   export type Output = DeleteTransitGatewayPolicyTableResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteTransitGatewayPrefixListReference {
   export type Input = DeleteTransitGatewayPrefixListReferenceRequest;
   export type Output = DeleteTransitGatewayPrefixListReferenceResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteTransitGatewayRoute {
   export type Input = DeleteTransitGatewayRouteRequest;
   export type Output = DeleteTransitGatewayRouteResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteTransitGatewayRouteTable {
   export type Input = DeleteTransitGatewayRouteTableRequest;
   export type Output = DeleteTransitGatewayRouteTableResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteTransitGatewayRouteTableAnnouncement {
   export type Input = DeleteTransitGatewayRouteTableAnnouncementRequest;
   export type Output = DeleteTransitGatewayRouteTableAnnouncementResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteTransitGatewayVpcAttachment {
   export type Input = DeleteTransitGatewayVpcAttachmentRequest;
   export type Output = DeleteTransitGatewayVpcAttachmentResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteVerifiedAccessEndpoint {
   export type Input = DeleteVerifiedAccessEndpointRequest;
   export type Output = DeleteVerifiedAccessEndpointResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteVerifiedAccessGroup {
   export type Input = DeleteVerifiedAccessGroupRequest;
   export type Output = DeleteVerifiedAccessGroupResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteVerifiedAccessInstance {
   export type Input = DeleteVerifiedAccessInstanceRequest;
   export type Output = DeleteVerifiedAccessInstanceResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteVerifiedAccessTrustProvider {
   export type Input = DeleteVerifiedAccessTrustProviderRequest;
   export type Output = DeleteVerifiedAccessTrustProviderResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteVolume {
   export type Input = DeleteVolumeRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteVpc {
   export type Input = DeleteVpcRequest;
   export type Output = {};
-  export type Error = InvalidVpcIDNotFound | CommonAwsError;
+  export type Error =
+    | InvalidVpcIDNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DeleteVpcBlockPublicAccessExclusion {
   export type Input = DeleteVpcBlockPublicAccessExclusionRequest;
   export type Output = DeleteVpcBlockPublicAccessExclusionResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteVpcEndpointConnectionNotifications {
   export type Input = DeleteVpcEndpointConnectionNotificationsRequest;
   export type Output = DeleteVpcEndpointConnectionNotificationsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteVpcEndpoints {
   export type Input = DeleteVpcEndpointsRequest;
   export type Output = DeleteVpcEndpointsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteVpcEndpointServiceConfigurations {
   export type Input = DeleteVpcEndpointServiceConfigurationsRequest;
   export type Output = DeleteVpcEndpointServiceConfigurationsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteVpcPeeringConnection {
   export type Input = DeleteVpcPeeringConnectionRequest;
   export type Output = DeleteVpcPeeringConnectionResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteVpnConnection {
   export type Input = DeleteVpnConnectionRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteVpnConnectionRoute {
   export type Input = DeleteVpnConnectionRouteRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeleteVpnGateway {
   export type Input = DeleteVpnGatewayRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeprovisionByoipCidr {
   export type Input = DeprovisionByoipCidrRequest;
   export type Output = DeprovisionByoipCidrResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeprovisionIpamByoasn {
   export type Input = DeprovisionIpamByoasnRequest;
   export type Output = DeprovisionIpamByoasnResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeprovisionIpamPoolCidr {
   export type Input = DeprovisionIpamPoolCidrRequest;
   export type Output = DeprovisionIpamPoolCidrResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeprovisionPublicIpv4PoolCidr {
   export type Input = DeprovisionPublicIpv4PoolCidrRequest;
   export type Output = DeprovisionPublicIpv4PoolCidrResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeregisterImage {
   export type Input = DeregisterImageRequest;
   export type Output = DeregisterImageResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeregisterInstanceEventNotificationAttributes {
   export type Input = DeregisterInstanceEventNotificationAttributesRequest;
   export type Output = DeregisterInstanceEventNotificationAttributesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeregisterTransitGatewayMulticastGroupMembers {
   export type Input = DeregisterTransitGatewayMulticastGroupMembersRequest;
   export type Output = DeregisterTransitGatewayMulticastGroupMembersResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DeregisterTransitGatewayMulticastGroupSources {
   export type Input = DeregisterTransitGatewayMulticastGroupSourcesRequest;
   export type Output = DeregisterTransitGatewayMulticastGroupSourcesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeAccountAttributes {
   export type Input = DescribeAccountAttributesRequest;
   export type Output = DescribeAccountAttributesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeAddresses {
   export type Input = DescribeAddressesRequest;
   export type Output = DescribeAddressesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeAddressesAttribute {
   export type Input = DescribeAddressesAttributeRequest;
   export type Output = DescribeAddressesAttributeResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeAddressTransfers {
   export type Input = DescribeAddressTransfersRequest;
   export type Output = DescribeAddressTransfersResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeAggregateIdFormat {
   export type Input = DescribeAggregateIdFormatRequest;
   export type Output = DescribeAggregateIdFormatResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeAvailabilityZones {
   export type Input = DescribeAvailabilityZonesRequest;
   export type Output = DescribeAvailabilityZonesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeAwsNetworkPerformanceMetricSubscriptions {
   export type Input = DescribeAwsNetworkPerformanceMetricSubscriptionsRequest;
   export type Output = DescribeAwsNetworkPerformanceMetricSubscriptionsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeBundleTasks {
   export type Input = DescribeBundleTasksRequest;
   export type Output = DescribeBundleTasksResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeByoipCidrs {
   export type Input = DescribeByoipCidrsRequest;
   export type Output = DescribeByoipCidrsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeCapacityBlockExtensionHistory {
   export type Input = DescribeCapacityBlockExtensionHistoryRequest;
   export type Output = DescribeCapacityBlockExtensionHistoryResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeCapacityBlockExtensionOfferings {
   export type Input = DescribeCapacityBlockExtensionOfferingsRequest;
   export type Output = DescribeCapacityBlockExtensionOfferingsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeCapacityBlockOfferings {
   export type Input = DescribeCapacityBlockOfferingsRequest;
   export type Output = DescribeCapacityBlockOfferingsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeCapacityBlocks {
   export type Input = DescribeCapacityBlocksRequest;
   export type Output = DescribeCapacityBlocksResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeCapacityBlockStatus {
   export type Input = DescribeCapacityBlockStatusRequest;
   export type Output = DescribeCapacityBlockStatusResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeCapacityManagerDataExports {
   export type Input = DescribeCapacityManagerDataExportsRequest;
   export type Output = DescribeCapacityManagerDataExportsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeCapacityReservationBillingRequests {
   export type Input = DescribeCapacityReservationBillingRequestsRequest;
   export type Output = DescribeCapacityReservationBillingRequestsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeCapacityReservationFleets {
   export type Input = DescribeCapacityReservationFleetsRequest;
   export type Output = DescribeCapacityReservationFleetsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeCapacityReservations {
   export type Input = DescribeCapacityReservationsRequest;
   export type Output = DescribeCapacityReservationsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeCapacityReservationTopology {
   export type Input = DescribeCapacityReservationTopologyRequest;
   export type Output = DescribeCapacityReservationTopologyResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeCarrierGateways {
   export type Input = DescribeCarrierGatewaysRequest;
   export type Output = DescribeCarrierGatewaysResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeClassicLinkInstances {
   export type Input = DescribeClassicLinkInstancesRequest;
   export type Output = DescribeClassicLinkInstancesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeClientVpnAuthorizationRules {
   export type Input = DescribeClientVpnAuthorizationRulesRequest;
   export type Output = DescribeClientVpnAuthorizationRulesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeClientVpnConnections {
   export type Input = DescribeClientVpnConnectionsRequest;
   export type Output = DescribeClientVpnConnectionsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeClientVpnEndpoints {
   export type Input = DescribeClientVpnEndpointsRequest;
   export type Output = DescribeClientVpnEndpointsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeClientVpnRoutes {
   export type Input = DescribeClientVpnRoutesRequest;
   export type Output = DescribeClientVpnRoutesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeClientVpnTargetNetworks {
   export type Input = DescribeClientVpnTargetNetworksRequest;
   export type Output = DescribeClientVpnTargetNetworksResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeCoipPools {
   export type Input = DescribeCoipPoolsRequest;
   export type Output = DescribeCoipPoolsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeConversionTasks {
   export type Input = DescribeConversionTasksRequest;
   export type Output = DescribeConversionTasksResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeCustomerGateways {
   export type Input = DescribeCustomerGatewaysRequest;
   export type Output = DescribeCustomerGatewaysResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeDeclarativePoliciesReports {
   export type Input = DescribeDeclarativePoliciesReportsRequest;
   export type Output = DescribeDeclarativePoliciesReportsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeDhcpOptions {
   export type Input = DescribeDhcpOptionsRequest;
   export type Output = DescribeDhcpOptionsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeEgressOnlyInternetGateways {
   export type Input = DescribeEgressOnlyInternetGatewaysRequest;
   export type Output = DescribeEgressOnlyInternetGatewaysResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeElasticGpus {
   export type Input = DescribeElasticGpusRequest;
   export type Output = DescribeElasticGpusResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeExportImageTasks {
   export type Input = DescribeExportImageTasksRequest;
   export type Output = DescribeExportImageTasksResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeExportTasks {
   export type Input = DescribeExportTasksRequest;
   export type Output = DescribeExportTasksResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeFastLaunchImages {
   export type Input = DescribeFastLaunchImagesRequest;
   export type Output = DescribeFastLaunchImagesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeFastSnapshotRestores {
   export type Input = DescribeFastSnapshotRestoresRequest;
   export type Output = DescribeFastSnapshotRestoresResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeFleetHistory {
   export type Input = DescribeFleetHistoryRequest;
   export type Output = DescribeFleetHistoryResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeFleetInstances {
   export type Input = DescribeFleetInstancesRequest;
   export type Output = DescribeFleetInstancesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeFleets {
   export type Input = DescribeFleetsRequest;
   export type Output = DescribeFleetsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeFlowLogs {
   export type Input = DescribeFlowLogsRequest;
   export type Output = DescribeFlowLogsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeFpgaImageAttribute {
   export type Input = DescribeFpgaImageAttributeRequest;
   export type Output = DescribeFpgaImageAttributeResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeFpgaImages {
   export type Input = DescribeFpgaImagesRequest;
   export type Output = DescribeFpgaImagesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeHostReservationOfferings {
   export type Input = DescribeHostReservationOfferingsRequest;
   export type Output = DescribeHostReservationOfferingsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeHostReservations {
   export type Input = DescribeHostReservationsRequest;
   export type Output = DescribeHostReservationsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeHosts {
   export type Input = DescribeHostsRequest;
   export type Output = DescribeHostsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeIamInstanceProfileAssociations {
   export type Input = DescribeIamInstanceProfileAssociationsRequest;
   export type Output = DescribeIamInstanceProfileAssociationsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeIdentityIdFormat {
   export type Input = DescribeIdentityIdFormatRequest;
   export type Output = DescribeIdentityIdFormatResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeIdFormat {
   export type Input = DescribeIdFormatRequest;
   export type Output = DescribeIdFormatResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeImageAttribute {
   export type Input = DescribeImageAttributeRequest;
   export type Output = ImageAttribute;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeImageReferences {
   export type Input = DescribeImageReferencesRequest;
   export type Output = DescribeImageReferencesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeImages {
   export type Input = DescribeImagesRequest;
   export type Output = DescribeImagesResult;
-  export type Error = InvalidAMIIDNotFound | CommonAwsError;
+  export type Error =
+    | InvalidAMIIDNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DescribeImageUsageReportEntries {
   export type Input = DescribeImageUsageReportEntriesRequest;
   export type Output = DescribeImageUsageReportEntriesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeImageUsageReports {
   export type Input = DescribeImageUsageReportsRequest;
   export type Output = DescribeImageUsageReportsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeImportImageTasks {
   export type Input = DescribeImportImageTasksRequest;
   export type Output = DescribeImportImageTasksResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeImportSnapshotTasks {
   export type Input = DescribeImportSnapshotTasksRequest;
   export type Output = DescribeImportSnapshotTasksResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeInstanceAttribute {
   export type Input = DescribeInstanceAttributeRequest;
   export type Output = InstanceAttribute;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeInstanceConnectEndpoints {
   export type Input = DescribeInstanceConnectEndpointsRequest;
   export type Output = DescribeInstanceConnectEndpointsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeInstanceCreditSpecifications {
   export type Input = DescribeInstanceCreditSpecificationsRequest;
   export type Output = DescribeInstanceCreditSpecificationsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeInstanceEventNotificationAttributes {
   export type Input = DescribeInstanceEventNotificationAttributesRequest;
   export type Output = DescribeInstanceEventNotificationAttributesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeInstanceEventWindows {
   export type Input = DescribeInstanceEventWindowsRequest;
   export type Output = DescribeInstanceEventWindowsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeInstanceImageMetadata {
   export type Input = DescribeInstanceImageMetadataRequest;
   export type Output = DescribeInstanceImageMetadataResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeInstances {
   export type Input = DescribeInstancesRequest;
   export type Output = DescribeInstancesResult;
-  export type Error = InvalidInstanceIDNotFound | CommonAwsError;
+  export type Error =
+    | InvalidInstanceIDNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DescribeInstanceStatus {
   export type Input = DescribeInstanceStatusRequest;
   export type Output = DescribeInstanceStatusResult;
-  export type Error = InvalidInstanceIDNotFound | CommonAwsError;
+  export type Error =
+    | InvalidInstanceIDNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DescribeInstanceTopology {
   export type Input = DescribeInstanceTopologyRequest;
   export type Output = DescribeInstanceTopologyResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeInstanceTypeOfferings {
   export type Input = DescribeInstanceTypeOfferingsRequest;
   export type Output = DescribeInstanceTypeOfferingsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeInstanceTypes {
   export type Input = DescribeInstanceTypesRequest;
   export type Output = DescribeInstanceTypesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeInternetGateways {
   export type Input = DescribeInternetGatewaysRequest;
   export type Output = DescribeInternetGatewaysResult;
-  export type Error = InvalidInternetGatewayNotFound | CommonAwsError;
+  export type Error =
+    | InvalidInternetGatewayNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DescribeIpamByoasn {
   export type Input = DescribeIpamByoasnRequest;
   export type Output = DescribeIpamByoasnResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeIpamExternalResourceVerificationTokens {
   export type Input = DescribeIpamExternalResourceVerificationTokensRequest;
   export type Output = DescribeIpamExternalResourceVerificationTokensResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeIpamPools {
   export type Input = DescribeIpamPoolsRequest;
   export type Output = DescribeIpamPoolsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeIpamPrefixListResolvers {
   export type Input = DescribeIpamPrefixListResolversRequest;
   export type Output = DescribeIpamPrefixListResolversResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeIpamPrefixListResolverTargets {
   export type Input = DescribeIpamPrefixListResolverTargetsRequest;
   export type Output = DescribeIpamPrefixListResolverTargetsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeIpamResourceDiscoveries {
   export type Input = DescribeIpamResourceDiscoveriesRequest;
   export type Output = DescribeIpamResourceDiscoveriesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeIpamResourceDiscoveryAssociations {
   export type Input = DescribeIpamResourceDiscoveryAssociationsRequest;
   export type Output = DescribeIpamResourceDiscoveryAssociationsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeIpams {
   export type Input = DescribeIpamsRequest;
   export type Output = DescribeIpamsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeIpamScopes {
   export type Input = DescribeIpamScopesRequest;
   export type Output = DescribeIpamScopesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeIpv6Pools {
   export type Input = DescribeIpv6PoolsRequest;
   export type Output = DescribeIpv6PoolsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeKeyPairs {
   export type Input = DescribeKeyPairsRequest;
   export type Output = DescribeKeyPairsResult;
-  export type Error = InvalidKeyPairNotFound | CommonAwsError;
+  export type Error =
+    | InvalidKeyPairNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DescribeLaunchTemplates {
   export type Input = DescribeLaunchTemplatesRequest;
   export type Output = DescribeLaunchTemplatesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeLaunchTemplateVersions {
   export type Input = DescribeLaunchTemplateVersionsRequest;
   export type Output = DescribeLaunchTemplateVersionsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeLocalGatewayRouteTables {
   export type Input = DescribeLocalGatewayRouteTablesRequest;
   export type Output = DescribeLocalGatewayRouteTablesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations {
-  export type Input =
-    DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest;
-  export type Output =
-    DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResult;
-  export type Error = CommonAwsError;
+  export type Input = DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest;
+  export type Output = DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResult;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeLocalGatewayRouteTableVpcAssociations {
   export type Input = DescribeLocalGatewayRouteTableVpcAssociationsRequest;
   export type Output = DescribeLocalGatewayRouteTableVpcAssociationsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeLocalGateways {
   export type Input = DescribeLocalGatewaysRequest;
   export type Output = DescribeLocalGatewaysResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeLocalGatewayVirtualInterfaceGroups {
   export type Input = DescribeLocalGatewayVirtualInterfaceGroupsRequest;
   export type Output = DescribeLocalGatewayVirtualInterfaceGroupsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeLocalGatewayVirtualInterfaces {
   export type Input = DescribeLocalGatewayVirtualInterfacesRequest;
   export type Output = DescribeLocalGatewayVirtualInterfacesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeLockedSnapshots {
   export type Input = DescribeLockedSnapshotsRequest;
   export type Output = DescribeLockedSnapshotsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeMacHosts {
   export type Input = DescribeMacHostsRequest;
   export type Output = DescribeMacHostsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeMacModificationTasks {
   export type Input = DescribeMacModificationTasksRequest;
   export type Output = DescribeMacModificationTasksResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeManagedPrefixLists {
   export type Input = DescribeManagedPrefixListsRequest;
   export type Output = DescribeManagedPrefixListsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeMovingAddresses {
   export type Input = DescribeMovingAddressesRequest;
   export type Output = DescribeMovingAddressesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeNatGateways {
   export type Input = DescribeNatGatewaysRequest;
   export type Output = DescribeNatGatewaysResult;
-  export type Error = NatGatewayNotFound | CommonAwsError;
+  export type Error =
+    | NatGatewayNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DescribeNetworkAcls {
   export type Input = DescribeNetworkAclsRequest;
   export type Output = DescribeNetworkAclsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeNetworkInsightsAccessScopeAnalyses {
   export type Input = DescribeNetworkInsightsAccessScopeAnalysesRequest;
   export type Output = DescribeNetworkInsightsAccessScopeAnalysesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeNetworkInsightsAccessScopes {
   export type Input = DescribeNetworkInsightsAccessScopesRequest;
   export type Output = DescribeNetworkInsightsAccessScopesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeNetworkInsightsAnalyses {
   export type Input = DescribeNetworkInsightsAnalysesRequest;
   export type Output = DescribeNetworkInsightsAnalysesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeNetworkInsightsPaths {
   export type Input = DescribeNetworkInsightsPathsRequest;
   export type Output = DescribeNetworkInsightsPathsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeNetworkInterfaceAttribute {
   export type Input = DescribeNetworkInterfaceAttributeRequest;
   export type Output = DescribeNetworkInterfaceAttributeResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeNetworkInterfacePermissions {
   export type Input = DescribeNetworkInterfacePermissionsRequest;
   export type Output = DescribeNetworkInterfacePermissionsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeNetworkInterfaces {
   export type Input = DescribeNetworkInterfacesRequest;
   export type Output = DescribeNetworkInterfacesResult;
-  export type Error = InvalidNetworkInterfaceIDNotFound | CommonAwsError;
+  export type Error =
+    | InvalidNetworkInterfaceIDNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DescribeOutpostLags {
   export type Input = DescribeOutpostLagsRequest;
   export type Output = DescribeOutpostLagsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribePlacementGroups {
   export type Input = DescribePlacementGroupsRequest;
   export type Output = DescribePlacementGroupsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribePrefixLists {
   export type Input = DescribePrefixListsRequest;
   export type Output = DescribePrefixListsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribePrincipalIdFormat {
   export type Input = DescribePrincipalIdFormatRequest;
   export type Output = DescribePrincipalIdFormatResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribePublicIpv4Pools {
   export type Input = DescribePublicIpv4PoolsRequest;
   export type Output = DescribePublicIpv4PoolsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeRegions {
   export type Input = DescribeRegionsRequest;
   export type Output = DescribeRegionsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeReplaceRootVolumeTasks {
   export type Input = DescribeReplaceRootVolumeTasksRequest;
   export type Output = DescribeReplaceRootVolumeTasksResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeReservedInstances {
   export type Input = DescribeReservedInstancesRequest;
   export type Output = DescribeReservedInstancesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeReservedInstancesListings {
   export type Input = DescribeReservedInstancesListingsRequest;
   export type Output = DescribeReservedInstancesListingsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeReservedInstancesModifications {
   export type Input = DescribeReservedInstancesModificationsRequest;
   export type Output = DescribeReservedInstancesModificationsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeReservedInstancesOfferings {
   export type Input = DescribeReservedInstancesOfferingsRequest;
   export type Output = DescribeReservedInstancesOfferingsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeRouteServerEndpoints {
   export type Input = DescribeRouteServerEndpointsRequest;
   export type Output = DescribeRouteServerEndpointsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeRouteServerPeers {
   export type Input = DescribeRouteServerPeersRequest;
   export type Output = DescribeRouteServerPeersResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeRouteServers {
   export type Input = DescribeRouteServersRequest;
   export type Output = DescribeRouteServersResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeRouteTables {
   export type Input = DescribeRouteTablesRequest;
   export type Output = DescribeRouteTablesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeScheduledInstanceAvailability {
   export type Input = DescribeScheduledInstanceAvailabilityRequest;
   export type Output = DescribeScheduledInstanceAvailabilityResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeScheduledInstances {
   export type Input = DescribeScheduledInstancesRequest;
   export type Output = DescribeScheduledInstancesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeSecurityGroupReferences {
   export type Input = DescribeSecurityGroupReferencesRequest;
   export type Output = DescribeSecurityGroupReferencesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeSecurityGroupRules {
   export type Input = DescribeSecurityGroupRulesRequest;
   export type Output = DescribeSecurityGroupRulesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeSecurityGroups {
   export type Input = DescribeSecurityGroupsRequest;
   export type Output = DescribeSecurityGroupsResult;
-  export type Error = InvalidGroupNotFound | CommonAwsError;
+  export type Error =
+    | InvalidGroupNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DescribeSecurityGroupVpcAssociations {
   export type Input = DescribeSecurityGroupVpcAssociationsRequest;
   export type Output = DescribeSecurityGroupVpcAssociationsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeServiceLinkVirtualInterfaces {
   export type Input = DescribeServiceLinkVirtualInterfacesRequest;
   export type Output = DescribeServiceLinkVirtualInterfacesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeSnapshotAttribute {
   export type Input = DescribeSnapshotAttributeRequest;
   export type Output = DescribeSnapshotAttributeResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeSnapshots {
   export type Input = DescribeSnapshotsRequest;
   export type Output = DescribeSnapshotsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeSnapshotTierStatus {
   export type Input = DescribeSnapshotTierStatusRequest;
   export type Output = DescribeSnapshotTierStatusResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeSpotDatafeedSubscription {
   export type Input = DescribeSpotDatafeedSubscriptionRequest;
   export type Output = DescribeSpotDatafeedSubscriptionResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeSpotFleetInstances {
   export type Input = DescribeSpotFleetInstancesRequest;
   export type Output = DescribeSpotFleetInstancesResponse;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeSpotFleetRequestHistory {
   export type Input = DescribeSpotFleetRequestHistoryRequest;
   export type Output = DescribeSpotFleetRequestHistoryResponse;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeSpotFleetRequests {
   export type Input = DescribeSpotFleetRequestsRequest;
   export type Output = DescribeSpotFleetRequestsResponse;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeSpotInstanceRequests {
   export type Input = DescribeSpotInstanceRequestsRequest;
   export type Output = DescribeSpotInstanceRequestsResult;
-  export type Error = InvalidSpotInstanceRequestIDNotFound | CommonAwsError;
+  export type Error =
+    | InvalidSpotInstanceRequestIDNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DescribeSpotPriceHistory {
   export type Input = DescribeSpotPriceHistoryRequest;
   export type Output = DescribeSpotPriceHistoryResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeStaleSecurityGroups {
   export type Input = DescribeStaleSecurityGroupsRequest;
   export type Output = DescribeStaleSecurityGroupsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeStoreImageTasks {
   export type Input = DescribeStoreImageTasksRequest;
   export type Output = DescribeStoreImageTasksResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeSubnets {
   export type Input = DescribeSubnetsRequest;
   export type Output = DescribeSubnetsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeTags {
   export type Input = DescribeTagsRequest;
   export type Output = DescribeTagsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeTrafficMirrorFilterRules {
   export type Input = DescribeTrafficMirrorFilterRulesRequest;
   export type Output = DescribeTrafficMirrorFilterRulesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeTrafficMirrorFilters {
   export type Input = DescribeTrafficMirrorFiltersRequest;
   export type Output = DescribeTrafficMirrorFiltersResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeTrafficMirrorSessions {
   export type Input = DescribeTrafficMirrorSessionsRequest;
   export type Output = DescribeTrafficMirrorSessionsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeTrafficMirrorTargets {
   export type Input = DescribeTrafficMirrorTargetsRequest;
   export type Output = DescribeTrafficMirrorTargetsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeTransitGatewayAttachments {
   export type Input = DescribeTransitGatewayAttachmentsRequest;
   export type Output = DescribeTransitGatewayAttachmentsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeTransitGatewayConnectPeers {
   export type Input = DescribeTransitGatewayConnectPeersRequest;
   export type Output = DescribeTransitGatewayConnectPeersResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeTransitGatewayConnects {
   export type Input = DescribeTransitGatewayConnectsRequest;
   export type Output = DescribeTransitGatewayConnectsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeTransitGatewayMulticastDomains {
   export type Input = DescribeTransitGatewayMulticastDomainsRequest;
   export type Output = DescribeTransitGatewayMulticastDomainsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeTransitGatewayPeeringAttachments {
   export type Input = DescribeTransitGatewayPeeringAttachmentsRequest;
   export type Output = DescribeTransitGatewayPeeringAttachmentsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeTransitGatewayPolicyTables {
   export type Input = DescribeTransitGatewayPolicyTablesRequest;
   export type Output = DescribeTransitGatewayPolicyTablesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeTransitGatewayRouteTableAnnouncements {
   export type Input = DescribeTransitGatewayRouteTableAnnouncementsRequest;
   export type Output = DescribeTransitGatewayRouteTableAnnouncementsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeTransitGatewayRouteTables {
   export type Input = DescribeTransitGatewayRouteTablesRequest;
   export type Output = DescribeTransitGatewayRouteTablesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeTransitGateways {
   export type Input = DescribeTransitGatewaysRequest;
   export type Output = DescribeTransitGatewaysResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeTransitGatewayVpcAttachments {
   export type Input = DescribeTransitGatewayVpcAttachmentsRequest;
   export type Output = DescribeTransitGatewayVpcAttachmentsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeTrunkInterfaceAssociations {
   export type Input = DescribeTrunkInterfaceAssociationsRequest;
   export type Output = DescribeTrunkInterfaceAssociationsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeVerifiedAccessEndpoints {
   export type Input = DescribeVerifiedAccessEndpointsRequest;
   export type Output = DescribeVerifiedAccessEndpointsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeVerifiedAccessGroups {
   export type Input = DescribeVerifiedAccessGroupsRequest;
   export type Output = DescribeVerifiedAccessGroupsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeVerifiedAccessInstanceLoggingConfigurations {
-  export type Input =
-    DescribeVerifiedAccessInstanceLoggingConfigurationsRequest;
-  export type Output =
-    DescribeVerifiedAccessInstanceLoggingConfigurationsResult;
-  export type Error = CommonAwsError;
+  export type Input = DescribeVerifiedAccessInstanceLoggingConfigurationsRequest;
+  export type Output = DescribeVerifiedAccessInstanceLoggingConfigurationsResult;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeVerifiedAccessInstances {
   export type Input = DescribeVerifiedAccessInstancesRequest;
   export type Output = DescribeVerifiedAccessInstancesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeVerifiedAccessTrustProviders {
   export type Input = DescribeVerifiedAccessTrustProvidersRequest;
   export type Output = DescribeVerifiedAccessTrustProvidersResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeVolumeAttribute {
   export type Input = DescribeVolumeAttributeRequest;
   export type Output = DescribeVolumeAttributeResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeVolumes {
   export type Input = DescribeVolumesRequest;
   export type Output = DescribeVolumesResult;
-  export type Error = InvalidVolumeNotFound | CommonAwsError;
+  export type Error =
+    | InvalidVolumeNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DescribeVolumesModifications {
   export type Input = DescribeVolumesModificationsRequest;
   export type Output = DescribeVolumesModificationsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeVolumeStatus {
   export type Input = DescribeVolumeStatusRequest;
   export type Output = DescribeVolumeStatusResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeVpcAttribute {
   export type Input = DescribeVpcAttributeRequest;
   export type Output = DescribeVpcAttributeResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeVpcBlockPublicAccessExclusions {
   export type Input = DescribeVpcBlockPublicAccessExclusionsRequest;
   export type Output = DescribeVpcBlockPublicAccessExclusionsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeVpcBlockPublicAccessOptions {
   export type Input = DescribeVpcBlockPublicAccessOptionsRequest;
   export type Output = DescribeVpcBlockPublicAccessOptionsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeVpcClassicLink {
   export type Input = DescribeVpcClassicLinkRequest;
   export type Output = DescribeVpcClassicLinkResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeVpcClassicLinkDnsSupport {
   export type Input = DescribeVpcClassicLinkDnsSupportRequest;
   export type Output = DescribeVpcClassicLinkDnsSupportResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeVpcEndpointAssociations {
   export type Input = DescribeVpcEndpointAssociationsRequest;
   export type Output = DescribeVpcEndpointAssociationsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeVpcEndpointConnectionNotifications {
   export type Input = DescribeVpcEndpointConnectionNotificationsRequest;
   export type Output = DescribeVpcEndpointConnectionNotificationsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeVpcEndpointConnections {
   export type Input = DescribeVpcEndpointConnectionsRequest;
   export type Output = DescribeVpcEndpointConnectionsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeVpcEndpoints {
   export type Input = DescribeVpcEndpointsRequest;
   export type Output = DescribeVpcEndpointsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeVpcEndpointServiceConfigurations {
   export type Input = DescribeVpcEndpointServiceConfigurationsRequest;
   export type Output = DescribeVpcEndpointServiceConfigurationsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeVpcEndpointServicePermissions {
   export type Input = DescribeVpcEndpointServicePermissionsRequest;
   export type Output = DescribeVpcEndpointServicePermissionsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeVpcEndpointServices {
   export type Input = DescribeVpcEndpointServicesRequest;
   export type Output = DescribeVpcEndpointServicesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeVpcPeeringConnections {
   export type Input = DescribeVpcPeeringConnectionsRequest;
   export type Output = DescribeVpcPeeringConnectionsResult;
-  export type Error = InvalidVpcPeeringConnectionIDNotFound | CommonAwsError;
+  export type Error =
+    | InvalidVpcPeeringConnectionIDNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DescribeVpcs {
   export type Input = DescribeVpcsRequest;
   export type Output = DescribeVpcsResult;
-  export type Error = InvalidVpcIDNotFound | CommonAwsError;
+  export type Error =
+    | InvalidVpcIDNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DescribeVpnConnections {
   export type Input = DescribeVpnConnectionsRequest;
   export type Output = DescribeVpnConnectionsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeVpnGateways {
   export type Input = DescribeVpnGatewaysRequest;
   export type Output = DescribeVpnGatewaysResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DetachClassicLinkVpc {
   export type Input = DetachClassicLinkVpcRequest;
   export type Output = DetachClassicLinkVpcResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DetachInternetGateway {
   export type Input = DetachInternetGatewayRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DetachNetworkInterface {
   export type Input = DetachNetworkInterfaceRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DetachVerifiedAccessTrustProvider {
   export type Input = DetachVerifiedAccessTrustProviderRequest;
   export type Output = DetachVerifiedAccessTrustProviderResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DetachVolume {
   export type Input = DetachVolumeRequest;
   export type Output = VolumeAttachment;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DetachVpnGateway {
   export type Input = DetachVpnGatewayRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DisableAddressTransfer {
   export type Input = DisableAddressTransferRequest;
   export type Output = DisableAddressTransferResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DisableAllowedImagesSettings {
   export type Input = DisableAllowedImagesSettingsRequest;
   export type Output = DisableAllowedImagesSettingsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DisableAwsNetworkPerformanceMetricSubscription {
   export type Input = DisableAwsNetworkPerformanceMetricSubscriptionRequest;
   export type Output = DisableAwsNetworkPerformanceMetricSubscriptionResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DisableCapacityManager {
   export type Input = DisableCapacityManagerRequest;
   export type Output = DisableCapacityManagerResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DisableEbsEncryptionByDefault {
   export type Input = DisableEbsEncryptionByDefaultRequest;
   export type Output = DisableEbsEncryptionByDefaultResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DisableFastLaunch {
   export type Input = DisableFastLaunchRequest;
   export type Output = DisableFastLaunchResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DisableFastSnapshotRestores {
   export type Input = DisableFastSnapshotRestoresRequest;
   export type Output = DisableFastSnapshotRestoresResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DisableImage {
   export type Input = DisableImageRequest;
   export type Output = DisableImageResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DisableImageBlockPublicAccess {
   export type Input = DisableImageBlockPublicAccessRequest;
   export type Output = DisableImageBlockPublicAccessResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DisableImageDeprecation {
   export type Input = DisableImageDeprecationRequest;
   export type Output = DisableImageDeprecationResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DisableImageDeregistrationProtection {
   export type Input = DisableImageDeregistrationProtectionRequest;
   export type Output = DisableImageDeregistrationProtectionResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DisableIpamOrganizationAdminAccount {
   export type Input = DisableIpamOrganizationAdminAccountRequest;
   export type Output = DisableIpamOrganizationAdminAccountResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DisableRouteServerPropagation {
   export type Input = DisableRouteServerPropagationRequest;
   export type Output = DisableRouteServerPropagationResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DisableSerialConsoleAccess {
   export type Input = DisableSerialConsoleAccessRequest;
   export type Output = DisableSerialConsoleAccessResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DisableSnapshotBlockPublicAccess {
   export type Input = DisableSnapshotBlockPublicAccessRequest;
   export type Output = DisableSnapshotBlockPublicAccessResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DisableTransitGatewayRouteTablePropagation {
   export type Input = DisableTransitGatewayRouteTablePropagationRequest;
   export type Output = DisableTransitGatewayRouteTablePropagationResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DisableVgwRoutePropagation {
   export type Input = DisableVgwRoutePropagationRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DisableVpcClassicLink {
   export type Input = DisableVpcClassicLinkRequest;
   export type Output = DisableVpcClassicLinkResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DisableVpcClassicLinkDnsSupport {
   export type Input = DisableVpcClassicLinkDnsSupportRequest;
   export type Output = DisableVpcClassicLinkDnsSupportResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DisassociateAddress {
   export type Input = DisassociateAddressRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DisassociateCapacityReservationBillingOwner {
   export type Input = DisassociateCapacityReservationBillingOwnerRequest;
   export type Output = DisassociateCapacityReservationBillingOwnerResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DisassociateClientVpnTargetNetwork {
   export type Input = DisassociateClientVpnTargetNetworkRequest;
   export type Output = DisassociateClientVpnTargetNetworkResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DisassociateEnclaveCertificateIamRole {
   export type Input = DisassociateEnclaveCertificateIamRoleRequest;
   export type Output = DisassociateEnclaveCertificateIamRoleResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DisassociateIamInstanceProfile {
   export type Input = DisassociateIamInstanceProfileRequest;
   export type Output = DisassociateIamInstanceProfileResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DisassociateInstanceEventWindow {
   export type Input = DisassociateInstanceEventWindowRequest;
   export type Output = DisassociateInstanceEventWindowResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DisassociateIpamByoasn {
   export type Input = DisassociateIpamByoasnRequest;
   export type Output = DisassociateIpamByoasnResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DisassociateIpamResourceDiscovery {
   export type Input = DisassociateIpamResourceDiscoveryRequest;
   export type Output = DisassociateIpamResourceDiscoveryResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DisassociateNatGatewayAddress {
   export type Input = DisassociateNatGatewayAddressRequest;
   export type Output = DisassociateNatGatewayAddressResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DisassociateRouteServer {
   export type Input = DisassociateRouteServerRequest;
   export type Output = DisassociateRouteServerResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DisassociateRouteTable {
   export type Input = DisassociateRouteTableRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DisassociateSecurityGroupVpc {
   export type Input = DisassociateSecurityGroupVpcRequest;
   export type Output = DisassociateSecurityGroupVpcResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DisassociateSubnetCidrBlock {
   export type Input = DisassociateSubnetCidrBlockRequest;
   export type Output = DisassociateSubnetCidrBlockResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DisassociateTransitGatewayMulticastDomain {
   export type Input = DisassociateTransitGatewayMulticastDomainRequest;
   export type Output = DisassociateTransitGatewayMulticastDomainResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DisassociateTransitGatewayPolicyTable {
   export type Input = DisassociateTransitGatewayPolicyTableRequest;
   export type Output = DisassociateTransitGatewayPolicyTableResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DisassociateTransitGatewayRouteTable {
   export type Input = DisassociateTransitGatewayRouteTableRequest;
   export type Output = DisassociateTransitGatewayRouteTableResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DisassociateTrunkInterface {
   export type Input = DisassociateTrunkInterfaceRequest;
   export type Output = DisassociateTrunkInterfaceResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DisassociateVpcCidrBlock {
   export type Input = DisassociateVpcCidrBlockRequest;
   export type Output = DisassociateVpcCidrBlockResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace EnableAddressTransfer {
   export type Input = EnableAddressTransferRequest;
   export type Output = EnableAddressTransferResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace EnableAllowedImagesSettings {
   export type Input = EnableAllowedImagesSettingsRequest;
   export type Output = EnableAllowedImagesSettingsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace EnableAwsNetworkPerformanceMetricSubscription {
   export type Input = EnableAwsNetworkPerformanceMetricSubscriptionRequest;
   export type Output = EnableAwsNetworkPerformanceMetricSubscriptionResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace EnableCapacityManager {
   export type Input = EnableCapacityManagerRequest;
   export type Output = EnableCapacityManagerResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace EnableEbsEncryptionByDefault {
   export type Input = EnableEbsEncryptionByDefaultRequest;
   export type Output = EnableEbsEncryptionByDefaultResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace EnableFastLaunch {
   export type Input = EnableFastLaunchRequest;
   export type Output = EnableFastLaunchResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace EnableFastSnapshotRestores {
   export type Input = EnableFastSnapshotRestoresRequest;
   export type Output = EnableFastSnapshotRestoresResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace EnableImage {
   export type Input = EnableImageRequest;
   export type Output = EnableImageResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace EnableImageBlockPublicAccess {
   export type Input = EnableImageBlockPublicAccessRequest;
   export type Output = EnableImageBlockPublicAccessResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace EnableImageDeprecation {
   export type Input = EnableImageDeprecationRequest;
   export type Output = EnableImageDeprecationResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace EnableImageDeregistrationProtection {
   export type Input = EnableImageDeregistrationProtectionRequest;
   export type Output = EnableImageDeregistrationProtectionResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace EnableIpamOrganizationAdminAccount {
   export type Input = EnableIpamOrganizationAdminAccountRequest;
   export type Output = EnableIpamOrganizationAdminAccountResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace EnableReachabilityAnalyzerOrganizationSharing {
   export type Input = EnableReachabilityAnalyzerOrganizationSharingRequest;
   export type Output = EnableReachabilityAnalyzerOrganizationSharingResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace EnableRouteServerPropagation {
   export type Input = EnableRouteServerPropagationRequest;
   export type Output = EnableRouteServerPropagationResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace EnableSerialConsoleAccess {
   export type Input = EnableSerialConsoleAccessRequest;
   export type Output = EnableSerialConsoleAccessResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace EnableSnapshotBlockPublicAccess {
   export type Input = EnableSnapshotBlockPublicAccessRequest;
   export type Output = EnableSnapshotBlockPublicAccessResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace EnableTransitGatewayRouteTablePropagation {
   export type Input = EnableTransitGatewayRouteTablePropagationRequest;
   export type Output = EnableTransitGatewayRouteTablePropagationResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace EnableVgwRoutePropagation {
   export type Input = EnableVgwRoutePropagationRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace EnableVolumeIO {
   export type Input = EnableVolumeIORequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace EnableVpcClassicLink {
   export type Input = EnableVpcClassicLinkRequest;
   export type Output = EnableVpcClassicLinkResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace EnableVpcClassicLinkDnsSupport {
   export type Input = EnableVpcClassicLinkDnsSupportRequest;
   export type Output = EnableVpcClassicLinkDnsSupportResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ExportClientVpnClientCertificateRevocationList {
   export type Input = ExportClientVpnClientCertificateRevocationListRequest;
   export type Output = ExportClientVpnClientCertificateRevocationListResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ExportClientVpnClientConfiguration {
   export type Input = ExportClientVpnClientConfigurationRequest;
   export type Output = ExportClientVpnClientConfigurationResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ExportImage {
   export type Input = ExportImageRequest;
   export type Output = ExportImageResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ExportTransitGatewayRoutes {
   export type Input = ExportTransitGatewayRoutesRequest;
   export type Output = ExportTransitGatewayRoutesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ExportVerifiedAccessInstanceClientConfiguration {
   export type Input = ExportVerifiedAccessInstanceClientConfigurationRequest;
   export type Output = ExportVerifiedAccessInstanceClientConfigurationResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetActiveVpnTunnelStatus {
   export type Input = GetActiveVpnTunnelStatusRequest;
   export type Output = GetActiveVpnTunnelStatusResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetAllowedImagesSettings {
   export type Input = GetAllowedImagesSettingsRequest;
   export type Output = GetAllowedImagesSettingsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetAssociatedEnclaveCertificateIamRoles {
   export type Input = GetAssociatedEnclaveCertificateIamRolesRequest;
   export type Output = GetAssociatedEnclaveCertificateIamRolesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetAssociatedIpv6PoolCidrs {
   export type Input = GetAssociatedIpv6PoolCidrsRequest;
   export type Output = GetAssociatedIpv6PoolCidrsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetAwsNetworkPerformanceData {
   export type Input = GetAwsNetworkPerformanceDataRequest;
   export type Output = GetAwsNetworkPerformanceDataResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetCapacityManagerAttributes {
   export type Input = GetCapacityManagerAttributesRequest;
   export type Output = GetCapacityManagerAttributesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetCapacityManagerMetricData {
   export type Input = GetCapacityManagerMetricDataRequest;
   export type Output = GetCapacityManagerMetricDataResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetCapacityManagerMetricDimensions {
   export type Input = GetCapacityManagerMetricDimensionsRequest;
   export type Output = GetCapacityManagerMetricDimensionsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetCapacityReservationUsage {
   export type Input = GetCapacityReservationUsageRequest;
   export type Output = GetCapacityReservationUsageResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetCoipPoolUsage {
   export type Input = GetCoipPoolUsageRequest;
   export type Output = GetCoipPoolUsageResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetConsoleOutput {
   export type Input = GetConsoleOutputRequest;
   export type Output = GetConsoleOutputResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetConsoleScreenshot {
   export type Input = GetConsoleScreenshotRequest;
   export type Output = GetConsoleScreenshotResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetDeclarativePoliciesReportSummary {
   export type Input = GetDeclarativePoliciesReportSummaryRequest;
   export type Output = GetDeclarativePoliciesReportSummaryResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetDefaultCreditSpecification {
   export type Input = GetDefaultCreditSpecificationRequest;
   export type Output = GetDefaultCreditSpecificationResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetEbsDefaultKmsKeyId {
   export type Input = GetEbsDefaultKmsKeyIdRequest;
   export type Output = GetEbsDefaultKmsKeyIdResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetEbsEncryptionByDefault {
   export type Input = GetEbsEncryptionByDefaultRequest;
   export type Output = GetEbsEncryptionByDefaultResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetFlowLogsIntegrationTemplate {
   export type Input = GetFlowLogsIntegrationTemplateRequest;
   export type Output = GetFlowLogsIntegrationTemplateResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetGroupsForCapacityReservation {
   export type Input = GetGroupsForCapacityReservationRequest;
   export type Output = GetGroupsForCapacityReservationResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetHostReservationPurchasePreview {
   export type Input = GetHostReservationPurchasePreviewRequest;
   export type Output = GetHostReservationPurchasePreviewResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetImageBlockPublicAccessState {
   export type Input = GetImageBlockPublicAccessStateRequest;
   export type Output = GetImageBlockPublicAccessStateResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetInstanceMetadataDefaults {
   export type Input = GetInstanceMetadataDefaultsRequest;
   export type Output = GetInstanceMetadataDefaultsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetInstanceTpmEkPub {
   export type Input = GetInstanceTpmEkPubRequest;
   export type Output = GetInstanceTpmEkPubResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetInstanceTypesFromInstanceRequirements {
   export type Input = GetInstanceTypesFromInstanceRequirementsRequest;
   export type Output = GetInstanceTypesFromInstanceRequirementsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetInstanceUefiData {
   export type Input = GetInstanceUefiDataRequest;
   export type Output = GetInstanceUefiDataResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetIpamAddressHistory {
   export type Input = GetIpamAddressHistoryRequest;
   export type Output = GetIpamAddressHistoryResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetIpamDiscoveredAccounts {
   export type Input = GetIpamDiscoveredAccountsRequest;
   export type Output = GetIpamDiscoveredAccountsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetIpamDiscoveredPublicAddresses {
   export type Input = GetIpamDiscoveredPublicAddressesRequest;
   export type Output = GetIpamDiscoveredPublicAddressesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetIpamDiscoveredResourceCidrs {
   export type Input = GetIpamDiscoveredResourceCidrsRequest;
   export type Output = GetIpamDiscoveredResourceCidrsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetIpamPoolAllocations {
   export type Input = GetIpamPoolAllocationsRequest;
   export type Output = GetIpamPoolAllocationsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetIpamPoolCidrs {
   export type Input = GetIpamPoolCidrsRequest;
   export type Output = GetIpamPoolCidrsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetIpamPrefixListResolverRules {
   export type Input = GetIpamPrefixListResolverRulesRequest;
   export type Output = GetIpamPrefixListResolverRulesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetIpamPrefixListResolverVersionEntries {
   export type Input = GetIpamPrefixListResolverVersionEntriesRequest;
   export type Output = GetIpamPrefixListResolverVersionEntriesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetIpamPrefixListResolverVersions {
   export type Input = GetIpamPrefixListResolverVersionsRequest;
   export type Output = GetIpamPrefixListResolverVersionsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetIpamResourceCidrs {
   export type Input = GetIpamResourceCidrsRequest;
   export type Output = GetIpamResourceCidrsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetLaunchTemplateData {
   export type Input = GetLaunchTemplateDataRequest;
   export type Output = GetLaunchTemplateDataResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetManagedPrefixListAssociations {
   export type Input = GetManagedPrefixListAssociationsRequest;
   export type Output = GetManagedPrefixListAssociationsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetManagedPrefixListEntries {
   export type Input = GetManagedPrefixListEntriesRequest;
   export type Output = GetManagedPrefixListEntriesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetNetworkInsightsAccessScopeAnalysisFindings {
   export type Input = GetNetworkInsightsAccessScopeAnalysisFindingsRequest;
   export type Output = GetNetworkInsightsAccessScopeAnalysisFindingsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetNetworkInsightsAccessScopeContent {
   export type Input = GetNetworkInsightsAccessScopeContentRequest;
   export type Output = GetNetworkInsightsAccessScopeContentResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetPasswordData {
   export type Input = GetPasswordDataRequest;
   export type Output = GetPasswordDataResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetReservedInstancesExchangeQuote {
   export type Input = GetReservedInstancesExchangeQuoteRequest;
   export type Output = GetReservedInstancesExchangeQuoteResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetRouteServerAssociations {
   export type Input = GetRouteServerAssociationsRequest;
   export type Output = GetRouteServerAssociationsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetRouteServerPropagations {
   export type Input = GetRouteServerPropagationsRequest;
   export type Output = GetRouteServerPropagationsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetRouteServerRoutingDatabase {
   export type Input = GetRouteServerRoutingDatabaseRequest;
   export type Output = GetRouteServerRoutingDatabaseResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetSecurityGroupsForVpc {
   export type Input = GetSecurityGroupsForVpcRequest;
   export type Output = GetSecurityGroupsForVpcResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetSerialConsoleAccessStatus {
   export type Input = GetSerialConsoleAccessStatusRequest;
   export type Output = GetSerialConsoleAccessStatusResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetSnapshotBlockPublicAccessState {
   export type Input = GetSnapshotBlockPublicAccessStateRequest;
   export type Output = GetSnapshotBlockPublicAccessStateResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetSpotPlacementScores {
   export type Input = GetSpotPlacementScoresRequest;
   export type Output = GetSpotPlacementScoresResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetSubnetCidrReservations {
   export type Input = GetSubnetCidrReservationsRequest;
   export type Output = GetSubnetCidrReservationsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetTransitGatewayAttachmentPropagations {
   export type Input = GetTransitGatewayAttachmentPropagationsRequest;
   export type Output = GetTransitGatewayAttachmentPropagationsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetTransitGatewayMulticastDomainAssociations {
   export type Input = GetTransitGatewayMulticastDomainAssociationsRequest;
   export type Output = GetTransitGatewayMulticastDomainAssociationsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetTransitGatewayPolicyTableAssociations {
   export type Input = GetTransitGatewayPolicyTableAssociationsRequest;
   export type Output = GetTransitGatewayPolicyTableAssociationsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetTransitGatewayPolicyTableEntries {
   export type Input = GetTransitGatewayPolicyTableEntriesRequest;
   export type Output = GetTransitGatewayPolicyTableEntriesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetTransitGatewayPrefixListReferences {
   export type Input = GetTransitGatewayPrefixListReferencesRequest;
   export type Output = GetTransitGatewayPrefixListReferencesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetTransitGatewayRouteTableAssociations {
   export type Input = GetTransitGatewayRouteTableAssociationsRequest;
   export type Output = GetTransitGatewayRouteTableAssociationsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetTransitGatewayRouteTablePropagations {
   export type Input = GetTransitGatewayRouteTablePropagationsRequest;
   export type Output = GetTransitGatewayRouteTablePropagationsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetVerifiedAccessEndpointPolicy {
   export type Input = GetVerifiedAccessEndpointPolicyRequest;
   export type Output = GetVerifiedAccessEndpointPolicyResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetVerifiedAccessEndpointTargets {
   export type Input = GetVerifiedAccessEndpointTargetsRequest;
   export type Output = GetVerifiedAccessEndpointTargetsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetVerifiedAccessGroupPolicy {
   export type Input = GetVerifiedAccessGroupPolicyRequest;
   export type Output = GetVerifiedAccessGroupPolicyResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetVpnConnectionDeviceSampleConfiguration {
   export type Input = GetVpnConnectionDeviceSampleConfigurationRequest;
   export type Output = GetVpnConnectionDeviceSampleConfigurationResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetVpnConnectionDeviceTypes {
   export type Input = GetVpnConnectionDeviceTypesRequest;
   export type Output = GetVpnConnectionDeviceTypesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace GetVpnTunnelReplacementStatus {
   export type Input = GetVpnTunnelReplacementStatusRequest;
   export type Output = GetVpnTunnelReplacementStatusResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ImportClientVpnClientCertificateRevocationList {
   export type Input = ImportClientVpnClientCertificateRevocationListRequest;
   export type Output = ImportClientVpnClientCertificateRevocationListResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ImportImage {
   export type Input = ImportImageRequest;
   export type Output = ImportImageResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ImportInstance {
   export type Input = ImportInstanceRequest;
   export type Output = ImportInstanceResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ImportKeyPair {
   export type Input = ImportKeyPairRequest;
   export type Output = ImportKeyPairResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ImportSnapshot {
   export type Input = ImportSnapshotRequest;
   export type Output = ImportSnapshotResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ImportVolume {
   export type Input = ImportVolumeRequest;
   export type Output = ImportVolumeResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ListImagesInRecycleBin {
   export type Input = ListImagesInRecycleBinRequest;
   export type Output = ListImagesInRecycleBinResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ListSnapshotsInRecycleBin {
   export type Input = ListSnapshotsInRecycleBinRequest;
   export type Output = ListSnapshotsInRecycleBinResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace LockSnapshot {
   export type Input = LockSnapshotRequest;
   export type Output = LockSnapshotResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifyAddressAttribute {
   export type Input = ModifyAddressAttributeRequest;
   export type Output = ModifyAddressAttributeResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifyAvailabilityZoneGroup {
   export type Input = ModifyAvailabilityZoneGroupRequest;
   export type Output = ModifyAvailabilityZoneGroupResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifyCapacityReservation {
   export type Input = ModifyCapacityReservationRequest;
   export type Output = ModifyCapacityReservationResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifyCapacityReservationFleet {
   export type Input = ModifyCapacityReservationFleetRequest;
   export type Output = ModifyCapacityReservationFleetResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifyClientVpnEndpoint {
   export type Input = ModifyClientVpnEndpointRequest;
   export type Output = ModifyClientVpnEndpointResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifyDefaultCreditSpecification {
   export type Input = ModifyDefaultCreditSpecificationRequest;
   export type Output = ModifyDefaultCreditSpecificationResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifyEbsDefaultKmsKeyId {
   export type Input = ModifyEbsDefaultKmsKeyIdRequest;
   export type Output = ModifyEbsDefaultKmsKeyIdResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifyFleet {
   export type Input = ModifyFleetRequest;
   export type Output = ModifyFleetResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifyFpgaImageAttribute {
   export type Input = ModifyFpgaImageAttributeRequest;
   export type Output = ModifyFpgaImageAttributeResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifyHosts {
   export type Input = ModifyHostsRequest;
   export type Output = ModifyHostsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifyIdentityIdFormat {
   export type Input = ModifyIdentityIdFormatRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifyIdFormat {
   export type Input = ModifyIdFormatRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifyImageAttribute {
   export type Input = ModifyImageAttributeRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifyInstanceAttribute {
   export type Input = ModifyInstanceAttributeRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifyInstanceCapacityReservationAttributes {
   export type Input = ModifyInstanceCapacityReservationAttributesRequest;
   export type Output = ModifyInstanceCapacityReservationAttributesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifyInstanceConnectEndpoint {
   export type Input = ModifyInstanceConnectEndpointRequest;
   export type Output = ModifyInstanceConnectEndpointResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifyInstanceCpuOptions {
   export type Input = ModifyInstanceCpuOptionsRequest;
   export type Output = ModifyInstanceCpuOptionsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifyInstanceCreditSpecification {
   export type Input = ModifyInstanceCreditSpecificationRequest;
   export type Output = ModifyInstanceCreditSpecificationResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifyInstanceEventStartTime {
   export type Input = ModifyInstanceEventStartTimeRequest;
   export type Output = ModifyInstanceEventStartTimeResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifyInstanceEventWindow {
   export type Input = ModifyInstanceEventWindowRequest;
   export type Output = ModifyInstanceEventWindowResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifyInstanceMaintenanceOptions {
   export type Input = ModifyInstanceMaintenanceOptionsRequest;
   export type Output = ModifyInstanceMaintenanceOptionsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifyInstanceMetadataDefaults {
   export type Input = ModifyInstanceMetadataDefaultsRequest;
   export type Output = ModifyInstanceMetadataDefaultsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifyInstanceMetadataOptions {
   export type Input = ModifyInstanceMetadataOptionsRequest;
   export type Output = ModifyInstanceMetadataOptionsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifyInstanceNetworkPerformanceOptions {
   export type Input = ModifyInstanceNetworkPerformanceRequest;
   export type Output = ModifyInstanceNetworkPerformanceResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifyInstancePlacement {
   export type Input = ModifyInstancePlacementRequest;
   export type Output = ModifyInstancePlacementResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifyIpam {
   export type Input = ModifyIpamRequest;
   export type Output = ModifyIpamResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifyIpamPool {
   export type Input = ModifyIpamPoolRequest;
   export type Output = ModifyIpamPoolResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifyIpamPrefixListResolver {
   export type Input = ModifyIpamPrefixListResolverRequest;
   export type Output = ModifyIpamPrefixListResolverResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifyIpamPrefixListResolverTarget {
   export type Input = ModifyIpamPrefixListResolverTargetRequest;
   export type Output = ModifyIpamPrefixListResolverTargetResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifyIpamResourceCidr {
   export type Input = ModifyIpamResourceCidrRequest;
   export type Output = ModifyIpamResourceCidrResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifyIpamResourceDiscovery {
   export type Input = ModifyIpamResourceDiscoveryRequest;
   export type Output = ModifyIpamResourceDiscoveryResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifyIpamScope {
   export type Input = ModifyIpamScopeRequest;
   export type Output = ModifyIpamScopeResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifyLaunchTemplate {
   export type Input = ModifyLaunchTemplateRequest;
   export type Output = ModifyLaunchTemplateResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifyLocalGatewayRoute {
   export type Input = ModifyLocalGatewayRouteRequest;
   export type Output = ModifyLocalGatewayRouteResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifyManagedPrefixList {
   export type Input = ModifyManagedPrefixListRequest;
   export type Output = ModifyManagedPrefixListResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifyNetworkInterfaceAttribute {
   export type Input = ModifyNetworkInterfaceAttributeRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifyPrivateDnsNameOptions {
   export type Input = ModifyPrivateDnsNameOptionsRequest;
   export type Output = ModifyPrivateDnsNameOptionsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifyPublicIpDnsNameOptions {
   export type Input = ModifyPublicIpDnsNameOptionsRequest;
   export type Output = ModifyPublicIpDnsNameOptionsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifyReservedInstances {
   export type Input = ModifyReservedInstancesRequest;
   export type Output = ModifyReservedInstancesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifyRouteServer {
   export type Input = ModifyRouteServerRequest;
   export type Output = ModifyRouteServerResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifySecurityGroupRules {
   export type Input = ModifySecurityGroupRulesRequest;
   export type Output = ModifySecurityGroupRulesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifySnapshotAttribute {
   export type Input = ModifySnapshotAttributeRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifySnapshotTier {
   export type Input = ModifySnapshotTierRequest;
   export type Output = ModifySnapshotTierResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifySpotFleetRequest {
   export type Input = ModifySpotFleetRequestRequest;
   export type Output = ModifySpotFleetRequestResponse;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifySubnetAttribute {
   export type Input = ModifySubnetAttributeRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifyTrafficMirrorFilterNetworkServices {
   export type Input = ModifyTrafficMirrorFilterNetworkServicesRequest;
   export type Output = ModifyTrafficMirrorFilterNetworkServicesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifyTrafficMirrorFilterRule {
   export type Input = ModifyTrafficMirrorFilterRuleRequest;
   export type Output = ModifyTrafficMirrorFilterRuleResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifyTrafficMirrorSession {
   export type Input = ModifyTrafficMirrorSessionRequest;
   export type Output = ModifyTrafficMirrorSessionResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifyTransitGateway {
   export type Input = ModifyTransitGatewayRequest;
   export type Output = ModifyTransitGatewayResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifyTransitGatewayPrefixListReference {
   export type Input = ModifyTransitGatewayPrefixListReferenceRequest;
   export type Output = ModifyTransitGatewayPrefixListReferenceResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifyTransitGatewayVpcAttachment {
   export type Input = ModifyTransitGatewayVpcAttachmentRequest;
   export type Output = ModifyTransitGatewayVpcAttachmentResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifyVerifiedAccessEndpoint {
   export type Input = ModifyVerifiedAccessEndpointRequest;
   export type Output = ModifyVerifiedAccessEndpointResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifyVerifiedAccessEndpointPolicy {
   export type Input = ModifyVerifiedAccessEndpointPolicyRequest;
   export type Output = ModifyVerifiedAccessEndpointPolicyResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifyVerifiedAccessGroup {
   export type Input = ModifyVerifiedAccessGroupRequest;
   export type Output = ModifyVerifiedAccessGroupResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifyVerifiedAccessGroupPolicy {
   export type Input = ModifyVerifiedAccessGroupPolicyRequest;
   export type Output = ModifyVerifiedAccessGroupPolicyResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifyVerifiedAccessInstance {
   export type Input = ModifyVerifiedAccessInstanceRequest;
   export type Output = ModifyVerifiedAccessInstanceResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifyVerifiedAccessInstanceLoggingConfiguration {
   export type Input = ModifyVerifiedAccessInstanceLoggingConfigurationRequest;
   export type Output = ModifyVerifiedAccessInstanceLoggingConfigurationResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifyVerifiedAccessTrustProvider {
   export type Input = ModifyVerifiedAccessTrustProviderRequest;
   export type Output = ModifyVerifiedAccessTrustProviderResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifyVolume {
   export type Input = ModifyVolumeRequest;
   export type Output = ModifyVolumeResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifyVolumeAttribute {
   export type Input = ModifyVolumeAttributeRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifyVpcAttribute {
   export type Input = ModifyVpcAttributeRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifyVpcBlockPublicAccessExclusion {
   export type Input = ModifyVpcBlockPublicAccessExclusionRequest;
   export type Output = ModifyVpcBlockPublicAccessExclusionResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifyVpcBlockPublicAccessOptions {
   export type Input = ModifyVpcBlockPublicAccessOptionsRequest;
   export type Output = ModifyVpcBlockPublicAccessOptionsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifyVpcEndpoint {
   export type Input = ModifyVpcEndpointRequest;
   export type Output = ModifyVpcEndpointResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifyVpcEndpointConnectionNotification {
   export type Input = ModifyVpcEndpointConnectionNotificationRequest;
   export type Output = ModifyVpcEndpointConnectionNotificationResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifyVpcEndpointServiceConfiguration {
   export type Input = ModifyVpcEndpointServiceConfigurationRequest;
   export type Output = ModifyVpcEndpointServiceConfigurationResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifyVpcEndpointServicePayerResponsibility {
   export type Input = ModifyVpcEndpointServicePayerResponsibilityRequest;
   export type Output = ModifyVpcEndpointServicePayerResponsibilityResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifyVpcEndpointServicePermissions {
   export type Input = ModifyVpcEndpointServicePermissionsRequest;
   export type Output = ModifyVpcEndpointServicePermissionsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifyVpcPeeringConnectionOptions {
   export type Input = ModifyVpcPeeringConnectionOptionsRequest;
   export type Output = ModifyVpcPeeringConnectionOptionsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifyVpcTenancy {
   export type Input = ModifyVpcTenancyRequest;
   export type Output = ModifyVpcTenancyResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifyVpnConnection {
   export type Input = ModifyVpnConnectionRequest;
   export type Output = ModifyVpnConnectionResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifyVpnConnectionOptions {
   export type Input = ModifyVpnConnectionOptionsRequest;
   export type Output = ModifyVpnConnectionOptionsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifyVpnTunnelCertificate {
   export type Input = ModifyVpnTunnelCertificateRequest;
   export type Output = ModifyVpnTunnelCertificateResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ModifyVpnTunnelOptions {
   export type Input = ModifyVpnTunnelOptionsRequest;
   export type Output = ModifyVpnTunnelOptionsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace MonitorInstances {
   export type Input = MonitorInstancesRequest;
   export type Output = MonitorInstancesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace MoveAddressToVpc {
   export type Input = MoveAddressToVpcRequest;
   export type Output = MoveAddressToVpcResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace MoveByoipCidrToIpam {
   export type Input = MoveByoipCidrToIpamRequest;
   export type Output = MoveByoipCidrToIpamResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace MoveCapacityReservationInstances {
   export type Input = MoveCapacityReservationInstancesRequest;
   export type Output = MoveCapacityReservationInstancesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ProvisionByoipCidr {
   export type Input = ProvisionByoipCidrRequest;
   export type Output = ProvisionByoipCidrResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ProvisionIpamByoasn {
   export type Input = ProvisionIpamByoasnRequest;
   export type Output = ProvisionIpamByoasnResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ProvisionIpamPoolCidr {
   export type Input = ProvisionIpamPoolCidrRequest;
   export type Output = ProvisionIpamPoolCidrResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ProvisionPublicIpv4PoolCidr {
   export type Input = ProvisionPublicIpv4PoolCidrRequest;
   export type Output = ProvisionPublicIpv4PoolCidrResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace PurchaseCapacityBlock {
   export type Input = PurchaseCapacityBlockRequest;
   export type Output = PurchaseCapacityBlockResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace PurchaseCapacityBlockExtension {
   export type Input = PurchaseCapacityBlockExtensionRequest;
   export type Output = PurchaseCapacityBlockExtensionResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace PurchaseHostReservation {
   export type Input = PurchaseHostReservationRequest;
   export type Output = PurchaseHostReservationResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace PurchaseReservedInstancesOffering {
   export type Input = PurchaseReservedInstancesOfferingRequest;
   export type Output = PurchaseReservedInstancesOfferingResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace PurchaseScheduledInstances {
   export type Input = PurchaseScheduledInstancesRequest;
   export type Output = PurchaseScheduledInstancesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace RebootInstances {
   export type Input = RebootInstancesRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace RegisterImage {
   export type Input = RegisterImageRequest;
   export type Output = RegisterImageResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace RegisterInstanceEventNotificationAttributes {
   export type Input = RegisterInstanceEventNotificationAttributesRequest;
   export type Output = RegisterInstanceEventNotificationAttributesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace RegisterTransitGatewayMulticastGroupMembers {
   export type Input = RegisterTransitGatewayMulticastGroupMembersRequest;
   export type Output = RegisterTransitGatewayMulticastGroupMembersResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace RegisterTransitGatewayMulticastGroupSources {
   export type Input = RegisterTransitGatewayMulticastGroupSourcesRequest;
   export type Output = RegisterTransitGatewayMulticastGroupSourcesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace RejectCapacityReservationBillingOwnership {
   export type Input = RejectCapacityReservationBillingOwnershipRequest;
   export type Output = RejectCapacityReservationBillingOwnershipResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace RejectTransitGatewayMulticastDomainAssociations {
   export type Input = RejectTransitGatewayMulticastDomainAssociationsRequest;
   export type Output = RejectTransitGatewayMulticastDomainAssociationsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace RejectTransitGatewayPeeringAttachment {
   export type Input = RejectTransitGatewayPeeringAttachmentRequest;
   export type Output = RejectTransitGatewayPeeringAttachmentResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace RejectTransitGatewayVpcAttachment {
   export type Input = RejectTransitGatewayVpcAttachmentRequest;
   export type Output = RejectTransitGatewayVpcAttachmentResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace RejectVpcEndpointConnections {
   export type Input = RejectVpcEndpointConnectionsRequest;
   export type Output = RejectVpcEndpointConnectionsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace RejectVpcPeeringConnection {
   export type Input = RejectVpcPeeringConnectionRequest;
   export type Output = RejectVpcPeeringConnectionResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ReleaseAddress {
   export type Input = ReleaseAddressRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ReleaseHosts {
   export type Input = ReleaseHostsRequest;
   export type Output = ReleaseHostsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ReleaseIpamPoolAllocation {
   export type Input = ReleaseIpamPoolAllocationRequest;
   export type Output = ReleaseIpamPoolAllocationResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ReplaceIamInstanceProfileAssociation {
   export type Input = ReplaceIamInstanceProfileAssociationRequest;
   export type Output = ReplaceIamInstanceProfileAssociationResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ReplaceImageCriteriaInAllowedImagesSettings {
   export type Input = ReplaceImageCriteriaInAllowedImagesSettingsRequest;
   export type Output = ReplaceImageCriteriaInAllowedImagesSettingsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ReplaceNetworkAclAssociation {
   export type Input = ReplaceNetworkAclAssociationRequest;
   export type Output = ReplaceNetworkAclAssociationResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ReplaceNetworkAclEntry {
   export type Input = ReplaceNetworkAclEntryRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ReplaceRoute {
   export type Input = ReplaceRouteRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ReplaceRouteTableAssociation {
   export type Input = ReplaceRouteTableAssociationRequest;
   export type Output = ReplaceRouteTableAssociationResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ReplaceTransitGatewayRoute {
   export type Input = ReplaceTransitGatewayRouteRequest;
   export type Output = ReplaceTransitGatewayRouteResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ReplaceVpnTunnel {
   export type Input = ReplaceVpnTunnelRequest;
   export type Output = ReplaceVpnTunnelResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ReportInstanceStatus {
   export type Input = ReportInstanceStatusRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace RequestSpotFleet {
   export type Input = RequestSpotFleetRequest;
   export type Output = RequestSpotFleetResponse;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace RequestSpotInstances {
   export type Input = RequestSpotInstancesRequest;
   export type Output = RequestSpotInstancesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ResetAddressAttribute {
   export type Input = ResetAddressAttributeRequest;
   export type Output = ResetAddressAttributeResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ResetEbsDefaultKmsKeyId {
   export type Input = ResetEbsDefaultKmsKeyIdRequest;
   export type Output = ResetEbsDefaultKmsKeyIdResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ResetFpgaImageAttribute {
   export type Input = ResetFpgaImageAttributeRequest;
   export type Output = ResetFpgaImageAttributeResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ResetImageAttribute {
   export type Input = ResetImageAttributeRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ResetInstanceAttribute {
   export type Input = ResetInstanceAttributeRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ResetNetworkInterfaceAttribute {
   export type Input = ResetNetworkInterfaceAttributeRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ResetSnapshotAttribute {
   export type Input = ResetSnapshotAttributeRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace RestoreAddressToClassic {
   export type Input = RestoreAddressToClassicRequest;
   export type Output = RestoreAddressToClassicResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace RestoreImageFromRecycleBin {
   export type Input = RestoreImageFromRecycleBinRequest;
   export type Output = RestoreImageFromRecycleBinResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace RestoreManagedPrefixListVersion {
   export type Input = RestoreManagedPrefixListVersionRequest;
   export type Output = RestoreManagedPrefixListVersionResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace RestoreSnapshotFromRecycleBin {
   export type Input = RestoreSnapshotFromRecycleBinRequest;
   export type Output = RestoreSnapshotFromRecycleBinResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace RestoreSnapshotTier {
   export type Input = RestoreSnapshotTierRequest;
   export type Output = RestoreSnapshotTierResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace RevokeClientVpnIngress {
   export type Input = RevokeClientVpnIngressRequest;
   export type Output = RevokeClientVpnIngressResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace RevokeSecurityGroupEgress {
   export type Input = RevokeSecurityGroupEgressRequest;
   export type Output = RevokeSecurityGroupEgressResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace RevokeSecurityGroupIngress {
   export type Input = RevokeSecurityGroupIngressRequest;
   export type Output = RevokeSecurityGroupIngressResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace RunInstances {
   export type Input = RunInstancesRequest;
   export type Output = Reservation;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace RunScheduledInstances {
   export type Input = RunScheduledInstancesRequest;
   export type Output = RunScheduledInstancesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace SearchLocalGatewayRoutes {
   export type Input = SearchLocalGatewayRoutesRequest;
   export type Output = SearchLocalGatewayRoutesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace SearchTransitGatewayMulticastGroups {
   export type Input = SearchTransitGatewayMulticastGroupsRequest;
   export type Output = SearchTransitGatewayMulticastGroupsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace SearchTransitGatewayRoutes {
   export type Input = SearchTransitGatewayRoutesRequest;
   export type Output = SearchTransitGatewayRoutesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace SendDiagnosticInterrupt {
   export type Input = SendDiagnosticInterruptRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace StartDeclarativePoliciesReport {
   export type Input = StartDeclarativePoliciesReportRequest;
   export type Output = StartDeclarativePoliciesReportResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace StartInstances {
   export type Input = StartInstancesRequest;
   export type Output = StartInstancesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace StartNetworkInsightsAccessScopeAnalysis {
   export type Input = StartNetworkInsightsAccessScopeAnalysisRequest;
   export type Output = StartNetworkInsightsAccessScopeAnalysisResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace StartNetworkInsightsAnalysis {
   export type Input = StartNetworkInsightsAnalysisRequest;
   export type Output = StartNetworkInsightsAnalysisResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace StartVpcEndpointServicePrivateDnsVerification {
   export type Input = StartVpcEndpointServicePrivateDnsVerificationRequest;
   export type Output = StartVpcEndpointServicePrivateDnsVerificationResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace StopInstances {
   export type Input = StopInstancesRequest;
   export type Output = StopInstancesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace TerminateClientVpnConnections {
   export type Input = TerminateClientVpnConnectionsRequest;
   export type Output = TerminateClientVpnConnectionsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace TerminateInstances {
   export type Input = TerminateInstancesRequest;
   export type Output = TerminateInstancesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace UnassignIpv6Addresses {
   export type Input = UnassignIpv6AddressesRequest;
   export type Output = UnassignIpv6AddressesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace UnassignPrivateIpAddresses {
   export type Input = UnassignPrivateIpAddressesRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace UnassignPrivateNatGatewayAddress {
   export type Input = UnassignPrivateNatGatewayAddressRequest;
   export type Output = UnassignPrivateNatGatewayAddressResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace UnlockSnapshot {
   export type Input = UnlockSnapshotRequest;
   export type Output = UnlockSnapshotResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace UnmonitorInstances {
   export type Input = UnmonitorInstancesRequest;
   export type Output = UnmonitorInstancesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace UpdateCapacityManagerOrganizationsAccess {
   export type Input = UpdateCapacityManagerOrganizationsAccessRequest;
   export type Output = UpdateCapacityManagerOrganizationsAccessResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace UpdateSecurityGroupRuleDescriptionsEgress {
   export type Input = UpdateSecurityGroupRuleDescriptionsEgressRequest;
   export type Output = UpdateSecurityGroupRuleDescriptionsEgressResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace UpdateSecurityGroupRuleDescriptionsIngress {
   export type Input = UpdateSecurityGroupRuleDescriptionsIngressRequest;
   export type Output = UpdateSecurityGroupRuleDescriptionsIngressResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace WithdrawByoipCidr {
   export type Input = WithdrawByoipCidrRequest;
   export type Output = WithdrawByoipCidrResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
-export type EC2Errors =
-  | InvalidVpcIDNotFound
-  | InvalidAMIIDNotFound
-  | InvalidInstanceIDNotFound
-  | InvalidInternetGatewayNotFound
-  | InvalidKeyPairNotFound
-  | NatGatewayNotFound
-  | InvalidNetworkInterfaceIDNotFound
-  | InvalidGroupNotFound
-  | InvalidSpotInstanceRequestIDNotFound
-  | InvalidVolumeNotFound
-  | InvalidVpcPeeringConnectionIDNotFound
-  | CommonAwsError;
+export type EC2Errors = InvalidVpcIDNotFound | InvalidAMIIDNotFound | InvalidInstanceIDNotFound | InvalidInternetGatewayNotFound | InvalidKeyPairNotFound | NatGatewayNotFound | InvalidNetworkInterfaceIDNotFound | InvalidGroupNotFound | InvalidSpotInstanceRequestIDNotFound | InvalidVolumeNotFound | InvalidVpcPeeringConnectionIDNotFound | CommonAwsError;
+

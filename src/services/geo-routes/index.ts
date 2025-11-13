@@ -5,23 +5,7 @@ import type { GeoRoutes as _GeoRoutesClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-  type CommonAwsError,
-} from "../../error.ts";
+export {ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, type CommonAwsError} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -30,36 +14,40 @@ const metadata = {
   protocol: "restJson1",
   sigV4ServiceName: "geo-routes",
   operations: {
-    CalculateIsolines: {
+    "CalculateIsolines": {
       http: "POST /isolines",
       traits: {
-        PricingBucket: "x-amz-geo-pricing-bucket",
+        "PricingBucket": "x-amz-geo-pricing-bucket",
       },
     },
-    CalculateRouteMatrix: {
+    "CalculateRouteMatrix": {
       http: "POST /route-matrix",
       traits: {
-        PricingBucket: "x-amz-geo-pricing-bucket",
+        "PricingBucket": "x-amz-geo-pricing-bucket",
       },
     },
-    CalculateRoutes: {
+    "CalculateRoutes": {
       http: "POST /routes",
       traits: {
-        PricingBucket: "x-amz-geo-pricing-bucket",
+        "PricingBucket": "x-amz-geo-pricing-bucket",
       },
     },
-    OptimizeWaypoints: {
+    "OptimizeWaypoints": {
       http: "POST /optimize-waypoints",
       traits: {
-        PricingBucket: "x-amz-geo-pricing-bucket",
+        "PricingBucket": "x-amz-geo-pricing-bucket",
       },
     },
-    SnapToRoads: {
+    "SnapToRoads": {
       http: "POST /snap-to-roads",
       traits: {
-        PricingBucket: "x-amz-geo-pricing-bucket",
+        "PricingBucket": "x-amz-geo-pricing-bucket",
       },
     },
+  },
+  retryableErrors: {
+    "InternalServerException": {},
+    "ThrottlingException": {},
   },
 } as const satisfies ServiceMetadata;
 

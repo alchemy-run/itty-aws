@@ -5,26 +5,7 @@ import type { Pinpoint as _PinpointClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {
-  AccessDeniedException,
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  ThrottlingException,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-  ValidationException,
-  type CommonAwsError,
-} from "../../error.ts";
+export {AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException, type CommonAwsError} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -34,726 +15,726 @@ const metadata = {
   sigV4ServiceName: "mobiletargeting",
   endpointPrefix: "pinpoint",
   operations: {
-    CreateApp: {
+    "CreateApp": {
       http: "POST /v1/apps",
       traits: {
-        ApplicationResponse: "httpPayload",
+        "ApplicationResponse": "httpPayload",
       },
     },
-    CreateCampaign: {
+    "CreateCampaign": {
       http: "POST /v1/apps/{ApplicationId}/campaigns",
       traits: {
-        CampaignResponse: "httpPayload",
+        "CampaignResponse": "httpPayload",
       },
     },
-    CreateEmailTemplate: {
+    "CreateEmailTemplate": {
       http: "POST /v1/templates/{TemplateName}/email",
       traits: {
-        CreateTemplateMessageBody: "httpPayload",
+        "CreateTemplateMessageBody": "httpPayload",
       },
     },
-    CreateExportJob: {
+    "CreateExportJob": {
       http: "POST /v1/apps/{ApplicationId}/jobs/export",
       traits: {
-        ExportJobResponse: "httpPayload",
+        "ExportJobResponse": "httpPayload",
       },
     },
-    CreateImportJob: {
+    "CreateImportJob": {
       http: "POST /v1/apps/{ApplicationId}/jobs/import",
       traits: {
-        ImportJobResponse: "httpPayload",
+        "ImportJobResponse": "httpPayload",
       },
     },
-    CreateInAppTemplate: {
+    "CreateInAppTemplate": {
       http: "POST /v1/templates/{TemplateName}/inapp",
       traits: {
-        TemplateCreateMessageBody: "httpPayload",
+        "TemplateCreateMessageBody": "httpPayload",
       },
     },
-    CreateJourney: {
+    "CreateJourney": {
       http: "POST /v1/apps/{ApplicationId}/journeys",
       traits: {
-        JourneyResponse: "httpPayload",
+        "JourneyResponse": "httpPayload",
       },
     },
-    CreatePushTemplate: {
+    "CreatePushTemplate": {
       http: "POST /v1/templates/{TemplateName}/push",
       traits: {
-        CreateTemplateMessageBody: "httpPayload",
+        "CreateTemplateMessageBody": "httpPayload",
       },
     },
-    CreateRecommenderConfiguration: {
+    "CreateRecommenderConfiguration": {
       http: "POST /v1/recommenders",
       traits: {
-        RecommenderConfigurationResponse: "httpPayload",
+        "RecommenderConfigurationResponse": "httpPayload",
       },
     },
-    CreateSegment: {
+    "CreateSegment": {
       http: "POST /v1/apps/{ApplicationId}/segments",
       traits: {
-        SegmentResponse: "httpPayload",
+        "SegmentResponse": "httpPayload",
       },
     },
-    CreateSmsTemplate: {
+    "CreateSmsTemplate": {
       http: "POST /v1/templates/{TemplateName}/sms",
       traits: {
-        CreateTemplateMessageBody: "httpPayload",
+        "CreateTemplateMessageBody": "httpPayload",
       },
     },
-    CreateVoiceTemplate: {
+    "CreateVoiceTemplate": {
       http: "POST /v1/templates/{TemplateName}/voice",
       traits: {
-        CreateTemplateMessageBody: "httpPayload",
+        "CreateTemplateMessageBody": "httpPayload",
       },
     },
-    DeleteAdmChannel: {
+    "DeleteAdmChannel": {
       http: "DELETE /v1/apps/{ApplicationId}/channels/adm",
       traits: {
-        ADMChannelResponse: "httpPayload",
+        "ADMChannelResponse": "httpPayload",
       },
     },
-    DeleteApnsChannel: {
+    "DeleteApnsChannel": {
       http: "DELETE /v1/apps/{ApplicationId}/channels/apns",
       traits: {
-        APNSChannelResponse: "httpPayload",
+        "APNSChannelResponse": "httpPayload",
       },
     },
-    DeleteApnsSandboxChannel: {
+    "DeleteApnsSandboxChannel": {
       http: "DELETE /v1/apps/{ApplicationId}/channels/apns_sandbox",
       traits: {
-        APNSSandboxChannelResponse: "httpPayload",
+        "APNSSandboxChannelResponse": "httpPayload",
       },
     },
-    DeleteApnsVoipChannel: {
+    "DeleteApnsVoipChannel": {
       http: "DELETE /v1/apps/{ApplicationId}/channels/apns_voip",
       traits: {
-        APNSVoipChannelResponse: "httpPayload",
+        "APNSVoipChannelResponse": "httpPayload",
       },
     },
-    DeleteApnsVoipSandboxChannel: {
+    "DeleteApnsVoipSandboxChannel": {
       http: "DELETE /v1/apps/{ApplicationId}/channels/apns_voip_sandbox",
       traits: {
-        APNSVoipSandboxChannelResponse: "httpPayload",
+        "APNSVoipSandboxChannelResponse": "httpPayload",
       },
     },
-    DeleteApp: {
+    "DeleteApp": {
       http: "DELETE /v1/apps/{ApplicationId}",
       traits: {
-        ApplicationResponse: "httpPayload",
+        "ApplicationResponse": "httpPayload",
       },
     },
-    DeleteBaiduChannel: {
+    "DeleteBaiduChannel": {
       http: "DELETE /v1/apps/{ApplicationId}/channels/baidu",
       traits: {
-        BaiduChannelResponse: "httpPayload",
+        "BaiduChannelResponse": "httpPayload",
       },
     },
-    DeleteCampaign: {
+    "DeleteCampaign": {
       http: "DELETE /v1/apps/{ApplicationId}/campaigns/{CampaignId}",
       traits: {
-        CampaignResponse: "httpPayload",
+        "CampaignResponse": "httpPayload",
       },
     },
-    DeleteEmailChannel: {
+    "DeleteEmailChannel": {
       http: "DELETE /v1/apps/{ApplicationId}/channels/email",
       traits: {
-        EmailChannelResponse: "httpPayload",
+        "EmailChannelResponse": "httpPayload",
       },
     },
-    DeleteEmailTemplate: {
+    "DeleteEmailTemplate": {
       http: "DELETE /v1/templates/{TemplateName}/email",
       traits: {
-        MessageBody: "httpPayload",
+        "MessageBody": "httpPayload",
       },
     },
-    DeleteEndpoint: {
+    "DeleteEndpoint": {
       http: "DELETE /v1/apps/{ApplicationId}/endpoints/{EndpointId}",
       traits: {
-        EndpointResponse: "httpPayload",
+        "EndpointResponse": "httpPayload",
       },
     },
-    DeleteEventStream: {
+    "DeleteEventStream": {
       http: "DELETE /v1/apps/{ApplicationId}/eventstream",
       traits: {
-        EventStream: "httpPayload",
+        "EventStream": "httpPayload",
       },
     },
-    DeleteGcmChannel: {
+    "DeleteGcmChannel": {
       http: "DELETE /v1/apps/{ApplicationId}/channels/gcm",
       traits: {
-        GCMChannelResponse: "httpPayload",
+        "GCMChannelResponse": "httpPayload",
       },
     },
-    DeleteInAppTemplate: {
+    "DeleteInAppTemplate": {
       http: "DELETE /v1/templates/{TemplateName}/inapp",
       traits: {
-        MessageBody: "httpPayload",
+        "MessageBody": "httpPayload",
       },
     },
-    DeleteJourney: {
+    "DeleteJourney": {
       http: "DELETE /v1/apps/{ApplicationId}/journeys/{JourneyId}",
       traits: {
-        JourneyResponse: "httpPayload",
+        "JourneyResponse": "httpPayload",
       },
     },
-    DeletePushTemplate: {
+    "DeletePushTemplate": {
       http: "DELETE /v1/templates/{TemplateName}/push",
       traits: {
-        MessageBody: "httpPayload",
+        "MessageBody": "httpPayload",
       },
     },
-    DeleteRecommenderConfiguration: {
+    "DeleteRecommenderConfiguration": {
       http: "DELETE /v1/recommenders/{RecommenderId}",
       traits: {
-        RecommenderConfigurationResponse: "httpPayload",
+        "RecommenderConfigurationResponse": "httpPayload",
       },
     },
-    DeleteSegment: {
+    "DeleteSegment": {
       http: "DELETE /v1/apps/{ApplicationId}/segments/{SegmentId}",
       traits: {
-        SegmentResponse: "httpPayload",
+        "SegmentResponse": "httpPayload",
       },
     },
-    DeleteSmsChannel: {
+    "DeleteSmsChannel": {
       http: "DELETE /v1/apps/{ApplicationId}/channels/sms",
       traits: {
-        SMSChannelResponse: "httpPayload",
+        "SMSChannelResponse": "httpPayload",
       },
     },
-    DeleteSmsTemplate: {
+    "DeleteSmsTemplate": {
       http: "DELETE /v1/templates/{TemplateName}/sms",
       traits: {
-        MessageBody: "httpPayload",
+        "MessageBody": "httpPayload",
       },
     },
-    DeleteUserEndpoints: {
+    "DeleteUserEndpoints": {
       http: "DELETE /v1/apps/{ApplicationId}/users/{UserId}",
       traits: {
-        EndpointsResponse: "httpPayload",
+        "EndpointsResponse": "httpPayload",
       },
     },
-    DeleteVoiceChannel: {
+    "DeleteVoiceChannel": {
       http: "DELETE /v1/apps/{ApplicationId}/channels/voice",
       traits: {
-        VoiceChannelResponse: "httpPayload",
+        "VoiceChannelResponse": "httpPayload",
       },
     },
-    DeleteVoiceTemplate: {
+    "DeleteVoiceTemplate": {
       http: "DELETE /v1/templates/{TemplateName}/voice",
       traits: {
-        MessageBody: "httpPayload",
+        "MessageBody": "httpPayload",
       },
     },
-    GetAdmChannel: {
+    "GetAdmChannel": {
       http: "GET /v1/apps/{ApplicationId}/channels/adm",
       traits: {
-        ADMChannelResponse: "httpPayload",
+        "ADMChannelResponse": "httpPayload",
       },
     },
-    GetApnsChannel: {
+    "GetApnsChannel": {
       http: "GET /v1/apps/{ApplicationId}/channels/apns",
       traits: {
-        APNSChannelResponse: "httpPayload",
+        "APNSChannelResponse": "httpPayload",
       },
     },
-    GetApnsSandboxChannel: {
+    "GetApnsSandboxChannel": {
       http: "GET /v1/apps/{ApplicationId}/channels/apns_sandbox",
       traits: {
-        APNSSandboxChannelResponse: "httpPayload",
+        "APNSSandboxChannelResponse": "httpPayload",
       },
     },
-    GetApnsVoipChannel: {
+    "GetApnsVoipChannel": {
       http: "GET /v1/apps/{ApplicationId}/channels/apns_voip",
       traits: {
-        APNSVoipChannelResponse: "httpPayload",
+        "APNSVoipChannelResponse": "httpPayload",
       },
     },
-    GetApnsVoipSandboxChannel: {
+    "GetApnsVoipSandboxChannel": {
       http: "GET /v1/apps/{ApplicationId}/channels/apns_voip_sandbox",
       traits: {
-        APNSVoipSandboxChannelResponse: "httpPayload",
+        "APNSVoipSandboxChannelResponse": "httpPayload",
       },
     },
-    GetApp: {
+    "GetApp": {
       http: "GET /v1/apps/{ApplicationId}",
       traits: {
-        ApplicationResponse: "httpPayload",
+        "ApplicationResponse": "httpPayload",
       },
     },
-    GetApplicationDateRangeKpi: {
+    "GetApplicationDateRangeKpi": {
       http: "GET /v1/apps/{ApplicationId}/kpis/daterange/{KpiName}",
       traits: {
-        ApplicationDateRangeKpiResponse: "httpPayload",
+        "ApplicationDateRangeKpiResponse": "httpPayload",
       },
     },
-    GetApplicationSettings: {
+    "GetApplicationSettings": {
       http: "GET /v1/apps/{ApplicationId}/settings",
       traits: {
-        ApplicationSettingsResource: "httpPayload",
+        "ApplicationSettingsResource": "httpPayload",
       },
     },
-    GetApps: {
+    "GetApps": {
       http: "GET /v1/apps",
       traits: {
-        ApplicationsResponse: "httpPayload",
+        "ApplicationsResponse": "httpPayload",
       },
     },
-    GetBaiduChannel: {
+    "GetBaiduChannel": {
       http: "GET /v1/apps/{ApplicationId}/channels/baidu",
       traits: {
-        BaiduChannelResponse: "httpPayload",
+        "BaiduChannelResponse": "httpPayload",
       },
     },
-    GetCampaign: {
+    "GetCampaign": {
       http: "GET /v1/apps/{ApplicationId}/campaigns/{CampaignId}",
       traits: {
-        CampaignResponse: "httpPayload",
+        "CampaignResponse": "httpPayload",
       },
     },
-    GetCampaignActivities: {
+    "GetCampaignActivities": {
       http: "GET /v1/apps/{ApplicationId}/campaigns/{CampaignId}/activities",
       traits: {
-        ActivitiesResponse: "httpPayload",
+        "ActivitiesResponse": "httpPayload",
       },
     },
-    GetCampaignDateRangeKpi: {
+    "GetCampaignDateRangeKpi": {
       http: "GET /v1/apps/{ApplicationId}/campaigns/{CampaignId}/kpis/daterange/{KpiName}",
       traits: {
-        CampaignDateRangeKpiResponse: "httpPayload",
+        "CampaignDateRangeKpiResponse": "httpPayload",
       },
     },
-    GetCampaigns: {
+    "GetCampaigns": {
       http: "GET /v1/apps/{ApplicationId}/campaigns",
       traits: {
-        CampaignsResponse: "httpPayload",
+        "CampaignsResponse": "httpPayload",
       },
     },
-    GetCampaignVersion: {
+    "GetCampaignVersion": {
       http: "GET /v1/apps/{ApplicationId}/campaigns/{CampaignId}/versions/{Version}",
       traits: {
-        CampaignResponse: "httpPayload",
+        "CampaignResponse": "httpPayload",
       },
     },
-    GetCampaignVersions: {
+    "GetCampaignVersions": {
       http: "GET /v1/apps/{ApplicationId}/campaigns/{CampaignId}/versions",
       traits: {
-        CampaignsResponse: "httpPayload",
+        "CampaignsResponse": "httpPayload",
       },
     },
-    GetChannels: {
+    "GetChannels": {
       http: "GET /v1/apps/{ApplicationId}/channels",
       traits: {
-        ChannelsResponse: "httpPayload",
+        "ChannelsResponse": "httpPayload",
       },
     },
-    GetEmailChannel: {
+    "GetEmailChannel": {
       http: "GET /v1/apps/{ApplicationId}/channels/email",
       traits: {
-        EmailChannelResponse: "httpPayload",
+        "EmailChannelResponse": "httpPayload",
       },
     },
-    GetEmailTemplate: {
+    "GetEmailTemplate": {
       http: "GET /v1/templates/{TemplateName}/email",
       traits: {
-        EmailTemplateResponse: "httpPayload",
+        "EmailTemplateResponse": "httpPayload",
       },
     },
-    GetEndpoint: {
+    "GetEndpoint": {
       http: "GET /v1/apps/{ApplicationId}/endpoints/{EndpointId}",
       traits: {
-        EndpointResponse: "httpPayload",
+        "EndpointResponse": "httpPayload",
       },
     },
-    GetEventStream: {
+    "GetEventStream": {
       http: "GET /v1/apps/{ApplicationId}/eventstream",
       traits: {
-        EventStream: "httpPayload",
+        "EventStream": "httpPayload",
       },
     },
-    GetExportJob: {
+    "GetExportJob": {
       http: "GET /v1/apps/{ApplicationId}/jobs/export/{JobId}",
       traits: {
-        ExportJobResponse: "httpPayload",
+        "ExportJobResponse": "httpPayload",
       },
     },
-    GetExportJobs: {
+    "GetExportJobs": {
       http: "GET /v1/apps/{ApplicationId}/jobs/export",
       traits: {
-        ExportJobsResponse: "httpPayload",
+        "ExportJobsResponse": "httpPayload",
       },
     },
-    GetGcmChannel: {
+    "GetGcmChannel": {
       http: "GET /v1/apps/{ApplicationId}/channels/gcm",
       traits: {
-        GCMChannelResponse: "httpPayload",
+        "GCMChannelResponse": "httpPayload",
       },
     },
-    GetImportJob: {
+    "GetImportJob": {
       http: "GET /v1/apps/{ApplicationId}/jobs/import/{JobId}",
       traits: {
-        ImportJobResponse: "httpPayload",
+        "ImportJobResponse": "httpPayload",
       },
     },
-    GetImportJobs: {
+    "GetImportJobs": {
       http: "GET /v1/apps/{ApplicationId}/jobs/import",
       traits: {
-        ImportJobsResponse: "httpPayload",
+        "ImportJobsResponse": "httpPayload",
       },
     },
-    GetInAppMessages: {
+    "GetInAppMessages": {
       http: "GET /v1/apps/{ApplicationId}/endpoints/{EndpointId}/inappmessages",
       traits: {
-        InAppMessagesResponse: "httpPayload",
+        "InAppMessagesResponse": "httpPayload",
       },
     },
-    GetInAppTemplate: {
+    "GetInAppTemplate": {
       http: "GET /v1/templates/{TemplateName}/inapp",
       traits: {
-        InAppTemplateResponse: "httpPayload",
+        "InAppTemplateResponse": "httpPayload",
       },
     },
-    GetJourney: {
+    "GetJourney": {
       http: "GET /v1/apps/{ApplicationId}/journeys/{JourneyId}",
       traits: {
-        JourneyResponse: "httpPayload",
+        "JourneyResponse": "httpPayload",
       },
     },
-    GetJourneyDateRangeKpi: {
+    "GetJourneyDateRangeKpi": {
       http: "GET /v1/apps/{ApplicationId}/journeys/{JourneyId}/kpis/daterange/{KpiName}",
       traits: {
-        JourneyDateRangeKpiResponse: "httpPayload",
+        "JourneyDateRangeKpiResponse": "httpPayload",
       },
     },
-    GetJourneyExecutionActivityMetrics: {
+    "GetJourneyExecutionActivityMetrics": {
       http: "GET /v1/apps/{ApplicationId}/journeys/{JourneyId}/activities/{JourneyActivityId}/execution-metrics",
       traits: {
-        JourneyExecutionActivityMetricsResponse: "httpPayload",
+        "JourneyExecutionActivityMetricsResponse": "httpPayload",
       },
     },
-    GetJourneyExecutionMetrics: {
+    "GetJourneyExecutionMetrics": {
       http: "GET /v1/apps/{ApplicationId}/journeys/{JourneyId}/execution-metrics",
       traits: {
-        JourneyExecutionMetricsResponse: "httpPayload",
+        "JourneyExecutionMetricsResponse": "httpPayload",
       },
     },
-    GetJourneyRunExecutionActivityMetrics: {
+    "GetJourneyRunExecutionActivityMetrics": {
       http: "GET /v1/apps/{ApplicationId}/journeys/{JourneyId}/runs/{RunId}/activities/{JourneyActivityId}/execution-metrics",
       traits: {
-        JourneyRunExecutionActivityMetricsResponse: "httpPayload",
+        "JourneyRunExecutionActivityMetricsResponse": "httpPayload",
       },
     },
-    GetJourneyRunExecutionMetrics: {
+    "GetJourneyRunExecutionMetrics": {
       http: "GET /v1/apps/{ApplicationId}/journeys/{JourneyId}/runs/{RunId}/execution-metrics",
       traits: {
-        JourneyRunExecutionMetricsResponse: "httpPayload",
+        "JourneyRunExecutionMetricsResponse": "httpPayload",
       },
     },
-    GetJourneyRuns: {
+    "GetJourneyRuns": {
       http: "GET /v1/apps/{ApplicationId}/journeys/{JourneyId}/runs",
       traits: {
-        JourneyRunsResponse: "httpPayload",
+        "JourneyRunsResponse": "httpPayload",
       },
     },
-    GetPushTemplate: {
+    "GetPushTemplate": {
       http: "GET /v1/templates/{TemplateName}/push",
       traits: {
-        PushNotificationTemplateResponse: "httpPayload",
+        "PushNotificationTemplateResponse": "httpPayload",
       },
     },
-    GetRecommenderConfiguration: {
+    "GetRecommenderConfiguration": {
       http: "GET /v1/recommenders/{RecommenderId}",
       traits: {
-        RecommenderConfigurationResponse: "httpPayload",
+        "RecommenderConfigurationResponse": "httpPayload",
       },
     },
-    GetRecommenderConfigurations: {
+    "GetRecommenderConfigurations": {
       http: "GET /v1/recommenders",
       traits: {
-        ListRecommenderConfigurationsResponse: "httpPayload",
+        "ListRecommenderConfigurationsResponse": "httpPayload",
       },
     },
-    GetSegment: {
+    "GetSegment": {
       http: "GET /v1/apps/{ApplicationId}/segments/{SegmentId}",
       traits: {
-        SegmentResponse: "httpPayload",
+        "SegmentResponse": "httpPayload",
       },
     },
-    GetSegmentExportJobs: {
+    "GetSegmentExportJobs": {
       http: "GET /v1/apps/{ApplicationId}/segments/{SegmentId}/jobs/export",
       traits: {
-        ExportJobsResponse: "httpPayload",
+        "ExportJobsResponse": "httpPayload",
       },
     },
-    GetSegmentImportJobs: {
+    "GetSegmentImportJobs": {
       http: "GET /v1/apps/{ApplicationId}/segments/{SegmentId}/jobs/import",
       traits: {
-        ImportJobsResponse: "httpPayload",
+        "ImportJobsResponse": "httpPayload",
       },
     },
-    GetSegments: {
+    "GetSegments": {
       http: "GET /v1/apps/{ApplicationId}/segments",
       traits: {
-        SegmentsResponse: "httpPayload",
+        "SegmentsResponse": "httpPayload",
       },
     },
-    GetSegmentVersion: {
+    "GetSegmentVersion": {
       http: "GET /v1/apps/{ApplicationId}/segments/{SegmentId}/versions/{Version}",
       traits: {
-        SegmentResponse: "httpPayload",
+        "SegmentResponse": "httpPayload",
       },
     },
-    GetSegmentVersions: {
+    "GetSegmentVersions": {
       http: "GET /v1/apps/{ApplicationId}/segments/{SegmentId}/versions",
       traits: {
-        SegmentsResponse: "httpPayload",
+        "SegmentsResponse": "httpPayload",
       },
     },
-    GetSmsChannel: {
+    "GetSmsChannel": {
       http: "GET /v1/apps/{ApplicationId}/channels/sms",
       traits: {
-        SMSChannelResponse: "httpPayload",
+        "SMSChannelResponse": "httpPayload",
       },
     },
-    GetSmsTemplate: {
+    "GetSmsTemplate": {
       http: "GET /v1/templates/{TemplateName}/sms",
       traits: {
-        SMSTemplateResponse: "httpPayload",
+        "SMSTemplateResponse": "httpPayload",
       },
     },
-    GetUserEndpoints: {
+    "GetUserEndpoints": {
       http: "GET /v1/apps/{ApplicationId}/users/{UserId}",
       traits: {
-        EndpointsResponse: "httpPayload",
+        "EndpointsResponse": "httpPayload",
       },
     },
-    GetVoiceChannel: {
+    "GetVoiceChannel": {
       http: "GET /v1/apps/{ApplicationId}/channels/voice",
       traits: {
-        VoiceChannelResponse: "httpPayload",
+        "VoiceChannelResponse": "httpPayload",
       },
     },
-    GetVoiceTemplate: {
+    "GetVoiceTemplate": {
       http: "GET /v1/templates/{TemplateName}/voice",
       traits: {
-        VoiceTemplateResponse: "httpPayload",
+        "VoiceTemplateResponse": "httpPayload",
       },
     },
-    ListJourneys: {
+    "ListJourneys": {
       http: "GET /v1/apps/{ApplicationId}/journeys",
       traits: {
-        JourneysResponse: "httpPayload",
+        "JourneysResponse": "httpPayload",
       },
     },
-    ListTagsForResource: {
+    "ListTagsForResource": {
       http: "GET /v1/tags/{ResourceArn}",
       traits: {
-        TagsModel: "httpPayload",
+        "TagsModel": "httpPayload",
       },
     },
-    ListTemplates: {
+    "ListTemplates": {
       http: "GET /v1/templates",
       traits: {
-        TemplatesResponse: "httpPayload",
+        "TemplatesResponse": "httpPayload",
       },
     },
-    ListTemplateVersions: {
+    "ListTemplateVersions": {
       http: "GET /v1/templates/{TemplateName}/{TemplateType}/versions",
       traits: {
-        TemplateVersionsResponse: "httpPayload",
+        "TemplateVersionsResponse": "httpPayload",
       },
     },
-    PhoneNumberValidate: {
+    "PhoneNumberValidate": {
       http: "POST /v1/phone/number/validate",
       traits: {
-        NumberValidateResponse: "httpPayload",
+        "NumberValidateResponse": "httpPayload",
       },
     },
-    PutEvents: {
+    "PutEvents": {
       http: "POST /v1/apps/{ApplicationId}/events",
       traits: {
-        EventsResponse: "httpPayload",
+        "EventsResponse": "httpPayload",
       },
     },
-    PutEventStream: {
+    "PutEventStream": {
       http: "POST /v1/apps/{ApplicationId}/eventstream",
       traits: {
-        EventStream: "httpPayload",
+        "EventStream": "httpPayload",
       },
     },
-    RemoveAttributes: {
+    "RemoveAttributes": {
       http: "PUT /v1/apps/{ApplicationId}/attributes/{AttributeType}",
       traits: {
-        AttributesResource: "httpPayload",
+        "AttributesResource": "httpPayload",
       },
     },
-    SendMessages: {
+    "SendMessages": {
       http: "POST /v1/apps/{ApplicationId}/messages",
       traits: {
-        MessageResponse: "httpPayload",
+        "MessageResponse": "httpPayload",
       },
     },
-    SendOTPMessage: {
+    "SendOTPMessage": {
       http: "POST /v1/apps/{ApplicationId}/otp",
       traits: {
-        MessageResponse: "httpPayload",
+        "MessageResponse": "httpPayload",
       },
     },
-    SendUsersMessages: {
+    "SendUsersMessages": {
       http: "POST /v1/apps/{ApplicationId}/users-messages",
       traits: {
-        SendUsersMessageResponse: "httpPayload",
+        "SendUsersMessageResponse": "httpPayload",
       },
     },
-    TagResource: "POST /v1/tags/{ResourceArn}",
-    UntagResource: "DELETE /v1/tags/{ResourceArn}",
-    UpdateAdmChannel: {
+    "TagResource": "POST /v1/tags/{ResourceArn}",
+    "UntagResource": "DELETE /v1/tags/{ResourceArn}",
+    "UpdateAdmChannel": {
       http: "PUT /v1/apps/{ApplicationId}/channels/adm",
       traits: {
-        ADMChannelResponse: "httpPayload",
+        "ADMChannelResponse": "httpPayload",
       },
     },
-    UpdateApnsChannel: {
+    "UpdateApnsChannel": {
       http: "PUT /v1/apps/{ApplicationId}/channels/apns",
       traits: {
-        APNSChannelResponse: "httpPayload",
+        "APNSChannelResponse": "httpPayload",
       },
     },
-    UpdateApnsSandboxChannel: {
+    "UpdateApnsSandboxChannel": {
       http: "PUT /v1/apps/{ApplicationId}/channels/apns_sandbox",
       traits: {
-        APNSSandboxChannelResponse: "httpPayload",
+        "APNSSandboxChannelResponse": "httpPayload",
       },
     },
-    UpdateApnsVoipChannel: {
+    "UpdateApnsVoipChannel": {
       http: "PUT /v1/apps/{ApplicationId}/channels/apns_voip",
       traits: {
-        APNSVoipChannelResponse: "httpPayload",
+        "APNSVoipChannelResponse": "httpPayload",
       },
     },
-    UpdateApnsVoipSandboxChannel: {
+    "UpdateApnsVoipSandboxChannel": {
       http: "PUT /v1/apps/{ApplicationId}/channels/apns_voip_sandbox",
       traits: {
-        APNSVoipSandboxChannelResponse: "httpPayload",
+        "APNSVoipSandboxChannelResponse": "httpPayload",
       },
     },
-    UpdateApplicationSettings: {
+    "UpdateApplicationSettings": {
       http: "PUT /v1/apps/{ApplicationId}/settings",
       traits: {
-        ApplicationSettingsResource: "httpPayload",
+        "ApplicationSettingsResource": "httpPayload",
       },
     },
-    UpdateBaiduChannel: {
+    "UpdateBaiduChannel": {
       http: "PUT /v1/apps/{ApplicationId}/channels/baidu",
       traits: {
-        BaiduChannelResponse: "httpPayload",
+        "BaiduChannelResponse": "httpPayload",
       },
     },
-    UpdateCampaign: {
+    "UpdateCampaign": {
       http: "PUT /v1/apps/{ApplicationId}/campaigns/{CampaignId}",
       traits: {
-        CampaignResponse: "httpPayload",
+        "CampaignResponse": "httpPayload",
       },
     },
-    UpdateEmailChannel: {
+    "UpdateEmailChannel": {
       http: "PUT /v1/apps/{ApplicationId}/channels/email",
       traits: {
-        EmailChannelResponse: "httpPayload",
+        "EmailChannelResponse": "httpPayload",
       },
     },
-    UpdateEmailTemplate: {
+    "UpdateEmailTemplate": {
       http: "PUT /v1/templates/{TemplateName}/email",
       traits: {
-        MessageBody: "httpPayload",
+        "MessageBody": "httpPayload",
       },
     },
-    UpdateEndpoint: {
+    "UpdateEndpoint": {
       http: "PUT /v1/apps/{ApplicationId}/endpoints/{EndpointId}",
       traits: {
-        MessageBody: "httpPayload",
+        "MessageBody": "httpPayload",
       },
     },
-    UpdateEndpointsBatch: {
+    "UpdateEndpointsBatch": {
       http: "PUT /v1/apps/{ApplicationId}/endpoints",
       traits: {
-        MessageBody: "httpPayload",
+        "MessageBody": "httpPayload",
       },
     },
-    UpdateGcmChannel: {
+    "UpdateGcmChannel": {
       http: "PUT /v1/apps/{ApplicationId}/channels/gcm",
       traits: {
-        GCMChannelResponse: "httpPayload",
+        "GCMChannelResponse": "httpPayload",
       },
     },
-    UpdateInAppTemplate: {
+    "UpdateInAppTemplate": {
       http: "PUT /v1/templates/{TemplateName}/inapp",
       traits: {
-        MessageBody: "httpPayload",
+        "MessageBody": "httpPayload",
       },
     },
-    UpdateJourney: {
+    "UpdateJourney": {
       http: "PUT /v1/apps/{ApplicationId}/journeys/{JourneyId}",
       traits: {
-        JourneyResponse: "httpPayload",
+        "JourneyResponse": "httpPayload",
       },
     },
-    UpdateJourneyState: {
+    "UpdateJourneyState": {
       http: "PUT /v1/apps/{ApplicationId}/journeys/{JourneyId}/state",
       traits: {
-        JourneyResponse: "httpPayload",
+        "JourneyResponse": "httpPayload",
       },
     },
-    UpdatePushTemplate: {
+    "UpdatePushTemplate": {
       http: "PUT /v1/templates/{TemplateName}/push",
       traits: {
-        MessageBody: "httpPayload",
+        "MessageBody": "httpPayload",
       },
     },
-    UpdateRecommenderConfiguration: {
+    "UpdateRecommenderConfiguration": {
       http: "PUT /v1/recommenders/{RecommenderId}",
       traits: {
-        RecommenderConfigurationResponse: "httpPayload",
+        "RecommenderConfigurationResponse": "httpPayload",
       },
     },
-    UpdateSegment: {
+    "UpdateSegment": {
       http: "PUT /v1/apps/{ApplicationId}/segments/{SegmentId}",
       traits: {
-        SegmentResponse: "httpPayload",
+        "SegmentResponse": "httpPayload",
       },
     },
-    UpdateSmsChannel: {
+    "UpdateSmsChannel": {
       http: "PUT /v1/apps/{ApplicationId}/channels/sms",
       traits: {
-        SMSChannelResponse: "httpPayload",
+        "SMSChannelResponse": "httpPayload",
       },
     },
-    UpdateSmsTemplate: {
+    "UpdateSmsTemplate": {
       http: "PUT /v1/templates/{TemplateName}/sms",
       traits: {
-        MessageBody: "httpPayload",
+        "MessageBody": "httpPayload",
       },
     },
-    UpdateTemplateActiveVersion: {
+    "UpdateTemplateActiveVersion": {
       http: "PUT /v1/templates/{TemplateName}/{TemplateType}/active-version",
       traits: {
-        MessageBody: "httpPayload",
+        "MessageBody": "httpPayload",
       },
     },
-    UpdateVoiceChannel: {
+    "UpdateVoiceChannel": {
       http: "PUT /v1/apps/{ApplicationId}/channels/voice",
       traits: {
-        VoiceChannelResponse: "httpPayload",
+        "VoiceChannelResponse": "httpPayload",
       },
     },
-    UpdateVoiceTemplate: {
+    "UpdateVoiceTemplate": {
       http: "PUT /v1/templates/{TemplateName}/voice",
       traits: {
-        MessageBody: "httpPayload",
+        "MessageBody": "httpPayload",
       },
     },
-    VerifyOTPMessage: {
+    "VerifyOTPMessage": {
       http: "POST /v1/apps/{ApplicationId}/verify-otp",
       traits: {
-        VerificationResponse: "httpPayload",
+        "VerificationResponse": "httpPayload",
       },
     },
   },

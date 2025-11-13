@@ -1,39 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  ThrottlingException,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-} from "../../error.ts";
-type CommonAwsError =
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | ThrottlingException
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | AccessDeniedException
-  | ValidationException;
+import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
+type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | ThrottlingException | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class Outposts extends AWSServiceClient {
@@ -41,359 +8,211 @@ export declare class Outposts extends AWSServiceClient {
     input: CancelCapacityTaskInput,
   ): Effect.Effect<
     CancelCapacityTaskOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | NotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | NotFoundException | ValidationException | CommonAwsError
   >;
   cancelOrder(
     input: CancelOrderInput,
   ): Effect.Effect<
     CancelOrderOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | NotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | NotFoundException | ValidationException | CommonAwsError
   >;
   createOrder(
     input: CreateOrderInput,
   ): Effect.Effect<
     CreateOrderOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | NotFoundException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | NotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   >;
   createOutpost(
     input: CreateOutpostInput,
   ): Effect.Effect<
     CreateOutpostOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | NotFoundException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | NotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   >;
   createSite(
     input: CreateSiteInput,
   ): Effect.Effect<
     CreateSiteOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ValidationException | CommonAwsError
   >;
   deleteOutpost(
     input: DeleteOutpostInput,
   ): Effect.Effect<
     DeleteOutpostOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | NotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | NotFoundException | ValidationException | CommonAwsError
   >;
   deleteSite(
     input: DeleteSiteInput,
   ): Effect.Effect<
     DeleteSiteOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | NotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | NotFoundException | ValidationException | CommonAwsError
   >;
   getCapacityTask(
     input: GetCapacityTaskInput,
   ): Effect.Effect<
     GetCapacityTaskOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | NotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | NotFoundException | ValidationException | CommonAwsError
   >;
   getCatalogItem(
     input: GetCatalogItemInput,
   ): Effect.Effect<
     GetCatalogItemOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | NotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | NotFoundException | ValidationException | CommonAwsError
   >;
   getConnection(
     input: GetConnectionRequest,
   ): Effect.Effect<
     GetConnectionResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | NotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | NotFoundException | ValidationException | CommonAwsError
   >;
   getOrder(
     input: GetOrderInput,
   ): Effect.Effect<
     GetOrderOutput,
-    | InternalServerException
-    | NotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | NotFoundException | ValidationException | CommonAwsError
   >;
   getOutpost(
     input: GetOutpostInput,
   ): Effect.Effect<
     GetOutpostOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | NotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | NotFoundException | ValidationException | CommonAwsError
   >;
   getOutpostBillingInformation(
     input: GetOutpostBillingInformationInput,
   ): Effect.Effect<
     GetOutpostBillingInformationOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | NotFoundException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | NotFoundException | CommonAwsError
   >;
   getOutpostInstanceTypes(
     input: GetOutpostInstanceTypesInput,
   ): Effect.Effect<
     GetOutpostInstanceTypesOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | NotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | NotFoundException | ValidationException | CommonAwsError
   >;
   getOutpostSupportedInstanceTypes(
     input: GetOutpostSupportedInstanceTypesInput,
   ): Effect.Effect<
     GetOutpostSupportedInstanceTypesOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | NotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | NotFoundException | ValidationException | CommonAwsError
   >;
   getSite(
     input: GetSiteInput,
   ): Effect.Effect<
     GetSiteOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | NotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | NotFoundException | ValidationException | CommonAwsError
   >;
   getSiteAddress(
     input: GetSiteAddressInput,
   ): Effect.Effect<
     GetSiteAddressOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | NotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | NotFoundException | ValidationException | CommonAwsError
   >;
   listAssetInstances(
     input: ListAssetInstancesInput,
   ): Effect.Effect<
     ListAssetInstancesOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | NotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | NotFoundException | ValidationException | CommonAwsError
   >;
   listAssets(
     input: ListAssetsInput,
   ): Effect.Effect<
     ListAssetsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | NotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | NotFoundException | ValidationException | CommonAwsError
   >;
   listBlockingInstancesForCapacityTask(
     input: ListBlockingInstancesForCapacityTaskInput,
   ): Effect.Effect<
     ListBlockingInstancesForCapacityTaskOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | NotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | NotFoundException | ValidationException | CommonAwsError
   >;
   listCapacityTasks(
     input: ListCapacityTasksInput,
   ): Effect.Effect<
     ListCapacityTasksOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | NotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | NotFoundException | ValidationException | CommonAwsError
   >;
   listCatalogItems(
     input: ListCatalogItemsInput,
   ): Effect.Effect<
     ListCatalogItemsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | NotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | NotFoundException | ValidationException | CommonAwsError
   >;
   listOrders(
     input: ListOrdersInput,
   ): Effect.Effect<
     ListOrdersOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | NotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | NotFoundException | ValidationException | CommonAwsError
   >;
   listOutposts(
     input: ListOutpostsInput,
   ): Effect.Effect<
     ListOutpostsOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ValidationException | CommonAwsError
   >;
   listSites(
     input: ListSitesInput,
   ): Effect.Effect<
     ListSitesOutput,
-    | AccessDeniedException
-    | InternalServerException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ValidationException | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | InternalServerException
-    | NotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | NotFoundException | ValidationException | CommonAwsError
   >;
   startCapacityTask(
     input: StartCapacityTaskInput,
   ): Effect.Effect<
     StartCapacityTaskOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | NotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | NotFoundException | ValidationException | CommonAwsError
   >;
   startConnection(
     input: StartConnectionRequest,
   ): Effect.Effect<
     StartConnectionResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | NotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | NotFoundException | ValidationException | CommonAwsError
   >;
   startOutpostDecommission(
     input: StartOutpostDecommissionInput,
   ): Effect.Effect<
     StartOutpostDecommissionOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | NotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | NotFoundException | ValidationException | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | InternalServerException
-    | NotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | NotFoundException | ValidationException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | InternalServerException
-    | NotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | NotFoundException | ValidationException | CommonAwsError
   >;
   updateOutpost(
     input: UpdateOutpostInput,
   ): Effect.Effect<
     UpdateOutpostOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | NotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | NotFoundException | ValidationException | CommonAwsError
   >;
   updateSite(
     input: UpdateSiteInput,
   ): Effect.Effect<
     UpdateSiteOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | NotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | NotFoundException | ValidationException | CommonAwsError
   >;
   updateSiteAddress(
     input: UpdateSiteAddressInput,
   ): Effect.Effect<
     UpdateSiteAddressOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | NotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | NotFoundException | ValidationException | CommonAwsError
   >;
   updateSiteRackPhysicalProperties(
     input: UpdateSiteRackPhysicalPropertiesInput,
   ): Effect.Effect<
     UpdateSiteRackPhysicalPropertiesOutput,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | NotFoundException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | NotFoundException | ValidationException | CommonAwsError
   >;
 }
 
@@ -464,13 +283,7 @@ export type AvailabilityZoneId = string;
 
 export type AvailabilityZoneIdList = Array<string>;
 export type AvailabilityZoneList = Array<string>;
-export type AWSServiceName =
-  | "AWS"
-  | "EC2"
-  | "ELASTICACHE"
-  | "ELB"
-  | "RDS"
-  | "ROUTE53";
+export type AWSServiceName = "AWS" | "EC2" | "ELASTICACHE" | "ELB" | "RDS" | "ROUTE53";
 export type AWSServiceNameList = Array<AWSServiceName>;
 export interface BlockingInstance {
   InstanceId?: string;
@@ -478,45 +291,28 @@ export interface BlockingInstance {
   AwsServiceName?: AWSServiceName;
 }
 export type BlockingInstancesList = Array<BlockingInstance>;
-export type BlockingResourceType =
-  | "EC2_INSTANCE"
-  | "OUTPOST_RAM_SHARE"
-  | "LGW_ROUTING_DOMAIN"
-  | "LGW_ROUTE_TABLE"
-  | "LGW_VIRTUAL_INTERFACE_GROUP"
-  | "OUTPOST_ORDER_CANCELLABLE"
-  | "OUTPOST_ORDER_INTERVENTION_REQUIRED";
+export type BlockingResourceType = "EC2_INSTANCE" | "OUTPOST_RAM_SHARE" | "LGW_ROUTING_DOMAIN" | "LGW_ROUTE_TABLE" | "LGW_VIRTUAL_INTERFACE_GROUP" | "OUTPOST_ORDER_CANCELLABLE" | "OUTPOST_ORDER_INTERVENTION_REQUIRED";
 export type BlockingResourceTypeList = Array<BlockingResourceType>;
 export interface CancelCapacityTaskInput {
   CapacityTaskId: string;
   OutpostIdentifier: string;
 }
-export interface CancelCapacityTaskOutput {}
+export interface CancelCapacityTaskOutput {
+}
 export interface CancelOrderInput {
   OrderId: string;
 }
-export interface CancelOrderOutput {}
+export interface CancelOrderOutput {
+}
 export interface CapacityTaskFailure {
   Reason: string;
   Type?: CapacityTaskFailureType;
 }
-export type CapacityTaskFailureType =
-  | "UNSUPPORTED_CAPACITY_CONFIGURATION"
-  | "UNEXPECTED_ASSET_STATE"
-  | "BLOCKING_INSTANCES_NOT_EVACUATED"
-  | "INTERNAL_SERVER_ERROR"
-  | "RESOURCE_NOT_FOUND";
+export type CapacityTaskFailureType = "UNSUPPORTED_CAPACITY_CONFIGURATION" | "UNEXPECTED_ASSET_STATE" | "BLOCKING_INSTANCES_NOT_EVACUATED" | "INTERNAL_SERVER_ERROR" | "RESOURCE_NOT_FOUND";
 export type CapacityTaskId = string;
 
 export type CapacityTaskList = Array<CapacityTaskSummary>;
-export type CapacityTaskStatus =
-  | "REQUESTED"
-  | "IN_PROGRESS"
-  | "FAILED"
-  | "COMPLETED"
-  | "WAITING_FOR_EVACUATION"
-  | "CANCELLATION_IN_PROGRESS"
-  | "CANCELLED";
+export type CapacityTaskStatus = "REQUESTED" | "IN_PROGRESS" | "FAILED" | "COMPLETED" | "WAITING_FOR_EVACUATION" | "CANCELLATION_IN_PROGRESS" | "CANCELLED";
 export type CapacityTaskStatusList = Array<CapacityTaskStatus>;
 export type CapacityTaskStatusReason = string;
 
@@ -622,11 +418,13 @@ export type DecommissionRequestStatus = "SKIPPED" | "BLOCKED" | "REQUESTED";
 export interface DeleteOutpostInput {
   OutpostId: string;
 }
-export interface DeleteOutpostOutput {}
+export interface DeleteOutpostOutput {
+}
 export interface DeleteSiteInput {
   SiteId: string;
 }
-export interface DeleteSiteOutput {}
+export interface DeleteSiteOutput {
+}
 export type DeviceSerialNumber = string;
 
 export type DistrictOrCounty = string;
@@ -800,16 +598,7 @@ export interface LineItemRequest {
   Quantity?: number;
 }
 export type LineItemRequestListDefinition = Array<LineItemRequest>;
-export type LineItemStatus =
-  | "PREPARING"
-  | "BUILDING"
-  | "SHIPPED"
-  | "DELIVERED"
-  | "INSTALLING"
-  | "INSTALLED"
-  | "ERROR"
-  | "CANCELLED"
-  | "REPLACED";
+export type LineItemStatus = "PREPARING" | "BUILDING" | "SHIPPED" | "DELIVERED" | "INSTALLING" | "INSTALLED" | "ERROR" | "CANCELLED" | "REPLACED";
 export type LineItemStatusCounts = Record<LineItemStatus, number>;
 export interface ListAssetInstancesInput {
   OutpostIdentifier: string;
@@ -906,12 +695,7 @@ export interface ListTagsForResourceResponse {
 export type MacAddress = string;
 
 export type MacAddressList = Array<string>;
-export type MaximumSupportedWeightLbs =
-  | "NO_LIMIT"
-  | "MAX_1400_LBS"
-  | "MAX_1600_LBS"
-  | "MAX_1800_LBS"
-  | "MAX_2000_LBS";
+export type MaximumSupportedWeightLbs = "NO_LIMIT" | "MAX_1400_LBS" | "MAX_1600_LBS" | "MAX_1800_LBS" | "MAX_2000_LBS";
 export type MaxResults1000 = number;
 
 export type MaxSize = string;
@@ -927,20 +711,7 @@ export declare class NotFoundException extends EffectData.TaggedError(
 }> {}
 export type NullableDouble = number;
 
-export type OpticalStandard =
-  | "OPTIC_10GBASE_SR"
-  | "OPTIC_10GBASE_IR"
-  | "OPTIC_10GBASE_LR"
-  | "OPTIC_40GBASE_SR"
-  | "OPTIC_40GBASE_ESR"
-  | "OPTIC_40GBASE_IR4_LR4L"
-  | "OPTIC_40GBASE_LR4"
-  | "OPTIC_100GBASE_SR4"
-  | "OPTIC_100GBASE_CWDM4"
-  | "OPTIC_100GBASE_LR4"
-  | "OPTIC_100G_PSM4_MSA"
-  | "OPTIC_1000BASE_LX"
-  | "OPTIC_1000BASE_SX";
+export type OpticalStandard = "OPTIC_10GBASE_SR" | "OPTIC_10GBASE_IR" | "OPTIC_10GBASE_LR" | "OPTIC_40GBASE_SR" | "OPTIC_40GBASE_ESR" | "OPTIC_40GBASE_IR4_LR4L" | "OPTIC_40GBASE_LR4" | "OPTIC_100GBASE_SR4" | "OPTIC_100GBASE_CWDM4" | "OPTIC_100GBASE_LR4" | "OPTIC_100G_PSM4_MSA" | "OPTIC_1000BASE_LX" | "OPTIC_1000BASE_SX";
 export interface Order {
   OutpostId?: string;
   OrderId?: string;
@@ -955,18 +726,7 @@ export interface Order {
 export type OrderId = string;
 
 export type OrderIdList = Array<string>;
-export type OrderStatus =
-  | "RECEIVED"
-  | "PENDING"
-  | "PROCESSING"
-  | "INSTALLING"
-  | "FULFILLED"
-  | "CANCELLED"
-  | "PREPARING"
-  | "IN_PROGRESS"
-  | "DELIVERED"
-  | "COMPLETED"
-  | "ERROR";
+export type OrderStatus = "RECEIVED" | "PENDING" | "PROCESSING" | "INSTALLING" | "FULFILLED" | "CANCELLED" | "PREPARING" | "IN_PROGRESS" | "DELIVERED" | "COMPLETED" | "ERROR";
 export interface OrderSummary {
   OutpostId?: string;
   OrderId?: string;
@@ -1014,17 +774,8 @@ export type PaymentOption = "ALL_UPFRONT" | "NO_UPFRONT" | "PARTIAL_UPFRONT";
 export type PaymentTerm = "THREE_YEARS" | "ONE_YEAR" | "FIVE_YEARS";
 export type PostalCode = string;
 
-export type PowerConnector =
-  | "L6_30P"
-  | "IEC309"
-  | "AH530P7W"
-  | "AH532P6W"
-  | "CS8365C";
-export type PowerDrawKva =
-  | "POWER_5_KVA"
-  | "POWER_10_KVA"
-  | "POWER_15_KVA"
-  | "POWER_30_KVA";
+export type PowerConnector = "L6_30P" | "IEC309" | "AH530P7W" | "AH532P6W" | "CS8365C";
+export type PowerDrawKva = "POWER_5_KVA" | "POWER_10_KVA" | "POWER_15_KVA" | "POWER_30_KVA";
 export type PowerFeedDrop = "ABOVE_RACK" | "BELOW_RACK";
 export type PowerPhase = "SINGLE_PHASE" | "THREE_PHASE";
 export type Quantity = string;
@@ -1159,7 +910,8 @@ export interface TagResourceRequest {
   ResourceArn: string;
   Tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export type TaskActionOnBlockingInstances = "WAIT_FOR_EVACUATION" | "FAIL_TASK";
@@ -1173,7 +925,8 @@ export interface UntagResourceRequest {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateOutpostInput {
   OutpostId: string;
   Name?: string;
@@ -1216,22 +969,8 @@ export interface UpdateSiteRackPhysicalPropertiesInput {
 export interface UpdateSiteRackPhysicalPropertiesOutput {
   Site?: Site;
 }
-export type UplinkCount =
-  | "UPLINK_COUNT_1"
-  | "UPLINK_COUNT_2"
-  | "UPLINK_COUNT_3"
-  | "UPLINK_COUNT_4"
-  | "UPLINK_COUNT_5"
-  | "UPLINK_COUNT_6"
-  | "UPLINK_COUNT_7"
-  | "UPLINK_COUNT_8"
-  | "UPLINK_COUNT_12"
-  | "UPLINK_COUNT_16";
-export type UplinkGbps =
-  | "UPLINK_1G"
-  | "UPLINK_10G"
-  | "UPLINK_40G"
-  | "UPLINK_100G";
+export type UplinkCount = "UPLINK_COUNT_1" | "UPLINK_COUNT_2" | "UPLINK_COUNT_3" | "UPLINK_COUNT_4" | "UPLINK_COUNT_5" | "UPLINK_COUNT_6" | "UPLINK_COUNT_7" | "UPLINK_COUNT_8" | "UPLINK_COUNT_12" | "UPLINK_COUNT_16";
+export type UplinkGbps = "UPLINK_1G" | "UPLINK_10G" | "UPLINK_40G" | "UPLINK_100G";
 export type ValidateOnly = boolean;
 
 export declare class ValidationException extends EffectData.TaggedError(
@@ -1636,11 +1375,5 @@ export declare namespace UpdateSiteRackPhysicalProperties {
     | CommonAwsError;
 }
 
-export type OutpostsErrors =
-  | AccessDeniedException
-  | ConflictException
-  | InternalServerException
-  | NotFoundException
-  | ServiceQuotaExceededException
-  | ValidationException
-  | CommonAwsError;
+export type OutpostsErrors = AccessDeniedException | ConflictException | InternalServerException | NotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError;
+

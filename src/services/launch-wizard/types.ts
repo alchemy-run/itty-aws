@@ -1,40 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  AccessDeniedException,
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  ThrottlingException,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-} from "../../error.ts";
-type CommonAwsError =
-  | AccessDeniedException
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | ThrottlingException
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | ValidationException;
+import type { AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
+type CommonAwsError = AccessDeniedException | ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | ThrottlingException | UnrecognizedClientException | UnknownOperationException | ValidationError | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class LaunchWizard extends AWSServiceClient {
@@ -42,84 +8,55 @@ export declare class LaunchWizard extends AWSServiceClient {
     input: ListTagsForResourceInput,
   ): Effect.Effect<
     ListTagsForResourceOutput,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   tagResource(
     input: TagResourceInput,
   ): Effect.Effect<
     TagResourceOutput,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceInput,
   ): Effect.Effect<
     UntagResourceOutput,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   createDeployment(
     input: CreateDeploymentInput,
   ): Effect.Effect<
     CreateDeploymentOutput,
-    | InternalServerException
-    | ResourceLimitException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceLimitException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   deleteDeployment(
     input: DeleteDeploymentInput,
   ): Effect.Effect<
     DeleteDeploymentOutput,
-    | InternalServerException
-    | ResourceLimitException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceLimitException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   getDeployment(
     input: GetDeploymentInput,
   ): Effect.Effect<
     GetDeploymentOutput,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   getWorkload(
     input: GetWorkloadInput,
   ): Effect.Effect<
     GetWorkloadOutput,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   getWorkloadDeploymentPattern(
     input: GetWorkloadDeploymentPatternInput,
   ): Effect.Effect<
     GetWorkloadDeploymentPatternOutput,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   listDeploymentEvents(
     input: ListDeploymentEventsInput,
   ): Effect.Effect<
     ListDeploymentEventsOutput,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   listDeployments(
     input: ListDeploymentsInput,
@@ -131,10 +68,7 @@ export declare class LaunchWizard extends AWSServiceClient {
     input: ListWorkloadDeploymentPatternsInput,
   ): Effect.Effect<
     ListWorkloadDeploymentPatternsOutput,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   listWorkloads(
     input: ListWorkloadsInput,
@@ -220,27 +154,10 @@ export interface DeploymentSpecificationsField {
   required?: string;
   conditionals?: Array<DeploymentConditionalField>;
 }
-export type DeploymentStatus =
-  | "COMPLETED"
-  | "CREATING"
-  | "DELETE_IN_PROGRESS"
-  | "DELETE_INITIATING"
-  | "DELETE_FAILED"
-  | "DELETED"
-  | "FAILED"
-  | "IN_PROGRESS"
-  | "VALIDATING";
+export type DeploymentStatus = "COMPLETED" | "CREATING" | "DELETE_IN_PROGRESS" | "DELETE_INITIATING" | "DELETE_FAILED" | "DELETED" | "FAILED" | "IN_PROGRESS" | "VALIDATING";
 export type EventId = string;
 
-export type EventStatus =
-  | "CANCELED"
-  | "CANCELING"
-  | "COMPLETED"
-  | "CREATED"
-  | "FAILED"
-  | "IN_PROGRESS"
-  | "PENDING"
-  | "TIMED_OUT";
+export type EventStatus = "CANCELED" | "CANCELING" | "COMPLETED" | "CREATED" | "FAILED" | "IN_PROGRESS" | "PENDING" | "TIMED_OUT";
 export interface GetDeploymentInput {
   deploymentId: string;
 }
@@ -338,7 +255,8 @@ export interface TagResourceInput {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceOutput {}
+export interface TagResourceOutput {
+}
 export type Tags = Record<string, string>;
 export type TagValue = string;
 
@@ -346,7 +264,8 @@ export interface UntagResourceInput {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceOutput {}
+export interface UntagResourceOutput {
+}
 export declare class ValidationException extends EffectData.TaggedError(
   "ValidationException",
 )<{
@@ -387,13 +306,8 @@ export interface WorkloadDeploymentPatternDataSummary {
   status?: WorkloadDeploymentPatternStatus;
   statusMessage?: string;
 }
-export type WorkloadDeploymentPatternDataSummaryList =
-  Array<WorkloadDeploymentPatternDataSummary>;
-export type WorkloadDeploymentPatternStatus =
-  | "ACTIVE"
-  | "INACTIVE"
-  | "DISABLED"
-  | "DELETED";
+export type WorkloadDeploymentPatternDataSummaryList = Array<WorkloadDeploymentPatternDataSummary>;
+export type WorkloadDeploymentPatternStatus = "ACTIVE" | "INACTIVE" | "DISABLED" | "DELETED";
 export type WorkloadName = string;
 
 export type WorkloadStatus = "ACTIVE" | "INACTIVE" | "DISABLED" | "DELETED";
@@ -519,9 +433,5 @@ export declare namespace ListWorkloads {
     | CommonAwsError;
 }
 
-export type LaunchWizardErrors =
-  | InternalServerException
-  | ResourceLimitException
-  | ResourceNotFoundException
-  | ValidationException
-  | CommonAwsError;
+export type LaunchWizardErrors = InternalServerException | ResourceLimitException | ResourceNotFoundException | ValidationException | CommonAwsError;
+

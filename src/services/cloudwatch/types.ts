@@ -5,44 +5,33 @@ import { AWSServiceClient } from "../../client.ts";
 export declare class CloudWatch extends AWSServiceClient {
   deleteAlarms(
     input: DeleteAlarmsInput,
-  ): Effect.Effect<{}, ResourceNotFound | CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    ResourceNotFound | CommonAwsError
+  >;
   deleteAnomalyDetector(
     input: DeleteAnomalyDetectorInput,
   ): Effect.Effect<
     DeleteAnomalyDetectorOutput,
-    | InternalServiceFault
-    | InvalidParameterCombinationException
-    | InvalidParameterValueException
-    | MissingRequiredParameterException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServiceFault | InvalidParameterCombinationException | InvalidParameterValueException | MissingRequiredParameterException | ResourceNotFoundException | CommonAwsError
   >;
   deleteDashboards(
     input: DeleteDashboardsInput,
   ): Effect.Effect<
     DeleteDashboardsOutput,
-    | ConflictException
-    | DashboardNotFoundError
-    | InternalServiceFault
-    | InvalidParameterValueException
-    | CommonAwsError
+    ConflictException | DashboardNotFoundError | InternalServiceFault | InvalidParameterValueException | CommonAwsError
   >;
   deleteInsightRules(
     input: DeleteInsightRulesInput,
   ): Effect.Effect<
     DeleteInsightRulesOutput,
-    | InvalidParameterValueException
-    | MissingRequiredParameterException
-    | CommonAwsError
+    InvalidParameterValueException | MissingRequiredParameterException | CommonAwsError
   >;
   deleteMetricStream(
     input: DeleteMetricStreamInput,
   ): Effect.Effect<
     DeleteMetricStreamOutput,
-    | InternalServiceFault
-    | InvalidParameterValueException
-    | MissingRequiredParameterException
-    | CommonAwsError
+    InternalServiceFault | InvalidParameterValueException | MissingRequiredParameterException | CommonAwsError
   >;
   describeAlarmContributors(
     input: DescribeAlarmContributorsInput,
@@ -58,19 +47,21 @@ export declare class CloudWatch extends AWSServiceClient {
   >;
   describeAlarms(
     input: DescribeAlarmsInput,
-  ): Effect.Effect<DescribeAlarmsOutput, InvalidNextToken | CommonAwsError>;
+  ): Effect.Effect<
+    DescribeAlarmsOutput,
+    InvalidNextToken | CommonAwsError
+  >;
   describeAlarmsForMetric(
     input: DescribeAlarmsForMetricInput,
-  ): Effect.Effect<DescribeAlarmsForMetricOutput, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeAlarmsForMetricOutput,
+    CommonAwsError
+  >;
   describeAnomalyDetectors(
     input: DescribeAnomalyDetectorsInput,
   ): Effect.Effect<
     DescribeAnomalyDetectorsOutput,
-    | InternalServiceFault
-    | InvalidNextToken
-    | InvalidParameterCombinationException
-    | InvalidParameterValueException
-    | CommonAwsError
+    InternalServiceFault | InvalidNextToken | InvalidParameterCombinationException | InvalidParameterValueException | CommonAwsError
   >;
   describeInsightRules(
     input: DescribeInsightRulesInput,
@@ -80,72 +71,64 @@ export declare class CloudWatch extends AWSServiceClient {
   >;
   disableAlarmActions(
     input: DisableAlarmActionsInput,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   disableInsightRules(
     input: DisableInsightRulesInput,
   ): Effect.Effect<
     DisableInsightRulesOutput,
-    | InvalidParameterValueException
-    | MissingRequiredParameterException
-    | CommonAwsError
+    InvalidParameterValueException | MissingRequiredParameterException | CommonAwsError
   >;
   enableAlarmActions(
     input: EnableAlarmActionsInput,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    CommonAwsError
+  >;
   enableInsightRules(
     input: EnableInsightRulesInput,
   ): Effect.Effect<
     EnableInsightRulesOutput,
-    | InvalidParameterValueException
-    | LimitExceededException
-    | MissingRequiredParameterException
-    | CommonAwsError
+    InvalidParameterValueException | LimitExceededException | MissingRequiredParameterException | CommonAwsError
   >;
   getDashboard(
     input: GetDashboardInput,
   ): Effect.Effect<
     GetDashboardOutput,
-    | DashboardNotFoundError
-    | InternalServiceFault
-    | InvalidParameterValueException
-    | CommonAwsError
+    DashboardNotFoundError | InternalServiceFault | InvalidParameterValueException | CommonAwsError
   >;
   getInsightRuleReport(
     input: GetInsightRuleReportInput,
   ): Effect.Effect<
     GetInsightRuleReportOutput,
-    | InvalidParameterValueException
-    | MissingRequiredParameterException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InvalidParameterValueException | MissingRequiredParameterException | ResourceNotFoundException | CommonAwsError
   >;
   getMetricData(
     input: GetMetricDataInput,
-  ): Effect.Effect<GetMetricDataOutput, InvalidNextToken | CommonAwsError>;
+  ): Effect.Effect<
+    GetMetricDataOutput,
+    InvalidNextToken | CommonAwsError
+  >;
   getMetricStatistics(
     input: GetMetricStatisticsInput,
   ): Effect.Effect<
     GetMetricStatisticsOutput,
-    | InternalServiceFault
-    | InvalidParameterCombinationException
-    | InvalidParameterValueException
-    | MissingRequiredParameterException
-    | CommonAwsError
+    InternalServiceFault | InvalidParameterCombinationException | InvalidParameterValueException | MissingRequiredParameterException | CommonAwsError
   >;
   getMetricStream(
     input: GetMetricStreamInput,
   ): Effect.Effect<
     GetMetricStreamOutput,
-    | InternalServiceFault
-    | InvalidParameterCombinationException
-    | InvalidParameterValueException
-    | MissingRequiredParameterException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServiceFault | InvalidParameterCombinationException | InvalidParameterValueException | MissingRequiredParameterException | ResourceNotFoundException | CommonAwsError
   >;
   getMetricWidgetImage(
     input: GetMetricWidgetImageInput,
-  ): Effect.Effect<GetMetricWidgetImageOutput, CommonAwsError>;
+  ): Effect.Effect<
+    GetMetricWidgetImageOutput,
+    CommonAwsError
+  >;
   listDashboards(
     input: ListDashboardsInput,
   ): Effect.Effect<
@@ -156,10 +139,7 @@ export declare class CloudWatch extends AWSServiceClient {
     input: ListManagedInsightRulesInput,
   ): Effect.Effect<
     ListManagedInsightRulesOutput,
-    | InvalidNextToken
-    | InvalidParameterValueException
-    | MissingRequiredParameterException
-    | CommonAwsError
+    InvalidNextToken | InvalidParameterValueException | MissingRequiredParameterException | CommonAwsError
   >;
   listMetrics(
     input: ListMetricsInput,
@@ -171,127 +151,91 @@ export declare class CloudWatch extends AWSServiceClient {
     input: ListMetricStreamsInput,
   ): Effect.Effect<
     ListMetricStreamsOutput,
-    | InternalServiceFault
-    | InvalidNextToken
-    | InvalidParameterValueException
-    | MissingRequiredParameterException
-    | CommonAwsError
+    InternalServiceFault | InvalidNextToken | InvalidParameterValueException | MissingRequiredParameterException | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceInput,
   ): Effect.Effect<
     ListTagsForResourceOutput,
-    | InternalServiceFault
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InternalServiceFault | InvalidParameterValueException | ResourceNotFoundException | CommonAwsError
   >;
   putAnomalyDetector(
     input: PutAnomalyDetectorInput,
   ): Effect.Effect<
     PutAnomalyDetectorOutput,
-    | InternalServiceFault
-    | InvalidParameterCombinationException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | MissingRequiredParameterException
-    | CommonAwsError
+    InternalServiceFault | InvalidParameterCombinationException | InvalidParameterValueException | LimitExceededException | MissingRequiredParameterException | CommonAwsError
   >;
   putCompositeAlarm(
     input: PutCompositeAlarmInput,
-  ): Effect.Effect<{}, LimitExceededFault | CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    LimitExceededFault | CommonAwsError
+  >;
   putDashboard(
     input: PutDashboardInput,
   ): Effect.Effect<
     PutDashboardOutput,
-    | ConflictException
-    | DashboardInvalidInputError
-    | InternalServiceFault
-    | CommonAwsError
+    ConflictException | DashboardInvalidInputError | InternalServiceFault | CommonAwsError
   >;
   putInsightRule(
     input: PutInsightRuleInput,
   ): Effect.Effect<
     PutInsightRuleOutput,
-    | InvalidParameterValueException
-    | LimitExceededException
-    | MissingRequiredParameterException
-    | CommonAwsError
+    InvalidParameterValueException | LimitExceededException | MissingRequiredParameterException | CommonAwsError
   >;
   putManagedInsightRules(
     input: PutManagedInsightRulesInput,
   ): Effect.Effect<
     PutManagedInsightRulesOutput,
-    | InvalidParameterValueException
-    | MissingRequiredParameterException
-    | CommonAwsError
+    InvalidParameterValueException | MissingRequiredParameterException | CommonAwsError
   >;
   putMetricAlarm(
     input: PutMetricAlarmInput,
-  ): Effect.Effect<{}, LimitExceededFault | CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    LimitExceededFault | CommonAwsError
+  >;
   putMetricData(
     input: PutMetricDataInput,
   ): Effect.Effect<
     {},
-    | InternalServiceFault
-    | InvalidParameterCombinationException
-    | InvalidParameterValueException
-    | MissingRequiredParameterException
-    | CommonAwsError
+    InternalServiceFault | InvalidParameterCombinationException | InvalidParameterValueException | MissingRequiredParameterException | CommonAwsError
   >;
   putMetricStream(
     input: PutMetricStreamInput,
   ): Effect.Effect<
     PutMetricStreamOutput,
-    | ConcurrentModificationException
-    | InternalServiceFault
-    | InvalidParameterCombinationException
-    | InvalidParameterValueException
-    | MissingRequiredParameterException
-    | CommonAwsError
+    ConcurrentModificationException | InternalServiceFault | InvalidParameterCombinationException | InvalidParameterValueException | MissingRequiredParameterException | CommonAwsError
   >;
   setAlarmState(
     input: SetAlarmStateInput,
-  ): Effect.Effect<{}, InvalidFormatFault | ResourceNotFound | CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    InvalidFormatFault | ResourceNotFound | CommonAwsError
+  >;
   startMetricStreams(
     input: StartMetricStreamsInput,
   ): Effect.Effect<
     StartMetricStreamsOutput,
-    | InternalServiceFault
-    | InvalidParameterValueException
-    | MissingRequiredParameterException
-    | CommonAwsError
+    InternalServiceFault | InvalidParameterValueException | MissingRequiredParameterException | CommonAwsError
   >;
   stopMetricStreams(
     input: StopMetricStreamsInput,
   ): Effect.Effect<
     StopMetricStreamsOutput,
-    | InternalServiceFault
-    | InvalidParameterValueException
-    | MissingRequiredParameterException
-    | CommonAwsError
+    InternalServiceFault | InvalidParameterValueException | MissingRequiredParameterException | CommonAwsError
   >;
   tagResource(
     input: TagResourceInput,
   ): Effect.Effect<
     TagResourceOutput,
-    | ConcurrentModificationException
-    | ConflictException
-    | InternalServiceFault
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | CommonAwsError
+    ConcurrentModificationException | ConflictException | InternalServiceFault | InvalidParameterValueException | ResourceNotFoundException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceInput,
   ): Effect.Effect<
     UntagResourceOutput,
-    | ConcurrentModificationException
-    | ConflictException
-    | InternalServiceFault
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | CommonAwsError
+    ConcurrentModificationException | ConflictException | InternalServiceFault | InvalidParameterValueException | ResourceNotFoundException | CommonAwsError
   >;
 }
 
@@ -360,10 +304,7 @@ export type AnomalyDetectorMetricStat = string;
 export type AnomalyDetectorMetricTimezone = string;
 
 export type AnomalyDetectors = Array<AnomalyDetector>;
-export type AnomalyDetectorStateValue =
-  | "PENDING_TRAINING"
-  | "TRAINED_INSUFFICIENT_DATA"
-  | "TRAINED";
+export type AnomalyDetectorStateValue = "PENDING_TRAINING" | "TRAINED_INSUFFICIENT_DATA" | "TRAINED";
 export type AnomalyDetectorType = "SINGLE_METRIC" | "METRIC_MATH";
 export type AnomalyDetectorTypes = Array<AnomalyDetectorType>;
 export type AttributeName = string;
@@ -373,14 +314,7 @@ export type AttributeValue = string;
 export type AwsQueryErrorMessage = string;
 
 export type BatchFailures = Array<PartialFailure>;
-export type ComparisonOperator =
-  | "GreaterThanOrEqualToThreshold"
-  | "GreaterThanThreshold"
-  | "LessThanThreshold"
-  | "LessThanOrEqualToThreshold"
-  | "LessThanLowerOrGreaterThanUpperThreshold"
-  | "LessThanLowerThreshold"
-  | "GreaterThanUpperThreshold";
+export type ComparisonOperator = "GreaterThanOrEqualToThreshold" | "GreaterThanThreshold" | "LessThanThreshold" | "LessThanOrEqualToThreshold" | "LessThanLowerOrGreaterThanUpperThreshold" | "LessThanLowerThreshold" | "GreaterThanUpperThreshold";
 export interface CompositeAlarm {
   ActionsEnabled?: boolean;
   AlarmActions?: Array<string>;
@@ -481,11 +415,13 @@ export interface DeleteAnomalyDetectorInput {
   SingleMetricAnomalyDetector?: SingleMetricAnomalyDetector;
   MetricMathAnomalyDetector?: MetricMathAnomalyDetector;
 }
-export interface DeleteAnomalyDetectorOutput {}
+export interface DeleteAnomalyDetectorOutput {
+}
 export interface DeleteDashboardsInput {
   DashboardNames: Array<string>;
 }
-export interface DeleteDashboardsOutput {}
+export interface DeleteDashboardsOutput {
+}
 export interface DeleteInsightRulesInput {
   RuleNames: Array<string>;
 }
@@ -495,7 +431,8 @@ export interface DeleteInsightRulesOutput {
 export interface DeleteMetricStreamInput {
   Name: string;
 }
-export interface DeleteMetricStreamOutput {}
+export interface DeleteMetricStreamOutput {
+}
 export interface DescribeAlarmContributorsInput {
   AlarmName: string;
   NextToken?: string;
@@ -722,12 +659,7 @@ export interface GetMetricWidgetImageOutput {
 }
 export type HistoryData = string;
 
-export type HistoryItemType =
-  | "ConfigurationUpdate"
-  | "StateUpdate"
-  | "Action"
-  | "AlarmContributorStateUpdate"
-  | "AlarmContributorAction";
+export type HistoryItemType = "ConfigurationUpdate" | "StateUpdate" | "Action" | "AlarmContributorStateUpdate" | "AlarmContributorAction";
 export type HistorySummary = string;
 
 export type IncludeLinkedAccounts = boolean;
@@ -753,8 +685,7 @@ export interface InsightRuleContributorDatapoint {
   Timestamp: Date | string;
   ApproximateValue: number;
 }
-export type InsightRuleContributorDatapoints =
-  Array<InsightRuleContributorDatapoint>;
+export type InsightRuleContributorDatapoints = Array<InsightRuleContributorDatapoint>;
 export type InsightRuleContributorKey = string;
 
 export type InsightRuleContributorKeyLabel = string;
@@ -1026,10 +957,7 @@ export type MetricStreamFilters = Array<MetricStreamFilter>;
 export type MetricStreamName = string;
 
 export type MetricStreamNames = Array<string>;
-export type MetricStreamOutputFormat =
-  | "json"
-  | "opentelemetry0.7"
-  | "opentelemetry1.0";
+export type MetricStreamOutputFormat = "json" | "opentelemetry0.7" | "opentelemetry1.0";
 export type MetricStreamState = string;
 
 export type MetricStreamStatistic = string;
@@ -1039,10 +967,8 @@ export interface MetricStreamStatisticsConfiguration {
   IncludeMetrics: Array<MetricStreamStatisticsMetric>;
   AdditionalStatistics: Array<string>;
 }
-export type MetricStreamStatisticsConfigurations =
-  Array<MetricStreamStatisticsConfiguration>;
-export type MetricStreamStatisticsIncludeMetrics =
-  Array<MetricStreamStatisticsMetric>;
+export type MetricStreamStatisticsConfigurations = Array<MetricStreamStatisticsConfiguration>;
+export type MetricStreamStatisticsIncludeMetrics = Array<MetricStreamStatisticsMetric>;
 export interface MetricStreamStatisticsMetric {
   Namespace: string;
   MetricName: string;
@@ -1083,7 +1009,8 @@ export interface PutAnomalyDetectorInput {
   SingleMetricAnomalyDetector?: SingleMetricAnomalyDetector;
   MetricMathAnomalyDetector?: MetricMathAnomalyDetector;
 }
-export interface PutAnomalyDetectorOutput {}
+export interface PutAnomalyDetectorOutput {
+}
 export interface PutCompositeAlarmInput {
   ActionsEnabled?: boolean;
   AlarmActions?: Array<string>;
@@ -1111,7 +1038,8 @@ export interface PutInsightRuleInput {
   Tags?: Array<Tag>;
   ApplyOnTransformedLogs?: boolean;
 }
-export interface PutInsightRuleOutput {}
+export interface PutInsightRuleOutput {
+}
 export interface PutManagedInsightRulesInput {
   ManagedRules: Array<ManagedRule>;
 }
@@ -1204,38 +1132,12 @@ export interface SingleMetricAnomalyDetector {
 }
 export type Size = number;
 
-export type StandardUnit =
-  | "Seconds"
-  | "Microseconds"
-  | "Milliseconds"
-  | "Bytes"
-  | "Kilobytes"
-  | "Megabytes"
-  | "Gigabytes"
-  | "Terabytes"
-  | "Bits"
-  | "Kilobits"
-  | "Megabits"
-  | "Gigabits"
-  | "Terabits"
-  | "Percent"
-  | "Count"
-  | "Bytes/Second"
-  | "Kilobytes/Second"
-  | "Megabytes/Second"
-  | "Gigabytes/Second"
-  | "Terabytes/Second"
-  | "Bits/Second"
-  | "Kilobits/Second"
-  | "Megabits/Second"
-  | "Gigabits/Second"
-  | "Terabits/Second"
-  | "Count/Second"
-  | "None";
+export type StandardUnit = "Seconds" | "Microseconds" | "Milliseconds" | "Bytes" | "Kilobytes" | "Megabytes" | "Gigabytes" | "Terabytes" | "Bits" | "Kilobits" | "Megabits" | "Gigabits" | "Terabits" | "Percent" | "Count" | "Bytes/Second" | "Kilobytes/Second" | "Megabytes/Second" | "Gigabytes/Second" | "Terabytes/Second" | "Bits/Second" | "Kilobits/Second" | "Megabits/Second" | "Gigabits/Second" | "Terabits/Second" | "Count/Second" | "None";
 export interface StartMetricStreamsInput {
   Names: Array<string>;
 }
-export interface StartMetricStreamsOutput {}
+export interface StartMetricStreamsOutput {
+}
 export type Stat = string;
 
 export type StateReason = string;
@@ -1243,12 +1145,7 @@ export type StateReason = string;
 export type StateReasonData = string;
 
 export type StateValue = "OK" | "ALARM" | "INSUFFICIENT_DATA";
-export type Statistic =
-  | "SampleCount"
-  | "Average"
-  | "Sum"
-  | "Minimum"
-  | "Maximum";
+export type Statistic = "SampleCount" | "Average" | "Sum" | "Minimum" | "Maximum";
 export type Statistics = Array<Statistic>;
 export interface StatisticSet {
   SampleCount: number;
@@ -1256,15 +1153,12 @@ export interface StatisticSet {
   Minimum: number;
   Maximum: number;
 }
-export type StatusCode =
-  | "Complete"
-  | "InternalError"
-  | "PartialData"
-  | "Forbidden";
+export type StatusCode = "Complete" | "InternalError" | "PartialData" | "Forbidden";
 export interface StopMetricStreamsInput {
   Names: Array<string>;
 }
-export interface StopMetricStreamsOutput {}
+export interface StopMetricStreamsOutput {
+}
 export type StorageResolution = number;
 
 export type StrictEntityValidation = boolean;
@@ -1283,7 +1177,8 @@ export interface TagResourceInput {
   ResourceARN: string;
   Tags: Array<Tag>;
 }
-export interface TagResourceOutput {}
+export interface TagResourceOutput {
+}
 export type TagValue = string;
 
 export type TemplateName = string;
@@ -1299,12 +1194,15 @@ export interface UntagResourceInput {
   ResourceARN: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceOutput {}
+export interface UntagResourceOutput {
+}
 export type Values = Array<number>;
 export declare namespace DeleteAlarms {
   export type Input = DeleteAlarmsInput;
   export type Output = {};
-  export type Error = ResourceNotFound | CommonAwsError;
+  export type Error =
+    | ResourceNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DeleteAnomalyDetector {
@@ -1361,19 +1259,24 @@ export declare namespace DescribeAlarmContributors {
 export declare namespace DescribeAlarmHistory {
   export type Input = DescribeAlarmHistoryInput;
   export type Output = DescribeAlarmHistoryOutput;
-  export type Error = InvalidNextToken | CommonAwsError;
+  export type Error =
+    | InvalidNextToken
+    | CommonAwsError;
 }
 
 export declare namespace DescribeAlarms {
   export type Input = DescribeAlarmsInput;
   export type Output = DescribeAlarmsOutput;
-  export type Error = InvalidNextToken | CommonAwsError;
+  export type Error =
+    | InvalidNextToken
+    | CommonAwsError;
 }
 
 export declare namespace DescribeAlarmsForMetric {
   export type Input = DescribeAlarmsForMetricInput;
   export type Output = DescribeAlarmsForMetricOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DescribeAnomalyDetectors {
@@ -1390,13 +1293,16 @@ export declare namespace DescribeAnomalyDetectors {
 export declare namespace DescribeInsightRules {
   export type Input = DescribeInsightRulesInput;
   export type Output = DescribeInsightRulesOutput;
-  export type Error = InvalidNextToken | CommonAwsError;
+  export type Error =
+    | InvalidNextToken
+    | CommonAwsError;
 }
 
 export declare namespace DisableAlarmActions {
   export type Input = DisableAlarmActionsInput;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace DisableInsightRules {
@@ -1411,7 +1317,8 @@ export declare namespace DisableInsightRules {
 export declare namespace EnableAlarmActions {
   export type Input = EnableAlarmActionsInput;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace EnableInsightRules {
@@ -1447,7 +1354,9 @@ export declare namespace GetInsightRuleReport {
 export declare namespace GetMetricData {
   export type Input = GetMetricDataInput;
   export type Output = GetMetricDataOutput;
-  export type Error = InvalidNextToken | CommonAwsError;
+  export type Error =
+    | InvalidNextToken
+    | CommonAwsError;
 }
 
 export declare namespace GetMetricStatistics {
@@ -1476,7 +1385,8 @@ export declare namespace GetMetricStream {
 export declare namespace GetMetricWidgetImage {
   export type Input = GetMetricWidgetImageInput;
   export type Output = GetMetricWidgetImageOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | CommonAwsError;
 }
 
 export declare namespace ListDashboards {
@@ -1543,7 +1453,9 @@ export declare namespace PutAnomalyDetector {
 export declare namespace PutCompositeAlarm {
   export type Input = PutCompositeAlarmInput;
   export type Output = {};
-  export type Error = LimitExceededFault | CommonAwsError;
+  export type Error =
+    | LimitExceededFault
+    | CommonAwsError;
 }
 
 export declare namespace PutDashboard {
@@ -1578,7 +1490,9 @@ export declare namespace PutManagedInsightRules {
 export declare namespace PutMetricAlarm {
   export type Input = PutMetricAlarmInput;
   export type Output = {};
-  export type Error = LimitExceededFault | CommonAwsError;
+  export type Error =
+    | LimitExceededFault
+    | CommonAwsError;
 }
 
 export declare namespace PutMetricData {
@@ -1607,7 +1521,10 @@ export declare namespace PutMetricStream {
 export declare namespace SetAlarmState {
   export type Input = SetAlarmStateInput;
   export type Output = {};
-  export type Error = InvalidFormatFault | ResourceNotFound | CommonAwsError;
+  export type Error =
+    | InvalidFormatFault
+    | ResourceNotFound
+    | CommonAwsError;
 }
 
 export declare namespace StartMetricStreams {
@@ -1654,19 +1571,5 @@ export declare namespace UntagResource {
     | CommonAwsError;
 }
 
-export type CloudWatchErrors =
-  | ConcurrentModificationException
-  | ConflictException
-  | DashboardInvalidInputError
-  | DashboardNotFoundError
-  | InternalServiceFault
-  | InvalidFormatFault
-  | InvalidNextToken
-  | InvalidParameterCombinationException
-  | InvalidParameterValueException
-  | LimitExceededException
-  | LimitExceededFault
-  | MissingRequiredParameterException
-  | ResourceNotFound
-  | ResourceNotFoundException
-  | CommonAwsError;
+export type CloudWatchErrors = ConcurrentModificationException | ConflictException | DashboardInvalidInputError | DashboardNotFoundError | InternalServiceFault | InvalidFormatFault | InvalidNextToken | InvalidParameterCombinationException | InvalidParameterValueException | LimitExceededException | LimitExceededFault | MissingRequiredParameterException | ResourceNotFound | ResourceNotFoundException | CommonAwsError;
+

@@ -5,26 +5,7 @@ import type { Polly as _PollyClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {
-  AccessDeniedException,
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  ThrottlingException,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-  ValidationException,
-  type CommonAwsError,
-} from "../../error.ts";
+export {AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException, type CommonAwsError} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -34,20 +15,20 @@ const metadata = {
   sigV4ServiceName: "polly",
   endpointPrefix: "polly",
   operations: {
-    DeleteLexicon: "DELETE /v1/lexicons/{Name}",
-    DescribeVoices: "GET /v1/voices",
-    GetLexicon: "GET /v1/lexicons/{Name}",
-    GetSpeechSynthesisTask: "GET /v1/synthesisTasks/{TaskId}",
-    ListLexicons: "GET /v1/lexicons",
-    ListSpeechSynthesisTasks: "GET /v1/synthesisTasks",
-    PutLexicon: "PUT /v1/lexicons/{Name}",
-    StartSpeechSynthesisTask: "POST /v1/synthesisTasks",
-    SynthesizeSpeech: {
+    "DeleteLexicon": "DELETE /v1/lexicons/{Name}",
+    "DescribeVoices": "GET /v1/voices",
+    "GetLexicon": "GET /v1/lexicons/{Name}",
+    "GetSpeechSynthesisTask": "GET /v1/synthesisTasks/{TaskId}",
+    "ListLexicons": "GET /v1/lexicons",
+    "ListSpeechSynthesisTasks": "GET /v1/synthesisTasks",
+    "PutLexicon": "PUT /v1/lexicons/{Name}",
+    "StartSpeechSynthesisTask": "POST /v1/synthesisTasks",
+    "SynthesizeSpeech": {
       http: "POST /v1/speech",
       traits: {
-        AudioStream: "httpPayload",
-        ContentType: "Content-Type",
-        RequestCharacters: "x-amzn-RequestCharacters",
+        "AudioStream": "httpPayload",
+        "ContentType": "Content-Type",
+        "RequestCharacters": "x-amzn-RequestCharacters",
       },
     },
   },

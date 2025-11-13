@@ -1,40 +1,7 @@
 import type { Effect, Stream, Data as EffectData } from "effect";
 import type { ResponseError } from "@effect/platform/HttpClientError";
-import type {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-  ValidationException,
-} from "../../error.ts";
-type CommonAwsError =
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | ValidationException
-  | AccessDeniedException
-  | ThrottlingException;
+import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException } from "../../error.ts";
+type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | ValidationException | AccessDeniedException | ThrottlingException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class QuickSight extends AWSServiceClient {
@@ -42,2824 +9,1351 @@ export declare class QuickSight extends AWSServiceClient {
     input: BatchCreateTopicReviewedAnswerRequest,
   ): Effect.Effect<
     BatchCreateTopicReviewedAnswerResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   batchDeleteTopicReviewedAnswer(
     input: BatchDeleteTopicReviewedAnswerRequest,
   ): Effect.Effect<
     BatchDeleteTopicReviewedAnswerResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   cancelIngestion(
     input: CancelIngestionRequest,
   ): Effect.Effect<
     CancelIngestionResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   createAccountCustomization(
     input: CreateAccountCustomizationRequest,
   ): Effect.Effect<
     CreateAccountCustomizationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | ResourceExistsException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   >;
   createAccountSubscription(
     input: CreateAccountSubscriptionRequest,
   ): Effect.Effect<
     CreateAccountSubscriptionResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | PreconditionNotMetException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | PreconditionNotMetException | ResourceExistsException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   >;
   createActionConnector(
     input: CreateActionConnectorRequest,
   ): Effect.Effect<
     CreateActionConnectorResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceExistsException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | ResourceExistsException | ThrottlingException | CommonAwsError
   >;
   createAnalysis(
     input: CreateAnalysisRequest,
   ): Effect.Effect<
     CreateAnalysisResponse,
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    ConflictException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   createBrand(
     input: CreateBrandRequest,
   ): Effect.Effect<
     CreateBrandResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | InvalidRequestException
-    | LimitExceededException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | InvalidRequestException | LimitExceededException | ThrottlingException | CommonAwsError
   >;
   createCustomPermissions(
     input: CreateCustomPermissionsRequest,
   ): Effect.Effect<
     CreateCustomPermissionsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | PreconditionNotMetException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | LimitExceededException | PreconditionNotMetException | ResourceExistsException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   >;
   createDashboard(
     input: CreateDashboardRequest,
   ): Effect.Effect<
     CreateDashboardResponse,
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    ConflictException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   createDataSet(
     input: CreateDataSetRequest,
   ): Effect.Effect<
     CreateDataSetResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   createDataSource(
     input: CreateDataSourceRequest,
   ): Effect.Effect<
     CreateDataSourceResponse,
-    | AccessDeniedException
-    | ConflictException
-    | CustomerManagedKeyUnavailableException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | CustomerManagedKeyUnavailableException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   createFolder(
     input: CreateFolderRequest,
   ): Effect.Effect<
     CreateFolderResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   createFolderMembership(
     input: CreateFolderMembershipRequest,
   ): Effect.Effect<
     CreateFolderMembershipResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   createGroup(
     input: CreateGroupRequest,
   ): Effect.Effect<
     CreateGroupResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | PreconditionNotMetException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | LimitExceededException | PreconditionNotMetException | ResourceExistsException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   >;
   createGroupMembership(
     input: CreateGroupMembershipRequest,
   ): Effect.Effect<
     CreateGroupMembershipResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | PreconditionNotMetException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   >;
   createIAMPolicyAssignment(
     input: CreateIAMPolicyAssignmentRequest,
   ): Effect.Effect<
     CreateIAMPolicyAssignmentResponse,
-    | AccessDeniedException
-    | ConcurrentUpdatingException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConcurrentUpdatingException | InternalFailureException | InvalidParameterValueException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   createIngestion(
     input: CreateIngestionRequest,
   ): Effect.Effect<
     CreateIngestionResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   createNamespace(
     input: CreateNamespaceRequest,
   ): Effect.Effect<
     CreateNamespaceResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | PreconditionNotMetException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | LimitExceededException | PreconditionNotMetException | ResourceExistsException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   >;
   createRefreshSchedule(
     input: CreateRefreshScheduleRequest,
   ): Effect.Effect<
     CreateRefreshScheduleResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | PreconditionNotMetException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | LimitExceededException | PreconditionNotMetException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   createRoleMembership(
     input: CreateRoleMembershipRequest,
   ): Effect.Effect<
     CreateRoleMembershipResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | PreconditionNotMetException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   >;
   createTemplate(
     input: CreateTemplateRequest,
   ): Effect.Effect<
     CreateTemplateResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   createTemplateAlias(
     input: CreateTemplateAliasRequest,
   ): Effect.Effect<
     CreateTemplateAliasResponse,
-    | ConflictException
-    | InternalFailureException
-    | LimitExceededException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    ConflictException | InternalFailureException | LimitExceededException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   createTheme(
     input: CreateThemeRequest,
   ): Effect.Effect<
     CreateThemeResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   createThemeAlias(
     input: CreateThemeAliasRequest,
   ): Effect.Effect<
     CreateThemeAliasResponse,
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    ConflictException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   createTopic(
     input: CreateTopicRequest,
   ): Effect.Effect<
     CreateTopicResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   createTopicRefreshSchedule(
     input: CreateTopicRefreshScheduleRequest,
   ): Effect.Effect<
     CreateTopicRefreshScheduleResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   createVPCConnection(
     input: CreateVPCConnectionRequest,
   ): Effect.Effect<
     CreateVPCConnectionResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceExistsException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceExistsException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   deleteAccountCustomization(
     input: DeleteAccountCustomizationRequest,
   ): Effect.Effect<
     DeleteAccountCustomizationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | LimitExceededException | PreconditionNotMetException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   >;
   deleteAccountCustomPermission(
     input: DeleteAccountCustomPermissionRequest,
   ): Effect.Effect<
     DeleteAccountCustomPermissionResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   deleteAccountSubscription(
     input: DeleteAccountSubscriptionRequest,
   ): Effect.Effect<
     DeleteAccountSubscriptionResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | PreconditionNotMetException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   >;
   deleteActionConnector(
     input: DeleteActionConnectorRequest,
   ): Effect.Effect<
     DeleteActionConnectorResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   deleteAnalysis(
     input: DeleteAnalysisRequest,
   ): Effect.Effect<
     DeleteAnalysisResponse,
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    ConflictException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   deleteBrand(
     input: DeleteBrandRequest,
   ): Effect.Effect<
     DeleteBrandResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   deleteBrandAssignment(
     input: DeleteBrandAssignmentRequest,
   ): Effect.Effect<
     DeleteBrandAssignmentResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   deleteCustomPermissions(
     input: DeleteCustomPermissionsRequest,
   ): Effect.Effect<
     DeleteCustomPermissionsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | PreconditionNotMetException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | PreconditionNotMetException | ResourceExistsException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   >;
   deleteDashboard(
     input: DeleteDashboardRequest,
   ): Effect.Effect<
     DeleteDashboardResponse,
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    ConflictException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   deleteDataSet(
     input: DeleteDataSetRequest,
   ): Effect.Effect<
     DeleteDataSetResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   deleteDataSetRefreshProperties(
     input: DeleteDataSetRefreshPropertiesRequest,
   ): Effect.Effect<
     DeleteDataSetRefreshPropertiesResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   deleteDataSource(
     input: DeleteDataSourceRequest,
   ): Effect.Effect<
     DeleteDataSourceResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   deleteDefaultQBusinessApplication(
     input: DeleteDefaultQBusinessApplicationRequest,
   ): Effect.Effect<
     DeleteDefaultQBusinessApplicationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   deleteFolder(
     input: DeleteFolderRequest,
   ): Effect.Effect<
     DeleteFolderResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | PreconditionNotMetException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   deleteFolderMembership(
     input: DeleteFolderMembershipRequest,
   ): Effect.Effect<
     DeleteFolderMembershipResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   deleteGroup(
     input: DeleteGroupRequest,
   ): Effect.Effect<
     DeleteGroupResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | PreconditionNotMetException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   >;
   deleteGroupMembership(
     input: DeleteGroupMembershipRequest,
   ): Effect.Effect<
     DeleteGroupMembershipResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | PreconditionNotMetException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   >;
   deleteIAMPolicyAssignment(
     input: DeleteIAMPolicyAssignmentRequest,
   ): Effect.Effect<
     DeleteIAMPolicyAssignmentResponse,
-    | AccessDeniedException
-    | ConcurrentUpdatingException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConcurrentUpdatingException | InternalFailureException | InvalidParameterValueException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   deleteIdentityPropagationConfig(
     input: DeleteIdentityPropagationConfigRequest,
   ): Effect.Effect<
     DeleteIdentityPropagationConfigResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   deleteNamespace(
     input: DeleteNamespaceRequest,
   ): Effect.Effect<
     DeleteNamespaceResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | PreconditionNotMetException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   >;
   deleteRefreshSchedule(
     input: DeleteRefreshScheduleRequest,
   ): Effect.Effect<
     DeleteRefreshScheduleResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   deleteRoleCustomPermission(
     input: DeleteRoleCustomPermissionRequest,
   ): Effect.Effect<
     DeleteRoleCustomPermissionResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | PreconditionNotMetException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   >;
   deleteRoleMembership(
     input: DeleteRoleMembershipRequest,
   ): Effect.Effect<
     DeleteRoleMembershipResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | PreconditionNotMetException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   >;
   deleteTemplate(
     input: DeleteTemplateRequest,
   ): Effect.Effect<
     DeleteTemplateResponse,
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    ConflictException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   deleteTemplateAlias(
     input: DeleteTemplateAliasRequest,
   ): Effect.Effect<
     DeleteTemplateAliasResponse,
-    | ConflictException
-    | InternalFailureException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    ConflictException | InternalFailureException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   deleteTheme(
     input: DeleteThemeRequest,
   ): Effect.Effect<
     DeleteThemeResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   deleteThemeAlias(
     input: DeleteThemeAliasRequest,
   ): Effect.Effect<
     DeleteThemeAliasResponse,
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    ConflictException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   deleteTopic(
     input: DeleteTopicRequest,
   ): Effect.Effect<
     DeleteTopicResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   deleteTopicRefreshSchedule(
     input: DeleteTopicRefreshScheduleRequest,
   ): Effect.Effect<
     DeleteTopicRefreshScheduleResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   deleteUser(
     input: DeleteUserRequest,
   ): Effect.Effect<
     DeleteUserResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | PreconditionNotMetException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   >;
   deleteUserByPrincipalId(
     input: DeleteUserByPrincipalIdRequest,
   ): Effect.Effect<
     DeleteUserByPrincipalIdResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | PreconditionNotMetException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   >;
   deleteUserCustomPermission(
     input: DeleteUserCustomPermissionRequest,
   ): Effect.Effect<
     DeleteUserCustomPermissionResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | PreconditionNotMetException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   >;
   deleteVPCConnection(
     input: DeleteVPCConnectionRequest,
   ): Effect.Effect<
     DeleteVPCConnectionResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   describeAccountCustomization(
     input: DescribeAccountCustomizationRequest,
   ): Effect.Effect<
     DescribeAccountCustomizationResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   >;
   describeAccountCustomPermission(
     input: DescribeAccountCustomPermissionRequest,
   ): Effect.Effect<
     DescribeAccountCustomPermissionResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   describeAccountSettings(
     input: DescribeAccountSettingsRequest,
   ): Effect.Effect<
     DescribeAccountSettingsResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   >;
   describeAccountSubscription(
     input: DescribeAccountSubscriptionRequest,
   ): Effect.Effect<
     DescribeAccountSubscriptionResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   >;
   describeActionConnector(
     input: DescribeActionConnectorRequest,
   ): Effect.Effect<
     DescribeActionConnectorResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   describeActionConnectorPermissions(
     input: DescribeActionConnectorPermissionsRequest,
   ): Effect.Effect<
     DescribeActionConnectorPermissionsResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   describeAnalysis(
     input: DescribeAnalysisRequest,
   ): Effect.Effect<
     DescribeAnalysisResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   describeAnalysisDefinition(
     input: DescribeAnalysisDefinitionRequest,
   ): Effect.Effect<
     DescribeAnalysisDefinitionResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   describeAnalysisPermissions(
     input: DescribeAnalysisPermissionsRequest,
   ): Effect.Effect<
     DescribeAnalysisPermissionsResponse,
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   describeAssetBundleExportJob(
     input: DescribeAssetBundleExportJobRequest,
   ): Effect.Effect<
     DescribeAssetBundleExportJobResponse,
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   describeAssetBundleImportJob(
     input: DescribeAssetBundleImportJobRequest,
   ): Effect.Effect<
     DescribeAssetBundleImportJobResponse,
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   describeBrand(
     input: DescribeBrandRequest,
   ): Effect.Effect<
     DescribeBrandResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   describeBrandAssignment(
     input: DescribeBrandAssignmentRequest,
   ): Effect.Effect<
     DescribeBrandAssignmentResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   describeBrandPublishedVersion(
     input: DescribeBrandPublishedVersionRequest,
   ): Effect.Effect<
     DescribeBrandPublishedVersionResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   describeCustomPermissions(
     input: DescribeCustomPermissionsRequest,
   ): Effect.Effect<
     DescribeCustomPermissionsResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | PreconditionNotMetException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   >;
   describeDashboard(
     input: DescribeDashboardRequest,
   ): Effect.Effect<
     DescribeDashboardResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   describeDashboardDefinition(
     input: DescribeDashboardDefinitionRequest,
   ): Effect.Effect<
     DescribeDashboardDefinitionResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   describeDashboardPermissions(
     input: DescribeDashboardPermissionsRequest,
   ): Effect.Effect<
     DescribeDashboardPermissionsResponse,
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   describeDashboardSnapshotJob(
     input: DescribeDashboardSnapshotJobRequest,
   ): Effect.Effect<
     DescribeDashboardSnapshotJobResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   describeDashboardSnapshotJobResult(
     input: DescribeDashboardSnapshotJobResultRequest,
   ): Effect.Effect<
     DescribeDashboardSnapshotJobResultResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | PreconditionNotMetException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   describeDashboardsQAConfiguration(
     input: DescribeDashboardsQAConfigurationRequest,
   ): Effect.Effect<
     DescribeDashboardsQAConfigurationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   describeDataSet(
     input: DescribeDataSetRequest,
   ): Effect.Effect<
     DescribeDataSetResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   describeDataSetPermissions(
     input: DescribeDataSetPermissionsRequest,
   ): Effect.Effect<
     DescribeDataSetPermissionsResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   describeDataSetRefreshProperties(
     input: DescribeDataSetRefreshPropertiesRequest,
   ): Effect.Effect<
     DescribeDataSetRefreshPropertiesResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | LimitExceededException | PreconditionNotMetException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   describeDataSource(
     input: DescribeDataSourceRequest,
   ): Effect.Effect<
     DescribeDataSourceResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   describeDataSourcePermissions(
     input: DescribeDataSourcePermissionsRequest,
   ): Effect.Effect<
     DescribeDataSourcePermissionsResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   describeDefaultQBusinessApplication(
     input: DescribeDefaultQBusinessApplicationRequest,
   ): Effect.Effect<
     DescribeDefaultQBusinessApplicationResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   describeFolder(
     input: DescribeFolderRequest,
   ): Effect.Effect<
     DescribeFolderResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   describeFolderPermissions(
     input: DescribeFolderPermissionsRequest,
   ): Effect.Effect<
     DescribeFolderPermissionsResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidNextTokenException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidNextTokenException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   describeFolderResolvedPermissions(
     input: DescribeFolderResolvedPermissionsRequest,
   ): Effect.Effect<
     DescribeFolderResolvedPermissionsResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidNextTokenException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidNextTokenException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   describeGroup(
     input: DescribeGroupRequest,
   ): Effect.Effect<
     DescribeGroupResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | PreconditionNotMetException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   >;
   describeGroupMembership(
     input: DescribeGroupMembershipRequest,
   ): Effect.Effect<
     DescribeGroupMembershipResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | PreconditionNotMetException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   >;
   describeIAMPolicyAssignment(
     input: DescribeIAMPolicyAssignmentRequest,
   ): Effect.Effect<
     DescribeIAMPolicyAssignmentResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidNextTokenException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidNextTokenException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   describeIngestion(
     input: DescribeIngestionRequest,
   ): Effect.Effect<
     DescribeIngestionResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   describeIpRestriction(
     input: DescribeIpRestrictionRequest,
   ): Effect.Effect<
     DescribeIpRestrictionResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   describeKeyRegistration(
     input: DescribeKeyRegistrationRequest,
   ): Effect.Effect<
     DescribeKeyRegistrationResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ThrottlingException | CommonAwsError
   >;
   describeNamespace(
     input: DescribeNamespaceRequest,
   ): Effect.Effect<
     DescribeNamespaceResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   >;
   describeQPersonalizationConfiguration(
     input: DescribeQPersonalizationConfigurationRequest,
   ): Effect.Effect<
     DescribeQPersonalizationConfigurationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   describeQuickSightQSearchConfiguration(
     input: DescribeQuickSightQSearchConfigurationRequest,
   ): Effect.Effect<
     DescribeQuickSightQSearchConfigurationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   describeRefreshSchedule(
     input: DescribeRefreshScheduleRequest,
   ): Effect.Effect<
     DescribeRefreshScheduleResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   describeRoleCustomPermission(
     input: DescribeRoleCustomPermissionRequest,
   ): Effect.Effect<
     DescribeRoleCustomPermissionResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | PreconditionNotMetException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   >;
   describeTemplate(
     input: DescribeTemplateRequest,
   ): Effect.Effect<
     DescribeTemplateResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   describeTemplateAlias(
     input: DescribeTemplateAliasRequest,
   ): Effect.Effect<
     DescribeTemplateAliasResponse,
-    | InternalFailureException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    InternalFailureException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   describeTemplateDefinition(
     input: DescribeTemplateDefinitionRequest,
   ): Effect.Effect<
     DescribeTemplateDefinitionResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   describeTemplatePermissions(
     input: DescribeTemplatePermissionsRequest,
   ): Effect.Effect<
     DescribeTemplatePermissionsResponse,
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    ConflictException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   describeTheme(
     input: DescribeThemeRequest,
   ): Effect.Effect<
     DescribeThemeResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   describeThemeAlias(
     input: DescribeThemeAliasRequest,
   ): Effect.Effect<
     DescribeThemeAliasResponse,
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    ConflictException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   describeThemePermissions(
     input: DescribeThemePermissionsRequest,
   ): Effect.Effect<
     DescribeThemePermissionsResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   describeTopic(
     input: DescribeTopicRequest,
   ): Effect.Effect<
     DescribeTopicResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   describeTopicPermissions(
     input: DescribeTopicPermissionsRequest,
   ): Effect.Effect<
     DescribeTopicPermissionsResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   describeTopicRefresh(
     input: DescribeTopicRefreshRequest,
   ): Effect.Effect<
     DescribeTopicRefreshResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   describeTopicRefreshSchedule(
     input: DescribeTopicRefreshScheduleRequest,
   ): Effect.Effect<
     DescribeTopicRefreshScheduleResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   describeUser(
     input: DescribeUserRequest,
   ): Effect.Effect<
     DescribeUserResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | PreconditionNotMetException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   >;
   describeVPCConnection(
     input: DescribeVPCConnectionRequest,
   ): Effect.Effect<
     DescribeVPCConnectionResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   generateEmbedUrlForAnonymousUser(
     input: GenerateEmbedUrlForAnonymousUserRequest,
   ): Effect.Effect<
     GenerateEmbedUrlForAnonymousUserResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | SessionLifetimeInMinutesInvalidException
-    | ThrottlingException
-    | UnsupportedPricingPlanException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | SessionLifetimeInMinutesInvalidException | ThrottlingException | UnsupportedPricingPlanException | UnsupportedUserEditionException | CommonAwsError
   >;
   generateEmbedUrlForRegisteredUser(
     input: GenerateEmbedUrlForRegisteredUserRequest,
   ): Effect.Effect<
     GenerateEmbedUrlForRegisteredUserResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | QuickSightUserNotFoundException
-    | ResourceNotFoundException
-    | SessionLifetimeInMinutesInvalidException
-    | ThrottlingException
-    | UnsupportedPricingPlanException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | QuickSightUserNotFoundException | ResourceNotFoundException | SessionLifetimeInMinutesInvalidException | ThrottlingException | UnsupportedPricingPlanException | UnsupportedUserEditionException | CommonAwsError
   >;
   generateEmbedUrlForRegisteredUserWithIdentity(
     input: GenerateEmbedUrlForRegisteredUserWithIdentityRequest,
   ): Effect.Effect<
     GenerateEmbedUrlForRegisteredUserWithIdentityResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | QuickSightUserNotFoundException
-    | ResourceNotFoundException
-    | SessionLifetimeInMinutesInvalidException
-    | ThrottlingException
-    | UnsupportedPricingPlanException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | QuickSightUserNotFoundException | ResourceNotFoundException | SessionLifetimeInMinutesInvalidException | ThrottlingException | UnsupportedPricingPlanException | UnsupportedUserEditionException | CommonAwsError
   >;
   getDashboardEmbedUrl(
     input: GetDashboardEmbedUrlRequest,
   ): Effect.Effect<
     GetDashboardEmbedUrlResponse,
-    | AccessDeniedException
-    | DomainNotWhitelistedException
-    | IdentityTypeNotSupportedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | QuickSightUserNotFoundException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | SessionLifetimeInMinutesInvalidException
-    | ThrottlingException
-    | UnsupportedPricingPlanException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | DomainNotWhitelistedException | IdentityTypeNotSupportedException | InternalFailureException | InvalidParameterValueException | QuickSightUserNotFoundException | ResourceExistsException | ResourceNotFoundException | SessionLifetimeInMinutesInvalidException | ThrottlingException | UnsupportedPricingPlanException | UnsupportedUserEditionException | CommonAwsError
   >;
   getFlowMetadata(
     input: GetFlowMetadataInput,
   ): Effect.Effect<
     GetFlowMetadataOutput,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ThrottlingException | CommonAwsError
   >;
   getFlowPermissions(
     input: GetFlowPermissionsInput,
   ): Effect.Effect<
     GetFlowPermissionsOutput,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ThrottlingException | CommonAwsError
   >;
   getSessionEmbedUrl(
     input: GetSessionEmbedUrlRequest,
   ): Effect.Effect<
     GetSessionEmbedUrlResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | QuickSightUserNotFoundException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | SessionLifetimeInMinutesInvalidException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | QuickSightUserNotFoundException | ResourceExistsException | ResourceNotFoundException | SessionLifetimeInMinutesInvalidException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   listActionConnectors(
     input: ListActionConnectorsRequest,
   ): Effect.Effect<
     ListActionConnectorsResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidNextTokenException
-    | InvalidParameterValueException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidNextTokenException | InvalidParameterValueException | ThrottlingException | CommonAwsError
   >;
   listAnalyses(
     input: ListAnalysesRequest,
   ): Effect.Effect<
     ListAnalysesResponse,
-    | InternalFailureException
-    | InvalidNextTokenException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    InternalFailureException | InvalidNextTokenException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   listAssetBundleExportJobs(
     input: ListAssetBundleExportJobsRequest,
   ): Effect.Effect<
     ListAssetBundleExportJobsResponse,
-    | AccessDeniedException
-    | InvalidNextTokenException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | InvalidNextTokenException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   listAssetBundleImportJobs(
     input: ListAssetBundleImportJobsRequest,
   ): Effect.Effect<
     ListAssetBundleImportJobsResponse,
-    | AccessDeniedException
-    | InvalidNextTokenException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | InvalidNextTokenException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   listBrands(
     input: ListBrandsRequest,
   ): Effect.Effect<
     ListBrandsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | InvalidRequestException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | InvalidRequestException | ThrottlingException | CommonAwsError
   >;
   listCustomPermissions(
     input: ListCustomPermissionsRequest,
   ): Effect.Effect<
     ListCustomPermissionsResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | PreconditionNotMetException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   >;
   listDashboards(
     input: ListDashboardsRequest,
   ): Effect.Effect<
     ListDashboardsResponse,
-    | InternalFailureException
-    | InvalidNextTokenException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    InternalFailureException | InvalidNextTokenException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   listDashboardVersions(
     input: ListDashboardVersionsRequest,
   ): Effect.Effect<
     ListDashboardVersionsResponse,
-    | InternalFailureException
-    | InvalidNextTokenException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    InternalFailureException | InvalidNextTokenException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   listDataSets(
     input: ListDataSetsRequest,
   ): Effect.Effect<
     ListDataSetsResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidNextTokenException
-    | InvalidParameterValueException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidNextTokenException | InvalidParameterValueException | ThrottlingException | CommonAwsError
   >;
   listDataSources(
     input: ListDataSourcesRequest,
   ): Effect.Effect<
     ListDataSourcesResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidNextTokenException
-    | InvalidParameterValueException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidNextTokenException | InvalidParameterValueException | ThrottlingException | CommonAwsError
   >;
   listFlows(
     input: ListFlowsInput,
   ): Effect.Effect<
     ListFlowsOutput,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ThrottlingException | CommonAwsError
   >;
   listFolderMembers(
     input: ListFolderMembersRequest,
   ): Effect.Effect<
     ListFolderMembersResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidNextTokenException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidNextTokenException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   listFolders(
     input: ListFoldersRequest,
   ): Effect.Effect<
     ListFoldersResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidNextTokenException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidNextTokenException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   listFoldersForResource(
     input: ListFoldersForResourceRequest,
   ): Effect.Effect<
     ListFoldersForResourceResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidNextTokenException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidNextTokenException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   listGroupMemberships(
     input: ListGroupMembershipsRequest,
   ): Effect.Effect<
     ListGroupMembershipsResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidNextTokenException
-    | InvalidParameterValueException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidNextTokenException | InvalidParameterValueException | PreconditionNotMetException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   >;
   listGroups(
     input: ListGroupsRequest,
   ): Effect.Effect<
     ListGroupsResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidNextTokenException
-    | InvalidParameterValueException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidNextTokenException | InvalidParameterValueException | PreconditionNotMetException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   >;
   listIAMPolicyAssignments(
     input: ListIAMPolicyAssignmentsRequest,
   ): Effect.Effect<
     ListIAMPolicyAssignmentsResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidNextTokenException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidNextTokenException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   listIAMPolicyAssignmentsForUser(
     input: ListIAMPolicyAssignmentsForUserRequest,
   ): Effect.Effect<
     ListIAMPolicyAssignmentsForUserResponse,
-    | AccessDeniedException
-    | ConcurrentUpdatingException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConcurrentUpdatingException | InternalFailureException | InvalidParameterValueException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   listIdentityPropagationConfigs(
     input: ListIdentityPropagationConfigsRequest,
   ): Effect.Effect<
     ListIdentityPropagationConfigsResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   listIngestions(
     input: ListIngestionsRequest,
   ): Effect.Effect<
     ListIngestionsResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidNextTokenException
-    | InvalidParameterValueException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidNextTokenException | InvalidParameterValueException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   listNamespaces(
     input: ListNamespacesRequest,
   ): Effect.Effect<
     ListNamespacesResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidNextTokenException
-    | InvalidParameterValueException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidNextTokenException | InvalidParameterValueException | PreconditionNotMetException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   >;
   listRefreshSchedules(
     input: ListRefreshSchedulesRequest,
   ): Effect.Effect<
     ListRefreshSchedulesResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   listRoleMemberships(
     input: ListRoleMembershipsRequest,
   ): Effect.Effect<
     ListRoleMembershipsResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidNextTokenException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidNextTokenException | InvalidParameterValueException | LimitExceededException | PreconditionNotMetException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   listTemplateAliases(
     input: ListTemplateAliasesRequest,
   ): Effect.Effect<
     ListTemplateAliasesResponse,
-    | InternalFailureException
-    | InvalidNextTokenException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    InternalFailureException | InvalidNextTokenException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   listTemplates(
     input: ListTemplatesRequest,
   ): Effect.Effect<
     ListTemplatesResponse,
-    | InternalFailureException
-    | InvalidNextTokenException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    InternalFailureException | InvalidNextTokenException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   listTemplateVersions(
     input: ListTemplateVersionsRequest,
   ): Effect.Effect<
     ListTemplateVersionsResponse,
-    | InternalFailureException
-    | InvalidNextTokenException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    InternalFailureException | InvalidNextTokenException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   listThemeAliases(
     input: ListThemeAliasesRequest,
   ): Effect.Effect<
     ListThemeAliasesResponse,
-    | ConflictException
-    | InternalFailureException
-    | InvalidNextTokenException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    ConflictException | InternalFailureException | InvalidNextTokenException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   listThemes(
     input: ListThemesRequest,
   ): Effect.Effect<
     ListThemesResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidNextTokenException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidNextTokenException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   listThemeVersions(
     input: ListThemeVersionsRequest,
   ): Effect.Effect<
     ListThemeVersionsResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidNextTokenException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidNextTokenException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   listTopicRefreshSchedules(
     input: ListTopicRefreshSchedulesRequest,
   ): Effect.Effect<
     ListTopicRefreshSchedulesResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   listTopicReviewedAnswers(
     input: ListTopicReviewedAnswersRequest,
   ): Effect.Effect<
     ListTopicReviewedAnswersResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   listTopics(
     input: ListTopicsRequest,
   ): Effect.Effect<
     ListTopicsResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidNextTokenException
-    | InvalidParameterValueException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidNextTokenException | InvalidParameterValueException | ThrottlingException | CommonAwsError
   >;
   listUserGroups(
     input: ListUserGroupsRequest,
   ): Effect.Effect<
     ListUserGroupsResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | PreconditionNotMetException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   >;
   listUsers(
     input: ListUsersRequest,
   ): Effect.Effect<
     ListUsersResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidNextTokenException
-    | InvalidParameterValueException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidNextTokenException | InvalidParameterValueException | PreconditionNotMetException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   >;
   listVPCConnections(
     input: ListVPCConnectionsRequest,
   ): Effect.Effect<
     ListVPCConnectionsResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidNextTokenException
-    | InvalidParameterValueException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidNextTokenException | InvalidParameterValueException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   predictQAResults(
     input: PredictQAResultsRequest,
   ): Effect.Effect<
     PredictQAResultsResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ThrottlingException | CommonAwsError
   >;
   putDataSetRefreshProperties(
     input: PutDataSetRefreshPropertiesRequest,
   ): Effect.Effect<
     PutDataSetRefreshPropertiesResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | LimitExceededException | PreconditionNotMetException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   registerUser(
     input: RegisterUserRequest,
   ): Effect.Effect<
     RegisterUserResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | PreconditionNotMetException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | LimitExceededException | PreconditionNotMetException | ResourceExistsException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   >;
   restoreAnalysis(
     input: RestoreAnalysisRequest,
   ): Effect.Effect<
     RestoreAnalysisResponse,
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    ConflictException | InternalFailureException | InvalidParameterValueException | LimitExceededException | PreconditionNotMetException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   searchActionConnectors(
     input: SearchActionConnectorsRequest,
   ): Effect.Effect<
     SearchActionConnectorsResponse,
-    | AccessDeniedException
-    | InvalidNextTokenException
-    | InvalidParameterValueException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InvalidNextTokenException | InvalidParameterValueException | ThrottlingException | CommonAwsError
   >;
   searchAnalyses(
     input: SearchAnalysesRequest,
   ): Effect.Effect<
     SearchAnalysesResponse,
-    | InternalFailureException
-    | InvalidNextTokenException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    InternalFailureException | InvalidNextTokenException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   searchDashboards(
     input: SearchDashboardsRequest,
   ): Effect.Effect<
     SearchDashboardsResponse,
-    | InternalFailureException
-    | InvalidNextTokenException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    InternalFailureException | InvalidNextTokenException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   searchDataSets(
     input: SearchDataSetsRequest,
   ): Effect.Effect<
     SearchDataSetsResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidNextTokenException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidNextTokenException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   searchDataSources(
     input: SearchDataSourcesRequest,
   ): Effect.Effect<
     SearchDataSourcesResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidNextTokenException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidNextTokenException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   searchFlows(
     input: SearchFlowsInput,
   ): Effect.Effect<
     SearchFlowsOutput,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ThrottlingException | CommonAwsError
   >;
   searchFolders(
     input: SearchFoldersRequest,
   ): Effect.Effect<
     SearchFoldersResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidNextTokenException
-    | InvalidParameterValueException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidNextTokenException | InvalidParameterValueException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   searchGroups(
     input: SearchGroupsRequest,
   ): Effect.Effect<
     SearchGroupsResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidNextTokenException
-    | InvalidParameterValueException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidNextTokenException | InvalidParameterValueException | PreconditionNotMetException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   >;
   searchTopics(
     input: SearchTopicsRequest,
   ): Effect.Effect<
     SearchTopicsResponse,
-    | InternalFailureException
-    | InvalidNextTokenException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    InternalFailureException | InvalidNextTokenException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   startAssetBundleExportJob(
     input: StartAssetBundleExportJobRequest,
   ): Effect.Effect<
     StartAssetBundleExportJobResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InvalidParameterValueException | LimitExceededException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   startAssetBundleImportJob(
     input: StartAssetBundleImportJobRequest,
   ): Effect.Effect<
     StartAssetBundleImportJobResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InvalidParameterValueException | LimitExceededException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   startDashboardSnapshotJob(
     input: StartDashboardSnapshotJobRequest,
   ): Effect.Effect<
     StartDashboardSnapshotJobResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedPricingPlanException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | UnsupportedPricingPlanException | UnsupportedUserEditionException | CommonAwsError
   >;
   startDashboardSnapshotJobSchedule(
     input: StartDashboardSnapshotJobScheduleRequest,
   ): Effect.Effect<
     StartDashboardSnapshotJobScheduleResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   updateAccountCustomization(
     input: UpdateAccountCustomizationRequest,
   ): Effect.Effect<
     UpdateAccountCustomizationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   >;
   updateAccountCustomPermission(
     input: UpdateAccountCustomPermissionRequest,
   ): Effect.Effect<
     UpdateAccountCustomPermissionResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   updateAccountSettings(
     input: UpdateAccountSettingsRequest,
   ): Effect.Effect<
     UpdateAccountSettingsResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   >;
   updateActionConnector(
     input: UpdateActionConnectorRequest,
   ): Effect.Effect<
     UpdateActionConnectorResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   updateActionConnectorPermissions(
     input: UpdateActionConnectorPermissionsRequest,
   ): Effect.Effect<
     UpdateActionConnectorPermissionsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   updateAnalysis(
     input: UpdateAnalysisRequest,
   ): Effect.Effect<
     UpdateAnalysisResponse,
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    ConflictException | InternalFailureException | InvalidParameterValueException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   updateAnalysisPermissions(
     input: UpdateAnalysisPermissionsRequest,
   ): Effect.Effect<
     UpdateAnalysisPermissionsResponse,
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    ConflictException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   updateApplicationWithTokenExchangeGrant(
     input: UpdateApplicationWithTokenExchangeGrantRequest,
   ): Effect.Effect<
     UpdateApplicationWithTokenExchangeGrantResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | InvalidRequestException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   updateBrand(
     input: UpdateBrandRequest,
   ): Effect.Effect<
     UpdateBrandResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   updateBrandAssignment(
     input: UpdateBrandAssignmentRequest,
   ): Effect.Effect<
     UpdateBrandAssignmentResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   updateBrandPublishedVersion(
     input: UpdateBrandPublishedVersionRequest,
   ): Effect.Effect<
     UpdateBrandPublishedVersionResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | InvalidRequestException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   updateCustomPermissions(
     input: UpdateCustomPermissionsRequest,
   ): Effect.Effect<
     UpdateCustomPermissionsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | PreconditionNotMetException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   >;
   updateDashboard(
     input: UpdateDashboardRequest,
   ): Effect.Effect<
     UpdateDashboardResponse,
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    ConflictException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   updateDashboardLinks(
     input: UpdateDashboardLinksRequest,
   ): Effect.Effect<
     UpdateDashboardLinksResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   updateDashboardPermissions(
     input: UpdateDashboardPermissionsRequest,
   ): Effect.Effect<
     UpdateDashboardPermissionsResponse,
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    ConflictException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   updateDashboardPublishedVersion(
     input: UpdateDashboardPublishedVersionRequest,
   ): Effect.Effect<
     UpdateDashboardPublishedVersionResponse,
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    ConflictException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   updateDashboardsQAConfiguration(
     input: UpdateDashboardsQAConfigurationRequest,
   ): Effect.Effect<
     UpdateDashboardsQAConfigurationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   updateDataSet(
     input: UpdateDataSetRequest,
   ): Effect.Effect<
     UpdateDataSetResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   updateDataSetPermissions(
     input: UpdateDataSetPermissionsRequest,
   ): Effect.Effect<
     UpdateDataSetPermissionsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   updateDataSource(
     input: UpdateDataSourceRequest,
   ): Effect.Effect<
     UpdateDataSourceResponse,
-    | AccessDeniedException
-    | ConflictException
-    | CustomerManagedKeyUnavailableException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | CustomerManagedKeyUnavailableException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   updateDataSourcePermissions(
     input: UpdateDataSourcePermissionsRequest,
   ): Effect.Effect<
     UpdateDataSourcePermissionsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   updateDefaultQBusinessApplication(
     input: UpdateDefaultQBusinessApplicationRequest,
   ): Effect.Effect<
     UpdateDefaultQBusinessApplicationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   updateFlowPermissions(
     input: UpdateFlowPermissionsInput,
   ): Effect.Effect<
     UpdateFlowPermissionsOutput,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ThrottlingException | CommonAwsError
   >;
   updateFolder(
     input: UpdateFolderRequest,
   ): Effect.Effect<
     UpdateFolderResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   updateFolderPermissions(
     input: UpdateFolderPermissionsRequest,
   ): Effect.Effect<
     UpdateFolderPermissionsResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   updateGroup(
     input: UpdateGroupRequest,
   ): Effect.Effect<
     UpdateGroupResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | PreconditionNotMetException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   >;
   updateIAMPolicyAssignment(
     input: UpdateIAMPolicyAssignmentRequest,
   ): Effect.Effect<
     UpdateIAMPolicyAssignmentResponse,
-    | AccessDeniedException
-    | ConcurrentUpdatingException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConcurrentUpdatingException | InternalFailureException | InvalidParameterValueException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   updateIdentityPropagationConfig(
     input: UpdateIdentityPropagationConfigRequest,
   ): Effect.Effect<
     UpdateIdentityPropagationConfigResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   updateIpRestriction(
     input: UpdateIpRestrictionRequest,
   ): Effect.Effect<
     UpdateIpRestrictionResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   updateKeyRegistration(
     input: UpdateKeyRegistrationRequest,
   ): Effect.Effect<
     UpdateKeyRegistrationResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ThrottlingException | CommonAwsError
   >;
   updatePublicSharingSettings(
     input: UpdatePublicSharingSettingsRequest,
   ): Effect.Effect<
     UpdatePublicSharingSettingsResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedPricingPlanException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | UnsupportedPricingPlanException | CommonAwsError
   >;
   updateQPersonalizationConfiguration(
     input: UpdateQPersonalizationConfigurationRequest,
   ): Effect.Effect<
     UpdateQPersonalizationConfigurationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   >;
   updateQuickSightQSearchConfiguration(
     input: UpdateQuickSightQSearchConfigurationRequest,
   ): Effect.Effect<
     UpdateQuickSightQSearchConfigurationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   updateRefreshSchedule(
     input: UpdateRefreshScheduleRequest,
   ): Effect.Effect<
     UpdateRefreshScheduleResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | LimitExceededException | PreconditionNotMetException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   updateRoleCustomPermission(
     input: UpdateRoleCustomPermissionRequest,
   ): Effect.Effect<
     UpdateRoleCustomPermissionResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | PreconditionNotMetException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   >;
   updateSPICECapacityConfiguration(
     input: UpdateSPICECapacityConfigurationRequest,
   ): Effect.Effect<
     UpdateSPICECapacityConfigurationResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   updateTemplate(
     input: UpdateTemplateRequest,
   ): Effect.Effect<
     UpdateTemplateResponse,
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    ConflictException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   updateTemplateAlias(
     input: UpdateTemplateAliasRequest,
   ): Effect.Effect<
     UpdateTemplateAliasResponse,
-    | ConflictException
-    | InternalFailureException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    ConflictException | InternalFailureException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   updateTemplatePermissions(
     input: UpdateTemplatePermissionsRequest,
   ): Effect.Effect<
     UpdateTemplatePermissionsResponse,
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    ConflictException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   updateTheme(
     input: UpdateThemeRequest,
   ): Effect.Effect<
     UpdateThemeResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   updateThemeAlias(
     input: UpdateThemeAliasRequest,
   ): Effect.Effect<
     UpdateThemeAliasResponse,
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    ConflictException | InternalFailureException | InvalidParameterValueException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   updateThemePermissions(
     input: UpdateThemePermissionsRequest,
   ): Effect.Effect<
     UpdateThemePermissionsResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   updateTopic(
     input: UpdateTopicRequest,
   ): Effect.Effect<
     UpdateTopicResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   updateTopicPermissions(
     input: UpdateTopicPermissionsRequest,
   ): Effect.Effect<
     UpdateTopicPermissionsResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
   updateTopicRefreshSchedule(
     input: UpdateTopicRefreshScheduleRequest,
   ): Effect.Effect<
     UpdateTopicRefreshScheduleResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceExistsException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | CommonAwsError
   >;
   updateUser(
     input: UpdateUserRequest,
   ): Effect.Effect<
     UpdateUserResponse,
-    | AccessDeniedException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | InternalFailureException | InvalidParameterValueException | PreconditionNotMetException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   >;
   updateUserCustomPermission(
     input: UpdateUserCustomPermissionRequest,
   ): Effect.Effect<
     UpdateUserCustomPermissionResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | PreconditionNotMetException
-    | ResourceNotFoundException
-    | ResourceUnavailableException
-    | ThrottlingException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | PreconditionNotMetException | ResourceNotFoundException | ResourceUnavailableException | ThrottlingException | CommonAwsError
   >;
   updateVPCConnection(
     input: UpdateVPCConnectionRequest,
   ): Effect.Effect<
     UpdateVPCConnectionResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalFailureException
-    | InvalidParameterValueException
-    | LimitExceededException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UnsupportedUserEditionException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalFailureException | InvalidParameterValueException | LimitExceededException | ResourceNotFoundException | ThrottlingException | UnsupportedUserEditionException | CommonAwsError
   >;
 }
 
@@ -2923,16 +1417,8 @@ export interface ActionConnectorSearchFilter {
   Operator: FilterOperator;
   Value: string;
 }
-export type ActionConnectorSearchFilterList =
-  Array<ActionConnectorSearchFilter>;
-export type ActionConnectorSearchFilterNameEnum =
-  | "ACTION_CONNECTOR_NAME"
-  | "ACTION_CONNECTOR_TYPE"
-  | "QUICKSIGHT_OWNER"
-  | "QUICKSIGHT_VIEWER_OR_OWNER"
-  | "DIRECT_QUICKSIGHT_SOLE_OWNER"
-  | "DIRECT_QUICKSIGHT_OWNER"
-  | "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER";
+export type ActionConnectorSearchFilterList = Array<ActionConnectorSearchFilter>;
+export type ActionConnectorSearchFilterNameEnum = "ACTION_CONNECTOR_NAME" | "ACTION_CONNECTOR_TYPE" | "QUICKSIGHT_OWNER" | "QUICKSIGHT_VIEWER_OR_OWNER" | "DIRECT_QUICKSIGHT_SOLE_OWNER" | "DIRECT_QUICKSIGHT_OWNER" | "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER";
 export interface ActionConnectorSummary {
   Arn: string;
   ActionConnectorId: string;
@@ -2944,34 +1430,7 @@ export interface ActionConnectorSummary {
   Error?: ActionConnectorError;
 }
 export type ActionConnectorSummaryList = Array<ActionConnectorSummary>;
-export type ActionConnectorType =
-  | "GENERIC_HTTP"
-  | "SERVICENOW_NOW_PLATFORM"
-  | "SALESFORCE_CRM"
-  | "MICROSOFT_OUTLOOK"
-  | "PAGERDUTY_ADVANCE"
-  | "JIRA_CLOUD"
-  | "ATLASSIAN_CONFLUENCE"
-  | "AMAZON_S3"
-  | "AMAZON_BEDROCK_AGENT_RUNTIME"
-  | "AMAZON_BEDROCK_RUNTIME"
-  | "AMAZON_BEDROCK_DATA_AUTOMATION_RUNTIME"
-  | "AMAZON_TEXTRACT"
-  | "AMAZON_COMPREHEND"
-  | "AMAZON_COMPREHEND_MEDICAL"
-  | "MICROSOFT_ONEDRIVE"
-  | "MICROSOFT_SHAREPOINT"
-  | "MICROSOFT_TEAMS"
-  | "SAP_BUSINESSPARTNER"
-  | "SAP_PRODUCTMASTERDATA"
-  | "SAP_PHYSICALINVENTORY"
-  | "SAP_BILLOFMATERIALS"
-  | "SAP_MATERIALSTOCK"
-  | "ZENDESK_SUITE"
-  | "SMARTSHEET"
-  | "SLACK"
-  | "ASANA"
-  | "BAMBOO_HR";
+export type ActionConnectorType = "GENERIC_HTTP" | "SERVICENOW_NOW_PLATFORM" | "SALESFORCE_CRM" | "MICROSOFT_OUTLOOK" | "PAGERDUTY_ADVANCE" | "JIRA_CLOUD" | "ATLASSIAN_CONFLUENCE" | "AMAZON_S3" | "AMAZON_BEDROCK_AGENT_RUNTIME" | "AMAZON_BEDROCK_RUNTIME" | "AMAZON_BEDROCK_DATA_AUTOMATION_RUNTIME" | "AMAZON_TEXTRACT" | "AMAZON_COMPREHEND" | "AMAZON_COMPREHEND_MEDICAL" | "MICROSOFT_ONEDRIVE" | "MICROSOFT_SHAREPOINT" | "MICROSOFT_TEAMS" | "SAP_BUSINESSPARTNER" | "SAP_PRODUCTMASTERDATA" | "SAP_PHYSICALINVENTORY" | "SAP_BILLOFMATERIALS" | "SAP_MATERIALSTOCK" | "ZENDESK_SUITE" | "SMARTSHEET" | "SLACK" | "ASANA" | "BAMBOO_HR";
 export type ActionId = string;
 
 export type ActionIdList = Array<string>;
@@ -3020,32 +1479,12 @@ export interface AggregationSortConfiguration {
   SortDirection: SortDirection;
   AggregationFunction?: AggregationFunction;
 }
-export type AggregationSortConfigurationList =
-  Array<AggregationSortConfiguration>;
-export type AggType =
-  | "SUM"
-  | "MIN"
-  | "MAX"
-  | "COUNT"
-  | "AVERAGE"
-  | "DISTINCT_COUNT"
-  | "STDEV"
-  | "STDEVP"
-  | "VAR"
-  | "VARP"
-  | "PERCENTILE"
-  | "MEDIAN"
-  | "PTD_SUM"
-  | "PTD_MIN"
-  | "PTD_MAX"
-  | "PTD_COUNT"
-  | "PTD_DISTINCT_COUNT"
-  | "PTD_AVERAGE"
-  | "COLUMN"
-  | "CUSTOM";
+export type AggregationSortConfigurationList = Array<AggregationSortConfiguration>;
+export type AggType = "SUM" | "MIN" | "MAX" | "COUNT" | "AVERAGE" | "DISTINCT_COUNT" | "STDEV" | "STDEVP" | "VAR" | "VARP" | "PERCENTILE" | "MEDIAN" | "PTD_SUM" | "PTD_MIN" | "PTD_MAX" | "PTD_COUNT" | "PTD_DISTINCT_COUNT" | "PTD_AVERAGE" | "COLUMN" | "CUSTOM";
 export type AliasName = string;
 
-export interface AllSheetsFilterScopeConfiguration {}
+export interface AllSheetsFilterScopeConfiguration {
+}
 export type AltText = string;
 
 export interface AmazonElasticsearchParameters {
@@ -3096,25 +1535,8 @@ export interface AnalysisError {
   ViolatedEntities?: Array<Entity>;
 }
 export type AnalysisErrorList = Array<AnalysisError>;
-export type AnalysisErrorType =
-  | "ACCESS_DENIED"
-  | "SOURCE_NOT_FOUND"
-  | "DATA_SET_NOT_FOUND"
-  | "INTERNAL_FAILURE"
-  | "PARAMETER_VALUE_INCOMPATIBLE"
-  | "PARAMETER_TYPE_INVALID"
-  | "PARAMETER_NOT_FOUND"
-  | "COLUMN_TYPE_MISMATCH"
-  | "COLUMN_GEOGRAPHIC_ROLE_MISMATCH"
-  | "COLUMN_REPLACEMENT_MISSING";
-export type AnalysisFilterAttribute =
-  | "QUICKSIGHT_USER"
-  | "QUICKSIGHT_VIEWER_OR_OWNER"
-  | "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER"
-  | "QUICKSIGHT_OWNER"
-  | "DIRECT_QUICKSIGHT_OWNER"
-  | "DIRECT_QUICKSIGHT_SOLE_OWNER"
-  | "ANALYSIS_NAME";
+export type AnalysisErrorType = "ACCESS_DENIED" | "SOURCE_NOT_FOUND" | "DATA_SET_NOT_FOUND" | "INTERNAL_FAILURE" | "PARAMETER_VALUE_INCOMPATIBLE" | "PARAMETER_TYPE_INVALID" | "PARAMETER_NOT_FOUND" | "COLUMN_TYPE_MISMATCH" | "COLUMN_GEOGRAPHIC_ROLE_MISMATCH" | "COLUMN_REPLACEMENT_MISSING";
+export type AnalysisFilterAttribute = "QUICKSIGHT_USER" | "QUICKSIGHT_VIEWER_OR_OWNER" | "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER" | "QUICKSIGHT_OWNER" | "DIRECT_QUICKSIGHT_OWNER" | "DIRECT_QUICKSIGHT_SOLE_OWNER" | "ANALYSIS_NAME";
 export type AnalysisName = string;
 
 export interface AnalysisSearchFilter {
@@ -3156,14 +1578,10 @@ export interface AnonymousUserDashboardEmbeddingConfiguration {
   DisabledFeatures?: Array<AnonymousUserDashboardEmbeddingConfigurationDisabledFeature>;
   FeatureConfigurations?: AnonymousUserDashboardFeatureConfigurations;
 }
-export type AnonymousUserDashboardEmbeddingConfigurationDisabledFeature =
-  "SHARED_VIEW";
-export type AnonymousUserDashboardEmbeddingConfigurationDisabledFeatures =
-  Array<AnonymousUserDashboardEmbeddingConfigurationDisabledFeature>;
-export type AnonymousUserDashboardEmbeddingConfigurationEnabledFeature =
-  "SHARED_VIEW";
-export type AnonymousUserDashboardEmbeddingConfigurationEnabledFeatures =
-  Array<AnonymousUserDashboardEmbeddingConfigurationEnabledFeature>;
+export type AnonymousUserDashboardEmbeddingConfigurationDisabledFeature = "SHARED_VIEW";
+export type AnonymousUserDashboardEmbeddingConfigurationDisabledFeatures = Array<AnonymousUserDashboardEmbeddingConfigurationDisabledFeature>;
+export type AnonymousUserDashboardEmbeddingConfigurationEnabledFeature = "SHARED_VIEW";
+export type AnonymousUserDashboardEmbeddingConfigurationEnabledFeatures = Array<AnonymousUserDashboardEmbeddingConfigurationEnabledFeature>;
 export interface AnonymousUserDashboardFeatureConfigurations {
   SharedView?: SharedViewConfigurations;
 }
@@ -3185,8 +1603,7 @@ export interface AnonymousUserQSearchBarEmbeddingConfiguration {
 export interface AnonymousUserSnapshotJobResult {
   FileGroups?: Array<SnapshotJobResultFileGroup>;
 }
-export type AnonymousUserSnapshotJobResultList =
-  Array<AnonymousUserSnapshotJobResult>;
+export type AnonymousUserSnapshotJobResultList = Array<AnonymousUserSnapshotJobResult>;
 export type AnswerId = string;
 
 export type AnswerIds = Array<string>;
@@ -3240,58 +1657,30 @@ export interface AssetBundleExportJobAnalysisOverrideProperties {
   Arn: string;
   Properties: Array<AssetBundleExportJobAnalysisPropertyToOverride>;
 }
-export type AssetBundleExportJobAnalysisOverridePropertiesList =
-  Array<AssetBundleExportJobAnalysisOverrideProperties>;
+export type AssetBundleExportJobAnalysisOverridePropertiesList = Array<AssetBundleExportJobAnalysisOverrideProperties>;
 export type AssetBundleExportJobAnalysisPropertyToOverride = "Name";
-export type AssetBundleExportJobAnalysisPropertyToOverrideList =
-  Array<AssetBundleExportJobAnalysisPropertyToOverride>;
+export type AssetBundleExportJobAnalysisPropertyToOverrideList = Array<AssetBundleExportJobAnalysisPropertyToOverride>;
 export interface AssetBundleExportJobDashboardOverrideProperties {
   Arn: string;
   Properties: Array<AssetBundleExportJobDashboardPropertyToOverride>;
 }
-export type AssetBundleExportJobDashboardOverridePropertiesList =
-  Array<AssetBundleExportJobDashboardOverrideProperties>;
+export type AssetBundleExportJobDashboardOverridePropertiesList = Array<AssetBundleExportJobDashboardOverrideProperties>;
 export type AssetBundleExportJobDashboardPropertyToOverride = "Name";
-export type AssetBundleExportJobDashboardPropertyToOverrideList =
-  Array<AssetBundleExportJobDashboardPropertyToOverride>;
+export type AssetBundleExportJobDashboardPropertyToOverrideList = Array<AssetBundleExportJobDashboardPropertyToOverride>;
 export interface AssetBundleExportJobDataSetOverrideProperties {
   Arn: string;
   Properties: Array<AssetBundleExportJobDataSetPropertyToOverride>;
 }
-export type AssetBundleExportJobDataSetOverridePropertiesList =
-  Array<AssetBundleExportJobDataSetOverrideProperties>;
-export type AssetBundleExportJobDataSetPropertyToOverride =
-  | "Name"
-  | "RefreshFailureEmailAlertStatus";
-export type AssetBundleExportJobDataSetPropertyToOverrideList =
-  Array<AssetBundleExportJobDataSetPropertyToOverride>;
+export type AssetBundleExportJobDataSetOverridePropertiesList = Array<AssetBundleExportJobDataSetOverrideProperties>;
+export type AssetBundleExportJobDataSetPropertyToOverride = "Name" | "RefreshFailureEmailAlertStatus";
+export type AssetBundleExportJobDataSetPropertyToOverrideList = Array<AssetBundleExportJobDataSetPropertyToOverride>;
 export interface AssetBundleExportJobDataSourceOverrideProperties {
   Arn: string;
   Properties: Array<AssetBundleExportJobDataSourcePropertyToOverride>;
 }
-export type AssetBundleExportJobDataSourceOverridePropertiesList =
-  Array<AssetBundleExportJobDataSourceOverrideProperties>;
-export type AssetBundleExportJobDataSourcePropertyToOverride =
-  | "Name"
-  | "DisableSsl"
-  | "SecretArn"
-  | "Username"
-  | "Password"
-  | "Domain"
-  | "WorkGroup"
-  | "Host"
-  | "Port"
-  | "Database"
-  | "DataSetName"
-  | "Catalog"
-  | "InstanceId"
-  | "ClusterId"
-  | "ManifestFileLocation"
-  | "Warehouse"
-  | "RoleArn"
-  | "ProductType";
-export type AssetBundleExportJobDataSourcePropertyToOverrideList =
-  Array<AssetBundleExportJobDataSourcePropertyToOverride>;
+export type AssetBundleExportJobDataSourceOverridePropertiesList = Array<AssetBundleExportJobDataSourceOverrideProperties>;
+export type AssetBundleExportJobDataSourcePropertyToOverride = "Name" | "DisableSsl" | "SecretArn" | "Username" | "Password" | "Domain" | "WorkGroup" | "Host" | "Port" | "Database" | "DataSetName" | "Catalog" | "InstanceId" | "ClusterId" | "ManifestFileLocation" | "Warehouse" | "RoleArn" | "ProductType";
+export type AssetBundleExportJobDataSourcePropertyToOverrideList = Array<AssetBundleExportJobDataSourcePropertyToOverride>;
 export interface AssetBundleExportJobError {
   Arn?: string;
   Type?: string;
@@ -3302,31 +1691,20 @@ export interface AssetBundleExportJobFolderOverrideProperties {
   Arn: string;
   Properties: Array<AssetBundleExportJobFolderPropertyToOverride>;
 }
-export type AssetBundleExportJobFolderOverridePropertiesList =
-  Array<AssetBundleExportJobFolderOverrideProperties>;
-export type AssetBundleExportJobFolderPropertyToOverride =
-  | "Name"
-  | "ParentFolderArn";
-export type AssetBundleExportJobFolderPropertyToOverrideList =
-  Array<AssetBundleExportJobFolderPropertyToOverride>;
+export type AssetBundleExportJobFolderOverridePropertiesList = Array<AssetBundleExportJobFolderOverrideProperties>;
+export type AssetBundleExportJobFolderPropertyToOverride = "Name" | "ParentFolderArn";
+export type AssetBundleExportJobFolderPropertyToOverrideList = Array<AssetBundleExportJobFolderPropertyToOverride>;
 export interface AssetBundleExportJobRefreshScheduleOverrideProperties {
   Arn: string;
   Properties: Array<AssetBundleExportJobRefreshSchedulePropertyToOverride>;
 }
-export type AssetBundleExportJobRefreshScheduleOverridePropertiesList =
-  Array<AssetBundleExportJobRefreshScheduleOverrideProperties>;
-export type AssetBundleExportJobRefreshSchedulePropertyToOverride =
-  "StartAfterDateTime";
-export type AssetBundleExportJobRefreshSchedulePropertyToOverrideList =
-  Array<AssetBundleExportJobRefreshSchedulePropertyToOverride>;
+export type AssetBundleExportJobRefreshScheduleOverridePropertiesList = Array<AssetBundleExportJobRefreshScheduleOverrideProperties>;
+export type AssetBundleExportJobRefreshSchedulePropertyToOverride = "StartAfterDateTime";
+export type AssetBundleExportJobRefreshSchedulePropertyToOverrideList = Array<AssetBundleExportJobRefreshSchedulePropertyToOverride>;
 export interface AssetBundleExportJobResourceIdOverrideConfiguration {
   PrefixForAllResources?: boolean;
 }
-export type AssetBundleExportJobStatus =
-  | "QUEUED_FOR_IMMEDIATE_EXECUTION"
-  | "IN_PROGRESS"
-  | "SUCCESSFUL"
-  | "FAILED";
+export type AssetBundleExportJobStatus = "QUEUED_FOR_IMMEDIATE_EXECUTION" | "IN_PROGRESS" | "SUCCESSFUL" | "FAILED";
 export interface AssetBundleExportJobSummary {
   JobStatus?: AssetBundleExportJobStatus;
   Arn?: string;
@@ -3337,17 +1715,14 @@ export interface AssetBundleExportJobSummary {
   IncludePermissions?: boolean;
   IncludeTags?: boolean;
 }
-export type AssetBundleExportJobSummaryList =
-  Array<AssetBundleExportJobSummary>;
+export type AssetBundleExportJobSummaryList = Array<AssetBundleExportJobSummary>;
 export interface AssetBundleExportJobThemeOverrideProperties {
   Arn: string;
   Properties: Array<AssetBundleExportJobThemePropertyToOverride>;
 }
-export type AssetBundleExportJobThemeOverridePropertiesList =
-  Array<AssetBundleExportJobThemeOverrideProperties>;
+export type AssetBundleExportJobThemeOverridePropertiesList = Array<AssetBundleExportJobThemeOverrideProperties>;
 export type AssetBundleExportJobThemePropertyToOverride = "Name";
-export type AssetBundleExportJobThemePropertyToOverrideList =
-  Array<AssetBundleExportJobThemePropertyToOverride>;
+export type AssetBundleExportJobThemePropertyToOverrideList = Array<AssetBundleExportJobThemePropertyToOverride>;
 export interface AssetBundleExportJobValidationStrategy {
   StrictModeForAllResources?: boolean;
 }
@@ -3355,20 +1730,14 @@ export interface AssetBundleExportJobVPCConnectionOverrideProperties {
   Arn: string;
   Properties: Array<AssetBundleExportJobVPCConnectionPropertyToOverride>;
 }
-export type AssetBundleExportJobVPCConnectionOverridePropertiesList =
-  Array<AssetBundleExportJobVPCConnectionOverrideProperties>;
-export type AssetBundleExportJobVPCConnectionPropertyToOverride =
-  | "Name"
-  | "DnsResolvers"
-  | "RoleArn";
-export type AssetBundleExportJobVPCConnectionPropertyToOverrideList =
-  Array<AssetBundleExportJobVPCConnectionPropertyToOverride>;
+export type AssetBundleExportJobVPCConnectionOverridePropertiesList = Array<AssetBundleExportJobVPCConnectionOverrideProperties>;
+export type AssetBundleExportJobVPCConnectionPropertyToOverride = "Name" | "DnsResolvers" | "RoleArn";
+export type AssetBundleExportJobVPCConnectionPropertyToOverrideList = Array<AssetBundleExportJobVPCConnectionPropertyToOverride>;
 export interface AssetBundleExportJobWarning {
   Arn?: string;
   Message?: string;
 }
-export type AssetBundleExportJobWarningList =
-  Array<AssetBundleExportJobWarning>;
+export type AssetBundleExportJobWarningList = Array<AssetBundleExportJobWarning>;
 export type AssetBundleImportBodyBlob = Uint8Array | string;
 
 export type AssetBundleImportFailureAction = "DO_NOTHING" | "ROLLBACK";
@@ -3376,58 +1745,49 @@ export interface AssetBundleImportJobAnalysisOverrideParameters {
   AnalysisId: string;
   Name?: string;
 }
-export type AssetBundleImportJobAnalysisOverrideParametersList =
-  Array<AssetBundleImportJobAnalysisOverrideParameters>;
+export type AssetBundleImportJobAnalysisOverrideParametersList = Array<AssetBundleImportJobAnalysisOverrideParameters>;
 export interface AssetBundleImportJobAnalysisOverridePermissions {
   AnalysisIds: Array<string>;
   Permissions: AssetBundleResourcePermissions;
 }
-export type AssetBundleImportJobAnalysisOverridePermissionsList =
-  Array<AssetBundleImportJobAnalysisOverridePermissions>;
+export type AssetBundleImportJobAnalysisOverridePermissionsList = Array<AssetBundleImportJobAnalysisOverridePermissions>;
 export interface AssetBundleImportJobAnalysisOverrideTags {
   AnalysisIds: Array<string>;
   Tags: Array<Tag>;
 }
-export type AssetBundleImportJobAnalysisOverrideTagsList =
-  Array<AssetBundleImportJobAnalysisOverrideTags>;
+export type AssetBundleImportJobAnalysisOverrideTagsList = Array<AssetBundleImportJobAnalysisOverrideTags>;
 export interface AssetBundleImportJobDashboardOverrideParameters {
   DashboardId: string;
   Name?: string;
 }
-export type AssetBundleImportJobDashboardOverrideParametersList =
-  Array<AssetBundleImportJobDashboardOverrideParameters>;
+export type AssetBundleImportJobDashboardOverrideParametersList = Array<AssetBundleImportJobDashboardOverrideParameters>;
 export interface AssetBundleImportJobDashboardOverridePermissions {
   DashboardIds: Array<string>;
   Permissions?: AssetBundleResourcePermissions;
   LinkSharingConfiguration?: AssetBundleResourceLinkSharingConfiguration;
 }
-export type AssetBundleImportJobDashboardOverridePermissionsList =
-  Array<AssetBundleImportJobDashboardOverridePermissions>;
+export type AssetBundleImportJobDashboardOverridePermissionsList = Array<AssetBundleImportJobDashboardOverridePermissions>;
 export interface AssetBundleImportJobDashboardOverrideTags {
   DashboardIds: Array<string>;
   Tags: Array<Tag>;
 }
-export type AssetBundleImportJobDashboardOverrideTagsList =
-  Array<AssetBundleImportJobDashboardOverrideTags>;
+export type AssetBundleImportJobDashboardOverrideTagsList = Array<AssetBundleImportJobDashboardOverrideTags>;
 export interface AssetBundleImportJobDataSetOverrideParameters {
   DataSetId: string;
   Name?: string;
   DataSetRefreshProperties?: DataSetRefreshProperties;
 }
-export type AssetBundleImportJobDataSetOverrideParametersList =
-  Array<AssetBundleImportJobDataSetOverrideParameters>;
+export type AssetBundleImportJobDataSetOverrideParametersList = Array<AssetBundleImportJobDataSetOverrideParameters>;
 export interface AssetBundleImportJobDataSetOverridePermissions {
   DataSetIds: Array<string>;
   Permissions: AssetBundleResourcePermissions;
 }
-export type AssetBundleImportJobDataSetOverridePermissionsList =
-  Array<AssetBundleImportJobDataSetOverridePermissions>;
+export type AssetBundleImportJobDataSetOverridePermissionsList = Array<AssetBundleImportJobDataSetOverridePermissions>;
 export interface AssetBundleImportJobDataSetOverrideTags {
   DataSetIds: Array<string>;
   Tags: Array<Tag>;
 }
-export type AssetBundleImportJobDataSetOverrideTagsList =
-  Array<AssetBundleImportJobDataSetOverrideTags>;
+export type AssetBundleImportJobDataSetOverrideTagsList = Array<AssetBundleImportJobDataSetOverrideTags>;
 export interface AssetBundleImportJobDataSourceCredentialPair {
   Username: string;
   Password: string;
@@ -3444,20 +1804,17 @@ export interface AssetBundleImportJobDataSourceOverrideParameters {
   SslProperties?: SslProperties;
   Credentials?: AssetBundleImportJobDataSourceCredentials;
 }
-export type AssetBundleImportJobDataSourceOverrideParametersList =
-  Array<AssetBundleImportJobDataSourceOverrideParameters>;
+export type AssetBundleImportJobDataSourceOverrideParametersList = Array<AssetBundleImportJobDataSourceOverrideParameters>;
 export interface AssetBundleImportJobDataSourceOverridePermissions {
   DataSourceIds: Array<string>;
   Permissions: AssetBundleResourcePermissions;
 }
-export type AssetBundleImportJobDataSourceOverridePermissionsList =
-  Array<AssetBundleImportJobDataSourceOverridePermissions>;
+export type AssetBundleImportJobDataSourceOverridePermissionsList = Array<AssetBundleImportJobDataSourceOverridePermissions>;
 export interface AssetBundleImportJobDataSourceOverrideTags {
   DataSourceIds: Array<string>;
   Tags: Array<Tag>;
 }
-export type AssetBundleImportJobDataSourceOverrideTagsList =
-  Array<AssetBundleImportJobDataSourceOverrideTags>;
+export type AssetBundleImportJobDataSourceOverrideTagsList = Array<AssetBundleImportJobDataSourceOverrideTags>;
 export interface AssetBundleImportJobError {
   Arn?: string;
   Type?: string;
@@ -3469,20 +1826,17 @@ export interface AssetBundleImportJobFolderOverrideParameters {
   Name?: string;
   ParentFolderArn?: string;
 }
-export type AssetBundleImportJobFolderOverrideParametersList =
-  Array<AssetBundleImportJobFolderOverrideParameters>;
+export type AssetBundleImportJobFolderOverrideParametersList = Array<AssetBundleImportJobFolderOverrideParameters>;
 export interface AssetBundleImportJobFolderOverridePermissions {
   FolderIds: Array<string>;
   Permissions?: AssetBundleResourcePermissions;
 }
-export type AssetBundleImportJobFolderOverridePermissionsList =
-  Array<AssetBundleImportJobFolderOverridePermissions>;
+export type AssetBundleImportJobFolderOverridePermissionsList = Array<AssetBundleImportJobFolderOverridePermissions>;
 export interface AssetBundleImportJobFolderOverrideTags {
   FolderIds: Array<string>;
   Tags: Array<Tag>;
 }
-export type AssetBundleImportJobFolderOverrideTagsList =
-  Array<AssetBundleImportJobFolderOverrideTags>;
+export type AssetBundleImportJobFolderOverrideTagsList = Array<AssetBundleImportJobFolderOverrideTags>;
 export interface AssetBundleImportJobOverrideParameters {
   ResourceIdOverrideConfiguration?: AssetBundleImportJobResourceIdOverrideConfiguration;
   VPCConnections?: Array<AssetBundleImportJobVPCConnectionOverrideParameters>;
@@ -3519,19 +1873,11 @@ export interface AssetBundleImportJobRefreshScheduleOverrideParameters {
   ScheduleId: string;
   StartAfterDateTime?: Date | string;
 }
-export type AssetBundleImportJobRefreshScheduleOverrideParametersList =
-  Array<AssetBundleImportJobRefreshScheduleOverrideParameters>;
+export type AssetBundleImportJobRefreshScheduleOverrideParametersList = Array<AssetBundleImportJobRefreshScheduleOverrideParameters>;
 export interface AssetBundleImportJobResourceIdOverrideConfiguration {
   PrefixForAllResources?: string;
 }
-export type AssetBundleImportJobStatus =
-  | "QUEUED_FOR_IMMEDIATE_EXECUTION"
-  | "IN_PROGRESS"
-  | "SUCCESSFUL"
-  | "FAILED"
-  | "FAILED_ROLLBACK_IN_PROGRESS"
-  | "FAILED_ROLLBACK_COMPLETED"
-  | "FAILED_ROLLBACK_ERROR";
+export type AssetBundleImportJobStatus = "QUEUED_FOR_IMMEDIATE_EXECUTION" | "IN_PROGRESS" | "SUCCESSFUL" | "FAILED" | "FAILED_ROLLBACK_IN_PROGRESS" | "FAILED_ROLLBACK_COMPLETED" | "FAILED_ROLLBACK_ERROR";
 export interface AssetBundleImportJobSummary {
   JobStatus?: AssetBundleImportJobStatus;
   Arn?: string;
@@ -3539,26 +1885,22 @@ export interface AssetBundleImportJobSummary {
   AssetBundleImportJobId?: string;
   FailureAction?: AssetBundleImportFailureAction;
 }
-export type AssetBundleImportJobSummaryList =
-  Array<AssetBundleImportJobSummary>;
+export type AssetBundleImportJobSummaryList = Array<AssetBundleImportJobSummary>;
 export interface AssetBundleImportJobThemeOverrideParameters {
   ThemeId: string;
   Name?: string;
 }
-export type AssetBundleImportJobThemeOverrideParametersList =
-  Array<AssetBundleImportJobThemeOverrideParameters>;
+export type AssetBundleImportJobThemeOverrideParametersList = Array<AssetBundleImportJobThemeOverrideParameters>;
 export interface AssetBundleImportJobThemeOverridePermissions {
   ThemeIds: Array<string>;
   Permissions: AssetBundleResourcePermissions;
 }
-export type AssetBundleImportJobThemeOverridePermissionsList =
-  Array<AssetBundleImportJobThemeOverridePermissions>;
+export type AssetBundleImportJobThemeOverridePermissionsList = Array<AssetBundleImportJobThemeOverridePermissions>;
 export interface AssetBundleImportJobThemeOverrideTags {
   ThemeIds: Array<string>;
   Tags: Array<Tag>;
 }
-export type AssetBundleImportJobThemeOverrideTagsList =
-  Array<AssetBundleImportJobThemeOverrideTags>;
+export type AssetBundleImportJobThemeOverrideTagsList = Array<AssetBundleImportJobThemeOverrideTags>;
 export interface AssetBundleImportJobVPCConnectionOverrideParameters {
   VPCConnectionId: string;
   Name?: string;
@@ -3567,20 +1909,17 @@ export interface AssetBundleImportJobVPCConnectionOverrideParameters {
   DnsResolvers?: Array<string>;
   RoleArn?: string;
 }
-export type AssetBundleImportJobVPCConnectionOverrideParametersList =
-  Array<AssetBundleImportJobVPCConnectionOverrideParameters>;
+export type AssetBundleImportJobVPCConnectionOverrideParametersList = Array<AssetBundleImportJobVPCConnectionOverrideParameters>;
 export interface AssetBundleImportJobVPCConnectionOverrideTags {
   VPCConnectionIds: Array<string>;
   Tags: Array<Tag>;
 }
-export type AssetBundleImportJobVPCConnectionOverrideTagsList =
-  Array<AssetBundleImportJobVPCConnectionOverrideTags>;
+export type AssetBundleImportJobVPCConnectionOverrideTagsList = Array<AssetBundleImportJobVPCConnectionOverrideTags>;
 export interface AssetBundleImportJobWarning {
   Arn?: string;
   Message?: string;
 }
-export type AssetBundleImportJobWarningList =
-  Array<AssetBundleImportJobWarning>;
+export type AssetBundleImportJobWarningList = Array<AssetBundleImportJobWarning>;
 export interface AssetBundleImportSource {
   Body?: Uint8Array | string | Stream.Stream<Uint8Array>;
   S3Uri?: string;
@@ -3641,39 +1980,14 @@ interface _AuthenticationMetadata {
   IamConnectionMetadata?: IAMConnectionMetadata;
 }
 
-export type AuthenticationMetadata =
-  | (_AuthenticationMetadata & {
-      AuthorizationCodeGrantMetadata: AuthorizationCodeGrantMetadata;
-    })
-  | (_AuthenticationMetadata & {
-      ClientCredentialsGrantMetadata: ClientCredentialsGrantMetadata;
-    })
-  | (_AuthenticationMetadata & {
-      BasicAuthConnectionMetadata: BasicAuthConnectionMetadata;
-    })
-  | (_AuthenticationMetadata & {
-      ApiKeyConnectionMetadata: APIKeyConnectionMetadata;
-    })
-  | (_AuthenticationMetadata & {
-      NoneConnectionMetadata: NoneConnectionMetadata;
-    })
-  | (_AuthenticationMetadata & {
-      IamConnectionMetadata: IAMConnectionMetadata;
-    });
-export type AuthenticationMethodOption =
-  | "IAM_AND_QUICKSIGHT"
-  | "IAM_ONLY"
-  | "ACTIVE_DIRECTORY"
-  | "IAM_IDENTITY_CENTER";
+export type AuthenticationMetadata = (_AuthenticationMetadata & { AuthorizationCodeGrantMetadata: AuthorizationCodeGrantMetadata }) | (_AuthenticationMetadata & { ClientCredentialsGrantMetadata: ClientCredentialsGrantMetadata }) | (_AuthenticationMetadata & { BasicAuthConnectionMetadata: BasicAuthConnectionMetadata }) | (_AuthenticationMetadata & { ApiKeyConnectionMetadata: APIKeyConnectionMetadata }) | (_AuthenticationMetadata & { NoneConnectionMetadata: NoneConnectionMetadata }) | (_AuthenticationMetadata & { IamConnectionMetadata: IAMConnectionMetadata });
+export type AuthenticationMethodOption = "IAM_AND_QUICKSIGHT" | "IAM_ONLY" | "ACTIVE_DIRECTORY" | "IAM_IDENTITY_CENTER";
 export type AuthenticationType = "PASSWORD" | "TOKEN" | "X509";
 interface _AuthorizationCodeGrantCredentialsDetails {
   AuthorizationCodeGrantDetails?: AuthorizationCodeGrantDetails;
 }
 
-export type AuthorizationCodeGrantCredentialsDetails =
-  _AuthorizationCodeGrantCredentialsDetails & {
-    AuthorizationCodeGrantDetails: AuthorizationCodeGrantDetails;
-  };
+export type AuthorizationCodeGrantCredentialsDetails = (_AuthorizationCodeGrantCredentialsDetails & { AuthorizationCodeGrantDetails: AuthorizationCodeGrantDetails });
 export type AuthorizationCodeGrantCredentialsSource = "PLAIN_CREDENTIALS";
 export interface AuthorizationCodeGrantDetails {
   ClientId: string;
@@ -3693,19 +2007,7 @@ export interface AuthorizedTargetsByService {
 }
 export type AuthorizedTargetsByServices = Array<AuthorizedTargetsByService>;
 export type AuthorizedTargetsList = Array<string>;
-export type AuthorSpecifiedAggregation =
-  | "COUNT"
-  | "DISTINCT_COUNT"
-  | "MIN"
-  | "MAX"
-  | "MEDIAN"
-  | "SUM"
-  | "AVERAGE"
-  | "STDEV"
-  | "STDEVP"
-  | "VAR"
-  | "VARP"
-  | "PERCENTILE";
+export type AuthorSpecifiedAggregation = "COUNT" | "DISTINCT_COUNT" | "MIN" | "MAX" | "MEDIAN" | "SUM" | "AVERAGE" | "STDEV" | "STDEVP" | "VAR" | "VARP" | "PERCENTILE";
 export type AuthorSpecifiedAggregations = Array<AuthorSpecifiedAggregation>;
 export type AwsAccountId = string;
 
@@ -3719,7 +2021,8 @@ export interface AxisDataOptions {
   NumericAxisOptions?: NumericAxisOptions;
   DateAxisOptions?: DateAxisOptions;
 }
-export interface AxisDisplayDataDrivenRange {}
+export interface AxisDisplayDataDrivenRange {
+}
 export interface AxisDisplayMinMaxRange {
   Minimum?: number;
   Maximum?: number;
@@ -3808,11 +2111,7 @@ export interface BarChartVisual {
   VisualContentAltText?: string;
 }
 export type BarsArrangement = "CLUSTERED" | "STACKED" | "STACKED_PERCENT";
-export type BaseMapStyleType =
-  | "LIGHT_GRAY"
-  | "DARK_GRAY"
-  | "STREET"
-  | "IMAGERY";
+export type BaseMapStyleType = "LIGHT_GRAY" | "DARK_GRAY" | "STREET" | "IMAGERY";
 export interface BasicAuthConnectionMetadata {
   BaseEndpoint: string;
   Username: string;
@@ -3879,8 +2178,7 @@ export interface BodySectionDynamicCategoryDimensionConfiguration {
 }
 export type BodySectionDynamicDimensionLimit = number;
 
-export type BodySectionDynamicDimensionSortConfigurationList =
-  Array<ColumnSort>;
+export type BodySectionDynamicDimensionSortConfigurationList = Array<ColumnSort>;
 export interface BodySectionDynamicNumericDimensionConfiguration {
   Column: ColumnIdentifier;
   Limit?: number;
@@ -3895,8 +2193,7 @@ export interface BodySectionRepeatDimensionConfiguration {
   DynamicCategoryDimensionConfiguration?: BodySectionDynamicCategoryDimensionConfiguration;
   DynamicNumericDimensionConfiguration?: BodySectionDynamicNumericDimensionConfiguration;
 }
-export type BodySectionRepeatDimensionConfigurationList =
-  Array<BodySectionRepeatDimensionConfiguration>;
+export type BodySectionRepeatDimensionConfigurationList = Array<BodySectionRepeatDimensionConfiguration>;
 export interface BodySectionRepeatPageBreakConfiguration {
   After?: SectionAfterPageBreak;
 }
@@ -3986,12 +2283,7 @@ export interface BrandDetail {
 export interface BrandElementStyle {
   NavbarStyle?: NavbarStyle;
 }
-export type BrandStatus =
-  | "CREATE_IN_PROGRESS"
-  | "CREATE_SUCCEEDED"
-  | "CREATE_FAILED"
-  | "DELETE_IN_PROGRESS"
-  | "DELETE_FAILED";
+export type BrandStatus = "CREATE_IN_PROGRESS" | "CREATE_SUCCEEDED" | "CREATE_FAILED" | "DELETE_IN_PROGRESS" | "DELETE_FAILED";
 export interface BrandSummary {
   Arn?: string;
   BrandId?: string;
@@ -4002,10 +2294,7 @@ export interface BrandSummary {
   LastUpdatedTime?: Date | string;
 }
 export type BrandSummaryList = Array<BrandSummary>;
-export type BrandVersionStatus =
-  | "CREATE_IN_PROGRESS"
-  | "CREATE_SUCCEEDED"
-  | "CREATE_FAILED";
+export type BrandVersionStatus = "CREATE_IN_PROGRESS" | "CREATE_SUCCEEDED" | "CREATE_FAILED";
 export interface CalculatedColumn {
   ColumnName: string;
   ColumnId: string;
@@ -4121,18 +2410,9 @@ export interface CategoryFilterConfiguration {
   CustomFilterConfiguration?: CustomFilterConfiguration;
 }
 export type CategoryFilterFunction = "EXACT" | "CONTAINS";
-export type CategoryFilterMatchOperator =
-  | "EQUALS"
-  | "DOES_NOT_EQUAL"
-  | "CONTAINS"
-  | "DOES_NOT_CONTAIN"
-  | "STARTS_WITH"
-  | "ENDS_WITH";
+export type CategoryFilterMatchOperator = "EQUALS" | "DOES_NOT_EQUAL" | "CONTAINS" | "DOES_NOT_CONTAIN" | "STARTS_WITH" | "ENDS_WITH";
 export type CategoryFilterSelectAllOptions = "FILTER_ALL_VALUES";
-export type CategoryFilterType =
-  | "CUSTOM_FILTER"
-  | "CUSTOM_FILTER_LIST"
-  | "FILTER_LIST";
+export type CategoryFilterType = "CUSTOM_FILTER" | "CUSTOM_FILTER_LIST" | "FILTER_LIST";
 export interface CategoryInnerFilter {
   Column: ColumnIdentifier;
   Configuration: CategoryFilterConfiguration;
@@ -4157,9 +2437,7 @@ interface _ClientCredentialsDetails {
   ClientCredentialsGrantDetails?: ClientCredentialsGrantDetails;
 }
 
-export type ClientCredentialsDetails = _ClientCredentialsDetails & {
-  ClientCredentialsGrantDetails: ClientCredentialsGrantDetails;
-};
+export type ClientCredentialsDetails = (_ClientCredentialsDetails & { ClientCredentialsGrantDetails: ClientCredentialsGrantDetails });
 export interface ClientCredentialsGrantDetails {
   ClientId: string;
   ClientSecret: string;
@@ -4253,10 +2531,7 @@ export type ColumnList = Array<string>;
 export type ColumnName = string;
 
 export type ColumnNameList = Array<string>;
-export type ColumnOrderingType =
-  | "GREATER_IS_BETTER"
-  | "LESSER_IS_BETTER"
-  | "SPECIFIED";
+export type ColumnOrderingType = "GREATER_IS_BETTER" | "LESSER_IS_BETTER" | "SPECIFIED";
 export type ColumnRole = "DIMENSION" | "MEASURE";
 export interface ColumnSchema {
   Name?: string;
@@ -4342,17 +2617,7 @@ export interface ComparisonFormatConfiguration {
   PercentageDisplayFormatConfiguration?: PercentageDisplayFormatConfiguration;
 }
 export type ComparisonMethod = "DIFFERENCE" | "PERCENT_DIFFERENCE" | "PERCENT";
-export type ComparisonMethodType =
-  | "DIFF"
-  | "PERC_DIFF"
-  | "DIFF_AS_PERC"
-  | "POP_CURRENT_DIFF_AS_PERC"
-  | "POP_CURRENT_DIFF"
-  | "POP_OVERTIME_DIFF_AS_PERC"
-  | "POP_OVERTIME_DIFF"
-  | "PERCENT_OF_TOTAL"
-  | "RUNNING_SUM"
-  | "MOVING_AVERAGE";
+export type ComparisonMethodType = "DIFF" | "PERC_DIFF" | "DIFF_AS_PERC" | "POP_CURRENT_DIFF_AS_PERC" | "POP_CURRENT_DIFF" | "POP_OVERTIME_DIFF_AS_PERC" | "POP_OVERTIME_DIFF" | "PERCENT_OF_TOTAL" | "RUNNING_SUM" | "MOVING_AVERAGE";
 export interface Computation {
   TopBottomRanked?: TopBottomRankedComputation;
   TopBottomMovers?: TopBottomMoversComputation;
@@ -4402,18 +2667,7 @@ export interface ConditionalFormattingIconSet {
   Expression: string;
   IconSetType?: ConditionalFormattingIconSetType;
 }
-export type ConditionalFormattingIconSetType =
-  | "PLUS_MINUS"
-  | "CHECK_X"
-  | "THREE_COLOR_ARROW"
-  | "THREE_GRAY_ARROW"
-  | "CARET_UP_MINUS_DOWN"
-  | "THREE_SHAPE"
-  | "THREE_CIRCLE"
-  | "FLAGS"
-  | "BARS"
-  | "FOUR_COLOR_ARROW"
-  | "FOUR_GRAY_ARROW";
+export type ConditionalFormattingIconSetType = "PLUS_MINUS" | "CHECK_X" | "THREE_COLOR_ARROW" | "THREE_GRAY_ARROW" | "CARET_UP_MINUS_DOWN" | "THREE_SHAPE" | "THREE_CIRCLE" | "FLAGS" | "BARS" | "FOUR_COLOR_ARROW" | "FOUR_GRAY_ARROW";
 export interface ConditionalFormattingSolidColor {
   Expression: string;
   Color?: string;
@@ -4427,13 +2681,7 @@ export declare class ConflictException extends EffectData.TaggedError(
 export interface ConfluenceParameters {
   ConfluenceUrl: string;
 }
-export type ConnectionAuthType =
-  | "BASIC"
-  | "API_KEY"
-  | "OAUTH2_CLIENT_CREDENTIALS"
-  | "NONE"
-  | "IAM"
-  | "OAUTH2_AUTHORIZATION_CODE";
+export type ConnectionAuthType = "BASIC" | "API_KEY" | "OAUTH2_CLIENT_CREDENTIALS" | "NONE" | "IAM" | "OAUTH2_AUTHORIZATION_CODE";
 export type ConstantType = "SINGULAR" | "RANGE" | "COLLECTIVE";
 export type ConstantValueString = string;
 
@@ -4450,18 +2698,13 @@ export interface ContributionAnalysisDefault {
   MeasureFieldId: string;
   ContributorDimensions: Array<ColumnIdentifier>;
 }
-export type ContributionAnalysisDefaultList =
-  Array<ContributionAnalysisDefault>;
+export type ContributionAnalysisDefaultList = Array<ContributionAnalysisDefault>;
 export type ContributionAnalysisDirection = "INCREASE" | "DECREASE" | "NEUTRAL";
 export interface ContributionAnalysisFactor {
   FieldName?: string;
 }
 export type ContributionAnalysisFactorsList = Array<ContributionAnalysisFactor>;
-export type ContributionAnalysisSortType =
-  | "ABSOLUTE_DIFFERENCE"
-  | "CONTRIBUTION_PERCENTAGE"
-  | "DEVIATION_FROM_EXPECTED"
-  | "PERCENTAGE_DIFFERENCE";
+export type ContributionAnalysisSortType = "ABSOLUTE_DIFFERENCE" | "CONTRIBUTION_PERCENTAGE" | "DEVIATION_FROM_EXPECTED" | "PERCENTAGE_DIFFERENCE";
 export interface ContributionAnalysisTimeRanges {
   StartRange?: TopicIRFilterOption;
   EndRange?: TopicIRFilterOption;
@@ -4923,11 +3166,7 @@ export interface CustomContentConfiguration {
   ImageScaling?: CustomContentImageScalingConfiguration;
   Interactions?: VisualInteractionOptions;
 }
-export type CustomContentImageScalingConfiguration =
-  | "FIT_TO_HEIGHT"
-  | "FIT_TO_WIDTH"
-  | "DO_NOT_SCALE"
-  | "SCALE_TO_VISUAL";
+export type CustomContentImageScalingConfiguration = "FIT_TO_HEIGHT" | "FIT_TO_WIDTH" | "DO_NOT_SCALE" | "SCALE_TO_VISUAL";
 export type CustomContentType = "IMAGE" | "OTHER_EMBEDDED_CONTENT";
 export interface CustomContentVisual {
   VisualId: string;
@@ -5010,25 +3249,8 @@ export interface DashboardError {
   ViolatedEntities?: Array<Entity>;
 }
 export type DashboardErrorList = Array<DashboardError>;
-export type DashboardErrorType =
-  | "ACCESS_DENIED"
-  | "SOURCE_NOT_FOUND"
-  | "DATA_SET_NOT_FOUND"
-  | "INTERNAL_FAILURE"
-  | "PARAMETER_VALUE_INCOMPATIBLE"
-  | "PARAMETER_TYPE_INVALID"
-  | "PARAMETER_NOT_FOUND"
-  | "COLUMN_TYPE_MISMATCH"
-  | "COLUMN_GEOGRAPHIC_ROLE_MISMATCH"
-  | "COLUMN_REPLACEMENT_MISSING";
-export type DashboardFilterAttribute =
-  | "QUICKSIGHT_USER"
-  | "QUICKSIGHT_VIEWER_OR_OWNER"
-  | "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER"
-  | "QUICKSIGHT_OWNER"
-  | "DIRECT_QUICKSIGHT_OWNER"
-  | "DIRECT_QUICKSIGHT_SOLE_OWNER"
-  | "DASHBOARD_NAME";
+export type DashboardErrorType = "ACCESS_DENIED" | "SOURCE_NOT_FOUND" | "DATA_SET_NOT_FOUND" | "INTERNAL_FAILURE" | "PARAMETER_VALUE_INCOMPATIBLE" | "PARAMETER_TYPE_INVALID" | "PARAMETER_NOT_FOUND" | "COLUMN_TYPE_MISMATCH" | "COLUMN_GEOGRAPHIC_ROLE_MISMATCH" | "COLUMN_REPLACEMENT_MISSING";
+export type DashboardFilterAttribute = "QUICKSIGHT_USER" | "QUICKSIGHT_VIEWER_OR_OWNER" | "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER" | "QUICKSIGHT_OWNER" | "DIRECT_QUICKSIGHT_OWNER" | "DIRECT_QUICKSIGHT_SOLE_OWNER" | "DASHBOARD_NAME";
 export type DashboardName = string;
 
 export interface DashboardPublishOptions {
@@ -5175,13 +3397,7 @@ export interface DataLabelOptions {
   TotalsVisibility?: Visibility;
 }
 export type DataLabelOverlap = "DISABLE_OVERLAP" | "ENABLE_OVERLAP";
-export type DataLabelPosition =
-  | "INSIDE"
-  | "OUTSIDE"
-  | "LEFT"
-  | "TOP"
-  | "BOTTOM"
-  | "RIGHT";
+export type DataLabelPosition = "INSIDE" | "OUTSIDE" | "LEFT" | "TOP" | "BOTTOM" | "RIGHT";
 export interface DataLabelType {
   FieldLabelType?: FieldLabelType;
   DataPathLabelType?: DataPathLabelType;
@@ -5259,21 +3475,14 @@ export interface DataSetConfiguration {
   ColumnGroupSchemaList?: Array<ColumnGroupSchema>;
 }
 export type DataSetConfigurationList = Array<DataSetConfiguration>;
-export type DataSetFilterAttribute =
-  | "QUICKSIGHT_VIEWER_OR_OWNER"
-  | "QUICKSIGHT_OWNER"
-  | "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER"
-  | "DIRECT_QUICKSIGHT_OWNER"
-  | "DIRECT_QUICKSIGHT_SOLE_OWNER"
-  | "DATASET_NAME";
+export type DataSetFilterAttribute = "QUICKSIGHT_VIEWER_OR_OWNER" | "QUICKSIGHT_OWNER" | "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER" | "DIRECT_QUICKSIGHT_OWNER" | "DIRECT_QUICKSIGHT_SOLE_OWNER" | "DATASET_NAME";
 export type DataSetIdentifier = string;
 
 export interface DataSetIdentifierDeclaration {
   Identifier: string;
   DataSetArn: string;
 }
-export type DataSetIdentifierDeclarationList =
-  Array<DataSetIdentifierDeclaration>;
+export type DataSetIdentifierDeclarationList = Array<DataSetIdentifierDeclaration>;
 export type DataSetImportMode = "SPICE" | "DIRECT_QUERY";
 export interface DatasetMetadata {
   DatasetArn: string;
@@ -5363,20 +3572,8 @@ export interface DataSourceErrorInfo {
   Type?: DataSourceErrorInfoType;
   Message?: string;
 }
-export type DataSourceErrorInfoType =
-  | "ACCESS_DENIED"
-  | "COPY_SOURCE_NOT_FOUND"
-  | "TIMEOUT"
-  | "ENGINE_VERSION_NOT_SUPPORTED"
-  | "UNKNOWN_HOST"
-  | "GENERIC_SQL_FAILURE"
-  | "CONFLICT"
-  | "UNKNOWN";
-export type DataSourceFilterAttribute =
-  | "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER"
-  | "DIRECT_QUICKSIGHT_OWNER"
-  | "DIRECT_QUICKSIGHT_SOLE_OWNER"
-  | "DATASOURCE_NAME";
+export type DataSourceErrorInfoType = "ACCESS_DENIED" | "COPY_SOURCE_NOT_FOUND" | "TIMEOUT" | "ENGINE_VERSION_NOT_SUPPORTED" | "UNKNOWN_HOST" | "GENERIC_SQL_FAILURE" | "CONFLICT" | "UNKNOWN";
+export type DataSourceFilterAttribute = "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER" | "DIRECT_QUICKSIGHT_OWNER" | "DIRECT_QUICKSIGHT_SOLE_OWNER" | "DATASOURCE_NAME";
 export type DataSourceList = Array<DataSource>;
 interface _DataSourceParameters {
   AmazonElasticsearchParameters?: AmazonElasticsearchParameters;
@@ -5413,51 +3610,7 @@ interface _DataSourceParameters {
   QBusinessParameters?: QBusinessParameters;
 }
 
-export type DataSourceParameters =
-  | (_DataSourceParameters & {
-      AmazonElasticsearchParameters: AmazonElasticsearchParameters;
-    })
-  | (_DataSourceParameters & { AthenaParameters: AthenaParameters })
-  | (_DataSourceParameters & { AuroraParameters: AuroraParameters })
-  | (_DataSourceParameters & {
-      AuroraPostgreSqlParameters: AuroraPostgreSqlParameters;
-    })
-  | (_DataSourceParameters & {
-      AwsIotAnalyticsParameters: AwsIotAnalyticsParameters;
-    })
-  | (_DataSourceParameters & { JiraParameters: JiraParameters })
-  | (_DataSourceParameters & { MariaDbParameters: MariaDbParameters })
-  | (_DataSourceParameters & { MySqlParameters: MySqlParameters })
-  | (_DataSourceParameters & { OracleParameters: OracleParameters })
-  | (_DataSourceParameters & { PostgreSqlParameters: PostgreSqlParameters })
-  | (_DataSourceParameters & { PrestoParameters: PrestoParameters })
-  | (_DataSourceParameters & { RdsParameters: RdsParameters })
-  | (_DataSourceParameters & { RedshiftParameters: RedshiftParameters })
-  | (_DataSourceParameters & { S3Parameters: S3Parameters })
-  | (_DataSourceParameters & {
-      S3KnowledgeBaseParameters: S3KnowledgeBaseParameters;
-    })
-  | (_DataSourceParameters & { ServiceNowParameters: ServiceNowParameters })
-  | (_DataSourceParameters & { SnowflakeParameters: SnowflakeParameters })
-  | (_DataSourceParameters & { SparkParameters: SparkParameters })
-  | (_DataSourceParameters & { SqlServerParameters: SqlServerParameters })
-  | (_DataSourceParameters & { TeradataParameters: TeradataParameters })
-  | (_DataSourceParameters & { TwitterParameters: TwitterParameters })
-  | (_DataSourceParameters & {
-      AmazonOpenSearchParameters: AmazonOpenSearchParameters;
-    })
-  | (_DataSourceParameters & { ExasolParameters: ExasolParameters })
-  | (_DataSourceParameters & { DatabricksParameters: DatabricksParameters })
-  | (_DataSourceParameters & { StarburstParameters: StarburstParameters })
-  | (_DataSourceParameters & { TrinoParameters: TrinoParameters })
-  | (_DataSourceParameters & { BigQueryParameters: BigQueryParameters })
-  | (_DataSourceParameters & { ImpalaParameters: ImpalaParameters })
-  | (_DataSourceParameters & {
-      CustomConnectionParameters: CustomConnectionParameters;
-    })
-  | (_DataSourceParameters & { WebCrawlerParameters: WebCrawlerParameters })
-  | (_DataSourceParameters & { ConfluenceParameters: ConfluenceParameters })
-  | (_DataSourceParameters & { QBusinessParameters: QBusinessParameters });
+export type DataSourceParameters = (_DataSourceParameters & { AmazonElasticsearchParameters: AmazonElasticsearchParameters }) | (_DataSourceParameters & { AthenaParameters: AthenaParameters }) | (_DataSourceParameters & { AuroraParameters: AuroraParameters }) | (_DataSourceParameters & { AuroraPostgreSqlParameters: AuroraPostgreSqlParameters }) | (_DataSourceParameters & { AwsIotAnalyticsParameters: AwsIotAnalyticsParameters }) | (_DataSourceParameters & { JiraParameters: JiraParameters }) | (_DataSourceParameters & { MariaDbParameters: MariaDbParameters }) | (_DataSourceParameters & { MySqlParameters: MySqlParameters }) | (_DataSourceParameters & { OracleParameters: OracleParameters }) | (_DataSourceParameters & { PostgreSqlParameters: PostgreSqlParameters }) | (_DataSourceParameters & { PrestoParameters: PrestoParameters }) | (_DataSourceParameters & { RdsParameters: RdsParameters }) | (_DataSourceParameters & { RedshiftParameters: RedshiftParameters }) | (_DataSourceParameters & { S3Parameters: S3Parameters }) | (_DataSourceParameters & { S3KnowledgeBaseParameters: S3KnowledgeBaseParameters }) | (_DataSourceParameters & { ServiceNowParameters: ServiceNowParameters }) | (_DataSourceParameters & { SnowflakeParameters: SnowflakeParameters }) | (_DataSourceParameters & { SparkParameters: SparkParameters }) | (_DataSourceParameters & { SqlServerParameters: SqlServerParameters }) | (_DataSourceParameters & { TeradataParameters: TeradataParameters }) | (_DataSourceParameters & { TwitterParameters: TwitterParameters }) | (_DataSourceParameters & { AmazonOpenSearchParameters: AmazonOpenSearchParameters }) | (_DataSourceParameters & { ExasolParameters: ExasolParameters }) | (_DataSourceParameters & { DatabricksParameters: DatabricksParameters }) | (_DataSourceParameters & { StarburstParameters: StarburstParameters }) | (_DataSourceParameters & { TrinoParameters: TrinoParameters }) | (_DataSourceParameters & { BigQueryParameters: BigQueryParameters }) | (_DataSourceParameters & { ImpalaParameters: ImpalaParameters }) | (_DataSourceParameters & { CustomConnectionParameters: CustomConnectionParameters }) | (_DataSourceParameters & { WebCrawlerParameters: WebCrawlerParameters }) | (_DataSourceParameters & { ConfluenceParameters: ConfluenceParameters }) | (_DataSourceParameters & { QBusinessParameters: QBusinessParameters });
 export type DataSourceParametersList = Array<DataSourceParameters>;
 export interface DataSourceSearchFilter {
   Operator: FilterOperator;
@@ -5474,55 +3627,14 @@ export interface DataSourceSummary {
   LastUpdatedTime?: Date | string;
 }
 export type DataSourceSummaryList = Array<DataSourceSummary>;
-export type DataSourceType =
-  | "ADOBE_ANALYTICS"
-  | "AMAZON_ELASTICSEARCH"
-  | "ATHENA"
-  | "AURORA"
-  | "AURORA_POSTGRESQL"
-  | "AWS_IOT_ANALYTICS"
-  | "GITHUB"
-  | "JIRA"
-  | "MARIADB"
-  | "MYSQL"
-  | "ORACLE"
-  | "POSTGRESQL"
-  | "PRESTO"
-  | "REDSHIFT"
-  | "S3"
-  | "SALESFORCE"
-  | "SERVICENOW"
-  | "SNOWFLAKE"
-  | "SPARK"
-  | "SQLSERVER"
-  | "TERADATA"
-  | "TWITTER"
-  | "TIMESTREAM"
-  | "AMAZON_OPENSEARCH"
-  | "EXASOL"
-  | "DATABRICKS"
-  | "STARBURST"
-  | "TRINO"
-  | "BIGQUERY"
-  | "GOOGLESHEETS"
-  | "GOOGLE_DRIVE"
-  | "CONFLUENCE"
-  | "SHAREPOINT"
-  | "ONE_DRIVE"
-  | "WEB_CRAWLER"
-  | "S3_KNOWLEDGE_BASE"
-  | "QBUSINESS";
+export type DataSourceType = "ADOBE_ANALYTICS" | "AMAZON_ELASTICSEARCH" | "ATHENA" | "AURORA" | "AURORA_POSTGRESQL" | "AWS_IOT_ANALYTICS" | "GITHUB" | "JIRA" | "MARIADB" | "MYSQL" | "ORACLE" | "POSTGRESQL" | "PRESTO" | "REDSHIFT" | "S3" | "SALESFORCE" | "SERVICENOW" | "SNOWFLAKE" | "SPARK" | "SQLSERVER" | "TERADATA" | "TWITTER" | "TIMESTREAM" | "AMAZON_OPENSEARCH" | "EXASOL" | "DATABRICKS" | "STARBURST" | "TRINO" | "BIGQUERY" | "GOOGLESHEETS" | "GOOGLE_DRIVE" | "CONFLUENCE" | "SHAREPOINT" | "ONE_DRIVE" | "WEB_CRAWLER" | "S3_KNOWLEDGE_BASE" | "QBUSINESS";
 export interface DataStoriesConfigurations {
   Enabled: boolean;
 }
 export interface DataStoriesSharingOption {
   AvailabilityStatus?: DashboardBehavior;
 }
-export type DateAggregationFunction =
-  | "COUNT"
-  | "DISTINCT_COUNT"
-  | "MIN"
-  | "MAX";
+export type DateAggregationFunction = "COUNT" | "DISTINCT_COUNT" | "MIN" | "MAX";
 export interface DateAxisOptions {
   MissingDateVisibility?: Visibility;
 }
@@ -5594,22 +3706,8 @@ export interface DateTimeValueWhenUnsetConfiguration {
 }
 export type DayOfMonth = string;
 
-export type DayOfTheWeek =
-  | "SUNDAY"
-  | "MONDAY"
-  | "TUESDAY"
-  | "WEDNESDAY"
-  | "THURSDAY"
-  | "FRIDAY"
-  | "SATURDAY";
-export type DayOfWeek =
-  | "SUNDAY"
-  | "MONDAY"
-  | "TUESDAY"
-  | "WEDNESDAY"
-  | "THURSDAY"
-  | "FRIDAY"
-  | "SATURDAY";
+export type DayOfTheWeek = "SUNDAY" | "MONDAY" | "TUESDAY" | "WEDNESDAY" | "THURSDAY" | "FRIDAY" | "SATURDAY";
+export type DayOfWeek = "SUNDAY" | "MONDAY" | "TUESDAY" | "WEDNESDAY" | "THURSDAY" | "FRIDAY" | "SATURDAY";
 export type DbUsername = string;
 
 export interface DecimalDatasetParameter {
@@ -5650,18 +3748,7 @@ export interface DecimalValueWhenUnsetConfiguration {
   ValueWhenUnsetOption?: ValueWhenUnsetOption;
   CustomValue?: number;
 }
-export type DefaultAggregation =
-  | "SUM"
-  | "MAX"
-  | "MIN"
-  | "COUNT"
-  | "DISTINCT_COUNT"
-  | "AVERAGE"
-  | "MEDIAN"
-  | "STDEV"
-  | "STDEVP"
-  | "VAR"
-  | "VARP";
+export type DefaultAggregation = "SUM" | "MAX" | "MIN" | "COUNT" | "DISTINCT_COUNT" | "AVERAGE" | "MEDIAN" | "STDEV" | "STDEVP" | "VAR" | "VARP";
 export interface DefaultDateTimePickerControlOptions {
   Type?: SheetControlDateTimePickerType;
   DisplayOptions?: DateTimePickerControlDisplayOptions;
@@ -6674,13 +4761,7 @@ export interface DimensionField {
   DateDimensionField?: DateDimensionField;
 }
 export type DimensionFieldList = Array<DimensionField>;
-export type DisplayFormat =
-  | "AUTO"
-  | "PERCENT"
-  | "CURRENCY"
-  | "NUMBER"
-  | "DATE"
-  | "STRING";
+export type DisplayFormat = "AUTO" | "PERCENT" | "CURRENCY" | "NUMBER" | "DATE" | "STRING";
 export interface DisplayFormatOptions {
   UseBlankCellFormat?: boolean;
   BlankCellFormat?: string;
@@ -6761,16 +4842,7 @@ export interface ExasolParameters {
   Host: string;
   Port: number;
 }
-export type ExceptionResourceType =
-  | "USER"
-  | "GROUP"
-  | "NAMESPACE"
-  | "ACCOUNT_SETTINGS"
-  | "IAMPOLICY_ASSIGNMENT"
-  | "DATA_SOURCE"
-  | "DATA_SET"
-  | "VPC_CONNECTION"
-  | "INGESTION";
+export type ExceptionResourceType = "USER" | "GROUP" | "NAMESPACE" | "ACCOUNT_SETTINGS" | "IAMPOLICY_ASSIGNMENT" | "DATA_SOURCE" | "DATA_SET" | "VPC_CONNECTION" | "INGESTION";
 export interface ExcludePeriodConfiguration {
   Amount: number;
   Granularity: TimeGranularity;
@@ -6826,12 +4898,7 @@ export interface FieldLabelType {
   FieldId?: string;
   Visibility?: Visibility;
 }
-export type FieldName =
-  | "assetName"
-  | "assetDescription"
-  | "DIRECT_QUICKSIGHT_OWNER"
-  | "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER"
-  | "DIRECT_QUICKSIGHT_SOLE_OWNER";
+export type FieldName = "assetName" | "assetDescription" | "DIRECT_QUICKSIGHT_OWNER" | "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER" | "DIRECT_QUICKSIGHT_SOLE_OWNER";
 export type FieldOrderList = Array<string>;
 export interface FieldSeriesItem {
   FieldId: string;
@@ -6866,8 +4933,7 @@ export interface FilledMapConditionalFormatting {
 export interface FilledMapConditionalFormattingOption {
   Shape: FilledMapShapeConditionalFormatting;
 }
-export type FilledMapConditionalFormattingOptionList =
-  Array<FilledMapConditionalFormattingOption>;
+export type FilledMapConditionalFormattingOptionList = Array<FilledMapConditionalFormattingOption>;
 export interface FilledMapConfiguration {
   FieldWells?: FilledMapFieldWells;
   SortConfiguration?: FilledMapSortConfiguration;
@@ -6915,10 +4981,7 @@ export interface FilterAggMetrics {
   SortDirection?: TopicSortDirection;
 }
 export type FilterAggMetricsList = Array<FilterAggMetrics>;
-export type FilterClass =
-  | "ENFORCED_VALUE_FILTER"
-  | "CONDITIONAL_VALUE_FILTER"
-  | "NAMED_VALUE_FILTER";
+export type FilterClass = "ENFORCED_VALUE_FILTER" | "CONDITIONAL_VALUE_FILTER" | "NAMED_VALUE_FILTER";
 export interface FilterControl {
   DateTimePicker?: FilterDateTimePickerControl;
   List?: FilterListControl;
@@ -7064,14 +5127,7 @@ export interface Folder {
 }
 export type FolderArnList = Array<string>;
 export type FolderColumnList = Array<string>;
-export type FolderFilterAttribute =
-  | "PARENT_FOLDER_ARN"
-  | "DIRECT_QUICKSIGHT_OWNER"
-  | "DIRECT_QUICKSIGHT_SOLE_OWNER"
-  | "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER"
-  | "QUICKSIGHT_OWNER"
-  | "QUICKSIGHT_VIEWER_OR_OWNER"
-  | "FOLDER_NAME";
+export type FolderFilterAttribute = "PARENT_FOLDER_ARN" | "DIRECT_QUICKSIGHT_OWNER" | "DIRECT_QUICKSIGHT_SOLE_OWNER" | "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER" | "QUICKSIGHT_OWNER" | "QUICKSIGHT_VIEWER_OR_OWNER" | "FOLDER_NAME";
 export interface FolderMember {
   MemberId?: string;
   MemberType?: MemberType;
@@ -7212,12 +5268,7 @@ export type FunnelChartDimensionFieldList = Array<DimensionField>;
 export interface FunnelChartFieldWells {
   FunnelChartAggregatedFieldWells?: FunnelChartAggregatedFieldWells;
 }
-export type FunnelChartMeasureDataLabelStyle =
-  | "VALUE_ONLY"
-  | "PERCENTAGE_BY_FIRST_STAGE"
-  | "PERCENTAGE_BY_PREVIOUS_STAGE"
-  | "VALUE_AND_PERCENTAGE_BY_FIRST_STAGE"
-  | "VALUE_AND_PERCENTAGE_BY_PREVIOUS_STAGE";
+export type FunnelChartMeasureDataLabelStyle = "VALUE_ONLY" | "PERCENTAGE_BY_FIRST_STAGE" | "PERCENTAGE_BY_PREVIOUS_STAGE" | "VALUE_AND_PERCENTAGE_BY_FIRST_STAGE" | "VALUE_AND_PERCENTAGE_BY_PREVIOUS_STAGE";
 export type FunnelChartMeasureFieldList = Array<MeasureField>;
 export interface FunnelChartSortConfiguration {
   CategorySort?: Array<FieldSortOptions>;
@@ -7246,8 +5297,7 @@ export interface GaugeChartConditionalFormattingOption {
   PrimaryValue?: GaugeChartPrimaryValueConditionalFormatting;
   Arc?: GaugeChartArcConditionalFormatting;
 }
-export type GaugeChartConditionalFormattingOptionList =
-  Array<GaugeChartConditionalFormattingOption>;
+export type GaugeChartConditionalFormattingOptionList = Array<GaugeChartConditionalFormattingOption>;
 export interface GaugeChartConfiguration {
   FieldWells?: GaugeChartFieldWells;
   GaugeChartOptions?: GaugeChartOptions;
@@ -7291,10 +5341,7 @@ export interface GeneratedAnswerResult {
   AnswerId?: string;
   QuestionUrl?: string;
 }
-export type GeneratedAnswerStatus =
-  | "ANSWER_GENERATED"
-  | "ANSWER_RETRIEVED"
-  | "ANSWER_DOWNGRADE";
+export type GeneratedAnswerStatus = "ANSWER_GENERATED" | "ANSWER_RETRIEVED" | "ANSWER_DOWNGRADE";
 export interface GenerateEmbedUrlForAnonymousUserRequest {
   AwsAccountId: string;
   SessionLifetimeInMinutes?: number;
@@ -7346,8 +5393,7 @@ export interface GeospatialCategoricalDataColor {
   Color: string;
   DataValue: string;
 }
-export type GeospatialCategoricalDataColorList =
-  Array<GeospatialCategoricalDataColor>;
+export type GeospatialCategoricalDataColorList = Array<GeospatialCategoricalDataColor>;
 export interface GeospatialCircleRadius {
   Radius?: number;
 }
@@ -7375,14 +5421,7 @@ export interface GeospatialCoordinateBounds {
   East: number;
 }
 export type GeoSpatialCountryCode = "US";
-export type GeoSpatialDataRole =
-  | "COUNTRY"
-  | "STATE"
-  | "COUNTY"
-  | "CITY"
-  | "POSTCODE"
-  | "LONGITUDE"
-  | "LATITUDE";
+export type GeoSpatialDataRole = "COUNTRY" | "STATE" | "COUNTY" | "CITY" | "POSTCODE" | "LONGITUDE" | "LATITUDE";
 export interface GeospatialDataSourceItem {
   StaticFileDataSource?: GeospatialStaticFileSource;
 }
@@ -7396,8 +5435,7 @@ export interface GeospatialGradientStepColor {
   Color: string;
   DataValue: number;
 }
-export type GeospatialGradientStepColorList =
-  Array<GeospatialGradientStepColor>;
+export type GeospatialGradientStepColorList = Array<GeospatialGradientStepColor>;
 export interface GeospatialHeatmapColorScale {
   Colors?: Array<GeospatialHeatmapDataColor>;
 }
@@ -7684,8 +5722,7 @@ export interface HeaderFooterSectionConfiguration {
   Layout: SectionLayoutConfiguration;
   Style?: SectionStyle;
 }
-export type HeaderFooterSectionConfigurationList =
-  Array<HeaderFooterSectionConfiguration>;
+export type HeaderFooterSectionConfigurationList = Array<HeaderFooterSectionConfiguration>;
 export interface HeatMapAggregatedFieldWells {
   Rows?: Array<DimensionField>;
   Columns?: Array<DimensionField>;
@@ -7784,33 +5821,7 @@ export interface IAMPolicyAssignmentSummary {
   AssignmentStatus?: AssignmentStatus;
 }
 export type IAMPolicyAssignmentSummaryList = Array<IAMPolicyAssignmentSummary>;
-export type Icon =
-  | "CARET_UP"
-  | "CARET_DOWN"
-  | "PLUS"
-  | "MINUS"
-  | "ARROW_UP"
-  | "ARROW_DOWN"
-  | "ARROW_LEFT"
-  | "ARROW_UP_LEFT"
-  | "ARROW_DOWN_LEFT"
-  | "ARROW_RIGHT"
-  | "ARROW_UP_RIGHT"
-  | "ARROW_DOWN_RIGHT"
-  | "FACE_UP"
-  | "FACE_DOWN"
-  | "FACE_FLAT"
-  | "ONE_BAR"
-  | "TWO_BAR"
-  | "THREE_BAR"
-  | "CIRCLE"
-  | "TRIANGLE"
-  | "SQUARE"
-  | "FLAG"
-  | "THUMBS_UP"
-  | "THUMBS_DOWN"
-  | "CHECKMARK"
-  | "X";
+export type Icon = "CARET_UP" | "CARET_DOWN" | "PLUS" | "MINUS" | "ARROW_UP" | "ARROW_DOWN" | "ARROW_LEFT" | "ARROW_UP_LEFT" | "ARROW_DOWN_LEFT" | "ARROW_RIGHT" | "ARROW_UP_RIGHT" | "ARROW_DOWN_RIGHT" | "FACE_UP" | "FACE_DOWN" | "FACE_FLAT" | "ONE_BAR" | "TWO_BAR" | "THREE_BAR" | "CIRCLE" | "TRIANGLE" | "SQUARE" | "FLAG" | "THUMBS_UP" | "THUMBS_DOWN" | "CHECKMARK" | "X";
 export interface Identifier {
   Identity: string;
 }
@@ -7874,9 +5885,7 @@ interface _ImageSource {
   S3Uri?: string;
 }
 
-export type ImageSource =
-  | (_ImageSource & { PublicUrl: string })
-  | (_ImageSource & { S3Uri: string });
+export type ImageSource = (_ImageSource & { PublicUrl: string }) | (_ImageSource & { S3Uri: string });
 export interface ImageStaticFile {
   StaticFileId: string;
   Source?: StaticFileSource;
@@ -7906,70 +5915,15 @@ export interface Ingestion {
   RequestSource?: IngestionRequestSource;
   RequestType?: IngestionRequestType;
 }
-export type IngestionErrorType =
-  | "FAILURE_TO_ASSUME_ROLE"
-  | "INGESTION_SUPERSEDED"
-  | "INGESTION_CANCELED"
-  | "DATA_SET_DELETED"
-  | "DATA_SET_NOT_SPICE"
-  | "S3_UPLOADED_FILE_DELETED"
-  | "S3_MANIFEST_ERROR"
-  | "DATA_TOLERANCE_EXCEPTION"
-  | "SPICE_TABLE_NOT_FOUND"
-  | "DATA_SET_SIZE_LIMIT_EXCEEDED"
-  | "ROW_SIZE_LIMIT_EXCEEDED"
-  | "ACCOUNT_CAPACITY_LIMIT_EXCEEDED"
-  | "CUSTOMER_ERROR"
-  | "DATA_SOURCE_NOT_FOUND"
-  | "IAM_ROLE_NOT_AVAILABLE"
-  | "CONNECTION_FAILURE"
-  | "SQL_TABLE_NOT_FOUND"
-  | "PERMISSION_DENIED"
-  | "SSL_CERTIFICATE_VALIDATION_FAILURE"
-  | "OAUTH_TOKEN_FAILURE"
-  | "SOURCE_API_LIMIT_EXCEEDED_FAILURE"
-  | "PASSWORD_AUTHENTICATION_FAILURE"
-  | "SQL_SCHEMA_MISMATCH_ERROR"
-  | "INVALID_DATE_FORMAT"
-  | "INVALID_DATAPREP_SYNTAX"
-  | "SOURCE_RESOURCE_LIMIT_EXCEEDED"
-  | "SQL_INVALID_PARAMETER_VALUE"
-  | "QUERY_TIMEOUT"
-  | "SQL_NUMERIC_OVERFLOW"
-  | "UNRESOLVABLE_HOST"
-  | "UNROUTABLE_HOST"
-  | "SQL_EXCEPTION"
-  | "S3_FILE_INACCESSIBLE"
-  | "IOT_FILE_NOT_FOUND"
-  | "IOT_DATA_SET_FILE_EMPTY"
-  | "INVALID_DATA_SOURCE_CONFIG"
-  | "DATA_SOURCE_AUTH_FAILED"
-  | "DATA_SOURCE_CONNECTION_FAILED"
-  | "FAILURE_TO_PROCESS_JSON_FILE"
-  | "INTERNAL_SERVICE_ERROR"
-  | "REFRESH_SUPPRESSED_BY_EDIT"
-  | "PERMISSION_NOT_FOUND"
-  | "ELASTICSEARCH_CURSOR_NOT_ENABLED"
-  | "CURSOR_NOT_ENABLED"
-  | "DUPLICATE_COLUMN_NAMES_FOUND";
+export type IngestionErrorType = "FAILURE_TO_ASSUME_ROLE" | "INGESTION_SUPERSEDED" | "INGESTION_CANCELED" | "DATA_SET_DELETED" | "DATA_SET_NOT_SPICE" | "S3_UPLOADED_FILE_DELETED" | "S3_MANIFEST_ERROR" | "DATA_TOLERANCE_EXCEPTION" | "SPICE_TABLE_NOT_FOUND" | "DATA_SET_SIZE_LIMIT_EXCEEDED" | "ROW_SIZE_LIMIT_EXCEEDED" | "ACCOUNT_CAPACITY_LIMIT_EXCEEDED" | "CUSTOMER_ERROR" | "DATA_SOURCE_NOT_FOUND" | "IAM_ROLE_NOT_AVAILABLE" | "CONNECTION_FAILURE" | "SQL_TABLE_NOT_FOUND" | "PERMISSION_DENIED" | "SSL_CERTIFICATE_VALIDATION_FAILURE" | "OAUTH_TOKEN_FAILURE" | "SOURCE_API_LIMIT_EXCEEDED_FAILURE" | "PASSWORD_AUTHENTICATION_FAILURE" | "SQL_SCHEMA_MISMATCH_ERROR" | "INVALID_DATE_FORMAT" | "INVALID_DATAPREP_SYNTAX" | "SOURCE_RESOURCE_LIMIT_EXCEEDED" | "SQL_INVALID_PARAMETER_VALUE" | "QUERY_TIMEOUT" | "SQL_NUMERIC_OVERFLOW" | "UNRESOLVABLE_HOST" | "UNROUTABLE_HOST" | "SQL_EXCEPTION" | "S3_FILE_INACCESSIBLE" | "IOT_FILE_NOT_FOUND" | "IOT_DATA_SET_FILE_EMPTY" | "INVALID_DATA_SOURCE_CONFIG" | "DATA_SOURCE_AUTH_FAILED" | "DATA_SOURCE_CONNECTION_FAILED" | "FAILURE_TO_PROCESS_JSON_FILE" | "INTERNAL_SERVICE_ERROR" | "REFRESH_SUPPRESSED_BY_EDIT" | "PERMISSION_NOT_FOUND" | "ELASTICSEARCH_CURSOR_NOT_ENABLED" | "CURSOR_NOT_ENABLED" | "DUPLICATE_COLUMN_NAMES_FOUND";
 export type IngestionId = string;
 
 export type IngestionMaxResults = number;
 
 export type IngestionRequestSource = "MANUAL" | "SCHEDULED";
-export type IngestionRequestType =
-  | "INITIAL_INGESTION"
-  | "EDIT"
-  | "INCREMENTAL_REFRESH"
-  | "FULL_REFRESH";
+export type IngestionRequestType = "INITIAL_INGESTION" | "EDIT" | "INCREMENTAL_REFRESH" | "FULL_REFRESH";
 export type Ingestions = Array<Ingestion>;
-export type IngestionStatus =
-  | "INITIALIZED"
-  | "QUEUED"
-  | "RUNNING"
-  | "FAILED"
-  | "COMPLETED"
-  | "CANCELLED";
+export type IngestionStatus = "INITIALIZED" | "QUEUED" | "RUNNING" | "FAILED" | "COMPLETED" | "CANCELLED";
 export type IngestionType = "INCREMENTAL_REFRESH" | "FULL_REFRESH";
 export interface InnerFilter {
   CategoryInnerFilter?: CategoryInnerFilter;
@@ -7979,14 +5933,7 @@ export interface InputColumn {
   Type: InputColumnDataType;
   SubType?: ColumnDataSubType;
 }
-export type InputColumnDataType =
-  | "STRING"
-  | "INTEGER"
-  | "DECIMAL"
-  | "DATETIME"
-  | "BIT"
-  | "BOOLEAN"
-  | "JSON";
+export type InputColumnDataType = "STRING" | "INTEGER" | "DECIMAL" | "DATETIME" | "BIT" | "BOOLEAN" | "JSON";
 export type InputColumnList = Array<InputColumn>;
 export interface InsightConfiguration {
   Computations?: Array<Computation>;
@@ -8115,8 +6062,7 @@ export interface KPIConditionalFormattingOption {
   ActualValue?: KPIActualValueConditionalFormatting;
   ComparisonValue?: KPIComparisonValueConditionalFormatting;
 }
-export type KPIConditionalFormattingOptionList =
-  Array<KPIConditionalFormattingOption>;
+export type KPIConditionalFormattingOptionList = Array<KPIConditionalFormattingOption>;
 export interface KPIConfiguration {
   FieldWells?: KPIFieldWells;
   SortConfiguration?: KPISortConfiguration;
@@ -8214,12 +6160,7 @@ export interface LayoutConfiguration {
   FreeFormLayout?: FreeFormLayoutConfiguration;
   SectionBasedLayout?: SectionBasedLayoutConfiguration;
 }
-export type LayoutElementType =
-  | "VISUAL"
-  | "FILTER_CONTROL"
-  | "PARAMETER_CONTROL"
-  | "TEXT_BOX"
-  | "IMAGE";
+export type LayoutElementType = "VISUAL" | "FILTER_CONTROL" | "PARAMETER_CONTROL" | "TEXT_BOX" | "IMAGE";
 export type LayoutList = Array<Layout>;
 export interface LegendOptions {
   Visibility?: Visibility;
@@ -8285,12 +6226,7 @@ export interface LineChartLineStyleSettings {
   LineStyle?: LineChartLineStyle;
   LineWidth?: string;
 }
-export type LineChartMarkerShape =
-  | "CIRCLE"
-  | "TRIANGLE"
-  | "SQUARE"
-  | "DIAMOND"
-  | "ROUNDED_SQUARE";
+export type LineChartMarkerShape = "CIRCLE" | "TRIANGLE" | "SQUARE" | "DIAMOND" | "ROUNDED_SQUARE";
 export interface LineChartMarkerStyleSettings {
   MarkerVisibility?: Visibility;
   MarkerShape?: LineChartMarkerShape;
@@ -8852,12 +6788,7 @@ export interface MemberIdArnPair {
   MemberId?: string;
   MemberArn?: string;
 }
-export type MemberType =
-  | "DASHBOARD"
-  | "ANALYSIS"
-  | "DATASET"
-  | "DATASOURCE"
-  | "TOPIC";
+export type MemberType = "DASHBOARD" | "ANALYSIS" | "DATASET" | "DATASOURCE" | "TOPIC";
 export type MetadataFilesLocation = string;
 
 export interface MetricComparisonComputation {
@@ -8874,10 +6805,7 @@ export interface MissingDataConfiguration {
   TreatmentOption?: MissingDataTreatmentOption;
 }
 export type MissingDataConfigurationList = Array<MissingDataConfiguration>;
-export type MissingDataTreatmentOption =
-  | "INTERPOLATE"
-  | "SHOW_AS_ZERO"
-  | "SHOW_AS_BLANK";
+export type MissingDataTreatmentOption = "INTERPOLATE" | "SHOW_AS_ZERO" | "SHOW_AS_BLANK";
 export interface MySqlParameters {
   Host: string;
   Port: number;
@@ -8885,20 +6813,7 @@ export interface MySqlParameters {
 }
 export type Name = string;
 
-export type NamedEntityAggType =
-  | "SUM"
-  | "MIN"
-  | "MAX"
-  | "COUNT"
-  | "AVERAGE"
-  | "DISTINCT_COUNT"
-  | "STDEV"
-  | "STDEVP"
-  | "VAR"
-  | "VARP"
-  | "PERCENTILE"
-  | "MEDIAN"
-  | "CUSTOM";
+export type NamedEntityAggType = "SUM" | "MIN" | "MAX" | "COUNT" | "AVERAGE" | "DISTINCT_COUNT" | "STDEV" | "STDEVP" | "VAR" | "VARP" | "PERCENTILE" | "MEDIAN" | "CUSTOM";
 export interface NamedEntityDefinition {
   FieldName?: string;
   PropertyName?: string;
@@ -8914,26 +6829,8 @@ export type NamedEntityDefinitions = Array<NamedEntityDefinition>;
 export interface NamedEntityRef {
   NamedEntityName?: string;
 }
-export type NamedFilterAggType =
-  | "NO_AGGREGATION"
-  | "SUM"
-  | "AVERAGE"
-  | "COUNT"
-  | "DISTINCT_COUNT"
-  | "MAX"
-  | "MEDIAN"
-  | "MIN"
-  | "STDEV"
-  | "STDEVP"
-  | "VAR"
-  | "VARP";
-export type NamedFilterType =
-  | "CATEGORY_FILTER"
-  | "NUMERIC_EQUALITY_FILTER"
-  | "NUMERIC_RANGE_FILTER"
-  | "DATE_RANGE_FILTER"
-  | "RELATIVE_DATE_FILTER"
-  | "NULL_FILTER";
+export type NamedFilterAggType = "NO_AGGREGATION" | "SUM" | "AVERAGE" | "COUNT" | "DISTINCT_COUNT" | "MAX" | "MEDIAN" | "MIN" | "STDEV" | "STDEVP" | "VAR" | "VARP";
+export type NamedFilterType = "CATEGORY_FILTER" | "NUMERIC_EQUALITY_FILTER" | "NUMERIC_RANGE_FILTER" | "DATE_RANGE_FILTER" | "RELATIVE_DATE_FILTER" | "NULL_FILTER";
 export type Namespace = string;
 
 export interface NamespaceError {
@@ -8952,12 +6849,7 @@ export interface NamespaceInfoV2 {
   IamIdentityCenterInstanceArn?: string;
 }
 export type Namespaces = Array<NamespaceInfoV2>;
-export type NamespaceStatus =
-  | "CREATED"
-  | "CREATING"
-  | "DELETING"
-  | "RETRYABLE_FAILURE"
-  | "NON_RETRYABLE_FAILURE";
+export type NamespaceStatus = "CREATED" | "CREATING" | "DELETING" | "RETRYABLE_FAILURE" | "NON_RETRYABLE_FAILURE";
 export type NarrativeString = string;
 
 export interface NavbarStyle {
@@ -8988,17 +6880,7 @@ export interface NetworkInterface {
 export type NetworkInterfaceId = string;
 
 export type NetworkInterfaceList = Array<NetworkInterface>;
-export type NetworkInterfaceStatus =
-  | "CREATING"
-  | "AVAILABLE"
-  | "CREATION_FAILED"
-  | "UPDATING"
-  | "UPDATE_FAILED"
-  | "DELETING"
-  | "DELETED"
-  | "DELETION_FAILED"
-  | "DELETION_SCHEDULED"
-  | "ATTACHMENT_FAILED_ROLLBACK_FAILED";
+export type NetworkInterfaceStatus = "CREATING" | "AVAILABLE" | "CREATION_FAILED" | "UPDATING" | "UPDATE_FAILED" | "DELETING" | "DELETED" | "DELETION_FAILED" | "DELETION_SCHEDULED" | "ATTACHMENT_FAILED_ROLLBACK_FAILED";
 export interface NewDefaultValues {
   StringStaticValues?: Array<string>;
   DecimalStaticValues?: Array<number>;
@@ -9032,15 +6914,7 @@ export interface NumberDisplayFormatConfiguration {
 export interface NumberFormatConfiguration {
   FormatConfiguration?: NumericFormatConfiguration;
 }
-export type NumberScale =
-  | "NONE"
-  | "AUTO"
-  | "THOUSANDS"
-  | "MILLIONS"
-  | "BILLIONS"
-  | "TRILLIONS"
-  | "LAKHS"
-  | "CRORES";
+export type NumberScale = "NONE" | "AUTO" | "THOUSANDS" | "MILLIONS" | "BILLIONS" | "TRILLIONS" | "LAKHS" | "CRORES";
 export interface NumericalAggregationFunction {
   SimpleNumericalAggregation?: SimpleNumericalAggregationFunction;
   PercentileAggregation?: PercentileAggregation;
@@ -9166,18 +7040,7 @@ export interface PanelTitleOptions {
   HorizontalTextAlignment?: HorizontalTextAlignment;
 }
 export type PaperOrientation = "PORTRAIT" | "LANDSCAPE";
-export type PaperSize =
-  | "US_LETTER"
-  | "US_LEGAL"
-  | "US_TABLOID_LEDGER"
-  | "A0"
-  | "A1"
-  | "A2"
-  | "A3"
-  | "A4"
-  | "A5"
-  | "JIS_B4"
-  | "JIS_B5";
+export type PaperSize = "US_LETTER" | "US_LEGAL" | "US_TABLOID_LEDGER" | "A0" | "A1" | "A2" | "A3" | "A4" | "A5" | "JIS_B4" | "JIS_B5";
 export interface ParameterControl {
   DateTimePicker?: ParameterDateTimePickerControl;
   List?: ParameterListControl;
@@ -9311,10 +7174,7 @@ interface _PhysicalTable {
   S3Source?: S3Source;
 }
 
-export type PhysicalTable =
-  | (_PhysicalTable & { RelationalTable: RelationalTable })
-  | (_PhysicalTable & { CustomSql: CustomSql })
-  | (_PhysicalTable & { S3Source: S3Source });
+export type PhysicalTable = (_PhysicalTable & { RelationalTable: RelationalTable }) | (_PhysicalTable & { CustomSql: CustomSql }) | (_PhysicalTable & { S3Source: S3Source });
 export type PhysicalTableId = string;
 
 export type PhysicalTableMap = Record<string, PhysicalTable>;
@@ -9378,17 +7238,12 @@ export interface PivotTableConditionalFormatting {
 export interface PivotTableConditionalFormattingOption {
   Cell?: PivotTableCellConditionalFormatting;
 }
-export type PivotTableConditionalFormattingOptionList =
-  Array<PivotTableConditionalFormattingOption>;
+export type PivotTableConditionalFormattingOptionList = Array<PivotTableConditionalFormattingOption>;
 export interface PivotTableConditionalFormattingScope {
   Role?: PivotTableConditionalFormattingScopeRole;
 }
-export type PivotTableConditionalFormattingScopeList =
-  Array<PivotTableConditionalFormattingScope>;
-export type PivotTableConditionalFormattingScopeRole =
-  | "FIELD"
-  | "FIELD_TOTAL"
-  | "GRAND_TOTAL";
+export type PivotTableConditionalFormattingScopeList = Array<PivotTableConditionalFormattingScope>;
+export type PivotTableConditionalFormattingScopeRole = "FIELD" | "FIELD_TOTAL" | "GRAND_TOTAL";
 export interface PivotTableConfiguration {
   FieldWells?: PivotTableFieldWells;
   SortConfiguration?: PivotTableSortConfiguration;
@@ -9403,19 +7258,14 @@ export interface PivotTableDataPathOption {
   Width?: string;
 }
 export type PivotTableDataPathOptionList = Array<PivotTableDataPathOption>;
-export type PivotTableDataPathType =
-  | "HIERARCHY_ROWS_LAYOUT_COLUMN"
-  | "MULTIPLE_ROW_METRICS_COLUMN"
-  | "EMPTY_COLUMN_HEADER"
-  | "COUNT_METRIC_COLUMN";
+export type PivotTableDataPathType = "HIERARCHY_ROWS_LAYOUT_COLUMN" | "MULTIPLE_ROW_METRICS_COLUMN" | "EMPTY_COLUMN_HEADER" | "COUNT_METRIC_COLUMN";
 export type PivotTableDimensionList = Array<DimensionField>;
 export type PivotTableFieldCollapseState = "COLLAPSED" | "EXPANDED";
 export interface PivotTableFieldCollapseStateOption {
   Target: PivotTableFieldCollapseStateTarget;
   State?: PivotTableFieldCollapseState;
 }
-export type PivotTableFieldCollapseStateOptionList =
-  Array<PivotTableFieldCollapseStateOption>;
+export type PivotTableFieldCollapseStateOptionList = Array<PivotTableFieldCollapseStateOption>;
 export interface PivotTableFieldCollapseStateTarget {
   FieldId?: string;
   FieldDataPathValues?: Array<DataPathValue>;
@@ -9434,8 +7284,7 @@ export interface PivotTableFieldOptions {
 export interface PivotTableFieldSubtotalOptions {
   FieldId?: string;
 }
-export type PivotTableFieldSubtotalOptionsList =
-  Array<PivotTableFieldSubtotalOptions>;
+export type PivotTableFieldSubtotalOptionsList = Array<PivotTableFieldSubtotalOptions>;
 export interface PivotTableFieldWells {
   PivotTableAggregatedFieldWells?: PivotTableAggregatedFieldWells;
 }
@@ -9620,10 +7469,7 @@ export interface QAResult {
   GeneratedAnswer?: GeneratedAnswerResult;
 }
 export type QAResults = Array<QAResult>;
-export type QAResultType =
-  | "DASHBOARD_VISUAL"
-  | "GENERATED_ANSWER"
-  | "NO_ANSWER";
+export type QAResultType = "DASHBOARD_VISUAL" | "GENERATED_ANSWER" | "NO_ANSWER";
 export type QAUrl = string;
 
 export type QBusinessInsightsStatus = "ENABLED" | "DISABLED";
@@ -9739,33 +7585,12 @@ interface _ReadAuthenticationMetadata {
   IamConnectionMetadata?: ReadIamConnectionMetadata;
 }
 
-export type ReadAuthenticationMetadata =
-  | (_ReadAuthenticationMetadata & {
-      AuthorizationCodeGrantMetadata: ReadAuthorizationCodeGrantMetadata;
-    })
-  | (_ReadAuthenticationMetadata & {
-      ClientCredentialsGrantMetadata: ReadClientCredentialsGrantMetadata;
-    })
-  | (_ReadAuthenticationMetadata & {
-      BasicAuthConnectionMetadata: ReadBasicAuthConnectionMetadata;
-    })
-  | (_ReadAuthenticationMetadata & {
-      ApiKeyConnectionMetadata: ReadAPIKeyConnectionMetadata;
-    })
-  | (_ReadAuthenticationMetadata & {
-      NoneConnectionMetadata: ReadNoneConnectionMetadata;
-    })
-  | (_ReadAuthenticationMetadata & {
-      IamConnectionMetadata: ReadIamConnectionMetadata;
-    });
+export type ReadAuthenticationMetadata = (_ReadAuthenticationMetadata & { AuthorizationCodeGrantMetadata: ReadAuthorizationCodeGrantMetadata }) | (_ReadAuthenticationMetadata & { ClientCredentialsGrantMetadata: ReadClientCredentialsGrantMetadata }) | (_ReadAuthenticationMetadata & { BasicAuthConnectionMetadata: ReadBasicAuthConnectionMetadata }) | (_ReadAuthenticationMetadata & { ApiKeyConnectionMetadata: ReadAPIKeyConnectionMetadata }) | (_ReadAuthenticationMetadata & { NoneConnectionMetadata: ReadNoneConnectionMetadata }) | (_ReadAuthenticationMetadata & { IamConnectionMetadata: ReadIamConnectionMetadata });
 interface _ReadAuthorizationCodeGrantCredentialsDetails {
   ReadAuthorizationCodeGrantDetails?: ReadAuthorizationCodeGrantDetails;
 }
 
-export type ReadAuthorizationCodeGrantCredentialsDetails =
-  _ReadAuthorizationCodeGrantCredentialsDetails & {
-    ReadAuthorizationCodeGrantDetails: ReadAuthorizationCodeGrantDetails;
-  };
+export type ReadAuthorizationCodeGrantCredentialsDetails = (_ReadAuthorizationCodeGrantCredentialsDetails & { ReadAuthorizationCodeGrantDetails: ReadAuthorizationCodeGrantDetails });
 export interface ReadAuthorizationCodeGrantDetails {
   ClientId: string;
   TokenEndpoint: string;
@@ -9785,9 +7610,7 @@ interface _ReadClientCredentialsDetails {
   ReadClientCredentialsGrantDetails?: ReadClientCredentialsGrantDetails;
 }
 
-export type ReadClientCredentialsDetails = _ReadClientCredentialsDetails & {
-  ReadClientCredentialsGrantDetails: ReadClientCredentialsGrantDetails;
-};
+export type ReadClientCredentialsDetails = (_ReadClientCredentialsDetails & { ReadClientCredentialsGrantDetails: ReadClientCredentialsGrantDetails });
 export interface ReadClientCredentialsGrantDetails {
   ClientId: string;
   TokenEndpoint: string;
@@ -9867,9 +7690,7 @@ export interface ReferenceLineValueLabelConfiguration {
   RelativePosition?: ReferenceLineValueLabelRelativePosition;
   FormatConfiguration?: NumericFormatConfiguration;
 }
-export type ReferenceLineValueLabelRelativePosition =
-  | "BEFORE_CUSTOM_LABEL"
-  | "AFTER_CUSTOM_LABEL";
+export type ReferenceLineValueLabelRelativePosition = "BEFORE_CUSTOM_LABEL" | "AFTER_CUSTOM_LABEL";
 export interface RefreshConfiguration {
   IncrementalRefresh: IncrementalRefresh;
 }
@@ -9886,13 +7707,7 @@ export interface RefreshFrequency {
   Timezone?: string;
   TimeOfTheDay?: string;
 }
-export type RefreshInterval =
-  | "MINUTE15"
-  | "MINUTE30"
-  | "HOURLY"
-  | "DAILY"
-  | "WEEKLY"
-  | "MONTHLY";
+export type RefreshInterval = "MINUTE15" | "MINUTE30" | "HOURLY" | "DAILY" | "WEEKLY" | "MONTHLY";
 export interface RefreshSchedule {
   ScheduleId: string;
   ScheduleFrequency: RefreshFrequency;
@@ -9999,12 +7814,7 @@ export interface RelativeDateTimeControlDisplayOptions {
   InfoIconLabelOptions?: SheetControlInfoIconLabelOptions;
 }
 export type RelativeDateType = "PREVIOUS" | "THIS" | "LAST" | "NOW" | "NEXT";
-export type RelativeFontSize =
-  | "EXTRA_SMALL"
-  | "SMALL"
-  | "MEDIUM"
-  | "LARGE"
-  | "EXTRA_LARGE";
+export type RelativeFontSize = "EXTRA_SMALL" | "SMALL" | "MEDIUM" | "LARGE" | "EXTRA_LARGE";
 export interface RenameColumnOperation {
   ColumnName: string;
   NewColumnName: string;
@@ -10035,14 +7845,7 @@ export interface ResourcePermission {
   Actions: Array<string>;
 }
 export type ResourcePermissionList = Array<ResourcePermission>;
-export type ResourceStatus =
-  | "CREATION_IN_PROGRESS"
-  | "CREATION_SUCCESSFUL"
-  | "CREATION_FAILED"
-  | "UPDATE_IN_PROGRESS"
-  | "UPDATE_SUCCESSFUL"
-  | "UPDATE_FAILED"
-  | "DELETED";
+export type ResourceStatus = "CREATION_IN_PROGRESS" | "CREATION_SUCCESSFUL" | "CREATION_FAILED" | "UPDATE_IN_PROGRESS" | "UPDATE_SUCCESSFUL" | "UPDATE_FAILED" | "DELETED";
 export declare class ResourceUnavailableException extends EffectData.TaggedError(
   "ResourceUnavailableException",
 )<{
@@ -10064,21 +7867,8 @@ export interface RestoreAnalysisResponse {
 }
 export type RestrictiveResourceId = string;
 
-export type ReviewedAnswerErrorCode =
-  | "INTERNAL_ERROR"
-  | "MISSING_ANSWER"
-  | "DATASET_DOES_NOT_EXIST"
-  | "INVALID_DATASET_ARN"
-  | "DUPLICATED_ANSWER"
-  | "INVALID_DATA"
-  | "MISSING_REQUIRED_FIELDS";
-export type Role =
-  | "ADMIN"
-  | "AUTHOR"
-  | "READER"
-  | "ADMIN_PRO"
-  | "AUTHOR_PRO"
-  | "READER_PRO";
+export type ReviewedAnswerErrorCode = "INTERNAL_ERROR" | "MISSING_ANSWER" | "DATASET_DOES_NOT_EXIST" | "INVALID_DATASET_ARN" | "DUPLICATED_ANSWER" | "INVALID_DATA" | "MISSING_REQUIRED_FIELDS";
+export type Role = "ADMIN" | "AUTHOR" | "READER" | "ADMIN_PRO" | "AUTHOR_PRO" | "READER_PRO";
 export type RoleArn = string;
 
 export type RoleName = string;
@@ -10464,8 +8254,7 @@ export interface SetParameterValueConfiguration {
   DestinationParameterName: string;
   Value: DestinationParameterValueConfiguration;
 }
-export type SetParameterValueConfigurationList =
-  Array<SetParameterValueConfiguration>;
+export type SetParameterValueConfigurationList = Array<SetParameterValueConfiguration>;
 export interface ShapeConditionalFormat {
   BackgroundColor: ConditionalFormattingColor;
 }
@@ -10539,11 +8328,7 @@ export type SheetImageList = Array<SheetImage>;
 export interface SheetImageScalingConfiguration {
   ScalingType?: SheetImageScalingType;
 }
-export type SheetImageScalingType =
-  | "SCALE_TO_WIDTH"
-  | "SCALE_TO_HEIGHT"
-  | "SCALE_TO_CONTAINER"
-  | "SCALE_NONE";
+export type SheetImageScalingType = "SCALE_TO_WIDTH" | "SCALE_TO_HEIGHT" | "SCALE_TO_CONTAINER" | "SCALE_NONE";
 export interface SheetImageSource {
   SheetImageStaticFileSource?: SheetImageStaticFileSource;
 }
@@ -10582,8 +8367,7 @@ export interface SheetVisualScopingConfiguration {
   Scope: FilterVisualScope;
   VisualIds?: Array<string>;
 }
-export type SheetVisualScopingConfigurations =
-  Array<SheetVisualScopingConfiguration>;
+export type SheetVisualScopingConfigurations = Array<SheetVisualScopingConfiguration>;
 export interface ShortFormatText {
   PlainText?: string;
   RichText?: string;
@@ -10604,25 +8388,8 @@ export type SimpleAttributeAggregationFunction = "UNIQUE_VALUE";
 export interface SimpleClusterMarker {
   Color?: string;
 }
-export type SimpleNumericalAggregationFunction =
-  | "SUM"
-  | "AVERAGE"
-  | "MIN"
-  | "MAX"
-  | "COUNT"
-  | "DISTINCT_COUNT"
-  | "VAR"
-  | "VARP"
-  | "STDEV"
-  | "STDEVP"
-  | "MEDIAN";
-export type SimpleTotalAggregationFunction =
-  | "DEFAULT"
-  | "SUM"
-  | "AVERAGE"
-  | "MIN"
-  | "MAX"
-  | "NONE";
+export type SimpleNumericalAggregationFunction = "SUM" | "AVERAGE" | "MIN" | "MAX" | "COUNT" | "DISTINCT_COUNT" | "VAR" | "VARP" | "STDEV" | "STDEVP" | "MEDIAN";
+export type SimpleTotalAggregationFunction = "DEFAULT" | "SUM" | "AVERAGE" | "MIN" | "MAX" | "NONE";
 export interface SingleAxisOptions {
   YAxisOptions?: YAxisOptions;
 }
@@ -10659,8 +8426,7 @@ export type SnapshotAnonymousUserList = Array<SnapshotAnonymousUser>;
 export interface SnapshotAnonymousUserRedacted {
   RowLevelPermissionTagKeys?: Array<string>;
 }
-export type SnapshotAnonymousUserRedactedList =
-  Array<SnapshotAnonymousUserRedacted>;
+export type SnapshotAnonymousUserRedactedList = Array<SnapshotAnonymousUserRedacted>;
 export interface SnapshotConfiguration {
   FileGroups: Array<SnapshotFileGroup>;
   DestinationConfiguration?: SnapshotDestinationConfiguration;
@@ -10685,9 +8451,7 @@ export interface SnapshotFileSheetSelection {
   VisualIds?: Array<string>;
 }
 export type SnapshotFileSheetSelectionList = Array<SnapshotFileSheetSelection>;
-export type SnapshotFileSheetSelectionScope =
-  | "ALL_VISUALS"
-  | "SELECTED_VISUALS";
+export type SnapshotFileSheetSelectionScope = "ALL_VISUALS" | "SELECTED_VISUALS";
 export type SnapshotFileSheetSelectionVisualIdList = Array<string>;
 export interface SnapshotJobErrorInfo {
   ErrorMessage?: string;
@@ -10716,8 +8480,7 @@ export type SnapshotJobStatus = "QUEUED" | "RUNNING" | "COMPLETED" | "FAILED";
 export interface SnapshotS3DestinationConfiguration {
   BucketConfiguration: S3BucketConfiguration;
 }
-export type SnapshotS3DestinationConfigurationList =
-  Array<SnapshotS3DestinationConfiguration>;
+export type SnapshotS3DestinationConfigurationList = Array<SnapshotS3DestinationConfiguration>;
 export interface SnapshotUserConfiguration {
   AnonymousUsers?: Array<SnapshotAnonymousUser>;
 }
@@ -10908,8 +8671,7 @@ export interface SucceededTopicReviewedAnswer {
   AnswerId?: string;
 }
 export type SucceededTopicReviewedAnswers = Array<SucceededTopicReviewedAnswer>;
-export type SuccessfulKeyRegistrationEntries =
-  Array<SuccessfulKeyRegistrationEntry>;
+export type SuccessfulKeyRegistrationEntries = Array<SuccessfulKeyRegistrationEntry>;
 export interface SuccessfulKeyRegistrationEntry {
   KeyArn: string;
   StatusCode: number;
@@ -10933,10 +8695,7 @@ export interface TableCellConditionalFormatting {
   FieldId: string;
   TextFormat?: TextConditionalFormat;
 }
-export type TableCellImageScalingConfiguration =
-  | "FIT_TO_CELL_HEIGHT"
-  | "FIT_TO_CELL_WIDTH"
-  | "DO_NOT_SCALE";
+export type TableCellImageScalingConfiguration = "FIT_TO_CELL_HEIGHT" | "FIT_TO_CELL_WIDTH" | "DO_NOT_SCALE";
 export interface TableCellImageSizingConfiguration {
   TableCellImageScalingConfiguration?: TableCellImageScalingConfiguration;
 }
@@ -10957,8 +8716,7 @@ export interface TableConditionalFormattingOption {
   Cell?: TableCellConditionalFormatting;
   Row?: TableRowConditionalFormatting;
 }
-export type TableConditionalFormattingOptionList =
-  Array<TableConditionalFormattingOption>;
+export type TableConditionalFormattingOptionList = Array<TableConditionalFormattingOption>;
 export interface TableConfiguration {
   FieldWells?: TableFieldWells;
   SortConfiguration?: TableSortConfiguration;
@@ -11110,11 +8868,7 @@ export interface TemplateError {
   ViolatedEntities?: Array<Entity>;
 }
 export type TemplateErrorList = Array<TemplateError>;
-export type TemplateErrorType =
-  | "SOURCE_NOT_FOUND"
-  | "DATA_SET_NOT_FOUND"
-  | "INTERNAL_FAILURE"
-  | "ACCESS_DENIED";
+export type TemplateErrorType = "SOURCE_NOT_FOUND" | "DATA_SET_NOT_FOUND" | "INTERNAL_FAILURE" | "ACCESS_DENIED";
 export type TemplateName = string;
 
 export interface TemplateSourceAnalysis {
@@ -11296,16 +9050,7 @@ export interface TimeEqualityFilter {
   RollingDate?: RollingDateConfiguration;
   DefaultFilterControlConfiguration?: DefaultFilterControlConfiguration;
 }
-export type TimeGranularity =
-  | "YEAR"
-  | "QUARTER"
-  | "MONTH"
-  | "WEEK"
-  | "DAY"
-  | "HOUR"
-  | "MINUTE"
-  | "SECOND"
-  | "MILLISECOND";
+export type TimeGranularity = "YEAR" | "QUARTER" | "MONTH" | "WEEK" | "DAY" | "HOUR" | "MINUTE" | "SECOND" | "MILLISECOND";
 export interface TimeRangeDrillDownFilter {
   Column: ColumnIdentifier;
   RangeMinimum: Date | string;
@@ -11466,14 +9211,7 @@ export interface TopicFilter {
   RelativeDateFilter?: TopicRelativeDateFilter;
   NullFilter?: TopicNullFilter;
 }
-export type TopicFilterAttribute =
-  | "QUICKSIGHT_USER"
-  | "QUICKSIGHT_VIEWER_OR_OWNER"
-  | "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER"
-  | "QUICKSIGHT_OWNER"
-  | "DIRECT_QUICKSIGHT_OWNER"
-  | "DIRECT_QUICKSIGHT_SOLE_OWNER"
-  | "TOPIC_NAME";
+export type TopicFilterAttribute = "QUICKSIGHT_USER" | "QUICKSIGHT_VIEWER_OR_OWNER" | "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER" | "QUICKSIGHT_OWNER" | "DIRECT_QUICKSIGHT_OWNER" | "DIRECT_QUICKSIGHT_SOLE_OWNER" | "TOPIC_NAME";
 export type TopicFilterOperator = "StringEquals" | "StringLike";
 export type TopicFilters = Array<TopicFilter>;
 export type TopicId = string;
@@ -11498,17 +9236,7 @@ export interface TopicIRContributionAnalysis {
   SortType?: ContributionAnalysisSortType;
 }
 export type TopicIRFilterEntry = Array<TopicIRFilterOption>;
-export type TopicIRFilterFunction =
-  | "CONTAINS"
-  | "EXACT"
-  | "STARTS_WITH"
-  | "ENDS_WITH"
-  | "CONTAINS_STRING"
-  | "PREVIOUS"
-  | "THIS"
-  | "LAST"
-  | "NEXT"
-  | "NOW";
+export type TopicIRFilterFunction = "CONTAINS" | "EXACT" | "STARTS_WITH" | "ENDS_WITH" | "CONTAINS_STRING" | "PREVIOUS" | "THIS" | "LAST" | "NEXT" | "NOW";
 export type TopicIRFilterList = Array<Array<TopicIRFilterOption>>;
 export interface TopicIRFilterOption {
   FilterType?: TopicIRFilterType;
@@ -11530,16 +9258,7 @@ export interface TopicIRFilterOption {
   SortDirection?: TopicSortDirection;
   Anchor?: Anchor;
 }
-export type TopicIRFilterType =
-  | "CATEGORY_FILTER"
-  | "NUMERIC_EQUALITY_FILTER"
-  | "NUMERIC_RANGE_FILTER"
-  | "DATE_RANGE_FILTER"
-  | "RELATIVE_DATE_FILTER"
-  | "TOP_BOTTOM_FILTER"
-  | "EQUALS"
-  | "RANK_LIMIT_FILTER"
-  | "ACCEPT_ALL_FILTER";
+export type TopicIRFilterType = "CATEGORY_FILTER" | "NUMERIC_EQUALITY_FILTER" | "NUMERIC_RANGE_FILTER" | "DATE_RANGE_FILTER" | "RELATIVE_DATE_FILTER" | "TOP_BOTTOM_FILTER" | "EQUALS" | "RANK_LIMIT_FILTER" | "ACCEPT_ALL_FILTER";
 export interface TopicIRGroupBy {
   FieldName?: Identifier;
   TimeGranularity?: TopicTimeGranularity;
@@ -11608,23 +9327,13 @@ export interface TopicRefreshScheduleSummary {
   DatasetName?: string;
   RefreshSchedule?: TopicRefreshSchedule;
 }
-export type TopicRefreshStatus =
-  | "INITIALIZED"
-  | "RUNNING"
-  | "FAILED"
-  | "COMPLETED"
-  | "CANCELLED";
+export type TopicRefreshStatus = "INITIALIZED" | "RUNNING" | "FAILED" | "COMPLETED" | "CANCELLED";
 export interface TopicRelativeDateFilter {
   TimeGranularity?: TopicTimeGranularity;
   RelativeDateFilterFunction?: TopicRelativeDateFilterFunction;
   Constant?: TopicSingularFilterConstant;
 }
-export type TopicRelativeDateFilterFunction =
-  | "PREVIOUS"
-  | "THIS"
-  | "LAST"
-  | "NEXT"
-  | "NOW";
+export type TopicRelativeDateFilterFunction = "PREVIOUS" | "THIS" | "LAST" | "NEXT" | "NOW";
 export interface TopicReviewedAnswer {
   Arn?: string;
   AnswerId: string;
@@ -11662,15 +9371,7 @@ export interface TopicTemplate {
   TemplateType?: string;
   Slots?: Array<Slot>;
 }
-export type TopicTimeGranularity =
-  | "SECOND"
-  | "MINUTE"
-  | "HOUR"
-  | "DAY"
-  | "WEEK"
-  | "MONTH"
-  | "QUARTER"
-  | "YEAR";
+export type TopicTimeGranularity = "SECOND" | "MINUTE" | "HOUR" | "DAY" | "WEEK" | "MONTH" | "QUARTER" | "YEAR";
 export type TopicUserExperienceVersion = "LEGACY" | "NEW_READER_EXPERIENCE";
 export interface TopicVisual {
   VisualId?: string;
@@ -11711,17 +9412,7 @@ interface _TransformOperation {
   OverrideDatasetParameterOperation?: OverrideDatasetParameterOperation;
 }
 
-export type TransformOperation =
-  | (_TransformOperation & { ProjectOperation: ProjectOperation })
-  | (_TransformOperation & { FilterOperation: FilterOperation })
-  | (_TransformOperation & { CreateColumnsOperation: CreateColumnsOperation })
-  | (_TransformOperation & { RenameColumnOperation: RenameColumnOperation })
-  | (_TransformOperation & { CastColumnTypeOperation: CastColumnTypeOperation })
-  | (_TransformOperation & { TagColumnOperation: TagColumnOperation })
-  | (_TransformOperation & { UntagColumnOperation: UntagColumnOperation })
-  | (_TransformOperation & {
-      OverrideDatasetParameterOperation: OverrideDatasetParameterOperation;
-    });
+export type TransformOperation = (_TransformOperation & { ProjectOperation: ProjectOperation }) | (_TransformOperation & { FilterOperation: FilterOperation }) | (_TransformOperation & { CreateColumnsOperation: CreateColumnsOperation }) | (_TransformOperation & { RenameColumnOperation: RenameColumnOperation }) | (_TransformOperation & { CastColumnTypeOperation: CastColumnTypeOperation }) | (_TransformOperation & { TagColumnOperation: TagColumnOperation }) | (_TransformOperation & { UntagColumnOperation: UntagColumnOperation }) | (_TransformOperation & { OverrideDatasetParameterOperation: OverrideDatasetParameterOperation });
 export type TransformOperationList = Array<TransformOperation>;
 export type TransposedColumnIndex = number;
 
@@ -12466,15 +10157,7 @@ export interface User {
 export type UserList = Array<User>;
 export type UserName = string;
 
-export type UserRole =
-  | "ADMIN"
-  | "AUTHOR"
-  | "READER"
-  | "RESTRICTED_AUTHOR"
-  | "RESTRICTED_READER"
-  | "ADMIN_PRO"
-  | "AUTHOR_PRO"
-  | "READER_PRO";
+export type UserRole = "ADMIN" | "AUTHOR" | "READER" | "RESTRICTED_AUTHOR" | "RESTRICTED_READER" | "ADMIN_PRO" | "AUTHOR_PRO" | "READER_PRO";
 export interface ValidationStrategy {
   Mode: ValidationStrategyMode;
 }
@@ -12542,16 +10225,12 @@ export interface VisualCustomActionOperation {
   URLOperation?: CustomActionURLOperation;
   SetParametersOperation?: CustomActionSetParametersOperation;
 }
-export type VisualCustomActionOperationList =
-  Array<VisualCustomActionOperation>;
+export type VisualCustomActionOperationList = Array<VisualCustomActionOperation>;
 export type VisualCustomActionTrigger = "DATA_POINT_CLICK" | "DATA_POINT_MENU";
 export interface VisualHighlightOperation {
   Trigger: VisualHighlightTrigger;
 }
-export type VisualHighlightTrigger =
-  | "DATA_POINT_CLICK"
-  | "DATA_POINT_HOVER"
-  | "NONE";
+export type VisualHighlightTrigger = "DATA_POINT_CLICK" | "DATA_POINT_HOVER" | "NONE";
 export interface VisualInteractionOptions {
   VisualMenuOption?: VisualMenuOption;
   ContextMenuOption?: ContextMenuOption;
@@ -12567,12 +10246,7 @@ export interface VisualPalette {
   ChartColor?: string;
   ColorMap?: Array<DataPathColor>;
 }
-export type VisualRole =
-  | "PRIMARY"
-  | "COMPLIMENTARY"
-  | "MULTI_INTENT"
-  | "FALLBACK"
-  | "FRAGMENT";
+export type VisualRole = "PRIMARY" | "COMPLIMENTARY" | "MULTI_INTENT" | "FALLBACK" | "FRAGMENT";
 export type VisualSubtitle = string;
 
 export interface VisualSubtitleLabelOptions {
@@ -12599,10 +10273,7 @@ export interface VPCConnection {
   CreatedTime?: Date | string;
   LastUpdatedTime?: Date | string;
 }
-export type VPCConnectionAvailabilityStatus =
-  | "AVAILABLE"
-  | "UNAVAILABLE"
-  | "PARTIALLY_AVAILABLE";
+export type VPCConnectionAvailabilityStatus = "AVAILABLE" | "UNAVAILABLE" | "PARTIALLY_AVAILABLE";
 export interface VpcConnectionProperties {
   VpcConnectionArn: string;
 }
@@ -12610,16 +10281,7 @@ export type VPCConnectionResourceIdRestricted = string;
 
 export type VPCConnectionResourceIdUnrestricted = string;
 
-export type VPCConnectionResourceStatus =
-  | "CREATION_IN_PROGRESS"
-  | "CREATION_SUCCESSFUL"
-  | "CREATION_FAILED"
-  | "UPDATE_IN_PROGRESS"
-  | "UPDATE_SUCCESSFUL"
-  | "UPDATE_FAILED"
-  | "DELETION_IN_PROGRESS"
-  | "DELETION_FAILED"
-  | "DELETED";
+export type VPCConnectionResourceStatus = "CREATION_IN_PROGRESS" | "CREATION_SUCCESSFUL" | "CREATION_FAILED" | "UPDATE_IN_PROGRESS" | "UPDATE_SUCCESSFUL" | "UPDATE_FAILED" | "DELETION_IN_PROGRESS" | "DELETION_FAILED" | "DELETED";
 export interface VPCConnectionSummary {
   VPCConnectionId?: string;
   Arn?: string;
@@ -15817,26 +13479,5 @@ export declare namespace UpdateVPCConnection {
     | CommonAwsError;
 }
 
-export type QuickSightErrors =
-  | AccessDeniedException
-  | ConcurrentUpdatingException
-  | ConflictException
-  | CustomerManagedKeyUnavailableException
-  | DomainNotWhitelistedException
-  | IdentityTypeNotSupportedException
-  | InternalFailureException
-  | InternalServerException
-  | InvalidNextTokenException
-  | InvalidParameterValueException
-  | InvalidRequestException
-  | LimitExceededException
-  | PreconditionNotMetException
-  | QuickSightUserNotFoundException
-  | ResourceExistsException
-  | ResourceNotFoundException
-  | ResourceUnavailableException
-  | SessionLifetimeInMinutesInvalidException
-  | ThrottlingException
-  | UnsupportedPricingPlanException
-  | UnsupportedUserEditionException
-  | CommonAwsError;
+export type QuickSightErrors = AccessDeniedException | ConcurrentUpdatingException | ConflictException | CustomerManagedKeyUnavailableException | DomainNotWhitelistedException | IdentityTypeNotSupportedException | InternalFailureException | InternalServerException | InvalidNextTokenException | InvalidParameterValueException | InvalidRequestException | LimitExceededException | PreconditionNotMetException | QuickSightUserNotFoundException | ResourceExistsException | ResourceNotFoundException | ResourceUnavailableException | SessionLifetimeInMinutesInvalidException | ThrottlingException | UnsupportedPricingPlanException | UnsupportedUserEditionException | CommonAwsError;
+

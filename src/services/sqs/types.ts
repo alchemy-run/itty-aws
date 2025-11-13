@@ -7,302 +7,139 @@ export declare class SQS extends AWSServiceClient {
     input: AddPermissionRequest,
   ): Effect.Effect<
     {},
-    | InvalidAddress
-    | InvalidSecurity
-    | OverLimit
-    | QueueDoesNotExist
-    | RequestThrottled
-    | UnsupportedOperation
-    | CommonAwsError
+    InvalidAddress | InvalidSecurity | OverLimit | QueueDoesNotExist | RequestThrottled | UnsupportedOperation | CommonAwsError
   >;
   cancelMessageMoveTask(
     input: CancelMessageMoveTaskRequest,
   ): Effect.Effect<
     CancelMessageMoveTaskResult,
-    | InvalidAddress
-    | InvalidSecurity
-    | RequestThrottled
-    | ResourceNotFoundException
-    | UnsupportedOperation
-    | CommonAwsError
+    InvalidAddress | InvalidSecurity | RequestThrottled | ResourceNotFoundException | UnsupportedOperation | CommonAwsError
   >;
   changeMessageVisibility(
     input: ChangeMessageVisibilityRequest,
   ): Effect.Effect<
     {},
-    | InvalidAddress
-    | InvalidSecurity
-    | MessageNotInflight
-    | QueueDoesNotExist
-    | ReceiptHandleIsInvalid
-    | RequestThrottled
-    | UnsupportedOperation
-    | CommonAwsError
+    InvalidAddress | InvalidSecurity | MessageNotInflight | QueueDoesNotExist | ReceiptHandleIsInvalid | RequestThrottled | UnsupportedOperation | CommonAwsError
   >;
   changeMessageVisibilityBatch(
     input: ChangeMessageVisibilityBatchRequest,
   ): Effect.Effect<
     ChangeMessageVisibilityBatchResult,
-    | BatchEntryIdsNotDistinct
-    | EmptyBatchRequest
-    | InvalidAddress
-    | InvalidBatchEntryId
-    | InvalidSecurity
-    | QueueDoesNotExist
-    | RequestThrottled
-    | TooManyEntriesInBatchRequest
-    | UnsupportedOperation
-    | CommonAwsError
+    BatchEntryIdsNotDistinct | EmptyBatchRequest | InvalidAddress | InvalidBatchEntryId | InvalidSecurity | QueueDoesNotExist | RequestThrottled | TooManyEntriesInBatchRequest | UnsupportedOperation | CommonAwsError
   >;
   createQueue(
     input: CreateQueueRequest,
   ): Effect.Effect<
     CreateQueueResult,
-    | InvalidAddress
-    | InvalidAttributeName
-    | InvalidAttributeValue
-    | InvalidSecurity
-    | QueueDeletedRecently
-    | QueueNameExists
-    | RequestThrottled
-    | UnsupportedOperation
-    | CommonAwsError
+    InvalidAddress | InvalidAttributeName | InvalidAttributeValue | InvalidSecurity | QueueDeletedRecently | QueueNameExists | RequestThrottled | UnsupportedOperation | CommonAwsError
   >;
   deleteMessage(
     input: DeleteMessageRequest,
   ): Effect.Effect<
     {},
-    | InvalidAddress
-    | InvalidIdFormat
-    | InvalidSecurity
-    | QueueDoesNotExist
-    | ReceiptHandleIsInvalid
-    | RequestThrottled
-    | UnsupportedOperation
-    | CommonAwsError
+    InvalidAddress | InvalidIdFormat | InvalidSecurity | QueueDoesNotExist | ReceiptHandleIsInvalid | RequestThrottled | UnsupportedOperation | CommonAwsError
   >;
   deleteMessageBatch(
     input: DeleteMessageBatchRequest,
   ): Effect.Effect<
     DeleteMessageBatchResult,
-    | BatchEntryIdsNotDistinct
-    | EmptyBatchRequest
-    | InvalidAddress
-    | InvalidBatchEntryId
-    | InvalidSecurity
-    | QueueDoesNotExist
-    | RequestThrottled
-    | TooManyEntriesInBatchRequest
-    | UnsupportedOperation
-    | CommonAwsError
+    BatchEntryIdsNotDistinct | EmptyBatchRequest | InvalidAddress | InvalidBatchEntryId | InvalidSecurity | QueueDoesNotExist | RequestThrottled | TooManyEntriesInBatchRequest | UnsupportedOperation | CommonAwsError
   >;
   deleteQueue(
     input: DeleteQueueRequest,
   ): Effect.Effect<
     {},
-    | InvalidAddress
-    | InvalidSecurity
-    | QueueDoesNotExist
-    | RequestThrottled
-    | UnsupportedOperation
-    | CommonAwsError
+    InvalidAddress | InvalidSecurity | QueueDoesNotExist | RequestThrottled | UnsupportedOperation | CommonAwsError
   >;
   getQueueAttributes(
     input: GetQueueAttributesRequest,
   ): Effect.Effect<
     GetQueueAttributesResult,
-    | InvalidAddress
-    | InvalidAttributeName
-    | InvalidSecurity
-    | QueueDoesNotExist
-    | RequestThrottled
-    | UnsupportedOperation
-    | CommonAwsError
+    InvalidAddress | InvalidAttributeName | InvalidSecurity | QueueDoesNotExist | RequestThrottled | UnsupportedOperation | CommonAwsError
   >;
   getQueueUrl(
     input: GetQueueUrlRequest,
   ): Effect.Effect<
     GetQueueUrlResult,
-    | InvalidAddress
-    | InvalidSecurity
-    | QueueDoesNotExist
-    | RequestThrottled
-    | UnsupportedOperation
-    | CommonAwsError
+    InvalidAddress | InvalidSecurity | QueueDoesNotExist | RequestThrottled | UnsupportedOperation | CommonAwsError
   >;
   listDeadLetterSourceQueues(
     input: ListDeadLetterSourceQueuesRequest,
   ): Effect.Effect<
     ListDeadLetterSourceQueuesResult,
-    | InvalidAddress
-    | InvalidSecurity
-    | QueueDoesNotExist
-    | RequestThrottled
-    | UnsupportedOperation
-    | CommonAwsError
+    InvalidAddress | InvalidSecurity | QueueDoesNotExist | RequestThrottled | UnsupportedOperation | CommonAwsError
   >;
   listMessageMoveTasks(
     input: ListMessageMoveTasksRequest,
   ): Effect.Effect<
     ListMessageMoveTasksResult,
-    | InvalidAddress
-    | InvalidSecurity
-    | RequestThrottled
-    | ResourceNotFoundException
-    | UnsupportedOperation
-    | CommonAwsError
+    InvalidAddress | InvalidSecurity | RequestThrottled | ResourceNotFoundException | UnsupportedOperation | CommonAwsError
   >;
   listQueues(
     input: ListQueuesRequest,
   ): Effect.Effect<
     ListQueuesResult,
-    | InvalidAddress
-    | InvalidSecurity
-    | RequestThrottled
-    | UnsupportedOperation
-    | CommonAwsError
+    InvalidAddress | InvalidSecurity | RequestThrottled | UnsupportedOperation | CommonAwsError
   >;
   listQueueTags(
     input: ListQueueTagsRequest,
   ): Effect.Effect<
     ListQueueTagsResult,
-    | InvalidAddress
-    | InvalidSecurity
-    | QueueDoesNotExist
-    | RequestThrottled
-    | UnsupportedOperation
-    | CommonAwsError
+    InvalidAddress | InvalidSecurity | QueueDoesNotExist | RequestThrottled | UnsupportedOperation | CommonAwsError
   >;
   purgeQueue(
     input: PurgeQueueRequest,
   ): Effect.Effect<
     {},
-    | InvalidAddress
-    | InvalidSecurity
-    | PurgeQueueInProgress
-    | QueueDoesNotExist
-    | RequestThrottled
-    | UnsupportedOperation
-    | CommonAwsError
+    InvalidAddress | InvalidSecurity | PurgeQueueInProgress | QueueDoesNotExist | RequestThrottled | UnsupportedOperation | CommonAwsError
   >;
   receiveMessage(
     input: ReceiveMessageRequest,
   ): Effect.Effect<
     ReceiveMessageResult,
-    | InvalidAddress
-    | InvalidSecurity
-    | KmsAccessDenied
-    | KmsDisabled
-    | KmsInvalidKeyUsage
-    | KmsInvalidState
-    | KmsNotFound
-    | KmsOptInRequired
-    | KmsThrottled
-    | OverLimit
-    | QueueDoesNotExist
-    | RequestThrottled
-    | UnsupportedOperation
-    | CommonAwsError
+    InvalidAddress | InvalidSecurity | KmsAccessDenied | KmsDisabled | KmsInvalidKeyUsage | KmsInvalidState | KmsNotFound | KmsOptInRequired | KmsThrottled | OverLimit | QueueDoesNotExist | RequestThrottled | UnsupportedOperation | CommonAwsError
   >;
   removePermission(
     input: RemovePermissionRequest,
   ): Effect.Effect<
     {},
-    | InvalidAddress
-    | InvalidSecurity
-    | QueueDoesNotExist
-    | RequestThrottled
-    | UnsupportedOperation
-    | CommonAwsError
+    InvalidAddress | InvalidSecurity | QueueDoesNotExist | RequestThrottled | UnsupportedOperation | CommonAwsError
   >;
   sendMessage(
     input: SendMessageRequest,
   ): Effect.Effect<
     SendMessageResult,
-    | InvalidAddress
-    | InvalidMessageContents
-    | InvalidSecurity
-    | KmsAccessDenied
-    | KmsDisabled
-    | KmsInvalidKeyUsage
-    | KmsInvalidState
-    | KmsNotFound
-    | KmsOptInRequired
-    | KmsThrottled
-    | QueueDoesNotExist
-    | RequestThrottled
-    | UnsupportedOperation
-    | CommonAwsError
+    InvalidAddress | InvalidMessageContents | InvalidSecurity | KmsAccessDenied | KmsDisabled | KmsInvalidKeyUsage | KmsInvalidState | KmsNotFound | KmsOptInRequired | KmsThrottled | QueueDoesNotExist | RequestThrottled | UnsupportedOperation | CommonAwsError
   >;
   sendMessageBatch(
     input: SendMessageBatchRequest,
   ): Effect.Effect<
     SendMessageBatchResult,
-    | BatchEntryIdsNotDistinct
-    | BatchRequestTooLong
-    | EmptyBatchRequest
-    | InvalidAddress
-    | InvalidBatchEntryId
-    | InvalidSecurity
-    | KmsAccessDenied
-    | KmsDisabled
-    | KmsInvalidKeyUsage
-    | KmsInvalidState
-    | KmsNotFound
-    | KmsOptInRequired
-    | KmsThrottled
-    | QueueDoesNotExist
-    | RequestThrottled
-    | TooManyEntriesInBatchRequest
-    | UnsupportedOperation
-    | CommonAwsError
+    BatchEntryIdsNotDistinct | BatchRequestTooLong | EmptyBatchRequest | InvalidAddress | InvalidBatchEntryId | InvalidSecurity | KmsAccessDenied | KmsDisabled | KmsInvalidKeyUsage | KmsInvalidState | KmsNotFound | KmsOptInRequired | KmsThrottled | QueueDoesNotExist | RequestThrottled | TooManyEntriesInBatchRequest | UnsupportedOperation | CommonAwsError
   >;
   setQueueAttributes(
     input: SetQueueAttributesRequest,
   ): Effect.Effect<
     {},
-    | InvalidAddress
-    | InvalidAttributeName
-    | InvalidAttributeValue
-    | InvalidSecurity
-    | OverLimit
-    | QueueDoesNotExist
-    | RequestThrottled
-    | UnsupportedOperation
-    | CommonAwsError
+    InvalidAddress | InvalidAttributeName | InvalidAttributeValue | InvalidSecurity | OverLimit | QueueDoesNotExist | RequestThrottled | UnsupportedOperation | CommonAwsError
   >;
   startMessageMoveTask(
     input: StartMessageMoveTaskRequest,
   ): Effect.Effect<
     StartMessageMoveTaskResult,
-    | InvalidAddress
-    | InvalidSecurity
-    | RequestThrottled
-    | ResourceNotFoundException
-    | UnsupportedOperation
-    | CommonAwsError
+    InvalidAddress | InvalidSecurity | RequestThrottled | ResourceNotFoundException | UnsupportedOperation | CommonAwsError
   >;
   tagQueue(
     input: TagQueueRequest,
   ): Effect.Effect<
     {},
-    | InvalidAddress
-    | InvalidSecurity
-    | QueueDoesNotExist
-    | RequestThrottled
-    | UnsupportedOperation
-    | CommonAwsError
+    InvalidAddress | InvalidSecurity | QueueDoesNotExist | RequestThrottled | UnsupportedOperation | CommonAwsError
   >;
   untagQueue(
     input: UntagQueueRequest,
   ): Effect.Effect<
     {},
-    | InvalidAddress
-    | InvalidSecurity
-    | QueueDoesNotExist
-    | RequestThrottled
-    | UnsupportedOperation
-    | CommonAwsError
+    InvalidAddress | InvalidSecurity | QueueDoesNotExist | RequestThrottled | UnsupportedOperation | CommonAwsError
   >;
 }
 
@@ -356,8 +193,7 @@ export interface ChangeMessageVisibilityBatchRequestEntry {
   ReceiptHandle: string;
   VisibilityTimeout?: number;
 }
-export type ChangeMessageVisibilityBatchRequestEntryList =
-  Array<ChangeMessageVisibilityBatchRequestEntry>;
+export type ChangeMessageVisibilityBatchRequestEntryList = Array<ChangeMessageVisibilityBatchRequestEntry>;
 export interface ChangeMessageVisibilityBatchResult {
   Successful: Array<ChangeMessageVisibilityBatchResultEntry>;
   Failed: Array<BatchResultErrorEntry>;
@@ -365,8 +201,7 @@ export interface ChangeMessageVisibilityBatchResult {
 export interface ChangeMessageVisibilityBatchResultEntry {
   Id: string;
 }
-export type ChangeMessageVisibilityBatchResultEntryList =
-  Array<ChangeMessageVisibilityBatchResultEntry>;
+export type ChangeMessageVisibilityBatchResultEntryList = Array<ChangeMessageVisibilityBatchResultEntry>;
 export interface ChangeMessageVisibilityRequest {
   QueueUrl: string;
   ReceiptHandle: string;
@@ -388,8 +223,7 @@ export interface DeleteMessageBatchRequestEntry {
   Id: string;
   ReceiptHandle: string;
 }
-export type DeleteMessageBatchRequestEntryList =
-  Array<DeleteMessageBatchRequestEntry>;
+export type DeleteMessageBatchRequestEntryList = Array<DeleteMessageBatchRequestEntry>;
 export interface DeleteMessageBatchResult {
   Successful: Array<DeleteMessageBatchResultEntry>;
   Failed: Array<BatchResultErrorEntry>;
@@ -397,8 +231,7 @@ export interface DeleteMessageBatchResult {
 export interface DeleteMessageBatchResultEntry {
   Id: string;
 }
-export type DeleteMessageBatchResultEntryList =
-  Array<DeleteMessageBatchResultEntry>;
+export type DeleteMessageBatchResultEntryList = Array<DeleteMessageBatchResultEntry>;
 export interface DeleteMessageRequest {
   QueueUrl: string;
   ReceiptHandle: string;
@@ -449,7 +282,8 @@ export declare class InvalidBatchEntryId extends EffectData.TaggedError(
 }> {}
 export declare class InvalidIdFormat extends EffectData.TaggedError(
   "InvalidIdFormat",
-)<{}> {}
+)<{
+}> {}
 export declare class InvalidMessageContents extends EffectData.TaggedError(
   "InvalidMessageContents",
 )<{
@@ -465,7 +299,9 @@ export declare class KmsAccessDenied extends EffectData.TaggedError(
 )<{
   readonly message?: string;
 }> {}
-export declare class KmsDisabled extends EffectData.TaggedError("KmsDisabled")<{
+export declare class KmsDisabled extends EffectData.TaggedError(
+  "KmsDisabled",
+)<{
   readonly message?: string;
 }> {}
 export declare class KmsInvalidKeyUsage extends EffectData.TaggedError(
@@ -478,7 +314,9 @@ export declare class KmsInvalidState extends EffectData.TaggedError(
 )<{
   readonly message?: string;
 }> {}
-export declare class KmsNotFound extends EffectData.TaggedError("KmsNotFound")<{
+export declare class KmsNotFound extends EffectData.TaggedError(
+  "KmsNotFound",
+)<{
   readonly message?: string;
 }> {}
 export declare class KmsOptInRequired extends EffectData.TaggedError(
@@ -518,8 +356,7 @@ export interface ListMessageMoveTasksResultEntry {
   FailureReason?: string;
   StartedTimestamp?: number;
 }
-export type ListMessageMoveTasksResultEntryList =
-  Array<ListMessageMoveTasksResultEntry>;
+export type ListMessageMoveTasksResultEntryList = Array<ListMessageMoveTasksResultEntry>;
 export interface ListQueuesRequest {
   QueueNamePrefix?: string;
   NextToken?: string;
@@ -557,30 +394,15 @@ export interface MessageAttributeValue {
   DataType: string;
 }
 export type MessageBodyAttributeMap = Record<string, MessageAttributeValue>;
-export type MessageBodySystemAttributeMap = Record<
-  MessageSystemAttributeNameForSends,
-  MessageSystemAttributeValue
->;
+export type MessageBodySystemAttributeMap = Record<MessageSystemAttributeNameForSends, MessageSystemAttributeValue>;
 export type MessageList = Array<Message>;
 export declare class MessageNotInflight extends EffectData.TaggedError(
   "MessageNotInflight",
-)<{}> {}
+)<{
+}> {}
 export type MessageSystemAttributeList = Array<MessageSystemAttributeName>;
-export type MessageSystemAttributeMap = Record<
-  MessageSystemAttributeName,
-  string
->;
-export type MessageSystemAttributeName =
-  | "All"
-  | "SenderId"
-  | "SentTimestamp"
-  | "ApproximateReceiveCount"
-  | "ApproximateFirstReceiveTimestamp"
-  | "SequenceNumber"
-  | "MessageDeduplicationId"
-  | "MessageGroupId"
-  | "AWSTraceHeader"
-  | "DeadLetterQueueSourceArn";
+export type MessageSystemAttributeMap = Record<MessageSystemAttributeName, string>;
+export type MessageSystemAttributeName = "All" | "SenderId" | "SentTimestamp" | "ApproximateReceiveCount" | "ApproximateFirstReceiveTimestamp" | "SequenceNumber" | "MessageDeduplicationId" | "MessageGroupId" | "AWSTraceHeader" | "DeadLetterQueueSourceArn";
 export type MessageSystemAttributeNameForSends = "AWSTraceHeader";
 export interface MessageSystemAttributeValue {
   StringValue?: string;
@@ -593,7 +415,9 @@ export type NullableInteger = number;
 
 export type NullableLong = number;
 
-export declare class OverLimit extends EffectData.TaggedError("OverLimit")<{
+export declare class OverLimit extends EffectData.TaggedError(
+  "OverLimit",
+)<{
   readonly message?: string;
 }> {}
 export declare class PurgeQueueInProgress extends EffectData.TaggedError(
@@ -605,29 +429,7 @@ export interface PurgeQueueRequest {
   QueueUrl: string;
 }
 export type QueueAttributeMap = Record<QueueAttributeName, string>;
-export type QueueAttributeName =
-  | "All"
-  | "Policy"
-  | "VisibilityTimeout"
-  | "MaximumMessageSize"
-  | "MessageRetentionPeriod"
-  | "ApproximateNumberOfMessages"
-  | "ApproximateNumberOfMessagesNotVisible"
-  | "CreatedTimestamp"
-  | "LastModifiedTimestamp"
-  | "QueueArn"
-  | "ApproximateNumberOfMessagesDelayed"
-  | "DelaySeconds"
-  | "ReceiveMessageWaitTimeSeconds"
-  | "RedrivePolicy"
-  | "FifoQueue"
-  | "ContentBasedDeduplication"
-  | "KmsMasterKeyId"
-  | "KmsDataKeyReusePeriodSeconds"
-  | "DeduplicationScope"
-  | "FifoThroughputLimit"
-  | "RedriveAllowPolicy"
-  | "SqsManagedSseEnabled";
+export type QueueAttributeName = "All" | "Policy" | "VisibilityTimeout" | "MaximumMessageSize" | "MessageRetentionPeriod" | "ApproximateNumberOfMessages" | "ApproximateNumberOfMessagesNotVisible" | "CreatedTimestamp" | "LastModifiedTimestamp" | "QueueArn" | "ApproximateNumberOfMessagesDelayed" | "DelaySeconds" | "ReceiveMessageWaitTimeSeconds" | "RedrivePolicy" | "FifoQueue" | "ContentBasedDeduplication" | "KmsMasterKeyId" | "KmsDataKeyReusePeriodSeconds" | "DeduplicationScope" | "FifoThroughputLimit" | "RedriveAllowPolicy" | "SqsManagedSseEnabled";
 export declare class QueueDeletedRecently extends EffectData.TaggedError(
   "QueueDeletedRecently",
 )<{
@@ -685,14 +487,11 @@ export interface SendMessageBatchRequestEntry {
   MessageBody: string;
   DelaySeconds?: number;
   MessageAttributes?: Record<string, MessageAttributeValue>;
-  MessageSystemAttributes?: {
-    [key in MessageSystemAttributeNameForSends]?: string;
-  };
+  MessageSystemAttributes?: { [key in MessageSystemAttributeNameForSends]?: string };
   MessageDeduplicationId?: string;
   MessageGroupId?: string;
 }
-export type SendMessageBatchRequestEntryList =
-  Array<SendMessageBatchRequestEntry>;
+export type SendMessageBatchRequestEntryList = Array<SendMessageBatchRequestEntry>;
 export interface SendMessageBatchResult {
   Successful: Array<SendMessageBatchResultEntry>;
   Failed: Array<BatchResultErrorEntry>;
@@ -705,16 +504,13 @@ export interface SendMessageBatchResultEntry {
   MD5OfMessageSystemAttributes?: string;
   SequenceNumber?: string;
 }
-export type SendMessageBatchResultEntryList =
-  Array<SendMessageBatchResultEntry>;
+export type SendMessageBatchResultEntryList = Array<SendMessageBatchResultEntry>;
 export interface SendMessageRequest {
   QueueUrl: string;
   MessageBody: string;
   DelaySeconds?: number;
   MessageAttributes?: Record<string, MessageAttributeValue>;
-  MessageSystemAttributes?: {
-    [key in MessageSystemAttributeNameForSends]?: string;
-  };
+  MessageSystemAttributes?: { [key in MessageSystemAttributeNameForSends]?: string };
   MessageDeduplicationId?: string;
   MessageGroupId?: string;
 }
@@ -1090,33 +886,5 @@ export declare namespace UntagQueue {
     | CommonAwsError;
 }
 
-export type SQSErrors =
-  | BatchEntryIdsNotDistinct
-  | BatchRequestTooLong
-  | EmptyBatchRequest
-  | InvalidAddress
-  | InvalidAttributeName
-  | InvalidAttributeValue
-  | InvalidBatchEntryId
-  | InvalidIdFormat
-  | InvalidMessageContents
-  | InvalidSecurity
-  | KmsAccessDenied
-  | KmsDisabled
-  | KmsInvalidKeyUsage
-  | KmsInvalidState
-  | KmsNotFound
-  | KmsOptInRequired
-  | KmsThrottled
-  | MessageNotInflight
-  | OverLimit
-  | PurgeQueueInProgress
-  | QueueDeletedRecently
-  | QueueDoesNotExist
-  | QueueNameExists
-  | ReceiptHandleIsInvalid
-  | RequestThrottled
-  | ResourceNotFoundException
-  | TooManyEntriesInBatchRequest
-  | UnsupportedOperation
-  | CommonAwsError;
+export type SQSErrors = BatchEntryIdsNotDistinct | BatchRequestTooLong | EmptyBatchRequest | InvalidAddress | InvalidAttributeName | InvalidAttributeValue | InvalidBatchEntryId | InvalidIdFormat | InvalidMessageContents | InvalidSecurity | KmsAccessDenied | KmsDisabled | KmsInvalidKeyUsage | KmsInvalidState | KmsNotFound | KmsOptInRequired | KmsThrottled | MessageNotInflight | OverLimit | PurgeQueueInProgress | QueueDeletedRecently | QueueDoesNotExist | QueueNameExists | ReceiptHandleIsInvalid | RequestThrottled | ResourceNotFoundException | TooManyEntriesInBatchRequest | UnsupportedOperation | CommonAwsError;
+

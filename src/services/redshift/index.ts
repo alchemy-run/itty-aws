@@ -6,26 +6,7 @@ import type { Redshift as _RedshiftClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {
-  AccessDeniedException,
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  ThrottlingException,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-  ValidationException,
-  type CommonAwsError,
-} from "../../error.ts";
+export {AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException, type CommonAwsError} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -47,10 +28,6 @@ export const Redshift = class extends AWSServiceClient {
     };
     super(config);
     // biome-ignore lint/correctness/noConstructorReturn: deliberate proxy usage
-    return createServiceProxy(
-      metadata,
-      this.config,
-      new AwsQueryHandler(protocolMetadata),
-    );
+    return createServiceProxy(metadata, this.config, new AwsQueryHandler(protocolMetadata));
   }
 } as unknown as typeof _RedshiftClient;

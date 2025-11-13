@@ -5,23 +5,7 @@ import type { MarketplaceCatalog as _MarketplaceCatalogClient } from "./types.ts
 
 export * from "./types.ts";
 
-export {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-  type CommonAwsError,
-} from "../../error.ts";
+export {ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, type CommonAwsError} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -31,19 +15,19 @@ const metadata = {
   sigV4ServiceName: "aws-marketplace",
   endpointPrefix: "catalog.marketplace",
   operations: {
-    BatchDescribeEntities: "POST /BatchDescribeEntities",
-    CancelChangeSet: "PATCH /CancelChangeSet",
-    DeleteResourcePolicy: "DELETE /DeleteResourcePolicy",
-    DescribeChangeSet: "GET /DescribeChangeSet",
-    DescribeEntity: "GET /DescribeEntity",
-    GetResourcePolicy: "GET /GetResourcePolicy",
-    ListChangeSets: "POST /ListChangeSets",
-    ListEntities: "POST /ListEntities",
-    ListTagsForResource: "POST /ListTagsForResource",
-    PutResourcePolicy: "POST /PutResourcePolicy",
-    StartChangeSet: "POST /StartChangeSet",
-    TagResource: "POST /TagResource",
-    UntagResource: "POST /UntagResource",
+    "BatchDescribeEntities": "POST /BatchDescribeEntities",
+    "CancelChangeSet": "PATCH /CancelChangeSet",
+    "DeleteResourcePolicy": "DELETE /DeleteResourcePolicy",
+    "DescribeChangeSet": "GET /DescribeChangeSet",
+    "DescribeEntity": "GET /DescribeEntity",
+    "GetResourcePolicy": "GET /GetResourcePolicy",
+    "ListChangeSets": "POST /ListChangeSets",
+    "ListEntities": "POST /ListEntities",
+    "ListTagsForResource": "POST /ListTagsForResource",
+    "PutResourcePolicy": "POST /PutResourcePolicy",
+    "StartChangeSet": "POST /StartChangeSet",
+    "TagResource": "POST /TagResource",
+    "UntagResource": "POST /UntagResource",
   },
 } as const satisfies ServiceMetadata;
 

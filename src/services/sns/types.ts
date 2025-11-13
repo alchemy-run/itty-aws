@@ -1,40 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  AccessDeniedException,
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  ThrottlingException,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-} from "../../error.ts";
-type CommonAwsError =
-  | AccessDeniedException
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | ThrottlingException
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | ValidationException;
+import type { AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
+type CommonAwsError = AccessDeniedException | ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | ThrottlingException | UnrecognizedClientException | UnknownOperationException | ValidationError | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class SNS extends AWSServiceClient {
@@ -42,479 +8,253 @@ export declare class SNS extends AWSServiceClient {
     input: AddPermissionInput,
   ): Effect.Effect<
     {},
-    | AuthorizationErrorException
-    | InternalErrorException
-    | InvalidParameterException
-    | NotFoundException
-    | CommonAwsError
+    AuthorizationErrorException | InternalErrorException | InvalidParameterException | NotFoundException | CommonAwsError
   >;
   checkIfPhoneNumberIsOptedOut(
     input: CheckIfPhoneNumberIsOptedOutInput,
   ): Effect.Effect<
     CheckIfPhoneNumberIsOptedOutResponse,
-    | AuthorizationErrorException
-    | InternalErrorException
-    | InvalidParameterException
-    | ThrottledException
-    | CommonAwsError
+    AuthorizationErrorException | InternalErrorException | InvalidParameterException | ThrottledException | CommonAwsError
   >;
   confirmSubscription(
     input: ConfirmSubscriptionInput,
   ): Effect.Effect<
     ConfirmSubscriptionResponse,
-    | AuthorizationErrorException
-    | FilterPolicyLimitExceededException
-    | InternalErrorException
-    | InvalidParameterException
-    | NotFoundException
-    | ReplayLimitExceededException
-    | SubscriptionLimitExceededException
-    | CommonAwsError
+    AuthorizationErrorException | FilterPolicyLimitExceededException | InternalErrorException | InvalidParameterException | NotFoundException | ReplayLimitExceededException | SubscriptionLimitExceededException | CommonAwsError
   >;
   createPlatformApplication(
     input: CreatePlatformApplicationInput,
   ): Effect.Effect<
     CreatePlatformApplicationResponse,
-    | AuthorizationErrorException
-    | InternalErrorException
-    | InvalidParameterException
-    | CommonAwsError
+    AuthorizationErrorException | InternalErrorException | InvalidParameterException | CommonAwsError
   >;
   createPlatformEndpoint(
     input: CreatePlatformEndpointInput,
   ): Effect.Effect<
     CreateEndpointResponse,
-    | AuthorizationErrorException
-    | InternalErrorException
-    | InvalidParameterException
-    | NotFoundException
-    | CommonAwsError
+    AuthorizationErrorException | InternalErrorException | InvalidParameterException | NotFoundException | CommonAwsError
   >;
   createSMSSandboxPhoneNumber(
     input: CreateSMSSandboxPhoneNumberInput,
   ): Effect.Effect<
     CreateSMSSandboxPhoneNumberResult,
-    | AuthorizationErrorException
-    | InternalErrorException
-    | InvalidParameterException
-    | OptedOutException
-    | ThrottledException
-    | UserErrorException
-    | CommonAwsError
+    AuthorizationErrorException | InternalErrorException | InvalidParameterException | OptedOutException | ThrottledException | UserErrorException | CommonAwsError
   >;
   createTopic(
     input: CreateTopicInput,
   ): Effect.Effect<
     CreateTopicResponse,
-    | AuthorizationErrorException
-    | ConcurrentAccessException
-    | InternalErrorException
-    | InvalidParameterException
-    | InvalidSecurityException
-    | StaleTagException
-    | TagLimitExceededException
-    | TagPolicyException
-    | TopicLimitExceededException
-    | CommonAwsError
+    AuthorizationErrorException | ConcurrentAccessException | InternalErrorException | InvalidParameterException | InvalidSecurityException | StaleTagException | TagLimitExceededException | TagPolicyException | TopicLimitExceededException | CommonAwsError
   >;
   deleteEndpoint(
     input: DeleteEndpointInput,
   ): Effect.Effect<
     {},
-    | AuthorizationErrorException
-    | InternalErrorException
-    | InvalidParameterException
-    | CommonAwsError
+    AuthorizationErrorException | InternalErrorException | InvalidParameterException | CommonAwsError
   >;
   deletePlatformApplication(
     input: DeletePlatformApplicationInput,
   ): Effect.Effect<
     {},
-    | AuthorizationErrorException
-    | InternalErrorException
-    | InvalidParameterException
-    | CommonAwsError
+    AuthorizationErrorException | InternalErrorException | InvalidParameterException | CommonAwsError
   >;
   deleteSMSSandboxPhoneNumber(
     input: DeleteSMSSandboxPhoneNumberInput,
   ): Effect.Effect<
     DeleteSMSSandboxPhoneNumberResult,
-    | AuthorizationErrorException
-    | InternalErrorException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ThrottledException
-    | UserErrorException
-    | CommonAwsError
+    AuthorizationErrorException | InternalErrorException | InvalidParameterException | ResourceNotFoundException | ThrottledException | UserErrorException | CommonAwsError
   >;
   deleteTopic(
     input: DeleteTopicInput,
   ): Effect.Effect<
     {},
-    | AuthorizationErrorException
-    | ConcurrentAccessException
-    | InternalErrorException
-    | InvalidParameterException
-    | InvalidStateException
-    | NotFoundException
-    | StaleTagException
-    | TagPolicyException
-    | CommonAwsError
+    AuthorizationErrorException | ConcurrentAccessException | InternalErrorException | InvalidParameterException | InvalidStateException | NotFoundException | StaleTagException | TagPolicyException | CommonAwsError
   >;
   getDataProtectionPolicy(
     input: GetDataProtectionPolicyInput,
   ): Effect.Effect<
     GetDataProtectionPolicyResponse,
-    | AuthorizationErrorException
-    | InternalErrorException
-    | InvalidParameterException
-    | InvalidSecurityException
-    | NotFoundException
-    | CommonAwsError
+    AuthorizationErrorException | InternalErrorException | InvalidParameterException | InvalidSecurityException | NotFoundException | CommonAwsError
   >;
   getEndpointAttributes(
     input: GetEndpointAttributesInput,
   ): Effect.Effect<
     GetEndpointAttributesResponse,
-    | AuthorizationErrorException
-    | InternalErrorException
-    | InvalidParameterException
-    | NotFoundException
-    | CommonAwsError
+    AuthorizationErrorException | InternalErrorException | InvalidParameterException | NotFoundException | CommonAwsError
   >;
   getPlatformApplicationAttributes(
     input: GetPlatformApplicationAttributesInput,
   ): Effect.Effect<
     GetPlatformApplicationAttributesResponse,
-    | AuthorizationErrorException
-    | InternalErrorException
-    | InvalidParameterException
-    | NotFoundException
-    | CommonAwsError
+    AuthorizationErrorException | InternalErrorException | InvalidParameterException | NotFoundException | CommonAwsError
   >;
   getSMSAttributes(
     input: GetSMSAttributesInput,
   ): Effect.Effect<
     GetSMSAttributesResponse,
-    | AuthorizationErrorException
-    | InternalErrorException
-    | InvalidParameterException
-    | ThrottledException
-    | CommonAwsError
+    AuthorizationErrorException | InternalErrorException | InvalidParameterException | ThrottledException | CommonAwsError
   >;
   getSMSSandboxAccountStatus(
     input: GetSMSSandboxAccountStatusInput,
   ): Effect.Effect<
     GetSMSSandboxAccountStatusResult,
-    | AuthorizationErrorException
-    | InternalErrorException
-    | ThrottledException
-    | CommonAwsError
+    AuthorizationErrorException | InternalErrorException | ThrottledException | CommonAwsError
   >;
   getSubscriptionAttributes(
     input: GetSubscriptionAttributesInput,
   ): Effect.Effect<
     GetSubscriptionAttributesResponse,
-    | AuthorizationErrorException
-    | InternalErrorException
-    | InvalidParameterException
-    | NotFoundException
-    | CommonAwsError
+    AuthorizationErrorException | InternalErrorException | InvalidParameterException | NotFoundException | CommonAwsError
   >;
   getTopicAttributes(
     input: GetTopicAttributesInput,
   ): Effect.Effect<
     GetTopicAttributesResponse,
-    | AuthorizationErrorException
-    | InternalErrorException
-    | InvalidParameterException
-    | InvalidSecurityException
-    | NotFoundException
-    | CommonAwsError
+    AuthorizationErrorException | InternalErrorException | InvalidParameterException | InvalidSecurityException | NotFoundException | CommonAwsError
   >;
   listEndpointsByPlatformApplication(
     input: ListEndpointsByPlatformApplicationInput,
   ): Effect.Effect<
     ListEndpointsByPlatformApplicationResponse,
-    | AuthorizationErrorException
-    | InternalErrorException
-    | InvalidParameterException
-    | NotFoundException
-    | CommonAwsError
+    AuthorizationErrorException | InternalErrorException | InvalidParameterException | NotFoundException | CommonAwsError
   >;
   listOriginationNumbers(
     input: ListOriginationNumbersRequest,
   ): Effect.Effect<
     ListOriginationNumbersResult,
-    | AuthorizationErrorException
-    | InternalErrorException
-    | InvalidParameterException
-    | ThrottledException
-    | ValidationException
-    | CommonAwsError
+    AuthorizationErrorException | InternalErrorException | InvalidParameterException | ThrottledException | ValidationException | CommonAwsError
   >;
   listPhoneNumbersOptedOut(
     input: ListPhoneNumbersOptedOutInput,
   ): Effect.Effect<
     ListPhoneNumbersOptedOutResponse,
-    | AuthorizationErrorException
-    | InternalErrorException
-    | InvalidParameterException
-    | ThrottledException
-    | CommonAwsError
+    AuthorizationErrorException | InternalErrorException | InvalidParameterException | ThrottledException | CommonAwsError
   >;
   listPlatformApplications(
     input: ListPlatformApplicationsInput,
   ): Effect.Effect<
     ListPlatformApplicationsResponse,
-    | AuthorizationErrorException
-    | InternalErrorException
-    | InvalidParameterException
-    | CommonAwsError
+    AuthorizationErrorException | InternalErrorException | InvalidParameterException | CommonAwsError
   >;
   listSMSSandboxPhoneNumbers(
     input: ListSMSSandboxPhoneNumbersInput,
   ): Effect.Effect<
     ListSMSSandboxPhoneNumbersResult,
-    | AuthorizationErrorException
-    | InternalErrorException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ThrottledException
-    | CommonAwsError
+    AuthorizationErrorException | InternalErrorException | InvalidParameterException | ResourceNotFoundException | ThrottledException | CommonAwsError
   >;
   listSubscriptions(
     input: ListSubscriptionsInput,
   ): Effect.Effect<
     ListSubscriptionsResponse,
-    | AuthorizationErrorException
-    | InternalErrorException
-    | InvalidParameterException
-    | CommonAwsError
+    AuthorizationErrorException | InternalErrorException | InvalidParameterException | CommonAwsError
   >;
   listSubscriptionsByTopic(
     input: ListSubscriptionsByTopicInput,
   ): Effect.Effect<
     ListSubscriptionsByTopicResponse,
-    | AuthorizationErrorException
-    | InternalErrorException
-    | InvalidParameterException
-    | NotFoundException
-    | CommonAwsError
+    AuthorizationErrorException | InternalErrorException | InvalidParameterException | NotFoundException | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AuthorizationErrorException
-    | ConcurrentAccessException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | TagPolicyException
-    | CommonAwsError
+    AuthorizationErrorException | ConcurrentAccessException | InvalidParameterException | ResourceNotFoundException | TagPolicyException | CommonAwsError
   >;
   listTopics(
     input: ListTopicsInput,
   ): Effect.Effect<
     ListTopicsResponse,
-    | AuthorizationErrorException
-    | InternalErrorException
-    | InvalidParameterException
-    | CommonAwsError
+    AuthorizationErrorException | InternalErrorException | InvalidParameterException | CommonAwsError
   >;
   optInPhoneNumber(
     input: OptInPhoneNumberInput,
   ): Effect.Effect<
     OptInPhoneNumberResponse,
-    | AuthorizationErrorException
-    | InternalErrorException
-    | InvalidParameterException
-    | ThrottledException
-    | CommonAwsError
+    AuthorizationErrorException | InternalErrorException | InvalidParameterException | ThrottledException | CommonAwsError
   >;
   publish(
     input: PublishInput,
   ): Effect.Effect<
     PublishResponse,
-    | AuthorizationErrorException
-    | EndpointDisabledException
-    | InternalErrorException
-    | InvalidParameterException
-    | InvalidParameterValueException
-    | InvalidSecurityException
-    | KMSAccessDeniedException
-    | KMSDisabledException
-    | KMSInvalidStateException
-    | KMSNotFoundException
-    | KMSOptInRequired
-    | KMSThrottlingException
-    | NotFoundException
-    | PlatformApplicationDisabledException
-    | ValidationException
-    | CommonAwsError
+    AuthorizationErrorException | EndpointDisabledException | InternalErrorException | InvalidParameterException | InvalidParameterValueException | InvalidSecurityException | KMSAccessDeniedException | KMSDisabledException | KMSInvalidStateException | KMSNotFoundException | KMSOptInRequired | KMSThrottlingException | NotFoundException | PlatformApplicationDisabledException | ValidationException | CommonAwsError
   >;
   publishBatch(
     input: PublishBatchInput,
   ): Effect.Effect<
     PublishBatchResponse,
-    | AuthorizationErrorException
-    | BatchEntryIdsNotDistinctException
-    | BatchRequestTooLongException
-    | EmptyBatchRequestException
-    | EndpointDisabledException
-    | InternalErrorException
-    | InvalidBatchEntryIdException
-    | InvalidParameterException
-    | InvalidParameterValueException
-    | InvalidSecurityException
-    | KMSAccessDeniedException
-    | KMSDisabledException
-    | KMSInvalidStateException
-    | KMSNotFoundException
-    | KMSOptInRequired
-    | KMSThrottlingException
-    | NotFoundException
-    | PlatformApplicationDisabledException
-    | TooManyEntriesInBatchRequestException
-    | ValidationException
-    | CommonAwsError
+    AuthorizationErrorException | BatchEntryIdsNotDistinctException | BatchRequestTooLongException | EmptyBatchRequestException | EndpointDisabledException | InternalErrorException | InvalidBatchEntryIdException | InvalidParameterException | InvalidParameterValueException | InvalidSecurityException | KMSAccessDeniedException | KMSDisabledException | KMSInvalidStateException | KMSNotFoundException | KMSOptInRequired | KMSThrottlingException | NotFoundException | PlatformApplicationDisabledException | TooManyEntriesInBatchRequestException | ValidationException | CommonAwsError
   >;
   putDataProtectionPolicy(
     input: PutDataProtectionPolicyInput,
   ): Effect.Effect<
     {},
-    | AuthorizationErrorException
-    | InternalErrorException
-    | InvalidParameterException
-    | InvalidSecurityException
-    | NotFoundException
-    | CommonAwsError
+    AuthorizationErrorException | InternalErrorException | InvalidParameterException | InvalidSecurityException | NotFoundException | CommonAwsError
   >;
   removePermission(
     input: RemovePermissionInput,
   ): Effect.Effect<
     {},
-    | AuthorizationErrorException
-    | InternalErrorException
-    | InvalidParameterException
-    | NotFoundException
-    | CommonAwsError
+    AuthorizationErrorException | InternalErrorException | InvalidParameterException | NotFoundException | CommonAwsError
   >;
   setEndpointAttributes(
     input: SetEndpointAttributesInput,
   ): Effect.Effect<
     {},
-    | AuthorizationErrorException
-    | InternalErrorException
-    | InvalidParameterException
-    | NotFoundException
-    | CommonAwsError
+    AuthorizationErrorException | InternalErrorException | InvalidParameterException | NotFoundException | CommonAwsError
   >;
   setPlatformApplicationAttributes(
     input: SetPlatformApplicationAttributesInput,
   ): Effect.Effect<
     {},
-    | AuthorizationErrorException
-    | InternalErrorException
-    | InvalidParameterException
-    | NotFoundException
-    | CommonAwsError
+    AuthorizationErrorException | InternalErrorException | InvalidParameterException | NotFoundException | CommonAwsError
   >;
   setSMSAttributes(
     input: SetSMSAttributesInput,
   ): Effect.Effect<
     SetSMSAttributesResponse,
-    | AuthorizationErrorException
-    | InternalErrorException
-    | InvalidParameterException
-    | ThrottledException
-    | CommonAwsError
+    AuthorizationErrorException | InternalErrorException | InvalidParameterException | ThrottledException | CommonAwsError
   >;
   setSubscriptionAttributes(
     input: SetSubscriptionAttributesInput,
   ): Effect.Effect<
     {},
-    | AuthorizationErrorException
-    | FilterPolicyLimitExceededException
-    | InternalErrorException
-    | InvalidParameterException
-    | NotFoundException
-    | ReplayLimitExceededException
-    | CommonAwsError
+    AuthorizationErrorException | FilterPolicyLimitExceededException | InternalErrorException | InvalidParameterException | NotFoundException | ReplayLimitExceededException | CommonAwsError
   >;
   setTopicAttributes(
     input: SetTopicAttributesInput,
   ): Effect.Effect<
     {},
-    | AuthorizationErrorException
-    | InternalErrorException
-    | InvalidParameterException
-    | InvalidSecurityException
-    | NotFoundException
-    | CommonAwsError
+    AuthorizationErrorException | InternalErrorException | InvalidParameterException | InvalidSecurityException | NotFoundException | CommonAwsError
   >;
   subscribe(
     input: SubscribeInput,
   ): Effect.Effect<
     SubscribeResponse,
-    | AuthorizationErrorException
-    | FilterPolicyLimitExceededException
-    | InternalErrorException
-    | InvalidParameterException
-    | InvalidSecurityException
-    | NotFoundException
-    | ReplayLimitExceededException
-    | SubscriptionLimitExceededException
-    | CommonAwsError
+    AuthorizationErrorException | FilterPolicyLimitExceededException | InternalErrorException | InvalidParameterException | InvalidSecurityException | NotFoundException | ReplayLimitExceededException | SubscriptionLimitExceededException | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | AuthorizationErrorException
-    | ConcurrentAccessException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | StaleTagException
-    | TagLimitExceededException
-    | TagPolicyException
-    | CommonAwsError
+    AuthorizationErrorException | ConcurrentAccessException | InvalidParameterException | ResourceNotFoundException | StaleTagException | TagLimitExceededException | TagPolicyException | CommonAwsError
   >;
   unsubscribe(
     input: UnsubscribeInput,
   ): Effect.Effect<
     {},
-    | AuthorizationErrorException
-    | InternalErrorException
-    | InvalidParameterException
-    | InvalidSecurityException
-    | NotFoundException
-    | CommonAwsError
+    AuthorizationErrorException | InternalErrorException | InvalidParameterException | InvalidSecurityException | NotFoundException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | AuthorizationErrorException
-    | ConcurrentAccessException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | StaleTagException
-    | TagLimitExceededException
-    | TagPolicyException
-    | CommonAwsError
+    AuthorizationErrorException | ConcurrentAccessException | InvalidParameterException | ResourceNotFoundException | StaleTagException | TagLimitExceededException | TagPolicyException | CommonAwsError
   >;
   verifySMSSandboxPhoneNumber(
     input: VerifySMSSandboxPhoneNumberInput,
   ): Effect.Effect<
     VerifySMSSandboxPhoneNumberResult,
-    | AuthorizationErrorException
-    | InternalErrorException
-    | InvalidParameterException
-    | ResourceNotFoundException
-    | ThrottledException
-    | VerificationException
-    | CommonAwsError
+    AuthorizationErrorException | InternalErrorException | InvalidParameterException | ResourceNotFoundException | ThrottledException | VerificationException | CommonAwsError
   >;
 }
 
@@ -605,7 +345,8 @@ export interface CreateSMSSandboxPhoneNumberInput {
   PhoneNumber: string;
   LanguageCode?: LanguageCodeString;
 }
-export interface CreateSMSSandboxPhoneNumberResult {}
+export interface CreateSMSSandboxPhoneNumberResult {
+}
 export interface CreateTopicInput {
   Name: string;
   Attributes?: Record<string, string>;
@@ -627,7 +368,8 @@ export interface DeletePlatformApplicationInput {
 export interface DeleteSMSSandboxPhoneNumberInput {
   PhoneNumber: string;
 }
-export interface DeleteSMSSandboxPhoneNumberResult {}
+export interface DeleteSMSSandboxPhoneNumberResult {
+}
 export interface DeleteTopicInput {
   TopicArn: string;
 }
@@ -676,7 +418,8 @@ export interface GetSMSAttributesInput {
 export interface GetSMSAttributesResponse {
   attributes?: Record<string, string>;
 }
-export interface GetSMSSandboxAccountStatusInput {}
+export interface GetSMSSandboxAccountStatusInput {
+}
 export interface GetSMSSandboxAccountStatusResult {
   IsInSandbox: boolean;
 }
@@ -756,20 +499,7 @@ export declare class KMSThrottlingException extends EffectData.TaggedError(
 }> {}
 export type label = string;
 
-export type LanguageCodeString =
-  | "en-US"
-  | "en-GB"
-  | "es-419"
-  | "es-ES"
-  | "de-DE"
-  | "fr-CA"
-  | "fr-FR"
-  | "it-IT"
-  | "ja-JP"
-  | "pt-BR"
-  | "kr-KR"
-  | "zh-CN"
-  | "zh-TW";
+export type LanguageCodeString = "en-US" | "en-GB" | "es-419" | "es-ES" | "de-DE" | "fr-CA" | "fr-FR" | "it-IT" | "ja-JP" | "pt-BR" | "kr-KR" | "zh-CN" | "zh-TW";
 export interface ListEndpointsByPlatformApplicationInput {
   PlatformApplicationArn: string;
   NextToken?: string;
@@ -873,7 +603,8 @@ export declare class OptedOutException extends EffectData.TaggedError(
 export interface OptInPhoneNumberInput {
   phoneNumber: string;
 }
-export interface OptInPhoneNumberResponse {}
+export interface OptInPhoneNumberResponse {
+}
 export type OTPCode = string;
 
 export type PhoneNumber = string;
@@ -970,7 +701,8 @@ export interface SetPlatformApplicationAttributesInput {
 export interface SetSMSAttributesInput {
   attributes: Record<string, string>;
 }
-export interface SetSMSAttributesResponse {}
+export interface SetSMSAttributesResponse {
+}
 export interface SetSubscriptionAttributesInput {
   SubscriptionArn: string;
   AttributeName: string;
@@ -1044,7 +776,8 @@ export interface TagResourceRequest {
   ResourceArn: string;
   Tags: Array<Tag>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TagValue = string;
 
 export declare class ThrottledException extends EffectData.TaggedError(
@@ -1082,7 +815,8 @@ export interface UntagResourceRequest {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export declare class UserErrorException extends EffectData.TaggedError(
   "UserErrorException",
 )<{
@@ -1103,7 +837,8 @@ export interface VerifySMSSandboxPhoneNumberInput {
   PhoneNumber: string;
   OneTimePassword: string;
 }
-export interface VerifySMSSandboxPhoneNumberResult {}
+export interface VerifySMSSandboxPhoneNumberResult {
+}
 export declare namespace AddPermission {
   export type Input = AddPermissionInput;
   export type Output = {};
@@ -1624,39 +1359,5 @@ export declare namespace VerifySMSSandboxPhoneNumber {
     | CommonAwsError;
 }
 
-export type SNSErrors =
-  | AuthorizationErrorException
-  | BatchEntryIdsNotDistinctException
-  | BatchRequestTooLongException
-  | ConcurrentAccessException
-  | EmptyBatchRequestException
-  | EndpointDisabledException
-  | FilterPolicyLimitExceededException
-  | InternalErrorException
-  | InvalidBatchEntryIdException
-  | InvalidParameterException
-  | InvalidParameterValueException
-  | InvalidSecurityException
-  | InvalidStateException
-  | KMSAccessDeniedException
-  | KMSDisabledException
-  | KMSInvalidStateException
-  | KMSNotFoundException
-  | KMSOptInRequired
-  | KMSThrottlingException
-  | NotFoundException
-  | OptedOutException
-  | PlatformApplicationDisabledException
-  | ReplayLimitExceededException
-  | ResourceNotFoundException
-  | StaleTagException
-  | SubscriptionLimitExceededException
-  | TagLimitExceededException
-  | TagPolicyException
-  | ThrottledException
-  | TooManyEntriesInBatchRequestException
-  | TopicLimitExceededException
-  | UserErrorException
-  | ValidationException
-  | VerificationException
-  | CommonAwsError;
+export type SNSErrors = AuthorizationErrorException | BatchEntryIdsNotDistinctException | BatchRequestTooLongException | ConcurrentAccessException | EmptyBatchRequestException | EndpointDisabledException | FilterPolicyLimitExceededException | InternalErrorException | InvalidBatchEntryIdException | InvalidParameterException | InvalidParameterValueException | InvalidSecurityException | InvalidStateException | KMSAccessDeniedException | KMSDisabledException | KMSInvalidStateException | KMSNotFoundException | KMSOptInRequired | KMSThrottlingException | NotFoundException | OptedOutException | PlatformApplicationDisabledException | ReplayLimitExceededException | ResourceNotFoundException | StaleTagException | SubscriptionLimitExceededException | TagLimitExceededException | TagPolicyException | ThrottledException | TooManyEntriesInBatchRequestException | TopicLimitExceededException | UserErrorException | ValidationException | VerificationException | CommonAwsError;
+

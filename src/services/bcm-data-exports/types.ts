@@ -1,39 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  AccessDeniedException,
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-} from "../../error.ts";
-type CommonAwsError =
-  | AccessDeniedException
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | ThrottlingException
-  | ValidationException;
+import type { AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
+type CommonAwsError = AccessDeniedException | ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | ThrottlingException | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class BCMDataExports extends AWSServiceClient {
@@ -41,118 +8,73 @@ export declare class BCMDataExports extends AWSServiceClient {
     input: CreateExportRequest,
   ): Effect.Effect<
     CreateExportResponse,
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
   >;
   deleteExport(
     input: DeleteExportRequest,
   ): Effect.Effect<
     DeleteExportResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getExecution(
     input: GetExecutionRequest,
   ): Effect.Effect<
     GetExecutionResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getExport(
     input: GetExportRequest,
   ): Effect.Effect<
     GetExportResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   getTable(
     input: GetTableRequest,
   ): Effect.Effect<
     GetTableResponse,
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listExecutions(
     input: ListExecutionsRequest,
   ): Effect.Effect<
     ListExecutionsResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listExports(
     input: ListExportsRequest,
   ): Effect.Effect<
     ListExportsResponse,
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listTables(
     input: ListTablesRequest,
   ): Effect.Effect<
     ListTablesResponse,
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   updateExport(
     input: UpdateExportRequest,
   ): Effect.Effect<
     UpdateExportResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
 }
 
@@ -199,18 +121,8 @@ export interface ExecutionStatus {
   CompletedAt?: Date | string;
   LastUpdatedAt?: Date | string;
 }
-export type ExecutionStatusCode =
-  | "INITIATION_IN_PROCESS"
-  | "QUERY_QUEUED"
-  | "QUERY_IN_PROCESS"
-  | "QUERY_FAILURE"
-  | "DELIVERY_IN_PROCESS"
-  | "DELIVERY_SUCCESS"
-  | "DELIVERY_FAILURE";
-export type ExecutionStatusReason =
-  | "INSUFFICIENT_PERMISSION"
-  | "BILL_OWNER_CHANGED"
-  | "INTERNAL_FAILURE";
+export type ExecutionStatusCode = "INITIATION_IN_PROCESS" | "QUERY_QUEUED" | "QUERY_IN_PROCESS" | "QUERY_FAILURE" | "DELIVERY_IN_PROCESS" | "DELIVERY_SUCCESS" | "DELIVERY_FAILURE";
+export type ExecutionStatusReason = "INSUFFICIENT_PERMISSION" | "BILL_OWNER_CHANGED" | "INTERNAL_FAILURE";
 export interface Export {
   ExportArn?: string;
   Name: string;
@@ -377,7 +289,8 @@ export interface TagResourceRequest {
   ResourceArn: string;
   ResourceTags: Array<ResourceTag>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export declare class ThrottlingException extends EffectData.TaggedError(
   "ThrottlingException",
 )<{
@@ -389,7 +302,8 @@ export interface UntagResourceRequest {
   ResourceArn: string;
   ResourceTagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateExportRequest {
   ExportArn: string;
   Export: Export;
@@ -409,11 +323,7 @@ export interface ValidationExceptionField {
   Message: string;
 }
 export type ValidationExceptionFieldList = Array<ValidationExceptionField>;
-export type ValidationExceptionReason =
-  | "unknownOperation"
-  | "cannotParse"
-  | "fieldValidationFailed"
-  | "other";
+export type ValidationExceptionReason = "unknownOperation" | "cannotParse" | "fieldValidationFailed" | "other";
 export declare namespace CreateExport {
   export type Input = CreateExportRequest;
   export type Output = CreateExportResponse;
@@ -543,10 +453,5 @@ export declare namespace UpdateExport {
     | CommonAwsError;
 }
 
-export type BCMDataExportsErrors =
-  | InternalServerException
-  | ResourceNotFoundException
-  | ServiceQuotaExceededException
-  | ThrottlingException
-  | ValidationException
-  | CommonAwsError;
+export type BCMDataExportsErrors = InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError;
+

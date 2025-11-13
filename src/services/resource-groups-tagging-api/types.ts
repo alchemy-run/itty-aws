@@ -7,80 +7,49 @@ export declare class ResourceGroupsTaggingAPI extends AWSServiceClient {
     input: DescribeReportCreationInput,
   ): Effect.Effect<
     DescribeReportCreationOutput,
-    | ConstraintViolationException
-    | InternalServiceException
-    | InvalidParameterException
-    | ThrottledException
-    | CommonAwsError
+    ConstraintViolationException | InternalServiceException | InvalidParameterException | ThrottledException | CommonAwsError
   >;
   getComplianceSummary(
     input: GetComplianceSummaryInput,
   ): Effect.Effect<
     GetComplianceSummaryOutput,
-    | ConstraintViolationException
-    | InternalServiceException
-    | InvalidParameterException
-    | ThrottledException
-    | CommonAwsError
+    ConstraintViolationException | InternalServiceException | InvalidParameterException | ThrottledException | CommonAwsError
   >;
   getResources(
     input: GetResourcesInput,
   ): Effect.Effect<
     GetResourcesOutput,
-    | InternalServiceException
-    | InvalidParameterException
-    | PaginationTokenExpiredException
-    | ThrottledException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | PaginationTokenExpiredException | ThrottledException | CommonAwsError
   >;
   getTagKeys(
     input: GetTagKeysInput,
   ): Effect.Effect<
     GetTagKeysOutput,
-    | InternalServiceException
-    | InvalidParameterException
-    | PaginationTokenExpiredException
-    | ThrottledException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | PaginationTokenExpiredException | ThrottledException | CommonAwsError
   >;
   getTagValues(
     input: GetTagValuesInput,
   ): Effect.Effect<
     GetTagValuesOutput,
-    | InternalServiceException
-    | InvalidParameterException
-    | PaginationTokenExpiredException
-    | ThrottledException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | PaginationTokenExpiredException | ThrottledException | CommonAwsError
   >;
   startReportCreation(
     input: StartReportCreationInput,
   ): Effect.Effect<
     StartReportCreationOutput,
-    | ConcurrentModificationException
-    | ConstraintViolationException
-    | InternalServiceException
-    | InvalidParameterException
-    | ThrottledException
-    | CommonAwsError
+    ConcurrentModificationException | ConstraintViolationException | InternalServiceException | InvalidParameterException | ThrottledException | CommonAwsError
   >;
   tagResources(
     input: TagResourcesInput,
   ): Effect.Effect<
     TagResourcesOutput,
-    | InternalServiceException
-    | InvalidParameterException
-    | ThrottledException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | ThrottledException | CommonAwsError
   >;
   untagResources(
     input: UntagResourcesInput,
   ): Effect.Effect<
     UntagResourcesOutput,
-    | InternalServiceException
-    | InvalidParameterException
-    | ThrottledException
-    | CommonAwsError
+    InternalServiceException | InvalidParameterException | ThrottledException | CommonAwsError
   >;
 }
 
@@ -105,16 +74,15 @@ export declare class ConstraintViolationException extends EffectData.TaggedError
 )<{
   readonly Message?: string;
 }> {}
-export interface DescribeReportCreationInput {}
+export interface DescribeReportCreationInput {
+}
 export interface DescribeReportCreationOutput {
   Status?: string;
   S3Location?: string;
   StartDate?: string;
   ErrorMessage?: string;
 }
-export type ErrorCode =
-  | "InternalServiceException"
-  | "InvalidParameterException";
+export type ErrorCode = "InternalServiceException" | "InvalidParameterException";
 export type ErrorMessage = string;
 
 export type ExceptionMessage = string;
@@ -221,7 +189,8 @@ export type StartDate = string;
 export interface StartReportCreationInput {
   S3Bucket: string;
 }
-export interface StartReportCreationOutput {}
+export interface StartReportCreationOutput {
+}
 export type Status = string;
 
 export type StatusCode = number;
@@ -367,11 +336,5 @@ export declare namespace UntagResources {
     | CommonAwsError;
 }
 
-export type ResourceGroupsTaggingAPIErrors =
-  | ConcurrentModificationException
-  | ConstraintViolationException
-  | InternalServiceException
-  | InvalidParameterException
-  | PaginationTokenExpiredException
-  | ThrottledException
-  | CommonAwsError;
+export type ResourceGroupsTaggingAPIErrors = ConcurrentModificationException | ConstraintViolationException | InternalServiceException | InvalidParameterException | PaginationTokenExpiredException | ThrottledException | CommonAwsError;
+

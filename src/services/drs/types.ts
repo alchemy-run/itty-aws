@@ -1,38 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-} from "../../error.ts";
-type CommonAwsError =
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | AccessDeniedException
-  | ThrottlingException
-  | ValidationException;
+import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
+type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class drs extends AWSServiceClient {
@@ -40,563 +8,301 @@ export declare class drs extends AWSServiceClient {
     input: CreateExtendedSourceServerRequest,
   ): Effect.Effect<
     CreateExtendedSourceServerResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | UninitializedAccountException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | UninitializedAccountException | ValidationException | CommonAwsError
   >;
   deleteLaunchAction(
     input: DeleteLaunchActionRequest,
   ): Effect.Effect<
     DeleteLaunchActionResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UninitializedAccountException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | UninitializedAccountException | ValidationException | CommonAwsError
   >;
   initializeService(
     input: InitializeServiceRequest,
   ): Effect.Effect<
     InitializeServiceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
   >;
   listExtensibleSourceServers(
     input: ListExtensibleSourceServersRequest,
   ): Effect.Effect<
     ListExtensibleSourceServersResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | UninitializedAccountException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | UninitializedAccountException | ValidationException | CommonAwsError
   >;
   listLaunchActions(
     input: ListLaunchActionsRequest,
   ): Effect.Effect<
     ListLaunchActionsResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | UninitializedAccountException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | UninitializedAccountException | CommonAwsError
   >;
   listStagingAccounts(
     input: ListStagingAccountsRequest,
   ): Effect.Effect<
     ListStagingAccountsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | UninitializedAccountException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | UninitializedAccountException | ValidationException | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   putLaunchAction(
     input: PutLaunchActionRequest,
   ): Effect.Effect<
     PutLaunchActionResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UninitializedAccountException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | UninitializedAccountException | ValidationException | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
   >;
   associateSourceNetworkStack(
     input: AssociateSourceNetworkStackRequest,
   ): Effect.Effect<
     AssociateSourceNetworkStackResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | UninitializedAccountException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | UninitializedAccountException | ValidationException | CommonAwsError
   >;
   createLaunchConfigurationTemplate(
     input: CreateLaunchConfigurationTemplateRequest,
   ): Effect.Effect<
     CreateLaunchConfigurationTemplateResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | UninitializedAccountException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | UninitializedAccountException | ValidationException | CommonAwsError
   >;
   createReplicationConfigurationTemplate(
     input: CreateReplicationConfigurationTemplateRequest,
   ): Effect.Effect<
     ReplicationConfigurationTemplate,
-    | AccessDeniedException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | UninitializedAccountException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | UninitializedAccountException | ValidationException | CommonAwsError
   >;
   createSourceNetwork(
     input: CreateSourceNetworkRequest,
   ): Effect.Effect<
     CreateSourceNetworkResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | UninitializedAccountException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | UninitializedAccountException | ValidationException | CommonAwsError
   >;
   deleteJob(
     input: DeleteJobRequest,
   ): Effect.Effect<
     DeleteJobResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UninitializedAccountException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | UninitializedAccountException | CommonAwsError
   >;
   deleteLaunchConfigurationTemplate(
     input: DeleteLaunchConfigurationTemplateRequest,
   ): Effect.Effect<
     DeleteLaunchConfigurationTemplateResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UninitializedAccountException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | UninitializedAccountException | CommonAwsError
   >;
   deleteRecoveryInstance(
     input: DeleteRecoveryInstanceRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ThrottlingException
-    | UninitializedAccountException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | UninitializedAccountException | CommonAwsError
   >;
   deleteReplicationConfigurationTemplate(
     input: DeleteReplicationConfigurationTemplateRequest,
   ): Effect.Effect<
     DeleteReplicationConfigurationTemplateResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UninitializedAccountException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | UninitializedAccountException | CommonAwsError
   >;
   deleteSourceNetwork(
     input: DeleteSourceNetworkRequest,
   ): Effect.Effect<
     DeleteSourceNetworkResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UninitializedAccountException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | UninitializedAccountException | CommonAwsError
   >;
   deleteSourceServer(
     input: DeleteSourceServerRequest,
   ): Effect.Effect<
     DeleteSourceServerResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UninitializedAccountException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | UninitializedAccountException | CommonAwsError
   >;
   describeJobLogItems(
     input: DescribeJobLogItemsRequest,
   ): Effect.Effect<
     DescribeJobLogItemsResponse,
-    | InternalServerException
-    | ThrottlingException
-    | UninitializedAccountException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ThrottlingException | UninitializedAccountException | ValidationException | CommonAwsError
   >;
   describeJobs(
     input: DescribeJobsRequest,
   ): Effect.Effect<
     DescribeJobsResponse,
-    | InternalServerException
-    | ThrottlingException
-    | UninitializedAccountException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ThrottlingException | UninitializedAccountException | ValidationException | CommonAwsError
   >;
   describeLaunchConfigurationTemplates(
     input: DescribeLaunchConfigurationTemplatesRequest,
   ): Effect.Effect<
     DescribeLaunchConfigurationTemplatesResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UninitializedAccountException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | UninitializedAccountException | ValidationException | CommonAwsError
   >;
   describeRecoveryInstances(
     input: DescribeRecoveryInstancesRequest,
   ): Effect.Effect<
     DescribeRecoveryInstancesResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | UninitializedAccountException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | UninitializedAccountException | CommonAwsError
   >;
   describeRecoverySnapshots(
     input: DescribeRecoverySnapshotsRequest,
   ): Effect.Effect<
     DescribeRecoverySnapshotsResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ThrottlingException
-    | UninitializedAccountException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ThrottlingException | UninitializedAccountException | ValidationException | CommonAwsError
   >;
   describeReplicationConfigurationTemplates(
     input: DescribeReplicationConfigurationTemplatesRequest,
   ): Effect.Effect<
     DescribeReplicationConfigurationTemplatesResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UninitializedAccountException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | UninitializedAccountException | ValidationException | CommonAwsError
   >;
   describeSourceNetworks(
     input: DescribeSourceNetworksRequest,
   ): Effect.Effect<
     DescribeSourceNetworksResponse,
-    | InternalServerException
-    | ThrottlingException
-    | UninitializedAccountException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ThrottlingException | UninitializedAccountException | ValidationException | CommonAwsError
   >;
   describeSourceServers(
     input: DescribeSourceServersRequest,
   ): Effect.Effect<
     DescribeSourceServersResponse,
-    | InternalServerException
-    | ThrottlingException
-    | UninitializedAccountException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ThrottlingException | UninitializedAccountException | ValidationException | CommonAwsError
   >;
   disconnectRecoveryInstance(
     input: DisconnectRecoveryInstanceRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UninitializedAccountException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | UninitializedAccountException | CommonAwsError
   >;
   disconnectSourceServer(
     input: DisconnectSourceServerRequest,
   ): Effect.Effect<
     SourceServer,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UninitializedAccountException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | UninitializedAccountException | CommonAwsError
   >;
   exportSourceNetworkCfnTemplate(
     input: ExportSourceNetworkCfnTemplateRequest,
   ): Effect.Effect<
     ExportSourceNetworkCfnTemplateResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UninitializedAccountException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | UninitializedAccountException | ValidationException | CommonAwsError
   >;
   getFailbackReplicationConfiguration(
     input: GetFailbackReplicationConfigurationRequest,
   ): Effect.Effect<
     GetFailbackReplicationConfigurationResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UninitializedAccountException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | UninitializedAccountException | CommonAwsError
   >;
   getLaunchConfiguration(
     input: GetLaunchConfigurationRequest,
   ): Effect.Effect<
     LaunchConfiguration,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UninitializedAccountException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | UninitializedAccountException | CommonAwsError
   >;
   getReplicationConfiguration(
     input: GetReplicationConfigurationRequest,
   ): Effect.Effect<
     ReplicationConfiguration,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UninitializedAccountException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | UninitializedAccountException | CommonAwsError
   >;
   retryDataReplication(
     input: RetryDataReplicationRequest,
   ): Effect.Effect<
     SourceServer,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UninitializedAccountException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | UninitializedAccountException | ValidationException | CommonAwsError
   >;
   reverseReplication(
     input: ReverseReplicationRequest,
   ): Effect.Effect<
     ReverseReplicationResponse,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UninitializedAccountException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | UninitializedAccountException | ValidationException | CommonAwsError
   >;
   startFailbackLaunch(
     input: StartFailbackLaunchRequest,
   ): Effect.Effect<
     StartFailbackLaunchResponse,
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | UninitializedAccountException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | UninitializedAccountException | ValidationException | CommonAwsError
   >;
   startRecovery(
     input: StartRecoveryRequest,
   ): Effect.Effect<
     StartRecoveryResponse,
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | UninitializedAccountException
-    | CommonAwsError
+    ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | UninitializedAccountException | CommonAwsError
   >;
   startReplication(
     input: StartReplicationRequest,
   ): Effect.Effect<
     StartReplicationResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UninitializedAccountException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | UninitializedAccountException | CommonAwsError
   >;
   startSourceNetworkRecovery(
     input: StartSourceNetworkRecoveryRequest,
   ): Effect.Effect<
     StartSourceNetworkRecoveryResponse,
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | UninitializedAccountException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | UninitializedAccountException | ValidationException | CommonAwsError
   >;
   startSourceNetworkReplication(
     input: StartSourceNetworkReplicationRequest,
   ): Effect.Effect<
     StartSourceNetworkReplicationResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UninitializedAccountException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | UninitializedAccountException | CommonAwsError
   >;
   stopFailback(
     input: StopFailbackRequest,
   ): Effect.Effect<
     {},
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UninitializedAccountException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ThrottlingException | UninitializedAccountException | CommonAwsError
   >;
   stopReplication(
     input: StopReplicationRequest,
   ): Effect.Effect<
     StopReplicationResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UninitializedAccountException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | UninitializedAccountException | CommonAwsError
   >;
   stopSourceNetworkReplication(
     input: StopSourceNetworkReplicationRequest,
   ): Effect.Effect<
     StopSourceNetworkReplicationResponse,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UninitializedAccountException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | UninitializedAccountException | ValidationException | CommonAwsError
   >;
   terminateRecoveryInstances(
     input: TerminateRecoveryInstancesRequest,
   ): Effect.Effect<
     TerminateRecoveryInstancesResponse,
-    | ConflictException
-    | InternalServerException
-    | ServiceQuotaExceededException
-    | ThrottlingException
-    | UninitializedAccountException
-    | CommonAwsError
+    ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | UninitializedAccountException | CommonAwsError
   >;
   updateFailbackReplicationConfiguration(
     input: UpdateFailbackReplicationConfigurationRequest,
   ): Effect.Effect<
     {},
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UninitializedAccountException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | UninitializedAccountException | CommonAwsError
   >;
   updateLaunchConfiguration(
     input: UpdateLaunchConfigurationRequest,
   ): Effect.Effect<
     LaunchConfiguration,
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UninitializedAccountException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | UninitializedAccountException | ValidationException | CommonAwsError
   >;
   updateLaunchConfigurationTemplate(
     input: UpdateLaunchConfigurationTemplateRequest,
   ): Effect.Effect<
     UpdateLaunchConfigurationTemplateResponse,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UninitializedAccountException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | UninitializedAccountException | ValidationException | CommonAwsError
   >;
   updateReplicationConfiguration(
     input: UpdateReplicationConfigurationRequest,
   ): Effect.Effect<
     ReplicationConfiguration,
-    | AccessDeniedException
-    | ConflictException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UninitializedAccountException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | UninitializedAccountException | ValidationException | CommonAwsError
   >;
   updateReplicationConfigurationTemplate(
     input: UpdateReplicationConfigurationTemplateRequest,
   ): Effect.Effect<
     ReplicationConfigurationTemplate,
-    | AccessDeniedException
-    | InternalServerException
-    | ResourceNotFoundException
-    | ThrottlingException
-    | UninitializedAccountException
-    | ValidationException
-    | CommonAwsError
+    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | UninitializedAccountException | ValidationException | CommonAwsError
   >;
 }
 
@@ -727,8 +433,7 @@ export interface DataReplicationInfoReplicatedDisk {
   backloggedStorageBytes?: number;
   volumeStatus?: string;
 }
-export type DataReplicationInfoReplicatedDisks =
-  Array<DataReplicationInfoReplicatedDisk>;
+export type DataReplicationInfoReplicatedDisks = Array<DataReplicationInfoReplicatedDisk>;
 export interface DataReplicationInitiation {
   startDateTime?: string;
   nextAttemptDateTime?: string;
@@ -740,8 +445,7 @@ export interface DataReplicationInitiationStep {
 }
 export type DataReplicationInitiationStepName = string;
 
-export type DataReplicationInitiationSteps =
-  Array<DataReplicationInitiationStep>;
+export type DataReplicationInitiationSteps = Array<DataReplicationInitiationStep>;
 export type DataReplicationInitiationStepStatus = string;
 
 export type DataReplicationState = string;
@@ -749,31 +453,37 @@ export type DataReplicationState = string;
 export interface DeleteJobRequest {
   jobID: string;
 }
-export interface DeleteJobResponse {}
+export interface DeleteJobResponse {
+}
 export interface DeleteLaunchActionRequest {
   resourceId: string;
   actionId: string;
 }
-export interface DeleteLaunchActionResponse {}
+export interface DeleteLaunchActionResponse {
+}
 export interface DeleteLaunchConfigurationTemplateRequest {
   launchConfigurationTemplateID: string;
 }
-export interface DeleteLaunchConfigurationTemplateResponse {}
+export interface DeleteLaunchConfigurationTemplateResponse {
+}
 export interface DeleteRecoveryInstanceRequest {
   recoveryInstanceID: string;
 }
 export interface DeleteReplicationConfigurationTemplateRequest {
   replicationConfigurationTemplateID: string;
 }
-export interface DeleteReplicationConfigurationTemplateResponse {}
+export interface DeleteReplicationConfigurationTemplateResponse {
+}
 export interface DeleteSourceNetworkRequest {
   sourceNetworkID: string;
 }
-export interface DeleteSourceNetworkResponse {}
+export interface DeleteSourceNetworkResponse {
+}
 export interface DeleteSourceServerRequest {
   sourceServerID: string;
 }
-export interface DeleteSourceServerResponse {}
+export interface DeleteSourceServerResponse {
+}
 export interface DescribeJobLogItemsRequest {
   jobID: string;
   maxResults?: number;
@@ -901,9 +611,7 @@ interface _EventResourceData {
   sourceNetworkData?: SourceNetworkData;
 }
 
-export type EventResourceData = _EventResourceData & {
-  sourceNetworkData: SourceNetworkData;
-};
+export type EventResourceData = (_EventResourceData & { sourceNetworkData: SourceNetworkData });
 export interface ExportSourceNetworkCfnTemplateRequest {
   sourceNetworkID: string;
 }
@@ -941,8 +649,10 @@ export interface IdentificationHints {
   vmWareUuid?: string;
   awsInstanceID?: string;
 }
-export interface InitializeServiceRequest {}
-export interface InitializeServiceResponse {}
+export interface InitializeServiceRequest {
+}
+export interface InitializeServiceResponse {
+}
 export type InitiatedBy = string;
 
 export declare class InternalServerException extends EffectData.TaggedError(
@@ -1172,9 +882,7 @@ interface _ParticipatingResourceID {
   sourceNetworkID?: string;
 }
 
-export type ParticipatingResourceID = _ParticipatingResourceID & {
-  sourceNetworkID: string;
-};
+export type ParticipatingResourceID = (_ParticipatingResourceID & { sourceNetworkID: string });
 export type ParticipatingResources = Array<ParticipatingResource>;
 export interface ParticipatingServer {
   sourceServerID?: string;
@@ -1270,8 +978,7 @@ export interface RecoveryInstanceDataReplicationInfoReplicatedDisk {
   rescannedStorageBytes?: number;
   backloggedStorageBytes?: number;
 }
-export type RecoveryInstanceDataReplicationInfoReplicatedDisks =
-  Array<RecoveryInstanceDataReplicationInfoReplicatedDisk>;
+export type RecoveryInstanceDataReplicationInfoReplicatedDisks = Array<RecoveryInstanceDataReplicationInfoReplicatedDisk>;
 export interface RecoveryInstanceDataReplicationInitiation {
   startDateTime?: string;
   steps?: Array<RecoveryInstanceDataReplicationInitiationStep>;
@@ -1282,8 +989,7 @@ export interface RecoveryInstanceDataReplicationInitiationStep {
 }
 export type RecoveryInstanceDataReplicationInitiationStepName = string;
 
-export type RecoveryInstanceDataReplicationInitiationSteps =
-  Array<RecoveryInstanceDataReplicationInitiationStep>;
+export type RecoveryInstanceDataReplicationInitiationSteps = Array<RecoveryInstanceDataReplicationInitiationStep>;
 export type RecoveryInstanceDataReplicationInitiationStepStatus = string;
 
 export type RecoveryInstanceDataReplicationState = string;
@@ -1371,8 +1077,7 @@ export interface ReplicationConfigurationReplicatedDisk {
   throughput?: number;
   optimizedStagingDiskType?: string;
 }
-export type ReplicationConfigurationReplicatedDisks =
-  Array<ReplicationConfigurationReplicatedDisk>;
+export type ReplicationConfigurationReplicatedDisks = Array<ReplicationConfigurationReplicatedDisk>;
 export type ReplicationConfigurationReplicatedDiskStagingDiskType = string;
 
 export interface ReplicationConfigurationTemplate {
@@ -1397,8 +1102,7 @@ export interface ReplicationConfigurationTemplate {
 export type ReplicationConfigurationTemplateID = string;
 
 export type ReplicationConfigurationTemplateIDs = Array<string>;
-export type ReplicationConfigurationTemplates =
-  Array<ReplicationConfigurationTemplate>;
+export type ReplicationConfigurationTemplates = Array<ReplicationConfigurationTemplate>;
 export type ReplicationDirection = string;
 
 export type ReplicationServersSecurityGroupsIDs = Array<string>;
@@ -1529,8 +1233,7 @@ export interface StartRecoveryRequestSourceServer {
   sourceServerID: string;
   recoverySnapshotID?: string;
 }
-export type StartRecoveryRequestSourceServers =
-  Array<StartRecoveryRequestSourceServer>;
+export type StartRecoveryRequestSourceServers = Array<StartRecoveryRequestSourceServer>;
 export interface StartRecoveryResponse {
   job?: Job;
 }
@@ -1545,8 +1248,7 @@ export interface StartSourceNetworkRecoveryRequest {
   deployAsNew?: boolean;
   tags?: Record<string, string>;
 }
-export type StartSourceNetworkRecoveryRequestNetworkEntries =
-  Array<StartSourceNetworkRecoveryRequestNetworkEntry>;
+export type StartSourceNetworkRecoveryRequestNetworkEntries = Array<StartSourceNetworkRecoveryRequestNetworkEntry>;
 export interface StartSourceNetworkRecoveryRequestNetworkEntry {
   sourceNetworkID: string;
   cfnStackName?: string;
@@ -2317,13 +2019,5 @@ export declare namespace UpdateReplicationConfigurationTemplate {
     | CommonAwsError;
 }
 
-export type drsErrors =
-  | AccessDeniedException
-  | ConflictException
-  | InternalServerException
-  | ResourceNotFoundException
-  | ServiceQuotaExceededException
-  | ThrottlingException
-  | UninitializedAccountException
-  | ValidationException
-  | CommonAwsError;
+export type drsErrors = AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | UninitializedAccountException | ValidationException | CommonAwsError;
+

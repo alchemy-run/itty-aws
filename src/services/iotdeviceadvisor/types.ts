@@ -1,40 +1,6 @@
 import type { Effect, Data as EffectData } from "effect";
-import type {
-  AccessDeniedException,
-  ExpiredTokenException,
-  IncompleteSignature,
-  InternalFailure,
-  MalformedHttpRequestException,
-  NotAuthorized,
-  OptInRequired,
-  RequestAbortedException,
-  RequestEntityTooLargeException,
-  RequestExpired,
-  RequestTimeoutException,
-  ServiceUnavailable,
-  ThrottlingException,
-  UnrecognizedClientException,
-  UnknownOperationException,
-  ValidationError,
-} from "../../error.ts";
-type CommonAwsError =
-  | AccessDeniedException
-  | ExpiredTokenException
-  | IncompleteSignature
-  | InternalFailure
-  | MalformedHttpRequestException
-  | NotAuthorized
-  | OptInRequired
-  | RequestAbortedException
-  | RequestEntityTooLargeException
-  | RequestExpired
-  | RequestTimeoutException
-  | ServiceUnavailable
-  | ThrottlingException
-  | UnrecognizedClientException
-  | UnknownOperationException
-  | ValidationError
-  | ValidationException;
+import type { AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
+type CommonAwsError = AccessDeniedException | ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | ThrottlingException | UnrecognizedClientException | UnknownOperationException | ValidationError | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class IotDeviceAdvisor extends AWSServiceClient {
@@ -54,37 +20,25 @@ export declare class IotDeviceAdvisor extends AWSServiceClient {
     input: GetEndpointRequest,
   ): Effect.Effect<
     GetEndpointResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   getSuiteDefinition(
     input: GetSuiteDefinitionRequest,
   ): Effect.Effect<
     GetSuiteDefinitionResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   getSuiteRun(
     input: GetSuiteRunRequest,
   ): Effect.Effect<
     GetSuiteRunResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   getSuiteRunReport(
     input: GetSuiteRunReportRequest,
   ): Effect.Effect<
     GetSuiteRunReportResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   listSuiteDefinitions(
     input: ListSuiteDefinitionsRequest,
@@ -102,46 +56,31 @@ export declare class IotDeviceAdvisor extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   startSuiteRun(
     input: StartSuiteRunRequest,
   ): Effect.Effect<
     StartSuiteRunResponse,
-    | ConflictException
-    | InternalServerException
-    | ValidationException
-    | CommonAwsError
+    ConflictException | InternalServerException | ValidationException | CommonAwsError
   >;
   stopSuiteRun(
     input: StopSuiteRunRequest,
   ): Effect.Effect<
     StopSuiteRunResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    | InternalServerException
-    | ResourceNotFoundException
-    | ValidationException
-    | CommonAwsError
+    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
   >;
   updateSuiteDefinition(
     input: UpdateSuiteDefinitionRequest,
@@ -155,9 +94,7 @@ export declare class Iotdeviceadvisor extends IotDeviceAdvisor {}
 
 export type AmazonResourceName = string;
 
-export type AuthenticationMethod =
-  | "X509ClientCertificate"
-  | "SignatureVersion4";
+export type AuthenticationMethod = "X509ClientCertificate" | "SignatureVersion4";
 export type ClientToken = string;
 
 export declare class ConflictException extends EffectData.TaggedError(
@@ -179,7 +116,8 @@ export interface CreateSuiteDefinitionResponse {
 export interface DeleteSuiteDefinitionRequest {
   suiteDefinitionId: string;
 }
-export interface DeleteSuiteDefinitionResponse {}
+export interface DeleteSuiteDefinitionResponse {
+}
 export interface DeviceUnderTest {
   thingArn?: string;
   certificateArn?: string;
@@ -288,11 +226,7 @@ export type Message = string;
 
 export type ParallelRun = boolean;
 
-export type Protocol =
-  | "MqttV3_1_1"
-  | "MqttV5"
-  | "MqttV3_1_1_OverWebSocket"
-  | "MqttV5_OverWebSocket";
+export type Protocol = "MqttV3_1_1" | "MqttV5" | "MqttV3_1_1_OverWebSocket" | "MqttV5_OverWebSocket";
 export type QualificationReportDownloadUrl = string;
 
 export declare class ResourceNotFoundException extends EffectData.TaggedError(
@@ -315,21 +249,13 @@ export interface StartSuiteRunResponse {
   createdAt?: Date | string;
   endpoint?: string;
 }
-export type Status =
-  | "PASS"
-  | "FAIL"
-  | "CANCELED"
-  | "PENDING"
-  | "RUNNING"
-  | "STOPPING"
-  | "STOPPED"
-  | "PASS_WITH_WARNINGS"
-  | "ERROR";
+export type Status = "PASS" | "FAIL" | "CANCELED" | "PENDING" | "RUNNING" | "STOPPING" | "STOPPED" | "PASS_WITH_WARNINGS" | "ERROR";
 export interface StopSuiteRunRequest {
   suiteDefinitionId: string;
   suiteRunId: string;
 }
-export interface StopSuiteRunResponse {}
+export interface StopSuiteRunResponse {
+}
 export type String128 = string;
 
 export type String256 = string;
@@ -377,16 +303,7 @@ export interface SuiteRunInformation {
 export type SuiteRunResultCount = number;
 
 export type SuiteRunsList = Array<SuiteRunInformation>;
-export type SuiteRunStatus =
-  | "PASS"
-  | "FAIL"
-  | "CANCELED"
-  | "PENDING"
-  | "RUNNING"
-  | "STOPPING"
-  | "STOPPED"
-  | "PASS_WITH_WARNINGS"
-  | "ERROR";
+export type SuiteRunStatus = "PASS" | "FAIL" | "CANCELED" | "PENDING" | "RUNNING" | "STOPPING" | "STOPPED" | "PASS_WITH_WARNINGS" | "ERROR";
 export type SystemMessage = string;
 
 export type TagKeyList = Array<string>;
@@ -395,7 +312,8 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {}
+export interface TagResourceResponse {
+}
 export type TestCaseDefinitionName = string;
 
 export interface TestCaseRun {
@@ -421,16 +339,7 @@ export interface TestCaseScenario {
 export type TestCaseScenarioId = string;
 
 export type TestCaseScenariosList = Array<TestCaseScenario>;
-export type TestCaseScenarioStatus =
-  | "PASS"
-  | "FAIL"
-  | "CANCELED"
-  | "PENDING"
-  | "RUNNING"
-  | "STOPPING"
-  | "STOPPED"
-  | "PASS_WITH_WARNINGS"
-  | "ERROR";
+export type TestCaseScenarioStatus = "PASS" | "FAIL" | "CANCELED" | "PENDING" | "RUNNING" | "STOPPING" | "STOPPED" | "PASS_WITH_WARNINGS" | "ERROR";
 export type TestCaseScenarioType = "Advanced" | "Basic";
 export interface TestResult {
   groups?: Array<GroupResult>;
@@ -443,7 +352,8 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {}
+export interface UntagResourceResponse {
+}
 export interface UpdateSuiteDefinitionRequest {
   suiteDefinitionId: string;
   suiteDefinitionConfiguration: SuiteDefinitionConfiguration;
@@ -600,9 +510,5 @@ export declare namespace UpdateSuiteDefinition {
     | CommonAwsError;
 }
 
-export type IotDeviceAdvisorErrors =
-  | ConflictException
-  | InternalServerException
-  | ResourceNotFoundException
-  | ValidationException
-  | CommonAwsError;
+export type IotDeviceAdvisorErrors = ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError;
+

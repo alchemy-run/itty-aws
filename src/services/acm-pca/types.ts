@@ -7,67 +7,37 @@ export declare class ACMPCA extends AWSServiceClient {
     input: CreateCertificateAuthorityRequest,
   ): Effect.Effect<
     CreateCertificateAuthorityResponse,
-    | InvalidArgsException
-    | InvalidPolicyException
-    | InvalidTagException
-    | LimitExceededException
-    | CommonAwsError
+    InvalidArgsException | InvalidPolicyException | InvalidTagException | LimitExceededException | CommonAwsError
   >;
   createCertificateAuthorityAuditReport(
     input: CreateCertificateAuthorityAuditReportRequest,
   ): Effect.Effect<
     CreateCertificateAuthorityAuditReportResponse,
-    | InvalidArgsException
-    | InvalidArnException
-    | InvalidStateException
-    | RequestFailedException
-    | RequestInProgressException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InvalidArgsException | InvalidArnException | InvalidStateException | RequestFailedException | RequestInProgressException | ResourceNotFoundException | CommonAwsError
   >;
   createPermission(
     input: CreatePermissionRequest,
   ): Effect.Effect<
     {},
-    | InvalidArnException
-    | InvalidStateException
-    | LimitExceededException
-    | PermissionAlreadyExistsException
-    | RequestFailedException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InvalidArnException | InvalidStateException | LimitExceededException | PermissionAlreadyExistsException | RequestFailedException | ResourceNotFoundException | CommonAwsError
   >;
   deleteCertificateAuthority(
     input: DeleteCertificateAuthorityRequest,
   ): Effect.Effect<
     {},
-    | ConcurrentModificationException
-    | InvalidArnException
-    | InvalidStateException
-    | ResourceNotFoundException
-    | CommonAwsError
+    ConcurrentModificationException | InvalidArnException | InvalidStateException | ResourceNotFoundException | CommonAwsError
   >;
   deletePermission(
     input: DeletePermissionRequest,
   ): Effect.Effect<
     {},
-    | InvalidArnException
-    | InvalidStateException
-    | RequestFailedException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InvalidArnException | InvalidStateException | RequestFailedException | ResourceNotFoundException | CommonAwsError
   >;
   deletePolicy(
     input: DeletePolicyRequest,
   ): Effect.Effect<
     {},
-    | ConcurrentModificationException
-    | InvalidArnException
-    | InvalidStateException
-    | LockoutPreventedException
-    | RequestFailedException
-    | ResourceNotFoundException
-    | CommonAwsError
+    ConcurrentModificationException | InvalidArnException | InvalidStateException | LockoutPreventedException | RequestFailedException | ResourceNotFoundException | CommonAwsError
   >;
   describeCertificateAuthority(
     input: DescribeCertificateAuthorityRequest,
@@ -79,78 +49,43 @@ export declare class ACMPCA extends AWSServiceClient {
     input: DescribeCertificateAuthorityAuditReportRequest,
   ): Effect.Effect<
     DescribeCertificateAuthorityAuditReportResponse,
-    | InvalidArgsException
-    | InvalidArnException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InvalidArgsException | InvalidArnException | ResourceNotFoundException | CommonAwsError
   >;
   getCertificate(
     input: GetCertificateRequest,
   ): Effect.Effect<
     GetCertificateResponse,
-    | InvalidArnException
-    | InvalidStateException
-    | RequestFailedException
-    | RequestInProgressException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InvalidArnException | InvalidStateException | RequestFailedException | RequestInProgressException | ResourceNotFoundException | CommonAwsError
   >;
   getCertificateAuthorityCertificate(
     input: GetCertificateAuthorityCertificateRequest,
   ): Effect.Effect<
     GetCertificateAuthorityCertificateResponse,
-    | InvalidArnException
-    | InvalidStateException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InvalidArnException | InvalidStateException | ResourceNotFoundException | CommonAwsError
   >;
   getCertificateAuthorityCsr(
     input: GetCertificateAuthorityCsrRequest,
   ): Effect.Effect<
     GetCertificateAuthorityCsrResponse,
-    | InvalidArnException
-    | InvalidStateException
-    | RequestFailedException
-    | RequestInProgressException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InvalidArnException | InvalidStateException | RequestFailedException | RequestInProgressException | ResourceNotFoundException | CommonAwsError
   >;
   getPolicy(
     input: GetPolicyRequest,
   ): Effect.Effect<
     GetPolicyResponse,
-    | InvalidArnException
-    | InvalidStateException
-    | RequestFailedException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InvalidArnException | InvalidStateException | RequestFailedException | ResourceNotFoundException | CommonAwsError
   >;
   importCertificateAuthorityCertificate(
     input: ImportCertificateAuthorityCertificateRequest,
   ): Effect.Effect<
     {},
-    | CertificateMismatchException
-    | ConcurrentModificationException
-    | InvalidArnException
-    | InvalidRequestException
-    | InvalidStateException
-    | MalformedCertificateException
-    | RequestFailedException
-    | RequestInProgressException
-    | ResourceNotFoundException
-    | CommonAwsError
+    CertificateMismatchException | ConcurrentModificationException | InvalidArnException | InvalidRequestException | InvalidStateException | MalformedCertificateException | RequestFailedException | RequestInProgressException | ResourceNotFoundException | CommonAwsError
   >;
   issueCertificate(
     input: IssueCertificateRequest,
   ): Effect.Effect<
     IssueCertificateResponse,
-    | InvalidArgsException
-    | InvalidArnException
-    | InvalidStateException
-    | LimitExceededException
-    | MalformedCSRException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InvalidArgsException | InvalidArnException | InvalidStateException | LimitExceededException | MalformedCSRException | ResourceNotFoundException | CommonAwsError
   >;
   listCertificateAuthorities(
     input: ListCertificateAuthoritiesRequest,
@@ -162,92 +97,49 @@ export declare class ACMPCA extends AWSServiceClient {
     input: ListPermissionsRequest,
   ): Effect.Effect<
     ListPermissionsResponse,
-    | InvalidArnException
-    | InvalidNextTokenException
-    | InvalidStateException
-    | RequestFailedException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InvalidArnException | InvalidNextTokenException | InvalidStateException | RequestFailedException | ResourceNotFoundException | CommonAwsError
   >;
   listTags(
     input: ListTagsRequest,
   ): Effect.Effect<
     ListTagsResponse,
-    | InvalidArnException
-    | InvalidStateException
-    | RequestFailedException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InvalidArnException | InvalidStateException | RequestFailedException | ResourceNotFoundException | CommonAwsError
   >;
   putPolicy(
     input: PutPolicyRequest,
   ): Effect.Effect<
     {},
-    | ConcurrentModificationException
-    | InvalidArnException
-    | InvalidPolicyException
-    | InvalidStateException
-    | LockoutPreventedException
-    | RequestFailedException
-    | ResourceNotFoundException
-    | CommonAwsError
+    ConcurrentModificationException | InvalidArnException | InvalidPolicyException | InvalidStateException | LockoutPreventedException | RequestFailedException | ResourceNotFoundException | CommonAwsError
   >;
   restoreCertificateAuthority(
     input: RestoreCertificateAuthorityRequest,
   ): Effect.Effect<
     {},
-    | InvalidArnException
-    | InvalidStateException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InvalidArnException | InvalidStateException | ResourceNotFoundException | CommonAwsError
   >;
   revokeCertificate(
     input: RevokeCertificateRequest,
   ): Effect.Effect<
     {},
-    | ConcurrentModificationException
-    | InvalidArnException
-    | InvalidRequestException
-    | InvalidStateException
-    | LimitExceededException
-    | RequestAlreadyProcessedException
-    | RequestFailedException
-    | RequestInProgressException
-    | ResourceNotFoundException
-    | CommonAwsError
+    ConcurrentModificationException | InvalidArnException | InvalidRequestException | InvalidStateException | LimitExceededException | RequestAlreadyProcessedException | RequestFailedException | RequestInProgressException | ResourceNotFoundException | CommonAwsError
   >;
   tagCertificateAuthority(
     input: TagCertificateAuthorityRequest,
   ): Effect.Effect<
     {},
-    | InvalidArnException
-    | InvalidStateException
-    | InvalidTagException
-    | ResourceNotFoundException
-    | TooManyTagsException
-    | CommonAwsError
+    InvalidArnException | InvalidStateException | InvalidTagException | ResourceNotFoundException | TooManyTagsException | CommonAwsError
   >;
   untagCertificateAuthority(
     input: UntagCertificateAuthorityRequest,
   ): Effect.Effect<
     {},
-    | InvalidArnException
-    | InvalidStateException
-    | InvalidTagException
-    | ResourceNotFoundException
-    | CommonAwsError
+    InvalidArnException | InvalidStateException | InvalidTagException | ResourceNotFoundException | CommonAwsError
   >;
   updateCertificateAuthority(
     input: UpdateCertificateAuthorityRequest,
   ): Effect.Effect<
     {},
-    | ConcurrentModificationException
-    | InvalidArgsException
-    | InvalidArnException
-    | InvalidPolicyException
-    | InvalidStateException
-    | ResourceNotFoundException
-    | CommonAwsError
+    ConcurrentModificationException | InvalidArgsException | InvalidArnException | InvalidPolicyException | InvalidStateException | ResourceNotFoundException | CommonAwsError
   >;
 }
 
@@ -262,17 +154,11 @@ export interface AccessMethod {
   CustomObjectIdentifier?: string;
   AccessMethodType?: AccessMethodType;
 }
-export type AccessMethodType =
-  | "CA_REPOSITORY"
-  | "RESOURCE_PKI_MANIFEST"
-  | "RESOURCE_PKI_NOTIFY";
+export type AccessMethodType = "CA_REPOSITORY" | "RESOURCE_PKI_MANIFEST" | "RESOURCE_PKI_NOTIFY";
 export type AccountId = string;
 
 export type ActionList = Array<ActionType>;
-export type ActionType =
-  | "IssueCertificate"
-  | "GetCertificate"
-  | "ListPermissions";
+export type ActionType = "IssueCertificate" | "GetCertificate" | "ListPermissions";
 export interface ApiPassthrough {
   Extensions?: Extensions;
   Subject?: ASN1Subject;
@@ -332,18 +218,9 @@ export interface CertificateAuthorityConfiguration {
   Subject: ASN1Subject;
   CsrExtensions?: CsrExtensions;
 }
-export type CertificateAuthorityStatus =
-  | "CREATING"
-  | "PENDING_CERTIFICATE"
-  | "ACTIVE"
-  | "DELETED"
-  | "DISABLED"
-  | "EXPIRED"
-  | "FAILED";
+export type CertificateAuthorityStatus = "CREATING" | "PENDING_CERTIFICATE" | "ACTIVE" | "DELETED" | "DISABLED" | "EXPIRED" | "FAILED";
 export type CertificateAuthorityType = "ROOT" | "SUBORDINATE";
-export type CertificateAuthorityUsageMode =
-  | "GENERAL_PURPOSE"
-  | "SHORT_LIVED_CERTIFICATE";
+export type CertificateAuthorityUsageMode = "GENERAL_PURPOSE" | "SHORT_LIVED_CERTIFICATE";
 export type CertificateBody = string;
 
 export type CertificateBodyBlob = Uint8Array | string;
@@ -468,16 +345,7 @@ export interface ExtendedKeyUsage {
   ExtendedKeyUsageObjectIdentifier?: string;
 }
 export type ExtendedKeyUsageList = Array<ExtendedKeyUsage>;
-export type ExtendedKeyUsageType =
-  | "SERVER_AUTH"
-  | "CLIENT_AUTH"
-  | "CODE_SIGNING"
-  | "EMAIL_PROTECTION"
-  | "TIME_STAMPING"
-  | "OCSP_SIGNING"
-  | "SMART_CARD_LOGIN"
-  | "DOCUMENT_SIGNING"
-  | "CERTIFICATE_TRANSPARENCY";
+export type ExtendedKeyUsageType = "SERVER_AUTH" | "CLIENT_AUTH" | "CODE_SIGNING" | "EMAIL_PROTECTION" | "TIME_STAMPING" | "OCSP_SIGNING" | "SMART_CARD_LOGIN" | "DOCUMENT_SIGNING" | "CERTIFICATE_TRANSPARENCY";
 export interface Extensions {
   CertificatePolicies?: Array<PolicyInformation>;
   ExtendedKeyUsage?: Array<ExtendedKeyUsage>;
@@ -485,10 +353,7 @@ export interface Extensions {
   SubjectAlternativeNames?: Array<GeneralName>;
   CustomExtensions?: Array<CustomExtension>;
 }
-export type FailureReason =
-  | "REQUEST_TIMED_OUT"
-  | "UNSUPPORTED_ALGORITHM"
-  | "OTHER";
+export type FailureReason = "REQUEST_TIMED_OUT" | "UNSUPPORTED_ALGORITHM" | "OTHER";
 export interface GeneralName {
   OtherName?: OtherName;
   Rfc822Name?: string;
@@ -584,18 +449,8 @@ export interface IssueCertificateRequest {
 export interface IssueCertificateResponse {
   CertificateArn?: string;
 }
-export type KeyAlgorithm =
-  | "RSA_2048"
-  | "RSA_3072"
-  | "RSA_4096"
-  | "EC_prime256v1"
-  | "EC_secp384r1"
-  | "EC_secp521r1"
-  | "SM2";
-export type KeyStorageSecurityStandard =
-  | "FIPS_140_2_LEVEL_2_OR_HIGHER"
-  | "FIPS_140_2_LEVEL_3_OR_HIGHER"
-  | "CCPC_LEVEL_1_OR_HIGHER";
+export type KeyAlgorithm = "RSA_2048" | "RSA_3072" | "RSA_4096" | "EC_prime256v1" | "EC_secp384r1" | "EC_secp521r1" | "SM2";
+export type KeyStorageSecurityStandard = "FIPS_140_2_LEVEL_2_OR_HIGHER" | "FIPS_140_2_LEVEL_3_OR_HIGHER" | "CCPC_LEVEL_1_OR_HIGHER";
 export interface KeyUsage {
   DigitalSignature?: boolean;
   NonRepudiation?: boolean;
@@ -731,15 +586,7 @@ export interface RevocationConfiguration {
   CrlConfiguration?: CrlConfiguration;
   OcspConfiguration?: OcspConfiguration;
 }
-export type RevocationReason =
-  | "UNSPECIFIED"
-  | "KEY_COMPROMISE"
-  | "CERTIFICATE_AUTHORITY_COMPROMISE"
-  | "AFFILIATION_CHANGED"
-  | "SUPERSEDED"
-  | "CESSATION_OF_OPERATION"
-  | "PRIVILEGE_WITHDRAWN"
-  | "A_A_COMPROMISE";
+export type RevocationReason = "UNSPECIFIED" | "KEY_COMPROMISE" | "CERTIFICATE_AUTHORITY_COMPROMISE" | "AFFILIATION_CHANGED" | "SUPERSEDED" | "CESSATION_OF_OPERATION" | "PRIVILEGE_WITHDRAWN" | "A_A_COMPROMISE";
 export interface RevokeCertificateRequest {
   CertificateAuthorityArn: string;
   CertificateSerial: string;
@@ -752,14 +599,7 @@ export type S3BucketName3To255 = string;
 export type S3Key = string;
 
 export type S3ObjectAcl = "PUBLIC_READ" | "BUCKET_OWNER_FULL_CONTROL";
-export type SigningAlgorithm =
-  | "SHA256WITHECDSA"
-  | "SHA384WITHECDSA"
-  | "SHA512WITHECDSA"
-  | "SHA256WITHRSA"
-  | "SHA384WITHRSA"
-  | "SHA512WITHRSA"
-  | "SM3WITHSM2";
+export type SigningAlgorithm = "SHA256WITHECDSA" | "SHA384WITHECDSA" | "SHA512WITHECDSA" | "SHA256WITHRSA" | "SHA384WITHRSA" | "SHA512WITHRSA" | "SM3WITHSM2";
 export type AcmPcaString = string;
 
 export type String128 = string;
@@ -815,12 +655,7 @@ export interface Validity {
   Value: number;
   Type: ValidityPeriodType;
 }
-export type ValidityPeriodType =
-  | "END_DATE"
-  | "ABSOLUTE"
-  | "DAYS"
-  | "MONTHS"
-  | "YEARS";
+export type ValidityPeriodType = "END_DATE" | "ABSOLUTE" | "DAYS" | "MONTHS" | "YEARS";
 export declare namespace CreateCertificateAuthority {
   export type Input = CreateCertificateAuthorityRequest;
   export type Output = CreateCertificateAuthorityResponse;
@@ -989,7 +824,9 @@ export declare namespace IssueCertificate {
 export declare namespace ListCertificateAuthorities {
   export type Input = ListCertificateAuthoritiesRequest;
   export type Output = ListCertificateAuthoritiesResponse;
-  export type Error = InvalidNextTokenException | CommonAwsError;
+  export type Error =
+    | InvalidNextTokenException
+    | CommonAwsError;
 }
 
 export declare namespace ListPermissions {
@@ -1091,24 +928,5 @@ export declare namespace UpdateCertificateAuthority {
     | CommonAwsError;
 }
 
-export type ACMPCAErrors =
-  | CertificateMismatchException
-  | ConcurrentModificationException
-  | InvalidArgsException
-  | InvalidArnException
-  | InvalidNextTokenException
-  | InvalidPolicyException
-  | InvalidRequestException
-  | InvalidStateException
-  | InvalidTagException
-  | LimitExceededException
-  | LockoutPreventedException
-  | MalformedCSRException
-  | MalformedCertificateException
-  | PermissionAlreadyExistsException
-  | RequestAlreadyProcessedException
-  | RequestFailedException
-  | RequestInProgressException
-  | ResourceNotFoundException
-  | TooManyTagsException
-  | CommonAwsError;
+export type ACMPCAErrors = CertificateMismatchException | ConcurrentModificationException | InvalidArgsException | InvalidArnException | InvalidNextTokenException | InvalidPolicyException | InvalidRequestException | InvalidStateException | InvalidTagException | LimitExceededException | LockoutPreventedException | MalformedCSRException | MalformedCertificateException | PermissionAlreadyExistsException | RequestAlreadyProcessedException | RequestFailedException | RequestInProgressException | ResourceNotFoundException | TooManyTagsException | CommonAwsError;
+
