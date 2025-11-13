@@ -8,6 +8,7 @@ import { DefaultFetch, Fetch } from "./fetch.service.ts";
 import type { ProtocolHandler } from "./protocols/interface.ts";
 import * as Schedule from "effect/Schedule";
 import * as Duration from "effect/Duration";
+import { pipe } from "effect";
 
 const errorTags: {
   [serviceName: string]: {
@@ -21,7 +22,7 @@ function createServiceError(
   errorName: string,
   errorMeta: AwsErrorMeta & {
     message?: string;
-    retryable?:
+    retryable:
       | {
           retryAfterSeconds?: number;
         }
@@ -30,9 +31,16 @@ function createServiceError(
 ) {
   // Create a tagged error dynamically with the correct error name
   return new ((errorTags[serviceName] ??= {})[errorName] ??= (() =>
-    Data.TaggedError(errorName)<AwsErrorMeta & { message?: string }>)())(
-    errorMeta,
-  );
+    Data.TaggedError(errorName)<
+      AwsErrorMeta & {
+        message?: string;
+        retryable:
+          | {
+              retryAfterSeconds?: number;
+            }
+          | false;
+      }
+    >)())(errorMeta);
 }
 
 // Types
@@ -240,37 +248,45 @@ export function createServiceProxy<T>(
                   {
                     ...errorMeta,
                     message: parsedError.message,
-                    retryable: parsedError.retryable,
+                    retryable: parsedError.retryable ?? false,
                   },
                 ),
               );
             }
           });
-          return program.pipe(
-            Effect.catchAll((e) => {
-              if (e.retryable === false) return Effect.fail(e);
-
-              const delay =
-                e.retryable &&
-                typeof e.retryable === "object" &&
-                e.retryable.retryAfterSeconds
-                  ? Duration.seconds(e.retryable.retryAfterSeconds)
-                  : Duration.millis(100);
-
-              return Effect.sleep(delay).pipe(
-                Effect.flatMap(() => Effect.fail(e)),
-              );
-            }),
-            Effect.retry({
-              schedule: Schedule.intersect(
-                Schedule.exponential("100 millis"),
-                Schedule.recurs(5),
-              ),
-              while: (e) => e.retryable !== false,
-            }),
-          );
+          return withRetry(program);
         };
       },
     },
   ) as T;
 }
+
+const withRetry = <A>(
+  operation: Effect.Effect<
+    A,
+    {
+      retryable:
+        | {
+            retryAfterSeconds?: number;
+          }
+        | false;
+    }
+  >,
+) =>
+  pipe(
+    operation,
+    Effect.retry({
+      while: (error) => error.retryable !== false,
+      schedule: pipe(
+        Schedule.exponential(100),
+        Schedule.passthrough,
+        Schedule.addDelay((error) =>
+          typeof error?.retryable === "object" &&
+          error?.retryable?.retryAfterSeconds != null
+            ? Duration.seconds(error?.retryable?.retryAfterSeconds)
+            : Duration.seconds(1),
+        ),
+        Schedule.compose(Schedule.recurs(5)),
+      ),
+    }),
+  );
