@@ -558,7 +558,7 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<DeleteInstanceEventWindowResult, CommonAwsError>;
   deleteInternetGateway(
     input: DeleteInternetGatewayRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, InvalidInternetGatewayNotFound | CommonAwsError>;
   deleteIpam(
     input: DeleteIpamRequest,
   ): Effect.Effect<DeleteIpamResult, CommonAwsError>;
@@ -585,7 +585,10 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<DeleteIpamScopeResult, CommonAwsError>;
   deleteKeyPair(
     input: DeleteKeyPairRequest,
-  ): Effect.Effect<DeleteKeyPairResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteKeyPairResult,
+    InvalidKeyPairNotFound | CommonAwsError
+  >;
   deleteLaunchTemplate(
     input: DeleteLaunchTemplateRequest,
   ): Effect.Effect<DeleteLaunchTemplateResult, CommonAwsError>;
@@ -648,7 +651,7 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<DeleteNetworkInsightsPathResult, CommonAwsError>;
   deleteNetworkInterface(
     input: DeleteNetworkInterfaceRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, InvalidNetworkInterfaceNotFound | CommonAwsError>;
   deleteNetworkInterfacePermission(
     input: DeleteNetworkInterfacePermissionRequest,
   ): Effect.Effect<DeleteNetworkInterfacePermissionResult, CommonAwsError>;
@@ -683,7 +686,9 @@ export declare class EC2 extends AWSServiceClient {
   deleteSpotDatafeedSubscription(
     input: DeleteSpotDatafeedSubscriptionRequest,
   ): Effect.Effect<{}, CommonAwsError>;
-  deleteSubnet(input: DeleteSubnetRequest): Effect.Effect<{}, CommonAwsError>;
+  deleteSubnet(
+    input: DeleteSubnetRequest,
+  ): Effect.Effect<{}, InvalidSubnetNotFound | CommonAwsError>;
   deleteSubnetCidrReservation(
     input: DeleteSubnetCidrReservationRequest,
   ): Effect.Effect<DeleteSubnetCidrReservationResult, CommonAwsError>;
@@ -751,7 +756,9 @@ export declare class EC2 extends AWSServiceClient {
   deleteVerifiedAccessTrustProvider(
     input: DeleteVerifiedAccessTrustProviderRequest,
   ): Effect.Effect<DeleteVerifiedAccessTrustProviderResult, CommonAwsError>;
-  deleteVolume(input: DeleteVolumeRequest): Effect.Effect<{}, CommonAwsError>;
+  deleteVolume(
+    input: DeleteVolumeRequest,
+  ): Effect.Effect<{}, InvalidVolumeNotFound | CommonAwsError>;
   deleteVpc(
     input: DeleteVpcRequest,
   ): Effect.Effect<{}, InvalidVpcIDNotFound | CommonAwsError>;
@@ -775,16 +782,19 @@ export declare class EC2 extends AWSServiceClient {
   >;
   deleteVpcPeeringConnection(
     input: DeleteVpcPeeringConnectionRequest,
-  ): Effect.Effect<DeleteVpcPeeringConnectionResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteVpcPeeringConnectionResult,
+    InvalidVpcPeeringConnectionNotFound | CommonAwsError
+  >;
   deleteVpnConnection(
     input: DeleteVpnConnectionRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, InvalidVpnConnectionNotFound | CommonAwsError>;
   deleteVpnConnectionRoute(
     input: DeleteVpnConnectionRouteRequest,
   ): Effect.Effect<{}, CommonAwsError>;
   deleteVpnGateway(
     input: DeleteVpnGatewayRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, InvalidVpnGatewayNotFound | CommonAwsError>;
   deprovisionByoipCidr(
     input: DeprovisionByoipCidrRequest,
   ): Effect.Effect<DeprovisionByoipCidrResult, CommonAwsError>;
@@ -1170,7 +1180,9 @@ export declare class EC2 extends AWSServiceClient {
     input: DescribeNetworkInterfacesRequest,
   ): Effect.Effect<
     DescribeNetworkInterfacesResult,
-    InvalidNetworkInterfaceIDNotFound | CommonAwsError
+    | InvalidNetworkInterfaceIDNotFound
+    | InvalidNetworkInterfaceNotFound
+    | CommonAwsError
   >;
   describeOutpostLags(
     input: DescribeOutpostLagsRequest,
@@ -1282,7 +1294,10 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<DescribeStoreImageTasksResult, CommonAwsError>;
   describeSubnets(
     input: DescribeSubnetsRequest,
-  ): Effect.Effect<DescribeSubnetsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeSubnetsResult,
+    InvalidSubnetNotFound | CommonAwsError
+  >;
   describeTags(
     input: DescribeTagsRequest,
   ): Effect.Effect<DescribeTagsResult, CommonAwsError>;
@@ -1422,17 +1437,25 @@ export declare class EC2 extends AWSServiceClient {
     input: DescribeVpcPeeringConnectionsRequest,
   ): Effect.Effect<
     DescribeVpcPeeringConnectionsResult,
-    InvalidVpcPeeringConnectionIDNotFound | CommonAwsError
+    | InvalidVpcPeeringConnectionIDNotFound
+    | InvalidVpcPeeringConnectionNotFound
+    | CommonAwsError
   >;
   describeVpcs(
     input: DescribeVpcsRequest,
   ): Effect.Effect<DescribeVpcsResult, InvalidVpcIDNotFound | CommonAwsError>;
   describeVpnConnections(
     input: DescribeVpnConnectionsRequest,
-  ): Effect.Effect<DescribeVpnConnectionsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeVpnConnectionsResult,
+    InvalidVpnConnectionNotFound | CommonAwsError
+  >;
   describeVpnGateways(
     input: DescribeVpnGatewaysRequest,
-  ): Effect.Effect<DescribeVpnGatewaysResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeVpnGatewaysResult,
+    InvalidVpnGatewayNotFound | CommonAwsError
+  >;
   detachClassicLinkVpc(
     input: DetachClassicLinkVpcRequest,
   ): Effect.Effect<DetachClassicLinkVpcResult, CommonAwsError>;
@@ -19961,8 +19984,40 @@ export interface WithdrawByoipCidrResult {
 }
 export type ZoneIdStringList = Array<string>;
 export type ZoneNameStringList = Array<string>;
+export declare class InvalidInternetGatewayNotFound extends EffectData.TaggedError(
+  "InvalidInternetGateway.NotFound",
+)<{}> {}
+
+export declare class InvalidKeyPairNotFound extends EffectData.TaggedError(
+  "InvalidKeyPair.NotFound",
+)<{}> {}
+
+export declare class InvalidNetworkInterfaceNotFound extends EffectData.TaggedError(
+  "InvalidNetworkInterface.NotFound",
+)<{}> {}
+
+export declare class InvalidSubnetNotFound extends EffectData.TaggedError(
+  "InvalidSubnet.NotFound",
+)<{}> {}
+
+export declare class InvalidVolumeNotFound extends EffectData.TaggedError(
+  "InvalidVolume.NotFound",
+)<{}> {}
+
 export declare class InvalidVpcIDNotFound extends EffectData.TaggedError(
   "InvalidVpcID.NotFound",
+)<{}> {}
+
+export declare class InvalidVpcPeeringConnectionNotFound extends EffectData.TaggedError(
+  "InvalidVpcPeeringConnection.NotFound",
+)<{}> {}
+
+export declare class InvalidVpnConnectionNotFound extends EffectData.TaggedError(
+  "InvalidVpnConnection.NotFound",
+)<{}> {}
+
+export declare class InvalidVpnGatewayNotFound extends EffectData.TaggedError(
+  "InvalidVpnGateway.NotFound",
 )<{}> {}
 
 export declare class InvalidAMIIDNotFound extends EffectData.TaggedError(
@@ -19971,14 +20026,6 @@ export declare class InvalidAMIIDNotFound extends EffectData.TaggedError(
 
 export declare class InvalidInstanceIDNotFound extends EffectData.TaggedError(
   "InvalidInstanceID.NotFound",
-)<{}> {}
-
-export declare class InvalidInternetGatewayNotFound extends EffectData.TaggedError(
-  "InvalidInternetGateway.NotFound",
-)<{}> {}
-
-export declare class InvalidKeyPairNotFound extends EffectData.TaggedError(
-  "InvalidKeyPair.NotFound",
 )<{}> {}
 
 export declare class NatGatewayNotFound extends EffectData.TaggedError(
@@ -19995,10 +20042,6 @@ export declare class InvalidGroupNotFound extends EffectData.TaggedError(
 
 export declare class InvalidSpotInstanceRequestIDNotFound extends EffectData.TaggedError(
   "InvalidSpotInstanceRequestID.NotFound",
-)<{}> {}
-
-export declare class InvalidVolumeNotFound extends EffectData.TaggedError(
-  "InvalidVolume.NotFound",
 )<{}> {}
 
 export declare class InvalidVpcPeeringConnectionIDNotFound extends EffectData.TaggedError(
@@ -21042,7 +21085,7 @@ export declare namespace DeleteInstanceEventWindow {
 export declare namespace DeleteInternetGateway {
   export type Input = DeleteInternetGatewayRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error = InvalidInternetGatewayNotFound | CommonAwsError;
 }
 
 export declare namespace DeleteIpam {
@@ -21090,7 +21133,7 @@ export declare namespace DeleteIpamScope {
 export declare namespace DeleteKeyPair {
   export type Input = DeleteKeyPairRequest;
   export type Output = DeleteKeyPairResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidKeyPairNotFound | CommonAwsError;
 }
 
 export declare namespace DeleteLaunchTemplate {
@@ -21194,7 +21237,7 @@ export declare namespace DeleteNetworkInsightsPath {
 export declare namespace DeleteNetworkInterface {
   export type Input = DeleteNetworkInterfaceRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error = InvalidNetworkInterfaceNotFound | CommonAwsError;
 }
 
 export declare namespace DeleteNetworkInterfacePermission {
@@ -21272,7 +21315,7 @@ export declare namespace DeleteSpotDatafeedSubscription {
 export declare namespace DeleteSubnet {
   export type Input = DeleteSubnetRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error = InvalidSubnetNotFound | CommonAwsError;
 }
 
 export declare namespace DeleteSubnetCidrReservation {
@@ -21404,7 +21447,7 @@ export declare namespace DeleteVerifiedAccessTrustProvider {
 export declare namespace DeleteVolume {
   export type Input = DeleteVolumeRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error = InvalidVolumeNotFound | CommonAwsError;
 }
 
 export declare namespace DeleteVpc {
@@ -21440,13 +21483,13 @@ export declare namespace DeleteVpcEndpointServiceConfigurations {
 export declare namespace DeleteVpcPeeringConnection {
   export type Input = DeleteVpcPeeringConnectionRequest;
   export type Output = DeleteVpcPeeringConnectionResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidVpcPeeringConnectionNotFound | CommonAwsError;
 }
 
 export declare namespace DeleteVpnConnection {
   export type Input = DeleteVpnConnectionRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error = InvalidVpnConnectionNotFound | CommonAwsError;
 }
 
 export declare namespace DeleteVpnConnectionRoute {
@@ -21458,7 +21501,7 @@ export declare namespace DeleteVpnConnectionRoute {
 export declare namespace DeleteVpnGateway {
   export type Input = DeleteVpnGatewayRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error = InvalidVpnGatewayNotFound | CommonAwsError;
 }
 
 export declare namespace DeprovisionByoipCidr {
@@ -22114,7 +22157,10 @@ export declare namespace DescribeNetworkInterfacePermissions {
 export declare namespace DescribeNetworkInterfaces {
   export type Input = DescribeNetworkInterfacesRequest;
   export type Output = DescribeNetworkInterfacesResult;
-  export type Error = InvalidNetworkInterfaceIDNotFound | CommonAwsError;
+  export type Error =
+    | InvalidNetworkInterfaceIDNotFound
+    | InvalidNetworkInterfaceNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DescribeOutpostLags {
@@ -22318,7 +22364,7 @@ export declare namespace DescribeStoreImageTasks {
 export declare namespace DescribeSubnets {
   export type Input = DescribeSubnetsRequest;
   export type Output = DescribeSubnetsResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidSubnetNotFound | CommonAwsError;
 }
 
 export declare namespace DescribeTags {
@@ -22548,7 +22594,10 @@ export declare namespace DescribeVpcEndpointServices {
 export declare namespace DescribeVpcPeeringConnections {
   export type Input = DescribeVpcPeeringConnectionsRequest;
   export type Output = DescribeVpcPeeringConnectionsResult;
-  export type Error = InvalidVpcPeeringConnectionIDNotFound | CommonAwsError;
+  export type Error =
+    | InvalidVpcPeeringConnectionIDNotFound
+    | InvalidVpcPeeringConnectionNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DescribeVpcs {
@@ -22560,13 +22609,13 @@ export declare namespace DescribeVpcs {
 export declare namespace DescribeVpnConnections {
   export type Input = DescribeVpnConnectionsRequest;
   export type Output = DescribeVpnConnectionsResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidVpnConnectionNotFound | CommonAwsError;
 }
 
 export declare namespace DescribeVpnGateways {
   export type Input = DescribeVpnGatewaysRequest;
   export type Output = DescribeVpnGatewaysResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidVpnGatewayNotFound | CommonAwsError;
 }
 
 export declare namespace DetachClassicLinkVpc {
@@ -24310,15 +24359,20 @@ export declare namespace WithdrawByoipCidr {
 }
 
 export type EC2Errors =
-  | InvalidVpcIDNotFound
-  | InvalidAMIIDNotFound
-  | InvalidInstanceIDNotFound
   | InvalidInternetGatewayNotFound
   | InvalidKeyPairNotFound
+  | InvalidNetworkInterfaceNotFound
+  | InvalidSubnetNotFound
+  | InvalidVolumeNotFound
+  | InvalidVpcIDNotFound
+  | InvalidVpcPeeringConnectionNotFound
+  | InvalidVpnConnectionNotFound
+  | InvalidVpnGatewayNotFound
+  | InvalidAMIIDNotFound
+  | InvalidInstanceIDNotFound
   | NatGatewayNotFound
   | InvalidNetworkInterfaceIDNotFound
   | InvalidGroupNotFound
   | InvalidSpotInstanceRequestIDNotFound
-  | InvalidVolumeNotFound
   | InvalidVpcPeeringConnectionIDNotFound
   | CommonAwsError;

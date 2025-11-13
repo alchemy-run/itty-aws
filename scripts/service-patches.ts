@@ -32,5 +32,53 @@ export const servicePatches: Record<string, ServicePatches> = {
     DeleteVpc: {
       errors: ["InvalidVpcID.NotFound"],
     },
+    DeleteSubnet: {
+      errors: ["InvalidSubnet.NotFound"],
+    },
+    DescribeSubnets: {
+      errors: ["InvalidSubnet.NotFound"],
+    },
+    DescribeNetworkInterfaces: {
+      errors: ["InvalidNetworkInterface.NotFound"],
+    },
+    DescribeInternetGateways: {
+      errors: ["InvalidInternetGateway.NotFound"],
+    },
+    DescribeKeyPairs: {
+      errors: ["InvalidKeyPair.NotFound"],
+    },
+    DescribeVolumes: {
+      errors: ["InvalidVolume.NotFound"],
+    },
+    DescribeVpcPeeringConnections: {
+      errors: ["InvalidVpcPeeringConnection.NotFound"],
+    },
+    DescribeVpnConnections: {
+      errors: ["InvalidVpnConnection.NotFound"],
+    },
+    DescribeVpnGateways: {
+      errors: ["InvalidVpnGateway.NotFound"],
+    },
+    DeleteNetworkInterface: {
+      errors: ["InvalidNetworkInterface.NotFound"],
+    },
+    DeleteInternetGateway: {
+      errors: ["InvalidInternetGateway.NotFound"],
+    },
+    DeleteKeyPair: {
+      errors: ["InvalidKeyPair.NotFound"],
+    },
+    DeleteVolume: {
+      errors: ["InvalidVolume.NotFound"],
+    },
+    DeleteVpcPeeringConnection: {
+      errors: ["InvalidVpcPeeringConnection.NotFound"],
+    },
+    DeleteVpnConnection: {
+      errors: ["InvalidVpnConnection.NotFound"],
+    },
+    DeleteVpnGateway: {
+      errors: ["InvalidVpnGateway.NotFound"],
+    },
   },
 };
