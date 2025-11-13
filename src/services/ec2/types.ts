@@ -19960,19 +19960,19 @@ export interface WithdrawByoipCidrResult {
 export type ZoneIdStringList = Array<string>;
 export type ZoneNameStringList = Array<string>;
 export declare class InvalidAMIIDNotFound extends EffectData.TaggedError(
-  "InvalidAMIIDNotFound",
+  "InvalidAMIID.NotFound",
 )<{}> {}
 
 export declare class InvalidInstanceIDNotFound extends EffectData.TaggedError(
-  "InvalidInstanceIDNotFound",
+  "InvalidInstanceID.NotFound",
 )<{}> {}
 
 export declare class InvalidInternetGatewayNotFound extends EffectData.TaggedError(
-  "InvalidInternetGatewayNotFound",
+  "InvalidInternetGateway.NotFound",
 )<{}> {}
 
 export declare class InvalidKeyPairNotFound extends EffectData.TaggedError(
-  "InvalidKeyPairNotFound",
+  "InvalidKeyPair.NotFound",
 )<{}> {}
 
 export declare class NatGatewayNotFound extends EffectData.TaggedError(
@@ -19980,27 +19980,27 @@ export declare class NatGatewayNotFound extends EffectData.TaggedError(
 )<{}> {}
 
 export declare class InvalidNetworkInterfaceIDNotFound extends EffectData.TaggedError(
-  "InvalidNetworkInterfaceIDNotFound",
+  "InvalidNetworkInterfaceID.NotFound",
 )<{}> {}
 
 export declare class InvalidGroupNotFound extends EffectData.TaggedError(
-  "InvalidGroupNotFound",
+  "InvalidGroup.NotFound",
 )<{}> {}
 
 export declare class InvalidSpotInstanceRequestIDNotFound extends EffectData.TaggedError(
-  "InvalidSpotInstanceRequestIDNotFound",
+  "InvalidSpotInstanceRequestID.NotFound",
 )<{}> {}
 
 export declare class InvalidVolumeNotFound extends EffectData.TaggedError(
-  "InvalidVolumeNotFound",
+  "InvalidVolume.NotFound",
 )<{}> {}
 
 export declare class InvalidVpcPeeringConnectionIDNotFound extends EffectData.TaggedError(
-  "InvalidVpcPeeringConnectionIDNotFound",
+  "InvalidVpcPeeringConnectionID.NotFound",
 )<{}> {}
 
 export declare class InvalidVpcIDNotFound extends EffectData.TaggedError(
-  "InvalidVpcIDNotFound",
+  "InvalidVpcID.NotFound",
 )<{}> {}
 
 export declare namespace AcceptAddressTransfer {

@@ -1583,7 +1583,7 @@ const generateServiceTypes = (serviceName: string, manifest: Manifest) =>
       generatedTypes.add(sanitized);
 
       code += `export declare class ${sanitized} extends EffectData.TaggedError(\n`;
-      code += `  "${sanitized}",\n`;
+      code += `  "${original}",\n`;
       code += ")<{}> {}\n\n";
     }
 
