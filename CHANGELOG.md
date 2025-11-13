@@ -1,3 +1,13 @@
+## v0.7.0
+
+### &nbsp;&nbsp;&nbsp;🚀 Features
+
+- **ec2**: Patch more .NotFound errors &nbsp;-&nbsp; by **Sam Goodwin** [<samp>(89ecb)</samp>](https://github.com/sam-goodwin/itty-aws/commit/89ecba80)
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sam-goodwin/itty-aws/compare/v0.6.1...v0.7.0)
+
+---
+
 ## v0.6.1
 
 ### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
