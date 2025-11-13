@@ -716,10 +716,7 @@ export declare class SageMaker extends AWSServiceClient {
   >;
   describeEndpoint(
     input: DescribeEndpointInput,
-  ): Effect.Effect<
-    DescribeEndpointOutput,
-    ValidationException | CommonAwsError
-  >;
+  ): Effect.Effect<DescribeEndpointOutput, CommonAwsError>;
   describeEndpointConfig(
     input: DescribeEndpointConfigInput,
   ): Effect.Effect<DescribeEndpointConfigOutput, CommonAwsError>;
@@ -772,19 +769,13 @@ export declare class SageMaker extends AWSServiceClient {
     input: DescribeImageRequest,
   ): Effect.Effect<
     DescribeImageResponse,
-    | ResourceNotFound
-    | ValidationException
-    | ResourceNotFoundException
-    | CommonAwsError
+    ResourceNotFound | ResourceNotFoundException | CommonAwsError
   >;
   describeImageVersion(
     input: DescribeImageVersionRequest,
   ): Effect.Effect<
     DescribeImageVersionResponse,
-    | ResourceNotFound
-    | ValidationException
-    | ResourceNotFoundException
-    | CommonAwsError
+    ResourceNotFound | ResourceNotFoundException | CommonAwsError
   >;
   describeInferenceComponent(
     input: DescribeInferenceComponentInput,
@@ -866,10 +857,7 @@ export declare class SageMaker extends AWSServiceClient {
   >;
   describeNotebookInstance(
     input: DescribeNotebookInstanceInput,
-  ): Effect.Effect<
-    DescribeNotebookInstanceOutput,
-    ValidationException | CommonAwsError
-  >;
+  ): Effect.Effect<DescribeNotebookInstanceOutput, CommonAwsError>;
   describeNotebookInstanceLifecycleConfig(
     input: DescribeNotebookInstanceLifecycleConfigInput,
   ): Effect.Effect<
@@ -907,7 +895,7 @@ export declare class SageMaker extends AWSServiceClient {
     input: DescribeProcessingJobRequest,
   ): Effect.Effect<
     DescribeProcessingJobResponse,
-    ResourceNotFound | ValidationException | CommonAwsError
+    ResourceNotFound | CommonAwsError
   >;
   describeProject(
     input: DescribeProjectInput,
@@ -934,7 +922,7 @@ export declare class SageMaker extends AWSServiceClient {
     input: DescribeTrainingJobRequest,
   ): Effect.Effect<
     DescribeTrainingJobResponse,
-    ResourceNotFound | ValidationException | CommonAwsError
+    ResourceNotFound | CommonAwsError
   >;
   describeTrainingPlan(
     input: DescribeTrainingPlanRequest,
@@ -946,7 +934,7 @@ export declare class SageMaker extends AWSServiceClient {
     input: DescribeTransformJobRequest,
   ): Effect.Effect<
     DescribeTransformJobResponse,
-    ResourceNotFound | ValidationException | CommonAwsError
+    ResourceNotFound | CommonAwsError
   >;
   describeTrial(
     input: DescribeTrialRequest,
@@ -14216,18 +14204,6 @@ export type WorkteamArn = string;
 export type WorkteamName = string;
 
 export type Workteams = Array<Workteam>;
-/**
- * Waitable error: ValidationException
- * This error type is referenced in waitable traits but does not have a shape definition.
- */
-export declare class ValidationException extends EffectData.TaggedError(
-  "ValidationException",
-)<{}> {}
-
-/**
- * Waitable error: ResourceNotFoundException
- * This error type is referenced in waitable traits but does not have a shape definition.
- */
 export declare class ResourceNotFoundException extends EffectData.TaggedError(
   "ResourceNotFoundException",
 )<{}> {}
@@ -15194,7 +15170,7 @@ export declare namespace DescribeEdgePackagingJob {
 export declare namespace DescribeEndpoint {
   export type Input = DescribeEndpointInput;
   export type Output = DescribeEndpointOutput;
-  export type Error = ValidationException | CommonAwsError;
+  export type Error = CommonAwsError;
 }
 
 export declare namespace DescribeEndpointConfig {
@@ -15256,7 +15232,6 @@ export declare namespace DescribeImage {
   export type Output = DescribeImageResponse;
   export type Error =
     | ResourceNotFound
-    | ValidationException
     | ResourceNotFoundException
     | CommonAwsError;
 }
@@ -15266,7 +15241,6 @@ export declare namespace DescribeImageVersion {
   export type Output = DescribeImageVersionResponse;
   export type Error =
     | ResourceNotFound
-    | ValidationException
     | ResourceNotFoundException
     | CommonAwsError;
 }
@@ -15364,7 +15338,7 @@ export declare namespace DescribeMonitoringSchedule {
 export declare namespace DescribeNotebookInstance {
   export type Input = DescribeNotebookInstanceInput;
   export type Output = DescribeNotebookInstanceOutput;
-  export type Error = ValidationException | CommonAwsError;
+  export type Error = CommonAwsError;
 }
 
 export declare namespace DescribeNotebookInstanceLifecycleConfig {
@@ -15406,7 +15380,7 @@ export declare namespace DescribePipelineExecution {
 export declare namespace DescribeProcessingJob {
   export type Input = DescribeProcessingJobRequest;
   export type Output = DescribeProcessingJobResponse;
-  export type Error = ResourceNotFound | ValidationException | CommonAwsError;
+  export type Error = ResourceNotFound | CommonAwsError;
 }
 
 export declare namespace DescribeProject {
@@ -15442,7 +15416,7 @@ export declare namespace DescribeSubscribedWorkteam {
 export declare namespace DescribeTrainingJob {
   export type Input = DescribeTrainingJobRequest;
   export type Output = DescribeTrainingJobResponse;
-  export type Error = ResourceNotFound | ValidationException | CommonAwsError;
+  export type Error = ResourceNotFound | CommonAwsError;
 }
 
 export declare namespace DescribeTrainingPlan {
@@ -15454,7 +15428,7 @@ export declare namespace DescribeTrainingPlan {
 export declare namespace DescribeTransformJob {
   export type Input = DescribeTransformJobRequest;
   export type Output = DescribeTransformJobResponse;
-  export type Error = ResourceNotFound | ValidationException | CommonAwsError;
+  export type Error = ResourceNotFound | CommonAwsError;
 }
 
 export declare namespace DescribeTrial {
@@ -16570,6 +16544,5 @@ export type SageMakerErrors =
   | ResourceInUse
   | ResourceLimitExceeded
   | ResourceNotFound
-  | ValidationException
   | ResourceNotFoundException
   | CommonAwsError;

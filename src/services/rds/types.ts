@@ -5766,18 +5766,10 @@ export type WriteForwardingStatus =
   | "enabling"
   | "disabling"
   | "unknown";
-/**
- * Waitable error: DBInstanceNotFound
- * This error type is referenced in waitable traits but does not have a shape definition.
- */
 export declare class DBInstanceNotFound extends EffectData.TaggedError(
   "DBInstanceNotFound",
 )<{}> {}
 
-/**
- * Waitable error: DBSnapshotNotFound
- * This error type is referenced in waitable traits but does not have a shape definition.
- */
 export declare class DBSnapshotNotFound extends EffectData.TaggedError(
   "DBSnapshotNotFound",
 )<{}> {}

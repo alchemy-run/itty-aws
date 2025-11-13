@@ -19959,90 +19959,46 @@ export interface WithdrawByoipCidrResult {
 }
 export type ZoneIdStringList = Array<string>;
 export type ZoneNameStringList = Array<string>;
-/**
- * Waitable error: InvalidAMIID.NotFound
- * This error type is referenced in waitable traits but does not have a shape definition.
- */
 export declare class InvalidAMIIDNotFound extends EffectData.TaggedError(
   "InvalidAMIIDNotFound",
 )<{}> {}
 
-/**
- * Waitable error: InvalidInstanceID.NotFound
- * This error type is referenced in waitable traits but does not have a shape definition.
- */
 export declare class InvalidInstanceIDNotFound extends EffectData.TaggedError(
   "InvalidInstanceIDNotFound",
 )<{}> {}
 
-/**
- * Waitable error: InvalidInternetGateway.NotFound
- * This error type is referenced in waitable traits but does not have a shape definition.
- */
 export declare class InvalidInternetGatewayNotFound extends EffectData.TaggedError(
   "InvalidInternetGatewayNotFound",
 )<{}> {}
 
-/**
- * Waitable error: InvalidKeyPair.NotFound
- * This error type is referenced in waitable traits but does not have a shape definition.
- */
 export declare class InvalidKeyPairNotFound extends EffectData.TaggedError(
   "InvalidKeyPairNotFound",
 )<{}> {}
 
-/**
- * Waitable error: NatGatewayNotFound
- * This error type is referenced in waitable traits but does not have a shape definition.
- */
 export declare class NatGatewayNotFound extends EffectData.TaggedError(
   "NatGatewayNotFound",
 )<{}> {}
 
-/**
- * Waitable error: InvalidNetworkInterfaceID.NotFound
- * This error type is referenced in waitable traits but does not have a shape definition.
- */
 export declare class InvalidNetworkInterfaceIDNotFound extends EffectData.TaggedError(
   "InvalidNetworkInterfaceIDNotFound",
 )<{}> {}
 
-/**
- * Waitable error: InvalidGroup.NotFound
- * This error type is referenced in waitable traits but does not have a shape definition.
- */
 export declare class InvalidGroupNotFound extends EffectData.TaggedError(
   "InvalidGroupNotFound",
 )<{}> {}
 
-/**
- * Waitable error: InvalidSpotInstanceRequestID.NotFound
- * This error type is referenced in waitable traits but does not have a shape definition.
- */
 export declare class InvalidSpotInstanceRequestIDNotFound extends EffectData.TaggedError(
   "InvalidSpotInstanceRequestIDNotFound",
 )<{}> {}
 
-/**
- * Waitable error: InvalidVolume.NotFound
- * This error type is referenced in waitable traits but does not have a shape definition.
- */
 export declare class InvalidVolumeNotFound extends EffectData.TaggedError(
   "InvalidVolumeNotFound",
 )<{}> {}
 
-/**
- * Waitable error: InvalidVpcPeeringConnectionID.NotFound
- * This error type is referenced in waitable traits but does not have a shape definition.
- */
 export declare class InvalidVpcPeeringConnectionIDNotFound extends EffectData.TaggedError(
   "InvalidVpcPeeringConnectionIDNotFound",
 )<{}> {}
 
-/**
- * Waitable error: InvalidVpcID.NotFound
- * This error type is referenced in waitable traits but does not have a shape definition.
- */
 export declare class InvalidVpcIDNotFound extends EffectData.TaggedError(
   "InvalidVpcIDNotFound",
 )<{}> {}

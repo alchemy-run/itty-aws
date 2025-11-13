@@ -800,10 +800,6 @@ export declare class UnsupportedProtocolException extends EffectData.TaggedError
 }> {}
 export type VPCId = string;
 
-/**
- * Waitable error: InvalidInstance
- * This error type is referenced in waitable traits but does not have a shape definition.
- */
 export declare class InvalidInstance extends EffectData.TaggedError(
   "InvalidInstance",
 )<{}> {}

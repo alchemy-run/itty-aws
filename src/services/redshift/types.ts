@@ -4179,10 +4179,6 @@ export type ZeroETLIntegrationStatus =
   | "deleting"
   | "syncing"
   | "needs_attention";
-/**
- * Waitable error: ClusterNotFound
- * This error type is referenced in waitable traits but does not have a shape definition.
- */
 export declare class ClusterNotFound extends EffectData.TaggedError(
   "ClusterNotFound",
 )<{}> {}

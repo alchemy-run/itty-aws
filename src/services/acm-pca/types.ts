@@ -82,7 +82,6 @@ export declare class ACMPCA extends AWSServiceClient {
     | InvalidArgsException
     | InvalidArnException
     | ResourceNotFoundException
-    | AccessDeniedException
     | CommonAwsError
   >;
   getCertificate(
@@ -94,7 +93,6 @@ export declare class ACMPCA extends AWSServiceClient {
     | RequestFailedException
     | RequestInProgressException
     | ResourceNotFoundException
-    | AccessDeniedException
     | CommonAwsError
   >;
   getCertificateAuthorityCertificate(
@@ -115,7 +113,6 @@ export declare class ACMPCA extends AWSServiceClient {
     | RequestFailedException
     | RequestInProgressException
     | ResourceNotFoundException
-    | AccessDeniedException
     | CommonAwsError
   >;
   getPolicy(
@@ -824,14 +821,6 @@ export type ValidityPeriodType =
   | "DAYS"
   | "MONTHS"
   | "YEARS";
-/**
- * Waitable error: AccessDeniedException
- * This error type is referenced in waitable traits but does not have a shape definition.
- */
-export declare class AccessDeniedException extends EffectData.TaggedError(
-  "AccessDeniedException",
-)<{}> {}
-
 export declare namespace CreateCertificateAuthority {
   export type Input = CreateCertificateAuthorityRequest;
   export type Output = CreateCertificateAuthorityResponse;
@@ -920,7 +909,6 @@ export declare namespace DescribeCertificateAuthorityAuditReport {
     | InvalidArgsException
     | InvalidArnException
     | ResourceNotFoundException
-    | AccessDeniedException
     | CommonAwsError;
 }
 
@@ -933,7 +921,6 @@ export declare namespace GetCertificate {
     | RequestFailedException
     | RequestInProgressException
     | ResourceNotFoundException
-    | AccessDeniedException
     | CommonAwsError;
 }
 
@@ -956,7 +943,6 @@ export declare namespace GetCertificateAuthorityCsr {
     | RequestFailedException
     | RequestInProgressException
     | ResourceNotFoundException
-    | AccessDeniedException
     | CommonAwsError;
 }
 
@@ -1125,5 +1111,4 @@ export type ACMPCAErrors =
   | RequestInProgressException
   | ResourceNotFoundException
   | TooManyTagsException
-  | AccessDeniedException
   | CommonAwsError;

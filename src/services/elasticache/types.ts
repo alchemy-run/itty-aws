@@ -2748,10 +2748,6 @@ export declare class UserQuotaExceededFault extends EffectData.TaggedError(
 )<{
   readonly message?: string;
 }> {}
-/**
- * Waitable error: CacheClusterNotFound
- * This error type is referenced in waitable traits but does not have a shape definition.
- */
 export declare class CacheClusterNotFound extends EffectData.TaggedError(
   "CacheClusterNotFound",
 )<{}> {}

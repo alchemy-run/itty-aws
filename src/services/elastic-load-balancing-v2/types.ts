@@ -1870,26 +1870,14 @@ export type ZonalCapacityReservationStates =
   Array<ZonalCapacityReservationState>;
 export type ZoneName = string;
 
-/**
- * Waitable error: LoadBalancerNotFound
- * This error type is referenced in waitable traits but does not have a shape definition.
- */
 export declare class LoadBalancerNotFound extends EffectData.TaggedError(
   "LoadBalancerNotFound",
 )<{}> {}
 
-/**
- * Waitable error: InvalidTarget
- * This error type is referenced in waitable traits but does not have a shape definition.
- */
 export declare class InvalidTarget extends EffectData.TaggedError(
   "InvalidTarget",
 )<{}> {}
 
-/**
- * Waitable error: InvalidInstance
- * This error type is referenced in waitable traits but does not have a shape definition.
- */
 export declare class InvalidInstance extends EffectData.TaggedError(
   "InvalidInstance",
 )<{}> {}

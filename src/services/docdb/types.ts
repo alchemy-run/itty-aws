@@ -1733,10 +1733,6 @@ export interface VpcSecurityGroupMembership {
   Status?: string;
 }
 export type VpcSecurityGroupMembershipList = Array<VpcSecurityGroupMembership>;
-/**
- * Waitable error: DBInstanceNotFound
- * This error type is referenced in waitable traits but does not have a shape definition.
- */
 export declare class DBInstanceNotFound extends EffectData.TaggedError(
   "DBInstanceNotFound",
 )<{}> {}

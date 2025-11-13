@@ -3430,10 +3430,6 @@ export interface VirtualMFADevice {
 export type virtualMFADeviceListType = Array<VirtualMFADevice>;
 export type virtualMFADeviceName = string;
 
-/**
- * Waitable error: NoSuchEntity
- * This error type is referenced in waitable traits but does not have a shape definition.
- */
 export declare class NoSuchEntity extends EffectData.TaggedError(
   "NoSuchEntity",
 )<{}> {}

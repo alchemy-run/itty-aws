@@ -1201,7 +1201,14 @@ const generateServiceTypes = (serviceName: string, manifest: Manifest) =>
     for (const [sanitized, original] of allWaitableErrors.entries()) {
       const errorShapeId = `com.amazonaws.${serviceName}#${original}`;
       const shape = manifest.shapes[errorShapeId];
-      if (!shape || !shape.traits?.["smithy.api#error"]) {
+      // Only generate if:
+      // 1. No shape exists or shape is not an error
+      // 2. Not a common AWS error that's already defined
+      if (
+        (!shape || !shape.traits?.["smithy.api#error"]) &&
+        !isCommonAwsErrorName(sanitized) &&
+        !isCommonAwsErrorName(original)
+      ) {
         waitableErrorsToGenerate.set(sanitized, original);
       }
     }
@@ -1402,11 +1409,16 @@ const generateServiceTypes = (serviceName: string, manifest: Manifest) =>
           extractShapeName(error.target),
       );
 
-      // Add waitable errors
-      for (const { sanitized } of waitableErrors) {
-        const mappedName = typeNameMapping.get(sanitized) || sanitized;
-        if (!errorTypes.includes(mappedName)) {
-          errorTypes.push(mappedName);
+      // Add waitable errors (excluding common AWS errors that are already included)
+      for (const { original, sanitized } of waitableErrors) {
+        if (
+          !isCommonAwsErrorName(sanitized) &&
+          !isCommonAwsErrorName(original)
+        ) {
+          const mappedName = typeNameMapping.get(sanitized) || sanitized;
+          if (!errorTypes.includes(mappedName)) {
+            errorTypes.push(mappedName);
+          }
         }
       }
 
@@ -1570,11 +1582,6 @@ const generateServiceTypes = (serviceName: string, manifest: Manifest) =>
 
       generatedTypes.add(sanitized);
 
-      code += "/**\n";
-      code += ` * Waitable error: ${original}\n`;
-      code +=
-        " * This error type is referenced in waitable traits but does not have a shape definition.\n";
-      code += " */\n";
       code += `export declare class ${sanitized} extends EffectData.TaggedError(\n`;
       code += `  "${sanitized}",\n`;
       code += ")<{}> {}\n\n";
@@ -1610,11 +1617,16 @@ const generateServiceTypes = (serviceName: string, manifest: Manifest) =>
           extractShapeName(error.target),
       );
 
-      // Add waitable errors
-      for (const { sanitized } of waitableErrors) {
-        const mappedName = typeNameMapping.get(sanitized) || sanitized;
-        if (!errorTypes.includes(mappedName)) {
-          errorTypes.push(mappedName);
+      // Add waitable errors (excluding common AWS errors that are already included)
+      for (const { original, sanitized } of waitableErrors) {
+        if (
+          !isCommonAwsErrorName(sanitized) &&
+          !isCommonAwsErrorName(original)
+        ) {
+          const mappedName = typeNameMapping.get(sanitized) || sanitized;
+          if (!errorTypes.includes(mappedName)) {
+            errorTypes.push(mappedName);
+          }
         }
       }
 
