@@ -127,7 +127,10 @@ export declare class ElasticLoadBalancing extends AWSServiceClient {
     input: DescribeEndPointStateInput,
   ): Effect.Effect<
     DescribeEndPointStateOutput,
-    AccessPointNotFoundException | InvalidEndPointException | CommonAwsError
+    | AccessPointNotFoundException
+    | InvalidEndPointException
+    | InvalidInstance
+    | CommonAwsError
   >;
   describeLoadBalancerAttributes(
     input: DescribeLoadBalancerAttributesInput,
@@ -797,6 +800,14 @@ export declare class UnsupportedProtocolException extends EffectData.TaggedError
 }> {}
 export type VPCId = string;
 
+/**
+ * Waitable error: InvalidInstance
+ * This error type is referenced in waitable traits but does not have a shape definition.
+ */
+export declare class InvalidInstance extends EffectData.TaggedError(
+  "InvalidInstance",
+)<{}> {}
+
 export declare namespace AddTags {
   export type Input = AddTagsInput;
   export type Output = AddTagsOutput;
@@ -941,6 +952,7 @@ export declare namespace DescribeInstanceHealth {
   export type Error =
     | AccessPointNotFoundException
     | InvalidEndPointException
+    | InvalidInstance
     | CommonAwsError;
 }
 
@@ -1088,4 +1100,5 @@ export type ElasticLoadBalancingErrors =
   | TooManyPoliciesException
   | TooManyTagsException
   | UnsupportedProtocolException
+  | InvalidInstance
   | CommonAwsError;

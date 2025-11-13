@@ -141,7 +141,7 @@ export declare class CloudFormation extends AWSServiceClient {
     input: DescribeChangeSetInput,
   ): Effect.Effect<
     DescribeChangeSetOutput,
-    ChangeSetNotFoundException | CommonAwsError
+    ChangeSetNotFoundException | ValidationError | CommonAwsError
   >;
   describeChangeSetHooks(
     input: DescribeChangeSetHooksInput,
@@ -189,7 +189,7 @@ export declare class CloudFormation extends AWSServiceClient {
     input: DescribeStackRefactorInput,
   ): Effect.Effect<
     DescribeStackRefactorOutput,
-    StackRefactorNotFoundException | CommonAwsError
+    StackRefactorNotFoundException | ValidationError | CommonAwsError
   >;
   describeStackResource(
     input: DescribeStackResourceInput,
@@ -202,7 +202,7 @@ export declare class CloudFormation extends AWSServiceClient {
   ): Effect.Effect<DescribeStackResourcesOutput, CommonAwsError>;
   describeStacks(
     input: DescribeStacksInput,
-  ): Effect.Effect<DescribeStacksOutput, CommonAwsError>;
+  ): Effect.Effect<DescribeStacksOutput, ValidationError | CommonAwsError>;
   describeStackSet(
     input: DescribeStackSetInput,
   ): Effect.Effect<
@@ -2916,6 +2916,14 @@ export type WarningType =
   | "MUTUALLY_EXCLUSIVE_TYPES"
   | "EXCLUDED_PROPERTIES"
   | "EXCLUDED_RESOURCES";
+/**
+ * Waitable error: ValidationError
+ * This error type is referenced in waitable traits but does not have a shape definition.
+ */
+export declare class ValidationError extends EffectData.TaggedError(
+  "ValidationError",
+)<{}> {}
+
 export declare namespace ActivateOrganizationsAccess {
   export type Input = ActivateOrganizationsAccessInput;
   export type Output = ActivateOrganizationsAccessOutput;
@@ -3093,7 +3101,10 @@ export declare namespace DescribeAccountLimits {
 export declare namespace DescribeChangeSet {
   export type Input = DescribeChangeSetInput;
   export type Output = DescribeChangeSetOutput;
-  export type Error = ChangeSetNotFoundException | CommonAwsError;
+  export type Error =
+    | ChangeSetNotFoundException
+    | ValidationError
+    | CommonAwsError;
 }
 
 export declare namespace DescribeChangeSetHooks {
@@ -3153,7 +3164,10 @@ export declare namespace DescribeStackInstance {
 export declare namespace DescribeStackRefactor {
   export type Input = DescribeStackRefactorInput;
   export type Output = DescribeStackRefactorOutput;
-  export type Error = StackRefactorNotFoundException | CommonAwsError;
+  export type Error =
+    | StackRefactorNotFoundException
+    | ValidationError
+    | CommonAwsError;
 }
 
 export declare namespace DescribeStackResource {
@@ -3177,7 +3191,7 @@ export declare namespace DescribeStackResources {
 export declare namespace DescribeStacks {
   export type Input = DescribeStacksInput;
   export type Output = DescribeStacksOutput;
-  export type Error = CommonAwsError;
+  export type Error = ValidationError | CommonAwsError;
 }
 
 export declare namespace DescribeStackSet {
@@ -3613,4 +3627,5 @@ export type CloudFormationErrors =
   | TokenAlreadyExistsException
   | TypeConfigurationNotFoundException
   | TypeNotFoundException
+  | ValidationError
   | CommonAwsError;

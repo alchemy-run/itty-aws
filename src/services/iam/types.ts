@@ -642,6 +642,7 @@ export declare class IAM extends AWSServiceClient {
     | InvalidInputException
     | NoSuchEntityException
     | ServiceFailureException
+    | NoSuchEntity
     | CommonAwsError
   >;
   getPolicyVersion(
@@ -657,7 +658,10 @@ export declare class IAM extends AWSServiceClient {
     input: GetRoleRequest,
   ): Effect.Effect<
     GetRoleResponse,
-    NoSuchEntityException | ServiceFailureException | CommonAwsError
+    | NoSuchEntityException
+    | ServiceFailureException
+    | NoSuchEntity
+    | CommonAwsError
   >;
   getRolePolicy(
     input: GetRolePolicyRequest,
@@ -713,7 +717,10 @@ export declare class IAM extends AWSServiceClient {
     input: GetUserRequest,
   ): Effect.Effect<
     GetUserResponse,
-    NoSuchEntityException | ServiceFailureException | CommonAwsError
+    | NoSuchEntityException
+    | ServiceFailureException
+    | NoSuchEntity
+    | CommonAwsError
   >;
   getUserPolicy(
     input: GetUserPolicyRequest,
@@ -3423,6 +3430,14 @@ export interface VirtualMFADevice {
 export type virtualMFADeviceListType = Array<VirtualMFADevice>;
 export type virtualMFADeviceName = string;
 
+/**
+ * Waitable error: NoSuchEntity
+ * This error type is referenced in waitable traits but does not have a shape definition.
+ */
+export declare class NoSuchEntity extends EffectData.TaggedError(
+  "NoSuchEntity",
+)<{}> {}
+
 export declare namespace AddClientIDToOpenIDConnectProvider {
   export type Input = AddClientIDToOpenIDConnectProviderRequest;
   export type Output = {};
@@ -4163,6 +4178,7 @@ export declare namespace GetPolicy {
     | InvalidInputException
     | NoSuchEntityException
     | ServiceFailureException
+    | NoSuchEntity
     | CommonAwsError;
 }
 
@@ -4182,6 +4198,7 @@ export declare namespace GetRole {
   export type Error =
     | NoSuchEntityException
     | ServiceFailureException
+    | NoSuchEntity
     | CommonAwsError;
 }
 
@@ -4256,6 +4273,7 @@ export declare namespace GetUser {
   export type Error =
     | NoSuchEntityException
     | ServiceFailureException
+    | NoSuchEntity
     | CommonAwsError;
 }
 
@@ -5111,4 +5129,5 @@ export type IAMErrors =
   | ServiceNotSupportedException
   | UnmodifiableEntityException
   | UnrecognizedPublicKeyEncodingException
+  | NoSuchEntity
   | CommonAwsError;

@@ -300,7 +300,10 @@ export declare class Neptune extends AWSServiceClient {
   ): Effect.Effect<DBEngineVersionMessage, CommonAwsError>;
   describeDBInstances(
     input: DescribeDBInstancesMessage,
-  ): Effect.Effect<DBInstanceMessage, DBInstanceNotFoundFault | CommonAwsError>;
+  ): Effect.Effect<
+    DBInstanceMessage,
+    DBInstanceNotFoundFault | DBInstanceNotFound | CommonAwsError
+  >;
   describeDBParameterGroups(
     input: DescribeDBParameterGroupsMessage,
   ): Effect.Effect<
@@ -2214,6 +2217,14 @@ export interface VpcSecurityGroupMembership {
   Status?: string;
 }
 export type VpcSecurityGroupMembershipList = Array<VpcSecurityGroupMembership>;
+/**
+ * Waitable error: DBInstanceNotFound
+ * This error type is referenced in waitable traits but does not have a shape definition.
+ */
+export declare class DBInstanceNotFound extends EffectData.TaggedError(
+  "DBInstanceNotFound",
+)<{}> {}
+
 export declare namespace AddRoleToDBCluster {
   export type Input = AddRoleToDBClusterMessage;
   export type Output = {};
@@ -2546,7 +2557,10 @@ export declare namespace DescribeDBEngineVersions {
 export declare namespace DescribeDBInstances {
   export type Input = DescribeDBInstancesMessage;
   export type Output = DBInstanceMessage;
-  export type Error = DBInstanceNotFoundFault | CommonAwsError;
+  export type Error =
+    | DBInstanceNotFoundFault
+    | DBInstanceNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DescribeDBParameterGroups {
@@ -2992,4 +3006,5 @@ export type NeptuneErrors =
   | SubscriptionAlreadyExistFault
   | SubscriptionCategoryNotFoundFault
   | SubscriptionNotFoundFault
+  | DBInstanceNotFound
   | CommonAwsError;
