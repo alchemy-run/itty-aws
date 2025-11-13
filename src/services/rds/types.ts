@@ -665,7 +665,10 @@ export declare class RDS extends AWSServiceClient {
   >;
   describeDBInstances(
     input: DescribeDBInstancesMessage,
-  ): Effect.Effect<DBInstanceMessage, DBInstanceNotFoundFault | CommonAwsError>;
+  ): Effect.Effect<
+    DBInstanceMessage,
+    DBInstanceNotFoundFault | DBInstanceNotFound | CommonAwsError
+  >;
   describeDBLogFiles(
     input: DescribeDBLogFilesMessage,
   ): Effect.Effect<
@@ -741,7 +744,10 @@ export declare class RDS extends AWSServiceClient {
   >;
   describeDBSnapshots(
     input: DescribeDBSnapshotsMessage,
-  ): Effect.Effect<DBSnapshotMessage, DBSnapshotNotFoundFault | CommonAwsError>;
+  ): Effect.Effect<
+    DBSnapshotMessage,
+    DBSnapshotNotFoundFault | DBSnapshotNotFound | CommonAwsError
+  >;
   describeDBSnapshotTenantDatabases(
     input: DescribeDBSnapshotTenantDatabasesMessage,
   ): Effect.Effect<
@@ -5760,6 +5766,14 @@ export type WriteForwardingStatus =
   | "enabling"
   | "disabling"
   | "unknown";
+export declare class DBInstanceNotFound extends EffectData.TaggedError(
+  "DBInstanceNotFound",
+)<{}> {}
+
+export declare class DBSnapshotNotFound extends EffectData.TaggedError(
+  "DBSnapshotNotFound",
+)<{}> {}
+
 export declare namespace AddRoleToDBCluster {
   export type Input = AddRoleToDBClusterMessage;
   export type Output = {};
@@ -6504,7 +6518,10 @@ export declare namespace DescribeDBInstanceAutomatedBackups {
 export declare namespace DescribeDBInstances {
   export type Input = DescribeDBInstancesMessage;
   export type Output = DBInstanceMessage;
-  export type Error = DBInstanceNotFoundFault | CommonAwsError;
+  export type Error =
+    | DBInstanceNotFoundFault
+    | DBInstanceNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DescribeDBLogFiles {
@@ -6600,7 +6617,10 @@ export declare namespace DescribeDBSnapshotAttributes {
 export declare namespace DescribeDBSnapshots {
   export type Input = DescribeDBSnapshotsMessage;
   export type Output = DBSnapshotMessage;
-  export type Error = DBSnapshotNotFoundFault | CommonAwsError;
+  export type Error =
+    | DBSnapshotNotFoundFault
+    | DBSnapshotNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DescribeDBSnapshotTenantDatabases {
@@ -7677,4 +7697,6 @@ export type RDSErrors =
   | TenantDatabaseNotFoundFault
   | TenantDatabaseQuotaExceededFault
   | UnsupportedDBEngineVersionFault
+  | DBInstanceNotFound
+  | DBSnapshotNotFound
   | CommonAwsError;

@@ -1,4 +1,4 @@
-import type { Effect } from "effect";
+import type { Effect, Data as EffectData } from "effect";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
@@ -983,7 +983,7 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<DescribeImageReferencesResult, CommonAwsError>;
   describeImages(
     input: DescribeImagesRequest,
-  ): Effect.Effect<DescribeImagesResult, CommonAwsError>;
+  ): Effect.Effect<DescribeImagesResult, InvalidAMIIDNotFound | CommonAwsError>;
   describeImageUsageReportEntries(
     input: DescribeImageUsageReportEntriesRequest,
   ): Effect.Effect<DescribeImageUsageReportEntriesResult, CommonAwsError>;
@@ -1019,10 +1019,16 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<DescribeInstanceImageMetadataResult, CommonAwsError>;
   describeInstances(
     input: DescribeInstancesRequest,
-  ): Effect.Effect<DescribeInstancesResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeInstancesResult,
+    InvalidInstanceIDNotFound | CommonAwsError
+  >;
   describeInstanceStatus(
     input: DescribeInstanceStatusRequest,
-  ): Effect.Effect<DescribeInstanceStatusResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeInstanceStatusResult,
+    InvalidInstanceIDNotFound | CommonAwsError
+  >;
   describeInstanceTopology(
     input: DescribeInstanceTopologyRequest,
   ): Effect.Effect<DescribeInstanceTopologyResult, CommonAwsError>;
@@ -1034,7 +1040,10 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<DescribeInstanceTypesResult, CommonAwsError>;
   describeInternetGateways(
     input: DescribeInternetGatewaysRequest,
-  ): Effect.Effect<DescribeInternetGatewaysResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeInternetGatewaysResult,
+    InvalidInternetGatewayNotFound | CommonAwsError
+  >;
   describeIpamByoasn(
     input: DescribeIpamByoasnRequest,
   ): Effect.Effect<DescribeIpamByoasnResult, CommonAwsError>;
@@ -1073,7 +1082,10 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<DescribeIpv6PoolsResult, CommonAwsError>;
   describeKeyPairs(
     input: DescribeKeyPairsRequest,
-  ): Effect.Effect<DescribeKeyPairsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeKeyPairsResult,
+    InvalidKeyPairNotFound | CommonAwsError
+  >;
   describeLaunchTemplates(
     input: DescribeLaunchTemplatesRequest,
   ): Effect.Effect<DescribeLaunchTemplatesResult, CommonAwsError>;
@@ -1124,7 +1136,10 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<DescribeMovingAddressesResult, CommonAwsError>;
   describeNatGateways(
     input: DescribeNatGatewaysRequest,
-  ): Effect.Effect<DescribeNatGatewaysResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeNatGatewaysResult,
+    NatGatewayNotFound | CommonAwsError
+  >;
   describeNetworkAcls(
     input: DescribeNetworkAclsRequest,
   ): Effect.Effect<DescribeNetworkAclsResult, CommonAwsError>;
@@ -1151,7 +1166,10 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<DescribeNetworkInterfacePermissionsResult, CommonAwsError>;
   describeNetworkInterfaces(
     input: DescribeNetworkInterfacesRequest,
-  ): Effect.Effect<DescribeNetworkInterfacesResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeNetworkInterfacesResult,
+    InvalidNetworkInterfaceIDNotFound | CommonAwsError
+  >;
   describeOutpostLags(
     input: DescribeOutpostLagsRequest,
   ): Effect.Effect<DescribeOutpostLagsResult, CommonAwsError>;
@@ -1214,7 +1232,10 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<DescribeSecurityGroupRulesResult, CommonAwsError>;
   describeSecurityGroups(
     input: DescribeSecurityGroupsRequest,
-  ): Effect.Effect<DescribeSecurityGroupsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeSecurityGroupsResult,
+    InvalidGroupNotFound | CommonAwsError
+  >;
   describeSecurityGroupVpcAssociations(
     input: DescribeSecurityGroupVpcAssociationsRequest,
   ): Effect.Effect<DescribeSecurityGroupVpcAssociationsResult, CommonAwsError>;
@@ -1244,7 +1265,10 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<DescribeSpotFleetRequestsResponse, CommonAwsError>;
   describeSpotInstanceRequests(
     input: DescribeSpotInstanceRequestsRequest,
-  ): Effect.Effect<DescribeSpotInstanceRequestsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeSpotInstanceRequestsResult,
+    InvalidSpotInstanceRequestIDNotFound | CommonAwsError
+  >;
   describeSpotPriceHistory(
     input: DescribeSpotPriceHistoryRequest,
   ): Effect.Effect<DescribeSpotPriceHistoryResult, CommonAwsError>;
@@ -1337,7 +1361,10 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<DescribeVolumeAttributeResult, CommonAwsError>;
   describeVolumes(
     input: DescribeVolumesRequest,
-  ): Effect.Effect<DescribeVolumesResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeVolumesResult,
+    InvalidVolumeNotFound | CommonAwsError
+  >;
   describeVolumesModifications(
     input: DescribeVolumesModificationsRequest,
   ): Effect.Effect<DescribeVolumesModificationsResult, CommonAwsError>;
@@ -1391,10 +1418,13 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<DescribeVpcEndpointServicesResult, CommonAwsError>;
   describeVpcPeeringConnections(
     input: DescribeVpcPeeringConnectionsRequest,
-  ): Effect.Effect<DescribeVpcPeeringConnectionsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeVpcPeeringConnectionsResult,
+    InvalidVpcPeeringConnectionIDNotFound | CommonAwsError
+  >;
   describeVpcs(
     input: DescribeVpcsRequest,
-  ): Effect.Effect<DescribeVpcsResult, CommonAwsError>;
+  ): Effect.Effect<DescribeVpcsResult, InvalidVpcIDNotFound | CommonAwsError>;
   describeVpnConnections(
     input: DescribeVpnConnectionsRequest,
   ): Effect.Effect<DescribeVpnConnectionsResult, CommonAwsError>;
@@ -19929,6 +19959,50 @@ export interface WithdrawByoipCidrResult {
 }
 export type ZoneIdStringList = Array<string>;
 export type ZoneNameStringList = Array<string>;
+export declare class InvalidAMIIDNotFound extends EffectData.TaggedError(
+  "InvalidAMIID.NotFound",
+)<{}> {}
+
+export declare class InvalidInstanceIDNotFound extends EffectData.TaggedError(
+  "InvalidInstanceID.NotFound",
+)<{}> {}
+
+export declare class InvalidInternetGatewayNotFound extends EffectData.TaggedError(
+  "InvalidInternetGateway.NotFound",
+)<{}> {}
+
+export declare class InvalidKeyPairNotFound extends EffectData.TaggedError(
+  "InvalidKeyPair.NotFound",
+)<{}> {}
+
+export declare class NatGatewayNotFound extends EffectData.TaggedError(
+  "NatGatewayNotFound",
+)<{}> {}
+
+export declare class InvalidNetworkInterfaceIDNotFound extends EffectData.TaggedError(
+  "InvalidNetworkInterfaceID.NotFound",
+)<{}> {}
+
+export declare class InvalidGroupNotFound extends EffectData.TaggedError(
+  "InvalidGroup.NotFound",
+)<{}> {}
+
+export declare class InvalidSpotInstanceRequestIDNotFound extends EffectData.TaggedError(
+  "InvalidSpotInstanceRequestID.NotFound",
+)<{}> {}
+
+export declare class InvalidVolumeNotFound extends EffectData.TaggedError(
+  "InvalidVolume.NotFound",
+)<{}> {}
+
+export declare class InvalidVpcPeeringConnectionIDNotFound extends EffectData.TaggedError(
+  "InvalidVpcPeeringConnectionID.NotFound",
+)<{}> {}
+
+export declare class InvalidVpcIDNotFound extends EffectData.TaggedError(
+  "InvalidVpcID.NotFound",
+)<{}> {}
+
 export declare namespace AcceptAddressTransfer {
   export type Input = AcceptAddressTransferRequest;
   export type Output = AcceptAddressTransferResult;
@@ -21742,7 +21816,7 @@ export declare namespace DescribeImageReferences {
 export declare namespace DescribeImages {
   export type Input = DescribeImagesRequest;
   export type Output = DescribeImagesResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidAMIIDNotFound | CommonAwsError;
 }
 
 export declare namespace DescribeImageUsageReportEntries {
@@ -21808,13 +21882,13 @@ export declare namespace DescribeInstanceImageMetadata {
 export declare namespace DescribeInstances {
   export type Input = DescribeInstancesRequest;
   export type Output = DescribeInstancesResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidInstanceIDNotFound | CommonAwsError;
 }
 
 export declare namespace DescribeInstanceStatus {
   export type Input = DescribeInstanceStatusRequest;
   export type Output = DescribeInstanceStatusResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidInstanceIDNotFound | CommonAwsError;
 }
 
 export declare namespace DescribeInstanceTopology {
@@ -21838,7 +21912,7 @@ export declare namespace DescribeInstanceTypes {
 export declare namespace DescribeInternetGateways {
   export type Input = DescribeInternetGatewaysRequest;
   export type Output = DescribeInternetGatewaysResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidInternetGatewayNotFound | CommonAwsError;
 }
 
 export declare namespace DescribeIpamByoasn {
@@ -21904,7 +21978,7 @@ export declare namespace DescribeIpv6Pools {
 export declare namespace DescribeKeyPairs {
   export type Input = DescribeKeyPairsRequest;
   export type Output = DescribeKeyPairsResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidKeyPairNotFound | CommonAwsError;
 }
 
 export declare namespace DescribeLaunchTemplates {
@@ -21990,7 +22064,7 @@ export declare namespace DescribeMovingAddresses {
 export declare namespace DescribeNatGateways {
   export type Input = DescribeNatGatewaysRequest;
   export type Output = DescribeNatGatewaysResult;
-  export type Error = CommonAwsError;
+  export type Error = NatGatewayNotFound | CommonAwsError;
 }
 
 export declare namespace DescribeNetworkAcls {
@@ -22038,7 +22112,7 @@ export declare namespace DescribeNetworkInterfacePermissions {
 export declare namespace DescribeNetworkInterfaces {
   export type Input = DescribeNetworkInterfacesRequest;
   export type Output = DescribeNetworkInterfacesResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidNetworkInterfaceIDNotFound | CommonAwsError;
 }
 
 export declare namespace DescribeOutpostLags {
@@ -22158,7 +22232,7 @@ export declare namespace DescribeSecurityGroupRules {
 export declare namespace DescribeSecurityGroups {
   export type Input = DescribeSecurityGroupsRequest;
   export type Output = DescribeSecurityGroupsResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidGroupNotFound | CommonAwsError;
 }
 
 export declare namespace DescribeSecurityGroupVpcAssociations {
@@ -22218,7 +22292,7 @@ export declare namespace DescribeSpotFleetRequests {
 export declare namespace DescribeSpotInstanceRequests {
   export type Input = DescribeSpotInstanceRequestsRequest;
   export type Output = DescribeSpotInstanceRequestsResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidSpotInstanceRequestIDNotFound | CommonAwsError;
 }
 
 export declare namespace DescribeSpotPriceHistory {
@@ -22382,7 +22456,7 @@ export declare namespace DescribeVolumeAttribute {
 export declare namespace DescribeVolumes {
   export type Input = DescribeVolumesRequest;
   export type Output = DescribeVolumesResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidVolumeNotFound | CommonAwsError;
 }
 
 export declare namespace DescribeVolumesModifications {
@@ -22472,13 +22546,13 @@ export declare namespace DescribeVpcEndpointServices {
 export declare namespace DescribeVpcPeeringConnections {
   export type Input = DescribeVpcPeeringConnectionsRequest;
   export type Output = DescribeVpcPeeringConnectionsResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidVpcPeeringConnectionIDNotFound | CommonAwsError;
 }
 
 export declare namespace DescribeVpcs {
   export type Input = DescribeVpcsRequest;
   export type Output = DescribeVpcsResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidVpcIDNotFound | CommonAwsError;
 }
 
 export declare namespace DescribeVpnConnections {
@@ -24233,4 +24307,16 @@ export declare namespace WithdrawByoipCidr {
   export type Error = CommonAwsError;
 }
 
-export type EC2Errors = CommonAwsError;
+export type EC2Errors =
+  | InvalidAMIIDNotFound
+  | InvalidInstanceIDNotFound
+  | InvalidInternetGatewayNotFound
+  | InvalidKeyPairNotFound
+  | NatGatewayNotFound
+  | InvalidNetworkInterfaceIDNotFound
+  | InvalidGroupNotFound
+  | InvalidSpotInstanceRequestIDNotFound
+  | InvalidVolumeNotFound
+  | InvalidVpcPeeringConnectionIDNotFound
+  | InvalidVpcIDNotFound
+  | CommonAwsError;

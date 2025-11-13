@@ -141,6 +141,40 @@ const isRequired = (traits: Record<string, any> | undefined): boolean => {
   return !!(traits && "smithy.api#required" in traits);
 };
 
+// Helper to sanitize error names from waitable traits (remove dots, etc.)
+const sanitizeWaitableErrorName = (errorType: string): string => {
+  // Replace dots with empty string to create valid TypeScript identifiers
+  // e.g., "InvalidVpcID.NotFound" -> "InvalidVpcIDNotFound"
+  return errorType.replace(/\./g, "");
+};
+
+// Helper to extract error types from waitable traits
+const extractWaitableErrors = (
+  traits: Record<string, any> | undefined,
+): Array<{ original: string; sanitized: string }> => {
+  if (!traits || !traits["smithy.waiters#waitable"]) return [];
+
+  const waitable = traits["smithy.waiters#waitable"];
+  const errors = new Set<string>();
+
+  // Iterate through each waiter
+  for (const [_waiterName, waiterConfig] of Object.entries(waitable)) {
+    const config = waiterConfig as any;
+    if (config.acceptors && Array.isArray(config.acceptors)) {
+      for (const acceptor of config.acceptors) {
+        if (acceptor.matcher?.errorType) {
+          errors.add(acceptor.matcher.errorType);
+        }
+      }
+    }
+  }
+
+  return Array.from(errors).map((errorType) => ({
+    original: errorType,
+    sanitized: sanitizeWaitableErrorName(errorType),
+  }));
+};
+
 // Type generation options
 interface TypeGenOptions {
   manifest: Manifest;
@@ -1153,6 +1187,32 @@ const generateServiceTypes = (serviceName: string, manifest: Manifest) =>
       }
     }
 
+    // Collect all waitable errors across all operations
+    const allWaitableErrors = new Map<string, string>(); // sanitized -> original
+    for (const operation of operations) {
+      const waitableErrors = extractWaitableErrors(operation.shape.traits);
+      for (const { original, sanitized } of waitableErrors) {
+        allWaitableErrors.set(sanitized, original);
+      }
+    }
+
+    // Identify waitable errors that don't have existing shape definitions
+    const waitableErrorsToGenerate = new Map<string, string>();
+    for (const [sanitized, original] of allWaitableErrors.entries()) {
+      const errorShapeId = `com.amazonaws.${serviceName}#${original}`;
+      const shape = manifest.shapes[errorShapeId];
+      // Only generate if:
+      // 1. No shape exists or shape is not an error
+      // 2. Not a common AWS error that's already defined
+      if (
+        (!shape || !shape.traits?.["smithy.api#error"]) &&
+        !isCommonAwsErrorName(sanitized) &&
+        !isCommonAwsErrorName(original)
+      ) {
+        waitableErrorsToGenerate.set(sanitized, original);
+      }
+    }
+
     // Create the base options object for type generation
     const createTypeGenOptions = (
       overrides: Partial<TypeGenOptions> = {},
@@ -1166,7 +1226,7 @@ const generateServiceTypes = (serviceName: string, manifest: Manifest) =>
       ...overrides,
     });
 
-    // Check if we need Data import by looking for error shapes
+    // Check if we need Data import by looking for error shapes or waitable errors
     for (const [_shapeId, shape] of Object.entries(manifest.shapes)) {
       if (
         shape.type === "structure" &&
@@ -1176,6 +1236,10 @@ const generateServiceTypes = (serviceName: string, manifest: Manifest) =>
         needsDataImport = true;
         break;
       }
+    }
+    // Also need Data import if we're generating waitable errors
+    if (waitableErrorsToGenerate.size > 0) {
+      needsDataImport = true;
     }
 
     // Check if we need Stream import and Buffer support by looking for streaming fields
@@ -1336,11 +1400,28 @@ const generateServiceTypes = (serviceName: string, manifest: Manifest) =>
       // Generate error union type
       const errors = operation.shape.errors || [];
 
+      // Extract errors from waitable traits
+      const waitableErrors = extractWaitableErrors(operation.shape.traits);
+
       const errorTypes = errors.map(
         (error) =>
           typeNameMapping.get(extractShapeName(error.target)) ||
           extractShapeName(error.target),
       );
+
+      // Add waitable errors (excluding common AWS errors that are already included)
+      for (const { original, sanitized } of waitableErrors) {
+        if (
+          !isCommonAwsErrorName(sanitized) &&
+          !isCommonAwsErrorName(original)
+        ) {
+          const mappedName = typeNameMapping.get(sanitized) || sanitized;
+          if (!errorTypes.includes(mappedName)) {
+            errorTypes.push(mappedName);
+          }
+        }
+      }
+
       errorTypes.push("CommonAwsError");
 
       const errorUnion =
@@ -1492,6 +1573,20 @@ const generateServiceTypes = (serviceName: string, manifest: Manifest) =>
       }
     }
 
+    // Generate error classes for waitable errors that don't have existing shapes
+    for (const [sanitized, original] of waitableErrorsToGenerate.entries()) {
+      // Skip if already generated
+      if (generatedTypes.has(sanitized)) {
+        continue;
+      }
+
+      generatedTypes.add(sanitized);
+
+      code += `export declare class ${sanitized} extends EffectData.TaggedError(\n`;
+      code += `  "${original}",\n`;
+      code += ")<{}> {}\n\n";
+    }
+
     // Generate operation namespaces for error types
     for (const operation of operations) {
       // Get input and output types
@@ -1512,11 +1607,29 @@ const generateServiceTypes = (serviceName: string, manifest: Manifest) =>
 
       // Generate error union type
       const errors = operation.shape.errors || [];
+
+      // Extract errors from waitable traits
+      const waitableErrors = extractWaitableErrors(operation.shape.traits);
+
       const errorTypes = errors.map(
         (error) =>
           typeNameMapping.get(extractShapeName(error.target)) ||
           extractShapeName(error.target),
       );
+
+      // Add waitable errors (excluding common AWS errors that are already included)
+      for (const { original, sanitized } of waitableErrors) {
+        if (
+          !isCommonAwsErrorName(sanitized) &&
+          !isCommonAwsErrorName(original)
+        ) {
+          const mappedName = typeNameMapping.get(sanitized) || sanitized;
+          if (!errorTypes.includes(mappedName)) {
+            errorTypes.push(mappedName);
+          }
+        }
+      }
+
       errorTypes.push("CommonAwsError");
 
       const errorUnion = errorTypes.map((type) => `    | ${type}`).join("\n");
@@ -1646,6 +1759,12 @@ const generateServiceTypes = (serviceName: string, manifest: Manifest) =>
     const allServiceErrors = Object.entries(manifest.shapes)
       .filter(([_, shape]) => shape.traits?.["smithy.api#error"])
       .map(([shapeId, _]) => extractShapeName(shapeId));
+    // Add waitable errors
+    for (const [sanitized, _] of waitableErrorsToGenerate.entries()) {
+      if (!allServiceErrors.includes(sanitized)) {
+        allServiceErrors.push(sanitized);
+      }
+    }
     allServiceErrors.push("CommonAwsError");
     code += `export type ${consistentInterfaceName}Errors = ${allServiceErrors.join(" | ")};\n\n`;
 

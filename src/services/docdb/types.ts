@@ -245,7 +245,10 @@ export declare class DocDB extends AWSServiceClient {
   ): Effect.Effect<DBEngineVersionMessage, CommonAwsError>;
   describeDBInstances(
     input: DescribeDBInstancesMessage,
-  ): Effect.Effect<DBInstanceMessage, DBInstanceNotFoundFault | CommonAwsError>;
+  ): Effect.Effect<
+    DBInstanceMessage,
+    DBInstanceNotFoundFault | DBInstanceNotFound | CommonAwsError
+  >;
   describeDBSubnetGroups(
     input: DescribeDBSubnetGroupsMessage,
   ): Effect.Effect<
@@ -1730,6 +1733,10 @@ export interface VpcSecurityGroupMembership {
   Status?: string;
 }
 export type VpcSecurityGroupMembershipList = Array<VpcSecurityGroupMembership>;
+export declare class DBInstanceNotFound extends EffectData.TaggedError(
+  "DBInstanceNotFound",
+)<{}> {}
+
 export declare namespace AddSourceIdentifierToSubscription {
   export type Input = AddSourceIdentifierToSubscriptionMessage;
   export type Output = AddSourceIdentifierToSubscriptionResult;
@@ -2002,7 +2009,10 @@ export declare namespace DescribeDBEngineVersions {
 export declare namespace DescribeDBInstances {
   export type Input = DescribeDBInstancesMessage;
   export type Output = DBInstanceMessage;
-  export type Error = DBInstanceNotFoundFault | CommonAwsError;
+  export type Error =
+    | DBInstanceNotFoundFault
+    | DBInstanceNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DescribeDBSubnetGroups {
@@ -2358,4 +2368,5 @@ export type DocDBErrors =
   | SubscriptionAlreadyExistFault
   | SubscriptionCategoryNotFoundFault
   | SubscriptionNotFoundFault
+  | DBInstanceNotFound
   | CommonAwsError;

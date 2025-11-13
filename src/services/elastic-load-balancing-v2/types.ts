@@ -211,7 +211,7 @@ export declare class ElasticLoadBalancingv2 extends AWSServiceClient {
     input: DescribeLoadBalancersInput,
   ): Effect.Effect<
     DescribeLoadBalancersOutput,
-    LoadBalancerNotFoundException | CommonAwsError
+    LoadBalancerNotFoundException | LoadBalancerNotFound | CommonAwsError
   >;
   describeRules(
     input: DescribeRulesInput,
@@ -260,6 +260,8 @@ export declare class ElasticLoadBalancingv2 extends AWSServiceClient {
     | HealthUnavailableException
     | InvalidTargetException
     | TargetGroupNotFoundException
+    | InvalidTarget
+    | InvalidInstance
     | CommonAwsError
   >;
   describeTrustStoreAssociations(
@@ -1868,6 +1870,18 @@ export type ZonalCapacityReservationStates =
   Array<ZonalCapacityReservationState>;
 export type ZoneName = string;
 
+export declare class LoadBalancerNotFound extends EffectData.TaggedError(
+  "LoadBalancerNotFound",
+)<{}> {}
+
+export declare class InvalidTarget extends EffectData.TaggedError(
+  "InvalidTarget",
+)<{}> {}
+
+export declare class InvalidInstance extends EffectData.TaggedError(
+  "InvalidInstance",
+)<{}> {}
+
 export declare namespace AddListenerCertificates {
   export type Input = AddListenerCertificatesInput;
   export type Output = AddListenerCertificatesOutput;
@@ -2101,7 +2115,10 @@ export declare namespace DescribeLoadBalancerAttributes {
 export declare namespace DescribeLoadBalancers {
   export type Input = DescribeLoadBalancersInput;
   export type Output = DescribeLoadBalancersOutput;
-  export type Error = LoadBalancerNotFoundException | CommonAwsError;
+  export type Error =
+    | LoadBalancerNotFoundException
+    | LoadBalancerNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DescribeRules {
@@ -2154,6 +2171,8 @@ export declare namespace DescribeTargetHealth {
     | HealthUnavailableException
     | InvalidTargetException
     | TargetGroupNotFoundException
+    | InvalidTarget
+    | InvalidInstance
     | CommonAwsError;
 }
 
@@ -2453,4 +2472,7 @@ export type ElasticLoadBalancingv2Errors =
   | TrustStoreNotFoundException
   | TrustStoreNotReadyException
   | UnsupportedProtocolException
+  | LoadBalancerNotFound
+  | InvalidTarget
+  | InvalidInstance
   | CommonAwsError;

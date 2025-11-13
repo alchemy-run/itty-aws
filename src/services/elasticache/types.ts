@@ -399,6 +399,7 @@ export declare class ElastiCache extends AWSServiceClient {
     | CacheClusterNotFoundFault
     | InvalidParameterCombinationException
     | InvalidParameterValueException
+    | CacheClusterNotFound
     | CommonAwsError
   >;
   describeCacheEngineVersions(
@@ -2747,6 +2748,10 @@ export declare class UserQuotaExceededFault extends EffectData.TaggedError(
 )<{
   readonly message?: string;
 }> {}
+export declare class CacheClusterNotFound extends EffectData.TaggedError(
+  "CacheClusterNotFound",
+)<{}> {}
+
 export declare namespace AddTagsToResource {
   export type Input = AddTagsToResourceMessage;
   export type Output = TagListMessage;
@@ -3180,6 +3185,7 @@ export declare namespace DescribeCacheClusters {
     | CacheClusterNotFoundFault
     | InvalidParameterCombinationException
     | InvalidParameterValueException
+    | CacheClusterNotFound
     | CommonAwsError;
 }
 
@@ -3777,4 +3783,5 @@ export type ElastiCacheErrors =
   | UserGroupQuotaExceededFault
   | UserNotFoundFault
   | UserQuotaExceededFault
+  | CacheClusterNotFound
   | CommonAwsError;

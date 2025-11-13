@@ -554,7 +554,7 @@ export declare class Redshift extends AWSServiceClient {
     input: DescribeClustersMessage,
   ): Effect.Effect<
     ClustersMessage,
-    ClusterNotFoundFault | InvalidTagFault | CommonAwsError
+    ClusterNotFoundFault | InvalidTagFault | ClusterNotFound | CommonAwsError
   >;
   describeClusterSecurityGroups(
     input: DescribeClusterSecurityGroupsMessage,
@@ -4179,6 +4179,10 @@ export type ZeroETLIntegrationStatus =
   | "deleting"
   | "syncing"
   | "needs_attention";
+export declare class ClusterNotFound extends EffectData.TaggedError(
+  "ClusterNotFound",
+)<{}> {}
+
 export declare namespace AcceptReservedNodeExchange {
   export type Input = AcceptReservedNodeExchangeInputMessage;
   export type Output = AcceptReservedNodeExchangeOutputMessage;
@@ -4802,7 +4806,11 @@ export declare namespace DescribeClusterParameters {
 export declare namespace DescribeClusters {
   export type Input = DescribeClustersMessage;
   export type Output = ClustersMessage;
-  export type Error = ClusterNotFoundFault | InvalidTagFault | CommonAwsError;
+  export type Error =
+    | ClusterNotFoundFault
+    | InvalidTagFault
+    | ClusterNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DescribeClusterSecurityGroups {
@@ -5821,4 +5829,5 @@ export type RedshiftErrors =
   | UnsupportedOptionFault
   | UsageLimitAlreadyExistsFault
   | UsageLimitNotFoundFault
+  | ClusterNotFound
   | CommonAwsError;

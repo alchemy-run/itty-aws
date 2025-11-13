@@ -767,12 +767,15 @@ export declare class SageMaker extends AWSServiceClient {
   >;
   describeImage(
     input: DescribeImageRequest,
-  ): Effect.Effect<DescribeImageResponse, ResourceNotFound | CommonAwsError>;
+  ): Effect.Effect<
+    DescribeImageResponse,
+    ResourceNotFound | ResourceNotFoundException | CommonAwsError
+  >;
   describeImageVersion(
     input: DescribeImageVersionRequest,
   ): Effect.Effect<
     DescribeImageVersionResponse,
-    ResourceNotFound | CommonAwsError
+    ResourceNotFound | ResourceNotFoundException | CommonAwsError
   >;
   describeInferenceComponent(
     input: DescribeInferenceComponentInput,
@@ -14201,6 +14204,10 @@ export type WorkteamArn = string;
 export type WorkteamName = string;
 
 export type Workteams = Array<Workteam>;
+export declare class ResourceNotFoundException extends EffectData.TaggedError(
+  "ResourceNotFoundException",
+)<{}> {}
+
 export declare namespace AddAssociation {
   export type Input = AddAssociationRequest;
   export type Output = AddAssociationResponse;
@@ -15223,13 +15230,19 @@ export declare namespace DescribeHyperParameterTuningJob {
 export declare namespace DescribeImage {
   export type Input = DescribeImageRequest;
   export type Output = DescribeImageResponse;
-  export type Error = ResourceNotFound | CommonAwsError;
+  export type Error =
+    | ResourceNotFound
+    | ResourceNotFoundException
+    | CommonAwsError;
 }
 
 export declare namespace DescribeImageVersion {
   export type Input = DescribeImageVersionRequest;
   export type Output = DescribeImageVersionResponse;
-  export type Error = ResourceNotFound | CommonAwsError;
+  export type Error =
+    | ResourceNotFound
+    | ResourceNotFoundException
+    | CommonAwsError;
 }
 
 export declare namespace DescribeInferenceComponent {
@@ -16531,4 +16544,5 @@ export type SageMakerErrors =
   | ResourceInUse
   | ResourceLimitExceeded
   | ResourceNotFound
+  | ResourceNotFoundException
   | CommonAwsError;
