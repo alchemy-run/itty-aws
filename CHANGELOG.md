@@ -1,3 +1,13 @@
+## v0.7.1
+
+### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
+
+- **ec2**: InvalidSubnet.NotFound -> InvalidSubnetID.NotFound &nbsp;-&nbsp; by **Sam Goodwin** [<samp>(7ea15)</samp>](https://github.com/sam-goodwin/itty-aws/commit/7ea1579d)
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sam-goodwin/itty-aws/compare/v0.7.0...v0.7.1)
+
+---
+
 ## v0.7.0
 
 ### &nbsp;&nbsp;&nbsp;🚀 Features
