@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
@@ -317,12 +318,12 @@ export interface AddPermissionRequest {
 }
 export type AttributeNameList = Array<QueueAttributeName>;
 export type AWSAccountIdList = Array<string>;
-export declare class BatchEntryIdsNotDistinct extends EffectData.TaggedError(
+export declare class BatchEntryIdsNotDistinct extends Data.TaggedError(
   "BatchEntryIdsNotDistinct",
 )<{
   readonly message?: string;
 }> {}
-export declare class BatchRequestTooLong extends EffectData.TaggedError(
+export declare class BatchRequestTooLong extends Data.TaggedError(
   "BatchRequestTooLong",
 )<{
   readonly message?: string;
@@ -406,7 +407,7 @@ export interface DeleteMessageRequest {
 export interface DeleteQueueRequest {
   QueueUrl: string;
 }
-export declare class EmptyBatchRequest extends EffectData.TaggedError(
+export declare class EmptyBatchRequest extends Data.TaggedError(
   "EmptyBatchRequest",
 )<{
   readonly message?: string;
@@ -427,68 +428,64 @@ export interface GetQueueUrlRequest {
 export interface GetQueueUrlResult {
   QueueUrl?: string;
 }
-export declare class InvalidAddress extends EffectData.TaggedError(
-  "InvalidAddress",
-)<{
+export declare class InvalidAddress extends Data.TaggedError("InvalidAddress")<{
   readonly message?: string;
 }> {}
-export declare class InvalidAttributeName extends EffectData.TaggedError(
+export declare class InvalidAttributeName extends Data.TaggedError(
   "InvalidAttributeName",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidAttributeValue extends EffectData.TaggedError(
+export declare class InvalidAttributeValue extends Data.TaggedError(
   "InvalidAttributeValue",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidBatchEntryId extends EffectData.TaggedError(
+export declare class InvalidBatchEntryId extends Data.TaggedError(
   "InvalidBatchEntryId",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidIdFormat extends EffectData.TaggedError(
+export declare class InvalidIdFormat extends Data.TaggedError(
   "InvalidIdFormat",
 )<{}> {}
-export declare class InvalidMessageContents extends EffectData.TaggedError(
+export declare class InvalidMessageContents extends Data.TaggedError(
   "InvalidMessageContents",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidSecurity extends EffectData.TaggedError(
+export declare class InvalidSecurity extends Data.TaggedError(
   "InvalidSecurity",
 )<{
   readonly message?: string;
 }> {}
-export declare class KmsAccessDenied extends EffectData.TaggedError(
+export declare class KmsAccessDenied extends Data.TaggedError(
   "KmsAccessDenied",
 )<{
   readonly message?: string;
 }> {}
-export declare class KmsDisabled extends EffectData.TaggedError("KmsDisabled")<{
+export declare class KmsDisabled extends Data.TaggedError("KmsDisabled")<{
   readonly message?: string;
 }> {}
-export declare class KmsInvalidKeyUsage extends EffectData.TaggedError(
+export declare class KmsInvalidKeyUsage extends Data.TaggedError(
   "KmsInvalidKeyUsage",
 )<{
   readonly message?: string;
 }> {}
-export declare class KmsInvalidState extends EffectData.TaggedError(
+export declare class KmsInvalidState extends Data.TaggedError(
   "KmsInvalidState",
 )<{
   readonly message?: string;
 }> {}
-export declare class KmsNotFound extends EffectData.TaggedError("KmsNotFound")<{
+export declare class KmsNotFound extends Data.TaggedError("KmsNotFound")<{
   readonly message?: string;
 }> {}
-export declare class KmsOptInRequired extends EffectData.TaggedError(
+export declare class KmsOptInRequired extends Data.TaggedError(
   "KmsOptInRequired",
 )<{
   readonly message?: string;
 }> {}
-export declare class KmsThrottled extends EffectData.TaggedError(
-  "KmsThrottled",
-)<{
+export declare class KmsThrottled extends Data.TaggedError("KmsThrottled")<{
   readonly message?: string;
 }> {}
 export interface ListDeadLetterSourceQueuesRequest {
@@ -562,7 +559,7 @@ export type MessageBodySystemAttributeMap = Record<
   MessageSystemAttributeValue
 >;
 export type MessageList = Array<Message>;
-export declare class MessageNotInflight extends EffectData.TaggedError(
+export declare class MessageNotInflight extends Data.TaggedError(
   "MessageNotInflight",
 )<{}> {}
 export type MessageSystemAttributeList = Array<MessageSystemAttributeName>;
@@ -593,10 +590,10 @@ export type NullableInteger = number;
 
 export type NullableLong = number;
 
-export declare class OverLimit extends EffectData.TaggedError("OverLimit")<{
+export declare class OverLimit extends Data.TaggedError("OverLimit")<{
   readonly message?: string;
 }> {}
-export declare class PurgeQueueInProgress extends EffectData.TaggedError(
+export declare class PurgeQueueInProgress extends Data.TaggedError(
   "PurgeQueueInProgress",
 )<{
   readonly message?: string;
@@ -628,23 +625,23 @@ export type QueueAttributeName =
   | "FifoThroughputLimit"
   | "RedriveAllowPolicy"
   | "SqsManagedSseEnabled";
-export declare class QueueDeletedRecently extends EffectData.TaggedError(
+export declare class QueueDeletedRecently extends Data.TaggedError(
   "QueueDeletedRecently",
 )<{
   readonly message?: string;
 }> {}
-export declare class QueueDoesNotExist extends EffectData.TaggedError(
+export declare class QueueDoesNotExist extends Data.TaggedError(
   "QueueDoesNotExist",
 )<{
   readonly message?: string;
 }> {}
-export declare class QueueNameExists extends EffectData.TaggedError(
+export declare class QueueNameExists extends Data.TaggedError(
   "QueueNameExists",
 )<{
   readonly message?: string;
 }> {}
 export type QueueUrlList = Array<string>;
-export declare class ReceiptHandleIsInvalid extends EffectData.TaggedError(
+export declare class ReceiptHandleIsInvalid extends Data.TaggedError(
   "ReceiptHandleIsInvalid",
 )<{
   readonly message?: string;
@@ -666,12 +663,12 @@ export interface RemovePermissionRequest {
   QueueUrl: string;
   Label: string;
 }
-export declare class RequestThrottled extends EffectData.TaggedError(
+export declare class RequestThrottled extends Data.TaggedError(
   "RequestThrottled",
 )<{
   readonly message?: string;
 }> {}
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly message?: string;
@@ -752,12 +749,12 @@ export type TagValue = string;
 
 export type Token = string;
 
-export declare class TooManyEntriesInBatchRequest extends EffectData.TaggedError(
+export declare class TooManyEntriesInBatchRequest extends Data.TaggedError(
   "TooManyEntriesInBatchRequest",
 )<{
   readonly message?: string;
 }> {}
-export declare class UnsupportedOperation extends EffectData.TaggedError(
+export declare class UnsupportedOperation extends Data.TaggedError(
   "UnsupportedOperation",
 )<{
   readonly message?: string;

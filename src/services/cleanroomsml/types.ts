@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   ExpiredTokenException,
   IncompleteSignature,
@@ -624,7 +625,7 @@ export type AccessBudgetType =
   | "CALENDAR_MONTH"
   | "CALENDAR_WEEK"
   | "LIFETIME";
-export declare class AccessDeniedException extends EffectData.TaggedError(
+export declare class AccessDeniedException extends Data.TaggedError(
   "AccessDeniedException",
 )<{
   readonly message: string;
@@ -880,7 +881,7 @@ export interface ConfiguredModelAlgorithmSummary {
   name: string;
   description?: string;
 }
-export declare class ConflictException extends EffectData.TaggedError(
+export declare class ConflictException extends Data.TaggedError(
   "ConflictException",
 )<{
   readonly message: string;
@@ -1605,7 +1606,7 @@ export type InstanceType =
   | "ml.p3.8xlarge"
   | "ml.p3.16xlarge"
   | "ml.p3dn.24xlarge";
-export declare class InternalServiceException extends EffectData.TaggedError(
+export declare class InternalServiceException extends Data.TaggedError(
   "InternalServiceException",
 )<{
   readonly message: string;
@@ -1901,7 +1902,7 @@ export interface ResourceConfig {
 }
 export type ResourceDescription = string;
 
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly message: string;
@@ -1915,7 +1916,7 @@ export interface S3ConfigMap {
 export type S3DataDistributionType = "FullyReplicated" | "ShardedByS3Key";
 export type S3Path = string;
 
-export declare class ServiceQuotaExceededException extends EffectData.TaggedError(
+export declare class ServiceQuotaExceededException extends Data.TaggedError(
   "ServiceQuotaExceededException",
 )<{
   readonly message: string;
@@ -1988,7 +1989,7 @@ export interface TagResourceRequest {
 export interface TagResourceResponse {}
 export type TagValue = string;
 
-export declare class ThrottlingException extends EffectData.TaggedError(
+export declare class ThrottlingException extends Data.TaggedError(
   "ThrottlingException",
 )<{
   readonly message: string;
@@ -2135,7 +2136,7 @@ export interface UpdateConfiguredAudienceModelResponse {
 }
 export type UUID = string;
 
-export declare class ValidationException extends EffectData.TaggedError(
+export declare class ValidationException extends Data.TaggedError(
   "ValidationException",
 )<{
   readonly message: string;

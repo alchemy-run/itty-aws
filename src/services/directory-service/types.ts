@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   ExpiredTokenException,
   IncompleteSignature,
@@ -979,7 +980,7 @@ export interface AcceptSharedDirectoryRequest {
 export interface AcceptSharedDirectoryResult {
   SharedDirectory?: SharedDirectory;
 }
-export declare class AccessDeniedException extends EffectData.TaggedError(
+export declare class AccessDeniedException extends Data.TaggedError(
   "AccessDeniedException",
 )<{
   readonly Message?: string;
@@ -987,7 +988,7 @@ export declare class AccessDeniedException extends EffectData.TaggedError(
 }> {}
 export type AccessUrl = string;
 
-export declare class ADAssessmentLimitExceededException extends EffectData.TaggedError(
+export declare class ADAssessmentLimitExceededException extends Data.TaggedError(
   "ADAssessmentLimitExceededException",
 )<{
   readonly Message?: string;
@@ -1105,7 +1106,7 @@ export type AttributeName = string;
 export type Attributes = Array<Attribute>;
 export type AttributeValue = string;
 
-export declare class AuthenticationFailedException extends EffectData.TaggedError(
+export declare class AuthenticationFailedException extends Data.TaggedError(
   "AuthenticationFailedException",
 )<{
   readonly Message?: string;
@@ -1138,7 +1139,7 @@ export interface Certificate {
   Type?: CertificateType;
   ClientCertAuthSettings?: ClientCertAuthSettings;
 }
-export declare class CertificateAlreadyExistsException extends EffectData.TaggedError(
+export declare class CertificateAlreadyExistsException extends Data.TaggedError(
   "CertificateAlreadyExistsException",
 )<{
   readonly Message?: string;
@@ -1148,7 +1149,7 @@ export type CertificateCN = string;
 
 export type CertificateData = string;
 
-export declare class CertificateDoesNotExistException extends EffectData.TaggedError(
+export declare class CertificateDoesNotExistException extends Data.TaggedError(
   "CertificateDoesNotExistException",
 )<{
   readonly Message?: string;
@@ -1165,13 +1166,13 @@ export interface CertificateInfo {
   ExpiryDateTime?: Date | string;
   Type?: CertificateType;
 }
-export declare class CertificateInUseException extends EffectData.TaggedError(
+export declare class CertificateInUseException extends Data.TaggedError(
   "CertificateInUseException",
 )<{
   readonly Message?: string;
   readonly RequestId?: string;
 }> {}
-export declare class CertificateLimitExceededException extends EffectData.TaggedError(
+export declare class CertificateLimitExceededException extends Data.TaggedError(
   "CertificateLimitExceededException",
 )<{
   readonly Message?: string;
@@ -1208,7 +1209,7 @@ export type ClientAuthenticationType = "SmartCard" | "SmartCardOrPassword";
 export interface ClientCertAuthSettings {
   OCSPUrl?: string;
 }
-export declare class ClientException extends EffectData.TaggedError(
+export declare class ClientException extends Data.TaggedError(
   "ClientException",
 )<{
   readonly Message?: string;
@@ -1551,13 +1552,13 @@ export type Description = string;
 
 export type DesiredNumberOfDomainControllers = number;
 
-export declare class DirectoryAlreadyInRegionException extends EffectData.TaggedError(
+export declare class DirectoryAlreadyInRegionException extends Data.TaggedError(
   "DirectoryAlreadyInRegionException",
 )<{
   readonly Message?: string;
   readonly RequestId?: string;
 }> {}
-export declare class DirectoryAlreadySharedException extends EffectData.TaggedError(
+export declare class DirectoryAlreadySharedException extends Data.TaggedError(
   "DirectoryAlreadySharedException",
 )<{
   readonly Message?: string;
@@ -1637,7 +1638,7 @@ export interface DirectoryDescription {
   NetworkType?: NetworkType;
 }
 export type DirectoryDescriptions = Array<DirectoryDescription>;
-export declare class DirectoryDoesNotExistException extends EffectData.TaggedError(
+export declare class DirectoryDoesNotExistException extends Data.TaggedError(
   "DirectoryDoesNotExistException",
 )<{
   readonly Message?: string;
@@ -1647,13 +1648,13 @@ export type DirectoryEdition = "Enterprise" | "Standard" | "Hybrid";
 export type DirectoryId = string;
 
 export type DirectoryIds = Array<string>;
-export declare class DirectoryInDesiredStateException extends EffectData.TaggedError(
+export declare class DirectoryInDesiredStateException extends Data.TaggedError(
   "DirectoryInDesiredStateException",
 )<{
   readonly Message?: string;
   readonly RequestId?: string;
 }> {}
-export declare class DirectoryLimitExceededException extends EffectData.TaggedError(
+export declare class DirectoryLimitExceededException extends Data.TaggedError(
   "DirectoryLimitExceededException",
 )<{
   readonly Message?: string;
@@ -1672,7 +1673,7 @@ export interface DirectoryLimits {
 }
 export type DirectoryName = string;
 
-export declare class DirectoryNotSharedException extends EffectData.TaggedError(
+export declare class DirectoryNotSharedException extends Data.TaggedError(
   "DirectoryNotSharedException",
 )<{
   readonly Message?: string;
@@ -1702,7 +1703,7 @@ export type DirectoryType =
   | "ADConnector"
   | "MicrosoftAD"
   | "SharedMicrosoftAD";
-export declare class DirectoryUnavailableException extends EffectData.TaggedError(
+export declare class DirectoryUnavailableException extends Data.TaggedError(
   "DirectoryUnavailableException",
 )<{
   readonly Message?: string;
@@ -1718,7 +1719,7 @@ export interface DirectoryVpcSettingsDescription {
   SecurityGroupId?: string;
   AvailabilityZones?: Array<string>;
 }
-export declare class DisableAlreadyInProgressException extends EffectData.TaggedError(
+export declare class DisableAlreadyInProgressException extends Data.TaggedError(
   "DisableAlreadyInProgressException",
 )<{
   readonly Message?: string;
@@ -1770,7 +1771,7 @@ export interface DomainController {
 export type DomainControllerId = string;
 
 export type DomainControllerIds = Array<string>;
-export declare class DomainControllerLimitExceededException extends EffectData.TaggedError(
+export declare class DomainControllerLimitExceededException extends Data.TaggedError(
   "DomainControllerLimitExceededException",
 )<{
   readonly Message?: string;
@@ -1788,7 +1789,7 @@ export type DomainControllerStatus =
   | "Updating";
 export type DomainControllerStatusReason = string;
 
-export declare class EnableAlreadyInProgressException extends EffectData.TaggedError(
+export declare class EnableAlreadyInProgressException extends Data.TaggedError(
   "EnableAlreadyInProgressException",
 )<{
   readonly Message?: string;
@@ -1826,13 +1827,13 @@ export interface EnableSsoRequest {
 export interface EnableSsoResult {}
 export type EndDateTime = Date | string;
 
-export declare class EntityAlreadyExistsException extends EffectData.TaggedError(
+export declare class EntityAlreadyExistsException extends Data.TaggedError(
   "EntityAlreadyExistsException",
 )<{
   readonly Message?: string;
   readonly RequestId?: string;
 }> {}
-export declare class EntityDoesNotExistException extends EffectData.TaggedError(
+export declare class EntityDoesNotExistException extends Data.TaggedError(
   "EntityDoesNotExistException",
 )<{
   readonly Message?: string;
@@ -1891,7 +1892,7 @@ export interface HybridUpdateValue {
   InstanceIds?: Array<string>;
   DnsIps?: Array<string>;
 }
-export declare class IncompatibleSettingsException extends EffectData.TaggedError(
+export declare class IncompatibleSettingsException extends Data.TaggedError(
   "IncompatibleSettingsException",
 )<{
   readonly Message?: string;
@@ -1899,49 +1900,49 @@ export declare class IncompatibleSettingsException extends EffectData.TaggedErro
 }> {}
 export type InitiatedBy = string;
 
-export declare class InsufficientPermissionsException extends EffectData.TaggedError(
+export declare class InsufficientPermissionsException extends Data.TaggedError(
   "InsufficientPermissionsException",
 )<{
   readonly Message?: string;
   readonly RequestId?: string;
 }> {}
-export declare class InvalidCertificateException extends EffectData.TaggedError(
+export declare class InvalidCertificateException extends Data.TaggedError(
   "InvalidCertificateException",
 )<{
   readonly Message?: string;
   readonly RequestId?: string;
 }> {}
-export declare class InvalidClientAuthStatusException extends EffectData.TaggedError(
+export declare class InvalidClientAuthStatusException extends Data.TaggedError(
   "InvalidClientAuthStatusException",
 )<{
   readonly Message?: string;
   readonly RequestId?: string;
 }> {}
-export declare class InvalidLDAPSStatusException extends EffectData.TaggedError(
+export declare class InvalidLDAPSStatusException extends Data.TaggedError(
   "InvalidLDAPSStatusException",
 )<{
   readonly Message?: string;
   readonly RequestId?: string;
 }> {}
-export declare class InvalidNextTokenException extends EffectData.TaggedError(
+export declare class InvalidNextTokenException extends Data.TaggedError(
   "InvalidNextTokenException",
 )<{
   readonly Message?: string;
   readonly RequestId?: string;
 }> {}
-export declare class InvalidParameterException extends EffectData.TaggedError(
+export declare class InvalidParameterException extends Data.TaggedError(
   "InvalidParameterException",
 )<{
   readonly Message?: string;
   readonly RequestId?: string;
 }> {}
-export declare class InvalidPasswordException extends EffectData.TaggedError(
+export declare class InvalidPasswordException extends Data.TaggedError(
   "InvalidPasswordException",
 )<{
   readonly Message?: string;
   readonly RequestId?: string;
 }> {}
-export declare class InvalidTargetException extends EffectData.TaggedError(
+export declare class InvalidTargetException extends Data.TaggedError(
   "InvalidTargetException",
 )<{
   readonly Message?: string;
@@ -1964,7 +1965,7 @@ export interface IpRouteInfo {
   IpRouteStatusReason?: string;
   Description?: string;
 }
-export declare class IpRouteLimitExceededException extends EffectData.TaggedError(
+export declare class IpRouteLimitExceededException extends Data.TaggedError(
   "IpRouteLimitExceededException",
 )<{
   readonly Message?: string;
@@ -2075,7 +2076,7 @@ export interface NetworkUpdateSettings {
 }
 export type NextToken = string;
 
-export declare class NoAvailableCertificateException extends EffectData.TaggedError(
+export declare class NoAvailableCertificateException extends Data.TaggedError(
   "NoAvailableCertificateException",
 )<{
   readonly Message?: string;
@@ -2087,7 +2088,7 @@ export type OCSPUrl = string;
 
 export type OrganizationalUnitDN = string;
 
-export declare class OrganizationsException extends EffectData.TaggedError(
+export declare class OrganizationsException extends Data.TaggedError(
   "OrganizationsException",
 )<{
   readonly Message?: string;
@@ -2151,7 +2152,7 @@ export interface RegionDescription {
   StatusLastUpdatedDateTime?: Date | string;
   LastUpdatedDateTime?: Date | string;
 }
-export declare class RegionLimitExceededException extends EffectData.TaggedError(
+export declare class RegionLimitExceededException extends Data.TaggedError(
   "RegionLimitExceededException",
 )<{
   readonly Message?: string;
@@ -2251,7 +2252,7 @@ export type SelectiveAuth = "Enabled" | "Disabled";
 export type Server = string;
 
 export type Servers = Array<string>;
-export declare class ServiceException extends EffectData.TaggedError(
+export declare class ServiceException extends Data.TaggedError(
   "ServiceException",
 )<{
   readonly Message?: string;
@@ -2297,7 +2298,7 @@ export interface ShareDirectoryRequest {
 export interface ShareDirectoryResult {
   SharedDirectoryId?: string;
 }
-export declare class ShareLimitExceededException extends EffectData.TaggedError(
+export declare class ShareLimitExceededException extends Data.TaggedError(
   "ShareLimitExceededException",
 )<{
   readonly Message?: string;
@@ -2331,7 +2332,7 @@ export interface Snapshot {
 export type SnapshotId = string;
 
 export type SnapshotIds = Array<string>;
-export declare class SnapshotLimitExceededException extends EffectData.TaggedError(
+export declare class SnapshotLimitExceededException extends Data.TaggedError(
   "SnapshotLimitExceededException",
 )<{
   readonly Message?: string;
@@ -2385,7 +2386,7 @@ export interface Tag {
 export type TagKey = string;
 
 export type TagKeys = Array<string>;
-export declare class TagLimitExceededException extends EffectData.TaggedError(
+export declare class TagLimitExceededException extends Data.TaggedError(
   "TagLimitExceededException",
 )<{
   readonly Message?: string;
@@ -2456,13 +2457,13 @@ export interface UnshareTarget {
   Id: string;
   Type: TargetType;
 }
-export declare class UnsupportedOperationException extends EffectData.TaggedError(
+export declare class UnsupportedOperationException extends Data.TaggedError(
   "UnsupportedOperationException",
 )<{
   readonly Message?: string;
   readonly RequestId?: string;
 }> {}
-export declare class UnsupportedSettingsException extends EffectData.TaggedError(
+export declare class UnsupportedSettingsException extends Data.TaggedError(
   "UnsupportedSettingsException",
 )<{
   readonly Message?: string;
@@ -2538,7 +2539,7 @@ export type UpdateType = "OS" | "NETWORK" | "SIZE";
 export interface UpdateValue {
   OSUpdateSettings?: OSUpdateSettings;
 }
-export declare class UserDoesNotExistException extends EffectData.TaggedError(
+export declare class UserDoesNotExistException extends Data.TaggedError(
   "UserDoesNotExistException",
 )<{
   readonly Message?: string;

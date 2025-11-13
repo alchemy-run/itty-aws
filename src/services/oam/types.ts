@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   AccessDeniedException,
   ExpiredTokenException,
@@ -186,7 +187,7 @@ export declare class Oam extends OAM {}
 
 export type Arn = string;
 
-export declare class ConflictException extends EffectData.TaggedError(
+export declare class ConflictException extends Data.TaggedError(
   "ConflictException",
 )<{
   readonly Message?: string;
@@ -261,13 +262,13 @@ export interface GetSinkPolicyOutput {
 }
 export type IncludeTags = boolean;
 
-export declare class InternalServiceFault extends EffectData.TaggedError(
+export declare class InternalServiceFault extends Data.TaggedError(
   "InternalServiceFault",
 )<{
   readonly Message?: string;
   readonly amznErrorType?: string;
 }> {}
-export declare class InvalidParameterException extends EffectData.TaggedError(
+export declare class InvalidParameterException extends Data.TaggedError(
   "InvalidParameterException",
 )<{
   readonly message?: string;
@@ -346,7 +347,7 @@ export interface MetricConfiguration {
 }
 export type MetricsFilter = string;
 
-export declare class MissingRequiredParameterException extends EffectData.TaggedError(
+export declare class MissingRequiredParameterException extends Data.TaggedError(
   "MissingRequiredParameterException",
 )<{
   readonly message?: string;
@@ -365,7 +366,7 @@ export interface PutSinkPolicyOutput {
 }
 export type ResourceIdentifier = string;
 
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly Message?: string;
@@ -381,7 +382,7 @@ export type ResourceType =
   | "AWS::ApplicationSignals::ServiceLevelObjective";
 export type ResourceTypesInput = Array<ResourceType>;
 export type ResourceTypesOutput = Array<string>;
-export declare class ServiceQuotaExceededException extends EffectData.TaggedError(
+export declare class ServiceQuotaExceededException extends Data.TaggedError(
   "ServiceQuotaExceededException",
 )<{
   readonly Message?: string;
@@ -403,7 +404,7 @@ export interface TagResourceInput {
 export interface TagResourceOutput {}
 export type TagValue = string;
 
-export declare class TooManyTagsException extends EffectData.TaggedError(
+export declare class TooManyTagsException extends Data.TaggedError(
   "TooManyTagsException",
 )<{
   readonly Message?: string;
@@ -429,7 +430,7 @@ export interface UpdateLinkOutput {
   Tags?: Record<string, string>;
   LinkConfiguration?: LinkConfiguration;
 }
-export declare class ValidationException extends EffectData.TaggedError(
+export declare class ValidationException extends Data.TaggedError(
   "ValidationException",
 )<{
   readonly Message?: string;

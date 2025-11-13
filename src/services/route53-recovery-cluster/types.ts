@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   ExpiredTokenException,
   IncompleteSignature,
@@ -89,7 +90,7 @@ export declare class Route53RecoveryCluster extends AWSServiceClient {
   >;
 }
 
-export declare class AccessDeniedException extends EffectData.TaggedError(
+export declare class AccessDeniedException extends Data.TaggedError(
   "AccessDeniedException",
 )<{
   readonly message: string;
@@ -97,7 +98,7 @@ export declare class AccessDeniedException extends EffectData.TaggedError(
 export type Arn = string;
 
 export type Arns = Array<string>;
-export declare class ConflictException extends EffectData.TaggedError(
+export declare class ConflictException extends Data.TaggedError(
   "ConflictException",
 )<{
   readonly message: string;
@@ -106,7 +107,7 @@ export declare class ConflictException extends EffectData.TaggedError(
 }> {}
 export type ControlPanelName = string;
 
-export declare class EndpointTemporarilyUnavailableException extends EffectData.TaggedError(
+export declare class EndpointTemporarilyUnavailableException extends Data.TaggedError(
   "EndpointTemporarilyUnavailableException",
 )<{
   readonly message: string;
@@ -119,7 +120,7 @@ export interface GetRoutingControlStateResponse {
   RoutingControlState: RoutingControlState;
   RoutingControlName?: string;
 }
-export declare class InternalServerException extends EffectData.TaggedError(
+export declare class InternalServerException extends Data.TaggedError(
   "InternalServerException",
 )<{
   readonly message: string;
@@ -140,7 +141,7 @@ export type Owner = string;
 
 export type PageToken = string;
 
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly message: string;
@@ -161,7 +162,7 @@ export type RoutingControlName = string;
 
 export type RoutingControls = Array<RoutingControl>;
 export type RoutingControlState = "On" | "Off";
-export declare class ServiceLimitExceededException extends EffectData.TaggedError(
+export declare class ServiceLimitExceededException extends Data.TaggedError(
   "ServiceLimitExceededException",
 )<{
   readonly message: string;
@@ -172,7 +173,7 @@ export declare class ServiceLimitExceededException extends EffectData.TaggedErro
 }> {}
 export type Route53RecoveryClusterString = string;
 
-export declare class ThrottlingException extends EffectData.TaggedError(
+export declare class ThrottlingException extends Data.TaggedError(
   "ThrottlingException",
 )<{
   readonly message: string;
@@ -195,7 +196,7 @@ export interface UpdateRoutingControlStatesRequest {
   SafetyRulesToOverride?: Array<string>;
 }
 export interface UpdateRoutingControlStatesResponse {}
-export declare class ValidationException extends EffectData.TaggedError(
+export declare class ValidationException extends Data.TaggedError(
   "ValidationException",
 )<{
   readonly message: string;

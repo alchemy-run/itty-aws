@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   AccessDeniedException,
   ExpiredTokenException,
@@ -293,7 +294,7 @@ export type AttendeeMax = number;
 export interface AudioFeatures {
   EchoReduction?: MeetingFeatureStatus;
 }
-export declare class BadRequestException extends EffectData.TaggedError(
+export declare class BadRequestException extends Data.TaggedError(
   "BadRequestException",
 )<{
   readonly Code?: string;
@@ -318,7 +319,7 @@ export type ChimeSdkMeetingsBoolean = boolean;
 
 export type ClientRequestToken = string;
 
-export declare class ConflictException extends EffectData.TaggedError(
+export declare class ConflictException extends Data.TaggedError(
   "ConflictException",
 )<{
   readonly Code?: string;
@@ -419,7 +420,7 @@ export type ExternalMeetingId = string;
 
 export type ExternalUserId = string;
 
-export declare class ForbiddenException extends EffectData.TaggedError(
+export declare class ForbiddenException extends Data.TaggedError(
   "ForbiddenException",
 )<{
   readonly Code?: string;
@@ -443,7 +444,7 @@ export type GuidString = string;
 
 export type JoinTokenString = string;
 
-export declare class LimitExceededException extends EffectData.TaggedError(
+export declare class LimitExceededException extends Data.TaggedError(
   "LimitExceededException",
 )<{
   readonly Code?: string;
@@ -497,7 +498,7 @@ export interface MeetingFeaturesConfiguration {
   Attendee?: AttendeeFeatures;
 }
 export type MeetingFeatureStatus = "AVAILABLE" | "UNAVAILABLE";
-export declare class NotFoundException extends EffectData.TaggedError(
+export declare class NotFoundException extends Data.TaggedError(
   "NotFoundException",
 )<{
   readonly Code?: string;
@@ -511,7 +512,7 @@ export interface NotificationsConfiguration {
 }
 export type PrimaryMeetingId = string;
 
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly Code?: string;
@@ -523,14 +524,14 @@ export type ResultMax = number;
 
 export type RetryAfterSeconds = string;
 
-export declare class ServiceFailureException extends EffectData.TaggedError(
+export declare class ServiceFailureException extends Data.TaggedError(
   "ServiceFailureException",
 )<{
   readonly Code?: string;
   readonly Message?: string;
   readonly RequestId?: string;
 }> {}
-export declare class ServiceUnavailableException extends EffectData.TaggedError(
+export declare class ServiceUnavailableException extends Data.TaggedError(
   "ServiceUnavailableException",
 )<{
   readonly Code?: string;
@@ -565,14 +566,14 @@ export type TagValue = string;
 export type TenantId = string;
 
 export type TenantIdList = Array<string>;
-export declare class ThrottlingException extends EffectData.TaggedError(
+export declare class ThrottlingException extends Data.TaggedError(
   "ThrottlingException",
 )<{
   readonly Code?: string;
   readonly Message?: string;
   readonly RequestId?: string;
 }> {}
-export declare class TooManyTagsException extends EffectData.TaggedError(
+export declare class TooManyTagsException extends Data.TaggedError(
   "TooManyTagsException",
 )<{
   readonly Code?: string;
@@ -643,14 +644,14 @@ export interface TranscriptionConfiguration {
   EngineTranscribeSettings?: EngineTranscribeSettings;
   EngineTranscribeMedicalSettings?: EngineTranscribeMedicalSettings;
 }
-export declare class UnauthorizedException extends EffectData.TaggedError(
+export declare class UnauthorizedException extends Data.TaggedError(
   "UnauthorizedException",
 )<{
   readonly Code?: string;
   readonly Message?: string;
   readonly RequestId?: string;
 }> {}
-export declare class UnprocessableEntityException extends EffectData.TaggedError(
+export declare class UnprocessableEntityException extends Data.TaggedError(
   "UnprocessableEntityException",
 )<{
   readonly Code?: string;

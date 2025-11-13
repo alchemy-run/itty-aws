@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   ExpiredTokenException,
   IncompleteSignature,
@@ -295,7 +296,7 @@ export declare class CodeStarconnections extends AWSServiceClient {
 
 export declare class CodestarConnections extends CodeStarconnections {}
 
-export declare class AccessDeniedException extends EffectData.TaggedError(
+export declare class AccessDeniedException extends Data.TaggedError(
   "AccessDeniedException",
 )<{
   readonly Message?: string;
@@ -308,17 +309,17 @@ export type BlockerStatus = "ACTIVE" | "RESOLVED";
 export type BlockerType = "AUTOMATED";
 export type BranchName = string;
 
-export declare class ConcurrentModificationException extends EffectData.TaggedError(
+export declare class ConcurrentModificationException extends Data.TaggedError(
   "ConcurrentModificationException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class ConditionalCheckFailedException extends EffectData.TaggedError(
+export declare class ConditionalCheckFailedException extends Data.TaggedError(
   "ConditionalCheckFailedException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class ConflictException extends EffectData.TaggedError(
+export declare class ConflictException extends Data.TaggedError(
   "ConflictException",
 )<{
   readonly Message?: string;
@@ -485,12 +486,12 @@ export type IamRoleArn = string;
 
 export type Id = string;
 
-export declare class InternalServerException extends EffectData.TaggedError(
+export declare class InternalServerException extends Data.TaggedError(
   "InternalServerException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidInputException extends EffectData.TaggedError(
+export declare class InvalidInputException extends Data.TaggedError(
   "InvalidInputException",
 )<{
   readonly Message?: string;
@@ -498,7 +499,7 @@ export declare class InvalidInputException extends EffectData.TaggedError(
 export type KmsKeyArn = string;
 
 export type LatestSyncBlockerList = Array<SyncBlocker>;
-export declare class LimitExceededException extends EffectData.TaggedError(
+export declare class LimitExceededException extends Data.TaggedError(
   "LimitExceededException",
 )<{
   readonly Message?: string;
@@ -611,14 +612,14 @@ export type RepositorySyncStatus =
   | "QUEUED";
 export type ResolvedReason = string;
 
-export declare class ResourceAlreadyExistsException extends EffectData.TaggedError(
+export declare class ResourceAlreadyExistsException extends Data.TaggedError(
   "ResourceAlreadyExistsException",
 )<{
   readonly Message?: string;
 }> {}
 export type ResourceName = string;
 
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly Message?: string;
@@ -643,12 +644,12 @@ export type ResourceSyncStatus =
   | "INITIATED"
   | "IN_PROGRESS"
   | "SUCCEEDED";
-export declare class ResourceUnavailableException extends EffectData.TaggedError(
+export declare class ResourceUnavailableException extends Data.TaggedError(
   "ResourceUnavailableException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class RetryLatestCommitFailedException extends EffectData.TaggedError(
+export declare class RetryLatestCommitFailedException extends Data.TaggedError(
   "RetryLatestCommitFailedException",
 )<{
   readonly Message?: string;
@@ -690,7 +691,7 @@ export type SyncBlockerContextKey = string;
 export type SyncBlockerContextList = Array<SyncBlockerContext>;
 export type SyncBlockerContextValue = string;
 
-export declare class SyncBlockerDoesNotExistException extends EffectData.TaggedError(
+export declare class SyncBlockerDoesNotExistException extends Data.TaggedError(
   "SyncBlockerDoesNotExistException",
 )<{
   readonly Message?: string;
@@ -714,7 +715,7 @@ export interface SyncConfiguration {
   TriggerResourceUpdateOn?: TriggerResourceUpdateOn;
 }
 export type SyncConfigurationList = Array<SyncConfiguration>;
-export declare class SyncConfigurationStillExistsException extends EffectData.TaggedError(
+export declare class SyncConfigurationStillExistsException extends Data.TaggedError(
   "SyncConfigurationStillExistsException",
 )<{
   readonly Message?: string;
@@ -737,7 +738,7 @@ export type TagValue = string;
 
 export type Target = string;
 
-export declare class ThrottlingException extends EffectData.TaggedError(
+export declare class ThrottlingException extends Data.TaggedError(
   "ThrottlingException",
 )<{
   readonly Message?: string;
@@ -749,12 +750,12 @@ export type TlsCertificate = string;
 export type TriggerResourceUpdateOn = "ANY_CHANGE" | "FILE_CHANGE";
 export type Type = string;
 
-export declare class UnsupportedOperationException extends EffectData.TaggedError(
+export declare class UnsupportedOperationException extends Data.TaggedError(
   "UnsupportedOperationException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class UnsupportedProviderTypeException extends EffectData.TaggedError(
+export declare class UnsupportedProviderTypeException extends Data.TaggedError(
   "UnsupportedProviderTypeException",
 )<{
   readonly Message?: string;
@@ -770,7 +771,7 @@ export interface UpdateHostInput {
   VpcConfiguration?: VpcConfiguration;
 }
 export interface UpdateHostOutput {}
-export declare class UpdateOutOfSyncException extends EffectData.TaggedError(
+export declare class UpdateOutOfSyncException extends Data.TaggedError(
   "UpdateOutOfSyncException",
 )<{
   readonly Message?: string;

@@ -1,4 +1,6 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as EffectData from "effect/data/Data";
+import { AWSServiceClient } from "../../client.ts";
 import type {
   ExpiredTokenException,
   IncompleteSignature,
@@ -12,8 +14,8 @@ import type {
   RequestTimeoutException,
   ServiceUnavailable,
   ThrottlingException,
-  UnrecognizedClientException,
   UnknownOperationException,
+  UnrecognizedClientException,
   ValidationError,
 } from "../../error.ts";
 type CommonAwsError =
@@ -34,7 +36,6 @@ type CommonAwsError =
   | ValidationError
   | AccessDeniedException
   | ValidationException;
-import { AWSServiceClient } from "../../client.ts";
 
 export declare class LookoutMetrics extends AWSServiceClient {
   activateAnomalyDetector(

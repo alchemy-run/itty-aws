@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
@@ -395,7 +396,7 @@ export interface AnalysisDetails {
 export type AnalysisId = string;
 
 export type AnalysisIds = Array<string>;
-export declare class AnalysisNotFoundException extends EffectData.TaggedError(
+export declare class AnalysisNotFoundException extends Data.TaggedError(
   "AnalysisNotFoundException",
 )<{
   readonly Message?: string;
@@ -466,19 +467,19 @@ export type AttributeType = string;
 
 export type AttributeValue = string;
 
-export declare class BackfillLimitExceededException extends EffectData.TaggedError(
+export declare class BackfillLimitExceededException extends Data.TaggedError(
   "BackfillLimitExceededException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class BillExpirationException extends EffectData.TaggedError(
+export declare class BillExpirationException extends Data.TaggedError(
   "BillExpirationException",
 )<{
   readonly Message?: string;
 }> {}
 export type BillingViewArn = string;
 
-export declare class BillingViewHealthStatusException extends EffectData.TaggedError(
+export declare class BillingViewHealthStatusException extends Data.TaggedError(
   "BillingViewHealthStatusException",
 )<{
   readonly Message?: string;
@@ -693,7 +694,7 @@ export interface CurrentInstance {
   MonthlyCost?: string;
   CurrencyCode?: string;
 }
-export declare class DataUnavailableException extends EffectData.TaggedError(
+export declare class DataUnavailableException extends Data.TaggedError(
   "DataUnavailableException",
 )<{
   readonly Message?: string;
@@ -880,7 +881,7 @@ export interface ForecastResult {
   PredictionIntervalUpperBound?: string;
 }
 export type ForecastResultsByTime = Array<ForecastResult>;
-export declare class GenerationExistsException extends EffectData.TaggedError(
+export declare class GenerationExistsException extends Data.TaggedError(
   "GenerationExistsException",
 )<{
   readonly Message?: string;
@@ -1236,7 +1237,7 @@ export interface InstanceDetails {
   ESInstanceDetails?: ESInstanceDetails;
   MemoryDBInstanceDetails?: MemoryDBInstanceDetails;
 }
-export declare class InvalidNextTokenException extends EffectData.TaggedError(
+export declare class InvalidNextTokenException extends Data.TaggedError(
   "InvalidNextTokenException",
 )<{
   readonly Message?: string;
@@ -1244,7 +1245,7 @@ export declare class InvalidNextTokenException extends EffectData.TaggedError(
 export type Key = string;
 
 export type Keys = Array<string>;
-export declare class LimitExceededException extends EffectData.TaggedError(
+export declare class LimitExceededException extends Data.TaggedError(
   "LimitExceededException",
 )<{
   readonly Message?: string;
@@ -1478,7 +1479,7 @@ export interface RedshiftInstanceDetails {
   CurrentGeneration?: boolean;
   SizeFlexEligible?: boolean;
 }
-export declare class RequestChangedException extends EffectData.TaggedError(
+export declare class RequestChangedException extends Data.TaggedError(
   "RequestChangedException",
 )<{
   readonly Message?: string;
@@ -1577,7 +1578,7 @@ export type ReservedNormalizedUnits = string;
 export interface ResourceDetails {
   EC2ResourceDetails?: EC2ResourceDetails;
 }
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly Message?: string;
@@ -1802,7 +1803,7 @@ export type SavingsPlansUtilizationsByTime =
   Array<SavingsPlansUtilizationByTime>;
 export type SearchString = string;
 
-export declare class ServiceQuotaExceededException extends EffectData.TaggedError(
+export declare class ServiceQuotaExceededException extends Data.TaggedError(
   "ServiceQuotaExceededException",
 )<{
   readonly Message?: string;
@@ -1881,7 +1882,7 @@ export interface TerminateRecommendationDetail {
   CurrencyCode?: string;
 }
 export type TermInYears = "ONE_YEAR" | "THREE_YEARS";
-export declare class TooManyTagsException extends EffectData.TaggedError(
+export declare class TooManyTagsException extends Data.TaggedError(
   "TooManyTagsException",
 )<{
   readonly Message?: string;
@@ -1904,19 +1905,19 @@ export type TotalRunningHours = string;
 
 export type TotalRunningNormalizedUnits = string;
 
-export declare class UnknownMonitorException extends EffectData.TaggedError(
+export declare class UnknownMonitorException extends Data.TaggedError(
   "UnknownMonitorException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class UnknownSubscriptionException extends EffectData.TaggedError(
+export declare class UnknownSubscriptionException extends Data.TaggedError(
   "UnknownSubscriptionException",
 )<{
   readonly Message?: string;
 }> {}
 export type UnrealizedSavings = string;
 
-export declare class UnresolvableUsageUnitException extends EffectData.TaggedError(
+export declare class UnresolvableUsageUnitException extends Data.TaggedError(
   "UnresolvableUsageUnitException",
 )<{
   readonly Message?: string;

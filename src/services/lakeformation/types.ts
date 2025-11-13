@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   ExpiredTokenException,
   IncompleteSignature,
@@ -694,7 +695,7 @@ export declare class LakeFormation extends AWSServiceClient {
 
 export declare class Lakeformation extends LakeFormation {}
 
-export declare class AccessDeniedException extends EffectData.TaggedError(
+export declare class AccessDeniedException extends Data.TaggedError(
   "AccessDeniedException",
 )<{
   readonly Message?: string;
@@ -717,7 +718,7 @@ export interface AddObjectInput {
   PartitionValues?: Array<string>;
 }
 export interface AllRowsWildcard {}
-export declare class AlreadyExistsException extends EffectData.TaggedError(
+export declare class AlreadyExistsException extends Data.TaggedError(
   "AlreadyExistsException",
 )<{
   readonly Message?: string;
@@ -812,7 +813,7 @@ export type ComparisonOperator =
   | "BEGINS_WITH"
   | "IN"
   | "BETWEEN";
-export declare class ConcurrentModificationException extends EffectData.TaggedError(
+export declare class ConcurrentModificationException extends Data.TaggedError(
   "ConcurrentModificationException",
 )<{
   readonly Message?: string;
@@ -987,7 +988,7 @@ export interface DetailsMap {
   ResourceShare?: Array<string>;
 }
 export type EnableStatus = "ENABLED" | "DISABLED";
-export declare class EntityNotFoundException extends EffectData.TaggedError(
+export declare class EntityNotFoundException extends Data.TaggedError(
   "EntityNotFoundException",
 )<{
   readonly Message?: string;
@@ -1007,7 +1008,7 @@ export interface ExecutionStatistics {
 }
 export type ExpirationTimestamp = Date | string;
 
-export declare class ExpiredException extends EffectData.TaggedError(
+export declare class ExpiredException extends Data.TaggedError(
   "ExpiredException",
 )<{
   readonly Message?: string;
@@ -1175,7 +1176,7 @@ export interface GetWorkUnitsResponse {
   QueryId: string;
   WorkUnitRanges: Array<WorkUnitRange>;
 }
-export declare class GlueEncryptionException extends EffectData.TaggedError(
+export declare class GlueEncryptionException extends Data.TaggedError(
   "GlueEncryptionException",
 )<{
   readonly Message?: string;
@@ -1201,12 +1202,12 @@ export type IdentityCenterInstanceArn = string;
 
 export type IdentityString = string;
 
-export declare class InternalServiceException extends EffectData.TaggedError(
+export declare class InternalServiceException extends Data.TaggedError(
   "InternalServiceException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidInputException extends EffectData.TaggedError(
+export declare class InvalidInputException extends Data.TaggedError(
   "InvalidInputException",
 )<{
   readonly Message?: string;
@@ -1362,7 +1363,7 @@ export type NumberOfMilliseconds = number;
 
 export type ObjectSize = number;
 
-export declare class OperationTimeoutException extends EffectData.TaggedError(
+export declare class OperationTimeoutException extends Data.TaggedError(
   "OperationTimeoutException",
 )<{
   readonly Message?: string;
@@ -1411,7 +1412,7 @@ export type PermissionType =
   | "NESTED_PERMISSION"
   | "NESTED_CELL_PERMISSION";
 export type PermissionTypeList = Array<PermissionType>;
-export declare class PermissionTypeMismatchException extends EffectData.TaggedError(
+export declare class PermissionTypeMismatchException extends Data.TaggedError(
   "PermissionTypeMismatchException",
 )<{
   readonly Message?: string;
@@ -1512,12 +1513,12 @@ export interface ResourceInfo {
   WithPrivilegedAccess?: boolean;
 }
 export type ResourceInfoList = Array<ResourceInfo>;
-export declare class ResourceNotReadyException extends EffectData.TaggedError(
+export declare class ResourceNotReadyException extends Data.TaggedError(
   "ResourceNotReadyException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class ResourceNumberLimitExceededException extends EffectData.TaggedError(
+export declare class ResourceNumberLimitExceededException extends Data.TaggedError(
   "ResourceNumberLimitExceededException",
 )<{
   readonly Message?: string;
@@ -1586,7 +1587,7 @@ export interface StartTransactionRequest {
 export interface StartTransactionResponse {
   TransactionId?: string;
 }
-export declare class StatisticsNotReadyYetException extends EffectData.TaggedError(
+export declare class StatisticsNotReadyYetException extends Data.TaggedError(
   "StatisticsNotReadyYetException",
 )<{
   readonly Message?: string;
@@ -1647,7 +1648,7 @@ export interface TaggedTable {
   LFTagsOnColumns?: Array<ColumnLFTag>;
 }
 export type TagValueList = Array<string>;
-export declare class ThrottledException extends EffectData.TaggedError(
+export declare class ThrottledException extends Data.TaggedError(
   "ThrottledException",
 )<{
   readonly Message?: string;
@@ -1658,17 +1659,17 @@ export type Token = string;
 
 export type TokenString = string;
 
-export declare class TransactionCanceledException extends EffectData.TaggedError(
+export declare class TransactionCanceledException extends Data.TaggedError(
   "TransactionCanceledException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class TransactionCommitInProgressException extends EffectData.TaggedError(
+export declare class TransactionCommitInProgressException extends Data.TaggedError(
   "TransactionCommitInProgressException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class TransactionCommittedException extends EffectData.TaggedError(
+export declare class TransactionCommittedException extends Data.TaggedError(
   "TransactionCommittedException",
 )<{
   readonly Message?: string;
@@ -1766,7 +1767,7 @@ export interface WorkUnitRange {
   WorkUnitToken: string;
 }
 export type WorkUnitRangeList = Array<WorkUnitRange>;
-export declare class WorkUnitsNotReadyYetException extends EffectData.TaggedError(
+export declare class WorkUnitsNotReadyYetException extends Data.TaggedError(
   "WorkUnitsNotReadyYetException",
 )<{
   readonly Message?: string;

@@ -1,5 +1,6 @@
-import type { Effect, Stream, Data as EffectData } from "effect";
-import type { ResponseError } from "@effect/platform/HttpClientError";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
+import type * as Stream from "effect/stream/Stream";
 import type {
   ExpiredTokenException,
   IncompleteSignature,
@@ -2865,7 +2866,7 @@ export declare class QuickSight extends AWSServiceClient {
 
 export declare class Quicksight extends QuickSight {}
 
-export declare class AccessDeniedException extends EffectData.TaggedError(
+export declare class AccessDeniedException extends Data.TaggedError(
   "AccessDeniedException",
 )<{
   readonly Message?: string;
@@ -4366,7 +4367,7 @@ export interface Computation {
   Forecast?: ForecastComputation;
 }
 export type ComputationList = Array<Computation>;
-export declare class ConcurrentUpdatingException extends EffectData.TaggedError(
+export declare class ConcurrentUpdatingException extends Data.TaggedError(
   "ConcurrentUpdatingException",
 )<{
   readonly Message?: string;
@@ -4418,7 +4419,7 @@ export interface ConditionalFormattingSolidColor {
   Expression: string;
   Color?: string;
 }
-export declare class ConflictException extends EffectData.TaggedError(
+export declare class ConflictException extends Data.TaggedError(
   "ConflictException",
 )<{
   readonly Message?: string;
@@ -4938,7 +4939,7 @@ export interface CustomContentVisual {
   DataSetIdentifier: string;
   VisualContentAltText?: string;
 }
-export declare class CustomerManagedKeyUnavailableException extends EffectData.TaggedError(
+export declare class CustomerManagedKeyUnavailableException extends Data.TaggedError(
   "CustomerManagedKeyUnavailableException",
 )<{
   readonly Message?: string;
@@ -6698,7 +6699,7 @@ export interface DisplayFormatOptions {
 export type DnsResolverList = Array<string>;
 export type Domain = string;
 
-export declare class DomainNotWhitelistedException extends EffectData.TaggedError(
+export declare class DomainNotWhitelistedException extends Data.TaggedError(
   "DomainNotWhitelistedException",
 )<{
   readonly Message?: string;
@@ -7825,7 +7826,7 @@ export type IdentityProviderResourceUri = string;
 
 export type IdentityStore = "QUICKSIGHT";
 export type IdentityType = "IAM" | "QUICKSIGHT" | "IAM_IDENTITY_CENTER";
-export declare class IdentityTypeNotSupportedException extends EffectData.TaggedError(
+export declare class IdentityTypeNotSupportedException extends Data.TaggedError(
   "IdentityTypeNotSupportedException",
 )<{
   readonly Message?: string;
@@ -8039,30 +8040,30 @@ export interface IntegerValueWhenUnsetConfiguration {
   ValueWhenUnsetOption?: ValueWhenUnsetOption;
   CustomValue?: number;
 }
-export declare class InternalFailureException extends EffectData.TaggedError(
+export declare class InternalFailureException extends Data.TaggedError(
   "InternalFailureException",
 )<{
   readonly Message?: string;
   readonly RequestId?: string;
 }> {}
-export declare class InternalServerException extends EffectData.TaggedError(
+export declare class InternalServerException extends Data.TaggedError(
   "InternalServerException",
 )<{
   readonly Message: string;
 }> {}
-export declare class InvalidNextTokenException extends EffectData.TaggedError(
+export declare class InvalidNextTokenException extends Data.TaggedError(
   "InvalidNextTokenException",
 )<{
   readonly Message?: string;
   readonly RequestId?: string;
 }> {}
-export declare class InvalidParameterValueException extends EffectData.TaggedError(
+export declare class InvalidParameterValueException extends Data.TaggedError(
   "InvalidParameterValueException",
 )<{
   readonly Message?: string;
   readonly RequestId?: string;
 }> {}
-export declare class InvalidRequestException extends EffectData.TaggedError(
+export declare class InvalidRequestException extends Data.TaggedError(
   "InvalidRequestException",
 )<{
   readonly Message?: string;
@@ -8234,7 +8235,7 @@ export type Length = string;
 
 export type LimitedString = string;
 
-export declare class LimitExceededException extends EffectData.TaggedError(
+export declare class LimitExceededException extends Data.TaggedError(
   "LimitExceededException",
 )<{
   readonly Message?: string;
@@ -9553,7 +9554,7 @@ export interface PostgreSqlParameters {
   Port: number;
   Database: string;
 }
-export declare class PreconditionNotMetException extends EffectData.TaggedError(
+export declare class PreconditionNotMetException extends Data.TaggedError(
   "PreconditionNotMetException",
 )<{
   readonly Message?: string;
@@ -9648,7 +9649,7 @@ export interface QueueInfo {
   WaitingOnIngestion: string;
   QueuedIngestion: string;
 }
-export declare class QuickSightUserNotFoundException extends EffectData.TaggedError(
+export declare class QuickSightUserNotFoundException extends Data.TaggedError(
   "QuickSightUserNotFoundException",
 )<{
   readonly Message?: string;
@@ -10012,7 +10013,7 @@ export interface RenameColumnOperation {
 export type ResizeOption = "FIXED" | "RESPONSIVE";
 export type ResourceArn = string;
 
-export declare class ResourceExistsException extends EffectData.TaggedError(
+export declare class ResourceExistsException extends Data.TaggedError(
   "ResourceExistsException",
 )<{
   readonly Message?: string;
@@ -10023,7 +10024,7 @@ export type ResourceId = string;
 
 export type ResourceName = string;
 
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly Message?: string;
@@ -10043,7 +10044,7 @@ export type ResourceStatus =
   | "UPDATE_SUCCESSFUL"
   | "UPDATE_FAILED"
   | "DELETED";
-export declare class ResourceUnavailableException extends EffectData.TaggedError(
+export declare class ResourceUnavailableException extends Data.TaggedError(
   "ResourceUnavailableException",
 )<{
   readonly Message?: string;
@@ -10444,7 +10445,7 @@ export interface ServiceNowParameters {
 export type ServiceType = "REDSHIFT" | "QBUSINESS" | "ATHENA";
 export type SessionLifetimeInMinutes = number;
 
-export declare class SessionLifetimeInMinutesInvalidException extends EffectData.TaggedError(
+export declare class SessionLifetimeInMinutesInvalidException extends Data.TaggedError(
   "SessionLifetimeInMinutesInvalidException",
 )<{
   readonly Message?: string;
@@ -11266,7 +11267,7 @@ export interface ThousandSeparatorOptions {
 export interface ThresholdAlertsConfigurations {
   Enabled: boolean;
 }
-export declare class ThrottlingException extends EffectData.TaggedError(
+export declare class ThrottlingException extends Data.TaggedError(
   "ThrottlingException",
 )<{
   readonly Message?: string;
@@ -11824,13 +11825,13 @@ export interface UniqueValuesComputation {
 }
 export type UnlimitedPixelLength = string;
 
-export declare class UnsupportedPricingPlanException extends EffectData.TaggedError(
+export declare class UnsupportedPricingPlanException extends Data.TaggedError(
   "UnsupportedPricingPlanException",
 )<{
   readonly Message?: string;
   readonly RequestId?: string;
 }> {}
-export declare class UnsupportedUserEditionException extends EffectData.TaggedError(
+export declare class UnsupportedUserEditionException extends Data.TaggedError(
   "UnsupportedUserEditionException",
 )<{
   readonly Message?: string;

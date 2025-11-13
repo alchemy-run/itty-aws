@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
@@ -84,7 +85,7 @@ export interface DescribeStreamOutput {
 }
 export type ErrorMessage = string;
 
-export declare class ExpiredIteratorException extends EffectData.TaggedError(
+export declare class ExpiredIteratorException extends Data.TaggedError(
   "ExpiredIteratorException",
 )<{
   readonly message?: string;
@@ -110,7 +111,7 @@ export interface Identity {
   PrincipalId?: string;
   Type?: string;
 }
-export declare class InternalServerError extends EffectData.TaggedError(
+export declare class InternalServerError extends Data.TaggedError(
   "InternalServerError",
 )<{
   readonly message?: string;
@@ -123,7 +124,7 @@ export interface KeySchemaElement {
   KeyType: KeyType;
 }
 export type KeyType = "HASH" | "RANGE";
-export declare class LimitExceededException extends EffectData.TaggedError(
+export declare class LimitExceededException extends Data.TaggedError(
   "LimitExceededException",
 )<{
   readonly message?: string;
@@ -135,7 +136,7 @@ export interface ListStreamsInput {
   ExclusiveStartStreamArn?: string;
 }
 export interface ListStreamsOutput {
-  Streams?: Array<Stream>;
+  Streams?: Array<DynamodbStreamsStream>;
   LastEvaluatedStreamArn?: string;
 }
 export type MapAttributeValue = Record<string, AttributeValue>;
@@ -159,7 +160,7 @@ export interface DynamodbStreamsRecord {
   userIdentity?: Identity;
 }
 export type RecordList = Array<DynamodbStreamsRecord>;
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly message?: string;
@@ -190,7 +191,7 @@ export type ShardIteratorType =
   | "LATEST"
   | "AT_SEQUENCE_NUMBER"
   | "AFTER_SEQUENCE_NUMBER";
-export interface Stream {
+export interface DynamodbStreamsStream {
   StreamArn?: string;
   TableName?: string;
   StreamLabel?: string;
@@ -208,7 +209,7 @@ export interface StreamDescription {
   Shards?: Array<Shard>;
   LastEvaluatedShardId?: string;
 }
-export type StreamList = Array<Stream>;
+export type StreamList = Array<DynamodbStreamsStream>;
 export interface StreamRecord {
   ApproximateCreationDateTime?: Date | string;
   Keys?: Record<string, AttributeValue>;
@@ -231,7 +232,7 @@ export type StringAttributeValue = string;
 export type StringSetAttributeValue = Array<string>;
 export type TableName = string;
 
-export declare class TrimmedDataAccessException extends EffectData.TaggedError(
+export declare class TrimmedDataAccessException extends Data.TaggedError(
   "TrimmedDataAccessException",
 )<{
   readonly message?: string;

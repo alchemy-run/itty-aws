@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
@@ -1630,17 +1631,17 @@ export type Arn = string;
 
 export type AttributeValueList = Array<string>;
 export type AuditPolicyState = "locked" | "unlocked";
-export declare class AuthorizationAlreadyExistsFault extends EffectData.TaggedError(
+export declare class AuthorizationAlreadyExistsFault extends Data.TaggedError(
   "AuthorizationAlreadyExistsFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class AuthorizationNotFoundFault extends EffectData.TaggedError(
+export declare class AuthorizationNotFoundFault extends Data.TaggedError(
   "AuthorizationNotFoundFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class AuthorizationQuotaExceededFault extends EffectData.TaggedError(
+export declare class AuthorizationQuotaExceededFault extends Data.TaggedError(
   "AuthorizationQuotaExceededFault",
 )<{
   readonly message?: string;
@@ -1678,7 +1679,7 @@ export interface BacktrackDBClusterMessage {
   Force?: boolean;
   UseEarliestTimeOnPointInTimeUnavailable?: boolean;
 }
-export declare class BackupPolicyNotFoundFault extends EffectData.TaggedError(
+export declare class BackupPolicyNotFoundFault extends Data.TaggedError(
   "BackupPolicyNotFoundFault",
 )<{
   readonly message?: string;
@@ -1696,7 +1697,7 @@ export interface BlueGreenDeployment {
   DeleteTime?: Date | string;
   TagList?: Array<Tag>;
 }
-export declare class BlueGreenDeploymentAlreadyExistsFault extends EffectData.TaggedError(
+export declare class BlueGreenDeploymentAlreadyExistsFault extends Data.TaggedError(
   "BlueGreenDeploymentAlreadyExistsFault",
 )<{
   readonly message?: string;
@@ -1706,7 +1707,7 @@ export type BlueGreenDeploymentIdentifier = string;
 export type BlueGreenDeploymentList = Array<BlueGreenDeployment>;
 export type BlueGreenDeploymentName = string;
 
-export declare class BlueGreenDeploymentNotFoundFault extends EffectData.TaggedError(
+export declare class BlueGreenDeploymentNotFoundFault extends Data.TaggedError(
   "BlueGreenDeploymentNotFoundFault",
 )<{
   readonly message?: string;
@@ -1754,7 +1755,7 @@ export interface CertificateMessage {
   Certificates?: Array<Certificate>;
   Marker?: string;
 }
-export declare class CertificateNotFoundFault extends EffectData.TaggedError(
+export declare class CertificateNotFoundFault extends Data.TaggedError(
   "CertificateNotFoundFault",
 )<{
   readonly message?: string;
@@ -1877,7 +1878,7 @@ export interface CreateBlueGreenDeploymentRequest {
 export interface CreateBlueGreenDeploymentResponse {
   BlueGreenDeployment?: BlueGreenDeployment;
 }
-export declare class CreateCustomDBEngineVersionFault extends EffectData.TaggedError(
+export declare class CreateCustomDBEngineVersionFault extends Data.TaggedError(
   "CreateCustomDBEngineVersionFault",
 )<{
   readonly message?: string;
@@ -2237,12 +2238,12 @@ export interface CreateTenantDatabaseMessage {
 export interface CreateTenantDatabaseResult {
   TenantDatabase?: TenantDatabase;
 }
-export declare class CustomAvailabilityZoneNotFoundFault extends EffectData.TaggedError(
+export declare class CustomAvailabilityZoneNotFoundFault extends Data.TaggedError(
   "CustomAvailabilityZoneNotFoundFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class CustomDBEngineVersionAlreadyExistsFault extends EffectData.TaggedError(
+export declare class CustomDBEngineVersionAlreadyExistsFault extends Data.TaggedError(
   "CustomDBEngineVersionAlreadyExistsFault",
 )<{
   readonly message?: string;
@@ -2253,12 +2254,12 @@ export interface CustomDBEngineVersionAMI {
 }
 export type CustomDBEngineVersionManifest = string;
 
-export declare class CustomDBEngineVersionNotFoundFault extends EffectData.TaggedError(
+export declare class CustomDBEngineVersionNotFoundFault extends Data.TaggedError(
   "CustomDBEngineVersionNotFoundFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class CustomDBEngineVersionQuotaExceededFault extends EffectData.TaggedError(
+export declare class CustomDBEngineVersionQuotaExceededFault extends Data.TaggedError(
   "CustomDBEngineVersionQuotaExceededFault",
 )<{
   readonly message?: string;
@@ -2362,7 +2363,7 @@ export interface DBCluster {
   CertificateDetails?: CertificateDetails;
   EngineLifecycleSupport?: string;
 }
-export declare class DBClusterAlreadyExistsFault extends EffectData.TaggedError(
+export declare class DBClusterAlreadyExistsFault extends Data.TaggedError(
   "DBClusterAlreadyExistsFault",
 )<{
   readonly message?: string;
@@ -2399,12 +2400,12 @@ export interface DBClusterAutomatedBackupMessage {
   Marker?: string;
   DBClusterAutomatedBackups?: Array<DBClusterAutomatedBackup>;
 }
-export declare class DBClusterAutomatedBackupNotFoundFault extends EffectData.TaggedError(
+export declare class DBClusterAutomatedBackupNotFoundFault extends Data.TaggedError(
   "DBClusterAutomatedBackupNotFoundFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class DBClusterAutomatedBackupQuotaExceededFault extends EffectData.TaggedError(
+export declare class DBClusterAutomatedBackupQuotaExceededFault extends Data.TaggedError(
   "DBClusterAutomatedBackupQuotaExceededFault",
 )<{
   readonly message?: string;
@@ -2422,7 +2423,7 @@ export interface DBClusterBacktrackMessage {
   Marker?: string;
   DBClusterBacktracks?: Array<DBClusterBacktrack>;
 }
-export declare class DBClusterBacktrackNotFoundFault extends EffectData.TaggedError(
+export declare class DBClusterBacktrackNotFoundFault extends Data.TaggedError(
   "DBClusterBacktrackNotFoundFault",
 )<{
   readonly message?: string;
@@ -2446,7 +2447,7 @@ export interface DBClusterEndpoint {
   ExcludedMembers?: Array<string>;
   DBClusterEndpointArn?: string;
 }
-export declare class DBClusterEndpointAlreadyExistsFault extends EffectData.TaggedError(
+export declare class DBClusterEndpointAlreadyExistsFault extends Data.TaggedError(
   "DBClusterEndpointAlreadyExistsFault",
 )<{
   readonly message?: string;
@@ -2456,12 +2457,12 @@ export interface DBClusterEndpointMessage {
   Marker?: string;
   DBClusterEndpoints?: Array<DBClusterEndpoint>;
 }
-export declare class DBClusterEndpointNotFoundFault extends EffectData.TaggedError(
+export declare class DBClusterEndpointNotFoundFault extends Data.TaggedError(
   "DBClusterEndpointNotFoundFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class DBClusterEndpointQuotaExceededFault extends EffectData.TaggedError(
+export declare class DBClusterEndpointQuotaExceededFault extends Data.TaggedError(
   "DBClusterEndpointQuotaExceededFault",
 )<{
   readonly message?: string;
@@ -2480,7 +2481,7 @@ export interface DBClusterMessage {
   Marker?: string;
   DBClusters?: Array<DBCluster>;
 }
-export declare class DBClusterNotFoundFault extends EffectData.TaggedError(
+export declare class DBClusterNotFoundFault extends Data.TaggedError(
   "DBClusterNotFoundFault",
 )<{
   readonly message?: string;
@@ -2504,7 +2505,7 @@ export type DBClusterParameterGroupList = Array<DBClusterParameterGroup>;
 export interface DBClusterParameterGroupNameMessage {
   DBClusterParameterGroupName?: string;
 }
-export declare class DBClusterParameterGroupNotFoundFault extends EffectData.TaggedError(
+export declare class DBClusterParameterGroupNotFoundFault extends Data.TaggedError(
   "DBClusterParameterGroupNotFoundFault",
 )<{
   readonly message?: string;
@@ -2513,7 +2514,7 @@ export interface DBClusterParameterGroupsMessage {
   Marker?: string;
   DBClusterParameterGroups?: Array<DBClusterParameterGroup>;
 }
-export declare class DBClusterQuotaExceededFault extends EffectData.TaggedError(
+export declare class DBClusterQuotaExceededFault extends Data.TaggedError(
   "DBClusterQuotaExceededFault",
 )<{
   readonly message?: string;
@@ -2523,17 +2524,17 @@ export interface DBClusterRole {
   Status?: string;
   FeatureName?: string;
 }
-export declare class DBClusterRoleAlreadyExistsFault extends EffectData.TaggedError(
+export declare class DBClusterRoleAlreadyExistsFault extends Data.TaggedError(
   "DBClusterRoleAlreadyExistsFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class DBClusterRoleNotFoundFault extends EffectData.TaggedError(
+export declare class DBClusterRoleNotFoundFault extends Data.TaggedError(
   "DBClusterRoleNotFoundFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class DBClusterRoleQuotaExceededFault extends EffectData.TaggedError(
+export declare class DBClusterRoleQuotaExceededFault extends Data.TaggedError(
   "DBClusterRoleQuotaExceededFault",
 )<{
   readonly message?: string;
@@ -2567,7 +2568,7 @@ export interface DBClusterSnapshot {
   DbClusterResourceId?: string;
   DBSystemId?: string;
 }
-export declare class DBClusterSnapshotAlreadyExistsFault extends EffectData.TaggedError(
+export declare class DBClusterSnapshotAlreadyExistsFault extends Data.TaggedError(
   "DBClusterSnapshotAlreadyExistsFault",
 )<{
   readonly message?: string;
@@ -2586,7 +2587,7 @@ export interface DBClusterSnapshotMessage {
   Marker?: string;
   DBClusterSnapshots?: Array<DBClusterSnapshot>;
 }
-export declare class DBClusterSnapshotNotFoundFault extends EffectData.TaggedError(
+export declare class DBClusterSnapshotNotFoundFault extends Data.TaggedError(
   "DBClusterSnapshotNotFoundFault",
 )<{
   readonly message?: string;
@@ -2729,7 +2730,7 @@ export interface DBInstance {
   IsStorageConfigUpgradeAvailable?: boolean;
   EngineLifecycleSupport?: string;
 }
-export declare class DBInstanceAlreadyExistsFault extends EffectData.TaggedError(
+export declare class DBInstanceAlreadyExistsFault extends Data.TaggedError(
   "DBInstanceAlreadyExistsFault",
 )<{
   readonly message?: string;
@@ -2772,12 +2773,12 @@ export interface DBInstanceAutomatedBackupMessage {
   Marker?: string;
   DBInstanceAutomatedBackups?: Array<DBInstanceAutomatedBackup>;
 }
-export declare class DBInstanceAutomatedBackupNotFoundFault extends EffectData.TaggedError(
+export declare class DBInstanceAutomatedBackupNotFoundFault extends Data.TaggedError(
   "DBInstanceAutomatedBackupNotFoundFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class DBInstanceAutomatedBackupQuotaExceededFault extends EffectData.TaggedError(
+export declare class DBInstanceAutomatedBackupQuotaExceededFault extends Data.TaggedError(
   "DBInstanceAutomatedBackupQuotaExceededFault",
 )<{
   readonly message?: string;
@@ -2792,12 +2793,12 @@ export interface DBInstanceMessage {
   Marker?: string;
   DBInstances?: Array<DBInstance>;
 }
-export declare class DBInstanceNotFoundFault extends EffectData.TaggedError(
+export declare class DBInstanceNotFoundFault extends Data.TaggedError(
   "DBInstanceNotFoundFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class DBInstanceNotReadyFault extends EffectData.TaggedError(
+export declare class DBInstanceNotReadyFault extends Data.TaggedError(
   "DBInstanceNotReadyFault",
 )<{
   readonly message?: string;
@@ -2807,17 +2808,17 @@ export interface DBInstanceRole {
   FeatureName?: string;
   Status?: string;
 }
-export declare class DBInstanceRoleAlreadyExistsFault extends EffectData.TaggedError(
+export declare class DBInstanceRoleAlreadyExistsFault extends Data.TaggedError(
   "DBInstanceRoleAlreadyExistsFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class DBInstanceRoleNotFoundFault extends EffectData.TaggedError(
+export declare class DBInstanceRoleNotFoundFault extends Data.TaggedError(
   "DBInstanceRoleNotFoundFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class DBInstanceRoleQuotaExceededFault extends EffectData.TaggedError(
+export declare class DBInstanceRoleQuotaExceededFault extends Data.TaggedError(
   "DBInstanceRoleQuotaExceededFault",
 )<{
   readonly message?: string;
@@ -2830,7 +2831,7 @@ export interface DBInstanceStatusInfo {
   Message?: string;
 }
 export type DBInstanceStatusInfoList = Array<DBInstanceStatusInfo>;
-export declare class DBLogFileNotFoundFault extends EffectData.TaggedError(
+export declare class DBLogFileNotFoundFault extends Data.TaggedError(
   "DBLogFileNotFoundFault",
 )<{
   readonly message?: string;
@@ -2847,7 +2848,7 @@ export interface DBParameterGroup {
   Description?: string;
   DBParameterGroupArn?: string;
 }
-export declare class DBParameterGroupAlreadyExistsFault extends EffectData.TaggedError(
+export declare class DBParameterGroupAlreadyExistsFault extends Data.TaggedError(
   "DBParameterGroupAlreadyExistsFault",
 )<{
   readonly message?: string;
@@ -2860,12 +2861,12 @@ export type DBParameterGroupList = Array<DBParameterGroup>;
 export interface DBParameterGroupNameMessage {
   DBParameterGroupName?: string;
 }
-export declare class DBParameterGroupNotFoundFault extends EffectData.TaggedError(
+export declare class DBParameterGroupNotFoundFault extends Data.TaggedError(
   "DBParameterGroupNotFoundFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class DBParameterGroupQuotaExceededFault extends EffectData.TaggedError(
+export declare class DBParameterGroupQuotaExceededFault extends Data.TaggedError(
   "DBParameterGroupQuotaExceededFault",
 )<{
   readonly message?: string;
@@ -2899,7 +2900,7 @@ export interface DBProxy {
   EndpointNetworkType?: EndpointNetworkType;
   TargetConnectionNetworkType?: TargetConnectionNetworkType;
 }
-export declare class DBProxyAlreadyExistsFault extends EffectData.TaggedError(
+export declare class DBProxyAlreadyExistsFault extends Data.TaggedError(
   "DBProxyAlreadyExistsFault",
 )<{
   readonly message?: string;
@@ -2918,7 +2919,7 @@ export interface DBProxyEndpoint {
   IsDefault?: boolean;
   EndpointNetworkType?: EndpointNetworkType;
 }
-export declare class DBProxyEndpointAlreadyExistsFault extends EffectData.TaggedError(
+export declare class DBProxyEndpointAlreadyExistsFault extends Data.TaggedError(
   "DBProxyEndpointAlreadyExistsFault",
 )<{
   readonly message?: string;
@@ -2926,12 +2927,12 @@ export declare class DBProxyEndpointAlreadyExistsFault extends EffectData.Tagged
 export type DBProxyEndpointList = Array<DBProxyEndpoint>;
 export type DBProxyEndpointName = string;
 
-export declare class DBProxyEndpointNotFoundFault extends EffectData.TaggedError(
+export declare class DBProxyEndpointNotFoundFault extends Data.TaggedError(
   "DBProxyEndpointNotFoundFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class DBProxyEndpointQuotaExceededFault extends EffectData.TaggedError(
+export declare class DBProxyEndpointQuotaExceededFault extends Data.TaggedError(
   "DBProxyEndpointQuotaExceededFault",
 )<{
   readonly message?: string;
@@ -2947,12 +2948,12 @@ export type DBProxyEndpointTargetRole = "READ_WRITE" | "READ_ONLY";
 export type DBProxyList = Array<DBProxy>;
 export type DBProxyName = string;
 
-export declare class DBProxyNotFoundFault extends EffectData.TaggedError(
+export declare class DBProxyNotFoundFault extends Data.TaggedError(
   "DBProxyNotFoundFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class DBProxyQuotaExceededFault extends EffectData.TaggedError(
+export declare class DBProxyQuotaExceededFault extends Data.TaggedError(
   "DBProxyQuotaExceededFault",
 )<{
   readonly message?: string;
@@ -2977,7 +2978,7 @@ export interface DBProxyTarget {
   Role?: TargetRole;
   TargetHealth?: TargetHealth;
 }
-export declare class DBProxyTargetAlreadyRegisteredFault extends EffectData.TaggedError(
+export declare class DBProxyTargetAlreadyRegisteredFault extends Data.TaggedError(
   "DBProxyTargetAlreadyRegisteredFault",
 )<{
   readonly message?: string;
@@ -2994,12 +2995,12 @@ export interface DBProxyTargetGroup {
 }
 export type DBProxyTargetGroupName = string;
 
-export declare class DBProxyTargetGroupNotFoundFault extends EffectData.TaggedError(
+export declare class DBProxyTargetGroupNotFoundFault extends Data.TaggedError(
   "DBProxyTargetGroupNotFoundFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class DBProxyTargetNotFoundFault extends EffectData.TaggedError(
+export declare class DBProxyTargetNotFoundFault extends Data.TaggedError(
   "DBProxyTargetNotFoundFault",
 )<{
   readonly message?: string;
@@ -3043,7 +3044,7 @@ export interface DBSecurityGroup {
   IPRanges?: Array<IPRange>;
   DBSecurityGroupArn?: string;
 }
-export declare class DBSecurityGroupAlreadyExistsFault extends EffectData.TaggedError(
+export declare class DBSecurityGroupAlreadyExistsFault extends Data.TaggedError(
   "DBSecurityGroupAlreadyExistsFault",
 )<{
   readonly message?: string;
@@ -3058,17 +3059,17 @@ export interface DBSecurityGroupMessage {
   DBSecurityGroups?: Array<DBSecurityGroup>;
 }
 export type DBSecurityGroupNameList = Array<string>;
-export declare class DBSecurityGroupNotFoundFault extends EffectData.TaggedError(
+export declare class DBSecurityGroupNotFoundFault extends Data.TaggedError(
   "DBSecurityGroupNotFoundFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class DBSecurityGroupNotSupportedFault extends EffectData.TaggedError(
+export declare class DBSecurityGroupNotSupportedFault extends Data.TaggedError(
   "DBSecurityGroupNotSupportedFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class DBSecurityGroupQuotaExceededFault extends EffectData.TaggedError(
+export declare class DBSecurityGroupQuotaExceededFault extends Data.TaggedError(
   "DBSecurityGroupQuotaExceededFault",
 )<{
   readonly message?: string;
@@ -3087,14 +3088,14 @@ export interface DBShardGroup {
   DBShardGroupArn?: string;
   TagList?: Array<Tag>;
 }
-export declare class DBShardGroupAlreadyExistsFault extends EffectData.TaggedError(
+export declare class DBShardGroupAlreadyExistsFault extends Data.TaggedError(
   "DBShardGroupAlreadyExistsFault",
 )<{
   readonly message?: string;
 }> {}
 export type DBShardGroupIdentifier = string;
 
-export declare class DBShardGroupNotFoundFault extends EffectData.TaggedError(
+export declare class DBShardGroupNotFoundFault extends Data.TaggedError(
   "DBShardGroupNotFoundFault",
 )<{
   readonly message?: string;
@@ -3139,7 +3140,7 @@ export interface DBSnapshot {
   DedicatedLogVolume?: boolean;
   SnapshotAvailabilityZone?: string;
 }
-export declare class DBSnapshotAlreadyExistsFault extends EffectData.TaggedError(
+export declare class DBSnapshotAlreadyExistsFault extends Data.TaggedError(
   "DBSnapshotAlreadyExistsFault",
 )<{
   readonly message?: string;
@@ -3158,7 +3159,7 @@ export interface DBSnapshotMessage {
   Marker?: string;
   DBSnapshots?: Array<DBSnapshot>;
 }
-export declare class DBSnapshotNotFoundFault extends EffectData.TaggedError(
+export declare class DBSnapshotNotFoundFault extends Data.TaggedError(
   "DBSnapshotNotFoundFault",
 )<{
   readonly message?: string;
@@ -3178,7 +3179,7 @@ export interface DBSnapshotTenantDatabase {
   NcharCharacterSetName?: string;
   TagList?: Array<Tag>;
 }
-export declare class DBSnapshotTenantDatabaseNotFoundFault extends EffectData.TaggedError(
+export declare class DBSnapshotTenantDatabaseNotFoundFault extends Data.TaggedError(
   "DBSnapshotTenantDatabaseNotFoundFault",
 )<{
   readonly message?: string;
@@ -3197,12 +3198,12 @@ export interface DBSubnetGroup {
   DBSubnetGroupArn?: string;
   SupportedNetworkTypes?: Array<string>;
 }
-export declare class DBSubnetGroupAlreadyExistsFault extends EffectData.TaggedError(
+export declare class DBSubnetGroupAlreadyExistsFault extends Data.TaggedError(
   "DBSubnetGroupAlreadyExistsFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class DBSubnetGroupDoesNotCoverEnoughAZs extends EffectData.TaggedError(
+export declare class DBSubnetGroupDoesNotCoverEnoughAZs extends Data.TaggedError(
   "DBSubnetGroupDoesNotCoverEnoughAZs",
 )<{
   readonly message?: string;
@@ -3211,28 +3212,28 @@ export interface DBSubnetGroupMessage {
   Marker?: string;
   DBSubnetGroups?: Array<DBSubnetGroup>;
 }
-export declare class DBSubnetGroupNotAllowedFault extends EffectData.TaggedError(
+export declare class DBSubnetGroupNotAllowedFault extends Data.TaggedError(
   "DBSubnetGroupNotAllowedFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class DBSubnetGroupNotFoundFault extends EffectData.TaggedError(
+export declare class DBSubnetGroupNotFoundFault extends Data.TaggedError(
   "DBSubnetGroupNotFoundFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class DBSubnetGroupQuotaExceededFault extends EffectData.TaggedError(
+export declare class DBSubnetGroupQuotaExceededFault extends Data.TaggedError(
   "DBSubnetGroupQuotaExceededFault",
 )<{
   readonly message?: string;
 }> {}
 export type DBSubnetGroups = Array<DBSubnetGroup>;
-export declare class DBSubnetQuotaExceededFault extends EffectData.TaggedError(
+export declare class DBSubnetQuotaExceededFault extends Data.TaggedError(
   "DBSubnetQuotaExceededFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class DBUpgradeDependencyFailureFault extends EffectData.TaggedError(
+export declare class DBUpgradeDependencyFailureFault extends Data.TaggedError(
   "DBUpgradeDependencyFailureFault",
 )<{
   readonly message?: string;
@@ -3760,7 +3761,7 @@ export interface DomainMembership {
   DnsIps?: Array<string>;
 }
 export type DomainMembershipList = Array<DomainMembership>;
-export declare class DomainNotFoundFault extends EffectData.TaggedError(
+export declare class DomainNotFoundFault extends Data.TaggedError(
   "DomainNotFoundFault",
 )<{
   readonly message?: string;
@@ -3785,7 +3786,7 @@ export interface DownloadDBLogFilePortionMessage {
   Marker?: string;
   NumberOfLines?: number;
 }
-export declare class Ec2ImagePropertiesNotSupportedFault extends EffectData.TaggedError(
+export declare class Ec2ImagePropertiesNotSupportedFault extends Data.TaggedError(
   "Ec2ImagePropertiesNotSupportedFault",
 )<{
   readonly message?: string;
@@ -3854,7 +3855,7 @@ export interface EventSubscription {
   Enabled?: boolean;
   EventSubscriptionArn?: string;
 }
-export declare class EventSubscriptionQuotaExceededFault extends EffectData.TaggedError(
+export declare class EventSubscriptionQuotaExceededFault extends Data.TaggedError(
   "EventSubscriptionQuotaExceededFault",
 )<{
   readonly message?: string;
@@ -3885,12 +3886,12 @@ export interface ExportTask {
   WarningMessage?: string;
   SourceType?: ExportSourceType;
 }
-export declare class ExportTaskAlreadyExistsFault extends EffectData.TaggedError(
+export declare class ExportTaskAlreadyExistsFault extends Data.TaggedError(
   "ExportTaskAlreadyExistsFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class ExportTaskNotFoundFault extends EffectData.TaggedError(
+export declare class ExportTaskNotFoundFault extends Data.TaggedError(
   "ExportTaskNotFoundFault",
 )<{
   readonly message?: string;
@@ -3946,7 +3947,7 @@ export interface GlobalCluster {
   FailoverState?: FailoverState;
   TagList?: Array<Tag>;
 }
-export declare class GlobalClusterAlreadyExistsFault extends EffectData.TaggedError(
+export declare class GlobalClusterAlreadyExistsFault extends Data.TaggedError(
   "GlobalClusterAlreadyExistsFault",
 )<{
   readonly message?: string;
@@ -3965,12 +3966,12 @@ export type GlobalClusterMemberList = Array<GlobalClusterMember>;
 export type GlobalClusterMemberSynchronizationStatus =
   | "connected"
   | "pending-resync";
-export declare class GlobalClusterNotFoundFault extends EffectData.TaggedError(
+export declare class GlobalClusterNotFoundFault extends Data.TaggedError(
   "GlobalClusterNotFoundFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class GlobalClusterQuotaExceededFault extends EffectData.TaggedError(
+export declare class GlobalClusterQuotaExceededFault extends Data.TaggedError(
   "GlobalClusterQuotaExceededFault",
 )<{
   readonly message?: string;
@@ -3980,37 +3981,37 @@ export interface GlobalClustersMessage {
   GlobalClusters?: Array<GlobalCluster>;
 }
 export type IAMAuthMode = "DISABLED" | "REQUIRED" | "ENABLED";
-export declare class IamRoleMissingPermissionsFault extends EffectData.TaggedError(
+export declare class IamRoleMissingPermissionsFault extends Data.TaggedError(
   "IamRoleMissingPermissionsFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class IamRoleNotFoundFault extends EffectData.TaggedError(
+export declare class IamRoleNotFoundFault extends Data.TaggedError(
   "IamRoleNotFoundFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class InstanceQuotaExceededFault extends EffectData.TaggedError(
+export declare class InstanceQuotaExceededFault extends Data.TaggedError(
   "InstanceQuotaExceededFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class InsufficientAvailableIPsInSubnetFault extends EffectData.TaggedError(
+export declare class InsufficientAvailableIPsInSubnetFault extends Data.TaggedError(
   "InsufficientAvailableIPsInSubnetFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class InsufficientDBClusterCapacityFault extends EffectData.TaggedError(
+export declare class InsufficientDBClusterCapacityFault extends Data.TaggedError(
   "InsufficientDBClusterCapacityFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class InsufficientDBInstanceCapacityFault extends EffectData.TaggedError(
+export declare class InsufficientDBInstanceCapacityFault extends Data.TaggedError(
   "InsufficientDBInstanceCapacityFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class InsufficientStorageClusterCapacityFault extends EffectData.TaggedError(
+export declare class InsufficientStorageClusterCapacityFault extends Data.TaggedError(
   "InsufficientStorageClusterCapacityFault",
 )<{
   readonly message?: string;
@@ -4033,14 +4034,14 @@ export interface Integration {
   CreateTime?: Date | string;
   Errors?: Array<IntegrationError>;
 }
-export declare class IntegrationAlreadyExistsFault extends EffectData.TaggedError(
+export declare class IntegrationAlreadyExistsFault extends Data.TaggedError(
   "IntegrationAlreadyExistsFault",
 )<{
   readonly message?: string;
 }> {}
 export type IntegrationArn = string;
 
-export declare class IntegrationConflictOperationFault extends EffectData.TaggedError(
+export declare class IntegrationConflictOperationFault extends Data.TaggedError(
   "IntegrationConflictOperationFault",
 )<{
   readonly message?: string;
@@ -4057,12 +4058,12 @@ export type IntegrationIdentifier = string;
 export type IntegrationList = Array<Integration>;
 export type IntegrationName = string;
 
-export declare class IntegrationNotFoundFault extends EffectData.TaggedError(
+export declare class IntegrationNotFoundFault extends Data.TaggedError(
   "IntegrationNotFoundFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class IntegrationQuotaExceededFault extends EffectData.TaggedError(
+export declare class IntegrationQuotaExceededFault extends Data.TaggedError(
   "IntegrationQuotaExceededFault",
 )<{
   readonly message?: string;
@@ -4075,152 +4076,150 @@ export type IntegrationStatus =
   | "deleting"
   | "syncing"
   | "needs_attention";
-export declare class InvalidBlueGreenDeploymentStateFault extends EffectData.TaggedError(
+export declare class InvalidBlueGreenDeploymentStateFault extends Data.TaggedError(
   "InvalidBlueGreenDeploymentStateFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidCustomDBEngineVersionStateFault extends EffectData.TaggedError(
+export declare class InvalidCustomDBEngineVersionStateFault extends Data.TaggedError(
   "InvalidCustomDBEngineVersionStateFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidDBClusterAutomatedBackupStateFault extends EffectData.TaggedError(
+export declare class InvalidDBClusterAutomatedBackupStateFault extends Data.TaggedError(
   "InvalidDBClusterAutomatedBackupStateFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidDBClusterCapacityFault extends EffectData.TaggedError(
+export declare class InvalidDBClusterCapacityFault extends Data.TaggedError(
   "InvalidDBClusterCapacityFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidDBClusterEndpointStateFault extends EffectData.TaggedError(
+export declare class InvalidDBClusterEndpointStateFault extends Data.TaggedError(
   "InvalidDBClusterEndpointStateFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidDBClusterSnapshotStateFault extends EffectData.TaggedError(
+export declare class InvalidDBClusterSnapshotStateFault extends Data.TaggedError(
   "InvalidDBClusterSnapshotStateFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidDBClusterStateFault extends EffectData.TaggedError(
+export declare class InvalidDBClusterStateFault extends Data.TaggedError(
   "InvalidDBClusterStateFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidDBInstanceAutomatedBackupStateFault extends EffectData.TaggedError(
+export declare class InvalidDBInstanceAutomatedBackupStateFault extends Data.TaggedError(
   "InvalidDBInstanceAutomatedBackupStateFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidDBInstanceStateFault extends EffectData.TaggedError(
+export declare class InvalidDBInstanceStateFault extends Data.TaggedError(
   "InvalidDBInstanceStateFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidDBParameterGroupStateFault extends EffectData.TaggedError(
+export declare class InvalidDBParameterGroupStateFault extends Data.TaggedError(
   "InvalidDBParameterGroupStateFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidDBProxyEndpointStateFault extends EffectData.TaggedError(
+export declare class InvalidDBProxyEndpointStateFault extends Data.TaggedError(
   "InvalidDBProxyEndpointStateFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidDBProxyStateFault extends EffectData.TaggedError(
+export declare class InvalidDBProxyStateFault extends Data.TaggedError(
   "InvalidDBProxyStateFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidDBSecurityGroupStateFault extends EffectData.TaggedError(
+export declare class InvalidDBSecurityGroupStateFault extends Data.TaggedError(
   "InvalidDBSecurityGroupStateFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidDBShardGroupStateFault extends EffectData.TaggedError(
+export declare class InvalidDBShardGroupStateFault extends Data.TaggedError(
   "InvalidDBShardGroupStateFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidDBSnapshotStateFault extends EffectData.TaggedError(
+export declare class InvalidDBSnapshotStateFault extends Data.TaggedError(
   "InvalidDBSnapshotStateFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidDBSubnetGroupFault extends EffectData.TaggedError(
+export declare class InvalidDBSubnetGroupFault extends Data.TaggedError(
   "InvalidDBSubnetGroupFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidDBSubnetGroupStateFault extends EffectData.TaggedError(
+export declare class InvalidDBSubnetGroupStateFault extends Data.TaggedError(
   "InvalidDBSubnetGroupStateFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidDBSubnetStateFault extends EffectData.TaggedError(
+export declare class InvalidDBSubnetStateFault extends Data.TaggedError(
   "InvalidDBSubnetStateFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidEventSubscriptionStateFault extends EffectData.TaggedError(
+export declare class InvalidEventSubscriptionStateFault extends Data.TaggedError(
   "InvalidEventSubscriptionStateFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidExportOnlyFault extends EffectData.TaggedError(
+export declare class InvalidExportOnlyFault extends Data.TaggedError(
   "InvalidExportOnlyFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidExportSourceStateFault extends EffectData.TaggedError(
+export declare class InvalidExportSourceStateFault extends Data.TaggedError(
   "InvalidExportSourceStateFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidExportTaskStateFault extends EffectData.TaggedError(
+export declare class InvalidExportTaskStateFault extends Data.TaggedError(
   "InvalidExportTaskStateFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidGlobalClusterStateFault extends EffectData.TaggedError(
+export declare class InvalidGlobalClusterStateFault extends Data.TaggedError(
   "InvalidGlobalClusterStateFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidIntegrationStateFault extends EffectData.TaggedError(
+export declare class InvalidIntegrationStateFault extends Data.TaggedError(
   "InvalidIntegrationStateFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidOptionGroupStateFault extends EffectData.TaggedError(
+export declare class InvalidOptionGroupStateFault extends Data.TaggedError(
   "InvalidOptionGroupStateFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidResourceStateFault extends EffectData.TaggedError(
+export declare class InvalidResourceStateFault extends Data.TaggedError(
   "InvalidResourceStateFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidRestoreFault extends EffectData.TaggedError(
+export declare class InvalidRestoreFault extends Data.TaggedError(
   "InvalidRestoreFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidS3BucketFault extends EffectData.TaggedError(
+export declare class InvalidS3BucketFault extends Data.TaggedError(
   "InvalidS3BucketFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidSubnet extends EffectData.TaggedError(
-  "InvalidSubnet",
-)<{
+export declare class InvalidSubnet extends Data.TaggedError("InvalidSubnet")<{
   readonly message?: string;
 }> {}
-export declare class InvalidVPCNetworkStateFault extends EffectData.TaggedError(
+export declare class InvalidVPCNetworkStateFault extends Data.TaggedError(
   "InvalidVPCNetworkStateFault",
 )<{
   readonly message?: string;
@@ -4236,7 +4235,7 @@ export interface IssueDetails {
 export type KeyList = Array<string>;
 export type KmsKeyIdOrArn = string;
 
-export declare class KMSKeyNotAccessibleFault extends EffectData.TaggedError(
+export declare class KMSKeyNotAccessibleFault extends Data.TaggedError(
   "KMSKeyNotAccessibleFault",
 )<{
   readonly message?: string;
@@ -4282,7 +4281,7 @@ export interface MasterUserSecret {
   SecretStatus?: string;
   KmsKeyId?: string;
 }
-export declare class MaxDBShardGroupLimitReached extends EffectData.TaggedError(
+export declare class MaxDBShardGroupLimitReached extends Data.TaggedError(
   "MaxDBShardGroupLimitReached",
 )<{
   readonly message?: string;
@@ -4598,7 +4597,7 @@ export interface ModifyTenantDatabaseMessage {
 export interface ModifyTenantDatabaseResult {
   TenantDatabase?: TenantDatabase;
 }
-export declare class NetworkTypeNotSupported extends EffectData.TaggedError(
+export declare class NetworkTypeNotSupported extends Data.TaggedError(
   "NetworkTypeNotSupported",
 )<{
   readonly message?: string;
@@ -4636,7 +4635,7 @@ export interface OptionGroup {
   SourceAccountId?: string;
   CopyTimestamp?: Date | string;
 }
-export declare class OptionGroupAlreadyExistsFault extends EffectData.TaggedError(
+export declare class OptionGroupAlreadyExistsFault extends Data.TaggedError(
   "OptionGroupAlreadyExistsFault",
 )<{
   readonly message?: string;
@@ -4646,7 +4645,7 @@ export interface OptionGroupMembership {
   Status?: string;
 }
 export type OptionGroupMembershipList = Array<OptionGroupMembership>;
-export declare class OptionGroupNotFoundFault extends EffectData.TaggedError(
+export declare class OptionGroupNotFoundFault extends Data.TaggedError(
   "OptionGroupNotFoundFault",
 )<{
   readonly message?: string;
@@ -4687,7 +4686,7 @@ export interface OptionGroupOptionsMessage {
   Marker?: string;
 }
 export type OptionGroupOptionVersionsList = Array<OptionVersion>;
-export declare class OptionGroupQuotaExceededFault extends EffectData.TaggedError(
+export declare class OptionGroupQuotaExceededFault extends Data.TaggedError(
   "OptionGroupQuotaExceededFault",
 )<{
   readonly message?: string;
@@ -4837,7 +4836,7 @@ export interface PerformanceIssueDetails {
   Metrics?: Array<Metric>;
   Analysis?: string;
 }
-export declare class PointInTimeRestoreNotEnabledFault extends EffectData.TaggedError(
+export declare class PointInTimeRestoreNotEnabledFault extends Data.TaggedError(
   "PointInTimeRestoreNotEnabledFault",
 )<{
   readonly message?: string;
@@ -4865,7 +4864,7 @@ export interface PromoteReadReplicaMessage {
 export interface PromoteReadReplicaResult {
   DBInstance?: DBInstance;
 }
-export declare class ProvisionedIopsNotAvailableInAZFault extends EffectData.TaggedError(
+export declare class ProvisionedIopsNotAvailableInAZFault extends Data.TaggedError(
   "ProvisionedIopsNotAvailableInAZFault",
 )<{
   readonly message?: string;
@@ -4996,7 +4995,7 @@ export interface ReservedDBInstance {
   ReservedDBInstanceArn?: string;
   LeaseId?: string;
 }
-export declare class ReservedDBInstanceAlreadyExistsFault extends EffectData.TaggedError(
+export declare class ReservedDBInstanceAlreadyExistsFault extends Data.TaggedError(
   "ReservedDBInstanceAlreadyExistsFault",
 )<{
   readonly message?: string;
@@ -5006,12 +5005,12 @@ export interface ReservedDBInstanceMessage {
   Marker?: string;
   ReservedDBInstances?: Array<ReservedDBInstance>;
 }
-export declare class ReservedDBInstanceNotFoundFault extends EffectData.TaggedError(
+export declare class ReservedDBInstanceNotFoundFault extends Data.TaggedError(
   "ReservedDBInstanceNotFoundFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class ReservedDBInstanceQuotaExceededFault extends EffectData.TaggedError(
+export declare class ReservedDBInstanceQuotaExceededFault extends Data.TaggedError(
   "ReservedDBInstanceQuotaExceededFault",
 )<{
   readonly message?: string;
@@ -5034,7 +5033,7 @@ export interface ReservedDBInstancesOfferingMessage {
   Marker?: string;
   ReservedDBInstancesOfferings?: Array<ReservedDBInstancesOffering>;
 }
-export declare class ReservedDBInstancesOfferingNotFoundFault extends EffectData.TaggedError(
+export declare class ReservedDBInstancesOfferingNotFoundFault extends Data.TaggedError(
   "ReservedDBInstancesOfferingNotFoundFault",
 )<{
   readonly message?: string;
@@ -5049,7 +5048,7 @@ export interface ResetDBParameterGroupMessage {
   ResetAllParameters?: boolean;
   Parameters?: Array<Parameter>;
 }
-export declare class ResourceNotFoundFault extends EffectData.TaggedError(
+export declare class ResourceNotFoundFault extends Data.TaggedError(
   "ResourceNotFoundFault",
 )<{
   readonly message?: string;
@@ -5388,45 +5387,45 @@ export interface ServerlessV2ScalingConfigurationInfo {
   MaxCapacity?: number;
   SecondsUntilAutoPause?: number;
 }
-export declare class SharedSnapshotQuotaExceededFault extends EffectData.TaggedError(
+export declare class SharedSnapshotQuotaExceededFault extends Data.TaggedError(
   "SharedSnapshotQuotaExceededFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class SnapshotQuotaExceededFault extends EffectData.TaggedError(
+export declare class SnapshotQuotaExceededFault extends Data.TaggedError(
   "SnapshotQuotaExceededFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class SNSInvalidTopicFault extends EffectData.TaggedError(
+export declare class SNSInvalidTopicFault extends Data.TaggedError(
   "SNSInvalidTopicFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class SNSNoAuthorizationFault extends EffectData.TaggedError(
+export declare class SNSNoAuthorizationFault extends Data.TaggedError(
   "SNSNoAuthorizationFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class SNSTopicArnNotFoundFault extends EffectData.TaggedError(
+export declare class SNSTopicArnNotFoundFault extends Data.TaggedError(
   "SNSTopicArnNotFoundFault",
 )<{
   readonly message?: string;
 }> {}
 export type SourceArn = string;
 
-export declare class SourceClusterNotSupportedFault extends EffectData.TaggedError(
+export declare class SourceClusterNotSupportedFault extends Data.TaggedError(
   "SourceClusterNotSupportedFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class SourceDatabaseNotSupportedFault extends EffectData.TaggedError(
+export declare class SourceDatabaseNotSupportedFault extends Data.TaggedError(
   "SourceDatabaseNotSupportedFault",
 )<{
   readonly message?: string;
 }> {}
 export type SourceIdsList = Array<string>;
-export declare class SourceNotFoundFault extends EffectData.TaggedError(
+export declare class SourceNotFoundFault extends Data.TaggedError(
   "SourceNotFoundFault",
 )<{
   readonly message?: string;
@@ -5527,17 +5526,17 @@ export interface StopDBInstanceMessage {
 export interface StopDBInstanceResult {
   DBInstance?: DBInstance;
 }
-export declare class StorageQuotaExceededFault extends EffectData.TaggedError(
+export declare class StorageQuotaExceededFault extends Data.TaggedError(
   "StorageQuotaExceededFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class StorageTypeNotAvailableFault extends EffectData.TaggedError(
+export declare class StorageTypeNotAvailableFault extends Data.TaggedError(
   "StorageTypeNotAvailableFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class StorageTypeNotSupportedFault extends EffectData.TaggedError(
+export declare class StorageTypeNotSupportedFault extends Data.TaggedError(
   "StorageTypeNotSupportedFault",
 )<{
   readonly message?: string;
@@ -5553,24 +5552,24 @@ export interface Subnet {
   SubnetOutpost?: Outpost;
   SubnetStatus?: string;
 }
-export declare class SubnetAlreadyInUse extends EffectData.TaggedError(
+export declare class SubnetAlreadyInUse extends Data.TaggedError(
   "SubnetAlreadyInUse",
 )<{
   readonly message?: string;
 }> {}
 export type SubnetIdentifierList = Array<string>;
 export type SubnetList = Array<Subnet>;
-export declare class SubscriptionAlreadyExistFault extends EffectData.TaggedError(
+export declare class SubscriptionAlreadyExistFault extends Data.TaggedError(
   "SubscriptionAlreadyExistFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class SubscriptionCategoryNotFoundFault extends EffectData.TaggedError(
+export declare class SubscriptionCategoryNotFoundFault extends Data.TaggedError(
   "SubscriptionCategoryNotFoundFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class SubscriptionNotFoundFault extends EffectData.TaggedError(
+export declare class SubscriptionNotFoundFault extends Data.TaggedError(
   "SubscriptionNotFoundFault",
 )<{
   readonly message?: string;
@@ -5672,12 +5671,12 @@ export interface TenantDatabase {
   MasterUserSecret?: MasterUserSecret;
   TagList?: Array<Tag>;
 }
-export declare class TenantDatabaseAlreadyExistsFault extends EffectData.TaggedError(
+export declare class TenantDatabaseAlreadyExistsFault extends Data.TaggedError(
   "TenantDatabaseAlreadyExistsFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class TenantDatabaseNotFoundFault extends EffectData.TaggedError(
+export declare class TenantDatabaseNotFoundFault extends Data.TaggedError(
   "TenantDatabaseNotFoundFault",
 )<{
   readonly message?: string;
@@ -5686,7 +5685,7 @@ export interface TenantDatabasePendingModifiedValues {
   MasterUserPassword?: string;
   TenantDBName?: string;
 }
-export declare class TenantDatabaseQuotaExceededFault extends EffectData.TaggedError(
+export declare class TenantDatabaseQuotaExceededFault extends Data.TaggedError(
   "TenantDatabaseQuotaExceededFault",
 )<{
   readonly message?: string;
@@ -5701,7 +5700,7 @@ export interface Timezone {
 }
 export type TStamp = Date | string;
 
-export declare class UnsupportedDBEngineVersionFault extends EffectData.TaggedError(
+export declare class UnsupportedDBEngineVersionFault extends Data.TaggedError(
   "UnsupportedDBEngineVersionFault",
 )<{
   readonly message?: string;
@@ -5766,11 +5765,11 @@ export type WriteForwardingStatus =
   | "enabling"
   | "disabling"
   | "unknown";
-export declare class DBInstanceNotFound extends EffectData.TaggedError(
+export declare class DBInstanceNotFound extends Data.TaggedError(
   "DBInstanceNotFound",
 )<{}> {}
 
-export declare class DBSnapshotNotFound extends EffectData.TaggedError(
+export declare class DBSnapshotNotFound extends Data.TaggedError(
   "DBSnapshotNotFound",
 )<{}> {}
 

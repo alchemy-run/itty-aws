@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   ExpiredTokenException,
   IncompleteSignature,
@@ -809,7 +810,7 @@ export declare class Transfer extends AWSServiceClient {
   >;
 }
 
-export declare class AccessDeniedException extends EffectData.TaggedError(
+export declare class AccessDeniedException extends Data.TaggedError(
   "AccessDeniedException",
 )<{
   readonly Message?: string;
@@ -863,7 +864,7 @@ export interface CfnUserProperties {
   SshPublicKeys?: Array<string>;
 }
 export type CompressionEnum = "ZLIB" | "DISABLED";
-export declare class ConflictException extends EffectData.TaggedError(
+export declare class ConflictException extends Data.TaggedError(
   "ConflictException",
 )<{
   readonly Message: string;
@@ -1504,17 +1505,17 @@ export interface InputFileLocation {
   S3FileLocation?: S3InputFileLocation;
   EfsFileLocation?: EfsFileLocation;
 }
-export declare class InternalServiceError extends EffectData.TaggedError(
+export declare class InternalServiceError extends Data.TaggedError(
   "InternalServiceError",
 )<{
   readonly Message: string;
 }> {}
-export declare class InvalidNextTokenException extends EffectData.TaggedError(
+export declare class InvalidNextTokenException extends Data.TaggedError(
   "InvalidNextTokenException",
 )<{
   readonly Message: string;
 }> {}
-export declare class InvalidRequestException extends EffectData.TaggedError(
+export declare class InvalidRequestException extends Data.TaggedError(
   "InvalidRequestException",
 )<{
   readonly Message: string;
@@ -1810,14 +1811,14 @@ export interface ProtocolDetails {
 export type Protocols = Array<Protocol>;
 export type Resource = string;
 
-export declare class ResourceExistsException extends EffectData.TaggedError(
+export declare class ResourceExistsException extends Data.TaggedError(
   "ResourceExistsException",
 )<{
   readonly Message: string;
   readonly Resource: string;
   readonly ResourceType: string;
 }> {}
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly Message: string;
@@ -1894,7 +1895,7 @@ export type ServiceManagedEgressIpAddresses = Array<string>;
 export interface ServiceMetadata {
   UserDetails: UserDetails;
 }
-export declare class ServiceUnavailableException extends EffectData.TaggedError(
+export declare class ServiceUnavailableException extends Data.TaggedError(
   "ServiceUnavailableException",
 )<{
   readonly Message?: string;
@@ -2038,7 +2039,7 @@ export interface TestIdentityProviderResponse {
   Message?: string;
   Url: string;
 }
-export declare class ThrottlingException extends EffectData.TaggedError(
+export declare class ThrottlingException extends Data.TaggedError(
   "ThrottlingException",
 )<{
   readonly RetryAfterSeconds?: string;

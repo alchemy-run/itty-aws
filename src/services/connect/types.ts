@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   ExpiredTokenException,
   IncompleteSignature,
@@ -3346,7 +3347,7 @@ export declare class Connect extends AWSServiceClient {
   >;
 }
 
-export declare class AccessDeniedException extends EffectData.TaggedError(
+export declare class AccessDeniedException extends Data.TaggedError(
   "AccessDeniedException",
 )<{
   readonly Message?: string;
@@ -3964,13 +3965,13 @@ export interface Condition {
   StringCondition?: StringCondition;
   NumberCondition?: NumberCondition;
 }
-export declare class ConditionalOperationFailedException extends EffectData.TaggedError(
+export declare class ConditionalOperationFailedException extends Data.TaggedError(
   "ConditionalOperationFailedException",
 )<{
   readonly Message?: string;
 }> {}
 export type Conditions = Array<Condition>;
-export declare class ConflictException extends EffectData.TaggedError(
+export declare class ConflictException extends Data.TaggedError(
   "ConflictException",
 )<{
   readonly Message?: string;
@@ -4129,7 +4130,7 @@ export interface ContactFlowModuleSummary {
 }
 export type ContactFlowName = string;
 
-export declare class ContactFlowNotPublishedException extends EffectData.TaggedError(
+export declare class ContactFlowNotPublishedException extends Data.TaggedError(
   "ContactFlowNotPublishedException",
 )<{
   readonly Message?: string;
@@ -4206,7 +4207,7 @@ interface _ContactMetricValue {
 }
 
 export type ContactMetricValue = _ContactMetricValue & { Number: number };
-export declare class ContactNotFoundException extends EffectData.TaggedError(
+export declare class ContactNotFoundException extends Data.TaggedError(
   "ContactNotFoundException",
 )<{
   readonly Message?: string;
@@ -5092,7 +5093,7 @@ export type Description250 = string;
 
 export type DestinationId = string;
 
-export declare class DestinationNotAllowedException extends EffectData.TaggedError(
+export declare class DestinationNotAllowedException extends Data.TaggedError(
   "DestinationNotAllowedException",
 )<{
   readonly Message?: string;
@@ -5228,7 +5229,7 @@ export interface DownloadUrlMetadata {
   Url?: string;
   UrlExpiry?: string;
 }
-export declare class DuplicateResourceException extends EffectData.TaggedError(
+export declare class DuplicateResourceException extends Data.TaggedError(
   "DuplicateResourceException",
 )<{
   readonly Message?: string;
@@ -6080,7 +6081,7 @@ export interface HoursOfOperationTimeSlice {
   Hours: number;
   Minutes: number;
 }
-export declare class IdempotencyException extends EffectData.TaggedError(
+export declare class IdempotencyException extends Data.TaggedError(
   "IdempotencyException",
 )<{
   readonly Message?: string;
@@ -6242,7 +6243,7 @@ export type IntegrationType =
   | "ANALYTICS_CONNECTOR"
   | "CALL_TRANSFER_CONNECTOR"
   | "COGNITO_USER_POOL";
-export declare class InternalServiceException extends EffectData.TaggedError(
+export declare class InternalServiceException extends Data.TaggedError(
   "InternalServiceException",
 )<{
   readonly Message?: string;
@@ -6258,22 +6259,22 @@ export type IntervalPeriod =
   | "DAY"
   | "WEEK"
   | "TOTAL";
-export declare class InvalidContactFlowException extends EffectData.TaggedError(
+export declare class InvalidContactFlowException extends Data.TaggedError(
   "InvalidContactFlowException",
 )<{
   readonly problems?: Array<ProblemDetail>;
 }> {}
-export declare class InvalidContactFlowModuleException extends EffectData.TaggedError(
+export declare class InvalidContactFlowModuleException extends Data.TaggedError(
   "InvalidContactFlowModuleException",
 )<{
   readonly Problems?: Array<ProblemDetail>;
 }> {}
-export declare class InvalidParameterException extends EffectData.TaggedError(
+export declare class InvalidParameterException extends Data.TaggedError(
   "InvalidParameterException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidRequestException extends EffectData.TaggedError(
+export declare class InvalidRequestException extends Data.TaggedError(
   "InvalidRequestException",
 )<{
   readonly Message?: string;
@@ -6331,7 +6332,7 @@ export interface LexV2Bot {
   AliasArn?: string;
 }
 export type LexVersion = "V1" | "V2";
-export declare class LimitExceededException extends EffectData.TaggedError(
+export declare class LimitExceededException extends Data.TaggedError(
   "LimitExceededException",
 )<{
   readonly Message?: string;
@@ -6866,7 +6867,7 @@ export type Long = number;
 export interface MatchCriteria {
   AgentsCriteria?: AgentsCriteria;
 }
-export declare class MaximumResultReturnedException extends EffectData.TaggedError(
+export declare class MaximumResultReturnedException extends Data.TaggedError(
   "MaximumResultReturnedException",
 )<{
   readonly Message?: string;
@@ -7056,7 +7057,7 @@ export type OutboundCallerIdName = string;
 
 export type OutboundCallsEnabled = boolean;
 
-export declare class OutboundContactNotPermittedException extends EffectData.TaggedError(
+export declare class OutboundContactNotPermittedException extends Data.TaggedError(
   "OutboundContactNotPermittedException",
 )<{
   readonly Message?: string;
@@ -7087,7 +7088,7 @@ export interface OutboundStrategyConfig {
 export type OutboundStrategyType = "AGENT_FIRST";
 export type OutboundSubject = string;
 
-export declare class OutputTypeNotFoundException extends EffectData.TaggedError(
+export declare class OutputTypeNotFoundException extends Data.TaggedError(
   "OutputTypeNotFoundException",
 )<{
   readonly Message?: string;
@@ -7578,7 +7579,7 @@ export interface PromptSummary {
   LastModifiedRegion?: string;
 }
 export type PromptSummaryList = Array<PromptSummary>;
-export declare class PropertyValidationException extends EffectData.TaggedError(
+export declare class PropertyValidationException extends Data.TaggedError(
   "PropertyValidationException",
 )<{
   readonly Message: string;
@@ -8005,26 +8006,26 @@ export type RequiredTaskTemplateFields = Array<RequiredFieldInfo>;
 export type resourceArnListMaxLimit100 = Array<string>;
 export type ResourceArnOrId = string;
 
-export declare class ResourceConflictException extends EffectData.TaggedError(
+export declare class ResourceConflictException extends Data.TaggedError(
   "ResourceConflictException",
 )<{
   readonly Message?: string;
 }> {}
 export type ResourceId = string;
 
-export declare class ResourceInUseException extends EffectData.TaggedError(
+export declare class ResourceInUseException extends Data.TaggedError(
   "ResourceInUseException",
 )<{
   readonly Message?: string;
   readonly ResourceType?: ResourceType;
   readonly ResourceId?: string;
 }> {}
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class ResourceNotReadyException extends EffectData.TaggedError(
+export declare class ResourceNotReadyException extends Data.TaggedError(
   "ResourceNotReadyException",
 )<{
   readonly Message?: string;
@@ -8635,7 +8636,7 @@ export interface SendOutboundEmailRequest {
   ClientToken?: string;
 }
 export interface SendOutboundEmailResponse {}
-export declare class ServiceQuotaExceededException extends EffectData.TaggedError(
+export declare class ServiceQuotaExceededException extends Data.TaggedError(
   "ServiceQuotaExceededException",
 )<{
   readonly Message?: string;
@@ -9103,7 +9104,7 @@ export interface ThresholdV2 {
 }
 export type ThresholdValue = number;
 
-export declare class ThrottlingException extends EffectData.TaggedError(
+export declare class ThrottlingException extends Data.TaggedError(
   "ThrottlingException",
 )<{
   readonly Message?: string;
@@ -9113,7 +9114,7 @@ export type Timestamp = Date | string;
 
 export type TimeZone = string;
 
-export declare class TooManyRequestsException extends EffectData.TaggedError(
+export declare class TooManyRequestsException extends Data.TaggedError(
   "TooManyRequestsException",
 )<{
   readonly Message?: string;
@@ -9679,7 +9680,7 @@ export type UserIdList = Array<string>;
 export interface UserInfo {
   UserId?: string;
 }
-export declare class UserNotFoundException extends EffectData.TaggedError(
+export declare class UserNotFoundException extends Data.TaggedError(
   "UserNotFoundException",
 )<{
   readonly Message?: string;

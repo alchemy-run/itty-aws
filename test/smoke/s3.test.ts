@@ -1,10 +1,11 @@
 import { fromNodeProviderChain } from "@aws-sdk/credential-providers";
-import { describe, expect, it } from "@effect/vitest";
-import { Console, Effect, Stream } from "effect";
-import { S3 } from "../../src/services/s3/index.ts";
-import { FileSystem } from "@effect/platform";
 import { NodeFileSystem } from "@effect/platform-node";
+import { describe, expect, it } from "@effect/vitest";
+import { Console, Effect } from "effect";
+import { FileSystem } from "effect/platform";
+import * as Stream from "effect/stream/Stream";
 import path from "pathe";
+import { S3 } from "../../src/services/s3/index.ts";
 
 const credentials = await fromNodeProviderChain()();
 

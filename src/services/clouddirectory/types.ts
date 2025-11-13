@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   ExpiredTokenException,
   IncompleteSignature,
@@ -1020,7 +1021,7 @@ export declare class CloudDirectory extends AWSServiceClient {
 
 export declare class Clouddirectory extends CloudDirectory {}
 
-export declare class AccessDeniedException extends EffectData.TaggedError(
+export declare class AccessDeniedException extends Data.TaggedError(
   "AccessDeniedException",
 )<{
   readonly Message?: string;
@@ -1390,7 +1391,7 @@ export interface BatchUpdateObjectAttributes {
 export interface BatchUpdateObjectAttributesResponse {
   ObjectIdentifier?: string;
 }
-export declare class BatchWriteException extends EffectData.TaggedError(
+export declare class BatchWriteException extends Data.TaggedError(
   "BatchWriteException",
 )<{
   readonly Index?: number;
@@ -1466,7 +1467,7 @@ export type Bool = boolean;
 
 export type BooleanAttributeValue = boolean;
 
-export declare class CannotListParentOfRootException extends EffectData.TaggedError(
+export declare class CannotListParentOfRootException extends Data.TaggedError(
   "CannotListParentOfRootException",
 )<{
   readonly Message?: string;
@@ -1584,14 +1585,14 @@ export interface Directory {
   State?: DirectoryState;
   CreationDateTime?: Date | string;
 }
-export declare class DirectoryAlreadyExistsException extends EffectData.TaggedError(
+export declare class DirectoryAlreadyExistsException extends Data.TaggedError(
   "DirectoryAlreadyExistsException",
 )<{
   readonly Message?: string;
 }> {}
 export type DirectoryArn = string;
 
-export declare class DirectoryDeletedException extends EffectData.TaggedError(
+export declare class DirectoryDeletedException extends Data.TaggedError(
   "DirectoryDeletedException",
 )<{
   readonly Message?: string;
@@ -1599,12 +1600,12 @@ export declare class DirectoryDeletedException extends EffectData.TaggedError(
 export type DirectoryList = Array<Directory>;
 export type DirectoryName = string;
 
-export declare class DirectoryNotDisabledException extends EffectData.TaggedError(
+export declare class DirectoryNotDisabledException extends Data.TaggedError(
   "DirectoryNotDisabledException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class DirectoryNotEnabledException extends EffectData.TaggedError(
+export declare class DirectoryNotEnabledException extends Data.TaggedError(
   "DirectoryNotEnabledException",
 )<{
   readonly Message?: string;
@@ -1629,7 +1630,7 @@ export interface Facet {
   ObjectType?: ObjectType;
   FacetStyle?: FacetStyle;
 }
-export declare class FacetAlreadyExistsException extends EffectData.TaggedError(
+export declare class FacetAlreadyExistsException extends Data.TaggedError(
   "FacetAlreadyExistsException",
 )<{
   readonly Message?: string;
@@ -1663,7 +1664,7 @@ export interface FacetAttributeUpdate {
   Action?: UpdateActionType;
 }
 export type FacetAttributeUpdateList = Array<FacetAttributeUpdate>;
-export declare class FacetInUseException extends EffectData.TaggedError(
+export declare class FacetInUseException extends Data.TaggedError(
   "FacetInUseException",
 )<{
   readonly Message?: string;
@@ -1671,13 +1672,13 @@ export declare class FacetInUseException extends EffectData.TaggedError(
 export type FacetName = string;
 
 export type FacetNameList = Array<string>;
-export declare class FacetNotFoundException extends EffectData.TaggedError(
+export declare class FacetNotFoundException extends Data.TaggedError(
   "FacetNotFoundException",
 )<{
   readonly Message?: string;
 }> {}
 export type FacetStyle = "STATIC" | "DYNAMIC";
-export declare class FacetValidationException extends EffectData.TaggedError(
+export declare class FacetValidationException extends Data.TaggedError(
   "FacetValidationException",
 )<{
   readonly Message?: string;
@@ -1743,7 +1744,7 @@ export interface GetTypedLinkFacetInformationRequest {
 export interface GetTypedLinkFacetInformationResponse {
   IdentityAttributeOrder?: Array<string>;
 }
-export declare class IncompatibleSchemaException extends EffectData.TaggedError(
+export declare class IncompatibleSchemaException extends Data.TaggedError(
   "IncompatibleSchemaException",
 )<{
   readonly Message?: string;
@@ -1753,52 +1754,52 @@ export interface IndexAttachment {
   ObjectIdentifier?: string;
 }
 export type IndexAttachmentList = Array<IndexAttachment>;
-export declare class IndexedAttributeMissingException extends EffectData.TaggedError(
+export declare class IndexedAttributeMissingException extends Data.TaggedError(
   "IndexedAttributeMissingException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InternalServiceException extends EffectData.TaggedError(
+export declare class InternalServiceException extends Data.TaggedError(
   "InternalServiceException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidArnException extends EffectData.TaggedError(
+export declare class InvalidArnException extends Data.TaggedError(
   "InvalidArnException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidAttachmentException extends EffectData.TaggedError(
+export declare class InvalidAttachmentException extends Data.TaggedError(
   "InvalidAttachmentException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidFacetUpdateException extends EffectData.TaggedError(
+export declare class InvalidFacetUpdateException extends Data.TaggedError(
   "InvalidFacetUpdateException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidNextTokenException extends EffectData.TaggedError(
+export declare class InvalidNextTokenException extends Data.TaggedError(
   "InvalidNextTokenException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidRuleException extends EffectData.TaggedError(
+export declare class InvalidRuleException extends Data.TaggedError(
   "InvalidRuleException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidSchemaDocException extends EffectData.TaggedError(
+export declare class InvalidSchemaDocException extends Data.TaggedError(
   "InvalidSchemaDocException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidTaggingRequestException extends EffectData.TaggedError(
+export declare class InvalidTaggingRequestException extends Data.TaggedError(
   "InvalidTaggingRequestException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class LimitExceededException extends EffectData.TaggedError(
+export declare class LimitExceededException extends Data.TaggedError(
   "LimitExceededException",
 )<{
   readonly Message?: string;
@@ -1814,7 +1815,7 @@ export interface LinkAttributeUpdate {
 export type LinkAttributeUpdateList = Array<LinkAttributeUpdate>;
 export type LinkName = string;
 
-export declare class LinkNameAlreadyInUseException extends EffectData.TaggedError(
+export declare class LinkNameAlreadyInUseException extends Data.TaggedError(
   "LinkNameAlreadyInUseException",
 )<{
   readonly Message?: string;
@@ -2041,17 +2042,17 @@ export interface LookupPolicyResponse {
 }
 export type NextToken = string;
 
-export declare class NotIndexException extends EffectData.TaggedError(
+export declare class NotIndexException extends Data.TaggedError(
   "NotIndexException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class NotNodeException extends EffectData.TaggedError(
+export declare class NotNodeException extends Data.TaggedError(
   "NotNodeException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class NotPolicyException extends EffectData.TaggedError(
+export declare class NotPolicyException extends Data.TaggedError(
   "NotPolicyException",
 )<{
   readonly Message?: string;
@@ -2060,7 +2061,7 @@ export type NumberAttributeValue = string;
 
 export type NumberResults = number;
 
-export declare class ObjectAlreadyDetachedException extends EffectData.TaggedError(
+export declare class ObjectAlreadyDetachedException extends Data.TaggedError(
   "ObjectAlreadyDetachedException",
 )<{
   readonly Message?: string;
@@ -2089,7 +2090,7 @@ export interface ObjectIdentifierAndLinkNameTuple {
 }
 export type ObjectIdentifierList = Array<string>;
 export type ObjectIdentifierToLinkNameMap = Record<string, string>;
-export declare class ObjectNotDetachedException extends EffectData.TaggedError(
+export declare class ObjectNotDetachedException extends Data.TaggedError(
   "ObjectNotDetachedException",
 )<{
   readonly Message?: string;
@@ -2147,12 +2148,12 @@ export interface RemoveFacetFromObjectRequest {
 }
 export interface RemoveFacetFromObjectResponse {}
 export type RequiredAttributeBehavior = "REQUIRED_ALWAYS" | "NOT_REQUIRED";
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class RetryableConflictException extends EffectData.TaggedError(
+export declare class RetryableConflictException extends Data.TaggedError(
   "RetryableConflictException",
 )<{
   readonly Message?: string;
@@ -2174,12 +2175,12 @@ export type RuleType =
   | "NUMBER_COMPARISON"
   | "STRING_FROM_SET"
   | "STRING_LENGTH";
-export declare class SchemaAlreadyExistsException extends EffectData.TaggedError(
+export declare class SchemaAlreadyExistsException extends Data.TaggedError(
   "SchemaAlreadyExistsException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class SchemaAlreadyPublishedException extends EffectData.TaggedError(
+export declare class SchemaAlreadyPublishedException extends Data.TaggedError(
   "SchemaAlreadyPublishedException",
 )<{
   readonly Message?: string;
@@ -2195,7 +2196,7 @@ export type SchemaName = string;
 
 export type SelectorObjectReference = string;
 
-export declare class StillContainsLinksException extends EffectData.TaggedError(
+export declare class StillContainsLinksException extends Data.TaggedError(
   "StillContainsLinksException",
 )<{
   readonly Message?: string;
@@ -2279,7 +2280,7 @@ export interface TypedLinkSpecifier {
   IdentityAttributeValues: Array<AttributeNameAndValue>;
 }
 export type TypedLinkSpecifierList = Array<TypedLinkSpecifier>;
-export declare class UnsupportedIndexTypeException extends EffectData.TaggedError(
+export declare class UnsupportedIndexTypeException extends Data.TaggedError(
   "UnsupportedIndexTypeException",
 )<{
   readonly Message?: string;
@@ -2343,7 +2344,7 @@ export interface UpgradePublishedSchemaRequest {
 export interface UpgradePublishedSchemaResponse {
   UpgradedSchemaArn?: string;
 }
-export declare class ValidationException extends EffectData.TaggedError(
+export declare class ValidationException extends Data.TaggedError(
   "ValidationException",
 )<{
   readonly Message?: string;

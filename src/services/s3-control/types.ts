@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
@@ -471,17 +472,17 @@ export type AwsLambdaTransformationPayload = string;
 
 export type AwsOrgArn = string;
 
-export declare class BadRequestException extends EffectData.TaggedError(
+export declare class BadRequestException extends Data.TaggedError(
   "BadRequestException",
 )<{
   readonly Message?: string;
 }> {}
 export type S3ControlBoolean = boolean;
 
-export declare class BucketAlreadyExists extends EffectData.TaggedError(
+export declare class BucketAlreadyExists extends Data.TaggedError(
   "BucketAlreadyExists",
 )<{}> {}
-export declare class BucketAlreadyOwnedByYou extends EffectData.TaggedError(
+export declare class BucketAlreadyOwnedByYou extends Data.TaggedError(
   "BucketAlreadyOwnedByYou",
 )<{}> {}
 export type BucketCannedACL =
@@ -1096,7 +1097,7 @@ export type IAMRoleArn = string;
 
 export type ID = string;
 
-export declare class IdempotencyException extends EffectData.TaggedError(
+export declare class IdempotencyException extends Data.TaggedError(
   "IdempotencyException",
 )<{
   readonly Message?: string;
@@ -1109,17 +1110,17 @@ export interface Include {
   Buckets?: Array<string>;
   Regions?: Array<string>;
 }
-export declare class InternalServiceException extends EffectData.TaggedError(
+export declare class InternalServiceException extends Data.TaggedError(
   "InternalServiceException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidNextTokenException extends EffectData.TaggedError(
+export declare class InvalidNextTokenException extends Data.TaggedError(
   "InvalidNextTokenException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidRequestException extends EffectData.TaggedError(
+export declare class InvalidRequestException extends Data.TaggedError(
   "InvalidRequestException",
 )<{
   readonly Message?: string;
@@ -1259,7 +1260,7 @@ export type JobStatus =
   | "Preparing"
   | "Ready"
   | "Suspended";
-export declare class JobStatusException extends EffectData.TaggedError(
+export declare class JobStatusException extends Data.TaggedError(
   "JobStatusException",
 )<{
   readonly Message?: string;
@@ -1588,14 +1589,14 @@ export type NonEmptyMaxLength256String = string;
 
 export type NonEmptyMaxLength64String = string;
 
-export declare class NoSuchPublicAccessBlockConfiguration extends EffectData.TaggedError(
+export declare class NoSuchPublicAccessBlockConfiguration extends Data.TaggedError(
   "NoSuchPublicAccessBlockConfiguration",
 )<{
   readonly Message?: string;
 }> {}
 export type NoSuchPublicAccessBlockConfigurationMessage = string;
 
-export declare class NotFoundException extends EffectData.TaggedError(
+export declare class NotFoundException extends Data.TaggedError(
   "NotFoundException",
 )<{
   readonly Message?: string;
@@ -2235,12 +2236,12 @@ export type TagValueString = string;
 
 export type TimeStamp = Date | string;
 
-export declare class TooManyRequestsException extends EffectData.TaggedError(
+export declare class TooManyRequestsException extends Data.TaggedError(
   "TooManyRequestsException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class TooManyTagsException extends EffectData.TaggedError(
+export declare class TooManyTagsException extends Data.TaggedError(
   "TooManyTagsException",
 )<{
   readonly Message?: string;

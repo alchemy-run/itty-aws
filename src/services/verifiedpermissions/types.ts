@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   ExpiredTokenException,
   IncompleteSignature,
@@ -236,7 +237,7 @@ export declare class VerifiedPermissions extends AWSServiceClient {
 
 export declare class Verifiedpermissions extends VerifiedPermissions {}
 
-export declare class AccessDeniedException extends EffectData.TaggedError(
+export declare class AccessDeniedException extends Data.TaggedError(
   "AccessDeniedException",
 )<{
   readonly message: string;
@@ -430,7 +431,7 @@ export type ConfigurationItem =
   | (_ConfigurationItem & {
       openIdConnectConfiguration: OpenIdConnectConfigurationItem;
     });
-export declare class ConflictException extends EffectData.TaggedError(
+export declare class ConflictException extends Data.TaggedError(
   "ConflictException",
 )<{
   readonly message: string;
@@ -666,12 +667,12 @@ export interface IdentitySourceItemDetails {
   openIdIssuer?: OpenIdIssuer;
 }
 export type IdentitySources = Array<IdentitySourceItem>;
-export declare class InternalServerException extends EffectData.TaggedError(
+export declare class InternalServerException extends Data.TaggedError(
   "InternalServerException",
 )<{
   readonly message: string;
 }> {}
-export declare class InvalidStateException extends EffectData.TaggedError(
+export declare class InvalidStateException extends Data.TaggedError(
   "InvalidStateException",
 )<{
   readonly message: string;
@@ -951,7 +952,7 @@ export interface ResourceConflict {
   resourceType: ResourceType;
 }
 export type ResourceConflictList = Array<ResourceConflict>;
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly message: string;
@@ -971,7 +972,7 @@ interface _SchemaDefinition {
 export type SchemaDefinition = _SchemaDefinition & { cedarJson: string };
 export type SchemaJson = string;
 
-export declare class ServiceQuotaExceededException extends EffectData.TaggedError(
+export declare class ServiceQuotaExceededException extends Data.TaggedError(
   "ServiceQuotaExceededException",
 )<{
   readonly message: string;
@@ -1022,7 +1023,7 @@ export interface TemplateLinkedPolicyDefinitionItem {
   principal?: EntityIdentifier;
   resource?: EntityIdentifier;
 }
-export declare class ThrottlingException extends EffectData.TaggedError(
+export declare class ThrottlingException extends Data.TaggedError(
   "ThrottlingException",
 )<{
   readonly message: string;
@@ -1033,7 +1034,7 @@ export type TimestampFormat = Date | string;
 
 export type Token = string;
 
-export declare class TooManyTagsException extends EffectData.TaggedError(
+export declare class TooManyTagsException extends Data.TaggedError(
   "TooManyTagsException",
 )<{
   readonly message?: string;
@@ -1159,7 +1160,7 @@ export interface UpdateStaticPolicyDefinition {
 }
 export type UserPoolArn = string;
 
-export declare class ValidationException extends EffectData.TaggedError(
+export declare class ValidationException extends Data.TaggedError(
   "ValidationException",
 )<{
   readonly message: string;

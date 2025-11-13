@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   ExpiredTokenException,
   IncompleteSignature,
@@ -1324,7 +1325,7 @@ export interface AcceleratorTotalMemoryMiBRange {
 }
 export type AcceleratorType = "gpu";
 export type AcceleratorTypes = Array<AcceleratorType>;
-export declare class AccessDeniedException extends EffectData.TaggedError(
+export declare class AccessDeniedException extends Data.TaggedError(
   "AccessDeniedException",
 )<{
   readonly message: string;
@@ -1549,7 +1550,7 @@ export type CompletedStatus =
   | "INTERRUPTED"
   | "CANCELED"
   | "NEVER_ATTEMPTED";
-export declare class ConflictException extends EffectData.TaggedError(
+export declare class ConflictException extends Data.TaggedError(
   "ConflictException",
 )<{
   readonly message: string;
@@ -2414,7 +2415,7 @@ export type InstanceType = string;
 export type InstanceTypes = Array<string>;
 export type Integer = number;
 
-export declare class InternalServerErrorException extends EffectData.TaggedError(
+export declare class InternalServerErrorException extends Data.TaggedError(
   "InternalServerErrorException",
 )<{
   readonly message: string;
@@ -3125,7 +3126,7 @@ export interface QueueSummary {
 export type RequiredFileSystemLocationNames = Array<string>;
 export type ResourceName = string;
 
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly message: string;
@@ -3268,7 +3269,7 @@ export interface ServiceManagedEc2InstanceMarketOptions {
   type: Ec2MarketType;
 }
 export type ServiceManagedFleetOperatingSystemFamily = "WINDOWS" | "LINUX";
-export declare class ServiceQuotaExceededException extends EffectData.TaggedError(
+export declare class ServiceQuotaExceededException extends Data.TaggedError(
   "ServiceQuotaExceededException",
 )<{
   readonly message: string;
@@ -3678,7 +3679,7 @@ export type TaskTargetRunStatus =
   | "PENDING";
 export type ThresholdPercentage = number;
 
-export declare class ThrottlingException extends EffectData.TaggedError(
+export declare class ThrottlingException extends Data.TaggedError(
   "ThrottlingException",
 )<{
   readonly message: string;
@@ -3913,7 +3914,7 @@ export type UserId = string;
 export interface UserJobsFirst {
   userIdentityId: string;
 }
-export declare class ValidationException extends EffectData.TaggedError(
+export declare class ValidationException extends Data.TaggedError(
   "ValidationException",
 )<{
   readonly message: string;

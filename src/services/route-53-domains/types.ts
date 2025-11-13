@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
@@ -636,7 +637,7 @@ export interface DnssecKey {
   Id?: string;
 }
 export type DnssecKeyList = Array<DnssecKey>;
-export declare class DnssecLimitExceeded extends EffectData.TaggedError(
+export declare class DnssecLimitExceeded extends Data.TaggedError(
   "DnssecLimitExceeded",
 )<{
   readonly message?: string;
@@ -661,7 +662,7 @@ export type DomainAvailability =
   | "DONT_KNOW"
   | "INVALID_NAME_FOR_TLD"
   | "PENDING";
-export declare class DomainLimitExceeded extends EffectData.TaggedError(
+export declare class DomainLimitExceeded extends Data.TaggedError(
   "DomainLimitExceeded",
 )<{
   readonly message?: string;
@@ -697,7 +698,7 @@ export type DomainSummaryList = Array<DomainSummary>;
 export interface DomainTransferability {
   Transferable?: Transferable;
 }
-export declare class DuplicateRequest extends EffectData.TaggedError(
+export declare class DuplicateRequest extends Data.TaggedError(
   "DuplicateRequest",
 )<{
   readonly requestId?: string;
@@ -833,9 +834,7 @@ export type HostName = string;
 
 export type Integer = number;
 
-export declare class InvalidInput extends EffectData.TaggedError(
-  "InvalidInput",
-)<{
+export declare class InvalidInput extends Data.TaggedError("InvalidInput")<{
   readonly message?: string;
 }> {}
 export type InvoiceId = string;
@@ -897,7 +896,7 @@ export type NullableInteger = number;
 
 export type OperationId = string;
 
-export declare class OperationLimitExceeded extends EffectData.TaggedError(
+export declare class OperationLimitExceeded extends Data.TaggedError(
   "OperationLimitExceeded",
 )<{
   readonly message?: string;
@@ -1050,7 +1049,7 @@ export type Timestamp = Date | string;
 
 export type TldName = string;
 
-export declare class TLDRulesViolation extends EffectData.TaggedError(
+export declare class TLDRulesViolation extends Data.TaggedError(
   "TLDRulesViolation",
 )<{
   readonly message?: string;
@@ -1089,9 +1088,7 @@ export interface TransferDomainToAnotherAwsAccountResponse {
   OperationId?: string;
   Password?: string;
 }
-export declare class UnsupportedTLD extends EffectData.TaggedError(
-  "UnsupportedTLD",
-)<{
+export declare class UnsupportedTLD extends Data.TaggedError("UnsupportedTLD")<{
   readonly message?: string;
 }> {}
 export interface UpdateDomainContactPrivacyRequest {

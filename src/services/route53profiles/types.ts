@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   ExpiredTokenException,
   IncompleteSignature,
@@ -228,7 +229,7 @@ export declare class Route53Profiles extends AWSServiceClient {
 
 export declare class Route53profiles extends Route53Profiles {}
 
-export declare class AccessDeniedException extends EffectData.TaggedError(
+export declare class AccessDeniedException extends Data.TaggedError(
   "AccessDeniedException",
 )<{
   readonly Message?: string;
@@ -255,7 +256,7 @@ export interface AssociateResourceToProfileRequest {
 export interface AssociateResourceToProfileResponse {
   ProfileResourceAssociation?: ProfileResourceAssociation;
 }
-export declare class ConflictException extends EffectData.TaggedError(
+export declare class ConflictException extends Data.TaggedError(
   "ConflictException",
 )<{
   readonly Message?: string;
@@ -310,23 +311,23 @@ export interface GetProfileResourceAssociationResponse {
 export interface GetProfileResponse {
   Profile?: Profile;
 }
-export declare class InternalServiceErrorException extends EffectData.TaggedError(
+export declare class InternalServiceErrorException extends Data.TaggedError(
   "InternalServiceErrorException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidNextTokenException extends EffectData.TaggedError(
+export declare class InvalidNextTokenException extends Data.TaggedError(
   "InvalidNextTokenException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidParameterException extends EffectData.TaggedError(
+export declare class InvalidParameterException extends Data.TaggedError(
   "InvalidParameterException",
 )<{
   readonly Message: string;
   readonly FieldName?: string;
 }> {}
-export declare class LimitExceededException extends EffectData.TaggedError(
+export declare class LimitExceededException extends Data.TaggedError(
   "LimitExceededException",
 )<{
   readonly Message?: string;
@@ -424,7 +425,7 @@ export interface ProfileSummary {
   ShareStatus?: ShareStatus;
 }
 export type ProfileSummaryList = Array<ProfileSummary>;
-export declare class ResourceExistsException extends EffectData.TaggedError(
+export declare class ResourceExistsException extends Data.TaggedError(
   "ResourceExistsException",
 )<{
   readonly Message?: string;
@@ -432,7 +433,7 @@ export declare class ResourceExistsException extends EffectData.TaggedError(
 }> {}
 export type ResourceId = string;
 
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly Message?: string;
@@ -461,7 +462,7 @@ export interface TagResourceRequest {
 export interface TagResourceResponse {}
 export type TagValue = string;
 
-export declare class ThrottlingException extends EffectData.TaggedError(
+export declare class ThrottlingException extends Data.TaggedError(
   "ThrottlingException",
 )<{
   readonly Message?: string;
@@ -479,7 +480,7 @@ export interface UpdateProfileResourceAssociationRequest {
 export interface UpdateProfileResourceAssociationResponse {
   ProfileResourceAssociation?: ProfileResourceAssociation;
 }
-export declare class ValidationException extends EffectData.TaggedError(
+export declare class ValidationException extends Data.TaggedError(
   "ValidationException",
 )<{
   readonly Message?: string;

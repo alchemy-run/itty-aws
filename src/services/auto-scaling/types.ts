@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
@@ -437,7 +438,7 @@ export interface AcceleratorTotalMemoryMiBRequest {
 }
 export type AcceleratorType = "gpu" | "fpga" | "inference";
 export type AcceleratorTypes = Array<AcceleratorType>;
-export declare class ActiveInstanceRefreshNotFoundFault extends EffectData.TaggedError(
+export declare class ActiveInstanceRefreshNotFoundFault extends Data.TaggedError(
   "ActiveInstanceRefreshNotFoundFault",
 )<{
   readonly message?: string;
@@ -481,7 +482,7 @@ export interface AlarmSpecification {
 export type AllowedInstanceType = string;
 
 export type AllowedInstanceTypes = Array<string>;
-export declare class AlreadyExistsFault extends EffectData.TaggedError(
+export declare class AlreadyExistsFault extends Data.TaggedError(
   "AlreadyExistsFault",
 )<{
   readonly message?: string;
@@ -1086,7 +1087,7 @@ export interface InstanceRefresh {
 }
 export type InstanceRefreshes = Array<InstanceRefresh>;
 export type InstanceRefreshIds = Array<string>;
-export declare class InstanceRefreshInProgressFault extends EffectData.TaggedError(
+export declare class InstanceRefreshInProgressFault extends Data.TaggedError(
   "InstanceRefreshInProgressFault",
 )<{
   readonly message?: string;
@@ -1163,12 +1164,12 @@ export type IntPercent100To200Resettable = number;
 
 export type IntPercentResettable = number;
 
-export declare class InvalidNextToken extends EffectData.TaggedError(
+export declare class InvalidNextToken extends Data.TaggedError(
   "InvalidNextToken",
 )<{
   readonly message?: string;
 }> {}
-export declare class IrreversibleInstanceRefreshFault extends EffectData.TaggedError(
+export declare class IrreversibleInstanceRefreshFault extends Data.TaggedError(
   "IrreversibleInstanceRefreshFault",
 )<{
   readonly message?: string;
@@ -1279,7 +1280,7 @@ export type LifecycleState =
   | "Warmed:Hibernated";
 export type LifecycleTransition = string;
 
-export declare class LimitExceededFault extends EffectData.TaggedError(
+export declare class LimitExceededFault extends Data.TaggedError(
   "LimitExceededFault",
 )<{
   readonly message?: string;
@@ -1600,12 +1601,12 @@ export interface RefreshPreferences {
   BakeTime?: number;
 }
 export type RefreshStrategy = "Rolling";
-export declare class ResourceContentionFault extends EffectData.TaggedError(
+export declare class ResourceContentionFault extends Data.TaggedError(
   "ResourceContentionFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class ResourceInUseFault extends EffectData.TaggedError(
+export declare class ResourceInUseFault extends Data.TaggedError(
   "ResourceInUseFault",
 )<{
   readonly message?: string;
@@ -1630,7 +1631,7 @@ export interface RollbackInstanceRefreshType {
   AutoScalingGroupName: string;
 }
 export type ScaleInProtectedInstances = "Refresh" | "Ignore" | "Wait";
-export declare class ScalingActivityInProgressFault extends EffectData.TaggedError(
+export declare class ScalingActivityInProgressFault extends Data.TaggedError(
   "ScalingActivityInProgressFault",
 )<{
   readonly message?: string;
@@ -1706,7 +1707,7 @@ export type ScheduledUpdateGroupActionRequests =
   Array<ScheduledUpdateGroupActionRequest>;
 export type ScheduledUpdateGroupActions = Array<ScheduledUpdateGroupAction>;
 export type SecurityGroups = Array<string>;
-export declare class ServiceLinkedRoleFailure extends EffectData.TaggedError(
+export declare class ServiceLinkedRoleFailure extends Data.TaggedError(
   "ServiceLinkedRoleFailure",
 )<{
   readonly message?: string;

@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
@@ -1049,12 +1050,12 @@ export interface ImportNotebookOutput {
 }
 export type Integer = number;
 
-export declare class InternalServerException extends EffectData.TaggedError(
+export declare class InternalServerException extends Data.TaggedError(
   "InternalServerException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidRequestException extends EffectData.TaggedError(
+export declare class InvalidRequestException extends Data.TaggedError(
   "InvalidRequestException",
 )<{
   readonly AthenaErrorCode?: string;
@@ -1261,7 +1262,7 @@ export type MaxTagsCount = number;
 
 export type MaxWorkGroupsCount = number;
 
-export declare class MetadataException extends EffectData.TaggedError(
+export declare class MetadataException extends Data.TaggedError(
   "MetadataException",
 )<{
   readonly Message?: string;
@@ -1419,7 +1420,7 @@ export type QueryStagePlanNodes = Array<QueryStagePlanNode>;
 export type QueryStages = Array<QueryStage>;
 export type QueryString = string;
 
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly Message?: string;
@@ -1469,7 +1470,7 @@ export type RowList = Array<Row>;
 export type S3AclOption = "BUCKET_OWNER_FULL_CONTROL";
 export type S3Uri = string;
 
-export declare class SessionAlreadyExistsException extends EffectData.TaggedError(
+export declare class SessionAlreadyExistsException extends Data.TaggedError(
   "SessionAlreadyExistsException",
 )<{
   readonly Message?: string;
@@ -1606,7 +1607,7 @@ export type Timestamp = Date | string;
 
 export type Token = string;
 
-export declare class TooManyRequestsException extends EffectData.TaggedError(
+export declare class TooManyRequestsException extends Data.TaggedError(
   "TooManyRequestsException",
 )<{
   readonly Message?: string;

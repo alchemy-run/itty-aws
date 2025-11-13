@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
@@ -17,12 +18,12 @@ export declare class KinesisVideoMedia extends AWSServiceClient {
   >;
 }
 
-export declare class ClientLimitExceededException extends EffectData.TaggedError(
+export declare class ClientLimitExceededException extends Data.TaggedError(
   "ClientLimitExceededException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class ConnectionLimitExceededException extends EffectData.TaggedError(
+export declare class ConnectionLimitExceededException extends Data.TaggedError(
   "ConnectionLimitExceededException",
 )<{
   readonly Message?: string;
@@ -44,17 +45,17 @@ export interface GetMediaOutput {
   ContentType?: string;
   Payload?: Uint8Array | string;
 }
-export declare class InvalidArgumentException extends EffectData.TaggedError(
+export declare class InvalidArgumentException extends Data.TaggedError(
   "InvalidArgumentException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidEndpointException extends EffectData.TaggedError(
+export declare class InvalidEndpointException extends Data.TaggedError(
   "InvalidEndpointException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class NotAuthorizedException extends EffectData.TaggedError(
+export declare class NotAuthorizedException extends Data.TaggedError(
   "NotAuthorizedException",
 )<{
   readonly Message?: string;
@@ -63,7 +64,7 @@ export type Payload = Uint8Array | string;
 
 export type ResourceARN = string;
 
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly Message?: string;

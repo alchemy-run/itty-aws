@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   ExpiredTokenException,
   IncompleteSignature,
@@ -441,7 +442,7 @@ export declare class ConnectCampaignsV2 extends AWSServiceClient {
 
 export declare class Connectcampaignsv2 extends ConnectCampaignsV2 {}
 
-export declare class AccessDeniedException extends EffectData.TaggedError(
+export declare class AccessDeniedException extends Data.TaggedError(
   "AccessDeniedException",
 )<{
   readonly message: string;
@@ -554,7 +555,7 @@ export interface CommunicationTimeConfig {
 }
 export type CommunicationTimeConfigType = string;
 
-export declare class ConflictException extends EffectData.TaggedError(
+export declare class ConflictException extends Data.TaggedError(
   "ConflictException",
 )<{
   readonly message: string;
@@ -783,20 +784,20 @@ export type IntegrationSummary =
     })
   | (_IntegrationSummary & { qConnect: QConnectIntegrationSummary });
 export type IntegrationSummaryList = Array<IntegrationSummary>;
-export declare class InternalServerException extends EffectData.TaggedError(
+export declare class InternalServerException extends Data.TaggedError(
   "InternalServerException",
 )<{
   readonly message: string;
   readonly xAmzErrorType?: string;
 }> {}
-export declare class InvalidCampaignStateException extends EffectData.TaggedError(
+export declare class InvalidCampaignStateException extends Data.TaggedError(
   "InvalidCampaignStateException",
 )<{
   readonly state: string;
   readonly message: string;
   readonly xAmzErrorType?: string;
 }> {}
-export declare class InvalidStateException extends EffectData.TaggedError(
+export declare class InvalidStateException extends Data.TaggedError(
   "InvalidStateException",
 )<{
   readonly message: string;
@@ -920,7 +921,7 @@ export interface QConnectIntegrationSummary {
 }
 export type QueueId = string;
 
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly message: string;
@@ -951,7 +952,7 @@ export interface Schedule {
 }
 export type ServiceLinkedRoleArn = string;
 
-export declare class ServiceQuotaExceededException extends EffectData.TaggedError(
+export declare class ServiceQuotaExceededException extends Data.TaggedError(
   "ServiceQuotaExceededException",
 )<{
   readonly message: string;
@@ -1056,7 +1057,7 @@ export type TelephonyOutboundMode =
   | (_TelephonyOutboundMode & { predictive: PredictiveConfig })
   | (_TelephonyOutboundMode & { agentless: AgentlessConfig })
   | (_TelephonyOutboundMode & { preview: PreviewConfig });
-export declare class ThrottlingException extends EffectData.TaggedError(
+export declare class ThrottlingException extends Data.TaggedError(
   "ThrottlingException",
 )<{
   readonly message: string;
@@ -1112,7 +1113,7 @@ export interface UpdateCampaignSourceRequest {
   id: string;
   source: Source;
 }
-export declare class ValidationException extends EffectData.TaggedError(
+export declare class ValidationException extends Data.TaggedError(
   "ValidationException",
 )<{
   readonly message: string;

@@ -21,14 +21,14 @@ describe("SNS Smoke Tests", () => {
             Effect.tap(() =>
               Console.log(`Cleaned up existing topic: ${topic.TopicArn}`),
             ),
-            Effect.catchAll((error) =>
+            Effect.catch((error) =>
               Console.log(`Error deleting topic: ${error.message}`),
             ),
           );
         }
         return Effect.void;
       }),
-      Effect.catchAll((error) =>
+      Effect.catch((error) =>
         Console.log(`Error listing topics: ${error.message}`),
       ),
     );
@@ -145,7 +145,7 @@ describe("SNS Smoke Tests", () => {
             Effect.catchTag("NotFoundException", (error) =>
               Effect.succeed({ success: false, error: error._tag }),
             ),
-            Effect.catchAll((error) => {
+            Effect.catch((error) => {
               console.log(`Unexpected error: ${error}`);
               return Effect.succeed({
                 success: true,
@@ -208,7 +208,7 @@ describe("SNS Smoke Tests", () => {
             Effect.catchTag("NotFoundException", (error) =>
               Effect.succeed({ success: false, error: error._tag }),
             ),
-            Effect.catchAll((err) =>
+            Effect.catch((err) =>
               Effect.succeed({
                 success: true,
                 error: err._tag,

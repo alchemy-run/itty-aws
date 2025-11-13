@@ -1,18 +1,19 @@
-import { FileSystem } from "@effect/platform";
-import { Effect, Schema } from "effect";
+import { Effect } from "effect";
+import { FileSystem } from "effect/platform";
+import * as Schema from "effect/schema/Schema";
 import { join } from "pathe";
 
 // Base trait schema for common Smithy traits
-const TraitValue = Schema.Union(
+const TraitValue = Schema.Union([
   Schema.String,
   Schema.Boolean,
   Schema.Number,
   Schema.Null,
-  Schema.Record({ key: Schema.String, value: Schema.Unknown }),
+  Schema.Record(Schema.String, Schema.Unknown),
   Schema.Struct({}),
-);
+]);
 
-const Traits = Schema.Record({ key: Schema.String, value: TraitValue });
+const Traits = Schema.Record(Schema.String, TraitValue);
 
 // Member definition for structures and unions
 const Member = Schema.Struct({
@@ -20,7 +21,7 @@ const Member = Schema.Struct({
   traits: Schema.optional(Traits),
 });
 
-const Members = Schema.Record({ key: Schema.String, value: Member });
+const Members = Schema.Record(Schema.String, Member);
 
 // Operation reference for service operations arrays
 const OperationReference = Schema.Struct({
@@ -118,7 +119,7 @@ const DocumentShape = Schema.Struct({
   traits: Schema.optional(Traits),
 });
 
-const Shape = Schema.Union(
+const Shape = Schema.Union([
   OperationShape,
   ServiceShape,
   StructureShape,
@@ -136,7 +137,7 @@ const Shape = Schema.Union(
   ResourceShape,
   BlobShape,
   DocumentShape,
-);
+]);
 export type Shape = Schema.Schema.Type<typeof Shape>;
 
 // Metadata suppression for Smithy 2.0
@@ -152,11 +153,13 @@ const Metadata = Schema.Struct({
 export class Manifest extends Schema.Class<Manifest>("Manifest")({
   smithy: Schema.optional(Schema.String), // Support Smithy version
   metadata: Schema.optional(Metadata), // Support metadata
-  shapes: Schema.Record({ key: Schema.String, value: Shape }),
+  shapes: Schema.Record(Schema.String, Shape),
 }) {}
 
 // Find all JSON files recursively in a directory
-const findJsonFiles = (dirPath: string): Effect.Effect<string[], Error> =>
+const findJsonFiles = (
+  dirPath: string,
+): Effect.Effect<string[], Error, FileSystem.FileSystem> =>
   Effect.gen(function* () {
     const fs = yield* FileSystem.FileSystem;
     const entries = yield* fs.readDirectory(dirPath);
@@ -181,9 +184,10 @@ const findJsonFiles = (dirPath: string): Effect.Effect<string[], Error> =>
 export const loadLocalManifest = (filePath: string) =>
   Effect.gen(function* () {
     const fs = yield* FileSystem.FileSystem;
-    const content = yield* fs.readFileString(filePath);
-    const parsed = yield* Effect.try(() => JSON.parse(content));
-    return yield* Schema.decodeUnknown(Manifest)(parsed);
+    const content = yield* fs
+      .readFileString(filePath)
+      .pipe(Effect.map(JSON.parse));
+    return yield* Schema.decodeEffect(Manifest)(content);
   });
 
 // Find and load all AWS service manifests from local directory

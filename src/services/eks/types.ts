@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   ExpiredTokenException,
   IncompleteSignature,
@@ -667,7 +668,7 @@ export interface AccessConfigResponse {
   bootstrapClusterCreatorAdminPermissions?: boolean;
   authenticationMode?: AuthenticationMode;
 }
-export declare class AccessDeniedException extends EffectData.TaggedError(
+export declare class AccessDeniedException extends Data.TaggedError(
   "AccessDeniedException",
 )<{
   readonly message?: string;
@@ -844,7 +845,7 @@ export interface AutoScalingGroup {
   name?: string;
 }
 export type AutoScalingGroupList = Array<AutoScalingGroup>;
-export declare class BadRequestException extends EffectData.TaggedError(
+export declare class BadRequestException extends Data.TaggedError(
   "BadRequestException",
 )<{
   readonly message?: string;
@@ -866,7 +867,7 @@ export type CategoryList = Array<Category>;
 export interface Certificate {
   data?: string;
 }
-export declare class ClientException extends EffectData.TaggedError(
+export declare class ClientException extends Data.TaggedError(
   "ClientException",
 )<{
   readonly clusterName?: string;
@@ -1484,7 +1485,7 @@ export interface InsightSummary {
 }
 export type Integer = number;
 
-export declare class InvalidParameterException extends EffectData.TaggedError(
+export declare class InvalidParameterException extends Data.TaggedError(
   "InvalidParameterException",
 )<{
   readonly clusterName?: string;
@@ -1494,7 +1495,7 @@ export declare class InvalidParameterException extends EffectData.TaggedError(
   readonly subscriptionId?: string;
   readonly message?: string;
 }> {}
-export declare class InvalidRequestException extends EffectData.TaggedError(
+export declare class InvalidRequestException extends Data.TaggedError(
   "InvalidRequestException",
 )<{
   readonly clusterName?: string;
@@ -1503,7 +1504,7 @@ export declare class InvalidRequestException extends EffectData.TaggedError(
   readonly subscriptionId?: string;
   readonly message?: string;
 }> {}
-export declare class InvalidStateException extends EffectData.TaggedError(
+export declare class InvalidStateException extends Data.TaggedError(
   "InvalidStateException",
 )<{
   readonly clusterName?: string;
@@ -1814,7 +1815,7 @@ export interface NodeRepairConfigOverrides {
 export type NodeRepairConfigOverridesList = Array<NodeRepairConfigOverrides>;
 export type NonZeroInteger = number;
 
-export declare class NotFoundException extends EffectData.TaggedError(
+export declare class NotFoundException extends Data.TaggedError(
   "NotFoundException",
 )<{
   readonly message?: string;
@@ -1922,7 +1923,7 @@ export type requiredClaimsMap = Record<string, string>;
 export type requiredClaimsValue = string;
 
 export type ResolveConflicts = "OVERWRITE" | "NONE" | "PRESERVE";
-export declare class ResourceInUseException extends EffectData.TaggedError(
+export declare class ResourceInUseException extends Data.TaggedError(
   "ResourceInUseException",
 )<{
   readonly clusterName?: string;
@@ -1930,7 +1931,7 @@ export declare class ResourceInUseException extends EffectData.TaggedError(
   readonly addonName?: string;
   readonly message?: string;
 }> {}
-export declare class ResourceLimitExceededException extends EffectData.TaggedError(
+export declare class ResourceLimitExceededException extends Data.TaggedError(
   "ResourceLimitExceededException",
 )<{
   readonly clusterName?: string;
@@ -1938,7 +1939,7 @@ export declare class ResourceLimitExceededException extends EffectData.TaggedErr
   readonly subscriptionId?: string;
   readonly message?: string;
 }> {}
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly clusterName?: string;
@@ -1948,14 +1949,14 @@ export declare class ResourceNotFoundException extends EffectData.TaggedError(
   readonly subscriptionId?: string;
   readonly message?: string;
 }> {}
-export declare class ResourcePropagationDelayException extends EffectData.TaggedError(
+export declare class ResourcePropagationDelayException extends Data.TaggedError(
   "ResourcePropagationDelayException",
 )<{
   readonly message?: string;
 }> {}
 export type RoleArn = string;
 
-export declare class ServerException extends EffectData.TaggedError(
+export declare class ServerException extends Data.TaggedError(
   "ServerException",
 )<{
   readonly clusterName?: string;
@@ -1964,7 +1965,7 @@ export declare class ServerException extends EffectData.TaggedError(
   readonly subscriptionId?: string;
   readonly message?: string;
 }> {}
-export declare class ServiceUnavailableException extends EffectData.TaggedError(
+export declare class ServiceUnavailableException extends Data.TaggedError(
   "ServiceUnavailableException",
 )<{
   readonly message?: string;
@@ -2008,7 +2009,7 @@ export type taintKey = string;
 export type taintsList = Array<Taint>;
 export type taintValue = string;
 
-export declare class ThrottlingException extends EffectData.TaggedError(
+export declare class ThrottlingException extends Data.TaggedError(
   "ThrottlingException",
 )<{
   readonly clusterName?: string;
@@ -2016,7 +2017,7 @@ export declare class ThrottlingException extends EffectData.TaggedError(
 }> {}
 export type Timestamp = Date | string;
 
-export declare class UnsupportedAvailabilityZoneException extends EffectData.TaggedError(
+export declare class UnsupportedAvailabilityZoneException extends Data.TaggedError(
   "UnsupportedAvailabilityZoneException",
 )<{
   readonly message?: string;

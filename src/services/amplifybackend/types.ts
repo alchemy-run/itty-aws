@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
@@ -381,7 +382,7 @@ export interface BackendStoragePermissions {
   Authenticated: Array<AuthenticatedElement>;
   UnAuthenticated?: Array<UnAuthenticatedElement>;
 }
-export declare class BadRequestException extends EffectData.TaggedError(
+export declare class BadRequestException extends Data.TaggedError(
   "BadRequestException",
 )<{
   readonly Message?: string;
@@ -587,7 +588,7 @@ export interface EmailSettings {
   EmailMessage?: string;
   EmailSubject?: string;
 }
-export declare class GatewayTimeoutException extends EffectData.TaggedError(
+export declare class GatewayTimeoutException extends Data.TaggedError(
   "GatewayTimeoutException",
 )<{
   readonly Message?: string;
@@ -768,7 +769,7 @@ export type Mode =
   | "AWS_IAM"
   | "AMAZON_COGNITO_USER_POOLS"
   | "OPENID_CONNECT";
-export declare class NotFoundException extends EffectData.TaggedError(
+export declare class NotFoundException extends Data.TaggedError(
   "NotFoundException",
 )<{
   readonly Message?: string;
@@ -847,7 +848,7 @@ export interface SocialProviderSettings {
   SignInWithApple?: BackendAuthAppleProviderConfig;
 }
 export type Status = "LATEST" | "STALE";
-export declare class TooManyRequestsException extends EffectData.TaggedError(
+export declare class TooManyRequestsException extends Data.TaggedError(
   "TooManyRequestsException",
 )<{
   readonly LimitType?: string;

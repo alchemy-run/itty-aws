@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   ExpiredTokenException,
   IncompleteSignature,
@@ -2186,7 +2187,7 @@ export declare class Lightsail extends AWSServiceClient {
   >;
 }
 
-export declare class AccessDeniedException extends EffectData.TaggedError(
+export declare class AccessDeniedException extends Data.TaggedError(
   "AccessDeniedException",
 )<{
   readonly code?: string;
@@ -2225,7 +2226,7 @@ export type AccountLevelBpaSyncStatus =
   | "Failed"
   | "NeverSynced"
   | "Defaulted";
-export declare class AccountSetupInProgressException extends EffectData.TaggedError(
+export declare class AccountSetupInProgressException extends Data.TaggedError(
   "AccountSetupInProgressException",
 )<{
   readonly code?: string;
@@ -4029,7 +4030,7 @@ export type integer = number;
 
 export type InUseResourceCount = number;
 
-export declare class InvalidInputException extends EffectData.TaggedError(
+export declare class InvalidInputException extends Data.TaggedError(
   "InvalidInputException",
 )<{
   readonly code?: string;
@@ -4344,7 +4345,7 @@ export type NameServersUpdateStateCode =
 export type NetworkProtocol = "tcp" | "all" | "udp" | "icmp" | "icmpv6";
 export type NonEmptyString = string;
 
-export declare class NotFoundException extends EffectData.TaggedError(
+export declare class NotFoundException extends Data.TaggedError(
   "NotFoundException",
 )<{
   readonly code?: string;
@@ -4374,7 +4375,7 @@ export interface Operation {
   errorCode?: string;
   errorDetails?: string;
 }
-export declare class OperationFailureException extends EffectData.TaggedError(
+export declare class OperationFailureException extends Data.TaggedError(
   "OperationFailureException",
 )<{
   readonly code?: string;
@@ -4599,7 +4600,7 @@ export type RegionName =
   | "ap-northeast-2"
   | "eu-north-1"
   | "ap-southeast-3";
-export declare class RegionSetupInProgressException extends EffectData.TaggedError(
+export declare class RegionSetupInProgressException extends Data.TaggedError(
   "RegionSetupInProgressException",
 )<{
   readonly code?: string;
@@ -4819,7 +4820,7 @@ export type SensitiveString = string;
 
 export type SerialNumber = string;
 
-export declare class ServiceException extends EffectData.TaggedError(
+export declare class ServiceException extends Data.TaggedError(
   "ServiceException",
 )<{
   readonly code?: string;
@@ -5005,7 +5006,7 @@ export type TreatMissingData =
   | "notBreaching"
   | "ignore"
   | "missing";
-export declare class UnauthenticatedException extends EffectData.TaggedError(
+export declare class UnauthenticatedException extends Data.TaggedError(
   "UnauthenticatedException",
 )<{
   readonly code?: string;

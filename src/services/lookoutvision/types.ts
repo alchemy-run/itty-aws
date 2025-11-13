@@ -1,6 +1,8 @@
-import type { Effect, Stream, Data as EffectData } from "effect";
-import type { ResponseError } from "@effect/platform/HttpClientError";
+import type * as EffectData from "effect/data/Data";
+import type * as Effect from "effect/Effect";
+import type * as Stream from "effect/stream/Stream";
 import type { Buffer } from "node:buffer";
+import { AWSServiceClient } from "../../client.ts";
 import type {
   ExpiredTokenException,
   IncompleteSignature,
@@ -13,8 +15,8 @@ import type {
   RequestExpired,
   RequestTimeoutException,
   ServiceUnavailable,
-  UnrecognizedClientException,
   UnknownOperationException,
+  UnrecognizedClientException,
   ValidationError,
 } from "../../error.ts";
 type CommonAwsError =
@@ -35,7 +37,6 @@ type CommonAwsError =
   | AccessDeniedException
   | ThrottlingException
   | ValidationException;
-import { AWSServiceClient } from "../../client.ts";
 
 export declare class LookoutVision extends AWSServiceClient {
   createDataset(
@@ -781,7 +782,6 @@ export interface StopModelRequest {
 export interface StopModelResponse {
   Status?: ModelHostingStatus;
 }
-export type Stream = Uint8Array | string;
 
 export interface Tag {
   Key: string;

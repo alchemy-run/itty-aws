@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
@@ -1160,7 +1161,7 @@ export interface DisassociateTagOptionFromResourceInput {
   TagOptionId: string;
 }
 export interface DisassociateTagOptionFromResourceOutput {}
-export declare class DuplicateResourceException extends EffectData.TaggedError(
+export declare class DuplicateResourceException extends Data.TaggedError(
   "DuplicateResourceException",
 )<{
   readonly Message?: string;
@@ -1264,12 +1265,12 @@ export type InstructionType = string;
 
 export type InstructionValue = string;
 
-export declare class InvalidParametersException extends EffectData.TaggedError(
+export declare class InvalidParametersException extends Data.TaggedError(
   "InvalidParametersException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidStateException extends EffectData.TaggedError(
+export declare class InvalidStateException extends Data.TaggedError(
   "InvalidStateException",
 )<{
   readonly Message?: string;
@@ -1302,7 +1303,7 @@ export interface LaunchPathSummary {
   Tags?: Array<Tag>;
   Name?: string;
 }
-export declare class LimitExceededException extends EffectData.TaggedError(
+export declare class LimitExceededException extends Data.TaggedError(
   "LimitExceededException",
 )<{
   readonly Message?: string;
@@ -1536,7 +1537,7 @@ export interface NotifyUpdateProvisionedProductEngineWorkflowResultInput {
 export interface NotifyUpdateProvisionedProductEngineWorkflowResultOutput {}
 export type NullableBoolean = boolean;
 
-export declare class OperationNotSupportedException extends EffectData.TaggedError(
+export declare class OperationNotSupportedException extends Data.TaggedError(
   "OperationNotSupportedException",
 )<{
   readonly Message?: string;
@@ -2011,12 +2012,12 @@ export type ResourceDetailName = string;
 export type ResourceDetails = Array<ResourceDetail>;
 export type ResourceId = string;
 
-export declare class ResourceInUseException extends EffectData.TaggedError(
+export declare class ResourceInUseException extends Data.TaggedError(
   "ResourceInUseException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly Message?: string;
@@ -2226,7 +2227,7 @@ export type TagOptionId = string;
 
 export type TagOptionKey = string;
 
-export declare class TagOptionNotMigratedException extends EffectData.TaggedError(
+export declare class TagOptionNotMigratedException extends Data.TaggedError(
   "TagOptionNotMigratedException",
 )<{
   readonly Message?: string;

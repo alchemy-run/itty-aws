@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   ExpiredTokenException,
   IncompleteSignature,
@@ -159,7 +160,7 @@ export declare class RDSData extends AWSServiceClient {
 
 export declare class RdsData extends RDSData {}
 
-export declare class AccessDeniedException extends EffectData.TaggedError(
+export declare class AccessDeniedException extends Data.TaggedError(
   "AccessDeniedException",
 )<{
   readonly message?: string;
@@ -182,7 +183,7 @@ export type ArrayValue =
   | (_ArrayValue & { stringValues: Array<string> })
   | (_ArrayValue & { arrayValues: Array<ArrayValue> });
 export type ArrayValueList = Array<Value>;
-export declare class BadRequestException extends EffectData.TaggedError(
+export declare class BadRequestException extends Data.TaggedError(
   "BadRequestException",
 )<{
   readonly message?: string;
@@ -247,22 +248,22 @@ export interface CommitTransactionRequest {
 export interface CommitTransactionResponse {
   transactionStatus?: string;
 }
-export declare class DatabaseErrorException extends EffectData.TaggedError(
+export declare class DatabaseErrorException extends Data.TaggedError(
   "DatabaseErrorException",
 )<{
   readonly message?: string;
 }> {}
-export declare class DatabaseNotFoundException extends EffectData.TaggedError(
+export declare class DatabaseNotFoundException extends Data.TaggedError(
   "DatabaseNotFoundException",
 )<{
   readonly message?: string;
 }> {}
-export declare class DatabaseResumingException extends EffectData.TaggedError(
+export declare class DatabaseResumingException extends Data.TaggedError(
   "DatabaseResumingException",
 )<{
   readonly message?: string;
 }> {}
-export declare class DatabaseUnavailableException extends EffectData.TaggedError(
+export declare class DatabaseUnavailableException extends Data.TaggedError(
   "DatabaseUnavailableException",
 )<{}> {}
 export type DbName = string;
@@ -321,14 +322,14 @@ export type Field =
   | (_Field & { blobValue: Uint8Array | string })
   | (_Field & { arrayValue: ArrayValue });
 export type FieldList = Array<Field>;
-export declare class ForbiddenException extends EffectData.TaggedError(
+export declare class ForbiddenException extends Data.TaggedError(
   "ForbiddenException",
 )<{
   readonly message?: string;
 }> {}
 export type FormattedSqlRecords = string;
 
-export declare class HttpEndpointNotEnabledException extends EffectData.TaggedError(
+export declare class HttpEndpointNotEnabledException extends Data.TaggedError(
   "HttpEndpointNotEnabledException",
 )<{
   readonly message?: string;
@@ -337,15 +338,15 @@ export type Id = string;
 
 export type Integer = number;
 
-export declare class InternalServerErrorException extends EffectData.TaggedError(
+export declare class InternalServerErrorException extends Data.TaggedError(
   "InternalServerErrorException",
 )<{}> {}
-export declare class InvalidResourceStateException extends EffectData.TaggedError(
+export declare class InvalidResourceStateException extends Data.TaggedError(
   "InvalidResourceStateException",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidSecretException extends EffectData.TaggedError(
+export declare class InvalidSecretException extends Data.TaggedError(
   "InvalidSecretException",
 )<{
   readonly message?: string;
@@ -356,7 +357,7 @@ export type LongArray = Array<number>;
 export type LongReturnType = string;
 
 export type Metadata = Array<ColumnMetadata>;
-export declare class NotFoundException extends EffectData.TaggedError(
+export declare class NotFoundException extends Data.TaggedError(
   "NotFoundException",
 )<{
   readonly message?: string;
@@ -392,12 +393,12 @@ export interface RollbackTransactionResponse {
   transactionStatus?: string;
 }
 export type Row = Array<Value>;
-export declare class SecretsErrorException extends EffectData.TaggedError(
+export declare class SecretsErrorException extends Data.TaggedError(
   "SecretsErrorException",
 )<{
   readonly message?: string;
 }> {}
-export declare class ServiceUnavailableError extends EffectData.TaggedError(
+export declare class ServiceUnavailableError extends Data.TaggedError(
   "ServiceUnavailableError",
 )<{}> {}
 export interface SqlParameter {
@@ -415,7 +416,7 @@ export interface SqlStatementResult {
   numberOfRecordsUpdated?: number;
 }
 export type SqlStatementResults = Array<SqlStatementResult>;
-export declare class StatementTimeoutException extends EffectData.TaggedError(
+export declare class StatementTimeoutException extends Data.TaggedError(
   "StatementTimeoutException",
 )<{
   readonly message?: string;
@@ -427,7 +428,7 @@ export type StringArray = Array<string>;
 export interface StructValue {
   attributes?: Array<Value>;
 }
-export declare class TransactionNotFoundException extends EffectData.TaggedError(
+export declare class TransactionNotFoundException extends Data.TaggedError(
   "TransactionNotFoundException",
 )<{
   readonly message?: string;
@@ -436,7 +437,7 @@ export type TransactionStatus = string;
 
 export type TypeHint = string;
 
-export declare class UnsupportedResultException extends EffectData.TaggedError(
+export declare class UnsupportedResultException extends Data.TaggedError(
   "UnsupportedResultException",
 )<{
   readonly message?: string;

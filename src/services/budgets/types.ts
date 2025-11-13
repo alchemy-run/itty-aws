@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   ExpiredTokenException,
   IncompleteSignature,
@@ -355,7 +356,7 @@ export declare class BudgetsClient extends AWSServiceClient {
   >;
 }
 
-export declare class AccessDeniedException extends EffectData.TaggedError(
+export declare class AccessDeniedException extends Data.TaggedError(
   "AccessDeniedException",
 )<{
   readonly Message?: string;
@@ -421,7 +422,7 @@ export interface AutoAdjustData {
 export type AutoAdjustType = "HISTORICAL" | "FORECAST";
 export type BillingViewArn = string;
 
-export declare class BillingViewHealthStatusException extends EffectData.TaggedError(
+export declare class BillingViewHealthStatusException extends Data.TaggedError(
   "BillingViewHealthStatusException",
 )<{
   readonly Message?: string;
@@ -538,7 +539,7 @@ export interface CreateSubscriberRequest {
   Subscriber: Subscriber;
 }
 export interface CreateSubscriberResponse {}
-export declare class CreationLimitExceededException extends EffectData.TaggedError(
+export declare class CreationLimitExceededException extends Data.TaggedError(
   "CreationLimitExceededException",
 )<{
   readonly Message?: string;
@@ -713,7 +714,7 @@ export type Dimension =
 export type DimensionValue = string;
 
 export type DimensionValues = Array<string>;
-export declare class DuplicateRecordException extends EffectData.TaggedError(
+export declare class DuplicateRecordException extends Data.TaggedError(
   "DuplicateRecordException",
 )<{
   readonly Message?: string;
@@ -743,7 +744,7 @@ export type ExecutionType =
   | "RETRY_BUDGET_ACTION"
   | "REVERSE_BUDGET_ACTION"
   | "RESET_BUDGET_ACTION";
-export declare class ExpiredNextTokenException extends EffectData.TaggedError(
+export declare class ExpiredNextTokenException extends Data.TaggedError(
   "ExpiredNextTokenException",
 )<{
   readonly Message?: string;
@@ -793,17 +794,17 @@ export interface IamActionDefinition {
 export type InstanceId = string;
 
 export type InstanceIds = Array<string>;
-export declare class InternalErrorException extends EffectData.TaggedError(
+export declare class InternalErrorException extends Data.TaggedError(
   "InternalErrorException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidNextTokenException extends EffectData.TaggedError(
+export declare class InvalidNextTokenException extends Data.TaggedError(
   "InvalidNextTokenException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidParameterException extends EffectData.TaggedError(
+export declare class InvalidParameterException extends Data.TaggedError(
   "InvalidParameterException",
 )<{
   readonly Message?: string;
@@ -840,7 +841,7 @@ export type Metric =
   | "NormalizedUsageAmount"
   | "Hours";
 export type Metrics = Array<Metric>;
-export declare class NotFoundException extends EffectData.TaggedError(
+export declare class NotFoundException extends Data.TaggedError(
   "NotFoundException",
 )<{
   readonly Message?: string;
@@ -874,7 +875,7 @@ export type PolicyId = string;
 
 export type Region = string;
 
-export declare class ResourceLockedException extends EffectData.TaggedError(
+export declare class ResourceLockedException extends Data.TaggedError(
   "ResourceLockedException",
 )<{
   readonly Message?: string;
@@ -898,7 +899,7 @@ export interface ScpActionDefinition {
   PolicyId: string;
   TargetIds: Array<string>;
 }
-export declare class ServiceQuotaExceededException extends EffectData.TaggedError(
+export declare class ServiceQuotaExceededException extends Data.TaggedError(
   "ServiceQuotaExceededException",
 )<{
   readonly Message?: string;
@@ -936,7 +937,7 @@ export type TargetId = string;
 
 export type TargetIds = Array<string>;
 export type ThresholdType = "PERCENTAGE" | "ABSOLUTE_VALUE";
-export declare class ThrottlingException extends EffectData.TaggedError(
+export declare class ThrottlingException extends Data.TaggedError(
   "ThrottlingException",
 )<{
   readonly Message?: string;

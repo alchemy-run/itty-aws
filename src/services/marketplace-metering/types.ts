@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   AccessDeniedException,
   IncompleteSignature,
@@ -114,79 +115,79 @@ export type CustomerAWSAccountId = string;
 
 export type CustomerIdentifier = string;
 
-export declare class CustomerNotEntitledException extends EffectData.TaggedError(
+export declare class CustomerNotEntitledException extends Data.TaggedError(
   "CustomerNotEntitledException",
 )<{
   readonly message?: string;
 }> {}
-export declare class DisabledApiException extends EffectData.TaggedError(
+export declare class DisabledApiException extends Data.TaggedError(
   "DisabledApiException",
 )<{
   readonly message?: string;
 }> {}
-export declare class DuplicateRequestException extends EffectData.TaggedError(
+export declare class DuplicateRequestException extends Data.TaggedError(
   "DuplicateRequestException",
 )<{
   readonly message?: string;
 }> {}
 export type errorMessage = string;
 
-export declare class ExpiredTokenException extends EffectData.TaggedError(
+export declare class ExpiredTokenException extends Data.TaggedError(
   "ExpiredTokenException",
 )<{
   readonly message?: string;
 }> {}
-export declare class IdempotencyConflictException extends EffectData.TaggedError(
+export declare class IdempotencyConflictException extends Data.TaggedError(
   "IdempotencyConflictException",
 )<{
   readonly message?: string;
 }> {}
-export declare class InternalServiceErrorException extends EffectData.TaggedError(
+export declare class InternalServiceErrorException extends Data.TaggedError(
   "InternalServiceErrorException",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidCustomerIdentifierException extends EffectData.TaggedError(
+export declare class InvalidCustomerIdentifierException extends Data.TaggedError(
   "InvalidCustomerIdentifierException",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidEndpointRegionException extends EffectData.TaggedError(
+export declare class InvalidEndpointRegionException extends Data.TaggedError(
   "InvalidEndpointRegionException",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidProductCodeException extends EffectData.TaggedError(
+export declare class InvalidProductCodeException extends Data.TaggedError(
   "InvalidProductCodeException",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidPublicKeyVersionException extends EffectData.TaggedError(
+export declare class InvalidPublicKeyVersionException extends Data.TaggedError(
   "InvalidPublicKeyVersionException",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidRegionException extends EffectData.TaggedError(
+export declare class InvalidRegionException extends Data.TaggedError(
   "InvalidRegionException",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidTagException extends EffectData.TaggedError(
+export declare class InvalidTagException extends Data.TaggedError(
   "InvalidTagException",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidTokenException extends EffectData.TaggedError(
+export declare class InvalidTokenException extends Data.TaggedError(
   "InvalidTokenException",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidUsageAllocationsException extends EffectData.TaggedError(
+export declare class InvalidUsageAllocationsException extends Data.TaggedError(
   "InvalidUsageAllocationsException",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidUsageDimensionException extends EffectData.TaggedError(
+export declare class InvalidUsageDimensionException extends Data.TaggedError(
   "InvalidUsageDimensionException",
 )<{
   readonly message?: string;
@@ -207,7 +208,7 @@ export type Nonce = string;
 
 export type NonEmptyString = string;
 
-export declare class PlatformNotSupportedException extends EffectData.TaggedError(
+export declare class PlatformNotSupportedException extends Data.TaggedError(
   "PlatformNotSupportedException",
 )<{
   readonly message?: string;
@@ -242,14 +243,14 @@ export type TagKey = string;
 export type TagList = Array<Tag>;
 export type TagValue = string;
 
-export declare class ThrottlingException extends EffectData.TaggedError(
+export declare class ThrottlingException extends Data.TaggedError(
   "ThrottlingException",
 )<{
   readonly message?: string;
 }> {}
 export type Timestamp = Date | string;
 
-export declare class TimestampOutOfBoundsException extends EffectData.TaggedError(
+export declare class TimestampOutOfBoundsException extends Data.TaggedError(
   "TimestampOutOfBoundsException",
 )<{
   readonly message?: string;

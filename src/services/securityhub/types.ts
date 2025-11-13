@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   ExpiredTokenException,
   IncompleteSignature,
@@ -1210,7 +1211,7 @@ export interface AcceptInvitationRequest {
   InvitationId: string;
 }
 export interface AcceptInvitationResponse {}
-export declare class AccessDeniedException extends EffectData.TaggedError(
+export declare class AccessDeniedException extends Data.TaggedError(
   "AccessDeniedException",
 )<{
   readonly Message?: string;
@@ -5380,7 +5381,7 @@ export interface ConfigurationPolicySummary {
   ServiceEnabled?: boolean;
 }
 export type ConfigurationPolicySummaryList = Array<ConfigurationPolicySummary>;
-export declare class ConflictException extends EffectData.TaggedError(
+export declare class ConflictException extends Data.TaggedError(
   "ConflictException",
 )<{
   readonly Message?: string;
@@ -6123,25 +6124,25 @@ export type IntegrationV2Type =
   | "RECEIVE_FINDINGS_FROM_SECURITY_HUB"
   | "UPDATE_FINDINGS_IN_SECURITY_HUB";
 export type IntegrationV2TypeList = Array<IntegrationV2Type>;
-export declare class InternalException extends EffectData.TaggedError(
+export declare class InternalException extends Data.TaggedError(
   "InternalException",
 )<{
   readonly Message?: string;
   readonly Code?: string;
 }> {}
-export declare class InternalServerException extends EffectData.TaggedError(
+export declare class InternalServerException extends Data.TaggedError(
   "InternalServerException",
 )<{
   readonly Message?: string;
   readonly Code?: string;
 }> {}
-export declare class InvalidAccessException extends EffectData.TaggedError(
+export declare class InvalidAccessException extends Data.TaggedError(
   "InvalidAccessException",
 )<{
   readonly Message?: string;
   readonly Code?: string;
 }> {}
-export declare class InvalidInputException extends EffectData.TaggedError(
+export declare class InvalidInputException extends Data.TaggedError(
   "InvalidInputException",
 )<{
   readonly Message?: string;
@@ -6193,7 +6194,7 @@ export interface KeywordFilter {
   Value?: string;
 }
 export type KeywordFilterList = Array<KeywordFilter>;
-export declare class LimitExceededException extends EffectData.TaggedError(
+export declare class LimitExceededException extends Data.TaggedError(
   "LimitExceededException",
 )<{
   readonly Message?: string;
@@ -6807,7 +6808,7 @@ export type ResourceCategory =
   | "Other";
 export type ResourceConfig = unknown;
 
-export declare class ResourceConflictException extends EffectData.TaggedError(
+export declare class ResourceConflictException extends Data.TaggedError(
   "ResourceConflictException",
 )<{
   readonly Message?: string;
@@ -6934,14 +6935,14 @@ export interface ResourceGroupByRule {
   Filters?: ResourcesFilters;
 }
 export type ResourceGroupByRules = Array<ResourceGroupByRule>;
-export declare class ResourceInUseException extends EffectData.TaggedError(
+export declare class ResourceInUseException extends Data.TaggedError(
   "ResourceInUseException",
 )<{
   readonly Message?: string;
   readonly Code?: string;
 }> {}
 export type ResourceList = Array<Resource>;
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly Message?: string;
@@ -7521,7 +7522,7 @@ export type ThreatIntelIndicatorType =
   | "PROCESS"
   | "URL";
 export type ThreatList = Array<Threat>;
-export declare class ThrottlingException extends EffectData.TaggedError(
+export declare class ThrottlingException extends Data.TaggedError(
   "ThrottlingException",
 )<{
   readonly Message?: string;
@@ -7688,7 +7689,7 @@ export interface UserAccount {
   Uid?: string;
   Name?: string;
 }
-export declare class ValidationException extends EffectData.TaggedError(
+export declare class ValidationException extends Data.TaggedError(
   "ValidationException",
 )<{
   readonly Message?: string;

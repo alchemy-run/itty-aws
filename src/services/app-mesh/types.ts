@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
@@ -531,7 +532,7 @@ export interface BackendDefaults {
   clientPolicy?: ClientPolicy;
 }
 export type Backends = Array<Backend>;
-export declare class BadRequestException extends EffectData.TaggedError(
+export declare class BadRequestException extends Data.TaggedError(
   "BadRequestException",
 )<{
   readonly message?: string;
@@ -554,7 +555,7 @@ interface _ClientTlsCertificate {
 export type ClientTlsCertificate =
   | (_ClientTlsCertificate & { file: ListenerTlsFileCertificate })
   | (_ClientTlsCertificate & { sds: ListenerTlsSdsCertificate });
-export declare class ConflictException extends EffectData.TaggedError(
+export declare class ConflictException extends Data.TaggedError(
   "ConflictException",
 )<{
   readonly message?: string;
@@ -779,7 +780,7 @@ export interface FileAccessLog {
 }
 export type FilePath = string;
 
-export declare class ForbiddenException extends EffectData.TaggedError(
+export declare class ForbiddenException extends Data.TaggedError(
   "ForbiddenException",
 )<{
   readonly message?: string;
@@ -1043,7 +1044,7 @@ export interface HttpTimeout {
   perRequest?: Duration;
   idle?: Duration;
 }
-export declare class InternalServerErrorException extends EffectData.TaggedError(
+export declare class InternalServerErrorException extends Data.TaggedError(
   "InternalServerErrorException",
 )<{
   readonly message?: string;
@@ -1059,7 +1060,7 @@ export type JsonKey = string;
 
 export type JsonValue = string;
 
-export declare class LimitExceededException extends EffectData.TaggedError(
+export declare class LimitExceededException extends Data.TaggedError(
   "LimitExceededException",
 )<{
   readonly message?: string;
@@ -1276,7 +1277,7 @@ export type MeshStatusCode = string;
 
 export type MethodName = string;
 
-export declare class NotFoundException extends EffectData.TaggedError(
+export declare class NotFoundException extends Data.TaggedError(
   "NotFoundException",
 )<{
   readonly message?: string;
@@ -1307,7 +1308,7 @@ export interface QueryParameterMatch {
 }
 export type QueryParameterName = string;
 
-export declare class ResourceInUseException extends EffectData.TaggedError(
+export declare class ResourceInUseException extends Data.TaggedError(
   "ResourceInUseException",
 )<{
   readonly message?: string;
@@ -1369,7 +1370,7 @@ export type ServiceDiscovery =
   | (_ServiceDiscovery & { awsCloudMap: AwsCloudMapServiceDiscovery });
 export type ServiceName = string;
 
-export declare class ServiceUnavailableException extends EffectData.TaggedError(
+export declare class ServiceUnavailableException extends Data.TaggedError(
   "ServiceUnavailableException",
 )<{
   readonly message?: string;
@@ -1444,12 +1445,12 @@ export type TlsValidationContextTrust =
   | (_TlsValidationContextTrust & { acm: TlsValidationContextAcmTrust })
   | (_TlsValidationContextTrust & { file: TlsValidationContextFileTrust })
   | (_TlsValidationContextTrust & { sds: TlsValidationContextSdsTrust });
-export declare class TooManyRequestsException extends EffectData.TaggedError(
+export declare class TooManyRequestsException extends Data.TaggedError(
   "TooManyRequestsException",
 )<{
   readonly message?: string;
 }> {}
-export declare class TooManyTagsException extends EffectData.TaggedError(
+export declare class TooManyTagsException extends Data.TaggedError(
   "TooManyTagsException",
 )<{
   readonly message?: string;

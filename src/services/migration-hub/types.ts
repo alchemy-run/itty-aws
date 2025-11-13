@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   ExpiredTokenException,
   IncompleteSignature,
@@ -333,7 +334,7 @@ export declare class MigrationHub extends AWSServiceClient {
   >;
 }
 
-export declare class AccessDeniedException extends EffectData.TaggedError(
+export declare class AccessDeniedException extends Data.TaggedError(
   "AccessDeniedException",
 )<{
   readonly Message?: string;
@@ -434,14 +435,14 @@ export type DiscoveredResourceDescription = string;
 export type DiscoveredResourceList = Array<DiscoveredResource>;
 export type DryRun = boolean;
 
-export declare class DryRunOperation extends EffectData.TaggedError(
+export declare class DryRunOperation extends Data.TaggedError(
   "DryRunOperation",
 )<{
   readonly Message?: string;
 }> {}
 export type ErrorMessage = string;
 
-export declare class HomeRegionNotSetException extends EffectData.TaggedError(
+export declare class HomeRegionNotSetException extends Data.TaggedError(
   "HomeRegionNotSetException",
 )<{
   readonly Message?: string;
@@ -452,12 +453,12 @@ export interface ImportMigrationTaskRequest {
   DryRun?: boolean;
 }
 export interface ImportMigrationTaskResult {}
-export declare class InternalServerError extends EffectData.TaggedError(
+export declare class InternalServerError extends Data.TaggedError(
   "InternalServerError",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidInputException extends EffectData.TaggedError(
+export declare class InvalidInputException extends Data.TaggedError(
   "InvalidInputException",
 )<{
   readonly Message?: string;
@@ -579,7 +580,7 @@ export interface NotifyMigrationTaskStateRequest {
   DryRun?: boolean;
 }
 export interface NotifyMigrationTaskStateResult {}
-export declare class PolicyErrorException extends EffectData.TaggedError(
+export declare class PolicyErrorException extends Data.TaggedError(
   "PolicyErrorException",
 )<{
   readonly Message?: string;
@@ -620,14 +621,14 @@ export type ResourceAttributeValue = string;
 
 export type ResourceName = string;
 
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly Message?: string;
 }> {}
 export type RetryAfterSeconds = number;
 
-export declare class ServiceUnavailableException extends EffectData.TaggedError(
+export declare class ServiceUnavailableException extends Data.TaggedError(
   "ServiceUnavailableException",
 )<{
   readonly Message?: string;
@@ -650,7 +651,7 @@ export interface Task {
   StatusDetail?: string;
   ProgressPercent?: number;
 }
-export declare class ThrottlingException extends EffectData.TaggedError(
+export declare class ThrottlingException extends Data.TaggedError(
   "ThrottlingException",
 )<{
   readonly Message: string;
@@ -658,7 +659,7 @@ export declare class ThrottlingException extends EffectData.TaggedError(
 }> {}
 export type Token = string;
 
-export declare class UnauthorizedOperation extends EffectData.TaggedError(
+export declare class UnauthorizedOperation extends Data.TaggedError(
   "UnauthorizedOperation",
 )<{
   readonly Message?: string;

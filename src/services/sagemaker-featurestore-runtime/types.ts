@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   AccessDeniedException,
   ExpiredTokenException,
@@ -81,7 +82,7 @@ export declare class SageMakerFeatureStoreRuntime extends AWSServiceClient {
 
 export declare class SagemakerFeaturestoreRuntime extends SageMakerFeatureStoreRuntime {}
 
-export declare class AccessForbidden extends EffectData.TaggedError(
+export declare class AccessForbidden extends Data.TaggedError(
   "AccessForbidden",
 )<{
   readonly Message?: string;
@@ -146,7 +147,7 @@ export interface GetRecordResponse {
   Record?: Array<FeatureValue>;
   ExpiresAt?: string;
 }
-export declare class InternalFailure extends EffectData.TaggedError(
+export declare class InternalFailure extends Data.TaggedError(
   "InternalFailure",
 )<{
   readonly Message?: string;
@@ -161,12 +162,12 @@ export interface PutRecordRequest {
 }
 export type SagemakerFeaturestoreRuntimeRecord = Array<FeatureValue>;
 export type RecordIdentifiers = Array<string>;
-export declare class ResourceNotFound extends EffectData.TaggedError(
+export declare class ResourceNotFound extends Data.TaggedError(
   "ResourceNotFound",
 )<{
   readonly Message?: string;
 }> {}
-export declare class ServiceUnavailable extends EffectData.TaggedError(
+export declare class ServiceUnavailable extends Data.TaggedError(
   "ServiceUnavailable",
 )<{
   readonly Message?: string;
@@ -186,7 +187,7 @@ export type TtlDurationUnit =
 export type TtlDurationValue = number;
 
 export type UnprocessedIdentifiers = Array<BatchGetRecordIdentifier>;
-export declare class ValidationError extends EffectData.TaggedError(
+export declare class ValidationError extends Data.TaggedError(
   "ValidationError",
 )<{
   readonly Message?: string;

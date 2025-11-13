@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
@@ -371,12 +372,12 @@ export interface ConfiguredTeam {
   StateReason?: string;
 }
 export type ConfiguredTeamsList = Array<ConfiguredTeam>;
-export declare class ConflictException extends EffectData.TaggedError(
+export declare class ConflictException extends Data.TaggedError(
   "ConflictException",
 )<{
   readonly message?: string;
 }> {}
-export declare class CreateChimeWebhookConfigurationException extends EffectData.TaggedError(
+export declare class CreateChimeWebhookConfigurationException extends Data.TaggedError(
   "CreateChimeWebhookConfigurationException",
 )<{
   readonly Message?: string;
@@ -404,7 +405,7 @@ export interface CreateCustomActionRequest {
 export interface CreateCustomActionResult {
   CustomActionArn: string;
 }
-export declare class CreateSlackChannelConfigurationException extends EffectData.TaggedError(
+export declare class CreateSlackChannelConfigurationException extends Data.TaggedError(
   "CreateSlackChannelConfigurationException",
 )<{
   readonly Message?: string;
@@ -424,7 +425,7 @@ export interface CreateSlackChannelConfigurationRequest {
 export interface CreateSlackChannelConfigurationResult {
   ChannelConfiguration?: SlackChannelConfiguration;
 }
-export declare class CreateTeamsChannelConfigurationException extends EffectData.TaggedError(
+export declare class CreateTeamsChannelConfigurationException extends Data.TaggedError(
   "CreateTeamsChannelConfigurationException",
 )<{
   readonly Message?: string;
@@ -485,7 +486,7 @@ export type CustomActionName = string;
 
 export type CustomerCwLogLevel = string;
 
-export declare class DeleteChimeWebhookConfigurationException extends EffectData.TaggedError(
+export declare class DeleteChimeWebhookConfigurationException extends Data.TaggedError(
   "DeleteChimeWebhookConfigurationException",
 )<{
   readonly Message?: string;
@@ -498,7 +499,7 @@ export interface DeleteCustomActionRequest {
   CustomActionArn: string;
 }
 export interface DeleteCustomActionResult {}
-export declare class DeleteMicrosoftTeamsUserIdentityException extends EffectData.TaggedError(
+export declare class DeleteMicrosoftTeamsUserIdentityException extends Data.TaggedError(
   "DeleteMicrosoftTeamsUserIdentityException",
 )<{
   readonly Message?: string;
@@ -508,7 +509,7 @@ export interface DeleteMicrosoftTeamsUserIdentityRequest {
   UserId: string;
 }
 export interface DeleteMicrosoftTeamsUserIdentityResult {}
-export declare class DeleteSlackChannelConfigurationException extends EffectData.TaggedError(
+export declare class DeleteSlackChannelConfigurationException extends Data.TaggedError(
   "DeleteSlackChannelConfigurationException",
 )<{
   readonly Message?: string;
@@ -517,7 +518,7 @@ export interface DeleteSlackChannelConfigurationRequest {
   ChatConfigurationArn: string;
 }
 export interface DeleteSlackChannelConfigurationResult {}
-export declare class DeleteSlackUserIdentityException extends EffectData.TaggedError(
+export declare class DeleteSlackUserIdentityException extends Data.TaggedError(
   "DeleteSlackUserIdentityException",
 )<{
   readonly Message?: string;
@@ -528,7 +529,7 @@ export interface DeleteSlackUserIdentityRequest {
   SlackUserId: string;
 }
 export interface DeleteSlackUserIdentityResult {}
-export declare class DeleteSlackWorkspaceAuthorizationFault extends EffectData.TaggedError(
+export declare class DeleteSlackWorkspaceAuthorizationFault extends Data.TaggedError(
   "DeleteSlackWorkspaceAuthorizationFault",
 )<{
   readonly Message?: string;
@@ -537,7 +538,7 @@ export interface DeleteSlackWorkspaceAuthorizationRequest {
   SlackTeamId: string;
 }
 export interface DeleteSlackWorkspaceAuthorizationResult {}
-export declare class DeleteTeamsChannelConfigurationException extends EffectData.TaggedError(
+export declare class DeleteTeamsChannelConfigurationException extends Data.TaggedError(
   "DeleteTeamsChannelConfigurationException",
 )<{
   readonly Message?: string;
@@ -546,7 +547,7 @@ export interface DeleteTeamsChannelConfigurationRequest {
   ChatConfigurationArn: string;
 }
 export interface DeleteTeamsChannelConfigurationResult {}
-export declare class DeleteTeamsConfiguredTeamException extends EffectData.TaggedError(
+export declare class DeleteTeamsConfiguredTeamException extends Data.TaggedError(
   "DeleteTeamsConfiguredTeamException",
 )<{
   readonly Message?: string;
@@ -555,7 +556,7 @@ export interface DeleteTeamsConfiguredTeamRequest {
   TeamId: string;
 }
 export interface DeleteTeamsConfiguredTeamResult {}
-export declare class DescribeChimeWebhookConfigurationsException extends EffectData.TaggedError(
+export declare class DescribeChimeWebhookConfigurationsException extends Data.TaggedError(
   "DescribeChimeWebhookConfigurationsException",
 )<{
   readonly Message?: string;
@@ -569,7 +570,7 @@ export interface DescribeChimeWebhookConfigurationsResult {
   NextToken?: string;
   WebhookConfigurations?: Array<ChimeWebhookConfiguration>;
 }
-export declare class DescribeSlackChannelConfigurationsException extends EffectData.TaggedError(
+export declare class DescribeSlackChannelConfigurationsException extends Data.TaggedError(
   "DescribeSlackChannelConfigurationsException",
 )<{
   readonly Message?: string;
@@ -583,7 +584,7 @@ export interface DescribeSlackChannelConfigurationsResult {
   NextToken?: string;
   SlackChannelConfigurations?: Array<SlackChannelConfiguration>;
 }
-export declare class DescribeSlackUserIdentitiesException extends EffectData.TaggedError(
+export declare class DescribeSlackUserIdentitiesException extends Data.TaggedError(
   "DescribeSlackUserIdentitiesException",
 )<{
   readonly Message?: string;
@@ -597,7 +598,7 @@ export interface DescribeSlackUserIdentitiesResult {
   SlackUserIdentities?: Array<SlackUserIdentity>;
   NextToken?: string;
 }
-export declare class DescribeSlackWorkspacesException extends EffectData.TaggedError(
+export declare class DescribeSlackWorkspacesException extends Data.TaggedError(
   "DescribeSlackWorkspacesException",
 )<{
   readonly Message?: string;
@@ -617,7 +618,7 @@ export interface DisassociateFromConfigurationRequest {
 export interface DisassociateFromConfigurationResult {}
 export type ErrorMessage = string;
 
-export declare class GetAccountPreferencesException extends EffectData.TaggedError(
+export declare class GetAccountPreferencesException extends Data.TaggedError(
   "GetAccountPreferencesException",
 )<{
   readonly Message?: string;
@@ -632,7 +633,7 @@ export interface GetCustomActionRequest {
 export interface GetCustomActionResult {
   CustomAction?: CustomAction;
 }
-export declare class GetTeamsChannelConfigurationException extends EffectData.TaggedError(
+export declare class GetTeamsChannelConfigurationException extends Data.TaggedError(
   "GetTeamsChannelConfigurationException",
 )<{
   readonly Message?: string;
@@ -646,22 +647,22 @@ export interface GetTeamsChannelConfigurationResult {
 export type GuardrailPolicyArn = string;
 
 export type GuardrailPolicyArnList = Array<string>;
-export declare class InternalServiceError extends EffectData.TaggedError(
+export declare class InternalServiceError extends Data.TaggedError(
   "InternalServiceError",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidParameterException extends EffectData.TaggedError(
+export declare class InvalidParameterException extends Data.TaggedError(
   "InvalidParameterException",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidRequestException extends EffectData.TaggedError(
+export declare class InvalidRequestException extends Data.TaggedError(
   "InvalidRequestException",
 )<{
   readonly message?: string;
 }> {}
-export declare class LimitExceededException extends EffectData.TaggedError(
+export declare class LimitExceededException extends Data.TaggedError(
   "LimitExceededException",
 )<{
   readonly message?: string;
@@ -683,7 +684,7 @@ export interface ListCustomActionsResult {
   CustomActions: Array<string>;
   NextToken?: string;
 }
-export declare class ListMicrosoftTeamsConfiguredTeamsException extends EffectData.TaggedError(
+export declare class ListMicrosoftTeamsConfiguredTeamsException extends Data.TaggedError(
   "ListMicrosoftTeamsConfiguredTeamsException",
 )<{
   readonly Message?: string;
@@ -696,7 +697,7 @@ export interface ListMicrosoftTeamsConfiguredTeamsResult {
   ConfiguredTeams?: Array<ConfiguredTeam>;
   NextToken?: string;
 }
-export declare class ListMicrosoftTeamsUserIdentitiesException extends EffectData.TaggedError(
+export declare class ListMicrosoftTeamsUserIdentitiesException extends Data.TaggedError(
   "ListMicrosoftTeamsUserIdentitiesException",
 )<{
   readonly Message?: string;
@@ -716,7 +717,7 @@ export interface ListTagsForResourceRequest {
 export interface ListTagsForResourceResponse {
   Tags?: Array<Tag>;
 }
-export declare class ListTeamsChannelConfigurationsException extends EffectData.TaggedError(
+export declare class ListTeamsChannelConfigurationsException extends Data.TaggedError(
   "ListTeamsChannelConfigurationsException",
 )<{
   readonly Message?: string;
@@ -736,14 +737,14 @@ export type PaginationToken = string;
 
 export type ResourceIdentifier = string;
 
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly Message?: string;
 }> {}
 export type ResourceState = string;
 
-export declare class ServiceUnavailableException extends EffectData.TaggedError(
+export declare class ServiceUnavailableException extends Data.TaggedError(
   "ServiceUnavailableException",
 )<{
   readonly message?: string;
@@ -843,12 +844,12 @@ export interface TeamsUserIdentity {
   TeamsChannelId?: string;
   TeamsTenantId?: string;
 }
-export declare class TooManyTagsException extends EffectData.TaggedError(
+export declare class TooManyTagsException extends Data.TaggedError(
   "TooManyTagsException",
 )<{
   readonly message?: string;
 }> {}
-export declare class UnauthorizedException extends EffectData.TaggedError(
+export declare class UnauthorizedException extends Data.TaggedError(
   "UnauthorizedException",
 )<{
   readonly message?: string;
@@ -858,7 +859,7 @@ export interface UntagResourceRequest {
   TagKeys: Array<string>;
 }
 export interface UntagResourceResponse {}
-export declare class UpdateAccountPreferencesException extends EffectData.TaggedError(
+export declare class UpdateAccountPreferencesException extends Data.TaggedError(
   "UpdateAccountPreferencesException",
 )<{
   readonly Message?: string;
@@ -870,7 +871,7 @@ export interface UpdateAccountPreferencesRequest {
 export interface UpdateAccountPreferencesResult {
   AccountPreferences?: AccountPreferences;
 }
-export declare class UpdateChimeWebhookConfigurationException extends EffectData.TaggedError(
+export declare class UpdateChimeWebhookConfigurationException extends Data.TaggedError(
   "UpdateChimeWebhookConfigurationException",
 )<{
   readonly Message?: string;
@@ -895,7 +896,7 @@ export interface UpdateCustomActionRequest {
 export interface UpdateCustomActionResult {
   CustomActionArn: string;
 }
-export declare class UpdateSlackChannelConfigurationException extends EffectData.TaggedError(
+export declare class UpdateSlackChannelConfigurationException extends Data.TaggedError(
   "UpdateSlackChannelConfigurationException",
 )<{
   readonly Message?: string;
@@ -913,7 +914,7 @@ export interface UpdateSlackChannelConfigurationRequest {
 export interface UpdateSlackChannelConfigurationResult {
   ChannelConfiguration?: SlackChannelConfiguration;
 }
-export declare class UpdateTeamsChannelConfigurationException extends EffectData.TaggedError(
+export declare class UpdateTeamsChannelConfigurationException extends Data.TaggedError(
   "UpdateTeamsChannelConfigurationException",
 )<{
   readonly Message?: string;

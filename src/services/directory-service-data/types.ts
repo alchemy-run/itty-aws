@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   ExpiredTokenException,
   IncompleteSignature,
@@ -245,7 +246,7 @@ export declare class DirectoryServiceData extends AWSServiceClient {
   >;
 }
 
-export declare class AccessDeniedException extends EffectData.TaggedError(
+export declare class AccessDeniedException extends Data.TaggedError(
   "AccessDeniedException",
 )<{
   readonly Message?: string;
@@ -280,7 +281,7 @@ export type BooleanAttributeValue = boolean;
 
 export type ClientToken = string;
 
-export declare class ConflictException extends EffectData.TaggedError(
+export declare class ConflictException extends Data.TaggedError(
   "ConflictException",
 )<{
   readonly Message?: string;
@@ -361,7 +362,7 @@ export interface DescribeUserResult {
 }
 export type DirectoryId = string;
 
-export declare class DirectoryUnavailableException extends EffectData.TaggedError(
+export declare class DirectoryUnavailableException extends Data.TaggedError(
   "DirectoryUnavailableException",
 )<{
   readonly Message?: string;
@@ -411,7 +412,7 @@ export interface GroupSummary {
 }
 export type GroupSummaryList = Array<GroupSummary>;
 export type GroupType = "Distribution" | "Security";
-export declare class InternalServerException extends EffectData.TaggedError(
+export declare class InternalServerException extends Data.TaggedError(
   "InternalServerException",
 )<{
   readonly Message?: string;
@@ -498,7 +499,7 @@ export interface RemoveGroupMemberRequest {
   ClientToken?: string;
 }
 export interface RemoveGroupMemberResult {}
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly Message?: string;
@@ -540,7 +541,7 @@ export type StringAttributeValue = string;
 export type StringSetAttributeValue = Array<string>;
 export type Surname = string;
 
-export declare class ThrottlingException extends EffectData.TaggedError(
+export declare class ThrottlingException extends Data.TaggedError(
   "ThrottlingException",
 )<{
   readonly Message: string;
@@ -592,7 +593,7 @@ export interface UserSummary {
   Enabled: boolean;
 }
 export type UserSummaryList = Array<UserSummary>;
-export declare class ValidationException extends EffectData.TaggedError(
+export declare class ValidationException extends Data.TaggedError(
   "ValidationException",
 )<{
   readonly Message?: string;

@@ -1,5 +1,6 @@
-import type { Effect, Stream, Data as EffectData } from "effect";
-import type { ResponseError } from "@effect/platform/HttpClientError";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
+import type * as Stream from "effect/stream/Stream";
 import type { Buffer } from "node:buffer";
 import type {
   ExpiredTokenException,
@@ -483,7 +484,7 @@ export declare class LexModelBuildingService extends AWSServiceClient {
   >;
 }
 
-export declare class AccessDeniedException extends EffectData.TaggedError(
+export declare class AccessDeniedException extends Data.TaggedError(
   "AccessDeniedException",
 )<{
   readonly message?: string;
@@ -494,7 +495,7 @@ export type AliasNameOrListAll = string;
 
 export type AmazonResourceName = string;
 
-export declare class BadRequestException extends EffectData.TaggedError(
+export declare class BadRequestException extends Data.TaggedError(
   "BadRequestException",
 )<{
   readonly message?: string;
@@ -567,7 +568,7 @@ export interface CodeHook {
 }
 export type ConfidenceThreshold = number;
 
-export declare class ConflictException extends EffectData.TaggedError(
+export declare class ConflictException extends Data.TaggedError(
   "ConflictException",
 )<{
   readonly message?: string;
@@ -994,7 +995,7 @@ export type IntentMetadataList = Array<IntentMetadata>;
 export type IntentName = string;
 
 export type IntentUtteranceList = Array<string>;
-export declare class InternalFailureException extends EffectData.TaggedError(
+export declare class InternalFailureException extends Data.TaggedError(
   "InternalFailureException",
 )<{
   readonly message?: string;
@@ -1010,7 +1011,7 @@ export type KmsKeyArn = string;
 
 export type LambdaARN = string;
 
-export declare class LimitExceededException extends EffectData.TaggedError(
+export declare class LimitExceededException extends Data.TaggedError(
   "LimitExceededException",
 )<{
   readonly retryAfterSeconds?: string;
@@ -1103,7 +1104,7 @@ export type Name = string;
 
 export type NextToken = string;
 
-export declare class NotFoundException extends EffectData.TaggedError(
+export declare class NotFoundException extends Data.TaggedError(
   "NotFoundException",
 )<{
   readonly message?: string;
@@ -1119,7 +1120,7 @@ export interface OutputContext {
 export type OutputContextList = Array<OutputContext>;
 export type OutputContextName = string;
 
-export declare class PreconditionFailedException extends EffectData.TaggedError(
+export declare class PreconditionFailedException extends Data.TaggedError(
   "PreconditionFailedException",
 )<{
   readonly message?: string;
@@ -1263,7 +1264,7 @@ export type RegexPattern = string;
 
 export type ResourceArn = string;
 
-export declare class ResourceInUseException extends EffectData.TaggedError(
+export declare class ResourceInUseException extends Data.TaggedError(
   "ResourceInUseException",
 )<{
   readonly referenceType?: ReferenceType;

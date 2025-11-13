@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   ExpiredTokenException,
   IncompleteSignature,
@@ -188,7 +189,7 @@ export declare class TaxSettings extends AWSServiceClient {
 
 export declare class Taxsettings extends TaxSettings {}
 
-export declare class AccessDeniedException extends EffectData.TaggedError(
+export declare class AccessDeniedException extends Data.TaggedError(
   "AccessDeniedException",
 )<{
   readonly message: string;
@@ -277,7 +278,7 @@ export type AddressRoleType =
   | "TaxAddress"
   | "BillingAddress"
   | "ContactAddress";
-export declare class AttachmentUploadException extends EffectData.TaggedError(
+export declare class AttachmentUploadException extends Data.TaggedError(
   "AttachmentUploadException",
 )<{
   readonly message: string;
@@ -343,7 +344,7 @@ export type CanadaQuebecSalesTaxNumberString = string;
 
 export type CanadaRetailSalesTaxNumberString = string;
 
-export declare class CaseCreationLimitExceededException extends EffectData.TaggedError(
+export declare class CaseCreationLimitExceededException extends Data.TaggedError(
   "CaseCreationLimitExceededException",
 )<{
   readonly message: string;
@@ -356,7 +357,7 @@ export type CigNumber = string;
 
 export type City = string;
 
-export declare class ConflictException extends EffectData.TaggedError(
+export declare class ConflictException extends Data.TaggedError(
   "ConflictException",
 )<{
   readonly message: string;
@@ -479,7 +480,7 @@ export type Industries =
   | "DevelopmentAgencies";
 export type InheritanceObtainedReason = string;
 
-export declare class InternalServerException extends EffectData.TaggedError(
+export declare class InternalServerException extends Data.TaggedError(
   "InternalServerException",
 )<{
   readonly message: string;
@@ -598,7 +599,7 @@ export type RegistrationId = string;
 export type RegistrationType = "Intra-EU" | "Local";
 export type RegistryCommercialCode = string;
 
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly message: string;
@@ -775,7 +776,7 @@ export interface UzbekistanAdditionalInfo {
   vatRegistrationNumber?: string;
 }
 export type UzbekistanTaxRegistrationNumberType = "Business" | "Individual";
-export declare class ValidationException extends EffectData.TaggedError(
+export declare class ValidationException extends Data.TaggedError(
   "ValidationException",
 )<{
   readonly message: string;

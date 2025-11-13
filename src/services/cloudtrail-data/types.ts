@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
@@ -32,22 +33,22 @@ export interface AuditEventResultEntry {
 export type AuditEvents = Array<AuditEvent>;
 export type ChannelArn = string;
 
-export declare class ChannelInsufficientPermission extends EffectData.TaggedError(
+export declare class ChannelInsufficientPermission extends Data.TaggedError(
   "ChannelInsufficientPermission",
 )<{
   readonly message?: string;
 }> {}
-export declare class ChannelNotFound extends EffectData.TaggedError(
+export declare class ChannelNotFound extends Data.TaggedError(
   "ChannelNotFound",
 )<{
   readonly message?: string;
 }> {}
-export declare class ChannelUnsupportedSchema extends EffectData.TaggedError(
+export declare class ChannelUnsupportedSchema extends Data.TaggedError(
   "ChannelUnsupportedSchema",
 )<{
   readonly message?: string;
 }> {}
-export declare class DuplicatedAuditEventId extends EffectData.TaggedError(
+export declare class DuplicatedAuditEventId extends Data.TaggedError(
   "DuplicatedAuditEventId",
 )<{
   readonly message?: string;
@@ -58,7 +59,7 @@ export type ErrorMessage = string;
 
 export type ExternalId = string;
 
-export declare class InvalidChannelARN extends EffectData.TaggedError(
+export declare class InvalidChannelARN extends Data.TaggedError(
   "InvalidChannelARN",
 )<{
   readonly message?: string;
@@ -78,7 +79,7 @@ export interface ResultErrorEntry {
   errorCode: string;
   errorMessage: string;
 }
-export declare class UnsupportedOperationException extends EffectData.TaggedError(
+export declare class UnsupportedOperationException extends Data.TaggedError(
   "UnsupportedOperationException",
 )<{
   readonly message?: string;

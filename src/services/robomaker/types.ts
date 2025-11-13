@@ -1,4 +1,6 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as EffectData from "effect/data/Data";
+import { AWSServiceClient } from "../../client.ts";
 import type {
   AccessDeniedException,
   ExpiredTokenException,
@@ -12,8 +14,8 @@ import type {
   RequestExpired,
   RequestTimeoutException,
   ServiceUnavailable,
-  UnrecognizedClientException,
   UnknownOperationException,
+  UnrecognizedClientException,
   ValidationError,
   ValidationException,
 } from "../../error.ts";
@@ -35,7 +37,6 @@ type CommonAwsError =
   | ValidationError
   | ValidationException
   | ThrottlingException;
-import { AWSServiceClient } from "../../client.ts";
 
 export declare class RoboMaker extends AWSServiceClient {
   batchDeleteWorlds(

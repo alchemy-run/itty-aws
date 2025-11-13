@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
@@ -33,12 +34,12 @@ export type __string = string;
 
 export type __timestampIso8601 = Date | string;
 
-export type Data = Uint8Array | string;
+export type ApigatewaymanagementapiData = Uint8Array | string;
 
 export interface DeleteConnectionRequest {
   ConnectionId: string;
 }
-export declare class ForbiddenException extends EffectData.TaggedError(
+export declare class ForbiddenException extends Data.TaggedError(
   "ForbiddenException",
 )<{}> {}
 export interface GetConnectionRequest {
@@ -49,17 +50,17 @@ export interface GetConnectionResponse {
   Identity?: Identity;
   LastActiveAt?: Date | string;
 }
-export declare class GoneException extends EffectData.TaggedError(
+export declare class GoneException extends Data.TaggedError(
   "GoneException",
 )<{}> {}
 export interface Identity {
   SourceIp: string;
   UserAgent: string;
 }
-export declare class LimitExceededException extends EffectData.TaggedError(
+export declare class LimitExceededException extends Data.TaggedError(
   "LimitExceededException",
 )<{}> {}
-export declare class PayloadTooLargeException extends EffectData.TaggedError(
+export declare class PayloadTooLargeException extends Data.TaggedError(
   "PayloadTooLargeException",
 )<{
   readonly Message?: string;

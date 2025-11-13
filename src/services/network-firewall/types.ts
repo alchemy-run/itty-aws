@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   AccessDeniedException,
   ExpiredTokenException,
@@ -1238,32 +1239,32 @@ export interface Hits {
 export type IdentifiedType =
   | "STATELESS_RULE_FORWARDING_ASYMMETRICALLY"
   | "STATELESS_RULE_CONTAINS_TCP_FLAGS";
-export declare class InsufficientCapacityException extends EffectData.TaggedError(
+export declare class InsufficientCapacityException extends Data.TaggedError(
   "InsufficientCapacityException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InternalServerError extends EffectData.TaggedError(
+export declare class InternalServerError extends Data.TaggedError(
   "InternalServerError",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidOperationException extends EffectData.TaggedError(
+export declare class InvalidOperationException extends Data.TaggedError(
   "InvalidOperationException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidRequestException extends EffectData.TaggedError(
+export declare class InvalidRequestException extends Data.TaggedError(
   "InvalidRequestException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidResourcePolicyException extends EffectData.TaggedError(
+export declare class InvalidResourcePolicyException extends Data.TaggedError(
   "InvalidResourcePolicyException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidTokenException extends EffectData.TaggedError(
+export declare class InvalidTokenException extends Data.TaggedError(
   "InvalidTokenException",
 )<{
   readonly Message?: string;
@@ -1293,7 +1294,7 @@ export type LastAccessed = Date | string;
 
 export type LastUpdateTime = Date | string;
 
-export declare class LimitExceededException extends EffectData.TaggedError(
+export declare class LimitExceededException extends Data.TaggedError(
   "LimitExceededException",
 )<{
   readonly Message?: string;
@@ -1403,7 +1404,7 @@ export interface LogDestinationConfig {
 }
 export type LogDestinationConfigs = Array<LogDestinationConfig>;
 export type LogDestinationMap = Record<string, string>;
-export declare class LogDestinationPermissionException extends EffectData.TaggedError(
+export declare class LogDestinationPermissionException extends Data.TaggedError(
   "LogDestinationPermissionException",
 )<{
   readonly Message?: string;
@@ -1498,12 +1499,12 @@ export type ResourceManagedType =
   | "ACTIVE_THREAT_DEFENSE";
 export type ResourceName = string;
 
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class ResourceOwnerCheckException extends EffectData.TaggedError(
+export declare class ResourceOwnerCheckException extends Data.TaggedError(
   "ResourceOwnerCheckException",
 )<{
   readonly Message?: string;
@@ -1773,7 +1774,7 @@ export interface TCPFlagField {
 export type TCPFlags = Array<TCPFlagField>;
 export type TcpIdleTimeoutRangeBound = number;
 
-export declare class ThrottlingException extends EffectData.TaggedError(
+export declare class ThrottlingException extends Data.TaggedError(
   "ThrottlingException",
 )<{
   readonly Message?: string;
@@ -1830,7 +1831,7 @@ export type TransitGatewayId = string;
 export interface UniqueSources {
   Count?: number;
 }
-export declare class UnsupportedOperationException extends EffectData.TaggedError(
+export declare class UnsupportedOperationException extends Data.TaggedError(
   "UnsupportedOperationException",
 )<{
   readonly Message?: string;

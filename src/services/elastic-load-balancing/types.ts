@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
@@ -253,7 +254,7 @@ export type AccessLogPrefix = string;
 
 export type AccessPointName = string;
 
-export declare class AccessPointNotFoundException extends EffectData.TaggedError(
+export declare class AccessPointNotFoundException extends Data.TaggedError(
   "AccessPointNotFoundException",
 )<{
   readonly Message?: string;
@@ -316,7 +317,7 @@ export interface BackendServerDescription {
 export type BackendServerDescriptions = Array<BackendServerDescription>;
 export type Cardinality = string;
 
-export declare class CertificateNotFoundException extends EffectData.TaggedError(
+export declare class CertificateNotFoundException extends Data.TaggedError(
   "CertificateNotFoundException",
 )<{
   readonly Message?: string;
@@ -402,7 +403,7 @@ export interface DeleteLoadBalancerPolicyInput {
   PolicyName: string;
 }
 export interface DeleteLoadBalancerPolicyOutput {}
-export declare class DependencyThrottleException extends EffectData.TaggedError(
+export declare class DependencyThrottleException extends Data.TaggedError(
   "DependencyThrottleException",
 )<{
   readonly Message?: string;
@@ -474,22 +475,22 @@ export interface DetachLoadBalancerFromSubnetsOutput {
 }
 export type DNSName = string;
 
-export declare class DuplicateAccessPointNameException extends EffectData.TaggedError(
+export declare class DuplicateAccessPointNameException extends Data.TaggedError(
   "DuplicateAccessPointNameException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class DuplicateListenerException extends EffectData.TaggedError(
+export declare class DuplicateListenerException extends Data.TaggedError(
   "DuplicateListenerException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class DuplicatePolicyNameException extends EffectData.TaggedError(
+export declare class DuplicatePolicyNameException extends Data.TaggedError(
   "DuplicatePolicyNameException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class DuplicateTagKeysException extends EffectData.TaggedError(
+export declare class DuplicateTagKeysException extends Data.TaggedError(
   "DuplicateTagKeysException",
 )<{
   readonly Message?: string;
@@ -530,27 +531,27 @@ export interface InstanceState {
   Description?: string;
 }
 export type InstanceStates = Array<InstanceState>;
-export declare class InvalidConfigurationRequestException extends EffectData.TaggedError(
+export declare class InvalidConfigurationRequestException extends Data.TaggedError(
   "InvalidConfigurationRequestException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidEndPointException extends EffectData.TaggedError(
+export declare class InvalidEndPointException extends Data.TaggedError(
   "InvalidEndPointException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidSchemeException extends EffectData.TaggedError(
+export declare class InvalidSchemeException extends Data.TaggedError(
   "InvalidSchemeException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidSecurityGroupException extends EffectData.TaggedError(
+export declare class InvalidSecurityGroupException extends Data.TaggedError(
   "InvalidSecurityGroupException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidSubnetException extends EffectData.TaggedError(
+export declare class InvalidSubnetException extends Data.TaggedError(
   "InvalidSubnetException",
 )<{
   readonly Message?: string;
@@ -577,13 +578,13 @@ export interface ListenerDescription {
   PolicyNames?: Array<string>;
 }
 export type ListenerDescriptions = Array<ListenerDescription>;
-export declare class ListenerNotFoundException extends EffectData.TaggedError(
+export declare class ListenerNotFoundException extends Data.TaggedError(
   "ListenerNotFoundException",
 )<{
   readonly Message?: string;
 }> {}
 export type Listeners = Array<Listener>;
-export declare class LoadBalancerAttributeNotFoundException extends EffectData.TaggedError(
+export declare class LoadBalancerAttributeNotFoundException extends Data.TaggedError(
   "LoadBalancerAttributeNotFoundException",
 )<{
   readonly Message?: string;
@@ -632,7 +633,7 @@ export interface ModifyLoadBalancerAttributesOutput {
 }
 export type Name = string;
 
-export declare class OperationNotPermittedException extends EffectData.TaggedError(
+export declare class OperationNotPermittedException extends Data.TaggedError(
   "OperationNotPermittedException",
 )<{
   readonly Message?: string;
@@ -672,7 +673,7 @@ export type PolicyDescriptions = Array<PolicyDescription>;
 export type PolicyName = string;
 
 export type PolicyNames = Array<string>;
-export declare class PolicyNotFoundException extends EffectData.TaggedError(
+export declare class PolicyNotFoundException extends Data.TaggedError(
   "PolicyNotFoundException",
 )<{
   readonly Message?: string;
@@ -686,7 +687,7 @@ export type PolicyTypeDescriptions = Array<PolicyTypeDescription>;
 export type PolicyTypeName = string;
 
 export type PolicyTypeNames = Array<string>;
-export declare class PolicyTypeNotFoundException extends EffectData.TaggedError(
+export declare class PolicyTypeNotFoundException extends Data.TaggedError(
   "PolicyTypeNotFoundException",
 )<{
   readonly Message?: string;
@@ -752,7 +753,7 @@ export type State = string;
 
 export type SubnetId = string;
 
-export declare class SubnetNotFoundException extends EffectData.TaggedError(
+export declare class SubnetNotFoundException extends Data.TaggedError(
   "SubnetNotFoundException",
 )<{
   readonly Message?: string;
@@ -776,31 +777,31 @@ export interface TagKeyOnly {
 export type TagList = Array<Tag>;
 export type TagValue = string;
 
-export declare class TooManyAccessPointsException extends EffectData.TaggedError(
+export declare class TooManyAccessPointsException extends Data.TaggedError(
   "TooManyAccessPointsException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class TooManyPoliciesException extends EffectData.TaggedError(
+export declare class TooManyPoliciesException extends Data.TaggedError(
   "TooManyPoliciesException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class TooManyTagsException extends EffectData.TaggedError(
+export declare class TooManyTagsException extends Data.TaggedError(
   "TooManyTagsException",
 )<{
   readonly Message?: string;
 }> {}
 export type UnhealthyThreshold = number;
 
-export declare class UnsupportedProtocolException extends EffectData.TaggedError(
+export declare class UnsupportedProtocolException extends Data.TaggedError(
   "UnsupportedProtocolException",
 )<{
   readonly Message?: string;
 }> {}
 export type VPCId = string;
 
-export declare class InvalidInstance extends EffectData.TaggedError(
+export declare class InvalidInstance extends Data.TaggedError(
   "InvalidInstance",
 )<{}> {}
 

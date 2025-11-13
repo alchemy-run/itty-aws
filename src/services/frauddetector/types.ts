@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   ExpiredTokenException,
   IncompleteSignature,
@@ -842,7 +843,7 @@ export declare class FraudDetector extends AWSServiceClient {
 
 export declare class Frauddetector extends FraudDetector {}
 
-export declare class AccessDeniedException extends EffectData.TaggedError(
+export declare class AccessDeniedException extends Data.TaggedError(
   "AccessDeniedException",
 )<{
   readonly message: string;
@@ -969,7 +970,7 @@ export interface CancelBatchPredictionJobRequest {
   jobId: string;
 }
 export interface CancelBatchPredictionJobResult {}
-export declare class ConflictException extends EffectData.TaggedError(
+export declare class ConflictException extends Data.TaggedError(
   "ConflictException",
 )<{
   readonly message: string;
@@ -1564,7 +1565,7 @@ export type Integer = number;
 
 export type Integer2 = number;
 
-export declare class InternalServerException extends EffectData.TaggedError(
+export declare class InternalServerException extends Data.TaggedError(
   "InternalServerException",
 )<{
   readonly message: string;
@@ -1811,12 +1812,12 @@ export interface PutOutcomeRequest {
   tags?: Array<Tag>;
 }
 export interface PutOutcomeResult {}
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly message: string;
 }> {}
-export declare class ResourceUnavailableException extends EffectData.TaggedError(
+export declare class ResourceUnavailableException extends Data.TaggedError(
   "ResourceUnavailableException",
 )<{
   readonly message?: string;
@@ -1899,7 +1900,7 @@ export interface TFITrainingMetricsValue {
   metricDataPoints?: Array<TFIMetricDataPoint>;
   modelPerformance?: TFIModelPerformance;
 }
-export declare class ThrottlingException extends EffectData.TaggedError(
+export declare class ThrottlingException extends Data.TaggedError(
   "ThrottlingException",
 )<{
   readonly message: string;
@@ -2032,7 +2033,7 @@ export type UseEventVariables = boolean;
 
 export type utcTimestampISO8601 = string;
 
-export declare class ValidationException extends EffectData.TaggedError(
+export declare class ValidationException extends Data.TaggedError(
   "ValidationException",
 )<{
   readonly message: string;

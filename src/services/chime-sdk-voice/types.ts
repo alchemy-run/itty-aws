@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   ExpiredTokenException,
   IncompleteSignature,
@@ -1333,7 +1334,7 @@ export declare class ChimeSDKVoice extends AWSServiceClient {
 
 export declare class ChimeSdkVoice extends ChimeSDKVoice {}
 
-export declare class AccessDeniedException extends EffectData.TaggedError(
+export declare class AccessDeniedException extends Data.TaggedError(
   "AccessDeniedException",
 )<{
   readonly Code?: ErrorCode;
@@ -1377,7 +1378,7 @@ export interface AssociatePhoneNumbersWithVoiceConnectorRequest {
 export interface AssociatePhoneNumbersWithVoiceConnectorResponse {
   PhoneNumberErrors?: Array<PhoneNumberError>;
 }
-export declare class BadRequestException extends EffectData.TaggedError(
+export declare class BadRequestException extends Data.TaggedError(
   "BadRequestException",
 )<{
   readonly Code?: ErrorCode;
@@ -1429,7 +1430,7 @@ export type ClientRequestId = string;
 
 export type ConfidenceScore = number;
 
-export declare class ConflictException extends EffectData.TaggedError(
+export declare class ConflictException extends Data.TaggedError(
   "ConflictException",
 )<{
   readonly Code?: ErrorCode;
@@ -1632,7 +1633,7 @@ export interface ExternalSystemsConfiguration {
   SessionBorderControllerTypes?: Array<SessionBorderControllerType>;
   ContactCenterSystemTypes?: Array<ContactCenterSystemType>;
 }
-export declare class ForbiddenException extends EffectData.TaggedError(
+export declare class ForbiddenException extends Data.TaggedError(
   "ForbiddenException",
 )<{
   readonly Code?: ErrorCode;
@@ -1782,9 +1783,7 @@ export interface GetVoiceToneAnalysisTaskRequest {
 export interface GetVoiceToneAnalysisTaskResponse {
   VoiceToneAnalysisTask?: VoiceToneAnalysisTask;
 }
-export declare class GoneException extends EffectData.TaggedError(
-  "GoneException",
-)<{
+export declare class GoneException extends Data.TaggedError("GoneException")<{
   readonly Code?: ErrorCode;
   readonly Message?: string;
 }> {}
@@ -1914,7 +1913,7 @@ export type NonEmptyString128 = string;
 export type NonEmptyString256 = string;
 
 export type NonEmptyStringList = Array<string>;
-export declare class NotFoundException extends EffectData.TaggedError(
+export declare class NotFoundException extends Data.TaggedError(
   "NotFoundException",
 )<{
   readonly Code?: ErrorCode;
@@ -2145,7 +2144,7 @@ export interface PutVoiceConnectorTerminationRequest {
 export interface PutVoiceConnectorTerminationResponse {
   Termination?: Termination;
 }
-export declare class ResourceLimitExceededException extends EffectData.TaggedError(
+export declare class ResourceLimitExceededException extends Data.TaggedError(
   "ResourceLimitExceededException",
 )<{
   readonly Code?: ErrorCode;
@@ -2181,13 +2180,13 @@ export type SensitiveStringList = Array<string>;
 export interface ServerSideEncryptionConfiguration {
   KmsKeyArn: string;
 }
-export declare class ServiceFailureException extends EffectData.TaggedError(
+export declare class ServiceFailureException extends Data.TaggedError(
   "ServiceFailureException",
 )<{
   readonly Code?: ErrorCode;
   readonly Message?: string;
 }> {}
-export declare class ServiceUnavailableException extends EffectData.TaggedError(
+export declare class ServiceUnavailableException extends Data.TaggedError(
   "ServiceUnavailableException",
 )<{
   readonly Code?: ErrorCode;
@@ -2340,7 +2339,7 @@ export interface TerminationHealth {
   Timestamp?: Date | string;
   Source?: string;
 }
-export declare class ThrottledClientException extends EffectData.TaggedError(
+export declare class ThrottledClientException extends Data.TaggedError(
   "ThrottledClientException",
 )<{
   readonly Code?: ErrorCode;
@@ -2348,13 +2347,13 @@ export declare class ThrottledClientException extends EffectData.TaggedError(
 }> {}
 export type TollFreePrefix = string;
 
-export declare class UnauthorizedClientException extends EffectData.TaggedError(
+export declare class UnauthorizedClientException extends Data.TaggedError(
   "UnauthorizedClientException",
 )<{
   readonly Code?: ErrorCode;
   readonly Message?: string;
 }> {}
-export declare class UnprocessableEntityException extends EffectData.TaggedError(
+export declare class UnprocessableEntityException extends Data.TaggedError(
   "UnprocessableEntityException",
 )<{
   readonly Code?: ErrorCode;

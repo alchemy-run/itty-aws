@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
@@ -78,7 +79,7 @@ interface _AudioStream {
 export type AudioStream =
   | (_AudioStream & { AudioEvent: AudioEvent })
   | (_AudioStream & { ConfigurationEvent: ConfigurationEvent });
-export declare class BadRequestException extends EffectData.TaggedError(
+export declare class BadRequestException extends Data.TaggedError(
   "BadRequestException",
 )<{
   readonly Message?: string;
@@ -185,7 +186,7 @@ export interface ConfigurationEvent {
   ChannelDefinitions?: Array<ChannelDefinition>;
   PostCallAnalyticsSettings?: PostCallAnalyticsSettings;
 }
-export declare class ConflictException extends EffectData.TaggedError(
+export declare class ConflictException extends Data.TaggedError(
   "ConflictException",
 )<{
   readonly Message?: string;
@@ -216,7 +217,7 @@ export type IamRoleArn = string;
 
 export type Integer = number;
 
-export declare class InternalFailureException extends EffectData.TaggedError(
+export declare class InternalFailureException extends Data.TaggedError(
   "InternalFailureException",
 )<{
   readonly Message?: string;
@@ -302,7 +303,7 @@ export interface LanguageWithScore {
   LanguageCode?: LanguageCode;
   Score?: number;
 }
-export declare class LimitExceededException extends EffectData.TaggedError(
+export declare class LimitExceededException extends Data.TaggedError(
   "LimitExceededException",
 )<{
   readonly Message?: string;
@@ -541,7 +542,7 @@ export interface PostCallAnalyticsSettings {
 export type Pronouns = "HE_HIM" | "SHE_HER" | "THEY_THEM";
 export type RequestId = string;
 
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly Message?: string;
@@ -558,7 +559,7 @@ export interface Result {
 }
 export type ResultList = Array<Result>;
 export type Sentiment = "POSITIVE" | "NEGATIVE" | "MIXED" | "NEUTRAL";
-export declare class ServiceUnavailableException extends EffectData.TaggedError(
+export declare class ServiceUnavailableException extends Data.TaggedError(
   "ServiceUnavailableException",
 )<{
   readonly Message?: string;

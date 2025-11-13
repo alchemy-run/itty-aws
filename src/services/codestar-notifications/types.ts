@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   ExpiredTokenException,
   IncompleteSignature,
@@ -136,19 +137,19 @@ export declare class codestarnotifications extends AWSServiceClient {
 
 export declare class CodestarNotifications extends codestarnotifications {}
 
-export declare class AccessDeniedException extends EffectData.TaggedError(
+export declare class AccessDeniedException extends Data.TaggedError(
   "AccessDeniedException",
 )<{
   readonly Message?: string;
 }> {}
 export type ClientRequestToken = string;
 
-export declare class ConcurrentModificationException extends EffectData.TaggedError(
+export declare class ConcurrentModificationException extends Data.TaggedError(
   "ConcurrentModificationException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class ConfigurationException extends EffectData.TaggedError(
+export declare class ConfigurationException extends Data.TaggedError(
   "ConfigurationException",
 )<{
   readonly Message?: string;
@@ -210,14 +211,14 @@ export interface EventTypeSummary {
 }
 export type ForceUnsubscribeAll = boolean;
 
-export declare class InvalidNextTokenException extends EffectData.TaggedError(
+export declare class InvalidNextTokenException extends Data.TaggedError(
   "InvalidNextTokenException",
 )<{
   readonly Message?: string;
 }> {}
 export type LastModifiedTimestamp = Date | string;
 
-export declare class LimitExceededException extends EffectData.TaggedError(
+export declare class LimitExceededException extends Data.TaggedError(
   "LimitExceededException",
 )<{
   readonly Message?: string;
@@ -308,12 +309,12 @@ export interface NotificationRuleSummary {
   Id?: string;
   Arn?: string;
 }
-export declare class ResourceAlreadyExistsException extends EffectData.TaggedError(
+export declare class ResourceAlreadyExistsException extends Data.TaggedError(
   "ResourceAlreadyExistsException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly Message?: string;
@@ -385,7 +386,7 @@ export interface UpdateNotificationRuleRequest {
   DetailType?: DetailType;
 }
 export interface UpdateNotificationRuleResult {}
-export declare class ValidationException extends EffectData.TaggedError(
+export declare class ValidationException extends Data.TaggedError(
   "ValidationException",
 )<{
   readonly Message?: string;

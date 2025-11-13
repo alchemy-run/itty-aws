@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   ExpiredTokenException,
   IncompleteSignature,
@@ -859,7 +860,7 @@ export interface AcceptInboundConnectionRequest {
 export interface AcceptInboundConnectionResponse {
   Connection?: InboundConnection;
 }
-export declare class AccessDeniedException extends EffectData.TaggedError(
+export declare class AccessDeniedException extends Data.TaggedError(
   "AccessDeniedException",
 )<{
   readonly message?: string;
@@ -1086,9 +1087,7 @@ export interface AWSDomainInformation {
 export type AWSServicePrincipal = "application.opensearchservice.amazonaws.com";
 export type BackendRole = string;
 
-export declare class BaseException extends EffectData.TaggedError(
-  "BaseException",
-)<{
+export declare class BaseException extends Data.TaggedError("BaseException")<{
   readonly message?: string;
 }> {}
 export type OpensearchBoolean = boolean;
@@ -1200,7 +1199,7 @@ export type ConfigChangeStatus =
   | "Completed"
   | "PendingUserInput"
   | "Cancelled";
-export declare class ConflictException extends EffectData.TaggedError(
+export declare class ConflictException extends Data.TaggedError(
   "ConflictException",
 )<{
   readonly message?: string;
@@ -1370,7 +1369,7 @@ export interface DeleteVpcEndpointRequest {
 export interface DeleteVpcEndpointResponse {
   VpcEndpointSummary: VpcEndpointSummary;
 }
-export declare class DependencyFailureException extends EffectData.TaggedError(
+export declare class DependencyFailureException extends Data.TaggedError(
   "DependencyFailureException",
 )<{
   readonly message?: string;
@@ -1558,7 +1557,7 @@ export type DirectQueryDataSourceType =
       SecurityLake: SecurityLakeDirectQueryDataSource;
     });
 export type DirectQueryOpenSearchARNList = Array<string>;
-export declare class DisabledOperationException extends EffectData.TaggedError(
+export declare class DisabledOperationException extends Data.TaggedError(
   "DisabledOperationException",
 )<{
   readonly message?: string;
@@ -1972,17 +1971,17 @@ export type Integer = number;
 
 export type IntegerClass = number;
 
-export declare class InternalException extends EffectData.TaggedError(
+export declare class InternalException extends Data.TaggedError(
   "InternalException",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidPaginationTokenException extends EffectData.TaggedError(
+export declare class InvalidPaginationTokenException extends Data.TaggedError(
   "InvalidPaginationTokenException",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidTypeException extends EffectData.TaggedError(
+export declare class InvalidTypeException extends Data.TaggedError(
   "InvalidTypeException",
 )<{
   readonly message?: string;
@@ -2017,7 +2016,7 @@ export type LastUpdated = Date | string;
 
 export type LicenseFilepath = string;
 
-export declare class LimitExceededException extends EffectData.TaggedError(
+export declare class LimitExceededException extends Data.TaggedError(
   "LimitExceededException",
 )<{
   readonly message?: string;
@@ -2573,12 +2572,12 @@ export type ReservedInstancePaymentOption =
   | "ALL_UPFRONT"
   | "PARTIAL_UPFRONT"
   | "NO_UPFRONT";
-export declare class ResourceAlreadyExistsException extends EffectData.TaggedError(
+export declare class ResourceAlreadyExistsException extends Data.TaggedError(
   "ResourceAlreadyExistsException",
 )<{
   readonly message?: string;
 }> {}
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly message?: string;
@@ -2672,7 +2671,7 @@ export type ServiceUrl = string;
 
 export type SkipUnavailableStatus = "ENABLED" | "DISABLED";
 export type SlotList = Array<number>;
-export declare class SlotNotAvailableException extends EffectData.TaggedError(
+export declare class SlotNotAvailableException extends Data.TaggedError(
   "SlotNotAvailableException",
 )<{
   readonly SlotSuggestions?: Array<number>;
@@ -2901,7 +2900,7 @@ export type Username = string;
 
 export type UserPoolId = string;
 
-export declare class ValidationException extends EffectData.TaggedError(
+export declare class ValidationException extends Data.TaggedError(
   "ValidationException",
 )<{
   readonly message?: string;

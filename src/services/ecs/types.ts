@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   ExpiredTokenException,
   IncompleteSignature,
@@ -733,7 +734,7 @@ export interface AcceleratorTotalMemoryMiBRequest {
 }
 export type AcceleratorType = "gpu" | "fpga" | "inference";
 export type AcceleratorTypeSet = Array<AcceleratorType>;
-export declare class AccessDeniedException extends EffectData.TaggedError(
+export declare class AccessDeniedException extends Data.TaggedError(
   "AccessDeniedException",
 )<{
   readonly message?: string;
@@ -775,7 +776,7 @@ export interface Attribute {
   targetType?: TargetType;
   targetId?: string;
 }
-export declare class AttributeLimitExceededException extends EffectData.TaggedError(
+export declare class AttributeLimitExceededException extends Data.TaggedError(
   "AttributeLimitExceededException",
 )<{
   readonly message?: string;
@@ -803,7 +804,7 @@ export interface BaselineEbsBandwidthMbpsRequest {
   min?: number;
   max?: number;
 }
-export declare class BlockedException extends EffectData.TaggedError(
+export declare class BlockedException extends Data.TaggedError(
   "BlockedException",
 )<{
   readonly message?: string;
@@ -866,7 +867,7 @@ export type CapacityProviderUpdateStatus =
   | "UPDATE_IN_PROGRESS"
   | "UPDATE_COMPLETE"
   | "UPDATE_FAILED";
-export declare class ClientException extends EffectData.TaggedError(
+export declare class ClientException extends Data.TaggedError(
   "ClientException",
 )<{
   readonly message?: string;
@@ -893,22 +894,22 @@ export interface ClusterConfiguration {
   executeCommandConfiguration?: ExecuteCommandConfiguration;
   managedStorageConfiguration?: ManagedStorageConfiguration;
 }
-export declare class ClusterContainsCapacityProviderException extends EffectData.TaggedError(
+export declare class ClusterContainsCapacityProviderException extends Data.TaggedError(
   "ClusterContainsCapacityProviderException",
 )<{
   readonly message?: string;
 }> {}
-export declare class ClusterContainsContainerInstancesException extends EffectData.TaggedError(
+export declare class ClusterContainsContainerInstancesException extends Data.TaggedError(
   "ClusterContainsContainerInstancesException",
 )<{
   readonly message?: string;
 }> {}
-export declare class ClusterContainsServicesException extends EffectData.TaggedError(
+export declare class ClusterContainsServicesException extends Data.TaggedError(
   "ClusterContainsServicesException",
 )<{
   readonly message?: string;
 }> {}
-export declare class ClusterContainsTasksException extends EffectData.TaggedError(
+export declare class ClusterContainsTasksException extends Data.TaggedError(
   "ClusterContainsTasksException",
 )<{
   readonly message?: string;
@@ -920,7 +921,7 @@ export type ClusterField =
   | "STATISTICS"
   | "TAGS";
 export type ClusterFieldList = Array<ClusterField>;
-export declare class ClusterNotFoundException extends EffectData.TaggedError(
+export declare class ClusterNotFoundException extends Data.TaggedError(
   "ClusterNotFoundException",
 )<{
   readonly message?: string;
@@ -944,7 +945,7 @@ export type Compatibility =
   | "EXTERNAL"
   | "MANAGED_INSTANCES";
 export type CompatibilityList = Array<Compatibility>;
-export declare class ConflictException extends EffectData.TaggedError(
+export declare class ConflictException extends Data.TaggedError(
   "ConflictException",
 )<{
   readonly resourceIds?: Array<string>;
@@ -1601,7 +1602,7 @@ export interface InstanceRequirementsRequest {
 export type Integer = number;
 
 export type IntegerList = Array<number>;
-export declare class InvalidParameterException extends EffectData.TaggedError(
+export declare class InvalidParameterException extends Data.TaggedError(
   "InvalidParameterException",
 )<{
   readonly message?: string;
@@ -1616,7 +1617,7 @@ export interface KeyValuePair {
   value?: string;
 }
 export type LaunchType = "EC2" | "FARGATE" | "EXTERNAL" | "MANAGED_INSTANCES";
-export declare class LimitExceededException extends EffectData.TaggedError(
+export declare class LimitExceededException extends Data.TaggedError(
   "LimitExceededException",
 )<{
   readonly message?: string;
@@ -1835,7 +1836,7 @@ export interface MemoryMiBRequest {
   min: number;
   max?: number;
 }
-export declare class MissingVersionException extends EffectData.TaggedError(
+export declare class MissingVersionException extends Data.TaggedError(
   "MissingVersionException",
 )<{
   readonly message?: string;
@@ -1846,7 +1847,7 @@ export interface MountPoint {
   readOnly?: boolean;
 }
 export type MountPointList = Array<MountPoint>;
-export declare class NamespaceNotFoundException extends EffectData.TaggedError(
+export declare class NamespaceNotFoundException extends Data.TaggedError(
   "NamespaceNotFoundException",
 )<{
   readonly message?: string;
@@ -1878,7 +1879,7 @@ export interface NetworkInterfaceCountRequest {
 }
 export type NetworkInterfaces = Array<NetworkInterface>;
 export type NetworkMode = "bridge" | "host" | "awsvpc" | "none";
-export declare class NoUpdateAvailableException extends EffectData.TaggedError(
+export declare class NoUpdateAvailableException extends Data.TaggedError(
   "NoUpdateAvailableException",
 )<{
   readonly message?: string;
@@ -1913,12 +1914,12 @@ export interface PlatformDevice {
 }
 export type PlatformDevices = Array<PlatformDevice>;
 export type PlatformDeviceType = "GPU";
-export declare class PlatformTaskDefinitionIncompatibilityException extends EffectData.TaggedError(
+export declare class PlatformTaskDefinitionIncompatibilityException extends Data.TaggedError(
   "PlatformTaskDefinitionIncompatibilityException",
 )<{
   readonly message?: string;
 }> {}
-export declare class PlatformUnknownException extends EffectData.TaggedError(
+export declare class PlatformUnknownException extends Data.TaggedError(
   "PlatformUnknownException",
 )<{
   readonly message?: string;
@@ -2033,12 +2034,12 @@ export interface Resource {
   stringSetValue?: Array<string>;
 }
 export type ResourceIds = Array<string>;
-export declare class ResourceInUseException extends EffectData.TaggedError(
+export declare class ResourceInUseException extends Data.TaggedError(
   "ResourceInUseException",
 )<{
   readonly message?: string;
 }> {}
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly message?: string;
@@ -2098,7 +2099,7 @@ export interface Secret {
 export type SecretList = Array<Secret>;
 export type SensitiveString = string;
 
-export declare class ServerException extends EffectData.TaggedError(
+export declare class ServerException extends Data.TaggedError(
   "ServerException",
 )<{
   readonly message?: string;
@@ -2240,7 +2241,7 @@ export type ServiceDeploymentLifecycleStage =
   | "POST_PRODUCTION_TRAFFIC_SHIFT"
   | "BAKE_TIME"
   | "CLEAN_UP";
-export declare class ServiceDeploymentNotFoundException extends EffectData.TaggedError(
+export declare class ServiceDeploymentNotFoundException extends Data.TaggedError(
   "ServiceDeploymentNotFoundException",
 )<{
   readonly message?: string;
@@ -2284,12 +2285,12 @@ export interface ServiceManagedEBSVolumeConfiguration {
   roleArn: string;
   filesystemType?: TaskFilesystemType;
 }
-export declare class ServiceNotActiveException extends EffectData.TaggedError(
+export declare class ServiceNotActiveException extends Data.TaggedError(
   "ServiceNotActiveException",
 )<{
   readonly message?: string;
 }> {}
-export declare class ServiceNotFoundException extends EffectData.TaggedError(
+export declare class ServiceNotFoundException extends Data.TaggedError(
   "ServiceNotFoundException",
 )<{
   readonly message?: string;
@@ -2464,12 +2465,12 @@ export interface TagResourceResponse {}
 export type Tags = Array<Tag>;
 export type TagValue = string;
 
-export declare class TargetNotConnectedException extends EffectData.TaggedError(
+export declare class TargetNotConnectedException extends Data.TaggedError(
   "TargetNotConnectedException",
 )<{
   readonly message?: string;
 }> {}
-export declare class TargetNotFoundException extends EffectData.TaggedError(
+export declare class TargetNotFoundException extends Data.TaggedError(
   "TargetNotFoundException",
 )<{
   readonly message?: string;
@@ -2616,7 +2617,7 @@ export interface TaskSet {
 }
 export type TaskSetField = "TAGS";
 export type TaskSetFieldList = Array<TaskSetField>;
-export declare class TaskSetNotFoundException extends EffectData.TaggedError(
+export declare class TaskSetNotFoundException extends Data.TaggedError(
   "TaskSetNotFoundException",
 )<{
   readonly message?: string;
@@ -2675,7 +2676,7 @@ export type UlimitName =
   | "rttime"
   | "sigpending"
   | "stack";
-export declare class UnsupportedFeatureException extends EffectData.TaggedError(
+export declare class UnsupportedFeatureException extends Data.TaggedError(
   "UnsupportedFeatureException",
 )<{
   readonly message?: string;
@@ -2726,7 +2727,7 @@ export interface UpdateContainerInstancesStateResponse {
   containerInstances?: Array<ContainerInstance>;
   failures?: Array<Failure>;
 }
-export declare class UpdateInProgressException extends EffectData.TaggedError(
+export declare class UpdateInProgressException extends Data.TaggedError(
   "UpdateInProgressException",
 )<{
   readonly message?: string;

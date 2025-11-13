@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   ExpiredTokenException,
   IncompleteSignature,
@@ -407,19 +408,19 @@ export declare class S3Tables extends AWSServiceClient {
 
 export declare class S3tables extends S3Tables {}
 
-export declare class AccessDeniedException extends EffectData.TaggedError(
+export declare class AccessDeniedException extends Data.TaggedError(
   "AccessDeniedException",
 )<{
   readonly message?: string;
 }> {}
 export type AccountId = string;
 
-export declare class BadRequestException extends EffectData.TaggedError(
+export declare class BadRequestException extends Data.TaggedError(
   "BadRequestException",
 )<{
   readonly message?: string;
 }> {}
-export declare class ConflictException extends EffectData.TaggedError(
+export declare class ConflictException extends Data.TaggedError(
   "ConflictException",
 )<{
   readonly message?: string;
@@ -481,7 +482,7 @@ export interface EncryptionConfiguration {
 }
 export type ErrorMessage = string;
 
-export declare class ForbiddenException extends EffectData.TaggedError(
+export declare class ForbiddenException extends Data.TaggedError(
   "ForbiddenException",
 )<{
   readonly message?: string;
@@ -615,7 +616,7 @@ export interface IcebergUnreferencedFileRemovalSettings {
   unreferencedDays?: number;
   nonCurrentDays?: number;
 }
-export declare class InternalServerErrorException extends EffectData.TaggedError(
+export declare class InternalServerErrorException extends Data.TaggedError(
   "InternalServerErrorException",
 )<{
   readonly message?: string;
@@ -677,7 +678,7 @@ export interface NamespaceSummary {
 export type NamespaceSummaryList = Array<NamespaceSummary>;
 export type NextToken = string;
 
-export declare class NotFoundException extends EffectData.TaggedError(
+export declare class NotFoundException extends Data.TaggedError(
   "NotFoundException",
 )<{
   readonly message?: string;
@@ -817,7 +818,7 @@ export interface TableSummary {
 }
 export type TableSummaryList = Array<TableSummary>;
 export type TableType = "customer" | "aws";
-export declare class TooManyRequestsException extends EffectData.TaggedError(
+export declare class TooManyRequestsException extends Data.TaggedError(
   "TooManyRequestsException",
 )<{
   readonly message?: string;

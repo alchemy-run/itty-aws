@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
@@ -1477,13 +1478,13 @@ export type Initiator = string;
 export type Initiators = Array<string>;
 export type integer = number;
 
-export declare class InternalServerError extends EffectData.TaggedError(
+export declare class InternalServerError extends Data.TaggedError(
   "InternalServerError",
 )<{
   readonly message?: string;
   readonly error?: StorageGatewayError;
 }> {}
-export declare class InvalidGatewayRequestException extends EffectData.TaggedError(
+export declare class InvalidGatewayRequestException extends Data.TaggedError(
   "InvalidGatewayRequestException",
 )<{
   readonly message?: string;
@@ -1766,7 +1767,7 @@ export interface RetrieveTapeRecoveryPointOutput {
 }
 export type Role = string;
 
-export declare class ServiceUnavailableError extends EffectData.TaggedError(
+export declare class ServiceUnavailableError extends Data.TaggedError(
   "ServiceUnavailableError",
 )<{
   readonly message?: string;

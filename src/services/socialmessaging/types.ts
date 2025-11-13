@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   ExpiredTokenException,
   IncompleteSignature,
@@ -264,12 +265,12 @@ export declare class SocialMessaging extends AWSServiceClient {
 
 export declare class Socialmessaging extends SocialMessaging {}
 
-export declare class AccessDeniedByMetaException extends EffectData.TaggedError(
+export declare class AccessDeniedByMetaException extends Data.TaggedError(
   "AccessDeniedByMetaException",
 )<{
   readonly message?: string;
 }> {}
-export declare class AccessDeniedException extends EffectData.TaggedError(
+export declare class AccessDeniedException extends Data.TaggedError(
   "AccessDeniedException",
 )<{
   readonly message?: string;
@@ -339,7 +340,7 @@ export interface DeleteWhatsAppMessageTemplateInput {
   templateName: string;
 }
 export interface DeleteWhatsAppMessageTemplateOutput {}
-export declare class DependencyException extends EffectData.TaggedError(
+export declare class DependencyException extends Data.TaggedError(
   "DependencyException",
 )<{
   readonly message?: string;
@@ -385,12 +386,12 @@ export interface GetWhatsAppMessageTemplateOutput {
   template?: string;
 }
 export type Headers = Record<string, string>;
-export declare class InternalServiceException extends EffectData.TaggedError(
+export declare class InternalServiceException extends Data.TaggedError(
   "InternalServiceException",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidParametersException extends EffectData.TaggedError(
+export declare class InvalidParametersException extends Data.TaggedError(
   "InvalidParametersException",
 )<{
   readonly message?: string;
@@ -421,7 +422,7 @@ export interface LibraryTemplateButtonList {
   zeroTapTermsAccepted?: boolean;
   supportedApps?: Array<Record<string, string>>;
 }
-export declare class LimitExceededException extends EffectData.TaggedError(
+export declare class LimitExceededException extends Data.TaggedError(
   "LimitExceededException",
 )<{
   readonly message?: string;
@@ -576,7 +577,7 @@ export interface PutWhatsAppBusinessAccountEventDestinationsInput {
 }
 export interface PutWhatsAppBusinessAccountEventDestinationsOutput {}
 export type RegistrationStatus = "COMPLETE" | "INCOMPLETE";
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly message?: string;
@@ -623,7 +624,7 @@ export interface TemplateSummary {
   templateCategory?: string;
 }
 export type TemplateSummaryList = Array<TemplateSummary>;
-export declare class ThrottledRequestException extends EffectData.TaggedError(
+export declare class ThrottledRequestException extends Data.TaggedError(
   "ThrottledRequestException",
 )<{
   readonly message?: string;
@@ -644,7 +645,7 @@ export interface UpdateWhatsAppMessageTemplateInput {
   templateComponents?: Uint8Array | string;
 }
 export interface UpdateWhatsAppMessageTemplateOutput {}
-export declare class ValidationException extends EffectData.TaggedError(
+export declare class ValidationException extends Data.TaggedError(
   "ValidationException",
 )<{
   readonly message?: string;

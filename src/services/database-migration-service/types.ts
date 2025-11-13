@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
@@ -946,7 +947,7 @@ export declare class DatabaseMigrationService extends AWSServiceClient {
   >;
 }
 
-export declare class AccessDeniedFault extends EffectData.TaggedError(
+export declare class AccessDeniedFault extends Data.TaggedError(
   "AccessDeniedFault",
 )<{
   readonly message?: string;
@@ -1034,7 +1035,7 @@ export interface CollectorHealthCheck {
   WebCollectorS3Access?: boolean;
   WebCollectorGrantedRoleBasedAccess?: boolean;
 }
-export declare class CollectorNotFoundFault extends EffectData.TaggedError(
+export declare class CollectorNotFoundFault extends Data.TaggedError(
   "CollectorNotFoundFault",
 )<{
   readonly message?: string;
@@ -2057,7 +2058,7 @@ export interface ExportSqlDetails {
   S3ObjectKey?: string;
   ObjectURL?: string;
 }
-export declare class FailedDependencyFault extends EffectData.TaggedError(
+export declare class FailedDependencyFault extends Data.TaggedError(
   "FailedDependencyFault",
 )<{
   readonly message?: string;
@@ -2158,7 +2159,7 @@ export interface InstanceProfile {
   VpcSecurityGroups?: Array<string>;
 }
 export type InstanceProfileList = Array<InstanceProfile>;
-export declare class InsufficientResourceCapacityFault extends EffectData.TaggedError(
+export declare class InsufficientResourceCapacityFault extends Data.TaggedError(
   "InsufficientResourceCapacityFault",
 )<{
   readonly message?: string;
@@ -2168,24 +2169,22 @@ export type Integer = number;
 export type IntegerList = Array<number>;
 export type IntegerOptional = number;
 
-export declare class InvalidCertificateFault extends EffectData.TaggedError(
+export declare class InvalidCertificateFault extends Data.TaggedError(
   "InvalidCertificateFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidOperationFault extends EffectData.TaggedError(
+export declare class InvalidOperationFault extends Data.TaggedError(
   "InvalidOperationFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidResourceStateFault extends EffectData.TaggedError(
+export declare class InvalidResourceStateFault extends Data.TaggedError(
   "InvalidResourceStateFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidSubnet extends EffectData.TaggedError(
-  "InvalidSubnet",
-)<{
+export declare class InvalidSubnet extends Data.TaggedError("InvalidSubnet")<{
   readonly message?: string;
 }> {}
 export interface InventoryData {
@@ -2243,35 +2242,35 @@ export interface KinesisSettings {
   NoHexPrefix?: boolean;
   UseLargeIntegerValue?: boolean;
 }
-export declare class KMSAccessDeniedFault extends EffectData.TaggedError(
+export declare class KMSAccessDeniedFault extends Data.TaggedError(
   "KMSAccessDeniedFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class KMSDisabledFault extends EffectData.TaggedError(
+export declare class KMSDisabledFault extends Data.TaggedError(
   "KMSDisabledFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class KMSFault extends EffectData.TaggedError("KMSFault")<{
+export declare class KMSFault extends Data.TaggedError("KMSFault")<{
   readonly message?: string;
 }> {}
-export declare class KMSInvalidStateFault extends EffectData.TaggedError(
+export declare class KMSInvalidStateFault extends Data.TaggedError(
   "KMSInvalidStateFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class KMSKeyNotAccessibleFault extends EffectData.TaggedError(
+export declare class KMSKeyNotAccessibleFault extends Data.TaggedError(
   "KMSKeyNotAccessibleFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class KMSNotFoundFault extends EffectData.TaggedError(
+export declare class KMSNotFoundFault extends Data.TaggedError(
   "KMSNotFoundFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class KMSThrottlingFault extends EffectData.TaggedError(
+export declare class KMSThrottlingFault extends Data.TaggedError(
   "KMSThrottlingFault",
 )<{
   readonly message?: string;
@@ -2986,7 +2985,7 @@ export interface ReplicationSubnetGroup {
   Subnets?: Array<Subnet>;
   SupportedNetworkTypes?: Array<string>;
 }
-export declare class ReplicationSubnetGroupDoesNotCoverEnoughAZs extends EffectData.TaggedError(
+export declare class ReplicationSubnetGroupDoesNotCoverEnoughAZs extends Data.TaggedError(
   "ReplicationSubnetGroupDoesNotCoverEnoughAZs",
 )<{
   readonly message?: string;
@@ -3078,7 +3077,7 @@ export interface ReplicationTaskStats {
   FullLoadStartDate?: Date | string;
   FullLoadFinishDate?: Date | string;
 }
-export declare class ResourceAlreadyExistsFault extends EffectData.TaggedError(
+export declare class ResourceAlreadyExistsFault extends Data.TaggedError(
   "ResourceAlreadyExistsFault",
 )<{
   readonly message?: string;
@@ -3086,7 +3085,7 @@ export declare class ResourceAlreadyExistsFault extends EffectData.TaggedError(
 }> {}
 export type ResourceArn = string;
 
-export declare class ResourceNotFoundFault extends EffectData.TaggedError(
+export declare class ResourceNotFoundFault extends Data.TaggedError(
   "ResourceNotFoundFault",
 )<{
   readonly message?: string;
@@ -3095,7 +3094,7 @@ export interface ResourcePendingMaintenanceActions {
   ResourceIdentifier?: string;
   PendingMaintenanceActionDetails?: Array<PendingMaintenanceAction>;
 }
-export declare class ResourceQuotaExceededFault extends EffectData.TaggedError(
+export declare class ResourceQuotaExceededFault extends Data.TaggedError(
   "ResourceQuotaExceededFault",
 )<{
   readonly message?: string;
@@ -3104,12 +3103,12 @@ export interface RunFleetAdvisorLsaAnalysisResponse {
   LsaAnalysisId?: string;
   Status?: string;
 }
-export declare class S3AccessDeniedFault extends EffectData.TaggedError(
+export declare class S3AccessDeniedFault extends Data.TaggedError(
   "S3AccessDeniedFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class S3ResourceNotFoundFault extends EffectData.TaggedError(
+export declare class S3ResourceNotFoundFault extends Data.TaggedError(
   "S3ResourceNotFoundFault",
 )<{
   readonly message?: string;
@@ -3199,12 +3198,12 @@ export interface ServerShortInfoResponse {
   IpAddress?: string;
   ServerName?: string;
 }
-export declare class SNSInvalidTopicFault extends EffectData.TaggedError(
+export declare class SNSInvalidTopicFault extends Data.TaggedError(
   "SNSInvalidTopicFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class SNSNoAuthorizationFault extends EffectData.TaggedError(
+export declare class SNSNoAuthorizationFault extends Data.TaggedError(
   "SNSNoAuthorizationFault",
 )<{
   readonly message?: string;
@@ -3351,7 +3350,7 @@ export interface StopReplicationTaskMessage {
 export interface StopReplicationTaskResponse {
   ReplicationTask?: ReplicationTask;
 }
-export declare class StorageQuotaExceededFault extends EffectData.TaggedError(
+export declare class StorageQuotaExceededFault extends Data.TaggedError(
   "StorageQuotaExceededFault",
 )<{
   readonly message?: string;
@@ -3364,7 +3363,7 @@ export interface Subnet {
   SubnetAvailabilityZone?: AvailabilityZone;
   SubnetStatus?: string;
 }
-export declare class SubnetAlreadyInUse extends EffectData.TaggedError(
+export declare class SubnetAlreadyInUse extends Data.TaggedError(
   "SubnetAlreadyInUse",
 )<{
   readonly message?: string;
@@ -3466,7 +3465,7 @@ export interface UpdateSubscriptionsToEventBridgeMessage {
 export interface UpdateSubscriptionsToEventBridgeResponse {
   Result?: string;
 }
-export declare class UpgradeDependencyFailureFault extends EffectData.TaggedError(
+export declare class UpgradeDependencyFailureFault extends Data.TaggedError(
   "UpgradeDependencyFailureFault",
 )<{
   readonly message?: string;

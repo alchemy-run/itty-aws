@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   AccessDeniedException,
   ExpiredTokenException,
@@ -148,7 +149,7 @@ export interface DescribeReportDefinitionsResponse {
   ReportDefinitions?: Array<ReportDefinition>;
   NextToken?: string;
 }
-export declare class DuplicateReportNameException extends EffectData.TaggedError(
+export declare class DuplicateReportNameException extends Data.TaggedError(
   "DuplicateReportNameException",
 )<{
   readonly Message?: string;
@@ -157,7 +158,7 @@ export type ErrorMessage = string;
 
 export type GenericString = string;
 
-export declare class InternalErrorException extends EffectData.TaggedError(
+export declare class InternalErrorException extends Data.TaggedError(
   "InternalErrorException",
 )<{
   readonly Message?: string;
@@ -202,7 +203,7 @@ export interface ReportDefinition {
 }
 export type ReportDefinitionList = Array<ReportDefinition>;
 export type ReportFormat = "textORcsv" | "Parquet";
-export declare class ReportLimitReachedException extends EffectData.TaggedError(
+export declare class ReportLimitReachedException extends Data.TaggedError(
   "ReportLimitReachedException",
 )<{
   readonly Message?: string;
@@ -214,7 +215,7 @@ export interface ReportStatus {
   lastStatus?: LastStatus;
 }
 export type ReportVersioning = "CREATE_NEW_REPORT" | "OVERWRITE_REPORT";
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly Message?: string;
@@ -249,7 +250,7 @@ export interface UntagResourceRequest {
   TagKeys: Array<string>;
 }
 export interface UntagResourceResponse {}
-export declare class ValidationException extends EffectData.TaggedError(
+export declare class ValidationException extends Data.TaggedError(
   "ValidationException",
 )<{
   readonly Message?: string;

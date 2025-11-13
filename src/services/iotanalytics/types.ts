@@ -1,5 +1,6 @@
-import type { Effect, Stream, Data as EffectData } from "effect";
-import type { ResponseError } from "@effect/platform/HttpClientError";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
+import type * as Stream from "effect/stream/Stream";
 import type {
   AccessDeniedException,
   ExpiredTokenException,
@@ -850,12 +851,12 @@ export type Image = string;
 
 export type IncludeStatisticsFlag = boolean;
 
-export declare class InternalFailureException extends EffectData.TaggedError(
+export declare class InternalFailureException extends Data.TaggedError(
   "InternalFailureException",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidRequestException extends EffectData.TaggedError(
+export declare class InvalidRequestException extends Data.TaggedError(
   "InvalidRequestException",
 )<{
   readonly message?: string;
@@ -893,7 +894,7 @@ export interface LateDataRuleConfiguration {
 export type LateDataRuleName = string;
 
 export type LateDataRules = Array<LateDataRule>;
-export declare class LimitExceededException extends EffectData.TaggedError(
+export declare class LimitExceededException extends Data.TaggedError(
   "LimitExceededException",
 )<{
   readonly message?: string;
@@ -1060,7 +1061,7 @@ export interface ReprocessingSummary {
   status?: ReprocessingStatus;
   creationTime?: Date | string;
 }
-export declare class ResourceAlreadyExistsException extends EffectData.TaggedError(
+export declare class ResourceAlreadyExistsException extends Data.TaggedError(
   "ResourceAlreadyExistsException",
 )<{
   readonly message?: string;
@@ -1077,7 +1078,7 @@ export interface ResourceConfiguration {
 }
 export type resourceId = string;
 
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly message?: string;
@@ -1135,7 +1136,7 @@ export interface ServiceManagedChannelS3Storage {}
 export interface ServiceManagedChannelS3StorageSummary {}
 export interface ServiceManagedDatastoreS3Storage {}
 export interface ServiceManagedDatastoreS3StorageSummary {}
-export declare class ServiceUnavailableException extends EffectData.TaggedError(
+export declare class ServiceUnavailableException extends Data.TaggedError(
   "ServiceUnavailableException",
 )<{
   readonly message?: string;
@@ -1178,7 +1179,7 @@ export interface TagResourceRequest {
 export interface TagResourceResponse {}
 export type TagValue = string;
 
-export declare class ThrottlingException extends EffectData.TaggedError(
+export declare class ThrottlingException extends Data.TaggedError(
   "ThrottlingException",
 )<{
   readonly message?: string;

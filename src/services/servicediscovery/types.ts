@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
@@ -299,7 +300,7 @@ export interface CreateServiceRequest {
 export interface CreateServiceResponse {
   Service?: Service;
 }
-export declare class CustomHealthNotFound extends EffectData.TaggedError(
+export declare class CustomHealthNotFound extends Data.TaggedError(
   "CustomHealthNotFound",
 )<{
   readonly Message?: string;
@@ -367,7 +368,7 @@ export interface DnsRecord {
   TTL: number;
 }
 export type DnsRecordList = Array<DnsRecord>;
-export declare class DuplicateRequest extends EffectData.TaggedError(
+export declare class DuplicateRequest extends Data.TaggedError(
   "DuplicateRequest",
 )<{
   readonly Message?: string;
@@ -463,7 +464,7 @@ export type InstanceHealthStatusMap = Record<string, HealthStatus>;
 export type InstanceId = string;
 
 export type InstanceIdList = Array<string>;
-export declare class InstanceNotFound extends EffectData.TaggedError(
+export declare class InstanceNotFound extends Data.TaggedError(
   "InstanceNotFound",
 )<{
   readonly Message?: string;
@@ -474,9 +475,7 @@ export interface InstanceSummary {
   CreatedByAccount?: string;
 }
 export type InstanceSummaryList = Array<InstanceSummary>;
-export declare class InvalidInput extends EffectData.TaggedError(
-  "InvalidInput",
-)<{
+export declare class InvalidInput extends Data.TaggedError("InvalidInput")<{
   readonly Message?: string;
 }> {}
 export interface ListInstancesRequest {
@@ -538,7 +537,7 @@ export interface Namespace {
   CreateDate?: Date | string;
   CreatorRequestId?: string;
 }
-export declare class NamespaceAlreadyExists extends EffectData.TaggedError(
+export declare class NamespaceAlreadyExists extends Data.TaggedError(
   "NamespaceAlreadyExists",
 )<{
   readonly Message?: string;
@@ -564,7 +563,7 @@ export type NamespaceNamePrivate = string;
 
 export type NamespaceNamePublic = string;
 
-export declare class NamespaceNotFound extends EffectData.TaggedError(
+export declare class NamespaceNotFound extends Data.TaggedError(
   "NamespaceNotFound",
 )<{
   readonly Message?: string;
@@ -613,7 +612,7 @@ export type OperationFilterName =
 export type OperationFilters = Array<OperationFilter>;
 export type OperationId = string;
 
-export declare class OperationNotFound extends EffectData.TaggedError(
+export declare class OperationNotFound extends Data.TaggedError(
   "OperationNotFound",
 )<{
   readonly Message?: string;
@@ -677,7 +676,7 @@ export interface RegisterInstanceRequest {
 export interface RegisterInstanceResponse {
   OperationId?: string;
 }
-export declare class RequestLimitExceeded extends EffectData.TaggedError(
+export declare class RequestLimitExceeded extends Data.TaggedError(
   "RequestLimitExceeded",
 )<{
   readonly Message?: string;
@@ -688,17 +687,15 @@ export type ResourceDescription = string;
 
 export type ResourceId = string;
 
-export declare class ResourceInUse extends EffectData.TaggedError(
-  "ResourceInUse",
-)<{
+export declare class ResourceInUse extends Data.TaggedError("ResourceInUse")<{
   readonly Message?: string;
 }> {}
-export declare class ResourceLimitExceeded extends EffectData.TaggedError(
+export declare class ResourceLimitExceeded extends Data.TaggedError(
   "ResourceLimitExceeded",
 )<{
   readonly Message?: string;
 }> {}
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly Message?: string;
@@ -724,7 +721,7 @@ export interface Service {
   CreatorRequestId?: string;
   CreatedByAccount?: string;
 }
-export declare class ServiceAlreadyExists extends EffectData.TaggedError(
+export declare class ServiceAlreadyExists extends Data.TaggedError(
   "ServiceAlreadyExists",
 )<{
   readonly Message?: string;
@@ -740,7 +737,7 @@ export interface ServiceAttributes {
   ResourceOwner?: string;
   Attributes?: Record<string, string>;
 }
-export declare class ServiceAttributesLimitExceededException extends EffectData.TaggedError(
+export declare class ServiceAttributesLimitExceededException extends Data.TaggedError(
   "ServiceAttributesLimitExceededException",
 )<{
   readonly Message?: string;
@@ -762,7 +759,7 @@ export type ServiceFilterName = "NAMESPACE_ID" | "RESOURCE_OWNER";
 export type ServiceFilters = Array<ServiceFilter>;
 export type ServiceName = string;
 
-export declare class ServiceNotFound extends EffectData.TaggedError(
+export declare class ServiceNotFound extends Data.TaggedError(
   "ServiceNotFound",
 )<{
   readonly Message?: string;
@@ -807,7 +804,7 @@ export type TagValue = string;
 
 export type Timestamp = Date | string;
 
-export declare class TooManyTagsException extends EffectData.TaggedError(
+export declare class TooManyTagsException extends Data.TaggedError(
   "TooManyTagsException",
 )<{
   readonly Message?: string;

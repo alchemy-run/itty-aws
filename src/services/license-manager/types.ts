@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   ExpiredTokenException,
   IncompleteSignature,
@@ -677,7 +678,7 @@ export interface AcceptGrantResponse {
   Status?: GrantStatus;
   Version?: string;
 }
-export declare class AccessDeniedException extends EffectData.TaggedError(
+export declare class AccessDeniedException extends Data.TaggedError(
   "AccessDeniedException",
 )<{
   readonly Message?: string;
@@ -697,7 +698,7 @@ export type AllowedOperationList = Array<AllowedOperation>;
 export type Arn = string;
 
 export type ArnList = Array<string>;
-export declare class AuthorizationException extends EffectData.TaggedError(
+export declare class AuthorizationException extends Data.TaggedError(
   "AuthorizationException",
 )<{
   readonly Message?: string;
@@ -764,7 +765,7 @@ export type ClientRequestToken = string;
 
 export type ClientToken = string;
 
-export declare class ConflictException extends EffectData.TaggedError(
+export declare class ConflictException extends Data.TaggedError(
   "ConflictException",
 )<{
   readonly Message?: string;
@@ -972,7 +973,7 @@ export type EntitlementDataUnit =
   | "Terabits/Second"
   | "Count/Second";
 export type EntitlementList = Array<Entitlement>;
-export declare class EntitlementNotAllowedException extends EffectData.TaggedError(
+export declare class EntitlementNotAllowedException extends Data.TaggedError(
   "EntitlementNotAllowedException",
 )<{
   readonly Message?: string;
@@ -1020,7 +1021,7 @@ export interface ExtendLicenseConsumptionResponse {
   LicenseConsumptionToken?: string;
   Expiration?: string;
 }
-export declare class FailedDependencyException extends EffectData.TaggedError(
+export declare class FailedDependencyException extends Data.TaggedError(
   "FailedDependencyException",
 )<{
   readonly Message?: string;
@@ -1030,7 +1031,7 @@ export interface Filter {
   Name?: string;
   Values?: Array<string>;
 }
-export declare class FilterLimitExceededException extends EffectData.TaggedError(
+export declare class FilterLimitExceededException extends Data.TaggedError(
   "FilterLimitExceededException",
 )<{
   readonly Message?: string;
@@ -1163,12 +1164,12 @@ export type GrantStatus =
   | "WORKFLOW_COMPLETED";
 export type Integer = number;
 
-export declare class InvalidParameterValueException extends EffectData.TaggedError(
+export declare class InvalidParameterValueException extends Data.TaggedError(
   "InvalidParameterValueException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidResourceStateException extends EffectData.TaggedError(
+export declare class InvalidResourceStateException extends Data.TaggedError(
   "InvalidResourceStateException",
 )<{
   readonly Message?: string;
@@ -1301,7 +1302,7 @@ export type LicenseStatus =
 export interface LicenseUsage {
   EntitlementUsages?: Array<EntitlementUsage>;
 }
-export declare class LicenseUsageException extends EffectData.TaggedError(
+export declare class LicenseUsageException extends Data.TaggedError(
   "LicenseUsageException",
 )<{
   readonly Message?: string;
@@ -1483,7 +1484,7 @@ export interface Metadata {
   Value?: string;
 }
 export type MetadataList = Array<Metadata>;
-export declare class NoEntitlementsAllowedException extends EffectData.TaggedError(
+export declare class NoEntitlementsAllowedException extends Data.TaggedError(
   "NoEntitlementsAllowedException",
 )<{
   readonly Message?: string;
@@ -1517,7 +1518,7 @@ export type ProductInformationList = Array<ProductInformation>;
 export interface ProvisionalConfiguration {
   MaxTimeToLiveInMinutes: number;
 }
-export declare class RateLimitExceededException extends EffectData.TaggedError(
+export declare class RateLimitExceededException extends Data.TaggedError(
   "RateLimitExceededException",
 )<{
   readonly Message?: string;
@@ -1536,7 +1537,7 @@ export type ReceivedStatus =
   | "DELETED"
   | "DISABLED"
   | "WORKFLOW_COMPLETED";
-export declare class RedirectException extends EffectData.TaggedError(
+export declare class RedirectException extends Data.TaggedError(
   "RedirectException",
 )<{
   readonly Location?: string;
@@ -1590,12 +1591,12 @@ export interface ResourceInventory {
   ResourceOwningAccountId?: string;
 }
 export type ResourceInventoryList = Array<ResourceInventory>;
-export declare class ResourceLimitExceededException extends EffectData.TaggedError(
+export declare class ResourceLimitExceededException extends Data.TaggedError(
   "ResourceLimitExceededException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly Message?: string;
@@ -1610,7 +1611,7 @@ export interface S3Location {
   bucket?: string;
   keyPrefix?: string;
 }
-export declare class ServerInternalException extends EffectData.TaggedError(
+export declare class ServerInternalException extends Data.TaggedError(
   "ServerInternalException",
 )<{
   readonly Message?: string;
@@ -1646,7 +1647,7 @@ export type TokenList = Array<TokenData>;
 export type TokenString = string;
 
 export type TokenType = "REFRESH_TOKEN";
-export declare class UnsupportedDigitalSignatureMethodException extends EffectData.TaggedError(
+export declare class UnsupportedDigitalSignatureMethodException extends Data.TaggedError(
   "UnsupportedDigitalSignatureMethodException",
 )<{
   readonly Message?: string;
@@ -1693,7 +1694,7 @@ export interface UpdateServiceSettingsRequest {
 export interface UpdateServiceSettingsResponse {}
 export type UsageOperation = string;
 
-export declare class ValidationException extends EffectData.TaggedError(
+export declare class ValidationException extends Data.TaggedError(
   "ValidationException",
 )<{
   readonly Message?: string;

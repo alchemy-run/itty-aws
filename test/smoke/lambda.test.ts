@@ -350,7 +350,7 @@ exports.handler = async (event) => {
             Effect.catchTag("ResourceNotFoundException", (error) =>
               Effect.succeed({ success: false, error: error._tag }),
             ),
-            Effect.catchAll((error) =>
+            Effect.catch((error) =>
               Effect.succeed({
                 success: false,
                 error: error._tag || "UnknownError",
@@ -419,7 +419,7 @@ exports.handler = async (event) => {
                 LayerName: layerName,
                 VersionNumber: version.Version,
               })
-              .pipe(Effect.catchAll(() => Effect.void));
+              .pipe(Effect.catch(() => Effect.void));
           }
         }
 
@@ -491,7 +491,7 @@ exports.handler = async (event) => {
             Effect.catchTag("ResourceNotFoundException", (error) =>
               Effect.succeed({ success: false, error: error._tag }),
             ),
-            Effect.catchAll((error) =>
+            Effect.catch((error) =>
               Effect.succeed({
                 success: false,
                 error: error._tag || "UnknownError",

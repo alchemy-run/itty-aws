@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   ExpiredTokenException,
   IncompleteSignature,
@@ -1363,7 +1364,7 @@ export declare class SSM extends AWSServiceClient {
 
 export declare class Ssm extends SSM {}
 
-export declare class AccessDeniedException extends EffectData.TaggedError(
+export declare class AccessDeniedException extends Data.TaggedError(
   "AccessDeniedException",
 )<{
   readonly Message: string;
@@ -1442,7 +1443,7 @@ export interface AlarmStateInformation {
 export type AlarmStateInformationList = Array<AlarmStateInformation>;
 export type AllowedPattern = string;
 
-export declare class AlreadyExistsException extends EffectData.TaggedError(
+export declare class AlreadyExistsException extends Data.TaggedError(
   "AlreadyExistsException",
 )<{
   readonly Message?: string;
@@ -1453,7 +1454,7 @@ export type ApproveAfterDays = number;
 
 export type Architecture = string;
 
-export declare class AssociatedInstances extends EffectData.TaggedError(
+export declare class AssociatedInstances extends Data.TaggedError(
   "AssociatedInstances",
 )<{}> {}
 export interface AssociateOpsItemRelatedItemRequest {
@@ -1480,7 +1481,7 @@ export interface Association {
   Duration?: number;
   TargetMaps?: Array<Record<string, Array<string>>>;
 }
-export declare class AssociationAlreadyExists extends EffectData.TaggedError(
+export declare class AssociationAlreadyExists extends Data.TaggedError(
   "AssociationAlreadyExists",
 )<{}> {}
 export type AssociationComplianceSeverity =
@@ -1521,7 +1522,7 @@ export interface AssociationDescription {
   TriggeredAlarms?: Array<AlarmStateInformation>;
 }
 export type AssociationDescriptionList = Array<AssociationDescription>;
-export declare class AssociationDoesNotExist extends EffectData.TaggedError(
+export declare class AssociationDoesNotExist extends Data.TaggedError(
   "AssociationDoesNotExist",
 )<{
   readonly Message?: string;
@@ -1538,7 +1539,7 @@ export interface AssociationExecution {
   AlarmConfiguration?: AlarmConfiguration;
   TriggeredAlarms?: Array<AlarmStateInformation>;
 }
-export declare class AssociationExecutionDoesNotExist extends EffectData.TaggedError(
+export declare class AssociationExecutionDoesNotExist extends Data.TaggedError(
   "AssociationExecutionDoesNotExist",
 )<{
   readonly Message?: string;
@@ -1605,7 +1606,7 @@ export type AssociationFilterValue = string;
 export type AssociationId = string;
 
 export type AssociationIdList = Array<string>;
-export declare class AssociationLimitExceeded extends EffectData.TaggedError(
+export declare class AssociationLimitExceeded extends Data.TaggedError(
   "AssociationLimitExceeded",
 )<{}> {}
 export type AssociationList = Array<Association>;
@@ -1653,7 +1654,7 @@ export interface AssociationVersionInfo {
   Duration?: number;
   TargetMaps?: Array<Record<string, Array<string>>>;
 }
-export declare class AssociationVersionLimitExceeded extends EffectData.TaggedError(
+export declare class AssociationVersionLimitExceeded extends Data.TaggedError(
   "AssociationVersionLimitExceeded",
 )<{
   readonly Message?: string;
@@ -1699,17 +1700,17 @@ export type AttributeValue = string;
 
 export type AutomationActionName = string;
 
-export declare class AutomationDefinitionNotApprovedException extends EffectData.TaggedError(
+export declare class AutomationDefinitionNotApprovedException extends Data.TaggedError(
   "AutomationDefinitionNotApprovedException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class AutomationDefinitionNotFoundException extends EffectData.TaggedError(
+export declare class AutomationDefinitionNotFoundException extends Data.TaggedError(
   "AutomationDefinitionNotFoundException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class AutomationDefinitionVersionNotFoundException extends EffectData.TaggedError(
+export declare class AutomationDefinitionVersionNotFoundException extends Data.TaggedError(
   "AutomationDefinitionVersionNotFoundException",
 )<{
   readonly Message?: string;
@@ -1782,7 +1783,7 @@ export interface AutomationExecutionInputs {
   TargetLocations?: Array<TargetLocation>;
   TargetLocationsURL?: string;
 }
-export declare class AutomationExecutionLimitExceededException extends EffectData.TaggedError(
+export declare class AutomationExecutionLimitExceededException extends Data.TaggedError(
   "AutomationExecutionLimitExceededException",
 )<{
   readonly Message?: string;
@@ -1822,7 +1823,7 @@ export interface AutomationExecutionMetadata {
 }
 export type AutomationExecutionMetadataList =
   Array<AutomationExecutionMetadata>;
-export declare class AutomationExecutionNotFoundException extends EffectData.TaggedError(
+export declare class AutomationExecutionNotFoundException extends Data.TaggedError(
   "AutomationExecutionNotFoundException",
 )<{
   readonly Message?: string;
@@ -1859,7 +1860,7 @@ export type AutomationParameterMap = Record<string, Array<string>>;
 export type AutomationParameterValue = string;
 
 export type AutomationParameterValueList = Array<string>;
-export declare class AutomationStepNotFoundException extends EffectData.TaggedError(
+export declare class AutomationStepNotFoundException extends Data.TaggedError(
   "AutomationStepNotFoundException",
 )<{
   readonly Message?: string;
@@ -2110,7 +2111,7 @@ export interface ComplianceSummaryItem {
   NonCompliantSummary?: NonCompliantSummary;
 }
 export type ComplianceSummaryItemList = Array<ComplianceSummaryItem>;
-export declare class ComplianceTypeCountLimitExceededException extends EffectData.TaggedError(
+export declare class ComplianceTypeCountLimitExceededException extends Data.TaggedError(
   "ComplianceTypeCountLimitExceededException",
 )<{
   readonly Message?: string;
@@ -2293,7 +2294,7 @@ export interface Credentials {
   SessionToken: string;
   ExpirationTime: Date | string;
 }
-export declare class CustomSchemaCountLimitExceededException extends EffectData.TaggedError(
+export declare class CustomSchemaCountLimitExceededException extends Data.TaggedError(
   "CustomSchemaCountLimitExceededException",
 )<{
   readonly Message?: string;
@@ -2754,7 +2755,7 @@ export interface DisassociateOpsItemRelatedItemRequest {
   AssociationId: string;
 }
 export interface DisassociateOpsItemRelatedItemResponse {}
-export declare class DocumentAlreadyExists extends EffectData.TaggedError(
+export declare class DocumentAlreadyExists extends Data.TaggedError(
   "DocumentAlreadyExists",
 )<{
   readonly Message?: string;
@@ -2848,7 +2849,7 @@ export type DocumentKeyValuesFilterList = Array<DocumentKeyValuesFilter>;
 export type DocumentKeyValuesFilterValue = string;
 
 export type DocumentKeyValuesFilterValues = Array<string>;
-export declare class DocumentLimitExceeded extends EffectData.TaggedError(
+export declare class DocumentLimitExceeded extends Data.TaggedError(
   "DocumentLimitExceeded",
 )<{
   readonly Message?: string;
@@ -2875,7 +2876,7 @@ export type DocumentParameterList = Array<DocumentParameter>;
 export type DocumentParameterName = string;
 
 export type DocumentParameterType = "String" | "StringList";
-export declare class DocumentPermissionLimit extends EffectData.TaggedError(
+export declare class DocumentPermissionLimit extends Data.TaggedError(
   "DocumentPermissionLimit",
 )<{
   readonly Message?: string;
@@ -2960,7 +2961,7 @@ export interface DocumentVersionInfo {
   StatusInformation?: string;
   ReviewStatus?: ReviewStatus;
 }
-export declare class DocumentVersionLimitExceeded extends EffectData.TaggedError(
+export declare class DocumentVersionLimitExceeded extends Data.TaggedError(
   "DocumentVersionLimitExceeded",
 )<{
   readonly Message?: string;
@@ -2970,24 +2971,24 @@ export type DocumentVersionName = string;
 
 export type DocumentVersionNumber = string;
 
-export declare class DoesNotExistException extends EffectData.TaggedError(
+export declare class DoesNotExistException extends Data.TaggedError(
   "DoesNotExistException",
 )<{
   readonly Message?: string;
 }> {}
 export type DryRun = boolean;
 
-export declare class DuplicateDocumentContent extends EffectData.TaggedError(
+export declare class DuplicateDocumentContent extends Data.TaggedError(
   "DuplicateDocumentContent",
 )<{
   readonly Message?: string;
 }> {}
-export declare class DuplicateDocumentVersionName extends EffectData.TaggedError(
+export declare class DuplicateDocumentVersionName extends Data.TaggedError(
   "DuplicateDocumentVersionName",
 )<{
   readonly Message?: string;
 }> {}
-export declare class DuplicateInstanceId extends EffectData.TaggedError(
+export declare class DuplicateInstanceId extends Data.TaggedError(
   "DuplicateInstanceId",
 )<{}> {}
 export type Duration = number;
@@ -3043,7 +3044,7 @@ export interface FailureDetails {
   Details?: Record<string, Array<string>>;
 }
 export type Fault = "Client" | "Server" | "Unknown";
-export declare class FeatureNotAvailableException extends EffectData.TaggedError(
+export declare class FeatureNotAvailableException extends Data.TaggedError(
   "FeatureNotAvailableException",
 )<{
   readonly Message?: string;
@@ -3395,12 +3396,12 @@ export interface GetServiceSettingRequest {
 export interface GetServiceSettingResult {
   ServiceSetting?: ServiceSetting;
 }
-export declare class HierarchyLevelLimitExceededException extends EffectData.TaggedError(
+export declare class HierarchyLevelLimitExceededException extends Data.TaggedError(
   "HierarchyLevelLimitExceededException",
 )<{
   readonly message?: string;
 }> {}
-export declare class HierarchyTypeMismatchException extends EffectData.TaggedError(
+export declare class HierarchyTypeMismatchException extends Data.TaggedError(
   "HierarchyTypeMismatchException",
 )<{
   readonly message?: string;
@@ -3409,13 +3410,13 @@ export type IamRole = string;
 
 export type IdempotencyToken = string;
 
-export declare class IdempotentParameterMismatch extends EffectData.TaggedError(
+export declare class IdempotentParameterMismatch extends Data.TaggedError(
   "IdempotentParameterMismatch",
 )<{
   readonly Message?: string;
 }> {}
 export type ImpactType = "Mutating" | "NonMutating" | "Undetermined";
-export declare class IncompatiblePolicyException extends EffectData.TaggedError(
+export declare class IncompatiblePolicyException extends Data.TaggedError(
   "IncompatiblePolicyException",
 )<{
   readonly message?: string;
@@ -3645,242 +3646,234 @@ export type InstanceType = string;
 
 export type Integer = number;
 
-export declare class InternalServerError extends EffectData.TaggedError(
+export declare class InternalServerError extends Data.TaggedError(
   "InternalServerError",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidActivation extends EffectData.TaggedError(
+export declare class InvalidActivation extends Data.TaggedError(
   "InvalidActivation",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidActivationId extends EffectData.TaggedError(
+export declare class InvalidActivationId extends Data.TaggedError(
   "InvalidActivationId",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidAggregatorException extends EffectData.TaggedError(
+export declare class InvalidAggregatorException extends Data.TaggedError(
   "InvalidAggregatorException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidAllowedPatternException extends EffectData.TaggedError(
+export declare class InvalidAllowedPatternException extends Data.TaggedError(
   "InvalidAllowedPatternException",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidAssociation extends EffectData.TaggedError(
+export declare class InvalidAssociation extends Data.TaggedError(
   "InvalidAssociation",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidAssociationVersion extends EffectData.TaggedError(
+export declare class InvalidAssociationVersion extends Data.TaggedError(
   "InvalidAssociationVersion",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidAutomationExecutionParametersException extends EffectData.TaggedError(
+export declare class InvalidAutomationExecutionParametersException extends Data.TaggedError(
   "InvalidAutomationExecutionParametersException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidAutomationSignalException extends EffectData.TaggedError(
+export declare class InvalidAutomationSignalException extends Data.TaggedError(
   "InvalidAutomationSignalException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidAutomationStatusUpdateException extends EffectData.TaggedError(
+export declare class InvalidAutomationStatusUpdateException extends Data.TaggedError(
   "InvalidAutomationStatusUpdateException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidCommandId extends EffectData.TaggedError(
+export declare class InvalidCommandId extends Data.TaggedError(
   "InvalidCommandId",
 )<{}> {}
-export declare class InvalidDeleteInventoryParametersException extends EffectData.TaggedError(
+export declare class InvalidDeleteInventoryParametersException extends Data.TaggedError(
   "InvalidDeleteInventoryParametersException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidDeletionIdException extends EffectData.TaggedError(
+export declare class InvalidDeletionIdException extends Data.TaggedError(
   "InvalidDeletionIdException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidDocument extends EffectData.TaggedError(
+export declare class InvalidDocument extends Data.TaggedError(
   "InvalidDocument",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidDocumentContent extends EffectData.TaggedError(
+export declare class InvalidDocumentContent extends Data.TaggedError(
   "InvalidDocumentContent",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidDocumentOperation extends EffectData.TaggedError(
+export declare class InvalidDocumentOperation extends Data.TaggedError(
   "InvalidDocumentOperation",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidDocumentSchemaVersion extends EffectData.TaggedError(
+export declare class InvalidDocumentSchemaVersion extends Data.TaggedError(
   "InvalidDocumentSchemaVersion",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidDocumentType extends EffectData.TaggedError(
+export declare class InvalidDocumentType extends Data.TaggedError(
   "InvalidDocumentType",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidDocumentVersion extends EffectData.TaggedError(
+export declare class InvalidDocumentVersion extends Data.TaggedError(
   "InvalidDocumentVersion",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidFilter extends EffectData.TaggedError(
-  "InvalidFilter",
-)<{
+export declare class InvalidFilter extends Data.TaggedError("InvalidFilter")<{
   readonly Message?: string;
 }> {}
-export declare class InvalidFilterKey extends EffectData.TaggedError(
+export declare class InvalidFilterKey extends Data.TaggedError(
   "InvalidFilterKey",
 )<{}> {}
-export declare class InvalidFilterOption extends EffectData.TaggedError(
+export declare class InvalidFilterOption extends Data.TaggedError(
   "InvalidFilterOption",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidFilterValue extends EffectData.TaggedError(
+export declare class InvalidFilterValue extends Data.TaggedError(
   "InvalidFilterValue",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidInstanceId extends EffectData.TaggedError(
+export declare class InvalidInstanceId extends Data.TaggedError(
   "InvalidInstanceId",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidInstanceInformationFilterValue extends EffectData.TaggedError(
+export declare class InvalidInstanceInformationFilterValue extends Data.TaggedError(
   "InvalidInstanceInformationFilterValue",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidInstancePropertyFilterValue extends EffectData.TaggedError(
+export declare class InvalidInstancePropertyFilterValue extends Data.TaggedError(
   "InvalidInstancePropertyFilterValue",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidInventoryGroupException extends EffectData.TaggedError(
+export declare class InvalidInventoryGroupException extends Data.TaggedError(
   "InvalidInventoryGroupException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidInventoryItemContextException extends EffectData.TaggedError(
+export declare class InvalidInventoryItemContextException extends Data.TaggedError(
   "InvalidInventoryItemContextException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidInventoryRequestException extends EffectData.TaggedError(
+export declare class InvalidInventoryRequestException extends Data.TaggedError(
   "InvalidInventoryRequestException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidItemContentException extends EffectData.TaggedError(
+export declare class InvalidItemContentException extends Data.TaggedError(
   "InvalidItemContentException",
 )<{
   readonly TypeName?: string;
   readonly Message?: string;
 }> {}
-export declare class InvalidKeyId extends EffectData.TaggedError(
-  "InvalidKeyId",
-)<{
+export declare class InvalidKeyId extends Data.TaggedError("InvalidKeyId")<{
   readonly message?: string;
 }> {}
-export declare class InvalidNextToken extends EffectData.TaggedError(
+export declare class InvalidNextToken extends Data.TaggedError(
   "InvalidNextToken",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidNotificationConfig extends EffectData.TaggedError(
+export declare class InvalidNotificationConfig extends Data.TaggedError(
   "InvalidNotificationConfig",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidOptionException extends EffectData.TaggedError(
+export declare class InvalidOptionException extends Data.TaggedError(
   "InvalidOptionException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidOutputFolder extends EffectData.TaggedError(
+export declare class InvalidOutputFolder extends Data.TaggedError(
   "InvalidOutputFolder",
 )<{}> {}
-export declare class InvalidOutputLocation extends EffectData.TaggedError(
+export declare class InvalidOutputLocation extends Data.TaggedError(
   "InvalidOutputLocation",
 )<{}> {}
-export declare class InvalidParameters extends EffectData.TaggedError(
+export declare class InvalidParameters extends Data.TaggedError(
   "InvalidParameters",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidPermissionType extends EffectData.TaggedError(
+export declare class InvalidPermissionType extends Data.TaggedError(
   "InvalidPermissionType",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidPluginName extends EffectData.TaggedError(
+export declare class InvalidPluginName extends Data.TaggedError(
   "InvalidPluginName",
 )<{}> {}
-export declare class InvalidPolicyAttributeException extends EffectData.TaggedError(
+export declare class InvalidPolicyAttributeException extends Data.TaggedError(
   "InvalidPolicyAttributeException",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidPolicyTypeException extends EffectData.TaggedError(
+export declare class InvalidPolicyTypeException extends Data.TaggedError(
   "InvalidPolicyTypeException",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidResourceId extends EffectData.TaggedError(
+export declare class InvalidResourceId extends Data.TaggedError(
   "InvalidResourceId",
 )<{}> {}
-export declare class InvalidResourceType extends EffectData.TaggedError(
+export declare class InvalidResourceType extends Data.TaggedError(
   "InvalidResourceType",
 )<{}> {}
-export declare class InvalidResultAttributeException extends EffectData.TaggedError(
+export declare class InvalidResultAttributeException extends Data.TaggedError(
   "InvalidResultAttributeException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidRole extends EffectData.TaggedError("InvalidRole")<{
+export declare class InvalidRole extends Data.TaggedError("InvalidRole")<{
   readonly Message?: string;
 }> {}
-export declare class InvalidSchedule extends EffectData.TaggedError(
+export declare class InvalidSchedule extends Data.TaggedError(
   "InvalidSchedule",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidTag extends EffectData.TaggedError("InvalidTag")<{
+export declare class InvalidTag extends Data.TaggedError("InvalidTag")<{
   readonly Message?: string;
 }> {}
-export declare class InvalidTarget extends EffectData.TaggedError(
-  "InvalidTarget",
-)<{
+export declare class InvalidTarget extends Data.TaggedError("InvalidTarget")<{
   readonly Message?: string;
 }> {}
-export declare class InvalidTargetMaps extends EffectData.TaggedError(
+export declare class InvalidTargetMaps extends Data.TaggedError(
   "InvalidTargetMaps",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidTypeNameException extends EffectData.TaggedError(
+export declare class InvalidTypeNameException extends Data.TaggedError(
   "InvalidTypeNameException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidUpdate extends EffectData.TaggedError(
-  "InvalidUpdate",
-)<{
+export declare class InvalidUpdate extends Data.TaggedError("InvalidUpdate")<{
   readonly Message?: string;
 }> {}
 export interface InventoryAggregator {
@@ -4001,7 +3994,7 @@ export type InventoryResultItemMap = Record<string, InventoryResultItem>;
 export type InventorySchemaDeleteOption = "DisableSchema" | "DeleteSchema";
 export type InventoryTypeDisplayName = string;
 
-export declare class InvocationDoesNotExist extends EffectData.TaggedError(
+export declare class InvocationDoesNotExist extends Data.TaggedError(
   "InvocationDoesNotExist",
 )<{}> {}
 export type InvocationTraceOutput = string;
@@ -4012,13 +4005,13 @@ export type ISO8601String = string;
 
 export type IsSubTypeSchema = boolean;
 
-export declare class ItemContentMismatchException extends EffectData.TaggedError(
+export declare class ItemContentMismatchException extends Data.TaggedError(
   "ItemContentMismatchException",
 )<{
   readonly TypeName?: string;
   readonly Message?: string;
 }> {}
-export declare class ItemSizeLimitExceededException extends EffectData.TaggedError(
+export declare class ItemSizeLimitExceededException extends Data.TaggedError(
   "ItemSizeLimitExceededException",
 )<{
   readonly TypeName?: string;
@@ -4460,7 +4453,7 @@ export type MaintenanceWindowTaskType =
   | "LAMBDA";
 export type MaintenanceWindowTimezone = string;
 
-export declare class MalformedResourcePolicyDocumentException extends EffectData.TaggedError(
+export declare class MalformedResourcePolicyDocumentException extends Data.TaggedError(
   "MalformedResourcePolicyDocumentException",
 )<{
   readonly Message?: string;
@@ -4470,7 +4463,7 @@ export type ManagedInstanceId = string;
 export type ManagedStatus = "All" | "Managed" | "Unmanaged";
 export type MaxConcurrency = string;
 
-export declare class MaxDocumentSizeExceeded extends EffectData.TaggedError(
+export declare class MaxDocumentSizeExceeded extends Data.TaggedError(
   "MaxDocumentSizeExceeded",
 )<{
   readonly Message?: string;
@@ -4693,14 +4686,14 @@ export interface OpsItem {
   PlannedEndTime?: Date | string;
   OpsItemArn?: string;
 }
-export declare class OpsItemAccessDeniedException extends EffectData.TaggedError(
+export declare class OpsItemAccessDeniedException extends Data.TaggedError(
   "OpsItemAccessDeniedException",
 )<{
   readonly Message?: string;
 }> {}
 export type OpsItemAccountId = string;
 
-export declare class OpsItemAlreadyExistsException extends EffectData.TaggedError(
+export declare class OpsItemAlreadyExistsException extends Data.TaggedError(
   "OpsItemAlreadyExistsException",
 )<{
   readonly Message?: string;
@@ -4710,7 +4703,7 @@ export type OpsItemArn = string;
 
 export type OpsItemCategory = string;
 
-export declare class OpsItemConflictException extends EffectData.TaggedError(
+export declare class OpsItemConflictException extends Data.TaggedError(
   "OpsItemConflictException",
 )<{
   readonly Message?: string;
@@ -4806,13 +4799,13 @@ export type OpsItemId = string;
 export interface OpsItemIdentity {
   Arn?: string;
 }
-export declare class OpsItemInvalidParameterException extends EffectData.TaggedError(
+export declare class OpsItemInvalidParameterException extends Data.TaggedError(
   "OpsItemInvalidParameterException",
 )<{
   readonly ParameterNames?: Array<string>;
   readonly Message?: string;
 }> {}
-export declare class OpsItemLimitExceededException extends EffectData.TaggedError(
+export declare class OpsItemLimitExceededException extends Data.TaggedError(
   "OpsItemLimitExceededException",
 )<{
   readonly ResourceTypes?: Array<string>;
@@ -4822,7 +4815,7 @@ export declare class OpsItemLimitExceededException extends EffectData.TaggedErro
 }> {}
 export type OpsItemMaxResults = number;
 
-export declare class OpsItemNotFoundException extends EffectData.TaggedError(
+export declare class OpsItemNotFoundException extends Data.TaggedError(
   "OpsItemNotFoundException",
 )<{
   readonly Message?: string;
@@ -4836,7 +4829,7 @@ export type OpsItemOpsDataKeysList = Array<string>;
 export type OpsItemParameterNamesList = Array<string>;
 export type OpsItemPriority = number;
 
-export declare class OpsItemRelatedItemAlreadyExistsException extends EffectData.TaggedError(
+export declare class OpsItemRelatedItemAlreadyExistsException extends Data.TaggedError(
   "OpsItemRelatedItemAlreadyExistsException",
 )<{
   readonly Message?: string;
@@ -4845,7 +4838,7 @@ export declare class OpsItemRelatedItemAlreadyExistsException extends EffectData
 }> {}
 export type OpsItemRelatedItemAssociationId = string;
 
-export declare class OpsItemRelatedItemAssociationNotFoundException extends EffectData.TaggedError(
+export declare class OpsItemRelatedItemAssociationNotFoundException extends Data.TaggedError(
   "OpsItemRelatedItemAssociationNotFoundException",
 )<{
   readonly Message?: string;
@@ -4940,7 +4933,7 @@ export interface OpsMetadata {
   LastModifiedUser?: string;
   CreationDate?: Date | string;
 }
-export declare class OpsMetadataAlreadyExistsException extends EffectData.TaggedError(
+export declare class OpsMetadataAlreadyExistsException extends Data.TaggedError(
   "OpsMetadataAlreadyExistsException",
 )<{
   readonly message?: string;
@@ -4957,30 +4950,30 @@ export type OpsMetadataFilterList = Array<OpsMetadataFilter>;
 export type OpsMetadataFilterValue = string;
 
 export type OpsMetadataFilterValueList = Array<string>;
-export declare class OpsMetadataInvalidArgumentException extends EffectData.TaggedError(
+export declare class OpsMetadataInvalidArgumentException extends Data.TaggedError(
   "OpsMetadataInvalidArgumentException",
 )<{
   readonly message?: string;
 }> {}
-export declare class OpsMetadataKeyLimitExceededException extends EffectData.TaggedError(
+export declare class OpsMetadataKeyLimitExceededException extends Data.TaggedError(
   "OpsMetadataKeyLimitExceededException",
 )<{
   readonly message?: string;
 }> {}
-export declare class OpsMetadataLimitExceededException extends EffectData.TaggedError(
+export declare class OpsMetadataLimitExceededException extends Data.TaggedError(
   "OpsMetadataLimitExceededException",
 )<{
   readonly message?: string;
 }> {}
 export type OpsMetadataList = Array<OpsMetadata>;
-export declare class OpsMetadataNotFoundException extends EffectData.TaggedError(
+export declare class OpsMetadataNotFoundException extends Data.TaggedError(
   "OpsMetadataNotFoundException",
 )<{
   readonly message?: string;
 }> {}
 export type OpsMetadataResourceId = string;
 
-export declare class OpsMetadataTooManyUpdatesException extends EffectData.TaggedError(
+export declare class OpsMetadataTooManyUpdatesException extends Data.TaggedError(
   "OpsMetadataTooManyUpdatesException",
 )<{
   readonly message?: string;
@@ -5010,7 +5003,7 @@ export interface Parameter {
   ARN?: string;
   DataType?: string;
 }
-export declare class ParameterAlreadyExists extends EffectData.TaggedError(
+export declare class ParameterAlreadyExists extends Data.TaggedError(
   "ParameterAlreadyExists",
 )<{
   readonly message?: string;
@@ -5045,13 +5038,13 @@ export type ParameterKeyId = string;
 export type ParameterLabel = string;
 
 export type ParameterLabelList = Array<string>;
-export declare class ParameterLimitExceeded extends EffectData.TaggedError(
+export declare class ParameterLimitExceeded extends Data.TaggedError(
   "ParameterLimitExceeded",
 )<{
   readonly message?: string;
 }> {}
 export type ParameterList = Array<Parameter>;
-export declare class ParameterMaxVersionLimitExceeded extends EffectData.TaggedError(
+export declare class ParameterMaxVersionLimitExceeded extends Data.TaggedError(
   "ParameterMaxVersionLimitExceeded",
 )<{
   readonly message?: string;
@@ -5074,12 +5067,12 @@ export type ParameterMetadataList = Array<ParameterMetadata>;
 export type ParameterName = string;
 
 export type ParameterNameList = Array<string>;
-export declare class ParameterNotFound extends EffectData.TaggedError(
+export declare class ParameterNotFound extends Data.TaggedError(
   "ParameterNotFound",
 )<{
   readonly message?: string;
 }> {}
-export declare class ParameterPatternMismatchException extends EffectData.TaggedError(
+export declare class ParameterPatternMismatchException extends Data.TaggedError(
   "ParameterPatternMismatchException",
 )<{
   readonly message?: string;
@@ -5115,12 +5108,12 @@ export type ParameterType = "String" | "StringList" | "SecureString";
 export type ParameterValue = string;
 
 export type ParameterValueList = Array<string>;
-export declare class ParameterVersionLabelLimitExceeded extends EffectData.TaggedError(
+export declare class ParameterVersionLabelLimitExceeded extends Data.TaggedError(
   "ParameterVersionLabelLimitExceeded",
 )<{
   readonly message?: string;
 }> {}
-export declare class ParameterVersionNotFound extends EffectData.TaggedError(
+export declare class ParameterVersionNotFound extends Data.TaggedError(
   "ParameterVersionNotFound",
 )<{
   readonly message?: string;
@@ -5376,7 +5369,7 @@ export type PlatformType = "Windows" | "Linux" | "MacOS";
 export type PlatformTypeList = Array<PlatformType>;
 export type PlatformVersion = string;
 
-export declare class PoliciesLimitExceededException extends EffectData.TaggedError(
+export declare class PoliciesLimitExceededException extends Data.TaggedError(
   "PoliciesLimitExceededException",
 )<{
   readonly message?: string;
@@ -5560,7 +5553,7 @@ export type ResourceCount = number;
 
 export type ResourceCountByStatus = string;
 
-export declare class ResourceDataSyncAlreadyExistsException extends EffectData.TaggedError(
+export declare class ResourceDataSyncAlreadyExistsException extends Data.TaggedError(
   "ResourceDataSyncAlreadyExistsException",
 )<{
   readonly SyncName?: string;
@@ -5571,12 +5564,12 @@ export interface ResourceDataSyncAwsOrganizationsSource {
   OrganizationSourceType: string;
   OrganizationalUnits?: Array<ResourceDataSyncOrganizationalUnit>;
 }
-export declare class ResourceDataSyncConflictException extends EffectData.TaggedError(
+export declare class ResourceDataSyncConflictException extends Data.TaggedError(
   "ResourceDataSyncConflictException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class ResourceDataSyncCountExceededException extends EffectData.TaggedError(
+export declare class ResourceDataSyncCountExceededException extends Data.TaggedError(
   "ResourceDataSyncCountExceededException",
 )<{
   readonly Message?: string;
@@ -5592,7 +5585,7 @@ export type ResourceDataSyncEnableAllOpsDataSources = boolean;
 
 export type ResourceDataSyncIncludeFutureRegions = boolean;
 
-export declare class ResourceDataSyncInvalidConfigurationException extends EffectData.TaggedError(
+export declare class ResourceDataSyncInvalidConfigurationException extends Data.TaggedError(
   "ResourceDataSyncInvalidConfigurationException",
 )<{
   readonly Message?: string;
@@ -5614,7 +5607,7 @@ export type ResourceDataSyncLastModifiedTime = Date | string;
 
 export type ResourceDataSyncName = string;
 
-export declare class ResourceDataSyncNotFoundException extends EffectData.TaggedError(
+export declare class ResourceDataSyncNotFoundException extends Data.TaggedError(
   "ResourceDataSyncNotFoundException",
 )<{
   readonly SyncName?: string;
@@ -5671,33 +5664,33 @@ export type ResourceDataSyncType = string;
 
 export type ResourceId = string;
 
-export declare class ResourceInUseException extends EffectData.TaggedError(
+export declare class ResourceInUseException extends Data.TaggedError(
   "ResourceInUseException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class ResourceLimitExceededException extends EffectData.TaggedError(
+export declare class ResourceLimitExceededException extends Data.TaggedError(
   "ResourceLimitExceededException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class ResourcePolicyConflictException extends EffectData.TaggedError(
+export declare class ResourcePolicyConflictException extends Data.TaggedError(
   "ResourcePolicyConflictException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class ResourcePolicyInvalidParameterException extends EffectData.TaggedError(
+export declare class ResourcePolicyInvalidParameterException extends Data.TaggedError(
   "ResourcePolicyInvalidParameterException",
 )<{
   readonly ParameterNames?: Array<string>;
   readonly Message?: string;
 }> {}
-export declare class ResourcePolicyLimitExceededException extends EffectData.TaggedError(
+export declare class ResourcePolicyLimitExceededException extends Data.TaggedError(
   "ResourcePolicyLimitExceededException",
 )<{
   readonly Limit?: number;
@@ -5706,7 +5699,7 @@ export declare class ResourcePolicyLimitExceededException extends EffectData.Tag
 }> {}
 export type ResourcePolicyMaxResults = number;
 
-export declare class ResourcePolicyNotFoundException extends EffectData.TaggedError(
+export declare class ResourcePolicyNotFoundException extends Data.TaggedError(
   "ResourcePolicyNotFoundException",
 )<{
   readonly Message?: string;
@@ -5811,7 +5804,7 @@ export interface SendCommandRequest {
 export interface SendCommandResult {
   Command?: Command;
 }
-export declare class ServiceQuotaExceededException extends EffectData.TaggedError(
+export declare class ServiceQuotaExceededException extends Data.TaggedError(
   "ServiceQuotaExceededException",
 )<{
   readonly Message: string;
@@ -5832,7 +5825,7 @@ export interface ServiceSetting {
 }
 export type ServiceSettingId = string;
 
-export declare class ServiceSettingNotFound extends EffectData.TaggedError(
+export declare class ServiceSettingNotFound extends Data.TaggedError(
   "ServiceSettingNotFound",
 )<{
   readonly Message?: string;
@@ -6010,7 +6003,7 @@ export type StatusMessage = string;
 
 export type StatusName = string;
 
-export declare class StatusUnchanged extends EffectData.TaggedError(
+export declare class StatusUnchanged extends Data.TaggedError(
   "StatusUnchanged",
 )<{}> {}
 export interface StepExecution {
@@ -6074,7 +6067,7 @@ export type String1to256 = string;
 export type StringDateTime = string;
 
 export type StringList = Array<string>;
-export declare class SubTypeCountLimitExceededException extends EffectData.TaggedError(
+export declare class SubTypeCountLimitExceededException extends Data.TaggedError(
   "SubTypeCountLimitExceededException",
 )<{
   readonly Message?: string;
@@ -6094,7 +6087,7 @@ export interface Target {
 }
 export type TargetCount = number;
 
-export declare class TargetInUseException extends EffectData.TaggedError(
+export declare class TargetInUseException extends Data.TaggedError(
   "TargetInUseException",
 )<{
   readonly Message?: string;
@@ -6124,7 +6117,7 @@ export type TargetMaps = Array<Record<string, Array<string>>>;
 export type TargetMapValue = string;
 
 export type TargetMapValueList = Array<string>;
-export declare class TargetNotConnected extends EffectData.TaggedError(
+export declare class TargetNotConnected extends Data.TaggedError(
   "TargetNotConnected",
 )<{
   readonly Message?: string;
@@ -6147,7 +6140,7 @@ export interface TerminateSessionRequest {
 export interface TerminateSessionResponse {
   SessionId?: string;
 }
-export declare class ThrottlingException extends EffectData.TaggedError(
+export declare class ThrottlingException extends Data.TaggedError(
   "ThrottlingException",
 )<{
   readonly Message: string;
@@ -6158,17 +6151,15 @@ export type TimeoutSeconds = number;
 
 export type TokenValue = string;
 
-export declare class TooManyTagsError extends EffectData.TaggedError(
+export declare class TooManyTagsError extends Data.TaggedError(
   "TooManyTagsError",
 )<{}> {}
-export declare class TooManyUpdates extends EffectData.TaggedError(
-  "TooManyUpdates",
-)<{
+export declare class TooManyUpdates extends Data.TaggedError("TooManyUpdates")<{
   readonly Message?: string;
 }> {}
 export type TotalCount = number;
 
-export declare class TotalSizeLimitExceededException extends EffectData.TaggedError(
+export declare class TotalSizeLimitExceededException extends Data.TaggedError(
   "TotalSizeLimitExceededException",
 )<{
   readonly Message?: string;
@@ -6182,43 +6173,43 @@ export interface UnlabelParameterVersionResult {
   RemovedLabels?: Array<string>;
   InvalidLabels?: Array<string>;
 }
-export declare class UnsupportedCalendarException extends EffectData.TaggedError(
+export declare class UnsupportedCalendarException extends Data.TaggedError(
   "UnsupportedCalendarException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class UnsupportedFeatureRequiredException extends EffectData.TaggedError(
+export declare class UnsupportedFeatureRequiredException extends Data.TaggedError(
   "UnsupportedFeatureRequiredException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class UnsupportedInventoryItemContextException extends EffectData.TaggedError(
+export declare class UnsupportedInventoryItemContextException extends Data.TaggedError(
   "UnsupportedInventoryItemContextException",
 )<{
   readonly TypeName?: string;
   readonly Message?: string;
 }> {}
-export declare class UnsupportedInventorySchemaVersionException extends EffectData.TaggedError(
+export declare class UnsupportedInventorySchemaVersionException extends Data.TaggedError(
   "UnsupportedInventorySchemaVersionException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class UnsupportedOperatingSystem extends EffectData.TaggedError(
+export declare class UnsupportedOperatingSystem extends Data.TaggedError(
   "UnsupportedOperatingSystem",
 )<{
   readonly Message?: string;
 }> {}
-export declare class UnsupportedOperationException extends EffectData.TaggedError(
+export declare class UnsupportedOperationException extends Data.TaggedError(
   "UnsupportedOperationException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class UnsupportedParameterType extends EffectData.TaggedError(
+export declare class UnsupportedParameterType extends Data.TaggedError(
   "UnsupportedParameterType",
 )<{
   readonly message?: string;
 }> {}
-export declare class UnsupportedPlatformType extends EffectData.TaggedError(
+export declare class UnsupportedPlatformType extends Data.TaggedError(
   "UnsupportedPlatformType",
 )<{
   readonly Message?: string;
@@ -6449,7 +6440,7 @@ export type Url = string;
 
 export type UUID = string;
 
-export declare class ValidationException extends EffectData.TaggedError(
+export declare class ValidationException extends Data.TaggedError(
   "ValidationException",
 )<{
   readonly Message?: string;

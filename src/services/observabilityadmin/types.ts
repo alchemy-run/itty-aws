@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   ExpiredTokenException,
   IncompleteSignature,
@@ -334,7 +335,7 @@ export declare class ObservabilityAdmin extends AWSServiceClient {
 
 export declare class Observabilityadmin extends ObservabilityAdmin {}
 
-export declare class AccessDeniedException extends EffectData.TaggedError(
+export declare class AccessDeniedException extends Data.TaggedError(
   "AccessDeniedException",
 )<{
   readonly Message?: string;
@@ -376,7 +377,7 @@ export interface CentralizationRuleSummary {
   DestinationAccountId?: string;
   DestinationRegion?: string;
 }
-export declare class ConflictException extends EffectData.TaggedError(
+export declare class ConflictException extends Data.TaggedError(
   "ConflictException",
 )<{
   readonly Message?: string;
@@ -470,7 +471,7 @@ export interface GetTelemetryRuleOutput {
   LastUpdateTimeStamp?: number;
   TelemetryRule?: TelemetryRule;
 }
-export declare class InternalServerException extends EffectData.TaggedError(
+export declare class InternalServerException extends Data.TaggedError(
   "InternalServerException",
 )<{
   readonly Message?: string;
@@ -572,7 +573,7 @@ export type ResourceIdentifier = string;
 
 export type ResourceIdentifierPrefix = string;
 
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly Message?: string;
@@ -589,7 +590,7 @@ export type RuleIdentifier = string;
 
 export type RuleName = string;
 
-export declare class ServiceQuotaExceededException extends EffectData.TaggedError(
+export declare class ServiceQuotaExceededException extends Data.TaggedError(
   "ServiceQuotaExceededException",
 )<{
   readonly Message?: string;
@@ -662,7 +663,7 @@ export interface TelemetryRuleSummary {
 }
 export type TelemetryState = "Enabled" | "Disabled" | "NotApplicable";
 export type TelemetryType = "Logs" | "Metrics" | "Traces";
-export declare class TooManyRequestsException extends EffectData.TaggedError(
+export declare class TooManyRequestsException extends Data.TaggedError(
   "TooManyRequestsException",
 )<{
   readonly Message?: string;
@@ -692,7 +693,7 @@ export interface UpdateTelemetryRuleInput {
 export interface UpdateTelemetryRuleOutput {
   RuleArn?: string;
 }
-export declare class ValidationException extends EffectData.TaggedError(
+export declare class ValidationException extends Data.TaggedError(
   "ValidationException",
 )<{
   readonly Message?: string;

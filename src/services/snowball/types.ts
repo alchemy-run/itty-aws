@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
@@ -230,7 +231,7 @@ export interface CancelJobRequest {
 export interface CancelJobResult {}
 export type ClusterId = string;
 
-export declare class ClusterLimitExceededException extends EffectData.TaggedError(
+export declare class ClusterLimitExceededException extends Data.TaggedError(
   "ClusterLimitExceededException",
 )<{
   readonly Message?: string;
@@ -270,7 +271,7 @@ export interface CompatibleImage {
   Name?: string;
 }
 export type CompatibleImageList = Array<CompatibleImage>;
-export declare class ConflictException extends EffectData.TaggedError(
+export declare class ConflictException extends Data.TaggedError(
   "ConflictException",
 )<{
   readonly ConflictResource?: string;
@@ -403,7 +404,7 @@ export interface Ec2AmiResource {
   SnowballAmiId?: string;
 }
 export type Ec2AmiResourceList = Array<Ec2AmiResource>;
-export declare class Ec2RequestFailedException extends EffectData.TaggedError(
+export declare class Ec2RequestFailedException extends Data.TaggedError(
   "Ec2RequestFailedException",
 )<{
   readonly Message?: string;
@@ -451,27 +452,27 @@ export type InitialClusterSize = number;
 
 export type Integer = number;
 
-export declare class InvalidAddressException extends EffectData.TaggedError(
+export declare class InvalidAddressException extends Data.TaggedError(
   "InvalidAddressException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidInputCombinationException extends EffectData.TaggedError(
+export declare class InvalidInputCombinationException extends Data.TaggedError(
   "InvalidInputCombinationException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidJobStateException extends EffectData.TaggedError(
+export declare class InvalidJobStateException extends Data.TaggedError(
   "InvalidJobStateException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidNextTokenException extends EffectData.TaggedError(
+export declare class InvalidNextTokenException extends Data.TaggedError(
   "InvalidNextTokenException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidResourceException extends EffectData.TaggedError(
+export declare class InvalidResourceException extends Data.TaggedError(
   "InvalidResourceException",
 )<{
   readonly Message?: string;
@@ -551,7 +552,7 @@ export interface KeyRange {
 }
 export type KmsKeyARN = string;
 
-export declare class KMSRequestFailedException extends EffectData.TaggedError(
+export declare class KMSRequestFailedException extends Data.TaggedError(
   "KMSRequestFailedException",
 )<{
   readonly Message?: string;
@@ -679,7 +680,7 @@ export type RemoteManagement =
   | "NOT_INSTALLED";
 export type ResourceARN = string;
 
-export declare class ReturnShippingLabelAlreadyExistsException extends EffectData.TaggedError(
+export declare class ReturnShippingLabelAlreadyExistsException extends Data.TaggedError(
   "ReturnShippingLabelAlreadyExistsException",
 )<{
   readonly Message?: string;
@@ -771,7 +772,7 @@ export interface TGWOnDeviceServiceConfiguration {
 export type Timestamp = Date | string;
 
 export type TransferOption = "IMPORT" | "EXPORT" | "LOCAL_USE";
-export declare class UnsupportedAddressException extends EffectData.TaggedError(
+export declare class UnsupportedAddressException extends Data.TaggedError(
   "UnsupportedAddressException",
 )<{
   readonly Message?: string;

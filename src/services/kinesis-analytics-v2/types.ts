@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
@@ -668,12 +669,12 @@ export type CodeMD5 = string;
 
 export type CodeSize = number;
 
-export declare class CodeValidationException extends EffectData.TaggedError(
+export declare class CodeValidationException extends Data.TaggedError(
   "CodeValidationException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class ConcurrentModificationException extends EffectData.TaggedError(
+export declare class ConcurrentModificationException extends Data.TaggedError(
   "ConcurrentModificationException",
 )<{
   readonly Message?: string;
@@ -964,17 +965,17 @@ export interface InputUpdate {
   InputParallelismUpdate?: InputParallelismUpdate;
 }
 export type InputUpdates = Array<InputUpdate>;
-export declare class InvalidApplicationConfigurationException extends EffectData.TaggedError(
+export declare class InvalidApplicationConfigurationException extends Data.TaggedError(
   "InvalidApplicationConfigurationException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidArgumentException extends EffectData.TaggedError(
+export declare class InvalidArgumentException extends Data.TaggedError(
   "InvalidArgumentException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidRequestException extends EffectData.TaggedError(
+export declare class InvalidRequestException extends Data.TaggedError(
   "InvalidRequestException",
 )<{
   readonly Message?: string;
@@ -1039,7 +1040,7 @@ export interface LambdaOutputDescription {
 export interface LambdaOutputUpdate {
   ResourceARNUpdate: string;
 }
-export declare class LimitExceededException extends EffectData.TaggedError(
+export declare class LimitExceededException extends Data.TaggedError(
   "LimitExceededException",
 )<{
   readonly Message?: string;
@@ -1265,17 +1266,17 @@ export interface ReferenceDataSourceUpdate {
 export type ReferenceDataSourceUpdates = Array<ReferenceDataSourceUpdate>;
 export type ResourceARN = string;
 
-export declare class ResourceInUseException extends EffectData.TaggedError(
+export declare class ResourceInUseException extends Data.TaggedError(
   "ResourceInUseException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class ResourceProvisionedThroughputExceededException extends EffectData.TaggedError(
+export declare class ResourceProvisionedThroughputExceededException extends Data.TaggedError(
   "ResourceProvisionedThroughputExceededException",
 )<{
   readonly Message?: string;
@@ -1363,7 +1364,7 @@ export interface S3ReferenceDataSourceUpdate {
 export type SecurityGroupId = string;
 
 export type SecurityGroupIds = Array<string>;
-export declare class ServiceUnavailableException extends EffectData.TaggedError(
+export declare class ServiceUnavailableException extends Data.TaggedError(
   "ServiceUnavailableException",
 )<{
   readonly Message?: string;
@@ -1443,19 +1444,19 @@ export type TextContent = string;
 
 export type Timestamp = Date | string;
 
-export declare class TooManyTagsException extends EffectData.TaggedError(
+export declare class TooManyTagsException extends Data.TaggedError(
   "TooManyTagsException",
 )<{
   readonly message?: string;
 }> {}
-export declare class UnableToDetectSchemaException extends EffectData.TaggedError(
+export declare class UnableToDetectSchemaException extends Data.TaggedError(
   "UnableToDetectSchemaException",
 )<{
   readonly Message?: string;
   readonly RawInputRecords?: Array<string>;
   readonly ProcessedInputRecords?: Array<string>;
 }> {}
-export declare class UnsupportedOperationException extends EffectData.TaggedError(
+export declare class UnsupportedOperationException extends Data.TaggedError(
   "UnsupportedOperationException",
 )<{
   readonly Message?: string;

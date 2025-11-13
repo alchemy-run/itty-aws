@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
@@ -303,7 +304,7 @@ export type CEStatus =
   | "VALID"
   | "INVALID";
 export type CEType = "MANAGED" | "UNMANAGED";
-export declare class ClientException extends EffectData.TaggedError(
+export declare class ClientException extends Data.TaggedError(
   "ClientException",
 )<{
   readonly message?: string;
@@ -1283,7 +1284,7 @@ export interface Secret {
   valueFrom: string;
 }
 export type SecretList = Array<Secret>;
-export declare class ServerException extends EffectData.TaggedError(
+export declare class ServerException extends Data.TaggedError(
   "ServerException",
 )<{
   readonly message?: string;

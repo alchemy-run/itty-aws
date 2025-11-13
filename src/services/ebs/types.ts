@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   ExpiredTokenException,
   IncompleteSignature,
@@ -113,7 +114,7 @@ export declare class EBS extends AWSServiceClient {
   >;
 }
 
-export declare class AccessDeniedException extends EffectData.TaggedError(
+export declare class AccessDeniedException extends Data.TaggedError(
   "AccessDeniedException",
 )<{
   readonly Message?: string;
@@ -159,12 +160,12 @@ export interface CompleteSnapshotRequest {
 export interface CompleteSnapshotResponse {
   Status?: Status;
 }
-export declare class ConcurrentLimitExceededException extends EffectData.TaggedError(
+export declare class ConcurrentLimitExceededException extends Data.TaggedError(
   "ConcurrentLimitExceededException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class ConflictException extends EffectData.TaggedError(
+export declare class ConflictException extends Data.TaggedError(
   "ConflictException",
 )<{
   readonly Message?: string;
@@ -188,7 +189,7 @@ export interface GetSnapshotBlockResponse {
 }
 export type IdempotencyToken = string;
 
-export declare class InternalServerException extends EffectData.TaggedError(
+export declare class InternalServerException extends Data.TaggedError(
   "InternalServerException",
 )<{
   readonly Message?: string;
@@ -243,7 +244,7 @@ export interface PutSnapshotBlockResponse {
   Checksum?: string;
   ChecksumAlgorithm?: ChecksumAlgorithm;
 }
-export declare class RequestThrottledException extends EffectData.TaggedError(
+export declare class RequestThrottledException extends Data.TaggedError(
   "RequestThrottledException",
 )<{
   readonly Message?: string;
@@ -253,7 +254,7 @@ export type RequestThrottledExceptionReason =
   | "ACCOUNT_THROTTLED"
   | "DEPENDENCY_REQUEST_THROTTLED"
   | "RESOURCE_LEVEL_THROTTLE";
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly Message?: string;
@@ -264,7 +265,7 @@ export type ResourceNotFoundExceptionReason =
   | "GRANT_NOT_FOUND"
   | "DEPENDENCY_RESOURCE_NOT_FOUND"
   | "IMAGE_NOT_FOUND";
-export declare class ServiceQuotaExceededException extends EffectData.TaggedError(
+export declare class ServiceQuotaExceededException extends Data.TaggedError(
   "ServiceQuotaExceededException",
 )<{
   readonly Message?: string;
@@ -312,7 +313,7 @@ export type Timeout = number;
 
 export type TimeStamp = Date | string;
 
-export declare class ValidationException extends EffectData.TaggedError(
+export declare class ValidationException extends Data.TaggedError(
   "ValidationException",
 )<{
   readonly Message?: string;

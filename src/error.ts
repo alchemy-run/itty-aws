@@ -1,4 +1,4 @@
-import * as Data from "effect/Data";
+import * as Data from "effect/data/Data";
 
 export interface AwsErrorMeta {
   readonly statusCode: number;

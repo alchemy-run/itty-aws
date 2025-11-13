@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   ExpiredTokenException,
   IncompleteSignature,
@@ -603,7 +604,7 @@ export interface AccessControlList {
   AllowsPublicReadAccess?: boolean;
   AllowsPublicWriteAccess?: boolean;
 }
-export declare class AccessDeniedException extends EffectData.TaggedError(
+export declare class AccessDeniedException extends Data.TaggedError(
   "AccessDeniedException",
 )<{
   readonly Message?: string;
@@ -732,7 +733,7 @@ export interface AwsApiCallAction {
   RemoteAccountDetails?: RemoteAccountDetails;
   AffectedResources?: Record<string, string>;
 }
-export declare class BadRequestException extends EffectData.TaggedError(
+export declare class BadRequestException extends Data.TaggedError(
   "BadRequestException",
 )<{
   readonly Message?: string;
@@ -785,7 +786,7 @@ export interface Condition {
   LessThan?: number;
   LessThanOrEqual?: number;
 }
-export declare class ConflictException extends EffectData.TaggedError(
+export declare class ConflictException extends Data.TaggedError(
   "ConflictException",
 )<{
   readonly Message?: string;
@@ -1728,7 +1729,7 @@ export type Integer = number;
 
 export type IntegerValueWithMax = number;
 
-export declare class InternalServerErrorException extends EffectData.TaggedError(
+export declare class InternalServerErrorException extends Data.TaggedError(
   "InternalServerErrorException",
 )<{
   readonly Message?: string;
@@ -2428,7 +2429,7 @@ export interface ResourceDetails {
   InstanceArn?: string;
 }
 export type ResourceList = Array<string>;
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly Message?: string;

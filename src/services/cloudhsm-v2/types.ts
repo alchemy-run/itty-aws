@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
@@ -260,39 +261,39 @@ export interface Certificates {
   ManufacturerHardwareCertificate?: string;
   ClusterCertificate?: string;
 }
-export declare class CloudHsmAccessDeniedException extends EffectData.TaggedError(
+export declare class CloudHsmAccessDeniedException extends Data.TaggedError(
   "CloudHsmAccessDeniedException",
 )<{
   readonly Message?: string;
 }> {}
 export type CloudHsmArn = string;
 
-export declare class CloudHsmInternalFailureException extends EffectData.TaggedError(
+export declare class CloudHsmInternalFailureException extends Data.TaggedError(
   "CloudHsmInternalFailureException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class CloudHsmInvalidRequestException extends EffectData.TaggedError(
+export declare class CloudHsmInvalidRequestException extends Data.TaggedError(
   "CloudHsmInvalidRequestException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class CloudHsmResourceLimitExceededException extends EffectData.TaggedError(
+export declare class CloudHsmResourceLimitExceededException extends Data.TaggedError(
   "CloudHsmResourceLimitExceededException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class CloudHsmResourceNotFoundException extends EffectData.TaggedError(
+export declare class CloudHsmResourceNotFoundException extends Data.TaggedError(
   "CloudHsmResourceNotFoundException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class CloudHsmServiceException extends EffectData.TaggedError(
+export declare class CloudHsmServiceException extends Data.TaggedError(
   "CloudHsmServiceException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class CloudHsmTagException extends EffectData.TaggedError(
+export declare class CloudHsmTagException extends Data.TaggedError(
   "CloudHsmTagException",
 )<{
   readonly Message?: string;

@@ -327,7 +327,7 @@ describe("SecretsManager Smoke Tests", () => {
             Effect.catchTag("ValidationException", (error) =>
               Effect.succeed({ success: false, error: error.message }),
             ),
-            Effect.catchAll((error) =>
+            Effect.catch((error) =>
               Effect.succeed({
                 success: false,
                 error: error._tag,

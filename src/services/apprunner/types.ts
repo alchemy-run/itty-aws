@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
@@ -674,17 +675,17 @@ export interface InstanceConfiguration {
 }
 export type Integer = number;
 
-export declare class InternalServiceErrorException extends EffectData.TaggedError(
+export declare class InternalServiceErrorException extends Data.TaggedError(
   "InternalServiceErrorException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidRequestException extends EffectData.TaggedError(
+export declare class InvalidRequestException extends Data.TaggedError(
   "InvalidRequestException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidStateException extends EffectData.TaggedError(
+export declare class InvalidStateException extends Data.TaggedError(
   "InvalidStateException",
 )<{
   readonly Message?: string;
@@ -852,7 +853,7 @@ export interface PauseServiceResponse {
   OperationId?: string;
 }
 export type ProviderType = "GITHUB" | "BITBUCKET";
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly Message?: string;
@@ -918,7 +919,7 @@ export interface ServiceObservabilityConfiguration {
   ObservabilityEnabled: boolean;
   ObservabilityConfigurationArn?: string;
 }
-export declare class ServiceQuotaExceededException extends EffectData.TaggedError(
+export declare class ServiceQuotaExceededException extends Data.TaggedError(
   "ServiceQuotaExceededException",
 )<{
   readonly Message?: string;

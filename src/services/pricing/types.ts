@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   ExpiredTokenException,
   IncompleteSignature,
@@ -101,7 +102,7 @@ export declare class Pricing extends AWSServiceClient {
   >;
 }
 
-export declare class AccessDeniedException extends EffectData.TaggedError(
+export declare class AccessDeniedException extends Data.TaggedError(
   "AccessDeniedException",
 )<{
   readonly Message?: string;
@@ -130,7 +131,7 @@ export type EffectiveDate = Date | string;
 
 export type errorMessage = string;
 
-export declare class ExpiredNextTokenException extends EffectData.TaggedError(
+export declare class ExpiredNextTokenException extends Data.TaggedError(
   "ExpiredNextTokenException",
 )<{
   readonly Message?: string;
@@ -183,17 +184,17 @@ export interface GetProductsResponse {
   PriceList?: Array<string>;
   NextToken?: string;
 }
-export declare class InternalErrorException extends EffectData.TaggedError(
+export declare class InternalErrorException extends Data.TaggedError(
   "InternalErrorException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidNextTokenException extends EffectData.TaggedError(
+export declare class InvalidNextTokenException extends Data.TaggedError(
   "InvalidNextTokenException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidParameterException extends EffectData.TaggedError(
+export declare class InvalidParameterException extends Data.TaggedError(
   "InvalidParameterException",
 )<{
   readonly Message?: string;
@@ -212,7 +213,7 @@ export interface ListPriceListsResponse {
 }
 export type MaxResults = number;
 
-export declare class NotFoundException extends EffectData.TaggedError(
+export declare class NotFoundException extends Data.TaggedError(
   "NotFoundException",
 )<{
   readonly Message?: string;
@@ -229,7 +230,7 @@ export type PriceListJsonItems = Array<string>;
 export type PriceLists = Array<PriceList>;
 export type RegionCode = string;
 
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly Message?: string;
@@ -245,7 +246,7 @@ export type PricingString = string;
 
 export type SynthesizedJsonPriceListJsonItem = string;
 
-export declare class ThrottlingException extends EffectData.TaggedError(
+export declare class ThrottlingException extends Data.TaggedError(
   "ThrottlingException",
 )<{
   readonly Message?: string;

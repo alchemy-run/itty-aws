@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   ExpiredTokenException,
   IncompleteSignature,
@@ -372,7 +373,7 @@ export declare class ivs extends AWSServiceClient {
 
 export declare class Ivs extends ivs {}
 
-export declare class AccessDeniedException extends EffectData.TaggedError(
+export declare class AccessDeniedException extends Data.TaggedError(
   "AccessDeniedException",
 )<{
   readonly exceptionMessage?: string;
@@ -453,7 +454,7 @@ export type ChannelLatencyMode = string;
 export type ChannelList = Array<ChannelSummary>;
 export type ChannelName = string;
 
-export declare class ChannelNotBroadcasting extends EffectData.TaggedError(
+export declare class ChannelNotBroadcasting extends Data.TaggedError(
   "ChannelNotBroadcasting",
 )<{
   readonly exceptionMessage?: string;
@@ -476,7 +477,7 @@ export interface ChannelSummary {
   playbackRestrictionPolicyArn?: string;
 }
 export type ChannelType = "BASIC" | "STANDARD" | "ADVANCED_SD" | "ADVANCED_HD";
-export declare class ConflictException extends EffectData.TaggedError(
+export declare class ConflictException extends Data.TaggedError(
   "ConflictException",
 )<{
   readonly exceptionMessage?: string;
@@ -585,7 +586,7 @@ export interface GetStreamRequest {
   channelArn: string;
 }
 export interface GetStreamResponse {
-  stream?: Stream;
+  stream?: IvsStream;
 }
 export interface GetStreamSessionRequest {
   channelArn: string;
@@ -616,7 +617,7 @@ export type InsecureIngest = boolean;
 
 export type Integer = number;
 
-export declare class InternalServerException extends EffectData.TaggedError(
+export declare class InternalServerException extends Data.TaggedError(
   "InternalServerException",
 )<{
   readonly exceptionMessage?: string;
@@ -714,7 +715,7 @@ export type MultitrackMaximumResolution = "SD" | "HD" | "FULL_HD";
 export type MultitrackPolicy = "ALLOW" | "REQUIRE";
 export type PaginationToken = string;
 
-export declare class PendingVerification extends EffectData.TaggedError(
+export declare class PendingVerification extends Data.TaggedError(
   "PendingVerification",
 )<{
   readonly exceptionMessage?: string;
@@ -818,7 +819,7 @@ export type RenditionConfigurationRenditionSelection = string;
 
 export type ResourceArn = string;
 
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly exceptionMessage?: string;
@@ -828,7 +829,7 @@ export type S3DestinationBucketName = string;
 export interface S3DestinationConfiguration {
   bucketName: string;
 }
-export declare class ServiceQuotaExceededException extends EffectData.TaggedError(
+export declare class ServiceQuotaExceededException extends Data.TaggedError(
   "ServiceQuotaExceededException",
 )<{
   readonly exceptionMessage?: string;
@@ -851,7 +852,7 @@ export interface StopStreamRequest {
   channelArn: string;
 }
 export interface StopStreamResponse {}
-export interface Stream {
+export interface IvsStream {
   channelArn?: string;
   streamId?: string;
   playbackUrl?: string;
@@ -924,7 +925,7 @@ export interface StreamSummary {
   viewerCount?: number;
   startTime?: Date | string;
 }
-export declare class StreamUnavailable extends EffectData.TaggedError(
+export declare class StreamUnavailable extends Data.TaggedError(
   "StreamUnavailable",
 )<{
   readonly exceptionMessage?: string;
@@ -946,7 +947,7 @@ export type TagValue = string;
 
 export type TargetIntervalSeconds = number;
 
-export declare class ThrottlingException extends EffectData.TaggedError(
+export declare class ThrottlingException extends Data.TaggedError(
   "ThrottlingException",
 )<{
   readonly exceptionMessage?: string;
@@ -1001,7 +1002,7 @@ export interface UpdatePlaybackRestrictionPolicyRequest {
 export interface UpdatePlaybackRestrictionPolicyResponse {
   playbackRestrictionPolicy?: PlaybackRestrictionPolicy;
 }
-export declare class ValidationException extends EffectData.TaggedError(
+export declare class ValidationException extends Data.TaggedError(
   "ValidationException",
 )<{
   readonly exceptionMessage?: string;

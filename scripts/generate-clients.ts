@@ -1,6 +1,6 @@
-import { FileSystem } from "@effect/platform";
 import { NodeFileSystem } from "@effect/platform-node";
 import { Effect } from "effect";
+import { FileSystem } from "effect/platform";
 import { commonAwsErrorNames, isCommonAwsErrorName } from "../src/error.ts";
 import type { Manifest, Shape } from "./manifest.ts";
 import { loadAllLocalManifests } from "./manifest.ts";
@@ -122,6 +122,10 @@ const getTypescriptSafeName = (
     "process",
     "Buffer",
     "console",
+    // effect
+    "Effect",
+    "Data",
+    "Stream",
   ]);
 
   if (conflictingNames.has(shapeName)) {
@@ -622,7 +626,7 @@ const getDocumentation = (
   return result;
 };
 
-// Helper to generate error class (declare class extending EffectData.TaggedError)
+// Helper to generate error class (declare class extending Data.TaggedError)
 const generateErrorInterface = (
   serviceName: string,
   shapeId: string,
@@ -637,7 +641,7 @@ const generateErrorInterface = (
     code += `${doc}\n`;
   }
 
-  code += `export declare class ${shapeName} extends EffectData.TaggedError(\n`;
+  code += `export declare class ${shapeName} extends Data.TaggedError(\n`;
   code += `  "${shapeName}",\n`;
   code += ")<{\n";
 
@@ -1068,7 +1072,7 @@ const getServicePascalCaseName = (serviceName: string): string => {
 const generateServiceTypes = (serviceName: string, manifest: Manifest) =>
   Effect.gen(function* () {
     // Check if we need Data import (only if there are error classes)
-    let needsDataImport = false;
+    let _needsDataImport = false;
 
     // Track cross-service imports needed
     const crossServiceImports = new Set<string>();
@@ -1257,13 +1261,13 @@ const generateServiceTypes = (serviceName: string, manifest: Manifest) =>
         shape.traits &&
         "smithy.api#error" in shape.traits
       ) {
-        needsDataImport = true;
+        _needsDataImport = true;
         break;
       }
     }
     // Also need Data import if we're generating waitable errors
     if (waitableErrorsToGenerate.size > 0) {
-      needsDataImport = true;
+      _needsDataImport = true;
     }
 
     // Check if we need Stream import and Buffer support by looking for streaming fields
@@ -1300,9 +1304,12 @@ const generateServiceTypes = (serviceName: string, manifest: Manifest) =>
     }
 
     // Generate imports
-    let code = `import type { Effect${needsStreamImport ? ", Stream" : ""}${needsDataImport ? ", Data as EffectData" : ""} } from "effect";\n`;
+    let code = "import type * as Effect from 'effect/Effect';\n";
+    code += "import type * as Data from 'effect/data/Data';\n";
+    // let code = `import type { Effect${needsStreamImport ? ", Stream" : ""}${needsDataImport ? ", Data as Data" : ""} } from "effect";\n`;
     if (needsStreamImport) {
-      code += `import type { ${responseErrorImportName} } from "@effect/platform/HttpClientError";\n`;
+      code += "import type * as Stream from 'effect/stream/Stream';\n";
+      code += `import type { ${responseErrorImportName} } from "effect/unstable/http/HttpClientError";\n`;
     }
     if (needsBufferSupport) {
       code += `import type { Buffer } from "node:buffer";\n`;
@@ -1622,7 +1629,7 @@ const generateServiceTypes = (serviceName: string, manifest: Manifest) =>
 
       generatedTypes.add(sanitized);
 
-      code += `export declare class ${sanitized} extends EffectData.TaggedError(\n`;
+      code += `export declare class ${sanitized} extends Data.TaggedError(\n`;
       code += `  "${original}",\n`;
       code += ")<{}> {}\n\n";
     }

@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   ExpiredTokenException,
   IncompleteSignature,
@@ -385,7 +386,7 @@ export declare class SSMIncidents extends AWSServiceClient {
 
 export declare class SsmIncidents extends SSMIncidents {}
 
-export declare class AccessDeniedException extends EffectData.TaggedError(
+export declare class AccessDeniedException extends Data.TaggedError(
   "AccessDeniedException",
 )<{
   readonly message: string;
@@ -465,7 +466,7 @@ export type Condition =
   | (_Condition & { before: Date | string })
   | (_Condition & { after: Date | string })
   | (_Condition & { equals: AttributeValueList });
-export declare class ConflictException extends EffectData.TaggedError(
+export declare class ConflictException extends Data.TaggedError(
   "ConflictException",
 )<{
   readonly message: string;
@@ -698,7 +699,7 @@ export type Integration = _Integration & {
   pagerDutyConfiguration: PagerDutyConfiguration;
 };
 export type Integrations = Array<Integration>;
-export declare class InternalServerException extends EffectData.TaggedError(
+export declare class InternalServerException extends Data.TaggedError(
   "InternalServerException",
 )<{
   readonly message: string;
@@ -864,7 +865,7 @@ export interface ReplicationSet {
 export type ReplicationSetArnList = Array<string>;
 export type ReplicationSetStatus = string;
 
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly message: string;
@@ -895,7 +896,7 @@ export type ServiceCode = string;
 
 export type ServicePrincipal = string;
 
-export declare class ServiceQuotaExceededException extends EffectData.TaggedError(
+export declare class ServiceQuotaExceededException extends Data.TaggedError(
   "ServiceQuotaExceededException",
 )<{
   readonly message: string;
@@ -948,7 +949,7 @@ export interface TagResourceRequest {
 export interface TagResourceResponse {}
 export type TagValue = string;
 
-export declare class ThrottlingException extends EffectData.TaggedError(
+export declare class ThrottlingException extends Data.TaggedError(
   "ThrottlingException",
 )<{
   readonly message: string;
@@ -1047,7 +1048,7 @@ export type Url = string;
 
 export type UUID = string;
 
-export declare class ValidationException extends EffectData.TaggedError(
+export declare class ValidationException extends Data.TaggedError(
   "ValidationException",
 )<{
   readonly message: string;

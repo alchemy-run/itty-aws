@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   ExpiredTokenException,
   IncompleteSignature,
@@ -405,7 +406,7 @@ export declare class billingconductor extends AWSServiceClient {
 
 export declare class Billingconductor extends billingconductor {}
 
-export declare class AccessDeniedException extends EffectData.TaggedError(
+export declare class AccessDeniedException extends Data.TaggedError(
   "AccessDeniedException",
 )<{
   readonly Message: string;
@@ -549,7 +550,7 @@ export interface ComputationPreference {
   PricingPlanArn: string;
 }
 export type ComputationRuleEnum = "CONSOLIDATED";
-export declare class ConflictException extends EffectData.TaggedError(
+export declare class ConflictException extends Data.TaggedError(
   "ConflictException",
 )<{
   readonly Message: string;
@@ -762,7 +763,7 @@ export type GroupByAttributeName = "PRODUCT_NAME" | "BILLING_PERIOD";
 export type GroupByAttributesList = Array<GroupByAttributeName>;
 export type Instant = number;
 
-export declare class InternalServerException extends EffectData.TaggedError(
+export declare class InternalServerException extends Data.TaggedError(
   "InternalServerException",
 )<{
   readonly Message: string;
@@ -1026,7 +1027,7 @@ export type PricingRuleScope = "GLOBAL" | "SERVICE" | "BILLING_ENTITY" | "SKU";
 export type PricingRuleType = "MARKUP" | "DISCOUNT" | "TIERING";
 export type ProformaCost = string;
 
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly Message: string;
@@ -1037,7 +1038,7 @@ export type RetryAfterSeconds = number;
 
 export type Service = string;
 
-export declare class ServiceLimitExceededException extends EffectData.TaggedError(
+export declare class ServiceLimitExceededException extends Data.TaggedError(
   "ServiceLimitExceededException",
 )<{
   readonly Message: string;
@@ -1059,7 +1060,7 @@ export interface TagResourceRequest {
 export interface TagResourceResponse {}
 export type TagValue = string;
 
-export declare class ThrottlingException extends EffectData.TaggedError(
+export declare class ThrottlingException extends Data.TaggedError(
   "ThrottlingException",
 )<{
   readonly Message: string;
@@ -1170,7 +1171,7 @@ export interface UpdateTieringInput {
 }
 export type UsageType = string;
 
-export declare class ValidationException extends EffectData.TaggedError(
+export declare class ValidationException extends Data.TaggedError(
   "ValidationException",
 )<{
   readonly Message: string;

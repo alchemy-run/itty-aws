@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   ExpiredTokenException,
   IncompleteSignature,
@@ -414,7 +415,7 @@ export type AccessDeniedErrorCode =
   | "ACCESS_DENIED_TO_RULES_PACKAGE"
   | "ACCESS_DENIED_TO_SNS_TOPIC"
   | "ACCESS_DENIED_TO_IAM_ROLE";
-export declare class AccessDeniedException extends EffectData.TaggedError(
+export declare class AccessDeniedException extends Data.TaggedError(
   "AccessDeniedException",
 )<{
   readonly message: string;
@@ -463,7 +464,7 @@ export interface AgentPreview {
   ipv4Address?: string;
 }
 export type AgentPreviewList = Array<AgentPreview>;
-export declare class AgentsAlreadyRunningAssessmentException extends EffectData.TaggedError(
+export declare class AgentsAlreadyRunningAssessmentException extends Data.TaggedError(
   "AgentsAlreadyRunningAssessmentException",
 )<{
   readonly message: string;
@@ -520,7 +521,7 @@ export interface AssessmentRunFilter {
 }
 export type AssessmentRunFindingCounts = Record<Severity, number>;
 export type AssessmentRunInProgressArnList = Array<string>;
-export declare class AssessmentRunInProgressException extends EffectData.TaggedError(
+export declare class AssessmentRunInProgressException extends Data.TaggedError(
   "AssessmentRunInProgressException",
 )<{
   readonly message: string;
@@ -836,7 +837,7 @@ export interface InspectorServiceAttributes {
   assessmentRunArn?: string;
   rulesPackageArn?: string;
 }
-export declare class InternalException extends EffectData.TaggedError(
+export declare class InternalException extends Data.TaggedError(
   "InternalException",
 )<{
   readonly message: string;
@@ -845,7 +846,7 @@ export declare class InternalException extends EffectData.TaggedError(
 export type InvalidCrossAccountRoleErrorCode =
   | "ROLE_DOES_NOT_EXIST_OR_INVALID_TRUST_RELATIONSHIP"
   | "ROLE_DOES_NOT_HAVE_CORRECT_POLICY";
-export declare class InvalidCrossAccountRoleException extends EffectData.TaggedError(
+export declare class InvalidCrossAccountRoleException extends Data.TaggedError(
   "InvalidCrossAccountRoleException",
 )<{
   readonly message: string;
@@ -907,7 +908,7 @@ export type InvalidInputErrorCode =
   | "INVALID_NUMBER_OF_AUTO_SCALING_GROUPS"
   | "INVALID_NUMBER_OF_RULE_NAMES"
   | "INVALID_NUMBER_OF_SEVERITIES";
-export declare class InvalidInputException extends EffectData.TaggedError(
+export declare class InvalidInputException extends Data.TaggedError(
   "InvalidInputException",
 )<{
   readonly message: string;
@@ -928,7 +929,7 @@ export type LimitExceededErrorCode =
   | "ASSESSMENT_RUN_LIMIT_EXCEEDED"
   | "RESOURCE_GROUP_LIMIT_EXCEEDED"
   | "EVENT_SUBSCRIPTION_LIMIT_EXCEEDED";
-export declare class LimitExceededException extends EffectData.TaggedError(
+export declare class LimitExceededException extends Data.TaggedError(
   "LimitExceededException",
 )<{
   readonly message: string;
@@ -1053,7 +1054,7 @@ export type NoSuchEntityErrorCode =
   | "RULES_PACKAGE_DOES_NOT_EXIST"
   | "SNS_TOPIC_DOES_NOT_EXIST"
   | "IAM_ROLE_DOES_NOT_EXIST";
-export declare class NoSuchEntityException extends EffectData.TaggedError(
+export declare class NoSuchEntityException extends Data.TaggedError(
   "NoSuchEntityException",
 )<{
   readonly message: string;
@@ -1079,7 +1080,7 @@ export interface PreviewAgentsResponse {
   agentPreviews: Array<AgentPreview>;
   nextToken?: string;
 }
-export declare class PreviewGenerationInProgressException extends EffectData.TaggedError(
+export declare class PreviewGenerationInProgressException extends Data.TaggedError(
   "PreviewGenerationInProgressException",
 )<{
   readonly message: string;
@@ -1144,7 +1145,7 @@ export interface SecurityGroup {
 export type SecurityGroups = Array<SecurityGroup>;
 export type ServiceName = string;
 
-export declare class ServiceTemporarilyUnavailableException extends EffectData.TaggedError(
+export declare class ServiceTemporarilyUnavailableException extends Data.TaggedError(
   "ServiceTemporarilyUnavailableException",
 )<{
   readonly message: string;
@@ -1213,7 +1214,7 @@ export interface UnsubscribeFromEventRequest {
   event: InspectorEvent;
   topicArn: string;
 }
-export declare class UnsupportedFeatureException extends EffectData.TaggedError(
+export declare class UnsupportedFeatureException extends Data.TaggedError(
   "UnsupportedFeatureException",
 )<{
   readonly message: string;

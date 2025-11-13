@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
@@ -822,12 +823,12 @@ export type IntegerObject = number;
 
 export type IntegerObjectMinimum0 = number;
 
-export declare class InternalErrorException extends EffectData.TaggedError(
+export declare class InternalErrorException extends Data.TaggedError(
   "InternalErrorException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidInputException extends EffectData.TaggedError(
+export declare class InvalidInputException extends Data.TaggedError(
   "InvalidInputException",
 )<{
   readonly Message?: string;
@@ -839,12 +840,12 @@ export interface InvalidNetworkAclEntriesViolation {
   CurrentAssociatedNetworkAcl?: string;
   EntryViolations?: Array<EntryViolation>;
 }
-export declare class InvalidOperationException extends EffectData.TaggedError(
+export declare class InvalidOperationException extends Data.TaggedError(
   "InvalidOperationException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidTypeException extends EffectData.TaggedError(
+export declare class InvalidTypeException extends Data.TaggedError(
   "InvalidTypeException",
 )<{
   readonly Message?: string;
@@ -859,7 +860,7 @@ export type LengthBoundedNonEmptyString = string;
 export type LengthBoundedString = string;
 
 export type LengthBoundedStringList = Array<string>;
-export declare class LimitExceededException extends EffectData.TaggedError(
+export declare class LimitExceededException extends Data.TaggedError(
   "LimitExceededException",
 )<{
   readonly Message?: string;
@@ -1321,7 +1322,7 @@ export type ResourceIdList = Array<string>;
 export type ResourceList = Array<Resource>;
 export type ResourceName = string;
 
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly Message?: string;

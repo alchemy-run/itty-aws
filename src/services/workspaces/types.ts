@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   ExpiredTokenException,
   IncompleteSignature,
@@ -937,7 +938,7 @@ export interface AcceptAccountLinkInvitationRequest {
 export interface AcceptAccountLinkInvitationResult {
   AccountLink?: AccountLink;
 }
-export declare class AccessDeniedException extends EffectData.TaggedError(
+export declare class AccessDeniedException extends Data.TaggedError(
   "AccessDeniedException",
 )<{
   readonly message?: string;
@@ -1005,7 +1006,7 @@ export type ApplicationAssociatedResourceType =
 export type ApplicationAssociatedResourceTypeList =
   Array<ApplicationAssociatedResourceType>;
 export type ApplicationList = Array<Application>;
-export declare class ApplicationNotSupportedException extends EffectData.TaggedError(
+export declare class ApplicationNotSupportedException extends Data.TaggedError(
   "ApplicationNotSupportedException",
 )<{}> {}
 export interface ApplicationResourceAssociation {
@@ -1164,7 +1165,7 @@ export type Compute =
   | "GRAPHICS_G4DN"
   | "GRAPHICSPRO_G4DN";
 export type ComputeList = Array<Compute>;
-export declare class ComputeNotCompatibleException extends EffectData.TaggedError(
+export declare class ComputeNotCompatibleException extends Data.TaggedError(
   "ComputeNotCompatibleException",
 )<{}> {}
 export type ComputerName = string;
@@ -1172,7 +1173,7 @@ export type ComputerName = string;
 export interface ComputeType {
   Name?: Compute;
 }
-export declare class ConflictException extends EffectData.TaggedError(
+export declare class ConflictException extends Data.TaggedError(
   "ConflictException",
 )<{
   readonly message?: string;
@@ -1857,29 +1858,29 @@ export interface ImportWorkspaceImageRequest {
 export interface ImportWorkspaceImageResult {
   ImageId?: string;
 }
-export declare class IncompatibleApplicationsException extends EffectData.TaggedError(
+export declare class IncompatibleApplicationsException extends Data.TaggedError(
   "IncompatibleApplicationsException",
 )<{}> {}
 export type InfrastructureConfigurationArn = string;
 
-export declare class InternalServerException extends EffectData.TaggedError(
+export declare class InternalServerException extends Data.TaggedError(
   "InternalServerException",
 )<{
   readonly message?: string;
 }> {}
 export type InternetFallbackProtocol = "PCOIP";
 export type InternetFallbackProtocolList = Array<InternetFallbackProtocol>;
-export declare class InvalidParameterCombinationException extends EffectData.TaggedError(
+export declare class InvalidParameterCombinationException extends Data.TaggedError(
   "InvalidParameterCombinationException",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidParameterValuesException extends EffectData.TaggedError(
+export declare class InvalidParameterValuesException extends Data.TaggedError(
   "InvalidParameterValuesException",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidResourceStateException extends EffectData.TaggedError(
+export declare class InvalidResourceStateException extends Data.TaggedError(
   "InvalidResourceStateException",
 )<{
   readonly message?: string;
@@ -2074,16 +2075,16 @@ export type OperatingSystemName =
   | "RHEL_8"
   | "ROCKY_8";
 export type OperatingSystemNameList = Array<OperatingSystemName>;
-export declare class OperatingSystemNotCompatibleException extends EffectData.TaggedError(
+export declare class OperatingSystemNotCompatibleException extends Data.TaggedError(
   "OperatingSystemNotCompatibleException",
 )<{}> {}
 export type OperatingSystemType = "WINDOWS" | "LINUX";
-export declare class OperationInProgressException extends EffectData.TaggedError(
+export declare class OperationInProgressException extends Data.TaggedError(
   "OperationInProgressException",
 )<{
   readonly message?: string;
 }> {}
-export declare class OperationNotSupportedException extends EffectData.TaggedError(
+export declare class OperationNotSupportedException extends Data.TaggedError(
   "OperationNotSupportedException",
 )<{
   readonly message?: string;
@@ -2161,40 +2162,40 @@ export interface RelatedWorkspaceProperties {
   Type?: StandbyWorkspaceRelationshipType;
 }
 export type RelatedWorkspaces = Array<RelatedWorkspaceProperties>;
-export declare class ResourceAlreadyExistsException extends EffectData.TaggedError(
+export declare class ResourceAlreadyExistsException extends Data.TaggedError(
   "ResourceAlreadyExistsException",
 )<{
   readonly message?: string;
 }> {}
-export declare class ResourceAssociatedException extends EffectData.TaggedError(
+export declare class ResourceAssociatedException extends Data.TaggedError(
   "ResourceAssociatedException",
 )<{
   readonly message?: string;
 }> {}
-export declare class ResourceCreationFailedException extends EffectData.TaggedError(
+export declare class ResourceCreationFailedException extends Data.TaggedError(
   "ResourceCreationFailedException",
 )<{
   readonly message?: string;
 }> {}
 export type ResourceIdList = Array<string>;
-export declare class ResourceInUseException extends EffectData.TaggedError(
+export declare class ResourceInUseException extends Data.TaggedError(
   "ResourceInUseException",
 )<{
   readonly message?: string;
   readonly ResourceId?: string;
 }> {}
-export declare class ResourceLimitExceededException extends EffectData.TaggedError(
+export declare class ResourceLimitExceededException extends Data.TaggedError(
   "ResourceLimitExceededException",
 )<{
   readonly message?: string;
 }> {}
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly message?: string;
   readonly ResourceId?: string;
 }> {}
-export declare class ResourceUnavailableException extends EffectData.TaggedError(
+export declare class ResourceUnavailableException extends Data.TaggedError(
   "ResourceUnavailableException",
 )<{
   readonly message?: string;
@@ -2350,12 +2351,12 @@ export interface TimeoutSettings {
 }
 export type Timestamp = Date | string;
 
-export declare class UnsupportedNetworkConfigurationException extends EffectData.TaggedError(
+export declare class UnsupportedNetworkConfigurationException extends Data.TaggedError(
   "UnsupportedNetworkConfigurationException",
 )<{
   readonly message?: string;
 }> {}
-export declare class UnsupportedWorkspaceConfigurationException extends EffectData.TaggedError(
+export declare class UnsupportedWorkspaceConfigurationException extends Data.TaggedError(
   "UnsupportedWorkspaceConfigurationException",
 )<{
   readonly message?: string;
@@ -2430,7 +2431,7 @@ export interface UserStorage {
 }
 export type UserVolumeSizeGib = number;
 
-export declare class ValidationException extends EffectData.TaggedError(
+export declare class ValidationException extends Data.TaggedError(
   "ValidationException",
 )<{
   readonly message?: string;
@@ -2707,7 +2708,7 @@ export interface WorkspaceResourceAssociation {
 }
 export type WorkspaceResourceAssociationList =
   Array<WorkspaceResourceAssociation>;
-export declare class WorkspacesDefaultRoleNotFoundException extends EffectData.TaggedError(
+export declare class WorkspacesDefaultRoleNotFoundException extends Data.TaggedError(
   "WorkspacesDefaultRoleNotFoundException",
 )<{
   readonly message?: string;

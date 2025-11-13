@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   ExpiredTokenException,
   IncompleteSignature,
@@ -365,17 +366,17 @@ export declare class KinesisVideo extends AWSServiceClient {
   >;
 }
 
-export declare class AccessDeniedException extends EffectData.TaggedError(
+export declare class AccessDeniedException extends Data.TaggedError(
   "AccessDeniedException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class AccountChannelLimitExceededException extends EffectData.TaggedError(
+export declare class AccountChannelLimitExceededException extends Data.TaggedError(
   "AccountChannelLimitExceededException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class AccountStreamLimitExceededException extends EffectData.TaggedError(
+export declare class AccountStreamLimitExceededException extends Data.TaggedError(
   "AccountStreamLimitExceededException",
 )<{
   readonly Message?: string;
@@ -408,7 +409,7 @@ export interface ChannelNameCondition {
 export type ChannelProtocol = "WSS" | "HTTPS" | "WEBRTC";
 export type ChannelRole = "MASTER" | "VIEWER";
 export type ChannelType = "SINGLE_MASTER" | "FULL_MESH";
-export declare class ClientLimitExceededException extends EffectData.TaggedError(
+export declare class ClientLimitExceededException extends Data.TaggedError(
   "ClientLimitExceededException",
 )<{
   readonly Message?: string;
@@ -528,7 +529,7 @@ export type DestinationUri = string;
 
 export type DeviceName = string;
 
-export declare class DeviceStreamLimitExceededException extends EffectData.TaggedError(
+export declare class DeviceStreamLimitExceededException extends Data.TaggedError(
   "DeviceStreamLimitExceededException",
 )<{
   readonly Message?: string;
@@ -590,17 +591,17 @@ export interface ImageGenerationDestinationConfig {
   DestinationRegion: string;
 }
 export type ImageSelectorType = "SERVER_TIMESTAMP" | "PRODUCER_TIMESTAMP";
-export declare class InvalidArgumentException extends EffectData.TaggedError(
+export declare class InvalidArgumentException extends Data.TaggedError(
   "InvalidArgumentException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidDeviceException extends EffectData.TaggedError(
+export declare class InvalidDeviceException extends Data.TaggedError(
   "InvalidDeviceException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidResourceFormatException extends EffectData.TaggedError(
+export declare class InvalidResourceFormatException extends Data.TaggedError(
   "InvalidResourceFormatException",
 )<{
   readonly Message?: string;
@@ -713,12 +714,12 @@ export type MessageTtlSeconds = number;
 
 export type NextToken = string;
 
-export declare class NoDataRetentionException extends EffectData.TaggedError(
+export declare class NoDataRetentionException extends Data.TaggedError(
   "NoDataRetentionException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class NotAuthorizedException extends EffectData.TaggedError(
+export declare class NotAuthorizedException extends Data.TaggedError(
   "NotAuthorizedException",
 )<{
   readonly Message?: string;
@@ -744,12 +745,12 @@ export interface ResourceEndpointListItem {
   Protocol?: ChannelProtocol;
   ResourceEndpoint?: string;
 }
-export declare class ResourceInUseException extends EffectData.TaggedError(
+export declare class ResourceInUseException extends Data.TaggedError(
   "ResourceInUseException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly Message?: string;
@@ -786,7 +787,7 @@ export interface StartEdgeConfigurationUpdateOutput {
 }
 export type Status = "CREATING" | "ACTIVE" | "UPDATING" | "DELETING";
 export type StrategyOnFullSize = "DELETE_OLDEST_MEDIA" | "DENY_NEW_MEDIA";
-export declare class StreamEdgeConfigurationNotFoundException extends EffectData.TaggedError(
+export declare class StreamEdgeConfigurationNotFoundException extends Data.TaggedError(
   "StreamEdgeConfigurationNotFoundException",
 )<{
   readonly Message?: string;
@@ -831,7 +832,7 @@ export interface TagResourceInput {
   Tags: Array<Tag>;
 }
 export interface TagResourceOutput {}
-export declare class TagsPerResourceExceededLimitException extends EffectData.TaggedError(
+export declare class TagsPerResourceExceededLimitException extends Data.TaggedError(
   "TagsPerResourceExceededLimitException",
 )<{
   readonly Message?: string;
@@ -907,7 +908,7 @@ export interface UploaderConfig {
 export type UploaderStatus = "SUCCESS" | "USER_ERROR" | "SYSTEM_ERROR";
 export type Version = string;
 
-export declare class VersionMismatchException extends EffectData.TaggedError(
+export declare class VersionMismatchException extends Data.TaggedError(
   "VersionMismatchException",
 )<{
   readonly Message?: string;

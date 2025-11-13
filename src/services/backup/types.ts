@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
@@ -994,7 +995,7 @@ export interface AdvancedBackupSetting {
 }
 export type AdvancedBackupSettings = Array<AdvancedBackupSetting>;
 export type AggregationPeriod = "ONE_DAY" | "SEVEN_DAYS" | "FOURTEEN_DAYS";
-export declare class AlreadyExistsException extends EffectData.TaggedError(
+export declare class AlreadyExistsException extends Data.TaggedError(
   "AlreadyExistsException",
 )<{
   readonly Code?: string;
@@ -1239,7 +1240,7 @@ export interface Conditions {
 export type ConditionType = "STRINGEQUALS";
 export type ConditionValue = string;
 
-export declare class ConflictException extends EffectData.TaggedError(
+export declare class ConflictException extends Data.TaggedError(
   "ConflictException",
 )<{
   readonly Code?: string;
@@ -1491,7 +1492,7 @@ export interface DeleteRestoreTestingSelectionInput {
   RestoreTestingPlanName: string;
   RestoreTestingSelectionName: string;
 }
-export declare class DependencyFailureException extends EffectData.TaggedError(
+export declare class DependencyFailureException extends Data.TaggedError(
   "DependencyFailureException",
 )<{
   readonly Code?: string;
@@ -1869,7 +1870,7 @@ export type IndexedRecoveryPointList = Array<IndexedRecoveryPoint>;
 export type IndexStatus = "PENDING" | "ACTIVE" | "FAILED" | "DELETING";
 export type integer = number;
 
-export declare class InvalidParameterValueException extends EffectData.TaggedError(
+export declare class InvalidParameterValueException extends Data.TaggedError(
   "InvalidParameterValueException",
 )<{
   readonly Code?: string;
@@ -1877,7 +1878,7 @@ export declare class InvalidParameterValueException extends EffectData.TaggedErr
   readonly Type?: string;
   readonly Context?: string;
 }> {}
-export declare class InvalidRequestException extends EffectData.TaggedError(
+export declare class InvalidRequestException extends Data.TaggedError(
   "InvalidRequestException",
 )<{
   readonly Code?: string;
@@ -1885,7 +1886,7 @@ export declare class InvalidRequestException extends EffectData.TaggedError(
   readonly Type?: string;
   readonly Context?: string;
 }> {}
-export declare class InvalidResourceStateException extends EffectData.TaggedError(
+export declare class InvalidResourceStateException extends Data.TaggedError(
   "InvalidResourceStateException",
 )<{
   readonly Code?: string;
@@ -1930,7 +1931,7 @@ export interface Lifecycle {
   DeleteAfterDays?: number;
   OptInToArchiveForSupportedResources?: boolean;
 }
-export declare class LimitExceededException extends EffectData.TaggedError(
+export declare class LimitExceededException extends Data.TaggedError(
   "LimitExceededException",
 )<{
   readonly Code?: string;
@@ -2249,7 +2250,7 @@ export type MetadataKey = string;
 
 export type MetadataValue = string;
 
-export declare class MissingParameterValueException extends EffectData.TaggedError(
+export declare class MissingParameterValueException extends Data.TaggedError(
   "MissingParameterValueException",
 )<{
   readonly Code?: string;
@@ -2423,7 +2424,7 @@ export type RequesterComment = string;
 
 export type ResourceArns = Array<string>;
 export type ResourceIdentifiers = Array<string>;
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly Code?: string;
@@ -2608,7 +2609,7 @@ export interface ScheduledPlanExecutionMember {
 }
 export type ScheduledRunsPreview = Array<ScheduledPlanExecutionMember>;
 export type SensitiveStringMap = Record<string, string>;
-export declare class ServiceUnavailableException extends EffectData.TaggedError(
+export declare class ServiceUnavailableException extends Data.TaggedError(
   "ServiceUnavailableException",
 )<{
   readonly Code?: string;

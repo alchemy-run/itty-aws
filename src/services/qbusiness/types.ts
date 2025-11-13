@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   ExpiredTokenException,
   IncompleteSignature,
@@ -1037,7 +1038,7 @@ export interface AccessControl {
   memberRelation?: MemberRelation;
 }
 export type AccessControls = Array<AccessControl>;
-export declare class AccessDeniedException extends EffectData.TaggedError(
+export declare class AccessDeniedException extends Data.TaggedError(
   "AccessDeniedException",
 )<{
   readonly message: string;
@@ -1450,7 +1451,7 @@ export interface ConfigurationEvent {
   chatModeConfiguration?: ChatModeConfiguration;
   attributeFilter?: AttributeFilter;
 }
-export declare class ConflictException extends EffectData.TaggedError(
+export declare class ConflictException extends Data.TaggedError(
   "ConflictException",
 )<{
   readonly message: string;
@@ -2029,7 +2030,7 @@ export type ExampleChatMessage = string;
 export type ExampleChatMessages = Array<string>;
 export type ExecutionId = string;
 
-export declare class ExternalResourceException extends EffectData.TaggedError(
+export declare class ExternalResourceException extends Data.TaggedError(
   "ExternalResourceException",
 )<{
   readonly message: string;
@@ -2390,7 +2391,7 @@ export type Integer = number;
 
 export type IntegrationId = string;
 
-export declare class InternalServerException extends EffectData.TaggedError(
+export declare class InternalServerException extends Data.TaggedError(
   "InternalServerException",
 )<{
   readonly message: string;
@@ -2404,7 +2405,7 @@ export type KmsKeyId = string;
 
 export type LambdaArn = string;
 
-export declare class LicenseNotFoundException extends EffectData.TaggedError(
+export declare class LicenseNotFoundException extends Data.TaggedError(
   "LicenseNotFoundException",
 )<{
   readonly message: string;
@@ -2642,7 +2643,7 @@ export interface MediaExtractionConfiguration {
 }
 export type MediaId = string;
 
-export declare class MediaTooLargeException extends EffectData.TaggedError(
+export declare class MediaTooLargeException extends Data.TaggedError(
   "MediaTooLargeException",
 )<{
   readonly message: string;
@@ -2895,7 +2896,7 @@ export interface RelevantContent {
   scoreAttributes?: ScoreAttributes;
 }
 export type RelevantContentList = Array<RelevantContent>;
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly message: string;
@@ -3013,7 +3014,7 @@ export type SecretArn = string;
 export type SecurityGroupId = string;
 
 export type SecurityGroupIds = Array<string>;
-export declare class ServiceQuotaExceededException extends EffectData.TaggedError(
+export declare class ServiceQuotaExceededException extends Data.TaggedError(
   "ServiceQuotaExceededException",
 )<{
   readonly message: string;
@@ -3163,7 +3164,7 @@ export interface TextSegment {
   sourceDetails?: SourceDetails;
 }
 export type TextSegmentList = Array<TextSegment>;
-export declare class ThrottlingException extends EffectData.TaggedError(
+export declare class ThrottlingException extends Data.TaggedError(
   "ThrottlingException",
 )<{
   readonly message: string;
@@ -3325,7 +3326,7 @@ export interface UsersAndGroups {
   userIds?: Array<string>;
   userGroups?: Array<string>;
 }
-export declare class ValidationException extends EffectData.TaggedError(
+export declare class ValidationException extends Data.TaggedError(
   "ValidationException",
 )<{
   readonly message: string;

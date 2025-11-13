@@ -1,5 +1,7 @@
-import type { Effect, Stream, Data as EffectData } from "effect";
-import type { ResponseError } from "@effect/platform/HttpClientError";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
+import type * as Stream from "effect/stream/Stream";
+import type { ResponseError } from "effect/unstable/http/HttpClientError";
 import type { Buffer } from "node:buffer";
 import type {
   AccessDeniedException,
@@ -150,7 +152,7 @@ export type CleanSession = boolean;
 
 export type ClientId = string;
 
-export declare class ConflictException extends EffectData.TaggedError(
+export declare class ConflictException extends Data.TaggedError(
   "ConflictException",
 )<{
   readonly message?: string;
@@ -173,7 +175,7 @@ export interface DeleteThingShadowResponse {
 }
 export type errorMessage = string;
 
-export declare class ForbiddenException extends EffectData.TaggedError(
+export declare class ForbiddenException extends Data.TaggedError(
   "ForbiddenException",
 )<{
   readonly message?: string;
@@ -195,12 +197,12 @@ export interface GetThingShadowRequest {
 export interface GetThingShadowResponse {
   payload?: Stream.Stream<Uint8Array, ResponseError>;
 }
-export declare class InternalFailureException extends EffectData.TaggedError(
+export declare class InternalFailureException extends Data.TaggedError(
   "InternalFailureException",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidRequestException extends EffectData.TaggedError(
+export declare class InvalidRequestException extends Data.TaggedError(
   "InvalidRequestException",
 )<{
   readonly message?: string;
@@ -229,7 +231,7 @@ export type MaxResults = number;
 
 export type MessageExpiry = number;
 
-export declare class MethodNotAllowedException extends EffectData.TaggedError(
+export declare class MethodNotAllowedException extends Data.TaggedError(
   "MethodNotAllowedException",
 )<{
   readonly message?: string;
@@ -260,12 +262,12 @@ export interface PublishRequest {
 }
 export type Qos = number;
 
-export declare class RequestEntityTooLargeException extends EffectData.TaggedError(
+export declare class RequestEntityTooLargeException extends Data.TaggedError(
   "RequestEntityTooLargeException",
 )<{
   readonly message?: string;
 }> {}
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly message?: string;
@@ -281,7 +283,7 @@ export interface RetainedMessageSummary {
   qos?: number;
   lastModifiedTime?: number;
 }
-export declare class ServiceUnavailableException extends EffectData.TaggedError(
+export declare class ServiceUnavailableException extends Data.TaggedError(
   "ServiceUnavailableException",
 )<{
   readonly message?: string;
@@ -292,7 +294,7 @@ export type SynthesizedJsonUserProperties = string;
 
 export type ThingName = string;
 
-export declare class ThrottlingException extends EffectData.TaggedError(
+export declare class ThrottlingException extends Data.TaggedError(
   "ThrottlingException",
 )<{
   readonly message?: string;
@@ -301,12 +303,12 @@ export type Timestamp = number;
 
 export type Topic = string;
 
-export declare class UnauthorizedException extends EffectData.TaggedError(
+export declare class UnauthorizedException extends Data.TaggedError(
   "UnauthorizedException",
 )<{
   readonly message?: string;
 }> {}
-export declare class UnsupportedDocumentEncodingException extends EffectData.TaggedError(
+export declare class UnsupportedDocumentEncodingException extends Data.TaggedError(
   "UnsupportedDocumentEncodingException",
 )<{
   readonly message?: string;

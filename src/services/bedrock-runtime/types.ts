@@ -1,5 +1,7 @@
-import type { Effect, Stream, Data as EffectData } from "effect";
-import type { ResponseError } from "@effect/platform/HttpClientError";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
+import type * as Stream from "effect/stream/Stream";
+import type { ResponseError } from "effect/unstable/http/HttpClientError";
 import type { Buffer } from "node:buffer";
 import type {
   ExpiredTokenException,
@@ -179,7 +181,7 @@ export declare class BedrockRuntime extends AWSServiceClient {
   >;
 }
 
-export declare class AccessDeniedException extends EffectData.TaggedError(
+export declare class AccessDeniedException extends Data.TaggedError(
   "AccessDeniedException",
 )<{
   readonly message?: string;
@@ -299,7 +301,7 @@ export interface CitationSourceContentDelta {
 }
 export type CitationSourceContentList = Array<CitationSourceContent>;
 export type CitationSourceContentListDelta = Array<CitationSourceContentDelta>;
-export declare class ConflictException extends EffectData.TaggedError(
+export declare class ConflictException extends Data.TaggedError(
   "ConflictException",
 )<{
   readonly message?: string;
@@ -965,7 +967,7 @@ export interface InferenceConfiguration {
   topP?: number;
   stopSequences?: Array<string>;
 }
-export declare class InternalServerException extends EffectData.TaggedError(
+export declare class InternalServerException extends Data.TaggedError(
   "InternalServerException",
 )<{
   readonly message?: string;
@@ -1087,7 +1089,7 @@ export interface MessageStopEvent {
 }
 export type MimeType = string;
 
-export declare class ModelErrorException extends EffectData.TaggedError(
+export declare class ModelErrorException extends Data.TaggedError(
   "ModelErrorException",
 )<{
   readonly message?: string;
@@ -1096,20 +1098,20 @@ export declare class ModelErrorException extends EffectData.TaggedError(
 }> {}
 export type ModelInputPayload = unknown;
 
-export declare class ModelNotReadyException extends EffectData.TaggedError(
+export declare class ModelNotReadyException extends Data.TaggedError(
   "ModelNotReadyException",
 )<{
   readonly message?: string;
 }> {}
 export type ModelOutputs = Array<string>;
-export declare class ModelStreamErrorException extends EffectData.TaggedError(
+export declare class ModelStreamErrorException extends Data.TaggedError(
   "ModelStreamErrorException",
 )<{
   readonly message?: string;
   readonly originalStatusCode?: number;
   readonly originalMessage?: string;
 }> {}
-export declare class ModelTimeoutException extends EffectData.TaggedError(
+export declare class ModelTimeoutException extends Data.TaggedError(
   "ModelTimeoutException",
 )<{
   readonly message?: string;
@@ -1164,7 +1166,7 @@ export interface ReasoningTextBlock {
   signature?: string;
 }
 export type RequestMetadata = Record<string, string>;
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly message?: string;
@@ -1195,12 +1197,12 @@ export interface S3Location {
 }
 export type S3Uri = string;
 
-export declare class ServiceQuotaExceededException extends EffectData.TaggedError(
+export declare class ServiceQuotaExceededException extends Data.TaggedError(
   "ServiceQuotaExceededException",
 )<{
   readonly message?: string;
 }> {}
-export declare class ServiceUnavailableException extends EffectData.TaggedError(
+export declare class ServiceUnavailableException extends Data.TaggedError(
   "ServiceUnavailableException",
 )<{
   readonly message?: string;
@@ -1257,7 +1259,7 @@ export type TextCharactersGuarded = number;
 
 export type TextCharactersTotal = number;
 
-export declare class ThrottlingException extends EffectData.TaggedError(
+export declare class ThrottlingException extends Data.TaggedError(
   "ThrottlingException",
 )<{
   readonly message?: string;
@@ -1359,7 +1361,7 @@ export type ToolUseId = string;
 
 export type ToolUseType = "server_tool_use";
 export type Trace = "ENABLED" | "DISABLED" | "ENABLED_FULL";
-export declare class ValidationException extends EffectData.TaggedError(
+export declare class ValidationException extends Data.TaggedError(
   "ValidationException",
 )<{
   readonly message?: string;

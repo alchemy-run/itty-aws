@@ -1,10 +1,9 @@
 import { AwsV4Signer } from "aws4fetch";
-import * as Data from "effect/Data";
+import * as Data from "effect/data/Data";
 import * as Effect from "effect/Effect";
-import * as Option from "effect/Option";
-import { Credentials, fromStaticCredentials } from "./credentials.ts";
+import { Credentials } from "./credentials.ts";
 import type { AwsErrorMeta } from "./error.ts";
-import { DefaultFetch, Fetch } from "./fetch.service.ts";
+import { Fetcher } from "./fetch.service.ts";
 import type { ProtocolHandler } from "./protocols/interface.ts";
 
 const errorTags: {
@@ -89,10 +88,7 @@ export function createServiceProxy<T>(
 
         return (input: unknown) => {
           const program = Effect.gen(function* () {
-            const fetchSvc = Option.match(yield* Effect.serviceOption(Fetch), {
-              onSome: (fetch) => fetch,
-              onNone: () => DefaultFetch,
-            });
+            const fetch = yield* Effect.service(Fetcher);
 
             // Convert camelCase method to PascalCase operation
             const operation =
@@ -122,28 +118,13 @@ export function createServiceProxy<T>(
             let signedRequest;
             let url;
             if (shouldSign) {
-              const credentialSvc = Option.match(
-                yield* Effect.serviceOption(Credentials),
-                {
-                  onSome: (cred) => cred,
-                  onNone: () =>
-                    config.credentials
-                      ? fromStaticCredentials(config.credentials)
-                      : null,
-                },
-              );
-
-              if (!credentialSvc) {
-                return yield* Effect.fail(
-                  new Error(
-                    "No credentials provider configured. Pass 'credentials' in client config or provide a Credentials service. For Node's default provider chain, import DefaultCredentials from './credential.service.ts' and provide it via Effect Context.",
+              const credentials =
+                config.credentials ??
+                (yield* Effect.service(Credentials).pipe(
+                  Effect.flatMap((c) =>
+                    Effect.promise(() => c.getCredentials()),
                   ),
-                );
-              }
-
-              const credentials = yield* Effect.promise(async () =>
-                credentialSvc.getCredentials(),
-              );
+                ));
 
               // Create AWS V4 Signer for this request
               const signer = new AwsV4Signer({
@@ -187,7 +168,7 @@ export function createServiceProxy<T>(
 
             // Use global fetch instead of client.fetch
             const response = yield* Effect.promise(() =>
-              fetchSvc.fetch(url, {
+              fetch(url, {
                 method: signedRequest.method,
                 headers: signedRequest.headers,
                 body: signedRequest.body,

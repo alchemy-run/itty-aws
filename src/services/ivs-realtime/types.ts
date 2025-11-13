@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   ExpiredTokenException,
   IncompleteSignature,
@@ -433,7 +434,7 @@ export declare class IVSRealTime extends AWSServiceClient {
 
 export declare class IvsRealtime extends IVSRealTime {}
 
-export declare class AccessDeniedException extends EffectData.TaggedError(
+export declare class AccessDeniedException extends Data.TaggedError(
   "AccessDeniedException",
 )<{
   readonly accessControlAllowOrigin?: string;
@@ -505,7 +506,7 @@ export interface CompositionThumbnailConfiguration {
 }
 export type CompositionThumbnailConfigurationList =
   Array<CompositionThumbnailConfiguration>;
-export declare class ConflictException extends EffectData.TaggedError(
+export declare class ConflictException extends Data.TaggedError(
   "ConflictException",
 )<{
   readonly accessControlAllowOrigin?: string;
@@ -778,7 +779,7 @@ export interface IngestConfigurationSummary {
 export type IngestProtocol = "RTMP" | "RTMPS";
 export type InsecureIngest = boolean;
 
-export declare class InternalServerException extends EffectData.TaggedError(
+export declare class InternalServerException extends Data.TaggedError(
   "InternalServerException",
 )<{
   readonly accessControlAllowOrigin?: string;
@@ -1031,7 +1032,7 @@ export type ParticipantTokenString = string;
 
 export type ParticipantTokenUserId = string;
 
-export declare class PendingVerification extends EffectData.TaggedError(
+export declare class PendingVerification extends Data.TaggedError(
   "PendingVerification",
 )<{
   readonly accessControlAllowOrigin?: string;
@@ -1110,7 +1111,7 @@ export type ReplicationType = string;
 
 export type ResourceArn = string;
 
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly accessControlAllowOrigin?: string;
@@ -1137,7 +1138,7 @@ export interface S3Detail {
 export interface S3StorageConfiguration {
   bucketName: string;
 }
-export declare class ServiceQuotaExceededException extends EffectData.TaggedError(
+export declare class ServiceQuotaExceededException extends Data.TaggedError(
   "ServiceQuotaExceededException",
 )<{
   readonly accessControlAllowOrigin?: string;
@@ -1296,7 +1297,7 @@ export interface UpdateStageResponse {
 }
 export type UserId = string;
 
-export declare class ValidationException extends EffectData.TaggedError(
+export declare class ValidationException extends Data.TaggedError(
   "ValidationException",
 )<{
   readonly accessControlAllowOrigin?: string;

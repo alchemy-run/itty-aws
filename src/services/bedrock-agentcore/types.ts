@@ -1,5 +1,7 @@
-import type { Effect, Stream, Data as EffectData } from "effect";
-import type { ResponseError } from "@effect/platform/HttpClientError";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
+import type * as Stream from "effect/stream/Stream";
+import type { ResponseError } from "effect/unstable/http/HttpClientError";
 import type { Buffer } from "node:buffer";
 import type {
   ExpiredTokenException,
@@ -443,7 +445,7 @@ export declare class BedrockAgentCore extends AWSServiceClient {
 
 export declare class BedrockAgentcore extends BedrockAgentCore {}
 
-export declare class AccessDeniedException extends EffectData.TaggedError(
+export declare class AccessDeniedException extends Data.TaggedError(
   "AccessDeniedException",
 )<{
   readonly message?: string;
@@ -586,7 +588,7 @@ export interface CompleteResourceTokenAuthRequest {
   sessionUri: string;
 }
 export interface CompleteResourceTokenAuthResponse {}
-export declare class ConflictException extends EffectData.TaggedError(
+export declare class ConflictException extends Data.TaggedError(
   "ConflictException",
 )<{
   readonly message?: string;
@@ -782,12 +784,12 @@ export interface InputContentBlock {
   blob?: Uint8Array | string | Stream.Stream<Uint8Array>;
 }
 export type InputContentBlockList = Array<InputContentBlock>;
-export declare class InternalServerException extends EffectData.TaggedError(
+export declare class InternalServerException extends Data.TaggedError(
   "InternalServerException",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidInputException extends EffectData.TaggedError(
+export declare class InvalidInputException extends Data.TaggedError(
   "InvalidInputException",
 )<{
   readonly message: string;
@@ -1008,7 +1010,7 @@ export interface ResourceContent {
   blob?: Uint8Array | string;
 }
 export type ResourceContentType = "text" | "blob";
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly message?: string;
@@ -1036,7 +1038,7 @@ export type RightExpression = _RightExpression & {
   metadataValue: MetadataValue;
 };
 export type Role = "ASSISTANT" | "USER" | "TOOL" | "OTHER";
-export declare class RuntimeClientError extends EffectData.TaggedError(
+export declare class RuntimeClientError extends Data.TaggedError(
   "RuntimeClientError",
 )<{
   readonly message?: string;
@@ -1051,12 +1053,12 @@ export interface SearchCriteria {
 }
 export type SensitiveString = string;
 
-export declare class ServiceException extends EffectData.TaggedError(
+export declare class ServiceException extends Data.TaggedError(
   "ServiceException",
 )<{
   readonly message: string;
 }> {}
-export declare class ServiceQuotaExceededException extends EffectData.TaggedError(
+export declare class ServiceQuotaExceededException extends Data.TaggedError(
   "ServiceQuotaExceededException",
 )<{
   readonly message?: string;
@@ -1152,12 +1154,12 @@ export type TaskStatus =
   | "completed"
   | "canceled"
   | "failed";
-export declare class ThrottledException extends EffectData.TaggedError(
+export declare class ThrottledException extends Data.TaggedError(
   "ThrottledException",
 )<{
   readonly message: string;
 }> {}
-export declare class ThrottlingException extends EffectData.TaggedError(
+export declare class ThrottlingException extends Data.TaggedError(
   "ThrottlingException",
 )<{
   readonly message?: string;
@@ -1191,7 +1193,7 @@ export interface ToolResultStructuredContent {
   exitCode?: number;
   executionTime?: number;
 }
-export declare class UnauthorizedException extends EffectData.TaggedError(
+export declare class UnauthorizedException extends Data.TaggedError(
   "UnauthorizedException",
 )<{
   readonly message?: string;
@@ -1220,7 +1222,7 @@ export type UserIdType = string;
 
 export type UserTokenType = string;
 
-export declare class ValidationException extends EffectData.TaggedError(
+export declare class ValidationException extends Data.TaggedError(
   "ValidationException",
 )<{
   readonly message: string;

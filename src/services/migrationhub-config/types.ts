@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   ExpiredTokenException,
   IncompleteSignature,
@@ -86,7 +87,7 @@ export declare class MigrationHubConfig extends AWSServiceClient {
 
 export declare class MigrationhubConfig extends MigrationHubConfig {}
 
-export declare class AccessDeniedException extends EffectData.TaggedError(
+export declare class AccessDeniedException extends Data.TaggedError(
   "AccessDeniedException",
 )<{
   readonly Message?: string;
@@ -120,7 +121,7 @@ export interface DescribeHomeRegionControlsResult {
 }
 export type DryRun = boolean;
 
-export declare class DryRunOperation extends EffectData.TaggedError(
+export declare class DryRunOperation extends Data.TaggedError(
   "DryRunOperation",
 )<{
   readonly Message?: string;
@@ -140,12 +141,12 @@ export interface HomeRegionControl {
   RequestedTime?: Date | string;
 }
 export type HomeRegionControls = Array<HomeRegionControl>;
-export declare class InternalServerError extends EffectData.TaggedError(
+export declare class InternalServerError extends Data.TaggedError(
   "InternalServerError",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidInputException extends EffectData.TaggedError(
+export declare class InvalidInputException extends Data.TaggedError(
   "InvalidInputException",
 )<{
   readonly Message?: string;
@@ -154,7 +155,7 @@ export type RequestedTime = Date | string;
 
 export type RetryAfterSeconds = number;
 
-export declare class ServiceUnavailableException extends EffectData.TaggedError(
+export declare class ServiceUnavailableException extends Data.TaggedError(
   "ServiceUnavailableException",
 )<{
   readonly Message?: string;
@@ -166,7 +167,7 @@ export interface Target {
 export type TargetId = string;
 
 export type TargetType = "ACCOUNT";
-export declare class ThrottlingException extends EffectData.TaggedError(
+export declare class ThrottlingException extends Data.TaggedError(
   "ThrottlingException",
 )<{
   readonly Message: string;

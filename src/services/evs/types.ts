@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   AccessDeniedException,
   ExpiredTokenException,
@@ -383,7 +384,7 @@ export type PaginationToken = string;
 export type PlacementGroupId = string;
 
 export type RequestTagMap = Record<string, string>;
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly message: string;
@@ -404,7 +405,7 @@ export type SecurityGroups = Array<string>;
 export interface ServiceAccessSecurityGroups {
   securityGroups?: Array<string>;
 }
-export declare class ServiceQuotaExceededException extends EffectData.TaggedError(
+export declare class ServiceQuotaExceededException extends Data.TaggedError(
   "ServiceQuotaExceededException",
 )<{
   readonly message: string;
@@ -418,7 +419,7 @@ export type SubnetId = string;
 export type TagKey = string;
 
 export type TagKeys = Array<string>;
-export declare class TagPolicyException extends EffectData.TaggedError(
+export declare class TagPolicyException extends Data.TaggedError(
   "TagPolicyException",
 )<{
   readonly message: string;
@@ -430,13 +431,13 @@ export interface TagResourceRequest {
 export interface TagResourceResponse {}
 export type TagValue = string;
 
-export declare class ThrottlingException extends EffectData.TaggedError(
+export declare class ThrottlingException extends Data.TaggedError(
   "ThrottlingException",
 )<{
   readonly message: string;
   readonly retryAfterSeconds?: number;
 }> {}
-export declare class TooManyTagsException extends EffectData.TaggedError(
+export declare class TooManyTagsException extends Data.TaggedError(
   "TooManyTagsException",
 )<{
   readonly message: string;
@@ -446,7 +447,7 @@ export interface UntagResourceRequest {
   tagKeys: Array<string>;
 }
 export interface UntagResourceResponse {}
-export declare class ValidationException extends EffectData.TaggedError(
+export declare class ValidationException extends Data.TaggedError(
   "ValidationException",
 )<{
   readonly message: string;

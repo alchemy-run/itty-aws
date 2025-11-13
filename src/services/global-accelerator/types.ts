@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   ExpiredTokenException,
   IncompleteSignature,
@@ -646,19 +647,19 @@ export interface AcceleratorEvent {
   Timestamp?: Date | string;
 }
 export type AcceleratorEvents = Array<AcceleratorEvent>;
-export declare class AcceleratorNotDisabledException extends EffectData.TaggedError(
+export declare class AcceleratorNotDisabledException extends Data.TaggedError(
   "AcceleratorNotDisabledException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class AcceleratorNotFoundException extends EffectData.TaggedError(
+export declare class AcceleratorNotFoundException extends Data.TaggedError(
   "AcceleratorNotFoundException",
 )<{
   readonly Message?: string;
 }> {}
 export type Accelerators = Array<Accelerator>;
 export type AcceleratorStatus = "DEPLOYED" | "IN_PROGRESS";
-export declare class AccessDeniedException extends EffectData.TaggedError(
+export declare class AccessDeniedException extends Data.TaggedError(
   "AccessDeniedException",
 )<{
   readonly Message?: string;
@@ -692,12 +693,12 @@ export interface AllowCustomRoutingTrafficRequest {
   DestinationPorts?: Array<number>;
   AllowAllTrafficToEndpoint?: boolean;
 }
-export declare class AssociatedEndpointGroupFoundException extends EffectData.TaggedError(
+export declare class AssociatedEndpointGroupFoundException extends Data.TaggedError(
   "AssociatedEndpointGroupFoundException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class AssociatedListenerFoundException extends EffectData.TaggedError(
+export declare class AssociatedListenerFoundException extends Data.TaggedError(
   "AssociatedListenerFoundException",
 )<{
   readonly Message?: string;
@@ -712,7 +713,7 @@ export interface Attachment {
 }
 export type AttachmentName = string;
 
-export declare class AttachmentNotFoundException extends EffectData.TaggedError(
+export declare class AttachmentNotFoundException extends Data.TaggedError(
   "AttachmentNotFoundException",
 )<{
   readonly Message?: string;
@@ -731,7 +732,7 @@ export interface ByoipCidrEvent {
   Timestamp?: Date | string;
 }
 export type ByoipCidrEvents = Array<ByoipCidrEvent>;
-export declare class ByoipCidrNotFoundException extends EffectData.TaggedError(
+export declare class ByoipCidrNotFoundException extends Data.TaggedError(
   "ByoipCidrNotFoundException",
 )<{
   readonly Message?: string;
@@ -754,7 +755,7 @@ export interface CidrAuthorizationContext {
   Signature: string;
 }
 export type ClientAffinity = "NONE" | "SOURCE_IP";
-export declare class ConflictException extends EffectData.TaggedError(
+export declare class ConflictException extends Data.TaggedError(
   "ConflictException",
 )<{
   readonly Message?: string;
@@ -999,7 +1000,7 @@ export interface DestinationPortMapping {
 }
 export type DestinationPortMappings = Array<DestinationPortMapping>;
 export type DestinationPorts = Array<number>;
-export declare class EndpointAlreadyExistsException extends EffectData.TaggedError(
+export declare class EndpointAlreadyExistsException extends Data.TaggedError(
   "EndpointAlreadyExistsException",
 )<{
   readonly Message?: string;
@@ -1031,12 +1032,12 @@ export interface EndpointGroup {
   ThresholdCount?: number;
   PortOverrides?: Array<PortOverride>;
 }
-export declare class EndpointGroupAlreadyExistsException extends EffectData.TaggedError(
+export declare class EndpointGroupAlreadyExistsException extends Data.TaggedError(
   "EndpointGroupAlreadyExistsException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class EndpointGroupNotFoundException extends EffectData.TaggedError(
+export declare class EndpointGroupNotFoundException extends Data.TaggedError(
   "EndpointGroupNotFoundException",
 )<{
   readonly Message?: string;
@@ -1048,7 +1049,7 @@ export interface EndpointIdentifier {
 }
 export type EndpointIdentifiers = Array<EndpointIdentifier>;
 export type EndpointIds = Array<string>;
-export declare class EndpointNotFoundException extends EffectData.TaggedError(
+export declare class EndpointNotFoundException extends Data.TaggedError(
   "EndpointNotFoundException",
 )<{
   readonly Message?: string;
@@ -1071,27 +1072,27 @@ export type HealthCheckProtocol = "TCP" | "HTTP" | "HTTPS";
 export type HealthState = "INITIAL" | "HEALTHY" | "UNHEALTHY";
 export type IdempotencyToken = string;
 
-export declare class IncorrectCidrStateException extends EffectData.TaggedError(
+export declare class IncorrectCidrStateException extends Data.TaggedError(
   "IncorrectCidrStateException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InternalServiceErrorException extends EffectData.TaggedError(
+export declare class InternalServiceErrorException extends Data.TaggedError(
   "InternalServiceErrorException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidArgumentException extends EffectData.TaggedError(
+export declare class InvalidArgumentException extends Data.TaggedError(
   "InvalidArgumentException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidNextTokenException extends EffectData.TaggedError(
+export declare class InvalidNextTokenException extends Data.TaggedError(
   "InvalidNextTokenException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidPortRangeException extends EffectData.TaggedError(
+export declare class InvalidPortRangeException extends Data.TaggedError(
   "InvalidPortRangeException",
 )<{
   readonly Message?: string;
@@ -1107,7 +1108,7 @@ export interface IpSet {
   IpAddressFamily?: IpAddressFamily;
 }
 export type IpSets = Array<IpSet>;
-export declare class LimitExceededException extends EffectData.TaggedError(
+export declare class LimitExceededException extends Data.TaggedError(
   "LimitExceededException",
 )<{
   readonly Message?: string;
@@ -1211,7 +1212,7 @@ export interface Listener {
   Protocol?: Protocol;
   ClientAffinity?: ClientAffinity;
 }
-export declare class ListenerNotFoundException extends EffectData.TaggedError(
+export declare class ListenerNotFoundException extends Data.TaggedError(
   "ListenerNotFoundException",
 )<{
   readonly Message?: string;
@@ -1311,7 +1312,7 @@ export type Timestamp = Date | string;
 
 export type TrafficDialPercentage = number;
 
-export declare class TransactionInProgressException extends EffectData.TaggedError(
+export declare class TransactionInProgressException extends Data.TaggedError(
   "TransactionInProgressException",
 )<{
   readonly Message?: string;

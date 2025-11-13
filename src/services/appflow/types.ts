@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   ExpiredTokenException,
   IncompleteSignature,
@@ -283,7 +284,7 @@ export declare class Appflow extends AWSServiceClient {
   >;
 }
 
-export declare class AccessDeniedException extends EffectData.TaggedError(
+export declare class AccessDeniedException extends Data.TaggedError(
   "AccessDeniedException",
 )<{
   readonly message?: string;
@@ -386,13 +387,13 @@ export type ClientToken = string;
 
 export type ClusterIdentifier = string;
 
-export declare class ConflictException extends EffectData.TaggedError(
+export declare class ConflictException extends Data.TaggedError(
   "ConflictException",
 )<{
   readonly message?: string;
 }> {}
 export type ConnectionMode = "Public" | "Private";
-export declare class ConnectorAuthenticationException extends EffectData.TaggedError(
+export declare class ConnectorAuthenticationException extends Data.TaggedError(
   "ConnectorAuthenticationException",
 )<{
   readonly message?: string;
@@ -607,7 +608,7 @@ export type ConnectorRuntimeSettingDataType = string;
 export type ConnectorRuntimeSettingList = Array<ConnectorRuntimeSetting>;
 export type ConnectorRuntimeSettingScope = string;
 
-export declare class ConnectorServerException extends EffectData.TaggedError(
+export declare class ConnectorServerException extends Data.TaggedError(
   "ConnectorServerException",
 )<{
   readonly message?: string;
@@ -1095,7 +1096,7 @@ export interface InforNexusSourceProperties {
 }
 export type InstanceUrl = string;
 
-export declare class InternalServerException extends EffectData.TaggedError(
+export declare class InternalServerException extends Data.TaggedError(
   "InternalServerException",
 )<{
   readonly message?: string;
@@ -1451,7 +1452,7 @@ export interface ResetConnectorMetadataCacheRequest {
   apiVersion?: string;
 }
 export interface ResetConnectorMetadataCacheResponse {}
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly message?: string;
@@ -1672,7 +1673,7 @@ export interface ServiceNowMetadata {}
 export interface ServiceNowSourceProperties {
   object: string;
 }
-export declare class ServiceQuotaExceededException extends EffectData.TaggedError(
+export declare class ServiceQuotaExceededException extends Data.TaggedError(
   "ServiceQuotaExceededException",
 )<{
   readonly message?: string;
@@ -1856,7 +1857,7 @@ export type TaskType =
   | "Truncate"
   | "Validate"
   | "Partition";
-export declare class ThrottlingException extends EffectData.TaggedError(
+export declare class ThrottlingException extends Data.TaggedError(
   "ThrottlingException",
 )<{
   readonly message?: string;
@@ -1904,7 +1905,7 @@ export interface UnregisterConnectorRequest {
   forceDelete?: boolean;
 }
 export interface UnregisterConnectorResponse {}
-export declare class UnsupportedOperationException extends EffectData.TaggedError(
+export declare class UnsupportedOperationException extends Data.TaggedError(
   "UnsupportedOperationException",
 )<{
   readonly message?: string;
@@ -1962,7 +1963,7 @@ export interface UpsolverS3OutputFormatConfig {
 }
 export type Username = string;
 
-export declare class ValidationException extends EffectData.TaggedError(
+export declare class ValidationException extends Data.TaggedError(
   "ValidationException",
 )<{
   readonly message?: string;

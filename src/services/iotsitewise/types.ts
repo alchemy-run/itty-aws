@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   ExpiredTokenException,
   IncompleteSignature,
@@ -1165,7 +1166,7 @@ export declare class IoTSiteWise extends AWSServiceClient {
 
 export declare class Iotsitewise extends IoTSiteWise {}
 
-export declare class AccessDeniedException extends EffectData.TaggedError(
+export declare class AccessDeniedException extends Data.TaggedError(
   "AccessDeniedException",
 )<{
   readonly message?: string;
@@ -1842,7 +1843,7 @@ export interface ConfigurationStatus {
   state: ConfigurationState;
   error?: ConfigurationErrorDetails;
 }
-export declare class ConflictingOperationException extends EffectData.TaggedError(
+export declare class ConflictingOperationException extends Data.TaggedError(
   "ConflictingOperationException",
 )<{
   readonly message: string;
@@ -2754,7 +2755,7 @@ export interface InterfaceSummary {
   interfaceAssetModelId: string;
   interfaceAssetModelPropertyId: string;
 }
-export declare class InternalFailureException extends EffectData.TaggedError(
+export declare class InternalFailureException extends Data.TaggedError(
   "InternalFailureException",
 )<{
   readonly message: string;
@@ -2773,7 +2774,7 @@ export type IntervalInSeconds = number;
 
 export type IntervalWindowInSeconds = number;
 
-export declare class InvalidRequestException extends EffectData.TaggedError(
+export declare class InvalidRequestException extends Data.TaggedError(
   "InvalidRequestException",
 )<{
   readonly message: string;
@@ -2815,7 +2816,7 @@ export interface KendraSourceDetail {
 }
 export type KmsKeyId = string;
 
-export declare class LimitExceededException extends EffectData.TaggedError(
+export declare class LimitExceededException extends Data.TaggedError(
   "LimitExceededException",
 )<{
   readonly message: string;
@@ -3167,7 +3168,7 @@ export interface PortalTypeEntry {
 }
 export type PortalTypeKey = string;
 
-export declare class PreconditionFailedException extends EffectData.TaggedError(
+export declare class PreconditionFailedException extends Data.TaggedError(
   "PreconditionFailedException",
 )<{
   readonly message: string;
@@ -3296,7 +3297,7 @@ export type Qualities = Array<Quality>;
 export type Quality = "GOOD" | "BAD" | "UNCERTAIN";
 export type QueryStatement = string;
 
-export declare class QueryTimeoutException extends EffectData.TaggedError(
+export declare class QueryTimeoutException extends Data.TaggedError(
   "QueryTimeoutException",
 )<{
   readonly message?: string;
@@ -3315,7 +3316,7 @@ export interface Resource {
   portal?: PortalResource;
   project?: ProjectResource;
 }
-export declare class ResourceAlreadyExistsException extends EffectData.TaggedError(
+export declare class ResourceAlreadyExistsException extends Data.TaggedError(
   "ResourceAlreadyExistsException",
 )<{
   readonly message: string;
@@ -3326,7 +3327,7 @@ export type ResourceArn = string;
 
 export type ResourceId = string;
 
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly message: string;
@@ -3375,7 +3376,7 @@ export type ScalarValue = string;
 
 export type SelectAll = string;
 
-export declare class ServiceUnavailableException extends EffectData.TaggedError(
+export declare class ServiceUnavailableException extends Data.TaggedError(
   "ServiceUnavailableException",
 )<{
   readonly message: string;
@@ -3411,7 +3412,7 @@ export interface TargetResource {
   computationModelId?: string;
 }
 export type TargetResourceType = "ASSET" | "COMPUTATION_MODEL";
-export declare class ThrottlingException extends EffectData.TaggedError(
+export declare class ThrottlingException extends Data.TaggedError(
   "ThrottlingException",
 )<{
   readonly message: string;
@@ -3440,7 +3441,7 @@ export interface TimeSeriesSummary {
 export type Timestamp = Date | string;
 
 export type Timestamps = Array<TimeInNanos>;
-export declare class TooManyTagsException extends EffectData.TaggedError(
+export declare class TooManyTagsException extends Data.TaggedError(
   "TooManyTagsException",
 )<{
   readonly message?: string;
@@ -3464,7 +3465,7 @@ export interface TumblingWindow {
   interval: string;
   offset?: string;
 }
-export declare class UnauthorizedException extends EffectData.TaggedError(
+export declare class UnauthorizedException extends Data.TaggedError(
   "UnauthorizedException",
 )<{
   readonly message: string;
@@ -3606,7 +3607,7 @@ export type Url = string;
 export interface UserIdentity {
   id: string;
 }
-export declare class ValidationException extends EffectData.TaggedError(
+export declare class ValidationException extends Data.TaggedError(
   "ValidationException",
 )<{
   readonly message?: string;

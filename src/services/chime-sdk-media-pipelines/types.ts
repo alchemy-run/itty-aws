@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
@@ -505,7 +506,7 @@ export type AudioSampleRateOption = string;
 
 export type AwsRegion = string;
 
-export declare class BadRequestException extends EffectData.TaggedError(
+export declare class BadRequestException extends Data.TaggedError(
   "BadRequestException",
 )<{
   readonly Code?: ErrorCode;
@@ -579,7 +580,7 @@ export interface ConcatenationSource {
 }
 export type ConcatenationSourceList = Array<ConcatenationSource>;
 export type ConcatenationSourceType = "MediaCapturePipeline";
-export declare class ConflictException extends EffectData.TaggedError(
+export declare class ConflictException extends Data.TaggedError(
   "ConflictException",
 )<{
   readonly Code?: ErrorCode;
@@ -706,7 +707,7 @@ export type ErrorCode =
 export type ExternalUserIdList = Array<string>;
 export type ExternalUserIdType = string;
 
-export declare class ForbiddenException extends EffectData.TaggedError(
+export declare class ForbiddenException extends Data.TaggedError(
   "ForbiddenException",
 )<{
   readonly Code?: ErrorCode;
@@ -1091,7 +1092,7 @@ export type ModelName = string;
 
 export type NonEmptyString = string;
 
-export declare class NotFoundException extends EffectData.TaggedError(
+export declare class NotFoundException extends Data.TaggedError(
   "NotFoundException",
 )<{
   readonly Code?: ErrorCode;
@@ -1141,7 +1142,7 @@ export type RecordingStreamList = Array<RecordingStreamConfiguration>;
 export type ReservedStreamCapacity = number;
 
 export type ResolutionOption = "HD" | "FHD";
-export declare class ResourceLimitExceededException extends EffectData.TaggedError(
+export declare class ResourceLimitExceededException extends Data.TaggedError(
   "ResourceLimitExceededException",
 )<{
   readonly Code?: ErrorCode;
@@ -1177,14 +1178,14 @@ export interface SentimentConfiguration {
 export type SentimentTimePeriodInSeconds = number;
 
 export type SentimentType = "NEGATIVE";
-export declare class ServiceFailureException extends EffectData.TaggedError(
+export declare class ServiceFailureException extends Data.TaggedError(
   "ServiceFailureException",
 )<{
   readonly Code?: ErrorCode;
   readonly Message?: string;
   readonly RequestId?: string;
 }> {}
-export declare class ServiceUnavailableException extends EffectData.TaggedError(
+export declare class ServiceUnavailableException extends Data.TaggedError(
   "ServiceUnavailableException",
 )<{
   readonly Code?: ErrorCode;
@@ -1263,7 +1264,7 @@ export interface TagResourceRequest {
 export interface TagResourceResponse {}
 export type TagValue = string;
 
-export declare class ThrottledClientException extends EffectData.TaggedError(
+export declare class ThrottledClientException extends Data.TaggedError(
   "ThrottledClientException",
 )<{
   readonly Code?: ErrorCode;
@@ -1284,7 +1285,7 @@ export interface TimestampRange {
 export interface TranscriptionMessagesConcatenationConfiguration {
   State: ArtifactsConcatenationState;
 }
-export declare class UnauthorizedClientException extends EffectData.TaggedError(
+export declare class UnauthorizedClientException extends Data.TaggedError(
   "UnauthorizedClientException",
 )<{
   readonly Code?: ErrorCode;

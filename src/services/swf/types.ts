@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
@@ -525,7 +526,7 @@ export interface CountPendingDecisionTasksInput {
   domain: string;
   taskList: TaskList;
 }
-export type Data = string;
+export type SwfData = string;
 
 export interface Decision {
   decisionType: DecisionType;
@@ -590,7 +591,7 @@ export type DecisionType =
   | "RequestCancelExternalWorkflowExecution"
   | "StartChildWorkflowExecution"
   | "ScheduleLambdaFunction";
-export declare class DefaultUndefinedFault extends EffectData.TaggedError(
+export declare class DefaultUndefinedFault extends Data.TaggedError(
   "DefaultUndefinedFault",
 )<{
   readonly message?: string;
@@ -631,7 +632,7 @@ export interface DescribeWorkflowTypeInput {
 }
 export type Description = string;
 
-export declare class DomainAlreadyExistsFault extends EffectData.TaggedError(
+export declare class DomainAlreadyExistsFault extends Data.TaggedError(
   "DomainAlreadyExistsFault",
 )<{
   readonly message?: string;
@@ -639,7 +640,7 @@ export declare class DomainAlreadyExistsFault extends EffectData.TaggedError(
 export interface DomainConfiguration {
   workflowExecutionRetentionPeriodInDays: string;
 }
-export declare class DomainDeprecatedFault extends EffectData.TaggedError(
+export declare class DomainDeprecatedFault extends Data.TaggedError(
   "DomainDeprecatedFault",
 )<{
   readonly message?: string;
@@ -861,7 +862,7 @@ export interface LambdaFunctionTimedOutEventAttributes {
 export type LambdaFunctionTimeoutType = "START_TO_CLOSE";
 export type LimitedData = string;
 
-export declare class LimitExceededFault extends EffectData.TaggedError(
+export declare class LimitExceededFault extends Data.TaggedError(
   "LimitExceededFault",
 )<{
   readonly message?: string;
@@ -927,7 +928,7 @@ export type Name = string;
 
 export type OpenDecisionTasksCount = number;
 
-export declare class OperationNotPermittedFault extends EffectData.TaggedError(
+export declare class OperationNotPermittedFault extends Data.TaggedError(
   "OperationNotPermittedFault",
 )<{
   readonly message?: string;
@@ -1286,24 +1287,24 @@ export interface TimerStartedEventAttributes {
 }
 export type Timestamp = Date | string;
 
-export declare class TooManyTagsFault extends EffectData.TaggedError(
+export declare class TooManyTagsFault extends Data.TaggedError(
   "TooManyTagsFault",
 )<{
   readonly message?: string;
 }> {}
 export type Truncated = boolean;
 
-export declare class TypeAlreadyExistsFault extends EffectData.TaggedError(
+export declare class TypeAlreadyExistsFault extends Data.TaggedError(
   "TypeAlreadyExistsFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class TypeDeprecatedFault extends EffectData.TaggedError(
+export declare class TypeDeprecatedFault extends Data.TaggedError(
   "TypeDeprecatedFault",
 )<{
   readonly message?: string;
 }> {}
-export declare class TypeNotDeprecatedFault extends EffectData.TaggedError(
+export declare class TypeNotDeprecatedFault extends Data.TaggedError(
   "TypeNotDeprecatedFault",
 )<{
   readonly message?: string;
@@ -1319,7 +1320,7 @@ export interface UndeprecateWorkflowTypeInput {
   domain: string;
   workflowType: WorkflowType;
 }
-export declare class UnknownResourceFault extends EffectData.TaggedError(
+export declare class UnknownResourceFault extends Data.TaggedError(
   "UnknownResourceFault",
 )<{
   readonly message?: string;
@@ -1336,7 +1337,7 @@ export interface WorkflowExecution {
   workflowId: string;
   runId: string;
 }
-export declare class WorkflowExecutionAlreadyStartedFault extends EffectData.TaggedError(
+export declare class WorkflowExecutionAlreadyStartedFault extends Data.TaggedError(
   "WorkflowExecutionAlreadyStartedFault",
 )<{
   readonly message?: string;

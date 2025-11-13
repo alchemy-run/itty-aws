@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
@@ -971,7 +972,7 @@ export interface ComputeCapacityStatus {
   ActiveUserSessions?: number;
   ActualUserSessions?: number;
 }
-export declare class ConcurrentModificationException extends EffectData.TaggedError(
+export declare class ConcurrentModificationException extends Data.TaggedError(
   "ConcurrentModificationException",
 )<{
   readonly Message?: string;
@@ -1489,7 +1490,7 @@ export interface Entitlement {
   CreatedTime?: Date | string;
   LastModifiedTime?: Date | string;
 }
-export declare class EntitlementAlreadyExistsException extends EffectData.TaggedError(
+export declare class EntitlementAlreadyExistsException extends Data.TaggedError(
   "EntitlementAlreadyExistsException",
 )<{
   readonly Message?: string;
@@ -1500,7 +1501,7 @@ export interface EntitlementAttribute {
 }
 export type EntitlementAttributeList = Array<EntitlementAttribute>;
 export type EntitlementList = Array<Entitlement>;
-export declare class EntitlementNotFoundException extends EffectData.TaggedError(
+export declare class EntitlementNotFoundException extends Data.TaggedError(
   "EntitlementNotFoundException",
 )<{
   readonly Message?: string;
@@ -1682,24 +1683,24 @@ export type ImageStateChangeReasonCode =
   | "INTERNAL_ERROR"
   | "IMAGE_BUILDER_NOT_AVAILABLE"
   | "IMAGE_COPY_FAILURE";
-export declare class IncompatibleImageException extends EffectData.TaggedError(
+export declare class IncompatibleImageException extends Data.TaggedError(
   "IncompatibleImageException",
 )<{
   readonly Message?: string;
 }> {}
 export type Integer = number;
 
-export declare class InvalidAccountStatusException extends EffectData.TaggedError(
+export declare class InvalidAccountStatusException extends Data.TaggedError(
   "InvalidAccountStatusException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidParameterCombinationException extends EffectData.TaggedError(
+export declare class InvalidParameterCombinationException extends Data.TaggedError(
   "InvalidParameterCombinationException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidRoleException extends EffectData.TaggedError(
+export declare class InvalidRoleException extends Data.TaggedError(
   "InvalidRoleException",
 )<{
   readonly Message?: string;
@@ -1711,7 +1712,7 @@ export interface LastReportGenerationExecutionError {
 export type LastReportGenerationExecutionErrors =
   Array<LastReportGenerationExecutionError>;
 export type LatestAppstreamAgentVersion = "TRUE" | "FALSE";
-export declare class LimitExceededException extends EffectData.TaggedError(
+export declare class LimitExceededException extends Data.TaggedError(
   "LimitExceededException",
 )<{
   readonly Message?: string;
@@ -1760,7 +1761,7 @@ export interface NetworkAccessConfiguration {
   EniPrivateIpAddress?: string;
   EniId?: string;
 }
-export declare class OperationNotPermittedException extends EffectData.TaggedError(
+export declare class OperationNotPermittedException extends Data.TaggedError(
   "OperationNotPermittedException",
 )<{
   readonly Message?: string;
@@ -1784,12 +1785,12 @@ export type RedirectURL = string;
 
 export type RegionName = string;
 
-export declare class RequestLimitExceededException extends EffectData.TaggedError(
+export declare class RequestLimitExceededException extends Data.TaggedError(
   "RequestLimitExceededException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class ResourceAlreadyExistsException extends EffectData.TaggedError(
+export declare class ResourceAlreadyExistsException extends Data.TaggedError(
   "ResourceAlreadyExistsException",
 )<{
   readonly Message?: string;
@@ -1802,17 +1803,17 @@ export interface ResourceError {
 export type ResourceErrors = Array<ResourceError>;
 export type ResourceIdentifier = string;
 
-export declare class ResourceInUseException extends EffectData.TaggedError(
+export declare class ResourceInUseException extends Data.TaggedError(
   "ResourceInUseException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class ResourceNotAvailableException extends EffectData.TaggedError(
+export declare class ResourceNotAvailableException extends Data.TaggedError(
   "ResourceNotAvailableException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly Message?: string;

@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
@@ -19978,67 +19979,67 @@ export interface WithdrawByoipCidrResult {
 }
 export type ZoneIdStringList = Array<string>;
 export type ZoneNameStringList = Array<string>;
-export declare class InvalidInternetGatewayNotFound extends EffectData.TaggedError(
+export declare class InvalidInternetGatewayNotFound extends Data.TaggedError(
   "InvalidInternetGateway.NotFound",
 )<{}> {}
 
-export declare class InvalidKeyPairNotFound extends EffectData.TaggedError(
+export declare class InvalidKeyPairNotFound extends Data.TaggedError(
   "InvalidKeyPair.NotFound",
 )<{}> {}
 
-export declare class InvalidNetworkInterfaceNotFound extends EffectData.TaggedError(
+export declare class InvalidNetworkInterfaceNotFound extends Data.TaggedError(
   "InvalidNetworkInterface.NotFound",
 )<{}> {}
 
-export declare class InvalidSubnetIDNotFound extends EffectData.TaggedError(
+export declare class InvalidSubnetIDNotFound extends Data.TaggedError(
   "InvalidSubnetID.NotFound",
 )<{}> {}
 
-export declare class InvalidVolumeNotFound extends EffectData.TaggedError(
+export declare class InvalidVolumeNotFound extends Data.TaggedError(
   "InvalidVolume.NotFound",
 )<{}> {}
 
-export declare class InvalidVpcIDNotFound extends EffectData.TaggedError(
+export declare class InvalidVpcIDNotFound extends Data.TaggedError(
   "InvalidVpcID.NotFound",
 )<{}> {}
 
-export declare class InvalidVpcPeeringConnectionNotFound extends EffectData.TaggedError(
+export declare class InvalidVpcPeeringConnectionNotFound extends Data.TaggedError(
   "InvalidVpcPeeringConnection.NotFound",
 )<{}> {}
 
-export declare class InvalidVpnConnectionNotFound extends EffectData.TaggedError(
+export declare class InvalidVpnConnectionNotFound extends Data.TaggedError(
   "InvalidVpnConnection.NotFound",
 )<{}> {}
 
-export declare class InvalidVpnGatewayNotFound extends EffectData.TaggedError(
+export declare class InvalidVpnGatewayNotFound extends Data.TaggedError(
   "InvalidVpnGateway.NotFound",
 )<{}> {}
 
-export declare class InvalidAMIIDNotFound extends EffectData.TaggedError(
+export declare class InvalidAMIIDNotFound extends Data.TaggedError(
   "InvalidAMIID.NotFound",
 )<{}> {}
 
-export declare class InvalidInstanceIDNotFound extends EffectData.TaggedError(
+export declare class InvalidInstanceIDNotFound extends Data.TaggedError(
   "InvalidInstanceID.NotFound",
 )<{}> {}
 
-export declare class NatGatewayNotFound extends EffectData.TaggedError(
+export declare class NatGatewayNotFound extends Data.TaggedError(
   "NatGatewayNotFound",
 )<{}> {}
 
-export declare class InvalidNetworkInterfaceIDNotFound extends EffectData.TaggedError(
+export declare class InvalidNetworkInterfaceIDNotFound extends Data.TaggedError(
   "InvalidNetworkInterfaceID.NotFound",
 )<{}> {}
 
-export declare class InvalidGroupNotFound extends EffectData.TaggedError(
+export declare class InvalidGroupNotFound extends Data.TaggedError(
   "InvalidGroup.NotFound",
 )<{}> {}
 
-export declare class InvalidSpotInstanceRequestIDNotFound extends EffectData.TaggedError(
+export declare class InvalidSpotInstanceRequestIDNotFound extends Data.TaggedError(
   "InvalidSpotInstanceRequestID.NotFound",
 )<{}> {}
 
-export declare class InvalidVpcPeeringConnectionIDNotFound extends EffectData.TaggedError(
+export declare class InvalidVpcPeeringConnectionIDNotFound extends Data.TaggedError(
   "InvalidVpcPeeringConnectionID.NotFound",
 )<{}> {}
 

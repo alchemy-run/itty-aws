@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   ExpiredTokenException,
   IncompleteSignature,
@@ -998,7 +999,7 @@ export declare class QConnect extends AWSServiceClient {
 
 export declare class Qconnect extends QConnect {}
 
-export declare class AccessDeniedException extends EffectData.TaggedError(
+export declare class AccessDeniedException extends Data.TaggedError(
   "AccessDeniedException",
 )<{
   readonly message?: string;
@@ -1347,7 +1348,7 @@ interface _Configuration {
 export type Configuration = _Configuration & {
   connectConfiguration: ConnectConfiguration;
 };
-export declare class ConflictException extends EffectData.TaggedError(
+export declare class ConflictException extends Data.TaggedError(
   "ConflictException",
 )<{
   readonly message?: string;
@@ -1846,7 +1847,7 @@ export interface DeleteQuickResponseRequest {
   quickResponseId: string;
 }
 export interface DeleteQuickResponseResponse {}
-export declare class DependencyFailedException extends EffectData.TaggedError(
+export declare class DependencyFailedException extends Data.TaggedError(
   "DependencyFailedException",
 )<{
   readonly message?: string;
@@ -2658,7 +2659,7 @@ export type ParsingStrategy = string;
 
 export type Participant = string;
 
-export declare class PreconditionFailedException extends EffectData.TaggedError(
+export declare class PreconditionFailedException extends Data.TaggedError(
   "PreconditionFailedException",
 )<{
   readonly message?: string;
@@ -2916,12 +2917,12 @@ export interface RenderMessageTemplateResponse {
   attributesNotInterpolated?: Array<string>;
   attachments?: Array<MessageTemplateAttachment>;
 }
-export declare class RequestTimeoutException extends EffectData.TaggedError(
+export declare class RequestTimeoutException extends Data.TaggedError(
   "RequestTimeoutException",
 )<{
   readonly message?: string;
 }> {}
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly message?: string;
@@ -3031,7 +3032,7 @@ export type SensitiveString = string;
 export interface ServerSideEncryptionConfiguration {
   kmsKeyId?: string;
 }
-export declare class ServiceQuotaExceededException extends EffectData.TaggedError(
+export declare class ServiceQuotaExceededException extends Data.TaggedError(
   "ServiceQuotaExceededException",
 )<{
   readonly message?: string;
@@ -3159,20 +3160,20 @@ export interface TextFullAIPromptEditTemplateConfiguration {
 export interface TextMessage {
   value?: string;
 }
-export declare class ThrottlingException extends EffectData.TaggedError(
+export declare class ThrottlingException extends Data.TaggedError(
   "ThrottlingException",
 )<{
   readonly message?: string;
 }> {}
 export type TimeToLive = number;
 
-export declare class TooManyTagsException extends EffectData.TaggedError(
+export declare class TooManyTagsException extends Data.TaggedError(
   "TooManyTagsException",
 )<{
   readonly message?: string;
   readonly resourceName?: string;
 }> {}
-export declare class UnauthorizedException extends EffectData.TaggedError(
+export declare class UnauthorizedException extends Data.TaggedError(
   "UnauthorizedException",
 )<{
   readonly message?: string;
@@ -3331,7 +3332,7 @@ export type UuidOrArnOrEitherWithQualifier = string;
 
 export type UuidWithQualifier = string;
 
-export declare class ValidationException extends EffectData.TaggedError(
+export declare class ValidationException extends Data.TaggedError(
   "ValidationException",
 )<{
   readonly message?: string;

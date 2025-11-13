@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   ExpiredTokenException,
   IncompleteSignature,
@@ -863,7 +864,7 @@ export declare class neptunedata extends AWSServiceClient {
 
 export declare class Neptunedata extends neptunedata {}
 
-export declare class AccessDeniedException extends EffectData.TaggedError(
+export declare class AccessDeniedException extends Data.TaggedError(
   "AccessDeniedException",
 )<{
   readonly detailedMessage: string;
@@ -871,14 +872,14 @@ export declare class AccessDeniedException extends EffectData.TaggedError(
   readonly code: string;
 }> {}
 export type Action = "initiateDatabaseReset" | "performDatabaseReset";
-export declare class BadRequestException extends EffectData.TaggedError(
+export declare class BadRequestException extends Data.TaggedError(
   "BadRequestException",
 )<{
   readonly detailedMessage: string;
   readonly requestId: string;
   readonly code: string;
 }> {}
-export declare class BulkLoadIdNotFoundException extends EffectData.TaggedError(
+export declare class BulkLoadIdNotFoundException extends Data.TaggedError(
   "BulkLoadIdNotFoundException",
 )<{
   readonly detailedMessage: string;
@@ -891,7 +892,7 @@ export interface CancelGremlinQueryInput {
 export interface CancelGremlinQueryOutput {
   status?: string;
 }
-export declare class CancelledByUserException extends EffectData.TaggedError(
+export declare class CancelledByUserException extends Data.TaggedError(
   "CancelledByUserException",
 )<{
   readonly detailedMessage: string;
@@ -937,21 +938,21 @@ export interface CancelOpenCypherQueryOutput {
   payload?: boolean;
 }
 export type Classes = Array<string>;
-export declare class ClientTimeoutException extends EffectData.TaggedError(
+export declare class ClientTimeoutException extends Data.TaggedError(
   "ClientTimeoutException",
 )<{
   readonly detailedMessage: string;
   readonly requestId: string;
   readonly code: string;
 }> {}
-export declare class ConcurrentModificationException extends EffectData.TaggedError(
+export declare class ConcurrentModificationException extends Data.TaggedError(
   "ConcurrentModificationException",
 )<{
   readonly detailedMessage: string;
   readonly requestId: string;
   readonly code: string;
 }> {}
-export declare class ConstraintViolationException extends EffectData.TaggedError(
+export declare class ConstraintViolationException extends Data.TaggedError(
   "ConstraintViolationException",
 )<{
   readonly detailedMessage: string;
@@ -1063,14 +1064,14 @@ export interface ExecuteOpenCypherQueryInput {
 export interface ExecuteOpenCypherQueryOutput {
   results: unknown;
 }
-export declare class ExpiredStreamException extends EffectData.TaggedError(
+export declare class ExpiredStreamException extends Data.TaggedError(
   "ExpiredStreamException",
 )<{
   readonly detailedMessage: string;
   readonly requestId: string;
   readonly code: string;
 }> {}
-export declare class FailureByQueryException extends EffectData.TaggedError(
+export declare class FailureByQueryException extends Data.TaggedError(
   "FailureByQueryException",
 )<{
   readonly detailedMessage: string;
@@ -1233,35 +1234,35 @@ export interface GremlinQueryStatusAttributes {
   code?: number;
   attributes?: unknown;
 }
-export declare class IllegalArgumentException extends EffectData.TaggedError(
+export declare class IllegalArgumentException extends Data.TaggedError(
   "IllegalArgumentException",
 )<{
   readonly detailedMessage: string;
   readonly requestId: string;
   readonly code: string;
 }> {}
-export declare class InternalFailureException extends EffectData.TaggedError(
+export declare class InternalFailureException extends Data.TaggedError(
   "InternalFailureException",
 )<{
   readonly detailedMessage: string;
   readonly requestId: string;
   readonly code: string;
 }> {}
-export declare class InvalidArgumentException extends EffectData.TaggedError(
+export declare class InvalidArgumentException extends Data.TaggedError(
   "InvalidArgumentException",
 )<{
   readonly detailedMessage: string;
   readonly requestId: string;
   readonly code: string;
 }> {}
-export declare class InvalidNumericDataException extends EffectData.TaggedError(
+export declare class InvalidNumericDataException extends Data.TaggedError(
   "InvalidNumericDataException",
 )<{
   readonly detailedMessage: string;
   readonly requestId: string;
   readonly code: string;
 }> {}
-export declare class InvalidParameterException extends EffectData.TaggedError(
+export declare class InvalidParameterException extends Data.TaggedError(
   "InvalidParameterException",
 )<{
   readonly detailedMessage: string;
@@ -1328,7 +1329,7 @@ export interface ListOpenCypherQueriesOutput {
 export interface LoaderIdResult {
   loadIds?: Array<string>;
 }
-export declare class LoadUrlAccessDeniedException extends EffectData.TaggedError(
+export declare class LoadUrlAccessDeniedException extends Data.TaggedError(
   "LoadUrlAccessDeniedException",
 )<{
   readonly detailedMessage: string;
@@ -1337,7 +1338,7 @@ export declare class LoadUrlAccessDeniedException extends EffectData.TaggedError
 }> {}
 export type LongValuedMap = Record<string, number>;
 export type LongValuedMapList = Array<Record<string, number>>;
-export declare class MalformedQueryException extends EffectData.TaggedError(
+export declare class MalformedQueryException extends Data.TaggedError(
   "MalformedQueryException",
 )<{
   readonly detailedMessage: string;
@@ -1358,21 +1359,21 @@ export interface ManageSparqlStatisticsOutput {
   status: string;
   payload?: RefreshStatisticsIdMap;
 }
-export declare class MemoryLimitExceededException extends EffectData.TaggedError(
+export declare class MemoryLimitExceededException extends Data.TaggedError(
   "MemoryLimitExceededException",
 )<{
   readonly detailedMessage: string;
   readonly requestId: string;
   readonly code: string;
 }> {}
-export declare class MethodNotAllowedException extends EffectData.TaggedError(
+export declare class MethodNotAllowedException extends Data.TaggedError(
   "MethodNotAllowedException",
 )<{
   readonly detailedMessage: string;
   readonly requestId: string;
   readonly code: string;
 }> {}
-export declare class MissingParameterException extends EffectData.TaggedError(
+export declare class MissingParameterException extends Data.TaggedError(
   "MissingParameterException",
 )<{
   readonly detailedMessage: string;
@@ -1392,7 +1393,7 @@ export interface MlResourceDefinition {
   failureReason?: string;
   cloudwatchLogUrl?: string;
 }
-export declare class MLResourceNotFoundException extends EffectData.TaggedError(
+export declare class MLResourceNotFoundException extends Data.TaggedError(
   "MLResourceNotFoundException",
 )<{
   readonly detailedMessage: string;
@@ -1413,7 +1414,7 @@ export type OpenCypherExplainMode = "static" | "dynamic" | "details";
 export type OpenCypherQueries = Array<GremlinQueryStatus>;
 export type OutgoingEdgeLabels = Array<string>;
 export type Parallelism = "LOW" | "MEDIUM" | "HIGH" | "OVERSUBSCRIBE";
-export declare class ParsingException extends EffectData.TaggedError(
+export declare class ParsingException extends Data.TaggedError(
   "ParsingException",
 )<{
   readonly detailedMessage: string;
@@ -1422,7 +1423,7 @@ export declare class ParsingException extends EffectData.TaggedError(
 }> {}
 export type PositiveInteger = number;
 
-export declare class PreconditionsFailedException extends EffectData.TaggedError(
+export declare class PreconditionsFailedException extends Data.TaggedError(
   "PreconditionsFailedException",
 )<{
   readonly detailedMessage: string;
@@ -1476,21 +1477,21 @@ export interface QueryEvalStats {
 export interface QueryLanguageVersion {
   version: string;
 }
-export declare class QueryLimitExceededException extends EffectData.TaggedError(
+export declare class QueryLimitExceededException extends Data.TaggedError(
   "QueryLimitExceededException",
 )<{
   readonly detailedMessage: string;
   readonly requestId: string;
   readonly code: string;
 }> {}
-export declare class QueryLimitException extends EffectData.TaggedError(
+export declare class QueryLimitException extends Data.TaggedError(
   "QueryLimitException",
 )<{
   readonly detailedMessage: string;
   readonly requestId: string;
   readonly code: string;
 }> {}
-export declare class QueryTooLargeException extends EffectData.TaggedError(
+export declare class QueryTooLargeException extends Data.TaggedError(
   "QueryTooLargeException",
 )<{
   readonly detailedMessage: string;
@@ -1511,7 +1512,7 @@ export interface RDFGraphSummaryValueMap {
   lastStatisticsComputationTime?: Date | string;
   graphSummary?: RDFGraphSummary;
 }
-export declare class ReadOnlyViolationException extends EffectData.TaggedError(
+export declare class ReadOnlyViolationException extends Data.TaggedError(
   "ReadOnlyViolationException",
 )<{
   readonly detailedMessage: string;
@@ -1560,12 +1561,12 @@ export type S3BucketRegion =
   | "ap-east-2"
   | "ap-south-2"
   | "eu-central-2";
-export declare class S3Exception extends EffectData.TaggedError("S3Exception")<{
+export declare class S3Exception extends Data.TaggedError("S3Exception")<{
   readonly detailedMessage: string;
   readonly requestId: string;
   readonly code: string;
 }> {}
-export declare class ServerShutdownException extends EffectData.TaggedError(
+export declare class ServerShutdownException extends Data.TaggedError(
   "ServerShutdownException",
 )<{
   readonly detailedMessage: string;
@@ -1681,7 +1682,7 @@ export type StatisticsAutoGenerationMode =
   | "disableAutoCompute"
   | "enableAutoCompute"
   | "refresh";
-export declare class StatisticsNotAvailableException extends EffectData.TaggedError(
+export declare class StatisticsNotAvailableException extends Data.TaggedError(
   "StatisticsNotAvailableException",
 )<{
   readonly detailedMessage: string;
@@ -1693,7 +1694,7 @@ export interface StatisticsSummary {
   instanceCount?: number;
   predicateCount?: number;
 }
-export declare class StreamRecordsNotFoundException extends EffectData.TaggedError(
+export declare class StreamRecordsNotFoundException extends Data.TaggedError(
   "StreamRecordsNotFoundException",
 )<{
   readonly detailedMessage: string;
@@ -1707,28 +1708,28 @@ export interface SubjectStructure {
   predicates?: Array<string>;
 }
 export type SubjectStructures = Array<SubjectStructure>;
-export declare class ThrottlingException extends EffectData.TaggedError(
+export declare class ThrottlingException extends Data.TaggedError(
   "ThrottlingException",
 )<{
   readonly detailedMessage: string;
   readonly requestId: string;
   readonly code: string;
 }> {}
-export declare class TimeLimitExceededException extends EffectData.TaggedError(
+export declare class TimeLimitExceededException extends Data.TaggedError(
   "TimeLimitExceededException",
 )<{
   readonly detailedMessage: string;
   readonly requestId: string;
   readonly code: string;
 }> {}
-export declare class TooManyRequestsException extends EffectData.TaggedError(
+export declare class TooManyRequestsException extends Data.TaggedError(
   "TooManyRequestsException",
 )<{
   readonly detailedMessage: string;
   readonly requestId: string;
   readonly code: string;
 }> {}
-export declare class UnsupportedOperationException extends EffectData.TaggedError(
+export declare class UnsupportedOperationException extends Data.TaggedError(
   "UnsupportedOperationException",
 )<{
   readonly detailedMessage: string;

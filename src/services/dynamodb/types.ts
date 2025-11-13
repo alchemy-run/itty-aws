@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   AccessDeniedException,
   ExpiredTokenException,
@@ -735,14 +736,14 @@ export interface BackupDetails {
   BackupCreationDateTime: Date | string;
   BackupExpiryDateTime?: Date | string;
 }
-export declare class BackupInUseException extends EffectData.TaggedError(
+export declare class BackupInUseException extends Data.TaggedError(
   "BackupInUseException",
 )<{
   readonly message?: string;
 }> {}
 export type BackupName = string;
 
-export declare class BackupNotFoundException extends EffectData.TaggedError(
+export declare class BackupNotFoundException extends Data.TaggedError(
   "BackupNotFoundException",
 )<{
   readonly message?: string;
@@ -879,7 +880,7 @@ export interface Condition {
   AttributeValueList?: Array<AttributeValue>;
   ComparisonOperator: ComparisonOperator;
 }
-export declare class ConditionalCheckFailedException extends EffectData.TaggedError(
+export declare class ConditionalCheckFailedException extends Data.TaggedError(
   "ConditionalCheckFailedException",
 )<{
   readonly message?: string;
@@ -917,7 +918,7 @@ export interface ContinuousBackupsDescription {
   PointInTimeRecoveryDescription?: PointInTimeRecoveryDescription;
 }
 export type ContinuousBackupsStatus = "ENABLED" | "DISABLED";
-export declare class ContinuousBackupsUnavailableException extends EffectData.TaggedError(
+export declare class ContinuousBackupsUnavailableException extends Data.TaggedError(
   "ContinuousBackupsUnavailableException",
 )<{
   readonly message?: string;
@@ -1166,7 +1167,7 @@ export type DestinationStatus =
   | "UPDATING";
 export type DoubleObject = number;
 
-export declare class DuplicateItemException extends EffectData.TaggedError(
+export declare class DuplicateItemException extends Data.TaggedError(
   "DuplicateItemException",
 )<{
   readonly message?: string;
@@ -1220,7 +1221,7 @@ export interface ExpectedAttributeValue {
 }
 export type ExportArn = string;
 
-export declare class ExportConflictException extends EffectData.TaggedError(
+export declare class ExportConflictException extends Data.TaggedError(
   "ExportConflictException",
 )<{
   readonly message?: string;
@@ -1257,7 +1258,7 @@ export type ExportManifest = string;
 
 export type ExportNextToken = string;
 
-export declare class ExportNotFoundException extends EffectData.TaggedError(
+export declare class ExportNotFoundException extends Data.TaggedError(
   "ExportNotFoundException",
 )<{
   readonly message?: string;
@@ -1387,7 +1388,7 @@ export interface GlobalTable {
   GlobalTableName?: string;
   ReplicationGroup?: Array<Replica>;
 }
-export declare class GlobalTableAlreadyExistsException extends EffectData.TaggedError(
+export declare class GlobalTableAlreadyExistsException extends Data.TaggedError(
   "GlobalTableAlreadyExistsException",
 )<{
   readonly message?: string;
@@ -1409,7 +1410,7 @@ export interface GlobalTableGlobalSecondaryIndexSettingsUpdate {
 export type GlobalTableGlobalSecondaryIndexSettingsUpdateList =
   Array<GlobalTableGlobalSecondaryIndexSettingsUpdate>;
 export type GlobalTableList = Array<GlobalTable>;
-export declare class GlobalTableNotFoundException extends EffectData.TaggedError(
+export declare class GlobalTableNotFoundException extends Data.TaggedError(
   "GlobalTableNotFoundException",
 )<{
   readonly message?: string;
@@ -1427,14 +1428,14 @@ export interface GlobalTableWitnessGroupUpdate {
 }
 export type GlobalTableWitnessGroupUpdateList =
   Array<GlobalTableWitnessGroupUpdate>;
-export declare class IdempotentParameterMismatchException extends EffectData.TaggedError(
+export declare class IdempotentParameterMismatchException extends Data.TaggedError(
   "IdempotentParameterMismatchException",
 )<{
   readonly Message?: string;
 }> {}
 export type ImportArn = string;
 
-export declare class ImportConflictException extends EffectData.TaggedError(
+export declare class ImportConflictException extends Data.TaggedError(
   "ImportConflictException",
 )<{
   readonly message?: string;
@@ -1445,7 +1446,7 @@ export type ImportEndTime = Date | string;
 
 export type ImportNextToken = string;
 
-export declare class ImportNotFoundException extends EffectData.TaggedError(
+export declare class ImportNotFoundException extends Data.TaggedError(
   "ImportNotFoundException",
 )<{
   readonly message?: string;
@@ -1508,7 +1509,7 @@ export interface IncrementalExportSpecification {
 }
 export type IndexName = string;
 
-export declare class IndexNotFoundException extends EffectData.TaggedError(
+export declare class IndexNotFoundException extends Data.TaggedError(
   "IndexNotFoundException",
 )<{
   readonly message?: string;
@@ -1523,22 +1524,22 @@ export type Integer = number;
 
 export type IntegerObject = number;
 
-export declare class InternalServerError extends EffectData.TaggedError(
+export declare class InternalServerError extends Data.TaggedError(
   "InternalServerError",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidEndpointException extends EffectData.TaggedError(
+export declare class InvalidEndpointException extends Data.TaggedError(
   "InvalidEndpointException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidExportTimeException extends EffectData.TaggedError(
+export declare class InvalidExportTimeException extends Data.TaggedError(
   "InvalidExportTimeException",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidRestoreTimeException extends EffectData.TaggedError(
+export declare class InvalidRestoreTimeException extends Data.TaggedError(
   "InvalidRestoreTimeException",
 )<{
   readonly message?: string;
@@ -1556,7 +1557,7 @@ export type ItemCollectionMetricsPerTable = Record<
 export type ItemCollectionSizeEstimateBound = number;
 
 export type ItemCollectionSizeEstimateRange = Array<number>;
-export declare class ItemCollectionSizeLimitExceededException extends EffectData.TaggedError(
+export declare class ItemCollectionSizeLimitExceededException extends Data.TaggedError(
   "ItemCollectionSizeLimitExceededException",
 )<{
   readonly message?: string;
@@ -1612,7 +1613,7 @@ export type KMSMasterKeyId = string;
 
 export type LastUpdateDateTime = Date | string;
 
-export declare class LimitExceededException extends EffectData.TaggedError(
+export declare class LimitExceededException extends Data.TaggedError(
   "LimitExceededException",
 )<{
   readonly message?: string;
@@ -1760,12 +1761,12 @@ export interface PointInTimeRecoverySpecification {
   RecoveryPeriodInDays?: number;
 }
 export type PointInTimeRecoveryStatus = "ENABLED" | "DISABLED";
-export declare class PointInTimeRecoveryUnavailableException extends EffectData.TaggedError(
+export declare class PointInTimeRecoveryUnavailableException extends Data.TaggedError(
   "PointInTimeRecoveryUnavailableException",
 )<{
   readonly message?: string;
 }> {}
-export declare class PolicyNotFoundException extends EffectData.TaggedError(
+export declare class PolicyNotFoundException extends Data.TaggedError(
   "PolicyNotFoundException",
 )<{
   readonly message?: string;
@@ -1797,7 +1798,7 @@ export interface ProvisionedThroughputDescription {
   ReadCapacityUnits?: number;
   WriteCapacityUnits?: number;
 }
-export declare class ProvisionedThroughputExceededException extends EffectData.TaggedError(
+export declare class ProvisionedThroughputExceededException extends Data.TaggedError(
   "ProvisionedThroughputExceededException",
 )<{
   readonly message?: string;
@@ -1880,7 +1881,7 @@ export type RegionName = string;
 export interface Replica {
   RegionName?: string;
 }
-export declare class ReplicaAlreadyExistsException extends EffectData.TaggedError(
+export declare class ReplicaAlreadyExistsException extends Data.TaggedError(
   "ReplicaAlreadyExistsException",
 )<{
   readonly message?: string;
@@ -1961,7 +1962,7 @@ export interface ReplicaGlobalSecondaryIndexSettingsUpdate {
 export type ReplicaGlobalSecondaryIndexSettingsUpdateList =
   Array<ReplicaGlobalSecondaryIndexSettingsUpdate>;
 export type ReplicaList = Array<Replica>;
-export declare class ReplicaNotFoundException extends EffectData.TaggedError(
+export declare class ReplicaNotFoundException extends Data.TaggedError(
   "ReplicaNotFoundException",
 )<{
   readonly message?: string;
@@ -2001,7 +2002,7 @@ export type ReplicaStatusDescription = string;
 
 export type ReplicaStatusPercentProgress = string;
 
-export declare class ReplicatedWriteConflictException extends EffectData.TaggedError(
+export declare class ReplicatedWriteConflictException extends Data.TaggedError(
   "ReplicatedWriteConflictException",
 )<{
   readonly message?: string;
@@ -2017,7 +2018,7 @@ export interface ReplicaUpdate {
   Delete?: DeleteReplicaAction;
 }
 export type ReplicaUpdateList = Array<ReplicaUpdate>;
-export declare class RequestLimitExceeded extends EffectData.TaggedError(
+export declare class RequestLimitExceeded extends Data.TaggedError(
   "RequestLimitExceeded",
 )<{
   readonly message?: string;
@@ -2027,12 +2028,12 @@ export type Resource = string;
 
 export type ResourceArnString = string;
 
-export declare class ResourceInUseException extends EffectData.TaggedError(
+export declare class ResourceInUseException extends Data.TaggedError(
   "ResourceInUseException",
 )<{
   readonly message?: string;
 }> {}
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly message?: string;
@@ -2192,7 +2193,7 @@ export type DynamodbString = string;
 export type StringAttributeValue = string;
 
 export type StringSetAttributeValue = Array<string>;
-export declare class TableAlreadyExistsException extends EffectData.TaggedError(
+export declare class TableAlreadyExistsException extends Data.TaggedError(
   "TableAlreadyExistsException",
 )<{
   readonly message?: string;
@@ -2252,7 +2253,7 @@ export interface TableDescription {
 }
 export type TableId = string;
 
-export declare class TableInUseException extends EffectData.TaggedError(
+export declare class TableInUseException extends Data.TaggedError(
   "TableInUseException",
 )<{
   readonly message?: string;
@@ -2260,7 +2261,7 @@ export declare class TableInUseException extends EffectData.TaggedError(
 export type TableName = string;
 
 export type TableNameList = Array<string>;
-export declare class TableNotFoundException extends EffectData.TaggedError(
+export declare class TableNotFoundException extends Data.TaggedError(
   "TableNotFoundException",
 )<{
   readonly message?: string;
@@ -2293,7 +2294,7 @@ export interface TagResourceInput {
 }
 export type TagValueString = string;
 
-export declare class ThrottlingException extends EffectData.TaggedError(
+export declare class ThrottlingException extends Data.TaggedError(
   "ThrottlingException",
 )<{
   readonly message?: string;
@@ -2337,18 +2338,18 @@ export interface TransactGetItemsOutput {
   ConsumedCapacity?: Array<ConsumedCapacity>;
   Responses?: Array<ItemResponse>;
 }
-export declare class TransactionCanceledException extends EffectData.TaggedError(
+export declare class TransactionCanceledException extends Data.TaggedError(
   "TransactionCanceledException",
 )<{
   readonly Message?: string;
   readonly CancellationReasons?: Array<CancellationReason>;
 }> {}
-export declare class TransactionConflictException extends EffectData.TaggedError(
+export declare class TransactionConflictException extends Data.TaggedError(
   "TransactionConflictException",
 )<{
   readonly message?: string;
 }> {}
-export declare class TransactionInProgressException extends EffectData.TaggedError(
+export declare class TransactionInProgressException extends Data.TaggedError(
   "TransactionInProgressException",
 )<{
   readonly Message?: string;

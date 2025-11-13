@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   ExpiredTokenException,
   IncompleteSignature,
@@ -275,7 +276,7 @@ export declare class MPA extends AWSServiceClient {
 
 export declare class Mpa extends MPA {}
 
-export declare class AccessDeniedException extends EffectData.TaggedError(
+export declare class AccessDeniedException extends Data.TaggedError(
   "AccessDeniedException",
 )<{
   readonly Message: string;
@@ -326,7 +327,7 @@ export interface CancelSessionRequest {
   SessionArn: string;
 }
 export interface CancelSessionResponse {}
-export declare class ConflictException extends EffectData.TaggedError(
+export declare class ConflictException extends Data.TaggedError(
   "ConflictException",
 )<{
   readonly Message: string;
@@ -529,12 +530,12 @@ export type IdentitySourceStatusCode =
   | "IDC_INSTANCE_NOT_VALID";
 export type IdentitySourceType = "IAM_IDENTITY_CENTER";
 export type IdentityStatus = "PENDING" | "ACCEPTED" | "REJECTED" | "INVALID";
-export declare class InternalServerException extends EffectData.TaggedError(
+export declare class InternalServerException extends Data.TaggedError(
   "InternalServerException",
 )<{
   readonly Message: string;
 }> {}
-export declare class InvalidParameterException extends EffectData.TaggedError(
+export declare class InvalidParameterException extends Data.TaggedError(
   "InvalidParameterException",
 )<{
   readonly Message: string;
@@ -718,14 +719,14 @@ export type Region = string;
 
 export type RequesterComment = string;
 
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly Message: string;
 }> {}
 export type ServicePrincipal = string;
 
-export declare class ServiceQuotaExceededException extends EffectData.TaggedError(
+export declare class ServiceQuotaExceededException extends Data.TaggedError(
   "ServiceQuotaExceededException",
 )<{
   readonly Message: string;
@@ -770,14 +771,14 @@ export interface TagResourceResponse {}
 export type Tags = Record<string, string>;
 export type TagValue = string;
 
-export declare class ThrottlingException extends EffectData.TaggedError(
+export declare class ThrottlingException extends Data.TaggedError(
   "ThrottlingException",
 )<{
   readonly Message: string;
 }> {}
 export type Token = string;
 
-export declare class TooManyTagsException extends EffectData.TaggedError(
+export declare class TooManyTagsException extends Data.TaggedError(
   "TooManyTagsException",
 )<{
   readonly Message: string;
@@ -799,7 +800,7 @@ export interface UpdateApprovalTeamRequest {
 export interface UpdateApprovalTeamResponse {
   VersionId?: string;
 }
-export declare class ValidationException extends EffectData.TaggedError(
+export declare class ValidationException extends Data.TaggedError(
   "ValidationException",
 )<{
   readonly Message: string;

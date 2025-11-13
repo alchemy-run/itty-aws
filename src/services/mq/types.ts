@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
@@ -283,7 +284,7 @@ export type AuthenticationStrategy = "SIMPLE" | "LDAP" | "CONFIG_MANAGED";
 export interface AvailabilityZone {
   Name?: string;
 }
-export declare class BadRequestException extends EffectData.TaggedError(
+export declare class BadRequestException extends Data.TaggedError(
   "BadRequestException",
 )<{
   readonly ErrorAttribute?: string;
@@ -352,7 +353,7 @@ export interface Configurations {
   History?: Array<ConfigurationId>;
   Pending?: ConfigurationId;
 }
-export declare class ConflictException extends EffectData.TaggedError(
+export declare class ConflictException extends Data.TaggedError(
   "ConflictException",
 )<{
   readonly ErrorAttribute?: string;
@@ -560,13 +561,13 @@ export type EngineType = "ACTIVEMQ" | "RABBITMQ";
 export interface EngineVersion {
   Name?: string;
 }
-export declare class ForbiddenException extends EffectData.TaggedError(
+export declare class ForbiddenException extends Data.TaggedError(
   "ForbiddenException",
 )<{
   readonly ErrorAttribute?: string;
   readonly Message?: string;
 }> {}
-export declare class InternalServerErrorException extends EffectData.TaggedError(
+export declare class InternalServerErrorException extends Data.TaggedError(
   "InternalServerErrorException",
 )<{
   readonly ErrorAttribute?: string;
@@ -655,7 +656,7 @@ export interface LogsSummary {
 }
 export type MaxResults = number;
 
-export declare class NotFoundException extends EffectData.TaggedError(
+export declare class NotFoundException extends Data.TaggedError(
   "NotFoundException",
 )<{
   readonly ErrorAttribute?: string;
@@ -686,7 +687,7 @@ export type SanitizationWarningReason =
   | "DISALLOWED_ELEMENT_REMOVED"
   | "DISALLOWED_ATTRIBUTE_REMOVED"
   | "INVALID_ATTRIBUTE_VALUE_REMOVED";
-export declare class UnauthorizedException extends EffectData.TaggedError(
+export declare class UnauthorizedException extends Data.TaggedError(
   "UnauthorizedException",
 )<{
   readonly ErrorAttribute?: string;

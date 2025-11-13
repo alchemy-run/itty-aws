@@ -41,7 +41,7 @@
   },
   "scripts": {
     "build": "tsc -b",
-    "generate": "bun scripts/generate-clients.ts && bun biome check --write && tsc -b",
+    "generate": "bun scripts/generate-clients.ts && bun biome check --write --unsafe && tsc -b",
     "generate:unsafe": "bun scripts/generate-clients.ts",
     "generate-ec2-metadata": "bun scripts/generate-ec2-metadata.ts && bun biome check --write && tsc -b",
     "generate-awsquery-metadata": "bun scripts/generate-awsquery-metadata.ts --all && bun biome check --write && tsc -b",
@@ -57,24 +57,22 @@
   },
   "peerDependencies": {
     "@aws-sdk/credential-providers": "^3",
-    "@effect/platform": "^0.87.12",
-    "@effect/platform-node": "^0.89.5",
-    "effect": "^3"
+    "@effect/platform-node": "https://pkg.pr.new/Effect-TS/effect-smol/@effect/platform-node@276bd01",
+    "effect": "https://pkg.pr.new/Effect-TS/effect-smol/effect@276bd01"
   },
   "devDependencies": {
     "@aws-sdk/credential-providers": "^3",
     "@biomejs/biome": "^2.1.1",
     "@effect/language-service": "^0.36.0",
-    "@effect/platform": "^0.87.12",
-    "@effect/platform-node": "^0.89.5",
-    "@effect/vitest": "^0.23.12",
+    "@effect/platform-node": "https://pkg.pr.new/Effect-TS/effect-smol/@effect/platform-node@276bd01",
+    "@effect/vitest": "https://pkg.pr.new/Effect-TS/effect-smol/@effect/vitest@276bd01",
     "@types/bun": "^1.2.18",
     "@types/node": "^20",
     "adm-zip": "^0.5.16",
     "@types/adm-zip": "^0.5.7",
     "bun-types": "^1.2.18",
     "changelogithub": "^13.16.0",
-    "effect": "^3.16.12",
+    "effect": "https://pkg.pr.new/Effect-TS/effect-smol/effect@276bd01",
     "esbuild": "^0.25.9",
     "pathe": "^2.0.3",
     "ts-patch": "^3.3.0",

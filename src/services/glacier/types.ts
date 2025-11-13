@@ -1,5 +1,7 @@
-import type { Effect, Stream, Data as EffectData } from "effect";
-import type { ResponseError } from "@effect/platform/HttpClientError";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
+import type * as Stream from "effect/stream/Stream";
+import type { ResponseError } from "effect/unstable/http/HttpClientError";
 import type { Buffer } from "node:buffer";
 import type {
   AccessDeniedException,
@@ -604,14 +606,14 @@ export interface InitiateVaultLockOutput {
 export interface InputSerialization {
   csv?: CSVInput;
 }
-export declare class InsufficientCapacityException extends EffectData.TaggedError(
+export declare class InsufficientCapacityException extends Data.TaggedError(
   "InsufficientCapacityException",
 )<{
   readonly type?: string;
   readonly code?: string;
   readonly message?: string;
 }> {}
-export declare class InvalidParameterValueException extends EffectData.TaggedError(
+export declare class InvalidParameterValueException extends Data.TaggedError(
   "InvalidParameterValueException",
 )<{
   readonly type?: string;
@@ -644,7 +646,7 @@ export interface JobParameters {
   SelectParameters?: SelectParameters;
   OutputLocation?: OutputLocation;
 }
-export declare class LimitExceededException extends EffectData.TaggedError(
+export declare class LimitExceededException extends Data.TaggedError(
   "LimitExceededException",
 )<{
   readonly type?: string;
@@ -713,7 +715,7 @@ export interface ListVaultsOutput {
 }
 export type long = number;
 
-export declare class MissingParameterValueException extends EffectData.TaggedError(
+export declare class MissingParameterValueException extends Data.TaggedError(
   "MissingParameterValueException",
 )<{
   readonly type?: string;
@@ -740,7 +742,7 @@ export type Permission =
   | "WRITE_ACP"
   | "READ"
   | "READ_ACP";
-export declare class PolicyEnforcedException extends EffectData.TaggedError(
+export declare class PolicyEnforcedException extends Data.TaggedError(
   "PolicyEnforcedException",
 )<{
   readonly type?: string;
@@ -765,14 +767,14 @@ export interface RemoveTagsFromVaultInput {
   vaultName: string;
   TagKeys?: Array<string>;
 }
-export declare class RequestTimeoutException extends EffectData.TaggedError(
+export declare class RequestTimeoutException extends Data.TaggedError(
   "RequestTimeoutException",
 )<{
   readonly type?: string;
   readonly code?: string;
   readonly message?: string;
 }> {}
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly type?: string;
@@ -795,7 +797,7 @@ export interface SelectParameters {
   Expression?: string;
   OutputSerialization?: OutputSerialization;
 }
-export declare class ServiceUnavailableException extends EffectData.TaggedError(
+export declare class ServiceUnavailableException extends Data.TaggedError(
   "ServiceUnavailableException",
 )<{
   readonly type?: string;
@@ -820,7 +822,7 @@ export type Size = number;
 
 export type StatusCode = "InProgress" | "Succeeded" | "Failed";
 export type StorageClass = "STANDARD" | "REDUCED_REDUNDANCY" | "STANDARD_IA";
-export type Stream = Uint8Array | string;
+export type GlacierStream = Uint8Array | string;
 
 export type Glacierstring = string;
 

@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   ExpiredTokenException,
   IncompleteSignature,
@@ -1063,7 +1064,7 @@ export declare class Rekognition extends AWSServiceClient {
   >;
 }
 
-export declare class AccessDeniedException extends EffectData.TaggedError(
+export declare class AccessDeniedException extends Data.TaggedError(
   "AccessDeniedException",
 )<{
   readonly Message?: string;
@@ -1221,7 +1222,7 @@ export interface CompareFacesResponse {
   TargetImageOrientationCorrection?: OrientationCorrection;
 }
 export type CompareFacesUnmatchList = Array<ComparedFace>;
-export declare class ConflictException extends EffectData.TaggedError(
+export declare class ConflictException extends Data.TaggedError(
   "ConflictException",
 )<{
   readonly Message?: string;
@@ -1990,7 +1991,7 @@ export interface HumanLoopDataAttributes {
 }
 export type HumanLoopName = string;
 
-export declare class HumanLoopQuotaExceededException extends EffectData.TaggedError(
+export declare class HumanLoopQuotaExceededException extends Data.TaggedError(
   "HumanLoopQuotaExceededException",
 )<{
   readonly ResourceType?: string;
@@ -2000,7 +2001,7 @@ export declare class HumanLoopQuotaExceededException extends EffectData.TaggedEr
   readonly Code?: string;
   readonly Logref?: string;
 }> {}
-export declare class IdempotentParameterMismatchException extends EffectData.TaggedError(
+export declare class IdempotentParameterMismatchException extends Data.TaggedError(
   "IdempotentParameterMismatchException",
 )<{
   readonly Message?: string;
@@ -2019,7 +2020,7 @@ export interface ImageQuality {
   Brightness?: number;
   Sharpness?: number;
 }
-export declare class ImageTooLargeException extends EffectData.TaggedError(
+export declare class ImageTooLargeException extends Data.TaggedError(
   "ImageTooLargeException",
 )<{
   readonly Message?: string;
@@ -2050,49 +2051,49 @@ export interface Instance {
   DominantColors?: Array<DominantColor>;
 }
 export type Instances = Array<Instance>;
-export declare class InternalServerError extends EffectData.TaggedError(
+export declare class InternalServerError extends Data.TaggedError(
   "InternalServerError",
 )<{
   readonly Message?: string;
   readonly Code?: string;
   readonly Logref?: string;
 }> {}
-export declare class InvalidImageFormatException extends EffectData.TaggedError(
+export declare class InvalidImageFormatException extends Data.TaggedError(
   "InvalidImageFormatException",
 )<{
   readonly Message?: string;
   readonly Code?: string;
   readonly Logref?: string;
 }> {}
-export declare class InvalidManifestException extends EffectData.TaggedError(
+export declare class InvalidManifestException extends Data.TaggedError(
   "InvalidManifestException",
 )<{
   readonly Message?: string;
   readonly Code?: string;
   readonly Logref?: string;
 }> {}
-export declare class InvalidPaginationTokenException extends EffectData.TaggedError(
+export declare class InvalidPaginationTokenException extends Data.TaggedError(
   "InvalidPaginationTokenException",
 )<{
   readonly Message?: string;
   readonly Code?: string;
   readonly Logref?: string;
 }> {}
-export declare class InvalidParameterException extends EffectData.TaggedError(
+export declare class InvalidParameterException extends Data.TaggedError(
   "InvalidParameterException",
 )<{
   readonly Message?: string;
   readonly Code?: string;
   readonly Logref?: string;
 }> {}
-export declare class InvalidPolicyRevisionIdException extends EffectData.TaggedError(
+export declare class InvalidPolicyRevisionIdException extends Data.TaggedError(
   "InvalidPolicyRevisionIdException",
 )<{
   readonly Message?: string;
   readonly Code?: string;
   readonly Logref?: string;
 }> {}
-export declare class InvalidS3ObjectException extends EffectData.TaggedError(
+export declare class InvalidS3ObjectException extends Data.TaggedError(
   "InvalidS3ObjectException",
 )<{
   readonly Message?: string;
@@ -2196,7 +2197,7 @@ export type LandmarkType =
   | "chinBottom"
   | "midJawlineRight"
   | "upperJawlineRight";
-export declare class LimitExceededException extends EffectData.TaggedError(
+export declare class LimitExceededException extends Data.TaggedError(
   "LimitExceededException",
 )<{
   readonly Message?: string;
@@ -2310,7 +2311,7 @@ export type LivenessSessionStatus =
   | "SUCCEEDED"
   | "FAILED"
   | "EXPIRED";
-export declare class MalformedPolicyDocumentException extends EffectData.TaggedError(
+export declare class MalformedPolicyDocumentException extends Data.TaggedError(
   "MalformedPolicyDocumentException",
 )<{
   readonly Message?: string;
@@ -2570,7 +2571,7 @@ export type ProtectiveEquipmentType =
   | "HAND_COVER"
   | "HEAD_COVER";
 export type ProtectiveEquipmentTypes = Array<ProtectiveEquipmentType>;
-export declare class ProvisionedThroughputExceededException extends EffectData.TaggedError(
+export declare class ProvisionedThroughputExceededException extends Data.TaggedError(
   "ProvisionedThroughputExceededException",
 )<{
   readonly Message?: string;
@@ -2613,7 +2614,7 @@ export interface RegionOfInterest {
 export type RegionsOfInterest = Array<RegionOfInterest>;
 export type RekognitionUniqueId = string;
 
-export declare class ResourceAlreadyExistsException extends EffectData.TaggedError(
+export declare class ResourceAlreadyExistsException extends Data.TaggedError(
   "ResourceAlreadyExistsException",
 )<{
   readonly Message?: string;
@@ -2622,21 +2623,21 @@ export declare class ResourceAlreadyExistsException extends EffectData.TaggedErr
 }> {}
 export type ResourceArn = string;
 
-export declare class ResourceInUseException extends EffectData.TaggedError(
+export declare class ResourceInUseException extends Data.TaggedError(
   "ResourceInUseException",
 )<{
   readonly Message?: string;
   readonly Code?: string;
   readonly Logref?: string;
 }> {}
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly Message?: string;
   readonly Code?: string;
   readonly Logref?: string;
 }> {}
-export declare class ResourceNotReadyException extends EffectData.TaggedError(
+export declare class ResourceNotReadyException extends Data.TaggedError(
   "ResourceNotReadyException",
 )<{
   readonly Message?: string;
@@ -2745,14 +2746,14 @@ export interface SegmentTypeInfo {
 }
 export type SegmentTypes = Array<SegmentType>;
 export type SegmentTypesInfo = Array<SegmentTypeInfo>;
-export declare class ServiceQuotaExceededException extends EffectData.TaggedError(
+export declare class ServiceQuotaExceededException extends Data.TaggedError(
   "ServiceQuotaExceededException",
 )<{
   readonly Message?: string;
   readonly Code?: string;
   readonly Logref?: string;
 }> {}
-export declare class SessionNotFoundException extends EffectData.TaggedError(
+export declare class SessionNotFoundException extends Data.TaggedError(
   "SessionNotFoundException",
 )<{
   readonly Message?: string;
@@ -3013,7 +3014,7 @@ export interface TextDetectionResult {
 }
 export type TextDetectionResults = Array<TextDetectionResult>;
 export type TextTypes = "LINE" | "WORD";
-export declare class ThrottlingException extends EffectData.TaggedError(
+export declare class ThrottlingException extends Data.TaggedError(
   "ThrottlingException",
 )<{
   readonly Message?: string;
@@ -3157,7 +3158,7 @@ export interface VideoMetadata {
   ColorRange?: VideoColorRange;
 }
 export type VideoMetadataList = Array<VideoMetadata>;
-export declare class VideoTooLargeException extends EffectData.TaggedError(
+export declare class VideoTooLargeException extends Data.TaggedError(
   "VideoTooLargeException",
 )<{
   readonly Message?: string;

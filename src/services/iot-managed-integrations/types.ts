@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   ExpiredTokenException,
   IncompleteSignature,
@@ -1033,7 +1034,7 @@ export type AbortCriteriaFailureType =
   | "REJECTED"
   | "TIMED_OUT"
   | "ALL";
-export declare class AccessDeniedException extends EffectData.TaggedError(
+export declare class AccessDeniedException extends Data.TaggedError(
   "AccessDeniedException",
 )<{
   readonly Message?: string;
@@ -1196,7 +1197,7 @@ export interface ConfigurationStatus {
   error?: ConfigurationError;
   state: ConfigurationState;
 }
-export declare class ConflictException extends EffectData.TaggedError(
+export declare class ConflictException extends Data.TaggedError(
   "ConflictException",
 )<{
   readonly Message?: string;
@@ -1848,19 +1849,19 @@ export type IncrementFactor = number;
 
 export type InProgressTimeoutInMinutes = number;
 
-export declare class InternalFailureException extends EffectData.TaggedError(
+export declare class InternalFailureException extends Data.TaggedError(
   "InternalFailureException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InternalServerException extends EffectData.TaggedError(
+export declare class InternalServerException extends Data.TaggedError(
   "InternalServerException",
 )<{
   readonly Message?: string;
 }> {}
 export type InternationalArticleNumber = string;
 
-export declare class InvalidRequestException extends EffectData.TaggedError(
+export declare class InvalidRequestException extends Data.TaggedError(
   "InvalidRequestException",
 )<{
   readonly Message?: string;
@@ -1876,7 +1877,7 @@ export interface LambdaConfig {
 }
 export type LastUpdatedAt = Date | string;
 
-export declare class LimitExceededException extends EffectData.TaggedError(
+export declare class LimitExceededException extends Data.TaggedError(
   "LimitExceededException",
 )<{
   readonly Message?: string;
@@ -2378,7 +2379,7 @@ export interface RegisterCustomEndpointResponse {
 export interface ResetRuntimeLogConfigurationRequest {
   ManagedThingId: string;
 }
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly Message?: string;
@@ -2480,12 +2481,12 @@ export interface SendManagedThingCommandResponse {
 }
 export type SerialNumber = string;
 
-export declare class ServiceQuotaExceededException extends EffectData.TaggedError(
+export declare class ServiceQuotaExceededException extends Data.TaggedError(
   "ServiceQuotaExceededException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class ServiceUnavailableException extends EffectData.TaggedError(
+export declare class ServiceUnavailableException extends Data.TaggedError(
   "ServiceUnavailableException",
 )<{
   readonly Message?: string;
@@ -2562,7 +2563,7 @@ export type ThirdPartyUserId = string;
 
 export type ThresholdPercentage = number;
 
-export declare class ThrottlingException extends EffectData.TaggedError(
+export declare class ThrottlingException extends Data.TaggedError(
   "ThrottlingException",
 )<{
   readonly Message?: string;
@@ -2574,7 +2575,7 @@ export type TokenUrl = string;
 
 export type TraceId = string;
 
-export declare class UnauthorizedException extends EffectData.TaggedError(
+export declare class UnauthorizedException extends Data.TaggedError(
   "UnauthorizedException",
 )<{
   readonly Message?: string;
@@ -2645,7 +2646,7 @@ export type UploadLog = boolean;
 
 export type UploadPeriodMinutes = number;
 
-export declare class ValidationException extends EffectData.TaggedError(
+export declare class ValidationException extends Data.TaggedError(
   "ValidationException",
 )<{
   readonly Message?: string;

@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   ExpiredTokenException,
   IncompleteSignature,
@@ -2823,7 +2824,7 @@ export declare class Glue extends AWSServiceClient {
   >;
 }
 
-export declare class AccessDeniedException extends EffectData.TaggedError(
+export declare class AccessDeniedException extends Data.TaggedError(
   "AccessDeniedException",
 )<{
   readonly Message?: string;
@@ -2886,7 +2887,7 @@ export type AllowedValuesStringList = Array<string>;
 export type AllowedValueValueString = string;
 
 export type AllowFullTableExternalDataAccessEnum = "True" | "False";
-export declare class AlreadyExistsException extends EffectData.TaggedError(
+export declare class AlreadyExistsException extends Data.TaggedError(
   "AlreadyExistsException",
 )<{
   readonly Message?: string;
@@ -3635,7 +3636,7 @@ export type ColumnStatisticsState =
   | "SUCCEEDED"
   | "FAILED"
   | "STOPPED";
-export declare class ColumnStatisticsTaskNotRunningException extends EffectData.TaggedError(
+export declare class ColumnStatisticsTaskNotRunningException extends Data.TaggedError(
   "ColumnStatisticsTaskNotRunningException",
 )<{
   readonly Message?: string;
@@ -3662,7 +3663,7 @@ export interface ColumnStatisticsTaskRun {
   DPUSeconds?: number;
 }
 export type ColumnStatisticsTaskRunIdList = Array<string>;
-export declare class ColumnStatisticsTaskRunningException extends EffectData.TaggedError(
+export declare class ColumnStatisticsTaskRunningException extends Data.TaggedError(
   "ColumnStatisticsTaskRunningException",
 )<{
   readonly Message?: string;
@@ -3681,7 +3682,7 @@ export interface ColumnStatisticsTaskSettings {
   SettingSource?: SettingSource;
   LastExecutionAttempt?: ExecutionAttempt;
 }
-export declare class ColumnStatisticsTaskStoppingException extends EffectData.TaggedError(
+export declare class ColumnStatisticsTaskStoppingException extends Data.TaggedError(
   "ColumnStatisticsTaskStoppingException",
 )<{
   readonly Message?: string;
@@ -3749,12 +3750,12 @@ export type ComputeEnvironmentList = Array<ComputeEnvironment>;
 export type ComputeEnvironmentName = string;
 
 export type ComputeEnvironments = Array<ComputeEnvironment>;
-export declare class ConcurrentModificationException extends EffectData.TaggedError(
+export declare class ConcurrentModificationException extends Data.TaggedError(
   "ConcurrentModificationException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class ConcurrentRunsExceededException extends EffectData.TaggedError(
+export declare class ConcurrentRunsExceededException extends Data.TaggedError(
   "ConcurrentRunsExceededException",
 )<{
   readonly Message?: string;
@@ -3766,7 +3767,7 @@ export interface Condition {
   CrawlerName?: string;
   CrawlState?: CrawlState;
 }
-export declare class ConditionCheckFailureException extends EffectData.TaggedError(
+export declare class ConditionCheckFailureException extends Data.TaggedError(
   "ConditionCheckFailureException",
 )<{
   readonly Message?: string;
@@ -3788,7 +3789,7 @@ export interface ConfigurationObject {
 export type ConfigurationSource = "catalog" | "table";
 export type ConfigValueString = string;
 
-export declare class ConflictException extends EffectData.TaggedError(
+export declare class ConflictException extends Data.TaggedError(
   "ConflictException",
 )<{
   readonly Message?: string;
@@ -4099,12 +4100,12 @@ export type CrawlerNameList = Array<string>;
 export interface CrawlerNodeDetails {
   Crawls?: Array<Crawl>;
 }
-export declare class CrawlerNotRunningException extends EffectData.TaggedError(
+export declare class CrawlerNotRunningException extends Data.TaggedError(
   "CrawlerNotRunningException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class CrawlerRunningException extends EffectData.TaggedError(
+export declare class CrawlerRunningException extends Data.TaggedError(
   "CrawlerRunningException",
 )<{
   readonly Message?: string;
@@ -4112,7 +4113,7 @@ export declare class CrawlerRunningException extends EffectData.TaggedError(
 export type CrawlerSecurityConfiguration = string;
 
 export type CrawlerState = "READY" | "RUNNING" | "STOPPING";
-export declare class CrawlerStoppingException extends EffectData.TaggedError(
+export declare class CrawlerStoppingException extends Data.TaggedError(
   "CrawlerStoppingException",
 )<{
   readonly Message?: string;
@@ -5299,7 +5300,7 @@ export type EntityLabel = string;
 export type EntityList = Array<Entity>;
 export type EntityName = string;
 
-export declare class EntityNotFoundException extends EffectData.TaggedError(
+export declare class EntityNotFoundException extends Data.TaggedError(
   "EntityNotFoundException",
 )<{
   readonly Message?: string;
@@ -5377,7 +5378,7 @@ export interface FederatedDatabase {
   ConnectionName?: string;
   ConnectionType?: string;
 }
-export declare class FederatedResourceAlreadyExistsException extends EffectData.TaggedError(
+export declare class FederatedResourceAlreadyExistsException extends Data.TaggedError(
   "FederatedResourceAlreadyExistsException",
 )<{
   readonly Message?: string;
@@ -5402,13 +5403,13 @@ export type FederationSourceErrorCode =
   | "InternalServiceException"
   | "PartialFailureException"
   | "ThrottlingException";
-export declare class FederationSourceException extends EffectData.TaggedError(
+export declare class FederationSourceException extends Data.TaggedError(
   "FederationSourceException",
 )<{
   readonly FederationSourceErrorCode?: FederationSourceErrorCode;
   readonly Message?: string;
 }> {}
-export declare class FederationSourceRetryableException extends EffectData.TaggedError(
+export declare class FederationSourceRetryableException extends Data.TaggedError(
   "FederationSourceRetryableException",
 )<{
   readonly Message?: string;
@@ -6346,7 +6347,7 @@ export interface GetWorkflowRunsResponse {
 }
 export type glueConnectionNameString = string;
 
-export declare class GlueEncryptionException extends EffectData.TaggedError(
+export declare class GlueEncryptionException extends Data.TaggedError(
   "GlueEncryptionException",
 )<{
   readonly Message?: string;
@@ -6561,7 +6562,7 @@ export type IcebergTargetCompressionType =
 export type IcebergTargetList = Array<IcebergTarget>;
 export type IcebergTransformString = string;
 
-export declare class IdempotentParameterMismatchException extends EffectData.TaggedError(
+export declare class IdempotentParameterMismatchException extends Data.TaggedError(
   "IdempotentParameterMismatchException",
 )<{
   readonly Message?: string;
@@ -6575,17 +6576,17 @@ export type IdleTimeout = number;
 
 export type IdString = string;
 
-export declare class IllegalBlueprintStateException extends EffectData.TaggedError(
+export declare class IllegalBlueprintStateException extends Data.TaggedError(
   "IllegalBlueprintStateException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class IllegalSessionStateException extends EffectData.TaggedError(
+export declare class IllegalSessionStateException extends Data.TaggedError(
   "IllegalSessionStateException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class IllegalWorkflowStateException extends EffectData.TaggedError(
+export declare class IllegalWorkflowStateException extends Data.TaggedError(
   "IllegalWorkflowStateException",
 )<{
   readonly Message?: string;
@@ -6638,7 +6639,7 @@ export interface IntegrationConfig {
   SourceProperties?: Record<string, string>;
   ContinuousSync?: boolean;
 }
-export declare class IntegrationConflictOperationFault extends EffectData.TaggedError(
+export declare class IntegrationConflictOperationFault extends Data.TaggedError(
   "IntegrationConflictOperationFault",
 )<{
   readonly Message?: string;
@@ -6660,7 +6661,7 @@ export type IntegrationFilterList = Array<IntegrationFilter>;
 export type IntegrationFilterValues = Array<string>;
 export type IntegrationInteger = number;
 
-export declare class IntegrationNotFoundFault extends EffectData.TaggedError(
+export declare class IntegrationNotFoundFault extends Data.TaggedError(
   "IntegrationNotFoundFault",
 )<{
   readonly Message?: string;
@@ -6671,7 +6672,7 @@ export interface IntegrationPartition {
   ConversionSpec?: string;
 }
 export type IntegrationPartitionSpecList = Array<IntegrationPartition>;
-export declare class IntegrationQuotaExceededFault extends EffectData.TaggedError(
+export declare class IntegrationQuotaExceededFault extends Data.TaggedError(
   "IntegrationQuotaExceededFault",
 )<{
   readonly Message?: string;
@@ -6691,28 +6692,28 @@ export type IntegrationString = string;
 export type IntegrationTagsList = Array<Tag>;
 export type IntegrationTimestamp = Date | string;
 
-export declare class InternalServerException extends EffectData.TaggedError(
+export declare class InternalServerException extends Data.TaggedError(
   "InternalServerException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InternalServiceException extends EffectData.TaggedError(
+export declare class InternalServiceException extends Data.TaggedError(
   "InternalServiceException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidInputException extends EffectData.TaggedError(
+export declare class InvalidInputException extends Data.TaggedError(
   "InvalidInputException",
 )<{
   readonly Message?: string;
   readonly FromFederationSource?: boolean;
 }> {}
-export declare class InvalidIntegrationStateFault extends EffectData.TaggedError(
+export declare class InvalidIntegrationStateFault extends Data.TaggedError(
   "InvalidIntegrationStateFault",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidStateException extends EffectData.TaggedError(
+export declare class InvalidStateException extends Data.TaggedError(
   "InvalidStateException",
 )<{
   readonly Message?: string;
@@ -7020,7 +7021,7 @@ export interface KinesisStreamingSourceOptions {
 }
 export type KmsKeyArn = string;
 
-export declare class KMSKeyNotAccessibleFault extends EffectData.TaggedError(
+export declare class KMSKeyNotAccessibleFault extends Data.TaggedError(
   "KMSKeyNotAccessibleFault",
 )<{
   readonly Message?: string;
@@ -7433,7 +7434,7 @@ export interface MLTransform {
   MaxRetries?: number;
   TransformEncryption?: TransformEncryption;
 }
-export declare class MLTransformNotReadyException extends EffectData.TaggedError(
+export declare class MLTransformNotReadyException extends Data.TaggedError(
   "MLTransformNotReadyException",
 )<{
   readonly Message?: string;
@@ -7511,7 +7512,7 @@ export type NonNegativeInteger = number;
 
 export type NonNegativeLong = number;
 
-export declare class NoScheduleException extends EffectData.TaggedError(
+export declare class NoScheduleException extends Data.TaggedError(
   "NoScheduleException",
 )<{
   readonly Message?: string;
@@ -7575,12 +7576,12 @@ export interface OpenTableFormatInput {
 }
 export type Operation = string;
 
-export declare class OperationNotSupportedException extends EffectData.TaggedError(
+export declare class OperationNotSupportedException extends Data.TaggedError(
   "OperationNotSupportedException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class OperationTimeoutException extends EffectData.TaggedError(
+export declare class OperationTimeoutException extends Data.TaggedError(
   "OperationTimeoutException",
 )<{
   readonly Message?: string;
@@ -7741,7 +7742,7 @@ export type PermissionType =
   | "NESTED_PERMISSION"
   | "NESTED_CELL_PERMISSION";
 export type PermissionTypeList = Array<PermissionType>;
-export declare class PermissionTypeMismatchException extends EffectData.TaggedError(
+export declare class PermissionTypeMismatchException extends Data.TaggedError(
   "PermissionTypeMismatchException",
 )<{
   readonly Message?: string;
@@ -8039,17 +8040,17 @@ export interface ResetJobBookmarkResponse {
 export type ResourceAction = "UPDATE" | "CREATE";
 export type ResourceArnString = string;
 
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class ResourceNotReadyException extends EffectData.TaggedError(
+export declare class ResourceNotReadyException extends Data.TaggedError(
   "ResourceNotReadyException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class ResourceNumberLimitExceededException extends EffectData.TaggedError(
+export declare class ResourceNumberLimitExceededException extends Data.TaggedError(
   "ResourceNumberLimitExceededException",
 )<{
   readonly Message?: string;
@@ -8369,17 +8370,17 @@ export interface Schedule {
   ScheduleExpression?: string;
   State?: ScheduleState;
 }
-export declare class SchedulerNotRunningException extends EffectData.TaggedError(
+export declare class SchedulerNotRunningException extends Data.TaggedError(
   "SchedulerNotRunningException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class SchedulerRunningException extends EffectData.TaggedError(
+export declare class SchedulerRunningException extends Data.TaggedError(
   "SchedulerRunningException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class SchedulerTransitioningException extends EffectData.TaggedError(
+export declare class SchedulerTransitioningException extends Data.TaggedError(
   "SchedulerTransitioningException",
 )<{
   readonly Message?: string;
@@ -9081,7 +9082,7 @@ export interface TargetProcessingProperties {
 export interface TargetRedshiftCatalog {
   CatalogArn: string;
 }
-export declare class TargetResourceNotFound extends EffectData.TaggedError(
+export declare class TargetResourceNotFound extends Data.TaggedError(
   "TargetResourceNotFound",
 )<{
   readonly Message?: string;
@@ -9147,7 +9148,7 @@ export interface TestConnectionRequest {
   TestConnectionInput?: TestConnectionInput;
 }
 export interface TestConnectionResponse {}
-export declare class ThrottlingException extends EffectData.TaggedError(
+export declare class ThrottlingException extends Data.TaggedError(
   "ThrottlingException",
 )<{
   readonly Message?: string;
@@ -9621,7 +9622,7 @@ export type UserManagedClientApplicationClientSecret = string;
 
 export type Username = string;
 
-export declare class ValidationException extends EffectData.TaggedError(
+export declare class ValidationException extends Data.TaggedError(
   "ValidationException",
 )<{
   readonly Message?: string;
@@ -9635,7 +9636,7 @@ export type VersionId = number;
 
 export type VersionLongNumber = number;
 
-export declare class VersionMismatchException extends EffectData.TaggedError(
+export declare class VersionMismatchException extends Data.TaggedError(
   "VersionMismatchException",
 )<{
   readonly Message?: string;

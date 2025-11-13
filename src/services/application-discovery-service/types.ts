@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
@@ -375,7 +376,7 @@ export interface AssociateConfigurationItemsToApplicationRequest {
   configurationIds: Array<string>;
 }
 export interface AssociateConfigurationItemsToApplicationResponse {}
-export declare class AuthorizationErrorException extends EffectData.TaggedError(
+export declare class AuthorizationErrorException extends Data.TaggedError(
   "AuthorizationErrorException",
 )<{
   readonly message?: string;
@@ -458,7 +459,7 @@ export interface ConfigurationTag {
   timeOfCreation?: Date | string;
 }
 export type ConfigurationTagSet = Array<ConfigurationTag>;
-export declare class ConflictErrorException extends EffectData.TaggedError(
+export declare class ConflictErrorException extends Data.TaggedError(
   "ConflictErrorException",
 )<{
   readonly message?: string;
@@ -726,7 +727,7 @@ export interface GetDiscoverySummaryResponse {
   meCollectorSummary?: CustomerMeCollectorInfo;
   agentlessCollectorSummary?: CustomerAgentlessCollectorInfo;
 }
-export declare class HomeRegionNotSetException extends EffectData.TaggedError(
+export declare class HomeRegionNotSetException extends Data.TaggedError(
   "HomeRegionNotSetException",
 )<{
   readonly message?: string;
@@ -781,17 +782,17 @@ export type ImportURL = string;
 
 export type Integer = number;
 
-export declare class InvalidParameterException extends EffectData.TaggedError(
+export declare class InvalidParameterException extends Data.TaggedError(
   "InvalidParameterException",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidParameterValueException extends EffectData.TaggedError(
+export declare class InvalidParameterValueException extends Data.TaggedError(
   "InvalidParameterValueException",
 )<{
   readonly message?: string;
 }> {}
-export declare class LimitExceededException extends EffectData.TaggedError(
+export declare class LimitExceededException extends Data.TaggedError(
   "LimitExceededException",
 )<{
   readonly message?: string;
@@ -834,7 +835,7 @@ export type NeighborDetailsList = Array<NeighborConnectionDetail>;
 export type NextToken = string;
 
 export type OfferingClass = "STANDARD" | "CONVERTIBLE";
-export declare class OperationNotPermittedException extends EffectData.TaggedError(
+export declare class OperationNotPermittedException extends Data.TaggedError(
   "OperationNotPermittedException",
 )<{
   readonly message?: string;
@@ -853,12 +854,12 @@ export interface ReservedInstanceOptions {
   offeringClass: OfferingClass;
   termLength: TermLength;
 }
-export declare class ResourceInUseException extends EffectData.TaggedError(
+export declare class ResourceInUseException extends Data.TaggedError(
   "ResourceInUseException",
 )<{
   readonly message?: string;
 }> {}
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly message?: string;
@@ -868,7 +869,7 @@ export type S3Bucket = string;
 export type S3PresignedUrl = string;
 
 export type SchemaStorageConfig = Record<string, string>;
-export declare class ServerInternalErrorException extends EffectData.TaggedError(
+export declare class ServerInternalErrorException extends Data.TaggedError(
   "ServerInternalErrorException",
 )<{
   readonly message?: string;

@@ -1,5 +1,7 @@
-import type { Effect, Stream, Data as EffectData } from "effect";
-import type { ResponseError } from "@effect/platform/HttpClientError";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
+import type * as Stream from "effect/stream/Stream";
+import type { ResponseError } from "effect/unstable/http/HttpClientError";
 import type { Buffer } from "node:buffer";
 import type {
   AccessDeniedException,
@@ -127,12 +129,12 @@ export type ActiveContextTimeToLiveInSeconds = number;
 
 export type ActiveContextTurnsToLive = number;
 
-export declare class BadGatewayException extends EffectData.TaggedError(
+export declare class BadGatewayException extends Data.TaggedError(
   "BadGatewayException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class BadRequestException extends EffectData.TaggedError(
+export declare class BadRequestException extends Data.TaggedError(
   "BadRequestException",
 )<{
   readonly message?: string;
@@ -154,7 +156,7 @@ export type ButtonTextStringWithLength = string;
 export type ButtonValueStringWithLength = string;
 
 export type ConfirmationStatus = "None" | "Confirmed" | "Denied";
-export declare class ConflictException extends EffectData.TaggedError(
+export declare class ConflictException extends Data.TaggedError(
   "ConflictException",
 )<{
   readonly message?: string;
@@ -171,7 +173,7 @@ export interface DeleteSessionResponse {
   userId?: string;
   sessionId?: string;
 }
-export declare class DependencyFailedException extends EffectData.TaggedError(
+export declare class DependencyFailedException extends Data.TaggedError(
   "DependencyFailedException",
 )<{
   readonly Message?: string;
@@ -244,19 +246,19 @@ export interface IntentSummary {
 export type IntentSummaryCheckpointLabel = string;
 
 export type IntentSummaryList = Array<IntentSummary>;
-export declare class InternalFailureException extends EffectData.TaggedError(
+export declare class InternalFailureException extends Data.TaggedError(
   "InternalFailureException",
 )<{
   readonly message?: string;
 }> {}
-export declare class LimitExceededException extends EffectData.TaggedError(
+export declare class LimitExceededException extends Data.TaggedError(
   "LimitExceededException",
 )<{
   readonly retryAfterSeconds?: string;
   readonly message?: string;
 }> {}
 export type listOfButtons = Array<Button>;
-export declare class LoopDetectedException extends EffectData.TaggedError(
+export declare class LoopDetectedException extends Data.TaggedError(
   "LoopDetectedException",
 )<{
   readonly Message?: string;
@@ -266,12 +268,12 @@ export type MessageFormatType =
   | "CustomPayload"
   | "SSML"
   | "Composite";
-export declare class NotAcceptableException extends EffectData.TaggedError(
+export declare class NotAcceptableException extends Data.TaggedError(
   "NotAcceptableException",
 )<{
   readonly message?: string;
 }> {}
-export declare class NotFoundException extends EffectData.TaggedError(
+export declare class NotFoundException extends Data.TaggedError(
   "NotFoundException",
 )<{
   readonly message?: string;
@@ -363,7 +365,7 @@ export interface PutSessionResponse {
   sessionId?: string;
   activeContexts?: string;
 }
-export declare class RequestTimeoutException extends EffectData.TaggedError(
+export declare class RequestTimeoutException extends Data.TaggedError(
   "RequestTimeoutException",
 )<{
   readonly message?: string;
@@ -400,7 +402,7 @@ export type SynthesizedJsonString = string;
 
 export type Text = string;
 
-export declare class UnsupportedMediaTypeException extends EffectData.TaggedError(
+export declare class UnsupportedMediaTypeException extends Data.TaggedError(
   "UnsupportedMediaTypeException",
 )<{
   readonly message?: string;

@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
@@ -756,12 +757,12 @@ export interface InstanceIdDetail {
 }
 export type Integer = number;
 
-export declare class InvalidPolicyRevisionIdException extends EffectData.TaggedError(
+export declare class InvalidPolicyRevisionIdException extends Data.TaggedError(
   "InvalidPolicyRevisionIdException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidRequestException extends EffectData.TaggedError(
+export declare class InvalidRequestException extends Data.TaggedError(
   "InvalidRequestException",
 )<{
   readonly Message?: string;
@@ -793,12 +794,12 @@ export interface ListTagsForResourceResponse {
   Tags?: Array<Tag>;
   NextToken?: string;
 }
-export declare class LockoutPreventionException extends EffectData.TaggedError(
+export declare class LockoutPreventionException extends Data.TaggedError(
   "LockoutPreventionException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class MalformedPolicyDocumentException extends EffectData.TaggedError(
+export declare class MalformedPolicyDocumentException extends Data.TaggedError(
   "MalformedPolicyDocumentException",
 )<{
   readonly Message?: string;
@@ -813,7 +814,7 @@ export type NullableInteger = number;
 
 export type NullableLong = number;
 
-export declare class PolicyCountLimitExceededException extends EffectData.TaggedError(
+export declare class PolicyCountLimitExceededException extends Data.TaggedError(
   "PolicyCountLimitExceededException",
 )<{
   readonly Message?: string;
@@ -824,7 +825,7 @@ export type PolicyName = string;
 
 export type PolicyRevisionId = string;
 
-export declare class PolicySizeLimitExceededException extends EffectData.TaggedError(
+export declare class PolicySizeLimitExceededException extends Data.TaggedError(
   "PolicySizeLimitExceededException",
 )<{
   readonly Message?: string;
@@ -881,7 +882,7 @@ export type ResourceARN = string;
 export interface ResourceARNDetail {
   ARN?: string;
 }
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly Message?: string;
@@ -941,7 +942,7 @@ export interface RootCauseException {
   Message?: string;
 }
 export type RootCauseExceptions = Array<RootCauseException>;
-export declare class RuleLimitExceededException extends EffectData.TaggedError(
+export declare class RuleLimitExceededException extends Data.TaggedError(
   "RuleLimitExceededException",
 )<{
   readonly Message?: string;
@@ -1125,7 +1126,7 @@ export interface TelemetryRecord {
   BackendConnectionErrors?: BackendConnectionErrors;
 }
 export type TelemetryRecordList = Array<TelemetryRecord>;
-export declare class ThrottledException extends EffectData.TaggedError(
+export declare class ThrottledException extends Data.TaggedError(
   "ThrottledException",
 )<{
   readonly Message?: string;
@@ -1144,7 +1145,7 @@ export type Timestamp = Date | string;
 
 export type Token = string;
 
-export declare class TooManyTagsException extends EffectData.TaggedError(
+export declare class TooManyTagsException extends Data.TaggedError(
   "TooManyTagsException",
 )<{
   readonly Message?: string;

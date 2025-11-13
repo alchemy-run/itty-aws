@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   ExpiredTokenException,
   IncompleteSignature,
@@ -62,7 +63,7 @@ export declare class KinesisVideoWebRTCStorage extends AWSServiceClient {
 
 export declare class KinesisVideoWebrtcStorage extends KinesisVideoWebRTCStorage {}
 
-export declare class AccessDeniedException extends EffectData.TaggedError(
+export declare class AccessDeniedException extends Data.TaggedError(
   "AccessDeniedException",
 )<{
   readonly message?: string;
@@ -71,12 +72,12 @@ export type ChannelArn = string;
 
 export type ClientId = string;
 
-export declare class ClientLimitExceededException extends EffectData.TaggedError(
+export declare class ClientLimitExceededException extends Data.TaggedError(
   "ClientLimitExceededException",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidArgumentException extends EffectData.TaggedError(
+export declare class InvalidArgumentException extends Data.TaggedError(
   "InvalidArgumentException",
 )<{
   readonly message?: string;
@@ -88,7 +89,7 @@ export interface JoinStorageSessionAsViewerInput {
 export interface JoinStorageSessionInput {
   channelArn: string;
 }
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly message?: string;

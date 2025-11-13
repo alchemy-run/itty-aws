@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   AccessDeniedException,
   ExpiredTokenException,
@@ -539,17 +540,17 @@ export type attributeValue = string;
 
 export type authenticateOnUnsubscribe = string;
 
-export declare class AuthorizationErrorException extends EffectData.TaggedError(
+export declare class AuthorizationErrorException extends Data.TaggedError(
   "AuthorizationErrorException",
 )<{
   readonly message?: string;
 }> {}
-export declare class BatchEntryIdsNotDistinctException extends EffectData.TaggedError(
+export declare class BatchEntryIdsNotDistinctException extends Data.TaggedError(
   "BatchEntryIdsNotDistinctException",
 )<{
   readonly message?: string;
 }> {}
-export declare class BatchRequestTooLongException extends EffectData.TaggedError(
+export declare class BatchRequestTooLongException extends Data.TaggedError(
   "BatchRequestTooLongException",
 )<{
   readonly message?: string;
@@ -571,7 +572,7 @@ export interface CheckIfPhoneNumberIsOptedOutInput {
 export interface CheckIfPhoneNumberIsOptedOutResponse {
   isOptedOut?: boolean;
 }
-export declare class ConcurrentAccessException extends EffectData.TaggedError(
+export declare class ConcurrentAccessException extends Data.TaggedError(
   "ConcurrentAccessException",
 )<{
   readonly message?: string;
@@ -631,7 +632,7 @@ export interface DeleteSMSSandboxPhoneNumberResult {}
 export interface DeleteTopicInput {
   TopicArn: string;
 }
-export declare class EmptyBatchRequestException extends EffectData.TaggedError(
+export declare class EmptyBatchRequestException extends Data.TaggedError(
   "EmptyBatchRequestException",
 )<{
   readonly message?: string;
@@ -642,12 +643,12 @@ export interface Endpoint {
 }
 export type Endpoint2 = string;
 
-export declare class EndpointDisabledException extends EffectData.TaggedError(
+export declare class EndpointDisabledException extends Data.TaggedError(
   "EndpointDisabledException",
 )<{
   readonly message?: string;
 }> {}
-export declare class FilterPolicyLimitExceededException extends EffectData.TaggedError(
+export declare class FilterPolicyLimitExceededException extends Data.TaggedError(
   "FilterPolicyLimitExceededException",
 )<{
   readonly message?: string;
@@ -692,64 +693,64 @@ export interface GetTopicAttributesInput {
 export interface GetTopicAttributesResponse {
   Attributes?: Record<string, string>;
 }
-export declare class InternalErrorException extends EffectData.TaggedError(
+export declare class InternalErrorException extends Data.TaggedError(
   "InternalErrorException",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidBatchEntryIdException extends EffectData.TaggedError(
+export declare class InvalidBatchEntryIdException extends Data.TaggedError(
   "InvalidBatchEntryIdException",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidParameterException extends EffectData.TaggedError(
+export declare class InvalidParameterException extends Data.TaggedError(
   "InvalidParameterException",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidParameterValueException extends EffectData.TaggedError(
+export declare class InvalidParameterValueException extends Data.TaggedError(
   "InvalidParameterValueException",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidSecurityException extends EffectData.TaggedError(
+export declare class InvalidSecurityException extends Data.TaggedError(
   "InvalidSecurityException",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidStateException extends EffectData.TaggedError(
+export declare class InvalidStateException extends Data.TaggedError(
   "InvalidStateException",
 )<{
   readonly message?: string;
 }> {}
 export type Iso2CountryCode = string;
 
-export declare class KMSAccessDeniedException extends EffectData.TaggedError(
+export declare class KMSAccessDeniedException extends Data.TaggedError(
   "KMSAccessDeniedException",
 )<{
   readonly message?: string;
 }> {}
-export declare class KMSDisabledException extends EffectData.TaggedError(
+export declare class KMSDisabledException extends Data.TaggedError(
   "KMSDisabledException",
 )<{
   readonly message?: string;
 }> {}
-export declare class KMSInvalidStateException extends EffectData.TaggedError(
+export declare class KMSInvalidStateException extends Data.TaggedError(
   "KMSInvalidStateException",
 )<{
   readonly message?: string;
 }> {}
-export declare class KMSNotFoundException extends EffectData.TaggedError(
+export declare class KMSNotFoundException extends Data.TaggedError(
   "KMSNotFoundException",
 )<{
   readonly message?: string;
 }> {}
-export declare class KMSOptInRequired extends EffectData.TaggedError(
+export declare class KMSOptInRequired extends Data.TaggedError(
   "KMSOptInRequired",
 )<{
   readonly message?: string;
 }> {}
-export declare class KMSThrottlingException extends EffectData.TaggedError(
+export declare class KMSThrottlingException extends Data.TaggedError(
   "KMSThrottlingException",
 )<{
   readonly message?: string;
@@ -858,14 +859,14 @@ export type messageStructure = string;
 
 export type nextToken = string;
 
-export declare class NotFoundException extends EffectData.TaggedError(
+export declare class NotFoundException extends Data.TaggedError(
   "NotFoundException",
 )<{
   readonly message?: string;
 }> {}
 export type NumberCapability = "SMS" | "MMS" | "VOICE";
 export type NumberCapabilityList = Array<NumberCapability>;
-export declare class OptedOutException extends EffectData.TaggedError(
+export declare class OptedOutException extends Data.TaggedError(
   "OptedOutException",
 )<{
   readonly message?: string;
@@ -894,7 +895,7 @@ export interface PlatformApplication {
   PlatformApplicationArn?: string;
   Attributes?: Record<string, string>;
 }
-export declare class PlatformApplicationDisabledException extends EffectData.TaggedError(
+export declare class PlatformApplicationDisabledException extends Data.TaggedError(
   "PlatformApplicationDisabledException",
 )<{
   readonly message?: string;
@@ -948,12 +949,12 @@ export interface RemovePermissionInput {
   TopicArn: string;
   Label: string;
 }
-export declare class ReplayLimitExceededException extends EffectData.TaggedError(
+export declare class ReplayLimitExceededException extends Data.TaggedError(
   "ReplayLimitExceededException",
 )<{
   readonly message?: string;
 }> {}
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly message?: string;
@@ -987,7 +988,7 @@ export interface SMSSandboxPhoneNumber {
 }
 export type SMSSandboxPhoneNumberList = Array<SMSSandboxPhoneNumber>;
 export type SMSSandboxPhoneNumberVerificationStatus = "Pending" | "Verified";
-export declare class StaleTagException extends EffectData.TaggedError(
+export declare class StaleTagException extends Data.TaggedError(
   "StaleTagException",
 )<{
   readonly message?: string;
@@ -1016,7 +1017,7 @@ export interface Subscription {
 export type subscriptionARN = string;
 
 export type SubscriptionAttributesMap = Record<string, string>;
-export declare class SubscriptionLimitExceededException extends EffectData.TaggedError(
+export declare class SubscriptionLimitExceededException extends Data.TaggedError(
   "SubscriptionLimitExceededException",
 )<{
   readonly message?: string;
@@ -1029,13 +1030,13 @@ export interface Tag {
 export type TagKey = string;
 
 export type TagKeyList = Array<string>;
-export declare class TagLimitExceededException extends EffectData.TaggedError(
+export declare class TagLimitExceededException extends Data.TaggedError(
   "TagLimitExceededException",
 )<{
   readonly message?: string;
 }> {}
 export type TagList = Array<Tag>;
-export declare class TagPolicyException extends EffectData.TaggedError(
+export declare class TagPolicyException extends Data.TaggedError(
   "TagPolicyException",
 )<{
   readonly message?: string;
@@ -1047,7 +1048,7 @@ export interface TagResourceRequest {
 export interface TagResourceResponse {}
 export type TagValue = string;
 
-export declare class ThrottledException extends EffectData.TaggedError(
+export declare class ThrottledException extends Data.TaggedError(
   "ThrottledException",
 )<{
   readonly message?: string;
@@ -1056,7 +1057,7 @@ export type Timestamp = Date | string;
 
 export type token = string;
 
-export declare class TooManyEntriesInBatchRequestException extends EffectData.TaggedError(
+export declare class TooManyEntriesInBatchRequestException extends Data.TaggedError(
   "TooManyEntriesInBatchRequestException",
 )<{
   readonly message?: string;
@@ -1067,7 +1068,7 @@ export interface Topic {
 export type topicARN = string;
 
 export type TopicAttributesMap = Record<string, string>;
-export declare class TopicLimitExceededException extends EffectData.TaggedError(
+export declare class TopicLimitExceededException extends Data.TaggedError(
   "TopicLimitExceededException",
 )<{
   readonly message?: string;
@@ -1083,17 +1084,17 @@ export interface UntagResourceRequest {
   TagKeys: Array<string>;
 }
 export interface UntagResourceResponse {}
-export declare class UserErrorException extends EffectData.TaggedError(
+export declare class UserErrorException extends Data.TaggedError(
   "UserErrorException",
 )<{
   readonly message?: string;
 }> {}
-export declare class ValidationException extends EffectData.TaggedError(
+export declare class ValidationException extends Data.TaggedError(
   "ValidationException",
 )<{
   readonly Message: string;
 }> {}
-export declare class VerificationException extends EffectData.TaggedError(
+export declare class VerificationException extends Data.TaggedError(
   "VerificationException",
 )<{
   readonly Message: string;

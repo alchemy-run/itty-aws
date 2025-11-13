@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   AccessDeniedException,
   ExpiredTokenException,
@@ -247,7 +248,7 @@ export type ClientToken = string;
 
 export type CloudWatchLogGroupArn = string;
 
-export declare class ConflictException extends EffectData.TaggedError(
+export declare class ConflictException extends Data.TaggedError(
   "ConflictException",
 )<{
   readonly message?: string;
@@ -862,7 +863,7 @@ export type ResolvedTargetList = Array<ResolvedTarget>;
 export type ResourceArn = string;
 
 export type ResourceArnList = Array<string>;
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly message?: string;
@@ -888,7 +889,7 @@ export type SafetyLeverStatus = "disengaged" | "engaged" | "engaging";
 export type SafetyLeverStatusInput = "disengaged" | "engaged";
 export type SafetyLeverStatusReason = string;
 
-export declare class ServiceQuotaExceededException extends EffectData.TaggedError(
+export declare class ServiceQuotaExceededException extends Data.TaggedError(
   "ServiceQuotaExceededException",
 )<{
   readonly message?: string;
@@ -1061,7 +1062,7 @@ export interface UpdateTargetAccountConfigurationRequest {
 export interface UpdateTargetAccountConfigurationResponse {
   targetAccountConfiguration?: TargetAccountConfiguration;
 }
-export declare class ValidationException extends EffectData.TaggedError(
+export declare class ValidationException extends Data.TaggedError(
   "ValidationException",
 )<{
   readonly message?: string;

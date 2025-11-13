@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   AccessDeniedException,
   ExpiredTokenException,
@@ -398,12 +399,12 @@ export declare class SFN extends AWSServiceClient {
 
 export declare class Sfn extends SFN {}
 
-export declare class ActivityAlreadyExists extends EffectData.TaggedError(
+export declare class ActivityAlreadyExists extends Data.TaggedError(
   "ActivityAlreadyExists",
 )<{
   readonly message?: string;
 }> {}
-export declare class ActivityDoesNotExist extends EffectData.TaggedError(
+export declare class ActivityDoesNotExist extends Data.TaggedError(
   "ActivityDoesNotExist",
 )<{
   readonly message?: string;
@@ -412,7 +413,7 @@ export interface ActivityFailedEventDetails {
   error?: string;
   cause?: string;
 }
-export declare class ActivityLimitExceeded extends EffectData.TaggedError(
+export declare class ActivityLimitExceeded extends Data.TaggedError(
   "ActivityLimitExceeded",
 )<{
   readonly message?: string;
@@ -445,7 +446,7 @@ export interface ActivityTimedOutEventDetails {
   error?: string;
   cause?: string;
 }
-export declare class ActivityWorkerLimitExceeded extends EffectData.TaggedError(
+export declare class ActivityWorkerLimitExceeded extends Data.TaggedError(
   "ActivityWorkerLimitExceeded",
 )<{
   readonly message?: string;
@@ -476,7 +477,7 @@ export interface CloudWatchEventsExecutionDataDetails {
 export interface CloudWatchLogsLogGroup {
   logGroupArn?: string;
 }
-export declare class ConflictException extends EffectData.TaggedError(
+export declare class ConflictException extends Data.TaggedError(
   "ConflictException",
 )<{
   readonly message?: string;
@@ -661,12 +662,12 @@ export interface ExecutionAbortedEventDetails {
   error?: string;
   cause?: string;
 }
-export declare class ExecutionAlreadyExists extends EffectData.TaggedError(
+export declare class ExecutionAlreadyExists extends Data.TaggedError(
   "ExecutionAlreadyExists",
 )<{
   readonly message?: string;
 }> {}
-export declare class ExecutionDoesNotExist extends EffectData.TaggedError(
+export declare class ExecutionDoesNotExist extends Data.TaggedError(
   "ExecutionDoesNotExist",
 )<{
   readonly message?: string;
@@ -675,7 +676,7 @@ export interface ExecutionFailedEventDetails {
   error?: string;
   cause?: string;
 }
-export declare class ExecutionLimitExceeded extends EffectData.TaggedError(
+export declare class ExecutionLimitExceeded extends Data.TaggedError(
   "ExecutionLimitExceeded",
 )<{
   readonly message?: string;
@@ -695,7 +696,7 @@ export interface ExecutionListItem {
   redriveCount?: number;
   redriveDate?: Date | string;
 }
-export declare class ExecutionNotRedrivable extends EffectData.TaggedError(
+export declare class ExecutionNotRedrivable extends Data.TaggedError(
   "ExecutionNotRedrivable",
 )<{
   readonly message?: string;
@@ -907,55 +908,51 @@ export interface InspectionDataResponse {
   body?: string;
 }
 export type InspectionLevel = "INFO" | "DEBUG" | "TRACE";
-export declare class InvalidArn extends EffectData.TaggedError("InvalidArn")<{
+export declare class InvalidArn extends Data.TaggedError("InvalidArn")<{
   readonly message?: string;
 }> {}
-export declare class InvalidDefinition extends EffectData.TaggedError(
+export declare class InvalidDefinition extends Data.TaggedError(
   "InvalidDefinition",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidEncryptionConfiguration extends EffectData.TaggedError(
+export declare class InvalidEncryptionConfiguration extends Data.TaggedError(
   "InvalidEncryptionConfiguration",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidExecutionInput extends EffectData.TaggedError(
+export declare class InvalidExecutionInput extends Data.TaggedError(
   "InvalidExecutionInput",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidLoggingConfiguration extends EffectData.TaggedError(
+export declare class InvalidLoggingConfiguration extends Data.TaggedError(
   "InvalidLoggingConfiguration",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidName extends EffectData.TaggedError("InvalidName")<{
+export declare class InvalidName extends Data.TaggedError("InvalidName")<{
   readonly message?: string;
 }> {}
-export declare class InvalidOutput extends EffectData.TaggedError(
-  "InvalidOutput",
-)<{
+export declare class InvalidOutput extends Data.TaggedError("InvalidOutput")<{
   readonly message?: string;
 }> {}
-export declare class InvalidToken extends EffectData.TaggedError(
-  "InvalidToken",
-)<{
+export declare class InvalidToken extends Data.TaggedError("InvalidToken")<{
   readonly message?: string;
 }> {}
-export declare class InvalidTracingConfiguration extends EffectData.TaggedError(
+export declare class InvalidTracingConfiguration extends Data.TaggedError(
   "InvalidTracingConfiguration",
 )<{
   readonly message?: string;
 }> {}
-export declare class KmsAccessDeniedException extends EffectData.TaggedError(
+export declare class KmsAccessDeniedException extends Data.TaggedError(
   "KmsAccessDeniedException",
 )<{
   readonly message?: string;
 }> {}
 export type KmsDataKeyReusePeriodSeconds = number;
 
-export declare class KmsInvalidStateException extends EffectData.TaggedError(
+export declare class KmsInvalidStateException extends Data.TaggedError(
   "KmsInvalidStateException",
 )<{
   readonly kmsKeyState?: KmsKeyState;
@@ -969,7 +966,7 @@ export type KmsKeyState =
   | "PENDING_IMPORT"
   | "UNAVAILABLE"
   | "CREATING";
-export declare class KmsThrottlingException extends EffectData.TaggedError(
+export declare class KmsThrottlingException extends Data.TaggedError(
   "KmsThrottlingException",
 )<{
   readonly message?: string;
@@ -1133,7 +1130,7 @@ export interface MapStateStartedEventDetails {
 }
 export type MaxConcurrency = number;
 
-export declare class MissingRequiredParameter extends EffectData.TaggedError(
+export declare class MissingRequiredParameter extends Data.TaggedError(
   "MissingRequiredParameter",
 )<{
   readonly message?: string;
@@ -1164,7 +1161,7 @@ export interface RedriveExecutionInput {
 export interface RedriveExecutionOutput {
   redriveDate: Date | string;
 }
-export declare class ResourceNotFound extends EffectData.TaggedError(
+export declare class ResourceNotFound extends Data.TaggedError(
   "ResourceNotFound",
 )<{
   readonly message?: string;
@@ -1204,7 +1201,7 @@ export type SensitiveDataJobInput = string;
 
 export type SensitiveError = string;
 
-export declare class ServiceQuotaExceededException extends EffectData.TaggedError(
+export declare class ServiceQuotaExceededException extends Data.TaggedError(
   "ServiceQuotaExceededException",
 )<{
   readonly message?: string;
@@ -1259,22 +1256,22 @@ export interface StateMachineAliasListItem {
   stateMachineAliasArn: string;
   creationDate: Date | string;
 }
-export declare class StateMachineAlreadyExists extends EffectData.TaggedError(
+export declare class StateMachineAlreadyExists extends Data.TaggedError(
   "StateMachineAlreadyExists",
 )<{
   readonly message?: string;
 }> {}
-export declare class StateMachineDeleting extends EffectData.TaggedError(
+export declare class StateMachineDeleting extends Data.TaggedError(
   "StateMachineDeleting",
 )<{
   readonly message?: string;
 }> {}
-export declare class StateMachineDoesNotExist extends EffectData.TaggedError(
+export declare class StateMachineDoesNotExist extends Data.TaggedError(
   "StateMachineDoesNotExist",
 )<{
   readonly message?: string;
 }> {}
-export declare class StateMachineLimitExceeded extends EffectData.TaggedError(
+export declare class StateMachineLimitExceeded extends Data.TaggedError(
   "StateMachineLimitExceeded",
 )<{
   readonly message?: string;
@@ -1288,7 +1285,7 @@ export interface StateMachineListItem {
 }
 export type StateMachineStatus = "ACTIVE" | "DELETING";
 export type StateMachineType = "STANDARD" | "EXPRESS";
-export declare class StateMachineTypeNotSupported extends EffectData.TaggedError(
+export declare class StateMachineTypeNotSupported extends Data.TaggedError(
   "StateMachineTypeNotSupported",
 )<{
   readonly message?: string;
@@ -1327,7 +1324,7 @@ export type TagValue = string;
 export interface TaskCredentials {
   roleArn?: string;
 }
-export declare class TaskDoesNotExist extends EffectData.TaggedError(
+export declare class TaskDoesNotExist extends Data.TaggedError(
   "TaskDoesNotExist",
 )<{
   readonly message?: string;
@@ -1375,9 +1372,7 @@ export interface TaskSucceededEventDetails {
   output?: string;
   outputDetails?: HistoryEventExecutionDataDetails;
 }
-export declare class TaskTimedOut extends EffectData.TaggedError(
-  "TaskTimedOut",
-)<{
+export declare class TaskTimedOut extends Data.TaggedError("TaskTimedOut")<{
   readonly message?: string;
 }> {}
 export interface TaskTimedOutEventDetails {
@@ -1417,7 +1412,7 @@ export type ToleratedFailureCount = number;
 
 export type ToleratedFailurePercentage = number;
 
-export declare class TooManyTags extends EffectData.TaggedError("TooManyTags")<{
+export declare class TooManyTags extends Data.TaggedError("TooManyTags")<{
   readonly message?: string;
   readonly resourceName?: string;
 }> {}
@@ -1500,7 +1495,7 @@ export type ValidateStateMachineDefinitionResultCode = "OK" | "FAIL";
 export type ValidateStateMachineDefinitionSeverity = "ERROR" | "WARNING";
 export type ValidateStateMachineDefinitionTruncated = boolean;
 
-export declare class ValidationException extends EffectData.TaggedError(
+export declare class ValidationException extends Data.TaggedError(
   "ValidationException",
 )<{
   readonly message?: string;

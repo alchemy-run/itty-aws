@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   ExpiredTokenException,
   IncompleteSignature,
@@ -124,7 +125,7 @@ export declare class SecurityIR extends AWSServiceClient {
 
 export declare class SecurityIr extends SecurityIR {}
 
-export declare class AccessDeniedException extends EffectData.TaggedError(
+export declare class AccessDeniedException extends Data.TaggedError(
   "AccessDeniedException",
 )<{
   readonly message: string;
@@ -240,7 +241,7 @@ export type CommentBody = string;
 
 export type CommentId = string;
 
-export declare class ConflictException extends EffectData.TaggedError(
+export declare class ConflictException extends Data.TaggedError(
   "ConflictException",
 )<{
   readonly message: string;
@@ -377,13 +378,13 @@ export interface IncidentResponder {
 export type IncidentResponderName = string;
 
 export type IncidentResponseTeam = Array<IncidentResponder>;
-export declare class InternalServerException extends EffectData.TaggedError(
+export declare class InternalServerException extends Data.TaggedError(
   "InternalServerException",
 )<{
   readonly message: string;
   readonly retryAfterSeconds?: number;
 }> {}
-export declare class InvalidTokenException extends EffectData.TaggedError(
+export declare class InvalidTokenException extends Data.TaggedError(
   "InvalidTokenException",
 )<{
   readonly message: string;
@@ -501,12 +502,12 @@ export type PersonName = string;
 export type PrincipalId = string;
 
 export type ResolverType = "AWS" | "Self";
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly message: string;
 }> {}
-export declare class SecurityIncidentResponseNotActiveException extends EffectData.TaggedError(
+export declare class SecurityIncidentResponseNotActiveException extends Data.TaggedError(
   "SecurityIncidentResponseNotActiveException",
 )<{
   readonly message: string;
@@ -516,7 +517,7 @@ export type SelfManagedCaseStatus =
   | "Detection and Analysis"
   | "Containment, Eradication and Recovery"
   | "Post-incident Activities";
-export declare class ServiceQuotaExceededException extends EffectData.TaggedError(
+export declare class ServiceQuotaExceededException extends Data.TaggedError(
   "ServiceQuotaExceededException",
 )<{
   readonly message: string;
@@ -541,7 +542,7 @@ export interface ThreatActorIp {
   userAgent?: string;
 }
 export type ThreatActorIpList = Array<ThreatActorIp>;
-export declare class ThrottlingException extends EffectData.TaggedError(
+export declare class ThrottlingException extends Data.TaggedError(
   "ThrottlingException",
 )<{
   readonly message: string;
@@ -611,7 +612,7 @@ export type Url = string;
 
 export type UserAgent = string;
 
-export declare class ValidationException extends EffectData.TaggedError(
+export declare class ValidationException extends Data.TaggedError(
   "ValidationException",
 )<{
   readonly message: string;

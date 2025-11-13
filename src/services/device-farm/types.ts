@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
@@ -783,7 +784,7 @@ export type AmazonResourceNames = Array<string>;
 export type AndroidPaths = Array<string>;
 export type AppPackagesCleanup = boolean;
 
-export declare class ArgumentException extends EffectData.TaggedError(
+export declare class ArgumentException extends Data.TaggedError(
   "ArgumentException",
 )<{
   readonly message?: string;
@@ -832,7 +833,7 @@ export type AWSAccountNumber = string;
 export type BillingMethod = "METERED" | "UNMETERED";
 export type DeviceFarmBoolean = boolean;
 
-export declare class CannotDeleteException extends EffectData.TaggedError(
+export declare class CannotDeleteException extends Data.TaggedError(
   "CannotDeleteException",
 )<{
   readonly message?: string;
@@ -1270,7 +1271,7 @@ export interface GetVPCEConfigurationResult {
 }
 export type HostAddress = string;
 
-export declare class IdempotencyException extends EffectData.TaggedError(
+export declare class IdempotencyException extends Data.TaggedError(
   "IdempotencyException",
 )<{
   readonly message?: string;
@@ -1305,12 +1306,12 @@ export type InstanceStatus =
 export type Integer = number;
 
 export type InteractionMode = "INTERACTIVE" | "NO_VIDEO" | "VIDEO_ONLY";
-export declare class InternalServiceException extends EffectData.TaggedError(
+export declare class InternalServiceException extends Data.TaggedError(
   "InternalServiceException",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidOperationException extends EffectData.TaggedError(
+export declare class InvalidOperationException extends Data.TaggedError(
   "InvalidOperationException",
 )<{
   readonly message?: string;
@@ -1336,7 +1337,7 @@ export interface Job {
 export type Jobs = Array<Job>;
 export type JobTimeoutMinutes = number;
 
-export declare class LimitExceededException extends EffectData.TaggedError(
+export declare class LimitExceededException extends Data.TaggedError(
   "LimitExceededException",
 )<{
   readonly message?: string;
@@ -1579,12 +1580,12 @@ export type NetworkProfiles = Array<NetworkProfile>;
 export type NetworkProfileType = "CURATED" | "PRIVATE";
 export type NonEmptyString = string;
 
-export declare class NotEligibleException extends EffectData.TaggedError(
+export declare class NotEligibleException extends Data.TaggedError(
   "NotEligibleException",
 )<{
   readonly message?: string;
 }> {}
-export declare class NotFoundException extends EffectData.TaggedError(
+export declare class NotFoundException extends Data.TaggedError(
   "NotFoundException",
 )<{
   readonly message?: string;
@@ -1829,7 +1830,7 @@ export type SensitiveString = string;
 
 export type SensitiveURL = string;
 
-export declare class ServiceAccountException extends EffectData.TaggedError(
+export declare class ServiceAccountException extends Data.TaggedError(
   "ServiceAccountException",
 )<{
   readonly message?: string;
@@ -1885,13 +1886,13 @@ export type TagKey = string;
 
 export type TagKeyList = Array<string>;
 export type TagList = Array<Tag>;
-export declare class TagOperationException extends EffectData.TaggedError(
+export declare class TagOperationException extends Data.TaggedError(
   "TagOperationException",
 )<{
   readonly message?: string;
   readonly resourceName?: string;
 }> {}
-export declare class TagPolicyException extends EffectData.TaggedError(
+export declare class TagPolicyException extends Data.TaggedError(
   "TagPolicyException",
 )<{
   readonly message?: string;
@@ -1975,7 +1976,7 @@ export type TestType =
   | "INSTRUMENTATION"
   | "XCTEST"
   | "XCTEST_UI";
-export declare class TooManyTagsException extends EffectData.TaggedError(
+export declare class TooManyTagsException extends Data.TaggedError(
   "TooManyTagsException",
 )<{
   readonly message?: string;

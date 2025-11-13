@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   ExpiredTokenException,
   IncompleteSignature,
@@ -841,7 +842,7 @@ export declare class AppSync extends AWSServiceClient {
 
 export declare class Appsync extends AppSync {}
 
-export declare class AccessDeniedException extends EffectData.TaggedError(
+export declare class AccessDeniedException extends Data.TaggedError(
   "AccessDeniedException",
 )<{
   readonly message?: string;
@@ -913,18 +914,18 @@ export interface ApiKey {
   expires?: number;
   deletes?: number;
 }
-export declare class ApiKeyLimitExceededException extends EffectData.TaggedError(
+export declare class ApiKeyLimitExceededException extends Data.TaggedError(
   "ApiKeyLimitExceededException",
 )<{
   readonly message?: string;
 }> {}
 export type ApiKeys = Array<ApiKey>;
-export declare class ApiKeyValidityOutOfBoundsException extends EffectData.TaggedError(
+export declare class ApiKeyValidityOutOfBoundsException extends Data.TaggedError(
   "ApiKeyValidityOutOfBoundsException",
 )<{
   readonly message?: string;
 }> {}
-export declare class ApiLimitExceededException extends EffectData.TaggedError(
+export declare class ApiLimitExceededException extends Data.TaggedError(
   "ApiLimitExceededException",
 )<{
   readonly message?: string;
@@ -991,7 +992,7 @@ export interface AwsIamConfig {
 export interface BadRequestDetail {
   codeErrors?: Array<CodeError>;
 }
-export declare class BadRequestException extends EffectData.TaggedError(
+export declare class BadRequestException extends Data.TaggedError(
   "BadRequestException",
 )<{
   readonly message?: string;
@@ -1055,13 +1056,13 @@ export interface CognitoUserPoolConfig {
   awsRegion: string;
   appIdClientRegex?: string;
 }
-export declare class ConcurrentModificationException extends EffectData.TaggedError(
+export declare class ConcurrentModificationException extends Data.TaggedError(
   "ConcurrentModificationException",
 )<{
   readonly message?: string;
 }> {}
 export type ConflictDetectionType = "VERSION" | "NONE";
-export declare class ConflictException extends EffectData.TaggedError(
+export declare class ConflictException extends Data.TaggedError(
   "ConflictException",
 )<{
   readonly message?: string;
@@ -1585,7 +1586,7 @@ export type GraphQLApiIntrospectionConfig = "ENABLED" | "DISABLED";
 export type GraphqlApis = Array<GraphqlApi>;
 export type GraphQLApiType = "GRAPHQL" | "MERGED";
 export type GraphQLApiVisibility = "GLOBAL" | "PRIVATE";
-export declare class GraphQLSchemaException extends EffectData.TaggedError(
+export declare class GraphQLSchemaException extends Data.TaggedError(
   "GraphQLSchemaException",
 )<{
   readonly message?: string;
@@ -1607,7 +1608,7 @@ export interface Integration {
   dataSourceName: string;
   lambdaConfig?: LambdaConfig;
 }
-export declare class InternalFailureException extends EffectData.TaggedError(
+export declare class InternalFailureException extends Data.TaggedError(
   "InternalFailureException",
 )<{
   readonly message?: string;
@@ -1627,7 +1628,7 @@ export interface LambdaConflictHandlerConfig {
 export interface LambdaDataSourceConfig {
   lambdaFunctionArn: string;
 }
-export declare class LimitExceededException extends EffectData.TaggedError(
+export declare class LimitExceededException extends Data.TaggedError(
   "LimitExceededException",
 )<{
   readonly message?: string;
@@ -1768,7 +1769,7 @@ export type MaxResults = number;
 export type MergeType = "MANUAL_MERGE" | "AUTO_MERGE";
 export type Namespace = string;
 
-export declare class NotFoundException extends EffectData.TaggedError(
+export declare class NotFoundException extends Data.TaggedError(
   "NotFoundException",
 )<{
   readonly message?: string;
@@ -1863,7 +1864,7 @@ export type SchemaStatus =
   | "FAILED"
   | "SUCCESS"
   | "NOT_APPLICABLE";
-export declare class ServiceQuotaExceededException extends EffectData.TaggedError(
+export declare class ServiceQuotaExceededException extends Data.TaggedError(
   "ServiceQuotaExceededException",
 )<{
   readonly message?: string;
@@ -1961,7 +1962,7 @@ export interface Type {
 }
 export type TypeDefinitionFormat = "SDL" | "JSON";
 export type TypeList = Array<Type>;
-export declare class UnauthorizedException extends EffectData.TaggedError(
+export declare class UnauthorizedException extends Data.TaggedError(
   "UnauthorizedException",
 )<{
   readonly message?: string;

@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
@@ -459,7 +460,7 @@ interface _BadRequestDetails {
 export type BadRequestDetails = _BadRequestDetails & {
   InvalidConfiguration: Array<InvalidConfigurationDetail>;
 };
-export declare class BadRequestException extends EffectData.TaggedError(
+export declare class BadRequestException extends Data.TaggedError(
   "BadRequestException",
 )<{
   readonly Message?: string;
@@ -505,7 +506,7 @@ export type ConfigurationProfileSummaryList =
   Array<ConfigurationProfileSummary>;
 export type ConfigurationProfileType = string;
 
-export declare class ConflictException extends EffectData.TaggedError(
+export declare class ConflictException extends Data.TaggedError(
   "ConflictException",
 )<{
   readonly Message?: string;
@@ -825,7 +826,7 @@ export type Identifier = string;
 
 export type Integer = number;
 
-export declare class InternalServerException extends EffectData.TaggedError(
+export declare class InternalServerException extends Data.TaggedError(
   "InternalServerException",
 )<{
   readonly Message?: string;
@@ -913,7 +914,7 @@ export interface Parameter {
 }
 export type ParameterMap = Record<string, Parameter>;
 export type ParameterValueMap = Record<string, string>;
-export declare class PayloadTooLargeException extends EffectData.TaggedError(
+export declare class PayloadTooLargeException extends Data.TaggedError(
   "PayloadTooLargeException",
 )<{
   readonly Message?: string;
@@ -926,7 +927,7 @@ export type Percentage = number;
 export type QueryName = string;
 
 export type ReplicateTo = "NONE" | "SSM_DOCUMENT";
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly Message?: string;
@@ -937,7 +938,7 @@ export interface ResourceTags {
 }
 export type RoleArn = string;
 
-export declare class ServiceQuotaExceededException extends EffectData.TaggedError(
+export declare class ServiceQuotaExceededException extends Data.TaggedError(
   "ServiceQuotaExceededException",
 )<{
   readonly Message?: string;

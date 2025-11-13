@@ -1,5 +1,7 @@
-import type { Effect, Stream, Data as EffectData } from "effect";
-import type { ResponseError } from "@effect/platform/HttpClientError";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
+import type * as Stream from "effect/stream/Stream";
+import type { ResponseError } from "effect/unstable/http/HttpClientError";
 import type { Buffer } from "node:buffer";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
@@ -432,10 +434,10 @@ export interface Bucket {
   BucketArn?: string;
 }
 export type BucketAccelerateStatus = "Enabled" | "Suspended";
-export declare class BucketAlreadyExists extends EffectData.TaggedError(
+export declare class BucketAlreadyExists extends Data.TaggedError(
   "BucketAlreadyExists",
 )<{}> {}
-export declare class BucketAlreadyOwnedByYou extends EffectData.TaggedError(
+export declare class BucketAlreadyOwnedByYou extends Data.TaggedError(
   "BucketAlreadyOwnedByYou",
 )<{}> {}
 export type BucketCannedACL =
@@ -1028,7 +1030,7 @@ export interface Encryption {
 export interface EncryptionConfiguration {
   ReplicaKmsKeyID?: string;
 }
-export declare class EncryptionTypeMismatch extends EffectData.TaggedError(
+export declare class EncryptionTypeMismatch extends Data.TaggedError(
   "EncryptionTypeMismatch",
 )<{}> {}
 export type End = number;
@@ -1557,7 +1559,7 @@ export type HttpRedirectCode = string;
 
 export type ID = string;
 
-export declare class IdempotencyParameterMismatch extends EffectData.TaggedError(
+export declare class IdempotencyParameterMismatch extends Data.TaggedError(
   "IdempotencyParameterMismatch",
 )<{}> {}
 export type IfMatch = string;
@@ -1614,16 +1616,16 @@ export interface IntelligentTieringFilter {
 export type IntelligentTieringId = string;
 
 export type IntelligentTieringStatus = "Enabled" | "Disabled";
-export declare class InvalidObjectState extends EffectData.TaggedError(
+export declare class InvalidObjectState extends Data.TaggedError(
   "InvalidObjectState",
 )<{
   readonly StorageClass?: StorageClass;
   readonly AccessTier?: IntelligentTieringAccessTier;
 }> {}
-export declare class InvalidRequest extends EffectData.TaggedError(
+export declare class InvalidRequest extends Data.TaggedError(
   "InvalidRequest",
 )<{}> {}
-export declare class InvalidWriteOffset extends EffectData.TaggedError(
+export declare class InvalidWriteOffset extends Data.TaggedError(
   "InvalidWriteOffset",
 )<{}> {}
 export interface InventoryConfiguration {
@@ -2118,16 +2120,14 @@ export interface NoncurrentVersionTransition {
 }
 export type NoncurrentVersionTransitionList =
   Array<NoncurrentVersionTransition>;
-export declare class NoSuchBucket extends EffectData.TaggedError(
+export declare class NoSuchBucket extends Data.TaggedError(
   "NoSuchBucket",
 )<{}> {}
-export declare class NoSuchKey extends EffectData.TaggedError(
-  "NoSuchKey",
-)<{}> {}
-export declare class NoSuchUpload extends EffectData.TaggedError(
+export declare class NoSuchKey extends Data.TaggedError("NoSuchKey")<{}> {}
+export declare class NoSuchUpload extends Data.TaggedError(
   "NoSuchUpload",
 )<{}> {}
-export declare class NotFound extends EffectData.TaggedError("NotFound")<{}> {}
+export declare class NotFound extends Data.TaggedError("NotFound")<{}> {}
 export interface NotificationConfiguration {
   TopicConfigurations?: Array<TopicConfiguration>;
   QueueConfigurations?: Array<QueueConfiguration>;
@@ -2150,7 +2150,7 @@ export interface S3Object {
   Owner?: Owner;
   RestoreStatus?: RestoreStatus;
 }
-export declare class ObjectAlreadyInActiveTierError extends EffectData.TaggedError(
+export declare class ObjectAlreadyInActiveTierError extends Data.TaggedError(
   "ObjectAlreadyInActiveTierError",
 )<{}> {}
 export type ObjectAttributes =
@@ -2203,7 +2203,7 @@ export interface ObjectLockRule {
 }
 export type ObjectLockToken = string;
 
-export declare class ObjectNotInActiveTierError extends EffectData.TaggedError(
+export declare class ObjectNotInActiveTierError extends Data.TaggedError(
   "ObjectNotInActiveTierError",
 )<{}> {}
 export type ObjectOwnership =
@@ -2988,7 +2988,7 @@ export interface Tiering {
 export type TieringList = Array<Tiering>;
 export type Token = string;
 
-export declare class TooManyParts extends EffectData.TaggedError(
+export declare class TooManyParts extends Data.TaggedError(
   "TooManyParts",
 )<{}> {}
 export type TopicArn = string;

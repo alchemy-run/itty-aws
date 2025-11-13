@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
@@ -631,7 +632,7 @@ export interface DeleteMissionProfileRequest {
 export interface DemodulationConfig {
   unvalidatedJSON: string;
 }
-export declare class DependencyException extends EffectData.TaggedError(
+export declare class DependencyException extends Data.TaggedError(
   "DependencyException",
 )<{
   readonly message?: string;
@@ -955,7 +956,7 @@ export interface IntegerRange {
   minimum: number;
   maximum: number;
 }
-export declare class InvalidParameterException extends EffectData.TaggedError(
+export declare class InvalidParameterException extends Data.TaggedError(
   "InvalidParameterException",
 )<{
   readonly message?: string;
@@ -1120,18 +1121,18 @@ export interface ReserveContactRequest {
   tags?: Record<string, string>;
   trackingOverrides?: TrackingOverrides;
 }
-export declare class ResourceInUseException extends EffectData.TaggedError(
+export declare class ResourceInUseException extends Data.TaggedError(
   "ResourceInUseException",
 )<{
   readonly message?: string;
 }> {}
-export declare class ResourceLimitExceededException extends EffectData.TaggedError(
+export declare class ResourceLimitExceededException extends Data.TaggedError(
   "ResourceLimitExceededException",
 )<{
   readonly message?: string;
   readonly parameterName?: string;
 }> {}
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly message?: string;
@@ -1178,7 +1179,7 @@ export interface SecurityDetails {
   roleArn: string;
 }
 export type SecurityGroupIdList = Array<string>;
-export declare class ServiceQuotaExceededException extends EffectData.TaggedError(
+export declare class ServiceQuotaExceededException extends Data.TaggedError(
   "ServiceQuotaExceededException",
 )<{
   readonly message?: string;

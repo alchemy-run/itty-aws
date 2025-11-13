@@ -1,5 +1,7 @@
-import type { Effect, Stream, Data as EffectData } from "effect";
-import type { ResponseError } from "@effect/platform/HttpClientError";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
+import type * as Stream from "effect/stream/Stream";
+import type { ResponseError } from "effect/unstable/http/HttpClientError";
 import type { Buffer } from "node:buffer";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
@@ -49,7 +51,7 @@ export declare class MediaStoreData extends AWSServiceClient {
 
 export declare class MediastoreData extends MediaStoreData {}
 
-export declare class ContainerNotFoundException extends EffectData.TaggedError(
+export declare class ContainerNotFoundException extends Data.TaggedError(
   "ContainerNotFoundException",
 )<{
   readonly Message?: string;
@@ -90,7 +92,7 @@ export interface GetObjectResponse {
   LastModified?: Date | string;
   StatusCode: number;
 }
-export declare class InternalServerError extends EffectData.TaggedError(
+export declare class InternalServerError extends Data.TaggedError(
   "InternalServerError",
 )<{
   readonly Message?: string;
@@ -122,7 +124,7 @@ export type ListPathNaming = string;
 
 export type NonNegativeLong = number;
 
-export declare class ObjectNotFoundException extends EffectData.TaggedError(
+export declare class ObjectNotFoundException extends Data.TaggedError(
   "ObjectNotFoundException",
 )<{
   readonly Message?: string;
@@ -148,7 +150,7 @@ export interface PutObjectResponse {
 }
 export type RangePattern = string;
 
-export declare class RequestedRangeNotSatisfiableException extends EffectData.TaggedError(
+export declare class RequestedRangeNotSatisfiableException extends Data.TaggedError(
   "RequestedRangeNotSatisfiableException",
 )<{
   readonly Message?: string;

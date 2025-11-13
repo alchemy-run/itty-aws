@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
@@ -537,7 +538,7 @@ export type CapacityProviderStrategyItemBase = number;
 
 export type CapacityProviderStrategyItemWeight = number;
 
-export declare class ConcurrentModificationException extends EffectData.TaggedError(
+export declare class ConcurrentModificationException extends Data.TaggedError(
   "ConcurrentModificationException",
 )<{
   readonly message?: string;
@@ -935,7 +936,7 @@ export interface HttpParameters {
 }
 export type HttpsEndpoint = string;
 
-export declare class IllegalStatusException extends EffectData.TaggedError(
+export declare class IllegalStatusException extends Data.TaggedError(
   "IllegalStatusException",
 )<{
   readonly message?: string;
@@ -948,17 +949,17 @@ export type InputTransformerPathKey = string;
 
 export type Integer = number;
 
-export declare class InternalException extends EffectData.TaggedError(
+export declare class InternalException extends Data.TaggedError(
   "InternalException",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidEventPatternException extends EffectData.TaggedError(
+export declare class InvalidEventPatternException extends Data.TaggedError(
   "InvalidEventPatternException",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidStateException extends EffectData.TaggedError(
+export declare class InvalidStateException extends Data.TaggedError(
   "InvalidStateException",
 )<{
   readonly message?: string;
@@ -967,7 +968,7 @@ export interface KinesisParameters {
   PartitionKeyPath: string;
 }
 export type LaunchType = "EC2" | "FARGATE" | "EXTERNAL";
-export declare class LimitExceededException extends EffectData.TaggedError(
+export declare class LimitExceededException extends Data.TaggedError(
   "LimitExceededException",
 )<{
   readonly message?: string;
@@ -1094,7 +1095,7 @@ export type Long = number;
 
 export type ManagedBy = string;
 
-export declare class ManagedRuleException extends EffectData.TaggedError(
+export declare class ManagedRuleException extends Data.TaggedError(
   "ManagedRuleException",
 )<{
   readonly message?: string;
@@ -1114,7 +1115,7 @@ export type NonPartnerEventBusName = string;
 
 export type NonPartnerEventBusNameOrArn = string;
 
-export declare class OperationDisabledException extends EffectData.TaggedError(
+export declare class OperationDisabledException extends Data.TaggedError(
   "OperationDisabledException",
 )<{
   readonly message?: string;
@@ -1152,7 +1153,7 @@ export interface PlacementStrategy {
 export type PlacementStrategyField = string;
 
 export type PlacementStrategyType = "random" | "spread" | "binpack";
-export declare class PolicyLengthExceededException extends EffectData.TaggedError(
+export declare class PolicyLengthExceededException extends Data.TaggedError(
   "PolicyLengthExceededException",
 )<{
   readonly message?: string;
@@ -1314,14 +1315,14 @@ export type ReplayState =
   | "FAILED";
 export type ReplayStateReason = string;
 
-export declare class ResourceAlreadyExistsException extends EffectData.TaggedError(
+export declare class ResourceAlreadyExistsException extends Data.TaggedError(
   "ResourceAlreadyExistsException",
 )<{
   readonly message?: string;
 }> {}
 export type ResourceArn = string;
 
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly message?: string;

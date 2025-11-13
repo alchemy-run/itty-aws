@@ -1,5 +1,6 @@
-import type { Effect, Stream, Data as EffectData } from "effect";
-import type { ResponseError } from "@effect/platform/HttpClientError";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
+import type * as Stream from "effect/stream/Stream";
 import type {
   AccessDeniedException,
   ExpiredTokenException,
@@ -397,12 +398,12 @@ export type ErrorMessage = string;
 export type EventType = "STATE_CHANGE";
 export type InputPropertyValue = string;
 
-export declare class InternalFailureException extends EffectData.TaggedError(
+export declare class InternalFailureException extends Data.TaggedError(
   "InternalFailureException",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidRequestException extends EffectData.TaggedError(
+export declare class InvalidRequestException extends Data.TaggedError(
   "InvalidRequestException",
 )<{
   readonly message?: string;
@@ -457,7 +458,7 @@ export interface ResetAlarmActionRequest {
   note?: string;
 }
 export type ResetAlarmActionRequests = Array<ResetAlarmActionRequest>;
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly message?: string;
@@ -467,7 +468,7 @@ export interface RuleEvaluation {
 }
 export type Seconds = number;
 
-export declare class ServiceUnavailableException extends EffectData.TaggedError(
+export declare class ServiceUnavailableException extends Data.TaggedError(
   "ServiceUnavailableException",
 )<{
   readonly message?: string;
@@ -504,7 +505,7 @@ export interface SystemEvent {
 }
 export type ThresholdValue = string;
 
-export declare class ThrottlingException extends EffectData.TaggedError(
+export declare class ThrottlingException extends Data.TaggedError(
   "ThrottlingException",
 )<{
   readonly message?: string;

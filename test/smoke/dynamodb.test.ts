@@ -138,7 +138,7 @@ describe("DynamoDB Smoke Tests", () => {
           .describeTable({ TableName: nonExistentTable })
           .pipe(
             Effect.map(() => ({ exists: true, error: undefined })),
-            Effect.catchAll((error: any) =>
+            Effect.catch((error: any) =>
               Effect.succeed({
                 exists: false,
                 error:

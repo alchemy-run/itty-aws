@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
@@ -1464,7 +1465,7 @@ export type accessKeySecretType = string;
 export type accountAliasListType = Array<string>;
 export type accountAliasType = string;
 
-export declare class AccountNotManagementOrDelegatedAdministratorException extends EffectData.TaggedError(
+export declare class AccountNotManagementOrDelegatedAdministratorException extends Data.TaggedError(
   "AccountNotManagementOrDelegatedAdministratorException",
 )<{
   readonly Message?: string;
@@ -1522,7 +1523,7 @@ export type booleanType = boolean;
 
 export type BootstrapDatum = Uint8Array | string;
 
-export declare class CallerIsNotManagementAccountException extends EffectData.TaggedError(
+export declare class CallerIsNotManagementAccountException extends Data.TaggedError(
   "CallerIsNotManagementAccountException",
 )<{
   readonly Message?: string;
@@ -1548,7 +1549,7 @@ export type clientIDType = string;
 
 export type ColumnNumber = number;
 
-export declare class ConcurrentModificationException extends EffectData.TaggedError(
+export declare class ConcurrentModificationException extends Data.TaggedError(
   "ConcurrentModificationException",
 )<{
   readonly message?: string;
@@ -1698,21 +1699,21 @@ export interface CreateVirtualMFADeviceResponse {
 }
 export type credentialAgeDays = number;
 
-export declare class CredentialReportExpiredException extends EffectData.TaggedError(
+export declare class CredentialReportExpiredException extends Data.TaggedError(
   "CredentialReportExpiredException",
 )<{
   readonly message?: string;
 }> {}
 export type credentialReportExpiredExceptionMessage = string;
 
-export declare class CredentialReportNotPresentException extends EffectData.TaggedError(
+export declare class CredentialReportNotPresentException extends Data.TaggedError(
   "CredentialReportNotPresentException",
 )<{
   readonly message?: string;
 }> {}
 export type credentialReportNotPresentExceptionMessage = string;
 
-export declare class CredentialReportNotReadyException extends EffectData.TaggedError(
+export declare class CredentialReportNotReadyException extends Data.TaggedError(
   "CredentialReportNotReadyException",
 )<{
   readonly message?: string;
@@ -1734,7 +1735,7 @@ export interface DeleteAccessKeyRequest {
 export interface DeleteAccountAliasRequest {
   AccountAlias: string;
 }
-export declare class DeleteConflictException extends EffectData.TaggedError(
+export declare class DeleteConflictException extends Data.TaggedError(
   "DeleteConflictException",
 )<{
   readonly message?: string;
@@ -1844,14 +1845,14 @@ export interface DisableOrganizationsRootSessionsResponse {
   OrganizationId?: string;
   EnabledFeatures?: Array<FeatureType>;
 }
-export declare class DuplicateCertificateException extends EffectData.TaggedError(
+export declare class DuplicateCertificateException extends Data.TaggedError(
   "DuplicateCertificateException",
 )<{
   readonly message?: string;
 }> {}
 export type duplicateCertificateMessage = string;
 
-export declare class DuplicateSSHPublicKeyException extends EffectData.TaggedError(
+export declare class DuplicateSSHPublicKeyException extends Data.TaggedError(
   "DuplicateSSHPublicKeyException",
 )<{
   readonly message?: string;
@@ -1875,7 +1876,7 @@ export interface EnableOrganizationsRootSessionsResponse {
   EnabledFeatures?: Array<FeatureType>;
 }
 export type encodingType = "SSH" | "PEM";
-export declare class EntityAlreadyExistsException extends EffectData.TaggedError(
+export declare class EntityAlreadyExistsException extends Data.TaggedError(
   "EntityAlreadyExistsException",
 )<{
   readonly message?: string;
@@ -1897,7 +1898,7 @@ export interface EntityInfo {
 export type entityListType = Array<EntityType>;
 export type entityNameType = string;
 
-export declare class EntityTemporarilyUnmodifiableException extends EffectData.TaggedError(
+export declare class EntityTemporarilyUnmodifiableException extends Data.TaggedError(
   "EntityTemporarilyUnmodifiableException",
 )<{
   readonly message?: string;
@@ -2210,35 +2211,35 @@ export type instanceProfileNameType = string;
 
 export type integerType = number;
 
-export declare class InvalidAuthenticationCodeException extends EffectData.TaggedError(
+export declare class InvalidAuthenticationCodeException extends Data.TaggedError(
   "InvalidAuthenticationCodeException",
 )<{
   readonly message?: string;
 }> {}
 export type invalidAuthenticationCodeMessage = string;
 
-export declare class InvalidCertificateException extends EffectData.TaggedError(
+export declare class InvalidCertificateException extends Data.TaggedError(
   "InvalidCertificateException",
 )<{
   readonly message?: string;
 }> {}
 export type invalidCertificateMessage = string;
 
-export declare class InvalidInputException extends EffectData.TaggedError(
+export declare class InvalidInputException extends Data.TaggedError(
   "InvalidInputException",
 )<{
   readonly message?: string;
 }> {}
 export type invalidInputMessage = string;
 
-export declare class InvalidPublicKeyException extends EffectData.TaggedError(
+export declare class InvalidPublicKeyException extends Data.TaggedError(
   "InvalidPublicKeyException",
 )<{
   readonly message?: string;
 }> {}
 export type invalidPublicKeyMessage = string;
 
-export declare class InvalidUserTypeException extends EffectData.TaggedError(
+export declare class InvalidUserTypeException extends Data.TaggedError(
   "InvalidUserTypeException",
 )<{
   readonly message?: string;
@@ -2248,14 +2249,14 @@ export type invalidUserTypeMessage = string;
 export type jobIDType = string;
 
 export type jobStatusType = "IN_PROGRESS" | "COMPLETED" | "FAILED";
-export declare class KeyPairMismatchException extends EffectData.TaggedError(
+export declare class KeyPairMismatchException extends Data.TaggedError(
   "KeyPairMismatchException",
 )<{
   readonly message?: string;
 }> {}
 export type keyPairMismatchMessage = string;
 
-export declare class LimitExceededException extends EffectData.TaggedError(
+export declare class LimitExceededException extends Data.TaggedError(
   "LimitExceededException",
 )<{
   readonly message?: string;
@@ -2620,14 +2621,14 @@ export interface LoginProfile {
   CreateDate: Date | string;
   PasswordResetRequired?: boolean;
 }
-export declare class MalformedCertificateException extends EffectData.TaggedError(
+export declare class MalformedCertificateException extends Data.TaggedError(
   "MalformedCertificateException",
 )<{
   readonly message?: string;
 }> {}
 export type malformedCertificateMessage = string;
 
-export declare class MalformedPolicyDocumentException extends EffectData.TaggedError(
+export declare class MalformedPolicyDocumentException extends Data.TaggedError(
   "MalformedPolicyDocumentException",
 )<{
   readonly message?: string;
@@ -2663,7 +2664,7 @@ export interface MFADevice {
 export type mfaDeviceListType = Array<MFADevice>;
 export type minimumPasswordLengthType = number;
 
-export declare class NoSuchEntityException extends EffectData.TaggedError(
+export declare class NoSuchEntityException extends Data.TaggedError(
   "NoSuchEntityException",
 )<{
   readonly message?: string;
@@ -2677,7 +2678,7 @@ export type OpenIDConnectProviderListType =
   Array<OpenIDConnectProviderListEntry>;
 export type OpenIDConnectProviderUrlType = string;
 
-export declare class OpenIdIdpCommunicationErrorException extends EffectData.TaggedError(
+export declare class OpenIdIdpCommunicationErrorException extends Data.TaggedError(
   "OpenIdIdpCommunicationErrorException",
 )<{
   readonly message?: string;
@@ -2686,12 +2687,12 @@ export type openIdIdpCommunicationErrorExceptionMessage = string;
 
 export type OrganizationIdType = string;
 
-export declare class OrganizationNotFoundException extends EffectData.TaggedError(
+export declare class OrganizationNotFoundException extends Data.TaggedError(
   "OrganizationNotFoundException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class OrganizationNotInAllFeaturesModeException extends EffectData.TaggedError(
+export declare class OrganizationNotInAllFeaturesModeException extends Data.TaggedError(
   "OrganizationNotInAllFeaturesModeException",
 )<{
   readonly Message?: string;
@@ -2715,7 +2716,7 @@ export interface PasswordPolicy {
   PasswordReusePrevention?: number;
   HardExpiry?: boolean;
 }
-export declare class PasswordPolicyViolationException extends EffectData.TaggedError(
+export declare class PasswordPolicyViolationException extends Data.TaggedError(
   "PasswordPolicyViolationException",
 )<{
   readonly message?: string;
@@ -2764,7 +2765,7 @@ export type PolicyEvaluationDecisionType =
   | "implicitDeny";
 export type policyEvaluationErrorMessage = string;
 
-export declare class PolicyEvaluationException extends EffectData.TaggedError(
+export declare class PolicyEvaluationException extends Data.TaggedError(
   "PolicyEvaluationException",
 )<{
   readonly message?: string;
@@ -2789,7 +2790,7 @@ export type policyListType = Array<Policy>;
 export type policyNameListType = Array<string>;
 export type policyNameType = string;
 
-export declare class PolicyNotAttachableException extends EffectData.TaggedError(
+export declare class PolicyNotAttachableException extends Data.TaggedError(
   "PolicyNotAttachableException",
 )<{
   readonly message?: string;
@@ -2885,7 +2886,7 @@ export interface RemoveUserFromGroupRequest {
 export type ReportContentType = Uint8Array | string;
 
 export type ReportFormatType = "text/csv";
-export declare class ReportGenerationLimitExceededException extends EffectData.TaggedError(
+export declare class ReportGenerationLimitExceededException extends Data.TaggedError(
   "ReportGenerationLimitExceededException",
 )<{
   readonly message?: string;
@@ -3002,7 +3003,7 @@ export type serverCertificateMetadataListType =
   Array<ServerCertificateMetadata>;
 export type serverCertificateNameType = string;
 
-export declare class ServiceAccessNotEnabledException extends EffectData.TaggedError(
+export declare class ServiceAccessNotEnabledException extends Data.TaggedError(
   "ServiceAccessNotEnabledException",
 )<{
   readonly Message?: string;
@@ -3011,7 +3012,7 @@ export type serviceCredentialAlias = string;
 
 export type serviceCredentialSecret = string;
 
-export declare class ServiceFailureException extends EffectData.TaggedError(
+export declare class ServiceFailureException extends Data.TaggedError(
   "ServiceFailureException",
 )<{
   readonly message?: string;
@@ -3034,7 +3035,7 @@ export type serviceNamespaceType = string;
 
 export type serviceNameType = string;
 
-export declare class ServiceNotSupportedException extends EffectData.TaggedError(
+export declare class ServiceNotSupportedException extends Data.TaggedError(
   "ServiceNotSupportedException",
 )<{
   readonly message?: string;
@@ -3239,14 +3240,14 @@ export interface TrackedActionLastAccessed {
   LastAccessedRegion?: string;
 }
 export type TrackedActionsLastAccessed = Array<TrackedActionLastAccessed>;
-export declare class UnmodifiableEntityException extends EffectData.TaggedError(
+export declare class UnmodifiableEntityException extends Data.TaggedError(
   "UnmodifiableEntityException",
 )<{
   readonly message?: string;
 }> {}
 export type unmodifiableEntityMessage = string;
 
-export declare class UnrecognizedPublicKeyEncodingException extends EffectData.TaggedError(
+export declare class UnrecognizedPublicKeyEncodingException extends Data.TaggedError(
   "UnrecognizedPublicKeyEncodingException",
 )<{
   readonly message?: string;
@@ -3430,7 +3431,7 @@ export interface VirtualMFADevice {
 export type virtualMFADeviceListType = Array<VirtualMFADevice>;
 export type virtualMFADeviceName = string;
 
-export declare class NoSuchEntity extends EffectData.TaggedError(
+export declare class NoSuchEntity extends Data.TaggedError(
   "NoSuchEntity",
 )<{}> {}
 

@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   ExpiredTokenException,
   IncompleteSignature,
@@ -164,7 +165,7 @@ export declare class AIOps extends AWSServiceClient {
 
 export declare class Aiops extends AIOps {}
 
-export declare class AccessDeniedException extends EffectData.TaggedError(
+export declare class AccessDeniedException extends Data.TaggedError(
   "AccessDeniedException",
 )<{
   readonly message?: string;
@@ -173,7 +174,7 @@ export type ChatbotNotificationChannel = Record<string, Array<string>>;
 export type ChatConfigurationArn = string;
 
 export type ChatConfigurationArns = Array<string>;
-export declare class ConflictException extends EffectData.TaggedError(
+export declare class ConflictException extends Data.TaggedError(
   "ConflictException",
 )<{
   readonly message?: string;
@@ -210,7 +211,7 @@ export interface EncryptionConfiguration {
 export type EncryptionConfigurationType =
   | "AWS_OWNED_KEY"
   | "CUSTOMER_MANAGED_KMS_KEY";
-export declare class ForbiddenException extends EffectData.TaggedError(
+export declare class ForbiddenException extends Data.TaggedError(
   "ForbiddenException",
 )<{
   readonly message?: string;
@@ -242,7 +243,7 @@ export interface GetInvestigationGroupResponse {
 }
 export type IdentifierStringWithPatternAndLengthLimits = string;
 
-export declare class InternalServerException extends EffectData.TaggedError(
+export declare class InternalServerException extends Data.TaggedError(
   "InternalServerException",
 )<{
   readonly message?: string;
@@ -281,7 +282,7 @@ export interface PutInvestigationGroupPolicyRequest {
 export interface PutInvestigationGroupPolicyResponse {
   investigationGroupArn?: string;
 }
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly message?: string;
@@ -292,7 +293,7 @@ export type RoleArn = string;
 
 export type SensitiveStringWithLengthLimits = string;
 
-export declare class ServiceQuotaExceededException extends EffectData.TaggedError(
+export declare class ServiceQuotaExceededException extends Data.TaggedError(
   "ServiceQuotaExceededException",
 )<{
   readonly message?: string;
@@ -317,7 +318,7 @@ export interface TagResourceResponse {}
 export type Tags = Record<string, string>;
 export type TagValue = string;
 
-export declare class ThrottlingException extends EffectData.TaggedError(
+export declare class ThrottlingException extends Data.TaggedError(
   "ThrottlingException",
 )<{
   readonly message?: string;
@@ -337,7 +338,7 @@ export interface UpdateInvestigationGroupRequest {
   isCloudTrailEventHistoryEnabled?: boolean;
   crossAccountConfigurations?: Array<CrossAccountConfiguration>;
 }
-export declare class ValidationException extends EffectData.TaggedError(
+export declare class ValidationException extends Data.TaggedError(
   "ValidationException",
 )<{
   readonly message?: string;

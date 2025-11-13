@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   AccessDeniedException,
   IncompleteSignature,
@@ -218,7 +219,7 @@ export type encodedMessageType = string;
 
 export type expiredIdentityTokenMessage = string;
 
-export declare class ExpiredTokenException extends EffectData.TaggedError(
+export declare class ExpiredTokenException extends Data.TaggedError(
   "ExpiredTokenException",
 )<{
   readonly message?: string;
@@ -263,14 +264,14 @@ export interface GetSessionTokenRequest {
 export interface GetSessionTokenResponse {
   Credentials?: Credentials;
 }
-export declare class IDPCommunicationErrorException extends EffectData.TaggedError(
+export declare class IDPCommunicationErrorException extends Data.TaggedError(
   "IDPCommunicationErrorException",
 )<{
   readonly message?: string;
 }> {}
 export type idpCommunicationErrorMessage = string;
 
-export declare class IDPRejectedClaimException extends EffectData.TaggedError(
+export declare class IDPRejectedClaimException extends Data.TaggedError(
   "IDPRejectedClaimException",
 )<{
   readonly message?: string;
@@ -279,12 +280,12 @@ export type idpRejectedClaimMessage = string;
 
 export type invalidAuthorizationMessage = string;
 
-export declare class InvalidAuthorizationMessageException extends EffectData.TaggedError(
+export declare class InvalidAuthorizationMessageException extends Data.TaggedError(
   "InvalidAuthorizationMessageException",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidIdentityTokenException extends EffectData.TaggedError(
+export declare class InvalidIdentityTokenException extends Data.TaggedError(
   "InvalidIdentityTokenException",
 )<{
   readonly message?: string;
@@ -293,7 +294,7 @@ export type invalidIdentityTokenMessage = string;
 
 export type Issuer = string;
 
-export declare class MalformedPolicyDocumentException extends EffectData.TaggedError(
+export declare class MalformedPolicyDocumentException extends Data.TaggedError(
   "MalformedPolicyDocumentException",
 )<{
   readonly message?: string;
@@ -304,7 +305,7 @@ export type NameQualifier = string;
 
 export type nonNegativeIntegerType = number;
 
-export declare class PackedPolicyTooLargeException extends EffectData.TaggedError(
+export declare class PackedPolicyTooLargeException extends Data.TaggedError(
   "PackedPolicyTooLargeException",
 )<{
   readonly message?: string;
@@ -320,7 +321,7 @@ export interface ProvidedContext {
   ContextAssertion?: string;
 }
 export type ProvidedContextsListType = Array<ProvidedContext>;
-export declare class RegionDisabledException extends EffectData.TaggedError(
+export declare class RegionDisabledException extends Data.TaggedError(
   "RegionDisabledException",
 )<{
   readonly message?: string;

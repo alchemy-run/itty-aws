@@ -26,7 +26,7 @@ describe("EC2 Smoke Tests", () => {
   const waitForVpcDeletion = (vpcId: string) =>
     client.describeVpcs({ VpcIds: [vpcId] }).pipe(
       Effect.flatMap(() => Effect.fail("VpcStillExists" as const)),
-      Effect.catchAll((error: any) => {
+      Effect.catch((error: any) => {
         const code = error?.name ?? error?.Code ?? error?.code;
         return code === "InvalidVpcID.NotFound"
           ? Effect.void
@@ -53,12 +53,12 @@ describe("EC2 Smoke Tests", () => {
               Effect.tap(() =>
                 Console.log(`Cleaned up existing VPC: ${vpcId}`),
               ),
-              Effect.catchAll(() => Effect.void),
+              Effect.catch(() => Effect.void),
             );
           }
           return Effect.void;
         }),
-        Effect.catchAll(() => Effect.void),
+        Effect.catch(() => Effect.void),
       );
 
   it.live(
@@ -135,7 +135,7 @@ describe("EC2 Smoke Tests", () => {
               exists: true,
               error: undefined,
             })),
-            Effect.catchAll((error: any) => {
+            Effect.catch((error: any) => {
               const code = error?.name ?? error?.Code ?? error?.code;
               return Effect.succeed({
                 exists: false,
@@ -160,7 +160,7 @@ describe("EC2 Smoke Tests", () => {
           })
           .pipe(
             Effect.map(() => ({ success: true, error: undefined })),
-            Effect.catchAll((error: any) =>
+            Effect.catch((error: any) =>
               Effect.succeed({
                 success: false,
                 error:

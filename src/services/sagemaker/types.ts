@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
@@ -3523,7 +3524,7 @@ export type ConfiguredSpareInstanceCount = number;
 
 export type ConfigValue = string;
 
-export declare class ConflictException extends EffectData.TaggedError(
+export declare class ConflictException extends Data.TaggedError(
   "ConflictException",
 )<{
   readonly Message?: string;
@@ -11792,12 +11793,10 @@ export type ResourceId = string;
 
 export type ResourceIdentifier = string;
 
-export declare class ResourceInUse extends EffectData.TaggedError(
-  "ResourceInUse",
-)<{
+export declare class ResourceInUse extends Data.TaggedError("ResourceInUse")<{
   readonly Message?: string;
 }> {}
-export declare class ResourceLimitExceeded extends EffectData.TaggedError(
+export declare class ResourceLimitExceeded extends Data.TaggedError(
   "ResourceLimitExceeded",
 )<{
   readonly Message?: string;
@@ -11807,7 +11806,7 @@ export interface ResourceLimits {
   MaxParallelTrainingJobs: number;
   MaxRuntimeInSeconds?: number;
 }
-export declare class ResourceNotFound extends EffectData.TaggedError(
+export declare class ResourceNotFound extends Data.TaggedError(
   "ResourceNotFound",
 )<{
   readonly Message?: string;
@@ -14204,7 +14203,7 @@ export type WorkteamArn = string;
 export type WorkteamName = string;
 
 export type Workteams = Array<Workteam>;
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{}> {}
 

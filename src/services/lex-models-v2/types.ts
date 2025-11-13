@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   AccessDeniedException,
   ExpiredTokenException,
@@ -1934,7 +1935,7 @@ export type ConditionValue = string;
 
 export type ConfidenceThreshold = number;
 
-export declare class ConflictException extends EffectData.TaggedError(
+export declare class ConflictException extends Data.TaggedError(
   "ConflictException",
 )<{
   readonly message?: string;
@@ -2153,7 +2154,7 @@ export interface CreateResourcePolicyResponse {
 export interface CreateResourcePolicyStatementRequest {
   resourceArn: string;
   statementId: string;
-  effect: Effect;
+  effect: LexModelsV2Effect;
   principal: Array<Principal>;
   action: Array<string>;
   condition?: Record<string, Record<string, string>>;
@@ -2757,7 +2758,7 @@ export interface DTMFSpecification {
   deletionCharacter: string;
   endCharacter: string;
 }
-export type Effect = "Allow" | "Deny";
+export type LexModelsV2Effect = "Allow" | "Deny";
 export interface ElicitationCodeHookInvocationSetting {
   enableCodeHookInvocation: boolean;
   invocationLabel?: string;
@@ -3063,7 +3064,7 @@ export interface IntentSummary {
   lastUpdatedDateTime?: Date | string;
 }
 export type IntentSummaryList = Array<IntentSummary>;
-export declare class InternalServerException extends EffectData.TaggedError(
+export declare class InternalServerException extends Data.TaggedError(
   "InternalServerException",
 )<{
   readonly message?: string;
@@ -3626,7 +3627,7 @@ export interface PostFulfillmentStatusSpecification {
   timeoutNextStep?: DialogState;
   timeoutConditional?: ConditionalSpecification;
 }
-export declare class PreconditionFailedException extends EffectData.TaggedError(
+export declare class PreconditionFailedException extends Data.TaggedError(
   "PreconditionFailedException",
 )<{
   readonly message?: string;
@@ -3711,7 +3712,7 @@ export type ReplicaRegion = string;
 
 export type ResourceCount = number;
 
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly message?: string;
@@ -3799,7 +3800,7 @@ export interface SentimentAnalysisSettings {
 }
 export type ServicePrincipal = string;
 
-export declare class ServiceQuotaExceededException extends EffectData.TaggedError(
+export declare class ServiceQuotaExceededException extends Data.TaggedError(
   "ServiceQuotaExceededException",
 )<{
   readonly message?: string;
@@ -4278,7 +4279,7 @@ export interface TextLogSetting {
   selectiveLoggingEnabled?: boolean;
 }
 export type TextLogSettingsList = Array<TextLogSetting>;
-export declare class ThrottlingException extends EffectData.TaggedError(
+export declare class ThrottlingException extends Data.TaggedError(
   "ThrottlingException",
 )<{
   readonly retryAfterSeconds?: number;
@@ -4642,7 +4643,7 @@ export interface UtteranceSpecification {
 export type UtteranceSpecifications = Array<UtteranceSpecification>;
 export type UtteranceUnderstood = boolean;
 
-export declare class ValidationException extends EffectData.TaggedError(
+export declare class ValidationException extends Data.TaggedError(
   "ValidationException",
 )<{
   readonly message?: string;

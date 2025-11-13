@@ -1,12 +1,11 @@
-import * as FastCheck from "effect/FastCheck";
+import * as Stream from "effect/stream/Stream";
+import { XMLBuilder, XMLParser } from "fast-xml-parser";
 import type { ServiceMetadata } from "../client.ts";
 import type {
   ParsedError,
   ProtocolHandler,
   ProtocolRequest,
 } from "./interface.ts";
-import { XMLBuilder, XMLParser } from "fast-xml-parser";
-import * as Stream from "effect/Stream";
 
 type Writeable<T> = { -readonly [P in keyof T]: T[P] };
 
@@ -96,10 +95,10 @@ export class RestXmlHandler implements ProtocolHandler {
       if (operationMeta?.outputTraits?.Body === "httpStreaming") {
         return {
           ...headerData,
-          Body: Stream.fromReadableStream(
-            () => response.body!,
-            (error) => new Error(`Stream error: ${error}`),
-          ),
+          Body: Stream.fromReadableStream({
+            evaluate: () => response.body!,
+            onError: (error) => new Error(`Stream error: ${error}`),
+          }),
         };
       } else {
         const parser = new XMLParser();
@@ -115,7 +114,7 @@ export class RestXmlHandler implements ProtocolHandler {
 
   async parseError(
     response: Response,
-    statusCode: number,
+    _statusCode: number,
     headers?: Headers,
   ): Promise<ParsedError> {
     const responseText = await response.text();

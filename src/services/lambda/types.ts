@@ -1,5 +1,6 @@
-import type { Effect, Stream, Data as EffectData } from "effect";
-import type { ResponseError } from "@effect/platform/HttpClientError";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
+import type * as Stream from "effect/stream/Stream";
 import type { Buffer } from "node:buffer";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
@@ -881,7 +882,7 @@ export type CodeSigningConfigArn = string;
 export type CodeSigningConfigId = string;
 
 export type CodeSigningConfigList = Array<CodeSigningConfig>;
-export declare class CodeSigningConfigNotFoundException extends EffectData.TaggedError(
+export declare class CodeSigningConfigNotFoundException extends Data.TaggedError(
   "CodeSigningConfigNotFoundException",
 )<{
   readonly Type?: string;
@@ -891,13 +892,13 @@ export interface CodeSigningPolicies {
   UntrustedArtifactOnDeployment?: CodeSigningPolicy;
 }
 export type CodeSigningPolicy = "Warn" | "Enforce";
-export declare class CodeStorageExceededException extends EffectData.TaggedError(
+export declare class CodeStorageExceededException extends Data.TaggedError(
   "CodeStorageExceededException",
 )<{
   readonly Type?: string;
   readonly message?: string;
 }> {}
-export declare class CodeVerificationFailedException extends EffectData.TaggedError(
+export declare class CodeVerificationFailedException extends Data.TaggedError(
   "CodeVerificationFailedException",
 )<{
   readonly Type?: string;
@@ -1061,44 +1062,42 @@ export interface DocumentDBEventSourceConfig {
   CollectionName?: string;
   FullDocument?: FullDocument;
 }
-export declare class EC2AccessDeniedException extends EffectData.TaggedError(
+export declare class EC2AccessDeniedException extends Data.TaggedError(
   "EC2AccessDeniedException",
 )<{
   readonly Type?: string;
   readonly Message?: string;
 }> {}
-export declare class EC2ThrottledException extends EffectData.TaggedError(
+export declare class EC2ThrottledException extends Data.TaggedError(
   "EC2ThrottledException",
 )<{
   readonly Type?: string;
   readonly Message?: string;
 }> {}
-export declare class EC2UnexpectedException extends EffectData.TaggedError(
+export declare class EC2UnexpectedException extends Data.TaggedError(
   "EC2UnexpectedException",
 )<{
   readonly Type?: string;
   readonly Message?: string;
   readonly EC2ErrorCode?: string;
 }> {}
-export declare class EFSIOException extends EffectData.TaggedError(
-  "EFSIOException",
-)<{
+export declare class EFSIOException extends Data.TaggedError("EFSIOException")<{
   readonly Type?: string;
   readonly Message?: string;
 }> {}
-export declare class EFSMountConnectivityException extends EffectData.TaggedError(
+export declare class EFSMountConnectivityException extends Data.TaggedError(
   "EFSMountConnectivityException",
 )<{
   readonly Type?: string;
   readonly Message?: string;
 }> {}
-export declare class EFSMountFailureException extends EffectData.TaggedError(
+export declare class EFSMountFailureException extends Data.TaggedError(
   "EFSMountFailureException",
 )<{
   readonly Type?: string;
   readonly Message?: string;
 }> {}
-export declare class EFSMountTimeoutException extends EffectData.TaggedError(
+export declare class EFSMountTimeoutException extends Data.TaggedError(
   "EFSMountTimeoutException",
 )<{
   readonly Type?: string;
@@ -1111,7 +1110,7 @@ export type Endpoint = string;
 export type EndpointLists = Array<string>;
 export type Endpoints = Record<EndPointType, Array<string>>;
 export type EndPointType = "KAFKA_BOOTSTRAP_SERVERS";
-export declare class ENILimitReachedException extends EffectData.TaggedError(
+export declare class ENILimitReachedException extends Data.TaggedError(
   "ENILimitReachedException",
 )<{
   readonly Type?: string;
@@ -1437,43 +1436,43 @@ export interface ImageConfigResponse {
 }
 export type Integer = number;
 
-export declare class InvalidCodeSignatureException extends EffectData.TaggedError(
+export declare class InvalidCodeSignatureException extends Data.TaggedError(
   "InvalidCodeSignatureException",
 )<{
   readonly Type?: string;
   readonly Message?: string;
 }> {}
-export declare class InvalidParameterValueException extends EffectData.TaggedError(
+export declare class InvalidParameterValueException extends Data.TaggedError(
   "InvalidParameterValueException",
 )<{
   readonly Type?: string;
   readonly message?: string;
 }> {}
-export declare class InvalidRequestContentException extends EffectData.TaggedError(
+export declare class InvalidRequestContentException extends Data.TaggedError(
   "InvalidRequestContentException",
 )<{
   readonly Type?: string;
   readonly message?: string;
 }> {}
-export declare class InvalidRuntimeException extends EffectData.TaggedError(
+export declare class InvalidRuntimeException extends Data.TaggedError(
   "InvalidRuntimeException",
 )<{
   readonly Type?: string;
   readonly Message?: string;
 }> {}
-export declare class InvalidSecurityGroupIDException extends EffectData.TaggedError(
+export declare class InvalidSecurityGroupIDException extends Data.TaggedError(
   "InvalidSecurityGroupIDException",
 )<{
   readonly Type?: string;
   readonly Message?: string;
 }> {}
-export declare class InvalidSubnetIDException extends EffectData.TaggedError(
+export declare class InvalidSubnetIDException extends Data.TaggedError(
   "InvalidSubnetIDException",
 )<{
   readonly Type?: string;
   readonly Message?: string;
 }> {}
-export declare class InvalidZipFileException extends EffectData.TaggedError(
+export declare class InvalidZipFileException extends Data.TaggedError(
   "InvalidZipFileException",
 )<{
   readonly Type?: string;
@@ -1561,19 +1560,19 @@ export interface KafkaSchemaValidationConfig {
 }
 export type KafkaSchemaValidationConfigList =
   Array<KafkaSchemaValidationConfig>;
-export declare class KMSAccessDeniedException extends EffectData.TaggedError(
+export declare class KMSAccessDeniedException extends Data.TaggedError(
   "KMSAccessDeniedException",
 )<{
   readonly Type?: string;
   readonly Message?: string;
 }> {}
-export declare class KMSDisabledException extends EffectData.TaggedError(
+export declare class KMSDisabledException extends Data.TaggedError(
   "KMSDisabledException",
 )<{
   readonly Type?: string;
   readonly Message?: string;
 }> {}
-export declare class KMSInvalidStateException extends EffectData.TaggedError(
+export declare class KMSInvalidStateException extends Data.TaggedError(
   "KMSInvalidStateException",
 )<{
   readonly Type?: string;
@@ -1581,7 +1580,7 @@ export declare class KMSInvalidStateException extends EffectData.TaggedError(
 }> {}
 export type KMSKeyArn = string;
 
-export declare class KMSNotFoundException extends EffectData.TaggedError(
+export declare class KMSNotFoundException extends Data.TaggedError(
   "KMSNotFoundException",
 )<{
   readonly Type?: string;
@@ -1846,7 +1845,7 @@ export type ParallelizationFactor = number;
 
 export type Pattern = string;
 
-export declare class PolicyLengthExceededException extends EffectData.TaggedError(
+export declare class PolicyLengthExceededException extends Data.TaggedError(
   "PolicyLengthExceededException",
 )<{
   readonly Type?: string;
@@ -1854,7 +1853,7 @@ export declare class PolicyLengthExceededException extends EffectData.TaggedErro
 }> {}
 export type PositiveInteger = number;
 
-export declare class PreconditionFailedException extends EffectData.TaggedError(
+export declare class PreconditionFailedException extends Data.TaggedError(
   "PreconditionFailedException",
 )<{
   readonly Type?: string;
@@ -1875,7 +1874,7 @@ export interface ProvisionedConcurrencyConfigListItem {
   StatusReason?: string;
   LastModified?: string;
 }
-export declare class ProvisionedConcurrencyConfigNotFoundException extends EffectData.TaggedError(
+export declare class ProvisionedConcurrencyConfigNotFoundException extends Data.TaggedError(
   "ProvisionedConcurrencyConfigNotFoundException",
 )<{
   readonly Type?: string;
@@ -1969,7 +1968,7 @@ export type Qualifier = string;
 export type Queue = string;
 
 export type Queues = Array<string>;
-export declare class RecursiveInvocationException extends EffectData.TaggedError(
+export declare class RecursiveInvocationException extends Data.TaggedError(
   "RecursiveInvocationException",
 )<{
   readonly Type?: string;
@@ -1988,7 +1987,7 @@ export interface RemovePermissionRequest {
   Qualifier?: string;
   RevisionId?: string;
 }
-export declare class RequestTooLargeException extends EffectData.TaggedError(
+export declare class RequestTooLargeException extends Data.TaggedError(
   "RequestTooLargeException",
 )<{
   readonly Type?: string;
@@ -1998,25 +1997,25 @@ export type ReservedConcurrentExecutions = number;
 
 export type ResourceArn = string;
 
-export declare class ResourceConflictException extends EffectData.TaggedError(
+export declare class ResourceConflictException extends Data.TaggedError(
   "ResourceConflictException",
 )<{
   readonly Type?: string;
   readonly message?: string;
 }> {}
-export declare class ResourceInUseException extends EffectData.TaggedError(
+export declare class ResourceInUseException extends Data.TaggedError(
   "ResourceInUseException",
 )<{
   readonly Type?: string;
   readonly Message?: string;
 }> {}
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly Type?: string;
   readonly Message?: string;
 }> {}
-export declare class ResourceNotReadyException extends EffectData.TaggedError(
+export declare class ResourceNotReadyException extends Data.TaggedError(
   "ResourceNotReadyException",
 )<{
   readonly Type?: string;
@@ -2104,13 +2103,13 @@ export interface SelfManagedKafkaEventSourceConfig {
 }
 export type SensitiveString = string;
 
-export declare class SerializedRequestEntityTooLargeException extends EffectData.TaggedError(
+export declare class SerializedRequestEntityTooLargeException extends Data.TaggedError(
   "SerializedRequestEntityTooLargeException",
 )<{
   readonly Type?: string;
   readonly message?: string;
 }> {}
-export declare class ServiceException extends EffectData.TaggedError(
+export declare class ServiceException extends Data.TaggedError(
   "ServiceException",
 )<{
   readonly Type?: string;
@@ -2121,13 +2120,13 @@ export interface SnapStart {
   ApplyOn?: SnapStartApplyOn;
 }
 export type SnapStartApplyOn = "PublishedVersions" | "None";
-export declare class SnapStartException extends EffectData.TaggedError(
+export declare class SnapStartException extends Data.TaggedError(
   "SnapStartException",
 )<{
   readonly Type?: string;
   readonly Message?: string;
 }> {}
-export declare class SnapStartNotReadyException extends EffectData.TaggedError(
+export declare class SnapStartNotReadyException extends Data.TaggedError(
   "SnapStartNotReadyException",
 )<{
   readonly Type?: string;
@@ -2138,7 +2137,7 @@ export interface SnapStartResponse {
   ApplyOn?: SnapStartApplyOn;
   OptimizationStatus?: SnapStartOptimizationStatus;
 }
-export declare class SnapStartTimeoutException extends EffectData.TaggedError(
+export declare class SnapStartTimeoutException extends Data.TaggedError(
   "SnapStartTimeoutException",
 )<{
   readonly Type?: string;
@@ -2196,7 +2195,7 @@ export type StringList = Array<string>;
 export type SubnetId = string;
 
 export type SubnetIds = Array<string>;
-export declare class SubnetIPAddressLimitReachedException extends EffectData.TaggedError(
+export declare class SubnetIPAddressLimitReachedException extends Data.TaggedError(
   "SubnetIPAddressLimitReachedException",
 )<{
   readonly Type?: string;
@@ -2234,7 +2233,7 @@ export type Timeout = number;
 
 export type Timestamp = string;
 
-export declare class TooManyRequestsException extends EffectData.TaggedError(
+export declare class TooManyRequestsException extends Data.TaggedError(
   "TooManyRequestsException",
 )<{
   readonly retryAfterSeconds?: string;
@@ -2258,7 +2257,7 @@ export type UnqualifiedFunctionName = string;
 
 export type UnreservedConcurrentExecutions = number;
 
-export declare class UnsupportedMediaTypeException extends EffectData.TaggedError(
+export declare class UnsupportedMediaTypeException extends Data.TaggedError(
   "UnsupportedMediaTypeException",
 )<{
   readonly Type?: string;

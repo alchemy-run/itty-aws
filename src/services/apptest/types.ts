@@ -1,4 +1,6 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as EffectData from "effect/data/Data";
+import { AWSServiceClient } from "../../client.ts";
 import type {
   ExpiredTokenException,
   IncompleteSignature,
@@ -11,8 +13,8 @@ import type {
   RequestExpired,
   RequestTimeoutException,
   ServiceUnavailable,
-  UnrecognizedClientException,
   UnknownOperationException,
+  UnrecognizedClientException,
   ValidationError,
 } from "../../error.ts";
 type CommonAwsError =
@@ -33,7 +35,6 @@ type CommonAwsError =
   | AccessDeniedException
   | ThrottlingException
   | ValidationException;
-import { AWSServiceClient } from "../../client.ts";
 
 export declare class AppTest extends AWSServiceClient {
   listTagsForResource(

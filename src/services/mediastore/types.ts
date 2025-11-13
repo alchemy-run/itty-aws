@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
@@ -210,7 +211,7 @@ export type ContainerAccessLoggingEnabled = boolean;
 
 export type ContainerARN = string;
 
-export declare class ContainerInUseException extends EffectData.TaggedError(
+export declare class ContainerInUseException extends Data.TaggedError(
   "ContainerInUseException",
 )<{
   readonly Message?: string;
@@ -221,7 +222,7 @@ export type ContainerListLimit = number;
 
 export type ContainerName = string;
 
-export declare class ContainerNotFoundException extends EffectData.TaggedError(
+export declare class ContainerNotFoundException extends Data.TaggedError(
   "ContainerNotFoundException",
 )<{
   readonly Message?: string;
@@ -230,7 +231,7 @@ export type ContainerPolicy = string;
 
 export type ContainerStatus = "ACTIVE" | "CREATING" | "DELETING";
 export type CorsPolicy = Array<CorsRule>;
-export declare class CorsPolicyNotFoundException extends EffectData.TaggedError(
+export declare class CorsPolicyNotFoundException extends Data.TaggedError(
   "CorsPolicyNotFoundException",
 )<{
   readonly Message?: string;
@@ -306,14 +307,14 @@ export interface GetMetricPolicyOutput {
 }
 export type Header = string;
 
-export declare class InternalServerError extends EffectData.TaggedError(
+export declare class InternalServerError extends Data.TaggedError(
   "InternalServerError",
 )<{
   readonly Message?: string;
 }> {}
 export type LifecyclePolicy = string;
 
-export declare class LimitExceededException extends EffectData.TaggedError(
+export declare class LimitExceededException extends Data.TaggedError(
   "LimitExceededException",
 )<{
   readonly Message?: string;
@@ -352,7 +353,7 @@ export type Origin = string;
 
 export type PaginationToken = string;
 
-export declare class PolicyNotFoundException extends EffectData.TaggedError(
+export declare class PolicyNotFoundException extends Data.TaggedError(
   "PolicyNotFoundException",
 )<{
   readonly Message?: string;

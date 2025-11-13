@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
@@ -79,7 +80,7 @@ export declare class KinesisVideoArchivedMedia extends AWSServiceClient {
   >;
 }
 
-export declare class ClientLimitExceededException extends EffectData.TaggedError(
+export declare class ClientLimitExceededException extends Data.TaggedError(
   "ClientLimitExceededException",
 )<{
   readonly Message?: string;
@@ -234,17 +235,17 @@ export type ImageContent = string;
 export type ImageError = "NO_MEDIA" | "MEDIA_ERROR";
 export type Images = Array<Image>;
 export type ImageSelectorType = "PRODUCER_TIMESTAMP" | "SERVER_TIMESTAMP";
-export declare class InvalidArgumentException extends EffectData.TaggedError(
+export declare class InvalidArgumentException extends Data.TaggedError(
   "InvalidArgumentException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidCodecPrivateDataException extends EffectData.TaggedError(
+export declare class InvalidCodecPrivateDataException extends Data.TaggedError(
   "InvalidCodecPrivateDataException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidMediaFrameException extends EffectData.TaggedError(
+export declare class InvalidMediaFrameException extends Data.TaggedError(
   "InvalidMediaFrameException",
 )<{
   readonly Message?: string;
@@ -264,19 +265,19 @@ export interface ListFragmentsOutput {
 }
 export type Long = number;
 
-export declare class MissingCodecPrivateDataException extends EffectData.TaggedError(
+export declare class MissingCodecPrivateDataException extends Data.TaggedError(
   "MissingCodecPrivateDataException",
 )<{
   readonly Message?: string;
 }> {}
 export type NextToken = string;
 
-export declare class NoDataRetentionException extends EffectData.TaggedError(
+export declare class NoDataRetentionException extends Data.TaggedError(
   "NoDataRetentionException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class NotAuthorizedException extends EffectData.TaggedError(
+export declare class NotAuthorizedException extends Data.TaggedError(
   "NotAuthorizedException",
 )<{
   readonly Message?: string;
@@ -285,7 +286,7 @@ export type Payload = Uint8Array | string;
 
 export type ResourceARN = string;
 
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly Message?: string;
@@ -300,7 +301,7 @@ export interface TimestampRange {
   StartTimestamp: Date | string;
   EndTimestamp: Date | string;
 }
-export declare class UnsupportedStreamMediaTypeException extends EffectData.TaggedError(
+export declare class UnsupportedStreamMediaTypeException extends Data.TaggedError(
   "UnsupportedStreamMediaTypeException",
 )<{
   readonly Message?: string;

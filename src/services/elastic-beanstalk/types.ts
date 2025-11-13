@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
@@ -399,7 +400,7 @@ export interface CheckDNSAvailabilityResultMessage {
 }
 export type CnameAvailability = boolean;
 
-export declare class CodeBuildNotInServiceRegionException extends EffectData.TaggedError(
+export declare class CodeBuildNotInServiceRegionException extends Data.TaggedError(
   "CodeBuildNotInServiceRegionException",
 )<{
   readonly message?: string;
@@ -699,7 +700,7 @@ export type DNSCnamePrefix = string;
 
 export type Ec2InstanceId = string;
 
-export declare class ElasticBeanstalkServiceException extends EffectData.TaggedError(
+export declare class ElasticBeanstalkServiceException extends Data.TaggedError(
   "ElasticBeanstalkServiceException",
 )<{
   readonly message?: string;
@@ -885,14 +886,14 @@ export type InstancesHealthAttribute =
   | "InstanceType"
   | "All";
 export type InstancesHealthAttributes = Array<InstancesHealthAttribute>;
-export declare class InsufficientPrivilegesException extends EffectData.TaggedError(
+export declare class InsufficientPrivilegesException extends Data.TaggedError(
   "InsufficientPrivilegesException",
 )<{
   readonly message?: string;
 }> {}
 export type Integer = number;
 
-export declare class InvalidRequestException extends EffectData.TaggedError(
+export declare class InvalidRequestException extends Data.TaggedError(
   "InvalidRequestException",
 )<{
   readonly message?: string;
@@ -981,7 +982,7 @@ export interface ManagedActionHistoryItem {
 export type ManagedActionHistoryItems = Array<ManagedActionHistoryItem>;
 export type ManagedActionHistoryMaxItems = number;
 
-export declare class ManagedActionInvalidStateException extends EffectData.TaggedError(
+export declare class ManagedActionInvalidStateException extends Data.TaggedError(
   "ManagedActionInvalidStateException",
 )<{
   readonly message?: string;
@@ -1015,7 +1016,7 @@ export type OperatingSystemName = string;
 
 export type OperatingSystemVersion = string;
 
-export declare class OperationInProgressException extends EffectData.TaggedError(
+export declare class OperationInProgressException extends Data.TaggedError(
   "OperationInProgressException",
 )<{
   readonly message?: string;
@@ -1133,7 +1134,7 @@ export interface PlatformSummary {
 export type PlatformSummaryList = Array<PlatformSummary>;
 export type PlatformVersion = string;
 
-export declare class PlatformVersionStillReferencedException extends EffectData.TaggedError(
+export declare class PlatformVersionStillReferencedException extends Data.TaggedError(
   "PlatformVersionStillReferencedException",
 )<{
   readonly message?: string;
@@ -1168,7 +1169,7 @@ export type ResourceId = string;
 
 export type ResourceName = string;
 
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly message?: string;
@@ -1187,7 +1188,7 @@ export interface ResourceTagsDescriptionMessage {
   ResourceArn?: string;
   ResourceTags?: Array<Tag>;
 }
-export declare class ResourceTypeNotSupportedException extends EffectData.TaggedError(
+export declare class ResourceTypeNotSupportedException extends Data.TaggedError(
   "ResourceTypeNotSupportedException",
 )<{
   readonly message?: string;
@@ -1212,12 +1213,12 @@ export interface S3Location {
   S3Bucket?: string;
   S3Key?: string;
 }
-export declare class S3LocationNotInServiceRegionException extends EffectData.TaggedError(
+export declare class S3LocationNotInServiceRegionException extends Data.TaggedError(
   "S3LocationNotInServiceRegionException",
 )<{
   readonly message?: string;
 }> {}
-export declare class S3SubscriptionRequiredException extends EffectData.TaggedError(
+export declare class S3SubscriptionRequiredException extends Data.TaggedError(
   "S3SubscriptionRequiredException",
 )<{
   readonly message?: string;
@@ -1261,7 +1262,7 @@ export interface SourceBuildInformation {
   SourceRepository: SourceRepository;
   SourceLocation: string;
 }
-export declare class SourceBundleDeletionException extends EffectData.TaggedError(
+export declare class SourceBundleDeletionException extends Data.TaggedError(
   "SourceBundleDeletionException",
 )<{
   readonly message?: string;
@@ -1327,37 +1328,37 @@ export type Timestamp = Date | string;
 
 export type Token = string;
 
-export declare class TooManyApplicationsException extends EffectData.TaggedError(
+export declare class TooManyApplicationsException extends Data.TaggedError(
   "TooManyApplicationsException",
 )<{
   readonly message?: string;
 }> {}
-export declare class TooManyApplicationVersionsException extends EffectData.TaggedError(
+export declare class TooManyApplicationVersionsException extends Data.TaggedError(
   "TooManyApplicationVersionsException",
 )<{
   readonly message?: string;
 }> {}
-export declare class TooManyBucketsException extends EffectData.TaggedError(
+export declare class TooManyBucketsException extends Data.TaggedError(
   "TooManyBucketsException",
 )<{
   readonly message?: string;
 }> {}
-export declare class TooManyConfigurationTemplatesException extends EffectData.TaggedError(
+export declare class TooManyConfigurationTemplatesException extends Data.TaggedError(
   "TooManyConfigurationTemplatesException",
 )<{
   readonly message?: string;
 }> {}
-export declare class TooManyEnvironmentsException extends EffectData.TaggedError(
+export declare class TooManyEnvironmentsException extends Data.TaggedError(
   "TooManyEnvironmentsException",
 )<{
   readonly message?: string;
 }> {}
-export declare class TooManyPlatformsException extends EffectData.TaggedError(
+export declare class TooManyPlatformsException extends Data.TaggedError(
   "TooManyPlatformsException",
 )<{
   readonly message?: string;
 }> {}
-export declare class TooManyTagsException extends EffectData.TaggedError(
+export declare class TooManyTagsException extends Data.TaggedError(
   "TooManyTagsException",
 )<{
   readonly message?: string;

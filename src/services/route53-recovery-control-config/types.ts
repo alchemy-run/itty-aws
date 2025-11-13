@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   ExpiredTokenException,
   IncompleteSignature,
@@ -334,7 +335,7 @@ export type __stringMin1Max64PatternS = string;
 
 export type __stringMin1Max8096PatternS = string;
 
-export declare class AccessDeniedException extends EffectData.TaggedError(
+export declare class AccessDeniedException extends Data.TaggedError(
   "AccessDeniedException",
 )<{
   readonly Message: string;
@@ -366,7 +367,7 @@ export interface ClusterEndpoint {
   Endpoint?: string;
   Region?: string;
 }
-export declare class ConflictException extends EffectData.TaggedError(
+export declare class ConflictException extends Data.TaggedError(
   "ConflictException",
 )<{
   readonly Message: string;
@@ -480,7 +481,7 @@ export interface GetResourcePolicyRequest {
 export interface GetResourcePolicyResponse {
   Policy?: string;
 }
-export declare class InternalServerException extends EffectData.TaggedError(
+export declare class InternalServerException extends Data.TaggedError(
   "InternalServerException",
 )<{
   readonly Message: string;
@@ -553,7 +554,7 @@ export interface NewGatingRule {
   TargetControls: Array<string>;
   WaitPeriodMs: number;
 }
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly Message: string;
@@ -575,7 +576,7 @@ export interface RuleConfig {
   Type: RuleType;
 }
 export type RuleType = "ATLEAST" | "AND" | "OR";
-export declare class ServiceQuotaExceededException extends EffectData.TaggedError(
+export declare class ServiceQuotaExceededException extends Data.TaggedError(
   "ServiceQuotaExceededException",
 )<{
   readonly Message: string;
@@ -586,7 +587,7 @@ export interface TagResourceRequest {
   Tags: Record<string, string>;
 }
 export interface TagResourceResponse {}
-export declare class ThrottlingException extends EffectData.TaggedError(
+export declare class ThrottlingException extends Data.TaggedError(
   "ThrottlingException",
 )<{
   readonly Message: string;
@@ -625,7 +626,7 @@ export interface UpdateSafetyRuleResponse {
   AssertionRule?: AssertionRule;
   GatingRule?: GatingRule;
 }
-export declare class ValidationException extends EffectData.TaggedError(
+export declare class ValidationException extends Data.TaggedError(
   "ValidationException",
 )<{
   readonly Message: string;

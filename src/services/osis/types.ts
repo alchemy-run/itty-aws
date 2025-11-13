@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   ExpiredTokenException,
   IncompleteSignature,
@@ -292,7 +293,7 @@ export declare class OSIS extends AWSServiceClient {
 
 export declare class Osis extends OSIS {}
 
-export declare class AccessDeniedException extends EffectData.TaggedError(
+export declare class AccessDeniedException extends Data.TaggedError(
   "AccessDeniedException",
 )<{
   readonly message?: string;
@@ -335,7 +336,7 @@ export type CidrBlock = string;
 export interface CloudWatchLogDestination {
   LogGroup: string;
 }
-export declare class ConflictException extends EffectData.TaggedError(
+export declare class ConflictException extends Data.TaggedError(
   "ConflictException",
 )<{
   readonly message?: string;
@@ -377,7 +378,7 @@ export interface DeleteResourcePolicyRequest {
   ResourceArn: string;
 }
 export interface DeleteResourcePolicyResponse {}
-export declare class DisabledOperationException extends EffectData.TaggedError(
+export declare class DisabledOperationException extends Data.TaggedError(
   "DisabledOperationException",
 )<{
   readonly message?: string;
@@ -417,19 +418,19 @@ export interface GetResourcePolicyResponse {
 export type IngestEndpointUrlsList = Array<string>;
 export type Integer = number;
 
-export declare class InternalException extends EffectData.TaggedError(
+export declare class InternalException extends Data.TaggedError(
   "InternalException",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidPaginationTokenException extends EffectData.TaggedError(
+export declare class InvalidPaginationTokenException extends Data.TaggedError(
   "InvalidPaginationTokenException",
 )<{
   readonly message?: string;
 }> {}
 export type KmsKeyArn = string;
 
-export declare class LimitExceededException extends EffectData.TaggedError(
+export declare class LimitExceededException extends Data.TaggedError(
   "LimitExceededException",
 )<{
   readonly message?: string;
@@ -596,12 +597,12 @@ export interface PutResourcePolicyResponse {
   ResourceArn?: string;
   Policy?: string;
 }
-export declare class ResourceAlreadyExistsException extends EffectData.TaggedError(
+export declare class ResourceAlreadyExistsException extends Data.TaggedError(
   "ResourceAlreadyExistsException",
 )<{
   readonly message?: string;
 }> {}
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly message?: string;
@@ -682,7 +683,7 @@ export interface ValidatePipelineResponse {
   isValid?: boolean;
   Errors?: Array<ValidationMessage>;
 }
-export declare class ValidationException extends EffectData.TaggedError(
+export declare class ValidationException extends Data.TaggedError(
   "ValidationException",
 )<{
   readonly message?: string;

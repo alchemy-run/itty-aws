@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
@@ -1836,7 +1837,7 @@ export type AttributeType =
   | "AFTER"
   | "ON"
   | "BETWEEN";
-export declare class BadRequestException extends EffectData.TaggedError(
+export declare class BadRequestException extends Data.TaggedError(
   "BadRequestException",
 )<{
   readonly Message?: string;
@@ -2021,7 +2022,7 @@ export interface ConditionalSplitActivity {
   FalseActivity?: string;
   TrueActivity?: string;
 }
-export declare class ConflictException extends EffectData.TaggedError(
+export declare class ConflictException extends Data.TaggedError(
   "ConflictException",
 )<{
   readonly Message?: string;
@@ -2590,7 +2591,7 @@ export interface ExportJobsResponse {
   NextToken?: string;
 }
 export type FilterType = "SYSTEM" | "ENDPOINT";
-export declare class ForbiddenException extends EffectData.TaggedError(
+export declare class ForbiddenException extends Data.TaggedError(
   "ForbiddenException",
 )<{
   readonly Message?: string;
@@ -3137,7 +3138,7 @@ export interface InAppTemplateResponse {
   Version?: string;
 }
 export type Include = "ALL" | "ANY" | "NONE";
-export declare class InternalServerErrorException extends EffectData.TaggedError(
+export declare class InternalServerErrorException extends Data.TaggedError(
   "InternalServerErrorException",
 )<{
   readonly Message?: string;
@@ -3434,7 +3435,7 @@ export interface MessageResult {
   UpdatedToken?: string;
 }
 export type MessageType = "TRANSACTIONAL" | "PROMOTIONAL";
-export declare class MethodNotAllowedException extends EffectData.TaggedError(
+export declare class MethodNotAllowedException extends Data.TaggedError(
   "MethodNotAllowedException",
 )<{
   readonly Message?: string;
@@ -3454,7 +3455,7 @@ export interface MultiConditionalSplitActivity {
   DefaultActivity?: string;
   EvaluationWaitTime?: WaitTime;
 }
-export declare class NotFoundException extends EffectData.TaggedError(
+export declare class NotFoundException extends Data.TaggedError(
   "NotFoundException",
 )<{
   readonly Message?: string;
@@ -3496,7 +3497,7 @@ export interface OverrideButtonConfiguration {
   ButtonAction: ButtonAction;
   Link?: string;
 }
-export declare class PayloadTooLargeException extends EffectData.TaggedError(
+export declare class PayloadTooLargeException extends Data.TaggedError(
   "PayloadTooLargeException",
 )<{
   readonly Message?: string;
@@ -3894,7 +3895,7 @@ export interface TemplateVersionsResponse {
   NextToken?: string;
   RequestID?: string;
 }
-export declare class TooManyRequestsException extends EffectData.TaggedError(
+export declare class TooManyRequestsException extends Data.TaggedError(
   "TooManyRequestsException",
 )<{
   readonly Message?: string;

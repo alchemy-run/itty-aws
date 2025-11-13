@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
@@ -165,10 +166,10 @@ export interface CreatePerformanceAnalysisReportRequest {
 export interface CreatePerformanceAnalysisReportResponse {
   AnalysisReportId?: string;
 }
-export interface Data {
+export interface PiData {
   PerformanceInsightsMetric?: PerformanceInsightsMetric;
 }
-export type DataList = Array<Data>;
+export type DataList = Array<PiData>;
 export interface DataPoint {
   Timestamp: Date | string;
   Value: number;
@@ -313,18 +314,18 @@ export interface Insight {
   SupportingInsights?: Array<Insight>;
   Description?: string;
   Recommendations?: Array<Recommendation>;
-  InsightData?: Array<Data>;
-  BaselineData?: Array<Data>;
+  InsightData?: Array<PiData>;
+  BaselineData?: Array<PiData>;
 }
 export type InsightList = Array<Insight>;
 export type Integer = number;
 
-export declare class InternalServiceError extends EffectData.TaggedError(
+export declare class InternalServiceError extends Data.TaggedError(
   "InternalServiceError",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidArgumentException extends EffectData.TaggedError(
+export declare class InvalidArgumentException extends Data.TaggedError(
   "InvalidArgumentException",
 )<{
   readonly Message?: string;
@@ -399,7 +400,7 @@ export type MetricTypeList = Array<string>;
 export type MetricValuesList = Array<number>;
 export type NextToken = string;
 
-export declare class NotAuthorizedException extends EffectData.TaggedError(
+export declare class NotAuthorizedException extends Data.TaggedError(
   "NotAuthorizedException",
 )<{
   readonly Message?: string;

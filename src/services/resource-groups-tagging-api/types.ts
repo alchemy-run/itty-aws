@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
@@ -95,12 +96,12 @@ export interface ComplianceDetails {
 }
 export type ComplianceStatus = boolean;
 
-export declare class ConcurrentModificationException extends EffectData.TaggedError(
+export declare class ConcurrentModificationException extends Data.TaggedError(
   "ConcurrentModificationException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class ConstraintViolationException extends EffectData.TaggedError(
+export declare class ConstraintViolationException extends Data.TaggedError(
   "ConstraintViolationException",
 )<{
   readonly Message?: string;
@@ -173,12 +174,12 @@ export type GroupBy = Array<GroupByAttribute>;
 export type GroupByAttribute = "TARGET_ID" | "REGION" | "RESOURCE_TYPE";
 export type IncludeComplianceDetails = boolean;
 
-export declare class InternalServiceException extends EffectData.TaggedError(
+export declare class InternalServiceException extends Data.TaggedError(
   "InternalServiceException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidParameterException extends EffectData.TaggedError(
+export declare class InvalidParameterException extends Data.TaggedError(
   "InvalidParameterException",
 )<{
   readonly Message?: string;
@@ -191,7 +192,7 @@ export type NonCompliantResources = number;
 
 export type PaginationToken = string;
 
-export declare class PaginationTokenExpiredException extends EffectData.TaggedError(
+export declare class PaginationTokenExpiredException extends Data.TaggedError(
   "PaginationTokenExpiredException",
 )<{
   readonly Message?: string;
@@ -268,7 +269,7 @@ export type TargetId = string;
 
 export type TargetIdFilterList = Array<string>;
 export type TargetIdType = "ACCOUNT" | "OU" | "ROOT";
-export declare class ThrottledException extends EffectData.TaggedError(
+export declare class ThrottledException extends Data.TaggedError(
   "ThrottledException",
 )<{
   readonly Message?: string;

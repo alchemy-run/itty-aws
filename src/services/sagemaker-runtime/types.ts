@@ -1,5 +1,7 @@
-import type { Effect, Stream, Data as EffectData } from "effect";
-import type { ResponseError } from "@effect/platform/HttpClientError";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
+import type * as Stream from "effect/stream/Stream";
+import type { ResponseError } from "effect/unstable/http/HttpClientError";
 import type { Buffer } from "node:buffer";
 import type {
   AccessDeniedException,
@@ -90,17 +92,17 @@ export type InferenceId = string;
 
 export type InputLocationHeader = string;
 
-export declare class InternalDependencyException extends EffectData.TaggedError(
+export declare class InternalDependencyException extends Data.TaggedError(
   "InternalDependencyException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InternalFailure extends EffectData.TaggedError(
+export declare class InternalFailure extends Data.TaggedError(
   "InternalFailure",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InternalStreamFailure extends EffectData.TaggedError(
+export declare class InternalStreamFailure extends Data.TaggedError(
   "InternalStreamFailure",
 )<{
   readonly Message?: string;
@@ -166,18 +168,18 @@ export type LogStreamArn = string;
 
 export type Message = string;
 
-export declare class ModelError extends EffectData.TaggedError("ModelError")<{
+export declare class ModelError extends Data.TaggedError("ModelError")<{
   readonly Message?: string;
   readonly OriginalStatusCode?: number;
   readonly OriginalMessage?: string;
   readonly LogStreamArn?: string;
 }> {}
-export declare class ModelNotReadyException extends EffectData.TaggedError(
+export declare class ModelNotReadyException extends Data.TaggedError(
   "ModelNotReadyException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class ModelStreamError extends EffectData.TaggedError(
+export declare class ModelStreamError extends Data.TaggedError(
   "ModelStreamError",
 )<{
   readonly Message?: string;
@@ -202,7 +204,7 @@ export type ResponseStream =
   | (_ResponseStream & { PayloadPart: PayloadPart })
   | (_ResponseStream & { ModelStreamError: ModelStreamError })
   | (_ResponseStream & { InternalStreamFailure: InternalStreamFailure });
-export declare class ServiceUnavailable extends EffectData.TaggedError(
+export declare class ServiceUnavailable extends Data.TaggedError(
   "ServiceUnavailable",
 )<{
   readonly Message?: string;
@@ -219,7 +221,7 @@ export type TargetModelHeader = string;
 
 export type TargetVariantHeader = string;
 
-export declare class ValidationError extends EffectData.TaggedError(
+export declare class ValidationError extends Data.TaggedError(
   "ValidationError",
 )<{
   readonly Message?: string;

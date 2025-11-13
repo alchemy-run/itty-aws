@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   ExpiredTokenException,
   IncompleteSignature,
@@ -1128,7 +1129,7 @@ export declare class Bedrock extends AWSServiceClient {
 
 export type AcceptEula = boolean;
 
-export declare class AccessDeniedException extends EffectData.TaggedError(
+export declare class AccessDeniedException extends Data.TaggedError(
   "AccessDeniedException",
 )<{
   readonly message?: string;
@@ -1849,7 +1850,7 @@ export interface CloudWatchConfig {
   largeDataDeliveryS3Config?: S3Config;
 }
 export type CommitmentDuration = "OneMonth" | "SixMonths";
-export declare class ConflictException extends EffectData.TaggedError(
+export declare class ConflictException extends Data.TaggedError(
   "ConflictException",
 )<{
   readonly message?: string;
@@ -3192,7 +3193,7 @@ export type InstanceType = string;
 
 export type InstructSupported = boolean;
 
-export declare class InternalServerException extends EffectData.TaggedError(
+export declare class InternalServerException extends Data.TaggedError(
   "InternalServerException",
 )<{
   readonly message?: string;
@@ -3857,12 +3858,12 @@ export type RerankingMetadataSelectiveModeConfiguration =
   | (_RerankingMetadataSelectiveModeConfiguration & {
       fieldsToExclude: Array<FieldForReranking>;
     });
-export declare class ResourceInUseException extends EffectData.TaggedError(
+export declare class ResourceInUseException extends Data.TaggedError(
   "ResourceInUseException",
 )<{
   readonly message?: string;
 }> {}
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly message?: string;
@@ -3939,12 +3940,12 @@ export type SearchType = "HYBRID" | "SEMANTIC";
 export type SecurityGroupId = string;
 
 export type SecurityGroupIds = Array<string>;
-export declare class ServiceQuotaExceededException extends EffectData.TaggedError(
+export declare class ServiceQuotaExceededException extends Data.TaggedError(
   "ServiceQuotaExceededException",
 )<{
   readonly message?: string;
 }> {}
-export declare class ServiceUnavailableException extends EffectData.TaggedError(
+export declare class ServiceUnavailableException extends Data.TaggedError(
   "ServiceUnavailableException",
 )<{
   readonly message?: string;
@@ -4035,14 +4036,14 @@ export interface TextInferenceConfig {
 }
 export type TextPromptTemplate = string;
 
-export declare class ThrottlingException extends EffectData.TaggedError(
+export declare class ThrottlingException extends Data.TaggedError(
   "ThrottlingException",
 )<{
   readonly message?: string;
 }> {}
 export type Timestamp = Date | string;
 
-export declare class TooManyTagsException extends EffectData.TaggedError(
+export declare class TooManyTagsException extends Data.TaggedError(
   "TooManyTagsException",
 )<{
   readonly message?: string;
@@ -4150,7 +4151,7 @@ export interface ValidationDetails {
   creationTime?: Date | string;
   lastModifiedTime?: Date | string;
 }
-export declare class ValidationException extends EffectData.TaggedError(
+export declare class ValidationException extends Data.TaggedError(
   "ValidationException",
 )<{
   readonly message?: string;

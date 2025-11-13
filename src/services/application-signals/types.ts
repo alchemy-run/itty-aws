@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   ExpiredTokenException,
   IncompleteSignature,
@@ -203,7 +204,7 @@ export declare class ApplicationSignals extends AWSServiceClient {
   >;
 }
 
-export declare class AccessDeniedException extends EffectData.TaggedError(
+export declare class AccessDeniedException extends Data.TaggedError(
   "AccessDeniedException",
 )<{
   readonly Message?: string;
@@ -320,7 +321,7 @@ export interface ChangeEvent {
   EventName?: string;
 }
 export type ChangeEventType = "DEPLOYMENT";
-export declare class ConflictException extends EffectData.TaggedError(
+export declare class ConflictException extends Data.TaggedError(
   "ConflictException",
 )<{
   readonly Message: string;
@@ -694,7 +695,7 @@ export interface RequestBasedServiceLevelIndicatorMetricConfig {
 }
 export type ResourceId = string;
 
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly ResourceType: string;
@@ -865,7 +866,7 @@ export interface ServiceOperationEntity {
   MetricType?: string;
 }
 export type ServiceOperations = Array<ServiceOperation>;
-export declare class ServiceQuotaExceededException extends EffectData.TaggedError(
+export declare class ServiceQuotaExceededException extends Data.TaggedError(
   "ServiceQuotaExceededException",
 )<{
   readonly Message: string;
@@ -933,7 +934,7 @@ export interface TagResourceRequest {
 export interface TagResourceResponse {}
 export type TagValue = string;
 
-export declare class ThrottlingException extends EffectData.TaggedError(
+export declare class ThrottlingException extends Data.TaggedError(
   "ThrottlingException",
 )<{
   readonly Message: string;
@@ -958,7 +959,7 @@ export interface UpdateServiceLevelObjectiveInput {
 export interface UpdateServiceLevelObjectiveOutput {
   Slo: ServiceLevelObjective;
 }
-export declare class ValidationException extends EffectData.TaggedError(
+export declare class ValidationException extends Data.TaggedError(
   "ValidationException",
 )<{
   readonly message?: string;

@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   IncompleteSignature,
   InternalFailure,
@@ -100,7 +101,7 @@ export declare class SSOOIDC extends AWSServiceClient {
 
 export declare class SsoOidc extends SSOOIDC {}
 
-export declare class AccessDeniedException extends EffectData.TaggedError(
+export declare class AccessDeniedException extends Data.TaggedError(
   "AccessDeniedException",
 )<{
   readonly error?: string;
@@ -116,7 +117,7 @@ export type Assertion = string;
 
 export type AuthCode = string;
 
-export declare class AuthorizationPendingException extends EffectData.TaggedError(
+export declare class AuthorizationPendingException extends Data.TaggedError(
   "AuthorizationPendingException",
 )<{
   readonly error?: string;
@@ -184,7 +185,7 @@ export type ErrorDescription = string;
 
 export type ExpirationInSeconds = number;
 
-export declare class ExpiredTokenException extends EffectData.TaggedError(
+export declare class ExpiredTokenException extends Data.TaggedError(
   "ExpiredTokenException",
 )<{
   readonly error?: string;
@@ -197,7 +198,7 @@ export type IdentityContext = string;
 
 export type IdToken = string;
 
-export declare class InternalServerException extends EffectData.TaggedError(
+export declare class InternalServerException extends Data.TaggedError(
   "InternalServerException",
 )<{
   readonly error?: string;
@@ -205,31 +206,31 @@ export declare class InternalServerException extends EffectData.TaggedError(
 }> {}
 export type IntervalInSeconds = number;
 
-export declare class InvalidClientException extends EffectData.TaggedError(
+export declare class InvalidClientException extends Data.TaggedError(
   "InvalidClientException",
 )<{
   readonly error?: string;
   readonly error_description?: string;
 }> {}
-export declare class InvalidClientMetadataException extends EffectData.TaggedError(
+export declare class InvalidClientMetadataException extends Data.TaggedError(
   "InvalidClientMetadataException",
 )<{
   readonly error?: string;
   readonly error_description?: string;
 }> {}
-export declare class InvalidGrantException extends EffectData.TaggedError(
+export declare class InvalidGrantException extends Data.TaggedError(
   "InvalidGrantException",
 )<{
   readonly error?: string;
   readonly error_description?: string;
 }> {}
-export declare class InvalidRedirectUriException extends EffectData.TaggedError(
+export declare class InvalidRedirectUriException extends Data.TaggedError(
   "InvalidRedirectUriException",
 )<{
   readonly error?: string;
   readonly error_description?: string;
 }> {}
-export declare class InvalidRequestException extends EffectData.TaggedError(
+export declare class InvalidRequestException extends Data.TaggedError(
   "InvalidRequestException",
 )<{
   readonly error?: string;
@@ -241,7 +242,7 @@ export type InvalidRequestExceptionReason =
   | "KMS_InvalidKeyUsageException"
   | "KMS_InvalidStateException"
   | "KMS_DisabledException";
-export declare class InvalidRequestRegionException extends EffectData.TaggedError(
+export declare class InvalidRequestRegionException extends Data.TaggedError(
   "InvalidRequestRegionException",
 )<{
   readonly error?: string;
@@ -249,7 +250,7 @@ export declare class InvalidRequestRegionException extends EffectData.TaggedErro
   readonly endpoint?: string;
   readonly region?: string;
 }> {}
-export declare class InvalidScopeException extends EffectData.TaggedError(
+export declare class InvalidScopeException extends Data.TaggedError(
   "InvalidScopeException",
 )<{
   readonly error?: string;
@@ -284,7 +285,7 @@ export interface RegisterClientResponse {
 export type Scope = string;
 
 export type Scopes = Array<string>;
-export declare class SlowDownException extends EffectData.TaggedError(
+export declare class SlowDownException extends Data.TaggedError(
   "SlowDownException",
 )<{
   readonly error?: string;
@@ -309,13 +310,13 @@ export type TokenType = string;
 
 export type TokenTypeURI = string;
 
-export declare class UnauthorizedClientException extends EffectData.TaggedError(
+export declare class UnauthorizedClientException extends Data.TaggedError(
   "UnauthorizedClientException",
 )<{
   readonly error?: string;
   readonly error_description?: string;
 }> {}
-export declare class UnsupportedGrantTypeException extends EffectData.TaggedError(
+export declare class UnsupportedGrantTypeException extends Data.TaggedError(
   "UnsupportedGrantTypeException",
 )<{
   readonly error?: string;

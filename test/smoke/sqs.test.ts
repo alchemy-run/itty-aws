@@ -16,11 +16,11 @@ describe("SQS Smoke Tests", () => {
           Effect.tap(() =>
             Console.log(`Cleaned up existing queue: ${result.QueueUrl}`),
           ),
-          Effect.catchAll(() => Effect.void),
+          Effect.catch(() => Effect.void),
         ),
       ),
       Effect.catchTag("QueueDoesNotExist", () => Effect.void),
-      Effect.catchAll(() => Effect.void),
+      Effect.catch(() => Effect.void),
     );
 
   it.live(
@@ -314,7 +314,7 @@ describe("SQS Smoke Tests", () => {
             Effect.catchTag("QueueDoesNotExist", (error) =>
               Effect.succeed({ success: false, error: error._tag }),
             ),
-            Effect.catchAll((error) =>
+            Effect.catch((error) =>
               Effect.succeed({
                 success: false,
                 error: error._tag || "UnknownError",
@@ -374,6 +374,7 @@ describe("SQS Smoke Tests", () => {
           AttributeNames: ["QueueArn"],
         });
 
+        // biome-ignore lint/suspicious/noNonNullAssertedOptionalChain: unsolved lint error from original code
         const dlqArn = dlqAttributes.Attributes?.QueueArn!;
 
         // Create main queue with DLQ configuration
@@ -567,7 +568,7 @@ describe("SQS Smoke Tests", () => {
             Effect.catchTag("ValidationError", (error) =>
               Effect.succeed({ success: false, error: error._tag }),
             ),
-            Effect.catchAll((error) =>
+            Effect.catch((error) =>
               Effect.succeed({
                 success: false,
                 error: error._tag || "UnknownError",
@@ -588,7 +589,7 @@ describe("SQS Smoke Tests", () => {
             Effect.catchTag("QueueDoesNotExist", (error) =>
               Effect.succeed({ success: false, error: error._tag }),
             ),
-            Effect.catchAll((error) =>
+            Effect.catch((error) =>
               Effect.succeed({
                 success: false,
                 error: error._tag || "UnknownError",

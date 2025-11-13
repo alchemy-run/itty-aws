@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   ExpiredTokenException,
   IncompleteSignature,
@@ -185,7 +186,7 @@ export declare class PaymentCryptographyData extends AWSServiceClient {
   >;
 }
 
-export declare class AccessDeniedException extends EffectData.TaggedError(
+export declare class AccessDeniedException extends Data.TaggedError(
   "AccessDeniedException",
 )<{
   readonly Message?: string;
@@ -599,7 +600,7 @@ export type IntegerRangeBetween4And12 = number;
 
 export type IntegerRangeBetween4And16 = number;
 
-export declare class InternalServerException extends EffectData.TaggedError(
+export declare class InternalServerException extends Data.TaggedError(
   "InternalServerException",
 )<{
   readonly Message?: string;
@@ -760,7 +761,7 @@ interface _ReEncryptionAttributes {
 export type ReEncryptionAttributes =
   | (_ReEncryptionAttributes & { Symmetric: SymmetricEncryptionAttributes })
   | (_ReEncryptionAttributes & { Dukpt: DukptEncryptionAttributes });
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly ResourceId?: string;
@@ -838,7 +839,7 @@ export type SymmetricKeyAlgorithm =
   | "HMAC_SHA384"
   | "HMAC_SHA512"
   | "HMAC_SHA224";
-export declare class ThrottlingException extends EffectData.TaggedError(
+export declare class ThrottlingException extends Data.TaggedError(
   "ThrottlingException",
 )<{
   readonly Message?: string;
@@ -891,7 +892,7 @@ export interface TranslationPinDataIsoFormat034 {
 export interface TranslationPinDataIsoFormat1 {}
 export type ValidationDataType = string;
 
-export declare class ValidationException extends EffectData.TaggedError(
+export declare class ValidationException extends Data.TaggedError(
   "ValidationException",
 )<{
   readonly message: string;
@@ -902,7 +903,7 @@ export interface ValidationExceptionField {
   message: string;
 }
 export type ValidationExceptionFieldList = Array<ValidationExceptionField>;
-export declare class VerificationFailedException extends EffectData.TaggedError(
+export declare class VerificationFailedException extends Data.TaggedError(
   "VerificationFailedException",
 )<{
   readonly Reason: string;

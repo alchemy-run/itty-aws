@@ -1,5 +1,7 @@
-import type { Effect, Stream, Data as EffectData } from "effect";
-import type { ResponseError } from "@effect/platform/HttpClientError";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
+import type * as Stream from "effect/stream/Stream";
+import type { ResponseError } from "effect/unstable/http/HttpClientError";
 import type { Buffer } from "node:buffer";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
@@ -1434,7 +1436,7 @@ export interface Authorizers {
   position?: string;
 }
 export type AuthorizerType = "TOKEN" | "REQUEST" | "COGNITO_USER_POOLS";
-export declare class BadRequestException extends EffectData.TaggedError(
+export declare class BadRequestException extends Data.TaggedError(
   "BadRequestException",
 )<{
   readonly message?: string;
@@ -1485,7 +1487,7 @@ export interface ClientCertificates {
   items?: Array<ClientCertificate>;
   position?: string;
 }
-export declare class ConflictException extends EffectData.TaggedError(
+export declare class ConflictException extends Data.TaggedError(
   "ConflictException",
 )<{
   readonly message?: string;
@@ -2152,7 +2154,7 @@ export type IntegrationType =
   | "HTTP_PROXY"
   | "AWS_PROXY";
 export type IpAddressType = "ipv4" | "dualstack";
-export declare class LimitExceededException extends EffectData.TaggedError(
+export declare class LimitExceededException extends Data.TaggedError(
   "LimitExceededException",
 )<{
   readonly retryAfterSeconds?: string;
@@ -2254,7 +2256,7 @@ export interface MutualTlsAuthenticationInput {
   truststoreUri?: string;
   truststoreVersion?: string;
 }
-export declare class NotFoundException extends EffectData.TaggedError(
+export declare class NotFoundException extends Data.TaggedError(
   "NotFoundException",
 )<{
   readonly message?: string;
@@ -2419,7 +2421,7 @@ export interface SdkTypes {
   items?: Array<SdkType>;
 }
 export type SecurityPolicy = "TLS_1_0" | "TLS_1_2";
-export declare class ServiceUnavailableException extends EffectData.TaggedError(
+export declare class ServiceUnavailableException extends Data.TaggedError(
   "ServiceUnavailableException",
 )<{
   readonly retryAfterSeconds?: string;
@@ -2512,7 +2514,7 @@ export type Timestamp = Date | string;
 export interface TlsConfig {
   insecureSkipVerification?: boolean;
 }
-export declare class TooManyRequestsException extends EffectData.TaggedError(
+export declare class TooManyRequestsException extends Data.TaggedError(
   "TooManyRequestsException",
 )<{
   readonly retryAfterSeconds?: string;
@@ -2522,7 +2524,7 @@ export type UnauthorizedCacheControlHeaderStrategy =
   | "FAIL_WITH_403"
   | "SUCCEED_WITH_RESPONSE_HEADER"
   | "SUCCEED_WITHOUT_RESPONSE_HEADER";
-export declare class UnauthorizedException extends EffectData.TaggedError(
+export declare class UnauthorizedException extends Data.TaggedError(
   "UnauthorizedException",
 )<{
   readonly message?: string;

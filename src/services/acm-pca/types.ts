@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
@@ -352,7 +353,7 @@ export type CertificateChain = string;
 
 export type CertificateChainBlob = Uint8Array | string;
 
-export declare class CertificateMismatchException extends EffectData.TaggedError(
+export declare class CertificateMismatchException extends Data.TaggedError(
   "CertificateMismatchException",
 )<{
   readonly message?: string;
@@ -360,7 +361,7 @@ export declare class CertificateMismatchException extends EffectData.TaggedError
 export type CertificatePolicyList = Array<PolicyInformation>;
 export type CnameString = string;
 
-export declare class ConcurrentModificationException extends EffectData.TaggedError(
+export declare class ConcurrentModificationException extends Data.TaggedError(
   "ConcurrentModificationException",
 )<{
   readonly message?: string;
@@ -536,37 +537,37 @@ export interface ImportCertificateAuthorityCertificateRequest {
 }
 export type Integer1To5000 = number;
 
-export declare class InvalidArgsException extends EffectData.TaggedError(
+export declare class InvalidArgsException extends Data.TaggedError(
   "InvalidArgsException",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidArnException extends EffectData.TaggedError(
+export declare class InvalidArnException extends Data.TaggedError(
   "InvalidArnException",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidNextTokenException extends EffectData.TaggedError(
+export declare class InvalidNextTokenException extends Data.TaggedError(
   "InvalidNextTokenException",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidPolicyException extends EffectData.TaggedError(
+export declare class InvalidPolicyException extends Data.TaggedError(
   "InvalidPolicyException",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidRequestException extends EffectData.TaggedError(
+export declare class InvalidRequestException extends Data.TaggedError(
   "InvalidRequestException",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidStateException extends EffectData.TaggedError(
+export declare class InvalidStateException extends Data.TaggedError(
   "InvalidStateException",
 )<{
   readonly message?: string;
 }> {}
-export declare class InvalidTagException extends EffectData.TaggedError(
+export declare class InvalidTagException extends Data.TaggedError(
   "InvalidTagException",
 )<{
   readonly message?: string;
@@ -607,7 +608,7 @@ export interface KeyUsage {
   EncipherOnly?: boolean;
   DecipherOnly?: boolean;
 }
-export declare class LimitExceededException extends EffectData.TaggedError(
+export declare class LimitExceededException extends Data.TaggedError(
   "LimitExceededException",
 )<{
   readonly message?: string;
@@ -639,17 +640,17 @@ export interface ListTagsResponse {
   NextToken?: string;
   Tags?: Array<Tag>;
 }
-export declare class LockoutPreventedException extends EffectData.TaggedError(
+export declare class LockoutPreventedException extends Data.TaggedError(
   "LockoutPreventedException",
 )<{
   readonly message?: string;
 }> {}
-export declare class MalformedCertificateException extends EffectData.TaggedError(
+export declare class MalformedCertificateException extends Data.TaggedError(
   "MalformedCertificateException",
 )<{
   readonly message?: string;
 }> {}
-export declare class MalformedCSRException extends EffectData.TaggedError(
+export declare class MalformedCSRException extends Data.TaggedError(
   "MalformedCSRException",
 )<{
   readonly message?: string;
@@ -676,7 +677,7 @@ export interface Permission {
   Actions?: Array<ActionType>;
   Policy?: string;
 }
-export declare class PermissionAlreadyExistsException extends EffectData.TaggedError(
+export declare class PermissionAlreadyExistsException extends Data.TaggedError(
   "PermissionAlreadyExistsException",
 )<{
   readonly message?: string;
@@ -703,22 +704,22 @@ export interface PutPolicyRequest {
 export interface Qualifier {
   CpsUri: string;
 }
-export declare class RequestAlreadyProcessedException extends EffectData.TaggedError(
+export declare class RequestAlreadyProcessedException extends Data.TaggedError(
   "RequestAlreadyProcessedException",
 )<{
   readonly message?: string;
 }> {}
-export declare class RequestFailedException extends EffectData.TaggedError(
+export declare class RequestFailedException extends Data.TaggedError(
   "RequestFailedException",
 )<{
   readonly message?: string;
 }> {}
-export declare class RequestInProgressException extends EffectData.TaggedError(
+export declare class RequestInProgressException extends Data.TaggedError(
   "RequestInProgressException",
 )<{
   readonly message?: string;
 }> {}
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly message?: string;
@@ -795,7 +796,7 @@ export type TagKey = string;
 export type TagList = Array<Tag>;
 export type TagValue = string;
 
-export declare class TooManyTagsException extends EffectData.TaggedError(
+export declare class TooManyTagsException extends Data.TaggedError(
   "TooManyTagsException",
 )<{
   readonly message?: string;

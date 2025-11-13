@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
@@ -31,7 +32,7 @@ export type Answer = string;
 
 export type ClientId = string;
 
-export declare class ClientLimitExceededException extends EffectData.TaggedError(
+export declare class ClientLimitExceededException extends Data.TaggedError(
   "ClientLimitExceededException",
 )<{
   readonly Message?: string;
@@ -54,19 +55,19 @@ export interface IceServer {
   Ttl?: number;
 }
 export type IceServerList = Array<IceServer>;
-export declare class InvalidArgumentException extends EffectData.TaggedError(
+export declare class InvalidArgumentException extends Data.TaggedError(
   "InvalidArgumentException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidClientException extends EffectData.TaggedError(
+export declare class InvalidClientException extends Data.TaggedError(
   "InvalidClientException",
 )<{
   readonly message?: string;
 }> {}
 export type MessagePayload = string;
 
-export declare class NotAuthorizedException extends EffectData.TaggedError(
+export declare class NotAuthorizedException extends Data.TaggedError(
   "NotAuthorizedException",
 )<{
   readonly Message?: string;
@@ -75,7 +76,7 @@ export type Password = string;
 
 export type ResourceARN = string;
 
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly Message?: string;
@@ -89,7 +90,7 @@ export interface SendAlexaOfferToMasterResponse {
   Answer?: string;
 }
 export type Service = "TURN";
-export declare class SessionExpiredException extends EffectData.TaggedError(
+export declare class SessionExpiredException extends Data.TaggedError(
   "SessionExpiredException",
 )<{
   readonly message?: string;

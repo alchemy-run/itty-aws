@@ -1,18 +1,8 @@
-import * as Context from "effect/Context";
+import * as ServiceMap from "effect/ServiceMap";
 import type { AwsCredentials } from "./client.ts";
 
-// Minimal credentials service definitions that are safe to import everywhere
-export interface Credentials {
-  readonly getCredentials: () => Promise<AwsCredentials>;
-}
+export type Credentials = {
+  getCredentials(): Promise<AwsCredentials>;
+};
 
-export const Credentials = Context.Tag("Credentials")<
-  Credentials,
-  {
-    readonly getCredentials: () => Promise<AwsCredentials>;
-  }
->();
-
-export const fromStaticCredentials = (creds: AwsCredentials): Credentials => ({
-  getCredentials: () => Promise.resolve(creds),
-});
+export const Credentials = ServiceMap.Service<Credentials>("Credentials");

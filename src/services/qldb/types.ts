@@ -1,6 +1,7 @@
-import type { Effect, Data as EffectData } from "effect";
-import type { CommonAwsError } from "../../error.ts";
+import type * as Effect from "effect/Effect";
+import type * as EffectData from "effect/data/Data";
 import { AWSServiceClient } from "../../client.ts";
+import type { CommonAwsError } from "../../error.ts";
 
 export declare class QLDB extends AWSServiceClient {
   cancelJournalKinesisStream(

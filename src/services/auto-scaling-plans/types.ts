@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type {
   AccessDeniedException,
   ExpiredTokenException,
@@ -101,7 +102,7 @@ export interface ApplicationSource {
   TagFilters?: Array<TagFilter>;
 }
 export type ApplicationSources = Array<ApplicationSource>;
-export declare class ConcurrentUpdateException extends EffectData.TaggedError(
+export declare class ConcurrentUpdateException extends Data.TaggedError(
   "ConcurrentUpdateException",
 )<{
   readonly Message?: string;
@@ -185,17 +186,17 @@ export interface GetScalingPlanResourceForecastDataRequest {
 export interface GetScalingPlanResourceForecastDataResponse {
   Datapoints: Array<Datapoint>;
 }
-export declare class InternalServiceException extends EffectData.TaggedError(
+export declare class InternalServiceException extends Data.TaggedError(
   "InternalServiceException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class InvalidNextTokenException extends EffectData.TaggedError(
+export declare class InvalidNextTokenException extends Data.TaggedError(
   "InvalidNextTokenException",
 )<{
   readonly Message?: string;
 }> {}
-export declare class LimitExceededException extends EffectData.TaggedError(
+export declare class LimitExceededException extends Data.TaggedError(
   "LimitExceededException",
 )<{
   readonly Message?: string;
@@ -232,7 +233,7 @@ export type MetricUnit = string;
 
 export type NextToken = string;
 
-export declare class ObjectNotFoundException extends EffectData.TaggedError(
+export declare class ObjectNotFoundException extends Data.TaggedError(
   "ObjectNotFoundException",
 )<{
   readonly Message?: string;
@@ -378,7 +379,7 @@ export interface UpdateScalingPlanRequest {
   ScalingInstructions?: Array<ScalingInstruction>;
 }
 export interface UpdateScalingPlanResponse {}
-export declare class ValidationException extends EffectData.TaggedError(
+export declare class ValidationException extends Data.TaggedError(
   "ValidationException",
 )<{
   readonly Message?: string;

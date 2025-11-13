@@ -1,4 +1,5 @@
-import type { Effect, Data as EffectData } from "effect";
+import type * as Effect from "effect/Effect";
+import type * as Data from "effect/data/Data";
 import type { CommonAwsError } from "../../error.ts";
 import { AWSServiceClient } from "../../client.ts";
 
@@ -31,21 +32,19 @@ export interface GetRawMessageContentRequest {
 export interface GetRawMessageContentResponse {
   messageContent: Uint8Array | string;
 }
-export declare class InvalidContentLocation extends EffectData.TaggedError(
+export declare class InvalidContentLocation extends Data.TaggedError(
   "InvalidContentLocation",
 )<{
   readonly message?: string;
 }> {}
 export type messageContentBlob = Uint8Array | string;
 
-export declare class MessageFrozen extends EffectData.TaggedError(
-  "MessageFrozen",
-)<{
+export declare class MessageFrozen extends Data.TaggedError("MessageFrozen")<{
   readonly message?: string;
 }> {}
 export type messageIdType = string;
 
-export declare class MessageRejected extends EffectData.TaggedError(
+export declare class MessageRejected extends Data.TaggedError(
   "MessageRejected",
 )<{
   readonly message?: string;
@@ -58,7 +57,7 @@ export interface PutRawMessageContentResponse {}
 export interface RawMessageContent {
   s3Reference: S3Reference;
 }
-export declare class ResourceNotFoundException extends EffectData.TaggedError(
+export declare class ResourceNotFoundException extends Data.TaggedError(
   "ResourceNotFoundException",
 )<{
   readonly message?: string;
