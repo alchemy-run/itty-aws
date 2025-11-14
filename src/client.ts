@@ -9,6 +9,16 @@ import type { ProtocolHandler } from "./protocols/interface.ts";
 import * as Schedule from "effect/Schedule";
 import * as Duration from "effect/Duration";
 import { pipe } from "effect";
+import * as Context from "effect/Context";
+
+export const retryableErrorTags = [
+  "InternalFailure",
+  "RequestExpired",
+  "ServiceException",
+  "ServiceUnavailable",
+  "ThrottlingException",
+  "TooManyRequestsException",
+];
 
 const errorTags: {
   [serviceName: string]: {
@@ -111,6 +121,8 @@ export function createServiceProxy<T>(
               onSome: (fetch) => fetch,
               onNone: () => DefaultFetch,
             });
+
+            const retryPolicy = yield* Effect.serviceOption(RetryPolicy);
 
             // Convert camelCase method to PascalCase operation
             const operation =
@@ -254,17 +266,33 @@ export function createServiceProxy<T>(
               );
             }
           });
-          return withRetry(program);
+          return Effect.gen(function* () {
+            const retryPolicy = yield* Effect.serviceOption(RetryPolicy);
+            const randomNumber = Option.getOrUndefined(retryPolicy) ?? {
+              maxRetries: 5,
+              delay: Duration.millis(100),
+            };
+            return yield* withRetry(program, randomNumber);
+          });
         };
       },
     },
   ) as T;
 }
 
+class RetryPolicy extends Context.Tag("RetryPolicy")<
+  RetryPolicy,
+  {
+    maxRetries: number;
+    delay: Duration.Duration;
+  }
+>() {}
+
 const withRetry = <A>(
   operation: Effect.Effect<
     A,
     {
+      readonly _tag: string;
       retryable:
         | {
             retryAfterSeconds?: number;
@@ -272,21 +300,35 @@ const withRetry = <A>(
         | false;
     }
   >,
+  randomNumber: {
+    maxRetries: number;
+    delay: Duration.Duration;
+  },
 ) =>
   pipe(
     operation,
     Effect.retry({
-      while: (error) => error.retryable !== false,
+      while: (error) =>
+        error.retryable !== false || retryableErrorTags.includes(error._tag),
       schedule: pipe(
-        Schedule.exponential(100),
+        Schedule.exponential(randomNumber.delay),
         Schedule.passthrough,
-        Schedule.addDelay((error) =>
-          typeof error?.retryable === "object" &&
-          error?.retryable?.retryAfterSeconds != null
+        Schedule.addDelay((err) => {
+          const error = err as {
+            readonly _tag: string;
+            retryable:
+              | {
+                  retryAfterSeconds?: number;
+                }
+              | false;
+          };
+
+          return typeof error?.retryable === "object" &&
+            error?.retryable?.retryAfterSeconds != null
             ? Duration.seconds(error?.retryable?.retryAfterSeconds)
-            : Duration.seconds(1),
-        ),
-        Schedule.compose(Schedule.recurs(5)),
+            : Duration.zero;
+        }),
+        Schedule.compose(Schedule.recurs(randomNumber.maxRetries)),
       ),
     }),
   );
