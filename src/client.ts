@@ -122,8 +122,6 @@ export function createServiceProxy<T>(
               onNone: () => DefaultFetch,
             });
 
-            const retryPolicy = yield* Effect.serviceOption(RetryPolicy);
-
             // Convert camelCase method to PascalCase operation
             const operation =
               methodName.charAt(0).toUpperCase() + methodName.slice(1);
