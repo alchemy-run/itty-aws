@@ -84,6 +84,10 @@ const metadata = {
     UpdateEventRule: "PUT /event-rules/{arn}",
     UpdateNotificationConfiguration: "PUT /notification-configurations/{arn}",
   },
+  retryableErrors: {
+    InternalServerException: {},
+    ThrottlingException: { retryAfterSeconds: "Retry-After" },
+  },
 } as const satisfies ServiceMetadata;
 
 export type _Notifications = _NotificationsClient;

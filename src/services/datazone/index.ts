@@ -330,6 +330,10 @@ const metadata = {
       "PATCH /v2/domains/{domainIdentifier}/glossary-terms/{identifier}",
     UpdateRule: "PATCH /v2/domains/{domainIdentifier}/rules/{identifier}",
   },
+  retryableErrors: {
+    InternalServerException: {},
+    ThrottlingException: {},
+  },
 } as const satisfies ServiceMetadata;
 
 export type _DataZone = _DataZoneClient;

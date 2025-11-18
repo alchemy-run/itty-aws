@@ -45,6 +45,10 @@ const metadata = {
     PutClusterPolicy: "POST /cluster/{identifier}/policy",
     UpdateCluster: "POST /cluster/{identifier}",
   },
+  retryableErrors: {
+    InternalServerException: { retryAfterSeconds: "Retry-After" },
+    ThrottlingException: { retryAfterSeconds: "Retry-After" },
+  },
 } as const satisfies ServiceMetadata;
 
 export type _DSQL = _DSQLClient;

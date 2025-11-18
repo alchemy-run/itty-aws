@@ -92,6 +92,12 @@ const metadata = {
     UpdateFlowSource: "PUT /v1/flows/{FlowArn}/source/{SourceArn}",
     UpdateGatewayInstance: "PUT /v1/gateway-instances/{GatewayInstanceArn}",
   },
+  retryableErrors: {
+    InternalServerErrorException: {},
+    ServiceUnavailableException: {},
+    TooManyRequestsException: {},
+    ConflictException: {},
+  },
 } as const satisfies ServiceMetadata;
 
 export type _MediaConnect = _MediaConnectClient;

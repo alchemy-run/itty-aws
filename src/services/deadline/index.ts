@@ -205,6 +205,10 @@ const metadata = {
     UpdateWorkerSchedule:
       "PATCH /2023-10-12/farms/{farmId}/fleets/{fleetId}/workers/{workerId}/schedule",
   },
+  retryableErrors: {
+    InternalServerErrorException: { retryAfterSeconds: "Retry-After" },
+    ThrottlingException: { retryAfterSeconds: "Retry-After" },
+  },
 } as const satisfies ServiceMetadata;
 
 export type _deadline = _deadlineClient;

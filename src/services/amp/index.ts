@@ -96,6 +96,10 @@ const metadata = {
     UpdateWorkspaceConfiguration:
       "PATCH /workspaces/{workspaceId}/configuration",
   },
+  retryableErrors: {
+    InternalServerException: { retryAfterSeconds: "Retry-After" },
+    ThrottlingException: { retryAfterSeconds: "Retry-After" },
+  },
 } as const satisfies ServiceMetadata;
 
 export type _amp = _ampClient;

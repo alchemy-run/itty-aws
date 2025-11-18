@@ -59,6 +59,10 @@ const metadata = {
     UpdateApplication: "PATCH /applications/{Identifier}",
     UpdateStreamGroup: "PATCH /streamgroups/{Identifier}",
   },
+  retryableErrors: {
+    InternalServerException: {},
+    ThrottlingException: {},
+  },
 } as const satisfies ServiceMetadata;
 
 export type _GameLiftStreams = _GameLiftStreamsClient;

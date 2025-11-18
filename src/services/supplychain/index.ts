@@ -84,6 +84,10 @@ const metadata = {
       "PATCH /api/datalake/instance/{instanceId}/namespaces/{name}",
     UpdateInstance: "PATCH /api/instance/{instanceId}",
   },
+  retryableErrors: {
+    InternalServerException: {},
+    ThrottlingException: {},
+  },
 } as const satisfies ServiceMetadata;
 
 export type _SupplyChain = _SupplyChainClient;

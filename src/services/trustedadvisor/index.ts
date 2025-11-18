@@ -49,6 +49,10 @@ const metadata = {
     UpdateRecommendationLifecycle:
       "PUT /v1/recommendations/{recommendationIdentifier}/lifecycle",
   },
+  retryableErrors: {
+    InternalServerException: {},
+    ThrottlingException: {},
+  },
 } as const satisfies ServiceMetadata;
 
 export type _TrustedAdvisor = _TrustedAdvisorClient;

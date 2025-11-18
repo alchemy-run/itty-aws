@@ -81,6 +81,9 @@ const metadata = {
     UpdateScene: "PUT /workspaces/{workspaceId}/scenes/{sceneId}",
     UpdateWorkspace: "PUT /workspaces/{workspaceId}",
   },
+  retryableErrors: {
+    QueryTimeoutException: {},
+  },
 } as const satisfies ServiceMetadata;
 
 export type _IoTTwinMaker = _IoTTwinMakerClient;

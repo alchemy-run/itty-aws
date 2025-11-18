@@ -52,6 +52,10 @@ const metadata = {
     UpdateChannel: "PUT /spaces/{spaceId}/channels/{channelId}",
     UpdateSpace: "PUT /spaces/{spaceId}",
   },
+  retryableErrors: {
+    InternalServerException: { retryAfterSeconds: "Retry-After" },
+    ThrottlingException: { retryAfterSeconds: "Retry-After" },
+  },
 } as const satisfies ServiceMetadata;
 
 export type _repostspace = _repostspaceClient;

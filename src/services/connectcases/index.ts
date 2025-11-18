@@ -78,6 +78,10 @@ const metadata = {
     UpdateLayout: "PUT /domains/{domainId}/layouts/{layoutId}",
     UpdateTemplate: "PUT /domains/{domainId}/templates/{templateId}",
   },
+  retryableErrors: {
+    InternalServerException: { retryAfterSeconds: "Retry-After" },
+    ThrottlingException: {},
+  },
 } as const satisfies ServiceMetadata;
 
 export type _ConnectCases = _ConnectCasesClient;

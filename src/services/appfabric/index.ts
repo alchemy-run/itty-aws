@@ -72,6 +72,10 @@ const metadata = {
     UpdateIngestionDestination:
       "PATCH /appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}/ingestiondestinations/{ingestionDestinationIdentifier}",
   },
+  retryableErrors: {
+    InternalServerException: { retryAfterSeconds: "Retry-After" },
+    ThrottlingException: { retryAfterSeconds: "Retry-After" },
+  },
 } as const satisfies ServiceMetadata;
 
 export type _AppFabric = _AppFabricClient;

@@ -38,6 +38,10 @@ const metadata = {
     ListReports: "GET /v1/report/list",
     PutAccountSettings: "PUT /v1/account-settings/put",
   },
+  retryableErrors: {
+    InternalServerException: { retryAfterSeconds: "Retry-After" },
+    ThrottlingException: { retryAfterSeconds: "Retry-After" },
+  },
 } as const satisfies ServiceMetadata;
 
 export type _Artifact = _ArtifactClient;

@@ -69,6 +69,11 @@ const metadata = {
     UpdateAnalyzer: "PUT /analyzer/{analyzerName}",
     UpdateArchiveRule: "PUT /analyzer/{analyzerName}/archive-rule/{ruleName}",
   },
+  retryableErrors: {
+    InternalServerException: { retryAfterSeconds: "Retry-After" },
+    ThrottlingException: { retryAfterSeconds: "Retry-After" },
+    UnprocessableEntityException: {},
+  },
 } as const satisfies ServiceMetadata;
 
 export type _AccessAnalyzer = _AccessAnalyzerClient;

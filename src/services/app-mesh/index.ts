@@ -214,6 +214,11 @@ const metadata = {
       },
     },
   },
+  retryableErrors: {
+    InternalServerErrorException: {},
+    ServiceUnavailableException: {},
+    TooManyRequestsException: {},
+  },
 } as const satisfies ServiceMetadata;
 
 export type _AppMesh = _AppMeshClient;

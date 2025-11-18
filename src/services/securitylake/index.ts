@@ -73,6 +73,10 @@ const metadata = {
     UpdateSubscriberNotification:
       "PUT /v1/subscribers/{subscriberId}/notification",
   },
+  retryableErrors: {
+    InternalServerException: {},
+    ThrottlingException: { retryAfterSeconds: "Retry-After" },
+  },
 } as const satisfies ServiceMetadata;
 
 export type _SecurityLake = _SecurityLakeClient;

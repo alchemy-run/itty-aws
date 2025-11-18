@@ -71,6 +71,10 @@ const metadata = {
     StopGraph: "POST /graphs/{graphIdentifier}/stop",
     UpdateGraph: "PATCH /graphs/{graphIdentifier}",
   },
+  retryableErrors: {
+    InternalServerException: {},
+    ThrottlingException: {},
+  },
 } as const satisfies ServiceMetadata;
 
 export type _NeptuneGraph = _NeptuneGraphClient;

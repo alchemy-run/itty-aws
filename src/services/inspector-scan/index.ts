@@ -32,6 +32,10 @@ const metadata = {
   operations: {
     ScanSbom: "POST /scan/sbom",
   },
+  retryableErrors: {
+    InternalServerException: { retryAfterSeconds: "Retry-After" },
+    ThrottlingException: { retryAfterSeconds: "Retry-After" },
+  },
 } as const satisfies ServiceMetadata;
 
 export type _InspectorScan = _InspectorScanClient;

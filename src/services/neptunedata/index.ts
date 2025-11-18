@@ -110,6 +110,19 @@ const metadata = {
     StartMLModelTrainingJob: "POST /ml/modeltraining",
     StartMLModelTransformJob: "POST /ml/modeltransform",
   },
+  retryableErrors: {
+    ClientTimeoutException: {},
+    ConcurrentModificationException: {},
+    ConstraintViolationException: {},
+    FailureByQueryException: {},
+    TimeLimitExceededException: {},
+    TooManyRequestsException: {},
+    BulkLoadIdNotFoundException: {},
+    MemoryLimitExceededException: {},
+    QueryLimitExceededException: {},
+    ThrottlingException: {},
+    S3Exception: {},
+  },
 } as const satisfies ServiceMetadata;
 
 export type _neptunedata = _neptunedataClient;

@@ -67,6 +67,10 @@ const metadata = {
     UpdateQAppSession: "POST /runtime.updateQAppSession",
     UpdateQAppSessionMetadata: "POST /runtime.updateQAppSessionMetadata",
   },
+  retryableErrors: {
+    InternalServerException: { retryAfterSeconds: "Retry-After" },
+    ThrottlingException: { retryAfterSeconds: "Retry-After" },
+  },
 } as const satisfies ServiceMetadata;
 
 export type _QApps = _QAppsClient;

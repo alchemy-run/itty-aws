@@ -53,6 +53,9 @@ const metadata = {
     StartActiveApprovalTeamDeletion: "POST /approval-teams/{Arn}?Delete",
     UpdateApprovalTeam: "PATCH /approval-teams/{Arn}",
   },
+  retryableErrors: {
+    InternalServerException: {},
+  },
 } as const satisfies ServiceMetadata;
 
 export type _MPA = _MPAClient;

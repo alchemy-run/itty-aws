@@ -49,6 +49,9 @@ const metadata = {
     PutVectors: "POST /PutVectors",
     QueryVectors: "POST /QueryVectors",
   },
+  retryableErrors: {
+    ServiceUnavailableException: {},
+  },
 } as const satisfies ServiceMetadata;
 
 export type _S3Vectors = _S3VectorsClient;

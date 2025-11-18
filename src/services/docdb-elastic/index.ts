@@ -50,6 +50,10 @@ const metadata = {
     UntagResource: "DELETE /tags/{resourceArn}",
     UpdateCluster: "PUT /cluster/{clusterArn}",
   },
+  retryableErrors: {
+    InternalServerException: {},
+    ThrottlingException: { retryAfterSeconds: "Retry-After" },
+  },
 } as const satisfies ServiceMetadata;
 
 export type _DocDBElastic = _DocDBElasticClient;

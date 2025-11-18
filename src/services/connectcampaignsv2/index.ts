@@ -83,6 +83,10 @@ const metadata = {
     UpdateCampaignSchedule: "POST /v2/campaigns/{id}/schedule",
     UpdateCampaignSource: "POST /v2/campaigns/{id}/source",
   },
+  retryableErrors: {
+    InternalServerException: {},
+    ThrottlingException: {},
+  },
 } as const satisfies ServiceMetadata;
 
 export type _ConnectCampaignsV2 = _ConnectCampaignsV2Client;

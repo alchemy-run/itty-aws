@@ -40,6 +40,10 @@ const metadata = {
     ListTransactionEvents: "POST /list-transaction-events",
     ListTransactions: "POST /list-transactions",
   },
+  retryableErrors: {
+    InternalServerException: { retryAfterSeconds: "Retry-After" },
+    ThrottlingException: { retryAfterSeconds: "Retry-After" },
+  },
 } as const satisfies ServiceMetadata;
 
 export type _ManagedBlockchainQuery = _ManagedBlockchainQueryClient;

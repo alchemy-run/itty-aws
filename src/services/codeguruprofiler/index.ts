@@ -92,6 +92,11 @@ const metadata = {
       },
     },
   },
+  retryableErrors: {
+    InternalServerException: {},
+    ThrottlingException: {},
+    ServiceQuotaExceededException: {},
+  },
 } as const satisfies ServiceMetadata;
 
 export type _CodeGuruProfiler = _CodeGuruProfilerClient;

@@ -64,6 +64,11 @@ const metadata = {
     UpdateWorkflowStep: "POST /workflowstep/{id}",
     UpdateWorkflowStepGroup: "POST /workflowstepgroup/{id}",
   },
+  retryableErrors: {
+    ValidationException: {},
+    AccessDeniedException: {},
+    ConflictException: {},
+  },
 } as const satisfies ServiceMetadata;
 
 export type _MigrationHubOrchestrator = _MigrationHubOrchestratorClient;

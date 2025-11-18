@@ -58,6 +58,11 @@ const metadata = {
       "PUT /v1/whatsapp/waba/eventdestinations",
     SendWhatsAppMessage: "POST /v1/whatsapp/send",
   },
+  retryableErrors: {
+    DependencyException: {},
+    InternalServiceException: {},
+    ThrottledRequestException: {},
+  },
 } as const satisfies ServiceMetadata;
 
 export type _SocialMessaging = _SocialMessagingClient;

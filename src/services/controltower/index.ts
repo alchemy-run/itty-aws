@@ -60,6 +60,10 @@ const metadata = {
     UpdateEnabledControl: "POST /update-enabled-control",
     UpdateLandingZone: "POST /update-landingzone",
   },
+  retryableErrors: {
+    InternalServerException: {},
+    ThrottlingException: { retryAfterSeconds: "Retry-After" },
+  },
 } as const satisfies ServiceMetadata;
 
 export type _ControlTower = _ControlTowerClient;

@@ -46,6 +46,10 @@ const metadata = {
     PutContactInformation: "POST /putContactInformation",
     StartPrimaryEmailUpdate: "POST /startPrimaryEmailUpdate",
   },
+  retryableErrors: {
+    InternalServerException: {},
+    TooManyRequestsException: {},
+  },
 } as const satisfies ServiceMetadata;
 
 export type _Account = _AccountClient;

@@ -59,6 +59,10 @@ const metadata = {
     UpdateCampaignOutboundCallConfig:
       "POST /campaigns/{id}/outbound-call-config",
   },
+  retryableErrors: {
+    InternalServerException: {},
+    ThrottlingException: {},
+  },
 } as const satisfies ServiceMetadata;
 
 export type _ConnectCampaigns = _ConnectCampaignsClient;

@@ -67,6 +67,9 @@ const metadata = {
     ListAsyncInvokes: "GET /async-invoke",
     StartAsyncInvoke: "POST /async-invoke",
   },
+  retryableErrors: {
+    ModelNotReadyException: {},
+  },
 } as const satisfies ServiceMetadata;
 
 export type _BedrockRuntime = _BedrockRuntimeClient;

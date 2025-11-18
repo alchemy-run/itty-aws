@@ -171,6 +171,10 @@ const metadata = {
     UpdateSessionData:
       "PATCH /assistants/{assistantId}/sessions/{sessionId}/data",
   },
+  retryableErrors: {
+    ThrottlingException: {},
+    RequestTimeoutException: {},
+  },
 } as const satisfies ServiceMetadata;
 
 export type _QConnect = _QConnectClient;

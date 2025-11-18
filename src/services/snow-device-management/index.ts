@@ -45,6 +45,10 @@ const metadata = {
     ListExecutions: "GET /executions",
     ListTasks: "GET /tasks",
   },
+  retryableErrors: {
+    InternalServerException: {},
+    ThrottlingException: {},
+  },
 } as const satisfies ServiceMetadata;
 
 export type _SnowDeviceManagement = _SnowDeviceManagementClient;

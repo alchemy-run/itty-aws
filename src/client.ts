@@ -6,6 +6,19 @@ import { Credentials, fromStaticCredentials } from "./credentials.ts";
 import type { AwsErrorMeta } from "./error.ts";
 import { DefaultFetch, Fetch } from "./fetch.service.ts";
 import type { ProtocolHandler } from "./protocols/interface.ts";
+import * as Schedule from "effect/Schedule";
+import * as Duration from "effect/Duration";
+import { pipe } from "effect";
+import * as Context from "effect/Context";
+
+export const retryableErrorTags = [
+  "InternalFailure",
+  "RequestExpired",
+  "ServiceException",
+  "ServiceUnavailable",
+  "ThrottlingException",
+  "TooManyRequestsException",
+];
 
 const errorTags: {
   [serviceName: string]: {
@@ -17,13 +30,27 @@ const errorTags: {
 function createServiceError(
   serviceName: string,
   errorName: string,
-  errorMeta: AwsErrorMeta & { message?: string },
+  errorMeta: AwsErrorMeta & {
+    message?: string;
+    retryable:
+      | {
+          retryAfterSeconds?: number;
+        }
+      | false;
+  },
 ) {
   // Create a tagged error dynamically with the correct error name
   return new ((errorTags[serviceName] ??= {})[errorName] ??= (() =>
-    Data.TaggedError(errorName)<AwsErrorMeta & { message?: string }>)())(
-    errorMeta,
-  );
+    Data.TaggedError(errorName)<
+      AwsErrorMeta & {
+        message?: string;
+        retryable:
+          | {
+              retryAfterSeconds?: number;
+            }
+          | false;
+      }
+    >)())(errorMeta);
 }
 
 // Types
@@ -46,6 +73,7 @@ export interface ServiceMetadata {
         readonly outputTraits?: Record<string, string>;
       }
   >; // Operation mappings for restJson1 and trait mappings
+  retryableErrors?: Record<string, { retryAfterSeconds?: string }>;
 }
 
 export interface AwsCredentials {
@@ -213,6 +241,7 @@ export function createServiceProxy<T>(
                   response,
                   statusCode,
                   response.headers,
+                  metadata,
                 ),
               );
 
@@ -229,14 +258,75 @@ export function createServiceProxy<T>(
                   {
                     ...errorMeta,
                     message: parsedError.message,
+                    retryable: parsedError.retryable ?? false,
                   },
                 ),
               );
             }
           });
-          return program;
+          return Effect.gen(function* () {
+            const retryPolicy = yield* Effect.serviceOption(RetryPolicy);
+            const randomNumber = Option.getOrUndefined(retryPolicy) ?? {
+              maxRetries: 5,
+              delay: Duration.millis(100),
+            };
+            return yield* withRetry(program, randomNumber);
+          });
         };
       },
     },
   ) as T;
 }
+
+class RetryPolicy extends Context.Tag("RetryPolicy")<
+  RetryPolicy,
+  {
+    maxRetries: number;
+    delay: Duration.Duration;
+  }
+>() {}
+
+const withRetry = <A>(
+  operation: Effect.Effect<
+    A,
+    {
+      readonly _tag: string;
+      retryable:
+        | {
+            retryAfterSeconds?: number;
+          }
+        | false;
+    }
+  >,
+  randomNumber: {
+    maxRetries: number;
+    delay: Duration.Duration;
+  },
+) =>
+  pipe(
+    operation,
+    Effect.retry({
+      while: (error) =>
+        error.retryable !== false || retryableErrorTags.includes(error._tag),
+      schedule: pipe(
+        Schedule.exponential(randomNumber.delay),
+        Schedule.passthrough,
+        Schedule.addDelay((err) => {
+          const error = err as {
+            readonly _tag: string;
+            retryable:
+              | {
+                  retryAfterSeconds?: number;
+                }
+              | false;
+          };
+
+          return typeof error?.retryable === "object" &&
+            error?.retryable?.retryAfterSeconds != null
+            ? Duration.seconds(error?.retryable?.retryAfterSeconds)
+            : Duration.zero;
+        }),
+        Schedule.compose(Schedule.recurs(randomNumber.maxRetries)),
+      ),
+    }),
+  );

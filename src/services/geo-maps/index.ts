@@ -78,6 +78,10 @@ const metadata = {
       },
     },
   },
+  retryableErrors: {
+    InternalServerException: {},
+    ThrottlingException: {},
+  },
 } as const satisfies ServiceMetadata;
 
 export type _GeoMaps = _GeoMapsClient;

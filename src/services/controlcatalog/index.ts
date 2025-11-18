@@ -37,6 +37,10 @@ const metadata = {
     ListDomains: "POST /domains",
     ListObjectives: "POST /objectives",
   },
+  retryableErrors: {
+    InternalServerException: {},
+    ThrottlingException: {},
+  },
 } as const satisfies ServiceMetadata;
 
 export type _ControlCatalog = _ControlCatalogClient;

@@ -67,6 +67,10 @@ const metadata = {
     UpdateTemplateGroupAccessControlEntry:
       "PATCH /templates/{TemplateArn}/accessControlEntries/{GroupSecurityIdentifier}",
   },
+  retryableErrors: {
+    InternalServerException: {},
+    ThrottlingException: {},
+  },
 } as const satisfies ServiceMetadata;
 
 export type _PcaConnectorAd = _PcaConnectorAdClient;

@@ -37,6 +37,10 @@ const metadata = {
     PutDeploymentParameter:
       "POST /catalogs/{catalog}/products/{productId}/deployment-parameters",
   },
+  retryableErrors: {
+    InternalServerException: {},
+    ThrottlingException: {},
+  },
 } as const satisfies ServiceMetadata;
 
 export type _MarketplaceDeployment = _MarketplaceDeploymentClient;

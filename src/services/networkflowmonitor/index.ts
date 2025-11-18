@@ -68,6 +68,10 @@ const metadata = {
     UpdateMonitor: "PATCH /monitors/{monitorName}",
     UpdateScope: "PATCH /scopes/{scopeId}",
   },
+  retryableErrors: {
+    InternalServerException: {},
+    ThrottlingException: {},
+  },
 } as const satisfies ServiceMetadata;
 
 export type _NetworkFlowMonitor = _NetworkFlowMonitorClient;

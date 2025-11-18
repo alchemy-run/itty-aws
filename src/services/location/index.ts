@@ -143,6 +143,10 @@ const metadata = {
     VerifyDevicePosition:
       "POST /tracking/v0/trackers/{TrackerName}/positions/verify",
   },
+  retryableErrors: {
+    InternalServerException: {},
+    ThrottlingException: {},
+  },
 } as const satisfies ServiceMetadata;
 
 export type _Location = _LocationClient;

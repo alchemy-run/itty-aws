@@ -121,6 +121,10 @@ const metadata = {
     UpdateOrgEc2DeepInspectionConfiguration:
       "POST /ec2deepinspectionconfiguration/org/update",
   },
+  retryableErrors: {
+    InternalServerException: { retryAfterSeconds: "Retry-After" },
+    ThrottlingException: { retryAfterSeconds: "Retry-After" },
+  },
 } as const satisfies ServiceMetadata;
 
 export type _Inspector2 = _Inspector2Client;

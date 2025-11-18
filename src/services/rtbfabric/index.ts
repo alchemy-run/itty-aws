@@ -64,6 +64,10 @@ const metadata = {
     UpdateRequesterGateway: "POST /requester-gateway/{gatewayId}/update",
     UpdateResponderGateway: "POST /responder-gateway/{gatewayId}/update",
   },
+  retryableErrors: {
+    InternalServerException: {},
+    ThrottlingException: {},
+  },
 } as const satisfies ServiceMetadata;
 
 export type _RTBFabric = _RTBFabricClient;

@@ -43,6 +43,10 @@ const metadata = {
     ListChallengeMetadata: "GET /challengeMetadata",
     ListConnectors: "GET /connectors",
   },
+  retryableErrors: {
+    InternalServerException: {},
+    ThrottlingException: {},
+  },
 } as const satisfies ServiceMetadata;
 
 export type _PcaConnectorScep = _PcaConnectorScepClient;

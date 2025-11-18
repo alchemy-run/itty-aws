@@ -46,6 +46,10 @@ const metadata = {
     UpdateConfigurationManager: "PUT /configurationManager/{ManagerArn}",
     UpdateServiceSettings: "PUT /serviceSettings",
   },
+  retryableErrors: {
+    InternalServerException: {},
+    ThrottlingException: {},
+  },
 } as const satisfies ServiceMetadata;
 
 export type _SSMQuickSetup = _SSMQuickSetupClient;

@@ -155,6 +155,11 @@ const metadata = {
     UploadReadSetPart:
       "PUT /sequencestore/{sequenceStoreId}/upload/{uploadId}/part",
   },
+  retryableErrors: {
+    InternalServerException: {},
+    ThrottlingException: {},
+    RangeNotSatisfiableException: {},
+  },
 } as const satisfies ServiceMetadata;
 
 export type _Omics = _OmicsClient;

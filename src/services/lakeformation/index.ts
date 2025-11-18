@@ -104,6 +104,9 @@ const metadata = {
     UpdateTableObjects: "POST /UpdateTableObjects",
     UpdateTableStorageOptimizer: "POST /UpdateTableStorageOptimizer",
   },
+  retryableErrors: {
+    ThrottledException: {},
+  },
 } as const satisfies ServiceMetadata;
 
 export type _LakeFormation = _LakeFormationClient;

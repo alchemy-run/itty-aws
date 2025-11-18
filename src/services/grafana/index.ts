@@ -66,6 +66,10 @@ const metadata = {
       "POST /workspaces/{workspaceId}/authentication",
     UpdateWorkspaceConfiguration: "PUT /workspaces/{workspaceId}/configuration",
   },
+  retryableErrors: {
+    InternalServerException: { retryAfterSeconds: "Retry-After" },
+    ThrottlingException: { retryAfterSeconds: "Retry-After" },
+  },
 } as const satisfies ServiceMetadata;
 
 export type _grafana = _grafanaClient;

@@ -44,6 +44,10 @@ const metadata = {
     UntagResource: "DELETE /tags/{resourceArn}",
     UpdateAccountConfiguration: "PUT /updateAccountConfiguration",
   },
+  retryableErrors: {
+    InternalServerException: {},
+    ThrottlingException: {},
+  },
 } as const satisfies ServiceMetadata;
 
 export type _CodeGuruSecurity = _CodeGuruSecurityClient;

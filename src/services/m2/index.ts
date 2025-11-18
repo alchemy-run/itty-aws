@@ -84,6 +84,12 @@ const metadata = {
     UpdateApplication: "PATCH /applications/{applicationId}",
     UpdateEnvironment: "PATCH /environments/{environmentId}",
   },
+  retryableErrors: {
+    InternalServerException: { retryAfterSeconds: "Retry-After" },
+    ThrottlingException: { retryAfterSeconds: "Retry-After" },
+    ExecutionTimeoutException: {},
+    ServiceUnavailableException: {},
+  },
 } as const satisfies ServiceMetadata;
 
 export type _m2 = _m2Client;

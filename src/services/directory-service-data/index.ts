@@ -49,6 +49,11 @@ const metadata = {
     UpdateGroup: "POST /Groups/UpdateGroup",
     UpdateUser: "POST /Users/UpdateUser",
   },
+  retryableErrors: {
+    DirectoryUnavailableException: {},
+    InternalServerException: {},
+    ThrottlingException: {},
+  },
 } as const satisfies ServiceMetadata;
 
 export type _DirectoryServiceData = _DirectoryServiceDataClient;

@@ -103,6 +103,10 @@ const metadata = {
       "POST /identities/UpdateOauth2CredentialProvider",
     UpdateWorkloadIdentity: "POST /identities/UpdateWorkloadIdentity",
   },
+  retryableErrors: {
+    ServiceException: {},
+    ThrottledException: {},
+  },
 } as const satisfies ServiceMetadata;
 
 export type _BedrockAgentCoreControl = _BedrockAgentCoreControlClient;

@@ -41,6 +41,10 @@ const metadata = {
     ListEmailContacts: "GET /emailcontacts",
     SendActivationCode: "POST /2022-10-31/emailcontacts/{arn}/activate/send",
   },
+  retryableErrors: {
+    InternalServerException: {},
+    ThrottlingException: { retryAfterSeconds: "Retry-After" },
+  },
 } as const satisfies ServiceMetadata;
 
 export type _NotificationsContacts = _NotificationsContactsClient;

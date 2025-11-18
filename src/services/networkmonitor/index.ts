@@ -43,6 +43,10 @@ const metadata = {
     UpdateMonitor: "PATCH /monitors/{monitorName}",
     UpdateProbe: "PATCH /monitors/{monitorName}/probes/{probeId}",
   },
+  retryableErrors: {
+    InternalServerException: {},
+    ThrottlingException: {},
+  },
 } as const satisfies ServiceMetadata;
 
 export type _NetworkMonitor = _NetworkMonitorClient;

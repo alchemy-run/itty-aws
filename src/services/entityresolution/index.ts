@@ -70,6 +70,10 @@ const metadata = {
     UpdateMatchingWorkflow: "PUT /matchingworkflows/{workflowName}",
     UpdateSchemaMapping: "PUT /schemas/{schemaName}",
   },
+  retryableErrors: {
+    InternalServerException: {},
+    ThrottlingException: {},
+  },
 } as const satisfies ServiceMetadata;
 
 export type _EntityResolution = _EntityResolutionClient;

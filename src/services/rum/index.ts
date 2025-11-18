@@ -56,6 +56,10 @@ const metadata = {
     UpdateAppMonitor: "PATCH /appmonitor/{Name}",
     UpdateRumMetricDefinition: "PATCH /rummetrics/{AppMonitorName}/metrics",
   },
+  retryableErrors: {
+    InternalServerException: { retryAfterSeconds: "Retry-After" },
+    ThrottlingException: { retryAfterSeconds: "Retry-After" },
+  },
 } as const satisfies ServiceMetadata;
 
 export type _RUM = _RUMClient;

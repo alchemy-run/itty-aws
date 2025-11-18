@@ -88,6 +88,9 @@ const metadata = {
     UpdateQuickResponse:
       "POST /knowledgeBases/{knowledgeBaseId}/quickResponses/{quickResponseId}",
   },
+  retryableErrors: {
+    RequestTimeoutException: {},
+  },
 } as const satisfies ServiceMetadata;
 
 export type _Wisdom = _WisdomClient;

@@ -1,4 +1,3 @@
-import * as FastCheck from "effect/FastCheck";
 import type { ServiceMetadata } from "../client.ts";
 import type {
   ParsedError,
@@ -115,7 +114,7 @@ export class RestXmlHandler implements ProtocolHandler {
 
   async parseError(
     response: Response,
-    statusCode: number,
+    _statusCode: number,
     headers?: Headers,
   ): Promise<ParsedError> {
     const responseText = await response.text();

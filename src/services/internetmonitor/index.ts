@@ -50,6 +50,12 @@ const metadata = {
     StopQuery: "DELETE /v20210603/Monitors/{MonitorName}/Queries/{QueryId}",
     UpdateMonitor: "PATCH /v20210603/Monitors/{MonitorName}",
   },
+  retryableErrors: {
+    InternalServerErrorException: {},
+    TooManyRequestsException: {},
+    InternalServerException: {},
+    ThrottlingException: {},
+  },
 } as const satisfies ServiceMetadata;
 
 export type _InternetMonitor = _InternetMonitorClient;
