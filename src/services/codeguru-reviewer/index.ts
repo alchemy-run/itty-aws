@@ -5,7 +5,23 @@ import type { CodeGuruReviewer as _CodeGuruReviewerClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, type CommonAwsError} from "../../error.ts";
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  type CommonAwsError,
+} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -15,20 +31,21 @@ const metadata = {
   sigV4ServiceName: "codeguru-reviewer",
   endpointPrefix: "codeguru-reviewer",
   operations: {
-    "AssociateRepository": "POST /associations",
-    "CreateCodeReview": "POST /codereviews",
-    "DescribeCodeReview": "GET /codereviews/{CodeReviewArn}",
-    "DescribeRecommendationFeedback": "GET /feedback/{CodeReviewArn}",
-    "DescribeRepositoryAssociation": "GET /associations/{AssociationArn}",
-    "DisassociateRepository": "DELETE /associations/{AssociationArn}",
-    "ListCodeReviews": "GET /codereviews",
-    "ListRecommendationFeedback": "GET /feedback/{CodeReviewArn}/RecommendationFeedback",
-    "ListRecommendations": "GET /codereviews/{CodeReviewArn}/Recommendations",
-    "ListRepositoryAssociations": "GET /associations",
-    "ListTagsForResource": "GET /tags/{resourceArn}",
-    "PutRecommendationFeedback": "PUT /feedback",
-    "TagResource": "POST /tags/{resourceArn}",
-    "UntagResource": "DELETE /tags/{resourceArn}",
+    AssociateRepository: "POST /associations",
+    CreateCodeReview: "POST /codereviews",
+    DescribeCodeReview: "GET /codereviews/{CodeReviewArn}",
+    DescribeRecommendationFeedback: "GET /feedback/{CodeReviewArn}",
+    DescribeRepositoryAssociation: "GET /associations/{AssociationArn}",
+    DisassociateRepository: "DELETE /associations/{AssociationArn}",
+    ListCodeReviews: "GET /codereviews",
+    ListRecommendationFeedback:
+      "GET /feedback/{CodeReviewArn}/RecommendationFeedback",
+    ListRecommendations: "GET /codereviews/{CodeReviewArn}/Recommendations",
+    ListRepositoryAssociations: "GET /associations",
+    ListTagsForResource: "GET /tags/{resourceArn}",
+    PutRecommendationFeedback: "PUT /feedback",
+    TagResource: "POST /tags/{resourceArn}",
+    UntagResource: "DELETE /tags/{resourceArn}",
   },
 } as const satisfies ServiceMetadata;
 

@@ -1,6 +1,38 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
-type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
+import type {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+type CommonAwsError =
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | AccessDeniedException
+  | ThrottlingException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class SageMakerGeospatial extends AWSServiceClient {
@@ -8,115 +40,222 @@ export declare class SageMakerGeospatial extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteEarthObservationJob(
     input: DeleteEarthObservationJobInput,
   ): Effect.Effect<
     DeleteEarthObservationJobOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteVectorEnrichmentJob(
     input: DeleteVectorEnrichmentJobInput,
   ): Effect.Effect<
     DeleteVectorEnrichmentJobOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   exportEarthObservationJob(
     input: ExportEarthObservationJobInput,
   ): Effect.Effect<
     ExportEarthObservationJobOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   exportVectorEnrichmentJob(
     input: ExportVectorEnrichmentJobInput,
   ): Effect.Effect<
     ExportVectorEnrichmentJobOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getEarthObservationJob(
     input: GetEarthObservationJobInput,
   ): Effect.Effect<
     GetEarthObservationJobOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getRasterDataCollection(
     input: GetRasterDataCollectionInput,
   ): Effect.Effect<
     GetRasterDataCollectionOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getTile(
     input: GetTileInput,
   ): Effect.Effect<
     GetTileOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getVectorEnrichmentJob(
     input: GetVectorEnrichmentJobInput,
   ): Effect.Effect<
     GetVectorEnrichmentJobOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listEarthObservationJobs(
     input: ListEarthObservationJobInput,
   ): Effect.Effect<
     ListEarthObservationJobOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listRasterDataCollections(
     input: ListRasterDataCollectionsInput,
   ): Effect.Effect<
     ListRasterDataCollectionsOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listVectorEnrichmentJobs(
     input: ListVectorEnrichmentJobInput,
   ): Effect.Effect<
     ListVectorEnrichmentJobOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   searchRasterDataCollection(
     input: SearchRasterDataCollectionInput,
   ): Effect.Effect<
     SearchRasterDataCollectionOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   startEarthObservationJob(
     input: StartEarthObservationJobInput,
   ): Effect.Effect<
     StartEarthObservationJobOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   startVectorEnrichmentJob(
     input: StartVectorEnrichmentJobInput,
   ): Effect.Effect<
     StartVectorEnrichmentJobOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   stopEarthObservationJob(
     input: StopEarthObservationJobInput,
   ): Effect.Effect<
     StopEarthObservationJobOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   stopVectorEnrichmentJob(
     input: StopVectorEnrichmentJobInput,
   ): Effect.Effect<
     StopVectorEnrichmentJobOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
 }
 
@@ -137,13 +276,19 @@ interface _AreaOfInterest {
   AreaOfInterestGeometry?: AreaOfInterestGeometry;
 }
 
-export type AreaOfInterest = (_AreaOfInterest & { AreaOfInterestGeometry: AreaOfInterestGeometry });
+export type AreaOfInterest = _AreaOfInterest & {
+  AreaOfInterestGeometry: AreaOfInterestGeometry;
+};
 interface _AreaOfInterestGeometry {
   PolygonGeometry?: PolygonGeometryInput;
   MultiPolygonGeometry?: MultiPolygonGeometryInput;
 }
 
-export type AreaOfInterestGeometry = (_AreaOfInterestGeometry & { PolygonGeometry: PolygonGeometryInput }) | (_AreaOfInterestGeometry & { MultiPolygonGeometry: MultiPolygonGeometryInput });
+export type AreaOfInterestGeometry =
+  | (_AreaOfInterestGeometry & { PolygonGeometry: PolygonGeometryInput })
+  | (_AreaOfInterestGeometry & {
+      MultiPolygonGeometry: MultiPolygonGeometryInput;
+    });
 export type Arn = string;
 
 export type AssetsMap = Record<string, AssetValue>;
@@ -156,8 +301,7 @@ export interface BandMathConfigInput {
 }
 export type BinaryFile = Uint8Array | string;
 
-export interface CloudMaskingConfigInput {
-}
+export interface CloudMaskingConfigInput {}
 export interface CloudRemovalConfigInput {
   AlgorithmName?: string;
   InterpolationValue?: string;
@@ -182,13 +326,11 @@ export type DataCollectionType = string;
 export interface DeleteEarthObservationJobInput {
   Arn: string;
 }
-export interface DeleteEarthObservationJobOutput {
-}
+export interface DeleteEarthObservationJobOutput {}
 export interface DeleteVectorEnrichmentJobInput {
   Arn: string;
 }
-export interface DeleteVectorEnrichmentJobOutput {
-}
+export interface DeleteVectorEnrichmentJobOutput {}
 export type EarthObservationJobArn = string;
 
 export interface EarthObservationJobErrorDetails {
@@ -199,7 +341,8 @@ export type EarthObservationJobErrorType = string;
 
 export type EarthObservationJobExportStatus = string;
 
-export type EarthObservationJobList = Array<ListEarthObservationJobOutputConfig>;
+export type EarthObservationJobList =
+  Array<ListEarthObservationJobOutputConfig>;
 export type EarthObservationJobOutputBands = Array<OutputBand>;
 export type EarthObservationJobStatus = string;
 
@@ -374,11 +517,23 @@ interface _JobConfigInput {
   LandCoverSegmentationConfig?: LandCoverSegmentationConfigInput;
 }
 
-export type JobConfigInput = (_JobConfigInput & { BandMathConfig: BandMathConfigInput }) | (_JobConfigInput & { ResamplingConfig: ResamplingConfigInput }) | (_JobConfigInput & { TemporalStatisticsConfig: TemporalStatisticsConfigInput }) | (_JobConfigInput & { CloudRemovalConfig: CloudRemovalConfigInput }) | (_JobConfigInput & { ZonalStatisticsConfig: ZonalStatisticsConfigInput }) | (_JobConfigInput & { GeoMosaicConfig: GeoMosaicConfigInput }) | (_JobConfigInput & { StackConfig: StackConfigInput }) | (_JobConfigInput & { CloudMaskingConfig: CloudMaskingConfigInput }) | (_JobConfigInput & { LandCoverSegmentationConfig: LandCoverSegmentationConfigInput });
+export type JobConfigInput =
+  | (_JobConfigInput & { BandMathConfig: BandMathConfigInput })
+  | (_JobConfigInput & { ResamplingConfig: ResamplingConfigInput })
+  | (_JobConfigInput & {
+      TemporalStatisticsConfig: TemporalStatisticsConfigInput;
+    })
+  | (_JobConfigInput & { CloudRemovalConfig: CloudRemovalConfigInput })
+  | (_JobConfigInput & { ZonalStatisticsConfig: ZonalStatisticsConfigInput })
+  | (_JobConfigInput & { GeoMosaicConfig: GeoMosaicConfigInput })
+  | (_JobConfigInput & { StackConfig: StackConfigInput })
+  | (_JobConfigInput & { CloudMaskingConfig: CloudMaskingConfigInput })
+  | (_JobConfigInput & {
+      LandCoverSegmentationConfig: LandCoverSegmentationConfigInput;
+    });
 export type KmsKey = string;
 
-export interface LandCoverSegmentationConfigInput {
-}
+export interface LandCoverSegmentationConfigInput {}
 export interface LandsatCloudCoverLandInput {
   LowerBound: number;
   UpperBound: number;
@@ -502,7 +657,13 @@ interface _Property {
   LandsatCloudCoverLand?: LandsatCloudCoverLandInput;
 }
 
-export type Property = (_Property & { EoCloudCover: EoCloudCoverInput }) | (_Property & { ViewOffNadir: ViewOffNadirInput }) | (_Property & { ViewSunAzimuth: ViewSunAzimuthInput }) | (_Property & { ViewSunElevation: ViewSunElevationInput }) | (_Property & { Platform: PlatformInput }) | (_Property & { LandsatCloudCoverLand: LandsatCloudCoverLandInput });
+export type Property =
+  | (_Property & { EoCloudCover: EoCloudCoverInput })
+  | (_Property & { ViewOffNadir: ViewOffNadirInput })
+  | (_Property & { ViewSunAzimuth: ViewSunAzimuthInput })
+  | (_Property & { ViewSunElevation: ViewSunElevationInput })
+  | (_Property & { Platform: PlatformInput })
+  | (_Property & { LandsatCloudCoverLand: LandsatCloudCoverLandInput });
 export interface PropertyFilter {
   Property: Property;
 }
@@ -624,21 +785,18 @@ export interface StartVectorEnrichmentJobOutput {
 export interface StopEarthObservationJobInput {
   Arn: string;
 }
-export interface StopEarthObservationJobOutput {
-}
+export interface StopEarthObservationJobOutput {}
 export interface StopVectorEnrichmentJobInput {
   Arn: string;
 }
-export interface StopVectorEnrichmentJobOutput {
-}
+export interface StopVectorEnrichmentJobOutput {}
 export type StringListInput = Array<string>;
 export type TagKeyList = Array<string>;
 export interface TagResourceRequest {
   ResourceArn: string;
   Tags: Record<string, string>;
 }
-export interface TagResourceResponse {
-}
+export interface TagResourceResponse {}
 export type Tags = Record<string, string>;
 export type TargetOptions = string;
 
@@ -670,8 +828,7 @@ export interface UntagResourceRequest {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {
-}
+export interface UntagResourceResponse {}
 export interface UserDefined {
   Value: number;
   Unit: string;
@@ -689,12 +846,19 @@ interface _VectorEnrichmentJobConfig {
   MapMatchingConfig?: MapMatchingConfig;
 }
 
-export type VectorEnrichmentJobConfig = (_VectorEnrichmentJobConfig & { ReverseGeocodingConfig: ReverseGeocodingConfig }) | (_VectorEnrichmentJobConfig & { MapMatchingConfig: MapMatchingConfig });
+export type VectorEnrichmentJobConfig =
+  | (_VectorEnrichmentJobConfig & {
+      ReverseGeocodingConfig: ReverseGeocodingConfig;
+    })
+  | (_VectorEnrichmentJobConfig & { MapMatchingConfig: MapMatchingConfig });
 interface _VectorEnrichmentJobDataSourceConfigInput {
   S3Data?: VectorEnrichmentJobS3Data;
 }
 
-export type VectorEnrichmentJobDataSourceConfigInput = (_VectorEnrichmentJobDataSourceConfigInput & { S3Data: VectorEnrichmentJobS3Data });
+export type VectorEnrichmentJobDataSourceConfigInput =
+  _VectorEnrichmentJobDataSourceConfigInput & {
+    S3Data: VectorEnrichmentJobS3Data;
+  };
 export type VectorEnrichmentJobDocumentType = string;
 
 export interface VectorEnrichmentJobErrorDetails {
@@ -715,7 +879,8 @@ export interface VectorEnrichmentJobInputConfig {
   DocumentType: string;
   DataSourceConfig: VectorEnrichmentJobDataSourceConfigInput;
 }
-export type VectorEnrichmentJobList = Array<ListVectorEnrichmentJobOutputConfig>;
+export type VectorEnrichmentJobList =
+  Array<ListVectorEnrichmentJobOutputConfig>;
 export interface VectorEnrichmentJobS3Data {
   S3Uri: string;
   KmsKeyId?: string;
@@ -985,5 +1150,12 @@ export declare namespace StopVectorEnrichmentJob {
     | CommonAwsError;
 }
 
-export type SageMakerGeospatialErrors = AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError;
-
+export type SageMakerGeospatialErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

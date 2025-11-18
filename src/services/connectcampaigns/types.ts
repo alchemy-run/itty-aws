@@ -1,6 +1,38 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
-type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
+import type {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+type CommonAwsError =
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | AccessDeniedException
+  | ThrottlingException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class ConnectCampaigns extends AWSServiceClient {
@@ -8,133 +40,251 @@ export declare class ConnectCampaigns extends AWSServiceClient {
     input: CreateCampaignRequest,
   ): Effect.Effect<
     CreateCampaignResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteCampaign(
     input: DeleteCampaignRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteConnectInstanceConfig(
     input: DeleteConnectInstanceConfigRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | InternalServerException | InvalidStateException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | InvalidStateException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteInstanceOnboardingJob(
     input: DeleteInstanceOnboardingJobRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | InternalServerException | InvalidStateException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | InvalidStateException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   describeCampaign(
     input: DescribeCampaignRequest,
   ): Effect.Effect<
     DescribeCampaignResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   getCampaignState(
     input: GetCampaignStateRequest,
   ): Effect.Effect<
     GetCampaignStateResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getCampaignStateBatch(
     input: GetCampaignStateBatchRequest,
   ): Effect.Effect<
     GetCampaignStateBatchResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getConnectInstanceConfig(
     input: GetConnectInstanceConfigRequest,
   ): Effect.Effect<
     GetConnectInstanceConfigResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   getInstanceOnboardingJobStatus(
     input: GetInstanceOnboardingJobStatusRequest,
   ): Effect.Effect<
     GetInstanceOnboardingJobStatusResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   listCampaigns(
     input: ListCampaignsRequest,
   ): Effect.Effect<
     ListCampaignsResponse,
-    AccessDeniedException | InternalServerException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ValidationException
+    | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   pauseCampaign(
     input: PauseCampaignRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | ConflictException | InternalServerException | InvalidCampaignStateException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | InvalidCampaignStateException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   putDialRequestBatch(
     input: PutDialRequestBatchRequest,
   ): Effect.Effect<
     PutDialRequestBatchResponse,
-    AccessDeniedException | ConflictException | InternalServerException | InvalidCampaignStateException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | InvalidCampaignStateException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   resumeCampaign(
     input: ResumeCampaignRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | ConflictException | InternalServerException | InvalidCampaignStateException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | InvalidCampaignStateException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   startCampaign(
     input: StartCampaignRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | ConflictException | InternalServerException | InvalidCampaignStateException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | InvalidCampaignStateException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   startInstanceOnboardingJob(
     input: StartInstanceOnboardingJobRequest,
   ): Effect.Effect<
     StartInstanceOnboardingJobResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   stopCampaign(
     input: StopCampaignRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | ConflictException | InternalServerException | InvalidCampaignStateException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | InvalidCampaignStateException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateCampaignDialerConfig(
     input: UpdateCampaignDialerConfigRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   updateCampaignName(
     input: UpdateCampaignNameRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   updateCampaignOutboundCallConfig(
     input: UpdateCampaignOutboundCallConfigRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
 }
 
@@ -235,7 +385,10 @@ interface _DialerConfig {
   agentlessDialerConfig?: AgentlessDialerConfig;
 }
 
-export type DialerConfig = (_DialerConfig & { progressiveDialerConfig: ProgressiveDialerConfig }) | (_DialerConfig & { predictiveDialerConfig: PredictiveDialerConfig }) | (_DialerConfig & { agentlessDialerConfig: AgentlessDialerConfig });
+export type DialerConfig =
+  | (_DialerConfig & { progressiveDialerConfig: ProgressiveDialerConfig })
+  | (_DialerConfig & { predictiveDialerConfig: PredictiveDialerConfig })
+  | (_DialerConfig & { agentlessDialerConfig: AgentlessDialerConfig });
 export type DialingCapacity = number;
 
 export interface DialRequest {
@@ -262,7 +415,8 @@ export interface FailedCampaignStateResponse {
   campaignId?: string;
   failureCode?: string;
 }
-export type FailedCampaignStateResponseList = Array<FailedCampaignStateResponse>;
+export type FailedCampaignStateResponseList =
+  Array<FailedCampaignStateResponse>;
 export interface FailedRequest {
   clientToken?: string;
   id?: string;
@@ -421,7 +575,8 @@ export interface SuccessfulCampaignStateResponse {
   campaignId?: string;
   state?: string;
 }
-export type SuccessfulCampaignStateResponseList = Array<SuccessfulCampaignStateResponse>;
+export type SuccessfulCampaignStateResponseList =
+  Array<SuccessfulCampaignStateResponse>;
 export interface SuccessfulRequest {
   clientToken?: string;
   id?: string;
@@ -743,5 +898,14 @@ export declare namespace UpdateCampaignOutboundCallConfig {
     | CommonAwsError;
 }
 
-export type ConnectCampaignsErrors = AccessDeniedException | ConflictException | InternalServerException | InvalidCampaignStateException | InvalidStateException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError;
-
+export type ConnectCampaignsErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | InvalidCampaignStateException
+  | InvalidStateException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

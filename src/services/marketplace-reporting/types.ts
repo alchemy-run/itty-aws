@@ -1,6 +1,40 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException } from "../../error.ts";
-type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | ThrottlingException | UnrecognizedClientException | UnknownOperationException | ValidationError | ValidationException | AccessDeniedException;
+import type {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  ValidationException,
+} from "../../error.ts";
+type CommonAwsError =
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | ThrottlingException
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | ValidationException
+  | AccessDeniedException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class MarketplaceReporting extends AWSServiceClient {
@@ -8,7 +42,11 @@ export declare class MarketplaceReporting extends AWSServiceClient {
     input: GetBuyerDashboardInput,
   ): Effect.Effect<
     GetBuyerDashboardOutput,
-    AccessDeniedException | BadRequestException | InternalServerException | UnauthorizedException | CommonAwsError
+    | AccessDeniedException
+    | BadRequestException
+    | InternalServerException
+    | UnauthorizedException
+    | CommonAwsError
   >;
 }
 
@@ -57,5 +95,9 @@ export declare namespace GetBuyerDashboard {
     | CommonAwsError;
 }
 
-export type MarketplaceReportingErrors = AccessDeniedException | BadRequestException | InternalServerException | UnauthorizedException | CommonAwsError;
-
+export type MarketplaceReportingErrors =
+  | AccessDeniedException
+  | BadRequestException
+  | InternalServerException
+  | UnauthorizedException
+  | CommonAwsError;

@@ -5,7 +5,24 @@ import type { EBS as _EBSClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError, type CommonAwsError} from "../../error.ts";
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  type CommonAwsError,
+} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -15,26 +32,26 @@ const metadata = {
   sigV4ServiceName: "ebs",
   endpointPrefix: "ebs",
   operations: {
-    "CompleteSnapshot": "POST /snapshots/completion/{SnapshotId}",
-    "GetSnapshotBlock": {
+    CompleteSnapshot: "POST /snapshots/completion/{SnapshotId}",
+    GetSnapshotBlock: {
       http: "GET /snapshots/{SnapshotId}/blocks/{BlockIndex}",
       traits: {
-        "DataLength": "x-amz-Data-Length",
-        "BlockData": "httpPayload",
-        "Checksum": "x-amz-Checksum",
-        "ChecksumAlgorithm": "x-amz-Checksum-Algorithm",
+        DataLength: "x-amz-Data-Length",
+        BlockData: "httpPayload",
+        Checksum: "x-amz-Checksum",
+        ChecksumAlgorithm: "x-amz-Checksum-Algorithm",
       },
     },
-    "ListChangedBlocks": "GET /snapshots/{SecondSnapshotId}/changedblocks",
-    "ListSnapshotBlocks": "GET /snapshots/{SnapshotId}/blocks",
-    "PutSnapshotBlock": {
+    ListChangedBlocks: "GET /snapshots/{SecondSnapshotId}/changedblocks",
+    ListSnapshotBlocks: "GET /snapshots/{SnapshotId}/blocks",
+    PutSnapshotBlock: {
       http: "PUT /snapshots/{SnapshotId}/blocks/{BlockIndex}",
       traits: {
-        "Checksum": "x-amz-Checksum",
-        "ChecksumAlgorithm": "x-amz-Checksum-Algorithm",
+        Checksum: "x-amz-Checksum",
+        ChecksumAlgorithm: "x-amz-Checksum-Algorithm",
       },
     },
-    "StartSnapshot": "POST /snapshots",
+    StartSnapshot: "POST /snapshots",
   },
 } as const satisfies ServiceMetadata;
 

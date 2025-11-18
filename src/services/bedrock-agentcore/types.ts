@@ -1,8 +1,40 @@
 import type { Effect, Stream, Data as EffectData } from "effect";
 import type { ResponseError } from "@effect/platform/HttpClientError";
 import type { Buffer } from "node:buffer";
-import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
-type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
+import type {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+type CommonAwsError =
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | AccessDeniedException
+  | ThrottlingException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class BedrockAgentCore extends AWSServiceClient {
@@ -10,193 +42,402 @@ export declare class BedrockAgentCore extends AWSServiceClient {
     input: CompleteResourceTokenAuthRequest,
   ): Effect.Effect<
     CompleteResourceTokenAuthResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   getResourceApiKey(
     input: GetResourceApiKeyRequest,
   ): Effect.Effect<
     GetResourceApiKeyResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   getResourceOauth2Token(
     input: GetResourceOauth2TokenRequest,
   ): Effect.Effect<
     GetResourceOauth2TokenResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   getWorkloadAccessToken(
     input: GetWorkloadAccessTokenRequest,
   ): Effect.Effect<
     GetWorkloadAccessTokenResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   getWorkloadAccessTokenForJWT(
     input: GetWorkloadAccessTokenForJWTRequest,
   ): Effect.Effect<
     GetWorkloadAccessTokenForJWTResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   getWorkloadAccessTokenForUserId(
     input: GetWorkloadAccessTokenForUserIdRequest,
   ): Effect.Effect<
     GetWorkloadAccessTokenForUserIdResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   invokeCodeInterpreter(
     input: InvokeCodeInterpreterRequest,
   ): Effect.Effect<
     InvokeCodeInterpreterResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   batchCreateMemoryRecords(
     input: BatchCreateMemoryRecordsInput,
   ): Effect.Effect<
     BatchCreateMemoryRecordsOutput,
-    AccessDeniedException | ResourceNotFoundException | ServiceException | ServiceQuotaExceededException | ThrottledException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ServiceException
+    | ServiceQuotaExceededException
+    | ThrottledException
+    | ValidationException
+    | CommonAwsError
   >;
   batchDeleteMemoryRecords(
     input: BatchDeleteMemoryRecordsInput,
   ): Effect.Effect<
     BatchDeleteMemoryRecordsOutput,
-    AccessDeniedException | ResourceNotFoundException | ServiceException | ServiceQuotaExceededException | ThrottledException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ServiceException
+    | ServiceQuotaExceededException
+    | ThrottledException
+    | ValidationException
+    | CommonAwsError
   >;
   batchUpdateMemoryRecords(
     input: BatchUpdateMemoryRecordsInput,
   ): Effect.Effect<
     BatchUpdateMemoryRecordsOutput,
-    AccessDeniedException | ResourceNotFoundException | ServiceException | ServiceQuotaExceededException | ThrottledException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ServiceException
+    | ServiceQuotaExceededException
+    | ThrottledException
+    | ValidationException
+    | CommonAwsError
   >;
   createEvent(
     input: CreateEventInput,
   ): Effect.Effect<
     CreateEventOutput,
-    AccessDeniedException | InvalidInputException | ResourceNotFoundException | ServiceException | ServiceQuotaExceededException | ThrottledException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InvalidInputException
+    | ResourceNotFoundException
+    | ServiceException
+    | ServiceQuotaExceededException
+    | ThrottledException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteEvent(
     input: DeleteEventInput,
   ): Effect.Effect<
     DeleteEventOutput,
-    AccessDeniedException | InvalidInputException | ResourceNotFoundException | ServiceException | ServiceQuotaExceededException | ThrottledException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InvalidInputException
+    | ResourceNotFoundException
+    | ServiceException
+    | ServiceQuotaExceededException
+    | ThrottledException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteMemoryRecord(
     input: DeleteMemoryRecordInput,
   ): Effect.Effect<
     DeleteMemoryRecordOutput,
-    AccessDeniedException | InvalidInputException | ResourceNotFoundException | ServiceException | ServiceQuotaExceededException | ThrottledException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InvalidInputException
+    | ResourceNotFoundException
+    | ServiceException
+    | ServiceQuotaExceededException
+    | ThrottledException
+    | ValidationException
+    | CommonAwsError
   >;
   getAgentCard(
     input: GetAgentCardRequest,
   ): Effect.Effect<
     GetAgentCardResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | RuntimeClientError | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | RuntimeClientError
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getBrowserSession(
     input: GetBrowserSessionRequest,
   ): Effect.Effect<
     GetBrowserSessionResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getCodeInterpreterSession(
     input: GetCodeInterpreterSessionRequest,
   ): Effect.Effect<
     GetCodeInterpreterSessionResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getEvent(
     input: GetEventInput,
   ): Effect.Effect<
     GetEventOutput,
-    AccessDeniedException | InvalidInputException | ResourceNotFoundException | ServiceException | ServiceQuotaExceededException | ThrottledException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InvalidInputException
+    | ResourceNotFoundException
+    | ServiceException
+    | ServiceQuotaExceededException
+    | ThrottledException
+    | ValidationException
+    | CommonAwsError
   >;
   getMemoryRecord(
     input: GetMemoryRecordInput,
   ): Effect.Effect<
     GetMemoryRecordOutput,
-    AccessDeniedException | InvalidInputException | ResourceNotFoundException | ServiceException | ServiceQuotaExceededException | ThrottledException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InvalidInputException
+    | ResourceNotFoundException
+    | ServiceException
+    | ServiceQuotaExceededException
+    | ThrottledException
+    | ValidationException
+    | CommonAwsError
   >;
   invokeAgentRuntime(
     input: InvokeAgentRuntimeRequest,
   ): Effect.Effect<
     InvokeAgentRuntimeResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | RuntimeClientError | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | RuntimeClientError
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listActors(
     input: ListActorsInput,
   ): Effect.Effect<
     ListActorsOutput,
-    AccessDeniedException | InvalidInputException | ResourceNotFoundException | ServiceException | ServiceQuotaExceededException | ThrottledException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InvalidInputException
+    | ResourceNotFoundException
+    | ServiceException
+    | ServiceQuotaExceededException
+    | ThrottledException
+    | ValidationException
+    | CommonAwsError
   >;
   listBrowserSessions(
     input: ListBrowserSessionsRequest,
   ): Effect.Effect<
     ListBrowserSessionsResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listCodeInterpreterSessions(
     input: ListCodeInterpreterSessionsRequest,
   ): Effect.Effect<
     ListCodeInterpreterSessionsResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listEvents(
     input: ListEventsInput,
   ): Effect.Effect<
     ListEventsOutput,
-    AccessDeniedException | InvalidInputException | ResourceNotFoundException | ServiceException | ServiceQuotaExceededException | ThrottledException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InvalidInputException
+    | ResourceNotFoundException
+    | ServiceException
+    | ServiceQuotaExceededException
+    | ThrottledException
+    | ValidationException
+    | CommonAwsError
   >;
   listMemoryRecords(
     input: ListMemoryRecordsInput,
   ): Effect.Effect<
     ListMemoryRecordsOutput,
-    AccessDeniedException | InvalidInputException | ResourceNotFoundException | ServiceException | ServiceQuotaExceededException | ThrottledException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InvalidInputException
+    | ResourceNotFoundException
+    | ServiceException
+    | ServiceQuotaExceededException
+    | ThrottledException
+    | ValidationException
+    | CommonAwsError
   >;
   listSessions(
     input: ListSessionsInput,
   ): Effect.Effect<
     ListSessionsOutput,
-    AccessDeniedException | InvalidInputException | ResourceNotFoundException | ServiceException | ServiceQuotaExceededException | ThrottledException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InvalidInputException
+    | ResourceNotFoundException
+    | ServiceException
+    | ServiceQuotaExceededException
+    | ThrottledException
+    | ValidationException
+    | CommonAwsError
   >;
   retrieveMemoryRecords(
     input: RetrieveMemoryRecordsInput,
   ): Effect.Effect<
     RetrieveMemoryRecordsOutput,
-    AccessDeniedException | InvalidInputException | ResourceNotFoundException | ServiceException | ServiceQuotaExceededException | ThrottledException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InvalidInputException
+    | ResourceNotFoundException
+    | ServiceException
+    | ServiceQuotaExceededException
+    | ThrottledException
+    | ValidationException
+    | CommonAwsError
   >;
   startBrowserSession(
     input: StartBrowserSessionRequest,
   ): Effect.Effect<
     StartBrowserSessionResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   startCodeInterpreterSession(
     input: StartCodeInterpreterSessionRequest,
   ): Effect.Effect<
     StartCodeInterpreterSessionResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   stopBrowserSession(
     input: StopBrowserSessionRequest,
   ): Effect.Effect<
     StopBrowserSessionResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   stopCodeInterpreterSession(
     input: StopCodeInterpreterSessionRequest,
   ): Effect.Effect<
     StopCodeInterpreterSessionResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   stopRuntimeSession(
     input: StopRuntimeSessionRequest,
   ): Effect.Effect<
     StopRuntimeSessionResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | RuntimeClientError | ServiceQuotaExceededException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | RuntimeClientError
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   updateBrowserStream(
     input: UpdateBrowserStreamRequest,
   ): Effect.Effect<
     UpdateBrowserStreamResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
 }
 
@@ -296,7 +537,8 @@ export interface CodeInterpreterResult {
 export type CodeInterpreterSessionId = string;
 
 export type CodeInterpreterSessionStatus = "READY" | "TERMINATED";
-export type CodeInterpreterSessionSummaries = Array<CodeInterpreterSessionSummary>;
+export type CodeInterpreterSessionSummaries =
+  Array<CodeInterpreterSessionSummary>;
 export interface CodeInterpreterSessionSummary {
   codeInterpreterIdentifier: string;
   sessionId: string;
@@ -318,13 +560,32 @@ interface _CodeInterpreterStreamOutput {
   validationException?: ValidationException;
 }
 
-export type CodeInterpreterStreamOutput = (_CodeInterpreterStreamOutput & { result: CodeInterpreterResult }) | (_CodeInterpreterStreamOutput & { accessDeniedException: AccessDeniedException }) | (_CodeInterpreterStreamOutput & { conflictException: ConflictException }) | (_CodeInterpreterStreamOutput & { internalServerException: InternalServerException }) | (_CodeInterpreterStreamOutput & { resourceNotFoundException: ResourceNotFoundException }) | (_CodeInterpreterStreamOutput & { serviceQuotaExceededException: ServiceQuotaExceededException }) | (_CodeInterpreterStreamOutput & { throttlingException: ThrottlingException }) | (_CodeInterpreterStreamOutput & { validationException: ValidationException });
+export type CodeInterpreterStreamOutput =
+  | (_CodeInterpreterStreamOutput & { result: CodeInterpreterResult })
+  | (_CodeInterpreterStreamOutput & {
+      accessDeniedException: AccessDeniedException;
+    })
+  | (_CodeInterpreterStreamOutput & { conflictException: ConflictException })
+  | (_CodeInterpreterStreamOutput & {
+      internalServerException: InternalServerException;
+    })
+  | (_CodeInterpreterStreamOutput & {
+      resourceNotFoundException: ResourceNotFoundException;
+    })
+  | (_CodeInterpreterStreamOutput & {
+      serviceQuotaExceededException: ServiceQuotaExceededException;
+    })
+  | (_CodeInterpreterStreamOutput & {
+      throttlingException: ThrottlingException;
+    })
+  | (_CodeInterpreterStreamOutput & {
+      validationException: ValidationException;
+    });
 export interface CompleteResourceTokenAuthRequest {
   userIdentifier: UserIdentifier;
   sessionUri: string;
 }
-export interface CompleteResourceTokenAuthResponse {
-}
+export interface CompleteResourceTokenAuthResponse {}
 export declare class ConflictException extends EffectData.TaggedError(
   "ConflictException",
 )<{
@@ -334,7 +595,7 @@ interface _Content {
   text?: string;
 }
 
-export type Content = (_Content & { text: string });
+export type Content = _Content & { text: string };
 export interface ContentBlock {
   type: ContentBlockType;
   text?: string;
@@ -575,7 +836,7 @@ interface _LeftExpression {
   metadataKey?: string;
 }
 
-export type LeftExpression = (_LeftExpression & { metadataKey: string });
+export type LeftExpression = _LeftExpression & { metadataKey: string };
 export interface ListActorsInput {
   memoryId: string;
   maxResults?: number;
@@ -650,7 +911,7 @@ interface _MemoryContent {
   text?: string;
 }
 
-export type MemoryContent = (_MemoryContent & { text: string });
+export type MemoryContent = _MemoryContent & { text: string };
 export type MemoryId = string;
 
 export interface MemoryRecord {
@@ -709,7 +970,7 @@ interface _MetadataValue {
   stringValue?: string;
 }
 
-export type MetadataValue = (_MetadataValue & { stringValue: string });
+export type MetadataValue = _MetadataValue & { stringValue: string };
 export type MimeType = string;
 
 export type Name = string;
@@ -730,7 +991,9 @@ interface _PayloadType {
   blob?: unknown;
 }
 
-export type PayloadType = (_PayloadType & { conversational: Conversational }) | (_PayloadType & { blob: unknown });
+export type PayloadType =
+  | (_PayloadType & { conversational: Conversational })
+  | (_PayloadType & { blob: unknown });
 export type PayloadTypeList = Array<PayloadType>;
 export type ProgrammingLanguage = "python" | "javascript" | "typescript";
 export type RequestIdentifier = string;
@@ -769,7 +1032,9 @@ interface _RightExpression {
   metadataValue?: MetadataValue;
 }
 
-export type RightExpression = (_RightExpression & { metadataValue: MetadataValue });
+export type RightExpression = _RightExpression & {
+  metadataValue: MetadataValue;
+};
 export type Role = "ASSISTANT" | "USER" | "TOOL" | "OTHER";
 export declare class RuntimeClientError extends EffectData.TaggedError(
   "RuntimeClientError",
@@ -875,11 +1140,18 @@ interface _StreamUpdate {
   automationStreamUpdate?: AutomationStreamUpdate;
 }
 
-export type StreamUpdate = (_StreamUpdate & { automationStreamUpdate: AutomationStreamUpdate });
+export type StreamUpdate = _StreamUpdate & {
+  automationStreamUpdate: AutomationStreamUpdate;
+};
 export type StringList = Array<string>;
 export type StringType = string;
 
-export type TaskStatus = "submitted" | "working" | "completed" | "canceled" | "failed";
+export type TaskStatus =
+  | "submitted"
+  | "working"
+  | "completed"
+  | "canceled"
+  | "failed";
 export declare class ThrottledException extends EffectData.TaggedError(
   "ThrottledException",
 )<{
@@ -901,7 +1173,16 @@ export interface ToolArguments {
   directoryPath?: string;
   taskId?: string;
 }
-export type ToolName = "executeCode" | "executeCommand" | "readFiles" | "listFiles" | "removeFiles" | "writeFiles" | "startCommandExecution" | "getTask" | "stopTask";
+export type ToolName =
+  | "executeCode"
+  | "executeCommand"
+  | "readFiles"
+  | "listFiles"
+  | "removeFiles"
+  | "writeFiles"
+  | "startCommandExecution"
+  | "getTask"
+  | "stopTask";
 export interface ToolResultStructuredContent {
   taskId?: string;
   taskStatus?: TaskStatus;
@@ -932,7 +1213,9 @@ interface _UserIdentifier {
   userId?: string;
 }
 
-export type UserIdentifier = (_UserIdentifier & { userToken: string }) | (_UserIdentifier & { userId: string });
+export type UserIdentifier =
+  | (_UserIdentifier & { userToken: string })
+  | (_UserIdentifier & { userId: string });
 export type UserIdType = string;
 
 export type UserTokenType = string;
@@ -949,7 +1232,12 @@ export interface ValidationExceptionField {
   message: string;
 }
 export type ValidationExceptionFieldList = Array<ValidationExceptionField>;
-export type ValidationExceptionReason = "CannotParse" | "FieldValidationFailed" | "IdempotentParameterMismatchException" | "EventInOtherSession" | "ResourceConflict";
+export type ValidationExceptionReason =
+  | "CannotParse"
+  | "FieldValidationFailed"
+  | "IdempotentParameterMismatchException"
+  | "EventInOtherSession"
+  | "ResourceConflict";
 export interface ViewPort {
   width: number;
   height: number;
@@ -1395,5 +1683,17 @@ export declare namespace UpdateBrowserStream {
     | CommonAwsError;
 }
 
-export type BedrockAgentCoreErrors = AccessDeniedException | ConflictException | InternalServerException | InvalidInputException | ResourceNotFoundException | RuntimeClientError | ServiceException | ServiceQuotaExceededException | ThrottledException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError;
-
+export type BedrockAgentCoreErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | InvalidInputException
+  | ResourceNotFoundException
+  | RuntimeClientError
+  | ServiceException
+  | ServiceQuotaExceededException
+  | ThrottledException
+  | ThrottlingException
+  | UnauthorizedException
+  | ValidationException
+  | CommonAwsError;

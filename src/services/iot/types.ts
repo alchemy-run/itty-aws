@@ -1,6 +1,39 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
-type CommonAwsError = AccessDeniedException | ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | ThrottlingException | ValidationException;
+import type {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+type CommonAwsError =
+  | AccessDeniedException
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | ThrottlingException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class IoT extends AWSServiceClient {
@@ -8,517 +41,999 @@ export declare class IoT extends AWSServiceClient {
     input: AcceptCertificateTransferRequest,
   ): Effect.Effect<
     {},
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | TransferAlreadyCompletedException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | TransferAlreadyCompletedException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   addThingToBillingGroup(
     input: AddThingToBillingGroupRequest,
   ): Effect.Effect<
     AddThingToBillingGroupResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   addThingToThingGroup(
     input: AddThingToThingGroupRequest,
   ): Effect.Effect<
     AddThingToThingGroupResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   associateSbomWithPackageVersion(
     input: AssociateSbomWithPackageVersionRequest,
   ): Effect.Effect<
     AssociateSbomWithPackageVersionResponse,
-    ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   associateTargetsWithJob(
     input: AssociateTargetsWithJobRequest,
   ): Effect.Effect<
     AssociateTargetsWithJobResponse,
-    InvalidRequestException | LimitExceededException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
+    | InvalidRequestException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | CommonAwsError
   >;
   attachPolicy(
     input: AttachPolicyRequest,
   ): Effect.Effect<
     {},
-    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   attachPrincipalPolicy(
     input: AttachPrincipalPolicyRequest,
   ): Effect.Effect<
     {},
-    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   attachSecurityProfile(
     input: AttachSecurityProfileRequest,
   ): Effect.Effect<
     AttachSecurityProfileResponse,
-    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ThrottlingException | VersionConflictException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | VersionConflictException
+    | CommonAwsError
   >;
   attachThingPrincipal(
     input: AttachThingPrincipalRequest,
   ): Effect.Effect<
     AttachThingPrincipalResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   cancelAuditMitigationActionsTask(
     input: CancelAuditMitigationActionsTaskRequest,
   ): Effect.Effect<
     CancelAuditMitigationActionsTaskResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   cancelAuditTask(
     input: CancelAuditTaskRequest,
   ): Effect.Effect<
     CancelAuditTaskResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   cancelCertificateTransfer(
     input: CancelCertificateTransferRequest,
   ): Effect.Effect<
     {},
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | TransferAlreadyCompletedException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | TransferAlreadyCompletedException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   cancelDetectMitigationActionsTask(
     input: CancelDetectMitigationActionsTaskRequest,
   ): Effect.Effect<
     CancelDetectMitigationActionsTaskResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   cancelJob(
     input: CancelJobRequest,
   ): Effect.Effect<
     CancelJobResponse,
-    InvalidRequestException | LimitExceededException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
+    | InvalidRequestException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | CommonAwsError
   >;
   cancelJobExecution(
     input: CancelJobExecutionRequest,
   ): Effect.Effect<
     {},
-    InvalidRequestException | InvalidStateTransitionException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | VersionConflictException | CommonAwsError
+    | InvalidRequestException
+    | InvalidStateTransitionException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | VersionConflictException
+    | CommonAwsError
   >;
   clearDefaultAuthorizer(
     input: ClearDefaultAuthorizerRequest,
   ): Effect.Effect<
     ClearDefaultAuthorizerResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   confirmTopicRuleDestination(
     input: ConfirmTopicRuleDestinationRequest,
   ): Effect.Effect<
     ConfirmTopicRuleDestinationResponse,
-    ConflictingResourceUpdateException | InternalException | InvalidRequestException | ServiceUnavailableException | UnauthorizedException | CommonAwsError
+    | ConflictingResourceUpdateException
+    | InternalException
+    | InvalidRequestException
+    | ServiceUnavailableException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   createAuditSuppression(
     input: CreateAuditSuppressionRequest,
   ): Effect.Effect<
     CreateAuditSuppressionResponse,
-    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceAlreadyExistsException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | LimitExceededException
+    | ResourceAlreadyExistsException
+    | ThrottlingException
+    | CommonAwsError
   >;
   createAuthorizer(
     input: CreateAuthorizerRequest,
   ): Effect.Effect<
     CreateAuthorizerResponse,
-    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceAlreadyExistsException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | LimitExceededException
+    | ResourceAlreadyExistsException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   createBillingGroup(
     input: CreateBillingGroupRequest,
   ): Effect.Effect<
     CreateBillingGroupResponse,
-    InternalFailureException | InvalidRequestException | ResourceAlreadyExistsException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceAlreadyExistsException
+    | ThrottlingException
+    | CommonAwsError
   >;
   createCertificateFromCsr(
     input: CreateCertificateFromCsrRequest,
   ): Effect.Effect<
     CreateCertificateFromCsrResponse,
-    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   createCertificateProvider(
     input: CreateCertificateProviderRequest,
   ): Effect.Effect<
     CreateCertificateProviderResponse,
-    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceAlreadyExistsException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | LimitExceededException
+    | ResourceAlreadyExistsException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   createCommand(
     input: CreateCommandRequest,
   ): Effect.Effect<
     CreateCommandResponse,
-    ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createCustomMetric(
     input: CreateCustomMetricRequest,
   ): Effect.Effect<
     CreateCustomMetricResponse,
-    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceAlreadyExistsException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | LimitExceededException
+    | ResourceAlreadyExistsException
+    | ThrottlingException
+    | CommonAwsError
   >;
   createDimension(
     input: CreateDimensionRequest,
   ): Effect.Effect<
     CreateDimensionResponse,
-    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceAlreadyExistsException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | LimitExceededException
+    | ResourceAlreadyExistsException
+    | ThrottlingException
+    | CommonAwsError
   >;
   createDomainConfiguration(
     input: CreateDomainConfigurationRequest,
   ): Effect.Effect<
     CreateDomainConfigurationResponse,
-    CertificateValidationException | InternalFailureException | InvalidRequestException | LimitExceededException | ResourceAlreadyExistsException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | CertificateValidationException
+    | InternalFailureException
+    | InvalidRequestException
+    | LimitExceededException
+    | ResourceAlreadyExistsException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   createDynamicThingGroup(
     input: CreateDynamicThingGroupRequest,
   ): Effect.Effect<
     CreateDynamicThingGroupResponse,
-    InternalFailureException | InvalidQueryException | InvalidRequestException | LimitExceededException | ResourceAlreadyExistsException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidQueryException
+    | InvalidRequestException
+    | LimitExceededException
+    | ResourceAlreadyExistsException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   createFleetMetric(
     input: CreateFleetMetricRequest,
   ): Effect.Effect<
     CreateFleetMetricResponse,
-    IndexNotReadyException | InternalFailureException | InvalidAggregationException | InvalidQueryException | InvalidRequestException | LimitExceededException | ResourceAlreadyExistsException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | IndexNotReadyException
+    | InternalFailureException
+    | InvalidAggregationException
+    | InvalidQueryException
+    | InvalidRequestException
+    | LimitExceededException
+    | ResourceAlreadyExistsException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   createJob(
     input: CreateJobRequest,
   ): Effect.Effect<
     CreateJobResponse,
-    InvalidRequestException | LimitExceededException | ResourceAlreadyExistsException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
+    | InvalidRequestException
+    | LimitExceededException
+    | ResourceAlreadyExistsException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | CommonAwsError
   >;
   createJobTemplate(
     input: CreateJobTemplateRequest,
   ): Effect.Effect<
     CreateJobTemplateResponse,
-    ConflictException | InternalFailureException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | ConflictException
+    | InternalFailureException
+    | InvalidRequestException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   createKeysAndCertificate(
     input: CreateKeysAndCertificateRequest,
   ): Effect.Effect<
     CreateKeysAndCertificateResponse,
-    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   createMitigationAction(
     input: CreateMitigationActionRequest,
   ): Effect.Effect<
     CreateMitigationActionResponse,
-    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceAlreadyExistsException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | LimitExceededException
+    | ResourceAlreadyExistsException
+    | ThrottlingException
+    | CommonAwsError
   >;
   createOTAUpdate(
     input: CreateOTAUpdateRequest,
   ): Effect.Effect<
     CreateOTAUpdateResponse,
-    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceAlreadyExistsException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | LimitExceededException
+    | ResourceAlreadyExistsException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   createPackage(
     input: CreatePackageRequest,
   ): Effect.Effect<
     CreatePackageResponse,
-    ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createPackageVersion(
     input: CreatePackageVersionRequest,
   ): Effect.Effect<
     CreatePackageVersionResponse,
-    ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createPolicy(
     input: CreatePolicyRequest,
   ): Effect.Effect<
     CreatePolicyResponse,
-    InternalFailureException | InvalidRequestException | MalformedPolicyException | ResourceAlreadyExistsException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | MalformedPolicyException
+    | ResourceAlreadyExistsException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   createPolicyVersion(
     input: CreatePolicyVersionRequest,
   ): Effect.Effect<
     CreatePolicyVersionResponse,
-    InternalFailureException | InvalidRequestException | MalformedPolicyException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | VersionsLimitExceededException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | MalformedPolicyException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | VersionsLimitExceededException
+    | CommonAwsError
   >;
   createProvisioningClaim(
     input: CreateProvisioningClaimRequest,
   ): Effect.Effect<
     CreateProvisioningClaimResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   createProvisioningTemplate(
     input: CreateProvisioningTemplateRequest,
   ): Effect.Effect<
     CreateProvisioningTemplateResponse,
-    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceAlreadyExistsException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | LimitExceededException
+    | ResourceAlreadyExistsException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   createProvisioningTemplateVersion(
     input: CreateProvisioningTemplateVersionRequest,
   ): Effect.Effect<
     CreateProvisioningTemplateVersionResponse,
-    ConflictingResourceUpdateException | InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | VersionsLimitExceededException | CommonAwsError
+    | ConflictingResourceUpdateException
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | VersionsLimitExceededException
+    | CommonAwsError
   >;
   createRoleAlias(
     input: CreateRoleAliasRequest,
   ): Effect.Effect<
     CreateRoleAliasResponse,
-    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceAlreadyExistsException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | LimitExceededException
+    | ResourceAlreadyExistsException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   createScheduledAudit(
     input: CreateScheduledAuditRequest,
   ): Effect.Effect<
     CreateScheduledAuditResponse,
-    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceAlreadyExistsException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | LimitExceededException
+    | ResourceAlreadyExistsException
+    | ThrottlingException
+    | CommonAwsError
   >;
   createSecurityProfile(
     input: CreateSecurityProfileRequest,
   ): Effect.Effect<
     CreateSecurityProfileResponse,
-    InternalFailureException | InvalidRequestException | ResourceAlreadyExistsException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceAlreadyExistsException
+    | ThrottlingException
+    | CommonAwsError
   >;
   createStream(
     input: CreateStreamRequest,
   ): Effect.Effect<
     CreateStreamResponse,
-    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceAlreadyExistsException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | LimitExceededException
+    | ResourceAlreadyExistsException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   createThing(
     input: CreateThingRequest,
   ): Effect.Effect<
     CreateThingResponse,
-    InternalFailureException | InvalidRequestException | ResourceAlreadyExistsException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceAlreadyExistsException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   createThingGroup(
     input: CreateThingGroupRequest,
   ): Effect.Effect<
     CreateThingGroupResponse,
-    InternalFailureException | InvalidRequestException | ResourceAlreadyExistsException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceAlreadyExistsException
+    | ThrottlingException
+    | CommonAwsError
   >;
   createThingType(
     input: CreateThingTypeRequest,
   ): Effect.Effect<
     CreateThingTypeResponse,
-    InternalFailureException | InvalidRequestException | ResourceAlreadyExistsException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceAlreadyExistsException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   createTopicRule(
     input: CreateTopicRuleRequest,
   ): Effect.Effect<
     {},
-    ConflictingResourceUpdateException | InternalException | InvalidRequestException | ResourceAlreadyExistsException | ServiceUnavailableException | SqlParseException | UnauthorizedException | CommonAwsError
+    | ConflictingResourceUpdateException
+    | InternalException
+    | InvalidRequestException
+    | ResourceAlreadyExistsException
+    | ServiceUnavailableException
+    | SqlParseException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   createTopicRuleDestination(
     input: CreateTopicRuleDestinationRequest,
   ): Effect.Effect<
     CreateTopicRuleDestinationResponse,
-    ConflictingResourceUpdateException | InternalException | InvalidRequestException | ResourceAlreadyExistsException | ServiceUnavailableException | UnauthorizedException | CommonAwsError
+    | ConflictingResourceUpdateException
+    | InternalException
+    | InvalidRequestException
+    | ResourceAlreadyExistsException
+    | ServiceUnavailableException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   deleteAccountAuditConfiguration(
     input: DeleteAccountAuditConfigurationRequest,
   ): Effect.Effect<
     DeleteAccountAuditConfigurationResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   deleteAuditSuppression(
     input: DeleteAuditSuppressionRequest,
   ): Effect.Effect<
     DeleteAuditSuppressionResponse,
-    InternalFailureException | InvalidRequestException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ThrottlingException
+    | CommonAwsError
   >;
   deleteAuthorizer(
     input: DeleteAuthorizerRequest,
   ): Effect.Effect<
     DeleteAuthorizerResponse,
-    DeleteConflictException | InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | DeleteConflictException
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   deleteBillingGroup(
     input: DeleteBillingGroupRequest,
   ): Effect.Effect<
     DeleteBillingGroupResponse,
-    InternalFailureException | InvalidRequestException | ThrottlingException | VersionConflictException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ThrottlingException
+    | VersionConflictException
+    | CommonAwsError
   >;
   deleteCACertificate(
     input: DeleteCACertificateRequest,
   ): Effect.Effect<
     DeleteCACertificateResponse,
-    CertificateStateException | InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | CertificateStateException
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   deleteCertificate(
     input: DeleteCertificateRequest,
   ): Effect.Effect<
     {},
-    CertificateStateException | DeleteConflictException | InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | CertificateStateException
+    | DeleteConflictException
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   deleteCertificateProvider(
     input: DeleteCertificateProviderRequest,
   ): Effect.Effect<
     DeleteCertificateProviderResponse,
-    DeleteConflictException | InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | DeleteConflictException
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   deleteCommand(
     input: DeleteCommandRequest,
   ): Effect.Effect<
     DeleteCommandResponse,
-    ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteCommandExecution(
     input: DeleteCommandExecutionRequest,
   ): Effect.Effect<
     DeleteCommandExecutionResponse,
-    ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteCustomMetric(
     input: DeleteCustomMetricRequest,
   ): Effect.Effect<
     DeleteCustomMetricResponse,
-    InternalFailureException | InvalidRequestException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ThrottlingException
+    | CommonAwsError
   >;
   deleteDimension(
     input: DeleteDimensionRequest,
   ): Effect.Effect<
     DeleteDimensionResponse,
-    InternalFailureException | InvalidRequestException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ThrottlingException
+    | CommonAwsError
   >;
   deleteDomainConfiguration(
     input: DeleteDomainConfigurationRequest,
   ): Effect.Effect<
     DeleteDomainConfigurationResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   deleteDynamicThingGroup(
     input: DeleteDynamicThingGroupRequest,
   ): Effect.Effect<
     DeleteDynamicThingGroupResponse,
-    InternalFailureException | InvalidRequestException | ThrottlingException | VersionConflictException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ThrottlingException
+    | VersionConflictException
+    | CommonAwsError
   >;
   deleteFleetMetric(
     input: DeleteFleetMetricRequest,
   ): Effect.Effect<
     {},
-    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | VersionConflictException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | VersionConflictException
+    | CommonAwsError
   >;
   deleteJob(
     input: DeleteJobRequest,
   ): Effect.Effect<
     {},
-    InvalidRequestException | InvalidStateTransitionException | LimitExceededException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
+    | InvalidRequestException
+    | InvalidStateTransitionException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | CommonAwsError
   >;
   deleteJobExecution(
     input: DeleteJobExecutionRequest,
   ): Effect.Effect<
     {},
-    InvalidRequestException | InvalidStateTransitionException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
+    | InvalidRequestException
+    | InvalidStateTransitionException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | CommonAwsError
   >;
   deleteJobTemplate(
     input: DeleteJobTemplateRequest,
   ): Effect.Effect<
     {},
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   deleteMitigationAction(
     input: DeleteMitigationActionRequest,
   ): Effect.Effect<
     DeleteMitigationActionResponse,
-    InternalFailureException | InvalidRequestException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ThrottlingException
+    | CommonAwsError
   >;
   deleteOTAUpdate(
     input: DeleteOTAUpdateRequest,
   ): Effect.Effect<
     DeleteOTAUpdateResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | VersionConflictException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | VersionConflictException
+    | CommonAwsError
   >;
   deletePackage(
     input: DeletePackageRequest,
   ): Effect.Effect<
     DeletePackageResponse,
-    InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deletePackageVersion(
     input: DeletePackageVersionRequest,
   ): Effect.Effect<
     DeletePackageVersionResponse,
-    InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deletePolicy(
     input: DeletePolicyRequest,
   ): Effect.Effect<
     {},
-    DeleteConflictException | InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | DeleteConflictException
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   deletePolicyVersion(
     input: DeletePolicyVersionRequest,
   ): Effect.Effect<
     {},
-    DeleteConflictException | InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | DeleteConflictException
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   deleteProvisioningTemplate(
     input: DeleteProvisioningTemplateRequest,
   ): Effect.Effect<
     DeleteProvisioningTemplateResponse,
-    ConflictingResourceUpdateException | DeleteConflictException | InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | ConflictingResourceUpdateException
+    | DeleteConflictException
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   deleteProvisioningTemplateVersion(
     input: DeleteProvisioningTemplateVersionRequest,
   ): Effect.Effect<
     DeleteProvisioningTemplateVersionResponse,
-    ConflictingResourceUpdateException | DeleteConflictException | InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | ConflictingResourceUpdateException
+    | DeleteConflictException
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   deleteRegistrationCode(
     input: DeleteRegistrationCodeRequest,
   ): Effect.Effect<
     DeleteRegistrationCodeResponse,
-    InternalFailureException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   deleteRoleAlias(
     input: DeleteRoleAliasRequest,
   ): Effect.Effect<
     DeleteRoleAliasResponse,
-    DeleteConflictException | InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | DeleteConflictException
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   deleteScheduledAudit(
     input: DeleteScheduledAuditRequest,
   ): Effect.Effect<
     DeleteScheduledAuditResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   deleteSecurityProfile(
     input: DeleteSecurityProfileRequest,
   ): Effect.Effect<
     DeleteSecurityProfileResponse,
-    InternalFailureException | InvalidRequestException | ThrottlingException | VersionConflictException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ThrottlingException
+    | VersionConflictException
+    | CommonAwsError
   >;
   deleteStream(
     input: DeleteStreamRequest,
   ): Effect.Effect<
     DeleteStreamResponse,
-    DeleteConflictException | InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | DeleteConflictException
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   deleteThing(
     input: DeleteThingRequest,
   ): Effect.Effect<
     DeleteThingResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | VersionConflictException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | VersionConflictException
+    | CommonAwsError
   >;
   deleteThingGroup(
     input: DeleteThingGroupRequest,
   ): Effect.Effect<
     DeleteThingGroupResponse,
-    InternalFailureException | InvalidRequestException | ThrottlingException | VersionConflictException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ThrottlingException
+    | VersionConflictException
+    | CommonAwsError
   >;
   deleteThingType(
     input: DeleteThingTypeRequest,
   ): Effect.Effect<
     DeleteThingTypeResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   deleteTopicRule(
     input: DeleteTopicRuleRequest,
   ): Effect.Effect<
     {},
-    ConflictingResourceUpdateException | InternalException | InvalidRequestException | ServiceUnavailableException | UnauthorizedException | CommonAwsError
+    | ConflictingResourceUpdateException
+    | InternalException
+    | InvalidRequestException
+    | ServiceUnavailableException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   deleteTopicRuleDestination(
     input: DeleteTopicRuleDestinationRequest,
   ): Effect.Effect<
     DeleteTopicRuleDestinationResponse,
-    ConflictingResourceUpdateException | InternalException | InvalidRequestException | ServiceUnavailableException | UnauthorizedException | CommonAwsError
+    | ConflictingResourceUpdateException
+    | InternalException
+    | InvalidRequestException
+    | ServiceUnavailableException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   deleteV2LoggingLevel(
     input: DeleteV2LoggingLevelRequest,
   ): Effect.Effect<
     {},
-    InternalException | InvalidRequestException | ServiceUnavailableException | CommonAwsError
+    | InternalException
+    | InvalidRequestException
+    | ServiceUnavailableException
+    | CommonAwsError
   >;
   deprecateThingType(
     input: DeprecateThingTypeRequest,
   ): Effect.Effect<
     DeprecateThingTypeResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   describeAccountAuditConfiguration(
     input: DescribeAccountAuditConfigurationRequest,
@@ -530,97 +1045,174 @@ export declare class IoT extends AWSServiceClient {
     input: DescribeAuditFindingRequest,
   ): Effect.Effect<
     DescribeAuditFindingResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   describeAuditMitigationActionsTask(
     input: DescribeAuditMitigationActionsTaskRequest,
   ): Effect.Effect<
     DescribeAuditMitigationActionsTaskResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   describeAuditSuppression(
     input: DescribeAuditSuppressionRequest,
   ): Effect.Effect<
     DescribeAuditSuppressionResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   describeAuditTask(
     input: DescribeAuditTaskRequest,
   ): Effect.Effect<
     DescribeAuditTaskResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   describeAuthorizer(
     input: DescribeAuthorizerRequest,
   ): Effect.Effect<
     DescribeAuthorizerResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   describeBillingGroup(
     input: DescribeBillingGroupRequest,
   ): Effect.Effect<
     DescribeBillingGroupResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   describeCACertificate(
     input: DescribeCACertificateRequest,
   ): Effect.Effect<
     DescribeCACertificateResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   describeCertificate(
     input: DescribeCertificateRequest,
   ): Effect.Effect<
     DescribeCertificateResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   describeCertificateProvider(
     input: DescribeCertificateProviderRequest,
   ): Effect.Effect<
     DescribeCertificateProviderResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   describeCustomMetric(
     input: DescribeCustomMetricRequest,
   ): Effect.Effect<
     DescribeCustomMetricResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   describeDefaultAuthorizer(
     input: DescribeDefaultAuthorizerRequest,
   ): Effect.Effect<
     DescribeDefaultAuthorizerResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   describeDetectMitigationActionsTask(
     input: DescribeDetectMitigationActionsTaskRequest,
   ): Effect.Effect<
     DescribeDetectMitigationActionsTaskResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   describeDimension(
     input: DescribeDimensionRequest,
   ): Effect.Effect<
     DescribeDimensionResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   describeDomainConfiguration(
     input: DescribeDomainConfigurationRequest,
   ): Effect.Effect<
     DescribeDomainConfigurationResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   describeEncryptionConfiguration(
     input: DescribeEncryptionConfigurationRequest,
   ): Effect.Effect<
     DescribeEncryptionConfigurationResponse,
-    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   describeEndpoint(
     input: DescribeEndpointRequest,
   ): Effect.Effect<
     DescribeEndpointResponse,
-    InternalFailureException | InvalidRequestException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   describeEventConfigurations(
     input: DescribeEventConfigurationsRequest,
@@ -632,211 +1224,390 @@ export declare class IoT extends AWSServiceClient {
     input: DescribeFleetMetricRequest,
   ): Effect.Effect<
     DescribeFleetMetricResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   describeIndex(
     input: DescribeIndexRequest,
   ): Effect.Effect<
     DescribeIndexResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   describeJob(
     input: DescribeJobRequest,
   ): Effect.Effect<
     DescribeJobResponse,
-    InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | CommonAwsError
   >;
   describeJobExecution(
     input: DescribeJobExecutionRequest,
   ): Effect.Effect<
     DescribeJobExecutionResponse,
-    InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | CommonAwsError
   >;
   describeJobTemplate(
     input: DescribeJobTemplateRequest,
   ): Effect.Effect<
     DescribeJobTemplateResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   describeManagedJobTemplate(
     input: DescribeManagedJobTemplateRequest,
   ): Effect.Effect<
     DescribeManagedJobTemplateResponse,
-    InternalServerException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | InternalServerException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   describeMitigationAction(
     input: DescribeMitigationActionRequest,
   ): Effect.Effect<
     DescribeMitigationActionResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   describeProvisioningTemplate(
     input: DescribeProvisioningTemplateRequest,
   ): Effect.Effect<
     DescribeProvisioningTemplateResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   describeProvisioningTemplateVersion(
     input: DescribeProvisioningTemplateVersionRequest,
   ): Effect.Effect<
     DescribeProvisioningTemplateVersionResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   describeRoleAlias(
     input: DescribeRoleAliasRequest,
   ): Effect.Effect<
     DescribeRoleAliasResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   describeScheduledAudit(
     input: DescribeScheduledAuditRequest,
   ): Effect.Effect<
     DescribeScheduledAuditResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   describeSecurityProfile(
     input: DescribeSecurityProfileRequest,
   ): Effect.Effect<
     DescribeSecurityProfileResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   describeStream(
     input: DescribeStreamRequest,
   ): Effect.Effect<
     DescribeStreamResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   describeThing(
     input: DescribeThingRequest,
   ): Effect.Effect<
     DescribeThingResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   describeThingGroup(
     input: DescribeThingGroupRequest,
   ): Effect.Effect<
     DescribeThingGroupResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   describeThingRegistrationTask(
     input: DescribeThingRegistrationTaskRequest,
   ): Effect.Effect<
     DescribeThingRegistrationTaskResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   describeThingType(
     input: DescribeThingTypeRequest,
   ): Effect.Effect<
     DescribeThingTypeResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   detachPolicy(
     input: DetachPolicyRequest,
   ): Effect.Effect<
     {},
-    InternalFailureException | InvalidRequestException | LimitExceededException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | LimitExceededException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   detachPrincipalPolicy(
     input: DetachPrincipalPolicyRequest,
   ): Effect.Effect<
     {},
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   detachSecurityProfile(
     input: DetachSecurityProfileRequest,
   ): Effect.Effect<
     DetachSecurityProfileResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   detachThingPrincipal(
     input: DetachThingPrincipalRequest,
   ): Effect.Effect<
     DetachThingPrincipalResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   disableTopicRule(
     input: DisableTopicRuleRequest,
   ): Effect.Effect<
     {},
-    ConflictingResourceUpdateException | InternalException | InvalidRequestException | ServiceUnavailableException | UnauthorizedException | CommonAwsError
+    | ConflictingResourceUpdateException
+    | InternalException
+    | InvalidRequestException
+    | ServiceUnavailableException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   disassociateSbomFromPackageVersion(
     input: DisassociateSbomFromPackageVersionRequest,
   ): Effect.Effect<
     DisassociateSbomFromPackageVersionResponse,
-    ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   enableTopicRule(
     input: EnableTopicRuleRequest,
   ): Effect.Effect<
     {},
-    ConflictingResourceUpdateException | InternalException | InvalidRequestException | ServiceUnavailableException | UnauthorizedException | CommonAwsError
+    | ConflictingResourceUpdateException
+    | InternalException
+    | InvalidRequestException
+    | ServiceUnavailableException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   getBehaviorModelTrainingSummaries(
     input: GetBehaviorModelTrainingSummariesRequest,
   ): Effect.Effect<
     GetBehaviorModelTrainingSummariesResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   getBucketsAggregation(
     input: GetBucketsAggregationRequest,
   ): Effect.Effect<
     GetBucketsAggregationResponse,
-    IndexNotReadyException | InternalFailureException | InvalidAggregationException | InvalidQueryException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | IndexNotReadyException
+    | InternalFailureException
+    | InvalidAggregationException
+    | InvalidQueryException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   getCardinality(
     input: GetCardinalityRequest,
   ): Effect.Effect<
     GetCardinalityResponse,
-    IndexNotReadyException | InternalFailureException | InvalidAggregationException | InvalidQueryException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | IndexNotReadyException
+    | InternalFailureException
+    | InvalidAggregationException
+    | InvalidQueryException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   getCommand(
     input: GetCommandRequest,
   ): Effect.Effect<
     GetCommandResponse,
-    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getCommandExecution(
     input: GetCommandExecutionRequest,
   ): Effect.Effect<
     GetCommandExecutionResponse,
-    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getEffectivePolicies(
     input: GetEffectivePoliciesRequest,
   ): Effect.Effect<
     GetEffectivePoliciesResponse,
-    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   getIndexingConfiguration(
     input: GetIndexingConfigurationRequest,
   ): Effect.Effect<
     GetIndexingConfigurationResponse,
-    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   getJobDocument(
     input: GetJobDocumentRequest,
   ): Effect.Effect<
     GetJobDocumentResponse,
-    InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | CommonAwsError
   >;
   getLoggingOptions(
     input: GetLoggingOptionsRequest,
   ): Effect.Effect<
     GetLoggingOptionsResponse,
-    InternalException | InvalidRequestException | ServiceUnavailableException | CommonAwsError
+    | InternalException
+    | InvalidRequestException
+    | ServiceUnavailableException
+    | CommonAwsError
   >;
   getOTAUpdate(
     input: GetOTAUpdateRequest,
   ): Effect.Effect<
     GetOTAUpdateResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   getPackage(
     input: GetPackageRequest,
   ): Effect.Effect<
     GetPackageResponse,
-    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getPackageConfiguration(
     input: GetPackageConfigurationRequest,
@@ -848,793 +1619,1440 @@ export declare class IoT extends AWSServiceClient {
     input: GetPackageVersionRequest,
   ): Effect.Effect<
     GetPackageVersionResponse,
-    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getPercentiles(
     input: GetPercentilesRequest,
   ): Effect.Effect<
     GetPercentilesResponse,
-    IndexNotReadyException | InternalFailureException | InvalidAggregationException | InvalidQueryException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | IndexNotReadyException
+    | InternalFailureException
+    | InvalidAggregationException
+    | InvalidQueryException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   getPolicy(
     input: GetPolicyRequest,
   ): Effect.Effect<
     GetPolicyResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   getPolicyVersion(
     input: GetPolicyVersionRequest,
   ): Effect.Effect<
     GetPolicyVersionResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   getRegistrationCode(
     input: GetRegistrationCodeRequest,
   ): Effect.Effect<
     GetRegistrationCodeResponse,
-    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   getStatistics(
     input: GetStatisticsRequest,
   ): Effect.Effect<
     GetStatisticsResponse,
-    IndexNotReadyException | InternalFailureException | InvalidAggregationException | InvalidQueryException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | IndexNotReadyException
+    | InternalFailureException
+    | InvalidAggregationException
+    | InvalidQueryException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   getThingConnectivityData(
     input: GetThingConnectivityDataRequest,
   ): Effect.Effect<
     GetThingConnectivityDataResponse,
-    IndexNotReadyException | InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | IndexNotReadyException
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   getTopicRule(
     input: GetTopicRuleRequest,
   ): Effect.Effect<
     GetTopicRuleResponse,
-    InternalException | InvalidRequestException | ServiceUnavailableException | UnauthorizedException | CommonAwsError
+    | InternalException
+    | InvalidRequestException
+    | ServiceUnavailableException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   getTopicRuleDestination(
     input: GetTopicRuleDestinationRequest,
   ): Effect.Effect<
     GetTopicRuleDestinationResponse,
-    InternalException | InvalidRequestException | ServiceUnavailableException | UnauthorizedException | CommonAwsError
+    | InternalException
+    | InvalidRequestException
+    | ServiceUnavailableException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   getV2LoggingOptions(
     input: GetV2LoggingOptionsRequest,
   ): Effect.Effect<
     GetV2LoggingOptionsResponse,
-    InternalException | NotConfiguredException | ServiceUnavailableException | CommonAwsError
+    | InternalException
+    | NotConfiguredException
+    | ServiceUnavailableException
+    | CommonAwsError
   >;
   listActiveViolations(
     input: ListActiveViolationsRequest,
   ): Effect.Effect<
     ListActiveViolationsResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   listAttachedPolicies(
     input: ListAttachedPoliciesRequest,
   ): Effect.Effect<
     ListAttachedPoliciesResponse,
-    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   listAuditFindings(
     input: ListAuditFindingsRequest,
   ): Effect.Effect<
     ListAuditFindingsResponse,
-    InternalFailureException | InvalidRequestException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ThrottlingException
+    | CommonAwsError
   >;
   listAuditMitigationActionsExecutions(
     input: ListAuditMitigationActionsExecutionsRequest,
   ): Effect.Effect<
     ListAuditMitigationActionsExecutionsResponse,
-    InternalFailureException | InvalidRequestException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ThrottlingException
+    | CommonAwsError
   >;
   listAuditMitigationActionsTasks(
     input: ListAuditMitigationActionsTasksRequest,
   ): Effect.Effect<
     ListAuditMitigationActionsTasksResponse,
-    InternalFailureException | InvalidRequestException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ThrottlingException
+    | CommonAwsError
   >;
   listAuditSuppressions(
     input: ListAuditSuppressionsRequest,
   ): Effect.Effect<
     ListAuditSuppressionsResponse,
-    InternalFailureException | InvalidRequestException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ThrottlingException
+    | CommonAwsError
   >;
   listAuditTasks(
     input: ListAuditTasksRequest,
   ): Effect.Effect<
     ListAuditTasksResponse,
-    InternalFailureException | InvalidRequestException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ThrottlingException
+    | CommonAwsError
   >;
   listAuthorizers(
     input: ListAuthorizersRequest,
   ): Effect.Effect<
     ListAuthorizersResponse,
-    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   listBillingGroups(
     input: ListBillingGroupsRequest,
   ): Effect.Effect<
     ListBillingGroupsResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   listCACertificates(
     input: ListCACertificatesRequest,
   ): Effect.Effect<
     ListCACertificatesResponse,
-    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   listCertificateProviders(
     input: ListCertificateProvidersRequest,
   ): Effect.Effect<
     ListCertificateProvidersResponse,
-    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   listCertificates(
     input: ListCertificatesRequest,
   ): Effect.Effect<
     ListCertificatesResponse,
-    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   listCertificatesByCA(
     input: ListCertificatesByCARequest,
   ): Effect.Effect<
     ListCertificatesByCAResponse,
-    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   listCommandExecutions(
     input: ListCommandExecutionsRequest,
   ): Effect.Effect<
     ListCommandExecutionsResponse,
-    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listCommands(
     input: ListCommandsRequest,
   ): Effect.Effect<
     ListCommandsResponse,
-    InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listCustomMetrics(
     input: ListCustomMetricsRequest,
   ): Effect.Effect<
     ListCustomMetricsResponse,
-    InternalFailureException | InvalidRequestException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ThrottlingException
+    | CommonAwsError
   >;
   listDetectMitigationActionsExecutions(
     input: ListDetectMitigationActionsExecutionsRequest,
   ): Effect.Effect<
     ListDetectMitigationActionsExecutionsResponse,
-    InternalFailureException | InvalidRequestException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ThrottlingException
+    | CommonAwsError
   >;
   listDetectMitigationActionsTasks(
     input: ListDetectMitigationActionsTasksRequest,
   ): Effect.Effect<
     ListDetectMitigationActionsTasksResponse,
-    InternalFailureException | InvalidRequestException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ThrottlingException
+    | CommonAwsError
   >;
   listDimensions(
     input: ListDimensionsRequest,
   ): Effect.Effect<
     ListDimensionsResponse,
-    InternalFailureException | InvalidRequestException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ThrottlingException
+    | CommonAwsError
   >;
   listDomainConfigurations(
     input: ListDomainConfigurationsRequest,
   ): Effect.Effect<
     ListDomainConfigurationsResponse,
-    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   listFleetMetrics(
     input: ListFleetMetricsRequest,
   ): Effect.Effect<
     ListFleetMetricsResponse,
-    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   listIndices(
     input: ListIndicesRequest,
   ): Effect.Effect<
     ListIndicesResponse,
-    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   listJobExecutionsForJob(
     input: ListJobExecutionsForJobRequest,
   ): Effect.Effect<
     ListJobExecutionsForJobResponse,
-    InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | CommonAwsError
   >;
   listJobExecutionsForThing(
     input: ListJobExecutionsForThingRequest,
   ): Effect.Effect<
     ListJobExecutionsForThingResponse,
-    InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | CommonAwsError
   >;
   listJobs(
     input: ListJobsRequest,
   ): Effect.Effect<
     ListJobsResponse,
-    InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | CommonAwsError
   >;
   listJobTemplates(
     input: ListJobTemplatesRequest,
   ): Effect.Effect<
     ListJobTemplatesResponse,
-    InternalFailureException | InvalidRequestException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ThrottlingException
+    | CommonAwsError
   >;
   listManagedJobTemplates(
     input: ListManagedJobTemplatesRequest,
   ): Effect.Effect<
     ListManagedJobTemplatesResponse,
-    InternalServerException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | InternalServerException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   listMetricValues(
     input: ListMetricValuesRequest,
   ): Effect.Effect<
     ListMetricValuesResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   listMitigationActions(
     input: ListMitigationActionsRequest,
   ): Effect.Effect<
     ListMitigationActionsResponse,
-    InternalFailureException | InvalidRequestException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ThrottlingException
+    | CommonAwsError
   >;
   listOTAUpdates(
     input: ListOTAUpdatesRequest,
   ): Effect.Effect<
     ListOTAUpdatesResponse,
-    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   listOutgoingCertificates(
     input: ListOutgoingCertificatesRequest,
   ): Effect.Effect<
     ListOutgoingCertificatesResponse,
-    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   listPackages(
     input: ListPackagesRequest,
   ): Effect.Effect<
     ListPackagesResponse,
-    InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listPackageVersions(
     input: ListPackageVersionsRequest,
   ): Effect.Effect<
     ListPackageVersionsResponse,
-    InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listPolicies(
     input: ListPoliciesRequest,
   ): Effect.Effect<
     ListPoliciesResponse,
-    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   listPolicyPrincipals(
     input: ListPolicyPrincipalsRequest,
   ): Effect.Effect<
     ListPolicyPrincipalsResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   listPolicyVersions(
     input: ListPolicyVersionsRequest,
   ): Effect.Effect<
     ListPolicyVersionsResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   listPrincipalPolicies(
     input: ListPrincipalPoliciesRequest,
   ): Effect.Effect<
     ListPrincipalPoliciesResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   listPrincipalThings(
     input: ListPrincipalThingsRequest,
   ): Effect.Effect<
     ListPrincipalThingsResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   listPrincipalThingsV2(
     input: ListPrincipalThingsV2Request,
   ): Effect.Effect<
     ListPrincipalThingsV2Response,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   listProvisioningTemplates(
     input: ListProvisioningTemplatesRequest,
   ): Effect.Effect<
     ListProvisioningTemplatesResponse,
-    InternalFailureException | InvalidRequestException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   listProvisioningTemplateVersions(
     input: ListProvisioningTemplateVersionsRequest,
   ): Effect.Effect<
     ListProvisioningTemplateVersionsResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   listRelatedResourcesForAuditFinding(
     input: ListRelatedResourcesForAuditFindingRequest,
   ): Effect.Effect<
     ListRelatedResourcesForAuditFindingResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   listRoleAliases(
     input: ListRoleAliasesRequest,
   ): Effect.Effect<
     ListRoleAliasesResponse,
-    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   listSbomValidationResults(
     input: ListSbomValidationResultsRequest,
   ): Effect.Effect<
     ListSbomValidationResultsResponse,
-    InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listScheduledAudits(
     input: ListScheduledAuditsRequest,
   ): Effect.Effect<
     ListScheduledAuditsResponse,
-    InternalFailureException | InvalidRequestException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ThrottlingException
+    | CommonAwsError
   >;
   listSecurityProfiles(
     input: ListSecurityProfilesRequest,
   ): Effect.Effect<
     ListSecurityProfilesResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   listSecurityProfilesForTarget(
     input: ListSecurityProfilesForTargetRequest,
   ): Effect.Effect<
     ListSecurityProfilesForTargetResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   listStreams(
     input: ListStreamsRequest,
   ): Effect.Effect<
     ListStreamsResponse,
-    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   listTargetsForPolicy(
     input: ListTargetsForPolicyRequest,
   ): Effect.Effect<
     ListTargetsForPolicyResponse,
-    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   listTargetsForSecurityProfile(
     input: ListTargetsForSecurityProfileRequest,
   ): Effect.Effect<
     ListTargetsForSecurityProfileResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   listThingGroups(
     input: ListThingGroupsRequest,
   ): Effect.Effect<
     ListThingGroupsResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   listThingGroupsForThing(
     input: ListThingGroupsForThingRequest,
   ): Effect.Effect<
     ListThingGroupsForThingResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   listThingPrincipals(
     input: ListThingPrincipalsRequest,
   ): Effect.Effect<
     ListThingPrincipalsResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   listThingPrincipalsV2(
     input: ListThingPrincipalsV2Request,
   ): Effect.Effect<
     ListThingPrincipalsV2Response,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   listThingRegistrationTaskReports(
     input: ListThingRegistrationTaskReportsRequest,
   ): Effect.Effect<
     ListThingRegistrationTaskReportsResponse,
-    InternalFailureException | InvalidRequestException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   listThingRegistrationTasks(
     input: ListThingRegistrationTasksRequest,
   ): Effect.Effect<
     ListThingRegistrationTasksResponse,
-    InternalFailureException | InvalidRequestException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   listThings(
     input: ListThingsRequest,
   ): Effect.Effect<
     ListThingsResponse,
-    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   listThingsInBillingGroup(
     input: ListThingsInBillingGroupRequest,
   ): Effect.Effect<
     ListThingsInBillingGroupResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   listThingsInThingGroup(
     input: ListThingsInThingGroupRequest,
   ): Effect.Effect<
     ListThingsInThingGroupResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   listThingTypes(
     input: ListThingTypesRequest,
   ): Effect.Effect<
     ListThingTypesResponse,
-    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   listTopicRuleDestinations(
     input: ListTopicRuleDestinationsRequest,
   ): Effect.Effect<
     ListTopicRuleDestinationsResponse,
-    InternalException | InvalidRequestException | ServiceUnavailableException | UnauthorizedException | CommonAwsError
+    | InternalException
+    | InvalidRequestException
+    | ServiceUnavailableException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   listTopicRules(
     input: ListTopicRulesRequest,
   ): Effect.Effect<
     ListTopicRulesResponse,
-    InternalException | InvalidRequestException | ServiceUnavailableException | UnauthorizedException | CommonAwsError
+    | InternalException
+    | InvalidRequestException
+    | ServiceUnavailableException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   listV2LoggingLevels(
     input: ListV2LoggingLevelsRequest,
   ): Effect.Effect<
     ListV2LoggingLevelsResponse,
-    InternalException | InvalidRequestException | NotConfiguredException | ServiceUnavailableException | CommonAwsError
+    | InternalException
+    | InvalidRequestException
+    | NotConfiguredException
+    | ServiceUnavailableException
+    | CommonAwsError
   >;
   listViolationEvents(
     input: ListViolationEventsRequest,
   ): Effect.Effect<
     ListViolationEventsResponse,
-    InternalFailureException | InvalidRequestException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ThrottlingException
+    | CommonAwsError
   >;
   putVerificationStateOnViolation(
     input: PutVerificationStateOnViolationRequest,
   ): Effect.Effect<
     PutVerificationStateOnViolationResponse,
-    InternalFailureException | InvalidRequestException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ThrottlingException
+    | CommonAwsError
   >;
   registerCACertificate(
     input: RegisterCACertificateRequest,
   ): Effect.Effect<
     RegisterCACertificateResponse,
-    CertificateValidationException | InternalFailureException | InvalidRequestException | LimitExceededException | RegistrationCodeValidationException | ResourceAlreadyExistsException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | CertificateValidationException
+    | InternalFailureException
+    | InvalidRequestException
+    | LimitExceededException
+    | RegistrationCodeValidationException
+    | ResourceAlreadyExistsException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   registerCertificate(
     input: RegisterCertificateRequest,
   ): Effect.Effect<
     RegisterCertificateResponse,
-    CertificateConflictException | CertificateStateException | CertificateValidationException | InternalFailureException | InvalidRequestException | ResourceAlreadyExistsException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | CertificateConflictException
+    | CertificateStateException
+    | CertificateValidationException
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceAlreadyExistsException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   registerCertificateWithoutCA(
     input: RegisterCertificateWithoutCARequest,
   ): Effect.Effect<
     RegisterCertificateWithoutCAResponse,
-    CertificateStateException | CertificateValidationException | InternalFailureException | InvalidRequestException | ResourceAlreadyExistsException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | CertificateStateException
+    | CertificateValidationException
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceAlreadyExistsException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   registerThing(
     input: RegisterThingRequest,
   ): Effect.Effect<
     RegisterThingResponse,
-    ConflictingResourceUpdateException | InternalFailureException | InvalidRequestException | ResourceRegistrationFailureException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | ConflictingResourceUpdateException
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceRegistrationFailureException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   rejectCertificateTransfer(
     input: RejectCertificateTransferRequest,
   ): Effect.Effect<
     {},
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | TransferAlreadyCompletedException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | TransferAlreadyCompletedException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   removeThingFromBillingGroup(
     input: RemoveThingFromBillingGroupRequest,
   ): Effect.Effect<
     RemoveThingFromBillingGroupResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   removeThingFromThingGroup(
     input: RemoveThingFromThingGroupRequest,
   ): Effect.Effect<
     RemoveThingFromThingGroupResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   replaceTopicRule(
     input: ReplaceTopicRuleRequest,
   ): Effect.Effect<
     {},
-    ConflictingResourceUpdateException | InternalException | InvalidRequestException | ServiceUnavailableException | SqlParseException | UnauthorizedException | CommonAwsError
+    | ConflictingResourceUpdateException
+    | InternalException
+    | InvalidRequestException
+    | ServiceUnavailableException
+    | SqlParseException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   searchIndex(
     input: SearchIndexRequest,
   ): Effect.Effect<
     SearchIndexResponse,
-    IndexNotReadyException | InternalFailureException | InvalidQueryException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | IndexNotReadyException
+    | InternalFailureException
+    | InvalidQueryException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   setDefaultAuthorizer(
     input: SetDefaultAuthorizerRequest,
   ): Effect.Effect<
     SetDefaultAuthorizerResponse,
-    InternalFailureException | InvalidRequestException | ResourceAlreadyExistsException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceAlreadyExistsException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   setDefaultPolicyVersion(
     input: SetDefaultPolicyVersionRequest,
   ): Effect.Effect<
     {},
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   setLoggingOptions(
     input: SetLoggingOptionsRequest,
   ): Effect.Effect<
     {},
-    InternalException | InvalidRequestException | ServiceUnavailableException | CommonAwsError
+    | InternalException
+    | InvalidRequestException
+    | ServiceUnavailableException
+    | CommonAwsError
   >;
   setV2LoggingLevel(
     input: SetV2LoggingLevelRequest,
   ): Effect.Effect<
     {},
-    InternalException | InvalidRequestException | LimitExceededException | NotConfiguredException | ServiceUnavailableException | CommonAwsError
+    | InternalException
+    | InvalidRequestException
+    | LimitExceededException
+    | NotConfiguredException
+    | ServiceUnavailableException
+    | CommonAwsError
   >;
   setV2LoggingOptions(
     input: SetV2LoggingOptionsRequest,
   ): Effect.Effect<
     {},
-    InternalException | InvalidRequestException | ServiceUnavailableException | CommonAwsError
+    | InternalException
+    | InvalidRequestException
+    | ServiceUnavailableException
+    | CommonAwsError
   >;
   startAuditMitigationActionsTask(
     input: StartAuditMitigationActionsTaskRequest,
   ): Effect.Effect<
     StartAuditMitigationActionsTaskResponse,
-    InternalFailureException | InvalidRequestException | LimitExceededException | TaskAlreadyExistsException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | LimitExceededException
+    | TaskAlreadyExistsException
+    | ThrottlingException
+    | CommonAwsError
   >;
   startDetectMitigationActionsTask(
     input: StartDetectMitigationActionsTaskRequest,
   ): Effect.Effect<
     StartDetectMitigationActionsTaskResponse,
-    InternalFailureException | InvalidRequestException | LimitExceededException | TaskAlreadyExistsException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | LimitExceededException
+    | TaskAlreadyExistsException
+    | ThrottlingException
+    | CommonAwsError
   >;
   startOnDemandAuditTask(
     input: StartOnDemandAuditTaskRequest,
   ): Effect.Effect<
     StartOnDemandAuditTaskResponse,
-    InternalFailureException | InvalidRequestException | LimitExceededException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | LimitExceededException
+    | ThrottlingException
+    | CommonAwsError
   >;
   startThingRegistrationTask(
     input: StartThingRegistrationTaskRequest,
   ): Effect.Effect<
     StartThingRegistrationTaskResponse,
-    InternalFailureException | InvalidRequestException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   stopThingRegistrationTask(
     input: StopThingRegistrationTaskRequest,
   ): Effect.Effect<
     StopThingRegistrationTaskResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   testAuthorization(
     input: TestAuthorizationRequest,
   ): Effect.Effect<
     TestAuthorizationResponse,
-    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   testInvokeAuthorizer(
     input: TestInvokeAuthorizerRequest,
   ): Effect.Effect<
     TestInvokeAuthorizerResponse,
-    InternalFailureException | InvalidRequestException | InvalidResponseException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | InvalidResponseException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   transferCertificate(
     input: TransferCertificateRequest,
   ): Effect.Effect<
     TransferCertificateResponse,
-    CertificateStateException | InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | TransferConflictException | UnauthorizedException | CommonAwsError
+    | CertificateStateException
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | TransferConflictException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   updateAccountAuditConfiguration(
     input: UpdateAccountAuditConfigurationRequest,
   ): Effect.Effect<
     UpdateAccountAuditConfigurationResponse,
-    InternalFailureException | InvalidRequestException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ThrottlingException
+    | CommonAwsError
   >;
   updateAuditSuppression(
     input: UpdateAuditSuppressionRequest,
   ): Effect.Effect<
     UpdateAuditSuppressionResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   updateAuthorizer(
     input: UpdateAuthorizerRequest,
   ): Effect.Effect<
     UpdateAuthorizerResponse,
-    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   updateBillingGroup(
     input: UpdateBillingGroupRequest,
   ): Effect.Effect<
     UpdateBillingGroupResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | VersionConflictException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | VersionConflictException
+    | CommonAwsError
   >;
   updateCACertificate(
     input: UpdateCACertificateRequest,
   ): Effect.Effect<
     {},
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   updateCertificate(
     input: UpdateCertificateRequest,
   ): Effect.Effect<
     {},
-    CertificateStateException | InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | CertificateStateException
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   updateCertificateProvider(
     input: UpdateCertificateProviderRequest,
   ): Effect.Effect<
     UpdateCertificateProviderResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   updateCommand(
     input: UpdateCommandRequest,
   ): Effect.Effect<
     UpdateCommandResponse,
-    ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateCustomMetric(
     input: UpdateCustomMetricRequest,
   ): Effect.Effect<
     UpdateCustomMetricResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   updateDimension(
     input: UpdateDimensionRequest,
   ): Effect.Effect<
     UpdateDimensionResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   updateDomainConfiguration(
     input: UpdateDomainConfigurationRequest,
   ): Effect.Effect<
     UpdateDomainConfigurationResponse,
-    CertificateValidationException | InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | CertificateValidationException
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   updateDynamicThingGroup(
     input: UpdateDynamicThingGroupRequest,
   ): Effect.Effect<
     UpdateDynamicThingGroupResponse,
-    InternalFailureException | InvalidQueryException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | VersionConflictException | CommonAwsError
+    | InternalFailureException
+    | InvalidQueryException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | VersionConflictException
+    | CommonAwsError
   >;
   updateEncryptionConfiguration(
     input: UpdateEncryptionConfigurationRequest,
   ): Effect.Effect<
     UpdateEncryptionConfigurationResponse,
-    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   updateEventConfigurations(
     input: UpdateEventConfigurationsRequest,
   ): Effect.Effect<
     UpdateEventConfigurationsResponse,
-    InternalFailureException | InvalidRequestException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ThrottlingException
+    | CommonAwsError
   >;
   updateFleetMetric(
     input: UpdateFleetMetricRequest,
   ): Effect.Effect<
     {},
-    IndexNotReadyException | InternalFailureException | InvalidAggregationException | InvalidQueryException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | VersionConflictException | CommonAwsError
+    | IndexNotReadyException
+    | InternalFailureException
+    | InvalidAggregationException
+    | InvalidQueryException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | VersionConflictException
+    | CommonAwsError
   >;
   updateIndexingConfiguration(
     input: UpdateIndexingConfigurationRequest,
   ): Effect.Effect<
     UpdateIndexingConfigurationResponse,
-    InternalFailureException | InvalidRequestException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   updateJob(
     input: UpdateJobRequest,
   ): Effect.Effect<
     {},
-    InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | CommonAwsError
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | CommonAwsError
   >;
   updateMitigationAction(
     input: UpdateMitigationActionRequest,
   ): Effect.Effect<
     UpdateMitigationActionResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   updatePackage(
     input: UpdatePackageRequest,
   ): Effect.Effect<
     UpdatePackageResponse,
-    ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updatePackageConfiguration(
     input: UpdatePackageConfigurationRequest,
   ): Effect.Effect<
     UpdatePackageConfigurationResponse,
-    ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updatePackageVersion(
     input: UpdatePackageVersionRequest,
   ): Effect.Effect<
     UpdatePackageVersionResponse,
-    ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateProvisioningTemplate(
     input: UpdateProvisioningTemplateRequest,
   ): Effect.Effect<
     UpdateProvisioningTemplateResponse,
-    ConflictingResourceUpdateException | InternalFailureException | InvalidRequestException | ResourceNotFoundException | UnauthorizedException | CommonAwsError
+    | ConflictingResourceUpdateException
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   updateRoleAlias(
     input: UpdateRoleAliasRequest,
   ): Effect.Effect<
     UpdateRoleAliasResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   updateScheduledAudit(
     input: UpdateScheduledAuditRequest,
   ): Effect.Effect<
     UpdateScheduledAuditResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   updateSecurityProfile(
     input: UpdateSecurityProfileRequest,
   ): Effect.Effect<
     UpdateSecurityProfileResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | VersionConflictException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | VersionConflictException
+    | CommonAwsError
   >;
   updateStream(
     input: UpdateStreamRequest,
   ): Effect.Effect<
     UpdateStreamResponse,
-    InternalFailureException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   updateThing(
     input: UpdateThingRequest,
   ): Effect.Effect<
     UpdateThingResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | VersionConflictException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | VersionConflictException
+    | CommonAwsError
   >;
   updateThingGroup(
     input: UpdateThingGroupRequest,
   ): Effect.Effect<
     UpdateThingGroupResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | VersionConflictException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | VersionConflictException
+    | CommonAwsError
   >;
   updateThingGroupsForThing(
     input: UpdateThingGroupsForThingRequest,
   ): Effect.Effect<
     UpdateThingGroupsForThingResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   updateThingType(
     input: UpdateThingTypeRequest,
   ): Effect.Effect<
     UpdateThingTypeResponse,
-    InternalFailureException | InvalidRequestException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   updateTopicRuleDestination(
     input: UpdateTopicRuleDestinationRequest,
   ): Effect.Effect<
     UpdateTopicRuleDestinationResponse,
-    ConflictingResourceUpdateException | InternalException | InvalidRequestException | ServiceUnavailableException | UnauthorizedException | CommonAwsError
+    | ConflictingResourceUpdateException
+    | InternalException
+    | InvalidRequestException
+    | ServiceUnavailableException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   validateSecurityProfileBehaviors(
     input: ValidateSecurityProfileBehaviorsRequest,
   ): Effect.Effect<
     ValidateSecurityProfileBehaviorsResponse,
-    InternalFailureException | InvalidRequestException | ThrottlingException | CommonAwsError
+    | InternalFailureException
+    | InvalidRequestException
+    | ThrottlingException
+    | CommonAwsError
   >;
 }
 
@@ -1712,8 +3130,7 @@ export interface AddThingToBillingGroupRequest {
   thingName?: string;
   thingArn?: string;
 }
-export interface AddThingToBillingGroupResponse {
-}
+export interface AddThingToBillingGroupResponse {}
 export interface AddThingToThingGroupRequest {
   thingGroupName?: string;
   thingGroupArn?: string;
@@ -1721,8 +3138,7 @@ export interface AddThingToThingGroupRequest {
   thingArn?: string;
   overrideDynamicGroups?: boolean;
 }
-export interface AddThingToThingGroupResponse {
-}
+export interface AddThingToThingGroupResponse {}
 export type AggregationField = string;
 
 export interface AggregationType {
@@ -1750,7 +3166,11 @@ export type AllowAutoRegistration = boolean;
 export interface Allowed {
   policies?: Array<Policy>;
 }
-export type ApplicationProtocol = "SECURE_MQTT" | "MQTT_WSS" | "HTTPS" | "DEFAULT";
+export type ApplicationProtocol =
+  | "SECURE_MQTT"
+  | "MQTT_WSS"
+  | "HTTPS"
+  | "DEFAULT";
 export type ApproximateSecondsBeforeTimedOut = number;
 
 export type AscendingOrder = boolean;
@@ -1794,7 +3214,11 @@ interface _AssetPropertyVariant {
   booleanValue?: string;
 }
 
-export type AssetPropertyVariant = (_AssetPropertyVariant & { stringValue: string }) | (_AssetPropertyVariant & { integerValue: string }) | (_AssetPropertyVariant & { doubleValue: string }) | (_AssetPropertyVariant & { booleanValue: string });
+export type AssetPropertyVariant =
+  | (_AssetPropertyVariant & { stringValue: string })
+  | (_AssetPropertyVariant & { integerValue: string })
+  | (_AssetPropertyVariant & { doubleValue: string })
+  | (_AssetPropertyVariant & { booleanValue: string });
 export interface AssociateSbomWithPackageVersionRequest {
   packageName: string;
   versionName: string;
@@ -1830,15 +3254,13 @@ export interface AttachSecurityProfileRequest {
   securityProfileName: string;
   securityProfileTargetArn: string;
 }
-export interface AttachSecurityProfileResponse {
-}
+export interface AttachSecurityProfileResponse {}
 export interface AttachThingPrincipalRequest {
   thingName: string;
   principal: string;
   thingPrincipalType?: ThingPrincipalType;
 }
-export interface AttachThingPrincipalResponse {
-}
+export interface AttachThingPrincipalResponse {}
 export type AttributeKey = string;
 
 export type AttributeName = string;
@@ -1867,7 +3289,13 @@ export interface AuditCheckDetails {
 }
 export type AuditCheckName = string;
 
-export type AuditCheckRunStatus = "IN_PROGRESS" | "WAITING_FOR_DATA_COLLECTION" | "CANCELED" | "COMPLETED_COMPLIANT" | "COMPLETED_NON_COMPLIANT" | "FAILED";
+export type AuditCheckRunStatus =
+  | "IN_PROGRESS"
+  | "WAITING_FOR_DATA_COLLECTION"
+  | "CANCELED"
+  | "COMPLETED_COMPLIANT"
+  | "COMPLETED_NON_COMPLIANT"
+  | "FAILED";
 export type AuditCheckToActionsMapping = Record<string, Array<string>>;
 export type AuditCheckToReasonCodeFilter = Record<string, Array<string>>;
 export type AuditDescription = string;
@@ -1900,16 +3328,31 @@ export interface AuditMitigationActionExecutionMetadata {
   errorCode?: string;
   message?: string;
 }
-export type AuditMitigationActionExecutionMetadataList = Array<AuditMitigationActionExecutionMetadata>;
-export type AuditMitigationActionsExecutionStatus = "IN_PROGRESS" | "COMPLETED" | "FAILED" | "CANCELED" | "SKIPPED" | "PENDING";
+export type AuditMitigationActionExecutionMetadataList =
+  Array<AuditMitigationActionExecutionMetadata>;
+export type AuditMitigationActionsExecutionStatus =
+  | "IN_PROGRESS"
+  | "COMPLETED"
+  | "FAILED"
+  | "CANCELED"
+  | "SKIPPED"
+  | "PENDING";
 export interface AuditMitigationActionsTaskMetadata {
   taskId?: string;
   startTime?: Date | string;
   taskStatus?: AuditMitigationActionsTaskStatus;
 }
-export type AuditMitigationActionsTaskMetadataList = Array<AuditMitigationActionsTaskMetadata>;
-export type AuditMitigationActionsTaskStatistics = Record<string, TaskStatisticsForAuditCheck>;
-export type AuditMitigationActionsTaskStatus = "IN_PROGRESS" | "COMPLETED" | "FAILED" | "CANCELED";
+export type AuditMitigationActionsTaskMetadataList =
+  Array<AuditMitigationActionsTaskMetadata>;
+export type AuditMitigationActionsTaskStatistics = Record<
+  string,
+  TaskStatisticsForAuditCheck
+>;
+export type AuditMitigationActionsTaskStatus =
+  | "IN_PROGRESS"
+  | "COMPLETED"
+  | "FAILED"
+  | "CANCELED";
 export interface AuditMitigationActionsTaskTarget {
   auditTaskId?: string;
   findingIds?: Array<string>;
@@ -1920,7 +3363,10 @@ export interface AuditNotificationTarget {
   roleArn?: string;
   enabled?: boolean;
 }
-export type AuditNotificationTargetConfigurations = Record<AuditNotificationType, AuditNotificationTarget>;
+export type AuditNotificationTargetConfigurations = Record<
+  AuditNotificationType,
+  AuditNotificationTarget
+>;
 export type AuditNotificationType = "SNS";
 export interface AuditSuppression {
   checkName: string;
@@ -1938,10 +3384,19 @@ export interface AuditTaskMetadata {
   taskType?: AuditTaskType;
 }
 export type AuditTaskMetadataList = Array<AuditTaskMetadata>;
-export type AuditTaskStatus = "IN_PROGRESS" | "COMPLETED" | "FAILED" | "CANCELED";
+export type AuditTaskStatus =
+  | "IN_PROGRESS"
+  | "COMPLETED"
+  | "FAILED"
+  | "CANCELED";
 export type AuditTaskType = "ON_DEMAND_AUDIT_TASK" | "SCHEDULED_AUDIT_TASK";
 export type AuthDecision = "ALLOWED" | "EXPLICIT_DENY" | "IMPLICIT_DENY";
-export type AuthenticationType = "CUSTOM_AUTH_X509" | "CUSTOM_AUTH" | "AWS_X509" | "AWS_SIGV4" | "DEFAULT";
+export type AuthenticationType =
+  | "CUSTOM_AUTH_X509"
+  | "CUSTOM_AUTH"
+  | "AWS_X509"
+  | "AWS_SIGV4"
+  | "DEFAULT";
 export interface AuthInfo {
   actionType?: ActionType;
   resources: Array<string>;
@@ -2008,7 +3463,11 @@ export interface AwsJobAbortCriteria {
 export type AwsJobAbortCriteriaAbortAction = "CANCEL";
 export type AwsJobAbortCriteriaAbortThresholdPercentage = number;
 
-export type AwsJobAbortCriteriaFailureType = "FAILED" | "REJECTED" | "TIMED_OUT" | "ALL";
+export type AwsJobAbortCriteriaFailureType =
+  | "FAILED"
+  | "REJECTED"
+  | "TIMED_OUT"
+  | "ALL";
 export type AwsJobAbortCriteriaList = Array<AwsJobAbortCriteria>;
 export type AwsJobAbortCriteriaMinimumNumberOfExecutedThings = number;
 
@@ -2060,10 +3519,14 @@ export interface BehaviorCriteria {
   statisticalThreshold?: StatisticalThreshold;
   mlDetectionConfig?: MachineLearningDetectionConfig;
 }
-export type BehaviorCriteriaType = "STATIC" | "STATISTICAL" | "MACHINE_LEARNING";
+export type BehaviorCriteriaType =
+  | "STATIC"
+  | "STATISTICAL"
+  | "MACHINE_LEARNING";
 export type BehaviorMetric = string;
 
-export type BehaviorModelTrainingSummaries = Array<BehaviorModelTrainingSummary>;
+export type BehaviorModelTrainingSummaries =
+  Array<BehaviorModelTrainingSummary>;
 export interface BehaviorModelTrainingSummary {
   securityProfileName?: string;
   behaviorName?: string;
@@ -2144,21 +3607,18 @@ export type CACertificateUpdateAction = "DEACTIVATE";
 export interface CancelAuditMitigationActionsTaskRequest {
   taskId: string;
 }
-export interface CancelAuditMitigationActionsTaskResponse {
-}
+export interface CancelAuditMitigationActionsTaskResponse {}
 export interface CancelAuditTaskRequest {
   taskId: string;
 }
-export interface CancelAuditTaskResponse {
-}
+export interface CancelAuditTaskResponse {}
 export interface CancelCertificateTransferRequest {
   certificateId: string;
 }
 export interface CancelDetectMitigationActionsTaskRequest {
   taskId: string;
 }
-export interface CancelDetectMitigationActionsTaskResponse {
-}
+export interface CancelDetectMitigationActionsTaskResponse {}
 export type CanceledChecksCount = number;
 
 export type CanceledFindingsCount = number;
@@ -2183,7 +3643,15 @@ export interface CancelJobResponse {
   jobId?: string;
   description?: string;
 }
-export type CannedAccessControlList = "private" | "public-read" | "public-read-write" | "aws-exec-read" | "authenticated-read" | "bucket-owner-read" | "bucket-owner-full-control" | "log-delivery-write";
+export type CannedAccessControlList =
+  | "private"
+  | "public-read"
+  | "public-read-write"
+  | "aws-exec-read"
+  | "authenticated-read"
+  | "bucket-owner-read"
+  | "bucket-owner-full-control"
+  | "log-delivery-write";
 export interface Certificate {
   certificateArn?: string;
   certificateId?: string;
@@ -2223,7 +3691,8 @@ export type CertificatePathOnDevice = string;
 
 export type CertificatePem = string;
 
-export type CertificateProviderAccountDefaultForOperations = Array<CertificateProviderOperation>;
+export type CertificateProviderAccountDefaultForOperations =
+  Array<CertificateProviderOperation>;
 export type CertificateProviderArn = string;
 
 export type CertificateProviderFunctionArn = string;
@@ -2244,7 +3713,13 @@ export declare class CertificateStateException extends EffectData.TaggedError(
 )<{
   readonly message?: string;
 }> {}
-export type CertificateStatus = "ACTIVE" | "INACTIVE" | "REVOKED" | "PENDING_TRANSFER" | "REGISTER_INACTIVE" | "PENDING_ACTIVATION";
+export type CertificateStatus =
+  | "ACTIVE"
+  | "INACTIVE"
+  | "REVOKED"
+  | "PENDING_TRANSFER"
+  | "REGISTER_INACTIVE"
+  | "PENDING_ACTIVATION";
 export declare class CertificateValidationException extends EffectData.TaggedError(
   "CertificateValidationException",
 )<{
@@ -2262,10 +3737,8 @@ export type CheckCustomConfiguration = Record<ConfigName, string>;
 export type Cidr = string;
 
 export type Cidrs = Array<string>;
-export interface ClearDefaultAuthorizerRequest {
-}
-export interface ClearDefaultAuthorizerResponse {
-}
+export interface ClearDefaultAuthorizerRequest {}
+export interface ClearDefaultAuthorizerResponse {}
 export type ClientCertificateCallbackArn = string;
 
 export interface ClientCertificateConfig {
@@ -2319,7 +3792,10 @@ export type CommandDescription = string;
 
 export type CommandExecutionId = string;
 
-export type CommandExecutionParameterMap = Record<string, CommandParameterValue>;
+export type CommandExecutionParameterMap = Record<
+  string,
+  CommandParameterValue
+>;
 export interface CommandExecutionResult {
   S?: string;
   B?: boolean;
@@ -2328,7 +3804,13 @@ export interface CommandExecutionResult {
 export type CommandExecutionResultMap = Record<string, CommandExecutionResult>;
 export type CommandExecutionResultName = string;
 
-export type CommandExecutionStatus = "CREATED" | "IN_PROGRESS" | "SUCCEEDED" | "FAILED" | "REJECTED" | "TIMED_OUT";
+export type CommandExecutionStatus =
+  | "CREATED"
+  | "IN_PROGRESS"
+  | "SUCCEEDED"
+  | "FAILED"
+  | "REJECTED"
+  | "TIMED_OUT";
 export interface CommandExecutionSummary {
   commandArn?: string;
   executionId?: string;
@@ -2384,11 +3866,23 @@ export interface CommandSummary {
 export type CommandSummaryList = Array<CommandSummary>;
 export type Comment = string;
 
-export type ComparisonOperator = "less-than" | "less-than-equals" | "greater-than" | "greater-than-equals" | "in-cidr-set" | "not-in-cidr-set" | "in-port-set" | "not-in-port-set" | "in-set" | "not-in-set";
+export type ComparisonOperator =
+  | "less-than"
+  | "less-than-equals"
+  | "greater-than"
+  | "greater-than-equals"
+  | "in-cidr-set"
+  | "not-in-cidr-set"
+  | "in-port-set"
+  | "not-in-port-set"
+  | "in-set"
+  | "not-in-set";
 export type CompliantChecksCount = number;
 
 export type ConfidenceLevel = "LOW" | "MEDIUM" | "HIGH";
-export type ConfigName = "CERT_AGE_THRESHOLD_IN_DAYS" | "CERT_EXPIRATION_THRESHOLD_IN_DAYS";
+export type ConfigName =
+  | "CERT_AGE_THRESHOLD_IN_DAYS"
+  | "CERT_EXPIRATION_THRESHOLD_IN_DAYS";
 export interface Configuration {
   Enabled?: boolean;
 }
@@ -2405,8 +3899,7 @@ export type ConfirmationToken = string;
 export interface ConfirmTopicRuleDestinationRequest {
   confirmationToken: string;
 }
-export interface ConfirmTopicRuleDestinationResponse {
-}
+export interface ConfirmTopicRuleDestinationResponse {}
 export declare class ConflictException extends EffectData.TaggedError(
   "ConflictException",
 )<{
@@ -2442,8 +3935,7 @@ export interface CreateAuditSuppressionRequest {
   description?: string;
   clientRequestToken: string;
 }
-export interface CreateAuditSuppressionResponse {
-}
+export interface CreateAuditSuppressionResponse {}
 export interface CreateAuthorizerRequest {
   authorizerName: string;
   authorizerFunctionArn: string;
@@ -2856,7 +4348,11 @@ export type CustomMetricArn = string;
 
 export type CustomMetricDisplayName = string;
 
-export type CustomMetricType = "string-list" | "ip-address-list" | "number-list" | "number";
+export type CustomMetricType =
+  | "string-list"
+  | "ip-address-list"
+  | "number-list"
+  | "number";
 export type DataCollectionPercentage = number;
 
 export type DateType = Date | string;
@@ -2867,8 +4363,7 @@ export type DayOfWeek = "SUN" | "MON" | "TUE" | "WED" | "THU" | "FRI" | "SAT";
 export interface DeleteAccountAuditConfigurationRequest {
   deleteScheduledAudits?: boolean;
 }
-export interface DeleteAccountAuditConfigurationResponse {
-}
+export interface DeleteAccountAuditConfigurationResponse {}
 export type DeleteAdditionalMetricsToRetain = boolean;
 
 export type DeleteAlertTargets = boolean;
@@ -2877,31 +4372,26 @@ export interface DeleteAuditSuppressionRequest {
   checkName: string;
   resourceIdentifier: ResourceIdentifier;
 }
-export interface DeleteAuditSuppressionResponse {
-}
+export interface DeleteAuditSuppressionResponse {}
 export interface DeleteAuthorizerRequest {
   authorizerName: string;
 }
-export interface DeleteAuthorizerResponse {
-}
+export interface DeleteAuthorizerResponse {}
 export type DeleteBehaviors = boolean;
 
 export interface DeleteBillingGroupRequest {
   billingGroupName: string;
   expectedVersion?: number;
 }
-export interface DeleteBillingGroupResponse {
-}
+export interface DeleteBillingGroupResponse {}
 export interface DeleteCACertificateRequest {
   certificateId: string;
 }
-export interface DeleteCACertificateResponse {
-}
+export interface DeleteCACertificateResponse {}
 export interface DeleteCertificateProviderRequest {
   certificateProviderName: string;
 }
-export interface DeleteCertificateProviderResponse {
-}
+export interface DeleteCertificateProviderResponse {}
 export interface DeleteCertificateRequest {
   certificateId: string;
   forceDelete?: boolean;
@@ -2910,8 +4400,7 @@ export interface DeleteCommandExecutionRequest {
   executionId: string;
   targetArn: string;
 }
-export interface DeleteCommandExecutionResponse {
-}
+export interface DeleteCommandExecutionResponse {}
 export interface DeleteCommandRequest {
   commandId: string;
 }
@@ -2926,24 +4415,20 @@ export declare class DeleteConflictException extends EffectData.TaggedError(
 export interface DeleteCustomMetricRequest {
   metricName: string;
 }
-export interface DeleteCustomMetricResponse {
-}
+export interface DeleteCustomMetricResponse {}
 export interface DeleteDimensionRequest {
   name: string;
 }
-export interface DeleteDimensionResponse {
-}
+export interface DeleteDimensionResponse {}
 export interface DeleteDomainConfigurationRequest {
   domainConfigurationName: string;
 }
-export interface DeleteDomainConfigurationResponse {
-}
+export interface DeleteDomainConfigurationResponse {}
 export interface DeleteDynamicThingGroupRequest {
   thingGroupName: string;
   expectedVersion?: number;
 }
-export interface DeleteDynamicThingGroupResponse {
-}
+export interface DeleteDynamicThingGroupResponse {}
 export interface DeleteFleetMetricRequest {
   metricName: string;
   expectedVersion?: number;
@@ -2968,28 +4453,24 @@ export type DeleteMetricsExportConfig = boolean;
 export interface DeleteMitigationActionRequest {
   actionName: string;
 }
-export interface DeleteMitigationActionResponse {
-}
+export interface DeleteMitigationActionResponse {}
 export interface DeleteOTAUpdateRequest {
   otaUpdateId: string;
   deleteStream?: boolean;
   forceDeleteAWSJob?: boolean;
 }
-export interface DeleteOTAUpdateResponse {
-}
+export interface DeleteOTAUpdateResponse {}
 export interface DeletePackageRequest {
   packageName: string;
   clientToken?: string;
 }
-export interface DeletePackageResponse {
-}
+export interface DeletePackageResponse {}
 export interface DeletePackageVersionRequest {
   packageName: string;
   versionName: string;
   clientToken?: string;
 }
-export interface DeletePackageVersionResponse {
-}
+export interface DeletePackageVersionResponse {}
 export interface DeletePolicyRequest {
   policyName: string;
 }
@@ -3000,65 +4481,53 @@ export interface DeletePolicyVersionRequest {
 export interface DeleteProvisioningTemplateRequest {
   templateName: string;
 }
-export interface DeleteProvisioningTemplateResponse {
-}
+export interface DeleteProvisioningTemplateResponse {}
 export interface DeleteProvisioningTemplateVersionRequest {
   templateName: string;
   versionId: number;
 }
-export interface DeleteProvisioningTemplateVersionResponse {
-}
-export interface DeleteRegistrationCodeRequest {
-}
-export interface DeleteRegistrationCodeResponse {
-}
+export interface DeleteProvisioningTemplateVersionResponse {}
+export interface DeleteRegistrationCodeRequest {}
+export interface DeleteRegistrationCodeResponse {}
 export interface DeleteRoleAliasRequest {
   roleAlias: string;
 }
-export interface DeleteRoleAliasResponse {
-}
+export interface DeleteRoleAliasResponse {}
 export interface DeleteScheduledAuditRequest {
   scheduledAuditName: string;
 }
-export interface DeleteScheduledAuditResponse {
-}
+export interface DeleteScheduledAuditResponse {}
 export type DeleteScheduledAudits = boolean;
 
 export interface DeleteSecurityProfileRequest {
   securityProfileName: string;
   expectedVersion?: number;
 }
-export interface DeleteSecurityProfileResponse {
-}
+export interface DeleteSecurityProfileResponse {}
 export type DeleteStream_ = boolean;
 
 export interface DeleteStreamRequest {
   streamId: string;
 }
-export interface DeleteStreamResponse {
-}
+export interface DeleteStreamResponse {}
 export interface DeleteThingGroupRequest {
   thingGroupName: string;
   expectedVersion?: number;
 }
-export interface DeleteThingGroupResponse {
-}
+export interface DeleteThingGroupResponse {}
 export interface DeleteThingRequest {
   thingName: string;
   expectedVersion?: number;
 }
-export interface DeleteThingResponse {
-}
+export interface DeleteThingResponse {}
 export interface DeleteThingTypeRequest {
   thingTypeName: string;
 }
-export interface DeleteThingTypeResponse {
-}
+export interface DeleteThingTypeResponse {}
 export interface DeleteTopicRuleDestinationRequest {
   arn: string;
 }
-export interface DeleteTopicRuleDestinationResponse {
-}
+export interface DeleteTopicRuleDestinationResponse {}
 export interface DeleteTopicRuleRequest {
   ruleName: string;
 }
@@ -3076,17 +4545,17 @@ export interface DeprecateThingTypeRequest {
   thingTypeName: string;
   undoDeprecate?: boolean;
 }
-export interface DeprecateThingTypeResponse {
-}
+export interface DeprecateThingTypeResponse {}
 export type DeprecationDate = Date | string;
 
 export type DeprecationFlag = boolean;
 
-export interface DescribeAccountAuditConfigurationRequest {
-}
+export interface DescribeAccountAuditConfigurationRequest {}
 export interface DescribeAccountAuditConfigurationResponse {
   roleArn?: string;
-  auditNotificationTargetConfigurations?: { [key in AuditNotificationType]?: string };
+  auditNotificationTargetConfigurations?: {
+    [key in AuditNotificationType]?: string;
+  };
   auditCheckConfigurations?: Record<string, AuditCheckConfiguration>;
 }
 export interface DescribeAuditFindingRequest {
@@ -3181,8 +4650,7 @@ export interface DescribeCustomMetricResponse {
   creationDate?: Date | string;
   lastModifiedDate?: Date | string;
 }
-export interface DescribeDefaultAuthorizerRequest {
-}
+export interface DescribeDefaultAuthorizerRequest {}
 export interface DescribeDefaultAuthorizerResponse {
   authorizerDescription?: AuthorizerDescription;
 }
@@ -3222,8 +4690,7 @@ export interface DescribeDomainConfigurationResponse {
   applicationProtocol?: ApplicationProtocol;
   clientCertificateConfig?: ClientCertificateConfig;
 }
-export interface DescribeEncryptionConfigurationRequest {
-}
+export interface DescribeEncryptionConfigurationRequest {}
 export interface DescribeEncryptionConfigurationResponse {
   encryptionType?: EncryptionType;
   kmsKeyArn?: string;
@@ -3237,8 +4704,7 @@ export interface DescribeEndpointRequest {
 export interface DescribeEndpointResponse {
   endpointAddress?: string;
 }
-export interface DescribeEventConfigurationsRequest {
-}
+export interface DescribeEventConfigurationsRequest {}
 export interface DescribeEventConfigurationsResponse {
   eventConfigurations?: { [key in EventType]?: string };
   creationDate?: Date | string;
@@ -3468,14 +4934,12 @@ export interface DetachSecurityProfileRequest {
   securityProfileName: string;
   securityProfileTargetArn: string;
 }
-export interface DetachSecurityProfileResponse {
-}
+export interface DetachSecurityProfileResponse {}
 export interface DetachThingPrincipalRequest {
   thingName: string;
   principal: string;
 }
-export interface DetachThingPrincipalResponse {
-}
+export interface DetachThingPrincipalResponse {}
 export type DetailsKey = string;
 
 export type DetailsMap = Record<string, string>;
@@ -3494,14 +4958,23 @@ export interface DetectMitigationActionExecution {
 }
 export type DetectMitigationActionExecutionErrorCode = string;
 
-export type DetectMitigationActionExecutionList = Array<DetectMitigationActionExecution>;
-export type DetectMitigationActionExecutionStatus = "IN_PROGRESS" | "SUCCESSFUL" | "FAILED" | "SKIPPED";
+export type DetectMitigationActionExecutionList =
+  Array<DetectMitigationActionExecution>;
+export type DetectMitigationActionExecutionStatus =
+  | "IN_PROGRESS"
+  | "SUCCESSFUL"
+  | "FAILED"
+  | "SKIPPED";
 export interface DetectMitigationActionsTaskStatistics {
   actionsExecuted?: number;
   actionsSkipped?: number;
   actionsFailed?: number;
 }
-export type DetectMitigationActionsTaskStatus = "IN_PROGRESS" | "SUCCESSFUL" | "FAILED" | "CANCELED";
+export type DetectMitigationActionsTaskStatus =
+  | "IN_PROGRESS"
+  | "SUCCESSFUL"
+  | "FAILED"
+  | "CANCELED";
 export interface DetectMitigationActionsTaskSummary {
   taskId?: string;
   taskStatus?: DetectMitigationActionsTaskStatus;
@@ -3514,7 +4987,8 @@ export interface DetectMitigationActionsTaskSummary {
   actionsDefinition?: Array<MitigationAction>;
   taskStatistics?: DetectMitigationActionsTaskStatistics;
 }
-export type DetectMitigationActionsTaskSummaryList = Array<DetectMitigationActionsTaskSummary>;
+export type DetectMitigationActionsTaskSummaryList =
+  Array<DetectMitigationActionsTaskSummary>;
 export interface DetectMitigationActionsTaskTarget {
   violationIds?: Array<string>;
   securityProfileName?: string;
@@ -3545,11 +5019,24 @@ export interface DisassociateSbomFromPackageVersionRequest {
   versionName: string;
   clientToken?: string;
 }
-export interface DisassociateSbomFromPackageVersionResponse {
-}
+export interface DisassociateSbomFromPackageVersionResponse {}
 export type DisconnectReason = string;
 
-export type DisconnectReasonValue = "AUTH_ERROR" | "CLIENT_INITIATED_DISCONNECT" | "CLIENT_ERROR" | "CONNECTION_LOST" | "DUPLICATE_CLIENTID" | "FORBIDDEN_ACCESS" | "MQTT_KEEP_ALIVE_TIMEOUT" | "SERVER_ERROR" | "SERVER_INITIATED_DISCONNECT" | "THROTTLED" | "WEBSOCKET_TTL_EXPIRATION" | "CUSTOMAUTH_TTL_EXPIRATION" | "UNKNOWN" | "NONE";
+export type DisconnectReasonValue =
+  | "AUTH_ERROR"
+  | "CLIENT_INITIATED_DISCONNECT"
+  | "CLIENT_ERROR"
+  | "CONNECTION_LOST"
+  | "DUPLICATE_CLIENTID"
+  | "FORBIDDEN_ACCESS"
+  | "MQTT_KEEP_ALIVE_TIMEOUT"
+  | "SERVER_ERROR"
+  | "SERVER_INITIATED_DISCONNECT"
+  | "THROTTLED"
+  | "WEBSOCKET_TTL_EXPIRATION"
+  | "CUSTOMAUTH_TTL_EXPIRATION"
+  | "UNKNOWN"
+  | "NONE";
 export type DisplayName = string;
 
 export interface DocumentParameter {
@@ -3659,7 +5146,18 @@ export type ErrorMessage2 = string;
 export type EvaluationStatistic = string;
 
 export type EventConfigurations = Record<EventType, Configuration>;
-export type EventType = "THING" | "THING_GROUP" | "THING_TYPE" | "THING_GROUP_MEMBERSHIP" | "THING_GROUP_HIERARCHY" | "THING_TYPE_ASSOCIATION" | "JOB" | "JOB_EXECUTION" | "POLICY" | "CERTIFICATE" | "CA_CERTIFICATE";
+export type EventType =
+  | "THING"
+  | "THING_GROUP"
+  | "THING_TYPE"
+  | "THING_GROUP_MEMBERSHIP"
+  | "THING_GROUP_HIERARCHY"
+  | "THING_TYPE_ASSOCIATION"
+  | "JOB"
+  | "JOB_EXECUTION"
+  | "POLICY"
+  | "CERTIFICATE"
+  | "CA_CERTIFICATE";
 export type Example = string;
 
 export type ExecutionNamePrefix = string;
@@ -3732,7 +5230,34 @@ export interface FleetMetricNameAndArn {
 export type FleetMetricNameAndArnList = Array<FleetMetricNameAndArn>;
 export type FleetMetricPeriod = number;
 
-export type FleetMetricUnit = "Seconds" | "Microseconds" | "Milliseconds" | "Bytes" | "Kilobytes" | "Megabytes" | "Gigabytes" | "Terabytes" | "Bits" | "Kilobits" | "Megabits" | "Gigabits" | "Terabits" | "Percent" | "Count" | "Bytes/Second" | "Kilobytes/Second" | "Megabytes/Second" | "Gigabytes/Second" | "Terabytes/Second" | "Bits/Second" | "Kilobits/Second" | "Megabits/Second" | "Gigabits/Second" | "Terabits/Second" | "Count/Second" | "None";
+export type FleetMetricUnit =
+  | "Seconds"
+  | "Microseconds"
+  | "Milliseconds"
+  | "Bytes"
+  | "Kilobytes"
+  | "Megabytes"
+  | "Gigabytes"
+  | "Terabytes"
+  | "Bits"
+  | "Kilobits"
+  | "Megabits"
+  | "Gigabits"
+  | "Terabits"
+  | "Percent"
+  | "Count"
+  | "Bytes/Second"
+  | "Kilobytes/Second"
+  | "Megabytes/Second"
+  | "Gigabytes/Second"
+  | "Terabytes/Second"
+  | "Bits/Second"
+  | "Kilobits/Second"
+  | "Megabits/Second"
+  | "Gigabits/Second"
+  | "Terabits/Second"
+  | "Count/Second"
+  | "None";
 export type Forced = boolean;
 
 export type ForceDelete = boolean;
@@ -3826,8 +5351,7 @@ export interface GetEffectivePoliciesRequest {
 export interface GetEffectivePoliciesResponse {
   effectivePolicies?: Array<EffectivePolicy>;
 }
-export interface GetIndexingConfigurationRequest {
-}
+export interface GetIndexingConfigurationRequest {}
 export interface GetIndexingConfigurationResponse {
   thingIndexingConfiguration?: ThingIndexingConfiguration;
   thingGroupIndexingConfiguration?: ThingGroupIndexingConfiguration;
@@ -3839,8 +5363,7 @@ export interface GetJobDocumentRequest {
 export interface GetJobDocumentResponse {
   document?: string;
 }
-export interface GetLoggingOptionsRequest {
-}
+export interface GetLoggingOptionsRequest {}
 export interface GetLoggingOptionsResponse {
   roleArn?: string;
   logLevel?: LogLevel;
@@ -3851,8 +5374,7 @@ export interface GetOTAUpdateRequest {
 export interface GetOTAUpdateResponse {
   otaUpdateInfo?: OTAUpdateInfo;
 }
-export interface GetPackageConfigurationRequest {
-}
+export interface GetPackageConfigurationRequest {}
 export interface GetPackageConfigurationResponse {
   versionUpdateByJobsConfig?: VersionUpdateByJobsConfig;
 }
@@ -3922,8 +5444,7 @@ export interface GetPolicyVersionResponse {
   lastModifiedDate?: Date | string;
   generationId?: string;
 }
-export interface GetRegistrationCodeRequest {
-}
+export interface GetRegistrationCodeRequest {}
 export interface GetRegistrationCodeResponse {
   registrationCode?: string;
 }
@@ -3958,8 +5479,7 @@ export interface GetTopicRuleResponse {
   ruleArn?: string;
   rule?: TopicRule;
 }
-export interface GetV2LoggingOptionsRequest {
-}
+export interface GetV2LoggingOptionsRequest {}
 export interface GetV2LoggingOptionsResponse {
   roleArn?: string;
   defaultLogLevel?: LogLevel;
@@ -4169,7 +5689,11 @@ export interface JobExecution {
   versionNumber?: number;
   approximateSecondsBeforeTimedOut?: number;
 }
-export type JobExecutionFailureType = "FAILED" | "REJECTED" | "TIMED_OUT" | "ALL";
+export type JobExecutionFailureType =
+  | "FAILED"
+  | "REJECTED"
+  | "TIMED_OUT"
+  | "ALL";
 export interface JobExecutionsRetryConfig {
   criteriaList: Array<RetryCriteria>;
 }
@@ -4177,7 +5701,15 @@ export interface JobExecutionsRolloutConfig {
   maximumPerMinute?: number;
   exponentialRate?: ExponentialRolloutRate;
 }
-export type JobExecutionStatus = "QUEUED" | "IN_PROGRESS" | "SUCCEEDED" | "FAILED" | "TIMED_OUT" | "REJECTED" | "REMOVED" | "CANCELED";
+export type JobExecutionStatus =
+  | "QUEUED"
+  | "IN_PROGRESS"
+  | "SUCCEEDED"
+  | "FAILED"
+  | "TIMED_OUT"
+  | "REJECTED"
+  | "REMOVED"
+  | "CANCELED";
 export interface JobExecutionStatusDetails {
   detailsMap?: Record<string, string>;
 }
@@ -4198,7 +5730,8 @@ export interface JobExecutionSummaryForThing {
   jobId?: string;
   jobExecutionSummary?: JobExecutionSummary;
 }
-export type JobExecutionSummaryForThingList = Array<JobExecutionSummaryForThing>;
+export type JobExecutionSummaryForThingList =
+  Array<JobExecutionSummaryForThing>;
 export type JobId = string;
 
 export interface JobProcessDetails {
@@ -4212,7 +5745,12 @@ export interface JobProcessDetails {
   numberOfRemovedThings?: number;
   numberOfTimedOutThings?: number;
 }
-export type JobStatus = "IN_PROGRESS" | "CANCELED" | "COMPLETED" | "DELETION_IN_PROGRESS" | "SCHEDULED";
+export type JobStatus =
+  | "IN_PROGRESS"
+  | "CANCELED"
+  | "COMPLETED"
+  | "DELETION_IN_PROGRESS"
+  | "SCHEDULED";
 export interface JobSummary {
   jobArn?: string;
   jobId?: string;
@@ -4968,7 +6506,12 @@ export interface LogTargetConfiguration {
 export type LogTargetConfigurations = Array<LogTargetConfiguration>;
 export type LogTargetName = string;
 
-export type LogTargetType = "DEFAULT" | "THING_GROUP" | "CLIENT_ID" | "SOURCE_IP" | "PRINCIPAL_ID";
+export type LogTargetType =
+  | "DEFAULT"
+  | "THING_GROUP"
+  | "CLIENT_ID"
+  | "SOURCE_IP"
+  | "PRINCIPAL_ID";
 export type LongParameterValue = number;
 
 export interface MachineLearningDetectionConfig {
@@ -5083,7 +6626,13 @@ export interface MitigationActionParams {
 }
 export type MitigationActionsTaskId = string;
 
-export type MitigationActionType = "UPDATE_DEVICE_CERTIFICATE" | "UPDATE_CA_CERTIFICATE" | "ADD_THINGS_TO_THING_GROUP" | "REPLACE_DEFAULT_POLICY_VERSION" | "ENABLE_IOT_LOGGING" | "PUBLISH_FINDING_TO_SNS";
+export type MitigationActionType =
+  | "UPDATE_DEVICE_CERTIFICATE"
+  | "UPDATE_CA_CERTIFICATE"
+  | "ADD_THINGS_TO_THING_GROUP"
+  | "REPLACE_DEFAULT_POLICY_VERSION"
+  | "ENABLE_IOT_LOGGING"
+  | "PUBLISH_FINDING_TO_SNS";
 export type ModelStatus = "PENDING_BUILD" | "ACTIVE" | "EXPIRED";
 export interface Mqtt5Configuration {
   propagatingAttributes?: Array<PropagatingAttribute>;
@@ -5189,7 +6738,13 @@ export interface OTAUpdateInfo {
   additionalParameters?: Record<string, string>;
 }
 export type OTAUpdatesSummary = Array<OTAUpdateSummary>;
-export type OTAUpdateStatus = "CREATE_PENDING" | "CREATE_IN_PROGRESS" | "CREATE_COMPLETE" | "CREATE_FAILED" | "DELETE_IN_PROGRESS" | "DELETE_FAILED";
+export type OTAUpdateStatus =
+  | "CREATE_PENDING"
+  | "CREATE_IN_PROGRESS"
+  | "CREATE_COMPLETE"
+  | "CREATE_FAILED"
+  | "DELETE_IN_PROGRESS"
+  | "DELETE_FAILED";
 export interface OTAUpdateSummary {
   otaUpdateId?: string;
   otaUpdateArn?: string;
@@ -5349,7 +6904,8 @@ export interface ProvisioningTemplateSummary {
   enabled?: boolean;
   type?: TemplateType;
 }
-export type ProvisioningTemplateVersionListing = Array<ProvisioningTemplateVersionSummary>;
+export type ProvisioningTemplateVersionListing =
+  Array<ProvisioningTemplateVersionSummary>;
 export interface ProvisioningTemplateVersionSummary {
   versionId?: number;
   creationDate?: Date | string;
@@ -5377,8 +6933,7 @@ export interface PutVerificationStateOnViolationRequest {
   verificationState: VerificationState;
   verificationStateDescription?: string;
 }
-export interface PutVerificationStateOnViolationResponse {
-}
+export interface PutVerificationStateOnViolationResponse {}
 export type Qos = number;
 
 export type QueryMaxResults = number;
@@ -5495,16 +7050,14 @@ export interface RemoveThingFromBillingGroupRequest {
   thingName?: string;
   thingArn?: string;
 }
-export interface RemoveThingFromBillingGroupResponse {
-}
+export interface RemoveThingFromBillingGroupResponse {}
 export interface RemoveThingFromThingGroupRequest {
   thingGroupName?: string;
   thingGroupArn?: string;
   thingName?: string;
   thingArn?: string;
 }
-export interface RemoveThingFromThingGroupResponse {
-}
+export interface RemoveThingFromThingGroupResponse {}
 export type RemoveThingType = boolean;
 
 export interface ReplaceDefaultPolicyVersionParams {
@@ -5569,7 +7122,16 @@ export declare class ResourceRegistrationFailureException extends EffectData.Tag
   readonly message?: string;
 }> {}
 export type Resources = Array<string>;
-export type ResourceType = "DEVICE_CERTIFICATE" | "CA_CERTIFICATE" | "IOT_POLICY" | "COGNITO_IDENTITY_POOL" | "CLIENT_ID" | "ACCOUNT_SETTINGS" | "ROLE_ALIAS" | "IAM_ROLE" | "ISSUER_CERTIFICATE";
+export type ResourceType =
+  | "DEVICE_CERTIFICATE"
+  | "CA_CERTIFICATE"
+  | "IOT_POLICY"
+  | "COGNITO_IDENTITY_POOL"
+  | "CLIENT_ID"
+  | "ACCOUNT_SETTINGS"
+  | "ROLE_ALIAS"
+  | "IAM_ROLE"
+  | "ISSUER_CERTIFICATE";
 export type ResponseTopic = string;
 
 export type RetryableFailureType = "FAILED" | "TIMED_OUT" | "ALL";
@@ -5637,7 +7199,9 @@ export type SalesforceToken = string;
 export interface Sbom {
   s3Location?: S3Location;
 }
-export type SbomValidationErrorCode = "INCOMPATIBLE_FORMAT" | "FILE_SIZE_LIMIT_EXCEEDED";
+export type SbomValidationErrorCode =
+  | "INCOMPATIBLE_FORMAT"
+  | "FILE_SIZE_LIMIT_EXCEEDED";
 export type SbomValidationErrorMessage = string;
 
 export type SbomValidationResult = "FAILED" | "SUCCEEDED";
@@ -5647,7 +7211,8 @@ export interface SbomValidationResultSummary {
   errorCode?: SbomValidationErrorCode;
   errorMessage?: string;
 }
-export type SbomValidationResultSummaryList = Array<SbomValidationResultSummary>;
+export type SbomValidationResultSummaryList =
+  Array<SbomValidationResultSummary>;
 export type SbomValidationStatus = "IN_PROGRESS" | "FAILED" | "SUCCEEDED";
 export type ScheduledAuditArn = string;
 
@@ -5880,7 +7445,12 @@ export interface Statistics {
   variance?: number;
   stdDeviation?: number;
 }
-export type Status = "InProgress" | "Completed" | "Failed" | "Cancelled" | "Cancelling";
+export type Status =
+  | "InProgress"
+  | "Completed"
+  | "Failed"
+  | "Cancelled"
+  | "Cancelling";
 export type StatusCode = number;
 
 export interface StatusReason {
@@ -5901,8 +7471,7 @@ export interface StepFunctionsAction {
 export interface StopThingRegistrationTaskRequest {
   taskId: string;
 }
-export interface StopThingRegistrationTaskResponse {
-}
+export interface StopThingRegistrationTaskResponse {}
 export interface Stream {
   streamId?: string;
   fileId?: number;
@@ -5983,8 +7552,7 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Array<Tag>;
 }
-export interface TagResourceResponse {
-}
+export interface TagResourceResponse {}
 export type TagValue = string;
 
 export type Target = string;
@@ -6257,7 +7825,12 @@ export interface TopicRuleDestinationConfiguration {
 }
 export type TopicRuleDestinationMaxResults = number;
 
-export type TopicRuleDestinationStatus = "ENABLED" | "IN_PROGRESS" | "DISABLED" | "ERROR" | "DELETING";
+export type TopicRuleDestinationStatus =
+  | "ENABLED"
+  | "IN_PROGRESS"
+  | "DISABLED"
+  | "ERROR"
+  | "DELETING";
 export type TopicRuleDestinationSummaries = Array<TopicRuleDestinationSummary>;
 export interface TopicRuleDestinationSummary {
   arn?: string;
@@ -6334,15 +7907,15 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {
-}
+export interface UntagResourceResponse {}
 export interface UpdateAccountAuditConfigurationRequest {
   roleArn?: string;
-  auditNotificationTargetConfigurations?: { [key in AuditNotificationType]?: string };
+  auditNotificationTargetConfigurations?: {
+    [key in AuditNotificationType]?: string;
+  };
   auditCheckConfigurations?: Record<string, AuditCheckConfiguration>;
 }
-export interface UpdateAccountAuditConfigurationResponse {
-}
+export interface UpdateAccountAuditConfigurationResponse {}
 export interface UpdateAuditSuppressionRequest {
   checkName: string;
   resourceIdentifier: ResourceIdentifier;
@@ -6350,8 +7923,7 @@ export interface UpdateAuditSuppressionRequest {
   suppressIndefinitely?: boolean;
   description?: string;
 }
-export interface UpdateAuditSuppressionResponse {
-}
+export interface UpdateAuditSuppressionResponse {}
 export interface UpdateAuthorizerRequest {
   authorizerName: string;
   authorizerFunctionArn?: string;
@@ -6466,13 +8038,11 @@ export interface UpdateEncryptionConfigurationRequest {
   kmsKeyArn?: string;
   kmsAccessRoleArn?: string;
 }
-export interface UpdateEncryptionConfigurationResponse {
-}
+export interface UpdateEncryptionConfigurationResponse {}
 export interface UpdateEventConfigurationsRequest {
   eventConfigurations?: { [key in EventType]?: string };
 }
-export interface UpdateEventConfigurationsResponse {
-}
+export interface UpdateEventConfigurationsResponse {}
 export interface UpdateFleetMetricRequest {
   metricName: string;
   queryString?: string;
@@ -6489,8 +8059,7 @@ export interface UpdateIndexingConfigurationRequest {
   thingIndexingConfiguration?: ThingIndexingConfiguration;
   thingGroupIndexingConfiguration?: ThingGroupIndexingConfiguration;
 }
-export interface UpdateIndexingConfigurationResponse {
-}
+export interface UpdateIndexingConfigurationResponse {}
 export interface UpdateJobRequest {
   jobId: string;
   description?: string;
@@ -6514,8 +8083,7 @@ export interface UpdatePackageConfigurationRequest {
   versionUpdateByJobsConfig?: VersionUpdateByJobsConfig;
   clientToken?: string;
 }
-export interface UpdatePackageConfigurationResponse {
-}
+export interface UpdatePackageConfigurationResponse {}
 export interface UpdatePackageRequest {
   packageName: string;
   description?: string;
@@ -6523,8 +8091,7 @@ export interface UpdatePackageRequest {
   unsetDefaultVersion?: boolean;
   clientToken?: string;
 }
-export interface UpdatePackageResponse {
-}
+export interface UpdatePackageResponse {}
 export interface UpdatePackageVersionRequest {
   packageName: string;
   versionName: string;
@@ -6535,8 +8102,7 @@ export interface UpdatePackageVersionRequest {
   recipe?: string;
   clientToken?: string;
 }
-export interface UpdatePackageVersionResponse {
-}
+export interface UpdatePackageVersionResponse {}
 export interface UpdateProvisioningTemplateRequest {
   templateName: string;
   description?: string;
@@ -6546,8 +8112,7 @@ export interface UpdateProvisioningTemplateRequest {
   preProvisioningHook?: ProvisioningHook;
   removePreProvisioningHook?: boolean;
 }
-export interface UpdateProvisioningTemplateResponse {
-}
+export interface UpdateProvisioningTemplateResponse {}
 export interface UpdateRoleAliasRequest {
   roleAlias: string;
   roleArn?: string;
@@ -6620,8 +8185,7 @@ export interface UpdateThingGroupsForThingRequest {
   thingGroupsToRemove?: Array<string>;
   overrideDynamicGroups?: boolean;
 }
-export interface UpdateThingGroupsForThingResponse {
-}
+export interface UpdateThingGroupsForThingResponse {}
 export interface UpdateThingRequest {
   thingName: string;
   thingTypeName?: string;
@@ -6629,20 +8193,17 @@ export interface UpdateThingRequest {
   expectedVersion?: number;
   removeThingType?: boolean;
 }
-export interface UpdateThingResponse {
-}
+export interface UpdateThingResponse {}
 export interface UpdateThingTypeRequest {
   thingTypeName: string;
   thingTypeProperties?: ThingTypeProperties;
 }
-export interface UpdateThingTypeResponse {
-}
+export interface UpdateThingTypeResponse {}
 export interface UpdateTopicRuleDestinationRequest {
   arn: string;
   status: TopicRuleDestinationStatus;
 }
-export interface UpdateTopicRuleDestinationResponse {
-}
+export interface UpdateTopicRuleDestinationResponse {}
 export type Url = string;
 
 export type UseBase64 = boolean;
@@ -6682,7 +8243,11 @@ export type Value = string;
 
 export type Variance = number;
 
-export type VerificationState = "FALSE_POSITIVE" | "BENIGN_POSITIVE" | "TRUE_POSITIVE" | "UNKNOWN";
+export type VerificationState =
+  | "FALSE_POSITIVE"
+  | "BENIGN_POSITIVE"
+  | "TRUE_POSITIVE"
+  | "UNKNOWN";
 export type VerificationStateDescription = string;
 
 export type Version = number;
@@ -6725,7 +8290,10 @@ export interface ViolationEventOccurrenceRange {
   endTime: Date | string;
 }
 export type ViolationEvents = Array<ViolationEvent>;
-export type ViolationEventType = "in-alarm" | "alarm-cleared" | "alarm-invalidated";
+export type ViolationEventType =
+  | "in-alarm"
+  | "alarm-cleared"
+  | "alarm-invalidated";
 export type ViolationId = string;
 
 export interface VpcDestinationConfiguration {
@@ -10045,5 +11613,38 @@ export declare namespace ValidateSecurityProfileBehaviors {
     | CommonAwsError;
 }
 
-export type IoTErrors = CertificateConflictException | CertificateStateException | CertificateValidationException | ConflictException | ConflictingResourceUpdateException | DeleteConflictException | IndexNotReadyException | InternalException | InternalFailureException | InternalServerException | InvalidAggregationException | InvalidQueryException | InvalidRequestException | InvalidResponseException | InvalidStateTransitionException | LimitExceededException | MalformedPolicyException | NotConfiguredException | RegistrationCodeValidationException | ResourceAlreadyExistsException | ResourceNotFoundException | ResourceRegistrationFailureException | ServiceQuotaExceededException | ServiceUnavailableException | SqlParseException | TaskAlreadyExistsException | ThrottlingException | TransferAlreadyCompletedException | TransferConflictException | UnauthorizedException | ValidationException | VersionConflictException | VersionsLimitExceededException | CommonAwsError;
-
+export type IoTErrors =
+  | CertificateConflictException
+  | CertificateStateException
+  | CertificateValidationException
+  | ConflictException
+  | ConflictingResourceUpdateException
+  | DeleteConflictException
+  | IndexNotReadyException
+  | InternalException
+  | InternalFailureException
+  | InternalServerException
+  | InvalidAggregationException
+  | InvalidQueryException
+  | InvalidRequestException
+  | InvalidResponseException
+  | InvalidStateTransitionException
+  | LimitExceededException
+  | MalformedPolicyException
+  | NotConfiguredException
+  | RegistrationCodeValidationException
+  | ResourceAlreadyExistsException
+  | ResourceNotFoundException
+  | ResourceRegistrationFailureException
+  | ServiceQuotaExceededException
+  | ServiceUnavailableException
+  | SqlParseException
+  | TaskAlreadyExistsException
+  | ThrottlingException
+  | TransferAlreadyCompletedException
+  | TransferConflictException
+  | UnauthorizedException
+  | ValidationException
+  | VersionConflictException
+  | VersionsLimitExceededException
+  | CommonAwsError;

@@ -5,7 +5,26 @@ import type { DLM as _DLMClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException, type CommonAwsError} from "../../error.ts";
+export {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  ValidationException,
+  type CommonAwsError,
+} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -15,14 +34,14 @@ const metadata = {
   sigV4ServiceName: "dlm",
   endpointPrefix: "dlm",
   operations: {
-    "CreateLifecyclePolicy": "POST /policies",
-    "DeleteLifecyclePolicy": "DELETE /policies/{PolicyId}",
-    "GetLifecyclePolicies": "GET /policies",
-    "GetLifecyclePolicy": "GET /policies/{PolicyId}",
-    "ListTagsForResource": "GET /tags/{ResourceArn}",
-    "TagResource": "POST /tags/{ResourceArn}",
-    "UntagResource": "DELETE /tags/{ResourceArn}",
-    "UpdateLifecyclePolicy": "PATCH /policies/{PolicyId}",
+    CreateLifecyclePolicy: "POST /policies",
+    DeleteLifecyclePolicy: "DELETE /policies/{PolicyId}",
+    GetLifecyclePolicies: "GET /policies",
+    GetLifecyclePolicy: "GET /policies/{PolicyId}",
+    ListTagsForResource: "GET /tags/{ResourceArn}",
+    TagResource: "POST /tags/{ResourceArn}",
+    UntagResource: "DELETE /tags/{ResourceArn}",
+    UpdateLifecyclePolicy: "PATCH /policies/{PolicyId}",
   },
 } as const satisfies ServiceMetadata;
 

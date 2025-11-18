@@ -1,6 +1,38 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
-type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
+import type {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+type CommonAwsError =
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | AccessDeniedException
+  | ThrottlingException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class IoTManagedIntegrations extends AWSServiceClient {
@@ -8,499 +40,983 @@ export declare class IoTManagedIntegrations extends AWSServiceClient {
     input: GetCustomEndpointRequest,
   ): Effect.Effect<
     GetCustomEndpointResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    InvalidRequestException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   registerCustomEndpoint(
     input: RegisterCustomEndpointRequest,
   ): Effect.Effect<
     RegisterCustomEndpointResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   sendConnectorEvent(
     input: SendConnectorEventRequest,
   ): Effect.Effect<
     SendConnectorEventResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    ConflictException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | ConflictException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    ConflictException | InvalidRequestException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | ConflictException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   createAccountAssociation(
     input: CreateAccountAssociationRequest,
   ): Effect.Effect<
     CreateAccountAssociationResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   createCloudConnector(
     input: CreateCloudConnectorRequest,
   ): Effect.Effect<
     CreateCloudConnectorResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createConnectorDestination(
     input: CreateConnectorDestinationRequest,
   ): Effect.Effect<
     CreateConnectorDestinationResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   createCredentialLocker(
     input: CreateCredentialLockerRequest,
   ): Effect.Effect<
     CreateCredentialLockerResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ServiceUnavailableException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createDestination(
     input: CreateDestinationRequest,
   ): Effect.Effect<
     CreateDestinationResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createEventLogConfiguration(
     input: CreateEventLogConfigurationRequest,
   ): Effect.Effect<
     CreateEventLogConfigurationResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createManagedThing(
     input: CreateManagedThingRequest,
   ): Effect.Effect<
     CreateManagedThingResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   createNotificationConfiguration(
     input: CreateNotificationConfigurationRequest,
   ): Effect.Effect<
     CreateNotificationConfigurationResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createOtaTask(
     input: CreateOtaTaskRequest,
   ): Effect.Effect<
     CreateOtaTaskResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   createOtaTaskConfiguration(
     input: CreateOtaTaskConfigurationRequest,
   ): Effect.Effect<
     CreateOtaTaskConfigurationResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createProvisioningProfile(
     input: CreateProvisioningProfileRequest,
   ): Effect.Effect<
     CreateProvisioningProfileResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteAccountAssociation(
     input: DeleteAccountAssociationRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteCloudConnector(
     input: DeleteCloudConnectorRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteConnectorDestination(
     input: DeleteConnectorDestinationRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteCredentialLocker(
     input: DeleteCredentialLockerRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteDestination(
     input: DeleteDestinationRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteEventLogConfiguration(
     input: DeleteEventLogConfigurationRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteManagedThing(
     input: DeleteManagedThingRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteNotificationConfiguration(
     input: DeleteNotificationConfigurationRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteOtaTask(
     input: DeleteOtaTaskRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | InternalServerException | LimitExceededException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteOtaTaskConfiguration(
     input: DeleteOtaTaskConfigurationRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteProvisioningProfile(
     input: DeleteProvisioningProfileRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   deregisterAccountAssociation(
     input: DeregisterAccountAssociationRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getAccountAssociation(
     input: GetAccountAssociationRequest,
   ): Effect.Effect<
     GetAccountAssociationResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getCloudConnector(
     input: GetCloudConnectorRequest,
   ): Effect.Effect<
     GetCloudConnectorResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getConnectorDestination(
     input: GetConnectorDestinationRequest,
   ): Effect.Effect<
     GetConnectorDestinationResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getCredentialLocker(
     input: GetCredentialLockerRequest,
   ): Effect.Effect<
     GetCredentialLockerResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getDefaultEncryptionConfiguration(
     input: GetDefaultEncryptionConfigurationRequest,
   ): Effect.Effect<
     GetDefaultEncryptionConfigurationResponse,
-    AccessDeniedException | InternalFailureException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalFailureException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   getDestination(
     input: GetDestinationRequest,
   ): Effect.Effect<
     GetDestinationResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getDeviceDiscovery(
     input: GetDeviceDiscoveryRequest,
   ): Effect.Effect<
     GetDeviceDiscoveryResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   getEventLogConfiguration(
     input: GetEventLogConfigurationRequest,
   ): Effect.Effect<
     GetEventLogConfigurationResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getHubConfiguration(
     input: GetHubConfigurationRequest,
   ): Effect.Effect<
     GetHubConfigurationResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getManagedThing(
     input: GetManagedThingRequest,
   ): Effect.Effect<
     GetManagedThingResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   getManagedThingCapabilities(
     input: GetManagedThingCapabilitiesRequest,
   ): Effect.Effect<
     GetManagedThingCapabilitiesResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   getManagedThingCertificate(
     input: GetManagedThingCertificateRequest,
   ): Effect.Effect<
     GetManagedThingCertificateResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   getManagedThingConnectivityData(
     input: GetManagedThingConnectivityDataRequest,
   ): Effect.Effect<
     GetManagedThingConnectivityDataResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   getManagedThingMetaData(
     input: GetManagedThingMetaDataRequest,
   ): Effect.Effect<
     GetManagedThingMetaDataResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   getManagedThingState(
     input: GetManagedThingStateRequest,
   ): Effect.Effect<
     GetManagedThingStateResponse,
-    AccessDeniedException | InternalFailureException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalFailureException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   getNotificationConfiguration(
     input: GetNotificationConfigurationRequest,
   ): Effect.Effect<
     GetNotificationConfigurationResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getOtaTask(
     input: GetOtaTaskRequest,
   ): Effect.Effect<
     GetOtaTaskResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getOtaTaskConfiguration(
     input: GetOtaTaskConfigurationRequest,
   ): Effect.Effect<
     GetOtaTaskConfigurationResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getProvisioningProfile(
     input: GetProvisioningProfileRequest,
   ): Effect.Effect<
     GetProvisioningProfileResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   getRuntimeLogConfiguration(
     input: GetRuntimeLogConfigurationRequest,
   ): Effect.Effect<
     GetRuntimeLogConfigurationResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getSchemaVersion(
     input: GetSchemaVersionRequest,
   ): Effect.Effect<
     GetSchemaVersionResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listAccountAssociations(
     input: ListAccountAssociationsRequest,
   ): Effect.Effect<
     ListAccountAssociationsResponse,
-    AccessDeniedException | InternalServerException | ServiceUnavailableException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listCloudConnectors(
     input: ListCloudConnectorsRequest,
   ): Effect.Effect<
     ListCloudConnectorsResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listConnectorDestinations(
     input: ListConnectorDestinationsRequest,
   ): Effect.Effect<
     ListConnectorDestinationsResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listCredentialLockers(
     input: ListCredentialLockersRequest,
   ): Effect.Effect<
     ListCredentialLockersResponse,
-    AccessDeniedException | InternalServerException | ServiceUnavailableException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listDestinations(
     input: ListDestinationsRequest,
   ): Effect.Effect<
     ListDestinationsResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listDeviceDiscoveries(
     input: ListDeviceDiscoveriesRequest,
   ): Effect.Effect<
     ListDeviceDiscoveriesResponse,
-    AccessDeniedException | InternalServerException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   listDiscoveredDevices(
     input: ListDiscoveredDevicesRequest,
   ): Effect.Effect<
     ListDiscoveredDevicesResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   listEventLogConfigurations(
     input: ListEventLogConfigurationsRequest,
   ): Effect.Effect<
     ListEventLogConfigurationsResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listManagedThingAccountAssociations(
     input: ListManagedThingAccountAssociationsRequest,
   ): Effect.Effect<
     ListManagedThingAccountAssociationsResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listManagedThingSchemas(
     input: ListManagedThingSchemasRequest,
   ): Effect.Effect<
     ListManagedThingSchemasResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   listManagedThings(
     input: ListManagedThingsRequest,
   ): Effect.Effect<
     ListManagedThingsResponse,
-    AccessDeniedException | InternalServerException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   listNotificationConfigurations(
     input: ListNotificationConfigurationsRequest,
   ): Effect.Effect<
     ListNotificationConfigurationsResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listOtaTaskConfigurations(
     input: ListOtaTaskConfigurationsRequest,
   ): Effect.Effect<
     ListOtaTaskConfigurationsResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listOtaTaskExecutions(
     input: ListOtaTaskExecutionsRequest,
   ): Effect.Effect<
     ListOtaTaskExecutionsResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listOtaTasks(
     input: ListOtaTasksRequest,
   ): Effect.Effect<
     ListOtaTasksResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listProvisioningProfiles(
     input: ListProvisioningProfilesRequest,
   ): Effect.Effect<
     ListProvisioningProfilesResponse,
-    AccessDeniedException | InternalServerException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   listSchemaVersions(
     input: ListSchemaVersionsRequest,
   ): Effect.Effect<
     ListSchemaVersionsResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ServiceUnavailableException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   putDefaultEncryptionConfiguration(
     input: PutDefaultEncryptionConfigurationRequest,
   ): Effect.Effect<
     PutDefaultEncryptionConfigurationResponse,
-    AccessDeniedException | InternalFailureException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalFailureException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   putHubConfiguration(
     input: PutHubConfigurationRequest,
   ): Effect.Effect<
     PutHubConfigurationResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   putRuntimeLogConfiguration(
     input: PutRuntimeLogConfigurationRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   registerAccountAssociation(
     input: RegisterAccountAssociationRequest,
   ): Effect.Effect<
     RegisterAccountAssociationResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   resetRuntimeLogConfiguration(
     input: ResetRuntimeLogConfigurationRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   sendManagedThingCommand(
     input: SendManagedThingCommandRequest,
   ): Effect.Effect<
     SendManagedThingCommandResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   startAccountAssociationRefresh(
     input: StartAccountAssociationRefreshRequest,
   ): Effect.Effect<
     StartAccountAssociationRefreshResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   startDeviceDiscovery(
     input: StartDeviceDiscoveryRequest,
   ): Effect.Effect<
     StartDeviceDiscoveryResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   updateAccountAssociation(
     input: UpdateAccountAssociationRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateCloudConnector(
     input: UpdateCloudConnectorRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   updateConnectorDestination(
     input: UpdateConnectorDestinationRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateDestination(
     input: UpdateDestinationRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateEventLogConfiguration(
     input: UpdateEventLogConfigurationRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateManagedThing(
     input: UpdateManagedThingRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   updateNotificationConfiguration(
     input: UpdateNotificationConfigurationRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateOtaTask(
     input: UpdateOtaTaskRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
 }
 
@@ -512,7 +1028,11 @@ export interface AbortConfigCriteria {
 }
 export type AbortConfigCriteriaList = Array<AbortConfigCriteria>;
 export type AbortCriteriaAction = "CANCEL";
-export type AbortCriteriaFailureType = "FAILED" | "REJECTED" | "TIMED_OUT" | "ALL";
+export type AbortCriteriaFailureType =
+  | "FAILED"
+  | "REJECTED"
+  | "TIMED_OUT"
+  | "ALL";
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",
 )<{
@@ -546,7 +1066,12 @@ export type ActionTraceId = string;
 
 export type AdvertisedProductId = string;
 
-export type AssociationState = "ASSOCIATION_IN_PROGRESS" | "ASSOCIATION_FAILED" | "ASSOCIATION_SUCCEEDED" | "ASSOCIATION_DELETING" | "REFRESH_TOKEN_EXPIRED";
+export type AssociationState =
+  | "ASSOCIATION_IN_PROGRESS"
+  | "ASSOCIATION_FAILED"
+  | "ASSOCIATION_SUCCEEDED"
+  | "ASSOCIATION_DELETING"
+  | "REFRESH_TOKEN_EXPIRED";
 export type AttributeName = string;
 
 export type AttributeValue = string;
@@ -559,7 +1084,12 @@ export interface AuthConfigUpdate {
 }
 export type AuthMaterialString = string;
 
-export type AuthMaterialType = "CUSTOM_PROTOCOL_QR_BAR_CODE" | "WIFI_SETUP_QR_BAR_CODE" | "ZWAVE_QR_BAR_CODE" | "ZIGBEE_QR_BAR_CODE" | "DISCOVERED_DEVICE";
+export type AuthMaterialType =
+  | "CUSTOM_PROTOCOL_QR_BAR_CODE"
+  | "WIFI_SETUP_QR_BAR_CODE"
+  | "ZWAVE_QR_BAR_CODE"
+  | "ZIGBEE_QR_BAR_CODE"
+  | "DISCOVERED_DEVICE";
 export type AuthType = "OAUTH";
 export type AuthUrl = string;
 
@@ -658,7 +1188,10 @@ export type ConfigurationErrorCode = string;
 
 export type ConfigurationErrorMessage = string;
 
-export type ConfigurationState = "ENABLED" | "UPDATE_IN_PROGRESS" | "UPDATE_FAILED";
+export type ConfigurationState =
+  | "ENABLED"
+  | "UPDATE_IN_PROGRESS"
+  | "UPDATE_FAILED";
 export interface ConfigurationStatus {
   error?: ConfigurationError;
   state: ConfigurationState;
@@ -678,7 +1211,8 @@ export type ConnectorDestinationDescription = string;
 
 export type ConnectorDestinationId = string;
 
-export type ConnectorDestinationListDefinition = Array<ConnectorDestinationSummary>;
+export type ConnectorDestinationListDefinition =
+  Array<ConnectorDestinationSummary>;
 export type ConnectorDestinationName = string;
 
 export interface ConnectorDestinationSummary {
@@ -693,7 +1227,11 @@ export type ConnectorDeviceName = string;
 
 export type ConnectorEventMessage = string;
 
-export type ConnectorEventOperation = "DEVICE_COMMAND_RESPONSE" | "DEVICE_DISCOVERY" | "DEVICE_EVENT" | "DEVICE_COMMAND_REQUEST";
+export type ConnectorEventOperation =
+  | "DEVICE_COMMAND_RESPONSE"
+  | "DEVICE_DISCOVERY"
+  | "DEVICE_EVENT"
+  | "DEVICE_COMMAND_REQUEST";
 export type ConnectorEventOperationVersion = string;
 
 export type ConnectorEventStatusCode = number;
@@ -947,7 +1485,11 @@ export type DeviceDiscoveryArn = string;
 export type DeviceDiscoveryId = string;
 
 export type DeviceDiscoveryListDefinition = Array<DeviceDiscoverySummary>;
-export type DeviceDiscoveryStatus = "RUNNING" | "SUCCEEDED" | "FAILED" | "TIMED_OUT";
+export type DeviceDiscoveryStatus =
+  | "RUNNING"
+  | "SUCCEEDED"
+  | "FAILED"
+  | "TIMED_OUT";
 export interface DeviceDiscoverySummary {
   Id?: string;
   DiscoveryType?: DiscoveryType;
@@ -962,7 +1504,21 @@ export type DeviceType = string;
 
 export type DeviceTypeList = Array<string>;
 export type DeviceTypes = Array<string>;
-export type DisconnectReasonValue = "AUTH_ERROR" | "CLIENT_INITIATED_DISCONNECT" | "CLIENT_ERROR" | "CONNECTION_LOST" | "DUPLICATE_CLIENTID" | "FORBIDDEN_ACCESS" | "MQTT_KEEP_ALIVE_TIMEOUT" | "SERVER_ERROR" | "SERVER_INITIATED_DISCONNECT" | "THROTTLED" | "WEBSOCKET_TTL_EXPIRATION" | "CUSTOMAUTH_TTL_EXPIRATION" | "UNKNOWN" | "NONE";
+export type DisconnectReasonValue =
+  | "AUTH_ERROR"
+  | "CLIENT_INITIATED_DISCONNECT"
+  | "CLIENT_ERROR"
+  | "CONNECTION_LOST"
+  | "DUPLICATE_CLIENTID"
+  | "FORBIDDEN_ACCESS"
+  | "MQTT_KEEP_ALIVE_TIMEOUT"
+  | "SERVER_ERROR"
+  | "SERVER_INITIATED_DISCONNECT"
+  | "THROTTLED"
+  | "WEBSOCKET_TTL_EXPIRATION"
+  | "CUSTOMAUTH_TTL_EXPIRATION"
+  | "UNKNOWN"
+  | "NONE";
 export type DiscoveredAt = Date | string;
 
 export type DiscoveredDeviceListDefinition = Array<DiscoveredDeviceSummary>;
@@ -990,7 +1546,9 @@ export type DisplayName = string;
 
 export type DurationInMinutes = number;
 
-export type EncryptionType = "MANAGED_INTEGRATIONS_DEFAULT_ENCRYPTION" | "CUSTOMER_KEY_ENCRYPTION";
+export type EncryptionType =
+  | "MANAGED_INTEGRATIONS_DEFAULT_ENCRYPTION"
+  | "CUSTOMER_KEY_ENCRYPTION";
 export type EndpointAddress = string;
 
 export interface EndpointConfig {
@@ -1009,7 +1567,8 @@ export type ErrorResourceId = string;
 
 export type ErrorResourceType = string;
 
-export type EventLogConfigurationListDefinition = Array<EventLogConfigurationSummary>;
+export type EventLogConfigurationListDefinition =
+  Array<EventLogConfigurationSummary>;
 export interface EventLogConfigurationSummary {
   Id?: string;
   ResourceType?: string;
@@ -1018,7 +1577,17 @@ export interface EventLogConfigurationSummary {
 }
 export type EventName = string;
 
-export type EventType = "DEVICE_COMMAND" | "DEVICE_COMMAND_REQUEST" | "DEVICE_DISCOVERY_STATUS" | "DEVICE_EVENT" | "DEVICE_LIFE_CYCLE" | "DEVICE_STATE" | "DEVICE_OTA" | "CONNECTOR_ASSOCIATION" | "ACCOUNT_ASSOCIATION" | "CONNECTOR_ERROR_REPORT";
+export type EventType =
+  | "DEVICE_COMMAND"
+  | "DEVICE_COMMAND_REQUEST"
+  | "DEVICE_DISCOVERY_STATUS"
+  | "DEVICE_EVENT"
+  | "DEVICE_LIFE_CYCLE"
+  | "DEVICE_STATE"
+  | "DEVICE_OTA"
+  | "CONNECTOR_ASSOCIATION"
+  | "ACCOUNT_ASSOCIATION"
+  | "CONNECTOR_ERROR_REPORT";
 export type ExecutionNumber = number;
 
 export interface ExponentialRolloutRate {
@@ -1076,13 +1645,11 @@ export interface GetCredentialLockerResponse {
   CreatedAt?: Date | string;
   Tags?: Record<string, string>;
 }
-export interface GetCustomEndpointRequest {
-}
+export interface GetCustomEndpointRequest {}
 export interface GetCustomEndpointResponse {
   EndpointAddress: string;
 }
-export interface GetDefaultEncryptionConfigurationRequest {
-}
+export interface GetDefaultEncryptionConfigurationRequest {}
 export interface GetDefaultEncryptionConfigurationResponse {
   configurationStatus: ConfigurationStatus;
   encryptionType: EncryptionType;
@@ -1125,8 +1692,7 @@ export interface GetEventLogConfigurationResponse {
   ResourceId?: string;
   EventLogLevel?: LogLevel;
 }
-export interface GetHubConfigurationRequest {
-}
+export interface GetHubConfigurationRequest {}
 export interface GetHubConfigurationResponse {
   HubTokenTimerExpirySettingInSeconds?: number;
   UpdatedAt?: Date | string;
@@ -1505,7 +2071,8 @@ export type ManagedThingAssociationList = Array<ManagedThingAssociation>;
 export type ManagedThingId = string;
 
 export type ManagedThingListDefinition = Array<ManagedThingSummary>;
-export type ManagedThingSchemaListDefinition = Array<ManagedThingSchemaListItem>;
+export type ManagedThingSchemaListDefinition =
+  Array<ManagedThingSchemaListItem>;
 export interface ManagedThingSchemaListItem {
   EndpointId?: string;
   CapabilityId?: string;
@@ -1546,7 +2113,8 @@ export interface MatterCapabilityReportAttribute {
   name?: string;
   value?: unknown;
 }
-export type MatterCapabilityReportAttributes = Array<MatterCapabilityReportAttribute>;
+export type MatterCapabilityReportAttributes =
+  Array<MatterCapabilityReportAttribute>;
 export type MatterCapabilityReportAttributeValue = unknown;
 
 export interface MatterCapabilityReportCluster {
@@ -1564,7 +2132,8 @@ export interface MatterCapabilityReportCluster {
 }
 export type MatterCapabilityReportClusterRevisionId = number;
 
-export type MatterCapabilityReportClusters = Array<MatterCapabilityReportCluster>;
+export type MatterCapabilityReportClusters =
+  Array<MatterCapabilityReportCluster>;
 export type MatterCapabilityReportCommands = Array<string>;
 export interface MatterCapabilityReportEndpoint {
   id: string;
@@ -1576,7 +2145,8 @@ export interface MatterCapabilityReportEndpoint {
 }
 export type MatterCapabilityReportEndpointClientClusters = Array<string>;
 export type MatterCapabilityReportEndpointParts = Array<string>;
-export type MatterCapabilityReportEndpoints = Array<MatterCapabilityReportEndpoint>;
+export type MatterCapabilityReportEndpoints =
+  Array<MatterCapabilityReportEndpoint>;
 export type MatterCapabilityReportEndpointSemanticTags = Array<string>;
 export type MatterCapabilityReportEvents = Array<string>;
 export type MatterCapabilityReportFabricIndex = number;
@@ -1622,7 +2192,8 @@ export type NodeId = string;
 
 export type NotificationConfigurationCreatedAt = Date | string;
 
-export type NotificationConfigurationListDefinition = Array<NotificationConfigurationSummary>;
+export type NotificationConfigurationListDefinition =
+  Array<NotificationConfigurationSummary>;
 export interface NotificationConfigurationSummary {
   EventType?: EventType;
   DestinationName?: string;
@@ -1655,7 +2226,12 @@ export type OtaMechanism = "PUSH";
 export type OtaNextToken = string;
 
 export type OtaProtocol = "HTTP";
-export type OtaStatus = "IN_PROGRESS" | "CANCELED" | "COMPLETED" | "DELETION_IN_PROGRESS" | "SCHEDULED";
+export type OtaStatus =
+  | "IN_PROGRESS"
+  | "CANCELED"
+  | "COMPLETED"
+  | "DELETION_IN_PROGRESS"
+  | "SCHEDULED";
 export type OtaTargetQueryString = string;
 
 export interface OtaTaskAbortConfig {
@@ -1665,7 +2241,8 @@ export type OtaTaskArn = string;
 
 export type OtaTaskConfigurationId = string;
 
-export type OtaTaskConfigurationListDefinition = Array<OtaTaskConfigurationSummary>;
+export type OtaTaskConfigurationListDefinition =
+  Array<OtaTaskConfigurationSummary>;
 export type OtaTaskConfigurationName = string;
 
 export interface OtaTaskConfigurationSummary {
@@ -1680,12 +2257,21 @@ export interface OtaTaskExecutionRolloutConfig {
   ExponentialRolloutRate?: ExponentialRolloutRate;
   MaximumPerMinute?: number;
 }
-export type OtaTaskExecutionStatus = "QUEUED" | "IN_PROGRESS" | "SUCCEEDED" | "FAILED" | "TIMED_OUT" | "REJECTED" | "REMOVED" | "CANCELED";
+export type OtaTaskExecutionStatus =
+  | "QUEUED"
+  | "IN_PROGRESS"
+  | "SUCCEEDED"
+  | "FAILED"
+  | "TIMED_OUT"
+  | "REJECTED"
+  | "REMOVED"
+  | "CANCELED";
 export interface OtaTaskExecutionSummaries {
   TaskExecutionSummary?: OtaTaskExecutionSummary;
   ManagedThingId?: string;
 }
-export type OtaTaskExecutionSummariesListDefinition = Array<OtaTaskExecutionSummaries>;
+export type OtaTaskExecutionSummariesListDefinition =
+  Array<OtaTaskExecutionSummaries>;
 export interface OtaTaskExecutionSummary {
   ExecutionNumber?: number;
   LastUpdatedAt?: Date | string;
@@ -1729,7 +2315,8 @@ export type ProvisioningProfileArn = string;
 
 export type ProvisioningProfileId = string;
 
-export type ProvisioningProfileListDefinition = Array<ProvisioningProfileSummary>;
+export type ProvisioningProfileListDefinition =
+  Array<ProvisioningProfileSummary>;
 export type ProvisioningProfileName = string;
 
 export interface ProvisioningProfileSummary {
@@ -1738,7 +2325,15 @@ export interface ProvisioningProfileSummary {
   Arn?: string;
   ProvisioningType?: ProvisioningType;
 }
-export type ProvisioningStatus = "UNASSOCIATED" | "PRE_ASSOCIATED" | "DISCOVERED" | "ACTIVATED" | "DELETION_FAILED" | "DELETE_IN_PROGRESS" | "ISOLATED" | "DELETED";
+export type ProvisioningStatus =
+  | "UNASSOCIATED"
+  | "PRE_ASSOCIATED"
+  | "DISCOVERED"
+  | "ACTIVATED"
+  | "DELETION_FAILED"
+  | "DELETE_IN_PROGRESS"
+  | "ISOLATED"
+  | "DELETED";
 export type ProvisioningType = "FLEET_PROVISIONING" | "JITR";
 export interface PushConfig {
   AbortConfig?: OtaTaskAbortConfig;
@@ -1776,8 +2371,7 @@ export interface RegisterAccountAssociationResponse {
   DeviceDiscoveryId?: string;
   ManagedThingId?: string;
 }
-export interface RegisterCustomEndpointRequest {
-}
+export interface RegisterCustomEndpointRequest {}
 export interface RegisterCustomEndpointResponse {
   EndpointAddress: string;
 }
@@ -1823,7 +2417,10 @@ export interface ScheduleMaintenanceWindow {
 export type ScheduleMaintenanceWindowList = Array<ScheduleMaintenanceWindow>;
 export type ScheduleStartTime = string;
 
-export type SchedulingConfigEndBehavior = "STOP_ROLLOUT" | "CANCEL" | "FORCE_CANCEL";
+export type SchedulingConfigEndBehavior =
+  | "STOP_ROLLOUT"
+  | "CANCEL"
+  | "FORCE_CANCEL";
 export type SchemaId = string;
 
 export type SchemaVersionDescription = string;
@@ -1945,8 +2542,7 @@ export interface TagResourceRequest {
   ResourceArn: string;
   Tags: Record<string, string>;
 }
-export interface TagResourceResponse {
-}
+export interface TagResourceResponse {}
 export type TagsMap = Record<string, string>;
 export type TagValue = string;
 
@@ -1971,7 +2567,9 @@ export declare class ThrottlingException extends EffectData.TaggedError(
 )<{
   readonly Message?: string;
 }> {}
-export type TokenEndpointAuthenticationScheme = "HTTP_BASIC" | "REQUEST_BODY_CREDENTIALS";
+export type TokenEndpointAuthenticationScheme =
+  | "HTTP_BASIC"
+  | "REQUEST_BODY_CREDENTIALS";
 export type TokenUrl = string;
 
 export type TraceId = string;
@@ -1987,8 +2585,7 @@ export interface UntagResourceRequest {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {
-}
+export interface UntagResourceResponse {}
 export interface UpdateAccountAssociationRequest {
   AccountAssociationId: string;
   Name?: string;
@@ -3120,5 +3717,17 @@ export declare namespace UpdateOtaTask {
     | CommonAwsError;
 }
 
-export type IoTManagedIntegrationsErrors = AccessDeniedException | ConflictException | InternalFailureException | InternalServerException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | ServiceQuotaExceededException | ServiceUnavailableException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError;
-
+export type IoTManagedIntegrationsErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalFailureException
+  | InternalServerException
+  | InvalidRequestException
+  | LimitExceededException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ServiceUnavailableException
+  | ThrottlingException
+  | UnauthorizedException
+  | ValidationException
+  | CommonAwsError;

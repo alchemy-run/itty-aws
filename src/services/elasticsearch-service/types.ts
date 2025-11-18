@@ -1,6 +1,39 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
-type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | ThrottlingException | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ValidationException;
+import type {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+type CommonAwsError =
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | ThrottlingException
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | AccessDeniedException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class ElasticsearchService extends AWSServiceClient {
@@ -8,71 +41,125 @@ export declare class ElasticsearchService extends AWSServiceClient {
     input: AcceptInboundCrossClusterSearchConnectionRequest,
   ): Effect.Effect<
     AcceptInboundCrossClusterSearchConnectionResponse,
-    DisabledOperationException | LimitExceededException | ResourceNotFoundException | CommonAwsError
+    | DisabledOperationException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   addTags(
     input: AddTagsRequest,
   ): Effect.Effect<
     {},
-    BaseException | InternalException | LimitExceededException | ValidationException | CommonAwsError
+    | BaseException
+    | InternalException
+    | LimitExceededException
+    | ValidationException
+    | CommonAwsError
   >;
   associatePackage(
     input: AssociatePackageRequest,
   ): Effect.Effect<
     AssociatePackageResponse,
-    AccessDeniedException | BaseException | ConflictException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | BaseException
+    | ConflictException
+    | InternalException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   authorizeVpcEndpointAccess(
     input: AuthorizeVpcEndpointAccessRequest,
   ): Effect.Effect<
     AuthorizeVpcEndpointAccessResponse,
-    BaseException | DisabledOperationException | InternalException | LimitExceededException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | BaseException
+    | DisabledOperationException
+    | InternalException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   cancelDomainConfigChange(
     input: CancelDomainConfigChangeRequest,
   ): Effect.Effect<
     CancelDomainConfigChangeResponse,
-    BaseException | DisabledOperationException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | BaseException
+    | DisabledOperationException
+    | InternalException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   cancelElasticsearchServiceSoftwareUpdate(
     input: CancelElasticsearchServiceSoftwareUpdateRequest,
   ): Effect.Effect<
     CancelElasticsearchServiceSoftwareUpdateResponse,
-    BaseException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | BaseException
+    | InternalException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   createElasticsearchDomain(
     input: CreateElasticsearchDomainRequest,
   ): Effect.Effect<
     CreateElasticsearchDomainResponse,
-    BaseException | DisabledOperationException | InternalException | InvalidTypeException | LimitExceededException | ResourceAlreadyExistsException | ValidationException | CommonAwsError
+    | BaseException
+    | DisabledOperationException
+    | InternalException
+    | InvalidTypeException
+    | LimitExceededException
+    | ResourceAlreadyExistsException
+    | ValidationException
+    | CommonAwsError
   >;
   createOutboundCrossClusterSearchConnection(
     input: CreateOutboundCrossClusterSearchConnectionRequest,
   ): Effect.Effect<
     CreateOutboundCrossClusterSearchConnectionResponse,
-    DisabledOperationException | InternalException | LimitExceededException | ResourceAlreadyExistsException | CommonAwsError
+    | DisabledOperationException
+    | InternalException
+    | LimitExceededException
+    | ResourceAlreadyExistsException
+    | CommonAwsError
   >;
   createPackage(
     input: CreatePackageRequest,
   ): Effect.Effect<
     CreatePackageResponse,
-    AccessDeniedException | BaseException | InternalException | InvalidTypeException | LimitExceededException | ResourceAlreadyExistsException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | BaseException
+    | InternalException
+    | InvalidTypeException
+    | LimitExceededException
+    | ResourceAlreadyExistsException
+    | ValidationException
+    | CommonAwsError
   >;
   createVpcEndpoint(
     input: CreateVpcEndpointRequest,
   ): Effect.Effect<
     CreateVpcEndpointResponse,
-    BaseException | ConflictException | DisabledOperationException | InternalException | LimitExceededException | ValidationException | CommonAwsError
+    | BaseException
+    | ConflictException
+    | DisabledOperationException
+    | InternalException
+    | LimitExceededException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteElasticsearchDomain(
     input: DeleteElasticsearchDomainRequest,
   ): Effect.Effect<
     DeleteElasticsearchDomainResponse,
-    BaseException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | BaseException
+    | InternalException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
-  deleteElasticsearchServiceRole(
-    input: {},
-  ): Effect.Effect<
+  deleteElasticsearchServiceRole(input: {}): Effect.Effect<
     {},
     BaseException | InternalException | ValidationException | CommonAwsError
   >;
@@ -92,37 +179,63 @@ export declare class ElasticsearchService extends AWSServiceClient {
     input: DeletePackageRequest,
   ): Effect.Effect<
     DeletePackageResponse,
-    AccessDeniedException | BaseException | ConflictException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | BaseException
+    | ConflictException
+    | InternalException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteVpcEndpoint(
     input: DeleteVpcEndpointRequest,
   ): Effect.Effect<
     DeleteVpcEndpointResponse,
-    BaseException | DisabledOperationException | InternalException | ResourceNotFoundException | CommonAwsError
+    | BaseException
+    | DisabledOperationException
+    | InternalException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   describeDomainAutoTunes(
     input: DescribeDomainAutoTunesRequest,
   ): Effect.Effect<
     DescribeDomainAutoTunesResponse,
-    BaseException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | BaseException
+    | InternalException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   describeDomainChangeProgress(
     input: DescribeDomainChangeProgressRequest,
   ): Effect.Effect<
     DescribeDomainChangeProgressResponse,
-    BaseException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | BaseException
+    | InternalException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   describeElasticsearchDomain(
     input: DescribeElasticsearchDomainRequest,
   ): Effect.Effect<
     DescribeElasticsearchDomainResponse,
-    BaseException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | BaseException
+    | InternalException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   describeElasticsearchDomainConfig(
     input: DescribeElasticsearchDomainConfigRequest,
   ): Effect.Effect<
     DescribeElasticsearchDomainConfigResponse,
-    BaseException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | BaseException
+    | InternalException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   describeElasticsearchDomains(
     input: DescribeElasticsearchDomainsRequest,
@@ -134,73 +247,126 @@ export declare class ElasticsearchService extends AWSServiceClient {
     input: DescribeElasticsearchInstanceTypeLimitsRequest,
   ): Effect.Effect<
     DescribeElasticsearchInstanceTypeLimitsResponse,
-    BaseException | InternalException | InvalidTypeException | LimitExceededException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | BaseException
+    | InternalException
+    | InvalidTypeException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   describeInboundCrossClusterSearchConnections(
     input: DescribeInboundCrossClusterSearchConnectionsRequest,
   ): Effect.Effect<
     DescribeInboundCrossClusterSearchConnectionsResponse,
-    DisabledOperationException | InvalidPaginationTokenException | CommonAwsError
+    | DisabledOperationException
+    | InvalidPaginationTokenException
+    | CommonAwsError
   >;
   describeOutboundCrossClusterSearchConnections(
     input: DescribeOutboundCrossClusterSearchConnectionsRequest,
   ): Effect.Effect<
     DescribeOutboundCrossClusterSearchConnectionsResponse,
-    DisabledOperationException | InvalidPaginationTokenException | CommonAwsError
+    | DisabledOperationException
+    | InvalidPaginationTokenException
+    | CommonAwsError
   >;
   describePackages(
     input: DescribePackagesRequest,
   ): Effect.Effect<
     DescribePackagesResponse,
-    AccessDeniedException | BaseException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | BaseException
+    | InternalException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   describeReservedElasticsearchInstanceOfferings(
     input: DescribeReservedElasticsearchInstanceOfferingsRequest,
   ): Effect.Effect<
     DescribeReservedElasticsearchInstanceOfferingsResponse,
-    DisabledOperationException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | DisabledOperationException
+    | InternalException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   describeReservedElasticsearchInstances(
     input: DescribeReservedElasticsearchInstancesRequest,
   ): Effect.Effect<
     DescribeReservedElasticsearchInstancesResponse,
-    DisabledOperationException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | DisabledOperationException
+    | InternalException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   describeVpcEndpoints(
     input: DescribeVpcEndpointsRequest,
   ): Effect.Effect<
     DescribeVpcEndpointsResponse,
-    BaseException | DisabledOperationException | InternalException | ValidationException | CommonAwsError
+    | BaseException
+    | DisabledOperationException
+    | InternalException
+    | ValidationException
+    | CommonAwsError
   >;
   dissociatePackage(
     input: DissociatePackageRequest,
   ): Effect.Effect<
     DissociatePackageResponse,
-    AccessDeniedException | BaseException | ConflictException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | BaseException
+    | ConflictException
+    | InternalException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   getCompatibleElasticsearchVersions(
     input: GetCompatibleElasticsearchVersionsRequest,
   ): Effect.Effect<
     GetCompatibleElasticsearchVersionsResponse,
-    BaseException | DisabledOperationException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | BaseException
+    | DisabledOperationException
+    | InternalException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   getPackageVersionHistory(
     input: GetPackageVersionHistoryRequest,
   ): Effect.Effect<
     GetPackageVersionHistoryResponse,
-    AccessDeniedException | BaseException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | BaseException
+    | InternalException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   getUpgradeHistory(
     input: GetUpgradeHistoryRequest,
   ): Effect.Effect<
     GetUpgradeHistoryResponse,
-    BaseException | DisabledOperationException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | BaseException
+    | DisabledOperationException
+    | InternalException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   getUpgradeStatus(
     input: GetUpgradeStatusRequest,
   ): Effect.Effect<
     GetUpgradeStatusResponse,
-    BaseException | DisabledOperationException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | BaseException
+    | DisabledOperationException
+    | InternalException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   listDomainNames(
     input: ListDomainNamesRequest,
@@ -212,55 +378,94 @@ export declare class ElasticsearchService extends AWSServiceClient {
     input: ListDomainsForPackageRequest,
   ): Effect.Effect<
     ListDomainsForPackageResponse,
-    AccessDeniedException | BaseException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | BaseException
+    | InternalException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   listElasticsearchInstanceTypes(
     input: ListElasticsearchInstanceTypesRequest,
   ): Effect.Effect<
     ListElasticsearchInstanceTypesResponse,
-    BaseException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | BaseException
+    | InternalException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   listElasticsearchVersions(
     input: ListElasticsearchVersionsRequest,
   ): Effect.Effect<
     ListElasticsearchVersionsResponse,
-    BaseException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | BaseException
+    | InternalException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   listPackagesForDomain(
     input: ListPackagesForDomainRequest,
   ): Effect.Effect<
     ListPackagesForDomainResponse,
-    AccessDeniedException | BaseException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | BaseException
+    | InternalException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   listTags(
     input: ListTagsRequest,
   ): Effect.Effect<
     ListTagsResponse,
-    BaseException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | BaseException
+    | InternalException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   listVpcEndpointAccess(
     input: ListVpcEndpointAccessRequest,
   ): Effect.Effect<
     ListVpcEndpointAccessResponse,
-    BaseException | DisabledOperationException | InternalException | ResourceNotFoundException | CommonAwsError
+    | BaseException
+    | DisabledOperationException
+    | InternalException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   listVpcEndpoints(
     input: ListVpcEndpointsRequest,
   ): Effect.Effect<
     ListVpcEndpointsResponse,
-    BaseException | DisabledOperationException | InternalException | CommonAwsError
+    | BaseException
+    | DisabledOperationException
+    | InternalException
+    | CommonAwsError
   >;
   listVpcEndpointsForDomain(
     input: ListVpcEndpointsForDomainRequest,
   ): Effect.Effect<
     ListVpcEndpointsForDomainResponse,
-    BaseException | DisabledOperationException | InternalException | ResourceNotFoundException | CommonAwsError
+    | BaseException
+    | DisabledOperationException
+    | InternalException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   purchaseReservedElasticsearchInstanceOffering(
     input: PurchaseReservedElasticsearchInstanceOfferingRequest,
   ): Effect.Effect<
     PurchaseReservedElasticsearchInstanceOfferingResponse,
-    DisabledOperationException | InternalException | LimitExceededException | ResourceAlreadyExistsException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | DisabledOperationException
+    | InternalException
+    | LimitExceededException
+    | ResourceAlreadyExistsException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   rejectInboundCrossClusterSearchConnection(
     input: RejectInboundCrossClusterSearchConnectionRequest,
@@ -278,37 +483,70 @@ export declare class ElasticsearchService extends AWSServiceClient {
     input: RevokeVpcEndpointAccessRequest,
   ): Effect.Effect<
     RevokeVpcEndpointAccessResponse,
-    BaseException | DisabledOperationException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | BaseException
+    | DisabledOperationException
+    | InternalException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   startElasticsearchServiceSoftwareUpdate(
     input: StartElasticsearchServiceSoftwareUpdateRequest,
   ): Effect.Effect<
     StartElasticsearchServiceSoftwareUpdateResponse,
-    BaseException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | BaseException
+    | InternalException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   updateElasticsearchDomainConfig(
     input: UpdateElasticsearchDomainConfigRequest,
   ): Effect.Effect<
     UpdateElasticsearchDomainConfigResponse,
-    BaseException | InternalException | InvalidTypeException | LimitExceededException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | BaseException
+    | InternalException
+    | InvalidTypeException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   updatePackage(
     input: UpdatePackageRequest,
   ): Effect.Effect<
     UpdatePackageResponse,
-    AccessDeniedException | BaseException | InternalException | LimitExceededException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | BaseException
+    | InternalException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   updateVpcEndpoint(
     input: UpdateVpcEndpointRequest,
   ): Effect.Effect<
     UpdateVpcEndpointResponse,
-    BaseException | ConflictException | DisabledOperationException | InternalException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | BaseException
+    | ConflictException
+    | DisabledOperationException
+    | InternalException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   upgradeElasticsearchDomain(
     input: UpgradeElasticsearchDomainRequest,
   ): Effect.Effect<
     UpgradeElasticsearchDomainResponse,
-    BaseException | DisabledOperationException | InternalException | ResourceAlreadyExistsException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | BaseException
+    | DisabledOperationException
+    | InternalException
+    | ResourceAlreadyExistsException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
 }
 
@@ -396,7 +634,8 @@ export interface AutoTuneMaintenanceSchedule {
   Duration?: Duration;
   CronExpressionForRecurrence?: string;
 }
-export type AutoTuneMaintenanceScheduleList = Array<AutoTuneMaintenanceSchedule>;
+export type AutoTuneMaintenanceScheduleList =
+  Array<AutoTuneMaintenanceSchedule>;
 export interface AutoTuneOptions {
   DesiredState?: AutoTuneDesiredState;
   RollbackOnDisable?: RollbackOnDisable;
@@ -414,7 +653,16 @@ export interface AutoTuneOptionsStatus {
   Options?: AutoTuneOptions;
   Status?: AutoTuneStatus;
 }
-export type AutoTuneState = "ENABLED" | "DISABLED" | "ENABLE_IN_PROGRESS" | "DISABLE_IN_PROGRESS" | "DISABLED_AND_ROLLBACK_SCHEDULED" | "DISABLED_AND_ROLLBACK_IN_PROGRESS" | "DISABLED_AND_ROLLBACK_COMPLETE" | "DISABLED_AND_ROLLBACK_ERROR" | "ERROR";
+export type AutoTuneState =
+  | "ENABLED"
+  | "DISABLED"
+  | "ENABLE_IN_PROGRESS"
+  | "DISABLE_IN_PROGRESS"
+  | "DISABLED_AND_ROLLBACK_SCHEDULED"
+  | "DISABLED_AND_ROLLBACK_IN_PROGRESS"
+  | "DISABLED_AND_ROLLBACK_COMPLETE"
+  | "DISABLED_AND_ROLLBACK_ERROR"
+  | "ERROR";
 export interface AutoTuneStatus {
   CreationDate: Date | string;
   UpdateDate: Date | string;
@@ -511,7 +759,15 @@ export interface CompatibleVersionsMap {
   SourceVersion?: string;
   TargetVersions?: Array<string>;
 }
-export type ConfigChangeStatus = "Pending" | "Initializing" | "Validating" | "ValidationFailed" | "ApplyingChanges" | "Completed" | "PendingUserInput" | "Cancelled";
+export type ConfigChangeStatus =
+  | "Pending"
+  | "Initializing"
+  | "Validating"
+  | "ValidationFailed"
+  | "ApplyingChanges"
+  | "Completed"
+  | "PendingUserInput"
+  | "Cancelled";
 export declare class ConflictException extends EffectData.TaggedError(
   "ConflictException",
 )<{
@@ -607,7 +863,12 @@ export interface DeleteVpcEndpointResponse {
 }
 export type DeploymentCloseDateTimeStamp = Date | string;
 
-export type DeploymentStatus = "PENDING_UPDATE" | "IN_PROGRESS" | "COMPLETED" | "NOT_ELIGIBLE" | "ELIGIBLE";
+export type DeploymentStatus =
+  | "PENDING_UPDATE"
+  | "IN_PROGRESS"
+  | "COMPLETED"
+  | "NOT_ELIGIBLE"
+  | "ELIGIBLE";
 export type DeploymentType = string;
 
 export interface DescribeDomainAutoTunesRequest {
@@ -675,7 +936,10 @@ export interface DescribePackagesFilter {
   Value?: Array<string>;
 }
 export type DescribePackagesFilterList = Array<DescribePackagesFilter>;
-export type DescribePackagesFilterName = "PackageID" | "PackageName" | "PackageStatus";
+export type DescribePackagesFilterName =
+  | "PackageID"
+  | "PackageName"
+  | "PackageStatus";
 export type DescribePackagesFilterValue = string;
 
 export type DescribePackagesFilterValues = Array<string>;
@@ -771,8 +1035,20 @@ export interface DomainPackageDetails {
   ErrorDetails?: ErrorDetails;
 }
 export type DomainPackageDetailsList = Array<DomainPackageDetails>;
-export type DomainPackageStatus = "ASSOCIATING" | "ASSOCIATION_FAILED" | "ACTIVE" | "DISSOCIATING" | "DISSOCIATION_FAILED";
-export type DomainProcessingStatusType = "Creating" | "Active" | "Modifying" | "UpgradingEngineVersion" | "UpdatingServiceSoftware" | "Isolated" | "Deleting";
+export type DomainPackageStatus =
+  | "ASSOCIATING"
+  | "ASSOCIATION_FAILED"
+  | "ACTIVE"
+  | "DISSOCIATING"
+  | "DISSOCIATION_FAILED";
+export type DomainProcessingStatusType =
+  | "Creating"
+  | "Active"
+  | "Modifying"
+  | "UpgradingEngineVersion"
+  | "UpdatingServiceSoftware"
+  | "Isolated"
+  | "Deleting";
 export type Double = number;
 
 export type DryRun = boolean;
@@ -891,8 +1167,68 @@ export type ErrorMessage = string;
 
 export type ErrorType = string;
 
-export type ESPartitionInstanceType = "m3.medium.elasticsearch" | "m3.large.elasticsearch" | "m3.xlarge.elasticsearch" | "m3.2xlarge.elasticsearch" | "m4.large.elasticsearch" | "m4.xlarge.elasticsearch" | "m4.2xlarge.elasticsearch" | "m4.4xlarge.elasticsearch" | "m4.10xlarge.elasticsearch" | "m5.large.elasticsearch" | "m5.xlarge.elasticsearch" | "m5.2xlarge.elasticsearch" | "m5.4xlarge.elasticsearch" | "m5.12xlarge.elasticsearch" | "r5.large.elasticsearch" | "r5.xlarge.elasticsearch" | "r5.2xlarge.elasticsearch" | "r5.4xlarge.elasticsearch" | "r5.12xlarge.elasticsearch" | "c5.large.elasticsearch" | "c5.xlarge.elasticsearch" | "c5.2xlarge.elasticsearch" | "c5.4xlarge.elasticsearch" | "c5.9xlarge.elasticsearch" | "c5.18xlarge.elasticsearch" | "ultrawarm1.medium.elasticsearch" | "ultrawarm1.large.elasticsearch" | "t2.micro.elasticsearch" | "t2.small.elasticsearch" | "t2.medium.elasticsearch" | "r3.large.elasticsearch" | "r3.xlarge.elasticsearch" | "r3.2xlarge.elasticsearch" | "r3.4xlarge.elasticsearch" | "r3.8xlarge.elasticsearch" | "i2.xlarge.elasticsearch" | "i2.2xlarge.elasticsearch" | "d2.xlarge.elasticsearch" | "d2.2xlarge.elasticsearch" | "d2.4xlarge.elasticsearch" | "d2.8xlarge.elasticsearch" | "c4.large.elasticsearch" | "c4.xlarge.elasticsearch" | "c4.2xlarge.elasticsearch" | "c4.4xlarge.elasticsearch" | "c4.8xlarge.elasticsearch" | "r4.large.elasticsearch" | "r4.xlarge.elasticsearch" | "r4.2xlarge.elasticsearch" | "r4.4xlarge.elasticsearch" | "r4.8xlarge.elasticsearch" | "r4.16xlarge.elasticsearch" | "i3.large.elasticsearch" | "i3.xlarge.elasticsearch" | "i3.2xlarge.elasticsearch" | "i3.4xlarge.elasticsearch" | "i3.8xlarge.elasticsearch" | "i3.16xlarge.elasticsearch";
-export type ESWarmPartitionInstanceType = "ultrawarm1.medium.elasticsearch" | "ultrawarm1.large.elasticsearch";
+export type ESPartitionInstanceType =
+  | "m3.medium.elasticsearch"
+  | "m3.large.elasticsearch"
+  | "m3.xlarge.elasticsearch"
+  | "m3.2xlarge.elasticsearch"
+  | "m4.large.elasticsearch"
+  | "m4.xlarge.elasticsearch"
+  | "m4.2xlarge.elasticsearch"
+  | "m4.4xlarge.elasticsearch"
+  | "m4.10xlarge.elasticsearch"
+  | "m5.large.elasticsearch"
+  | "m5.xlarge.elasticsearch"
+  | "m5.2xlarge.elasticsearch"
+  | "m5.4xlarge.elasticsearch"
+  | "m5.12xlarge.elasticsearch"
+  | "r5.large.elasticsearch"
+  | "r5.xlarge.elasticsearch"
+  | "r5.2xlarge.elasticsearch"
+  | "r5.4xlarge.elasticsearch"
+  | "r5.12xlarge.elasticsearch"
+  | "c5.large.elasticsearch"
+  | "c5.xlarge.elasticsearch"
+  | "c5.2xlarge.elasticsearch"
+  | "c5.4xlarge.elasticsearch"
+  | "c5.9xlarge.elasticsearch"
+  | "c5.18xlarge.elasticsearch"
+  | "ultrawarm1.medium.elasticsearch"
+  | "ultrawarm1.large.elasticsearch"
+  | "t2.micro.elasticsearch"
+  | "t2.small.elasticsearch"
+  | "t2.medium.elasticsearch"
+  | "r3.large.elasticsearch"
+  | "r3.xlarge.elasticsearch"
+  | "r3.2xlarge.elasticsearch"
+  | "r3.4xlarge.elasticsearch"
+  | "r3.8xlarge.elasticsearch"
+  | "i2.xlarge.elasticsearch"
+  | "i2.2xlarge.elasticsearch"
+  | "d2.xlarge.elasticsearch"
+  | "d2.2xlarge.elasticsearch"
+  | "d2.4xlarge.elasticsearch"
+  | "d2.8xlarge.elasticsearch"
+  | "c4.large.elasticsearch"
+  | "c4.xlarge.elasticsearch"
+  | "c4.2xlarge.elasticsearch"
+  | "c4.4xlarge.elasticsearch"
+  | "c4.8xlarge.elasticsearch"
+  | "r4.large.elasticsearch"
+  | "r4.xlarge.elasticsearch"
+  | "r4.2xlarge.elasticsearch"
+  | "r4.4xlarge.elasticsearch"
+  | "r4.8xlarge.elasticsearch"
+  | "r4.16xlarge.elasticsearch"
+  | "i3.large.elasticsearch"
+  | "i3.xlarge.elasticsearch"
+  | "i3.2xlarge.elasticsearch"
+  | "i3.4xlarge.elasticsearch"
+  | "i3.8xlarge.elasticsearch"
+  | "i3.16xlarge.elasticsearch";
+export type ESWarmPartitionInstanceType =
+  | "ultrawarm1.medium.elasticsearch"
+  | "ultrawarm1.large.elasticsearch";
 export interface Filter {
   Name?: string;
   Values?: Array<string>;
@@ -942,12 +1278,19 @@ export interface InboundCrossClusterSearchConnection {
   CrossClusterSearchConnectionId?: string;
   ConnectionStatus?: InboundCrossClusterSearchConnectionStatus;
 }
-export type InboundCrossClusterSearchConnections = Array<InboundCrossClusterSearchConnection>;
+export type InboundCrossClusterSearchConnections =
+  Array<InboundCrossClusterSearchConnection>;
 export interface InboundCrossClusterSearchConnectionStatus {
   StatusCode?: InboundCrossClusterSearchConnectionStatusCode;
   Message?: string;
 }
-export type InboundCrossClusterSearchConnectionStatusCode = "PENDING_ACCEPTANCE" | "APPROVED" | "REJECTING" | "REJECTED" | "DELETING" | "DELETED";
+export type InboundCrossClusterSearchConnectionStatusCode =
+  | "PENDING_ACCEPTANCE"
+  | "APPROVED"
+  | "REJECTING"
+  | "REJECTED"
+  | "DELETING"
+  | "DELETED";
 export type InitiatedBy = "CUSTOMER" | "SERVICE";
 export type InstanceCount = number;
 
@@ -1082,7 +1425,11 @@ export interface LogPublishingOptionsStatus {
   Options?: { [key in LogType]?: string };
   Status?: OptionStatus;
 }
-export type LogType = "INDEX_SLOW_LOGS" | "SEARCH_SLOW_LOGS" | "ES_APPLICATION_LOGS" | "AUDIT_LOGS";
+export type LogType =
+  | "INDEX_SLOW_LOGS"
+  | "SEARCH_SLOW_LOGS"
+  | "ES_APPLICATION_LOGS"
+  | "AUDIT_LOGS";
 export interface MasterUserOptions {
   MasterUserARN?: string;
   MasterUserName?: string;
@@ -1129,13 +1476,26 @@ export interface OutboundCrossClusterSearchConnection {
   ConnectionAlias?: string;
   ConnectionStatus?: OutboundCrossClusterSearchConnectionStatus;
 }
-export type OutboundCrossClusterSearchConnections = Array<OutboundCrossClusterSearchConnection>;
+export type OutboundCrossClusterSearchConnections =
+  Array<OutboundCrossClusterSearchConnection>;
 export interface OutboundCrossClusterSearchConnectionStatus {
   StatusCode?: OutboundCrossClusterSearchConnectionStatusCode;
   Message?: string;
 }
-export type OutboundCrossClusterSearchConnectionStatusCode = "PENDING_ACCEPTANCE" | "VALIDATING" | "VALIDATION_FAILED" | "PROVISIONING" | "ACTIVE" | "REJECTED" | "DELETING" | "DELETED";
-export type OverallChangeStatus = "PENDING" | "PROCESSING" | "COMPLETED" | "FAILED";
+export type OutboundCrossClusterSearchConnectionStatusCode =
+  | "PENDING_ACCEPTANCE"
+  | "VALIDATING"
+  | "VALIDATION_FAILED"
+  | "PROVISIONING"
+  | "ACTIVE"
+  | "REJECTED"
+  | "DELETING"
+  | "DELETED";
+export type OverallChangeStatus =
+  | "PENDING"
+  | "PROCESSING"
+  | "COMPLETED"
+  | "FAILED";
 export type OwnerId = string;
 
 export type PackageDescription = string;
@@ -1160,7 +1520,15 @@ export interface PackageSource {
   S3BucketName?: string;
   S3Key?: string;
 }
-export type PackageStatus = "COPYING" | "COPY_FAILED" | "VALIDATING" | "VALIDATION_FAILED" | "AVAILABLE" | "DELETING" | "DELETED" | "DELETE_FAILED";
+export type PackageStatus =
+  | "COPYING"
+  | "COPY_FAILED"
+  | "VALIDATING"
+  | "VALIDATION_FAILED"
+  | "AVAILABLE"
+  | "DELETING"
+  | "DELETED"
+  | "DELETE_FAILED";
 export type PackageType = "TXT-DICTIONARY";
 export type PackageVersion = string;
 
@@ -1221,7 +1589,8 @@ export interface ReservedElasticsearchInstance {
   PaymentOption?: ReservedElasticsearchInstancePaymentOption;
   RecurringCharges?: Array<RecurringCharge>;
 }
-export type ReservedElasticsearchInstanceList = Array<ReservedElasticsearchInstance>;
+export type ReservedElasticsearchInstanceList =
+  Array<ReservedElasticsearchInstance>;
 export interface ReservedElasticsearchInstanceOffering {
   ReservedElasticsearchInstanceOfferingId?: string;
   ElasticsearchInstanceType?: ESPartitionInstanceType;
@@ -1232,8 +1601,12 @@ export interface ReservedElasticsearchInstanceOffering {
   PaymentOption?: ReservedElasticsearchInstancePaymentOption;
   RecurringCharges?: Array<RecurringCharge>;
 }
-export type ReservedElasticsearchInstanceOfferingList = Array<ReservedElasticsearchInstanceOffering>;
-export type ReservedElasticsearchInstancePaymentOption = "ALL_UPFRONT" | "PARTIAL_UPFRONT" | "NO_UPFRONT";
+export type ReservedElasticsearchInstanceOfferingList =
+  Array<ReservedElasticsearchInstanceOffering>;
+export type ReservedElasticsearchInstancePaymentOption =
+  | "ALL_UPFRONT"
+  | "PARTIAL_UPFRONT"
+  | "NO_UPFRONT";
 export declare class ResourceAlreadyExistsException extends EffectData.TaggedError(
   "ResourceAlreadyExistsException",
 )<{
@@ -1248,8 +1621,7 @@ export interface RevokeVpcEndpointAccessRequest {
   DomainName: string;
   Account: string;
 }
-export interface RevokeVpcEndpointAccessResponse {
-}
+export interface RevokeVpcEndpointAccessResponse {}
 export type RoleArn = string;
 
 export type RollbackOnDisable = "NO_ROLLBACK" | "DEFAULT_ROLLBACK";
@@ -1281,7 +1653,9 @@ export interface SAMLOptionsOutput {
   RolesKey?: string;
   SessionTimeoutMinutes?: number;
 }
-export type ScheduledAutoTuneActionType = "JVM_HEAP_SIZE_TUNING" | "JVM_YOUNG_GEN_TUNING";
+export type ScheduledAutoTuneActionType =
+  | "JVM_HEAP_SIZE_TUNING"
+  | "JVM_YOUNG_GEN_TUNING";
 export type ScheduledAutoTuneDescription = string;
 
 export interface ScheduledAutoTuneDetails {
@@ -1348,7 +1722,10 @@ export type TagList = Array<Tag>;
 export type TagValue = string;
 
 export type TimeUnit = "HOURS";
-export type TLSSecurityPolicy = "Policy-Min-TLS-1-0-2019-07" | "Policy-Min-TLS-1-2-2019-07" | "Policy-Min-TLS-1-2-PFS-2023-10";
+export type TLSSecurityPolicy =
+  | "Policy-Min-TLS-1-0-2019-07"
+  | "Policy-Min-TLS-1-2-2019-07"
+  | "Policy-Min-TLS-1-2-PFS-2023-10";
 export type TotalNumberOfStages = number;
 
 export type UIntValue = number;
@@ -1412,7 +1789,11 @@ export interface UpgradeHistory {
 export type UpgradeHistoryList = Array<UpgradeHistory>;
 export type UpgradeName = string;
 
-export type UpgradeStatus = "IN_PROGRESS" | "SUCCEEDED" | "SUCCEEDED_WITH_ISSUES" | "FAILED";
+export type UpgradeStatus =
+  | "IN_PROGRESS"
+  | "SUCCEEDED"
+  | "SUCCEEDED_WITH_ISSUES"
+  | "FAILED";
 export type UpgradeStep = "PRE_UPGRADE_CHECK" | "SNAPSHOT" | "UPGRADE";
 export interface UpgradeStepItem {
   UpgradeStep?: UpgradeStep;
@@ -1461,7 +1842,14 @@ export type VpcEndpointId = string;
 
 export type VpcEndpointIdList = Array<string>;
 export type VpcEndpoints = Array<VpcEndpoint>;
-export type VpcEndpointStatus = "CREATING" | "CREATE_FAILED" | "ACTIVE" | "UPDATING" | "UPDATE_FAILED" | "DELETING" | "DELETE_FAILED";
+export type VpcEndpointStatus =
+  | "CREATING"
+  | "CREATE_FAILED"
+  | "ACTIVE"
+  | "UPDATING"
+  | "UPDATE_FAILED"
+  | "DELETING"
+  | "DELETE_FAILED";
 export interface VpcEndpointSummary {
   VpcEndpointId?: string;
   VpcEndpointOwner?: string;
@@ -1855,10 +2243,7 @@ export declare namespace GetUpgradeStatus {
 export declare namespace ListDomainNames {
   export type Input = ListDomainNamesRequest;
   export type Output = ListDomainNamesResponse;
-  export type Error =
-    | BaseException
-    | ValidationException
-    | CommonAwsError;
+  export type Error = BaseException | ValidationException | CommonAwsError;
 }
 
 export declare namespace ListDomainsForPackage {
@@ -2057,5 +2442,16 @@ export declare namespace UpgradeElasticsearchDomain {
     | CommonAwsError;
 }
 
-export type ElasticsearchServiceErrors = AccessDeniedException | BaseException | ConflictException | DisabledOperationException | InternalException | InvalidPaginationTokenException | InvalidTypeException | LimitExceededException | ResourceAlreadyExistsException | ResourceNotFoundException | ValidationException | CommonAwsError;
-
+export type ElasticsearchServiceErrors =
+  | AccessDeniedException
+  | BaseException
+  | ConflictException
+  | DisabledOperationException
+  | InternalException
+  | InvalidPaginationTokenException
+  | InvalidTypeException
+  | LimitExceededException
+  | ResourceAlreadyExistsException
+  | ResourceNotFoundException
+  | ValidationException
+  | CommonAwsError;

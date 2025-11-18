@@ -5,7 +5,26 @@ import type { MediaPackageVod as _MediaPackageVodClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException, type CommonAwsError} from "../../error.ts";
+export {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  ValidationException,
+  type CommonAwsError,
+} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -15,23 +34,23 @@ const metadata = {
   sigV4ServiceName: "mediapackage-vod",
   endpointPrefix: "mediapackage-vod",
   operations: {
-    "ConfigureLogs": "PUT /packaging_groups/{Id}/configure_logs",
-    "CreateAsset": "POST /assets",
-    "CreatePackagingConfiguration": "POST /packaging_configurations",
-    "CreatePackagingGroup": "POST /packaging_groups",
-    "DeleteAsset": "DELETE /assets/{Id}",
-    "DeletePackagingConfiguration": "DELETE /packaging_configurations/{Id}",
-    "DeletePackagingGroup": "DELETE /packaging_groups/{Id}",
-    "DescribeAsset": "GET /assets/{Id}",
-    "DescribePackagingConfiguration": "GET /packaging_configurations/{Id}",
-    "DescribePackagingGroup": "GET /packaging_groups/{Id}",
-    "ListAssets": "GET /assets",
-    "ListPackagingConfigurations": "GET /packaging_configurations",
-    "ListPackagingGroups": "GET /packaging_groups",
-    "ListTagsForResource": "GET /tags/{ResourceArn}",
-    "TagResource": "POST /tags/{ResourceArn}",
-    "UntagResource": "DELETE /tags/{ResourceArn}",
-    "UpdatePackagingGroup": "PUT /packaging_groups/{Id}",
+    ConfigureLogs: "PUT /packaging_groups/{Id}/configure_logs",
+    CreateAsset: "POST /assets",
+    CreatePackagingConfiguration: "POST /packaging_configurations",
+    CreatePackagingGroup: "POST /packaging_groups",
+    DeleteAsset: "DELETE /assets/{Id}",
+    DeletePackagingConfiguration: "DELETE /packaging_configurations/{Id}",
+    DeletePackagingGroup: "DELETE /packaging_groups/{Id}",
+    DescribeAsset: "GET /assets/{Id}",
+    DescribePackagingConfiguration: "GET /packaging_configurations/{Id}",
+    DescribePackagingGroup: "GET /packaging_groups/{Id}",
+    ListAssets: "GET /assets",
+    ListPackagingConfigurations: "GET /packaging_configurations",
+    ListPackagingGroups: "GET /packaging_groups",
+    ListTagsForResource: "GET /tags/{ResourceArn}",
+    TagResource: "POST /tags/{ResourceArn}",
+    UntagResource: "DELETE /tags/{ResourceArn}",
+    UpdatePackagingGroup: "PUT /packaging_groups/{Id}",
   },
 } as const satisfies ServiceMetadata;
 

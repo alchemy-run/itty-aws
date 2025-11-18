@@ -1,8 +1,42 @@
 import type { Effect, Stream, Data as EffectData } from "effect";
 import type { ResponseError } from "@effect/platform/HttpClientError";
 import type { Buffer } from "node:buffer";
-import type { AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException } from "../../error.ts";
-type CommonAwsError = AccessDeniedException | ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | ServiceUnavailable | ThrottlingException | UnrecognizedClientException | UnknownOperationException | ValidationError | ValidationException | RequestTimeoutException;
+import type {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  ValidationException,
+} from "../../error.ts";
+type CommonAwsError =
+  | AccessDeniedException
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | ServiceUnavailable
+  | ThrottlingException
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | ValidationException
+  | RequestTimeoutException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class Glacier extends AWSServiceClient {
@@ -10,199 +44,333 @@ export declare class Glacier extends AWSServiceClient {
     input: AbortMultipartUploadInput,
   ): Effect.Effect<
     {},
-    InvalidParameterValueException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
+    | InvalidParameterValueException
+    | MissingParameterValueException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError
   >;
   abortVaultLock(
     input: AbortVaultLockInput,
   ): Effect.Effect<
     {},
-    InvalidParameterValueException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
+    | InvalidParameterValueException
+    | MissingParameterValueException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError
   >;
   addTagsToVault(
     input: AddTagsToVaultInput,
   ): Effect.Effect<
     {},
-    InvalidParameterValueException | LimitExceededException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
+    | InvalidParameterValueException
+    | LimitExceededException
+    | MissingParameterValueException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError
   >;
   completeMultipartUpload(
     input: CompleteMultipartUploadInput,
   ): Effect.Effect<
     ArchiveCreationOutput,
-    InvalidParameterValueException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
+    | InvalidParameterValueException
+    | MissingParameterValueException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError
   >;
   completeVaultLock(
     input: CompleteVaultLockInput,
   ): Effect.Effect<
     {},
-    InvalidParameterValueException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
+    | InvalidParameterValueException
+    | MissingParameterValueException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError
   >;
   createVault(
     input: CreateVaultInput,
   ): Effect.Effect<
     CreateVaultOutput,
-    InvalidParameterValueException | LimitExceededException | MissingParameterValueException | ServiceUnavailableException | CommonAwsError
+    | InvalidParameterValueException
+    | LimitExceededException
+    | MissingParameterValueException
+    | ServiceUnavailableException
+    | CommonAwsError
   >;
   deleteArchive(
     input: DeleteArchiveInput,
   ): Effect.Effect<
     {},
-    InvalidParameterValueException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
+    | InvalidParameterValueException
+    | MissingParameterValueException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError
   >;
   deleteVault(
     input: DeleteVaultInput,
   ): Effect.Effect<
     {},
-    InvalidParameterValueException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
+    | InvalidParameterValueException
+    | MissingParameterValueException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError
   >;
   deleteVaultAccessPolicy(
     input: DeleteVaultAccessPolicyInput,
   ): Effect.Effect<
     {},
-    InvalidParameterValueException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
+    | InvalidParameterValueException
+    | MissingParameterValueException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError
   >;
   deleteVaultNotifications(
     input: DeleteVaultNotificationsInput,
   ): Effect.Effect<
     {},
-    InvalidParameterValueException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
+    | InvalidParameterValueException
+    | MissingParameterValueException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError
   >;
   describeJob(
     input: DescribeJobInput,
   ): Effect.Effect<
     GlacierJobDescription,
-    InvalidParameterValueException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
+    | InvalidParameterValueException
+    | MissingParameterValueException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError
   >;
   describeVault(
     input: DescribeVaultInput,
   ): Effect.Effect<
     DescribeVaultOutput,
-    InvalidParameterValueException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
+    | InvalidParameterValueException
+    | MissingParameterValueException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError
   >;
   getDataRetrievalPolicy(
     input: GetDataRetrievalPolicyInput,
   ): Effect.Effect<
     GetDataRetrievalPolicyOutput,
-    InvalidParameterValueException | MissingParameterValueException | ServiceUnavailableException | CommonAwsError
+    | InvalidParameterValueException
+    | MissingParameterValueException
+    | ServiceUnavailableException
+    | CommonAwsError
   >;
   getJobOutput(
     input: GetJobOutputInput,
   ): Effect.Effect<
     GetJobOutputOutput,
-    InvalidParameterValueException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
+    | InvalidParameterValueException
+    | MissingParameterValueException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError
   >;
   getVaultAccessPolicy(
     input: GetVaultAccessPolicyInput,
   ): Effect.Effect<
     GetVaultAccessPolicyOutput,
-    InvalidParameterValueException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
+    | InvalidParameterValueException
+    | MissingParameterValueException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError
   >;
   getVaultLock(
     input: GetVaultLockInput,
   ): Effect.Effect<
     GetVaultLockOutput,
-    InvalidParameterValueException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
+    | InvalidParameterValueException
+    | MissingParameterValueException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError
   >;
   getVaultNotifications(
     input: GetVaultNotificationsInput,
   ): Effect.Effect<
     GetVaultNotificationsOutput,
-    InvalidParameterValueException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
+    | InvalidParameterValueException
+    | MissingParameterValueException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError
   >;
   initiateJob(
     input: InitiateJobInput,
   ): Effect.Effect<
     InitiateJobOutput,
-    InsufficientCapacityException | InvalidParameterValueException | MissingParameterValueException | PolicyEnforcedException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
+    | InsufficientCapacityException
+    | InvalidParameterValueException
+    | MissingParameterValueException
+    | PolicyEnforcedException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError
   >;
   initiateMultipartUpload(
     input: InitiateMultipartUploadInput,
   ): Effect.Effect<
     InitiateMultipartUploadOutput,
-    InvalidParameterValueException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
+    | InvalidParameterValueException
+    | MissingParameterValueException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError
   >;
   initiateVaultLock(
     input: InitiateVaultLockInput,
   ): Effect.Effect<
     InitiateVaultLockOutput,
-    InvalidParameterValueException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
+    | InvalidParameterValueException
+    | MissingParameterValueException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError
   >;
   listJobs(
     input: ListJobsInput,
   ): Effect.Effect<
     ListJobsOutput,
-    InvalidParameterValueException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
+    | InvalidParameterValueException
+    | MissingParameterValueException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError
   >;
   listMultipartUploads(
     input: ListMultipartUploadsInput,
   ): Effect.Effect<
     ListMultipartUploadsOutput,
-    InvalidParameterValueException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
+    | InvalidParameterValueException
+    | MissingParameterValueException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError
   >;
   listParts(
     input: ListPartsInput,
   ): Effect.Effect<
     ListPartsOutput,
-    InvalidParameterValueException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
+    | InvalidParameterValueException
+    | MissingParameterValueException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError
   >;
   listProvisionedCapacity(
     input: ListProvisionedCapacityInput,
   ): Effect.Effect<
     ListProvisionedCapacityOutput,
-    InvalidParameterValueException | MissingParameterValueException | ServiceUnavailableException | CommonAwsError
+    | InvalidParameterValueException
+    | MissingParameterValueException
+    | ServiceUnavailableException
+    | CommonAwsError
   >;
   listTagsForVault(
     input: ListTagsForVaultInput,
   ): Effect.Effect<
     ListTagsForVaultOutput,
-    InvalidParameterValueException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
+    | InvalidParameterValueException
+    | MissingParameterValueException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError
   >;
   listVaults(
     input: ListVaultsInput,
   ): Effect.Effect<
     ListVaultsOutput,
-    InvalidParameterValueException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
+    | InvalidParameterValueException
+    | MissingParameterValueException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError
   >;
   purchaseProvisionedCapacity(
     input: PurchaseProvisionedCapacityInput,
   ): Effect.Effect<
     PurchaseProvisionedCapacityOutput,
-    InvalidParameterValueException | LimitExceededException | MissingParameterValueException | ServiceUnavailableException | CommonAwsError
+    | InvalidParameterValueException
+    | LimitExceededException
+    | MissingParameterValueException
+    | ServiceUnavailableException
+    | CommonAwsError
   >;
   removeTagsFromVault(
     input: RemoveTagsFromVaultInput,
   ): Effect.Effect<
     {},
-    InvalidParameterValueException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
+    | InvalidParameterValueException
+    | MissingParameterValueException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError
   >;
   setDataRetrievalPolicy(
     input: SetDataRetrievalPolicyInput,
   ): Effect.Effect<
     {},
-    InvalidParameterValueException | MissingParameterValueException | ServiceUnavailableException | CommonAwsError
+    | InvalidParameterValueException
+    | MissingParameterValueException
+    | ServiceUnavailableException
+    | CommonAwsError
   >;
   setVaultAccessPolicy(
     input: SetVaultAccessPolicyInput,
   ): Effect.Effect<
     {},
-    InvalidParameterValueException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
+    | InvalidParameterValueException
+    | MissingParameterValueException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError
   >;
   setVaultNotifications(
     input: SetVaultNotificationsInput,
   ): Effect.Effect<
     {},
-    InvalidParameterValueException | MissingParameterValueException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
+    | InvalidParameterValueException
+    | MissingParameterValueException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError
   >;
   uploadArchive(
     input: UploadArchiveInput,
   ): Effect.Effect<
     ArchiveCreationOutput,
-    InvalidParameterValueException | MissingParameterValueException | RequestTimeoutException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
+    | InvalidParameterValueException
+    | MissingParameterValueException
+    | RequestTimeoutException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError
   >;
   uploadMultipartPart(
     input: UploadMultipartPartInput,
   ): Effect.Effect<
     UploadMultipartPartOutput,
-    InvalidParameterValueException | MissingParameterValueException | RequestTimeoutException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError
+    | InvalidParameterValueException
+    | MissingParameterValueException
+    | RequestTimeoutException
+    | ResourceNotFoundException
+    | ServiceUnavailableException
+    | CommonAwsError
   >;
 }
 
@@ -229,7 +397,14 @@ export interface ArchiveCreationOutput {
 }
 export type Glacierboolean = boolean;
 
-export type CannedACL = "private" | "public-read" | "public-read-write" | "aws-exec-read" | "authenticated-read" | "bucket-owner-read" | "bucket-owner-full-control";
+export type CannedACL =
+  | "private"
+  | "public-read"
+  | "public-read-write"
+  | "aws-exec-read"
+  | "authenticated-read"
+  | "bucket-owner-read"
+  | "bucket-owner-full-control";
 export interface CompleteMultipartUploadInput {
   accountId: string;
   vaultName: string;
@@ -559,7 +734,12 @@ export interface PartListElement {
   RangeInBytes?: string;
   SHA256TreeHash?: string;
 }
-export type Permission = "FULL_CONTROL" | "WRITE" | "WRITE_ACP" | "READ" | "READ_ACP";
+export type Permission =
+  | "FULL_CONTROL"
+  | "WRITE"
+  | "WRITE_ACP"
+  | "READ"
+  | "READ_ACP";
 export declare class PolicyEnforcedException extends EffectData.TaggedError(
   "PolicyEnforcedException",
 )<{
@@ -1053,5 +1233,13 @@ export declare namespace UploadMultipartPart {
     | CommonAwsError;
 }
 
-export type GlacierErrors = InsufficientCapacityException | InvalidParameterValueException | LimitExceededException | MissingParameterValueException | PolicyEnforcedException | RequestTimeoutException | ResourceNotFoundException | ServiceUnavailableException | CommonAwsError;
-
+export type GlacierErrors =
+  | InsufficientCapacityException
+  | InvalidParameterValueException
+  | LimitExceededException
+  | MissingParameterValueException
+  | PolicyEnforcedException
+  | RequestTimeoutException
+  | ResourceNotFoundException
+  | ServiceUnavailableException
+  | CommonAwsError;

@@ -5,7 +5,23 @@ import type { ApplicationCostProfiler as _ApplicationCostProfilerClient } from "
 
 export * from "./types.ts";
 
-export {ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, type CommonAwsError} from "../../error.ts";
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  type CommonAwsError,
+} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -15,12 +31,12 @@ const metadata = {
   sigV4ServiceName: "application-cost-profiler",
   endpointPrefix: "application-cost-profiler",
   operations: {
-    "DeleteReportDefinition": "DELETE /reportDefinition/{reportId}",
-    "GetReportDefinition": "GET /reportDefinition/{reportId}",
-    "ImportApplicationUsage": "POST /importApplicationUsage",
-    "ListReportDefinitions": "GET /reportDefinition",
-    "PutReportDefinition": "POST /reportDefinition",
-    "UpdateReportDefinition": "PUT /reportDefinition/{reportId}",
+    DeleteReportDefinition: "DELETE /reportDefinition/{reportId}",
+    GetReportDefinition: "GET /reportDefinition/{reportId}",
+    ImportApplicationUsage: "POST /importApplicationUsage",
+    ListReportDefinitions: "GET /reportDefinition",
+    PutReportDefinition: "POST /reportDefinition",
+    UpdateReportDefinition: "PUT /reportDefinition/{reportId}",
   },
 } as const satisfies ServiceMetadata;
 

@@ -1,6 +1,38 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
-type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
+import type {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+type CommonAwsError =
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | AccessDeniedException
+  | ThrottlingException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class CodeGuruSecurity extends AWSServiceClient {
@@ -8,79 +40,143 @@ export declare class CodeGuruSecurity extends AWSServiceClient {
     input: BatchGetFindingsRequest,
   ): Effect.Effect<
     BatchGetFindingsResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createScan(
     input: CreateScanRequest,
   ): Effect.Effect<
     CreateScanResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createUploadUrl(
     input: CreateUploadUrlRequest,
   ): Effect.Effect<
     CreateUploadUrlResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getAccountConfiguration(
     input: GetAccountConfigurationRequest,
   ): Effect.Effect<
     GetAccountConfigurationResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getFindings(
     input: GetFindingsRequest,
   ): Effect.Effect<
     GetFindingsResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getMetricsSummary(
     input: GetMetricsSummaryRequest,
   ): Effect.Effect<
     GetMetricsSummaryResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getScan(
     input: GetScanRequest,
   ): Effect.Effect<
     GetScanResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listFindingsMetrics(
     input: ListFindingsMetricsRequest,
   ): Effect.Effect<
     ListFindingsMetricsResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listScans(
     input: ListScansRequest,
   ): Effect.Effect<
     ListScansResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateAccountConfiguration(
     input: UpdateAccountConfigurationRequest,
   ): Effect.Effect<
     UpdateAccountConfigurationResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
 }
 
@@ -163,7 +259,12 @@ export type DetectorTags = Array<string>;
 export interface EncryptionConfig {
   kmsKeyArn?: string;
 }
-export type ErrorCode = "DUPLICATE_IDENTIFIER" | "ITEM_DOES_NOT_EXIST" | "INTERNAL_ERROR" | "INVALID_FINDING_ID" | "INVALID_SCAN_NAME";
+export type ErrorCode =
+  | "DUPLICATE_IDENTIFIER"
+  | "ITEM_DOES_NOT_EXIST"
+  | "INTERNAL_ERROR"
+  | "INVALID_FINDING_ID"
+  | "INVALID_SCAN_NAME";
 export type ErrorMessage = string;
 
 export interface FilePath {
@@ -205,8 +306,7 @@ export interface FindingMetricsValuePerSeverity {
 }
 export type Findings = Array<Finding>;
 export type FindingsMetricList = Array<AccountFindingsMetric>;
-export interface GetAccountConfigurationRequest {
-}
+export interface GetAccountConfigurationRequest {}
 export interface GetAccountConfigurationResponse {
   encryptionConfig: EncryptionConfig;
 }
@@ -305,7 +405,7 @@ interface _ResourceId {
   codeArtifactId?: string;
 }
 
-export type ResourceId = (_ResourceId & { codeArtifactId: string });
+export type ResourceId = _ResourceId & { codeArtifactId: string };
 export declare class ResourceNotFoundException extends EffectData.TaggedError(
   "ResourceNotFoundException",
 )<{
@@ -352,8 +452,7 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {
-}
+export interface TagResourceResponse {}
 export type TagValue = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(
@@ -368,8 +467,7 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {
-}
+export interface UntagResourceResponse {}
 export interface UpdateAccountConfigurationRequest {
   encryptionConfig: EncryptionConfig;
 }
@@ -391,7 +489,12 @@ export interface ValidationExceptionField {
   message: string;
 }
 export type ValidationExceptionFieldList = Array<ValidationExceptionField>;
-export type ValidationExceptionReason = "unknownOperation" | "cannotParse" | "fieldValidationFailed" | "other" | "lambdaCodeShaMisMatch";
+export type ValidationExceptionReason =
+  | "unknownOperation"
+  | "cannotParse"
+  | "fieldValidationFailed"
+  | "other"
+  | "lambdaCodeShaMisMatch";
 export interface Vulnerability {
   referenceUrls?: Array<string>;
   relatedVulnerabilities?: Array<string>;
@@ -554,5 +657,11 @@ export declare namespace UpdateAccountConfiguration {
     | CommonAwsError;
 }
 
-export type CodeGuruSecurityErrors = AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError;
-
+export type CodeGuruSecurityErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

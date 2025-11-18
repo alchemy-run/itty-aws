@@ -5,7 +5,25 @@ import type { MarketplaceEntitlementService as _MarketplaceEntitlementServiceCli
 
 export * from "./types.ts";
 
-export {AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException, type CommonAwsError} from "../../error.ts";
+export {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  ValidationException,
+  type CommonAwsError,
+} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -17,8 +35,10 @@ const metadata = {
   targetPrefix: "AWSMPEntitlementService",
 } as const satisfies ServiceMetadata;
 
-export type _MarketplaceEntitlementService = _MarketplaceEntitlementServiceClient;
-export interface MarketplaceEntitlementService extends _MarketplaceEntitlementService {}
+export type _MarketplaceEntitlementService =
+  _MarketplaceEntitlementServiceClient;
+export interface MarketplaceEntitlementService
+  extends _MarketplaceEntitlementService {}
 export const MarketplaceEntitlementService = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

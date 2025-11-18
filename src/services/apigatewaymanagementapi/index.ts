@@ -5,7 +5,26 @@ import type { ApiGatewayManagementApi as _ApiGatewayManagementApiClient } from "
 
 export * from "./types.ts";
 
-export {AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException, type CommonAwsError} from "../../error.ts";
+export {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  ValidationException,
+  type CommonAwsError,
+} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -15,9 +34,9 @@ const metadata = {
   sigV4ServiceName: "execute-api",
   endpointPrefix: "execute-api",
   operations: {
-    "DeleteConnection": "DELETE /@connections/{ConnectionId}",
-    "GetConnection": "GET /@connections/{ConnectionId}",
-    "PostToConnection": "POST /@connections/{ConnectionId}",
+    DeleteConnection: "DELETE /@connections/{ConnectionId}",
+    GetConnection: "GET /@connections/{ConnectionId}",
+    PostToConnection: "POST /@connections/{ConnectionId}",
   },
 } as const satisfies ServiceMetadata;
 

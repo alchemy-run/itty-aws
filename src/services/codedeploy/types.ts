@@ -1,6 +1,40 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException } from "../../error.ts";
-type CommonAwsError = AccessDeniedException | ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | ValidationException | ThrottlingException;
+import type {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  ValidationException,
+} from "../../error.ts";
+type CommonAwsError =
+  | AccessDeniedException
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | ValidationException
+  | ThrottlingException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class CodeDeploy extends AWSServiceClient {
@@ -8,169 +42,363 @@ export declare class CodeDeploy extends AWSServiceClient {
     input: AddTagsToOnPremisesInstancesInput,
   ): Effect.Effect<
     {},
-    InstanceLimitExceededException | InstanceNameRequiredException | InstanceNotRegisteredException | InvalidInstanceNameException | InvalidTagException | TagLimitExceededException | TagRequiredException | CommonAwsError
+    | InstanceLimitExceededException
+    | InstanceNameRequiredException
+    | InstanceNotRegisteredException
+    | InvalidInstanceNameException
+    | InvalidTagException
+    | TagLimitExceededException
+    | TagRequiredException
+    | CommonAwsError
   >;
   batchGetApplicationRevisions(
     input: BatchGetApplicationRevisionsInput,
   ): Effect.Effect<
     BatchGetApplicationRevisionsOutput,
-    ApplicationDoesNotExistException | ApplicationNameRequiredException | BatchLimitExceededException | InvalidApplicationNameException | InvalidRevisionException | RevisionRequiredException | CommonAwsError
+    | ApplicationDoesNotExistException
+    | ApplicationNameRequiredException
+    | BatchLimitExceededException
+    | InvalidApplicationNameException
+    | InvalidRevisionException
+    | RevisionRequiredException
+    | CommonAwsError
   >;
   batchGetApplications(
     input: BatchGetApplicationsInput,
   ): Effect.Effect<
     BatchGetApplicationsOutput,
-    ApplicationDoesNotExistException | ApplicationNameRequiredException | BatchLimitExceededException | InvalidApplicationNameException | CommonAwsError
+    | ApplicationDoesNotExistException
+    | ApplicationNameRequiredException
+    | BatchLimitExceededException
+    | InvalidApplicationNameException
+    | CommonAwsError
   >;
   batchGetDeploymentGroups(
     input: BatchGetDeploymentGroupsInput,
   ): Effect.Effect<
     BatchGetDeploymentGroupsOutput,
-    ApplicationDoesNotExistException | ApplicationNameRequiredException | BatchLimitExceededException | DeploymentConfigDoesNotExistException | DeploymentGroupNameRequiredException | InvalidApplicationNameException | InvalidDeploymentGroupNameException | CommonAwsError
+    | ApplicationDoesNotExistException
+    | ApplicationNameRequiredException
+    | BatchLimitExceededException
+    | DeploymentConfigDoesNotExistException
+    | DeploymentGroupNameRequiredException
+    | InvalidApplicationNameException
+    | InvalidDeploymentGroupNameException
+    | CommonAwsError
   >;
   batchGetDeploymentInstances(
     input: BatchGetDeploymentInstancesInput,
   ): Effect.Effect<
     BatchGetDeploymentInstancesOutput,
-    BatchLimitExceededException | DeploymentDoesNotExistException | DeploymentIdRequiredException | InstanceIdRequiredException | InvalidComputePlatformException | InvalidDeploymentIdException | InvalidInstanceNameException | CommonAwsError
+    | BatchLimitExceededException
+    | DeploymentDoesNotExistException
+    | DeploymentIdRequiredException
+    | InstanceIdRequiredException
+    | InvalidComputePlatformException
+    | InvalidDeploymentIdException
+    | InvalidInstanceNameException
+    | CommonAwsError
   >;
   batchGetDeployments(
     input: BatchGetDeploymentsInput,
   ): Effect.Effect<
     BatchGetDeploymentsOutput,
-    BatchLimitExceededException | DeploymentIdRequiredException | InvalidDeploymentIdException | CommonAwsError
+    | BatchLimitExceededException
+    | DeploymentIdRequiredException
+    | InvalidDeploymentIdException
+    | CommonAwsError
   >;
   batchGetDeploymentTargets(
     input: BatchGetDeploymentTargetsInput,
   ): Effect.Effect<
     BatchGetDeploymentTargetsOutput,
-    DeploymentDoesNotExistException | DeploymentIdRequiredException | DeploymentNotStartedException | DeploymentTargetDoesNotExistException | DeploymentTargetIdRequiredException | DeploymentTargetListSizeExceededException | InstanceDoesNotExistException | InvalidDeploymentIdException | InvalidDeploymentTargetIdException | CommonAwsError
+    | DeploymentDoesNotExistException
+    | DeploymentIdRequiredException
+    | DeploymentNotStartedException
+    | DeploymentTargetDoesNotExistException
+    | DeploymentTargetIdRequiredException
+    | DeploymentTargetListSizeExceededException
+    | InstanceDoesNotExistException
+    | InvalidDeploymentIdException
+    | InvalidDeploymentTargetIdException
+    | CommonAwsError
   >;
   batchGetOnPremisesInstances(
     input: BatchGetOnPremisesInstancesInput,
   ): Effect.Effect<
     BatchGetOnPremisesInstancesOutput,
-    BatchLimitExceededException | InstanceNameRequiredException | InvalidInstanceNameException | CommonAwsError
+    | BatchLimitExceededException
+    | InstanceNameRequiredException
+    | InvalidInstanceNameException
+    | CommonAwsError
   >;
   continueDeployment(
     input: ContinueDeploymentInput,
   ): Effect.Effect<
     {},
-    DeploymentAlreadyCompletedException | DeploymentDoesNotExistException | DeploymentIdRequiredException | DeploymentIsNotInReadyStateException | InvalidDeploymentIdException | InvalidDeploymentStatusException | InvalidDeploymentWaitTypeException | UnsupportedActionForDeploymentTypeException | CommonAwsError
+    | DeploymentAlreadyCompletedException
+    | DeploymentDoesNotExistException
+    | DeploymentIdRequiredException
+    | DeploymentIsNotInReadyStateException
+    | InvalidDeploymentIdException
+    | InvalidDeploymentStatusException
+    | InvalidDeploymentWaitTypeException
+    | UnsupportedActionForDeploymentTypeException
+    | CommonAwsError
   >;
   createApplication(
     input: CreateApplicationInput,
   ): Effect.Effect<
     CreateApplicationOutput,
-    ApplicationAlreadyExistsException | ApplicationLimitExceededException | ApplicationNameRequiredException | InvalidApplicationNameException | InvalidComputePlatformException | InvalidTagsToAddException | CommonAwsError
+    | ApplicationAlreadyExistsException
+    | ApplicationLimitExceededException
+    | ApplicationNameRequiredException
+    | InvalidApplicationNameException
+    | InvalidComputePlatformException
+    | InvalidTagsToAddException
+    | CommonAwsError
   >;
   createDeployment(
     input: CreateDeploymentInput,
   ): Effect.Effect<
     CreateDeploymentOutput,
-    AlarmsLimitExceededException | ApplicationDoesNotExistException | ApplicationNameRequiredException | DeploymentConfigDoesNotExistException | DeploymentGroupDoesNotExistException | DeploymentGroupNameRequiredException | DeploymentLimitExceededException | DescriptionTooLongException | InvalidAlarmConfigException | InvalidApplicationNameException | InvalidAutoRollbackConfigException | InvalidAutoScalingGroupException | InvalidDeploymentConfigNameException | InvalidDeploymentGroupNameException | InvalidFileExistsBehaviorException | InvalidGitHubAccountTokenException | InvalidIgnoreApplicationStopFailuresValueException | InvalidLoadBalancerInfoException | InvalidRevisionException | InvalidRoleException | InvalidTargetInstancesException | InvalidTrafficRoutingConfigurationException | InvalidUpdateOutdatedInstancesOnlyValueException | RevisionDoesNotExistException | RevisionRequiredException | ThrottlingException | CommonAwsError
+    | AlarmsLimitExceededException
+    | ApplicationDoesNotExistException
+    | ApplicationNameRequiredException
+    | DeploymentConfigDoesNotExistException
+    | DeploymentGroupDoesNotExistException
+    | DeploymentGroupNameRequiredException
+    | DeploymentLimitExceededException
+    | DescriptionTooLongException
+    | InvalidAlarmConfigException
+    | InvalidApplicationNameException
+    | InvalidAutoRollbackConfigException
+    | InvalidAutoScalingGroupException
+    | InvalidDeploymentConfigNameException
+    | InvalidDeploymentGroupNameException
+    | InvalidFileExistsBehaviorException
+    | InvalidGitHubAccountTokenException
+    | InvalidIgnoreApplicationStopFailuresValueException
+    | InvalidLoadBalancerInfoException
+    | InvalidRevisionException
+    | InvalidRoleException
+    | InvalidTargetInstancesException
+    | InvalidTrafficRoutingConfigurationException
+    | InvalidUpdateOutdatedInstancesOnlyValueException
+    | RevisionDoesNotExistException
+    | RevisionRequiredException
+    | ThrottlingException
+    | CommonAwsError
   >;
   createDeploymentConfig(
     input: CreateDeploymentConfigInput,
   ): Effect.Effect<
     CreateDeploymentConfigOutput,
-    DeploymentConfigAlreadyExistsException | DeploymentConfigLimitExceededException | DeploymentConfigNameRequiredException | InvalidComputePlatformException | InvalidDeploymentConfigNameException | InvalidMinimumHealthyHostValueException | InvalidTrafficRoutingConfigurationException | InvalidZonalDeploymentConfigurationException | CommonAwsError
+    | DeploymentConfigAlreadyExistsException
+    | DeploymentConfigLimitExceededException
+    | DeploymentConfigNameRequiredException
+    | InvalidComputePlatformException
+    | InvalidDeploymentConfigNameException
+    | InvalidMinimumHealthyHostValueException
+    | InvalidTrafficRoutingConfigurationException
+    | InvalidZonalDeploymentConfigurationException
+    | CommonAwsError
   >;
   createDeploymentGroup(
     input: CreateDeploymentGroupInput,
   ): Effect.Effect<
     CreateDeploymentGroupOutput,
-    AlarmsLimitExceededException | ApplicationDoesNotExistException | ApplicationNameRequiredException | DeploymentConfigDoesNotExistException | DeploymentGroupAlreadyExistsException | DeploymentGroupLimitExceededException | DeploymentGroupNameRequiredException | ECSServiceMappingLimitExceededException | InvalidAlarmConfigException | InvalidApplicationNameException | InvalidAutoRollbackConfigException | InvalidAutoScalingGroupException | InvalidBlueGreenDeploymentConfigurationException | InvalidDeploymentConfigNameException | InvalidDeploymentGroupNameException | InvalidDeploymentStyleException | InvalidEC2TagCombinationException | InvalidEC2TagException | InvalidECSServiceException | InvalidInputException | InvalidLoadBalancerInfoException | InvalidOnPremisesTagCombinationException | InvalidRoleException | InvalidTagException | InvalidTagsToAddException | InvalidTargetGroupPairException | InvalidTrafficRoutingConfigurationException | InvalidTriggerConfigException | LifecycleHookLimitExceededException | RoleRequiredException | TagSetListLimitExceededException | ThrottlingException | TriggerTargetsLimitExceededException | CommonAwsError
+    | AlarmsLimitExceededException
+    | ApplicationDoesNotExistException
+    | ApplicationNameRequiredException
+    | DeploymentConfigDoesNotExistException
+    | DeploymentGroupAlreadyExistsException
+    | DeploymentGroupLimitExceededException
+    | DeploymentGroupNameRequiredException
+    | ECSServiceMappingLimitExceededException
+    | InvalidAlarmConfigException
+    | InvalidApplicationNameException
+    | InvalidAutoRollbackConfigException
+    | InvalidAutoScalingGroupException
+    | InvalidBlueGreenDeploymentConfigurationException
+    | InvalidDeploymentConfigNameException
+    | InvalidDeploymentGroupNameException
+    | InvalidDeploymentStyleException
+    | InvalidEC2TagCombinationException
+    | InvalidEC2TagException
+    | InvalidECSServiceException
+    | InvalidInputException
+    | InvalidLoadBalancerInfoException
+    | InvalidOnPremisesTagCombinationException
+    | InvalidRoleException
+    | InvalidTagException
+    | InvalidTagsToAddException
+    | InvalidTargetGroupPairException
+    | InvalidTrafficRoutingConfigurationException
+    | InvalidTriggerConfigException
+    | LifecycleHookLimitExceededException
+    | RoleRequiredException
+    | TagSetListLimitExceededException
+    | ThrottlingException
+    | TriggerTargetsLimitExceededException
+    | CommonAwsError
   >;
   deleteApplication(
     input: DeleteApplicationInput,
   ): Effect.Effect<
     {},
-    ApplicationNameRequiredException | InvalidApplicationNameException | InvalidRoleException | CommonAwsError
+    | ApplicationNameRequiredException
+    | InvalidApplicationNameException
+    | InvalidRoleException
+    | CommonAwsError
   >;
   deleteDeploymentConfig(
     input: DeleteDeploymentConfigInput,
   ): Effect.Effect<
     {},
-    DeploymentConfigInUseException | DeploymentConfigNameRequiredException | InvalidDeploymentConfigNameException | InvalidOperationException | CommonAwsError
+    | DeploymentConfigInUseException
+    | DeploymentConfigNameRequiredException
+    | InvalidDeploymentConfigNameException
+    | InvalidOperationException
+    | CommonAwsError
   >;
   deleteDeploymentGroup(
     input: DeleteDeploymentGroupInput,
   ): Effect.Effect<
     DeleteDeploymentGroupOutput,
-    ApplicationNameRequiredException | DeploymentGroupNameRequiredException | InvalidApplicationNameException | InvalidDeploymentGroupNameException | InvalidRoleException | CommonAwsError
+    | ApplicationNameRequiredException
+    | DeploymentGroupNameRequiredException
+    | InvalidApplicationNameException
+    | InvalidDeploymentGroupNameException
+    | InvalidRoleException
+    | CommonAwsError
   >;
   deleteGitHubAccountToken(
     input: DeleteGitHubAccountTokenInput,
   ): Effect.Effect<
     DeleteGitHubAccountTokenOutput,
-    GitHubAccountTokenDoesNotExistException | GitHubAccountTokenNameRequiredException | InvalidGitHubAccountTokenNameException | OperationNotSupportedException | ResourceValidationException | CommonAwsError
+    | GitHubAccountTokenDoesNotExistException
+    | GitHubAccountTokenNameRequiredException
+    | InvalidGitHubAccountTokenNameException
+    | OperationNotSupportedException
+    | ResourceValidationException
+    | CommonAwsError
   >;
   deleteResourcesByExternalId(
     input: DeleteResourcesByExternalIdInput,
-  ): Effect.Effect<
-    DeleteResourcesByExternalIdOutput,
-    CommonAwsError
-  >;
+  ): Effect.Effect<DeleteResourcesByExternalIdOutput, CommonAwsError>;
   deregisterOnPremisesInstance(
     input: DeregisterOnPremisesInstanceInput,
   ): Effect.Effect<
     {},
-    InstanceNameRequiredException | InvalidInstanceNameException | CommonAwsError
+    | InstanceNameRequiredException
+    | InvalidInstanceNameException
+    | CommonAwsError
   >;
   getApplication(
     input: GetApplicationInput,
   ): Effect.Effect<
     GetApplicationOutput,
-    ApplicationDoesNotExistException | ApplicationNameRequiredException | InvalidApplicationNameException | CommonAwsError
+    | ApplicationDoesNotExistException
+    | ApplicationNameRequiredException
+    | InvalidApplicationNameException
+    | CommonAwsError
   >;
   getApplicationRevision(
     input: GetApplicationRevisionInput,
   ): Effect.Effect<
     GetApplicationRevisionOutput,
-    ApplicationDoesNotExistException | ApplicationNameRequiredException | InvalidApplicationNameException | InvalidRevisionException | RevisionDoesNotExistException | RevisionRequiredException | CommonAwsError
+    | ApplicationDoesNotExistException
+    | ApplicationNameRequiredException
+    | InvalidApplicationNameException
+    | InvalidRevisionException
+    | RevisionDoesNotExistException
+    | RevisionRequiredException
+    | CommonAwsError
   >;
   getDeployment(
     input: GetDeploymentInput,
   ): Effect.Effect<
     GetDeploymentOutput,
-    DeploymentDoesNotExistException | DeploymentIdRequiredException | InvalidDeploymentIdException | CommonAwsError
+    | DeploymentDoesNotExistException
+    | DeploymentIdRequiredException
+    | InvalidDeploymentIdException
+    | CommonAwsError
   >;
   getDeploymentConfig(
     input: GetDeploymentConfigInput,
   ): Effect.Effect<
     GetDeploymentConfigOutput,
-    DeploymentConfigDoesNotExistException | DeploymentConfigNameRequiredException | InvalidComputePlatformException | InvalidDeploymentConfigNameException | CommonAwsError
+    | DeploymentConfigDoesNotExistException
+    | DeploymentConfigNameRequiredException
+    | InvalidComputePlatformException
+    | InvalidDeploymentConfigNameException
+    | CommonAwsError
   >;
   getDeploymentGroup(
     input: GetDeploymentGroupInput,
   ): Effect.Effect<
     GetDeploymentGroupOutput,
-    ApplicationDoesNotExistException | ApplicationNameRequiredException | DeploymentConfigDoesNotExistException | DeploymentGroupDoesNotExistException | DeploymentGroupNameRequiredException | InvalidApplicationNameException | InvalidDeploymentGroupNameException | CommonAwsError
+    | ApplicationDoesNotExistException
+    | ApplicationNameRequiredException
+    | DeploymentConfigDoesNotExistException
+    | DeploymentGroupDoesNotExistException
+    | DeploymentGroupNameRequiredException
+    | InvalidApplicationNameException
+    | InvalidDeploymentGroupNameException
+    | CommonAwsError
   >;
   getDeploymentInstance(
     input: GetDeploymentInstanceInput,
   ): Effect.Effect<
     GetDeploymentInstanceOutput,
-    DeploymentDoesNotExistException | DeploymentIdRequiredException | InstanceDoesNotExistException | InstanceIdRequiredException | InvalidComputePlatformException | InvalidDeploymentIdException | InvalidInstanceNameException | CommonAwsError
+    | DeploymentDoesNotExistException
+    | DeploymentIdRequiredException
+    | InstanceDoesNotExistException
+    | InstanceIdRequiredException
+    | InvalidComputePlatformException
+    | InvalidDeploymentIdException
+    | InvalidInstanceNameException
+    | CommonAwsError
   >;
   getDeploymentTarget(
     input: GetDeploymentTargetInput,
   ): Effect.Effect<
     GetDeploymentTargetOutput,
-    DeploymentDoesNotExistException | DeploymentIdRequiredException | DeploymentNotStartedException | DeploymentTargetDoesNotExistException | DeploymentTargetIdRequiredException | InvalidDeploymentIdException | InvalidDeploymentTargetIdException | InvalidInstanceNameException | CommonAwsError
+    | DeploymentDoesNotExistException
+    | DeploymentIdRequiredException
+    | DeploymentNotStartedException
+    | DeploymentTargetDoesNotExistException
+    | DeploymentTargetIdRequiredException
+    | InvalidDeploymentIdException
+    | InvalidDeploymentTargetIdException
+    | InvalidInstanceNameException
+    | CommonAwsError
   >;
   getOnPremisesInstance(
     input: GetOnPremisesInstanceInput,
   ): Effect.Effect<
     GetOnPremisesInstanceOutput,
-    InstanceNameRequiredException | InstanceNotRegisteredException | InvalidInstanceNameException | CommonAwsError
+    | InstanceNameRequiredException
+    | InstanceNotRegisteredException
+    | InvalidInstanceNameException
+    | CommonAwsError
   >;
   listApplicationRevisions(
     input: ListApplicationRevisionsInput,
   ): Effect.Effect<
     ListApplicationRevisionsOutput,
-    ApplicationDoesNotExistException | ApplicationNameRequiredException | BucketNameFilterRequiredException | InvalidApplicationNameException | InvalidBucketNameFilterException | InvalidDeployedStateFilterException | InvalidKeyPrefixFilterException | InvalidNextTokenException | InvalidSortByException | InvalidSortOrderException | CommonAwsError
+    | ApplicationDoesNotExistException
+    | ApplicationNameRequiredException
+    | BucketNameFilterRequiredException
+    | InvalidApplicationNameException
+    | InvalidBucketNameFilterException
+    | InvalidDeployedStateFilterException
+    | InvalidKeyPrefixFilterException
+    | InvalidNextTokenException
+    | InvalidSortByException
+    | InvalidSortOrderException
+    | CommonAwsError
   >;
   listApplications(
     input: ListApplicationsInput,
@@ -188,103 +416,239 @@ export declare class CodeDeploy extends AWSServiceClient {
     input: ListDeploymentGroupsInput,
   ): Effect.Effect<
     ListDeploymentGroupsOutput,
-    ApplicationDoesNotExistException | ApplicationNameRequiredException | InvalidApplicationNameException | InvalidNextTokenException | CommonAwsError
+    | ApplicationDoesNotExistException
+    | ApplicationNameRequiredException
+    | InvalidApplicationNameException
+    | InvalidNextTokenException
+    | CommonAwsError
   >;
   listDeploymentInstances(
     input: ListDeploymentInstancesInput,
   ): Effect.Effect<
     ListDeploymentInstancesOutput,
-    DeploymentDoesNotExistException | DeploymentIdRequiredException | DeploymentNotStartedException | InvalidComputePlatformException | InvalidDeploymentIdException | InvalidDeploymentInstanceTypeException | InvalidInstanceStatusException | InvalidInstanceTypeException | InvalidNextTokenException | InvalidTargetFilterNameException | CommonAwsError
+    | DeploymentDoesNotExistException
+    | DeploymentIdRequiredException
+    | DeploymentNotStartedException
+    | InvalidComputePlatformException
+    | InvalidDeploymentIdException
+    | InvalidDeploymentInstanceTypeException
+    | InvalidInstanceStatusException
+    | InvalidInstanceTypeException
+    | InvalidNextTokenException
+    | InvalidTargetFilterNameException
+    | CommonAwsError
   >;
   listDeployments(
     input: ListDeploymentsInput,
   ): Effect.Effect<
     ListDeploymentsOutput,
-    ApplicationDoesNotExistException | ApplicationNameRequiredException | DeploymentGroupDoesNotExistException | DeploymentGroupNameRequiredException | InvalidApplicationNameException | InvalidDeploymentGroupNameException | InvalidDeploymentStatusException | InvalidExternalIdException | InvalidInputException | InvalidNextTokenException | InvalidTimeRangeException | CommonAwsError
+    | ApplicationDoesNotExistException
+    | ApplicationNameRequiredException
+    | DeploymentGroupDoesNotExistException
+    | DeploymentGroupNameRequiredException
+    | InvalidApplicationNameException
+    | InvalidDeploymentGroupNameException
+    | InvalidDeploymentStatusException
+    | InvalidExternalIdException
+    | InvalidInputException
+    | InvalidNextTokenException
+    | InvalidTimeRangeException
+    | CommonAwsError
   >;
   listDeploymentTargets(
     input: ListDeploymentTargetsInput,
   ): Effect.Effect<
     ListDeploymentTargetsOutput,
-    DeploymentDoesNotExistException | DeploymentIdRequiredException | DeploymentNotStartedException | InvalidDeploymentIdException | InvalidDeploymentInstanceTypeException | InvalidInstanceStatusException | InvalidInstanceTypeException | InvalidNextTokenException | InvalidTargetFilterNameException | CommonAwsError
+    | DeploymentDoesNotExistException
+    | DeploymentIdRequiredException
+    | DeploymentNotStartedException
+    | InvalidDeploymentIdException
+    | InvalidDeploymentInstanceTypeException
+    | InvalidInstanceStatusException
+    | InvalidInstanceTypeException
+    | InvalidNextTokenException
+    | InvalidTargetFilterNameException
+    | CommonAwsError
   >;
   listGitHubAccountTokenNames(
     input: ListGitHubAccountTokenNamesInput,
   ): Effect.Effect<
     ListGitHubAccountTokenNamesOutput,
-    InvalidNextTokenException | OperationNotSupportedException | ResourceValidationException | CommonAwsError
+    | InvalidNextTokenException
+    | OperationNotSupportedException
+    | ResourceValidationException
+    | CommonAwsError
   >;
   listOnPremisesInstances(
     input: ListOnPremisesInstancesInput,
   ): Effect.Effect<
     ListOnPremisesInstancesOutput,
-    InvalidNextTokenException | InvalidRegistrationStatusException | InvalidTagFilterException | CommonAwsError
+    | InvalidNextTokenException
+    | InvalidRegistrationStatusException
+    | InvalidTagFilterException
+    | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceInput,
   ): Effect.Effect<
     ListTagsForResourceOutput,
-    ArnNotSupportedException | InvalidArnException | ResourceArnRequiredException | CommonAwsError
+    | ArnNotSupportedException
+    | InvalidArnException
+    | ResourceArnRequiredException
+    | CommonAwsError
   >;
   putLifecycleEventHookExecutionStatus(
     input: PutLifecycleEventHookExecutionStatusInput,
   ): Effect.Effect<
     PutLifecycleEventHookExecutionStatusOutput,
-    DeploymentDoesNotExistException | DeploymentIdRequiredException | InvalidDeploymentIdException | InvalidLifecycleEventHookExecutionIdException | InvalidLifecycleEventHookExecutionStatusException | LifecycleEventAlreadyCompletedException | UnsupportedActionForDeploymentTypeException | CommonAwsError
+    | DeploymentDoesNotExistException
+    | DeploymentIdRequiredException
+    | InvalidDeploymentIdException
+    | InvalidLifecycleEventHookExecutionIdException
+    | InvalidLifecycleEventHookExecutionStatusException
+    | LifecycleEventAlreadyCompletedException
+    | UnsupportedActionForDeploymentTypeException
+    | CommonAwsError
   >;
   registerApplicationRevision(
     input: RegisterApplicationRevisionInput,
   ): Effect.Effect<
     {},
-    ApplicationDoesNotExistException | ApplicationNameRequiredException | DescriptionTooLongException | InvalidApplicationNameException | InvalidRevisionException | RevisionRequiredException | CommonAwsError
+    | ApplicationDoesNotExistException
+    | ApplicationNameRequiredException
+    | DescriptionTooLongException
+    | InvalidApplicationNameException
+    | InvalidRevisionException
+    | RevisionRequiredException
+    | CommonAwsError
   >;
   registerOnPremisesInstance(
     input: RegisterOnPremisesInstanceInput,
   ): Effect.Effect<
     {},
-    IamArnRequiredException | IamSessionArnAlreadyRegisteredException | IamUserArnAlreadyRegisteredException | IamUserArnRequiredException | InstanceNameAlreadyRegisteredException | InstanceNameRequiredException | InvalidIamSessionArnException | InvalidIamUserArnException | InvalidInstanceNameException | MultipleIamArnsProvidedException | CommonAwsError
+    | IamArnRequiredException
+    | IamSessionArnAlreadyRegisteredException
+    | IamUserArnAlreadyRegisteredException
+    | IamUserArnRequiredException
+    | InstanceNameAlreadyRegisteredException
+    | InstanceNameRequiredException
+    | InvalidIamSessionArnException
+    | InvalidIamUserArnException
+    | InvalidInstanceNameException
+    | MultipleIamArnsProvidedException
+    | CommonAwsError
   >;
   removeTagsFromOnPremisesInstances(
     input: RemoveTagsFromOnPremisesInstancesInput,
   ): Effect.Effect<
     {},
-    InstanceLimitExceededException | InstanceNameRequiredException | InstanceNotRegisteredException | InvalidInstanceNameException | InvalidTagException | TagLimitExceededException | TagRequiredException | CommonAwsError
+    | InstanceLimitExceededException
+    | InstanceNameRequiredException
+    | InstanceNotRegisteredException
+    | InvalidInstanceNameException
+    | InvalidTagException
+    | TagLimitExceededException
+    | TagRequiredException
+    | CommonAwsError
   >;
   skipWaitTimeForInstanceTermination(
     input: SkipWaitTimeForInstanceTerminationInput,
   ): Effect.Effect<
     {},
-    DeploymentAlreadyCompletedException | DeploymentDoesNotExistException | DeploymentIdRequiredException | DeploymentNotStartedException | InvalidDeploymentIdException | UnsupportedActionForDeploymentTypeException | CommonAwsError
+    | DeploymentAlreadyCompletedException
+    | DeploymentDoesNotExistException
+    | DeploymentIdRequiredException
+    | DeploymentNotStartedException
+    | InvalidDeploymentIdException
+    | UnsupportedActionForDeploymentTypeException
+    | CommonAwsError
   >;
   stopDeployment(
     input: StopDeploymentInput,
   ): Effect.Effect<
     StopDeploymentOutput,
-    DeploymentAlreadyCompletedException | DeploymentDoesNotExistException | DeploymentGroupDoesNotExistException | DeploymentIdRequiredException | InvalidDeploymentIdException | UnsupportedActionForDeploymentTypeException | CommonAwsError
+    | DeploymentAlreadyCompletedException
+    | DeploymentDoesNotExistException
+    | DeploymentGroupDoesNotExistException
+    | DeploymentIdRequiredException
+    | InvalidDeploymentIdException
+    | UnsupportedActionForDeploymentTypeException
+    | CommonAwsError
   >;
   tagResource(
     input: TagResourceInput,
   ): Effect.Effect<
     TagResourceOutput,
-    ApplicationDoesNotExistException | ArnNotSupportedException | DeploymentConfigDoesNotExistException | DeploymentGroupDoesNotExistException | InvalidArnException | InvalidTagsToAddException | ResourceArnRequiredException | TagRequiredException | CommonAwsError
+    | ApplicationDoesNotExistException
+    | ArnNotSupportedException
+    | DeploymentConfigDoesNotExistException
+    | DeploymentGroupDoesNotExistException
+    | InvalidArnException
+    | InvalidTagsToAddException
+    | ResourceArnRequiredException
+    | TagRequiredException
+    | CommonAwsError
   >;
   untagResource(
     input: UntagResourceInput,
   ): Effect.Effect<
     UntagResourceOutput,
-    ApplicationDoesNotExistException | ArnNotSupportedException | DeploymentConfigDoesNotExistException | DeploymentGroupDoesNotExistException | InvalidArnException | InvalidTagsToAddException | ResourceArnRequiredException | TagRequiredException | CommonAwsError
+    | ApplicationDoesNotExistException
+    | ArnNotSupportedException
+    | DeploymentConfigDoesNotExistException
+    | DeploymentGroupDoesNotExistException
+    | InvalidArnException
+    | InvalidTagsToAddException
+    | ResourceArnRequiredException
+    | TagRequiredException
+    | CommonAwsError
   >;
   updateApplication(
     input: UpdateApplicationInput,
   ): Effect.Effect<
     {},
-    ApplicationAlreadyExistsException | ApplicationDoesNotExistException | ApplicationNameRequiredException | InvalidApplicationNameException | CommonAwsError
+    | ApplicationAlreadyExistsException
+    | ApplicationDoesNotExistException
+    | ApplicationNameRequiredException
+    | InvalidApplicationNameException
+    | CommonAwsError
   >;
   updateDeploymentGroup(
     input: UpdateDeploymentGroupInput,
   ): Effect.Effect<
     UpdateDeploymentGroupOutput,
-    AlarmsLimitExceededException | ApplicationDoesNotExistException | ApplicationNameRequiredException | DeploymentConfigDoesNotExistException | DeploymentGroupAlreadyExistsException | DeploymentGroupDoesNotExistException | DeploymentGroupNameRequiredException | ECSServiceMappingLimitExceededException | InvalidAlarmConfigException | InvalidApplicationNameException | InvalidAutoRollbackConfigException | InvalidAutoScalingGroupException | InvalidBlueGreenDeploymentConfigurationException | InvalidDeploymentConfigNameException | InvalidDeploymentGroupNameException | InvalidDeploymentStyleException | InvalidEC2TagCombinationException | InvalidEC2TagException | InvalidECSServiceException | InvalidInputException | InvalidLoadBalancerInfoException | InvalidOnPremisesTagCombinationException | InvalidRoleException | InvalidTagException | InvalidTargetGroupPairException | InvalidTrafficRoutingConfigurationException | InvalidTriggerConfigException | LifecycleHookLimitExceededException | TagSetListLimitExceededException | ThrottlingException | TriggerTargetsLimitExceededException | CommonAwsError
+    | AlarmsLimitExceededException
+    | ApplicationDoesNotExistException
+    | ApplicationNameRequiredException
+    | DeploymentConfigDoesNotExistException
+    | DeploymentGroupAlreadyExistsException
+    | DeploymentGroupDoesNotExistException
+    | DeploymentGroupNameRequiredException
+    | ECSServiceMappingLimitExceededException
+    | InvalidAlarmConfigException
+    | InvalidApplicationNameException
+    | InvalidAutoRollbackConfigException
+    | InvalidAutoScalingGroupException
+    | InvalidBlueGreenDeploymentConfigurationException
+    | InvalidDeploymentConfigNameException
+    | InvalidDeploymentGroupNameException
+    | InvalidDeploymentStyleException
+    | InvalidEC2TagCombinationException
+    | InvalidEC2TagException
+    | InvalidECSServiceException
+    | InvalidInputException
+    | InvalidLoadBalancerInfoException
+    | InvalidOnPremisesTagCombinationException
+    | InvalidRoleException
+    | InvalidTagException
+    | InvalidTargetGroupPairException
+    | InvalidTrafficRoutingConfigurationException
+    | InvalidTriggerConfigException
+    | LifecycleHookLimitExceededException
+    | TagSetListLimitExceededException
+    | ThrottlingException
+    | TriggerTargetsLimitExceededException
+    | CommonAwsError
   >;
 }
 
@@ -344,7 +708,10 @@ export declare class ApplicationNameRequiredException extends EffectData.TaggedE
 )<{
   readonly message?: string;
 }> {}
-export type ApplicationRevisionSortBy = "registerTime" | "firstUsedTime" | "lastUsedTime";
+export type ApplicationRevisionSortBy =
+  | "registerTime"
+  | "firstUsedTime"
+  | "lastUsedTime";
 export type ApplicationsInfoList = Array<ApplicationInfo>;
 export type ApplicationsList = Array<string>;
 export interface AppSpecContent {
@@ -362,7 +729,10 @@ export interface AutoRollbackConfiguration {
   enabled?: boolean;
   events?: Array<AutoRollbackEvent>;
 }
-export type AutoRollbackEvent = "DEPLOYMENT_FAILURE" | "DEPLOYMENT_STOP_ON_ALARM" | "DEPLOYMENT_STOP_ON_REQUEST";
+export type AutoRollbackEvent =
+  | "DEPLOYMENT_FAILURE"
+  | "DEPLOYMENT_STOP_ON_ALARM"
+  | "DEPLOYMENT_STOP_ON_REQUEST";
 export type AutoRollbackEventsList = Array<AutoRollbackEvent>;
 export interface AutoScalingGroup {
   name?: string;
@@ -545,8 +915,7 @@ export interface DeleteGitHubAccountTokenOutput {
 export interface DeleteResourcesByExternalIdInput {
   externalId?: string;
 }
-export interface DeleteResourcesByExternalIdOutput {
-}
+export interface DeleteResourcesByExternalIdOutput {}
 export declare class DeploymentAlreadyCompletedException extends EffectData.TaggedError(
   "DeploymentAlreadyCompletedException",
 )<{
@@ -591,7 +960,15 @@ export declare class DeploymentConfigNameRequiredException extends EffectData.Ta
   readonly message?: string;
 }> {}
 export type DeploymentConfigsList = Array<string>;
-export type DeploymentCreator = "user" | "autoscaling" | "codeDeployRollback" | "CodeDeploy" | "CodeDeployAutoUpdate" | "CloudFormation" | "CloudFormationRollback" | "autoscalingTermination";
+export type DeploymentCreator =
+  | "user"
+  | "autoscaling"
+  | "codeDeployRollback"
+  | "CodeDeploy"
+  | "CodeDeployAutoUpdate"
+  | "CloudFormation"
+  | "CloudFormationRollback"
+  | "autoscalingTermination";
 export declare class DeploymentDoesNotExistException extends EffectData.TaggedError(
   "DeploymentDoesNotExistException",
 )<{
@@ -702,7 +1079,9 @@ export declare class DeploymentNotStartedException extends EffectData.TaggedErro
 )<{
   readonly message?: string;
 }> {}
-export type DeploymentOption = "WITH_TRAFFIC_CONTROL" | "WITHOUT_TRAFFIC_CONTROL";
+export type DeploymentOption =
+  | "WITH_TRAFFIC_CONTROL"
+  | "WITHOUT_TRAFFIC_CONTROL";
 export interface DeploymentOverview {
   Pending?: number;
   InProgress?: number;
@@ -718,7 +1097,15 @@ export interface DeploymentReadyOption {
 }
 export type DeploymentsInfoList = Array<DeploymentInfo>;
 export type DeploymentsList = Array<string>;
-export type DeploymentStatus = "Created" | "Queued" | "InProgress" | "Baking" | "Succeeded" | "Failed" | "Stopped" | "Ready";
+export type DeploymentStatus =
+  | "Created"
+  | "Queued"
+  | "InProgress"
+  | "Baking"
+  | "Succeeded"
+  | "Failed"
+  | "Stopped"
+  | "Ready";
 export type DeploymentStatusList = Array<DeploymentStatus>;
 export type DeploymentStatusMessageList = Array<string>;
 export interface DeploymentStyle {
@@ -748,7 +1135,11 @@ export declare class DeploymentTargetListSizeExceededException extends EffectDat
 )<{
   readonly message?: string;
 }> {}
-export type DeploymentTargetType = "InstanceTarget" | "LambdaTarget" | "ECSTarget" | "CloudFormationTarget";
+export type DeploymentTargetType =
+  | "InstanceTarget"
+  | "LambdaTarget"
+  | "ECSTarget"
+  | "CloudFormationTarget";
 export type DeploymentType = "IN_PLACE" | "BLUE_GREEN";
 export type DeploymentWaitType = "READY_WAIT" | "TERMINATION_WAIT";
 export interface DeregisterOnPremisesInstanceInput {
@@ -826,7 +1217,41 @@ export interface ELBInfo {
 export type ELBInfoList = Array<ELBInfo>;
 export type ELBName = string;
 
-export type ErrorCode = "AGENT_ISSUE" | "ALARM_ACTIVE" | "APPLICATION_MISSING" | "AUTOSCALING_VALIDATION_ERROR" | "AUTO_SCALING_CONFIGURATION" | "AUTO_SCALING_IAM_ROLE_PERMISSIONS" | "CODEDEPLOY_RESOURCE_CANNOT_BE_FOUND" | "CUSTOMER_APPLICATION_UNHEALTHY" | "DEPLOYMENT_GROUP_MISSING" | "ECS_UPDATE_ERROR" | "ELASTIC_LOAD_BALANCING_INVALID" | "ELB_INVALID_INSTANCE" | "HEALTH_CONSTRAINTS" | "HEALTH_CONSTRAINTS_INVALID" | "HOOK_EXECUTION_FAILURE" | "IAM_ROLE_MISSING" | "IAM_ROLE_PERMISSIONS" | "INTERNAL_ERROR" | "INVALID_ECS_SERVICE" | "INVALID_LAMBDA_CONFIGURATION" | "INVALID_LAMBDA_FUNCTION" | "INVALID_REVISION" | "MANUAL_STOP" | "MISSING_BLUE_GREEN_DEPLOYMENT_CONFIGURATION" | "MISSING_ELB_INFORMATION" | "MISSING_GITHUB_TOKEN" | "NO_EC2_SUBSCRIPTION" | "NO_INSTANCES" | "OVER_MAX_INSTANCES" | "RESOURCE_LIMIT_EXCEEDED" | "REVISION_MISSING" | "THROTTLED" | "TIMEOUT" | "CLOUDFORMATION_STACK_FAILURE";
+export type ErrorCode =
+  | "AGENT_ISSUE"
+  | "ALARM_ACTIVE"
+  | "APPLICATION_MISSING"
+  | "AUTOSCALING_VALIDATION_ERROR"
+  | "AUTO_SCALING_CONFIGURATION"
+  | "AUTO_SCALING_IAM_ROLE_PERMISSIONS"
+  | "CODEDEPLOY_RESOURCE_CANNOT_BE_FOUND"
+  | "CUSTOMER_APPLICATION_UNHEALTHY"
+  | "DEPLOYMENT_GROUP_MISSING"
+  | "ECS_UPDATE_ERROR"
+  | "ELASTIC_LOAD_BALANCING_INVALID"
+  | "ELB_INVALID_INSTANCE"
+  | "HEALTH_CONSTRAINTS"
+  | "HEALTH_CONSTRAINTS_INVALID"
+  | "HOOK_EXECUTION_FAILURE"
+  | "IAM_ROLE_MISSING"
+  | "IAM_ROLE_PERMISSIONS"
+  | "INTERNAL_ERROR"
+  | "INVALID_ECS_SERVICE"
+  | "INVALID_LAMBDA_CONFIGURATION"
+  | "INVALID_LAMBDA_FUNCTION"
+  | "INVALID_REVISION"
+  | "MANUAL_STOP"
+  | "MISSING_BLUE_GREEN_DEPLOYMENT_CONFIGURATION"
+  | "MISSING_ELB_INFORMATION"
+  | "MISSING_GITHUB_TOKEN"
+  | "NO_EC2_SUBSCRIPTION"
+  | "NO_INSTANCES"
+  | "OVER_MAX_INSTANCES"
+  | "RESOURCE_LIMIT_EXCEEDED"
+  | "REVISION_MISSING"
+  | "THROTTLED"
+  | "TIMEOUT"
+  | "CLOUDFORMATION_STACK_FAILURE";
 export interface ErrorInformation {
   code?: ErrorCode;
   message?: string;
@@ -919,7 +1344,9 @@ export interface GitHubLocation {
   repository?: string;
   commitId?: string;
 }
-export type GreenFleetProvisioningAction = "DISCOVER_EXISTING" | "COPY_AUTO_SCALING_GROUP";
+export type GreenFleetProvisioningAction =
+  | "DISCOVER_EXISTING"
+  | "COPY_AUTO_SCALING_GROUP";
 export interface GreenFleetProvisioningOption {
   action?: GreenFleetProvisioningAction;
 }
@@ -998,7 +1425,14 @@ export declare class InstanceNotRegisteredException extends EffectData.TaggedErr
   readonly message?: string;
 }> {}
 export type InstancesList = Array<string>;
-export type InstanceStatus = "Pending" | "InProgress" | "Succeeded" | "Failed" | "Skipped" | "Unknown" | "Ready";
+export type InstanceStatus =
+  | "Pending"
+  | "InProgress"
+  | "Succeeded"
+  | "Failed"
+  | "Skipped"
+  | "Unknown"
+  | "Ready";
 export type InstanceStatusList = Array<InstanceStatus>;
 export interface InstanceSummary {
   deploymentId?: string;
@@ -1323,7 +1757,13 @@ export interface LastDeploymentInfo {
   endTime?: Date | string;
   createTime?: Date | string;
 }
-export type LifecycleErrorCode = "Success" | "ScriptMissing" | "ScriptNotExecutable" | "ScriptTimedOut" | "ScriptFailed" | "UnknownError";
+export type LifecycleErrorCode =
+  | "Success"
+  | "ScriptMissing"
+  | "ScriptNotExecutable"
+  | "ScriptTimedOut"
+  | "ScriptFailed"
+  | "UnknownError";
 export interface LifecycleEvent {
   lifecycleEventName?: string;
   diagnostics?: Diagnostics;
@@ -1341,7 +1781,13 @@ export type LifecycleEventHookExecutionId = string;
 export type LifecycleEventList = Array<LifecycleEvent>;
 export type LifecycleEventName = string;
 
-export type LifecycleEventStatus = "Pending" | "InProgress" | "Succeeded" | "Failed" | "Skipped" | "Unknown";
+export type LifecycleEventStatus =
+  | "Pending"
+  | "InProgress"
+  | "Succeeded"
+  | "Failed"
+  | "Skipped"
+  | "Unknown";
 export declare class LifecycleHookLimitExceededException extends EffectData.TaggedError(
   "LifecycleHookLimitExceededException",
 )<{
@@ -1553,7 +1999,11 @@ export interface RevisionLocation {
   appSpecContent?: AppSpecContent;
 }
 export type RevisionLocationList = Array<RevisionLocation>;
-export type RevisionLocationType = "S3" | "GitHub" | "String" | "AppSpecContent";
+export type RevisionLocationType =
+  | "S3"
+  | "GitHub"
+  | "String"
+  | "AppSpecContent";
 export declare class RevisionRequiredException extends EffectData.TaggedError(
   "RevisionRequiredException",
 )<{
@@ -1624,8 +2074,7 @@ export interface TagResourceInput {
   ResourceArn: string;
   Tags: Array<Tag>;
 }
-export interface TagResourceOutput {
-}
+export interface TagResourceOutput {}
 export declare class TagSetListLimitExceededException extends EffectData.TaggedError(
   "TagSetListLimitExceededException",
 )<{
@@ -1656,7 +2105,14 @@ export interface TargetInstances {
   ec2TagSet?: EC2TagSet;
 }
 export type TargetLabel = "Blue" | "Green";
-export type TargetStatus = "Pending" | "InProgress" | "Succeeded" | "Failed" | "Skipped" | "Unknown" | "Ready";
+export type TargetStatus =
+  | "Pending"
+  | "InProgress"
+  | "Succeeded"
+  | "Failed"
+  | "Skipped"
+  | "Unknown"
+  | "Ready";
 export declare class ThrottlingException extends EffectData.TaggedError(
   "ThrottlingException",
 )<{
@@ -1686,7 +2142,10 @@ export interface TrafficRoutingConfig {
   timeBasedCanary?: TimeBasedCanary;
   timeBasedLinear?: TimeBasedLinear;
 }
-export type TrafficRoutingType = "TimeBasedCanary" | "TimeBasedLinear" | "AllAtOnce";
+export type TrafficRoutingType =
+  | "TimeBasedCanary"
+  | "TimeBasedLinear"
+  | "AllAtOnce";
 export type TrafficWeight = number;
 
 export interface TriggerConfig {
@@ -1695,7 +2154,17 @@ export interface TriggerConfig {
   triggerEvents?: Array<TriggerEventType>;
 }
 export type TriggerConfigList = Array<TriggerConfig>;
-export type TriggerEventType = "DeploymentStart" | "DeploymentSuccess" | "DeploymentFailure" | "DeploymentStop" | "DeploymentRollback" | "DeploymentReady" | "InstanceStart" | "InstanceSuccess" | "InstanceFailure" | "InstanceReady";
+export type TriggerEventType =
+  | "DeploymentStart"
+  | "DeploymentSuccess"
+  | "DeploymentFailure"
+  | "DeploymentStop"
+  | "DeploymentRollback"
+  | "DeploymentReady"
+  | "InstanceStart"
+  | "InstanceSuccess"
+  | "InstanceFailure"
+  | "InstanceReady";
 export type TriggerEventTypeList = Array<TriggerEventType>;
 export type TriggerName = string;
 
@@ -1715,8 +2184,7 @@ export interface UntagResourceInput {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceOutput {
-}
+export interface UntagResourceOutput {}
 export interface UpdateApplicationInput {
   applicationName?: string;
   newApplicationName?: string;
@@ -2026,8 +2494,7 @@ export declare namespace DeleteGitHubAccountToken {
 export declare namespace DeleteResourcesByExternalId {
   export type Input = DeleteResourcesByExternalIdInput;
   export type Output = DeleteResourcesByExternalIdOutput;
-  export type Error =
-    | CommonAwsError;
+  export type Error = CommonAwsError;
 }
 
 export declare namespace DeregisterOnPremisesInstance {
@@ -2156,17 +2623,13 @@ export declare namespace ListApplicationRevisions {
 export declare namespace ListApplications {
   export type Input = ListApplicationsInput;
   export type Output = ListApplicationsOutput;
-  export type Error =
-    | InvalidNextTokenException
-    | CommonAwsError;
+  export type Error = InvalidNextTokenException | CommonAwsError;
 }
 
 export declare namespace ListDeploymentConfigs {
   export type Input = ListDeploymentConfigsInput;
   export type Output = ListDeploymentConfigsOutput;
-  export type Error =
-    | InvalidNextTokenException
-    | CommonAwsError;
+  export type Error = InvalidNextTokenException | CommonAwsError;
 }
 
 export declare namespace ListDeploymentGroups {
@@ -2424,5 +2887,115 @@ export declare namespace UpdateDeploymentGroup {
     | CommonAwsError;
 }
 
-export type CodeDeployErrors = AlarmsLimitExceededException | ApplicationAlreadyExistsException | ApplicationDoesNotExistException | ApplicationLimitExceededException | ApplicationNameRequiredException | ArnNotSupportedException | BatchLimitExceededException | BucketNameFilterRequiredException | DeploymentAlreadyCompletedException | DeploymentConfigAlreadyExistsException | DeploymentConfigDoesNotExistException | DeploymentConfigInUseException | DeploymentConfigLimitExceededException | DeploymentConfigNameRequiredException | DeploymentDoesNotExistException | DeploymentGroupAlreadyExistsException | DeploymentGroupDoesNotExistException | DeploymentGroupLimitExceededException | DeploymentGroupNameRequiredException | DeploymentIdRequiredException | DeploymentIsNotInReadyStateException | DeploymentLimitExceededException | DeploymentNotStartedException | DeploymentTargetDoesNotExistException | DeploymentTargetIdRequiredException | DeploymentTargetListSizeExceededException | DescriptionTooLongException | ECSServiceMappingLimitExceededException | GitHubAccountTokenDoesNotExistException | GitHubAccountTokenNameRequiredException | IamArnRequiredException | IamSessionArnAlreadyRegisteredException | IamUserArnAlreadyRegisteredException | IamUserArnRequiredException | InstanceDoesNotExistException | InstanceIdRequiredException | InstanceLimitExceededException | InstanceNameAlreadyRegisteredException | InstanceNameRequiredException | InstanceNotRegisteredException | InvalidAlarmConfigException | InvalidApplicationNameException | InvalidArnException | InvalidAutoRollbackConfigException | InvalidAutoScalingGroupException | InvalidBlueGreenDeploymentConfigurationException | InvalidBucketNameFilterException | InvalidComputePlatformException | InvalidDeployedStateFilterException | InvalidDeploymentConfigNameException | InvalidDeploymentGroupNameException | InvalidDeploymentIdException | InvalidDeploymentInstanceTypeException | InvalidDeploymentStatusException | InvalidDeploymentStyleException | InvalidDeploymentTargetIdException | InvalidDeploymentWaitTypeException | InvalidEC2TagCombinationException | InvalidEC2TagException | InvalidECSServiceException | InvalidExternalIdException | InvalidFileExistsBehaviorException | InvalidGitHubAccountTokenException | InvalidGitHubAccountTokenNameException | InvalidIamSessionArnException | InvalidIamUserArnException | InvalidIgnoreApplicationStopFailuresValueException | InvalidInputException | InvalidInstanceNameException | InvalidInstanceStatusException | InvalidInstanceTypeException | InvalidKeyPrefixFilterException | InvalidLifecycleEventHookExecutionIdException | InvalidLifecycleEventHookExecutionStatusException | InvalidLoadBalancerInfoException | InvalidMinimumHealthyHostValueException | InvalidNextTokenException | InvalidOnPremisesTagCombinationException | InvalidOperationException | InvalidRegistrationStatusException | InvalidRevisionException | InvalidRoleException | InvalidSortByException | InvalidSortOrderException | InvalidTagException | InvalidTagFilterException | InvalidTagsToAddException | InvalidTargetFilterNameException | InvalidTargetGroupPairException | InvalidTargetInstancesException | InvalidTimeRangeException | InvalidTrafficRoutingConfigurationException | InvalidTriggerConfigException | InvalidUpdateOutdatedInstancesOnlyValueException | InvalidZonalDeploymentConfigurationException | LifecycleEventAlreadyCompletedException | LifecycleHookLimitExceededException | MultipleIamArnsProvidedException | OperationNotSupportedException | ResourceArnRequiredException | ResourceValidationException | RevisionDoesNotExistException | RevisionRequiredException | RoleRequiredException | TagLimitExceededException | TagRequiredException | TagSetListLimitExceededException | ThrottlingException | TriggerTargetsLimitExceededException | UnsupportedActionForDeploymentTypeException | CommonAwsError;
-
+export type CodeDeployErrors =
+  | AlarmsLimitExceededException
+  | ApplicationAlreadyExistsException
+  | ApplicationDoesNotExistException
+  | ApplicationLimitExceededException
+  | ApplicationNameRequiredException
+  | ArnNotSupportedException
+  | BatchLimitExceededException
+  | BucketNameFilterRequiredException
+  | DeploymentAlreadyCompletedException
+  | DeploymentConfigAlreadyExistsException
+  | DeploymentConfigDoesNotExistException
+  | DeploymentConfigInUseException
+  | DeploymentConfigLimitExceededException
+  | DeploymentConfigNameRequiredException
+  | DeploymentDoesNotExistException
+  | DeploymentGroupAlreadyExistsException
+  | DeploymentGroupDoesNotExistException
+  | DeploymentGroupLimitExceededException
+  | DeploymentGroupNameRequiredException
+  | DeploymentIdRequiredException
+  | DeploymentIsNotInReadyStateException
+  | DeploymentLimitExceededException
+  | DeploymentNotStartedException
+  | DeploymentTargetDoesNotExistException
+  | DeploymentTargetIdRequiredException
+  | DeploymentTargetListSizeExceededException
+  | DescriptionTooLongException
+  | ECSServiceMappingLimitExceededException
+  | GitHubAccountTokenDoesNotExistException
+  | GitHubAccountTokenNameRequiredException
+  | IamArnRequiredException
+  | IamSessionArnAlreadyRegisteredException
+  | IamUserArnAlreadyRegisteredException
+  | IamUserArnRequiredException
+  | InstanceDoesNotExistException
+  | InstanceIdRequiredException
+  | InstanceLimitExceededException
+  | InstanceNameAlreadyRegisteredException
+  | InstanceNameRequiredException
+  | InstanceNotRegisteredException
+  | InvalidAlarmConfigException
+  | InvalidApplicationNameException
+  | InvalidArnException
+  | InvalidAutoRollbackConfigException
+  | InvalidAutoScalingGroupException
+  | InvalidBlueGreenDeploymentConfigurationException
+  | InvalidBucketNameFilterException
+  | InvalidComputePlatformException
+  | InvalidDeployedStateFilterException
+  | InvalidDeploymentConfigNameException
+  | InvalidDeploymentGroupNameException
+  | InvalidDeploymentIdException
+  | InvalidDeploymentInstanceTypeException
+  | InvalidDeploymentStatusException
+  | InvalidDeploymentStyleException
+  | InvalidDeploymentTargetIdException
+  | InvalidDeploymentWaitTypeException
+  | InvalidEC2TagCombinationException
+  | InvalidEC2TagException
+  | InvalidECSServiceException
+  | InvalidExternalIdException
+  | InvalidFileExistsBehaviorException
+  | InvalidGitHubAccountTokenException
+  | InvalidGitHubAccountTokenNameException
+  | InvalidIamSessionArnException
+  | InvalidIamUserArnException
+  | InvalidIgnoreApplicationStopFailuresValueException
+  | InvalidInputException
+  | InvalidInstanceNameException
+  | InvalidInstanceStatusException
+  | InvalidInstanceTypeException
+  | InvalidKeyPrefixFilterException
+  | InvalidLifecycleEventHookExecutionIdException
+  | InvalidLifecycleEventHookExecutionStatusException
+  | InvalidLoadBalancerInfoException
+  | InvalidMinimumHealthyHostValueException
+  | InvalidNextTokenException
+  | InvalidOnPremisesTagCombinationException
+  | InvalidOperationException
+  | InvalidRegistrationStatusException
+  | InvalidRevisionException
+  | InvalidRoleException
+  | InvalidSortByException
+  | InvalidSortOrderException
+  | InvalidTagException
+  | InvalidTagFilterException
+  | InvalidTagsToAddException
+  | InvalidTargetFilterNameException
+  | InvalidTargetGroupPairException
+  | InvalidTargetInstancesException
+  | InvalidTimeRangeException
+  | InvalidTrafficRoutingConfigurationException
+  | InvalidTriggerConfigException
+  | InvalidUpdateOutdatedInstancesOnlyValueException
+  | InvalidZonalDeploymentConfigurationException
+  | LifecycleEventAlreadyCompletedException
+  | LifecycleHookLimitExceededException
+  | MultipleIamArnsProvidedException
+  | OperationNotSupportedException
+  | ResourceArnRequiredException
+  | ResourceValidationException
+  | RevisionDoesNotExistException
+  | RevisionRequiredException
+  | RoleRequiredException
+  | TagLimitExceededException
+  | TagRequiredException
+  | TagSetListLimitExceededException
+  | ThrottlingException
+  | TriggerTargetsLimitExceededException
+  | UnsupportedActionForDeploymentTypeException
+  | CommonAwsError;

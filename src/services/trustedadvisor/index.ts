@@ -5,7 +5,23 @@ import type { TrustedAdvisor as _TrustedAdvisorClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, type CommonAwsError} from "../../error.ts";
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  type CommonAwsError,
+} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -14,21 +30,28 @@ const metadata = {
   protocol: "restJson1",
   sigV4ServiceName: "trustedadvisor",
   operations: {
-    "BatchUpdateRecommendationResourceExclusion": "PUT /v1/batch-update-recommendation-resource-exclusion",
-    "GetOrganizationRecommendation": "GET /v1/organization-recommendations/{organizationRecommendationIdentifier}",
-    "GetRecommendation": "GET /v1/recommendations/{recommendationIdentifier}",
-    "ListChecks": "GET /v1/checks",
-    "ListOrganizationRecommendationAccounts": "GET /v1/organization-recommendations/{organizationRecommendationIdentifier}/accounts",
-    "ListOrganizationRecommendationResources": "GET /v1/organization-recommendations/{organizationRecommendationIdentifier}/resources",
-    "ListOrganizationRecommendations": "GET /v1/organization-recommendations",
-    "ListRecommendationResources": "GET /v1/recommendations/{recommendationIdentifier}/resources",
-    "ListRecommendations": "GET /v1/recommendations",
-    "UpdateOrganizationRecommendationLifecycle": "PUT /v1/organization-recommendations/{organizationRecommendationIdentifier}/lifecycle",
-    "UpdateRecommendationLifecycle": "PUT /v1/recommendations/{recommendationIdentifier}/lifecycle",
+    BatchUpdateRecommendationResourceExclusion:
+      "PUT /v1/batch-update-recommendation-resource-exclusion",
+    GetOrganizationRecommendation:
+      "GET /v1/organization-recommendations/{organizationRecommendationIdentifier}",
+    GetRecommendation: "GET /v1/recommendations/{recommendationIdentifier}",
+    ListChecks: "GET /v1/checks",
+    ListOrganizationRecommendationAccounts:
+      "GET /v1/organization-recommendations/{organizationRecommendationIdentifier}/accounts",
+    ListOrganizationRecommendationResources:
+      "GET /v1/organization-recommendations/{organizationRecommendationIdentifier}/resources",
+    ListOrganizationRecommendations: "GET /v1/organization-recommendations",
+    ListRecommendationResources:
+      "GET /v1/recommendations/{recommendationIdentifier}/resources",
+    ListRecommendations: "GET /v1/recommendations",
+    UpdateOrganizationRecommendationLifecycle:
+      "PUT /v1/organization-recommendations/{organizationRecommendationIdentifier}/lifecycle",
+    UpdateRecommendationLifecycle:
+      "PUT /v1/recommendations/{recommendationIdentifier}/lifecycle",
   },
   retryableErrors: {
-    "InternalServerException": {},
-    "ThrottlingException": {},
+    InternalServerException: {},
+    ThrottlingException: {},
   },
 } as const satisfies ServiceMetadata;
 

@@ -5,7 +5,25 @@ import type { AmplifyUIBuilder as _AmplifyUIBuilderClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException, type CommonAwsError} from "../../error.ts";
+export {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  ValidationException,
+  type CommonAwsError,
+} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -14,87 +32,93 @@ const metadata = {
   protocol: "restJson1",
   sigV4ServiceName: "amplifyuibuilder",
   operations: {
-    "ExchangeCodeForToken": "POST /tokens/{provider}",
-    "GetMetadata": "GET /app/{appId}/environment/{environmentName}/metadata",
-    "ListTagsForResource": "GET /tags/{resourceArn}",
-    "PutMetadataFlag": "PUT /app/{appId}/environment/{environmentName}/metadata/features/{featureName}",
-    "RefreshToken": "POST /tokens/{provider}/refresh",
-    "TagResource": "POST /tags/{resourceArn}",
-    "UntagResource": "DELETE /tags/{resourceArn}",
-    "CreateComponent": {
+    ExchangeCodeForToken: "POST /tokens/{provider}",
+    GetMetadata: "GET /app/{appId}/environment/{environmentName}/metadata",
+    ListTagsForResource: "GET /tags/{resourceArn}",
+    PutMetadataFlag:
+      "PUT /app/{appId}/environment/{environmentName}/metadata/features/{featureName}",
+    RefreshToken: "POST /tokens/{provider}/refresh",
+    TagResource: "POST /tags/{resourceArn}",
+    UntagResource: "DELETE /tags/{resourceArn}",
+    CreateComponent: {
       http: "POST /app/{appId}/environment/{environmentName}/components",
       traits: {
-        "entity": "httpPayload",
+        entity: "httpPayload",
       },
     },
-    "CreateForm": {
+    CreateForm: {
       http: "POST /app/{appId}/environment/{environmentName}/forms",
       traits: {
-        "entity": "httpPayload",
+        entity: "httpPayload",
       },
     },
-    "CreateTheme": {
+    CreateTheme: {
       http: "POST /app/{appId}/environment/{environmentName}/themes",
       traits: {
-        "entity": "httpPayload",
+        entity: "httpPayload",
       },
     },
-    "DeleteComponent": "DELETE /app/{appId}/environment/{environmentName}/components/{id}",
-    "DeleteForm": "DELETE /app/{appId}/environment/{environmentName}/forms/{id}",
-    "DeleteTheme": "DELETE /app/{appId}/environment/{environmentName}/themes/{id}",
-    "ExportComponents": "GET /export/app/{appId}/environment/{environmentName}/components",
-    "ExportForms": "GET /export/app/{appId}/environment/{environmentName}/forms",
-    "ExportThemes": "GET /export/app/{appId}/environment/{environmentName}/themes",
-    "GetCodegenJob": {
+    DeleteComponent:
+      "DELETE /app/{appId}/environment/{environmentName}/components/{id}",
+    DeleteForm: "DELETE /app/{appId}/environment/{environmentName}/forms/{id}",
+    DeleteTheme:
+      "DELETE /app/{appId}/environment/{environmentName}/themes/{id}",
+    ExportComponents:
+      "GET /export/app/{appId}/environment/{environmentName}/components",
+    ExportForms: "GET /export/app/{appId}/environment/{environmentName}/forms",
+    ExportThemes:
+      "GET /export/app/{appId}/environment/{environmentName}/themes",
+    GetCodegenJob: {
       http: "GET /app/{appId}/environment/{environmentName}/codegen-jobs/{id}",
       traits: {
-        "job": "httpPayload",
+        job: "httpPayload",
       },
     },
-    "GetComponent": {
+    GetComponent: {
       http: "GET /app/{appId}/environment/{environmentName}/components/{id}",
       traits: {
-        "component": "httpPayload",
+        component: "httpPayload",
       },
     },
-    "GetForm": {
+    GetForm: {
       http: "GET /app/{appId}/environment/{environmentName}/forms/{id}",
       traits: {
-        "form": "httpPayload",
+        form: "httpPayload",
       },
     },
-    "GetTheme": {
+    GetTheme: {
       http: "GET /app/{appId}/environment/{environmentName}/themes/{id}",
       traits: {
-        "theme": "httpPayload",
+        theme: "httpPayload",
       },
     },
-    "ListCodegenJobs": "GET /app/{appId}/environment/{environmentName}/codegen-jobs",
-    "ListComponents": "GET /app/{appId}/environment/{environmentName}/components",
-    "ListForms": "GET /app/{appId}/environment/{environmentName}/forms",
-    "ListThemes": "GET /app/{appId}/environment/{environmentName}/themes",
-    "StartCodegenJob": {
+    ListCodegenJobs:
+      "GET /app/{appId}/environment/{environmentName}/codegen-jobs",
+    ListComponents: "GET /app/{appId}/environment/{environmentName}/components",
+    ListForms: "GET /app/{appId}/environment/{environmentName}/forms",
+    ListThemes: "GET /app/{appId}/environment/{environmentName}/themes",
+    StartCodegenJob: {
       http: "POST /app/{appId}/environment/{environmentName}/codegen-jobs",
       traits: {
-        "entity": "httpPayload",
+        entity: "httpPayload",
       },
     },
-    "UpdateComponent": {
+    UpdateComponent: {
       http: "PATCH /app/{appId}/environment/{environmentName}/components/{id}",
       traits: {
-        "entity": "httpPayload",
+        entity: "httpPayload",
       },
     },
-    "UpdateForm": {
+    UpdateForm: {
       http: "PATCH /app/{appId}/environment/{environmentName}/forms/{id}",
       traits: {
-        "entity": "httpPayload",
+        entity: "httpPayload",
       },
     },
-    "UpdateTheme": {
+    UpdateTheme: {
       http: "PATCH /app/{appId}/environment/{environmentName}/themes/{id}",
       traits: {
-        "entity": "httpPayload",
+        entity: "httpPayload",
       },
     },
   },

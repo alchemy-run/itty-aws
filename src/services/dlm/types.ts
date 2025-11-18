@@ -7,49 +7,75 @@ export declare class DLM extends AWSServiceClient {
     input: CreateLifecyclePolicyRequest,
   ): Effect.Effect<
     CreateLifecyclePolicyResponse,
-    InternalServerException | InvalidRequestException | LimitExceededException | CommonAwsError
+    | InternalServerException
+    | InvalidRequestException
+    | LimitExceededException
+    | CommonAwsError
   >;
   deleteLifecyclePolicy(
     input: DeleteLifecyclePolicyRequest,
   ): Effect.Effect<
     DeleteLifecyclePolicyResponse,
-    InternalServerException | LimitExceededException | ResourceNotFoundException | CommonAwsError
+    | InternalServerException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   getLifecyclePolicies(
     input: GetLifecyclePoliciesRequest,
   ): Effect.Effect<
     GetLifecyclePoliciesResponse,
-    InternalServerException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | CommonAwsError
+    | InternalServerException
+    | InvalidRequestException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   getLifecyclePolicy(
     input: GetLifecyclePolicyRequest,
   ): Effect.Effect<
     GetLifecyclePolicyResponse,
-    InternalServerException | LimitExceededException | ResourceNotFoundException | CommonAwsError
+    | InternalServerException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    InternalServerException | InvalidRequestException | ResourceNotFoundException | CommonAwsError
+    | InternalServerException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    InternalServerException | InvalidRequestException | ResourceNotFoundException | CommonAwsError
+    | InternalServerException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    InternalServerException | InvalidRequestException | ResourceNotFoundException | CommonAwsError
+    | InternalServerException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   updateLifecyclePolicy(
     input: UpdateLifecyclePolicyRequest,
   ): Effect.Effect<
     UpdateLifecyclePolicyResponse,
-    InternalServerException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | CommonAwsError
+    | InternalServerException
+    | InvalidRequestException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
 }
 
@@ -145,8 +171,7 @@ export type DefaultPolicyTypeValues = "VOLUME" | "INSTANCE";
 export interface DeleteLifecyclePolicyRequest {
   PolicyId: string;
 }
-export interface DeleteLifecyclePolicyResponse {
-}
+export interface DeleteLifecyclePolicyResponse {}
 export interface DeprecateRule {
   Count?: number;
   Interval?: number;
@@ -309,7 +334,10 @@ export type PolicyId = string;
 
 export type PolicyIdList = Array<string>;
 export type PolicyLanguageValues = "SIMPLIFIED" | "STANDARD";
-export type PolicyTypeValues = "EBS_SNAPSHOT_MANAGEMENT" | "IMAGE_MANAGEMENT" | "EVENT_BASED_POLICY";
+export type PolicyTypeValues =
+  | "EBS_SNAPSHOT_MANAGEMENT"
+  | "IMAGE_MANAGEMENT"
+  | "EVENT_BASED_POLICY";
 export type ResourceLocationList = Array<ResourceLocationValues>;
 export type ResourceLocationValues = "CLOUD" | "OUTPOST" | "LOCAL_ZONE";
 export declare class ResourceNotFoundException extends EffectData.TaggedError(
@@ -397,8 +425,7 @@ export interface TagResourceRequest {
   ResourceArn: string;
   Tags: Record<string, string>;
 }
-export interface TagResourceResponse {
-}
+export interface TagResourceResponse {}
 export type TagsToAddFilterList = Array<string>;
 export type TagsToAddList = Array<Tag>;
 export type TagValue = string;
@@ -418,8 +445,7 @@ export interface UntagResourceRequest {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {
-}
+export interface UntagResourceResponse {}
 export interface UpdateLifecyclePolicyRequest {
   PolicyId: string;
   ExecutionRoleArn?: string;
@@ -433,8 +459,7 @@ export interface UpdateLifecyclePolicyRequest {
   CrossRegionCopyTargets?: Array<CrossRegionCopyTarget>;
   Exclusions?: Exclusions;
 }
-export interface UpdateLifecyclePolicyResponse {
-}
+export interface UpdateLifecyclePolicyResponse {}
 export type VariableTagsList = Array<Tag>;
 export type VolumeTypeValues = string;
 
@@ -520,5 +545,9 @@ export declare namespace UpdateLifecyclePolicy {
     | CommonAwsError;
 }
 
-export type DLMErrors = InternalServerException | InvalidRequestException | LimitExceededException | ResourceNotFoundException | CommonAwsError;
-
+export type DLMErrors =
+  | InternalServerException
+  | InvalidRequestException
+  | LimitExceededException
+  | ResourceNotFoundException
+  | CommonAwsError;

@@ -7,229 +7,492 @@ export declare class AppMesh extends AWSServiceClient {
     input: ListTagsForResourceInput,
   ): Effect.Effect<
     ListTagsForResourceOutput,
-    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
+    | BadRequestException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   tagResource(
     input: TagResourceInput,
   ): Effect.Effect<
     TagResourceOutput,
-    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | TooManyTagsException | CommonAwsError
+    | BadRequestException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | TooManyTagsException
+    | CommonAwsError
   >;
   untagResource(
     input: UntagResourceInput,
   ): Effect.Effect<
     UntagResourceOutput,
-    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
+    | BadRequestException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   createGatewayRoute(
     input: CreateGatewayRouteInput,
   ): Effect.Effect<
     CreateGatewayRouteOutput,
-    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | LimitExceededException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | LimitExceededException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   createMesh(
     input: CreateMeshInput,
   ): Effect.Effect<
     CreateMeshOutput,
-    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | LimitExceededException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | LimitExceededException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   createRoute(
     input: CreateRouteInput,
   ): Effect.Effect<
     CreateRouteOutput,
-    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | LimitExceededException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | LimitExceededException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   createVirtualGateway(
     input: CreateVirtualGatewayInput,
   ): Effect.Effect<
     CreateVirtualGatewayOutput,
-    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | LimitExceededException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | LimitExceededException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   createVirtualNode(
     input: CreateVirtualNodeInput,
   ): Effect.Effect<
     CreateVirtualNodeOutput,
-    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | LimitExceededException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | LimitExceededException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   createVirtualRouter(
     input: CreateVirtualRouterInput,
   ): Effect.Effect<
     CreateVirtualRouterOutput,
-    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | LimitExceededException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | LimitExceededException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   createVirtualService(
     input: CreateVirtualServiceInput,
   ): Effect.Effect<
     CreateVirtualServiceOutput,
-    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | LimitExceededException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | LimitExceededException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   deleteGatewayRoute(
     input: DeleteGatewayRouteInput,
   ): Effect.Effect<
     DeleteGatewayRouteOutput,
-    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ResourceInUseException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
+    | BadRequestException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ResourceInUseException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   deleteMesh(
     input: DeleteMeshInput,
   ): Effect.Effect<
     DeleteMeshOutput,
-    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ResourceInUseException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
+    | BadRequestException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ResourceInUseException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   deleteRoute(
     input: DeleteRouteInput,
   ): Effect.Effect<
     DeleteRouteOutput,
-    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ResourceInUseException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
+    | BadRequestException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ResourceInUseException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   deleteVirtualGateway(
     input: DeleteVirtualGatewayInput,
   ): Effect.Effect<
     DeleteVirtualGatewayOutput,
-    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ResourceInUseException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
+    | BadRequestException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ResourceInUseException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   deleteVirtualNode(
     input: DeleteVirtualNodeInput,
   ): Effect.Effect<
     DeleteVirtualNodeOutput,
-    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ResourceInUseException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
+    | BadRequestException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ResourceInUseException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   deleteVirtualRouter(
     input: DeleteVirtualRouterInput,
   ): Effect.Effect<
     DeleteVirtualRouterOutput,
-    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ResourceInUseException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
+    | BadRequestException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ResourceInUseException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   deleteVirtualService(
     input: DeleteVirtualServiceInput,
   ): Effect.Effect<
     DeleteVirtualServiceOutput,
-    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ResourceInUseException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
+    | BadRequestException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ResourceInUseException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   describeGatewayRoute(
     input: DescribeGatewayRouteInput,
   ): Effect.Effect<
     DescribeGatewayRouteOutput,
-    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
+    | BadRequestException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   describeMesh(
     input: DescribeMeshInput,
   ): Effect.Effect<
     DescribeMeshOutput,
-    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
+    | BadRequestException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   describeRoute(
     input: DescribeRouteInput,
   ): Effect.Effect<
     DescribeRouteOutput,
-    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
+    | BadRequestException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   describeVirtualGateway(
     input: DescribeVirtualGatewayInput,
   ): Effect.Effect<
     DescribeVirtualGatewayOutput,
-    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
+    | BadRequestException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   describeVirtualNode(
     input: DescribeVirtualNodeInput,
   ): Effect.Effect<
     DescribeVirtualNodeOutput,
-    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
+    | BadRequestException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   describeVirtualRouter(
     input: DescribeVirtualRouterInput,
   ): Effect.Effect<
     DescribeVirtualRouterOutput,
-    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
+    | BadRequestException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   describeVirtualService(
     input: DescribeVirtualServiceInput,
   ): Effect.Effect<
     DescribeVirtualServiceOutput,
-    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
+    | BadRequestException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   listGatewayRoutes(
     input: ListGatewayRoutesInput,
   ): Effect.Effect<
     ListGatewayRoutesOutput,
-    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
+    | BadRequestException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   listMeshes(
     input: ListMeshesInput,
   ): Effect.Effect<
     ListMeshesOutput,
-    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
+    | BadRequestException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   listRoutes(
     input: ListRoutesInput,
   ): Effect.Effect<
     ListRoutesOutput,
-    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
+    | BadRequestException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   listVirtualGateways(
     input: ListVirtualGatewaysInput,
   ): Effect.Effect<
     ListVirtualGatewaysOutput,
-    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
+    | BadRequestException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   listVirtualNodes(
     input: ListVirtualNodesInput,
   ): Effect.Effect<
     ListVirtualNodesOutput,
-    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
+    | BadRequestException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   listVirtualRouters(
     input: ListVirtualRoutersInput,
   ): Effect.Effect<
     ListVirtualRoutersOutput,
-    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
+    | BadRequestException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   listVirtualServices(
     input: ListVirtualServicesInput,
   ): Effect.Effect<
     ListVirtualServicesOutput,
-    BadRequestException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
+    | BadRequestException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   updateGatewayRoute(
     input: UpdateGatewayRouteInput,
   ): Effect.Effect<
     UpdateGatewayRouteOutput,
-    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | LimitExceededException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | LimitExceededException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   updateMesh(
     input: UpdateMeshInput,
   ): Effect.Effect<
     UpdateMeshOutput,
-    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   updateRoute(
     input: UpdateRouteInput,
   ): Effect.Effect<
     UpdateRouteOutput,
-    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | LimitExceededException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | LimitExceededException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   updateVirtualGateway(
     input: UpdateVirtualGatewayInput,
   ): Effect.Effect<
     UpdateVirtualGatewayOutput,
-    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | LimitExceededException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | LimitExceededException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   updateVirtualNode(
     input: UpdateVirtualNodeInput,
   ): Effect.Effect<
     UpdateVirtualNodeOutput,
-    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | LimitExceededException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | LimitExceededException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   updateVirtualRouter(
     input: UpdateVirtualRouterInput,
   ): Effect.Effect<
     UpdateVirtualRouterOutput,
-    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | LimitExceededException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | LimitExceededException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   updateVirtualService(
     input: UpdateVirtualServiceInput,
   ): Effect.Effect<
     UpdateVirtualServiceOutput,
-    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | LimitExceededException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | LimitExceededException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
 }
 
@@ -237,7 +500,7 @@ interface _AccessLog {
   file?: FileAccessLog;
 }
 
-export type AccessLog = (_AccessLog & { file: FileAccessLog });
+export type AccessLog = _AccessLog & { file: FileAccessLog };
 export type AccountId = string;
 
 export type Arn = string;
@@ -263,7 +526,7 @@ interface _Backend {
   virtualService?: VirtualServiceBackend;
 }
 
-export type Backend = (_Backend & { virtualService: VirtualServiceBackend });
+export type Backend = _Backend & { virtualService: VirtualServiceBackend };
 export interface BackendDefaults {
   clientPolicy?: ClientPolicy;
 }
@@ -288,7 +551,9 @@ interface _ClientTlsCertificate {
   sds?: ListenerTlsSdsCertificate;
 }
 
-export type ClientTlsCertificate = (_ClientTlsCertificate & { file: ListenerTlsFileCertificate }) | (_ClientTlsCertificate & { sds: ListenerTlsSdsCertificate });
+export type ClientTlsCertificate =
+  | (_ClientTlsCertificate & { file: ListenerTlsFileCertificate })
+  | (_ClientTlsCertificate & { sds: ListenerTlsSdsCertificate });
 export declare class ConflictException extends EffectData.TaggedError(
   "ConflictException",
 )<{
@@ -597,7 +862,12 @@ interface _GrpcMetadataMatchMethod {
   suffix?: string;
 }
 
-export type GrpcMetadataMatchMethod = (_GrpcMetadataMatchMethod & { exact: string }) | (_GrpcMetadataMatchMethod & { regex: string }) | (_GrpcMetadataMatchMethod & { range: MatchRange }) | (_GrpcMetadataMatchMethod & { prefix: string }) | (_GrpcMetadataMatchMethod & { suffix: string });
+export type GrpcMetadataMatchMethod =
+  | (_GrpcMetadataMatchMethod & { exact: string })
+  | (_GrpcMetadataMatchMethod & { regex: string })
+  | (_GrpcMetadataMatchMethod & { range: MatchRange })
+  | (_GrpcMetadataMatchMethod & { prefix: string })
+  | (_GrpcMetadataMatchMethod & { suffix: string });
 export interface GrpcRetryPolicy {
   perRetryTimeout: Duration;
   maxRetries: number;
@@ -637,7 +907,12 @@ interface _GrpcRouteMetadataMatchMethod {
   suffix?: string;
 }
 
-export type GrpcRouteMetadataMatchMethod = (_GrpcRouteMetadataMatchMethod & { exact: string }) | (_GrpcRouteMetadataMatchMethod & { regex: string }) | (_GrpcRouteMetadataMatchMethod & { range: MatchRange }) | (_GrpcRouteMetadataMatchMethod & { prefix: string }) | (_GrpcRouteMetadataMatchMethod & { suffix: string });
+export type GrpcRouteMetadataMatchMethod =
+  | (_GrpcRouteMetadataMatchMethod & { exact: string })
+  | (_GrpcRouteMetadataMatchMethod & { regex: string })
+  | (_GrpcRouteMetadataMatchMethod & { range: MatchRange })
+  | (_GrpcRouteMetadataMatchMethod & { prefix: string })
+  | (_GrpcRouteMetadataMatchMethod & { suffix: string });
 export interface GrpcTimeout {
   perRequest?: Duration;
   idle?: Duration;
@@ -652,7 +927,12 @@ interface _HeaderMatchMethod {
   suffix?: string;
 }
 
-export type HeaderMatchMethod = (_HeaderMatchMethod & { exact: string }) | (_HeaderMatchMethod & { regex: string }) | (_HeaderMatchMethod & { range: MatchRange }) | (_HeaderMatchMethod & { prefix: string }) | (_HeaderMatchMethod & { suffix: string });
+export type HeaderMatchMethod =
+  | (_HeaderMatchMethod & { exact: string })
+  | (_HeaderMatchMethod & { regex: string })
+  | (_HeaderMatchMethod & { range: MatchRange })
+  | (_HeaderMatchMethod & { prefix: string })
+  | (_HeaderMatchMethod & { suffix: string });
 export type HeaderName = string;
 
 export type HealthCheckIntervalMillis = number;
@@ -802,7 +1082,11 @@ interface _ListenerTimeout {
   grpc?: GrpcTimeout;
 }
 
-export type ListenerTimeout = (_ListenerTimeout & { tcp: TcpTimeout }) | (_ListenerTimeout & { http: HttpTimeout }) | (_ListenerTimeout & { http2: HttpTimeout }) | (_ListenerTimeout & { grpc: GrpcTimeout });
+export type ListenerTimeout =
+  | (_ListenerTimeout & { tcp: TcpTimeout })
+  | (_ListenerTimeout & { http: HttpTimeout })
+  | (_ListenerTimeout & { http2: HttpTimeout })
+  | (_ListenerTimeout & { grpc: GrpcTimeout });
 export interface ListenerTls {
   mode: string;
   certificate: ListenerTlsCertificate;
@@ -817,7 +1101,10 @@ interface _ListenerTlsCertificate {
   sds?: ListenerTlsSdsCertificate;
 }
 
-export type ListenerTlsCertificate = (_ListenerTlsCertificate & { acm: ListenerTlsAcmCertificate }) | (_ListenerTlsCertificate & { file: ListenerTlsFileCertificate }) | (_ListenerTlsCertificate & { sds: ListenerTlsSdsCertificate });
+export type ListenerTlsCertificate =
+  | (_ListenerTlsCertificate & { acm: ListenerTlsAcmCertificate })
+  | (_ListenerTlsCertificate & { file: ListenerTlsFileCertificate })
+  | (_ListenerTlsCertificate & { sds: ListenerTlsSdsCertificate });
 export interface ListenerTlsFileCertificate {
   certificateChain: string;
   privateKey: string;
@@ -836,7 +1123,13 @@ interface _ListenerTlsValidationContextTrust {
   sds?: TlsValidationContextSdsTrust;
 }
 
-export type ListenerTlsValidationContextTrust = (_ListenerTlsValidationContextTrust & { file: TlsValidationContextFileTrust }) | (_ListenerTlsValidationContextTrust & { sds: TlsValidationContextSdsTrust });
+export type ListenerTlsValidationContextTrust =
+  | (_ListenerTlsValidationContextTrust & {
+      file: TlsValidationContextFileTrust;
+    })
+  | (_ListenerTlsValidationContextTrust & {
+      sds: TlsValidationContextSdsTrust;
+    });
 export interface ListGatewayRoutesInput {
   meshName: string;
   virtualGatewayName: string;
@@ -938,7 +1231,9 @@ interface _LoggingFormat {
   json?: Array<JsonFormatRef>;
 }
 
-export type LoggingFormat = (_LoggingFormat & { text: string }) | (_LoggingFormat & { json: Array<JsonFormatRef> });
+export type LoggingFormat =
+  | (_LoggingFormat & { text: string })
+  | (_LoggingFormat & { json: Array<JsonFormatRef> });
 export interface MatchRange {
   start: number;
   end: number;
@@ -1069,7 +1364,9 @@ interface _ServiceDiscovery {
   awsCloudMap?: AwsCloudMapServiceDiscovery;
 }
 
-export type ServiceDiscovery = (_ServiceDiscovery & { dns: DnsServiceDiscovery }) | (_ServiceDiscovery & { awsCloudMap: AwsCloudMapServiceDiscovery });
+export type ServiceDiscovery =
+  | (_ServiceDiscovery & { dns: DnsServiceDiscovery })
+  | (_ServiceDiscovery & { awsCloudMap: AwsCloudMapServiceDiscovery });
 export type ServiceName = string;
 
 export declare class ServiceUnavailableException extends EffectData.TaggedError(
@@ -1100,8 +1397,7 @@ export interface TagResourceInput {
   resourceArn: string;
   tags: Array<TagRef>;
 }
-export interface TagResourceOutput {
-}
+export interface TagResourceOutput {}
 export type TagsLimit = number;
 
 export type TagValue = string;
@@ -1144,7 +1440,10 @@ interface _TlsValidationContextTrust {
   sds?: TlsValidationContextSdsTrust;
 }
 
-export type TlsValidationContextTrust = (_TlsValidationContextTrust & { acm: TlsValidationContextAcmTrust }) | (_TlsValidationContextTrust & { file: TlsValidationContextFileTrust }) | (_TlsValidationContextTrust & { sds: TlsValidationContextSdsTrust });
+export type TlsValidationContextTrust =
+  | (_TlsValidationContextTrust & { acm: TlsValidationContextAcmTrust })
+  | (_TlsValidationContextTrust & { file: TlsValidationContextFileTrust })
+  | (_TlsValidationContextTrust & { sds: TlsValidationContextSdsTrust });
 export declare class TooManyRequestsException extends EffectData.TaggedError(
   "TooManyRequestsException",
 )<{
@@ -1159,8 +1458,7 @@ export interface UntagResourceInput {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceOutput {
-}
+export interface UntagResourceOutput {}
 export interface UpdateGatewayRouteInput {
   gatewayRouteName: string;
   meshName: string;
@@ -1235,7 +1533,9 @@ interface _VirtualGatewayAccessLog {
   file?: VirtualGatewayFileAccessLog;
 }
 
-export type VirtualGatewayAccessLog = (_VirtualGatewayAccessLog & { file: VirtualGatewayFileAccessLog });
+export type VirtualGatewayAccessLog = _VirtualGatewayAccessLog & {
+  file: VirtualGatewayFileAccessLog;
+};
 export interface VirtualGatewayBackendDefaults {
   clientPolicy?: VirtualGatewayClientPolicy;
 }
@@ -1254,14 +1554,27 @@ interface _VirtualGatewayClientTlsCertificate {
   sds?: VirtualGatewayListenerTlsSdsCertificate;
 }
 
-export type VirtualGatewayClientTlsCertificate = (_VirtualGatewayClientTlsCertificate & { file: VirtualGatewayListenerTlsFileCertificate }) | (_VirtualGatewayClientTlsCertificate & { sds: VirtualGatewayListenerTlsSdsCertificate });
+export type VirtualGatewayClientTlsCertificate =
+  | (_VirtualGatewayClientTlsCertificate & {
+      file: VirtualGatewayListenerTlsFileCertificate;
+    })
+  | (_VirtualGatewayClientTlsCertificate & {
+      sds: VirtualGatewayListenerTlsSdsCertificate;
+    });
 interface _VirtualGatewayConnectionPool {
   http?: VirtualGatewayHttpConnectionPool;
   http2?: VirtualGatewayHttp2ConnectionPool;
   grpc?: VirtualGatewayGrpcConnectionPool;
 }
 
-export type VirtualGatewayConnectionPool = (_VirtualGatewayConnectionPool & { http: VirtualGatewayHttpConnectionPool }) | (_VirtualGatewayConnectionPool & { http2: VirtualGatewayHttp2ConnectionPool }) | (_VirtualGatewayConnectionPool & { grpc: VirtualGatewayGrpcConnectionPool });
+export type VirtualGatewayConnectionPool =
+  | (_VirtualGatewayConnectionPool & { http: VirtualGatewayHttpConnectionPool })
+  | (_VirtualGatewayConnectionPool & {
+      http2: VirtualGatewayHttp2ConnectionPool;
+    })
+  | (_VirtualGatewayConnectionPool & {
+      grpc: VirtualGatewayGrpcConnectionPool;
+    });
 export interface VirtualGatewayData {
   meshName: string;
   virtualGatewayName: string;
@@ -1320,7 +1633,16 @@ interface _VirtualGatewayListenerTlsCertificate {
   sds?: VirtualGatewayListenerTlsSdsCertificate;
 }
 
-export type VirtualGatewayListenerTlsCertificate = (_VirtualGatewayListenerTlsCertificate & { acm: VirtualGatewayListenerTlsAcmCertificate }) | (_VirtualGatewayListenerTlsCertificate & { file: VirtualGatewayListenerTlsFileCertificate }) | (_VirtualGatewayListenerTlsCertificate & { sds: VirtualGatewayListenerTlsSdsCertificate });
+export type VirtualGatewayListenerTlsCertificate =
+  | (_VirtualGatewayListenerTlsCertificate & {
+      acm: VirtualGatewayListenerTlsAcmCertificate;
+    })
+  | (_VirtualGatewayListenerTlsCertificate & {
+      file: VirtualGatewayListenerTlsFileCertificate;
+    })
+  | (_VirtualGatewayListenerTlsCertificate & {
+      sds: VirtualGatewayListenerTlsSdsCertificate;
+    });
 export interface VirtualGatewayListenerTlsFileCertificate {
   certificateChain: string;
   privateKey: string;
@@ -1339,7 +1661,13 @@ interface _VirtualGatewayListenerTlsValidationContextTrust {
   sds?: VirtualGatewayTlsValidationContextSdsTrust;
 }
 
-export type VirtualGatewayListenerTlsValidationContextTrust = (_VirtualGatewayListenerTlsValidationContextTrust & { file: VirtualGatewayTlsValidationContextFileTrust }) | (_VirtualGatewayListenerTlsValidationContextTrust & { sds: VirtualGatewayTlsValidationContextSdsTrust });
+export type VirtualGatewayListenerTlsValidationContextTrust =
+  | (_VirtualGatewayListenerTlsValidationContextTrust & {
+      file: VirtualGatewayTlsValidationContextFileTrust;
+    })
+  | (_VirtualGatewayListenerTlsValidationContextTrust & {
+      sds: VirtualGatewayTlsValidationContextSdsTrust;
+    });
 export interface VirtualGatewayLogging {
   accessLog?: VirtualGatewayAccessLog;
 }
@@ -1390,7 +1718,16 @@ interface _VirtualGatewayTlsValidationContextTrust {
   sds?: VirtualGatewayTlsValidationContextSdsTrust;
 }
 
-export type VirtualGatewayTlsValidationContextTrust = (_VirtualGatewayTlsValidationContextTrust & { acm: VirtualGatewayTlsValidationContextAcmTrust }) | (_VirtualGatewayTlsValidationContextTrust & { file: VirtualGatewayTlsValidationContextFileTrust }) | (_VirtualGatewayTlsValidationContextTrust & { sds: VirtualGatewayTlsValidationContextSdsTrust });
+export type VirtualGatewayTlsValidationContextTrust =
+  | (_VirtualGatewayTlsValidationContextTrust & {
+      acm: VirtualGatewayTlsValidationContextAcmTrust;
+    })
+  | (_VirtualGatewayTlsValidationContextTrust & {
+      file: VirtualGatewayTlsValidationContextFileTrust;
+    })
+  | (_VirtualGatewayTlsValidationContextTrust & {
+      sds: VirtualGatewayTlsValidationContextSdsTrust;
+    });
 interface _VirtualNodeConnectionPool {
   tcp?: VirtualNodeTcpConnectionPool;
   http?: VirtualNodeHttpConnectionPool;
@@ -1398,7 +1735,11 @@ interface _VirtualNodeConnectionPool {
   grpc?: VirtualNodeGrpcConnectionPool;
 }
 
-export type VirtualNodeConnectionPool = (_VirtualNodeConnectionPool & { tcp: VirtualNodeTcpConnectionPool }) | (_VirtualNodeConnectionPool & { http: VirtualNodeHttpConnectionPool }) | (_VirtualNodeConnectionPool & { http2: VirtualNodeHttp2ConnectionPool }) | (_VirtualNodeConnectionPool & { grpc: VirtualNodeGrpcConnectionPool });
+export type VirtualNodeConnectionPool =
+  | (_VirtualNodeConnectionPool & { tcp: VirtualNodeTcpConnectionPool })
+  | (_VirtualNodeConnectionPool & { http: VirtualNodeHttpConnectionPool })
+  | (_VirtualNodeConnectionPool & { http2: VirtualNodeHttp2ConnectionPool })
+  | (_VirtualNodeConnectionPool & { grpc: VirtualNodeGrpcConnectionPool });
 export interface VirtualNodeData {
   meshName: string;
   virtualNodeName: string;
@@ -1495,7 +1836,9 @@ interface _VirtualServiceProvider {
   virtualRouter?: VirtualRouterServiceProvider;
 }
 
-export type VirtualServiceProvider = (_VirtualServiceProvider & { virtualNode: VirtualNodeServiceProvider }) | (_VirtualServiceProvider & { virtualRouter: VirtualRouterServiceProvider });
+export type VirtualServiceProvider =
+  | (_VirtualServiceProvider & { virtualNode: VirtualNodeServiceProvider })
+  | (_VirtualServiceProvider & { virtualRouter: VirtualRouterServiceProvider });
 export interface VirtualServiceRef {
   meshName: string;
   virtualServiceName: string;
@@ -2049,5 +2392,15 @@ export declare namespace UpdateVirtualService {
     | CommonAwsError;
 }
 
-export type AppMeshErrors = BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | LimitExceededException | NotFoundException | ResourceInUseException | ServiceUnavailableException | TooManyRequestsException | TooManyTagsException | CommonAwsError;
-
+export type AppMeshErrors =
+  | BadRequestException
+  | ConflictException
+  | ForbiddenException
+  | InternalServerErrorException
+  | LimitExceededException
+  | NotFoundException
+  | ResourceInUseException
+  | ServiceUnavailableException
+  | TooManyRequestsException
+  | TooManyTagsException
+  | CommonAwsError;

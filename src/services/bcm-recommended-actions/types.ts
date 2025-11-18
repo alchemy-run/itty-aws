@@ -1,6 +1,38 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
-type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
+import type {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+type CommonAwsError =
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | AccessDeniedException
+  | ThrottlingException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class BCMRecommendedActions extends AWSServiceClient {
@@ -8,7 +40,11 @@ export declare class BCMRecommendedActions extends AWSServiceClient {
     input: ListRecommendedActionsRequest,
   ): Effect.Effect<
     ListRecommendedActionsResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
 }
 
@@ -27,9 +63,37 @@ export interface ActionFilter {
   values: Array<string>;
 }
 export type ActionFilterList = Array<ActionFilter>;
-export type ActionType = "ADD_ALTERNATE_BILLING_CONTACT" | "CREATE_ANOMALY_MONITOR" | "CREATE_BUDGET" | "ENABLE_COST_OPTIMIZATION_HUB" | "MIGRATE_TO_GRANULAR_PERMISSIONS" | "PAYMENTS_DUE" | "PAYMENTS_PAST_DUE" | "REVIEW_ANOMALIES" | "REVIEW_BUDGET_ALERTS" | "REVIEW_BUDGETS_EXCEEDED" | "REVIEW_EXPIRING_RI" | "REVIEW_EXPIRING_SP" | "REVIEW_FREETIER_USAGE_ALERTS" | "REVIEW_SAVINGS_OPPORTUNITY_RECOMMENDATIONS" | "UPDATE_EXPIRED_PAYMENT_METHOD" | "UPDATE_INVALID_PAYMENT_METHOD" | "UPDATE_TAX_EXEMPTION_CERTIFICATE" | "UPDATE_TAX_REGISTRATION_NUMBER";
+export type ActionType =
+  | "ADD_ALTERNATE_BILLING_CONTACT"
+  | "CREATE_ANOMALY_MONITOR"
+  | "CREATE_BUDGET"
+  | "ENABLE_COST_OPTIMIZATION_HUB"
+  | "MIGRATE_TO_GRANULAR_PERMISSIONS"
+  | "PAYMENTS_DUE"
+  | "PAYMENTS_PAST_DUE"
+  | "REVIEW_ANOMALIES"
+  | "REVIEW_BUDGET_ALERTS"
+  | "REVIEW_BUDGETS_EXCEEDED"
+  | "REVIEW_EXPIRING_RI"
+  | "REVIEW_EXPIRING_SP"
+  | "REVIEW_FREETIER_USAGE_ALERTS"
+  | "REVIEW_SAVINGS_OPPORTUNITY_RECOMMENDATIONS"
+  | "UPDATE_EXPIRED_PAYMENT_METHOD"
+  | "UPDATE_INVALID_PAYMENT_METHOD"
+  | "UPDATE_TAX_EXEMPTION_CERTIFICATE"
+  | "UPDATE_TAX_REGISTRATION_NUMBER";
 export type Context = Record<string, string>;
-export type Feature = "ACCOUNT" | "BUDGETS" | "COST_ANOMALY_DETECTION" | "COST_OPTIMIZATION_HUB" | "FREE_TIER" | "IAM" | "PAYMENTS" | "RESERVATIONS" | "SAVINGS_PLANS" | "TAX_SETTINGS";
+export type Feature =
+  | "ACCOUNT"
+  | "BUDGETS"
+  | "COST_ANOMALY_DETECTION"
+  | "COST_OPTIMIZATION_HUB"
+  | "FREE_TIER"
+  | "IAM"
+  | "PAYMENTS"
+  | "RESERVATIONS"
+  | "SAVINGS_PLANS"
+  | "TAX_SETTINGS";
 export type FilterName = "FEATURE" | "SEVERITY" | "TYPE";
 export type FilterValue = string;
 
@@ -88,7 +152,11 @@ export interface ValidationExceptionField {
   message: string;
 }
 export type ValidationExceptionFieldList = Array<ValidationExceptionField>;
-export type ValidationExceptionReason = "unknownOperation" | "cannotParse" | "fieldValidationFailed" | "other";
+export type ValidationExceptionReason =
+  | "unknownOperation"
+  | "cannotParse"
+  | "fieldValidationFailed"
+  | "other";
 export declare namespace ListRecommendedActions {
   export type Input = ListRecommendedActionsRequest;
   export type Output = ListRecommendedActionsResponse;
@@ -100,5 +168,9 @@ export declare namespace ListRecommendedActions {
     | CommonAwsError;
 }
 
-export type BCMRecommendedActionsErrors = AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError;
-
+export type BCMRecommendedActionsErrors =
+  | AccessDeniedException
+  | InternalServerException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

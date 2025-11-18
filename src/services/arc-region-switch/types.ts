@@ -1,6 +1,40 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException } from "../../error.ts";
-type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | ThrottlingException | UnrecognizedClientException | UnknownOperationException | ValidationError | ValidationException | AccessDeniedException;
+import type {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  ValidationException,
+} from "../../error.ts";
+type CommonAwsError =
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | ThrottlingException
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | ValidationException
+  | AccessDeniedException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class ARCRegionswitch extends AWSServiceClient {
@@ -56,19 +90,29 @@ export declare class ARCRegionswitch extends AWSServiceClient {
     input: ListRoute53HealthChecksRequest,
   ): Effect.Effect<
     ListRoute53HealthChecksResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   startPlanExecution(
     input: StartPlanExecutionRequest,
   ): Effect.Effect<
     StartPlanExecutionResponse,
-    AccessDeniedException | IllegalArgumentException | IllegalStateException | ResourceNotFoundException | CommonAwsError
+    | AccessDeniedException
+    | IllegalArgumentException
+    | IllegalStateException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   updatePlanExecution(
     input: UpdatePlanExecutionRequest,
   ): Effect.Effect<
     UpdatePlanExecutionResponse,
-    AccessDeniedException | IllegalStateException | ResourceNotFoundException | CommonAwsError
+    | AccessDeniedException
+    | IllegalStateException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   updatePlanExecutionStep(
     input: UpdatePlanExecutionStepRequest,
@@ -78,10 +122,7 @@ export declare class ARCRegionswitch extends AWSServiceClient {
   >;
   createPlan(
     input: CreatePlanRequest,
-  ): Effect.Effect<
-    CreatePlanResponse,
-    CommonAwsError
-  >;
+  ): Effect.Effect<CreatePlanResponse, CommonAwsError>;
   deletePlan(
     input: DeletePlanRequest,
   ): Effect.Effect<
@@ -90,16 +131,10 @@ export declare class ARCRegionswitch extends AWSServiceClient {
   >;
   getPlan(
     input: GetPlanRequest,
-  ): Effect.Effect<
-    GetPlanResponse,
-    ResourceNotFoundException | CommonAwsError
-  >;
+  ): Effect.Effect<GetPlanResponse, ResourceNotFoundException | CommonAwsError>;
   listPlans(
     input: ListPlansRequest,
-  ): Effect.Effect<
-    ListPlansResponse,
-    CommonAwsError
-  >;
+  ): Effect.Effect<ListPlansResponse, CommonAwsError>;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
@@ -172,8 +207,7 @@ export interface ApprovePlanExecutionStepRequest {
   approval: Approval;
   comment?: string;
 }
-export interface ApprovePlanExecutionStepResponse {
-}
+export interface ApprovePlanExecutionStepResponse {}
 export interface ArcRoutingControlConfiguration {
   timeoutMinutes?: number;
   crossAccountRole?: string;
@@ -208,8 +242,7 @@ export interface CancelPlanExecutionRequest {
   executionId: string;
   comment?: string;
 }
-export interface CancelPlanExecutionResponse {
-}
+export interface CancelPlanExecutionResponse {}
 export interface CreatePlanRequest {
   description?: string;
   workflows: Array<Workflow>;
@@ -236,8 +269,7 @@ export interface CustomActionLambdaConfiguration {
 export interface DeletePlanRequest {
   arn: string;
 }
-export interface DeletePlanResponse {
-}
+export interface DeletePlanResponse {}
 export type Duration = string;
 
 export interface Ec2AsgCapacityIncreaseConfiguration {
@@ -247,7 +279,9 @@ export interface Ec2AsgCapacityIncreaseConfiguration {
   targetPercent?: number;
   capacityMonitoringApproach?: Ec2AsgCapacityMonitoringApproach;
 }
-export type Ec2AsgCapacityMonitoringApproach = "sampledMaxInLast24Hours" | "autoscalingMaxInLast24Hours";
+export type Ec2AsgCapacityMonitoringApproach =
+  | "sampledMaxInLast24Hours"
+  | "autoscalingMaxInLast24Hours";
 export interface Ec2Ungraceful {
   minimumSuccessPercentage: number;
 }
@@ -258,7 +292,9 @@ export interface EcsCapacityIncreaseConfiguration {
   targetPercent?: number;
   capacityMonitoringApproach?: EcsCapacityMonitoringApproach;
 }
-export type EcsCapacityMonitoringApproach = "sampledMaxInLast24Hours" | "containerInsightsMaxInLast24Hours";
+export type EcsCapacityMonitoringApproach =
+  | "sampledMaxInLast24Hours"
+  | "containerInsightsMaxInLast24Hours";
 export type EcsClusterArn = string;
 
 export type EcsServiceArn = string;
@@ -278,7 +314,9 @@ export type EksClusters = Array<EksCluster>;
 export interface EksResourceScalingConfiguration {
   timeoutMinutes?: number;
   kubernetesResourceType: KubernetesResourceType;
-  scalingResources?: Array<Record<string, Record<string, KubernetesScalingResource>>>;
+  scalingResources?: Array<
+    Record<string, Record<string, KubernetesScalingResource>>
+  >;
   eksClusters?: Array<EksCluster>;
   ungraceful?: EksResourceScalingUngraceful;
   targetPercent?: number;
@@ -287,7 +325,11 @@ export interface EksResourceScalingConfiguration {
 export interface EksResourceScalingUngraceful {
   minimumSuccessPercentage: number;
 }
-export type EvaluationStatus = "passed" | "actionRequired" | "pendingEvaluation" | "unknown";
+export type EvaluationStatus =
+  | "passed"
+  | "actionRequired"
+  | "pendingEvaluation"
+  | "unknown";
 export type ExecutionAction = "activate" | "deactivate";
 export interface ExecutionApprovalConfiguration {
   timeoutMinutes?: number;
@@ -306,8 +348,48 @@ interface _ExecutionBlockConfiguration {
   route53HealthCheckConfig?: Route53HealthCheckConfiguration;
 }
 
-export type ExecutionBlockConfiguration = (_ExecutionBlockConfiguration & { customActionLambdaConfig: CustomActionLambdaConfiguration }) | (_ExecutionBlockConfiguration & { ec2AsgCapacityIncreaseConfig: Ec2AsgCapacityIncreaseConfiguration }) | (_ExecutionBlockConfiguration & { executionApprovalConfig: ExecutionApprovalConfiguration }) | (_ExecutionBlockConfiguration & { arcRoutingControlConfig: ArcRoutingControlConfiguration }) | (_ExecutionBlockConfiguration & { globalAuroraConfig: GlobalAuroraConfiguration }) | (_ExecutionBlockConfiguration & { parallelConfig: ParallelExecutionBlockConfiguration }) | (_ExecutionBlockConfiguration & { regionSwitchPlanConfig: RegionSwitchPlanConfiguration }) | (_ExecutionBlockConfiguration & { ecsCapacityIncreaseConfig: EcsCapacityIncreaseConfiguration }) | (_ExecutionBlockConfiguration & { eksResourceScalingConfig: EksResourceScalingConfiguration }) | (_ExecutionBlockConfiguration & { route53HealthCheckConfig: Route53HealthCheckConfiguration });
-export type ExecutionBlockType = "CustomActionLambda" | "ManualApproval" | "AuroraGlobalDatabase" | "EC2AutoScaling" | "ARCRoutingControl" | "ARCRegionSwitchPlan" | "Parallel" | "ECSServiceScaling" | "EKSResourceScaling" | "Route53HealthCheck";
+export type ExecutionBlockConfiguration =
+  | (_ExecutionBlockConfiguration & {
+      customActionLambdaConfig: CustomActionLambdaConfiguration;
+    })
+  | (_ExecutionBlockConfiguration & {
+      ec2AsgCapacityIncreaseConfig: Ec2AsgCapacityIncreaseConfiguration;
+    })
+  | (_ExecutionBlockConfiguration & {
+      executionApprovalConfig: ExecutionApprovalConfiguration;
+    })
+  | (_ExecutionBlockConfiguration & {
+      arcRoutingControlConfig: ArcRoutingControlConfiguration;
+    })
+  | (_ExecutionBlockConfiguration & {
+      globalAuroraConfig: GlobalAuroraConfiguration;
+    })
+  | (_ExecutionBlockConfiguration & {
+      parallelConfig: ParallelExecutionBlockConfiguration;
+    })
+  | (_ExecutionBlockConfiguration & {
+      regionSwitchPlanConfig: RegionSwitchPlanConfiguration;
+    })
+  | (_ExecutionBlockConfiguration & {
+      ecsCapacityIncreaseConfig: EcsCapacityIncreaseConfiguration;
+    })
+  | (_ExecutionBlockConfiguration & {
+      eksResourceScalingConfig: EksResourceScalingConfiguration;
+    })
+  | (_ExecutionBlockConfiguration & {
+      route53HealthCheckConfig: Route53HealthCheckConfiguration;
+    });
+export type ExecutionBlockType =
+  | "CustomActionLambda"
+  | "ManualApproval"
+  | "AuroraGlobalDatabase"
+  | "EC2AutoScaling"
+  | "ARCRoutingControl"
+  | "ARCRegionSwitchPlan"
+  | "Parallel"
+  | "ECSServiceScaling"
+  | "EKSResourceScaling"
+  | "Route53HealthCheck";
 export type ExecutionComment = string;
 
 export interface ExecutionEvent {
@@ -322,11 +404,47 @@ export interface ExecutionEvent {
   previousEventId?: string;
 }
 export type ExecutionEventList = Array<ExecutionEvent>;
-export type ExecutionEventType = "unknown" | "executionPending" | "executionStarted" | "executionSucceeded" | "executionFailed" | "executionPausing" | "executionPaused" | "executionCanceling" | "executionCanceled" | "executionPendingApproval" | "executionBehaviorChangedToUngraceful" | "executionBehaviorChangedToGraceful" | "executionPendingChildPlanManualApproval" | "executionSuccessMonitoringApplicationHealth" | "stepStarted" | "stepUpdate" | "stepSucceeded" | "stepFailed" | "stepSkipped" | "stepPausedByError" | "stepPausedByOperator" | "stepCanceled" | "stepPendingApproval" | "stepExecutionBehaviorChangedToUngraceful" | "stepPendingApplicationHealthMonitor";
+export type ExecutionEventType =
+  | "unknown"
+  | "executionPending"
+  | "executionStarted"
+  | "executionSucceeded"
+  | "executionFailed"
+  | "executionPausing"
+  | "executionPaused"
+  | "executionCanceling"
+  | "executionCanceled"
+  | "executionPendingApproval"
+  | "executionBehaviorChangedToUngraceful"
+  | "executionBehaviorChangedToGraceful"
+  | "executionPendingChildPlanManualApproval"
+  | "executionSuccessMonitoringApplicationHealth"
+  | "stepStarted"
+  | "stepUpdate"
+  | "stepSucceeded"
+  | "stepFailed"
+  | "stepSkipped"
+  | "stepPausedByError"
+  | "stepPausedByOperator"
+  | "stepCanceled"
+  | "stepPendingApproval"
+  | "stepExecutionBehaviorChangedToUngraceful"
+  | "stepPendingApplicationHealthMonitor";
 export type ExecutionId = string;
 
 export type ExecutionMode = "graceful" | "ungraceful";
-export type ExecutionState = "inProgress" | "pausedByFailedStep" | "pausedByOperator" | "completed" | "completedWithExceptions" | "canceled" | "planExecutionTimedOut" | "pendingManualApproval" | "failed" | "pending" | "completedMonitoringApplicationHealth";
+export type ExecutionState =
+  | "inProgress"
+  | "pausedByFailedStep"
+  | "pausedByOperator"
+  | "completed"
+  | "completedWithExceptions"
+  | "canceled"
+  | "planExecutionTimedOut"
+  | "pendingManualApproval"
+  | "failed"
+  | "pending"
+  | "completedMonitoringApplicationHealth";
 export interface GetPlanEvaluationStatusRequest {
   planArn: string;
   maxResults?: number;
@@ -417,8 +535,13 @@ export interface KubernetesResourceType {
   apiVersion: string;
   kind: string;
 }
-export type KubernetesScalingApplication = Record<string, Record<string, KubernetesScalingResource>>;
-export type KubernetesScalingApps = Array<Record<string, Record<string, KubernetesScalingResource>>>;
+export type KubernetesScalingApplication = Record<
+  string,
+  Record<string, KubernetesScalingResource>
+>;
+export type KubernetesScalingApps = Array<
+  Record<string, Record<string, KubernetesScalingResource>>
+>;
 export interface KubernetesScalingResource {
   namespace: string;
   name: string;
@@ -531,7 +654,10 @@ export type RecoveryApproach = "activeActive" | "activePassive";
 export type Region = string;
 
 export type RegionalScalingResource = Record<string, KubernetesScalingResource>;
-export type RegionAndRoutingControls = Record<string, Array<ArcRoutingControlState>>;
+export type RegionAndRoutingControls = Record<
+  string,
+  Array<ArcRoutingControlState>
+>;
 export type RegionList = Array<string>;
 export interface RegionSwitchPlanConfiguration {
   crossAccountRole?: string;
@@ -629,7 +755,14 @@ export interface StepState {
   stepMode?: ExecutionMode;
 }
 export type StepStates = Array<StepState>;
-export type StepStatus = "notStarted" | "running" | "failed" | "completed" | "canceled" | "skipped" | "pendingApproval";
+export type StepStatus =
+  | "notStarted"
+  | "running"
+  | "failed"
+  | "completed"
+  | "canceled"
+  | "skipped"
+  | "pendingApproval";
 export type TagKey = string;
 
 export type TagKeys = Array<string>;
@@ -637,8 +770,7 @@ export interface TagResourceRequest {
   arn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {
-}
+export interface TagResourceResponse {}
 export type Tags = Record<string, string>;
 export type TagValue = string;
 
@@ -659,17 +791,19 @@ export interface UntagResourceRequest {
   arn: string;
   resourceTagKeys: Array<string>;
 }
-export interface UntagResourceResponse {
-}
-export type UpdatePlanExecutionAction = "switchToGraceful" | "switchToUngraceful" | "pause" | "resume";
+export interface UntagResourceResponse {}
+export type UpdatePlanExecutionAction =
+  | "switchToGraceful"
+  | "switchToUngraceful"
+  | "pause"
+  | "resume";
 export interface UpdatePlanExecutionRequest {
   planArn: string;
   executionId: string;
   action: UpdatePlanExecutionAction;
   comment?: string;
 }
-export interface UpdatePlanExecutionResponse {
-}
+export interface UpdatePlanExecutionResponse {}
 export type UpdatePlanExecutionStepAction = "switchToUngraceful" | "skip";
 export interface UpdatePlanExecutionStepRequest {
   planArn: string;
@@ -678,8 +812,7 @@ export interface UpdatePlanExecutionStepRequest {
   stepName: string;
   actionToTake: UpdatePlanExecutionStepAction;
 }
-export interface UpdatePlanExecutionStepResponse {
-}
+export interface UpdatePlanExecutionStepResponse {}
 export interface UpdatePlanRequest {
   arn: string;
   description?: string;
@@ -766,9 +899,7 @@ export declare namespace ListPlanExecutions {
 export declare namespace ListPlansInRegion {
   export type Input = ListPlansInRegionRequest;
   export type Output = ListPlansInRegionResponse;
-  export type Error =
-    | AccessDeniedException
-    | CommonAwsError;
+  export type Error = AccessDeniedException | CommonAwsError;
 }
 
 export declare namespace ListRoute53HealthChecks {
@@ -814,8 +945,7 @@ export declare namespace UpdatePlanExecutionStep {
 export declare namespace CreatePlan {
   export type Input = CreatePlanRequest;
   export type Output = CreatePlanResponse;
-  export type Error =
-    | CommonAwsError;
+  export type Error = CommonAwsError;
 }
 
 export declare namespace DeletePlan {
@@ -830,16 +960,13 @@ export declare namespace DeletePlan {
 export declare namespace GetPlan {
   export type Input = GetPlanRequest;
   export type Output = GetPlanResponse;
-  export type Error =
-    | ResourceNotFoundException
-    | CommonAwsError;
+  export type Error = ResourceNotFoundException | CommonAwsError;
 }
 
 export declare namespace ListPlans {
   export type Input = ListPlansRequest;
   export type Output = ListPlansResponse;
-  export type Error =
-    | CommonAwsError;
+  export type Error = CommonAwsError;
 }
 
 export declare namespace ListTagsForResource {
@@ -872,10 +999,13 @@ export declare namespace UntagResource {
 export declare namespace UpdatePlan {
   export type Input = UpdatePlanRequest;
   export type Output = UpdatePlanResponse;
-  export type Error =
-    | ResourceNotFoundException
-    | CommonAwsError;
+  export type Error = ResourceNotFoundException | CommonAwsError;
 }
 
-export type ARCRegionswitchErrors = AccessDeniedException | IllegalArgumentException | IllegalStateException | InternalServerException | ResourceNotFoundException | CommonAwsError;
-
+export type ARCRegionswitchErrors =
+  | AccessDeniedException
+  | IllegalArgumentException
+  | IllegalStateException
+  | InternalServerException
+  | ResourceNotFoundException
+  | CommonAwsError;

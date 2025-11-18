@@ -1,6 +1,40 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException } from "../../error.ts";
-type CommonAwsError = AccessDeniedException | ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | ValidationException | ThrottlingException;
+import type {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  ValidationException,
+} from "../../error.ts";
+type CommonAwsError =
+  | AccessDeniedException
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | ValidationException
+  | ThrottlingException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class EC2InstanceConnect extends AWSServiceClient {
@@ -8,13 +42,32 @@ export declare class EC2InstanceConnect extends AWSServiceClient {
     input: SendSerialConsoleSSHPublicKeyRequest,
   ): Effect.Effect<
     SendSerialConsoleSSHPublicKeyResponse,
-    AuthException | EC2InstanceNotFoundException | EC2InstanceStateInvalidException | EC2InstanceTypeInvalidException | EC2InstanceUnavailableException | InvalidArgsException | SerialConsoleAccessDisabledException | SerialConsoleSessionLimitExceededException | SerialConsoleSessionUnavailableException | SerialConsoleSessionUnsupportedException | ServiceException | ThrottlingException | CommonAwsError
+    | AuthException
+    | EC2InstanceNotFoundException
+    | EC2InstanceStateInvalidException
+    | EC2InstanceTypeInvalidException
+    | EC2InstanceUnavailableException
+    | InvalidArgsException
+    | SerialConsoleAccessDisabledException
+    | SerialConsoleSessionLimitExceededException
+    | SerialConsoleSessionUnavailableException
+    | SerialConsoleSessionUnsupportedException
+    | ServiceException
+    | ThrottlingException
+    | CommonAwsError
   >;
   sendSSHPublicKey(
     input: SendSSHPublicKeyRequest,
   ): Effect.Effect<
     SendSSHPublicKeyResponse,
-    AuthException | EC2InstanceNotFoundException | EC2InstanceStateInvalidException | EC2InstanceUnavailableException | InvalidArgsException | ServiceException | ThrottlingException | CommonAwsError
+    | AuthException
+    | EC2InstanceNotFoundException
+    | EC2InstanceStateInvalidException
+    | EC2InstanceUnavailableException
+    | InvalidArgsException
+    | ServiceException
+    | ThrottlingException
+    | CommonAwsError
   >;
 }
 
@@ -148,5 +201,17 @@ export declare namespace SendSSHPublicKey {
     | CommonAwsError;
 }
 
-export type EC2InstanceConnectErrors = AuthException | EC2InstanceNotFoundException | EC2InstanceStateInvalidException | EC2InstanceTypeInvalidException | EC2InstanceUnavailableException | InvalidArgsException | SerialConsoleAccessDisabledException | SerialConsoleSessionLimitExceededException | SerialConsoleSessionUnavailableException | SerialConsoleSessionUnsupportedException | ServiceException | ThrottlingException | CommonAwsError;
-
+export type EC2InstanceConnectErrors =
+  | AuthException
+  | EC2InstanceNotFoundException
+  | EC2InstanceStateInvalidException
+  | EC2InstanceTypeInvalidException
+  | EC2InstanceUnavailableException
+  | InvalidArgsException
+  | SerialConsoleAccessDisabledException
+  | SerialConsoleSessionLimitExceededException
+  | SerialConsoleSessionUnavailableException
+  | SerialConsoleSessionUnsupportedException
+  | ServiceException
+  | ThrottlingException
+  | CommonAwsError;

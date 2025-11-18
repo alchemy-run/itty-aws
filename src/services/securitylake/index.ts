@@ -5,7 +5,24 @@ import type { SecurityLake as _SecurityLakeClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException, type CommonAwsError} from "../../error.ts";
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  ValidationException,
+  type CommonAwsError,
+} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -14,41 +31,51 @@ const metadata = {
   protocol: "restJson1",
   sigV4ServiceName: "securitylake",
   operations: {
-    "CreateDataLakeExceptionSubscription": "POST /v1/datalake/exceptions/subscription",
-    "DeleteDataLakeExceptionSubscription": "DELETE /v1/datalake/exceptions/subscription",
-    "DeregisterDataLakeDelegatedAdministrator": "DELETE /v1/datalake/delegate",
-    "GetDataLakeExceptionSubscription": "GET /v1/datalake/exceptions/subscription",
-    "ListDataLakeExceptions": "POST /v1/datalake/exceptions",
-    "ListTagsForResource": "GET /v1/tags/{resourceArn}",
-    "RegisterDataLakeDelegatedAdministrator": "POST /v1/datalake/delegate",
-    "TagResource": "POST /v1/tags/{resourceArn}",
-    "UntagResource": "DELETE /v1/tags/{resourceArn}",
-    "UpdateDataLakeExceptionSubscription": "PUT /v1/datalake/exceptions/subscription",
-    "CreateAwsLogSource": "POST /v1/datalake/logsources/aws",
-    "CreateCustomLogSource": "POST /v1/datalake/logsources/custom",
-    "CreateDataLake": "POST /v1/datalake",
-    "CreateDataLakeOrganizationConfiguration": "POST /v1/datalake/organization/configuration",
-    "CreateSubscriber": "POST /v1/subscribers",
-    "CreateSubscriberNotification": "POST /v1/subscribers/{subscriberId}/notification",
-    "DeleteAwsLogSource": "POST /v1/datalake/logsources/aws/delete",
-    "DeleteCustomLogSource": "DELETE /v1/datalake/logsources/custom/{sourceName}",
-    "DeleteDataLake": "POST /v1/datalake/delete",
-    "DeleteDataLakeOrganizationConfiguration": "POST /v1/datalake/organization/configuration/delete",
-    "DeleteSubscriber": "DELETE /v1/subscribers/{subscriberId}",
-    "DeleteSubscriberNotification": "DELETE /v1/subscribers/{subscriberId}/notification",
-    "GetDataLakeOrganizationConfiguration": "GET /v1/datalake/organization/configuration",
-    "GetDataLakeSources": "POST /v1/datalake/sources",
-    "GetSubscriber": "GET /v1/subscribers/{subscriberId}",
-    "ListDataLakes": "GET /v1/datalakes",
-    "ListLogSources": "POST /v1/datalake/logsources/list",
-    "ListSubscribers": "GET /v1/subscribers",
-    "UpdateDataLake": "PUT /v1/datalake",
-    "UpdateSubscriber": "PUT /v1/subscribers/{subscriberId}",
-    "UpdateSubscriberNotification": "PUT /v1/subscribers/{subscriberId}/notification",
+    CreateDataLakeExceptionSubscription:
+      "POST /v1/datalake/exceptions/subscription",
+    DeleteDataLakeExceptionSubscription:
+      "DELETE /v1/datalake/exceptions/subscription",
+    DeregisterDataLakeDelegatedAdministrator: "DELETE /v1/datalake/delegate",
+    GetDataLakeExceptionSubscription:
+      "GET /v1/datalake/exceptions/subscription",
+    ListDataLakeExceptions: "POST /v1/datalake/exceptions",
+    ListTagsForResource: "GET /v1/tags/{resourceArn}",
+    RegisterDataLakeDelegatedAdministrator: "POST /v1/datalake/delegate",
+    TagResource: "POST /v1/tags/{resourceArn}",
+    UntagResource: "DELETE /v1/tags/{resourceArn}",
+    UpdateDataLakeExceptionSubscription:
+      "PUT /v1/datalake/exceptions/subscription",
+    CreateAwsLogSource: "POST /v1/datalake/logsources/aws",
+    CreateCustomLogSource: "POST /v1/datalake/logsources/custom",
+    CreateDataLake: "POST /v1/datalake",
+    CreateDataLakeOrganizationConfiguration:
+      "POST /v1/datalake/organization/configuration",
+    CreateSubscriber: "POST /v1/subscribers",
+    CreateSubscriberNotification:
+      "POST /v1/subscribers/{subscriberId}/notification",
+    DeleteAwsLogSource: "POST /v1/datalake/logsources/aws/delete",
+    DeleteCustomLogSource: "DELETE /v1/datalake/logsources/custom/{sourceName}",
+    DeleteDataLake: "POST /v1/datalake/delete",
+    DeleteDataLakeOrganizationConfiguration:
+      "POST /v1/datalake/organization/configuration/delete",
+    DeleteSubscriber: "DELETE /v1/subscribers/{subscriberId}",
+    DeleteSubscriberNotification:
+      "DELETE /v1/subscribers/{subscriberId}/notification",
+    GetDataLakeOrganizationConfiguration:
+      "GET /v1/datalake/organization/configuration",
+    GetDataLakeSources: "POST /v1/datalake/sources",
+    GetSubscriber: "GET /v1/subscribers/{subscriberId}",
+    ListDataLakes: "GET /v1/datalakes",
+    ListLogSources: "POST /v1/datalake/logsources/list",
+    ListSubscribers: "GET /v1/subscribers",
+    UpdateDataLake: "PUT /v1/datalake",
+    UpdateSubscriber: "PUT /v1/subscribers/{subscriberId}",
+    UpdateSubscriberNotification:
+      "PUT /v1/subscribers/{subscriberId}/notification",
   },
   retryableErrors: {
-    "InternalServerException": {},
-    "ThrottlingException": {"retryAfterSeconds":"Retry-After"},
+    InternalServerException: {},
+    ThrottlingException: { retryAfterSeconds: "Retry-After" },
   },
 } as const satisfies ServiceMetadata;
 

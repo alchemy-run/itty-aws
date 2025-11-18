@@ -1,6 +1,38 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
-type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
+import type {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+type CommonAwsError =
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | AccessDeniedException
+  | ThrottlingException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class Route53Profiles extends AWSServiceClient {
@@ -8,97 +40,189 @@ export declare class Route53Profiles extends AWSServiceClient {
     input: AssociateProfileRequest,
   ): Effect.Effect<
     AssociateProfileResponse,
-    AccessDeniedException | ConflictException | InvalidParameterException | LimitExceededException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InvalidParameterException
+    | LimitExceededException
+    | ResourceExistsException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   associateResourceToProfile(
     input: AssociateResourceToProfileRequest,
   ): Effect.Effect<
     AssociateResourceToProfileResponse,
-    AccessDeniedException | ConflictException | InternalServiceErrorException | InvalidParameterException | LimitExceededException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServiceErrorException
+    | InvalidParameterException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createProfile(
     input: CreateProfileRequest,
   ): Effect.Effect<
     CreateProfileResponse,
-    AccessDeniedException | InvalidParameterException | LimitExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InvalidParameterException
+    | LimitExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteProfile(
     input: DeleteProfileRequest,
   ): Effect.Effect<
     DeleteProfileResponse,
-    AccessDeniedException | ConflictException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   disassociateProfile(
     input: DisassociateProfileRequest,
   ): Effect.Effect<
     DisassociateProfileResponse,
-    AccessDeniedException | InvalidParameterException | LimitExceededException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InvalidParameterException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   disassociateResourceFromProfile(
     input: DisassociateResourceFromProfileRequest,
   ): Effect.Effect<
     DisassociateResourceFromProfileResponse,
-    AccessDeniedException | ConflictException | InternalServiceErrorException | InvalidParameterException | LimitExceededException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServiceErrorException
+    | InvalidParameterException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getProfile(
     input: GetProfileRequest,
   ): Effect.Effect<
     GetProfileResponse,
-    AccessDeniedException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getProfileAssociation(
     input: GetProfileAssociationRequest,
   ): Effect.Effect<
     GetProfileAssociationResponse,
-    AccessDeniedException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getProfileResourceAssociation(
     input: GetProfileResourceAssociationRequest,
   ): Effect.Effect<
     GetProfileResourceAssociationResponse,
-    AccessDeniedException | InvalidParameterException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listProfileAssociations(
     input: ListProfileAssociationsRequest,
   ): Effect.Effect<
     ListProfileAssociationsResponse,
-    AccessDeniedException | InvalidNextTokenException | InvalidParameterException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InvalidNextTokenException
+    | InvalidParameterException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listProfileResourceAssociations(
     input: ListProfileResourceAssociationsRequest,
   ): Effect.Effect<
     ListProfileResourceAssociationsResponse,
-    AccessDeniedException | InternalServiceErrorException | InvalidNextTokenException | InvalidParameterException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServiceErrorException
+    | InvalidNextTokenException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listProfiles(
     input: ListProfilesRequest,
   ): Effect.Effect<
     ListProfilesResponse,
-    AccessDeniedException | InvalidNextTokenException | InvalidParameterException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InvalidNextTokenException
+    | InvalidParameterException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    AccessDeniedException | ConflictException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    AccessDeniedException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    AccessDeniedException | ConflictException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateProfileResourceAssociation(
     input: UpdateProfileResourceAssociationRequest,
   ): Effect.Effect<
     UpdateProfileResourceAssociationResponse,
-    AccessDeniedException | ConflictException | InternalServiceErrorException | InvalidParameterException | LimitExceededException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServiceErrorException
+    | InvalidParameterException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
 }
 
@@ -286,7 +410,13 @@ export interface ProfileResourceAssociation {
   ModificationTime?: Date | string;
 }
 export type ProfileResourceAssociations = Array<ProfileResourceAssociation>;
-export type ProfileStatus = "COMPLETE" | "DELETING" | "UPDATING" | "CREATING" | "DELETED" | "FAILED";
+export type ProfileStatus =
+  | "COMPLETE"
+  | "DELETING"
+  | "UPDATING"
+  | "CREATING"
+  | "DELETED"
+  | "FAILED";
 export interface ProfileSummary {
   Id?: string;
   Arn?: string;
@@ -328,8 +458,7 @@ export interface TagResourceRequest {
   ResourceArn: string;
   Tags: Record<string, string>;
 }
-export interface TagResourceResponse {
-}
+export interface TagResourceResponse {}
 export type TagValue = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(
@@ -341,8 +470,7 @@ export interface UntagResourceRequest {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {
-}
+export interface UntagResourceResponse {}
 export interface UpdateProfileResourceAssociationRequest {
   ProfileResourceAssociationId: string;
   Name?: string;
@@ -560,5 +688,15 @@ export declare namespace UpdateProfileResourceAssociation {
     | CommonAwsError;
 }
 
-export type Route53ProfilesErrors = AccessDeniedException | ConflictException | InternalServiceErrorException | InvalidNextTokenException | InvalidParameterException | LimitExceededException | ResourceExistsException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError;
-
+export type Route53ProfilesErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServiceErrorException
+  | InvalidNextTokenException
+  | InvalidParameterException
+  | LimitExceededException
+  | ResourceExistsException
+  | ResourceNotFoundException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

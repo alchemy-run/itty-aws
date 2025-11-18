@@ -1,6 +1,40 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException } from "../../error.ts";
-type CommonAwsError = AccessDeniedException | ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | ValidationException | ThrottlingException;
+import type {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  ValidationException,
+} from "../../error.ts";
+type CommonAwsError =
+  | AccessDeniedException
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | ValidationException
+  | ThrottlingException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class CloudControl extends AWSServiceClient {
@@ -8,25 +42,82 @@ export declare class CloudControl extends AWSServiceClient {
     input: CancelResourceRequestInput,
   ): Effect.Effect<
     CancelResourceRequestOutput,
-    ConcurrentModificationException | RequestTokenNotFoundException | CommonAwsError
+    | ConcurrentModificationException
+    | RequestTokenNotFoundException
+    | CommonAwsError
   >;
   createResource(
     input: CreateResourceInput,
   ): Effect.Effect<
     CreateResourceOutput,
-    AlreadyExistsException | ClientTokenConflictException | ConcurrentOperationException | GeneralServiceException | HandlerFailureException | HandlerInternalFailureException | InvalidCredentialsException | InvalidRequestException | NetworkFailureException | NotStabilizedException | NotUpdatableException | PrivateTypeException | ResourceConflictException | ResourceNotFoundException | ServiceInternalErrorException | ServiceLimitExceededException | ThrottlingException | TypeNotFoundException | UnsupportedActionException | CommonAwsError
+    | AlreadyExistsException
+    | ClientTokenConflictException
+    | ConcurrentOperationException
+    | GeneralServiceException
+    | HandlerFailureException
+    | HandlerInternalFailureException
+    | InvalidCredentialsException
+    | InvalidRequestException
+    | NetworkFailureException
+    | NotStabilizedException
+    | NotUpdatableException
+    | PrivateTypeException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceInternalErrorException
+    | ServiceLimitExceededException
+    | ThrottlingException
+    | TypeNotFoundException
+    | UnsupportedActionException
+    | CommonAwsError
   >;
   deleteResource(
     input: DeleteResourceInput,
   ): Effect.Effect<
     DeleteResourceOutput,
-    AlreadyExistsException | ClientTokenConflictException | ConcurrentOperationException | GeneralServiceException | HandlerFailureException | HandlerInternalFailureException | InvalidCredentialsException | InvalidRequestException | NetworkFailureException | NotStabilizedException | NotUpdatableException | PrivateTypeException | ResourceConflictException | ResourceNotFoundException | ServiceInternalErrorException | ServiceLimitExceededException | ThrottlingException | TypeNotFoundException | UnsupportedActionException | CommonAwsError
+    | AlreadyExistsException
+    | ClientTokenConflictException
+    | ConcurrentOperationException
+    | GeneralServiceException
+    | HandlerFailureException
+    | HandlerInternalFailureException
+    | InvalidCredentialsException
+    | InvalidRequestException
+    | NetworkFailureException
+    | NotStabilizedException
+    | NotUpdatableException
+    | PrivateTypeException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceInternalErrorException
+    | ServiceLimitExceededException
+    | ThrottlingException
+    | TypeNotFoundException
+    | UnsupportedActionException
+    | CommonAwsError
   >;
   getResource(
     input: GetResourceInput,
   ): Effect.Effect<
     GetResourceOutput,
-    AlreadyExistsException | GeneralServiceException | HandlerFailureException | HandlerInternalFailureException | InvalidCredentialsException | InvalidRequestException | NetworkFailureException | NotStabilizedException | NotUpdatableException | PrivateTypeException | ResourceConflictException | ResourceNotFoundException | ServiceInternalErrorException | ServiceLimitExceededException | ThrottlingException | TypeNotFoundException | UnsupportedActionException | CommonAwsError
+    | AlreadyExistsException
+    | GeneralServiceException
+    | HandlerFailureException
+    | HandlerInternalFailureException
+    | InvalidCredentialsException
+    | InvalidRequestException
+    | NetworkFailureException
+    | NotStabilizedException
+    | NotUpdatableException
+    | PrivateTypeException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceInternalErrorException
+    | ServiceLimitExceededException
+    | ThrottlingException
+    | TypeNotFoundException
+    | UnsupportedActionException
+    | CommonAwsError
   >;
   getResourceRequestStatus(
     input: GetResourceRequestStatusInput,
@@ -36,21 +127,54 @@ export declare class CloudControl extends AWSServiceClient {
   >;
   listResourceRequests(
     input: ListResourceRequestsInput,
-  ): Effect.Effect<
-    ListResourceRequestsOutput,
-    CommonAwsError
-  >;
+  ): Effect.Effect<ListResourceRequestsOutput, CommonAwsError>;
   listResources(
     input: ListResourcesInput,
   ): Effect.Effect<
     ListResourcesOutput,
-    AlreadyExistsException | GeneralServiceException | HandlerFailureException | HandlerInternalFailureException | InvalidCredentialsException | InvalidRequestException | NetworkFailureException | NotStabilizedException | NotUpdatableException | PrivateTypeException | ResourceConflictException | ResourceNotFoundException | ServiceInternalErrorException | ServiceLimitExceededException | ThrottlingException | TypeNotFoundException | UnsupportedActionException | CommonAwsError
+    | AlreadyExistsException
+    | GeneralServiceException
+    | HandlerFailureException
+    | HandlerInternalFailureException
+    | InvalidCredentialsException
+    | InvalidRequestException
+    | NetworkFailureException
+    | NotStabilizedException
+    | NotUpdatableException
+    | PrivateTypeException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceInternalErrorException
+    | ServiceLimitExceededException
+    | ThrottlingException
+    | TypeNotFoundException
+    | UnsupportedActionException
+    | CommonAwsError
   >;
   updateResource(
     input: UpdateResourceInput,
   ): Effect.Effect<
     UpdateResourceOutput,
-    AlreadyExistsException | ClientTokenConflictException | ConcurrentOperationException | GeneralServiceException | HandlerFailureException | HandlerInternalFailureException | InvalidCredentialsException | InvalidRequestException | NetworkFailureException | NotStabilizedException | NotUpdatableException | PrivateTypeException | ResourceConflictException | ResourceNotFoundException | ServiceInternalErrorException | ServiceLimitExceededException | ThrottlingException | TypeNotFoundException | UnsupportedActionException | CommonAwsError
+    | AlreadyExistsException
+    | ClientTokenConflictException
+    | ConcurrentOperationException
+    | GeneralServiceException
+    | HandlerFailureException
+    | HandlerInternalFailureException
+    | InvalidCredentialsException
+    | InvalidRequestException
+    | NetworkFailureException
+    | NotStabilizedException
+    | NotUpdatableException
+    | PrivateTypeException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceInternalErrorException
+    | ServiceLimitExceededException
+    | ThrottlingException
+    | TypeNotFoundException
+    | UnsupportedActionException
+    | CommonAwsError
   >;
 }
 
@@ -403,16 +527,13 @@ export declare namespace GetResource {
 export declare namespace GetResourceRequestStatus {
   export type Input = GetResourceRequestStatusInput;
   export type Output = GetResourceRequestStatusOutput;
-  export type Error =
-    | RequestTokenNotFoundException
-    | CommonAwsError;
+  export type Error = RequestTokenNotFoundException | CommonAwsError;
 }
 
 export declare namespace ListResourceRequests {
   export type Input = ListResourceRequestsInput;
   export type Output = ListResourceRequestsOutput;
-  export type Error =
-    | CommonAwsError;
+  export type Error = CommonAwsError;
 }
 
 export declare namespace ListResources {
@@ -465,5 +586,26 @@ export declare namespace UpdateResource {
     | CommonAwsError;
 }
 
-export type CloudControlErrors = AlreadyExistsException | ClientTokenConflictException | ConcurrentModificationException | ConcurrentOperationException | GeneralServiceException | HandlerFailureException | HandlerInternalFailureException | InvalidCredentialsException | InvalidRequestException | NetworkFailureException | NotStabilizedException | NotUpdatableException | PrivateTypeException | RequestTokenNotFoundException | ResourceConflictException | ResourceNotFoundException | ServiceInternalErrorException | ServiceLimitExceededException | ThrottlingException | TypeNotFoundException | UnsupportedActionException | CommonAwsError;
-
+export type CloudControlErrors =
+  | AlreadyExistsException
+  | ClientTokenConflictException
+  | ConcurrentModificationException
+  | ConcurrentOperationException
+  | GeneralServiceException
+  | HandlerFailureException
+  | HandlerInternalFailureException
+  | InvalidCredentialsException
+  | InvalidRequestException
+  | NetworkFailureException
+  | NotStabilizedException
+  | NotUpdatableException
+  | PrivateTypeException
+  | RequestTokenNotFoundException
+  | ResourceConflictException
+  | ResourceNotFoundException
+  | ServiceInternalErrorException
+  | ServiceLimitExceededException
+  | ThrottlingException
+  | TypeNotFoundException
+  | UnsupportedActionException
+  | CommonAwsError;

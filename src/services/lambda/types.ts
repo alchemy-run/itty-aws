@@ -15,37 +15,70 @@ export declare class Lambda extends AWSServiceClient {
     input: ListTagsRequest,
   ): Effect.Effect<
     ListTagsResponse,
-    InvalidParameterValueException | ResourceNotFoundException | ServiceException | TooManyRequestsException | CommonAwsError
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     {},
-    InvalidParameterValueException | ResourceConflictException | ResourceNotFoundException | ServiceException | TooManyRequestsException | CommonAwsError
+    | InvalidParameterValueException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     {},
-    InvalidParameterValueException | ResourceConflictException | ResourceNotFoundException | ServiceException | TooManyRequestsException | CommonAwsError
+    | InvalidParameterValueException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   addLayerVersionPermission(
     input: AddLayerVersionPermissionRequest,
   ): Effect.Effect<
     AddLayerVersionPermissionResponse,
-    InvalidParameterValueException | PolicyLengthExceededException | PreconditionFailedException | ResourceConflictException | ResourceNotFoundException | ServiceException | TooManyRequestsException | CommonAwsError
+    | InvalidParameterValueException
+    | PolicyLengthExceededException
+    | PreconditionFailedException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   addPermission(
     input: AddPermissionRequest,
   ): Effect.Effect<
     AddPermissionResponse,
-    InvalidParameterValueException | PolicyLengthExceededException | PreconditionFailedException | ResourceConflictException | ResourceNotFoundException | ServiceException | TooManyRequestsException | CommonAwsError
+    | InvalidParameterValueException
+    | PolicyLengthExceededException
+    | PreconditionFailedException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   createAlias(
     input: CreateAliasRequest,
   ): Effect.Effect<
     AliasConfiguration,
-    InvalidParameterValueException | ResourceConflictException | ResourceNotFoundException | ServiceException | TooManyRequestsException | CommonAwsError
+    | InvalidParameterValueException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   createCodeSigningConfig(
     input: CreateCodeSigningConfigRequest,
@@ -57,67 +90,125 @@ export declare class Lambda extends AWSServiceClient {
     input: CreateEventSourceMappingRequest,
   ): Effect.Effect<
     EventSourceMappingConfiguration,
-    InvalidParameterValueException | ResourceConflictException | ResourceNotFoundException | ServiceException | TooManyRequestsException | CommonAwsError
+    | InvalidParameterValueException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   createFunction(
     input: CreateFunctionRequest,
   ): Effect.Effect<
     FunctionConfiguration,
-    CodeSigningConfigNotFoundException | CodeStorageExceededException | CodeVerificationFailedException | InvalidCodeSignatureException | InvalidParameterValueException | ResourceConflictException | ResourceNotFoundException | ServiceException | TooManyRequestsException | CommonAwsError
+    | CodeSigningConfigNotFoundException
+    | CodeStorageExceededException
+    | CodeVerificationFailedException
+    | InvalidCodeSignatureException
+    | InvalidParameterValueException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   createFunctionUrlConfig(
     input: CreateFunctionUrlConfigRequest,
   ): Effect.Effect<
     CreateFunctionUrlConfigResponse,
-    InvalidParameterValueException | ResourceConflictException | ResourceNotFoundException | ServiceException | TooManyRequestsException | CommonAwsError
+    | InvalidParameterValueException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   deleteAlias(
     input: DeleteAliasRequest,
   ): Effect.Effect<
     {},
-    InvalidParameterValueException | ResourceConflictException | ServiceException | TooManyRequestsException | CommonAwsError
+    | InvalidParameterValueException
+    | ResourceConflictException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   deleteCodeSigningConfig(
     input: DeleteCodeSigningConfigRequest,
   ): Effect.Effect<
     DeleteCodeSigningConfigResponse,
-    InvalidParameterValueException | ResourceConflictException | ResourceNotFoundException | ServiceException | CommonAwsError
+    | InvalidParameterValueException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | CommonAwsError
   >;
   deleteEventSourceMapping(
     input: DeleteEventSourceMappingRequest,
   ): Effect.Effect<
     EventSourceMappingConfiguration,
-    InvalidParameterValueException | ResourceConflictException | ResourceInUseException | ResourceNotFoundException | ServiceException | TooManyRequestsException | CommonAwsError
+    | InvalidParameterValueException
+    | ResourceConflictException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   deleteFunction(
     input: DeleteFunctionRequest,
   ): Effect.Effect<
     {},
-    InvalidParameterValueException | ResourceConflictException | ResourceNotFoundException | ServiceException | TooManyRequestsException | CommonAwsError
+    | InvalidParameterValueException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   deleteFunctionCodeSigningConfig(
     input: DeleteFunctionCodeSigningConfigRequest,
   ): Effect.Effect<
     {},
-    CodeSigningConfigNotFoundException | InvalidParameterValueException | ResourceConflictException | ResourceNotFoundException | ServiceException | TooManyRequestsException | CommonAwsError
+    | CodeSigningConfigNotFoundException
+    | InvalidParameterValueException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   deleteFunctionConcurrency(
     input: DeleteFunctionConcurrencyRequest,
   ): Effect.Effect<
     {},
-    InvalidParameterValueException | ResourceConflictException | ResourceNotFoundException | ServiceException | TooManyRequestsException | CommonAwsError
+    | InvalidParameterValueException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   deleteFunctionEventInvokeConfig(
     input: DeleteFunctionEventInvokeConfigRequest,
   ): Effect.Effect<
     {},
-    InvalidParameterValueException | ResourceConflictException | ResourceNotFoundException | ServiceException | TooManyRequestsException | CommonAwsError
+    | InvalidParameterValueException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   deleteFunctionUrlConfig(
     input: DeleteFunctionUrlConfigRequest,
   ): Effect.Effect<
     {},
-    ResourceConflictException | ResourceNotFoundException | ServiceException | TooManyRequestsException | CommonAwsError
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   deleteLayerVersion(
     input: DeleteLayerVersionRequest,
@@ -129,127 +220,267 @@ export declare class Lambda extends AWSServiceClient {
     input: DeleteProvisionedConcurrencyConfigRequest,
   ): Effect.Effect<
     {},
-    InvalidParameterValueException | ResourceConflictException | ResourceNotFoundException | ServiceException | TooManyRequestsException | CommonAwsError
+    | InvalidParameterValueException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   getAlias(
     input: GetAliasRequest,
   ): Effect.Effect<
     AliasConfiguration,
-    InvalidParameterValueException | ResourceNotFoundException | ServiceException | TooManyRequestsException | CommonAwsError
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   getCodeSigningConfig(
     input: GetCodeSigningConfigRequest,
   ): Effect.Effect<
     GetCodeSigningConfigResponse,
-    InvalidParameterValueException | ResourceNotFoundException | ServiceException | CommonAwsError
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | CommonAwsError
   >;
   getEventSourceMapping(
     input: GetEventSourceMappingRequest,
   ): Effect.Effect<
     EventSourceMappingConfiguration,
-    InvalidParameterValueException | ResourceNotFoundException | ServiceException | TooManyRequestsException | CommonAwsError
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   getFunction(
     input: GetFunctionRequest,
   ): Effect.Effect<
     GetFunctionResponse,
-    InvalidParameterValueException | ResourceNotFoundException | ServiceException | TooManyRequestsException | CommonAwsError
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   getFunctionCodeSigningConfig(
     input: GetFunctionCodeSigningConfigRequest,
   ): Effect.Effect<
     GetFunctionCodeSigningConfigResponse,
-    InvalidParameterValueException | ResourceNotFoundException | ServiceException | TooManyRequestsException | CommonAwsError
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   getFunctionConcurrency(
     input: GetFunctionConcurrencyRequest,
   ): Effect.Effect<
     GetFunctionConcurrencyResponse,
-    InvalidParameterValueException | ResourceNotFoundException | ServiceException | TooManyRequestsException | CommonAwsError
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   getFunctionConfiguration(
     input: GetFunctionConfigurationRequest,
   ): Effect.Effect<
     FunctionConfiguration,
-    InvalidParameterValueException | ResourceNotFoundException | ServiceException | TooManyRequestsException | CommonAwsError
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   getFunctionEventInvokeConfig(
     input: GetFunctionEventInvokeConfigRequest,
   ): Effect.Effect<
     FunctionEventInvokeConfig,
-    InvalidParameterValueException | ResourceNotFoundException | ServiceException | TooManyRequestsException | CommonAwsError
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   getFunctionRecursionConfig(
     input: GetFunctionRecursionConfigRequest,
   ): Effect.Effect<
     GetFunctionRecursionConfigResponse,
-    InvalidParameterValueException | ResourceNotFoundException | ServiceException | TooManyRequestsException | CommonAwsError
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   getFunctionUrlConfig(
     input: GetFunctionUrlConfigRequest,
   ): Effect.Effect<
     GetFunctionUrlConfigResponse,
-    InvalidParameterValueException | ResourceNotFoundException | ServiceException | TooManyRequestsException | CommonAwsError
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   getLayerVersion(
     input: GetLayerVersionRequest,
   ): Effect.Effect<
     GetLayerVersionResponse,
-    InvalidParameterValueException | ResourceNotFoundException | ServiceException | TooManyRequestsException | CommonAwsError
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   getLayerVersionByArn(
     input: GetLayerVersionByArnRequest,
   ): Effect.Effect<
     GetLayerVersionResponse,
-    InvalidParameterValueException | ResourceNotFoundException | ServiceException | TooManyRequestsException | CommonAwsError
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   getLayerVersionPolicy(
     input: GetLayerVersionPolicyRequest,
   ): Effect.Effect<
     GetLayerVersionPolicyResponse,
-    InvalidParameterValueException | ResourceNotFoundException | ServiceException | TooManyRequestsException | CommonAwsError
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   getPolicy(
     input: GetPolicyRequest,
   ): Effect.Effect<
     GetPolicyResponse,
-    InvalidParameterValueException | ResourceNotFoundException | ServiceException | TooManyRequestsException | CommonAwsError
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   getProvisionedConcurrencyConfig(
     input: GetProvisionedConcurrencyConfigRequest,
   ): Effect.Effect<
     GetProvisionedConcurrencyConfigResponse,
-    InvalidParameterValueException | ProvisionedConcurrencyConfigNotFoundException | ResourceNotFoundException | ServiceException | TooManyRequestsException | CommonAwsError
+    | InvalidParameterValueException
+    | ProvisionedConcurrencyConfigNotFoundException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   getRuntimeManagementConfig(
     input: GetRuntimeManagementConfigRequest,
   ): Effect.Effect<
     GetRuntimeManagementConfigResponse,
-    InvalidParameterValueException | ResourceNotFoundException | ServiceException | TooManyRequestsException | CommonAwsError
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   invoke(
     input: InvocationRequest,
   ): Effect.Effect<
     InvocationResponse,
-    EC2AccessDeniedException | EC2ThrottledException | EC2UnexpectedException | EFSIOException | EFSMountConnectivityException | EFSMountFailureException | EFSMountTimeoutException | ENILimitReachedException | InvalidParameterValueException | InvalidRequestContentException | InvalidRuntimeException | InvalidSecurityGroupIDException | InvalidSubnetIDException | InvalidZipFileException | KMSAccessDeniedException | KMSDisabledException | KMSInvalidStateException | KMSNotFoundException | RecursiveInvocationException | RequestTooLargeException | ResourceConflictException | ResourceNotFoundException | ResourceNotReadyException | SerializedRequestEntityTooLargeException | ServiceException | SnapStartException | SnapStartNotReadyException | SnapStartTimeoutException | SubnetIPAddressLimitReachedException | TooManyRequestsException | UnsupportedMediaTypeException | CommonAwsError
+    | EC2AccessDeniedException
+    | EC2ThrottledException
+    | EC2UnexpectedException
+    | EFSIOException
+    | EFSMountConnectivityException
+    | EFSMountFailureException
+    | EFSMountTimeoutException
+    | ENILimitReachedException
+    | InvalidParameterValueException
+    | InvalidRequestContentException
+    | InvalidRuntimeException
+    | InvalidSecurityGroupIDException
+    | InvalidSubnetIDException
+    | InvalidZipFileException
+    | KMSAccessDeniedException
+    | KMSDisabledException
+    | KMSInvalidStateException
+    | KMSNotFoundException
+    | RecursiveInvocationException
+    | RequestTooLargeException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ResourceNotReadyException
+    | SerializedRequestEntityTooLargeException
+    | ServiceException
+    | SnapStartException
+    | SnapStartNotReadyException
+    | SnapStartTimeoutException
+    | SubnetIPAddressLimitReachedException
+    | TooManyRequestsException
+    | UnsupportedMediaTypeException
+    | CommonAwsError
   >;
   invokeAsync(
     input: InvokeAsyncRequest,
   ): Effect.Effect<
     InvokeAsyncResponse,
-    InvalidRequestContentException | InvalidRuntimeException | ResourceConflictException | ResourceNotFoundException | ServiceException | CommonAwsError
+    | InvalidRequestContentException
+    | InvalidRuntimeException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | CommonAwsError
   >;
   invokeWithResponseStream(
     input: InvokeWithResponseStreamRequest,
   ): Effect.Effect<
     InvokeWithResponseStreamResponse,
-    EC2AccessDeniedException | EC2ThrottledException | EC2UnexpectedException | EFSIOException | EFSMountConnectivityException | EFSMountFailureException | EFSMountTimeoutException | ENILimitReachedException | InvalidParameterValueException | InvalidRequestContentException | InvalidRuntimeException | InvalidSecurityGroupIDException | InvalidSubnetIDException | InvalidZipFileException | KMSAccessDeniedException | KMSDisabledException | KMSInvalidStateException | KMSNotFoundException | RecursiveInvocationException | RequestTooLargeException | ResourceConflictException | ResourceNotFoundException | ResourceNotReadyException | SerializedRequestEntityTooLargeException | ServiceException | SnapStartException | SnapStartNotReadyException | SnapStartTimeoutException | SubnetIPAddressLimitReachedException | TooManyRequestsException | UnsupportedMediaTypeException | CommonAwsError
+    | EC2AccessDeniedException
+    | EC2ThrottledException
+    | EC2UnexpectedException
+    | EFSIOException
+    | EFSMountConnectivityException
+    | EFSMountFailureException
+    | EFSMountTimeoutException
+    | ENILimitReachedException
+    | InvalidParameterValueException
+    | InvalidRequestContentException
+    | InvalidRuntimeException
+    | InvalidSecurityGroupIDException
+    | InvalidSubnetIDException
+    | InvalidZipFileException
+    | KMSAccessDeniedException
+    | KMSDisabledException
+    | KMSInvalidStateException
+    | KMSNotFoundException
+    | RecursiveInvocationException
+    | RequestTooLargeException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ResourceNotReadyException
+    | SerializedRequestEntityTooLargeException
+    | ServiceException
+    | SnapStartException
+    | SnapStartNotReadyException
+    | SnapStartTimeoutException
+    | SubnetIPAddressLimitReachedException
+    | TooManyRequestsException
+    | UnsupportedMediaTypeException
+    | CommonAwsError
   >;
   listAliases(
     input: ListAliasesRequest,
   ): Effect.Effect<
     ListAliasesResponse,
-    InvalidParameterValueException | ResourceNotFoundException | ServiceException | TooManyRequestsException | CommonAwsError
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   listCodeSigningConfigs(
     input: ListCodeSigningConfigsRequest,
@@ -261,157 +492,287 @@ export declare class Lambda extends AWSServiceClient {
     input: ListEventSourceMappingsRequest,
   ): Effect.Effect<
     ListEventSourceMappingsResponse,
-    InvalidParameterValueException | ResourceNotFoundException | ServiceException | TooManyRequestsException | CommonAwsError
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   listFunctionEventInvokeConfigs(
     input: ListFunctionEventInvokeConfigsRequest,
   ): Effect.Effect<
     ListFunctionEventInvokeConfigsResponse,
-    InvalidParameterValueException | ResourceNotFoundException | ServiceException | TooManyRequestsException | CommonAwsError
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   listFunctionUrlConfigs(
     input: ListFunctionUrlConfigsRequest,
   ): Effect.Effect<
     ListFunctionUrlConfigsResponse,
-    InvalidParameterValueException | ResourceNotFoundException | ServiceException | TooManyRequestsException | CommonAwsError
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   listFunctions(
     input: ListFunctionsRequest,
   ): Effect.Effect<
     ListFunctionsResponse,
-    InvalidParameterValueException | ServiceException | TooManyRequestsException | CommonAwsError
+    | InvalidParameterValueException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   listFunctionsByCodeSigningConfig(
     input: ListFunctionsByCodeSigningConfigRequest,
   ): Effect.Effect<
     ListFunctionsByCodeSigningConfigResponse,
-    InvalidParameterValueException | ResourceNotFoundException | ServiceException | CommonAwsError
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | CommonAwsError
   >;
   listLayerVersions(
     input: ListLayerVersionsRequest,
   ): Effect.Effect<
     ListLayerVersionsResponse,
-    InvalidParameterValueException | ResourceNotFoundException | ServiceException | TooManyRequestsException | CommonAwsError
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   listLayers(
     input: ListLayersRequest,
   ): Effect.Effect<
     ListLayersResponse,
-    InvalidParameterValueException | ServiceException | TooManyRequestsException | CommonAwsError
+    | InvalidParameterValueException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   listProvisionedConcurrencyConfigs(
     input: ListProvisionedConcurrencyConfigsRequest,
   ): Effect.Effect<
     ListProvisionedConcurrencyConfigsResponse,
-    InvalidParameterValueException | ResourceNotFoundException | ServiceException | TooManyRequestsException | CommonAwsError
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   listVersionsByFunction(
     input: ListVersionsByFunctionRequest,
   ): Effect.Effect<
     ListVersionsByFunctionResponse,
-    InvalidParameterValueException | ResourceNotFoundException | ServiceException | TooManyRequestsException | CommonAwsError
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   publishLayerVersion(
     input: PublishLayerVersionRequest,
   ): Effect.Effect<
     PublishLayerVersionResponse,
-    CodeStorageExceededException | InvalidParameterValueException | ResourceNotFoundException | ServiceException | TooManyRequestsException | CommonAwsError
+    | CodeStorageExceededException
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   publishVersion(
     input: PublishVersionRequest,
   ): Effect.Effect<
     FunctionConfiguration,
-    CodeStorageExceededException | InvalidParameterValueException | PreconditionFailedException | ResourceConflictException | ResourceNotFoundException | ServiceException | TooManyRequestsException | CommonAwsError
+    | CodeStorageExceededException
+    | InvalidParameterValueException
+    | PreconditionFailedException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   putFunctionCodeSigningConfig(
     input: PutFunctionCodeSigningConfigRequest,
   ): Effect.Effect<
     PutFunctionCodeSigningConfigResponse,
-    CodeSigningConfigNotFoundException | InvalidParameterValueException | ResourceConflictException | ResourceNotFoundException | ServiceException | TooManyRequestsException | CommonAwsError
+    | CodeSigningConfigNotFoundException
+    | InvalidParameterValueException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   putFunctionConcurrency(
     input: PutFunctionConcurrencyRequest,
   ): Effect.Effect<
     Concurrency,
-    InvalidParameterValueException | ResourceConflictException | ResourceNotFoundException | ServiceException | TooManyRequestsException | CommonAwsError
+    | InvalidParameterValueException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   putFunctionEventInvokeConfig(
     input: PutFunctionEventInvokeConfigRequest,
   ): Effect.Effect<
     FunctionEventInvokeConfig,
-    InvalidParameterValueException | ResourceConflictException | ResourceNotFoundException | ServiceException | TooManyRequestsException | CommonAwsError
+    | InvalidParameterValueException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   putFunctionRecursionConfig(
     input: PutFunctionRecursionConfigRequest,
   ): Effect.Effect<
     PutFunctionRecursionConfigResponse,
-    InvalidParameterValueException | ResourceConflictException | ResourceNotFoundException | ServiceException | TooManyRequestsException | CommonAwsError
+    | InvalidParameterValueException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   putProvisionedConcurrencyConfig(
     input: PutProvisionedConcurrencyConfigRequest,
   ): Effect.Effect<
     PutProvisionedConcurrencyConfigResponse,
-    InvalidParameterValueException | ResourceConflictException | ResourceNotFoundException | ServiceException | TooManyRequestsException | CommonAwsError
+    | InvalidParameterValueException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   putRuntimeManagementConfig(
     input: PutRuntimeManagementConfigRequest,
   ): Effect.Effect<
     PutRuntimeManagementConfigResponse,
-    InvalidParameterValueException | ResourceConflictException | ResourceNotFoundException | ServiceException | TooManyRequestsException | CommonAwsError
+    | InvalidParameterValueException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   removeLayerVersionPermission(
     input: RemoveLayerVersionPermissionRequest,
   ): Effect.Effect<
     {},
-    InvalidParameterValueException | PreconditionFailedException | ResourceNotFoundException | ServiceException | TooManyRequestsException | CommonAwsError
+    | InvalidParameterValueException
+    | PreconditionFailedException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   removePermission(
     input: RemovePermissionRequest,
   ): Effect.Effect<
     {},
-    InvalidParameterValueException | PreconditionFailedException | ResourceNotFoundException | ServiceException | TooManyRequestsException | CommonAwsError
+    | InvalidParameterValueException
+    | PreconditionFailedException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   updateAlias(
     input: UpdateAliasRequest,
   ): Effect.Effect<
     AliasConfiguration,
-    InvalidParameterValueException | PreconditionFailedException | ResourceConflictException | ResourceNotFoundException | ServiceException | TooManyRequestsException | CommonAwsError
+    | InvalidParameterValueException
+    | PreconditionFailedException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   updateCodeSigningConfig(
     input: UpdateCodeSigningConfigRequest,
   ): Effect.Effect<
     UpdateCodeSigningConfigResponse,
-    InvalidParameterValueException | ResourceNotFoundException | ServiceException | CommonAwsError
+    | InvalidParameterValueException
+    | ResourceNotFoundException
+    | ServiceException
+    | CommonAwsError
   >;
   updateEventSourceMapping(
     input: UpdateEventSourceMappingRequest,
   ): Effect.Effect<
     EventSourceMappingConfiguration,
-    InvalidParameterValueException | ResourceConflictException | ResourceInUseException | ResourceNotFoundException | ServiceException | TooManyRequestsException | CommonAwsError
+    | InvalidParameterValueException
+    | ResourceConflictException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   updateFunctionCode(
     input: UpdateFunctionCodeRequest,
   ): Effect.Effect<
     FunctionConfiguration,
-    CodeSigningConfigNotFoundException | CodeStorageExceededException | CodeVerificationFailedException | InvalidCodeSignatureException | InvalidParameterValueException | PreconditionFailedException | ResourceConflictException | ResourceNotFoundException | ServiceException | TooManyRequestsException | CommonAwsError
+    | CodeSigningConfigNotFoundException
+    | CodeStorageExceededException
+    | CodeVerificationFailedException
+    | InvalidCodeSignatureException
+    | InvalidParameterValueException
+    | PreconditionFailedException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   updateFunctionConfiguration(
     input: UpdateFunctionConfigurationRequest,
   ): Effect.Effect<
     FunctionConfiguration,
-    CodeSigningConfigNotFoundException | CodeVerificationFailedException | InvalidCodeSignatureException | InvalidParameterValueException | PreconditionFailedException | ResourceConflictException | ResourceNotFoundException | ServiceException | TooManyRequestsException | CommonAwsError
+    | CodeSigningConfigNotFoundException
+    | CodeVerificationFailedException
+    | InvalidCodeSignatureException
+    | InvalidParameterValueException
+    | PreconditionFailedException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   updateFunctionEventInvokeConfig(
     input: UpdateFunctionEventInvokeConfigRequest,
   ): Effect.Effect<
     FunctionEventInvokeConfig,
-    InvalidParameterValueException | ResourceConflictException | ResourceNotFoundException | ServiceException | TooManyRequestsException | CommonAwsError
+    | InvalidParameterValueException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   updateFunctionUrlConfig(
     input: UpdateFunctionUrlConfigRequest,
   ): Effect.Effect<
     UpdateFunctionUrlConfigResponse,
-    InvalidParameterValueException | ResourceConflictException | ResourceNotFoundException | ServiceException | TooManyRequestsException | CommonAwsError
+    | InvalidParameterValueException
+    | ResourceConflictException
+    | ResourceNotFoundException
+    | ServiceException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
 }
 
@@ -486,7 +847,13 @@ export interface AmazonManagedKafkaEventSourceConfig {
   ConsumerGroupId?: string;
   SchemaRegistryConfig?: KafkaSchemaRegistryConfig;
 }
-export type ApplicationLogLevel = "TRACE" | "DEBUG" | "INFO" | "WARN" | "ERROR" | "FATAL";
+export type ApplicationLogLevel =
+  | "TRACE"
+  | "DEBUG"
+  | "INFO"
+  | "WARN"
+  | "ERROR"
+  | "FATAL";
 export type Architecture = "x86_64" | "arm64";
 export type ArchitecturesList = Array<Architecture>;
 export type Arn = string;
@@ -651,8 +1018,7 @@ export interface DeleteAliasRequest {
 export interface DeleteCodeSigningConfigRequest {
   CodeSigningConfigArn: string;
 }
-export interface DeleteCodeSigningConfigResponse {
-}
+export interface DeleteCodeSigningConfigResponse {}
 export interface DeleteEventSourceMappingRequest {
   UUID: string;
 }
@@ -925,8 +1291,7 @@ export type FunctionUrlConfigList = Array<FunctionUrlConfig>;
 export type FunctionUrlQualifier = string;
 
 export type FunctionVersion = "ALL";
-export interface GetAccountSettingsRequest {
-}
+export interface GetAccountSettingsRequest {}
 export interface GetAccountSettingsResponse {
   AccountLimit?: AccountLimit;
   AccountUsage?: AccountUsage;
@@ -1167,13 +1532,23 @@ interface _InvokeWithResponseStreamResponseEvent {
   InvokeComplete?: InvokeWithResponseStreamCompleteEvent;
 }
 
-export type InvokeWithResponseStreamResponseEvent = (_InvokeWithResponseStreamResponseEvent & { PayloadChunk: InvokeResponseStreamUpdate }) | (_InvokeWithResponseStreamResponseEvent & { InvokeComplete: InvokeWithResponseStreamCompleteEvent });
+export type InvokeWithResponseStreamResponseEvent =
+  | (_InvokeWithResponseStreamResponseEvent & {
+      PayloadChunk: InvokeResponseStreamUpdate;
+    })
+  | (_InvokeWithResponseStreamResponseEvent & {
+      InvokeComplete: InvokeWithResponseStreamCompleteEvent;
+    });
 export interface KafkaSchemaRegistryAccessConfig {
   Type?: KafkaSchemaRegistryAuthType;
   URI?: string;
 }
-export type KafkaSchemaRegistryAccessConfigList = Array<KafkaSchemaRegistryAccessConfig>;
-export type KafkaSchemaRegistryAuthType = "BASIC_AUTH" | "CLIENT_CERTIFICATE_TLS_AUTH" | "SERVER_ROOT_CA_CERTIFICATE";
+export type KafkaSchemaRegistryAccessConfigList =
+  Array<KafkaSchemaRegistryAccessConfig>;
+export type KafkaSchemaRegistryAuthType =
+  | "BASIC_AUTH"
+  | "CLIENT_CERTIFICATE_TLS_AUTH"
+  | "SERVER_ROOT_CA_CERTIFICATE";
 export interface KafkaSchemaRegistryConfig {
   SchemaRegistryURI?: string;
   EventRecordFormat?: SchemaRegistryEventRecordFormat;
@@ -1184,7 +1559,8 @@ export type KafkaSchemaValidationAttribute = "KEY" | "VALUE";
 export interface KafkaSchemaValidationConfig {
   Attribute?: KafkaSchemaValidationAttribute;
 }
-export type KafkaSchemaValidationConfigList = Array<KafkaSchemaValidationConfig>;
+export type KafkaSchemaValidationConfigList =
+  Array<KafkaSchemaValidationConfig>;
 export declare class KMSAccessDeniedException extends EffectData.TaggedError(
   "KMSAccessDeniedException",
 )<{
@@ -1214,7 +1590,28 @@ export declare class KMSNotFoundException extends EffectData.TaggedError(
 export type LastUpdateStatus = "Successful" | "Failed" | "InProgress";
 export type LastUpdateStatusReason = string;
 
-export type LastUpdateStatusReasonCode = "EniLimitExceeded" | "InsufficientRolePermissions" | "InvalidConfiguration" | "InternalError" | "SubnetOutOfIPAddresses" | "InvalidSubnet" | "InvalidSecurityGroup" | "ImageDeleted" | "ImageAccessDenied" | "InvalidImage" | "KMSKeyAccessDenied" | "KMSKeyNotFound" | "InvalidStateKMSKey" | "DisabledKMSKey" | "EFSIOError" | "EFSMountConnectivityError" | "EFSMountFailure" | "EFSMountTimeout" | "InvalidRuntime" | "InvalidZipFileException" | "FunctionError";
+export type LastUpdateStatusReasonCode =
+  | "EniLimitExceeded"
+  | "InsufficientRolePermissions"
+  | "InvalidConfiguration"
+  | "InternalError"
+  | "SubnetOutOfIPAddresses"
+  | "InvalidSubnet"
+  | "InvalidSecurityGroup"
+  | "ImageDeleted"
+  | "ImageAccessDenied"
+  | "InvalidImage"
+  | "KMSKeyAccessDenied"
+  | "KMSKeyNotFound"
+  | "InvalidStateKMSKey"
+  | "DisabledKMSKey"
+  | "EFSIOError"
+  | "EFSMountConnectivityError"
+  | "EFSMountFailure"
+  | "EFSMountTimeout"
+  | "InvalidRuntime"
+  | "InvalidZipFileException"
+  | "FunctionError";
 export interface Layer {
   Arn?: string;
   CodeSize?: number;
@@ -1467,7 +1864,8 @@ export type Principal = string;
 
 export type PrincipalOrgID = string;
 
-export type ProvisionedConcurrencyConfigList = Array<ProvisionedConcurrencyConfigListItem>;
+export type ProvisionedConcurrencyConfigList =
+  Array<ProvisionedConcurrencyConfigListItem>;
 export interface ProvisionedConcurrencyConfigListItem {
   FunctionArn?: string;
   RequestedProvisionedConcurrentExecutions?: number;
@@ -1483,7 +1881,10 @@ export declare class ProvisionedConcurrencyConfigNotFoundException extends Effec
   readonly Type?: string;
   readonly message?: string;
 }> {}
-export type ProvisionedConcurrencyStatusEnum = "IN_PROGRESS" | "READY" | "FAILED";
+export type ProvisionedConcurrencyStatusEnum =
+  | "IN_PROGRESS"
+  | "READY"
+  | "FAILED";
 export interface ProvisionedPollerConfig {
   MinimumPollers?: number;
   MaximumPollers?: number;
@@ -1624,7 +2025,51 @@ export declare class ResourceNotReadyException extends EffectData.TaggedError(
 export type ResponseStreamingInvocationType = "RequestResponse" | "DryRun";
 export type RoleArn = string;
 
-export type Runtime = "nodejs" | "nodejs4.3" | "nodejs6.10" | "nodejs8.10" | "nodejs10.x" | "nodejs12.x" | "nodejs14.x" | "nodejs16.x" | "java8" | "java8.al2" | "java11" | "python2.7" | "python3.6" | "python3.7" | "python3.8" | "python3.9" | "dotnetcore1.0" | "dotnetcore2.0" | "dotnetcore2.1" | "dotnetcore3.1" | "dotnet6" | "dotnet8" | "nodejs4.3-edge" | "go1.x" | "ruby2.5" | "ruby2.7" | "provided" | "provided.al2" | "nodejs18.x" | "python3.10" | "java17" | "ruby3.2" | "ruby3.3" | "ruby3.4" | "python3.11" | "nodejs20.x" | "provided.al2023" | "python3.12" | "java21" | "python3.13" | "nodejs22.x" | "java25" | "nodejs24.x" | "python3.14";
+export type Runtime =
+  | "nodejs"
+  | "nodejs4.3"
+  | "nodejs6.10"
+  | "nodejs8.10"
+  | "nodejs10.x"
+  | "nodejs12.x"
+  | "nodejs14.x"
+  | "nodejs16.x"
+  | "java8"
+  | "java8.al2"
+  | "java11"
+  | "python2.7"
+  | "python3.6"
+  | "python3.7"
+  | "python3.8"
+  | "python3.9"
+  | "dotnetcore1.0"
+  | "dotnetcore2.0"
+  | "dotnetcore2.1"
+  | "dotnetcore3.1"
+  | "dotnet6"
+  | "dotnet8"
+  | "nodejs4.3-edge"
+  | "go1.x"
+  | "ruby2.5"
+  | "ruby2.7"
+  | "provided"
+  | "provided.al2"
+  | "nodejs18.x"
+  | "python3.10"
+  | "java17"
+  | "ruby3.2"
+  | "ruby3.3"
+  | "ruby3.4"
+  | "python3.11"
+  | "nodejs20.x"
+  | "provided.al2023"
+  | "python3.12"
+  | "java21"
+  | "python3.13"
+  | "nodejs22.x"
+  | "java25"
+  | "nodejs24.x"
+  | "python3.14";
 export type RuntimeVersionArn = string;
 
 export interface RuntimeVersionConfig {
@@ -1704,7 +2149,15 @@ export interface SourceAccessConfiguration {
   URI?: string;
 }
 export type SourceAccessConfigurations = Array<SourceAccessConfiguration>;
-export type SourceAccessType = "BASIC_AUTH" | "VPC_SUBNET" | "VPC_SECURITY_GROUP" | "SASL_SCRAM_512_AUTH" | "SASL_SCRAM_256_AUTH" | "VIRTUAL_HOST" | "CLIENT_CERTIFICATE_TLS_AUTH" | "SERVER_ROOT_CA_CERTIFICATE";
+export type SourceAccessType =
+  | "BASIC_AUTH"
+  | "VPC_SUBNET"
+  | "VPC_SECURITY_GROUP"
+  | "SASL_SCRAM_512_AUTH"
+  | "SASL_SCRAM_256_AUTH"
+  | "VIRTUAL_HOST"
+  | "CLIENT_CERTIFICATE_TLS_AUTH"
+  | "SERVER_ROOT_CA_CERTIFICATE";
 export type SourceOwner = string;
 
 export type State = "Pending" | "Active" | "Inactive" | "Failed";
@@ -1712,7 +2165,31 @@ export type StatementId = string;
 
 export type StateReason = string;
 
-export type StateReasonCode = "Idle" | "Creating" | "Restoring" | "EniLimitExceeded" | "InsufficientRolePermissions" | "InvalidConfiguration" | "InternalError" | "SubnetOutOfIPAddresses" | "InvalidSubnet" | "InvalidSecurityGroup" | "ImageDeleted" | "ImageAccessDenied" | "InvalidImage" | "KMSKeyAccessDenied" | "KMSKeyNotFound" | "InvalidStateKMSKey" | "DisabledKMSKey" | "EFSIOError" | "EFSMountConnectivityError" | "EFSMountFailure" | "EFSMountTimeout" | "InvalidRuntime" | "InvalidZipFileException" | "FunctionError";
+export type StateReasonCode =
+  | "Idle"
+  | "Creating"
+  | "Restoring"
+  | "EniLimitExceeded"
+  | "InsufficientRolePermissions"
+  | "InvalidConfiguration"
+  | "InternalError"
+  | "SubnetOutOfIPAddresses"
+  | "InvalidSubnet"
+  | "InvalidSecurityGroup"
+  | "ImageDeleted"
+  | "ImageAccessDenied"
+  | "InvalidImage"
+  | "KMSKeyAccessDenied"
+  | "KMSKeyNotFound"
+  | "InvalidStateKMSKey"
+  | "DisabledKMSKey"
+  | "EFSIOError"
+  | "EFSMountConnectivityError"
+  | "EFSMountFailure"
+  | "EFSMountTimeout"
+  | "InvalidRuntime"
+  | "InvalidZipFileException"
+  | "FunctionError";
 export type LambdaString = string;
 
 export type StringList = Array<string>;
@@ -1746,7 +2223,13 @@ export type TagsErrorMessage = string;
 
 export type TagValue = string;
 
-export type ThrottleReason = "ConcurrentInvocationLimitExceeded" | "FunctionInvocationRateLimitExceeded" | "ReservedFunctionConcurrentInvocationLimitExceeded" | "ReservedFunctionInvocationRateLimitExceeded" | "CallerRateLimitExceeded" | "ConcurrentSnapshotCreateLimitExceeded";
+export type ThrottleReason =
+  | "ConcurrentInvocationLimitExceeded"
+  | "FunctionInvocationRateLimitExceeded"
+  | "ReservedFunctionConcurrentInvocationLimitExceeded"
+  | "ReservedFunctionInvocationRateLimitExceeded"
+  | "CallerRateLimitExceeded"
+  | "ConcurrentSnapshotCreateLimitExceeded";
 export type Timeout = number;
 
 export type Timestamp = string;
@@ -2749,5 +3232,44 @@ export declare namespace UpdateFunctionUrlConfig {
     | CommonAwsError;
 }
 
-export type LambdaErrors = CodeSigningConfigNotFoundException | CodeStorageExceededException | CodeVerificationFailedException | EC2AccessDeniedException | EC2ThrottledException | EC2UnexpectedException | EFSIOException | EFSMountConnectivityException | EFSMountFailureException | EFSMountTimeoutException | ENILimitReachedException | InvalidCodeSignatureException | InvalidParameterValueException | InvalidRequestContentException | InvalidRuntimeException | InvalidSecurityGroupIDException | InvalidSubnetIDException | InvalidZipFileException | KMSAccessDeniedException | KMSDisabledException | KMSInvalidStateException | KMSNotFoundException | PolicyLengthExceededException | PreconditionFailedException | ProvisionedConcurrencyConfigNotFoundException | RecursiveInvocationException | RequestTooLargeException | ResourceConflictException | ResourceInUseException | ResourceNotFoundException | ResourceNotReadyException | SerializedRequestEntityTooLargeException | ServiceException | SnapStartException | SnapStartNotReadyException | SnapStartTimeoutException | SubnetIPAddressLimitReachedException | TooManyRequestsException | UnsupportedMediaTypeException | CommonAwsError;
-
+export type LambdaErrors =
+  | CodeSigningConfigNotFoundException
+  | CodeStorageExceededException
+  | CodeVerificationFailedException
+  | EC2AccessDeniedException
+  | EC2ThrottledException
+  | EC2UnexpectedException
+  | EFSIOException
+  | EFSMountConnectivityException
+  | EFSMountFailureException
+  | EFSMountTimeoutException
+  | ENILimitReachedException
+  | InvalidCodeSignatureException
+  | InvalidParameterValueException
+  | InvalidRequestContentException
+  | InvalidRuntimeException
+  | InvalidSecurityGroupIDException
+  | InvalidSubnetIDException
+  | InvalidZipFileException
+  | KMSAccessDeniedException
+  | KMSDisabledException
+  | KMSInvalidStateException
+  | KMSNotFoundException
+  | PolicyLengthExceededException
+  | PreconditionFailedException
+  | ProvisionedConcurrencyConfigNotFoundException
+  | RecursiveInvocationException
+  | RequestTooLargeException
+  | ResourceConflictException
+  | ResourceInUseException
+  | ResourceNotFoundException
+  | ResourceNotReadyException
+  | SerializedRequestEntityTooLargeException
+  | ServiceException
+  | SnapStartException
+  | SnapStartNotReadyException
+  | SnapStartTimeoutException
+  | SubnetIPAddressLimitReachedException
+  | TooManyRequestsException
+  | UnsupportedMediaTypeException
+  | CommonAwsError;

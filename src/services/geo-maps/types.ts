@@ -1,38 +1,70 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
-type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
+import type {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+type CommonAwsError =
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | AccessDeniedException
+  | ThrottlingException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class GeoMaps extends AWSServiceClient {
   getGlyphs(
     input: GetGlyphsRequest,
-  ): Effect.Effect<
-    GetGlyphsResponse,
-    CommonAwsError
-  >;
+  ): Effect.Effect<GetGlyphsResponse, CommonAwsError>;
   getSprites(
     input: GetSpritesRequest,
-  ): Effect.Effect<
-    GetSpritesResponse,
-    CommonAwsError
-  >;
+  ): Effect.Effect<GetSpritesResponse, CommonAwsError>;
   getStaticMap(
     input: GetStaticMapRequest,
   ): Effect.Effect<
     GetStaticMapResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getStyleDescriptor(
     input: GetStyleDescriptorRequest,
-  ): Effect.Effect<
-    GetStyleDescriptorResponse,
-    CommonAwsError
-  >;
+  ): Effect.Effect<GetStyleDescriptorResponse, CommonAwsError>;
   getTile(
     input: GetTileRequest,
   ): Effect.Effect<
     GetTileResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
 }
 
@@ -205,15 +237,13 @@ export type Variant = string;
 export declare namespace GetGlyphs {
   export type Input = GetGlyphsRequest;
   export type Output = GetGlyphsResponse;
-  export type Error =
-    | CommonAwsError;
+  export type Error = CommonAwsError;
 }
 
 export declare namespace GetSprites {
   export type Input = GetSpritesRequest;
   export type Output = GetSpritesResponse;
-  export type Error =
-    | CommonAwsError;
+  export type Error = CommonAwsError;
 }
 
 export declare namespace GetStaticMap {
@@ -230,8 +260,7 @@ export declare namespace GetStaticMap {
 export declare namespace GetStyleDescriptor {
   export type Input = GetStyleDescriptorRequest;
   export type Output = GetStyleDescriptorResponse;
-  export type Error =
-    | CommonAwsError;
+  export type Error = CommonAwsError;
 }
 
 export declare namespace GetTile {
@@ -246,5 +275,10 @@ export declare namespace GetTile {
     | CommonAwsError;
 }
 
-export type GeoMapsErrors = AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError;
-
+export type GeoMapsErrors =
+  | AccessDeniedException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

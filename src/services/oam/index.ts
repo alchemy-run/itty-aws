@@ -5,7 +5,25 @@ import type { OAM as _OAMClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError, type CommonAwsError} from "../../error.ts";
+export {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  type CommonAwsError,
+} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -14,21 +32,21 @@ const metadata = {
   protocol: "restJson1",
   sigV4ServiceName: "oam",
   operations: {
-    "CreateLink": "POST /CreateLink",
-    "CreateSink": "POST /CreateSink",
-    "DeleteLink": "POST /DeleteLink",
-    "DeleteSink": "POST /DeleteSink",
-    "GetLink": "POST /GetLink",
-    "GetSink": "POST /GetSink",
-    "GetSinkPolicy": "POST /GetSinkPolicy",
-    "ListAttachedLinks": "POST /ListAttachedLinks",
-    "ListLinks": "POST /ListLinks",
-    "ListSinks": "POST /ListSinks",
-    "ListTagsForResource": "GET /tags/{ResourceArn}",
-    "PutSinkPolicy": "POST /PutSinkPolicy",
-    "TagResource": "PUT /tags/{ResourceArn}",
-    "UntagResource": "DELETE /tags/{ResourceArn}",
-    "UpdateLink": "POST /UpdateLink",
+    CreateLink: "POST /CreateLink",
+    CreateSink: "POST /CreateSink",
+    DeleteLink: "POST /DeleteLink",
+    DeleteSink: "POST /DeleteSink",
+    GetLink: "POST /GetLink",
+    GetSink: "POST /GetSink",
+    GetSinkPolicy: "POST /GetSinkPolicy",
+    ListAttachedLinks: "POST /ListAttachedLinks",
+    ListLinks: "POST /ListLinks",
+    ListSinks: "POST /ListSinks",
+    ListTagsForResource: "GET /tags/{ResourceArn}",
+    PutSinkPolicy: "POST /PutSinkPolicy",
+    TagResource: "PUT /tags/{ResourceArn}",
+    UntagResource: "DELETE /tags/{ResourceArn}",
+    UpdateLink: "POST /UpdateLink",
   },
 } as const satisfies ServiceMetadata;
 

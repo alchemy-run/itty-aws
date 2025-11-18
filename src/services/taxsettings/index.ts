@@ -5,7 +5,24 @@ import type { TaxSettings as _TaxSettingsClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError, type CommonAwsError} from "../../error.ts";
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  type CommonAwsError,
+} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -14,22 +31,23 @@ const metadata = {
   protocol: "restJson1",
   sigV4ServiceName: "tax",
   operations: {
-    "BatchDeleteTaxRegistration": "POST /BatchDeleteTaxRegistration",
-    "BatchGetTaxExemptions": "POST /BatchGetTaxExemptions",
-    "BatchPutTaxRegistration": "POST /BatchPutTaxRegistration",
-    "DeleteSupplementalTaxRegistration": "POST /DeleteSupplementalTaxRegistration",
-    "DeleteTaxRegistration": "POST /DeleteTaxRegistration",
-    "GetTaxExemptionTypes": "POST /GetTaxExemptionTypes",
-    "GetTaxInheritance": "POST /GetTaxInheritance",
-    "GetTaxRegistration": "POST /GetTaxRegistration",
-    "GetTaxRegistrationDocument": "POST /GetTaxRegistrationDocument",
-    "ListSupplementalTaxRegistrations": "POST /ListSupplementalTaxRegistrations",
-    "ListTaxExemptions": "POST /ListTaxExemptions",
-    "ListTaxRegistrations": "POST /ListTaxRegistrations",
-    "PutSupplementalTaxRegistration": "POST /PutSupplementalTaxRegistration",
-    "PutTaxExemption": "POST /PutTaxExemption",
-    "PutTaxInheritance": "POST /PutTaxInheritance",
-    "PutTaxRegistration": "POST /PutTaxRegistration",
+    BatchDeleteTaxRegistration: "POST /BatchDeleteTaxRegistration",
+    BatchGetTaxExemptions: "POST /BatchGetTaxExemptions",
+    BatchPutTaxRegistration: "POST /BatchPutTaxRegistration",
+    DeleteSupplementalTaxRegistration:
+      "POST /DeleteSupplementalTaxRegistration",
+    DeleteTaxRegistration: "POST /DeleteTaxRegistration",
+    GetTaxExemptionTypes: "POST /GetTaxExemptionTypes",
+    GetTaxInheritance: "POST /GetTaxInheritance",
+    GetTaxRegistration: "POST /GetTaxRegistration",
+    GetTaxRegistrationDocument: "POST /GetTaxRegistrationDocument",
+    ListSupplementalTaxRegistrations: "POST /ListSupplementalTaxRegistrations",
+    ListTaxExemptions: "POST /ListTaxExemptions",
+    ListTaxRegistrations: "POST /ListTaxRegistrations",
+    PutSupplementalTaxRegistration: "POST /PutSupplementalTaxRegistration",
+    PutTaxExemption: "POST /PutTaxExemption",
+    PutTaxInheritance: "POST /PutTaxInheritance",
+    PutTaxRegistration: "POST /PutTaxRegistration",
   },
 } as const satisfies ServiceMetadata;
 

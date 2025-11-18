@@ -5,7 +5,23 @@ import type { Route53RecoveryControlConfig as _Route53RecoveryControlConfigClien
 
 export * from "./types.ts";
 
-export {ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, type CommonAwsError} from "../../error.ts";
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  type CommonAwsError,
+} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -15,36 +31,38 @@ const metadata = {
   sigV4ServiceName: "route53-recovery-control-config",
   endpointPrefix: "route53-recovery-control-config",
   operations: {
-    "CreateCluster": "POST /cluster",
-    "CreateControlPanel": "POST /controlpanel",
-    "CreateRoutingControl": "POST /routingcontrol",
-    "CreateSafetyRule": "POST /safetyrule",
-    "DeleteCluster": "DELETE /cluster/{ClusterArn}",
-    "DeleteControlPanel": "DELETE /controlpanel/{ControlPanelArn}",
-    "DeleteRoutingControl": "DELETE /routingcontrol/{RoutingControlArn}",
-    "DeleteSafetyRule": "DELETE /safetyrule/{SafetyRuleArn}",
-    "DescribeCluster": "GET /cluster/{ClusterArn}",
-    "DescribeControlPanel": "GET /controlpanel/{ControlPanelArn}",
-    "DescribeRoutingControl": "GET /routingcontrol/{RoutingControlArn}",
-    "DescribeSafetyRule": "GET /safetyrule/{SafetyRuleArn}",
-    "GetResourcePolicy": "GET /resourcePolicy/{ResourceArn}",
-    "ListAssociatedRoute53HealthChecks": "GET /routingcontrol/{RoutingControlArn}/associatedRoute53HealthChecks",
-    "ListClusters": "GET /cluster",
-    "ListControlPanels": "GET /controlpanels",
-    "ListRoutingControls": "GET /controlpanel/{ControlPanelArn}/routingcontrols",
-    "ListSafetyRules": "GET /controlpanel/{ControlPanelArn}/safetyrules",
-    "ListTagsForResource": "GET /tags/{ResourceArn}",
-    "TagResource": "POST /tags/{ResourceArn}",
-    "UntagResource": "DELETE /tags/{ResourceArn}",
-    "UpdateCluster": "PUT /cluster",
-    "UpdateControlPanel": "PUT /controlpanel",
-    "UpdateRoutingControl": "PUT /routingcontrol",
-    "UpdateSafetyRule": "PUT /safetyrule",
+    CreateCluster: "POST /cluster",
+    CreateControlPanel: "POST /controlpanel",
+    CreateRoutingControl: "POST /routingcontrol",
+    CreateSafetyRule: "POST /safetyrule",
+    DeleteCluster: "DELETE /cluster/{ClusterArn}",
+    DeleteControlPanel: "DELETE /controlpanel/{ControlPanelArn}",
+    DeleteRoutingControl: "DELETE /routingcontrol/{RoutingControlArn}",
+    DeleteSafetyRule: "DELETE /safetyrule/{SafetyRuleArn}",
+    DescribeCluster: "GET /cluster/{ClusterArn}",
+    DescribeControlPanel: "GET /controlpanel/{ControlPanelArn}",
+    DescribeRoutingControl: "GET /routingcontrol/{RoutingControlArn}",
+    DescribeSafetyRule: "GET /safetyrule/{SafetyRuleArn}",
+    GetResourcePolicy: "GET /resourcePolicy/{ResourceArn}",
+    ListAssociatedRoute53HealthChecks:
+      "GET /routingcontrol/{RoutingControlArn}/associatedRoute53HealthChecks",
+    ListClusters: "GET /cluster",
+    ListControlPanels: "GET /controlpanels",
+    ListRoutingControls: "GET /controlpanel/{ControlPanelArn}/routingcontrols",
+    ListSafetyRules: "GET /controlpanel/{ControlPanelArn}/safetyrules",
+    ListTagsForResource: "GET /tags/{ResourceArn}",
+    TagResource: "POST /tags/{ResourceArn}",
+    UntagResource: "DELETE /tags/{ResourceArn}",
+    UpdateCluster: "PUT /cluster",
+    UpdateControlPanel: "PUT /controlpanel",
+    UpdateRoutingControl: "PUT /routingcontrol",
+    UpdateSafetyRule: "PUT /safetyrule",
   },
 } as const satisfies ServiceMetadata;
 
 export type _Route53RecoveryControlConfig = _Route53RecoveryControlConfigClient;
-export interface Route53RecoveryControlConfig extends _Route53RecoveryControlConfig {}
+export interface Route53RecoveryControlConfig
+  extends _Route53RecoveryControlConfig {}
 export const Route53RecoveryControlConfig = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

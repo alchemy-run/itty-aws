@@ -1,6 +1,39 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException } from "../../error.ts";
-type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | ValidationException | AccessDeniedException | ThrottlingException;
+import type {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  ValidationException,
+} from "../../error.ts";
+type CommonAwsError =
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | ValidationException
+  | AccessDeniedException
+  | ThrottlingException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class EKS extends AWSServiceClient {
@@ -8,211 +41,379 @@ export declare class EKS extends AWSServiceClient {
     input: AssociateAccessPolicyRequest,
   ): Effect.Effect<
     AssociateAccessPolicyResponse,
-    InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ServerException | CommonAwsError
+    | InvalidParameterException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServerException
+    | CommonAwsError
   >;
   associateEncryptionConfig(
     input: AssociateEncryptionConfigRequest,
   ): Effect.Effect<
     AssociateEncryptionConfigResponse,
-    ClientException | InvalidParameterException | InvalidRequestException | ResourceInUseException | ResourceNotFoundException | ServerException | ThrottlingException | CommonAwsError
+    | ClientException
+    | InvalidParameterException
+    | InvalidRequestException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | ServerException
+    | ThrottlingException
+    | CommonAwsError
   >;
   associateIdentityProviderConfig(
     input: AssociateIdentityProviderConfigRequest,
   ): Effect.Effect<
     AssociateIdentityProviderConfigResponse,
-    ClientException | InvalidParameterException | InvalidRequestException | ResourceInUseException | ResourceNotFoundException | ServerException | ThrottlingException | CommonAwsError
+    | ClientException
+    | InvalidParameterException
+    | InvalidRequestException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | ServerException
+    | ThrottlingException
+    | CommonAwsError
   >;
   createAccessEntry(
     input: CreateAccessEntryRequest,
   ): Effect.Effect<
     CreateAccessEntryResponse,
-    InvalidParameterException | InvalidRequestException | ResourceInUseException | ResourceLimitExceededException | ResourceNotFoundException | ServerException | CommonAwsError
+    | InvalidParameterException
+    | InvalidRequestException
+    | ResourceInUseException
+    | ResourceLimitExceededException
+    | ResourceNotFoundException
+    | ServerException
+    | CommonAwsError
   >;
   createAddon(
     input: CreateAddonRequest,
   ): Effect.Effect<
     CreateAddonResponse,
-    ClientException | InvalidParameterException | InvalidRequestException | ResourceInUseException | ResourceNotFoundException | ServerException | CommonAwsError
+    | ClientException
+    | InvalidParameterException
+    | InvalidRequestException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | ServerException
+    | CommonAwsError
   >;
   createCluster(
     input: CreateClusterRequest,
   ): Effect.Effect<
     CreateClusterResponse,
-    ClientException | InvalidParameterException | ResourceInUseException | ResourceLimitExceededException | ServerException | ServiceUnavailableException | UnsupportedAvailabilityZoneException | CommonAwsError
+    | ClientException
+    | InvalidParameterException
+    | ResourceInUseException
+    | ResourceLimitExceededException
+    | ServerException
+    | ServiceUnavailableException
+    | UnsupportedAvailabilityZoneException
+    | CommonAwsError
   >;
   createEksAnywhereSubscription(
     input: CreateEksAnywhereSubscriptionRequest,
   ): Effect.Effect<
     CreateEksAnywhereSubscriptionResponse,
-    ClientException | InvalidParameterException | ResourceLimitExceededException | ServerException | ServiceUnavailableException | CommonAwsError
+    | ClientException
+    | InvalidParameterException
+    | ResourceLimitExceededException
+    | ServerException
+    | ServiceUnavailableException
+    | CommonAwsError
   >;
   createFargateProfile(
     input: CreateFargateProfileRequest,
   ): Effect.Effect<
     CreateFargateProfileResponse,
-    ClientException | InvalidParameterException | InvalidRequestException | ResourceLimitExceededException | ServerException | UnsupportedAvailabilityZoneException | CommonAwsError
+    | ClientException
+    | InvalidParameterException
+    | InvalidRequestException
+    | ResourceLimitExceededException
+    | ServerException
+    | UnsupportedAvailabilityZoneException
+    | CommonAwsError
   >;
   createNodegroup(
     input: CreateNodegroupRequest,
   ): Effect.Effect<
     CreateNodegroupResponse,
-    ClientException | InvalidParameterException | InvalidRequestException | ResourceInUseException | ResourceLimitExceededException | ServerException | ServiceUnavailableException | CommonAwsError
+    | ClientException
+    | InvalidParameterException
+    | InvalidRequestException
+    | ResourceInUseException
+    | ResourceLimitExceededException
+    | ServerException
+    | ServiceUnavailableException
+    | CommonAwsError
   >;
   createPodIdentityAssociation(
     input: CreatePodIdentityAssociationRequest,
   ): Effect.Effect<
     CreatePodIdentityAssociationResponse,
-    InvalidParameterException | InvalidRequestException | ResourceInUseException | ResourceLimitExceededException | ResourceNotFoundException | ServerException | CommonAwsError
+    | InvalidParameterException
+    | InvalidRequestException
+    | ResourceInUseException
+    | ResourceLimitExceededException
+    | ResourceNotFoundException
+    | ServerException
+    | CommonAwsError
   >;
   deleteAccessEntry(
     input: DeleteAccessEntryRequest,
   ): Effect.Effect<
     DeleteAccessEntryResponse,
-    InvalidRequestException | ResourceNotFoundException | ServerException | CommonAwsError
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServerException
+    | CommonAwsError
   >;
   deleteAddon(
     input: DeleteAddonRequest,
   ): Effect.Effect<
     DeleteAddonResponse,
-    ClientException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ServerException | CommonAwsError
+    | ClientException
+    | InvalidParameterException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServerException
+    | CommonAwsError
   >;
   deleteCluster(
     input: DeleteClusterRequest,
   ): Effect.Effect<
     DeleteClusterResponse,
-    ClientException | InvalidRequestException | ResourceInUseException | ResourceNotFoundException | ServerException | ServiceUnavailableException | CommonAwsError
+    | ClientException
+    | InvalidRequestException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | ServerException
+    | ServiceUnavailableException
+    | CommonAwsError
   >;
   deleteEksAnywhereSubscription(
     input: DeleteEksAnywhereSubscriptionRequest,
   ): Effect.Effect<
     DeleteEksAnywhereSubscriptionResponse,
-    ClientException | InvalidRequestException | ResourceNotFoundException | ServerException | CommonAwsError
+    | ClientException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServerException
+    | CommonAwsError
   >;
   deleteFargateProfile(
     input: DeleteFargateProfileRequest,
   ): Effect.Effect<
     DeleteFargateProfileResponse,
-    ClientException | InvalidParameterException | ResourceNotFoundException | ServerException | CommonAwsError
+    | ClientException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | ServerException
+    | CommonAwsError
   >;
   deleteNodegroup(
     input: DeleteNodegroupRequest,
   ): Effect.Effect<
     DeleteNodegroupResponse,
-    ClientException | InvalidParameterException | ResourceInUseException | ResourceNotFoundException | ServerException | ServiceUnavailableException | CommonAwsError
+    | ClientException
+    | InvalidParameterException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | ServerException
+    | ServiceUnavailableException
+    | CommonAwsError
   >;
   deletePodIdentityAssociation(
     input: DeletePodIdentityAssociationRequest,
   ): Effect.Effect<
     DeletePodIdentityAssociationResponse,
-    InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ServerException | CommonAwsError
+    | InvalidParameterException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServerException
+    | CommonAwsError
   >;
   deregisterCluster(
     input: DeregisterClusterRequest,
   ): Effect.Effect<
     DeregisterClusterResponse,
-    AccessDeniedException | ClientException | ResourceInUseException | ResourceNotFoundException | ServerException | ServiceUnavailableException | CommonAwsError
+    | AccessDeniedException
+    | ClientException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | ServerException
+    | ServiceUnavailableException
+    | CommonAwsError
   >;
   describeAccessEntry(
     input: DescribeAccessEntryRequest,
   ): Effect.Effect<
     DescribeAccessEntryResponse,
-    InvalidRequestException | ResourceNotFoundException | ServerException | CommonAwsError
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServerException
+    | CommonAwsError
   >;
   describeAddon(
     input: DescribeAddonRequest,
   ): Effect.Effect<
     DescribeAddonResponse,
-    ClientException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ServerException | CommonAwsError
+    | ClientException
+    | InvalidParameterException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServerException
+    | CommonAwsError
   >;
   describeAddonConfiguration(
     input: DescribeAddonConfigurationRequest,
   ): Effect.Effect<
     DescribeAddonConfigurationResponse,
-    InvalidParameterException | ResourceNotFoundException | ServerException | CommonAwsError
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | ServerException
+    | CommonAwsError
   >;
   describeAddonVersions(
     input: DescribeAddonVersionsRequest,
   ): Effect.Effect<
     DescribeAddonVersionsResponse,
-    InvalidParameterException | ResourceNotFoundException | ServerException | CommonAwsError
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | ServerException
+    | CommonAwsError
   >;
   describeCluster(
     input: DescribeClusterRequest,
   ): Effect.Effect<
     DescribeClusterResponse,
-    ClientException | ResourceNotFoundException | ServerException | ServiceUnavailableException | CommonAwsError
+    | ClientException
+    | ResourceNotFoundException
+    | ServerException
+    | ServiceUnavailableException
+    | CommonAwsError
   >;
   describeClusterVersions(
     input: DescribeClusterVersionsRequest,
   ): Effect.Effect<
     DescribeClusterVersionsResponse,
-    InvalidParameterException | InvalidRequestException | ServerException | CommonAwsError
+    | InvalidParameterException
+    | InvalidRequestException
+    | ServerException
+    | CommonAwsError
   >;
   describeEksAnywhereSubscription(
     input: DescribeEksAnywhereSubscriptionRequest,
   ): Effect.Effect<
     DescribeEksAnywhereSubscriptionResponse,
-    ClientException | ResourceNotFoundException | ServerException | ServiceUnavailableException | CommonAwsError
+    | ClientException
+    | ResourceNotFoundException
+    | ServerException
+    | ServiceUnavailableException
+    | CommonAwsError
   >;
   describeFargateProfile(
     input: DescribeFargateProfileRequest,
   ): Effect.Effect<
     DescribeFargateProfileResponse,
-    ClientException | InvalidParameterException | ResourceNotFoundException | ServerException | CommonAwsError
+    | ClientException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | ServerException
+    | CommonAwsError
   >;
   describeIdentityProviderConfig(
     input: DescribeIdentityProviderConfigRequest,
   ): Effect.Effect<
     DescribeIdentityProviderConfigResponse,
-    ClientException | InvalidParameterException | ResourceNotFoundException | ServerException | ServiceUnavailableException | CommonAwsError
+    | ClientException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | ServerException
+    | ServiceUnavailableException
+    | CommonAwsError
   >;
   describeInsight(
     input: DescribeInsightRequest,
   ): Effect.Effect<
     DescribeInsightResponse,
-    InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ServerException | CommonAwsError
+    | InvalidParameterException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServerException
+    | CommonAwsError
   >;
   describeInsightsRefresh(
     input: DescribeInsightsRefreshRequest,
   ): Effect.Effect<
     DescribeInsightsRefreshResponse,
-    InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ServerException | CommonAwsError
+    | InvalidParameterException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServerException
+    | CommonAwsError
   >;
   describeNodegroup(
     input: DescribeNodegroupRequest,
   ): Effect.Effect<
     DescribeNodegroupResponse,
-    ClientException | InvalidParameterException | ResourceNotFoundException | ServerException | ServiceUnavailableException | CommonAwsError
+    | ClientException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | ServerException
+    | ServiceUnavailableException
+    | CommonAwsError
   >;
   describePodIdentityAssociation(
     input: DescribePodIdentityAssociationRequest,
   ): Effect.Effect<
     DescribePodIdentityAssociationResponse,
-    InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ServerException | CommonAwsError
+    | InvalidParameterException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServerException
+    | CommonAwsError
   >;
   describeUpdate(
     input: DescribeUpdateRequest,
   ): Effect.Effect<
     DescribeUpdateResponse,
-    ClientException | InvalidParameterException | ResourceNotFoundException | ServerException | CommonAwsError
+    | ClientException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | ServerException
+    | CommonAwsError
   >;
   disassociateAccessPolicy(
     input: DisassociateAccessPolicyRequest,
   ): Effect.Effect<
     DisassociateAccessPolicyResponse,
-    InvalidRequestException | ResourceNotFoundException | ServerException | CommonAwsError
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServerException
+    | CommonAwsError
   >;
   disassociateIdentityProviderConfig(
     input: DisassociateIdentityProviderConfigRequest,
   ): Effect.Effect<
     DisassociateIdentityProviderConfigResponse,
-    ClientException | InvalidParameterException | InvalidRequestException | ResourceInUseException | ResourceNotFoundException | ServerException | ThrottlingException | CommonAwsError
+    | ClientException
+    | InvalidParameterException
+    | InvalidRequestException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | ServerException
+    | ThrottlingException
+    | CommonAwsError
   >;
   listAccessEntries(
     input: ListAccessEntriesRequest,
   ): Effect.Effect<
     ListAccessEntriesResponse,
-    InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ServerException | CommonAwsError
+    | InvalidParameterException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServerException
+    | CommonAwsError
   >;
   listAccessPolicies(
     input: ListAccessPoliciesRequest,
@@ -224,55 +425,93 @@ export declare class EKS extends AWSServiceClient {
     input: ListAddonsRequest,
   ): Effect.Effect<
     ListAddonsResponse,
-    ClientException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ServerException | CommonAwsError
+    | ClientException
+    | InvalidParameterException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServerException
+    | CommonAwsError
   >;
   listAssociatedAccessPolicies(
     input: ListAssociatedAccessPoliciesRequest,
   ): Effect.Effect<
     ListAssociatedAccessPoliciesResponse,
-    InvalidRequestException | ResourceNotFoundException | ServerException | CommonAwsError
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServerException
+    | CommonAwsError
   >;
   listClusters(
     input: ListClustersRequest,
   ): Effect.Effect<
     ListClustersResponse,
-    ClientException | InvalidParameterException | ServerException | ServiceUnavailableException | CommonAwsError
+    | ClientException
+    | InvalidParameterException
+    | ServerException
+    | ServiceUnavailableException
+    | CommonAwsError
   >;
   listEksAnywhereSubscriptions(
     input: ListEksAnywhereSubscriptionsRequest,
   ): Effect.Effect<
     ListEksAnywhereSubscriptionsResponse,
-    ClientException | InvalidParameterException | ServerException | ServiceUnavailableException | CommonAwsError
+    | ClientException
+    | InvalidParameterException
+    | ServerException
+    | ServiceUnavailableException
+    | CommonAwsError
   >;
   listFargateProfiles(
     input: ListFargateProfilesRequest,
   ): Effect.Effect<
     ListFargateProfilesResponse,
-    ClientException | InvalidParameterException | ResourceNotFoundException | ServerException | CommonAwsError
+    | ClientException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | ServerException
+    | CommonAwsError
   >;
   listIdentityProviderConfigs(
     input: ListIdentityProviderConfigsRequest,
   ): Effect.Effect<
     ListIdentityProviderConfigsResponse,
-    ClientException | InvalidParameterException | ResourceNotFoundException | ServerException | ServiceUnavailableException | CommonAwsError
+    | ClientException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | ServerException
+    | ServiceUnavailableException
+    | CommonAwsError
   >;
   listInsights(
     input: ListInsightsRequest,
   ): Effect.Effect<
     ListInsightsResponse,
-    InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ServerException | CommonAwsError
+    | InvalidParameterException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServerException
+    | CommonAwsError
   >;
   listNodegroups(
     input: ListNodegroupsRequest,
   ): Effect.Effect<
     ListNodegroupsResponse,
-    ClientException | InvalidParameterException | ResourceNotFoundException | ServerException | ServiceUnavailableException | CommonAwsError
+    | ClientException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | ServerException
+    | ServiceUnavailableException
+    | CommonAwsError
   >;
   listPodIdentityAssociations(
     input: ListPodIdentityAssociationsRequest,
   ): Effect.Effect<
     ListPodIdentityAssociationsResponse,
-    InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ServerException | CommonAwsError
+    | InvalidParameterException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServerException
+    | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
@@ -284,19 +523,35 @@ export declare class EKS extends AWSServiceClient {
     input: ListUpdatesRequest,
   ): Effect.Effect<
     ListUpdatesResponse,
-    ClientException | InvalidParameterException | ResourceNotFoundException | ServerException | CommonAwsError
+    | ClientException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | ServerException
+    | CommonAwsError
   >;
   registerCluster(
     input: RegisterClusterRequest,
   ): Effect.Effect<
     RegisterClusterResponse,
-    AccessDeniedException | ClientException | InvalidParameterException | ResourceInUseException | ResourceLimitExceededException | ResourcePropagationDelayException | ServerException | ServiceUnavailableException | CommonAwsError
+    | AccessDeniedException
+    | ClientException
+    | InvalidParameterException
+    | ResourceInUseException
+    | ResourceLimitExceededException
+    | ResourcePropagationDelayException
+    | ServerException
+    | ServiceUnavailableException
+    | CommonAwsError
   >;
   startInsightsRefresh(
     input: StartInsightsRefreshRequest,
   ): Effect.Effect<
     StartInsightsRefreshResponse,
-    InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ServerException | CommonAwsError
+    | InvalidParameterException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServerException
+    | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
@@ -314,49 +569,95 @@ export declare class EKS extends AWSServiceClient {
     input: UpdateAccessEntryRequest,
   ): Effect.Effect<
     UpdateAccessEntryResponse,
-    InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ServerException | CommonAwsError
+    | InvalidParameterException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServerException
+    | CommonAwsError
   >;
   updateAddon(
     input: UpdateAddonRequest,
   ): Effect.Effect<
     UpdateAddonResponse,
-    ClientException | InvalidParameterException | InvalidRequestException | ResourceInUseException | ResourceNotFoundException | ServerException | CommonAwsError
+    | ClientException
+    | InvalidParameterException
+    | InvalidRequestException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | ServerException
+    | CommonAwsError
   >;
   updateClusterConfig(
     input: UpdateClusterConfigRequest,
   ): Effect.Effect<
     UpdateClusterConfigResponse,
-    ClientException | InvalidParameterException | InvalidRequestException | ResourceInUseException | ResourceNotFoundException | ServerException | ThrottlingException | CommonAwsError
+    | ClientException
+    | InvalidParameterException
+    | InvalidRequestException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | ServerException
+    | ThrottlingException
+    | CommonAwsError
   >;
   updateClusterVersion(
     input: UpdateClusterVersionRequest,
   ): Effect.Effect<
     UpdateClusterVersionResponse,
-    ClientException | InvalidParameterException | InvalidRequestException | InvalidStateException | ResourceInUseException | ResourceNotFoundException | ServerException | ThrottlingException | CommonAwsError
+    | ClientException
+    | InvalidParameterException
+    | InvalidRequestException
+    | InvalidStateException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | ServerException
+    | ThrottlingException
+    | CommonAwsError
   >;
   updateEksAnywhereSubscription(
     input: UpdateEksAnywhereSubscriptionRequest,
   ): Effect.Effect<
     UpdateEksAnywhereSubscriptionResponse,
-    ClientException | InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ServerException | CommonAwsError
+    | ClientException
+    | InvalidParameterException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServerException
+    | CommonAwsError
   >;
   updateNodegroupConfig(
     input: UpdateNodegroupConfigRequest,
   ): Effect.Effect<
     UpdateNodegroupConfigResponse,
-    ClientException | InvalidParameterException | InvalidRequestException | ResourceInUseException | ResourceNotFoundException | ServerException | CommonAwsError
+    | ClientException
+    | InvalidParameterException
+    | InvalidRequestException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | ServerException
+    | CommonAwsError
   >;
   updateNodegroupVersion(
     input: UpdateNodegroupVersionRequest,
   ): Effect.Effect<
     UpdateNodegroupVersionResponse,
-    ClientException | InvalidParameterException | InvalidRequestException | ResourceInUseException | ResourceNotFoundException | ServerException | CommonAwsError
+    | ClientException
+    | InvalidParameterException
+    | InvalidRequestException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | ServerException
+    | CommonAwsError
   >;
   updatePodIdentityAssociation(
     input: UpdatePodIdentityAssociationRequest,
   ): Effect.Effect<
     UpdatePodIdentityAssociationResponse,
-    InvalidParameterException | InvalidRequestException | ResourceNotFoundException | ServerException | CommonAwsError
+    | InvalidParameterException
+    | InvalidRequestException
+    | ResourceNotFoundException
+    | ServerException
+    | CommonAwsError
   >;
 }
 
@@ -433,7 +734,17 @@ export interface AddonIssue {
   message?: string;
   resourceIds?: Array<string>;
 }
-export type AddonIssueCode = "AccessDenied" | "InternalFailure" | "ClusterUnreachable" | "InsufficientNumberOfReplicas" | "ConfigurationConflict" | "AdmissionRequestDenied" | "UnsupportedAddonModification" | "K8sResourceNotFound" | "AddonSubscriptionNeeded" | "AddonPermissionFailure";
+export type AddonIssueCode =
+  | "AccessDenied"
+  | "InternalFailure"
+  | "ClusterUnreachable"
+  | "InsufficientNumberOfReplicas"
+  | "ConfigurationConflict"
+  | "AdmissionRequestDenied"
+  | "UnsupportedAddonModification"
+  | "K8sResourceNotFound"
+  | "AddonSubscriptionNeeded"
+  | "AddonPermissionFailure";
 export type AddonIssueList = Array<AddonIssue>;
 export interface AddonNamespaceConfigRequest {
   namespace?: string;
@@ -445,14 +756,24 @@ export interface AddonPodIdentityAssociations {
   serviceAccount: string;
   roleArn: string;
 }
-export type AddonPodIdentityAssociationsList = Array<AddonPodIdentityAssociations>;
+export type AddonPodIdentityAssociationsList =
+  Array<AddonPodIdentityAssociations>;
 export interface AddonPodIdentityConfiguration {
   serviceAccount?: string;
   recommendedManagedPolicies?: Array<string>;
 }
-export type AddonPodIdentityConfigurationList = Array<AddonPodIdentityConfiguration>;
+export type AddonPodIdentityConfigurationList =
+  Array<AddonPodIdentityConfiguration>;
 export type Addons = Array<AddonInfo>;
-export type AddonStatus = "CREATING" | "ACTIVE" | "CREATE_FAILED" | "UPDATING" | "DELETING" | "DELETE_FAILED" | "DEGRADED" | "UPDATE_FAILED";
+export type AddonStatus =
+  | "CREATING"
+  | "ACTIVE"
+  | "CREATE_FAILED"
+  | "UPDATING"
+  | "DELETING"
+  | "DELETE_FAILED"
+  | "DEGRADED"
+  | "UPDATE_FAILED";
 export interface AddonVersionInfo {
   addonVersion?: string;
   architecture?: Array<string>;
@@ -462,7 +783,26 @@ export interface AddonVersionInfo {
   requiresIamPermissions?: boolean;
 }
 export type AddonVersionInfoList = Array<AddonVersionInfo>;
-export type AMITypes = "AL2_x86_64" | "AL2_x86_64_GPU" | "AL2_ARM_64" | "CUSTOM" | "BOTTLEROCKET_ARM_64" | "BOTTLEROCKET_x86_64" | "BOTTLEROCKET_ARM_64_FIPS" | "BOTTLEROCKET_x86_64_FIPS" | "BOTTLEROCKET_ARM_64_NVIDIA" | "BOTTLEROCKET_x86_64_NVIDIA" | "WINDOWS_CORE_2019_x86_64" | "WINDOWS_FULL_2019_x86_64" | "WINDOWS_CORE_2022_x86_64" | "WINDOWS_FULL_2022_x86_64" | "AL2023_x86_64_STANDARD" | "AL2023_ARM_64_STANDARD" | "AL2023_x86_64_NEURON" | "AL2023_x86_64_NVIDIA" | "AL2023_ARM_64_NVIDIA";
+export type AMITypes =
+  | "AL2_x86_64"
+  | "AL2_x86_64_GPU"
+  | "AL2_ARM_64"
+  | "CUSTOM"
+  | "BOTTLEROCKET_ARM_64"
+  | "BOTTLEROCKET_x86_64"
+  | "BOTTLEROCKET_ARM_64_FIPS"
+  | "BOTTLEROCKET_x86_64_FIPS"
+  | "BOTTLEROCKET_ARM_64_NVIDIA"
+  | "BOTTLEROCKET_x86_64_NVIDIA"
+  | "WINDOWS_CORE_2019_x86_64"
+  | "WINDOWS_FULL_2019_x86_64"
+  | "WINDOWS_CORE_2022_x86_64"
+  | "WINDOWS_FULL_2022_x86_64"
+  | "AL2023_x86_64_STANDARD"
+  | "AL2023_ARM_64_STANDARD"
+  | "AL2023_x86_64_NEURON"
+  | "AL2023_x86_64_NVIDIA"
+  | "AL2023_ARM_64_NVIDIA";
 export interface AssociateAccessPolicyRequest {
   clusterName: string;
   principalArn: string;
@@ -578,11 +918,36 @@ export interface ClusterIssue {
   message?: string;
   resourceIds?: Array<string>;
 }
-export type ClusterIssueCode = "AccessDenied" | "ClusterUnreachable" | "ConfigurationConflict" | "InternalFailure" | "ResourceLimitExceeded" | "ResourceNotFound" | "IamRoleNotFound" | "VpcNotFound" | "InsufficientFreeAddresses" | "Ec2ServiceNotSubscribed" | "Ec2SubnetNotFound" | "Ec2SecurityGroupNotFound" | "KmsGrantRevoked" | "KmsKeyNotFound" | "KmsKeyMarkedForDeletion" | "KmsKeyDisabled" | "StsRegionalEndpointDisabled" | "UnsupportedVersion" | "Other";
+export type ClusterIssueCode =
+  | "AccessDenied"
+  | "ClusterUnreachable"
+  | "ConfigurationConflict"
+  | "InternalFailure"
+  | "ResourceLimitExceeded"
+  | "ResourceNotFound"
+  | "IamRoleNotFound"
+  | "VpcNotFound"
+  | "InsufficientFreeAddresses"
+  | "Ec2ServiceNotSubscribed"
+  | "Ec2SubnetNotFound"
+  | "Ec2SecurityGroupNotFound"
+  | "KmsGrantRevoked"
+  | "KmsKeyNotFound"
+  | "KmsKeyMarkedForDeletion"
+  | "KmsKeyDisabled"
+  | "StsRegionalEndpointDisabled"
+  | "UnsupportedVersion"
+  | "Other";
 export type ClusterIssueList = Array<ClusterIssue>;
 export type ClusterName = string;
 
-export type ClusterStatus = "CREATING" | "ACTIVE" | "DELETING" | "FAILED" | "UPDATING" | "PENDING";
+export type ClusterStatus =
+  | "CREATING"
+  | "ACTIVE"
+  | "DELETING"
+  | "FAILED"
+  | "UPDATING"
+  | "PENDING";
 export interface ClusterVersionInformation {
   clusterVersion?: string;
   clusterType?: string;
@@ -596,7 +961,10 @@ export interface ClusterVersionInformation {
   kubernetesPatchVersion?: string;
 }
 export type ClusterVersionList = Array<ClusterVersionInformation>;
-export type ClusterVersionStatus = "unsupported" | "standard-support" | "extended-support";
+export type ClusterVersionStatus =
+  | "unsupported"
+  | "standard-support"
+  | "extended-support";
 export type Compatibilities = Array<Compatibility>;
 export interface Compatibility {
   clusterVersion?: string;
@@ -614,7 +982,16 @@ export interface ComputeConfigResponse {
   nodeRoleArn?: string;
 }
 export type configStatus = "CREATING" | "DELETING" | "ACTIVE";
-export type ConnectorConfigProvider = "EKS_ANYWHERE" | "ANTHOS" | "GKE" | "AKS" | "OPENSHIFT" | "TANZU" | "RANCHER" | "EC2" | "OTHER";
+export type ConnectorConfigProvider =
+  | "EKS_ANYWHERE"
+  | "ANTHOS"
+  | "GKE"
+  | "AKS"
+  | "OPENSHIFT"
+  | "TANZU"
+  | "RANCHER"
+  | "EC2"
+  | "OTHER";
 export interface ConnectorConfigRequest {
   roleArn: string;
   provider: ConnectorConfigProvider;
@@ -751,8 +1128,7 @@ export interface DeleteAccessEntryRequest {
   clusterName: string;
   principalArn: string;
 }
-export interface DeleteAccessEntryResponse {
-}
+export interface DeleteAccessEntryResponse {}
 export interface DeleteAddonRequest {
   clusterName: string;
   addonName: string;
@@ -933,8 +1309,7 @@ export interface DisassociateAccessPolicyRequest {
   principalArn: string;
   policyArn: string;
 }
-export interface DisassociateAccessPolicyResponse {
-}
+export interface DisassociateAccessPolicyResponse {}
 export interface DisassociateIdentityProviderConfigRequest {
   clusterName: string;
   identityProviderConfig: IdentityProviderConfig;
@@ -962,8 +1337,15 @@ export type EksAnywhereSubscriptionLicenseType = "Cluster";
 export type EksAnywhereSubscriptionList = Array<EksAnywhereSubscription>;
 export type EksAnywhereSubscriptionName = string;
 
-export type EksAnywhereSubscriptionStatus = "CREATING" | "ACTIVE" | "UPDATING" | "EXPIRING" | "EXPIRED" | "DELETING";
-export type EksAnywhereSubscriptionStatusValues = Array<EksAnywhereSubscriptionStatus>;
+export type EksAnywhereSubscriptionStatus =
+  | "CREATING"
+  | "ACTIVE"
+  | "UPDATING"
+  | "EXPIRING"
+  | "EXPIRED"
+  | "DELETING";
+export type EksAnywhereSubscriptionStatusValues =
+  Array<EksAnywhereSubscriptionStatus>;
 export interface EksAnywhereSubscriptionTerm {
   duration?: number;
   unit?: EksAnywhereSubscriptionTermUnit;
@@ -977,7 +1359,24 @@ export interface EncryptionConfig {
   provider?: Provider;
 }
 export type EncryptionConfigList = Array<EncryptionConfig>;
-export type ErrorCode = "SubnetNotFound" | "SecurityGroupNotFound" | "EniLimitReached" | "IpNotAvailable" | "AccessDenied" | "OperationNotPermitted" | "VpcIdNotFound" | "Unknown" | "NodeCreationFailure" | "PodEvictionFailure" | "InsufficientFreeAddresses" | "ClusterUnreachable" | "InsufficientNumberOfReplicas" | "ConfigurationConflict" | "AdmissionRequestDenied" | "UnsupportedAddonModification" | "K8sResourceNotFound";
+export type ErrorCode =
+  | "SubnetNotFound"
+  | "SecurityGroupNotFound"
+  | "EniLimitReached"
+  | "IpNotAvailable"
+  | "AccessDenied"
+  | "OperationNotPermitted"
+  | "VpcIdNotFound"
+  | "Unknown"
+  | "NodeCreationFailure"
+  | "PodEvictionFailure"
+  | "InsufficientFreeAddresses"
+  | "ClusterUnreachable"
+  | "InsufficientNumberOfReplicas"
+  | "ConfigurationConflict"
+  | "AdmissionRequestDenied"
+  | "UnsupportedAddonModification"
+  | "K8sResourceNotFound";
 export interface ErrorDetail {
   errorCode?: ErrorCode;
   errorMessage?: string;
@@ -1004,7 +1403,11 @@ export interface FargateProfileIssue {
   message?: string;
   resourceIds?: Array<string>;
 }
-export type FargateProfileIssueCode = "PodExecutionRoleAlreadyInUse" | "AccessDenied" | "ClusterUnreachable" | "InternalFailure";
+export type FargateProfileIssueCode =
+  | "PodExecutionRoleAlreadyInUse"
+  | "AccessDenied"
+  | "ClusterUnreachable"
+  | "InternalFailure";
 export type FargateProfileIssueList = Array<FargateProfileIssue>;
 export type FargateProfileLabel = Record<string, string>;
 export interface FargateProfileSelector {
@@ -1014,7 +1417,12 @@ export interface FargateProfileSelector {
 export type FargateProfileSelectors = Array<FargateProfileSelector>;
 export type FargateProfilesRequestMaxResults = number;
 
-export type FargateProfileStatus = "CREATING" | "ACTIVE" | "DELETING" | "CREATE_FAILED" | "DELETE_FAILED";
+export type FargateProfileStatus =
+  | "CREATING"
+  | "ACTIVE"
+  | "DELETING"
+  | "CREATE_FAILED"
+  | "DELETE_FAILED";
 export interface Identity {
   oidc?: OIDC;
 }
@@ -1287,7 +1695,12 @@ export interface LogSetup {
   enabled?: boolean;
 }
 export type LogSetups = Array<LogSetup>;
-export type LogType = "api" | "audit" | "authenticator" | "controllerManager" | "scheduler";
+export type LogType =
+  | "api"
+  | "audit"
+  | "authenticator"
+  | "controllerManager"
+  | "scheduler";
 export type LogTypes = Array<LogType>;
 export interface MarketplaceInformation {
   productId?: string;
@@ -1324,7 +1737,43 @@ export interface Nodegroup {
 export interface NodegroupHealth {
   issues?: Array<Issue>;
 }
-export type NodegroupIssueCode = "AutoScalingGroupNotFound" | "AutoScalingGroupInvalidConfiguration" | "Ec2SecurityGroupNotFound" | "Ec2SecurityGroupDeletionFailure" | "Ec2LaunchTemplateNotFound" | "Ec2LaunchTemplateVersionMismatch" | "Ec2SubnetNotFound" | "Ec2SubnetInvalidConfiguration" | "IamInstanceProfileNotFound" | "Ec2SubnetMissingIpv6Assignment" | "IamLimitExceeded" | "IamNodeRoleNotFound" | "NodeCreationFailure" | "AsgInstanceLaunchFailures" | "InstanceLimitExceeded" | "InsufficientFreeAddresses" | "AccessDenied" | "InternalFailure" | "ClusterUnreachable" | "AmiIdNotFound" | "AutoScalingGroupOptInRequired" | "AutoScalingGroupRateLimitExceeded" | "Ec2LaunchTemplateDeletionFailure" | "Ec2LaunchTemplateInvalidConfiguration" | "Ec2LaunchTemplateMaxLimitExceeded" | "Ec2SubnetListTooLong" | "IamThrottling" | "NodeTerminationFailure" | "PodEvictionFailure" | "SourceEc2LaunchTemplateNotFound" | "LimitExceeded" | "Unknown" | "AutoScalingGroupInstanceRefreshActive" | "KubernetesLabelInvalid" | "Ec2LaunchTemplateVersionMaxLimitExceeded" | "Ec2InstanceTypeDoesNotExist";
+export type NodegroupIssueCode =
+  | "AutoScalingGroupNotFound"
+  | "AutoScalingGroupInvalidConfiguration"
+  | "Ec2SecurityGroupNotFound"
+  | "Ec2SecurityGroupDeletionFailure"
+  | "Ec2LaunchTemplateNotFound"
+  | "Ec2LaunchTemplateVersionMismatch"
+  | "Ec2SubnetNotFound"
+  | "Ec2SubnetInvalidConfiguration"
+  | "IamInstanceProfileNotFound"
+  | "Ec2SubnetMissingIpv6Assignment"
+  | "IamLimitExceeded"
+  | "IamNodeRoleNotFound"
+  | "NodeCreationFailure"
+  | "AsgInstanceLaunchFailures"
+  | "InstanceLimitExceeded"
+  | "InsufficientFreeAddresses"
+  | "AccessDenied"
+  | "InternalFailure"
+  | "ClusterUnreachable"
+  | "AmiIdNotFound"
+  | "AutoScalingGroupOptInRequired"
+  | "AutoScalingGroupRateLimitExceeded"
+  | "Ec2LaunchTemplateDeletionFailure"
+  | "Ec2LaunchTemplateInvalidConfiguration"
+  | "Ec2LaunchTemplateMaxLimitExceeded"
+  | "Ec2SubnetListTooLong"
+  | "IamThrottling"
+  | "NodeTerminationFailure"
+  | "PodEvictionFailure"
+  | "SourceEc2LaunchTemplateNotFound"
+  | "LimitExceeded"
+  | "Unknown"
+  | "AutoScalingGroupInstanceRefreshActive"
+  | "KubernetesLabelInvalid"
+  | "Ec2LaunchTemplateVersionMaxLimitExceeded"
+  | "Ec2InstanceTypeDoesNotExist";
 export interface NodegroupResources {
   autoScalingGroups?: Array<AutoScalingGroup>;
   remoteAccessSecurityGroup?: string;
@@ -1334,7 +1783,14 @@ export interface NodegroupScalingConfig {
   maxSize?: number;
   desiredSize?: number;
 }
-export type NodegroupStatus = "CREATING" | "ACTIVE" | "UPDATING" | "DELETING" | "CREATE_FAILED" | "DELETE_FAILED" | "DEGRADED";
+export type NodegroupStatus =
+  | "CREATING"
+  | "ACTIVE"
+  | "UPDATING"
+  | "DELETING"
+  | "CREATE_FAILED"
+  | "DELETE_FAILED"
+  | "DEGRADED";
 export interface NodegroupUpdateConfig {
   maxUnavailable?: number;
   maxUnavailablePercentage?: number;
@@ -1417,7 +1873,8 @@ export interface PodIdentityAssociation {
   targetRoleArn?: string;
   externalId?: string;
 }
-export type PodIdentityAssociationSummaries = Array<PodIdentityAssociationSummary>;
+export type PodIdentityAssociationSummaries =
+  Array<PodIdentityAssociationSummary>;
 export interface PodIdentityAssociationSummary {
   clusterName?: string;
   namespace?: string;
@@ -1537,8 +1994,7 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {
-}
+export interface TagResourceResponse {}
 export type TagValue = string;
 
 export interface Taint {
@@ -1572,8 +2028,7 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {
-}
+export interface UntagResourceResponse {}
 export interface Update {
   id?: string;
   status?: UpdateStatus;
@@ -1676,7 +2131,45 @@ export interface UpdateParam {
   value?: string;
 }
 export type UpdateParams = Array<UpdateParam>;
-export type UpdateParamType = "Version" | "PlatformVersion" | "EndpointPrivateAccess" | "EndpointPublicAccess" | "ClusterLogging" | "DesiredSize" | "LabelsToAdd" | "LabelsToRemove" | "TaintsToAdd" | "TaintsToRemove" | "MaxSize" | "MinSize" | "ReleaseVersion" | "PublicAccessCidrs" | "LaunchTemplateName" | "LaunchTemplateVersion" | "IdentityProviderConfig" | "EncryptionConfig" | "AddonVersion" | "ServiceAccountRoleArn" | "ResolveConflicts" | "MaxUnavailable" | "MaxUnavailablePercentage" | "NodeRepairEnabled" | "UpdateStrategy" | "ConfigurationValues" | "SecurityGroups" | "Subnets" | "AuthenticationMode" | "PodIdentityAssociations" | "UpgradePolicy" | "ZonalShiftConfig" | "ComputeConfig" | "StorageConfig" | "KubernetesNetworkConfig" | "RemoteNetworkConfig" | "DeletionProtection" | "NodeRepairConfig";
+export type UpdateParamType =
+  | "Version"
+  | "PlatformVersion"
+  | "EndpointPrivateAccess"
+  | "EndpointPublicAccess"
+  | "ClusterLogging"
+  | "DesiredSize"
+  | "LabelsToAdd"
+  | "LabelsToRemove"
+  | "TaintsToAdd"
+  | "TaintsToRemove"
+  | "MaxSize"
+  | "MinSize"
+  | "ReleaseVersion"
+  | "PublicAccessCidrs"
+  | "LaunchTemplateName"
+  | "LaunchTemplateVersion"
+  | "IdentityProviderConfig"
+  | "EncryptionConfig"
+  | "AddonVersion"
+  | "ServiceAccountRoleArn"
+  | "ResolveConflicts"
+  | "MaxUnavailable"
+  | "MaxUnavailablePercentage"
+  | "NodeRepairEnabled"
+  | "UpdateStrategy"
+  | "ConfigurationValues"
+  | "SecurityGroups"
+  | "Subnets"
+  | "AuthenticationMode"
+  | "PodIdentityAssociations"
+  | "UpgradePolicy"
+  | "ZonalShiftConfig"
+  | "ComputeConfig"
+  | "StorageConfig"
+  | "KubernetesNetworkConfig"
+  | "RemoteNetworkConfig"
+  | "DeletionProtection"
+  | "NodeRepairConfig";
 export interface UpdatePodIdentityAssociationRequest {
   clusterName: string;
   associationId: string;
@@ -1693,14 +2186,32 @@ export interface UpdateTaintsPayload {
   addOrUpdateTaints?: Array<Taint>;
   removeTaints?: Array<Taint>;
 }
-export type UpdateType = "VersionUpdate" | "EndpointAccessUpdate" | "LoggingUpdate" | "ConfigUpdate" | "AssociateIdentityProviderConfig" | "DisassociateIdentityProviderConfig" | "AssociateEncryptionConfig" | "AddonUpdate" | "VpcConfigUpdate" | "AccessConfigUpdate" | "UpgradePolicyUpdate" | "ZonalShiftConfigUpdate" | "AutoModeUpdate" | "RemoteNetworkConfigUpdate" | "DeletionProtectionUpdate";
+export type UpdateType =
+  | "VersionUpdate"
+  | "EndpointAccessUpdate"
+  | "LoggingUpdate"
+  | "ConfigUpdate"
+  | "AssociateIdentityProviderConfig"
+  | "DisassociateIdentityProviderConfig"
+  | "AssociateEncryptionConfig"
+  | "AddonUpdate"
+  | "VpcConfigUpdate"
+  | "AccessConfigUpdate"
+  | "UpgradePolicyUpdate"
+  | "ZonalShiftConfigUpdate"
+  | "AutoModeUpdate"
+  | "RemoteNetworkConfigUpdate"
+  | "DeletionProtectionUpdate";
 export interface UpgradePolicyRequest {
   supportType?: SupportType;
 }
 export interface UpgradePolicyResponse {
   supportType?: SupportType;
 }
-export type VersionStatus = "UNSUPPORTED" | "STANDARD_SUPPORT" | "EXTENDED_SUPPORT";
+export type VersionStatus =
+  | "UNSUPPORTED"
+  | "STANDARD_SUPPORT"
+  | "EXTENDED_SUPPORT";
 export interface VpcConfigRequest {
   subnetIds?: Array<string>;
   securityGroupIds?: Array<string>;
@@ -2141,9 +2652,7 @@ export declare namespace ListAccessEntries {
 export declare namespace ListAccessPolicies {
   export type Input = ListAccessPoliciesRequest;
   export type Output = ListAccessPoliciesResponse;
-  export type Error =
-    | ServerException
-    | CommonAwsError;
+  export type Error = ServerException | CommonAwsError;
 }
 
 export declare namespace ListAddons {
@@ -2250,10 +2759,7 @@ export declare namespace ListPodIdentityAssociations {
 export declare namespace ListTagsForResource {
   export type Input = ListTagsForResourceRequest;
   export type Output = ListTagsForResourceResponse;
-  export type Error =
-    | BadRequestException
-    | NotFoundException
-    | CommonAwsError;
+  export type Error = BadRequestException | NotFoundException | CommonAwsError;
 }
 
 export declare namespace ListUpdates {
@@ -2296,19 +2802,13 @@ export declare namespace StartInsightsRefresh {
 export declare namespace TagResource {
   export type Input = TagResourceRequest;
   export type Output = TagResourceResponse;
-  export type Error =
-    | BadRequestException
-    | NotFoundException
-    | CommonAwsError;
+  export type Error = BadRequestException | NotFoundException | CommonAwsError;
 }
 
 export declare namespace UntagResource {
   export type Input = UntagResourceRequest;
   export type Output = UntagResourceResponse;
-  export type Error =
-    | BadRequestException
-    | NotFoundException
-    | CommonAwsError;
+  export type Error = BadRequestException | NotFoundException | CommonAwsError;
 }
 
 export declare namespace UpdateAccessEntry {
@@ -2413,5 +2913,20 @@ export declare namespace UpdatePodIdentityAssociation {
     | CommonAwsError;
 }
 
-export type EKSErrors = AccessDeniedException | BadRequestException | ClientException | InvalidParameterException | InvalidRequestException | InvalidStateException | NotFoundException | ResourceInUseException | ResourceLimitExceededException | ResourceNotFoundException | ResourcePropagationDelayException | ServerException | ServiceUnavailableException | ThrottlingException | UnsupportedAvailabilityZoneException | CommonAwsError;
-
+export type EKSErrors =
+  | AccessDeniedException
+  | BadRequestException
+  | ClientException
+  | InvalidParameterException
+  | InvalidRequestException
+  | InvalidStateException
+  | NotFoundException
+  | ResourceInUseException
+  | ResourceLimitExceededException
+  | ResourceNotFoundException
+  | ResourcePropagationDelayException
+  | ServerException
+  | ServiceUnavailableException
+  | ThrottlingException
+  | UnsupportedAvailabilityZoneException
+  | CommonAwsError;

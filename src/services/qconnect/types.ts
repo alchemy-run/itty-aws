@@ -1,6 +1,37 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
-type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | RequestTimeoutException | ThrottlingException | ValidationException;
+import type {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+type CommonAwsError =
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | ServiceUnavailable
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | AccessDeniedException
+  | RequestTimeoutException
+  | ThrottlingException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class QConnect extends AWSServiceClient {
@@ -26,349 +57,639 @@ export declare class QConnect extends AWSServiceClient {
     input: ActivateMessageTemplateRequest,
   ): Effect.Effect<
     ActivateMessageTemplateResponse,
-    AccessDeniedException | ConflictException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createAIAgent(
     input: CreateAIAgentRequest,
   ): Effect.Effect<
     CreateAIAgentResponse,
-    AccessDeniedException | ConflictException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   createAIAgentVersion(
     input: CreateAIAgentVersionRequest,
   ): Effect.Effect<
     CreateAIAgentVersionResponse,
-    AccessDeniedException | ConflictException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   createAIGuardrail(
     input: CreateAIGuardrailRequest,
   ): Effect.Effect<
     CreateAIGuardrailResponse,
-    AccessDeniedException | ConflictException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   createAIGuardrailVersion(
     input: CreateAIGuardrailVersionRequest,
   ): Effect.Effect<
     CreateAIGuardrailVersionResponse,
-    AccessDeniedException | ConflictException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   createAIPrompt(
     input: CreateAIPromptRequest,
   ): Effect.Effect<
     CreateAIPromptResponse,
-    AccessDeniedException | ConflictException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   createAIPromptVersion(
     input: CreateAIPromptVersionRequest,
   ): Effect.Effect<
     CreateAIPromptVersionResponse,
-    AccessDeniedException | ConflictException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   createAssistant(
     input: CreateAssistantRequest,
   ): Effect.Effect<
     CreateAssistantResponse,
-    AccessDeniedException | ConflictException | ServiceQuotaExceededException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ServiceQuotaExceededException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   createAssistantAssociation(
     input: CreateAssistantAssociationRequest,
   ): Effect.Effect<
     CreateAssistantAssociationResponse,
-    AccessDeniedException | ConflictException | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError
   >;
   createContent(
     input: CreateContentRequest,
   ): Effect.Effect<
     CreateContentResponse,
-    AccessDeniedException | ConflictException | ResourceNotFoundException | ServiceQuotaExceededException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   createContentAssociation(
     input: CreateContentAssociationRequest,
   ): Effect.Effect<
     CreateContentAssociationResponse,
-    AccessDeniedException | ConflictException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   createKnowledgeBase(
     input: CreateKnowledgeBaseRequest,
   ): Effect.Effect<
     CreateKnowledgeBaseResponse,
-    AccessDeniedException | ConflictException | ServiceQuotaExceededException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ServiceQuotaExceededException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   createMessageTemplate(
     input: CreateMessageTemplateRequest,
   ): Effect.Effect<
     CreateMessageTemplateResponse,
-    AccessDeniedException | ConflictException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createMessageTemplateAttachment(
     input: CreateMessageTemplateAttachmentRequest,
   ): Effect.Effect<
     CreateMessageTemplateAttachmentResponse,
-    AccessDeniedException | ConflictException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   createMessageTemplateVersion(
     input: CreateMessageTemplateVersionRequest,
   ): Effect.Effect<
     CreateMessageTemplateVersionResponse,
-    AccessDeniedException | ConflictException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createQuickResponse(
     input: CreateQuickResponseRequest,
   ): Effect.Effect<
     CreateQuickResponseResponse,
-    AccessDeniedException | ConflictException | ResourceNotFoundException | ServiceQuotaExceededException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   createSession(
     input: CreateSessionRequest,
   ): Effect.Effect<
     CreateSessionResponse,
-    AccessDeniedException | ConflictException | DependencyFailedException | ResourceNotFoundException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | DependencyFailedException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   deactivateMessageTemplate(
     input: DeactivateMessageTemplateRequest,
   ): Effect.Effect<
     DeactivateMessageTemplateResponse,
-    AccessDeniedException | ConflictException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteAIAgent(
     input: DeleteAIAgentRequest,
   ): Effect.Effect<
     DeleteAIAgentResponse,
-    AccessDeniedException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteAIAgentVersion(
     input: DeleteAIAgentVersionRequest,
   ): Effect.Effect<
     DeleteAIAgentVersionResponse,
-    AccessDeniedException | ConflictException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteAIGuardrail(
     input: DeleteAIGuardrailRequest,
   ): Effect.Effect<
     DeleteAIGuardrailResponse,
-    AccessDeniedException | ConflictException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteAIGuardrailVersion(
     input: DeleteAIGuardrailVersionRequest,
   ): Effect.Effect<
     DeleteAIGuardrailVersionResponse,
-    AccessDeniedException | ConflictException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteAIPrompt(
     input: DeleteAIPromptRequest,
   ): Effect.Effect<
     DeleteAIPromptResponse,
-    AccessDeniedException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteAIPromptVersion(
     input: DeleteAIPromptVersionRequest,
   ): Effect.Effect<
     DeleteAIPromptVersionResponse,
-    AccessDeniedException | ConflictException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteAssistant(
     input: DeleteAssistantRequest,
   ): Effect.Effect<
     DeleteAssistantResponse,
-    AccessDeniedException | ResourceNotFoundException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteAssistantAssociation(
     input: DeleteAssistantAssociationRequest,
   ): Effect.Effect<
     DeleteAssistantAssociationResponse,
-    AccessDeniedException | ResourceNotFoundException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteContent(
     input: DeleteContentRequest,
   ): Effect.Effect<
     DeleteContentResponse,
-    AccessDeniedException | ConflictException | ResourceNotFoundException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteContentAssociation(
     input: DeleteContentAssociationRequest,
   ): Effect.Effect<
     DeleteContentAssociationResponse,
-    AccessDeniedException | ResourceNotFoundException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteImportJob(
     input: DeleteImportJobRequest,
   ): Effect.Effect<
     DeleteImportJobResponse,
-    AccessDeniedException | ConflictException | ResourceNotFoundException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteKnowledgeBase(
     input: DeleteKnowledgeBaseRequest,
   ): Effect.Effect<
     DeleteKnowledgeBaseResponse,
-    AccessDeniedException | ConflictException | ResourceNotFoundException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteMessageTemplate(
     input: DeleteMessageTemplateRequest,
   ): Effect.Effect<
     DeleteMessageTemplateResponse,
-    AccessDeniedException | ConflictException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteMessageTemplateAttachment(
     input: DeleteMessageTemplateAttachmentRequest,
   ): Effect.Effect<
     DeleteMessageTemplateAttachmentResponse,
-    AccessDeniedException | ConflictException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteQuickResponse(
     input: DeleteQuickResponseRequest,
   ): Effect.Effect<
     DeleteQuickResponseResponse,
-    AccessDeniedException | ResourceNotFoundException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   getAIAgent(
     input: GetAIAgentRequest,
   ): Effect.Effect<
     GetAIAgentResponse,
-    AccessDeniedException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   getAIGuardrail(
     input: GetAIGuardrailRequest,
   ): Effect.Effect<
     GetAIGuardrailResponse,
-    AccessDeniedException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   getAIPrompt(
     input: GetAIPromptRequest,
   ): Effect.Effect<
     GetAIPromptResponse,
-    AccessDeniedException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   getAssistant(
     input: GetAssistantRequest,
   ): Effect.Effect<
     GetAssistantResponse,
-    AccessDeniedException | ResourceNotFoundException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   getAssistantAssociation(
     input: GetAssistantAssociationRequest,
   ): Effect.Effect<
     GetAssistantAssociationResponse,
-    AccessDeniedException | ResourceNotFoundException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   getContent(
     input: GetContentRequest,
   ): Effect.Effect<
     GetContentResponse,
-    AccessDeniedException | ResourceNotFoundException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   getContentAssociation(
     input: GetContentAssociationRequest,
   ): Effect.Effect<
     GetContentAssociationResponse,
-    AccessDeniedException | ResourceNotFoundException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   getContentSummary(
     input: GetContentSummaryRequest,
   ): Effect.Effect<
     GetContentSummaryResponse,
-    AccessDeniedException | ResourceNotFoundException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   getImportJob(
     input: GetImportJobRequest,
   ): Effect.Effect<
     GetImportJobResponse,
-    AccessDeniedException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   getKnowledgeBase(
     input: GetKnowledgeBaseRequest,
   ): Effect.Effect<
     GetKnowledgeBaseResponse,
-    AccessDeniedException | ResourceNotFoundException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   getMessageTemplate(
     input: GetMessageTemplateRequest,
   ): Effect.Effect<
     GetMessageTemplateResponse,
-    AccessDeniedException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   getNextMessage(
     input: GetNextMessageRequest,
   ): Effect.Effect<
     GetNextMessageResponse,
-    AccessDeniedException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   getQuickResponse(
     input: GetQuickResponseRequest,
   ): Effect.Effect<
     GetQuickResponseResponse,
-    AccessDeniedException | ResourceNotFoundException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   getRecommendations(
     input: GetRecommendationsRequest,
   ): Effect.Effect<
     GetRecommendationsResponse,
-    AccessDeniedException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   getSession(
     input: GetSessionRequest,
   ): Effect.Effect<
     GetSessionResponse,
-    AccessDeniedException | ResourceNotFoundException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   listAIAgentVersions(
     input: ListAIAgentVersionsRequest,
   ): Effect.Effect<
     ListAIAgentVersionsResponse,
-    AccessDeniedException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   listAIAgents(
     input: ListAIAgentsRequest,
   ): Effect.Effect<
     ListAIAgentsResponse,
-    AccessDeniedException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   listAIGuardrailVersions(
     input: ListAIGuardrailVersionsRequest,
   ): Effect.Effect<
     ListAIGuardrailVersionsResponse,
-    AccessDeniedException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   listAIGuardrails(
     input: ListAIGuardrailsRequest,
   ): Effect.Effect<
     ListAIGuardrailsResponse,
-    AccessDeniedException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   listAIPromptVersions(
     input: ListAIPromptVersionsRequest,
   ): Effect.Effect<
     ListAIPromptVersionsResponse,
-    AccessDeniedException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   listAIPrompts(
     input: ListAIPromptsRequest,
   ): Effect.Effect<
     ListAIPromptsResponse,
-    AccessDeniedException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   listAssistantAssociations(
     input: ListAssistantAssociationsRequest,
   ): Effect.Effect<
     ListAssistantAssociationsResponse,
-    AccessDeniedException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   listAssistants(
     input: ListAssistantsRequest,
   ): Effect.Effect<
     ListAssistantsResponse,
-    AccessDeniedException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   listContentAssociations(
     input: ListContentAssociationsRequest,
   ): Effect.Effect<
     ListContentAssociationsResponse,
-    AccessDeniedException | ResourceNotFoundException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   listContents(
     input: ListContentsRequest,
   ): Effect.Effect<
     ListContentsResponse,
-    AccessDeniedException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   listImportJobs(
     input: ListImportJobsRequest,
@@ -386,169 +707,292 @@ export declare class QConnect extends AWSServiceClient {
     input: ListMessageTemplateVersionsRequest,
   ): Effect.Effect<
     ListMessageTemplateVersionsResponse,
-    AccessDeniedException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listMessageTemplates(
     input: ListMessageTemplatesRequest,
   ): Effect.Effect<
     ListMessageTemplatesResponse,
-    AccessDeniedException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listMessages(
     input: ListMessagesRequest,
   ): Effect.Effect<
     ListMessagesResponse,
-    AccessDeniedException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   listQuickResponses(
     input: ListQuickResponsesRequest,
   ): Effect.Effect<
     ListQuickResponsesResponse,
-    AccessDeniedException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   notifyRecommendationsReceived(
     input: NotifyRecommendationsReceivedRequest,
   ): Effect.Effect<
     NotifyRecommendationsReceivedResponse,
-    AccessDeniedException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   putFeedback(
     input: PutFeedbackRequest,
   ): Effect.Effect<
     PutFeedbackResponse,
-    AccessDeniedException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   queryAssistant(
     input: QueryAssistantRequest,
   ): Effect.Effect<
     QueryAssistantResponse,
-    AccessDeniedException | RequestTimeoutException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | RequestTimeoutException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   removeAssistantAIAgent(
     input: RemoveAssistantAIAgentRequest,
   ): Effect.Effect<
     RemoveAssistantAIAgentResponse,
-    AccessDeniedException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   removeKnowledgeBaseTemplateUri(
     input: RemoveKnowledgeBaseTemplateUriRequest,
   ): Effect.Effect<
     RemoveKnowledgeBaseTemplateUriResponse,
-    AccessDeniedException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   renderMessageTemplate(
     input: RenderMessageTemplateRequest,
   ): Effect.Effect<
     RenderMessageTemplateResponse,
-    AccessDeniedException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   searchContent(
     input: SearchContentRequest,
   ): Effect.Effect<
     SearchContentResponse,
-    AccessDeniedException | ResourceNotFoundException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   searchMessageTemplates(
     input: SearchMessageTemplatesRequest,
   ): Effect.Effect<
     SearchMessageTemplatesResponse,
-    AccessDeniedException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   searchQuickResponses(
     input: SearchQuickResponsesRequest,
   ): Effect.Effect<
     SearchQuickResponsesResponse,
-    AccessDeniedException | RequestTimeoutException | ResourceNotFoundException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | RequestTimeoutException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   searchSessions(
     input: SearchSessionsRequest,
   ): Effect.Effect<
     SearchSessionsResponse,
-    AccessDeniedException | ResourceNotFoundException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   sendMessage(
     input: SendMessageRequest,
   ): Effect.Effect<
     SendMessageResponse,
-    AccessDeniedException | ConflictException | RequestTimeoutException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | RequestTimeoutException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   startContentUpload(
     input: StartContentUploadRequest,
   ): Effect.Effect<
     StartContentUploadResponse,
-    AccessDeniedException | ResourceNotFoundException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   startImportJob(
     input: StartImportJobRequest,
   ): Effect.Effect<
     StartImportJobResponse,
-    AccessDeniedException | ConflictException | ResourceNotFoundException | ServiceQuotaExceededException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   updateAIAgent(
     input: UpdateAIAgentRequest,
   ): Effect.Effect<
     UpdateAIAgentResponse,
-    AccessDeniedException | ConflictException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   updateAIGuardrail(
     input: UpdateAIGuardrailRequest,
   ): Effect.Effect<
     UpdateAIGuardrailResponse,
-    AccessDeniedException | ConflictException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   updateAIPrompt(
     input: UpdateAIPromptRequest,
   ): Effect.Effect<
     UpdateAIPromptResponse,
-    AccessDeniedException | ConflictException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   updateAssistantAIAgent(
     input: UpdateAssistantAIAgentRequest,
   ): Effect.Effect<
     UpdateAssistantAIAgentResponse,
-    AccessDeniedException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateContent(
     input: UpdateContentRequest,
   ): Effect.Effect<
     UpdateContentResponse,
-    AccessDeniedException | PreconditionFailedException | ResourceNotFoundException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | PreconditionFailedException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   updateKnowledgeBaseTemplateUri(
     input: UpdateKnowledgeBaseTemplateUriRequest,
   ): Effect.Effect<
     UpdateKnowledgeBaseTemplateUriResponse,
-    AccessDeniedException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   updateMessageTemplate(
     input: UpdateMessageTemplateRequest,
   ): Effect.Effect<
     UpdateMessageTemplateResponse,
-    AccessDeniedException | ConflictException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateMessageTemplateMetadata(
     input: UpdateMessageTemplateMetadataRequest,
   ): Effect.Effect<
     UpdateMessageTemplateMetadataResponse,
-    AccessDeniedException | ConflictException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateQuickResponse(
     input: UpdateQuickResponseRequest,
   ): Effect.Effect<
     UpdateQuickResponseResponse,
-    AccessDeniedException | ConflictException | PreconditionFailedException | ResourceNotFoundException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | PreconditionFailedException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   updateSession(
     input: UpdateSessionRequest,
   ): Effect.Effect<
     UpdateSessionResponse,
-    AccessDeniedException | ResourceNotFoundException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
   updateSessionData(
     input: UpdateSessionDataRequest,
   ): Effect.Effect<
     UpdateSessionDataResponse,
-    AccessDeniedException | ResourceNotFoundException | UnauthorizedException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | UnauthorizedException
+    | ValidationException
+    | CommonAwsError
   >;
 }
 
@@ -584,7 +1028,25 @@ interface _AIAgentConfiguration {
   emailGenerativeAnswerAIAgentConfiguration?: EmailGenerativeAnswerAIAgentConfiguration;
 }
 
-export type AIAgentConfiguration = (_AIAgentConfiguration & { manualSearchAIAgentConfiguration: ManualSearchAIAgentConfiguration }) | (_AIAgentConfiguration & { answerRecommendationAIAgentConfiguration: AnswerRecommendationAIAgentConfiguration }) | (_AIAgentConfiguration & { selfServiceAIAgentConfiguration: SelfServiceAIAgentConfiguration }) | (_AIAgentConfiguration & { emailResponseAIAgentConfiguration: EmailResponseAIAgentConfiguration }) | (_AIAgentConfiguration & { emailOverviewAIAgentConfiguration: EmailOverviewAIAgentConfiguration }) | (_AIAgentConfiguration & { emailGenerativeAnswerAIAgentConfiguration: EmailGenerativeAnswerAIAgentConfiguration });
+export type AIAgentConfiguration =
+  | (_AIAgentConfiguration & {
+      manualSearchAIAgentConfiguration: ManualSearchAIAgentConfiguration;
+    })
+  | (_AIAgentConfiguration & {
+      answerRecommendationAIAgentConfiguration: AnswerRecommendationAIAgentConfiguration;
+    })
+  | (_AIAgentConfiguration & {
+      selfServiceAIAgentConfiguration: SelfServiceAIAgentConfiguration;
+    })
+  | (_AIAgentConfiguration & {
+      emailResponseAIAgentConfiguration: EmailResponseAIAgentConfiguration;
+    })
+  | (_AIAgentConfiguration & {
+      emailOverviewAIAgentConfiguration: EmailOverviewAIAgentConfiguration;
+    })
+  | (_AIAgentConfiguration & {
+      emailGenerativeAnswerAIAgentConfiguration: EmailGenerativeAnswerAIAgentConfiguration;
+    });
 export interface AIAgentConfigurationData {
   aiAgentId: string;
 }
@@ -729,7 +1191,9 @@ interface _AIPromptTemplateConfiguration {
   textFullAIPromptEditTemplateConfiguration?: TextFullAIPromptEditTemplateConfiguration;
 }
 
-export type AIPromptTemplateConfiguration = (_AIPromptTemplateConfiguration & { textFullAIPromptEditTemplateConfiguration: TextFullAIPromptEditTemplateConfiguration });
+export type AIPromptTemplateConfiguration = _AIPromptTemplateConfiguration & {
+  textFullAIPromptEditTemplateConfiguration: TextFullAIPromptEditTemplateConfiguration;
+};
 export type AIPromptTemplateType = string;
 
 export type AIPromptType = string;
@@ -772,12 +1236,16 @@ interface _AssistantAssociationInputData {
   knowledgeBaseId?: string;
 }
 
-export type AssistantAssociationInputData = (_AssistantAssociationInputData & { knowledgeBaseId: string });
+export type AssistantAssociationInputData = _AssistantAssociationInputData & {
+  knowledgeBaseId: string;
+};
 interface _AssistantAssociationOutputData {
   knowledgeBaseAssociation?: KnowledgeBaseAssociationData;
 }
 
-export type AssistantAssociationOutputData = (_AssistantAssociationOutputData & { knowledgeBaseAssociation: KnowledgeBaseAssociationData });
+export type AssistantAssociationOutputData = _AssistantAssociationOutputData & {
+  knowledgeBaseAssociation: KnowledgeBaseAssociationData;
+};
 export interface AssistantAssociationSummary {
   assistantAssociationId: string;
   assistantAssociationArn: string;
@@ -787,7 +1255,8 @@ export interface AssistantAssociationSummary {
   associationData: AssistantAssociationOutputData;
   tags?: Record<string, string>;
 }
-export type AssistantAssociationSummaryList = Array<AssistantAssociationSummary>;
+export type AssistantAssociationSummaryList =
+  Array<AssistantAssociationSummary>;
 export interface AssistantCapabilityConfiguration {
   type?: string;
 }
@@ -836,7 +1305,9 @@ interface _AssociationConfigurationData {
   knowledgeBaseAssociationConfigurationData?: KnowledgeBaseAssociationConfigurationData;
 }
 
-export type AssociationConfigurationData = (_AssociationConfigurationData & { knowledgeBaseAssociationConfigurationData: KnowledgeBaseAssociationConfigurationData });
+export type AssociationConfigurationData = _AssociationConfigurationData & {
+  knowledgeBaseAssociationConfigurationData: KnowledgeBaseAssociationConfigurationData;
+};
 export type AssociationConfigurationList = Array<AssociationConfiguration>;
 export type AssociationType = string;
 
@@ -873,7 +1344,9 @@ interface _Configuration {
   connectConfiguration?: ConnectConfiguration;
 }
 
-export type Configuration = (_Configuration & { connectConfiguration: ConnectConfiguration });
+export type Configuration = _Configuration & {
+  connectConfiguration: ConnectConfiguration;
+};
 export declare class ConflictException extends EffectData.TaggedError(
   "ConflictException",
 )<{
@@ -892,7 +1365,9 @@ interface _ContentAssociationContents {
   amazonConnectGuideAssociation?: AmazonConnectGuideAssociationData;
 }
 
-export type ContentAssociationContents = (_ContentAssociationContents & { amazonConnectGuideAssociation: AmazonConnectGuideAssociationData });
+export type ContentAssociationContents = _ContentAssociationContents & {
+  amazonConnectGuideAssociation: AmazonConnectGuideAssociationData;
+};
 export interface ContentAssociationData {
   knowledgeBaseId: string;
   knowledgeBaseArn: string;
@@ -944,7 +1419,9 @@ interface _ContentFeedbackData {
   generativeContentFeedbackData?: GenerativeContentFeedbackData;
 }
 
-export type ContentFeedbackData = (_ContentFeedbackData & { generativeContentFeedbackData: GenerativeContentFeedbackData });
+export type ContentFeedbackData = _ContentFeedbackData & {
+  generativeContentFeedbackData: GenerativeContentFeedbackData;
+};
 export type ContentMetadata = Record<string, string>;
 export interface ContentReference {
   knowledgeBaseArn?: string;
@@ -1257,13 +1734,25 @@ interface _DataDetails {
   emailGenerativeAnswerChunkData?: EmailGenerativeAnswerChunkDataDetails;
 }
 
-export type DataDetails = (_DataDetails & { contentData: ContentDataDetails }) | (_DataDetails & { generativeData: GenerativeDataDetails }) | (_DataDetails & { intentDetectedData: IntentDetectedDataDetails }) | (_DataDetails & { sourceContentData: SourceContentDataDetails }) | (_DataDetails & { generativeChunkData: GenerativeChunkDataDetails }) | (_DataDetails & { emailResponseChunkData: EmailResponseChunkDataDetails }) | (_DataDetails & { emailOverviewChunkData: EmailOverviewChunkDataDetails }) | (_DataDetails & { emailGenerativeAnswerChunkData: EmailGenerativeAnswerChunkDataDetails });
+export type DataDetails =
+  | (_DataDetails & { contentData: ContentDataDetails })
+  | (_DataDetails & { generativeData: GenerativeDataDetails })
+  | (_DataDetails & { intentDetectedData: IntentDetectedDataDetails })
+  | (_DataDetails & { sourceContentData: SourceContentDataDetails })
+  | (_DataDetails & { generativeChunkData: GenerativeChunkDataDetails })
+  | (_DataDetails & { emailResponseChunkData: EmailResponseChunkDataDetails })
+  | (_DataDetails & { emailOverviewChunkData: EmailOverviewChunkDataDetails })
+  | (_DataDetails & {
+      emailGenerativeAnswerChunkData: EmailGenerativeAnswerChunkDataDetails;
+    });
 interface _DataReference {
   contentReference?: ContentReference;
   generativeReference?: GenerativeReference;
 }
 
-export type DataReference = (_DataReference & { contentReference: ContentReference }) | (_DataReference & { generativeReference: GenerativeReference });
+export type DataReference =
+  | (_DataReference & { contentReference: ContentReference })
+  | (_DataReference & { generativeReference: GenerativeReference });
 export interface DataSummary {
   reference: DataReference;
   details: DataDetails;
@@ -1283,95 +1772,80 @@ export interface DeleteAIAgentRequest {
   assistantId: string;
   aiAgentId: string;
 }
-export interface DeleteAIAgentResponse {
-}
+export interface DeleteAIAgentResponse {}
 export interface DeleteAIAgentVersionRequest {
   assistantId: string;
   aiAgentId: string;
   versionNumber: number;
 }
-export interface DeleteAIAgentVersionResponse {
-}
+export interface DeleteAIAgentVersionResponse {}
 export interface DeleteAIGuardrailRequest {
   assistantId: string;
   aiGuardrailId: string;
 }
-export interface DeleteAIGuardrailResponse {
-}
+export interface DeleteAIGuardrailResponse {}
 export interface DeleteAIGuardrailVersionRequest {
   assistantId: string;
   aiGuardrailId: string;
   versionNumber: number;
 }
-export interface DeleteAIGuardrailVersionResponse {
-}
+export interface DeleteAIGuardrailVersionResponse {}
 export interface DeleteAIPromptRequest {
   assistantId: string;
   aiPromptId: string;
 }
-export interface DeleteAIPromptResponse {
-}
+export interface DeleteAIPromptResponse {}
 export interface DeleteAIPromptVersionRequest {
   assistantId: string;
   aiPromptId: string;
   versionNumber: number;
 }
-export interface DeleteAIPromptVersionResponse {
-}
+export interface DeleteAIPromptVersionResponse {}
 export interface DeleteAssistantAssociationRequest {
   assistantAssociationId: string;
   assistantId: string;
 }
-export interface DeleteAssistantAssociationResponse {
-}
+export interface DeleteAssistantAssociationResponse {}
 export interface DeleteAssistantRequest {
   assistantId: string;
 }
-export interface DeleteAssistantResponse {
-}
+export interface DeleteAssistantResponse {}
 export interface DeleteContentAssociationRequest {
   knowledgeBaseId: string;
   contentId: string;
   contentAssociationId: string;
 }
-export interface DeleteContentAssociationResponse {
-}
+export interface DeleteContentAssociationResponse {}
 export interface DeleteContentRequest {
   knowledgeBaseId: string;
   contentId: string;
 }
-export interface DeleteContentResponse {
-}
+export interface DeleteContentResponse {}
 export interface DeleteImportJobRequest {
   knowledgeBaseId: string;
   importJobId: string;
 }
-export interface DeleteImportJobResponse {
-}
+export interface DeleteImportJobResponse {}
 export interface DeleteKnowledgeBaseRequest {
   knowledgeBaseId: string;
 }
-export interface DeleteKnowledgeBaseResponse {
-}
+export interface DeleteKnowledgeBaseResponse {}
 export interface DeleteMessageTemplateAttachmentRequest {
   knowledgeBaseId: string;
   messageTemplateId: string;
   attachmentId: string;
 }
-export interface DeleteMessageTemplateAttachmentResponse {
-}
+export interface DeleteMessageTemplateAttachmentResponse {}
 export interface DeleteMessageTemplateRequest {
   knowledgeBaseId: string;
   messageTemplateId: string;
 }
-export interface DeleteMessageTemplateResponse {
-}
+export interface DeleteMessageTemplateResponse {}
 export interface DeleteQuickResponseRequest {
   knowledgeBaseId: string;
   quickResponseId: string;
 }
-export interface DeleteQuickResponseResponse {
-}
+export interface DeleteQuickResponseResponse {}
 export declare class DependencyFailedException extends EffectData.TaggedError(
   "DependencyFailedException",
 )<{
@@ -1635,14 +2109,16 @@ export interface GuardrailContextualGroundingFilterConfig {
   type: string;
   threshold: number;
 }
-export type GuardrailContextualGroundingFiltersConfig = Array<GuardrailContextualGroundingFilterConfig>;
+export type GuardrailContextualGroundingFiltersConfig =
+  Array<GuardrailContextualGroundingFilterConfig>;
 export type GuardrailContextualGroundingFilterThreshold = number;
 
 export type GuardrailContextualGroundingFilterType = string;
 
 export type GuardrailFilterStrength = string;
 
-export type GuardrailManagedWordListsConfig = Array<GuardrailManagedWordsConfig>;
+export type GuardrailManagedWordListsConfig =
+  Array<GuardrailManagedWordsConfig>;
 export interface GuardrailManagedWordsConfig {
   type: string;
 }
@@ -1700,7 +2176,8 @@ export interface HierarchicalChunkingConfiguration {
 export interface HierarchicalChunkingLevelConfiguration {
   maxTokens: number;
 }
-export type HierarchicalChunkingLevelConfigurations = Array<HierarchicalChunkingLevelConfiguration>;
+export type HierarchicalChunkingLevelConfigurations =
+  Array<HierarchicalChunkingLevelConfiguration>;
 export interface Highlight {
   beginOffsetInclusive?: number;
   endOffsetExclusive?: number;
@@ -1958,7 +2435,9 @@ interface _ManagedSourceConfiguration {
   webCrawlerConfiguration?: WebCrawlerConfiguration;
 }
 
-export type ManagedSourceConfiguration = (_ManagedSourceConfiguration & { webCrawlerConfiguration: WebCrawlerConfiguration });
+export type ManagedSourceConfiguration = _ManagedSourceConfiguration & {
+  webCrawlerConfiguration: WebCrawlerConfiguration;
+};
 export interface ManualSearchAIAgentConfiguration {
   answerGenerationAIPromptId?: string;
   answerGenerationAIGuardrailId?: string;
@@ -1974,7 +2453,7 @@ interface _MessageData {
   text?: TextMessage;
 }
 
-export type MessageData = (_MessageData & { text: TextMessage });
+export type MessageData = _MessageData & { text: TextMessage };
 export interface MessageInput {
   value: MessageData;
 }
@@ -2012,13 +2491,16 @@ interface _MessageTemplateBodyContentProvider {
   content?: string;
 }
 
-export type MessageTemplateBodyContentProvider = (_MessageTemplateBodyContentProvider & { content: string });
+export type MessageTemplateBodyContentProvider =
+  _MessageTemplateBodyContentProvider & { content: string };
 interface _MessageTemplateContentProvider {
   email?: EmailMessageTemplateContent;
   sms?: SMSMessageTemplateContent;
 }
 
-export type MessageTemplateContentProvider = (_MessageTemplateContentProvider & { email: EmailMessageTemplateContent }) | (_MessageTemplateContentProvider & { sms: SMSMessageTemplateContent });
+export type MessageTemplateContentProvider =
+  | (_MessageTemplateContentProvider & { email: EmailMessageTemplateContent })
+  | (_MessageTemplateContentProvider & { sms: SMSMessageTemplateContent });
 export type MessageTemplateContentSha256 = string;
 
 export interface MessageTemplateData {
@@ -2091,7 +2573,8 @@ export interface MessageTemplateSearchResultData {
   language?: string;
   tags?: Record<string, string>;
 }
-export type MessageTemplateSearchResultsList = Array<MessageTemplateSearchResultData>;
+export type MessageTemplateSearchResultsList =
+  Array<MessageTemplateSearchResultData>;
 export interface MessageTemplateSummary {
   messageTemplateArn: string;
   messageTemplateId: string;
@@ -2117,7 +2600,8 @@ export interface MessageTemplateVersionSummary {
   isActive: boolean;
   versionNumber: number;
 }
-export type MessageTemplateVersionSummaryList = Array<MessageTemplateVersionSummary>;
+export type MessageTemplateVersionSummaryList =
+  Array<MessageTemplateVersionSummary>;
 export type MessageType = string;
 
 export type Name = string;
@@ -2134,7 +2618,8 @@ export interface NotifyRecommendationsReceivedError {
   recommendationId?: string;
   message?: string;
 }
-export type NotifyRecommendationsReceivedErrorList = Array<NotifyRecommendationsReceivedError>;
+export type NotifyRecommendationsReceivedErrorList =
+  Array<NotifyRecommendationsReceivedError>;
 export type NotifyRecommendationsReceivedErrorMessage = string;
 
 export interface NotifyRecommendationsReceivedRequest {
@@ -2152,7 +2637,9 @@ interface _OrCondition {
   tagCondition?: TagCondition;
 }
 
-export type OrCondition = (_OrCondition & { andConditions: Array<TagCondition> }) | (_OrCondition & { tagCondition: TagCondition });
+export type OrCondition =
+  | (_OrCondition & { andConditions: Array<TagCondition> })
+  | (_OrCondition & { tagCondition: TagCondition });
 export type OrConditions = Array<OrCondition>;
 export type Order = string;
 
@@ -2209,7 +2696,7 @@ interface _QueryCondition {
   single?: QueryConditionItem;
 }
 
-export type QueryCondition = (_QueryCondition & { single: QueryConditionItem });
+export type QueryCondition = _QueryCondition & { single: QueryConditionItem };
 export type QueryConditionComparisonOperator = string;
 
 export type QueryConditionExpression = Array<QueryCondition>;
@@ -2225,7 +2712,9 @@ interface _QueryInputData {
   intentInputData?: IntentInputData;
 }
 
-export type QueryInputData = (_QueryInputData & { queryTextInputData: QueryTextInputData }) | (_QueryInputData & { intentInputData: IntentInputData });
+export type QueryInputData =
+  | (_QueryInputData & { queryTextInputData: QueryTextInputData })
+  | (_QueryInputData & { intentInputData: IntentInputData });
 export interface QueryRecommendationTriggerData {
   text?: string;
 }
@@ -2243,7 +2732,9 @@ interface _QuickResponseContentProvider {
   content?: string;
 }
 
-export type QuickResponseContentProvider = (_QuickResponseContentProvider & { content: string });
+export type QuickResponseContentProvider = _QuickResponseContentProvider & {
+  content: string;
+};
 export interface QuickResponseContents {
   plainText?: QuickResponseContentProvider;
   markdown?: QuickResponseContentProvider;
@@ -2272,7 +2763,9 @@ interface _QuickResponseDataProvider {
   content?: string;
 }
 
-export type QuickResponseDataProvider = (_QuickResponseDataProvider & { content: string });
+export type QuickResponseDataProvider = _QuickResponseDataProvider & {
+  content: string;
+};
 export type QuickResponseDescription = string;
 
 export interface QuickResponseFilterField {
@@ -2333,7 +2826,8 @@ export interface QuickResponseSearchResultData {
   attributesInterpolated?: Array<string>;
   tags?: Record<string, string>;
 }
-export type QuickResponseSearchResultsList = Array<QuickResponseSearchResultData>;
+export type QuickResponseSearchResultsList =
+  Array<QuickResponseSearchResultData>;
 export type QuickResponseStatus = string;
 
 export interface QuickResponseSummary {
@@ -2384,7 +2878,9 @@ interface _RecommendationTriggerData {
   query?: QueryRecommendationTriggerData;
 }
 
-export type RecommendationTriggerData = (_RecommendationTriggerData & { query: QueryRecommendationTriggerData });
+export type RecommendationTriggerData = _RecommendationTriggerData & {
+  query: QueryRecommendationTriggerData;
+};
 export type RecommendationTriggerList = Array<RecommendationTrigger>;
 export type RecommendationTriggerType = string;
 
@@ -2402,13 +2898,11 @@ export interface RemoveAssistantAIAgentRequest {
   assistantId: string;
   aiAgentType: string;
 }
-export interface RemoveAssistantAIAgentResponse {
-}
+export interface RemoveAssistantAIAgentResponse {}
 export interface RemoveKnowledgeBaseTemplateUriRequest {
   knowledgeBaseId: string;
 }
-export interface RemoveKnowledgeBaseTemplateUriResponse {
-}
+export interface RemoveKnowledgeBaseTemplateUriResponse {}
 export interface RenderingConfiguration {
   templateUri?: string;
 }
@@ -2449,7 +2943,9 @@ interface _RuntimeSessionDataValue {
   stringValue?: string;
 }
 
-export type RuntimeSessionDataValue = (_RuntimeSessionDataValue & { stringValue: string });
+export type RuntimeSessionDataValue = _RuntimeSessionDataValue & {
+  stringValue: string;
+};
 export interface SearchContentRequest {
   nextToken?: string;
   maxResults?: number;
@@ -2509,7 +3005,8 @@ export interface SelfServiceConversationHistory {
   inputTranscript?: string;
   botResponse?: string;
 }
-export type SelfServiceConversationHistoryList = Array<SelfServiceConversationHistory>;
+export type SelfServiceConversationHistoryList =
+  Array<SelfServiceConversationHistory>;
 export interface SemanticChunkingConfiguration {
   maxTokens: number;
   bufferSize: number;
@@ -2575,7 +3072,11 @@ interface _SourceConfiguration {
   managedSourceConfiguration?: ManagedSourceConfiguration;
 }
 
-export type SourceConfiguration = (_SourceConfiguration & { appIntegrations: AppIntegrationsConfiguration }) | (_SourceConfiguration & { managedSourceConfiguration: ManagedSourceConfiguration });
+export type SourceConfiguration =
+  | (_SourceConfiguration & { appIntegrations: AppIntegrationsConfiguration })
+  | (_SourceConfiguration & {
+      managedSourceConfiguration: ManagedSourceConfiguration;
+    });
 export interface SourceContentDataDetails {
   id: string;
   type: string;
@@ -2629,7 +3130,10 @@ interface _TagFilter {
   orConditions?: Array<OrCondition>;
 }
 
-export type TagFilter = (_TagFilter & { tagCondition: TagCondition }) | (_TagFilter & { andConditions: Array<TagCondition> }) | (_TagFilter & { orConditions: Array<OrCondition> });
+export type TagFilter =
+  | (_TagFilter & { tagCondition: TagCondition })
+  | (_TagFilter & { andConditions: Array<TagCondition> })
+  | (_TagFilter & { orConditions: Array<OrCondition> });
 export type TagKey = string;
 
 export type TagKeyList = Array<string>;
@@ -2637,8 +3141,7 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {
-}
+export interface TagResourceResponse {}
 export type Tags = Record<string, string>;
 export type TagValue = string;
 
@@ -2678,8 +3181,7 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {
-}
+export interface UntagResourceResponse {}
 export interface UpdateAIAgentRequest {
   clientToken?: string;
   assistantId: string;
@@ -2861,9 +3363,7 @@ export type WebUrl = string;
 export declare namespace ListTagsForResource {
   export type Input = ListTagsForResourceRequest;
   export type Output = ListTagsForResourceResponse;
-  export type Error =
-    | ResourceNotFoundException
-    | CommonAwsError;
+  export type Error = ResourceNotFoundException | CommonAwsError;
 }
 
 export declare namespace TagResource {
@@ -2878,9 +3378,7 @@ export declare namespace TagResource {
 export declare namespace UntagResource {
   export type Input = UntagResourceRequest;
   export type Output = UntagResourceResponse;
-  export type Error =
-    | ResourceNotFoundException
-    | CommonAwsError;
+  export type Error = ResourceNotFoundException | CommonAwsError;
 }
 
 export declare namespace ActivateMessageTemplate {
@@ -3916,5 +4414,16 @@ export declare namespace UpdateSessionData {
     | CommonAwsError;
 }
 
-export type QConnectErrors = AccessDeniedException | ConflictException | DependencyFailedException | PreconditionFailedException | RequestTimeoutException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | TooManyTagsException | UnauthorizedException | ValidationException | CommonAwsError;
-
+export type QConnectErrors =
+  | AccessDeniedException
+  | ConflictException
+  | DependencyFailedException
+  | PreconditionFailedException
+  | RequestTimeoutException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | TooManyTagsException
+  | UnauthorizedException
+  | ValidationException
+  | CommonAwsError;

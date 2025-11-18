@@ -5,7 +5,23 @@ import type { ARCZonalShift as _ARCZonalShiftClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, type CommonAwsError} from "../../error.ts";
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  type CommonAwsError,
+} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -15,21 +31,25 @@ const metadata = {
   sigV4ServiceName: "arc-zonal-shift",
   endpointPrefix: "arc-zonal-shift",
   operations: {
-    "CancelPracticeRun": "DELETE /practiceruns/{zonalShiftId}",
-    "CancelZonalShift": "DELETE /zonalshifts/{zonalShiftId}",
-    "CreatePracticeRunConfiguration": "POST /configuration",
-    "DeletePracticeRunConfiguration": "DELETE /configuration/{resourceIdentifier}",
-    "GetAutoshiftObserverNotificationStatus": "GET /autoshift-observer-notification",
-    "GetManagedResource": "GET /managedresources/{resourceIdentifier}",
-    "ListAutoshifts": "GET /autoshifts",
-    "ListManagedResources": "GET /managedresources",
-    "ListZonalShifts": "GET /zonalshifts",
-    "StartPracticeRun": "POST /practiceruns",
-    "StartZonalShift": "POST /zonalshifts",
-    "UpdateAutoshiftObserverNotificationStatus": "PUT /autoshift-observer-notification",
-    "UpdatePracticeRunConfiguration": "PATCH /configuration/{resourceIdentifier}",
-    "UpdateZonalAutoshiftConfiguration": "PUT /managedresources/{resourceIdentifier}",
-    "UpdateZonalShift": "PATCH /zonalshifts/{zonalShiftId}",
+    CancelPracticeRun: "DELETE /practiceruns/{zonalShiftId}",
+    CancelZonalShift: "DELETE /zonalshifts/{zonalShiftId}",
+    CreatePracticeRunConfiguration: "POST /configuration",
+    DeletePracticeRunConfiguration:
+      "DELETE /configuration/{resourceIdentifier}",
+    GetAutoshiftObserverNotificationStatus:
+      "GET /autoshift-observer-notification",
+    GetManagedResource: "GET /managedresources/{resourceIdentifier}",
+    ListAutoshifts: "GET /autoshifts",
+    ListManagedResources: "GET /managedresources",
+    ListZonalShifts: "GET /zonalshifts",
+    StartPracticeRun: "POST /practiceruns",
+    StartZonalShift: "POST /zonalshifts",
+    UpdateAutoshiftObserverNotificationStatus:
+      "PUT /autoshift-observer-notification",
+    UpdatePracticeRunConfiguration: "PATCH /configuration/{resourceIdentifier}",
+    UpdateZonalAutoshiftConfiguration:
+      "PUT /managedresources/{resourceIdentifier}",
+    UpdateZonalShift: "PATCH /zonalshifts/{zonalShiftId}",
   },
 } as const satisfies ServiceMetadata;
 

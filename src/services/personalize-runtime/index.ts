@@ -5,7 +5,26 @@ import type { PersonalizeRuntime as _PersonalizeRuntimeClient } from "./types.ts
 
 export * from "./types.ts";
 
-export {AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException, type CommonAwsError} from "../../error.ts";
+export {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  ValidationException,
+  type CommonAwsError,
+} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -15,9 +34,9 @@ const metadata = {
   sigV4ServiceName: "personalize",
   endpointPrefix: "personalize-runtime",
   operations: {
-    "GetActionRecommendations": "POST /action-recommendations",
-    "GetPersonalizedRanking": "POST /personalize-ranking",
-    "GetRecommendations": "POST /recommendations",
+    GetActionRecommendations: "POST /action-recommendations",
+    GetPersonalizedRanking: "POST /personalize-ranking",
+    GetRecommendations: "POST /recommendations",
   },
 } as const satisfies ServiceMetadata;
 

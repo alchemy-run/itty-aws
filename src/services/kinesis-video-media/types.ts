@@ -7,7 +7,13 @@ export declare class KinesisVideoMedia extends AWSServiceClient {
     input: GetMediaInput,
   ): Effect.Effect<
     GetMediaOutput,
-    ClientLimitExceededException | ConnectionLimitExceededException | InvalidArgumentException | InvalidEndpointException | NotAuthorizedException | ResourceNotFoundException | CommonAwsError
+    | ClientLimitExceededException
+    | ConnectionLimitExceededException
+    | InvalidArgumentException
+    | InvalidEndpointException
+    | NotAuthorizedException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
 }
 
@@ -68,7 +74,13 @@ export interface StartSelector {
   StartTimestamp?: Date | string;
   ContinuationToken?: string;
 }
-export type StartSelectorType = "FRAGMENT_NUMBER" | "SERVER_TIMESTAMP" | "PRODUCER_TIMESTAMP" | "NOW" | "EARLIEST" | "CONTINUATION_TOKEN";
+export type StartSelectorType =
+  | "FRAGMENT_NUMBER"
+  | "SERVER_TIMESTAMP"
+  | "PRODUCER_TIMESTAMP"
+  | "NOW"
+  | "EARLIEST"
+  | "CONTINUATION_TOKEN";
 export type StreamName = string;
 
 export type Timestamp = Date | string;
@@ -86,5 +98,11 @@ export declare namespace GetMedia {
     | CommonAwsError;
 }
 
-export type KinesisVideoMediaErrors = ClientLimitExceededException | ConnectionLimitExceededException | InvalidArgumentException | InvalidEndpointException | NotAuthorizedException | ResourceNotFoundException | CommonAwsError;
-
+export type KinesisVideoMediaErrors =
+  | ClientLimitExceededException
+  | ConnectionLimitExceededException
+  | InvalidArgumentException
+  | InvalidEndpointException
+  | NotAuthorizedException
+  | ResourceNotFoundException
+  | CommonAwsError;

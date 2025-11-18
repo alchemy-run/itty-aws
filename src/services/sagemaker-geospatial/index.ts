@@ -5,7 +5,23 @@ import type { SageMakerGeospatial as _SageMakerGeospatialClient } from "./types.
 
 export * from "./types.ts";
 
-export {ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, type CommonAwsError} from "../../error.ts";
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  type CommonAwsError,
+} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -14,30 +30,30 @@ const metadata = {
   protocol: "restJson1",
   sigV4ServiceName: "sagemaker-geospatial",
   operations: {
-    "ListTagsForResource": "GET /tags/{ResourceArn}",
-    "TagResource": "PUT /tags/{ResourceArn}",
-    "UntagResource": "DELETE /tags/{ResourceArn}",
-    "DeleteEarthObservationJob": "DELETE /earth-observation-jobs/{Arn}",
-    "DeleteVectorEnrichmentJob": "DELETE /vector-enrichment-jobs/{Arn}",
-    "ExportEarthObservationJob": "POST /export-earth-observation-job",
-    "ExportVectorEnrichmentJob": "POST /export-vector-enrichment-jobs",
-    "GetEarthObservationJob": "GET /earth-observation-jobs/{Arn}",
-    "GetRasterDataCollection": "GET /raster-data-collection/{Arn}",
-    "GetTile": {
+    ListTagsForResource: "GET /tags/{ResourceArn}",
+    TagResource: "PUT /tags/{ResourceArn}",
+    UntagResource: "DELETE /tags/{ResourceArn}",
+    DeleteEarthObservationJob: "DELETE /earth-observation-jobs/{Arn}",
+    DeleteVectorEnrichmentJob: "DELETE /vector-enrichment-jobs/{Arn}",
+    ExportEarthObservationJob: "POST /export-earth-observation-job",
+    ExportVectorEnrichmentJob: "POST /export-vector-enrichment-jobs",
+    GetEarthObservationJob: "GET /earth-observation-jobs/{Arn}",
+    GetRasterDataCollection: "GET /raster-data-collection/{Arn}",
+    GetTile: {
       http: "GET /tile/{z}/{x}/{y}",
       traits: {
-        "BinaryFile": "httpPayload",
+        BinaryFile: "httpPayload",
       },
     },
-    "GetVectorEnrichmentJob": "GET /vector-enrichment-jobs/{Arn}",
-    "ListEarthObservationJobs": "POST /list-earth-observation-jobs",
-    "ListRasterDataCollections": "GET /raster-data-collections",
-    "ListVectorEnrichmentJobs": "POST /list-vector-enrichment-jobs",
-    "SearchRasterDataCollection": "POST /search-raster-data-collection",
-    "StartEarthObservationJob": "POST /earth-observation-jobs",
-    "StartVectorEnrichmentJob": "POST /vector-enrichment-jobs",
-    "StopEarthObservationJob": "POST /earth-observation-jobs/stop",
-    "StopVectorEnrichmentJob": "POST /vector-enrichment-jobs/stop",
+    GetVectorEnrichmentJob: "GET /vector-enrichment-jobs/{Arn}",
+    ListEarthObservationJobs: "POST /list-earth-observation-jobs",
+    ListRasterDataCollections: "GET /raster-data-collections",
+    ListVectorEnrichmentJobs: "POST /list-vector-enrichment-jobs",
+    SearchRasterDataCollection: "POST /search-raster-data-collection",
+    StartEarthObservationJob: "POST /earth-observation-jobs",
+    StartVectorEnrichmentJob: "POST /vector-enrichment-jobs",
+    StopEarthObservationJob: "POST /earth-observation-jobs/stop",
+    StopVectorEnrichmentJob: "POST /vector-enrichment-jobs/stop",
   },
 } as const satisfies ServiceMetadata;
 

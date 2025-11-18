@@ -7,61 +7,110 @@ export declare class AppStream extends AWSServiceClient {
     input: AssociateAppBlockBuilderAppBlockRequest,
   ): Effect.Effect<
     AssociateAppBlockBuilderAppBlockResult,
-    ConcurrentModificationException | InvalidParameterCombinationException | LimitExceededException | OperationNotPermittedException | ResourceNotFoundException | CommonAwsError
+    | ConcurrentModificationException
+    | InvalidParameterCombinationException
+    | LimitExceededException
+    | OperationNotPermittedException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   associateApplicationFleet(
     input: AssociateApplicationFleetRequest,
   ): Effect.Effect<
     AssociateApplicationFleetResult,
-    ConcurrentModificationException | InvalidParameterCombinationException | LimitExceededException | OperationNotPermittedException | ResourceNotFoundException | CommonAwsError
+    | ConcurrentModificationException
+    | InvalidParameterCombinationException
+    | LimitExceededException
+    | OperationNotPermittedException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   associateApplicationToEntitlement(
     input: AssociateApplicationToEntitlementRequest,
   ): Effect.Effect<
     AssociateApplicationToEntitlementResult,
-    EntitlementNotFoundException | LimitExceededException | OperationNotPermittedException | ResourceNotFoundException | CommonAwsError
+    | EntitlementNotFoundException
+    | LimitExceededException
+    | OperationNotPermittedException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   associateFleet(
     input: AssociateFleetRequest,
   ): Effect.Effect<
     AssociateFleetResult,
-    ConcurrentModificationException | IncompatibleImageException | InvalidAccountStatusException | LimitExceededException | OperationNotPermittedException | ResourceNotFoundException | CommonAwsError
+    | ConcurrentModificationException
+    | IncompatibleImageException
+    | InvalidAccountStatusException
+    | LimitExceededException
+    | OperationNotPermittedException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   associateSoftwareToImageBuilder(
     input: AssociateSoftwareToImageBuilderRequest,
   ): Effect.Effect<
     AssociateSoftwareToImageBuilderResult,
-    ConcurrentModificationException | IncompatibleImageException | InvalidParameterCombinationException | OperationNotPermittedException | ResourceNotFoundException | CommonAwsError
+    | ConcurrentModificationException
+    | IncompatibleImageException
+    | InvalidParameterCombinationException
+    | OperationNotPermittedException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   batchAssociateUserStack(
     input: BatchAssociateUserStackRequest,
   ): Effect.Effect<
     BatchAssociateUserStackResult,
-    InvalidParameterCombinationException | OperationNotPermittedException | CommonAwsError
+    | InvalidParameterCombinationException
+    | OperationNotPermittedException
+    | CommonAwsError
   >;
   batchDisassociateUserStack(
     input: BatchDisassociateUserStackRequest,
   ): Effect.Effect<
     BatchDisassociateUserStackResult,
-    InvalidParameterCombinationException | OperationNotPermittedException | CommonAwsError
+    | InvalidParameterCombinationException
+    | OperationNotPermittedException
+    | CommonAwsError
   >;
   copyImage(
     input: CopyImageRequest,
   ): Effect.Effect<
     CopyImageResponse,
-    IncompatibleImageException | InvalidAccountStatusException | LimitExceededException | ResourceAlreadyExistsException | ResourceNotAvailableException | ResourceNotFoundException | CommonAwsError
+    | IncompatibleImageException
+    | InvalidAccountStatusException
+    | LimitExceededException
+    | ResourceAlreadyExistsException
+    | ResourceNotAvailableException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   createAppBlock(
     input: CreateAppBlockRequest,
   ): Effect.Effect<
     CreateAppBlockResult,
-    ConcurrentModificationException | LimitExceededException | OperationNotPermittedException | ResourceAlreadyExistsException | CommonAwsError
+    | ConcurrentModificationException
+    | LimitExceededException
+    | OperationNotPermittedException
+    | ResourceAlreadyExistsException
+    | CommonAwsError
   >;
   createAppBlockBuilder(
     input: CreateAppBlockBuilderRequest,
   ): Effect.Effect<
     CreateAppBlockBuilderResult,
-    ConcurrentModificationException | InvalidAccountStatusException | InvalidParameterCombinationException | InvalidRoleException | LimitExceededException | OperationNotPermittedException | RequestLimitExceededException | ResourceAlreadyExistsException | ResourceNotAvailableException | ResourceNotFoundException | CommonAwsError
+    | ConcurrentModificationException
+    | InvalidAccountStatusException
+    | InvalidParameterCombinationException
+    | InvalidRoleException
+    | LimitExceededException
+    | OperationNotPermittedException
+    | RequestLimitExceededException
+    | ResourceAlreadyExistsException
+    | ResourceNotAvailableException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   createAppBlockBuilderStreamingURL(
     input: CreateAppBlockBuilderStreamingURLRequest,
@@ -73,31 +122,68 @@ export declare class AppStream extends AWSServiceClient {
     input: CreateApplicationRequest,
   ): Effect.Effect<
     CreateApplicationResult,
-    ConcurrentModificationException | LimitExceededException | OperationNotPermittedException | ResourceAlreadyExistsException | ResourceNotFoundException | CommonAwsError
+    | ConcurrentModificationException
+    | LimitExceededException
+    | OperationNotPermittedException
+    | ResourceAlreadyExistsException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   createDirectoryConfig(
     input: CreateDirectoryConfigRequest,
   ): Effect.Effect<
     CreateDirectoryConfigResult,
-    InvalidAccountStatusException | InvalidRoleException | LimitExceededException | OperationNotPermittedException | ResourceAlreadyExistsException | ResourceNotFoundException | CommonAwsError
+    | InvalidAccountStatusException
+    | InvalidRoleException
+    | LimitExceededException
+    | OperationNotPermittedException
+    | ResourceAlreadyExistsException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   createEntitlement(
     input: CreateEntitlementRequest,
   ): Effect.Effect<
     CreateEntitlementResult,
-    EntitlementAlreadyExistsException | LimitExceededException | OperationNotPermittedException | ResourceNotFoundException | CommonAwsError
+    | EntitlementAlreadyExistsException
+    | LimitExceededException
+    | OperationNotPermittedException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   createFleet(
     input: CreateFleetRequest,
   ): Effect.Effect<
     CreateFleetResult,
-    ConcurrentModificationException | IncompatibleImageException | InvalidAccountStatusException | InvalidParameterCombinationException | InvalidRoleException | LimitExceededException | OperationNotPermittedException | RequestLimitExceededException | ResourceAlreadyExistsException | ResourceNotAvailableException | ResourceNotFoundException | CommonAwsError
+    | ConcurrentModificationException
+    | IncompatibleImageException
+    | InvalidAccountStatusException
+    | InvalidParameterCombinationException
+    | InvalidRoleException
+    | LimitExceededException
+    | OperationNotPermittedException
+    | RequestLimitExceededException
+    | ResourceAlreadyExistsException
+    | ResourceNotAvailableException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   createImageBuilder(
     input: CreateImageBuilderRequest,
   ): Effect.Effect<
     CreateImageBuilderResult,
-    ConcurrentModificationException | IncompatibleImageException | InvalidAccountStatusException | InvalidParameterCombinationException | InvalidRoleException | LimitExceededException | OperationNotPermittedException | RequestLimitExceededException | ResourceAlreadyExistsException | ResourceNotAvailableException | ResourceNotFoundException | CommonAwsError
+    | ConcurrentModificationException
+    | IncompatibleImageException
+    | InvalidAccountStatusException
+    | InvalidParameterCombinationException
+    | InvalidRoleException
+    | LimitExceededException
+    | OperationNotPermittedException
+    | RequestLimitExceededException
+    | ResourceAlreadyExistsException
+    | ResourceNotAvailableException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   createImageBuilderStreamingURL(
     input: CreateImageBuilderStreamingURLRequest,
@@ -109,55 +195,99 @@ export declare class AppStream extends AWSServiceClient {
     input: CreateStackRequest,
   ): Effect.Effect<
     CreateStackResult,
-    ConcurrentModificationException | InvalidAccountStatusException | InvalidParameterCombinationException | InvalidRoleException | LimitExceededException | OperationNotPermittedException | ResourceAlreadyExistsException | ResourceNotFoundException | CommonAwsError
+    | ConcurrentModificationException
+    | InvalidAccountStatusException
+    | InvalidParameterCombinationException
+    | InvalidRoleException
+    | LimitExceededException
+    | OperationNotPermittedException
+    | ResourceAlreadyExistsException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   createStreamingURL(
     input: CreateStreamingURLRequest,
   ): Effect.Effect<
     CreateStreamingURLResult,
-    InvalidParameterCombinationException | OperationNotPermittedException | ResourceNotAvailableException | ResourceNotFoundException | CommonAwsError
+    | InvalidParameterCombinationException
+    | OperationNotPermittedException
+    | ResourceNotAvailableException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   createThemeForStack(
     input: CreateThemeForStackRequest,
   ): Effect.Effect<
     CreateThemeForStackResult,
-    ConcurrentModificationException | InvalidAccountStatusException | LimitExceededException | OperationNotPermittedException | ResourceAlreadyExistsException | ResourceNotFoundException | CommonAwsError
+    | ConcurrentModificationException
+    | InvalidAccountStatusException
+    | LimitExceededException
+    | OperationNotPermittedException
+    | ResourceAlreadyExistsException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   createUpdatedImage(
     input: CreateUpdatedImageRequest,
   ): Effect.Effect<
     CreateUpdatedImageResult,
-    ConcurrentModificationException | IncompatibleImageException | InvalidAccountStatusException | LimitExceededException | OperationNotPermittedException | ResourceAlreadyExistsException | ResourceNotFoundException | CommonAwsError
+    | ConcurrentModificationException
+    | IncompatibleImageException
+    | InvalidAccountStatusException
+    | LimitExceededException
+    | OperationNotPermittedException
+    | ResourceAlreadyExistsException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   createUsageReportSubscription(
     input: CreateUsageReportSubscriptionRequest,
   ): Effect.Effect<
     CreateUsageReportSubscriptionResult,
-    InvalidAccountStatusException | InvalidRoleException | LimitExceededException | CommonAwsError
+    | InvalidAccountStatusException
+    | InvalidRoleException
+    | LimitExceededException
+    | CommonAwsError
   >;
   createUser(
     input: CreateUserRequest,
   ): Effect.Effect<
     CreateUserResult,
-    InvalidAccountStatusException | InvalidParameterCombinationException | LimitExceededException | OperationNotPermittedException | ResourceAlreadyExistsException | CommonAwsError
+    | InvalidAccountStatusException
+    | InvalidParameterCombinationException
+    | LimitExceededException
+    | OperationNotPermittedException
+    | ResourceAlreadyExistsException
+    | CommonAwsError
   >;
   deleteAppBlock(
     input: DeleteAppBlockRequest,
   ): Effect.Effect<
     DeleteAppBlockResult,
-    ConcurrentModificationException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
+    | ConcurrentModificationException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   deleteAppBlockBuilder(
     input: DeleteAppBlockBuilderRequest,
   ): Effect.Effect<
     DeleteAppBlockBuilderResult,
-    ConcurrentModificationException | OperationNotPermittedException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
+    | ConcurrentModificationException
+    | OperationNotPermittedException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   deleteApplication(
     input: DeleteApplicationRequest,
   ): Effect.Effect<
     DeleteApplicationResult,
-    ConcurrentModificationException | OperationNotPermittedException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
+    | ConcurrentModificationException
+    | OperationNotPermittedException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   deleteDirectoryConfig(
     input: DeleteDirectoryConfigRequest,
@@ -169,25 +299,39 @@ export declare class AppStream extends AWSServiceClient {
     input: DeleteEntitlementRequest,
   ): Effect.Effect<
     DeleteEntitlementResult,
-    ConcurrentModificationException | EntitlementNotFoundException | OperationNotPermittedException | ResourceNotFoundException | CommonAwsError
+    | ConcurrentModificationException
+    | EntitlementNotFoundException
+    | OperationNotPermittedException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   deleteFleet(
     input: DeleteFleetRequest,
   ): Effect.Effect<
     DeleteFleetResult,
-    ConcurrentModificationException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
+    | ConcurrentModificationException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   deleteImage(
     input: DeleteImageRequest,
   ): Effect.Effect<
     DeleteImageResult,
-    ConcurrentModificationException | OperationNotPermittedException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
+    | ConcurrentModificationException
+    | OperationNotPermittedException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   deleteImageBuilder(
     input: DeleteImageBuilderRequest,
   ): Effect.Effect<
     DeleteImageBuilderResult,
-    ConcurrentModificationException | OperationNotPermittedException | ResourceNotFoundException | CommonAwsError
+    | ConcurrentModificationException
+    | OperationNotPermittedException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   deleteImagePermissions(
     input: DeleteImagePermissionsRequest,
@@ -199,13 +343,20 @@ export declare class AppStream extends AWSServiceClient {
     input: DeleteStackRequest,
   ): Effect.Effect<
     DeleteStackResult,
-    ConcurrentModificationException | OperationNotPermittedException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
+    | ConcurrentModificationException
+    | OperationNotPermittedException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   deleteThemeForStack(
     input: DeleteThemeForStackRequest,
   ): Effect.Effect<
     DeleteThemeForStackResult,
-    ConcurrentModificationException | OperationNotPermittedException | ResourceNotFoundException | CommonAwsError
+    | ConcurrentModificationException
+    | OperationNotPermittedException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   deleteUsageReportSubscription(
     input: DeleteUsageReportSubscriptionRequest,
@@ -223,7 +374,9 @@ export declare class AppStream extends AWSServiceClient {
     input: DescribeAppBlockBuilderAppBlockAssociationsRequest,
   ): Effect.Effect<
     DescribeAppBlockBuilderAppBlockAssociationsResult,
-    InvalidParameterCombinationException | OperationNotPermittedException | CommonAwsError
+    | InvalidParameterCombinationException
+    | OperationNotPermittedException
+    | CommonAwsError
   >;
   describeAppBlockBuilders(
     input: DescribeAppBlockBuildersRequest,
@@ -241,7 +394,9 @@ export declare class AppStream extends AWSServiceClient {
     input: DescribeApplicationFleetAssociationsRequest,
   ): Effect.Effect<
     DescribeApplicationFleetAssociationsResult,
-    InvalidParameterCombinationException | OperationNotPermittedException | CommonAwsError
+    | InvalidParameterCombinationException
+    | OperationNotPermittedException
+    | CommonAwsError
   >;
   describeApplications(
     input: DescribeApplicationsRequest,
@@ -253,7 +408,10 @@ export declare class AppStream extends AWSServiceClient {
     input: DescribeAppLicenseUsageRequest,
   ): Effect.Effect<
     DescribeAppLicenseUsageResult,
-    InvalidParameterCombinationException | OperationNotPermittedException | ResourceNotFoundException | CommonAwsError
+    | InvalidParameterCombinationException
+    | OperationNotPermittedException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   describeDirectoryConfigs(
     input: DescribeDirectoryConfigsRequest,
@@ -265,7 +423,10 @@ export declare class AppStream extends AWSServiceClient {
     input: DescribeEntitlementsRequest,
   ): Effect.Effect<
     DescribeEntitlementsResult,
-    EntitlementNotFoundException | OperationNotPermittedException | ResourceNotFoundException | CommonAwsError
+    | EntitlementNotFoundException
+    | OperationNotPermittedException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   describeFleets(
     input: DescribeFleetsRequest,
@@ -289,7 +450,9 @@ export declare class AppStream extends AWSServiceClient {
     input: DescribeImagesRequest,
   ): Effect.Effect<
     DescribeImagesResult,
-    InvalidParameterCombinationException | ResourceNotFoundException | CommonAwsError
+    | InvalidParameterCombinationException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   describeSessions(
     input: DescribeSessionsRequest,
@@ -325,13 +488,18 @@ export declare class AppStream extends AWSServiceClient {
     input: DescribeUsersRequest,
   ): Effect.Effect<
     DescribeUsersResult,
-    InvalidParameterCombinationException | OperationNotPermittedException | ResourceNotFoundException | CommonAwsError
+    | InvalidParameterCombinationException
+    | OperationNotPermittedException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   describeUserStackAssociations(
     input: DescribeUserStackAssociationsRequest,
   ): Effect.Effect<
     DescribeUserStackAssociationsResult,
-    InvalidParameterCombinationException | OperationNotPermittedException | CommonAwsError
+    | InvalidParameterCombinationException
+    | OperationNotPermittedException
+    | CommonAwsError
   >;
   disableUser(
     input: DisableUserRequest,
@@ -343,31 +511,49 @@ export declare class AppStream extends AWSServiceClient {
     input: DisassociateAppBlockBuilderAppBlockRequest,
   ): Effect.Effect<
     DisassociateAppBlockBuilderAppBlockResult,
-    ConcurrentModificationException | InvalidParameterCombinationException | OperationNotPermittedException | ResourceNotFoundException | CommonAwsError
+    | ConcurrentModificationException
+    | InvalidParameterCombinationException
+    | OperationNotPermittedException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   disassociateApplicationFleet(
     input: DisassociateApplicationFleetRequest,
   ): Effect.Effect<
     DisassociateApplicationFleetResult,
-    ConcurrentModificationException | InvalidParameterCombinationException | OperationNotPermittedException | CommonAwsError
+    | ConcurrentModificationException
+    | InvalidParameterCombinationException
+    | OperationNotPermittedException
+    | CommonAwsError
   >;
   disassociateApplicationFromEntitlement(
     input: DisassociateApplicationFromEntitlementRequest,
   ): Effect.Effect<
     DisassociateApplicationFromEntitlementResult,
-    EntitlementNotFoundException | OperationNotPermittedException | ResourceNotFoundException | CommonAwsError
+    | EntitlementNotFoundException
+    | OperationNotPermittedException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   disassociateFleet(
     input: DisassociateFleetRequest,
   ): Effect.Effect<
     DisassociateFleetResult,
-    ConcurrentModificationException | OperationNotPermittedException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
+    | ConcurrentModificationException
+    | OperationNotPermittedException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   disassociateSoftwareFromImageBuilder(
     input: DisassociateSoftwareFromImageBuilderRequest,
   ): Effect.Effect<
     DisassociateSoftwareFromImageBuilderResult,
-    ConcurrentModificationException | InvalidParameterCombinationException | OperationNotPermittedException | ResourceNotFoundException | CommonAwsError
+    | ConcurrentModificationException
+    | InvalidParameterCombinationException
+    | OperationNotPermittedException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   enableUser(
     input: EnableUserRequest,
@@ -377,27 +563,21 @@ export declare class AppStream extends AWSServiceClient {
   >;
   expireSession(
     input: ExpireSessionRequest,
-  ): Effect.Effect<
-    ExpireSessionResult,
-    CommonAwsError
-  >;
+  ): Effect.Effect<ExpireSessionResult, CommonAwsError>;
   listAssociatedFleets(
     input: ListAssociatedFleetsRequest,
-  ): Effect.Effect<
-    ListAssociatedFleetsResult,
-    CommonAwsError
-  >;
+  ): Effect.Effect<ListAssociatedFleetsResult, CommonAwsError>;
   listAssociatedStacks(
     input: ListAssociatedStacksRequest,
-  ): Effect.Effect<
-    ListAssociatedStacksResult,
-    CommonAwsError
-  >;
+  ): Effect.Effect<ListAssociatedStacksResult, CommonAwsError>;
   listEntitledApplications(
     input: ListEntitledApplicationsRequest,
   ): Effect.Effect<
     ListEntitledApplicationsResult,
-    EntitlementNotFoundException | OperationNotPermittedException | ResourceNotFoundException | CommonAwsError
+    | EntitlementNotFoundException
+    | OperationNotPermittedException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
@@ -409,31 +589,57 @@ export declare class AppStream extends AWSServiceClient {
     input: StartAppBlockBuilderRequest,
   ): Effect.Effect<
     StartAppBlockBuilderResult,
-    ConcurrentModificationException | InvalidAccountStatusException | LimitExceededException | OperationNotPermittedException | RequestLimitExceededException | ResourceNotAvailableException | ResourceNotFoundException | CommonAwsError
+    | ConcurrentModificationException
+    | InvalidAccountStatusException
+    | LimitExceededException
+    | OperationNotPermittedException
+    | RequestLimitExceededException
+    | ResourceNotAvailableException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   startFleet(
     input: StartFleetRequest,
   ): Effect.Effect<
     StartFleetResult,
-    ConcurrentModificationException | InvalidAccountStatusException | InvalidRoleException | LimitExceededException | OperationNotPermittedException | RequestLimitExceededException | ResourceNotAvailableException | ResourceNotFoundException | CommonAwsError
+    | ConcurrentModificationException
+    | InvalidAccountStatusException
+    | InvalidRoleException
+    | LimitExceededException
+    | OperationNotPermittedException
+    | RequestLimitExceededException
+    | ResourceNotAvailableException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   startImageBuilder(
     input: StartImageBuilderRequest,
   ): Effect.Effect<
     StartImageBuilderResult,
-    ConcurrentModificationException | IncompatibleImageException | InvalidAccountStatusException | ResourceNotAvailableException | ResourceNotFoundException | CommonAwsError
+    | ConcurrentModificationException
+    | IncompatibleImageException
+    | InvalidAccountStatusException
+    | ResourceNotAvailableException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   startSoftwareDeploymentToImageBuilder(
     input: StartSoftwareDeploymentToImageBuilderRequest,
   ): Effect.Effect<
     StartSoftwareDeploymentToImageBuilderResult,
-    ConcurrentModificationException | OperationNotPermittedException | ResourceNotFoundException | CommonAwsError
+    | ConcurrentModificationException
+    | OperationNotPermittedException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   stopAppBlockBuilder(
     input: StopAppBlockBuilderRequest,
   ): Effect.Effect<
     StopAppBlockBuilderResult,
-    ConcurrentModificationException | OperationNotPermittedException | ResourceNotFoundException | CommonAwsError
+    | ConcurrentModificationException
+    | OperationNotPermittedException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   stopFleet(
     input: StopFleetRequest,
@@ -445,13 +651,19 @@ export declare class AppStream extends AWSServiceClient {
     input: StopImageBuilderRequest,
   ): Effect.Effect<
     StopImageBuilderResult,
-    ConcurrentModificationException | OperationNotPermittedException | ResourceNotFoundException | CommonAwsError
+    | ConcurrentModificationException
+    | OperationNotPermittedException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    InvalidAccountStatusException | LimitExceededException | ResourceNotFoundException | CommonAwsError
+    | InvalidAccountStatusException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
@@ -463,49 +675,101 @@ export declare class AppStream extends AWSServiceClient {
     input: UpdateAppBlockBuilderRequest,
   ): Effect.Effect<
     UpdateAppBlockBuilderResult,
-    ConcurrentModificationException | InvalidAccountStatusException | InvalidParameterCombinationException | InvalidRoleException | LimitExceededException | OperationNotPermittedException | RequestLimitExceededException | ResourceInUseException | ResourceNotAvailableException | ResourceNotFoundException | CommonAwsError
+    | ConcurrentModificationException
+    | InvalidAccountStatusException
+    | InvalidParameterCombinationException
+    | InvalidRoleException
+    | LimitExceededException
+    | OperationNotPermittedException
+    | RequestLimitExceededException
+    | ResourceInUseException
+    | ResourceNotAvailableException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   updateApplication(
     input: UpdateApplicationRequest,
   ): Effect.Effect<
     UpdateApplicationResult,
-    ConcurrentModificationException | OperationNotPermittedException | ResourceNotFoundException | CommonAwsError
+    | ConcurrentModificationException
+    | OperationNotPermittedException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   updateDirectoryConfig(
     input: UpdateDirectoryConfigRequest,
   ): Effect.Effect<
     UpdateDirectoryConfigResult,
-    ConcurrentModificationException | IncompatibleImageException | InvalidRoleException | OperationNotPermittedException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
+    | ConcurrentModificationException
+    | IncompatibleImageException
+    | InvalidRoleException
+    | OperationNotPermittedException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   updateEntitlement(
     input: UpdateEntitlementRequest,
   ): Effect.Effect<
     UpdateEntitlementResult,
-    ConcurrentModificationException | EntitlementNotFoundException | OperationNotPermittedException | ResourceNotFoundException | CommonAwsError
+    | ConcurrentModificationException
+    | EntitlementNotFoundException
+    | OperationNotPermittedException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   updateFleet(
     input: UpdateFleetRequest,
   ): Effect.Effect<
     UpdateFleetResult,
-    ConcurrentModificationException | IncompatibleImageException | InvalidAccountStatusException | InvalidParameterCombinationException | InvalidRoleException | LimitExceededException | OperationNotPermittedException | RequestLimitExceededException | ResourceInUseException | ResourceNotAvailableException | ResourceNotFoundException | CommonAwsError
+    | ConcurrentModificationException
+    | IncompatibleImageException
+    | InvalidAccountStatusException
+    | InvalidParameterCombinationException
+    | InvalidRoleException
+    | LimitExceededException
+    | OperationNotPermittedException
+    | RequestLimitExceededException
+    | ResourceInUseException
+    | ResourceNotAvailableException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   updateImagePermissions(
     input: UpdateImagePermissionsRequest,
   ): Effect.Effect<
     UpdateImagePermissionsResult,
-    LimitExceededException | ResourceNotAvailableException | ResourceNotFoundException | CommonAwsError
+    | LimitExceededException
+    | ResourceNotAvailableException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   updateStack(
     input: UpdateStackRequest,
   ): Effect.Effect<
     UpdateStackResult,
-    ConcurrentModificationException | IncompatibleImageException | InvalidAccountStatusException | InvalidParameterCombinationException | InvalidRoleException | LimitExceededException | OperationNotPermittedException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
+    | ConcurrentModificationException
+    | IncompatibleImageException
+    | InvalidAccountStatusException
+    | InvalidParameterCombinationException
+    | InvalidRoleException
+    | LimitExceededException
+    | OperationNotPermittedException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   updateThemeForStack(
     input: UpdateThemeForStackRequest,
   ): Effect.Effect<
     UpdateThemeForStackResult,
-    ConcurrentModificationException | InvalidAccountStatusException | InvalidParameterCombinationException | LimitExceededException | OperationNotPermittedException | ResourceNotFoundException | CommonAwsError
+    | ConcurrentModificationException
+    | InvalidAccountStatusException
+    | InvalidParameterCombinationException
+    | LimitExceededException
+    | OperationNotPermittedException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
 }
 
@@ -521,7 +785,15 @@ export type AccountName = string;
 
 export type AccountPassword = string;
 
-export type Action = "CLIPBOARD_COPY_FROM_LOCAL_DEVICE" | "CLIPBOARD_COPY_TO_LOCAL_DEVICE" | "FILE_UPLOAD" | "FILE_DOWNLOAD" | "PRINTING_TO_LOCAL_DEVICE" | "DOMAIN_PASSWORD_SIGNIN" | "DOMAIN_SMART_CARD_SIGNIN" | "AUTO_TIME_ZONE_REDIRECTION";
+export type Action =
+  | "CLIPBOARD_COPY_FROM_LOCAL_DEVICE"
+  | "CLIPBOARD_COPY_TO_LOCAL_DEVICE"
+  | "FILE_UPLOAD"
+  | "FILE_DOWNLOAD"
+  | "PRINTING_TO_LOCAL_DEVICE"
+  | "DOMAIN_PASSWORD_SIGNIN"
+  | "DOMAIN_SMART_CARD_SIGNIN"
+  | "AUTO_TIME_ZONE_REDIRECTION";
 export type AdminAppLicenseUsageList = Array<AdminAppLicenseUsageRecord>;
 export interface AdminAppLicenseUsageRecord {
   UserArn: string;
@@ -565,12 +837,20 @@ export interface AppBlockBuilderAppBlockAssociation {
   AppBlockArn: string;
   AppBlockBuilderName: string;
 }
-export type AppBlockBuilderAppBlockAssociationsList = Array<AppBlockBuilderAppBlockAssociation>;
-export type AppBlockBuilderAttribute = "IAM_ROLE_ARN" | "ACCESS_ENDPOINTS" | "VPC_CONFIGURATION_SECURITY_GROUP_IDS";
+export type AppBlockBuilderAppBlockAssociationsList =
+  Array<AppBlockBuilderAppBlockAssociation>;
+export type AppBlockBuilderAttribute =
+  | "IAM_ROLE_ARN"
+  | "ACCESS_ENDPOINTS"
+  | "VPC_CONFIGURATION_SECURITY_GROUP_IDS";
 export type AppBlockBuilderAttributes = Array<AppBlockBuilderAttribute>;
 export type AppBlockBuilderList = Array<AppBlockBuilder>;
 export type AppBlockBuilderPlatformType = "WINDOWS_SERVER_2019";
-export type AppBlockBuilderState = "STARTING" | "RUNNING" | "STOPPING" | "STOPPED";
+export type AppBlockBuilderState =
+  | "STARTING"
+  | "RUNNING"
+  | "STOPPING"
+  | "STOPPED";
 export interface AppBlockBuilderStateChangeReason {
   Code?: AppBlockBuilderStateChangeReasonCode;
   Message?: string;
@@ -601,7 +881,8 @@ export interface ApplicationFleetAssociation {
   FleetName: string;
   ApplicationArn: string;
 }
-export type ApplicationFleetAssociationList = Array<ApplicationFleetAssociation>;
+export type ApplicationFleetAssociationList =
+  Array<ApplicationFleetAssociation>;
 export type Applications = Array<Application>;
 export interface ApplicationSettings {
   Enabled: boolean;
@@ -637,20 +918,17 @@ export interface AssociateApplicationToEntitlementRequest {
   EntitlementName: string;
   ApplicationIdentifier: string;
 }
-export interface AssociateApplicationToEntitlementResult {
-}
+export interface AssociateApplicationToEntitlementResult {}
 export interface AssociateFleetRequest {
   FleetName: string;
   StackName: string;
 }
-export interface AssociateFleetResult {
-}
+export interface AssociateFleetResult {}
 export interface AssociateSoftwareToImageBuilderRequest {
   ImageBuilderName: string;
   SoftwareNames: Array<string>;
 }
-export interface AssociateSoftwareToImageBuilderResult {
-}
+export interface AssociateSoftwareToImageBuilderResult {}
 export type AuthenticationType = "API" | "SAML" | "USERPOOL" | "AWS_AD";
 export type AwsAccountId = string;
 
@@ -675,7 +953,10 @@ export interface CertificateBasedAuthProperties {
   Status?: CertificateBasedAuthStatus;
   CertificateAuthorityArn?: string;
 }
-export type CertificateBasedAuthStatus = "DISABLED" | "ENABLED" | "ENABLED_NO_DIRECTORY_LOGIN_FALLBACK";
+export type CertificateBasedAuthStatus =
+  | "DISABLED"
+  | "ENABLED"
+  | "ENABLED_NO_DIRECTORY_LOGIN_FALLBACK";
 export interface ComputeCapacity {
   DesiredInstances?: number;
   DesiredSessions?: number;
@@ -882,8 +1163,7 @@ export interface CreateUpdatedImageResult {
   image?: Image;
   canUpdateImage?: boolean;
 }
-export interface CreateUsageReportSubscriptionRequest {
-}
+export interface CreateUsageReportSubscriptionRequest {}
 export interface CreateUsageReportSubscriptionResult {
   S3BucketName?: string;
   Schedule?: UsageReportSchedule;
@@ -895,39 +1175,32 @@ export interface CreateUserRequest {
   LastName?: string;
   AuthenticationType: AuthenticationType;
 }
-export interface CreateUserResult {
-}
+export interface CreateUserResult {}
 export interface DeleteAppBlockBuilderRequest {
   Name: string;
 }
-export interface DeleteAppBlockBuilderResult {
-}
+export interface DeleteAppBlockBuilderResult {}
 export interface DeleteAppBlockRequest {
   Name: string;
 }
-export interface DeleteAppBlockResult {
-}
+export interface DeleteAppBlockResult {}
 export interface DeleteApplicationRequest {
   Name: string;
 }
-export interface DeleteApplicationResult {
-}
+export interface DeleteApplicationResult {}
 export interface DeleteDirectoryConfigRequest {
   DirectoryName: string;
 }
-export interface DeleteDirectoryConfigResult {
-}
+export interface DeleteDirectoryConfigResult {}
 export interface DeleteEntitlementRequest {
   Name: string;
   StackName: string;
 }
-export interface DeleteEntitlementResult {
-}
+export interface DeleteEntitlementResult {}
 export interface DeleteFleetRequest {
   Name: string;
 }
-export interface DeleteFleetResult {
-}
+export interface DeleteFleetResult {}
 export interface DeleteImageBuilderRequest {
   Name: string;
 }
@@ -938,8 +1211,7 @@ export interface DeleteImagePermissionsRequest {
   Name: string;
   SharedAccountId: string;
 }
-export interface DeleteImagePermissionsResult {
-}
+export interface DeleteImagePermissionsResult {}
 export interface DeleteImageRequest {
   Name: string;
 }
@@ -949,23 +1221,18 @@ export interface DeleteImageResult {
 export interface DeleteStackRequest {
   Name: string;
 }
-export interface DeleteStackResult {
-}
+export interface DeleteStackResult {}
 export interface DeleteThemeForStackRequest {
   StackName: string;
 }
-export interface DeleteThemeForStackResult {
-}
-export interface DeleteUsageReportSubscriptionRequest {
-}
-export interface DeleteUsageReportSubscriptionResult {
-}
+export interface DeleteThemeForStackResult {}
+export interface DeleteUsageReportSubscriptionRequest {}
+export interface DeleteUsageReportSubscriptionResult {}
 export interface DeleteUserRequest {
   UserName: string;
   AuthenticationType: AuthenticationType;
 }
-export interface DeleteUserResult {
-}
+export interface DeleteUserResult {}
 export interface DescribeAppBlockBuilderAppBlockAssociationsRequest {
   AppBlockArn?: string;
   AppBlockBuilderName?: string;
@@ -1164,39 +1431,33 @@ export interface DisableUserRequest {
   UserName: string;
   AuthenticationType: AuthenticationType;
 }
-export interface DisableUserResult {
-}
+export interface DisableUserResult {}
 export interface DisassociateAppBlockBuilderAppBlockRequest {
   AppBlockArn: string;
   AppBlockBuilderName: string;
 }
-export interface DisassociateAppBlockBuilderAppBlockResult {
-}
+export interface DisassociateAppBlockBuilderAppBlockResult {}
 export interface DisassociateApplicationFleetRequest {
   FleetName: string;
   ApplicationArn: string;
 }
-export interface DisassociateApplicationFleetResult {
-}
+export interface DisassociateApplicationFleetResult {}
 export interface DisassociateApplicationFromEntitlementRequest {
   StackName: string;
   EntitlementName: string;
   ApplicationIdentifier: string;
 }
-export interface DisassociateApplicationFromEntitlementResult {
-}
+export interface DisassociateApplicationFromEntitlementResult {}
 export interface DisassociateFleetRequest {
   FleetName: string;
   StackName: string;
 }
-export interface DisassociateFleetResult {
-}
+export interface DisassociateFleetResult {}
 export interface DisassociateSoftwareFromImageBuilderRequest {
   ImageBuilderName: string;
   SoftwareNames: Array<string>;
 }
-export interface DisassociateSoftwareFromImageBuilderResult {
-}
+export interface DisassociateSoftwareFromImageBuilderResult {}
 export type DisplayName = string;
 
 export type Domain = string;
@@ -1214,8 +1475,7 @@ export interface EnableUserRequest {
   UserName: string;
   AuthenticationType: AuthenticationType;
 }
-export interface EnableUserResult {
-}
+export interface EnableUserResult {}
 export interface EntitledApplication {
   ApplicationIdentifier: string;
 }
@@ -1255,8 +1515,7 @@ export type ErrorMessage = string;
 export interface ExpireSessionRequest {
   SessionId: string;
 }
-export interface ExpireSessionResult {
-}
+export interface ExpireSessionResult {}
 export type FeedbackURL = string;
 
 export interface Fleet {
@@ -1286,13 +1545,50 @@ export interface Fleet {
   SessionScriptS3Location?: S3Location;
   MaxSessionsPerInstance?: number;
 }
-export type FleetAttribute = "VPC_CONFIGURATION" | "VPC_CONFIGURATION_SECURITY_GROUP_IDS" | "DOMAIN_JOIN_INFO" | "IAM_ROLE_ARN" | "USB_DEVICE_FILTER_STRINGS" | "SESSION_SCRIPT_S3_LOCATION" | "MAX_SESSIONS_PER_INSTANCE";
+export type FleetAttribute =
+  | "VPC_CONFIGURATION"
+  | "VPC_CONFIGURATION_SECURITY_GROUP_IDS"
+  | "DOMAIN_JOIN_INFO"
+  | "IAM_ROLE_ARN"
+  | "USB_DEVICE_FILTER_STRINGS"
+  | "SESSION_SCRIPT_S3_LOCATION"
+  | "MAX_SESSIONS_PER_INSTANCE";
 export type FleetAttributes = Array<FleetAttribute>;
 export interface FleetError {
   ErrorCode?: FleetErrorCode;
   ErrorMessage?: string;
 }
-export type FleetErrorCode = "IAM_SERVICE_ROLE_MISSING_ENI_DESCRIBE_ACTION" | "IAM_SERVICE_ROLE_MISSING_ENI_CREATE_ACTION" | "IAM_SERVICE_ROLE_MISSING_ENI_DELETE_ACTION" | "NETWORK_INTERFACE_LIMIT_EXCEEDED" | "INTERNAL_SERVICE_ERROR" | "IAM_SERVICE_ROLE_IS_MISSING" | "MACHINE_ROLE_IS_MISSING" | "STS_DISABLED_IN_REGION" | "SUBNET_HAS_INSUFFICIENT_IP_ADDRESSES" | "IAM_SERVICE_ROLE_MISSING_DESCRIBE_SUBNET_ACTION" | "SUBNET_NOT_FOUND" | "IMAGE_NOT_FOUND" | "INVALID_SUBNET_CONFIGURATION" | "SECURITY_GROUPS_NOT_FOUND" | "IGW_NOT_ATTACHED" | "IAM_SERVICE_ROLE_MISSING_DESCRIBE_SECURITY_GROUPS_ACTION" | "FLEET_STOPPED" | "FLEET_INSTANCE_PROVISIONING_FAILURE" | "DOMAIN_JOIN_ERROR_FILE_NOT_FOUND" | "DOMAIN_JOIN_ERROR_ACCESS_DENIED" | "DOMAIN_JOIN_ERROR_LOGON_FAILURE" | "DOMAIN_JOIN_ERROR_INVALID_PARAMETER" | "DOMAIN_JOIN_ERROR_MORE_DATA" | "DOMAIN_JOIN_ERROR_NO_SUCH_DOMAIN" | "DOMAIN_JOIN_ERROR_NOT_SUPPORTED" | "DOMAIN_JOIN_NERR_INVALID_WORKGROUP_NAME" | "DOMAIN_JOIN_NERR_WORKSTATION_NOT_STARTED" | "DOMAIN_JOIN_ERROR_DS_MACHINE_ACCOUNT_QUOTA_EXCEEDED" | "DOMAIN_JOIN_NERR_PASSWORD_EXPIRED" | "DOMAIN_JOIN_INTERNAL_SERVICE_ERROR";
+export type FleetErrorCode =
+  | "IAM_SERVICE_ROLE_MISSING_ENI_DESCRIBE_ACTION"
+  | "IAM_SERVICE_ROLE_MISSING_ENI_CREATE_ACTION"
+  | "IAM_SERVICE_ROLE_MISSING_ENI_DELETE_ACTION"
+  | "NETWORK_INTERFACE_LIMIT_EXCEEDED"
+  | "INTERNAL_SERVICE_ERROR"
+  | "IAM_SERVICE_ROLE_IS_MISSING"
+  | "MACHINE_ROLE_IS_MISSING"
+  | "STS_DISABLED_IN_REGION"
+  | "SUBNET_HAS_INSUFFICIENT_IP_ADDRESSES"
+  | "IAM_SERVICE_ROLE_MISSING_DESCRIBE_SUBNET_ACTION"
+  | "SUBNET_NOT_FOUND"
+  | "IMAGE_NOT_FOUND"
+  | "INVALID_SUBNET_CONFIGURATION"
+  | "SECURITY_GROUPS_NOT_FOUND"
+  | "IGW_NOT_ATTACHED"
+  | "IAM_SERVICE_ROLE_MISSING_DESCRIBE_SECURITY_GROUPS_ACTION"
+  | "FLEET_STOPPED"
+  | "FLEET_INSTANCE_PROVISIONING_FAILURE"
+  | "DOMAIN_JOIN_ERROR_FILE_NOT_FOUND"
+  | "DOMAIN_JOIN_ERROR_ACCESS_DENIED"
+  | "DOMAIN_JOIN_ERROR_LOGON_FAILURE"
+  | "DOMAIN_JOIN_ERROR_INVALID_PARAMETER"
+  | "DOMAIN_JOIN_ERROR_MORE_DATA"
+  | "DOMAIN_JOIN_ERROR_NO_SUCH_DOMAIN"
+  | "DOMAIN_JOIN_ERROR_NOT_SUPPORTED"
+  | "DOMAIN_JOIN_NERR_INVALID_WORKGROUP_NAME"
+  | "DOMAIN_JOIN_NERR_WORKSTATION_NOT_STARTED"
+  | "DOMAIN_JOIN_ERROR_DS_MACHINE_ACCOUNT_QUOTA_EXCEEDED"
+  | "DOMAIN_JOIN_NERR_PASSWORD_EXPIRED"
+  | "DOMAIN_JOIN_INTERNAL_SERVICE_ERROR";
 export type FleetErrors = Array<FleetError>;
 export type FleetList = Array<Fleet>;
 export type FleetState = "STARTING" | "RUNNING" | "STOPPING" | "STOPPED";
@@ -1343,24 +1639,49 @@ export interface ImageBuilder {
   LatestAppstreamAgentVersion?: LatestAppstreamAgentVersion;
 }
 export type ImageBuilderList = Array<ImageBuilder>;
-export type ImageBuilderState = "PENDING" | "UPDATING_AGENT" | "RUNNING" | "STOPPING" | "STOPPED" | "REBOOTING" | "SNAPSHOTTING" | "DELETING" | "FAILED" | "UPDATING" | "PENDING_QUALIFICATION" | "PENDING_SYNCING_APPS" | "SYNCING_APPS";
+export type ImageBuilderState =
+  | "PENDING"
+  | "UPDATING_AGENT"
+  | "RUNNING"
+  | "STOPPING"
+  | "STOPPED"
+  | "REBOOTING"
+  | "SNAPSHOTTING"
+  | "DELETING"
+  | "FAILED"
+  | "UPDATING"
+  | "PENDING_QUALIFICATION"
+  | "PENDING_SYNCING_APPS"
+  | "SYNCING_APPS";
 export interface ImageBuilderStateChangeReason {
   Code?: ImageBuilderStateChangeReasonCode;
   Message?: string;
 }
-export type ImageBuilderStateChangeReasonCode = "INTERNAL_ERROR" | "IMAGE_UNAVAILABLE";
+export type ImageBuilderStateChangeReasonCode =
+  | "INTERNAL_ERROR"
+  | "IMAGE_UNAVAILABLE";
 export type ImageList = Array<Image>;
 export interface ImagePermissions {
   allowFleet?: boolean;
   allowImageBuilder?: boolean;
 }
 export type ImageSharedWithOthers = "TRUE" | "FALSE";
-export type ImageState = "PENDING" | "AVAILABLE" | "FAILED" | "COPYING" | "DELETING" | "CREATING" | "IMPORTING";
+export type ImageState =
+  | "PENDING"
+  | "AVAILABLE"
+  | "FAILED"
+  | "COPYING"
+  | "DELETING"
+  | "CREATING"
+  | "IMPORTING";
 export interface ImageStateChangeReason {
   Code?: ImageStateChangeReasonCode;
   Message?: string;
 }
-export type ImageStateChangeReasonCode = "INTERNAL_ERROR" | "IMAGE_BUILDER_NOT_AVAILABLE" | "IMAGE_COPY_FAILURE";
+export type ImageStateChangeReasonCode =
+  | "INTERNAL_ERROR"
+  | "IMAGE_BUILDER_NOT_AVAILABLE"
+  | "IMAGE_COPY_FAILURE";
 export declare class IncompatibleImageException extends EffectData.TaggedError(
   "IncompatibleImageException",
 )<{
@@ -1387,7 +1708,8 @@ export interface LastReportGenerationExecutionError {
   ErrorCode?: UsageReportExecutionErrorCode;
   ErrorMessage?: string;
 }
-export type LastReportGenerationExecutionErrors = Array<LastReportGenerationExecutionError>;
+export type LastReportGenerationExecutionErrors =
+  Array<LastReportGenerationExecutionError>;
 export type LatestAppstreamAgentVersion = "TRUE" | "FALSE";
 export declare class LimitExceededException extends EffectData.TaggedError(
   "LimitExceededException",
@@ -1449,7 +1771,14 @@ export type OrganizationalUnitDistinguishedNamesList = Array<string>;
 export type PackagingType = "CUSTOM" | "APPSTREAM2";
 export type Permission = "ENABLED" | "DISABLED";
 export type Platforms = Array<PlatformType>;
-export type PlatformType = "WINDOWS" | "WINDOWS_SERVER_2016" | "WINDOWS_SERVER_2019" | "WINDOWS_SERVER_2022" | "AMAZON_LINUX2" | "RHEL8" | "ROCKY_LINUX8";
+export type PlatformType =
+  | "WINDOWS"
+  | "WINDOWS_SERVER_2016"
+  | "WINDOWS_SERVER_2019"
+  | "WINDOWS_SERVER_2022"
+  | "AMAZON_LINUX2"
+  | "RHEL8"
+  | "ROCKY_LINUX8";
 export type PreferredProtocol = "TCP" | "UDP";
 export type RedirectURL = string;
 
@@ -1536,7 +1865,14 @@ export interface SoftwareAssociations {
   DeploymentError?: Array<ErrorDetails>;
 }
 export type SoftwareAssociationsList = Array<SoftwareAssociations>;
-export type SoftwareDeploymentStatus = "STAGED_FOR_INSTALLATION" | "PENDING_INSTALLATION" | "INSTALLED" | "STAGED_FOR_UNINSTALLATION" | "PENDING_UNINSTALLATION" | "FAILED_TO_INSTALL" | "FAILED_TO_UNINSTALL";
+export type SoftwareDeploymentStatus =
+  | "STAGED_FOR_INSTALLATION"
+  | "PENDING_INSTALLATION"
+  | "INSTALLED"
+  | "STAGED_FOR_UNINSTALLATION"
+  | "PENDING_UNINSTALLATION"
+  | "FAILED_TO_INSTALL"
+  | "FAILED_TO_UNINSTALL";
 export interface Stack {
   Arn?: string;
   Name: string;
@@ -1553,13 +1889,27 @@ export interface Stack {
   EmbedHostDomains?: Array<string>;
   StreamingExperienceSettings?: StreamingExperienceSettings;
 }
-export type StackAttribute = "STORAGE_CONNECTORS" | "STORAGE_CONNECTOR_HOMEFOLDERS" | "STORAGE_CONNECTOR_GOOGLE_DRIVE" | "STORAGE_CONNECTOR_ONE_DRIVE" | "REDIRECT_URL" | "FEEDBACK_URL" | "THEME_NAME" | "USER_SETTINGS" | "EMBED_HOST_DOMAINS" | "IAM_ROLE_ARN" | "ACCESS_ENDPOINTS" | "STREAMING_EXPERIENCE_SETTINGS";
+export type StackAttribute =
+  | "STORAGE_CONNECTORS"
+  | "STORAGE_CONNECTOR_HOMEFOLDERS"
+  | "STORAGE_CONNECTOR_GOOGLE_DRIVE"
+  | "STORAGE_CONNECTOR_ONE_DRIVE"
+  | "REDIRECT_URL"
+  | "FEEDBACK_URL"
+  | "THEME_NAME"
+  | "USER_SETTINGS"
+  | "EMBED_HOST_DOMAINS"
+  | "IAM_ROLE_ARN"
+  | "ACCESS_ENDPOINTS"
+  | "STREAMING_EXPERIENCE_SETTINGS";
 export type StackAttributes = Array<StackAttribute>;
 export interface StackError {
   ErrorCode?: StackErrorCode;
   ErrorMessage?: string;
 }
-export type StackErrorCode = "STORAGE_CONNECTOR_ERROR" | "INTERNAL_SERVICE_ERROR";
+export type StackErrorCode =
+  | "STORAGE_CONNECTOR_ERROR"
+  | "INTERNAL_SERVICE_ERROR";
 export type StackErrors = Array<StackError>;
 export type StackList = Array<Stack>;
 export interface StartAppBlockBuilderRequest {
@@ -1571,8 +1921,7 @@ export interface StartAppBlockBuilderResult {
 export interface StartFleetRequest {
   Name: string;
 }
-export interface StartFleetResult {
-}
+export interface StartFleetResult {}
 export interface StartImageBuilderRequest {
   Name: string;
   AppstreamAgentVersion?: string;
@@ -1584,8 +1933,7 @@ export interface StartSoftwareDeploymentToImageBuilderRequest {
   ImageBuilderName: string;
   RetryFailedDeployments?: boolean;
 }
-export interface StartSoftwareDeploymentToImageBuilderResult {
-}
+export interface StartSoftwareDeploymentToImageBuilderResult {}
 export interface StopAppBlockBuilderRequest {
   Name: string;
 }
@@ -1595,8 +1943,7 @@ export interface StopAppBlockBuilderResult {
 export interface StopFleetRequest {
   Name: string;
 }
-export interface StopFleetResult {
-}
+export interface StopFleetResult {}
 export interface StopImageBuilderRequest {
   Name: string;
 }
@@ -1628,8 +1975,7 @@ export interface TagResourceRequest {
   ResourceArn: string;
   Tags: Record<string, string>;
 }
-export interface TagResourceResponse {
-}
+export interface TagResourceResponse {}
 export type Tags = Record<string, string>;
 export type TagValue = string;
 
@@ -1664,8 +2010,7 @@ export interface UntagResourceRequest {
   ResourceArn: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {
-}
+export interface UntagResourceResponse {}
 export interface UpdateAppBlockBuilderRequest {
   Name: string;
   Description?: string;
@@ -1746,8 +2091,7 @@ export interface UpdateImagePermissionsRequest {
   SharedAccountId: string;
   ImagePermissions: ImagePermissions;
 }
-export interface UpdateImagePermissionsResult {
-}
+export interface UpdateImagePermissionsResult {}
 export interface UpdateStackRequest {
   DisplayName?: string;
   Description?: string;
@@ -1779,7 +2123,10 @@ export interface UpdateThemeForStackRequest {
 export interface UpdateThemeForStackResult {
   Theme?: Theme;
 }
-export type UsageReportExecutionErrorCode = "RESOURCE_NOT_FOUND" | "ACCESS_DENIED" | "INTERNAL_SERVICE_ERROR";
+export type UsageReportExecutionErrorCode =
+  | "RESOURCE_NOT_FOUND"
+  | "ACCESS_DENIED"
+  | "INTERNAL_SERVICE_ERROR";
 export type UsageReportSchedule = "DAILY";
 export interface UsageReportSubscription {
   S3BucketName?: string;
@@ -1825,7 +2172,11 @@ export interface UserStackAssociationError {
   ErrorCode?: UserStackAssociationErrorCode;
   ErrorMessage?: string;
 }
-export type UserStackAssociationErrorCode = "STACK_NOT_FOUND" | "USER_NAME_NOT_FOUND" | "DIRECTORY_NOT_FOUND" | "INTERNAL_ERROR";
+export type UserStackAssociationErrorCode =
+  | "STACK_NOT_FOUND"
+  | "USER_NAME_NOT_FOUND"
+  | "DIRECTORY_NOT_FOUND"
+  | "INTERNAL_ERROR";
 export type UserStackAssociationErrorList = Array<UserStackAssociationError>;
 export type UserStackAssociationList = Array<UserStackAssociation>;
 export type VisibilityType = "PUBLIC" | "PRIVATE" | "SHARED";
@@ -2242,9 +2593,7 @@ export declare namespace DeleteUsageReportSubscription {
 export declare namespace DeleteUser {
   export type Input = DeleteUserRequest;
   export type Output = DeleteUserResult;
-  export type Error =
-    | ResourceNotFoundException
-    | CommonAwsError;
+  export type Error = ResourceNotFoundException | CommonAwsError;
 }
 
 export declare namespace DescribeAppBlockBuilderAppBlockAssociations {
@@ -2305,9 +2654,7 @@ export declare namespace DescribeAppLicenseUsage {
 export declare namespace DescribeDirectoryConfigs {
   export type Input = DescribeDirectoryConfigsRequest;
   export type Output = DescribeDirectoryConfigsResult;
-  export type Error =
-    | ResourceNotFoundException
-    | CommonAwsError;
+  export type Error = ResourceNotFoundException | CommonAwsError;
 }
 
 export declare namespace DescribeEntitlements {
@@ -2323,25 +2670,19 @@ export declare namespace DescribeEntitlements {
 export declare namespace DescribeFleets {
   export type Input = DescribeFleetsRequest;
   export type Output = DescribeFleetsResult;
-  export type Error =
-    | ResourceNotFoundException
-    | CommonAwsError;
+  export type Error = ResourceNotFoundException | CommonAwsError;
 }
 
 export declare namespace DescribeImageBuilders {
   export type Input = DescribeImageBuildersRequest;
   export type Output = DescribeImageBuildersResult;
-  export type Error =
-    | ResourceNotFoundException
-    | CommonAwsError;
+  export type Error = ResourceNotFoundException | CommonAwsError;
 }
 
 export declare namespace DescribeImagePermissions {
   export type Input = DescribeImagePermissionsRequest;
   export type Output = DescribeImagePermissionsResult;
-  export type Error =
-    | ResourceNotFoundException
-    | CommonAwsError;
+  export type Error = ResourceNotFoundException | CommonAwsError;
 }
 
 export declare namespace DescribeImages {
@@ -2356,9 +2697,7 @@ export declare namespace DescribeImages {
 export declare namespace DescribeSessions {
   export type Input = DescribeSessionsRequest;
   export type Output = DescribeSessionsResult;
-  export type Error =
-    | InvalidParameterCombinationException
-    | CommonAwsError;
+  export type Error = InvalidParameterCombinationException | CommonAwsError;
 }
 
 export declare namespace DescribeSoftwareAssociations {
@@ -2373,9 +2712,7 @@ export declare namespace DescribeSoftwareAssociations {
 export declare namespace DescribeStacks {
   export type Input = DescribeStacksRequest;
   export type Output = DescribeStacksResult;
-  export type Error =
-    | ResourceNotFoundException
-    | CommonAwsError;
+  export type Error = ResourceNotFoundException | CommonAwsError;
 }
 
 export declare namespace DescribeThemeForStack {
@@ -2418,9 +2755,7 @@ export declare namespace DescribeUserStackAssociations {
 export declare namespace DisableUser {
   export type Input = DisableUserRequest;
   export type Output = DisableUserResult;
-  export type Error =
-    | ResourceNotFoundException
-    | CommonAwsError;
+  export type Error = ResourceNotFoundException | CommonAwsError;
 }
 
 export declare namespace DisassociateAppBlockBuilderAppBlock {
@@ -2488,22 +2823,19 @@ export declare namespace EnableUser {
 export declare namespace ExpireSession {
   export type Input = ExpireSessionRequest;
   export type Output = ExpireSessionResult;
-  export type Error =
-    | CommonAwsError;
+  export type Error = CommonAwsError;
 }
 
 export declare namespace ListAssociatedFleets {
   export type Input = ListAssociatedFleetsRequest;
   export type Output = ListAssociatedFleetsResult;
-  export type Error =
-    | CommonAwsError;
+  export type Error = CommonAwsError;
 }
 
 export declare namespace ListAssociatedStacks {
   export type Input = ListAssociatedStacksRequest;
   export type Output = ListAssociatedStacksResult;
-  export type Error =
-    | CommonAwsError;
+  export type Error = CommonAwsError;
 }
 
 export declare namespace ListEntitledApplications {
@@ -2519,9 +2851,7 @@ export declare namespace ListEntitledApplications {
 export declare namespace ListTagsForResource {
   export type Input = ListTagsForResourceRequest;
   export type Output = ListTagsForResourceResponse;
-  export type Error =
-    | ResourceNotFoundException
-    | CommonAwsError;
+  export type Error = ResourceNotFoundException | CommonAwsError;
 }
 
 export declare namespace StartAppBlockBuilder {
@@ -2617,9 +2947,7 @@ export declare namespace TagResource {
 export declare namespace UntagResource {
   export type Input = UntagResourceRequest;
   export type Output = UntagResourceResponse;
-  export type Error =
-    | ResourceNotFoundException
-    | CommonAwsError;
+  export type Error = ResourceNotFoundException | CommonAwsError;
 }
 
 export declare namespace UpdateAppBlockBuilder {
@@ -2730,5 +3058,19 @@ export declare namespace UpdateThemeForStack {
     | CommonAwsError;
 }
 
-export type AppStreamErrors = ConcurrentModificationException | EntitlementAlreadyExistsException | EntitlementNotFoundException | IncompatibleImageException | InvalidAccountStatusException | InvalidParameterCombinationException | InvalidRoleException | LimitExceededException | OperationNotPermittedException | RequestLimitExceededException | ResourceAlreadyExistsException | ResourceInUseException | ResourceNotAvailableException | ResourceNotFoundException | CommonAwsError;
-
+export type AppStreamErrors =
+  | ConcurrentModificationException
+  | EntitlementAlreadyExistsException
+  | EntitlementNotFoundException
+  | IncompatibleImageException
+  | InvalidAccountStatusException
+  | InvalidParameterCombinationException
+  | InvalidRoleException
+  | LimitExceededException
+  | OperationNotPermittedException
+  | RequestLimitExceededException
+  | ResourceAlreadyExistsException
+  | ResourceInUseException
+  | ResourceNotAvailableException
+  | ResourceNotFoundException
+  | CommonAwsError;

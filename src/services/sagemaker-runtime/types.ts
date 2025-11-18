@@ -1,8 +1,40 @@
 import type { Effect, Stream, Data as EffectData } from "effect";
 import type { ResponseError } from "@effect/platform/HttpClientError";
 import type { Buffer } from "node:buffer";
-import type { AccessDeniedException, ExpiredTokenException, IncompleteSignature, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationException } from "../../error.ts";
-type CommonAwsError = AccessDeniedException | ExpiredTokenException | IncompleteSignature | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ThrottlingException | UnrecognizedClientException | UnknownOperationException | ValidationException | InternalFailure | ServiceUnavailable | ValidationError;
+import type {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationException,
+} from "../../error.ts";
+type CommonAwsError =
+  | AccessDeniedException
+  | ExpiredTokenException
+  | IncompleteSignature
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ThrottlingException
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationException
+  | InternalFailure
+  | ServiceUnavailable
+  | ValidationError;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class SageMakerRuntime extends AWSServiceClient {
@@ -10,7 +42,13 @@ export declare class SageMakerRuntime extends AWSServiceClient {
     input: InvokeEndpointInput,
   ): Effect.Effect<
     InvokeEndpointOutput,
-    InternalDependencyException | InternalFailure | ModelError | ModelNotReadyException | ServiceUnavailable | ValidationError | CommonAwsError
+    | InternalDependencyException
+    | InternalFailure
+    | ModelError
+    | ModelNotReadyException
+    | ServiceUnavailable
+    | ValidationError
+    | CommonAwsError
   >;
   invokeEndpointAsync(
     input: InvokeEndpointAsyncInput,
@@ -22,7 +60,13 @@ export declare class SageMakerRuntime extends AWSServiceClient {
     input: InvokeEndpointWithResponseStreamInput,
   ): Effect.Effect<
     InvokeEndpointWithResponseStreamOutput,
-    InternalFailure | InternalStreamFailure | ModelError | ModelStreamError | ServiceUnavailable | ValidationError | CommonAwsError
+    | InternalFailure
+    | InternalStreamFailure
+    | ModelError
+    | ModelStreamError
+    | ServiceUnavailable
+    | ValidationError
+    | CommonAwsError
   >;
 }
 
@@ -122,9 +166,7 @@ export type LogStreamArn = string;
 
 export type Message = string;
 
-export declare class ModelError extends EffectData.TaggedError(
-  "ModelError",
-)<{
+export declare class ModelError extends EffectData.TaggedError("ModelError")<{
   readonly Message?: string;
   readonly OriginalStatusCode?: number;
   readonly OriginalMessage?: string;
@@ -156,7 +198,10 @@ interface _ResponseStream {
   InternalStreamFailure?: InternalStreamFailure;
 }
 
-export type ResponseStream = (_ResponseStream & { PayloadPart: PayloadPart }) | (_ResponseStream & { ModelStreamError: ModelStreamError }) | (_ResponseStream & { InternalStreamFailure: InternalStreamFailure });
+export type ResponseStream =
+  | (_ResponseStream & { PayloadPart: PayloadPart })
+  | (_ResponseStream & { ModelStreamError: ModelStreamError })
+  | (_ResponseStream & { InternalStreamFailure: InternalStreamFailure });
 export declare class ServiceUnavailable extends EffectData.TaggedError(
   "ServiceUnavailable",
 )<{
@@ -215,5 +260,13 @@ export declare namespace InvokeEndpointWithResponseStream {
     | CommonAwsError;
 }
 
-export type SageMakerRuntimeErrors = InternalDependencyException | InternalFailure | InternalStreamFailure | ModelError | ModelNotReadyException | ModelStreamError | ServiceUnavailable | ValidationError | CommonAwsError;
-
+export type SageMakerRuntimeErrors =
+  | InternalDependencyException
+  | InternalFailure
+  | InternalStreamFailure
+  | ModelError
+  | ModelNotReadyException
+  | ModelStreamError
+  | ServiceUnavailable
+  | ValidationError
+  | CommonAwsError;

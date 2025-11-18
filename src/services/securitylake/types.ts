@@ -1,6 +1,39 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException } from "../../error.ts";
-type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | ValidationException | AccessDeniedException | ThrottlingException;
+import type {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  ValidationException,
+} from "../../error.ts";
+type CommonAwsError =
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | ValidationException
+  | AccessDeniedException
+  | ThrottlingException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class SecurityLake extends AWSServiceClient {
@@ -8,187 +41,373 @@ export declare class SecurityLake extends AWSServiceClient {
     input: CreateDataLakeExceptionSubscriptionRequest,
   ): Effect.Effect<
     CreateDataLakeExceptionSubscriptionResponse,
-    AccessDeniedException | BadRequestException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | AccessDeniedException
+    | BadRequestException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   deleteDataLakeExceptionSubscription(
     input: DeleteDataLakeExceptionSubscriptionRequest,
   ): Effect.Effect<
     DeleteDataLakeExceptionSubscriptionResponse,
-    AccessDeniedException | BadRequestException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | AccessDeniedException
+    | BadRequestException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   deregisterDataLakeDelegatedAdministrator(
     input: DeregisterDataLakeDelegatedAdministratorRequest,
   ): Effect.Effect<
     DeregisterDataLakeDelegatedAdministratorResponse,
-    AccessDeniedException | BadRequestException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | AccessDeniedException
+    | BadRequestException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   getDataLakeExceptionSubscription(
     input: GetDataLakeExceptionSubscriptionRequest,
   ): Effect.Effect<
     GetDataLakeExceptionSubscriptionResponse,
-    AccessDeniedException | BadRequestException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | AccessDeniedException
+    | BadRequestException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   listDataLakeExceptions(
     input: ListDataLakeExceptionsRequest,
   ): Effect.Effect<
     ListDataLakeExceptionsResponse,
-    AccessDeniedException | BadRequestException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | AccessDeniedException
+    | BadRequestException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    AccessDeniedException | BadRequestException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | AccessDeniedException
+    | BadRequestException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   registerDataLakeDelegatedAdministrator(
     input: RegisterDataLakeDelegatedAdministratorRequest,
   ): Effect.Effect<
     RegisterDataLakeDelegatedAdministratorResponse,
-    AccessDeniedException | BadRequestException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | AccessDeniedException
+    | BadRequestException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    AccessDeniedException | BadRequestException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | AccessDeniedException
+    | BadRequestException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    AccessDeniedException | BadRequestException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | AccessDeniedException
+    | BadRequestException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   updateDataLakeExceptionSubscription(
     input: UpdateDataLakeExceptionSubscriptionRequest,
   ): Effect.Effect<
     UpdateDataLakeExceptionSubscriptionResponse,
-    AccessDeniedException | BadRequestException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | AccessDeniedException
+    | BadRequestException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   createAwsLogSource(
     input: CreateAwsLogSourceRequest,
   ): Effect.Effect<
     CreateAwsLogSourceResponse,
-    AccessDeniedException | BadRequestException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | AccessDeniedException
+    | BadRequestException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   createCustomLogSource(
     input: CreateCustomLogSourceRequest,
   ): Effect.Effect<
     CreateCustomLogSourceResponse,
-    AccessDeniedException | BadRequestException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | AccessDeniedException
+    | BadRequestException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   createDataLake(
     input: CreateDataLakeRequest,
   ): Effect.Effect<
     CreateDataLakeResponse,
-    AccessDeniedException | BadRequestException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | AccessDeniedException
+    | BadRequestException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   createDataLakeOrganizationConfiguration(
     input: CreateDataLakeOrganizationConfigurationRequest,
   ): Effect.Effect<
     CreateDataLakeOrganizationConfigurationResponse,
-    AccessDeniedException | BadRequestException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | AccessDeniedException
+    | BadRequestException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   createSubscriber(
     input: CreateSubscriberRequest,
   ): Effect.Effect<
     CreateSubscriberResponse,
-    AccessDeniedException | BadRequestException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | AccessDeniedException
+    | BadRequestException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   createSubscriberNotification(
     input: CreateSubscriberNotificationRequest,
   ): Effect.Effect<
     CreateSubscriberNotificationResponse,
-    AccessDeniedException | BadRequestException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | AccessDeniedException
+    | BadRequestException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   deleteAwsLogSource(
     input: DeleteAwsLogSourceRequest,
   ): Effect.Effect<
     DeleteAwsLogSourceResponse,
-    AccessDeniedException | BadRequestException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | AccessDeniedException
+    | BadRequestException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   deleteCustomLogSource(
     input: DeleteCustomLogSourceRequest,
   ): Effect.Effect<
     DeleteCustomLogSourceResponse,
-    AccessDeniedException | BadRequestException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | AccessDeniedException
+    | BadRequestException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   deleteDataLake(
     input: DeleteDataLakeRequest,
   ): Effect.Effect<
     DeleteDataLakeResponse,
-    AccessDeniedException | BadRequestException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | AccessDeniedException
+    | BadRequestException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   deleteDataLakeOrganizationConfiguration(
     input: DeleteDataLakeOrganizationConfigurationRequest,
   ): Effect.Effect<
     DeleteDataLakeOrganizationConfigurationResponse,
-    AccessDeniedException | BadRequestException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | AccessDeniedException
+    | BadRequestException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   deleteSubscriber(
     input: DeleteSubscriberRequest,
   ): Effect.Effect<
     DeleteSubscriberResponse,
-    AccessDeniedException | BadRequestException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | AccessDeniedException
+    | BadRequestException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   deleteSubscriberNotification(
     input: DeleteSubscriberNotificationRequest,
   ): Effect.Effect<
     DeleteSubscriberNotificationResponse,
-    AccessDeniedException | BadRequestException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | AccessDeniedException
+    | BadRequestException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   getDataLakeOrganizationConfiguration(
     input: GetDataLakeOrganizationConfigurationRequest,
   ): Effect.Effect<
     GetDataLakeOrganizationConfigurationResponse,
-    AccessDeniedException | BadRequestException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | AccessDeniedException
+    | BadRequestException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   getDataLakeSources(
     input: GetDataLakeSourcesRequest,
   ): Effect.Effect<
     GetDataLakeSourcesResponse,
-    AccessDeniedException | BadRequestException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | AccessDeniedException
+    | BadRequestException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   getSubscriber(
     input: GetSubscriberRequest,
   ): Effect.Effect<
     GetSubscriberResponse,
-    AccessDeniedException | BadRequestException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | AccessDeniedException
+    | BadRequestException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   listDataLakes(
     input: ListDataLakesRequest,
   ): Effect.Effect<
     ListDataLakesResponse,
-    AccessDeniedException | BadRequestException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | AccessDeniedException
+    | BadRequestException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   listLogSources(
     input: ListLogSourcesRequest,
   ): Effect.Effect<
     ListLogSourcesResponse,
-    AccessDeniedException | BadRequestException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | AccessDeniedException
+    | BadRequestException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   listSubscribers(
     input: ListSubscribersRequest,
   ): Effect.Effect<
     ListSubscribersResponse,
-    AccessDeniedException | BadRequestException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | AccessDeniedException
+    | BadRequestException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   updateDataLake(
     input: UpdateDataLakeRequest,
   ): Effect.Effect<
     UpdateDataLakeResponse,
-    AccessDeniedException | BadRequestException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | AccessDeniedException
+    | BadRequestException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   updateSubscriber(
     input: UpdateSubscriberRequest,
   ): Effect.Effect<
     UpdateSubscriberResponse,
-    AccessDeniedException | BadRequestException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | AccessDeniedException
+    | BadRequestException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   updateSubscriberNotification(
     input: UpdateSubscriberNotificationRequest,
   ): Effect.Effect<
     UpdateSubscriberNotificationResponse,
-    AccessDeniedException | BadRequestException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | AccessDeniedException
+    | BadRequestException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
 }
 
@@ -218,7 +437,15 @@ export interface AwsLogSourceConfiguration {
   sourceVersion?: string;
 }
 export type AwsLogSourceConfigurationList = Array<AwsLogSourceConfiguration>;
-export type AwsLogSourceName = "ROUTE53" | "VPC_FLOW" | "SH_FINDINGS" | "CLOUD_TRAIL_MGMT" | "LAMBDA_EXECUTION" | "S3_DATA" | "EKS_AUDIT" | "WAF";
+export type AwsLogSourceName =
+  | "ROUTE53"
+  | "VPC_FLOW"
+  | "SH_FINDINGS"
+  | "CLOUD_TRAIL_MGMT"
+  | "LAMBDA_EXECUTION"
+  | "S3_DATA"
+  | "EKS_AUDIT"
+  | "WAF";
 export interface AwsLogSourceResource {
   sourceName?: AwsLogSourceName;
   sourceVersion?: string;
@@ -260,13 +487,11 @@ export interface CreateDataLakeExceptionSubscriptionRequest {
   notificationEndpoint: string;
   exceptionTimeToLive?: number;
 }
-export interface CreateDataLakeExceptionSubscriptionResponse {
-}
+export interface CreateDataLakeExceptionSubscriptionResponse {}
 export interface CreateDataLakeOrganizationConfigurationRequest {
   autoEnableNewAccount?: Array<DataLakeAutoEnableNewAccountConfiguration>;
 }
-export interface CreateDataLakeOrganizationConfigurationResponse {
-}
+export interface CreateDataLakeOrganizationConfigurationResponse {}
 export interface CreateDataLakeRequest {
   configurations: Array<DataLakeConfiguration>;
   metaStoreManagerRoleArn: string;
@@ -323,7 +548,8 @@ export interface DataLakeAutoEnableNewAccountConfiguration {
   region: string;
   sources: Array<AwsLogSourceResource>;
 }
-export type DataLakeAutoEnableNewAccountConfigurationList = Array<DataLakeAutoEnableNewAccountConfiguration>;
+export type DataLakeAutoEnableNewAccountConfigurationList =
+  Array<DataLakeAutoEnableNewAccountConfiguration>;
 export interface DataLakeConfiguration {
   region: string;
   encryptionConfiguration?: DataLakeEncryptionConfiguration;
@@ -352,7 +578,8 @@ export interface DataLakeLifecycleTransition {
   storageClass?: string;
   days?: number;
 }
-export type DataLakeLifecycleTransitionList = Array<DataLakeLifecycleTransition>;
+export type DataLakeLifecycleTransitionList =
+  Array<DataLakeLifecycleTransition>;
 export interface DataLakeReplicationConfiguration {
   regions?: Array<string>;
   roleArn?: string;
@@ -402,49 +629,38 @@ export interface DeleteCustomLogSourceRequest {
   sourceName: string;
   sourceVersion?: string;
 }
-export interface DeleteCustomLogSourceResponse {
-}
-export interface DeleteDataLakeExceptionSubscriptionRequest {
-}
-export interface DeleteDataLakeExceptionSubscriptionResponse {
-}
+export interface DeleteCustomLogSourceResponse {}
+export interface DeleteDataLakeExceptionSubscriptionRequest {}
+export interface DeleteDataLakeExceptionSubscriptionResponse {}
 export interface DeleteDataLakeOrganizationConfigurationRequest {
   autoEnableNewAccount?: Array<DataLakeAutoEnableNewAccountConfiguration>;
 }
-export interface DeleteDataLakeOrganizationConfigurationResponse {
-}
+export interface DeleteDataLakeOrganizationConfigurationResponse {}
 export interface DeleteDataLakeRequest {
   regions: Array<string>;
 }
-export interface DeleteDataLakeResponse {
-}
+export interface DeleteDataLakeResponse {}
 export interface DeleteSubscriberNotificationRequest {
   subscriberId: string;
 }
-export interface DeleteSubscriberNotificationResponse {
-}
+export interface DeleteSubscriberNotificationResponse {}
 export interface DeleteSubscriberRequest {
   subscriberId: string;
 }
-export interface DeleteSubscriberResponse {
-}
-export interface DeregisterDataLakeDelegatedAdministratorRequest {
-}
-export interface DeregisterDataLakeDelegatedAdministratorResponse {
-}
+export interface DeleteSubscriberResponse {}
+export interface DeregisterDataLakeDelegatedAdministratorRequest {}
+export interface DeregisterDataLakeDelegatedAdministratorResponse {}
 export type DescriptionString = string;
 
 export type ExternalId = string;
 
-export interface GetDataLakeExceptionSubscriptionRequest {
-}
+export interface GetDataLakeExceptionSubscriptionRequest {}
 export interface GetDataLakeExceptionSubscriptionResponse {
   subscriptionProtocol?: string;
   notificationEndpoint?: string;
   exceptionTimeToLive?: number;
 }
-export interface GetDataLakeOrganizationConfigurationRequest {
-}
+export interface GetDataLakeOrganizationConfigurationRequest {}
 export interface GetDataLakeOrganizationConfigurationResponse {
   autoEnableNewAccount?: Array<DataLakeAutoEnableNewAccountConfiguration>;
 }
@@ -528,7 +744,9 @@ interface _LogSourceResource {
   customLogSource?: CustomLogSourceResource;
 }
 
-export type LogSourceResource = (_LogSourceResource & { awsLogSource: AwsLogSourceResource }) | (_LogSourceResource & { customLogSource: CustomLogSourceResource });
+export type LogSourceResource =
+  | (_LogSourceResource & { awsLogSource: AwsLogSourceResource })
+  | (_LogSourceResource & { customLogSource: CustomLogSourceResource });
 export type LogSourceResourceList = Array<LogSourceResource>;
 export type MaxResults = number;
 
@@ -539,7 +757,13 @@ interface _NotificationConfiguration {
   httpsNotificationConfiguration?: HttpsNotificationConfiguration;
 }
 
-export type NotificationConfiguration = (_NotificationConfiguration & { sqsNotificationConfiguration: SqsNotificationConfiguration }) | (_NotificationConfiguration & { httpsNotificationConfiguration: HttpsNotificationConfiguration });
+export type NotificationConfiguration =
+  | (_NotificationConfiguration & {
+      sqsNotificationConfiguration: SqsNotificationConfiguration;
+    })
+  | (_NotificationConfiguration & {
+      httpsNotificationConfiguration: HttpsNotificationConfiguration;
+    });
 export type OcsfEventClass = string;
 
 export type OcsfEventClassList = Array<string>;
@@ -549,8 +773,7 @@ export type RegionList = Array<string>;
 export interface RegisterDataLakeDelegatedAdministratorRequest {
   accountId: string;
 }
-export interface RegisterDataLakeDelegatedAdministratorResponse {
-}
+export interface RegisterDataLakeDelegatedAdministratorResponse {}
 export declare class ResourceNotFoundException extends EffectData.TaggedError(
   "ResourceNotFoundException",
 )<{
@@ -570,9 +793,11 @@ export type S3URI = string;
 
 export type SafeString = string;
 
-export type SourceCollectionStatus = "COLLECTING" | "MISCONFIGURED" | "NOT_COLLECTING";
-export interface SqsNotificationConfiguration {
-}
+export type SourceCollectionStatus =
+  | "COLLECTING"
+  | "MISCONFIGURED"
+  | "NOT_COLLECTING";
+export interface SqsNotificationConfiguration {}
 export interface SubscriberResource {
   subscriberId: string;
   subscriberArn: string;
@@ -606,8 +831,7 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Array<Tag>;
 }
-export interface TagResourceResponse {
-}
+export interface TagResourceResponse {}
 export type TagValue = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(
@@ -622,15 +846,13 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {
-}
+export interface UntagResourceResponse {}
 export interface UpdateDataLakeExceptionSubscriptionRequest {
   subscriptionProtocol: string;
   notificationEndpoint: string;
   exceptionTimeToLive?: number;
 }
-export interface UpdateDataLakeExceptionSubscriptionResponse {
-}
+export interface UpdateDataLakeExceptionSubscriptionResponse {}
 export interface UpdateDataLakeRequest {
   configurations: Array<DataLakeConfiguration>;
   metaStoreManagerRoleArn?: string;
@@ -1060,5 +1282,11 @@ export declare namespace UpdateSubscriberNotification {
     | CommonAwsError;
 }
 
-export type SecurityLakeErrors = AccessDeniedException | BadRequestException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | CommonAwsError;
-
+export type SecurityLakeErrors =
+  | AccessDeniedException
+  | BadRequestException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ThrottlingException
+  | CommonAwsError;

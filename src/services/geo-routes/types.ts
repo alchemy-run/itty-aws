@@ -1,6 +1,38 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
-type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
+import type {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+type CommonAwsError =
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | AccessDeniedException
+  | ThrottlingException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class GeoRoutes extends AWSServiceClient {
@@ -8,31 +40,51 @@ export declare class GeoRoutes extends AWSServiceClient {
     input: CalculateIsolinesRequest,
   ): Effect.Effect<
     CalculateIsolinesResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   calculateRouteMatrix(
     input: CalculateRouteMatrixRequest,
   ): Effect.Effect<
     CalculateRouteMatrixResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   calculateRoutes(
     input: CalculateRoutesRequest,
   ): Effect.Effect<
     CalculateRoutesResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   optimizeWaypoints(
     input: OptimizeWaypointsRequest,
   ): Effect.Effect<
     OptimizeWaypointsResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   snapToRoads(
     input: SnapToRoadsRequest,
   ): Effect.Effect<
     SnapToRoadsResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
 }
 
@@ -185,7 +237,8 @@ export interface IsolineAvoidanceAreaGeometry {
   PolylineCorridor?: PolylineCorridor;
   PolylinePolygon?: Array<string>;
 }
-export type IsolineAvoidanceAreaGeometryList = Array<IsolineAvoidanceAreaGeometry>;
+export type IsolineAvoidanceAreaGeometryList =
+  Array<IsolineAvoidanceAreaGeometry>;
 export type IsolineAvoidanceAreaList = Array<IsolineAvoidanceArea>;
 export interface IsolineAvoidanceOptions {
   Areas?: Array<IsolineAvoidanceArea>;
@@ -204,7 +257,8 @@ export interface IsolineAvoidanceOptions {
 export interface IsolineAvoidanceZoneCategory {
   Category?: string;
 }
-export type IsolineAvoidanceZoneCategoryList = Array<IsolineAvoidanceZoneCategory>;
+export type IsolineAvoidanceZoneCategoryList =
+  Array<IsolineAvoidanceZoneCategory>;
 export interface IsolineCarOptions {
   EngineType?: string;
   LicensePlate?: IsolineVehicleLicensePlate;
@@ -485,7 +539,8 @@ export interface RouteDriverScheduleInterval {
   DriveDuration: number;
   RestDuration: number;
 }
-export type RouteDriverScheduleIntervalList = Array<RouteDriverScheduleInterval>;
+export type RouteDriverScheduleIntervalList =
+  Array<RouteDriverScheduleInterval>;
 export interface RouteEmissionType {
   Co2EmissionClass?: string;
   Type: string;
@@ -663,7 +718,8 @@ export interface RouteMatrixAvoidanceOptions {
 export interface RouteMatrixAvoidanceZoneCategory {
   Category?: string;
 }
-export type RouteMatrixAvoidanceZoneCategoryList = Array<RouteMatrixAvoidanceZoneCategory>;
+export type RouteMatrixAvoidanceZoneCategoryList =
+  Array<RouteMatrixAvoidanceZoneCategory>;
 export interface RouteMatrixBoundary {
   Geometry?: RouteMatrixBoundaryGeometry;
   Unbounded?: boolean;
@@ -1359,7 +1415,8 @@ export interface WaypointOptimizationAvoidanceArea {
 export interface WaypointOptimizationAvoidanceAreaGeometry {
   BoundingBox?: Array<number>;
 }
-export type WaypointOptimizationAvoidanceAreaList = Array<WaypointOptimizationAvoidanceArea>;
+export type WaypointOptimizationAvoidanceAreaList =
+  Array<WaypointOptimizationAvoidanceArea>;
 export interface WaypointOptimizationAvoidanceOptions {
   Areas?: Array<WaypointOptimizationAvoidanceArea>;
   CarShuttleTrains?: boolean;
@@ -1384,7 +1441,8 @@ export interface WaypointOptimizationConnection {
   TravelDuration: number;
   WaitDuration: number;
 }
-export type WaypointOptimizationConnectionList = Array<WaypointOptimizationConnection>;
+export type WaypointOptimizationConnectionList =
+  Array<WaypointOptimizationConnection>;
 export type WaypointOptimizationConstraint = string;
 
 export interface WaypointOptimizationDestinationOptions {
@@ -1410,7 +1468,8 @@ export interface WaypointOptimizationFailedConstraint {
   Constraint?: string;
   Reason?: string;
 }
-export type WaypointOptimizationFailedConstraintList = Array<WaypointOptimizationFailedConstraint>;
+export type WaypointOptimizationFailedConstraintList =
+  Array<WaypointOptimizationFailedConstraint>;
 export type WaypointOptimizationHazardousCargoType = string;
 
 export type WaypointOptimizationHazardousCargoTypeList = Array<string>;
@@ -1419,7 +1478,8 @@ export interface WaypointOptimizationImpedingWaypoint {
   Id: string;
   Position: Array<number>;
 }
-export type WaypointOptimizationImpedingWaypointList = Array<WaypointOptimizationImpedingWaypoint>;
+export type WaypointOptimizationImpedingWaypointList =
+  Array<WaypointOptimizationImpedingWaypoint>;
 export interface WaypointOptimizationOptimizedWaypoint {
   ArrivalTime?: string;
   ClusterIndex?: number;
@@ -1427,7 +1487,8 @@ export interface WaypointOptimizationOptimizedWaypoint {
   Id: string;
   Position: Array<number>;
 }
-export type WaypointOptimizationOptimizedWaypointList = Array<WaypointOptimizationOptimizedWaypoint>;
+export type WaypointOptimizationOptimizedWaypointList =
+  Array<WaypointOptimizationOptimizedWaypoint>;
 export interface WaypointOptimizationOriginOptions {
   Id?: string;
 }
@@ -1494,7 +1555,8 @@ export interface WaypointOptimizationWaypoint {
   ServiceDuration?: number;
   SideOfStreet?: WaypointOptimizationSideOfStreetOptions;
 }
-export type WaypointOptimizationWaypointList = Array<WaypointOptimizationWaypoint>;
+export type WaypointOptimizationWaypointList =
+  Array<WaypointOptimizationWaypoint>;
 export type WeightKilograms = number;
 
 export interface WeightPerAxleGroup {
@@ -1559,5 +1621,9 @@ export declare namespace SnapToRoads {
     | CommonAwsError;
 }
 
-export type GeoRoutesErrors = AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError;
-
+export type GeoRoutesErrors =
+  | AccessDeniedException
+  | InternalServerException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

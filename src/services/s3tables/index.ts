@@ -5,7 +5,25 @@ import type { S3Tables as _S3TablesClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException, type CommonAwsError} from "../../error.ts";
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  ValidationException,
+  type CommonAwsError,
+} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -14,36 +32,45 @@ const metadata = {
   protocol: "restJson1",
   sigV4ServiceName: "s3tables",
   operations: {
-    "CreateNamespace": "PUT /namespaces/{tableBucketARN}",
-    "CreateTable": "PUT /tables/{tableBucketARN}/{namespace}",
-    "CreateTableBucket": "PUT /buckets",
-    "DeleteNamespace": "DELETE /namespaces/{tableBucketARN}/{namespace}",
-    "DeleteTable": "DELETE /tables/{tableBucketARN}/{namespace}/{name}",
-    "DeleteTableBucket": "DELETE /buckets/{tableBucketARN}",
-    "DeleteTableBucketEncryption": "DELETE /buckets/{tableBucketARN}/encryption",
-    "DeleteTableBucketPolicy": "DELETE /buckets/{tableBucketARN}/policy",
-    "DeleteTablePolicy": "DELETE /tables/{tableBucketARN}/{namespace}/{name}/policy",
-    "GetNamespace": "GET /namespaces/{tableBucketARN}/{namespace}",
-    "GetTable": "GET /get-table",
-    "GetTableBucket": "GET /buckets/{tableBucketARN}",
-    "GetTableBucketEncryption": "GET /buckets/{tableBucketARN}/encryption",
-    "GetTableBucketMaintenanceConfiguration": "GET /buckets/{tableBucketARN}/maintenance",
-    "GetTableBucketPolicy": "GET /buckets/{tableBucketARN}/policy",
-    "GetTableEncryption": "GET /tables/{tableBucketARN}/{namespace}/{name}/encryption",
-    "GetTableMaintenanceConfiguration": "GET /tables/{tableBucketARN}/{namespace}/{name}/maintenance",
-    "GetTableMaintenanceJobStatus": "GET /tables/{tableBucketARN}/{namespace}/{name}/maintenance-job-status",
-    "GetTableMetadataLocation": "GET /tables/{tableBucketARN}/{namespace}/{name}/metadata-location",
-    "GetTablePolicy": "GET /tables/{tableBucketARN}/{namespace}/{name}/policy",
-    "ListNamespaces": "GET /namespaces/{tableBucketARN}",
-    "ListTableBuckets": "GET /buckets",
-    "ListTables": "GET /tables/{tableBucketARN}",
-    "PutTableBucketEncryption": "PUT /buckets/{tableBucketARN}/encryption",
-    "PutTableBucketMaintenanceConfiguration": "PUT /buckets/{tableBucketARN}/maintenance/{type}",
-    "PutTableBucketPolicy": "PUT /buckets/{tableBucketARN}/policy",
-    "PutTableMaintenanceConfiguration": "PUT /tables/{tableBucketARN}/{namespace}/{name}/maintenance/{type}",
-    "PutTablePolicy": "PUT /tables/{tableBucketARN}/{namespace}/{name}/policy",
-    "RenameTable": "PUT /tables/{tableBucketARN}/{namespace}/{name}/rename",
-    "UpdateTableMetadataLocation": "PUT /tables/{tableBucketARN}/{namespace}/{name}/metadata-location",
+    CreateNamespace: "PUT /namespaces/{tableBucketARN}",
+    CreateTable: "PUT /tables/{tableBucketARN}/{namespace}",
+    CreateTableBucket: "PUT /buckets",
+    DeleteNamespace: "DELETE /namespaces/{tableBucketARN}/{namespace}",
+    DeleteTable: "DELETE /tables/{tableBucketARN}/{namespace}/{name}",
+    DeleteTableBucket: "DELETE /buckets/{tableBucketARN}",
+    DeleteTableBucketEncryption: "DELETE /buckets/{tableBucketARN}/encryption",
+    DeleteTableBucketPolicy: "DELETE /buckets/{tableBucketARN}/policy",
+    DeleteTablePolicy:
+      "DELETE /tables/{tableBucketARN}/{namespace}/{name}/policy",
+    GetNamespace: "GET /namespaces/{tableBucketARN}/{namespace}",
+    GetTable: "GET /get-table",
+    GetTableBucket: "GET /buckets/{tableBucketARN}",
+    GetTableBucketEncryption: "GET /buckets/{tableBucketARN}/encryption",
+    GetTableBucketMaintenanceConfiguration:
+      "GET /buckets/{tableBucketARN}/maintenance",
+    GetTableBucketPolicy: "GET /buckets/{tableBucketARN}/policy",
+    GetTableEncryption:
+      "GET /tables/{tableBucketARN}/{namespace}/{name}/encryption",
+    GetTableMaintenanceConfiguration:
+      "GET /tables/{tableBucketARN}/{namespace}/{name}/maintenance",
+    GetTableMaintenanceJobStatus:
+      "GET /tables/{tableBucketARN}/{namespace}/{name}/maintenance-job-status",
+    GetTableMetadataLocation:
+      "GET /tables/{tableBucketARN}/{namespace}/{name}/metadata-location",
+    GetTablePolicy: "GET /tables/{tableBucketARN}/{namespace}/{name}/policy",
+    ListNamespaces: "GET /namespaces/{tableBucketARN}",
+    ListTableBuckets: "GET /buckets",
+    ListTables: "GET /tables/{tableBucketARN}",
+    PutTableBucketEncryption: "PUT /buckets/{tableBucketARN}/encryption",
+    PutTableBucketMaintenanceConfiguration:
+      "PUT /buckets/{tableBucketARN}/maintenance/{type}",
+    PutTableBucketPolicy: "PUT /buckets/{tableBucketARN}/policy",
+    PutTableMaintenanceConfiguration:
+      "PUT /tables/{tableBucketARN}/{namespace}/{name}/maintenance/{type}",
+    PutTablePolicy: "PUT /tables/{tableBucketARN}/{namespace}/{name}/policy",
+    RenameTable: "PUT /tables/{tableBucketARN}/{namespace}/{name}/rename",
+    UpdateTableMetadataLocation:
+      "PUT /tables/{tableBucketARN}/{namespace}/{name}/metadata-location",
   },
 } as const satisfies ServiceMetadata;
 

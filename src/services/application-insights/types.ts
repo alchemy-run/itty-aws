@@ -1,6 +1,39 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
-type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | ThrottlingException | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ValidationException;
+import type {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+type CommonAwsError =
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | ThrottlingException
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | AccessDeniedException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class ApplicationInsights extends AWSServiceClient {
@@ -8,97 +41,153 @@ export declare class ApplicationInsights extends AWSServiceClient {
     input: AddWorkloadRequest,
   ): Effect.Effect<
     AddWorkloadResponse,
-    InternalServerException | ResourceInUseException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   createApplication(
     input: CreateApplicationRequest,
   ): Effect.Effect<
     CreateApplicationResponse,
-    AccessDeniedException | InternalServerException | ResourceInUseException | ResourceNotFoundException | TagsAlreadyExistException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | TagsAlreadyExistException
+    | ValidationException
+    | CommonAwsError
   >;
   createComponent(
     input: CreateComponentRequest,
   ): Effect.Effect<
     CreateComponentResponse,
-    InternalServerException | ResourceInUseException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   createLogPattern(
     input: CreateLogPatternRequest,
   ): Effect.Effect<
     CreateLogPatternResponse,
-    InternalServerException | ResourceInUseException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteApplication(
     input: DeleteApplicationRequest,
   ): Effect.Effect<
     DeleteApplicationResponse,
-    BadRequestException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | BadRequestException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteComponent(
     input: DeleteComponentRequest,
   ): Effect.Effect<
     DeleteComponentResponse,
-    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteLogPattern(
     input: DeleteLogPatternRequest,
   ): Effect.Effect<
     DeleteLogPatternResponse,
-    BadRequestException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | BadRequestException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   describeApplication(
     input: DescribeApplicationRequest,
   ): Effect.Effect<
     DescribeApplicationResponse,
-    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   describeComponent(
     input: DescribeComponentRequest,
   ): Effect.Effect<
     DescribeComponentResponse,
-    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   describeComponentConfiguration(
     input: DescribeComponentConfigurationRequest,
   ): Effect.Effect<
     DescribeComponentConfigurationResponse,
-    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   describeComponentConfigurationRecommendation(
     input: DescribeComponentConfigurationRecommendationRequest,
   ): Effect.Effect<
     DescribeComponentConfigurationRecommendationResponse,
-    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   describeLogPattern(
     input: DescribeLogPatternRequest,
   ): Effect.Effect<
     DescribeLogPatternResponse,
-    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   describeObservation(
     input: DescribeObservationRequest,
   ): Effect.Effect<
     DescribeObservationResponse,
-    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   describeProblem(
     input: DescribeProblemRequest,
   ): Effect.Effect<
     DescribeProblemResponse,
-    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   describeProblemObservations(
     input: DescribeProblemObservationsRequest,
   ): Effect.Effect<
     DescribeProblemObservationsResponse,
-    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   describeWorkload(
     input: DescribeWorkloadRequest,
   ): Effect.Effect<
     DescribeWorkloadResponse,
-    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   listApplications(
     input: ListApplicationsRequest,
@@ -110,31 +199,46 @@ export declare class ApplicationInsights extends AWSServiceClient {
     input: ListComponentsRequest,
   ): Effect.Effect<
     ListComponentsResponse,
-    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   listConfigurationHistory(
     input: ListConfigurationHistoryRequest,
   ): Effect.Effect<
     ListConfigurationHistoryResponse,
-    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   listLogPatterns(
     input: ListLogPatternsRequest,
   ): Effect.Effect<
     ListLogPatternsResponse,
-    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   listLogPatternSets(
     input: ListLogPatternSetsRequest,
   ): Effect.Effect<
     ListLogPatternSetsResponse,
-    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   listProblems(
     input: ListProblemsRequest,
   ): Effect.Effect<
     ListProblemsResponse,
-    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
@@ -146,19 +250,28 @@ export declare class ApplicationInsights extends AWSServiceClient {
     input: ListWorkloadsRequest,
   ): Effect.Effect<
     ListWorkloadsResponse,
-    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   removeWorkload(
     input: RemoveWorkloadRequest,
   ): Effect.Effect<
     RemoveWorkloadResponse,
-    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    ResourceNotFoundException | TooManyTagsException | ValidationException | CommonAwsError
+    | ResourceNotFoundException
+    | TooManyTagsException
+    | ValidationException
+    | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
@@ -170,37 +283,58 @@ export declare class ApplicationInsights extends AWSServiceClient {
     input: UpdateApplicationRequest,
   ): Effect.Effect<
     UpdateApplicationResponse,
-    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   updateComponent(
     input: UpdateComponentRequest,
   ): Effect.Effect<
     UpdateComponentResponse,
-    InternalServerException | ResourceInUseException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   updateComponentConfiguration(
     input: UpdateComponentConfigurationRequest,
   ): Effect.Effect<
     UpdateComponentConfigurationResponse,
-    InternalServerException | ResourceInUseException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   updateLogPattern(
     input: UpdateLogPatternRequest,
   ): Effect.Effect<
     UpdateLogPatternResponse,
-    InternalServerException | ResourceInUseException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   updateProblem(
     input: UpdateProblemRequest,
   ): Effect.Effect<
     UpdateProblemResponse,
-    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   updateWorkload(
     input: UpdateWorkloadRequest,
   ): Effect.Effect<
     UpdateWorkloadResponse,
-    InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
 }
 
@@ -295,7 +429,11 @@ export type ConfigurationEventMonitoredResourceARN = string;
 
 export type ConfigurationEventResourceName = string;
 
-export type ConfigurationEventResourceType = "CLOUDWATCH_ALARM" | "CLOUDWATCH_LOG" | "CLOUDFORMATION" | "SSM_ASSOCIATION";
+export type ConfigurationEventResourceType =
+  | "CLOUDWATCH_ALARM"
+  | "CLOUDWATCH_LOG"
+  | "CLOUDFORMATION"
+  | "SSM_ASSOCIATION";
 export type ConfigurationEventStatus = "INFO" | "WARN" | "ERROR";
 export type ConfigurationEventTime = Date | string;
 
@@ -319,8 +457,7 @@ export interface CreateComponentRequest {
   ComponentName: string;
   ResourceList: Array<string>;
 }
-export interface CreateComponentResponse {
-}
+export interface CreateComponentResponse {}
 export interface CreateLogPatternRequest {
   ResourceGroupName: string;
   PatternSetName: string;
@@ -339,21 +476,18 @@ export type CWEMonitorEnabled = boolean;
 export interface DeleteApplicationRequest {
   ResourceGroupName: string;
 }
-export interface DeleteApplicationResponse {
-}
+export interface DeleteApplicationResponse {}
 export interface DeleteComponentRequest {
   ResourceGroupName: string;
   ComponentName: string;
 }
-export interface DeleteComponentResponse {
-}
+export interface DeleteComponentResponse {}
 export interface DeleteLogPatternRequest {
   ResourceGroupName: string;
   PatternSetName: string;
   PatternName: string;
 }
-export interface DeleteLogPatternResponse {
-}
+export interface DeleteLogPatternResponse {}
 export interface DescribeApplicationRequest {
   ResourceGroupName: string;
   AccountId?: string;
@@ -701,8 +835,7 @@ export interface RemoveWorkloadRequest {
   ComponentName: string;
   WorkloadId: string;
 }
-export interface RemoveWorkloadResponse {
-}
+export interface RemoveWorkloadResponse {}
 export type ResolutionMethod = "MANUAL" | "AUTOMATIC" | "UNRESOLVED";
 export type ResourceARN = string;
 
@@ -742,7 +875,12 @@ export type StatesInput = string;
 
 export type StatesStatus = string;
 
-export type Status = "IGNORE" | "RESOLVED" | "PENDING" | "RECURRING" | "RECOVERING";
+export type Status =
+  | "IGNORE"
+  | "RESOLVED"
+  | "PENDING"
+  | "RECURRING"
+  | "RECOVERING";
 export interface Tag {
   Key: string;
   Value: string;
@@ -755,8 +893,7 @@ export interface TagResourceRequest {
   ResourceARN: string;
   Tags: Array<Tag>;
 }
-export interface TagResourceResponse {
-}
+export interface TagResourceResponse {}
 export declare class TagsAlreadyExistException extends EffectData.TaggedError(
   "TagsAlreadyExistException",
 )<{
@@ -764,7 +901,30 @@ export declare class TagsAlreadyExistException extends EffectData.TaggedError(
 }> {}
 export type TagValue = string;
 
-export type Tier = "CUSTOM" | "DEFAULT" | "DOT_NET_CORE" | "DOT_NET_WORKER" | "DOT_NET_WEB_TIER" | "DOT_NET_WEB" | "SQL_SERVER" | "SQL_SERVER_ALWAYSON_AVAILABILITY_GROUP" | "MYSQL" | "POSTGRESQL" | "JAVA_JMX" | "ORACLE" | "SAP_HANA_MULTI_NODE" | "SAP_HANA_SINGLE_NODE" | "SAP_HANA_HIGH_AVAILABILITY" | "SAP_ASE_SINGLE_NODE" | "SAP_ASE_HIGH_AVAILABILITY" | "SQL_SERVER_FAILOVER_CLUSTER_INSTANCE" | "SHAREPOINT" | "ACTIVE_DIRECTORY" | "SAP_NETWEAVER_STANDARD" | "SAP_NETWEAVER_DISTRIBUTED" | "SAP_NETWEAVER_HIGH_AVAILABILITY";
+export type Tier =
+  | "CUSTOM"
+  | "DEFAULT"
+  | "DOT_NET_CORE"
+  | "DOT_NET_WORKER"
+  | "DOT_NET_WEB_TIER"
+  | "DOT_NET_WEB"
+  | "SQL_SERVER"
+  | "SQL_SERVER_ALWAYSON_AVAILABILITY_GROUP"
+  | "MYSQL"
+  | "POSTGRESQL"
+  | "JAVA_JMX"
+  | "ORACLE"
+  | "SAP_HANA_MULTI_NODE"
+  | "SAP_HANA_SINGLE_NODE"
+  | "SAP_HANA_HIGH_AVAILABILITY"
+  | "SAP_ASE_SINGLE_NODE"
+  | "SAP_ASE_HIGH_AVAILABILITY"
+  | "SQL_SERVER_FAILOVER_CLUSTER_INSTANCE"
+  | "SHAREPOINT"
+  | "ACTIVE_DIRECTORY"
+  | "SAP_NETWEAVER_STANDARD"
+  | "SAP_NETWEAVER_DISTRIBUTED"
+  | "SAP_NETWEAVER_HIGH_AVAILABILITY";
 export type Title = string;
 
 export declare class TooManyTagsException extends EffectData.TaggedError(
@@ -779,8 +939,7 @@ export interface UntagResourceRequest {
   ResourceARN: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {
-}
+export interface UntagResourceResponse {}
 export interface UpdateApplicationRequest {
   ResourceGroupName: string;
   OpsCenterEnabled?: boolean;
@@ -802,16 +961,14 @@ export interface UpdateComponentConfigurationRequest {
   ComponentConfiguration?: string;
   AutoConfigEnabled?: boolean;
 }
-export interface UpdateComponentConfigurationResponse {
-}
+export interface UpdateComponentConfigurationResponse {}
 export interface UpdateComponentRequest {
   ResourceGroupName: string;
   ComponentName: string;
   NewComponentName?: string;
   ResourceList?: Array<string>;
 }
-export interface UpdateComponentResponse {
-}
+export interface UpdateComponentResponse {}
 export interface UpdateLogPatternRequest {
   ResourceGroupName: string;
   PatternSetName: string;
@@ -828,8 +985,7 @@ export interface UpdateProblemRequest {
   UpdateStatus?: UpdateStatus;
   Visibility?: Visibility;
 }
-export interface UpdateProblemResponse {
-}
+export interface UpdateProblemResponse {}
 export type UpdateStatus = "RESOLVED";
 export interface UpdateWorkloadRequest {
   ResourceGroupName: string;
@@ -1220,5 +1376,13 @@ export declare namespace UpdateWorkload {
     | CommonAwsError;
 }
 
-export type ApplicationInsightsErrors = AccessDeniedException | BadRequestException | InternalServerException | ResourceInUseException | ResourceNotFoundException | TagsAlreadyExistException | TooManyTagsException | ValidationException | CommonAwsError;
-
+export type ApplicationInsightsErrors =
+  | AccessDeniedException
+  | BadRequestException
+  | InternalServerException
+  | ResourceInUseException
+  | ResourceNotFoundException
+  | TagsAlreadyExistException
+  | TooManyTagsException
+  | ValidationException
+  | CommonAwsError;

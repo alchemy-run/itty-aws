@@ -7,79 +7,160 @@ export declare class Cloud9 extends AWSServiceClient {
     input: CreateEnvironmentEC2Request,
   ): Effect.Effect<
     CreateEnvironmentEC2Result,
-    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | LimitExceededException | NotFoundException | TooManyRequestsException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | LimitExceededException
+    | NotFoundException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   createEnvironmentMembership(
     input: CreateEnvironmentMembershipRequest,
   ): Effect.Effect<
     CreateEnvironmentMembershipResult,
-    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | LimitExceededException | NotFoundException | TooManyRequestsException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | LimitExceededException
+    | NotFoundException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   deleteEnvironment(
     input: DeleteEnvironmentRequest,
   ): Effect.Effect<
     DeleteEnvironmentResult,
-    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | LimitExceededException | NotFoundException | TooManyRequestsException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | LimitExceededException
+    | NotFoundException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   deleteEnvironmentMembership(
     input: DeleteEnvironmentMembershipRequest,
   ): Effect.Effect<
     DeleteEnvironmentMembershipResult,
-    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | LimitExceededException | NotFoundException | TooManyRequestsException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | LimitExceededException
+    | NotFoundException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   describeEnvironmentMemberships(
     input: DescribeEnvironmentMembershipsRequest,
   ): Effect.Effect<
     DescribeEnvironmentMembershipsResult,
-    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | LimitExceededException | NotFoundException | TooManyRequestsException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | LimitExceededException
+    | NotFoundException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   describeEnvironments(
     input: DescribeEnvironmentsRequest,
   ): Effect.Effect<
     DescribeEnvironmentsResult,
-    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | LimitExceededException | NotFoundException | TooManyRequestsException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | LimitExceededException
+    | NotFoundException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   describeEnvironmentStatus(
     input: DescribeEnvironmentStatusRequest,
   ): Effect.Effect<
     DescribeEnvironmentStatusResult,
-    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | LimitExceededException | NotFoundException | TooManyRequestsException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | LimitExceededException
+    | NotFoundException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   listEnvironments(
     input: ListEnvironmentsRequest,
   ): Effect.Effect<
     ListEnvironmentsResult,
-    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | LimitExceededException | NotFoundException | TooManyRequestsException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | LimitExceededException
+    | NotFoundException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    BadRequestException | InternalServerErrorException | NotFoundException | CommonAwsError
+    | BadRequestException
+    | InternalServerErrorException
+    | NotFoundException
+    | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    BadRequestException | ConcurrentAccessException | InternalServerErrorException | NotFoundException | CommonAwsError
+    | BadRequestException
+    | ConcurrentAccessException
+    | InternalServerErrorException
+    | NotFoundException
+    | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    BadRequestException | ConcurrentAccessException | InternalServerErrorException | NotFoundException | CommonAwsError
+    | BadRequestException
+    | ConcurrentAccessException
+    | InternalServerErrorException
+    | NotFoundException
+    | CommonAwsError
   >;
   updateEnvironment(
     input: UpdateEnvironmentRequest,
   ): Effect.Effect<
     UpdateEnvironmentResult,
-    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | LimitExceededException | NotFoundException | TooManyRequestsException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | LimitExceededException
+    | NotFoundException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
   updateEnvironmentMembership(
     input: UpdateEnvironmentMembershipRequest,
   ): Effect.Effect<
     UpdateEnvironmentMembershipResult,
-    BadRequestException | ConflictException | ForbiddenException | InternalServerErrorException | LimitExceededException | NotFoundException | TooManyRequestsException | CommonAwsError
+    | BadRequestException
+    | ConflictException
+    | ForbiddenException
+    | InternalServerErrorException
+    | LimitExceededException
+    | NotFoundException
+    | TooManyRequestsException
+    | CommonAwsError
   >;
 }
 
@@ -138,13 +219,11 @@ export interface DeleteEnvironmentMembershipRequest {
   environmentId: string;
   userArn: string;
 }
-export interface DeleteEnvironmentMembershipResult {
-}
+export interface DeleteEnvironmentMembershipResult {}
 export interface DeleteEnvironmentRequest {
   environmentId: string;
 }
-export interface DeleteEnvironmentResult {
-}
+export interface DeleteEnvironmentResult {}
 export interface DescribeEnvironmentMembershipsRequest {
   userArn?: string;
   environmentId?: string;
@@ -192,7 +271,12 @@ export interface EnvironmentLifecycle {
   reason?: string;
   failureResource?: string;
 }
-export type EnvironmentLifecycleStatus = "CREATING" | "CREATED" | "CREATE_FAILED" | "DELETING" | "DELETE_FAILED";
+export type EnvironmentLifecycleStatus =
+  | "CREATING"
+  | "CREATED"
+  | "CREATE_FAILED"
+  | "DELETING"
+  | "DELETE_FAILED";
 export type EnvironmentList = Array<Environment>;
 export interface EnvironmentMember {
   permissions: Permissions;
@@ -204,7 +288,14 @@ export interface EnvironmentMember {
 export type EnvironmentMembersList = Array<EnvironmentMember>;
 export type EnvironmentName = string;
 
-export type EnvironmentStatus = "error" | "creating" | "connecting" | "ready" | "stopping" | "stopped" | "deleting";
+export type EnvironmentStatus =
+  | "error"
+  | "creating"
+  | "connecting"
+  | "ready"
+  | "stopping"
+  | "stopped"
+  | "deleting";
 export type EnvironmentType = "ssh" | "ec2";
 export declare class ForbiddenException extends EffectData.TaggedError(
   "ForbiddenException",
@@ -248,7 +339,18 @@ export interface ListTagsForResourceResponse {
   Tags?: Array<Tag>;
 }
 export type ManagedCredentialsAction = "ENABLE" | "DISABLE";
-export type ManagedCredentialsStatus = "ENABLED_ON_CREATE" | "ENABLED_BY_OWNER" | "DISABLED_BY_DEFAULT" | "DISABLED_BY_OWNER" | "DISABLED_BY_COLLABORATOR" | "PENDING_REMOVAL_BY_COLLABORATOR" | "PENDING_START_REMOVAL_BY_COLLABORATOR" | "PENDING_REMOVAL_BY_OWNER" | "PENDING_START_REMOVAL_BY_OWNER" | "FAILED_REMOVAL_BY_COLLABORATOR" | "FAILED_REMOVAL_BY_OWNER";
+export type ManagedCredentialsStatus =
+  | "ENABLED_ON_CREATE"
+  | "ENABLED_BY_OWNER"
+  | "DISABLED_BY_DEFAULT"
+  | "DISABLED_BY_OWNER"
+  | "DISABLED_BY_COLLABORATOR"
+  | "PENDING_REMOVAL_BY_COLLABORATOR"
+  | "PENDING_START_REMOVAL_BY_COLLABORATOR"
+  | "PENDING_REMOVAL_BY_OWNER"
+  | "PENDING_START_REMOVAL_BY_OWNER"
+  | "FAILED_REMOVAL_BY_COLLABORATOR"
+  | "FAILED_REMOVAL_BY_OWNER";
 export type MaxResults = number;
 
 export type MemberPermissions = "read-write" | "read-only";
@@ -279,8 +381,7 @@ export interface TagResourceRequest {
   ResourceARN: string;
   Tags: Array<Tag>;
 }
-export interface TagResourceResponse {
-}
+export interface TagResourceResponse {}
 export type TagValue = string;
 
 export type Timestamp = Date | string;
@@ -296,8 +397,7 @@ export interface UntagResourceRequest {
   ResourceARN: string;
   TagKeys: Array<string>;
 }
-export interface UntagResourceResponse {
-}
+export interface UntagResourceResponse {}
 export interface UpdateEnvironmentMembershipRequest {
   environmentId: string;
   userArn: string;
@@ -312,8 +412,7 @@ export interface UpdateEnvironmentRequest {
   description?: string;
   managedCredentialsAction?: ManagedCredentialsAction;
 }
-export interface UpdateEnvironmentResult {
-}
+export interface UpdateEnvironmentResult {}
 export type UserArn = string;
 
 export declare namespace CreateEnvironmentEC2 {
@@ -488,5 +587,13 @@ export declare namespace UpdateEnvironmentMembership {
     | CommonAwsError;
 }
 
-export type Cloud9Errors = BadRequestException | ConcurrentAccessException | ConflictException | ForbiddenException | InternalServerErrorException | LimitExceededException | NotFoundException | TooManyRequestsException | CommonAwsError;
-
+export type Cloud9Errors =
+  | BadRequestException
+  | ConcurrentAccessException
+  | ConflictException
+  | ForbiddenException
+  | InternalServerErrorException
+  | LimitExceededException
+  | NotFoundException
+  | TooManyRequestsException
+  | CommonAwsError;

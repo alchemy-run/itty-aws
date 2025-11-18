@@ -1,6 +1,38 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
-type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
+import type {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+type CommonAwsError =
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | AccessDeniedException
+  | ThrottlingException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class SSMIncidents extends AWSServiceClient {
@@ -8,187 +40,346 @@ export declare class SSMIncidents extends AWSServiceClient {
     input: BatchGetIncidentFindingsInput,
   ): Effect.Effect<
     BatchGetIncidentFindingsOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createReplicationSet(
     input: CreateReplicationSetInput,
   ): Effect.Effect<
     CreateReplicationSetOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createResponsePlan(
     input: CreateResponsePlanInput,
   ): Effect.Effect<
     CreateResponsePlanOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createTimelineEvent(
     input: CreateTimelineEventInput,
   ): Effect.Effect<
     CreateTimelineEventOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteIncidentRecord(
     input: DeleteIncidentRecordInput,
   ): Effect.Effect<
     DeleteIncidentRecordOutput,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteReplicationSet(
     input: DeleteReplicationSetInput,
   ): Effect.Effect<
     DeleteReplicationSetOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteResourcePolicy(
     input: DeleteResourcePolicyInput,
   ): Effect.Effect<
     DeleteResourcePolicyOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteResponsePlan(
     input: DeleteResponsePlanInput,
   ): Effect.Effect<
     DeleteResponsePlanOutput,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteTimelineEvent(
     input: DeleteTimelineEventInput,
   ): Effect.Effect<
     DeleteTimelineEventOutput,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getIncidentRecord(
     input: GetIncidentRecordInput,
   ): Effect.Effect<
     GetIncidentRecordOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getReplicationSet(
     input: GetReplicationSetInput,
   ): Effect.Effect<
     GetReplicationSetOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getResourcePolicies(
     input: GetResourcePoliciesInput,
   ): Effect.Effect<
     GetResourcePoliciesOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getResponsePlan(
     input: GetResponsePlanInput,
   ): Effect.Effect<
     GetResponsePlanOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getTimelineEvent(
     input: GetTimelineEventInput,
   ): Effect.Effect<
     GetTimelineEventOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listIncidentFindings(
     input: ListIncidentFindingsInput,
   ): Effect.Effect<
     ListIncidentFindingsOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listIncidentRecords(
     input: ListIncidentRecordsInput,
   ): Effect.Effect<
     ListIncidentRecordsOutput,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listRelatedItems(
     input: ListRelatedItemsInput,
   ): Effect.Effect<
     ListRelatedItemsOutput,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listReplicationSets(
     input: ListReplicationSetsInput,
   ): Effect.Effect<
     ListReplicationSetsOutput,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listResponsePlans(
     input: ListResponsePlansInput,
   ): Effect.Effect<
     ListResponsePlansOutput,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listTimelineEvents(
     input: ListTimelineEventsInput,
   ): Effect.Effect<
     ListTimelineEventsOutput,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   putResourcePolicy(
     input: PutResourcePolicyInput,
   ): Effect.Effect<
     PutResourcePolicyOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   startIncident(
     input: StartIncidentInput,
   ): Effect.Effect<
     StartIncidentOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateDeletionProtection(
     input: UpdateDeletionProtectionInput,
   ): Effect.Effect<
     UpdateDeletionProtectionOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateIncidentRecord(
     input: UpdateIncidentRecordInput,
   ): Effect.Effect<
     UpdateIncidentRecordOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateRelatedItems(
     input: UpdateRelatedItemsInput,
   ): Effect.Effect<
     UpdateRelatedItemsOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateReplicationSet(
     input: UpdateReplicationSetInput,
   ): Effect.Effect<
     UpdateReplicationSetOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateResponsePlan(
     input: UpdateResponsePlanInput,
   ): Effect.Effect<
     UpdateResponsePlanOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateTimelineEvent(
     input: UpdateTimelineEventInput,
   ): Effect.Effect<
     UpdateTimelineEventOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
 }
 
@@ -203,7 +394,7 @@ interface _Action {
   ssmAutomation?: SsmAutomation;
 }
 
-export type Action = (_Action & { ssmAutomation: SsmAutomation });
+export type Action = _Action & { ssmAutomation: SsmAutomation };
 export type ActionsList = Array<Action>;
 export interface AddRegionAction {
   regionName: string;
@@ -216,19 +407,24 @@ interface _AttributeValueList {
   integerValues?: Array<number>;
 }
 
-export type AttributeValueList = (_AttributeValueList & { stringValues: Array<string> }) | (_AttributeValueList & { integerValues: Array<number> });
+export type AttributeValueList =
+  | (_AttributeValueList & { stringValues: Array<string> })
+  | (_AttributeValueList & { integerValues: Array<number> });
 interface _AutomationExecution {
   ssmExecutionArn?: string;
 }
 
-export type AutomationExecution = (_AutomationExecution & { ssmExecutionArn: string });
+export type AutomationExecution = _AutomationExecution & {
+  ssmExecutionArn: string;
+};
 export type AutomationExecutionSet = Array<AutomationExecution>;
 export interface BatchGetIncidentFindingsError {
   findingId: string;
   code: string;
   message: string;
 }
-export type BatchGetIncidentFindingsErrorList = Array<BatchGetIncidentFindingsError>;
+export type BatchGetIncidentFindingsErrorList =
+  Array<BatchGetIncidentFindingsError>;
 export interface BatchGetIncidentFindingsInput {
   incidentRecordArn: string;
   findingIds: Array<string>;
@@ -243,7 +439,9 @@ interface _ChatChannel {
   chatbotSns?: Array<string>;
 }
 
-export type ChatChannel = (_ChatChannel & { empty: EmptyChatChannel }) | (_ChatChannel & { chatbotSns: Array<string> });
+export type ChatChannel =
+  | (_ChatChannel & { empty: EmptyChatChannel })
+  | (_ChatChannel & { chatbotSns: Array<string> });
 export type ClientToken = string;
 
 export interface CloudFormationStackUpdate {
@@ -263,7 +461,10 @@ interface _Condition {
   equals?: AttributeValueList;
 }
 
-export type Condition = (_Condition & { before: Date | string }) | (_Condition & { after: Date | string }) | (_Condition & { equals: AttributeValueList });
+export type Condition =
+  | (_Condition & { before: Date | string })
+  | (_Condition & { after: Date | string })
+  | (_Condition & { equals: AttributeValueList });
 export declare class ConflictException extends EffectData.TaggedError(
   "ConflictException",
 )<{
@@ -311,41 +512,37 @@ export type DedupeString = string;
 export interface DeleteIncidentRecordInput {
   arn: string;
 }
-export interface DeleteIncidentRecordOutput {
-}
+export interface DeleteIncidentRecordOutput {}
 export interface DeleteRegionAction {
   regionName: string;
 }
 export interface DeleteReplicationSetInput {
   arn: string;
 }
-export interface DeleteReplicationSetOutput {
-}
+export interface DeleteReplicationSetOutput {}
 export interface DeleteResourcePolicyInput {
   resourceArn: string;
   policyId: string;
 }
-export interface DeleteResourcePolicyOutput {
-}
+export interface DeleteResourcePolicyOutput {}
 export interface DeleteResponsePlanInput {
   arn: string;
 }
-export interface DeleteResponsePlanOutput {
-}
+export interface DeleteResponsePlanOutput {}
 export interface DeleteTimelineEventInput {
   incidentRecordArn: string;
   eventId: string;
 }
-export interface DeleteTimelineEventOutput {
-}
+export interface DeleteTimelineEventOutput {}
 export type DynamicSsmParameters = Record<string, DynamicSsmParameterValue>;
 interface _DynamicSsmParameterValue {
   variable?: string;
 }
 
-export type DynamicSsmParameterValue = (_DynamicSsmParameterValue & { variable: string });
-export interface EmptyChatChannel {
-}
+export type DynamicSsmParameterValue = _DynamicSsmParameterValue & {
+  variable: string;
+};
+export interface EmptyChatChannel {}
 export type EngagementSet = Array<string>;
 export type EventData = string;
 
@@ -354,7 +551,9 @@ interface _EventReference {
   relatedItemId?: string;
 }
 
-export type EventReference = (_EventReference & { resource: string }) | (_EventReference & { relatedItemId: string });
+export type EventReference =
+  | (_EventReference & { resource: string })
+  | (_EventReference & { relatedItemId: string });
 export type EventReferenceList = Array<EventReference>;
 export interface EventSummary {
   incidentRecordArn: string;
@@ -383,7 +582,11 @@ interface _FindingDetails {
   cloudFormationStackUpdate?: CloudFormationStackUpdate;
 }
 
-export type FindingDetails = (_FindingDetails & { codeDeployDeployment: CodeDeployDeployment }) | (_FindingDetails & { cloudFormationStackUpdate: CloudFormationStackUpdate });
+export type FindingDetails =
+  | (_FindingDetails & { codeDeployDeployment: CodeDeployDeployment })
+  | (_FindingDetails & {
+      cloudFormationStackUpdate: CloudFormationStackUpdate;
+    });
 export type FindingId = string;
 
 export type FindingIdList = Array<string>;
@@ -491,7 +694,9 @@ interface _Integration {
   pagerDutyConfiguration?: PagerDutyConfiguration;
 }
 
-export type Integration = (_Integration & { pagerDutyConfiguration: PagerDutyConfiguration });
+export type Integration = _Integration & {
+  pagerDutyConfiguration: PagerDutyConfiguration;
+};
 export type Integrations = Array<Integration>;
 export declare class InternalServerException extends EffectData.TaggedError(
   "InternalServerException",
@@ -511,7 +716,11 @@ interface _ItemValue {
   pagerDutyIncidentDetail?: PagerDutyIncidentDetail;
 }
 
-export type ItemValue = (_ItemValue & { arn: string }) | (_ItemValue & { url: string }) | (_ItemValue & { metricDefinition: string }) | (_ItemValue & { pagerDutyIncidentDetail: PagerDutyIncidentDetail });
+export type ItemValue =
+  | (_ItemValue & { arn: string })
+  | (_ItemValue & { url: string })
+  | (_ItemValue & { metricDefinition: string })
+  | (_ItemValue & { pagerDutyIncidentDetail: PagerDutyIncidentDetail });
 export interface ListIncidentFindingsInput {
   incidentRecordArn: string;
   maxResults?: number;
@@ -583,7 +792,9 @@ interface _NotificationTargetItem {
   snsTopicArn?: string;
 }
 
-export type NotificationTargetItem = (_NotificationTargetItem & { snsTopicArn: string });
+export type NotificationTargetItem = _NotificationTargetItem & {
+  snsTopicArn: string;
+};
 export type NotificationTargetSet = Array<NotificationTargetItem>;
 export interface PagerDutyConfiguration {
   name: string;
@@ -637,7 +848,9 @@ interface _RelatedItemsUpdate {
   itemToRemove?: ItemIdentifier;
 }
 
-export type RelatedItemsUpdate = (_RelatedItemsUpdate & { itemToAdd: RelatedItem }) | (_RelatedItemsUpdate & { itemToRemove: ItemIdentifier });
+export type RelatedItemsUpdate =
+  | (_RelatedItemsUpdate & { itemToAdd: RelatedItem })
+  | (_RelatedItemsUpdate & { itemToRemove: ItemIdentifier });
 export interface ReplicationSet {
   arn?: string;
   regionMap: Record<string, RegionInfo>;
@@ -732,8 +945,7 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {
-}
+export interface TagResourceResponse {}
 export type TagValue = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(
@@ -766,16 +978,14 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {
-}
+export interface UntagResourceResponse {}
 export type UpdateActionList = Array<UpdateReplicationSetAction>;
 export interface UpdateDeletionProtectionInput {
   arn: string;
   deletionProtected: boolean;
   clientToken?: string;
 }
-export interface UpdateDeletionProtectionOutput {
-}
+export interface UpdateDeletionProtectionOutput {}
 export interface UpdateIncidentRecordInput {
   clientToken?: string;
   arn: string;
@@ -786,28 +996,27 @@ export interface UpdateIncidentRecordInput {
   chatChannel?: ChatChannel;
   notificationTargets?: Array<NotificationTargetItem>;
 }
-export interface UpdateIncidentRecordOutput {
-}
+export interface UpdateIncidentRecordOutput {}
 export interface UpdateRelatedItemsInput {
   clientToken?: string;
   incidentRecordArn: string;
   relatedItemsUpdate: RelatedItemsUpdate;
 }
-export interface UpdateRelatedItemsOutput {
-}
+export interface UpdateRelatedItemsOutput {}
 interface _UpdateReplicationSetAction {
   addRegionAction?: AddRegionAction;
   deleteRegionAction?: DeleteRegionAction;
 }
 
-export type UpdateReplicationSetAction = (_UpdateReplicationSetAction & { addRegionAction: AddRegionAction }) | (_UpdateReplicationSetAction & { deleteRegionAction: DeleteRegionAction });
+export type UpdateReplicationSetAction =
+  | (_UpdateReplicationSetAction & { addRegionAction: AddRegionAction })
+  | (_UpdateReplicationSetAction & { deleteRegionAction: DeleteRegionAction });
 export interface UpdateReplicationSetInput {
   arn: string;
   actions: Array<UpdateReplicationSetAction>;
   clientToken?: string;
 }
-export interface UpdateReplicationSetOutput {
-}
+export interface UpdateReplicationSetOutput {}
 export interface UpdateResponsePlanInput {
   clientToken?: string;
   arn: string;
@@ -823,8 +1032,7 @@ export interface UpdateResponsePlanInput {
   incidentTemplateTags?: Record<string, string>;
   integrations?: Array<Integration>;
 }
-export interface UpdateResponsePlanOutput {
-}
+export interface UpdateResponsePlanOutput {}
 export interface UpdateTimelineEventInput {
   clientToken?: string;
   incidentRecordArn: string;
@@ -834,8 +1042,7 @@ export interface UpdateTimelineEventInput {
   eventData?: string;
   eventReferences?: Array<EventReference>;
 }
-export interface UpdateTimelineEventOutput {
-}
+export interface UpdateTimelineEventOutput {}
 export type Url = string;
 
 export type UUID = string;
@@ -1223,5 +1430,12 @@ export declare namespace UpdateTimelineEvent {
     | CommonAwsError;
 }
 
-export type SSMIncidentsErrors = AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError;
-
+export type SSMIncidentsErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

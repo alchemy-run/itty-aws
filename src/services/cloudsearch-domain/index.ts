@@ -5,7 +5,26 @@ import type { CloudSearchDomain as _CloudSearchDomainClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException, type CommonAwsError} from "../../error.ts";
+export {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  ValidationException,
+  type CommonAwsError,
+} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -15,9 +34,9 @@ const metadata = {
   sigV4ServiceName: "cloudsearch",
   endpointPrefix: "cloudsearchdomain",
   operations: {
-    "Search": "GET /2013-01-01/search?format=sdk&pretty=true",
-    "Suggest": "GET /2013-01-01/suggest?format=sdk&pretty=true",
-    "UploadDocuments": "POST /2013-01-01/documents/batch?format=sdk",
+    Search: "GET /2013-01-01/search?format=sdk&pretty=true",
+    Suggest: "GET /2013-01-01/suggest?format=sdk&pretty=true",
+    UploadDocuments: "POST /2013-01-01/documents/batch?format=sdk",
   },
 } as const satisfies ServiceMetadata;
 

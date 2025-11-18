@@ -5,7 +5,26 @@ import type { MarketplaceCommerceAnalytics as _MarketplaceCommerceAnalyticsClien
 
 export * from "./types.ts";
 
-export {AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException, type CommonAwsError} from "../../error.ts";
+export {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  ValidationException,
+  type CommonAwsError,
+} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -18,7 +37,8 @@ const metadata = {
 } as const satisfies ServiceMetadata;
 
 export type _MarketplaceCommerceAnalytics = _MarketplaceCommerceAnalyticsClient;
-export interface MarketplaceCommerceAnalytics extends _MarketplaceCommerceAnalytics {}
+export interface MarketplaceCommerceAnalytics
+  extends _MarketplaceCommerceAnalytics {}
 export const MarketplaceCommerceAnalytics = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

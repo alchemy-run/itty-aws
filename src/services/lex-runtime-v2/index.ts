@@ -5,7 +5,23 @@ import type { LexRuntimeV2 as _LexRuntimeV2Client } from "./types.ts";
 
 export * from "./types.ts";
 
-export {ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, type CommonAwsError} from "../../error.ts";
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  type CommonAwsError,
+} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -15,39 +31,42 @@ const metadata = {
   sigV4ServiceName: "lex",
   endpointPrefix: "runtime-v2-lex",
   operations: {
-    "DeleteSession": "DELETE /bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}",
-    "GetSession": "GET /bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}",
-    "PutSession": {
+    DeleteSession:
+      "DELETE /bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}",
+    GetSession:
+      "GET /bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}",
+    PutSession: {
       http: "POST /bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}",
       traits: {
-        "contentType": "Content-Type",
-        "messages": "x-amz-lex-messages",
-        "sessionState": "x-amz-lex-session-state",
-        "requestAttributes": "x-amz-lex-request-attributes",
-        "sessionId": "x-amz-lex-session-id",
-        "audioStream": "httpStreaming",
+        contentType: "Content-Type",
+        messages: "x-amz-lex-messages",
+        sessionState: "x-amz-lex-session-state",
+        requestAttributes: "x-amz-lex-request-attributes",
+        sessionId: "x-amz-lex-session-id",
+        audioStream: "httpStreaming",
       },
     },
-    "RecognizeText": "POST /bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}/text",
-    "RecognizeUtterance": {
+    RecognizeText:
+      "POST /bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}/text",
+    RecognizeUtterance: {
       http: "POST /bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}/utterance",
       traits: {
-        "inputMode": "x-amz-lex-input-mode",
-        "contentType": "Content-Type",
-        "messages": "x-amz-lex-messages",
-        "interpretations": "x-amz-lex-interpretations",
-        "sessionState": "x-amz-lex-session-state",
-        "requestAttributes": "x-amz-lex-request-attributes",
-        "sessionId": "x-amz-lex-session-id",
-        "inputTranscript": "x-amz-lex-input-transcript",
-        "audioStream": "httpStreaming",
-        "recognizedBotMember": "x-amz-lex-recognized-bot-member",
+        inputMode: "x-amz-lex-input-mode",
+        contentType: "Content-Type",
+        messages: "x-amz-lex-messages",
+        interpretations: "x-amz-lex-interpretations",
+        sessionState: "x-amz-lex-session-state",
+        requestAttributes: "x-amz-lex-request-attributes",
+        sessionId: "x-amz-lex-session-id",
+        inputTranscript: "x-amz-lex-input-transcript",
+        audioStream: "httpStreaming",
+        recognizedBotMember: "x-amz-lex-recognized-bot-member",
       },
     },
-    "StartConversation": {
+    StartConversation: {
       http: "POST /bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}/conversation",
       traits: {
-        "responseEventStream": "httpPayload",
+        responseEventStream: "httpPayload",
       },
     },
   },

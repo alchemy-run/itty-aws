@@ -5,7 +5,23 @@ import type { MarketplaceDeployment as _MarketplaceDeploymentClient } from "./ty
 
 export * from "./types.ts";
 
-export {ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, type CommonAwsError} from "../../error.ts";
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  type CommonAwsError,
+} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -15,14 +31,15 @@ const metadata = {
   sigV4ServiceName: "aws-marketplace",
   endpointPrefix: "deployment-marketplace",
   operations: {
-    "ListTagsForResource": "GET /tags/{resourceArn}",
-    "TagResource": "POST /tags/{resourceArn}",
-    "UntagResource": "DELETE /tags/{resourceArn}",
-    "PutDeploymentParameter": "POST /catalogs/{catalog}/products/{productId}/deployment-parameters",
+    ListTagsForResource: "GET /tags/{resourceArn}",
+    TagResource: "POST /tags/{resourceArn}",
+    UntagResource: "DELETE /tags/{resourceArn}",
+    PutDeploymentParameter:
+      "POST /catalogs/{catalog}/products/{productId}/deployment-parameters",
   },
   retryableErrors: {
-    "InternalServerException": {},
-    "ThrottlingException": {},
+    InternalServerException: {},
+    ThrottlingException: {},
   },
 } as const satisfies ServiceMetadata;
 

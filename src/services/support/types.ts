@@ -1,6 +1,40 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException } from "../../error.ts";
-type CommonAwsError = AccessDeniedException | ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | ValidationException | ThrottlingException;
+import type {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  ValidationException,
+} from "../../error.ts";
+type CommonAwsError =
+  | AccessDeniedException
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | ValidationException
+  | ThrottlingException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class Support extends AWSServiceClient {
@@ -8,25 +42,41 @@ export declare class Support extends AWSServiceClient {
     input: AddAttachmentsToSetRequest,
   ): Effect.Effect<
     AddAttachmentsToSetResponse,
-    AttachmentLimitExceeded | AttachmentSetExpired | AttachmentSetIdNotFound | AttachmentSetSizeLimitExceeded | InternalServerError | CommonAwsError
+    | AttachmentLimitExceeded
+    | AttachmentSetExpired
+    | AttachmentSetIdNotFound
+    | AttachmentSetSizeLimitExceeded
+    | InternalServerError
+    | CommonAwsError
   >;
   addCommunicationToCase(
     input: AddCommunicationToCaseRequest,
   ): Effect.Effect<
     AddCommunicationToCaseResponse,
-    AttachmentSetExpired | AttachmentSetIdNotFound | CaseIdNotFound | InternalServerError | CommonAwsError
+    | AttachmentSetExpired
+    | AttachmentSetIdNotFound
+    | CaseIdNotFound
+    | InternalServerError
+    | CommonAwsError
   >;
   createCase(
     input: CreateCaseRequest,
   ): Effect.Effect<
     CreateCaseResponse,
-    AttachmentSetExpired | AttachmentSetIdNotFound | CaseCreationLimitExceeded | InternalServerError | CommonAwsError
+    | AttachmentSetExpired
+    | AttachmentSetIdNotFound
+    | CaseCreationLimitExceeded
+    | InternalServerError
+    | CommonAwsError
   >;
   describeAttachment(
     input: DescribeAttachmentRequest,
   ): Effect.Effect<
     DescribeAttachmentResponse,
-    AttachmentIdNotFound | DescribeAttachmentLimitExceeded | InternalServerError | CommonAwsError
+    | AttachmentIdNotFound
+    | DescribeAttachmentLimitExceeded
+    | InternalServerError
+    | CommonAwsError
   >;
   describeCases(
     input: DescribeCasesRequest,
@@ -461,7 +511,8 @@ export interface TrustedAdvisorCheckRefreshStatus {
   status: string;
   millisUntilNextRefreshable: number;
 }
-export type TrustedAdvisorCheckRefreshStatusList = Array<TrustedAdvisorCheckRefreshStatus>;
+export type TrustedAdvisorCheckRefreshStatusList =
+  Array<TrustedAdvisorCheckRefreshStatus>;
 export interface TrustedAdvisorCheckResult {
   checkId: string;
   timestamp: string;
@@ -490,7 +541,8 @@ export interface TrustedAdvisorResourceDetail {
   isSuppressed?: boolean;
   metadata: Array<string>;
 }
-export type TrustedAdvisorResourceDetailList = Array<TrustedAdvisorResourceDetail>;
+export type TrustedAdvisorResourceDetailList =
+  Array<TrustedAdvisorResourceDetail>;
 export interface TrustedAdvisorResourcesSummary {
   resourcesProcessed: number;
   resourcesFlagged: number;
@@ -558,19 +610,13 @@ export declare namespace DescribeAttachment {
 export declare namespace DescribeCases {
   export type Input = DescribeCasesRequest;
   export type Output = DescribeCasesResponse;
-  export type Error =
-    | CaseIdNotFound
-    | InternalServerError
-    | CommonAwsError;
+  export type Error = CaseIdNotFound | InternalServerError | CommonAwsError;
 }
 
 export declare namespace DescribeCommunications {
   export type Input = DescribeCommunicationsRequest;
   export type Output = DescribeCommunicationsResponse;
-  export type Error =
-    | CaseIdNotFound
-    | InternalServerError
-    | CommonAwsError;
+  export type Error = CaseIdNotFound | InternalServerError | CommonAwsError;
 }
 
 export declare namespace DescribeCreateCaseOptions {
@@ -585,17 +631,13 @@ export declare namespace DescribeCreateCaseOptions {
 export declare namespace DescribeServices {
   export type Input = DescribeServicesRequest;
   export type Output = DescribeServicesResponse;
-  export type Error =
-    | InternalServerError
-    | CommonAwsError;
+  export type Error = InternalServerError | CommonAwsError;
 }
 
 export declare namespace DescribeSeverityLevels {
   export type Input = DescribeSeverityLevelsRequest;
   export type Output = DescribeSeverityLevelsResponse;
-  export type Error =
-    | InternalServerError
-    | CommonAwsError;
+  export type Error = InternalServerError | CommonAwsError;
 }
 
 export declare namespace DescribeSupportedLanguages {
@@ -646,19 +688,24 @@ export declare namespace DescribeTrustedAdvisorCheckSummaries {
 export declare namespace RefreshTrustedAdvisorCheck {
   export type Input = RefreshTrustedAdvisorCheckRequest;
   export type Output = RefreshTrustedAdvisorCheckResponse;
-  export type Error =
-    | InternalServerError
-    | CommonAwsError;
+  export type Error = InternalServerError | CommonAwsError;
 }
 
 export declare namespace ResolveCase {
   export type Input = ResolveCaseRequest;
   export type Output = ResolveCaseResponse;
-  export type Error =
-    | CaseIdNotFound
-    | InternalServerError
-    | CommonAwsError;
+  export type Error = CaseIdNotFound | InternalServerError | CommonAwsError;
 }
 
-export type SupportErrors = AttachmentIdNotFound | AttachmentLimitExceeded | AttachmentSetExpired | AttachmentSetIdNotFound | AttachmentSetSizeLimitExceeded | CaseCreationLimitExceeded | CaseIdNotFound | DescribeAttachmentLimitExceeded | InternalServerError | ThrottlingException | CommonAwsError;
-
+export type SupportErrors =
+  | AttachmentIdNotFound
+  | AttachmentLimitExceeded
+  | AttachmentSetExpired
+  | AttachmentSetIdNotFound
+  | AttachmentSetSizeLimitExceeded
+  | CaseCreationLimitExceeded
+  | CaseIdNotFound
+  | DescribeAttachmentLimitExceeded
+  | InternalServerError
+  | ThrottlingException
+  | CommonAwsError;

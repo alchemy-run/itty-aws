@@ -5,7 +5,24 @@ import type { Account as _AccountClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError, type CommonAwsError} from "../../error.ts";
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  type CommonAwsError,
+} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -14,24 +31,24 @@ const metadata = {
   protocol: "restJson1",
   sigV4ServiceName: "account",
   operations: {
-    "AcceptPrimaryEmailUpdate": "POST /acceptPrimaryEmailUpdate",
-    "DeleteAlternateContact": "POST /deleteAlternateContact",
-    "DisableRegion": "POST /disableRegion",
-    "EnableRegion": "POST /enableRegion",
-    "GetAccountInformation": "POST /getAccountInformation",
-    "GetAlternateContact": "POST /getAlternateContact",
-    "GetContactInformation": "POST /getContactInformation",
-    "GetPrimaryEmail": "POST /getPrimaryEmail",
-    "GetRegionOptStatus": "POST /getRegionOptStatus",
-    "ListRegions": "POST /listRegions",
-    "PutAccountName": "POST /putAccountName",
-    "PutAlternateContact": "POST /putAlternateContact",
-    "PutContactInformation": "POST /putContactInformation",
-    "StartPrimaryEmailUpdate": "POST /startPrimaryEmailUpdate",
+    AcceptPrimaryEmailUpdate: "POST /acceptPrimaryEmailUpdate",
+    DeleteAlternateContact: "POST /deleteAlternateContact",
+    DisableRegion: "POST /disableRegion",
+    EnableRegion: "POST /enableRegion",
+    GetAccountInformation: "POST /getAccountInformation",
+    GetAlternateContact: "POST /getAlternateContact",
+    GetContactInformation: "POST /getContactInformation",
+    GetPrimaryEmail: "POST /getPrimaryEmail",
+    GetRegionOptStatus: "POST /getRegionOptStatus",
+    ListRegions: "POST /listRegions",
+    PutAccountName: "POST /putAccountName",
+    PutAlternateContact: "POST /putAlternateContact",
+    PutContactInformation: "POST /putContactInformation",
+    StartPrimaryEmailUpdate: "POST /startPrimaryEmailUpdate",
   },
   retryableErrors: {
-    "InternalServerException": {},
-    "TooManyRequestsException": {},
+    InternalServerException: {},
+    TooManyRequestsException: {},
   },
 } as const satisfies ServiceMetadata;
 

@@ -1,6 +1,38 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
-type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
+import type {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+type CommonAwsError =
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | AccessDeniedException
+  | ThrottlingException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class Invoicing extends AWSServiceClient {
@@ -8,61 +40,110 @@ export declare class Invoicing extends AWSServiceClient {
     input: BatchGetInvoiceProfileRequest,
   ): Effect.Effect<
     BatchGetInvoiceProfileResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createInvoiceUnit(
     input: CreateInvoiceUnitRequest,
   ): Effect.Effect<
     CreateInvoiceUnitResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteInvoiceUnit(
     input: DeleteInvoiceUnitRequest,
   ): Effect.Effect<
     DeleteInvoiceUnitResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getInvoiceUnit(
     input: GetInvoiceUnitRequest,
   ): Effect.Effect<
     GetInvoiceUnitResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listInvoiceSummaries(
     input: ListInvoiceSummariesRequest,
   ): Effect.Effect<
     ListInvoiceSummariesResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listInvoiceUnits(
     input: ListInvoiceUnitsRequest,
   ): Effect.Effect<
     ListInvoiceUnitsResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateInvoiceUnit(
     input: UpdateInvoiceUnitRequest,
   ): Effect.Effect<
     UpdateInvoiceUnitResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
 }
 
@@ -310,8 +391,7 @@ export interface TagResourceRequest {
   ResourceArn: string;
   ResourceTags: Array<ResourceTag>;
 }
-export interface TagResourceResponse {
-}
+export interface TagResourceResponse {}
 export type TagrisArn = string;
 
 export interface TaxesBreakdown {
@@ -335,8 +415,7 @@ export interface UntagResourceRequest {
   ResourceArn: string;
   ResourceTagKeys: Array<string>;
 }
-export interface UntagResourceResponse {
-}
+export interface UntagResourceResponse {}
 export interface UpdateInvoiceUnitRequest {
   InvoiceUnitArn: string;
   Description?: string;
@@ -359,7 +438,21 @@ export interface ValidationExceptionField {
   message: string;
 }
 export type ValidationExceptionFieldList = Array<ValidationExceptionField>;
-export type ValidationExceptionReason = "nonMemberPresent" | "maxAccountsExceeded" | "maxInvoiceUnitsExceeded" | "duplicateInvoiceUnit" | "mutualExclusionError" | "accountMembershipError" | "taxSettingsError" | "expiredNextToken" | "invalidNextToken" | "invalidInput" | "fieldValidationFailed" | "cannotParse" | "unknownOperation" | "other";
+export type ValidationExceptionReason =
+  | "nonMemberPresent"
+  | "maxAccountsExceeded"
+  | "maxInvoiceUnitsExceeded"
+  | "duplicateInvoiceUnit"
+  | "mutualExclusionError"
+  | "accountMembershipError"
+  | "taxSettingsError"
+  | "expiredNextToken"
+  | "invalidNextToken"
+  | "invalidInput"
+  | "fieldValidationFailed"
+  | "cannotParse"
+  | "unknownOperation"
+  | "other";
 export type Year = number;
 
 export declare namespace BatchGetInvoiceProfile {
@@ -481,5 +574,11 @@ export declare namespace UpdateInvoiceUnit {
     | CommonAwsError;
 }
 
-export type InvoicingErrors = AccessDeniedException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError;
-
+export type InvoicingErrors =
+  | AccessDeniedException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

@@ -1,6 +1,38 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
-type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
+import type {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+type CommonAwsError =
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | AccessDeniedException
+  | ThrottlingException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class mgn extends AWSServiceClient {
@@ -20,55 +52,93 @@ export declare class mgn extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   archiveApplication(
     input: ArchiveApplicationRequest,
   ): Effect.Effect<
     Application,
-    ConflictException | ResourceNotFoundException | ServiceQuotaExceededException | UninitializedAccountException | CommonAwsError
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | UninitializedAccountException
+    | CommonAwsError
   >;
   archiveWave(
     input: ArchiveWaveRequest,
   ): Effect.Effect<
     Wave,
-    ConflictException | ResourceNotFoundException | ServiceQuotaExceededException | UninitializedAccountException | CommonAwsError
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | UninitializedAccountException
+    | CommonAwsError
   >;
   associateApplications(
     input: AssociateApplicationsRequest,
   ): Effect.Effect<
     AssociateApplicationsResponse,
-    ConflictException | ResourceNotFoundException | ServiceQuotaExceededException | UninitializedAccountException | CommonAwsError
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | UninitializedAccountException
+    | CommonAwsError
   >;
   associateSourceServers(
     input: AssociateSourceServersRequest,
   ): Effect.Effect<
     AssociateSourceServersResponse,
-    ConflictException | ResourceNotFoundException | ServiceQuotaExceededException | UninitializedAccountException | CommonAwsError
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | UninitializedAccountException
+    | CommonAwsError
   >;
   changeServerLifeCycleState(
     input: ChangeServerLifeCycleStateRequest,
   ): Effect.Effect<
     SourceServer,
-    ConflictException | ResourceNotFoundException | UninitializedAccountException | ValidationException | CommonAwsError
+    | ConflictException
+    | ResourceNotFoundException
+    | UninitializedAccountException
+    | ValidationException
+    | CommonAwsError
   >;
   createApplication(
     input: CreateApplicationRequest,
   ): Effect.Effect<
     Application,
-    ConflictException | ServiceQuotaExceededException | UninitializedAccountException | CommonAwsError
+    | ConflictException
+    | ServiceQuotaExceededException
+    | UninitializedAccountException
+    | CommonAwsError
   >;
   createConnector(
     input: CreateConnectorRequest,
@@ -80,67 +150,100 @@ export declare class mgn extends AWSServiceClient {
     input: CreateLaunchConfigurationTemplateRequest,
   ): Effect.Effect<
     LaunchConfigurationTemplate,
-    AccessDeniedException | UninitializedAccountException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | UninitializedAccountException
+    | ValidationException
+    | CommonAwsError
   >;
   createReplicationConfigurationTemplate(
     input: CreateReplicationConfigurationTemplateRequest,
   ): Effect.Effect<
     ReplicationConfigurationTemplate,
-    AccessDeniedException | UninitializedAccountException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | UninitializedAccountException
+    | ValidationException
+    | CommonAwsError
   >;
   createWave(
     input: CreateWaveRequest,
   ): Effect.Effect<
     Wave,
-    ConflictException | ServiceQuotaExceededException | UninitializedAccountException | CommonAwsError
+    | ConflictException
+    | ServiceQuotaExceededException
+    | UninitializedAccountException
+    | CommonAwsError
   >;
   deleteApplication(
     input: DeleteApplicationRequest,
   ): Effect.Effect<
     DeleteApplicationResponse,
-    ConflictException | ResourceNotFoundException | UninitializedAccountException | CommonAwsError
+    | ConflictException
+    | ResourceNotFoundException
+    | UninitializedAccountException
+    | CommonAwsError
   >;
   deleteConnector(
     input: DeleteConnectorRequest,
   ): Effect.Effect<
     {},
-    ResourceNotFoundException | UninitializedAccountException | ValidationException | CommonAwsError
+    | ResourceNotFoundException
+    | UninitializedAccountException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteJob(
     input: DeleteJobRequest,
   ): Effect.Effect<
     DeleteJobResponse,
-    ConflictException | ResourceNotFoundException | UninitializedAccountException | CommonAwsError
+    | ConflictException
+    | ResourceNotFoundException
+    | UninitializedAccountException
+    | CommonAwsError
   >;
   deleteLaunchConfigurationTemplate(
     input: DeleteLaunchConfigurationTemplateRequest,
   ): Effect.Effect<
     DeleteLaunchConfigurationTemplateResponse,
-    ConflictException | ResourceNotFoundException | UninitializedAccountException | CommonAwsError
+    | ConflictException
+    | ResourceNotFoundException
+    | UninitializedAccountException
+    | CommonAwsError
   >;
   deleteReplicationConfigurationTemplate(
     input: DeleteReplicationConfigurationTemplateRequest,
   ): Effect.Effect<
     DeleteReplicationConfigurationTemplateResponse,
-    ConflictException | ResourceNotFoundException | UninitializedAccountException | CommonAwsError
+    | ConflictException
+    | ResourceNotFoundException
+    | UninitializedAccountException
+    | CommonAwsError
   >;
   deleteSourceServer(
     input: DeleteSourceServerRequest,
   ): Effect.Effect<
     DeleteSourceServerResponse,
-    ConflictException | ResourceNotFoundException | UninitializedAccountException | CommonAwsError
+    | ConflictException
+    | ResourceNotFoundException
+    | UninitializedAccountException
+    | CommonAwsError
   >;
   deleteVcenterClient(
     input: DeleteVcenterClientRequest,
   ): Effect.Effect<
     {},
-    ResourceNotFoundException | UninitializedAccountException | ValidationException | CommonAwsError
+    | ResourceNotFoundException
+    | UninitializedAccountException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteWave(
     input: DeleteWaveRequest,
   ): Effect.Effect<
     DeleteWaveResponse,
-    ConflictException | ResourceNotFoundException | UninitializedAccountException | CommonAwsError
+    | ConflictException
+    | ResourceNotFoundException
+    | UninitializedAccountException
+    | CommonAwsError
   >;
   describeJobLogItems(
     input: DescribeJobLogItemsRequest,
@@ -158,13 +261,19 @@ export declare class mgn extends AWSServiceClient {
     input: DescribeLaunchConfigurationTemplatesRequest,
   ): Effect.Effect<
     DescribeLaunchConfigurationTemplatesResponse,
-    ResourceNotFoundException | UninitializedAccountException | ValidationException | CommonAwsError
+    | ResourceNotFoundException
+    | UninitializedAccountException
+    | ValidationException
+    | CommonAwsError
   >;
   describeReplicationConfigurationTemplates(
     input: DescribeReplicationConfigurationTemplatesRequest,
   ): Effect.Effect<
     DescribeReplicationConfigurationTemplatesResponse,
-    ResourceNotFoundException | UninitializedAccountException | ValidationException | CommonAwsError
+    | ResourceNotFoundException
+    | UninitializedAccountException
+    | ValidationException
+    | CommonAwsError
   >;
   describeSourceServers(
     input: DescribeSourceServersRequest,
@@ -176,31 +285,47 @@ export declare class mgn extends AWSServiceClient {
     input: DescribeVcenterClientsRequest,
   ): Effect.Effect<
     DescribeVcenterClientsResponse,
-    ResourceNotFoundException | UninitializedAccountException | ValidationException | CommonAwsError
+    | ResourceNotFoundException
+    | UninitializedAccountException
+    | ValidationException
+    | CommonAwsError
   >;
   disassociateApplications(
     input: DisassociateApplicationsRequest,
   ): Effect.Effect<
     DisassociateApplicationsResponse,
-    ConflictException | ResourceNotFoundException | UninitializedAccountException | CommonAwsError
+    | ConflictException
+    | ResourceNotFoundException
+    | UninitializedAccountException
+    | CommonAwsError
   >;
   disassociateSourceServers(
     input: DisassociateSourceServersRequest,
   ): Effect.Effect<
     DisassociateSourceServersResponse,
-    ConflictException | ResourceNotFoundException | UninitializedAccountException | CommonAwsError
+    | ConflictException
+    | ResourceNotFoundException
+    | UninitializedAccountException
+    | CommonAwsError
   >;
   disconnectFromService(
     input: DisconnectFromServiceRequest,
   ): Effect.Effect<
     SourceServer,
-    ConflictException | ResourceNotFoundException | UninitializedAccountException | CommonAwsError
+    | ConflictException
+    | ResourceNotFoundException
+    | UninitializedAccountException
+    | CommonAwsError
   >;
   finalizeCutover(
     input: FinalizeCutoverRequest,
   ): Effect.Effect<
     SourceServer,
-    ConflictException | ResourceNotFoundException | UninitializedAccountException | ValidationException | CommonAwsError
+    | ConflictException
+    | ResourceNotFoundException
+    | UninitializedAccountException
+    | ValidationException
+    | CommonAwsError
   >;
   getLaunchConfiguration(
     input: GetLaunchConfigurationRequest,
@@ -272,157 +397,253 @@ export declare class mgn extends AWSServiceClient {
     input: MarkAsArchivedRequest,
   ): Effect.Effect<
     SourceServer,
-    ConflictException | ResourceNotFoundException | UninitializedAccountException | CommonAwsError
+    | ConflictException
+    | ResourceNotFoundException
+    | UninitializedAccountException
+    | CommonAwsError
   >;
   pauseReplication(
     input: PauseReplicationRequest,
   ): Effect.Effect<
     SourceServer,
-    ConflictException | ResourceNotFoundException | ServiceQuotaExceededException | UninitializedAccountException | ValidationException | CommonAwsError
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | UninitializedAccountException
+    | ValidationException
+    | CommonAwsError
   >;
   putSourceServerAction(
     input: PutSourceServerActionRequest,
   ): Effect.Effect<
     SourceServerActionDocument,
-    ConflictException | ResourceNotFoundException | UninitializedAccountException | ValidationException | CommonAwsError
+    | ConflictException
+    | ResourceNotFoundException
+    | UninitializedAccountException
+    | ValidationException
+    | CommonAwsError
   >;
   putTemplateAction(
     input: PutTemplateActionRequest,
   ): Effect.Effect<
     TemplateActionDocument,
-    ConflictException | ResourceNotFoundException | UninitializedAccountException | ValidationException | CommonAwsError
+    | ConflictException
+    | ResourceNotFoundException
+    | UninitializedAccountException
+    | ValidationException
+    | CommonAwsError
   >;
   removeSourceServerAction(
     input: RemoveSourceServerActionRequest,
   ): Effect.Effect<
     RemoveSourceServerActionResponse,
-    ResourceNotFoundException | UninitializedAccountException | ValidationException | CommonAwsError
+    | ResourceNotFoundException
+    | UninitializedAccountException
+    | ValidationException
+    | CommonAwsError
   >;
   removeTemplateAction(
     input: RemoveTemplateActionRequest,
   ): Effect.Effect<
     RemoveTemplateActionResponse,
-    ResourceNotFoundException | UninitializedAccountException | ValidationException | CommonAwsError
+    | ResourceNotFoundException
+    | UninitializedAccountException
+    | ValidationException
+    | CommonAwsError
   >;
   resumeReplication(
     input: ResumeReplicationRequest,
   ): Effect.Effect<
     SourceServer,
-    ConflictException | ResourceNotFoundException | ServiceQuotaExceededException | UninitializedAccountException | ValidationException | CommonAwsError
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | UninitializedAccountException
+    | ValidationException
+    | CommonAwsError
   >;
   retryDataReplication(
     input: RetryDataReplicationRequest,
   ): Effect.Effect<
     SourceServer,
-    ResourceNotFoundException | UninitializedAccountException | ValidationException | CommonAwsError
+    | ResourceNotFoundException
+    | UninitializedAccountException
+    | ValidationException
+    | CommonAwsError
   >;
   startCutover(
     input: StartCutoverRequest,
   ): Effect.Effect<
     StartCutoverResponse,
-    ConflictException | UninitializedAccountException | ValidationException | CommonAwsError
+    | ConflictException
+    | UninitializedAccountException
+    | ValidationException
+    | CommonAwsError
   >;
   startExport(
     input: StartExportRequest,
   ): Effect.Effect<
     StartExportResponse,
-    ServiceQuotaExceededException | UninitializedAccountException | ValidationException | CommonAwsError
+    | ServiceQuotaExceededException
+    | UninitializedAccountException
+    | ValidationException
+    | CommonAwsError
   >;
   startImport(
     input: StartImportRequest,
   ): Effect.Effect<
     StartImportResponse,
-    ConflictException | ResourceNotFoundException | ServiceQuotaExceededException | UninitializedAccountException | ValidationException | CommonAwsError
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | UninitializedAccountException
+    | ValidationException
+    | CommonAwsError
   >;
   startReplication(
     input: StartReplicationRequest,
   ): Effect.Effect<
     SourceServer,
-    ConflictException | ResourceNotFoundException | ServiceQuotaExceededException | UninitializedAccountException | ValidationException | CommonAwsError
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | UninitializedAccountException
+    | ValidationException
+    | CommonAwsError
   >;
   startTest(
     input: StartTestRequest,
   ): Effect.Effect<
     StartTestResponse,
-    ConflictException | UninitializedAccountException | ValidationException | CommonAwsError
+    | ConflictException
+    | UninitializedAccountException
+    | ValidationException
+    | CommonAwsError
   >;
   stopReplication(
     input: StopReplicationRequest,
   ): Effect.Effect<
     SourceServer,
-    ConflictException | ResourceNotFoundException | ServiceQuotaExceededException | UninitializedAccountException | ValidationException | CommonAwsError
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | UninitializedAccountException
+    | ValidationException
+    | CommonAwsError
   >;
   terminateTargetInstances(
     input: TerminateTargetInstancesRequest,
   ): Effect.Effect<
     TerminateTargetInstancesResponse,
-    ConflictException | UninitializedAccountException | ValidationException | CommonAwsError
+    | ConflictException
+    | UninitializedAccountException
+    | ValidationException
+    | CommonAwsError
   >;
   unarchiveApplication(
     input: UnarchiveApplicationRequest,
   ): Effect.Effect<
     Application,
-    ResourceNotFoundException | ServiceQuotaExceededException | UninitializedAccountException | CommonAwsError
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | UninitializedAccountException
+    | CommonAwsError
   >;
   unarchiveWave(
     input: UnarchiveWaveRequest,
   ): Effect.Effect<
     Wave,
-    ResourceNotFoundException | ServiceQuotaExceededException | UninitializedAccountException | CommonAwsError
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | UninitializedAccountException
+    | CommonAwsError
   >;
   updateApplication(
     input: UpdateApplicationRequest,
   ): Effect.Effect<
     Application,
-    ConflictException | ResourceNotFoundException | UninitializedAccountException | CommonAwsError
+    | ConflictException
+    | ResourceNotFoundException
+    | UninitializedAccountException
+    | CommonAwsError
   >;
   updateConnector(
     input: UpdateConnectorRequest,
   ): Effect.Effect<
     Connector,
-    ResourceNotFoundException | UninitializedAccountException | ValidationException | CommonAwsError
+    | ResourceNotFoundException
+    | UninitializedAccountException
+    | ValidationException
+    | CommonAwsError
   >;
   updateLaunchConfiguration(
     input: UpdateLaunchConfigurationRequest,
   ): Effect.Effect<
     LaunchConfiguration,
-    ConflictException | ResourceNotFoundException | UninitializedAccountException | ValidationException | CommonAwsError
+    | ConflictException
+    | ResourceNotFoundException
+    | UninitializedAccountException
+    | ValidationException
+    | CommonAwsError
   >;
   updateLaunchConfigurationTemplate(
     input: UpdateLaunchConfigurationTemplateRequest,
   ): Effect.Effect<
     LaunchConfigurationTemplate,
-    AccessDeniedException | ResourceNotFoundException | UninitializedAccountException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | UninitializedAccountException
+    | ValidationException
+    | CommonAwsError
   >;
   updateReplicationConfiguration(
     input: UpdateReplicationConfigurationRequest,
   ): Effect.Effect<
     ReplicationConfiguration,
-    AccessDeniedException | ConflictException | ResourceNotFoundException | UninitializedAccountException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | UninitializedAccountException
+    | ValidationException
+    | CommonAwsError
   >;
   updateReplicationConfigurationTemplate(
     input: UpdateReplicationConfigurationTemplateRequest,
   ): Effect.Effect<
     ReplicationConfigurationTemplate,
-    AccessDeniedException | ResourceNotFoundException | UninitializedAccountException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | UninitializedAccountException
+    | ValidationException
+    | CommonAwsError
   >;
   updateSourceServer(
     input: UpdateSourceServerRequest,
   ): Effect.Effect<
     SourceServer,
-    ConflictException | ResourceNotFoundException | UninitializedAccountException | CommonAwsError
+    | ConflictException
+    | ResourceNotFoundException
+    | UninitializedAccountException
+    | CommonAwsError
   >;
   updateSourceServerReplicationType(
     input: UpdateSourceServerReplicationTypeRequest,
   ): Effect.Effect<
     SourceServer,
-    ConflictException | ResourceNotFoundException | UninitializedAccountException | ValidationException | CommonAwsError
+    | ConflictException
+    | ResourceNotFoundException
+    | UninitializedAccountException
+    | ValidationException
+    | CommonAwsError
   >;
   updateWave(
     input: UpdateWaveRequest,
   ): Effect.Effect<
     Wave,
-    ConflictException | ResourceNotFoundException | UninitializedAccountException | CommonAwsError
+    | ConflictException
+    | ResourceNotFoundException
+    | UninitializedAccountException
+    | CommonAwsError
   >;
 }
 
@@ -493,16 +714,14 @@ export interface AssociateApplicationsRequest {
   applicationIDs: Array<string>;
   accountID?: string;
 }
-export interface AssociateApplicationsResponse {
-}
+export interface AssociateApplicationsResponse {}
 export interface AssociateSourceServersRequest {
   applicationID: string;
   sourceServerIDs: Array<string>;
   accountID?: string;
 }
 export type AssociateSourceServersRequestSourceServerIDs = Array<string>;
-export interface AssociateSourceServersResponse {
-}
+export interface AssociateSourceServersResponse {}
 export type BandwidthThrottling = number;
 
 export type BootMode = string;
@@ -632,7 +851,8 @@ export interface DataReplicationInfoReplicatedDisk {
   rescannedStorageBytes?: number;
   backloggedStorageBytes?: number;
 }
-export type DataReplicationInfoReplicatedDisks = Array<DataReplicationInfoReplicatedDisk>;
+export type DataReplicationInfoReplicatedDisks =
+  Array<DataReplicationInfoReplicatedDisk>;
 export interface DataReplicationInitiation {
   startDateTime?: string;
   nextAttemptDateTime?: string;
@@ -644,7 +864,8 @@ export interface DataReplicationInitiationStep {
 }
 export type DataReplicationInitiationStepName = string;
 
-export type DataReplicationInitiationSteps = Array<DataReplicationInitiationStep>;
+export type DataReplicationInitiationSteps =
+  Array<DataReplicationInitiationStep>;
 export type DataReplicationInitiationStepStatus = string;
 
 export type DataReplicationState = string;
@@ -653,8 +874,7 @@ export interface DeleteApplicationRequest {
   applicationID: string;
   accountID?: string;
 }
-export interface DeleteApplicationResponse {
-}
+export interface DeleteApplicationResponse {}
 export interface DeleteConnectorRequest {
   connectorID: string;
 }
@@ -662,24 +882,20 @@ export interface DeleteJobRequest {
   jobID: string;
   accountID?: string;
 }
-export interface DeleteJobResponse {
-}
+export interface DeleteJobResponse {}
 export interface DeleteLaunchConfigurationTemplateRequest {
   launchConfigurationTemplateID: string;
 }
-export interface DeleteLaunchConfigurationTemplateResponse {
-}
+export interface DeleteLaunchConfigurationTemplateResponse {}
 export interface DeleteReplicationConfigurationTemplateRequest {
   replicationConfigurationTemplateID: string;
 }
-export interface DeleteReplicationConfigurationTemplateResponse {
-}
+export interface DeleteReplicationConfigurationTemplateResponse {}
 export interface DeleteSourceServerRequest {
   sourceServerID: string;
   accountID?: string;
 }
-export interface DeleteSourceServerResponse {
-}
+export interface DeleteSourceServerResponse {}
 export interface DeleteVcenterClientRequest {
   vcenterClientID: string;
 }
@@ -687,8 +903,7 @@ export interface DeleteWaveRequest {
   waveID: string;
   accountID?: string;
 }
-export interface DeleteWaveResponse {
-}
+export interface DeleteWaveResponse {}
 export interface DescribeJobLogItemsRequest {
   jobID: string;
   maxResults?: number;
@@ -765,16 +980,14 @@ export interface DisassociateApplicationsRequest {
   applicationIDs: Array<string>;
   accountID?: string;
 }
-export interface DisassociateApplicationsResponse {
-}
+export interface DisassociateApplicationsResponse {}
 export interface DisassociateSourceServersRequest {
   applicationID: string;
   sourceServerIDs: Array<string>;
   accountID?: string;
 }
 export type DisassociateSourceServersRequestSourceServerIDs = Array<string>;
-export interface DisassociateSourceServersResponse {
-}
+export interface DisassociateSourceServersResponse {}
 export interface DisconnectFromServiceRequest {
   sourceServerID: string;
   accountID?: string;
@@ -897,10 +1110,8 @@ export interface ImportTaskSummaryWaves {
   createdCount?: number;
   modifiedCount?: number;
 }
-export interface InitializeServiceRequest {
-}
-export interface InitializeServiceResponse {
-}
+export interface InitializeServiceRequest {}
+export interface InitializeServiceResponse {}
 export type InitiatedBy = string;
 
 export declare class InternalServerException extends EffectData.TaggedError(
@@ -1223,7 +1434,8 @@ export interface PostLaunchActions {
 }
 export type PostLaunchActionsDeploymentType = string;
 
-export type PostLaunchActionsLaunchStatusList = Array<JobPostLaunchActionsLaunchStatus>;
+export type PostLaunchActionsLaunchStatusList =
+  Array<JobPostLaunchActionsLaunchStatus>;
 export interface PostLaunchActionsStatus {
   ssmAgentDiscoveryDatetime?: string;
   postLaunchActionsLaunchStatusList?: Array<JobPostLaunchActionsLaunchStatus>;
@@ -1265,14 +1477,12 @@ export interface RemoveSourceServerActionRequest {
   actionID: string;
   accountID?: string;
 }
-export interface RemoveSourceServerActionResponse {
-}
+export interface RemoveSourceServerActionResponse {}
 export interface RemoveTemplateActionRequest {
   launchConfigurationTemplateID: string;
   actionID: string;
 }
-export interface RemoveTemplateActionResponse {
-}
+export interface RemoveTemplateActionResponse {}
 export interface ReplicationConfiguration {
   sourceServerID?: string;
   name?: string;
@@ -1304,7 +1514,8 @@ export interface ReplicationConfigurationReplicatedDisk {
   iops?: number;
   throughput?: number;
 }
-export type ReplicationConfigurationReplicatedDisks = Array<ReplicationConfigurationReplicatedDisk>;
+export type ReplicationConfigurationReplicatedDisks =
+  Array<ReplicationConfigurationReplicatedDisk>;
 export type ReplicationConfigurationReplicatedDiskStagingDiskType = string;
 
 export interface ReplicationConfigurationTemplate {
@@ -1328,7 +1539,8 @@ export interface ReplicationConfigurationTemplate {
 export type ReplicationConfigurationTemplateID = string;
 
 export type ReplicationConfigurationTemplateIDs = Array<string>;
-export type ReplicationConfigurationTemplates = Array<ReplicationConfigurationTemplate>;
+export type ReplicationConfigurationTemplates =
+  Array<ReplicationConfigurationTemplate>;
 export type ReplicationServersSecurityGroupsIDs = Array<string>;
 export type ReplicationType = string;
 
@@ -1436,12 +1648,18 @@ export interface SsmDocument {
   parameters?: Record<string, Array<SsmParameterStoreParameter>>;
   externalParameters?: Record<string, SsmExternalParameter>;
 }
-export type SsmDocumentExternalParameters = Record<string, SsmExternalParameter>;
+export type SsmDocumentExternalParameters = Record<
+  string,
+  SsmExternalParameter
+>;
 export type SsmDocumentName = string;
 
 export type SsmDocumentParameterName = string;
 
-export type SsmDocumentParameters = Record<string, Array<SsmParameterStoreParameter>>;
+export type SsmDocumentParameters = Record<
+  string,
+  Array<SsmParameterStoreParameter>
+>;
 export type SsmDocuments = Array<SsmDocument>;
 export type SsmDocumentType = string;
 
@@ -1449,7 +1667,9 @@ interface _SsmExternalParameter {
   dynamicPath?: string;
 }
 
-export type SsmExternalParameter = (_SsmExternalParameter & { dynamicPath: string });
+export type SsmExternalParameter = _SsmExternalParameter & {
+  dynamicPath: string;
+};
 export type SsmInstanceID = string;
 
 export interface SsmParameterStoreParameter {
@@ -2084,9 +2304,7 @@ export declare namespace GetReplicationConfiguration {
 export declare namespace ListApplications {
   export type Input = ListApplicationsRequest;
   export type Output = ListApplicationsResponse;
-  export type Error =
-    | UninitializedAccountException
-    | CommonAwsError;
+  export type Error = UninitializedAccountException | CommonAwsError;
 }
 
 export declare namespace ListConnectors {
@@ -2110,9 +2328,7 @@ export declare namespace ListExportErrors {
 export declare namespace ListExports {
   export type Input = ListExportsRequest;
   export type Output = ListExportsResponse;
-  export type Error =
-    | UninitializedAccountException
-    | CommonAwsError;
+  export type Error = UninitializedAccountException | CommonAwsError;
 }
 
 export declare namespace ListImportErrors {
@@ -2154,9 +2370,7 @@ export declare namespace ListTemplateActions {
 export declare namespace ListWaves {
   export type Input = ListWavesRequest;
   export type Output = ListWavesResponse;
-  export type Error =
-    | UninitializedAccountException
-    | CommonAwsError;
+  export type Error = UninitializedAccountException | CommonAwsError;
 }
 
 export declare namespace MarkAsArchived {
@@ -2437,5 +2651,13 @@ export declare namespace UpdateWave {
     | CommonAwsError;
 }
 
-export type mgnErrors = AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | UninitializedAccountException | ValidationException | CommonAwsError;
-
+export type mgnErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | UninitializedAccountException
+  | ValidationException
+  | CommonAwsError;

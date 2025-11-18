@@ -61,25 +61,38 @@ export declare class CodeBuild extends AWSServiceClient {
     input: CreateFleetInput,
   ): Effect.Effect<
     CreateFleetOutput,
-    AccountLimitExceededException | InvalidInputException | ResourceAlreadyExistsException | CommonAwsError
+    | AccountLimitExceededException
+    | InvalidInputException
+    | ResourceAlreadyExistsException
+    | CommonAwsError
   >;
   createProject(
     input: CreateProjectInput,
   ): Effect.Effect<
     CreateProjectOutput,
-    AccountLimitExceededException | InvalidInputException | ResourceAlreadyExistsException | CommonAwsError
+    | AccountLimitExceededException
+    | InvalidInputException
+    | ResourceAlreadyExistsException
+    | CommonAwsError
   >;
   createReportGroup(
     input: CreateReportGroupInput,
   ): Effect.Effect<
     CreateReportGroupOutput,
-    AccountLimitExceededException | InvalidInputException | ResourceAlreadyExistsException | CommonAwsError
+    | AccountLimitExceededException
+    | InvalidInputException
+    | ResourceAlreadyExistsException
+    | CommonAwsError
   >;
   createWebhook(
     input: CreateWebhookInput,
   ): Effect.Effect<
     CreateWebhookOutput,
-    InvalidInputException | OAuthProviderException | ResourceAlreadyExistsException | ResourceNotFoundException | CommonAwsError
+    | InvalidInputException
+    | OAuthProviderException
+    | ResourceAlreadyExistsException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   deleteBuildBatch(
     input: DeleteBuildBatchInput,
@@ -89,22 +102,13 @@ export declare class CodeBuild extends AWSServiceClient {
   >;
   deleteFleet(
     input: DeleteFleetInput,
-  ): Effect.Effect<
-    DeleteFleetOutput,
-    InvalidInputException | CommonAwsError
-  >;
+  ): Effect.Effect<DeleteFleetOutput, InvalidInputException | CommonAwsError>;
   deleteProject(
     input: DeleteProjectInput,
-  ): Effect.Effect<
-    DeleteProjectOutput,
-    InvalidInputException | CommonAwsError
-  >;
+  ): Effect.Effect<DeleteProjectOutput, InvalidInputException | CommonAwsError>;
   deleteReport(
     input: DeleteReportInput,
-  ): Effect.Effect<
-    DeleteReportOutput,
-    InvalidInputException | CommonAwsError
-  >;
+  ): Effect.Effect<DeleteReportOutput, InvalidInputException | CommonAwsError>;
   deleteReportGroup(
     input: DeleteReportGroupInput,
   ): Effect.Effect<
@@ -127,7 +131,10 @@ export declare class CodeBuild extends AWSServiceClient {
     input: DeleteWebhookInput,
   ): Effect.Effect<
     DeleteWebhookOutput,
-    InvalidInputException | OAuthProviderException | ResourceNotFoundException | CommonAwsError
+    | InvalidInputException
+    | OAuthProviderException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   describeCodeCoverages(
     input: DescribeCodeCoveragesInput,
@@ -157,7 +164,10 @@ export declare class CodeBuild extends AWSServiceClient {
     input: ImportSourceCredentialsInput,
   ): Effect.Effect<
     ImportSourceCredentialsOutput,
-    AccountLimitExceededException | InvalidInputException | ResourceAlreadyExistsException | CommonAwsError
+    | AccountLimitExceededException
+    | InvalidInputException
+    | ResourceAlreadyExistsException
+    | CommonAwsError
   >;
   invalidateProjectCache(
     input: InvalidateProjectCacheInput,
@@ -179,10 +189,7 @@ export declare class CodeBuild extends AWSServiceClient {
   >;
   listBuilds(
     input: ListBuildsInput,
-  ): Effect.Effect<
-    ListBuildsOutput,
-    InvalidInputException | CommonAwsError
-  >;
+  ): Effect.Effect<ListBuildsOutput, InvalidInputException | CommonAwsError>;
   listBuildsForProject(
     input: ListBuildsForProjectInput,
   ): Effect.Effect<
@@ -197,22 +204,13 @@ export declare class CodeBuild extends AWSServiceClient {
   >;
   listCuratedEnvironmentImages(
     input: ListCuratedEnvironmentImagesInput,
-  ): Effect.Effect<
-    ListCuratedEnvironmentImagesOutput,
-    CommonAwsError
-  >;
+  ): Effect.Effect<ListCuratedEnvironmentImagesOutput, CommonAwsError>;
   listFleets(
     input: ListFleetsInput,
-  ): Effect.Effect<
-    ListFleetsOutput,
-    InvalidInputException | CommonAwsError
-  >;
+  ): Effect.Effect<ListFleetsOutput, InvalidInputException | CommonAwsError>;
   listProjects(
     input: ListProjectsInput,
-  ): Effect.Effect<
-    ListProjectsOutput,
-    InvalidInputException | CommonAwsError
-  >;
+  ): Effect.Effect<ListProjectsOutput, InvalidInputException | CommonAwsError>;
   listReportGroups(
     input: ListReportGroupsInput,
   ): Effect.Effect<
@@ -221,10 +219,7 @@ export declare class CodeBuild extends AWSServiceClient {
   >;
   listReports(
     input: ListReportsInput,
-  ): Effect.Effect<
-    ListReportsOutput,
-    InvalidInputException | CommonAwsError
-  >;
+  ): Effect.Effect<ListReportsOutput, InvalidInputException | CommonAwsError>;
   listReportsForReportGroup(
     input: ListReportsForReportGroupInput,
   ): Effect.Effect<
@@ -233,10 +228,7 @@ export declare class CodeBuild extends AWSServiceClient {
   >;
   listSandboxes(
     input: ListSandboxesInput,
-  ): Effect.Effect<
-    ListSandboxesOutput,
-    InvalidInputException | CommonAwsError
-  >;
+  ): Effect.Effect<ListSandboxesOutput, InvalidInputException | CommonAwsError>;
   listSandboxesForProject(
     input: ListSandboxesForProjectInput,
   ): Effect.Effect<
@@ -271,7 +263,10 @@ export declare class CodeBuild extends AWSServiceClient {
     input: RetryBuildInput,
   ): Effect.Effect<
     RetryBuildOutput,
-    AccountLimitExceededException | InvalidInputException | ResourceNotFoundException | CommonAwsError
+    | AccountLimitExceededException
+    | InvalidInputException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   retryBuildBatch(
     input: RetryBuildBatchInput,
@@ -283,7 +278,10 @@ export declare class CodeBuild extends AWSServiceClient {
     input: StartBuildInput,
   ): Effect.Effect<
     StartBuildOutput,
-    AccountLimitExceededException | InvalidInputException | ResourceNotFoundException | CommonAwsError
+    | AccountLimitExceededException
+    | InvalidInputException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   startBuildBatch(
     input: StartBuildBatchInput,
@@ -301,7 +299,10 @@ export declare class CodeBuild extends AWSServiceClient {
     input: StartSandboxInput,
   ): Effect.Effect<
     StartSandboxOutput,
-    AccountSuspendedException | InvalidInputException | ResourceNotFoundException | CommonAwsError
+    | AccountSuspendedException
+    | InvalidInputException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   startSandboxConnection(
     input: StartSandboxConnectionInput,
@@ -331,7 +332,10 @@ export declare class CodeBuild extends AWSServiceClient {
     input: UpdateFleetInput,
   ): Effect.Effect<
     UpdateFleetOutput,
-    AccountLimitExceededException | InvalidInputException | ResourceNotFoundException | CommonAwsError
+    | AccountLimitExceededException
+    | InvalidInputException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   updateProject(
     input: UpdateProjectInput,
@@ -355,7 +359,10 @@ export declare class CodeBuild extends AWSServiceClient {
     input: UpdateWebhookInput,
   ): Effect.Effect<
     UpdateWebhookOutput,
-    InvalidInputException | OAuthProviderException | ResourceNotFoundException | CommonAwsError
+    | InvalidInputException
+    | OAuthProviderException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
 }
 
@@ -374,7 +381,12 @@ export declare class AccountSuspendedException extends EffectData.TaggedError(
 export type ArtifactNamespace = "NONE" | "BUILD_ID";
 export type ArtifactPackaging = "NONE" | "ZIP";
 export type ArtifactsType = "CODEPIPELINE" | "S3" | "NO_ARTIFACTS";
-export type AuthType = "OAUTH" | "BASIC_AUTH" | "PERSONAL_ACCESS_TOKEN" | "CODECONNECTIONS" | "SECRETS_MANAGER";
+export type AuthType =
+  | "OAUTH"
+  | "BASIC_AUTH"
+  | "PERSONAL_ACCESS_TOKEN"
+  | "CODECONNECTIONS"
+  | "SECRETS_MANAGER";
 export interface AutoRetryConfig {
   autoRetryLimit?: number;
   autoRetryNumber?: number;
@@ -445,7 +457,9 @@ export interface BatchGetSandboxesOutput {
   sandboxes?: Array<Sandbox>;
   sandboxesNotFound?: Array<string>;
 }
-export type BatchReportModeType = "REPORT_INDIVIDUAL_BUILDS" | "REPORT_AGGREGATED_BATCH";
+export type BatchReportModeType =
+  | "REPORT_INDIVIDUAL_BUILDS"
+  | "REPORT_AGGREGATED_BATCH";
 export interface BatchRestrictions {
   maximumBuildsAllowed?: number;
   computeTypesAllowed?: Array<string>;
@@ -546,7 +560,14 @@ export interface BuildBatchPhase {
   contexts?: Array<PhaseContext>;
 }
 export type BuildBatchPhases = Array<BuildBatchPhase>;
-export type BuildBatchPhaseType = "SUBMITTED" | "DOWNLOAD_BATCHSPEC" | "IN_PROGRESS" | "COMBINE_ARTIFACTS" | "SUCCEEDED" | "FAILED" | "STOPPED";
+export type BuildBatchPhaseType =
+  | "SUBMITTED"
+  | "DOWNLOAD_BATCHSPEC"
+  | "IN_PROGRESS"
+  | "COMBINE_ARTIFACTS"
+  | "SUCCEEDED"
+  | "FAILED"
+  | "STOPPED";
 export interface BuildGroup {
   identifier?: string;
   dependsOn?: Array<string>;
@@ -569,7 +590,18 @@ export interface BuildPhase {
   contexts?: Array<PhaseContext>;
 }
 export type BuildPhases = Array<BuildPhase>;
-export type BuildPhaseType = "SUBMITTED" | "QUEUED" | "PROVISIONING" | "DOWNLOAD_SOURCE" | "INSTALL" | "PRE_BUILD" | "BUILD" | "POST_BUILD" | "UPLOAD_ARTIFACTS" | "FINALIZING" | "COMPLETED";
+export type BuildPhaseType =
+  | "SUBMITTED"
+  | "QUEUED"
+  | "PROVISIONING"
+  | "DOWNLOAD_SOURCE"
+  | "INSTALL"
+  | "PRE_BUILD"
+  | "BUILD"
+  | "POST_BUILD"
+  | "UPLOAD_ARTIFACTS"
+  | "FINALIZING"
+  | "COMPLETED";
 export type BuildReportArns = Array<string>;
 export type Builds = Array<Build>;
 export type BuildsNotDeleted = Array<BuildNotDeleted>;
@@ -587,7 +619,10 @@ export interface BuildSummary {
 }
 export type BuildTimeOut = number;
 
-export type CacheMode = "LOCAL_DOCKER_LAYER_CACHE" | "LOCAL_SOURCE_CACHE" | "LOCAL_CUSTOM_CACHE";
+export type CacheMode =
+  | "LOCAL_DOCKER_LAYER_CACHE"
+  | "LOCAL_SOURCE_CACHE"
+  | "LOCAL_CUSTOM_CACHE";
 export type CacheType = "NO_CACHE" | "S3" | "LOCAL";
 export interface CloudWatchLogsConfig {
   status: LogsConfigStatusType;
@@ -640,7 +675,19 @@ export interface ComputeConfiguration {
   machineType?: MachineType;
   instanceType?: string;
 }
-export type ComputeType = "BUILD_GENERAL1_SMALL" | "BUILD_GENERAL1_MEDIUM" | "BUILD_GENERAL1_LARGE" | "BUILD_GENERAL1_XLARGE" | "BUILD_GENERAL1_2XLARGE" | "BUILD_LAMBDA_1GB" | "BUILD_LAMBDA_2GB" | "BUILD_LAMBDA_4GB" | "BUILD_LAMBDA_8GB" | "BUILD_LAMBDA_10GB" | "ATTRIBUTE_BASED_COMPUTE" | "CUSTOM_INSTANCE_TYPE";
+export type ComputeType =
+  | "BUILD_GENERAL1_SMALL"
+  | "BUILD_GENERAL1_MEDIUM"
+  | "BUILD_GENERAL1_LARGE"
+  | "BUILD_GENERAL1_XLARGE"
+  | "BUILD_GENERAL1_2XLARGE"
+  | "BUILD_LAMBDA_1GB"
+  | "BUILD_LAMBDA_2GB"
+  | "BUILD_LAMBDA_4GB"
+  | "BUILD_LAMBDA_8GB"
+  | "BUILD_LAMBDA_10GB"
+  | "ATTRIBUTE_BASED_COMPUTE"
+  | "CUSTOM_INSTANCE_TYPE";
 export type ComputeTypesAllowed = Array<string>;
 export interface CreateFleetInput {
   name: string;
@@ -723,29 +770,24 @@ export interface DeleteBuildBatchOutput {
 export interface DeleteFleetInput {
   arn: string;
 }
-export interface DeleteFleetOutput {
-}
+export interface DeleteFleetOutput {}
 export interface DeleteProjectInput {
   name: string;
 }
-export interface DeleteProjectOutput {
-}
+export interface DeleteProjectOutput {}
 export interface DeleteReportGroupInput {
   arn: string;
   deleteReports?: boolean;
 }
-export interface DeleteReportGroupOutput {
-}
+export interface DeleteReportGroupOutput {}
 export interface DeleteReportInput {
   arn: string;
 }
-export interface DeleteReportOutput {
-}
+export interface DeleteReportOutput {}
 export interface DeleteResourcePolicyInput {
   resourceArn: string;
 }
-export interface DeleteResourcePolicyOutput {
-}
+export interface DeleteResourcePolicyOutput {}
 export interface DeleteSourceCredentialsInput {
   arn: string;
 }
@@ -755,8 +797,7 @@ export interface DeleteSourceCredentialsOutput {
 export interface DeleteWebhookInput {
   projectName: string;
 }
-export interface DeleteWebhookOutput {
-}
+export interface DeleteWebhookOutput {}
 export interface DescribeCodeCoveragesInput {
   reportArn: string;
   nextToken?: string;
@@ -805,14 +846,29 @@ export interface EnvironmentPlatform {
   languages?: Array<EnvironmentLanguage>;
 }
 export type EnvironmentPlatforms = Array<EnvironmentPlatform>;
-export type EnvironmentType = "WINDOWS_CONTAINER" | "LINUX_CONTAINER" | "LINUX_GPU_CONTAINER" | "ARM_CONTAINER" | "WINDOWS_SERVER_2019_CONTAINER" | "WINDOWS_SERVER_2022_CONTAINER" | "LINUX_LAMBDA_CONTAINER" | "ARM_LAMBDA_CONTAINER" | "LINUX_EC2" | "ARM_EC2" | "WINDOWS_EC2" | "MAC_ARM";
+export type EnvironmentType =
+  | "WINDOWS_CONTAINER"
+  | "LINUX_CONTAINER"
+  | "LINUX_GPU_CONTAINER"
+  | "ARM_CONTAINER"
+  | "WINDOWS_SERVER_2019_CONTAINER"
+  | "WINDOWS_SERVER_2022_CONTAINER"
+  | "LINUX_LAMBDA_CONTAINER"
+  | "ARM_LAMBDA_CONTAINER"
+  | "LINUX_EC2"
+  | "ARM_EC2"
+  | "WINDOWS_EC2"
+  | "MAC_ARM";
 export interface EnvironmentVariable {
   name: string;
   value: string;
   type?: EnvironmentVariableType;
 }
 export type EnvironmentVariables = Array<EnvironmentVariable>;
-export type EnvironmentVariableType = "PLAINTEXT" | "PARAMETER_STORE" | "SECRETS_MANAGER";
+export type EnvironmentVariableType =
+  | "PLAINTEXT"
+  | "PARAMETER_STORE"
+  | "SECRETS_MANAGER";
 export interface ExportedEnvironmentVariable {
   name?: string;
   value?: string;
@@ -843,7 +899,12 @@ export interface Fleet {
 export type FleetArns = Array<string>;
 export type FleetCapacity = number;
 
-export type FleetContextCode = "CREATE_FAILED" | "UPDATE_FAILED" | "ACTION_REQUIRED" | "PENDING_DELETION" | "INSUFFICIENT_CAPACITY";
+export type FleetContextCode =
+  | "CREATE_FAILED"
+  | "UPDATE_FAILED"
+  | "ACTION_REQUIRED"
+  | "PENDING_DELETION"
+  | "INSUFFICIENT_CAPACITY";
 export type FleetName = string;
 
 export type FleetNames = Array<string>;
@@ -868,7 +929,15 @@ export interface FleetStatus {
   context?: FleetContextCode;
   message?: string;
 }
-export type FleetStatusCode = "CREATING" | "UPDATING" | "ROTATING" | "PENDING_DELETION" | "DELETING" | "CREATE_FAILED" | "UPDATE_ROLLBACK_FAILED" | "ACTIVE";
+export type FleetStatusCode =
+  | "CREATING"
+  | "UPDATING"
+  | "ROTATING"
+  | "PENDING_DELETION"
+  | "DELETING"
+  | "CREATE_FAILED"
+  | "UPDATE_ROLLBACK_FAILED"
+  | "ACTIVE";
 export interface GetReportGroupTrendInput {
   reportGroupArn: string;
   numOfReports?: number;
@@ -905,8 +974,7 @@ export interface ImportSourceCredentialsOutput {
 export interface InvalidateProjectCacheInput {
   projectName: string;
 }
-export interface InvalidateProjectCacheOutput {
-}
+export interface InvalidateProjectCacheOutput {}
 export declare class InvalidInputException extends EffectData.TaggedError(
   "InvalidInputException",
 )<{
@@ -914,7 +982,17 @@ export declare class InvalidInputException extends EffectData.TaggedError(
 }> {}
 export type KeyInput = string;
 
-export type LanguageType = "JAVA" | "PYTHON" | "NODE_JS" | "RUBY" | "GOLANG" | "DOCKER" | "ANDROID" | "DOTNET" | "BASE" | "PHP";
+export type LanguageType =
+  | "JAVA"
+  | "PYTHON"
+  | "NODE_JS"
+  | "RUBY"
+  | "GOLANG"
+  | "DOCKER"
+  | "ANDROID"
+  | "DOTNET"
+  | "BASE"
+  | "PHP";
 export interface ListBuildBatchesForProjectInput {
   projectName?: string;
   filter?: BuildBatchFilter;
@@ -963,8 +1041,7 @@ export interface ListCommandExecutionsForSandboxOutput {
   commandExecutions?: Array<CommandExecution>;
   nextToken?: string;
 }
-export interface ListCuratedEnvironmentImagesInput {
-}
+export interface ListCuratedEnvironmentImagesInput {}
 export interface ListCuratedEnvironmentImagesOutput {
   platforms?: Array<EnvironmentPlatform>;
 }
@@ -1057,8 +1134,7 @@ export interface ListSharedReportGroupsOutput {
   nextToken?: string;
   reportGroups?: Array<string>;
 }
-export interface ListSourceCredentialsInput {
-}
+export interface ListSourceCredentialsInput {}
 export interface ListSourceCredentialsOutput {
   sourceCredentialsInfos?: Array<SourceCredentialsInfo>;
 }
@@ -1100,7 +1176,11 @@ export interface PhaseContext {
   message?: string;
 }
 export type PhaseContexts = Array<PhaseContext>;
-export type PlatformType = "DEBIAN" | "AMAZON_LINUX" | "UBUNTU" | "WINDOWS_SERVER";
+export type PlatformType =
+  | "DEBIAN"
+  | "AMAZON_LINUX"
+  | "UBUNTU"
+  | "WINDOWS_SERVER";
 export interface Project {
   name?: string;
   arn?: string;
@@ -1218,9 +1298,26 @@ export interface ProxyConfiguration {
   defaultBehavior?: FleetProxyRuleBehavior;
   orderedProxyRules?: Array<FleetProxyRule>;
 }
-export type PullRequestBuildApproverRole = "GITHUB_READ" | "GITHUB_TRIAGE" | "GITHUB_WRITE" | "GITHUB_MAINTAIN" | "GITHUB_ADMIN" | "GITLAB_GUEST" | "GITLAB_PLANNER" | "GITLAB_REPORTER" | "GITLAB_DEVELOPER" | "GITLAB_MAINTAINER" | "GITLAB_OWNER" | "BITBUCKET_READ" | "BITBUCKET_WRITE" | "BITBUCKET_ADMIN";
+export type PullRequestBuildApproverRole =
+  | "GITHUB_READ"
+  | "GITHUB_TRIAGE"
+  | "GITHUB_WRITE"
+  | "GITHUB_MAINTAIN"
+  | "GITHUB_ADMIN"
+  | "GITLAB_GUEST"
+  | "GITLAB_PLANNER"
+  | "GITLAB_REPORTER"
+  | "GITLAB_DEVELOPER"
+  | "GITLAB_MAINTAINER"
+  | "GITLAB_OWNER"
+  | "BITBUCKET_READ"
+  | "BITBUCKET_WRITE"
+  | "BITBUCKET_ADMIN";
 export type PullRequestBuildApproverRoles = Array<PullRequestBuildApproverRole>;
-export type PullRequestBuildCommentApproval = "DISABLED" | "ALL_PULL_REQUESTS" | "FORK_PULL_REQUESTS";
+export type PullRequestBuildCommentApproval =
+  | "DISABLED"
+  | "ALL_PULL_REQUESTS"
+  | "FORK_PULL_REQUESTS";
 export interface PullRequestBuildPolicy {
   requiresCommentApproval: PullRequestBuildCommentApproval;
   approverRoles?: Array<PullRequestBuildApproverRole>;
@@ -1251,7 +1348,9 @@ export interface Report {
   codeCoverageSummary?: CodeCoverageReportSummary;
 }
 export type ReportArns = Array<string>;
-export type ReportCodeCoverageSortByType = "LINE_COVERAGE_PERCENTAGE" | "FILE_PATH";
+export type ReportCodeCoverageSortByType =
+  | "LINE_COVERAGE_PERCENTAGE"
+  | "FILE_PATH";
 export interface ReportExportConfig {
   exportConfigType?: ReportExportConfigType;
   s3Destination?: S3ReportExportConfig;
@@ -1274,9 +1373,21 @@ export type ReportGroupArns = Array<string>;
 export type ReportGroupName = string;
 
 export type ReportGroups = Array<ReportGroup>;
-export type ReportGroupSortByType = "NAME" | "CREATED_TIME" | "LAST_MODIFIED_TIME";
+export type ReportGroupSortByType =
+  | "NAME"
+  | "CREATED_TIME"
+  | "LAST_MODIFIED_TIME";
 export type ReportGroupStatusType = "ACTIVE" | "DELETING";
-export type ReportGroupTrendFieldType = "PASS_RATE" | "DURATION" | "TOTAL" | "LINE_COVERAGE" | "LINES_COVERED" | "LINES_MISSED" | "BRANCH_COVERAGE" | "BRANCHES_COVERED" | "BRANCHES_MISSED";
+export type ReportGroupTrendFieldType =
+  | "PASS_RATE"
+  | "DURATION"
+  | "TOTAL"
+  | "LINE_COVERAGE"
+  | "LINES_COVERED"
+  | "LINES_MISSED"
+  | "BRANCH_COVERAGE"
+  | "BRANCHES_COVERED"
+  | "BRANCHES_MISSED";
 export type ReportGroupTrendRawDataList = Array<ReportWithRawData>;
 export interface ReportGroupTrendStats {
   average?: string;
@@ -1286,7 +1397,12 @@ export interface ReportGroupTrendStats {
 export type ReportPackagingType = "ZIP" | "NONE";
 export type Reports = Array<Report>;
 export type ReportStatusCounts = Record<string, number>;
-export type ReportStatusType = "GENERATING" | "SUCCEEDED" | "FAILED" | "INCOMPLETE" | "DELETING";
+export type ReportStatusType =
+  | "GENERATING"
+  | "SUCCEEDED"
+  | "FAILED"
+  | "INCOMPLETE"
+  | "DELETING";
 export type ReportType = "TEST" | "CODE_COVERAGE";
 export interface ReportWithRawData {
   reportArn?: string;
@@ -1403,7 +1519,12 @@ export type SensitiveNonEmptyString = string;
 
 export type SensitiveString = string;
 
-export type ServerType = "GITHUB" | "BITBUCKET" | "GITHUB_ENTERPRISE" | "GITLAB" | "GITLAB_SELF_MANAGED";
+export type ServerType =
+  | "GITHUB"
+  | "BITBUCKET"
+  | "GITHUB_ENTERPRISE"
+  | "GITLAB"
+  | "GITLAB_SELF_MANAGED";
 export type SharedResourceSortByType = "ARN" | "MODIFIED_TIME";
 export type SortOrderType = "ASCENDING" | "DESCENDING";
 export interface SourceAuth {
@@ -1418,7 +1539,16 @@ export interface SourceCredentialsInfo {
   resource?: string;
 }
 export type SourceCredentialsInfos = Array<SourceCredentialsInfo>;
-export type SourceType = "CODECOMMIT" | "CODEPIPELINE" | "GITHUB" | "GITLAB" | "GITLAB_SELF_MANAGED" | "S3" | "BITBUCKET" | "GITHUB_ENTERPRISE" | "NO_SOURCE";
+export type SourceType =
+  | "CODECOMMIT"
+  | "CODEPIPELINE"
+  | "GITHUB"
+  | "GITLAB"
+  | "GITLAB_SELF_MANAGED"
+  | "S3"
+  | "BITBUCKET"
+  | "GITHUB_ENTERPRISE"
+  | "NO_SOURCE";
 export interface SSMSession {
   sessionId?: string;
   tokenValue?: string;
@@ -1519,7 +1649,13 @@ export interface StartSandboxInput {
 export interface StartSandboxOutput {
   sandbox?: Sandbox;
 }
-export type StatusType = "SUCCEEDED" | "FAILED" | "FAULT" | "TIMED_OUT" | "IN_PROGRESS" | "STOPPED";
+export type StatusType =
+  | "SUCCEEDED"
+  | "FAILED"
+  | "FAULT"
+  | "TIMED_OUT"
+  | "IN_PROGRESS"
+  | "STOPPED";
 export interface StopBuildBatchInput {
   id: string;
 }
@@ -1550,7 +1686,8 @@ export interface TargetTrackingScalingConfiguration {
   metricType?: FleetScalingMetricType;
   targetValue?: number;
 }
-export type TargetTrackingScalingConfigurations = Array<TargetTrackingScalingConfiguration>;
+export type TargetTrackingScalingConfigurations =
+  Array<TargetTrackingScalingConfiguration>;
 export interface TestCase {
   reportArn?: string;
   testRawDataPath?: string;
@@ -1670,15 +1807,36 @@ export interface Webhook {
   statusMessage?: string;
   pullRequestBuildPolicy?: PullRequestBuildPolicy;
 }
-export type WebhookBuildType = "BUILD" | "BUILD_BATCH" | "RUNNER_BUILDKITE_BUILD";
+export type WebhookBuildType =
+  | "BUILD"
+  | "BUILD_BATCH"
+  | "RUNNER_BUILDKITE_BUILD";
 export interface WebhookFilter {
   type: WebhookFilterType;
   pattern: string;
   excludeMatchedPattern?: boolean;
 }
-export type WebhookFilterType = "EVENT" | "BASE_REF" | "HEAD_REF" | "ACTOR_ACCOUNT_ID" | "FILE_PATH" | "COMMIT_MESSAGE" | "WORKFLOW_NAME" | "TAG_NAME" | "RELEASE_NAME" | "REPOSITORY_NAME" | "ORGANIZATION_NAME";
-export type WebhookScopeType = "GITHUB_ORGANIZATION" | "GITHUB_GLOBAL" | "GITLAB_GROUP";
-export type WebhookStatus = "CREATING" | "CREATE_FAILED" | "ACTIVE" | "DELETING";
+export type WebhookFilterType =
+  | "EVENT"
+  | "BASE_REF"
+  | "HEAD_REF"
+  | "ACTOR_ACCOUNT_ID"
+  | "FILE_PATH"
+  | "COMMIT_MESSAGE"
+  | "WORKFLOW_NAME"
+  | "TAG_NAME"
+  | "RELEASE_NAME"
+  | "REPOSITORY_NAME"
+  | "ORGANIZATION_NAME";
+export type WebhookScopeType =
+  | "GITHUB_ORGANIZATION"
+  | "GITHUB_GLOBAL"
+  | "GITLAB_GROUP";
+export type WebhookStatus =
+  | "CREATING"
+  | "CREATE_FAILED"
+  | "ACTIVE"
+  | "DELETING";
 export type WrapperBoolean = boolean;
 
 export type WrapperDouble = number;
@@ -1690,73 +1848,55 @@ export type WrapperLong = number;
 export declare namespace BatchDeleteBuilds {
   export type Input = BatchDeleteBuildsInput;
   export type Output = BatchDeleteBuildsOutput;
-  export type Error =
-    | InvalidInputException
-    | CommonAwsError;
+  export type Error = InvalidInputException | CommonAwsError;
 }
 
 export declare namespace BatchGetBuildBatches {
   export type Input = BatchGetBuildBatchesInput;
   export type Output = BatchGetBuildBatchesOutput;
-  export type Error =
-    | InvalidInputException
-    | CommonAwsError;
+  export type Error = InvalidInputException | CommonAwsError;
 }
 
 export declare namespace BatchGetBuilds {
   export type Input = BatchGetBuildsInput;
   export type Output = BatchGetBuildsOutput;
-  export type Error =
-    | InvalidInputException
-    | CommonAwsError;
+  export type Error = InvalidInputException | CommonAwsError;
 }
 
 export declare namespace BatchGetCommandExecutions {
   export type Input = BatchGetCommandExecutionsInput;
   export type Output = BatchGetCommandExecutionsOutput;
-  export type Error =
-    | InvalidInputException
-    | CommonAwsError;
+  export type Error = InvalidInputException | CommonAwsError;
 }
 
 export declare namespace BatchGetFleets {
   export type Input = BatchGetFleetsInput;
   export type Output = BatchGetFleetsOutput;
-  export type Error =
-    | InvalidInputException
-    | CommonAwsError;
+  export type Error = InvalidInputException | CommonAwsError;
 }
 
 export declare namespace BatchGetProjects {
   export type Input = BatchGetProjectsInput;
   export type Output = BatchGetProjectsOutput;
-  export type Error =
-    | InvalidInputException
-    | CommonAwsError;
+  export type Error = InvalidInputException | CommonAwsError;
 }
 
 export declare namespace BatchGetReportGroups {
   export type Input = BatchGetReportGroupsInput;
   export type Output = BatchGetReportGroupsOutput;
-  export type Error =
-    | InvalidInputException
-    | CommonAwsError;
+  export type Error = InvalidInputException | CommonAwsError;
 }
 
 export declare namespace BatchGetReports {
   export type Input = BatchGetReportsInput;
   export type Output = BatchGetReportsOutput;
-  export type Error =
-    | InvalidInputException
-    | CommonAwsError;
+  export type Error = InvalidInputException | CommonAwsError;
 }
 
 export declare namespace BatchGetSandboxes {
   export type Input = BatchGetSandboxesInput;
   export type Output = BatchGetSandboxesOutput;
-  export type Error =
-    | InvalidInputException
-    | CommonAwsError;
+  export type Error = InvalidInputException | CommonAwsError;
 }
 
 export declare namespace CreateFleet {
@@ -1803,49 +1943,37 @@ export declare namespace CreateWebhook {
 export declare namespace DeleteBuildBatch {
   export type Input = DeleteBuildBatchInput;
   export type Output = DeleteBuildBatchOutput;
-  export type Error =
-    | InvalidInputException
-    | CommonAwsError;
+  export type Error = InvalidInputException | CommonAwsError;
 }
 
 export declare namespace DeleteFleet {
   export type Input = DeleteFleetInput;
   export type Output = DeleteFleetOutput;
-  export type Error =
-    | InvalidInputException
-    | CommonAwsError;
+  export type Error = InvalidInputException | CommonAwsError;
 }
 
 export declare namespace DeleteProject {
   export type Input = DeleteProjectInput;
   export type Output = DeleteProjectOutput;
-  export type Error =
-    | InvalidInputException
-    | CommonAwsError;
+  export type Error = InvalidInputException | CommonAwsError;
 }
 
 export declare namespace DeleteReport {
   export type Input = DeleteReportInput;
   export type Output = DeleteReportOutput;
-  export type Error =
-    | InvalidInputException
-    | CommonAwsError;
+  export type Error = InvalidInputException | CommonAwsError;
 }
 
 export declare namespace DeleteReportGroup {
   export type Input = DeleteReportGroupInput;
   export type Output = DeleteReportGroupOutput;
-  export type Error =
-    | InvalidInputException
-    | CommonAwsError;
+  export type Error = InvalidInputException | CommonAwsError;
 }
 
 export declare namespace DeleteResourcePolicy {
   export type Input = DeleteResourcePolicyInput;
   export type Output = DeleteResourcePolicyOutput;
-  export type Error =
-    | InvalidInputException
-    | CommonAwsError;
+  export type Error = InvalidInputException | CommonAwsError;
 }
 
 export declare namespace DeleteSourceCredentials {
@@ -1870,9 +1998,7 @@ export declare namespace DeleteWebhook {
 export declare namespace DescribeCodeCoverages {
   export type Input = DescribeCodeCoveragesInput;
   export type Output = DescribeCodeCoveragesOutput;
-  export type Error =
-    | InvalidInputException
-    | CommonAwsError;
+  export type Error = InvalidInputException | CommonAwsError;
 }
 
 export declare namespace DescribeTestCases {
@@ -1924,9 +2050,7 @@ export declare namespace InvalidateProjectCache {
 export declare namespace ListBuildBatches {
   export type Input = ListBuildBatchesInput;
   export type Output = ListBuildBatchesOutput;
-  export type Error =
-    | InvalidInputException
-    | CommonAwsError;
+  export type Error = InvalidInputException | CommonAwsError;
 }
 
 export declare namespace ListBuildBatchesForProject {
@@ -1941,9 +2065,7 @@ export declare namespace ListBuildBatchesForProject {
 export declare namespace ListBuilds {
   export type Input = ListBuildsInput;
   export type Output = ListBuildsOutput;
-  export type Error =
-    | InvalidInputException
-    | CommonAwsError;
+  export type Error = InvalidInputException | CommonAwsError;
 }
 
 export declare namespace ListBuildsForProject {
@@ -1967,40 +2089,31 @@ export declare namespace ListCommandExecutionsForSandbox {
 export declare namespace ListCuratedEnvironmentImages {
   export type Input = ListCuratedEnvironmentImagesInput;
   export type Output = ListCuratedEnvironmentImagesOutput;
-  export type Error =
-    | CommonAwsError;
+  export type Error = CommonAwsError;
 }
 
 export declare namespace ListFleets {
   export type Input = ListFleetsInput;
   export type Output = ListFleetsOutput;
-  export type Error =
-    | InvalidInputException
-    | CommonAwsError;
+  export type Error = InvalidInputException | CommonAwsError;
 }
 
 export declare namespace ListProjects {
   export type Input = ListProjectsInput;
   export type Output = ListProjectsOutput;
-  export type Error =
-    | InvalidInputException
-    | CommonAwsError;
+  export type Error = InvalidInputException | CommonAwsError;
 }
 
 export declare namespace ListReportGroups {
   export type Input = ListReportGroupsInput;
   export type Output = ListReportGroupsOutput;
-  export type Error =
-    | InvalidInputException
-    | CommonAwsError;
+  export type Error = InvalidInputException | CommonAwsError;
 }
 
 export declare namespace ListReports {
   export type Input = ListReportsInput;
   export type Output = ListReportsOutput;
-  export type Error =
-    | InvalidInputException
-    | CommonAwsError;
+  export type Error = InvalidInputException | CommonAwsError;
 }
 
 export declare namespace ListReportsForReportGroup {
@@ -2015,9 +2128,7 @@ export declare namespace ListReportsForReportGroup {
 export declare namespace ListSandboxes {
   export type Input = ListSandboxesInput;
   export type Output = ListSandboxesOutput;
-  export type Error =
-    | InvalidInputException
-    | CommonAwsError;
+  export type Error = InvalidInputException | CommonAwsError;
 }
 
 export declare namespace ListSandboxesForProject {
@@ -2032,25 +2143,19 @@ export declare namespace ListSandboxesForProject {
 export declare namespace ListSharedProjects {
   export type Input = ListSharedProjectsInput;
   export type Output = ListSharedProjectsOutput;
-  export type Error =
-    | InvalidInputException
-    | CommonAwsError;
+  export type Error = InvalidInputException | CommonAwsError;
 }
 
 export declare namespace ListSharedReportGroups {
   export type Input = ListSharedReportGroupsInput;
   export type Output = ListSharedReportGroupsOutput;
-  export type Error =
-    | InvalidInputException
-    | CommonAwsError;
+  export type Error = InvalidInputException | CommonAwsError;
 }
 
 export declare namespace ListSourceCredentials {
   export type Input = ListSourceCredentialsInput;
   export type Output = ListSourceCredentialsOutput;
-  export type Error =
-    | InvalidInputException
-    | CommonAwsError;
+  export type Error = InvalidInputException | CommonAwsError;
 }
 
 export declare namespace PutResourcePolicy {
@@ -2202,5 +2307,11 @@ export declare namespace UpdateWebhook {
     | CommonAwsError;
 }
 
-export type CodeBuildErrors = AccountLimitExceededException | AccountSuspendedException | InvalidInputException | OAuthProviderException | ResourceAlreadyExistsException | ResourceNotFoundException | CommonAwsError;
-
+export type CodeBuildErrors =
+  | AccountLimitExceededException
+  | AccountSuspendedException
+  | InvalidInputException
+  | OAuthProviderException
+  | ResourceAlreadyExistsException
+  | ResourceNotFoundException
+  | CommonAwsError;

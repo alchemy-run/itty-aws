@@ -1,6 +1,38 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
-type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
+import type {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+type CommonAwsError =
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | AccessDeniedException
+  | ThrottlingException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class AccessAnalyzer extends AWSServiceClient {
@@ -8,223 +40,412 @@ export declare class AccessAnalyzer extends AWSServiceClient {
     input: ApplyArchiveRuleRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   cancelPolicyGeneration(
     input: CancelPolicyGenerationRequest,
   ): Effect.Effect<
     CancelPolicyGenerationResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   checkAccessNotGranted(
     input: CheckAccessNotGrantedRequest,
   ): Effect.Effect<
     CheckAccessNotGrantedResponse,
-    AccessDeniedException | InternalServerException | InvalidParameterException | ThrottlingException | UnprocessableEntityException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | InvalidParameterException
+    | ThrottlingException
+    | UnprocessableEntityException
+    | ValidationException
+    | CommonAwsError
   >;
   checkNoNewAccess(
     input: CheckNoNewAccessRequest,
   ): Effect.Effect<
     CheckNoNewAccessResponse,
-    AccessDeniedException | InternalServerException | InvalidParameterException | ThrottlingException | UnprocessableEntityException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | InvalidParameterException
+    | ThrottlingException
+    | UnprocessableEntityException
+    | ValidationException
+    | CommonAwsError
   >;
   checkNoPublicAccess(
     input: CheckNoPublicAccessRequest,
   ): Effect.Effect<
     CheckNoPublicAccessResponse,
-    AccessDeniedException | InternalServerException | InvalidParameterException | ThrottlingException | UnprocessableEntityException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | InvalidParameterException
+    | ThrottlingException
+    | UnprocessableEntityException
+    | ValidationException
+    | CommonAwsError
   >;
   createAccessPreview(
     input: CreateAccessPreviewRequest,
   ): Effect.Effect<
     CreateAccessPreviewResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   generateFindingRecommendation(
     input: GenerateFindingRecommendationRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getAccessPreview(
     input: GetAccessPreviewRequest,
   ): Effect.Effect<
     GetAccessPreviewResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getAnalyzedResource(
     input: GetAnalyzedResourceRequest,
   ): Effect.Effect<
     GetAnalyzedResourceResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getFinding(
     input: GetFindingRequest,
   ): Effect.Effect<
     GetFindingResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getFindingRecommendation(
     input: GetFindingRecommendationRequest,
   ): Effect.Effect<
     GetFindingRecommendationResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getFindingsStatistics(
     input: GetFindingsStatisticsRequest,
   ): Effect.Effect<
     GetFindingsStatisticsResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getFindingV2(
     input: GetFindingV2Request,
   ): Effect.Effect<
     GetFindingV2Response,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getGeneratedPolicy(
     input: GetGeneratedPolicyRequest,
   ): Effect.Effect<
     GetGeneratedPolicyResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listAccessPreviewFindings(
     input: ListAccessPreviewFindingsRequest,
   ): Effect.Effect<
     ListAccessPreviewFindingsResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listAccessPreviews(
     input: ListAccessPreviewsRequest,
   ): Effect.Effect<
     ListAccessPreviewsResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listAnalyzedResources(
     input: ListAnalyzedResourcesRequest,
   ): Effect.Effect<
     ListAnalyzedResourcesResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listFindings(
     input: ListFindingsRequest,
   ): Effect.Effect<
     ListFindingsResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listFindingsV2(
     input: ListFindingsV2Request,
   ): Effect.Effect<
     ListFindingsV2Response,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listPolicyGenerations(
     input: ListPolicyGenerationsRequest,
   ): Effect.Effect<
     ListPolicyGenerationsResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   startPolicyGeneration(
     input: StartPolicyGenerationRequest,
   ): Effect.Effect<
     StartPolicyGenerationResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   startResourceScan(
     input: StartResourceScanRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateFindings(
     input: UpdateFindingsRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   validatePolicy(
     input: ValidatePolicyRequest,
   ): Effect.Effect<
     ValidatePolicyResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createAnalyzer(
     input: CreateAnalyzerRequest,
   ): Effect.Effect<
     CreateAnalyzerResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createArchiveRule(
     input: CreateArchiveRuleRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteAnalyzer(
     input: DeleteAnalyzerRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteArchiveRule(
     input: DeleteArchiveRuleRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getAnalyzer(
     input: GetAnalyzerRequest,
   ): Effect.Effect<
     GetAnalyzerResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getArchiveRule(
     input: GetArchiveRuleRequest,
   ): Effect.Effect<
     GetArchiveRuleResponse,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listAnalyzers(
     input: ListAnalyzersRequest,
   ): Effect.Effect<
     ListAnalyzersResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listArchiveRules(
     input: ListArchiveRulesRequest,
   ): Effect.Effect<
     ListArchiveRulesResponse,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateAnalyzer(
     input: UpdateAnalyzerRequest,
   ): Effect.Effect<
     UpdateAnalyzerResponse,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateArchiveRule(
     input: UpdateArchiveRuleRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
 }
 
@@ -305,7 +526,9 @@ interface _AclGrantee {
   uri?: string;
 }
 
-export type AclGrantee = (_AclGrantee & { id: string }) | (_AclGrantee & { uri: string });
+export type AclGrantee =
+  | (_AclGrantee & { id: string })
+  | (_AclGrantee & { uri: string });
 export type AclPermission = string;
 
 export type AclUri = string;
@@ -348,7 +571,9 @@ interface _AnalyzerConfiguration {
   internalAccess?: InternalAccessConfiguration;
 }
 
-export type AnalyzerConfiguration = (_AnalyzerConfiguration & { unusedAccess: UnusedAccessConfiguration }) | (_AnalyzerConfiguration & { internalAccess: InternalAccessConfiguration });
+export type AnalyzerConfiguration =
+  | (_AnalyzerConfiguration & { unusedAccess: UnusedAccessConfiguration })
+  | (_AnalyzerConfiguration & { internalAccess: InternalAccessConfiguration });
 export type AnalyzersList = Array<AnalyzerSummary>;
 export type AnalyzerStatus = string;
 
@@ -379,8 +604,7 @@ export interface ArchiveRuleSummary {
 export interface CancelPolicyGenerationRequest {
   jobId: string;
 }
-export interface CancelPolicyGenerationResponse {
-}
+export interface CancelPolicyGenerationResponse {}
 export interface CheckAccessNotGrantedRequest {
   policyDocument: string;
   access: Array<Access>;
@@ -447,7 +671,27 @@ interface _Configuration {
   dynamodbTable?: DynamodbTableConfiguration;
 }
 
-export type Configuration = (_Configuration & { ebsSnapshot: EbsSnapshotConfiguration }) | (_Configuration & { ecrRepository: EcrRepositoryConfiguration }) | (_Configuration & { iamRole: IamRoleConfiguration }) | (_Configuration & { efsFileSystem: EfsFileSystemConfiguration }) | (_Configuration & { kmsKey: KmsKeyConfiguration }) | (_Configuration & { rdsDbClusterSnapshot: RdsDbClusterSnapshotConfiguration }) | (_Configuration & { rdsDbSnapshot: RdsDbSnapshotConfiguration }) | (_Configuration & { secretsManagerSecret: SecretsManagerSecretConfiguration }) | (_Configuration & { s3Bucket: S3BucketConfiguration }) | (_Configuration & { snsTopic: SnsTopicConfiguration }) | (_Configuration & { sqsQueue: SqsQueueConfiguration }) | (_Configuration & { s3ExpressDirectoryBucket: S3ExpressDirectoryBucketConfiguration }) | (_Configuration & { dynamodbStream: DynamodbStreamConfiguration }) | (_Configuration & { dynamodbTable: DynamodbTableConfiguration });
+export type Configuration =
+  | (_Configuration & { ebsSnapshot: EbsSnapshotConfiguration })
+  | (_Configuration & { ecrRepository: EcrRepositoryConfiguration })
+  | (_Configuration & { iamRole: IamRoleConfiguration })
+  | (_Configuration & { efsFileSystem: EfsFileSystemConfiguration })
+  | (_Configuration & { kmsKey: KmsKeyConfiguration })
+  | (_Configuration & {
+      rdsDbClusterSnapshot: RdsDbClusterSnapshotConfiguration;
+    })
+  | (_Configuration & { rdsDbSnapshot: RdsDbSnapshotConfiguration })
+  | (_Configuration & {
+      secretsManagerSecret: SecretsManagerSecretConfiguration;
+    })
+  | (_Configuration & { s3Bucket: S3BucketConfiguration })
+  | (_Configuration & { snsTopic: SnsTopicConfiguration })
+  | (_Configuration & { sqsQueue: SqsQueueConfiguration })
+  | (_Configuration & {
+      s3ExpressDirectoryBucket: S3ExpressDirectoryBucketConfiguration;
+    })
+  | (_Configuration & { dynamodbStream: DynamodbStreamConfiguration })
+  | (_Configuration & { dynamodbTable: DynamodbTableConfiguration });
 export type ConfigurationsMap = Record<string, Configuration>;
 export type ConfigurationsMapKey = string;
 
@@ -580,7 +824,17 @@ interface _FindingDetails {
   unusedIamUserPasswordDetails?: UnusedIamUserPasswordDetails;
 }
 
-export type FindingDetails = (_FindingDetails & { internalAccessDetails: InternalAccessDetails }) | (_FindingDetails & { externalAccessDetails: ExternalAccessDetails }) | (_FindingDetails & { unusedPermissionDetails: UnusedPermissionDetails }) | (_FindingDetails & { unusedIamUserAccessKeyDetails: UnusedIamUserAccessKeyDetails }) | (_FindingDetails & { unusedIamRoleDetails: UnusedIamRoleDetails }) | (_FindingDetails & { unusedIamUserPasswordDetails: UnusedIamUserPasswordDetails });
+export type FindingDetails =
+  | (_FindingDetails & { internalAccessDetails: InternalAccessDetails })
+  | (_FindingDetails & { externalAccessDetails: ExternalAccessDetails })
+  | (_FindingDetails & { unusedPermissionDetails: UnusedPermissionDetails })
+  | (_FindingDetails & {
+      unusedIamUserAccessKeyDetails: UnusedIamUserAccessKeyDetails;
+    })
+  | (_FindingDetails & { unusedIamRoleDetails: UnusedIamRoleDetails })
+  | (_FindingDetails & {
+      unusedIamUserPasswordDetails: UnusedIamUserPasswordDetails;
+    });
 export type FindingDetailsList = Array<FindingDetails>;
 export type FindingId = string;
 
@@ -604,7 +858,16 @@ interface _FindingsStatistics {
   unusedAccessFindingsStatistics?: UnusedAccessFindingsStatistics;
 }
 
-export type FindingsStatistics = (_FindingsStatistics & { externalAccessFindingsStatistics: ExternalAccessFindingsStatistics }) | (_FindingsStatistics & { internalAccessFindingsStatistics: InternalAccessFindingsStatistics }) | (_FindingsStatistics & { unusedAccessFindingsStatistics: UnusedAccessFindingsStatistics });
+export type FindingsStatistics =
+  | (_FindingsStatistics & {
+      externalAccessFindingsStatistics: ExternalAccessFindingsStatistics;
+    })
+  | (_FindingsStatistics & {
+      internalAccessFindingsStatistics: InternalAccessFindingsStatistics;
+    })
+  | (_FindingsStatistics & {
+      unusedAccessFindingsStatistics: UnusedAccessFindingsStatistics;
+    });
 export type FindingsStatisticsList = Array<FindingsStatistics>;
 export type FindingStatus = string;
 
@@ -764,7 +1027,8 @@ export interface InternalAccessAnalysisRuleCriteria {
   resourceTypes?: Array<string>;
   resourceArns?: Array<string>;
 }
-export type InternalAccessAnalysisRuleCriteriaList = Array<InternalAccessAnalysisRuleCriteria>;
+export type InternalAccessAnalysisRuleCriteriaList =
+  Array<InternalAccessAnalysisRuleCriteria>;
 export interface InternalAccessConfiguration {
   analysisRule?: InternalAccessAnalysisRule;
 }
@@ -790,7 +1054,10 @@ export interface InternalAccessResourceTypeDetails {
   totalResolvedFindings?: number;
   totalArchivedFindings?: number;
 }
-export type InternalAccessResourceTypeStatisticsMap = Record<string, InternalAccessResourceTypeDetails>;
+export type InternalAccessResourceTypeStatisticsMap = Record<
+  string,
+  InternalAccessResourceTypeDetails
+>;
 export type InternalAccessType = string;
 
 export declare class InternalServerException extends EffectData.TaggedError(
@@ -799,8 +1066,7 @@ export declare class InternalServerException extends EffectData.TaggedError(
   readonly message: string;
   readonly retryAfterSeconds?: number;
 }> {}
-export interface InternetConfiguration {
-}
+export interface InternetConfiguration {}
 export declare class InvalidParameterException extends EffectData.TaggedError(
   "InvalidParameterException",
 )<{
@@ -955,7 +1221,11 @@ interface _NetworkOriginConfiguration {
   internetConfiguration?: InternetConfiguration;
 }
 
-export type NetworkOriginConfiguration = (_NetworkOriginConfiguration & { vpcConfiguration: VpcConfiguration }) | (_NetworkOriginConfiguration & { internetConfiguration: InternetConfiguration });
+export type NetworkOriginConfiguration =
+  | (_NetworkOriginConfiguration & { vpcConfiguration: VpcConfiguration })
+  | (_NetworkOriginConfiguration & {
+      internetConfiguration: InternetConfiguration;
+    });
 export type OrderBy = string;
 
 interface _PathElement {
@@ -965,7 +1235,11 @@ interface _PathElement {
   value?: string;
 }
 
-export type PathElement = (_PathElement & { index: number }) | (_PathElement & { key: string }) | (_PathElement & { substring: Substring }) | (_PathElement & { value: string });
+export type PathElement =
+  | (_PathElement & { index: number })
+  | (_PathElement & { key: string })
+  | (_PathElement & { substring: Substring })
+  | (_PathElement & { value: string });
 export type PathElementList = Array<PathElement>;
 export type PolicyDocument = string;
 
@@ -999,12 +1273,16 @@ export type RdsDbClusterSnapshotAccountId = string;
 export type RdsDbClusterSnapshotAccountIdsList = Array<string>;
 export type RdsDbClusterSnapshotAttributeName = string;
 
-export type RdsDbClusterSnapshotAttributesMap = Record<string, RdsDbClusterSnapshotAttributeValue>;
+export type RdsDbClusterSnapshotAttributesMap = Record<
+  string,
+  RdsDbClusterSnapshotAttributeValue
+>;
 interface _RdsDbClusterSnapshotAttributeValue {
   accountIds?: Array<string>;
 }
 
-export type RdsDbClusterSnapshotAttributeValue = (_RdsDbClusterSnapshotAttributeValue & { accountIds: Array<string> });
+export type RdsDbClusterSnapshotAttributeValue =
+  _RdsDbClusterSnapshotAttributeValue & { accountIds: Array<string> };
 export interface RdsDbClusterSnapshotConfiguration {
   attributes?: Record<string, RdsDbClusterSnapshotAttributeValue>;
   kmsKeyId?: string;
@@ -1016,12 +1294,17 @@ export type RdsDbSnapshotAccountId = string;
 export type RdsDbSnapshotAccountIdsList = Array<string>;
 export type RdsDbSnapshotAttributeName = string;
 
-export type RdsDbSnapshotAttributesMap = Record<string, RdsDbSnapshotAttributeValue>;
+export type RdsDbSnapshotAttributesMap = Record<
+  string,
+  RdsDbSnapshotAttributeValue
+>;
 interface _RdsDbSnapshotAttributeValue {
   accountIds?: Array<string>;
 }
 
-export type RdsDbSnapshotAttributeValue = (_RdsDbSnapshotAttributeValue & { accountIds: Array<string> });
+export type RdsDbSnapshotAttributeValue = _RdsDbSnapshotAttributeValue & {
+  accountIds: Array<string>;
+};
 export interface RdsDbSnapshotConfiguration {
   attributes?: Record<string, RdsDbSnapshotAttributeValue>;
   kmsKeyId?: string;
@@ -1048,7 +1331,9 @@ interface _RecommendedStep {
   unusedPermissionsRecommendedStep?: UnusedPermissionsRecommendedStep;
 }
 
-export type RecommendedStep = (_RecommendedStep & { unusedPermissionsRecommendedStep: UnusedPermissionsRecommendedStep });
+export type RecommendedStep = _RecommendedStep & {
+  unusedPermissionsRecommendedStep: UnusedPermissionsRecommendedStep;
+};
 export type RecommendedStepList = Array<RecommendedStep>;
 export type RegionList = Array<string>;
 export type Resource = string;
@@ -1083,12 +1368,16 @@ export interface S3AccessPointConfiguration {
   publicAccessBlock?: S3PublicAccessBlockConfiguration;
   networkOrigin?: NetworkOriginConfiguration;
 }
-export type S3AccessPointConfigurationsMap = Record<string, S3AccessPointConfiguration>;
+export type S3AccessPointConfigurationsMap = Record<
+  string,
+  S3AccessPointConfiguration
+>;
 export interface S3BucketAclGrantConfiguration {
   permission: string;
   grantee: AclGrantee;
 }
-export type S3BucketAclGrantConfigurationsList = Array<S3BucketAclGrantConfiguration>;
+export type S3BucketAclGrantConfigurationsList =
+  Array<S3BucketAclGrantConfiguration>;
 export interface S3BucketConfiguration {
   bucketPolicy?: string;
   bucketAclGrants?: Array<S3BucketAclGrantConfiguration>;
@@ -1103,7 +1392,10 @@ export interface S3ExpressDirectoryAccessPointConfiguration {
   accessPointPolicy?: string;
   networkOrigin?: NetworkOriginConfiguration;
 }
-export type S3ExpressDirectoryAccessPointConfigurationsMap = Record<string, S3ExpressDirectoryAccessPointConfiguration>;
+export type S3ExpressDirectoryAccessPointConfigurationsMap = Record<
+  string,
+  S3ExpressDirectoryAccessPointConfiguration
+>;
 export interface S3ExpressDirectoryBucketConfiguration {
   bucketPolicy?: string;
   accessPoints?: Record<string, S3ExpressDirectoryAccessPointConfiguration>;
@@ -1177,8 +1469,7 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {
-}
+export interface TagResourceResponse {}
 export type TagsList = Array<Record<string, string>>;
 export type TagsMap = Record<string, string>;
 export declare class ThrottlingException extends EffectData.TaggedError(
@@ -1214,8 +1505,7 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {
-}
+export interface UntagResourceResponse {}
 export interface UnusedAccessConfiguration {
   unusedAccessAge?: number;
   analysisRule?: AnalysisRule;
@@ -1770,5 +2060,14 @@ export declare namespace UpdateArchiveRule {
     | CommonAwsError;
 }
 
-export type AccessAnalyzerErrors = AccessDeniedException | ConflictException | InternalServerException | InvalidParameterException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | UnprocessableEntityException | ValidationException | CommonAwsError;
-
+export type AccessAnalyzerErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | InvalidParameterException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | UnprocessableEntityException
+  | ValidationException
+  | CommonAwsError;

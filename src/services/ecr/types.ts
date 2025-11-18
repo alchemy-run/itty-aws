@@ -1,6 +1,40 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
-type CommonAwsError = AccessDeniedException | ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | ThrottlingException | UnrecognizedClientException | UnknownOperationException | ValidationError | ValidationException;
+import type {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+type CommonAwsError =
+  | AccessDeniedException
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | ThrottlingException
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class ECR extends AWSServiceClient {
@@ -8,133 +42,235 @@ export declare class ECR extends AWSServiceClient {
     input: BatchCheckLayerAvailabilityRequest,
   ): Effect.Effect<
     BatchCheckLayerAvailabilityResponse,
-    InvalidParameterException | RepositoryNotFoundException | ServerException | CommonAwsError
+    | InvalidParameterException
+    | RepositoryNotFoundException
+    | ServerException
+    | CommonAwsError
   >;
   batchDeleteImage(
     input: BatchDeleteImageRequest,
   ): Effect.Effect<
     BatchDeleteImageResponse,
-    InvalidParameterException | RepositoryNotFoundException | ServerException | CommonAwsError
+    | InvalidParameterException
+    | RepositoryNotFoundException
+    | ServerException
+    | CommonAwsError
   >;
   batchGetImage(
     input: BatchGetImageRequest,
   ): Effect.Effect<
     BatchGetImageResponse,
-    InvalidParameterException | LimitExceededException | RepositoryNotFoundException | ServerException | UnableToGetUpstreamImageException | CommonAwsError
+    | InvalidParameterException
+    | LimitExceededException
+    | RepositoryNotFoundException
+    | ServerException
+    | UnableToGetUpstreamImageException
+    | CommonAwsError
   >;
   batchGetRepositoryScanningConfiguration(
     input: BatchGetRepositoryScanningConfigurationRequest,
   ): Effect.Effect<
     BatchGetRepositoryScanningConfigurationResponse,
-    InvalidParameterException | RepositoryNotFoundException | ServerException | ValidationException | CommonAwsError
+    | InvalidParameterException
+    | RepositoryNotFoundException
+    | ServerException
+    | ValidationException
+    | CommonAwsError
   >;
   completeLayerUpload(
     input: CompleteLayerUploadRequest,
   ): Effect.Effect<
     CompleteLayerUploadResponse,
-    EmptyUploadException | InvalidLayerException | InvalidParameterException | KmsException | LayerAlreadyExistsException | LayerPartTooSmallException | RepositoryNotFoundException | ServerException | UploadNotFoundException | CommonAwsError
+    | EmptyUploadException
+    | InvalidLayerException
+    | InvalidParameterException
+    | KmsException
+    | LayerAlreadyExistsException
+    | LayerPartTooSmallException
+    | RepositoryNotFoundException
+    | ServerException
+    | UploadNotFoundException
+    | CommonAwsError
   >;
   createPullThroughCacheRule(
     input: CreatePullThroughCacheRuleRequest,
   ): Effect.Effect<
     CreatePullThroughCacheRuleResponse,
-    InvalidParameterException | LimitExceededException | PullThroughCacheRuleAlreadyExistsException | SecretNotFoundException | ServerException | UnableToAccessSecretException | UnableToDecryptSecretValueException | UnsupportedUpstreamRegistryException | ValidationException | CommonAwsError
+    | InvalidParameterException
+    | LimitExceededException
+    | PullThroughCacheRuleAlreadyExistsException
+    | SecretNotFoundException
+    | ServerException
+    | UnableToAccessSecretException
+    | UnableToDecryptSecretValueException
+    | UnsupportedUpstreamRegistryException
+    | ValidationException
+    | CommonAwsError
   >;
   createRepository(
     input: CreateRepositoryRequest,
   ): Effect.Effect<
     CreateRepositoryResponse,
-    InvalidParameterException | InvalidTagParameterException | KmsException | LimitExceededException | RepositoryAlreadyExistsException | ServerException | TooManyTagsException | CommonAwsError
+    | InvalidParameterException
+    | InvalidTagParameterException
+    | KmsException
+    | LimitExceededException
+    | RepositoryAlreadyExistsException
+    | ServerException
+    | TooManyTagsException
+    | CommonAwsError
   >;
   createRepositoryCreationTemplate(
     input: CreateRepositoryCreationTemplateRequest,
   ): Effect.Effect<
     CreateRepositoryCreationTemplateResponse,
-    InvalidParameterException | LimitExceededException | ServerException | TemplateAlreadyExistsException | ValidationException | CommonAwsError
+    | InvalidParameterException
+    | LimitExceededException
+    | ServerException
+    | TemplateAlreadyExistsException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteLifecyclePolicy(
     input: DeleteLifecyclePolicyRequest,
   ): Effect.Effect<
     DeleteLifecyclePolicyResponse,
-    InvalidParameterException | LifecyclePolicyNotFoundException | RepositoryNotFoundException | ServerException | ValidationException | CommonAwsError
+    | InvalidParameterException
+    | LifecyclePolicyNotFoundException
+    | RepositoryNotFoundException
+    | ServerException
+    | ValidationException
+    | CommonAwsError
   >;
   deletePullThroughCacheRule(
     input: DeletePullThroughCacheRuleRequest,
   ): Effect.Effect<
     DeletePullThroughCacheRuleResponse,
-    InvalidParameterException | PullThroughCacheRuleNotFoundException | ServerException | ValidationException | CommonAwsError
+    | InvalidParameterException
+    | PullThroughCacheRuleNotFoundException
+    | ServerException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteRegistryPolicy(
     input: DeleteRegistryPolicyRequest,
   ): Effect.Effect<
     DeleteRegistryPolicyResponse,
-    InvalidParameterException | RegistryPolicyNotFoundException | ServerException | ValidationException | CommonAwsError
+    | InvalidParameterException
+    | RegistryPolicyNotFoundException
+    | ServerException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteRepository(
     input: DeleteRepositoryRequest,
   ): Effect.Effect<
     DeleteRepositoryResponse,
-    InvalidParameterException | KmsException | RepositoryNotEmptyException | RepositoryNotFoundException | ServerException | CommonAwsError
+    | InvalidParameterException
+    | KmsException
+    | RepositoryNotEmptyException
+    | RepositoryNotFoundException
+    | ServerException
+    | CommonAwsError
   >;
   deleteRepositoryCreationTemplate(
     input: DeleteRepositoryCreationTemplateRequest,
   ): Effect.Effect<
     DeleteRepositoryCreationTemplateResponse,
-    InvalidParameterException | ServerException | TemplateNotFoundException | ValidationException | CommonAwsError
+    | InvalidParameterException
+    | ServerException
+    | TemplateNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteRepositoryPolicy(
     input: DeleteRepositoryPolicyRequest,
   ): Effect.Effect<
     DeleteRepositoryPolicyResponse,
-    InvalidParameterException | RepositoryNotFoundException | RepositoryPolicyNotFoundException | ServerException | CommonAwsError
+    | InvalidParameterException
+    | RepositoryNotFoundException
+    | RepositoryPolicyNotFoundException
+    | ServerException
+    | CommonAwsError
   >;
   describeImageReplicationStatus(
     input: DescribeImageReplicationStatusRequest,
   ): Effect.Effect<
     DescribeImageReplicationStatusResponse,
-    ImageNotFoundException | InvalidParameterException | RepositoryNotFoundException | ServerException | ValidationException | CommonAwsError
+    | ImageNotFoundException
+    | InvalidParameterException
+    | RepositoryNotFoundException
+    | ServerException
+    | ValidationException
+    | CommonAwsError
   >;
   describeImages(
     input: DescribeImagesRequest,
   ): Effect.Effect<
     DescribeImagesResponse,
-    ImageNotFoundException | InvalidParameterException | RepositoryNotFoundException | ServerException | CommonAwsError
+    | ImageNotFoundException
+    | InvalidParameterException
+    | RepositoryNotFoundException
+    | ServerException
+    | CommonAwsError
   >;
   describeImageScanFindings(
     input: DescribeImageScanFindingsRequest,
   ): Effect.Effect<
     DescribeImageScanFindingsResponse,
-    ImageNotFoundException | InvalidParameterException | RepositoryNotFoundException | ScanNotFoundException | ServerException | ValidationException | CommonAwsError
+    | ImageNotFoundException
+    | InvalidParameterException
+    | RepositoryNotFoundException
+    | ScanNotFoundException
+    | ServerException
+    | ValidationException
+    | CommonAwsError
   >;
   describePullThroughCacheRules(
     input: DescribePullThroughCacheRulesRequest,
   ): Effect.Effect<
     DescribePullThroughCacheRulesResponse,
-    InvalidParameterException | PullThroughCacheRuleNotFoundException | ServerException | ValidationException | CommonAwsError
+    | InvalidParameterException
+    | PullThroughCacheRuleNotFoundException
+    | ServerException
+    | ValidationException
+    | CommonAwsError
   >;
   describeRegistry(
     input: DescribeRegistryRequest,
   ): Effect.Effect<
     DescribeRegistryResponse,
-    InvalidParameterException | ServerException | ValidationException | CommonAwsError
+    | InvalidParameterException
+    | ServerException
+    | ValidationException
+    | CommonAwsError
   >;
   describeRepositories(
     input: DescribeRepositoriesRequest,
   ): Effect.Effect<
     DescribeRepositoriesResponse,
-    InvalidParameterException | RepositoryNotFoundException | ServerException | CommonAwsError
+    | InvalidParameterException
+    | RepositoryNotFoundException
+    | ServerException
+    | CommonAwsError
   >;
   describeRepositoryCreationTemplates(
     input: DescribeRepositoryCreationTemplatesRequest,
   ): Effect.Effect<
     DescribeRepositoryCreationTemplatesResponse,
-    InvalidParameterException | ServerException | ValidationException | CommonAwsError
+    | InvalidParameterException
+    | ServerException
+    | ValidationException
+    | CommonAwsError
   >;
   getAccountSetting(
     input: GetAccountSettingRequest,
   ): Effect.Effect<
     GetAccountSettingResponse,
-    InvalidParameterException | ServerException | ValidationException | CommonAwsError
+    | InvalidParameterException
+    | ServerException
+    | ValidationException
+    | CommonAwsError
   >;
   getAuthorizationToken(
     input: GetAuthorizationTokenRequest,
@@ -146,157 +282,276 @@ export declare class ECR extends AWSServiceClient {
     input: GetDownloadUrlForLayerRequest,
   ): Effect.Effect<
     GetDownloadUrlForLayerResponse,
-    InvalidParameterException | LayerInaccessibleException | LayersNotFoundException | RepositoryNotFoundException | ServerException | UnableToGetUpstreamLayerException | CommonAwsError
+    | InvalidParameterException
+    | LayerInaccessibleException
+    | LayersNotFoundException
+    | RepositoryNotFoundException
+    | ServerException
+    | UnableToGetUpstreamLayerException
+    | CommonAwsError
   >;
   getLifecyclePolicy(
     input: GetLifecyclePolicyRequest,
   ): Effect.Effect<
     GetLifecyclePolicyResponse,
-    InvalidParameterException | LifecyclePolicyNotFoundException | RepositoryNotFoundException | ServerException | ValidationException | CommonAwsError
+    | InvalidParameterException
+    | LifecyclePolicyNotFoundException
+    | RepositoryNotFoundException
+    | ServerException
+    | ValidationException
+    | CommonAwsError
   >;
   getLifecyclePolicyPreview(
     input: GetLifecyclePolicyPreviewRequest,
   ): Effect.Effect<
     GetLifecyclePolicyPreviewResponse,
-    InvalidParameterException | LifecyclePolicyPreviewNotFoundException | RepositoryNotFoundException | ServerException | ValidationException | CommonAwsError
+    | InvalidParameterException
+    | LifecyclePolicyPreviewNotFoundException
+    | RepositoryNotFoundException
+    | ServerException
+    | ValidationException
+    | CommonAwsError
   >;
   getRegistryPolicy(
     input: GetRegistryPolicyRequest,
   ): Effect.Effect<
     GetRegistryPolicyResponse,
-    InvalidParameterException | RegistryPolicyNotFoundException | ServerException | ValidationException | CommonAwsError
+    | InvalidParameterException
+    | RegistryPolicyNotFoundException
+    | ServerException
+    | ValidationException
+    | CommonAwsError
   >;
   getRegistryScanningConfiguration(
     input: GetRegistryScanningConfigurationRequest,
   ): Effect.Effect<
     GetRegistryScanningConfigurationResponse,
-    InvalidParameterException | ServerException | ValidationException | CommonAwsError
+    | InvalidParameterException
+    | ServerException
+    | ValidationException
+    | CommonAwsError
   >;
   getRepositoryPolicy(
     input: GetRepositoryPolicyRequest,
   ): Effect.Effect<
     GetRepositoryPolicyResponse,
-    InvalidParameterException | RepositoryNotFoundException | RepositoryPolicyNotFoundException | ServerException | CommonAwsError
+    | InvalidParameterException
+    | RepositoryNotFoundException
+    | RepositoryPolicyNotFoundException
+    | ServerException
+    | CommonAwsError
   >;
   initiateLayerUpload(
     input: InitiateLayerUploadRequest,
   ): Effect.Effect<
     InitiateLayerUploadResponse,
-    InvalidParameterException | KmsException | RepositoryNotFoundException | ServerException | CommonAwsError
+    | InvalidParameterException
+    | KmsException
+    | RepositoryNotFoundException
+    | ServerException
+    | CommonAwsError
   >;
   listImages(
     input: ListImagesRequest,
   ): Effect.Effect<
     ListImagesResponse,
-    InvalidParameterException | RepositoryNotFoundException | ServerException | CommonAwsError
+    | InvalidParameterException
+    | RepositoryNotFoundException
+    | ServerException
+    | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    InvalidParameterException | RepositoryNotFoundException | ServerException | CommonAwsError
+    | InvalidParameterException
+    | RepositoryNotFoundException
+    | ServerException
+    | CommonAwsError
   >;
   putAccountSetting(
     input: PutAccountSettingRequest,
   ): Effect.Effect<
     PutAccountSettingResponse,
-    InvalidParameterException | LimitExceededException | ServerException | ValidationException | CommonAwsError
+    | InvalidParameterException
+    | LimitExceededException
+    | ServerException
+    | ValidationException
+    | CommonAwsError
   >;
   putImage(
     input: PutImageRequest,
   ): Effect.Effect<
     PutImageResponse,
-    ImageAlreadyExistsException | ImageDigestDoesNotMatchException | ImageTagAlreadyExistsException | InvalidParameterException | KmsException | LayersNotFoundException | LimitExceededException | ReferencedImagesNotFoundException | RepositoryNotFoundException | ServerException | CommonAwsError
+    | ImageAlreadyExistsException
+    | ImageDigestDoesNotMatchException
+    | ImageTagAlreadyExistsException
+    | InvalidParameterException
+    | KmsException
+    | LayersNotFoundException
+    | LimitExceededException
+    | ReferencedImagesNotFoundException
+    | RepositoryNotFoundException
+    | ServerException
+    | CommonAwsError
   >;
   putImageScanningConfiguration(
     input: PutImageScanningConfigurationRequest,
   ): Effect.Effect<
     PutImageScanningConfigurationResponse,
-    InvalidParameterException | RepositoryNotFoundException | ServerException | ValidationException | CommonAwsError
+    | InvalidParameterException
+    | RepositoryNotFoundException
+    | ServerException
+    | ValidationException
+    | CommonAwsError
   >;
   putImageTagMutability(
     input: PutImageTagMutabilityRequest,
   ): Effect.Effect<
     PutImageTagMutabilityResponse,
-    InvalidParameterException | RepositoryNotFoundException | ServerException | CommonAwsError
+    | InvalidParameterException
+    | RepositoryNotFoundException
+    | ServerException
+    | CommonAwsError
   >;
   putLifecyclePolicy(
     input: PutLifecyclePolicyRequest,
   ): Effect.Effect<
     PutLifecyclePolicyResponse,
-    InvalidParameterException | RepositoryNotFoundException | ServerException | ValidationException | CommonAwsError
+    | InvalidParameterException
+    | RepositoryNotFoundException
+    | ServerException
+    | ValidationException
+    | CommonAwsError
   >;
   putRegistryPolicy(
     input: PutRegistryPolicyRequest,
   ): Effect.Effect<
     PutRegistryPolicyResponse,
-    InvalidParameterException | ServerException | ValidationException | CommonAwsError
+    | InvalidParameterException
+    | ServerException
+    | ValidationException
+    | CommonAwsError
   >;
   putRegistryScanningConfiguration(
     input: PutRegistryScanningConfigurationRequest,
   ): Effect.Effect<
     PutRegistryScanningConfigurationResponse,
-    InvalidParameterException | ServerException | ValidationException | CommonAwsError
+    | InvalidParameterException
+    | ServerException
+    | ValidationException
+    | CommonAwsError
   >;
   putReplicationConfiguration(
     input: PutReplicationConfigurationRequest,
   ): Effect.Effect<
     PutReplicationConfigurationResponse,
-    InvalidParameterException | ServerException | ValidationException | CommonAwsError
+    | InvalidParameterException
+    | ServerException
+    | ValidationException
+    | CommonAwsError
   >;
   setRepositoryPolicy(
     input: SetRepositoryPolicyRequest,
   ): Effect.Effect<
     SetRepositoryPolicyResponse,
-    InvalidParameterException | RepositoryNotFoundException | ServerException | CommonAwsError
+    | InvalidParameterException
+    | RepositoryNotFoundException
+    | ServerException
+    | CommonAwsError
   >;
   startImageScan(
     input: StartImageScanRequest,
   ): Effect.Effect<
     StartImageScanResponse,
-    ImageNotFoundException | InvalidParameterException | LimitExceededException | RepositoryNotFoundException | ServerException | UnsupportedImageTypeException | ValidationException | CommonAwsError
+    | ImageNotFoundException
+    | InvalidParameterException
+    | LimitExceededException
+    | RepositoryNotFoundException
+    | ServerException
+    | UnsupportedImageTypeException
+    | ValidationException
+    | CommonAwsError
   >;
   startLifecyclePolicyPreview(
     input: StartLifecyclePolicyPreviewRequest,
   ): Effect.Effect<
     StartLifecyclePolicyPreviewResponse,
-    InvalidParameterException | LifecyclePolicyNotFoundException | LifecyclePolicyPreviewInProgressException | RepositoryNotFoundException | ServerException | ValidationException | CommonAwsError
+    | InvalidParameterException
+    | LifecyclePolicyNotFoundException
+    | LifecyclePolicyPreviewInProgressException
+    | RepositoryNotFoundException
+    | ServerException
+    | ValidationException
+    | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    InvalidParameterException | InvalidTagParameterException | RepositoryNotFoundException | ServerException | TooManyTagsException | CommonAwsError
+    | InvalidParameterException
+    | InvalidTagParameterException
+    | RepositoryNotFoundException
+    | ServerException
+    | TooManyTagsException
+    | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    InvalidParameterException | InvalidTagParameterException | RepositoryNotFoundException | ServerException | TooManyTagsException | CommonAwsError
+    | InvalidParameterException
+    | InvalidTagParameterException
+    | RepositoryNotFoundException
+    | ServerException
+    | TooManyTagsException
+    | CommonAwsError
   >;
   updatePullThroughCacheRule(
     input: UpdatePullThroughCacheRuleRequest,
   ): Effect.Effect<
     UpdatePullThroughCacheRuleResponse,
-    InvalidParameterException | PullThroughCacheRuleNotFoundException | SecretNotFoundException | ServerException | UnableToAccessSecretException | UnableToDecryptSecretValueException | ValidationException | CommonAwsError
+    | InvalidParameterException
+    | PullThroughCacheRuleNotFoundException
+    | SecretNotFoundException
+    | ServerException
+    | UnableToAccessSecretException
+    | UnableToDecryptSecretValueException
+    | ValidationException
+    | CommonAwsError
   >;
   updateRepositoryCreationTemplate(
     input: UpdateRepositoryCreationTemplateRequest,
   ): Effect.Effect<
     UpdateRepositoryCreationTemplateResponse,
-    InvalidParameterException | ServerException | TemplateNotFoundException | ValidationException | CommonAwsError
+    | InvalidParameterException
+    | ServerException
+    | TemplateNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   uploadLayerPart(
     input: UploadLayerPartRequest,
   ): Effect.Effect<
     UploadLayerPartResponse,
-    InvalidLayerPartException | InvalidParameterException | KmsException | LimitExceededException | RepositoryNotFoundException | ServerException | UploadNotFoundException | CommonAwsError
+    | InvalidLayerPartException
+    | InvalidParameterException
+    | KmsException
+    | LimitExceededException
+    | RepositoryNotFoundException
+    | ServerException
+    | UploadNotFoundException
+    | CommonAwsError
   >;
   validatePullThroughCacheRule(
     input: ValidatePullThroughCacheRuleRequest,
   ): Effect.Effect<
     ValidatePullThroughCacheRuleResponse,
-    InvalidParameterException | PullThroughCacheRuleNotFoundException | ServerException | ValidationException | CommonAwsError
+    | InvalidParameterException
+    | PullThroughCacheRuleNotFoundException
+    | ServerException
+    | ValidationException
+    | CommonAwsError
   >;
 }
 
@@ -490,8 +745,7 @@ export interface DeletePullThroughCacheRuleResponse {
   customRoleArn?: string;
   upstreamRepositoryPrefix?: string;
 }
-export interface DeleteRegistryPolicyRequest {
-}
+export interface DeleteRegistryPolicyRequest {}
 export interface DeleteRegistryPolicyResponse {
   registryId?: string;
   policyText?: string;
@@ -570,8 +824,7 @@ export interface DescribePullThroughCacheRulesResponse {
   pullThroughCacheRules?: Array<PullThroughCacheRule>;
   nextToken?: string;
 }
-export interface DescribeRegistryRequest {
-}
+export interface DescribeRegistryRequest {}
 export interface DescribeRegistryResponse {
   registryId?: string;
   replicationConfiguration?: ReplicationConfiguration;
@@ -648,7 +901,13 @@ export type FindingDescription = string;
 
 export type FindingName = string;
 
-export type FindingSeverity = "INFORMATIONAL" | "LOW" | "MEDIUM" | "HIGH" | "CRITICAL" | "UNDEFINED";
+export type FindingSeverity =
+  | "INFORMATIONAL"
+  | "LOW"
+  | "MEDIUM"
+  | "HIGH"
+  | "CRITICAL"
+  | "UNDEFINED";
 export type FindingSeverityCounts = Record<FindingSeverity, number>;
 export type FixAvailable = string;
 
@@ -706,14 +965,12 @@ export interface GetLifecyclePolicyResponse {
   lifecyclePolicyText?: string;
   lastEvaluatedAt?: Date | string;
 }
-export interface GetRegistryPolicyRequest {
-}
+export interface GetRegistryPolicyRequest {}
 export interface GetRegistryPolicyResponse {
   registryId?: string;
   policyText?: string;
 }
-export interface GetRegistryScanningConfigurationRequest {
-}
+export interface GetRegistryScanningConfigurationRequest {}
 export interface GetRegistryScanningConfigurationResponse {
   registryId?: string;
   scanningConfiguration?: RegistryScanningConfiguration;
@@ -768,7 +1025,17 @@ export interface ImageFailure {
   failureCode?: ImageFailureCode;
   failureReason?: string;
 }
-export type ImageFailureCode = "InvalidImageDigest" | "InvalidImageTag" | "ImageTagDoesNotMatchDigest" | "ImageNotFound" | "MissingDigestAndTag" | "ImageReferencedByManifestList" | "KmsError" | "UpstreamAccessDenied" | "UpstreamTooManyRequests" | "UpstreamUnavailable";
+export type ImageFailureCode =
+  | "InvalidImageDigest"
+  | "InvalidImageTag"
+  | "ImageTagDoesNotMatchDigest"
+  | "ImageNotFound"
+  | "MissingDigestAndTag"
+  | "ImageReferencedByManifestList"
+  | "KmsError"
+  | "UpstreamAccessDenied"
+  | "UpstreamTooManyRequests"
+  | "UpstreamUnavailable";
 export type ImageFailureList = Array<ImageFailure>;
 export type ImageFailureReason = string;
 
@@ -829,12 +1096,17 @@ export declare class ImageTagAlreadyExistsException extends EffectData.TaggedErr
   readonly message?: string;
 }> {}
 export type ImageTagList = Array<string>;
-export type ImageTagMutability = "MUTABLE" | "IMMUTABLE" | "IMMUTABLE_WITH_EXCLUSION" | "MUTABLE_WITH_EXCLUSION";
+export type ImageTagMutability =
+  | "MUTABLE"
+  | "IMMUTABLE"
+  | "IMMUTABLE_WITH_EXCLUSION"
+  | "MUTABLE_WITH_EXCLUSION";
 export interface ImageTagMutabilityExclusionFilter {
   filterType: ImageTagMutabilityExclusionFilterType;
   filter: string;
 }
-export type ImageTagMutabilityExclusionFilters = Array<ImageTagMutabilityExclusionFilter>;
+export type ImageTagMutabilityExclusionFilters =
+  Array<ImageTagMutabilityExclusionFilter>;
 export type ImageTagMutabilityExclusionFilterType = "WILDCARD";
 export type ImageTagMutabilityExclusionFilterValue = string;
 
@@ -956,8 +1228,13 @@ export interface LifecyclePolicyPreviewResult {
   action?: LifecyclePolicyRuleAction;
   appliedRulePriority?: number;
 }
-export type LifecyclePolicyPreviewResultList = Array<LifecyclePolicyPreviewResult>;
-export type LifecyclePolicyPreviewStatus = "IN_PROGRESS" | "COMPLETE" | "EXPIRED" | "FAILED";
+export type LifecyclePolicyPreviewResultList =
+  Array<LifecyclePolicyPreviewResult>;
+export type LifecyclePolicyPreviewStatus =
+  | "IN_PROGRESS"
+  | "COMPLETE"
+  | "EXPIRED"
+  | "FAILED";
 export interface LifecyclePolicyPreviewSummary {
   expiringImageTotalCount?: number;
 }
@@ -1263,8 +1540,10 @@ export interface RepositoryScanningConfigurationFailure {
   failureCode?: ScanningConfigurationFailureCode;
   failureReason?: string;
 }
-export type RepositoryScanningConfigurationFailureList = Array<RepositoryScanningConfigurationFailure>;
-export type RepositoryScanningConfigurationList = Array<RepositoryScanningConfiguration>;
+export type RepositoryScanningConfigurationFailureList =
+  Array<RepositoryScanningConfigurationFailure>;
+export type RepositoryScanningConfigurationList =
+  Array<RepositoryScanningConfiguration>;
 export type RepositoryTemplateDescription = string;
 
 export interface Resource {
@@ -1299,7 +1578,16 @@ export declare class ScanNotFoundException extends EffectData.TaggedError(
 }> {}
 export type ScanOnPushFlag = boolean;
 
-export type ScanStatus = "IN_PROGRESS" | "COMPLETE" | "FAILED" | "UNSUPPORTED_IMAGE" | "ACTIVE" | "PENDING" | "SCAN_ELIGIBILITY_EXPIRED" | "FINDINGS_UNAVAILABLE" | "LIMIT_EXCEEDED";
+export type ScanStatus =
+  | "IN_PROGRESS"
+  | "COMPLETE"
+  | "FAILED"
+  | "UNSUPPORTED_IMAGE"
+  | "ACTIVE"
+  | "PENDING"
+  | "SCAN_ELIGIBILITY_EXPIRED"
+  | "FINDINGS_UNAVAILABLE"
+  | "LIMIT_EXCEEDED";
 export type ScanStatusDescription = string;
 
 export type ScanTimestamp = Date | string;
@@ -1377,8 +1665,7 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Array<Tag>;
 }
-export interface TagResourceResponse {
-}
+export interface TagResourceResponse {}
 export type Tags = Record<string, string>;
 export type TagStatus = "TAGGED" | "UNTAGGED" | "ANY";
 export type TagValue = string;
@@ -1436,8 +1723,7 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {
-}
+export interface UntagResourceResponse {}
 export type UpdatedTimestamp = Date | string;
 
 export interface UpdatePullThroughCacheRuleRequest {
@@ -1491,7 +1777,15 @@ export declare class UploadNotFoundException extends EffectData.TaggedError(
 )<{
   readonly message?: string;
 }> {}
-export type UpstreamRegistry = "ecr" | "ecr-public" | "quay" | "k8s" | "docker-hub" | "github-container-registry" | "azure-container-registry" | "gitlab-container-registry";
+export type UpstreamRegistry =
+  | "ecr"
+  | "ecr-public"
+  | "quay"
+  | "k8s"
+  | "docker-hub"
+  | "github-container-registry"
+  | "azure-container-registry"
+  | "gitlab-container-registry";
 export type Url = string;
 
 export interface ValidatePullThroughCacheRuleRequest {
@@ -2099,5 +2393,45 @@ export declare namespace ValidatePullThroughCacheRule {
     | CommonAwsError;
 }
 
-export type ECRErrors = EmptyUploadException | ImageAlreadyExistsException | ImageDigestDoesNotMatchException | ImageNotFoundException | ImageTagAlreadyExistsException | InvalidLayerException | InvalidLayerPartException | InvalidParameterException | InvalidTagParameterException | KmsException | LayerAlreadyExistsException | LayerInaccessibleException | LayerPartTooSmallException | LayersNotFoundException | LifecyclePolicyNotFoundException | LifecyclePolicyPreviewInProgressException | LifecyclePolicyPreviewNotFoundException | LimitExceededException | PullThroughCacheRuleAlreadyExistsException | PullThroughCacheRuleNotFoundException | ReferencedImagesNotFoundException | RegistryPolicyNotFoundException | RepositoryAlreadyExistsException | RepositoryNotEmptyException | RepositoryNotFoundException | RepositoryPolicyNotFoundException | ScanNotFoundException | SecretNotFoundException | ServerException | TemplateAlreadyExistsException | TemplateNotFoundException | TooManyTagsException | UnableToAccessSecretException | UnableToDecryptSecretValueException | UnableToGetUpstreamImageException | UnableToGetUpstreamLayerException | UnsupportedImageTypeException | UnsupportedUpstreamRegistryException | UploadNotFoundException | ValidationException | CommonAwsError;
-
+export type ECRErrors =
+  | EmptyUploadException
+  | ImageAlreadyExistsException
+  | ImageDigestDoesNotMatchException
+  | ImageNotFoundException
+  | ImageTagAlreadyExistsException
+  | InvalidLayerException
+  | InvalidLayerPartException
+  | InvalidParameterException
+  | InvalidTagParameterException
+  | KmsException
+  | LayerAlreadyExistsException
+  | LayerInaccessibleException
+  | LayerPartTooSmallException
+  | LayersNotFoundException
+  | LifecyclePolicyNotFoundException
+  | LifecyclePolicyPreviewInProgressException
+  | LifecyclePolicyPreviewNotFoundException
+  | LimitExceededException
+  | PullThroughCacheRuleAlreadyExistsException
+  | PullThroughCacheRuleNotFoundException
+  | ReferencedImagesNotFoundException
+  | RegistryPolicyNotFoundException
+  | RepositoryAlreadyExistsException
+  | RepositoryNotEmptyException
+  | RepositoryNotFoundException
+  | RepositoryPolicyNotFoundException
+  | ScanNotFoundException
+  | SecretNotFoundException
+  | ServerException
+  | TemplateAlreadyExistsException
+  | TemplateNotFoundException
+  | TooManyTagsException
+  | UnableToAccessSecretException
+  | UnableToDecryptSecretValueException
+  | UnableToGetUpstreamImageException
+  | UnableToGetUpstreamLayerException
+  | UnsupportedImageTypeException
+  | UnsupportedUpstreamRegistryException
+  | UploadNotFoundException
+  | ValidationException
+  | CommonAwsError;

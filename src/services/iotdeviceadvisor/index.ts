@@ -5,7 +5,25 @@ import type { IotDeviceAdvisor as _IotDeviceAdvisorClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError, type CommonAwsError} from "../../error.ts";
+export {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  type CommonAwsError,
+} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -15,20 +33,23 @@ const metadata = {
   sigV4ServiceName: "iotdeviceadvisor",
   endpointPrefix: "api.iotdeviceadvisor",
   operations: {
-    "CreateSuiteDefinition": "POST /suiteDefinitions",
-    "DeleteSuiteDefinition": "DELETE /suiteDefinitions/{suiteDefinitionId}",
-    "GetEndpoint": "GET /endpoint",
-    "GetSuiteDefinition": "GET /suiteDefinitions/{suiteDefinitionId}",
-    "GetSuiteRun": "GET /suiteDefinitions/{suiteDefinitionId}/suiteRuns/{suiteRunId}",
-    "GetSuiteRunReport": "GET /suiteDefinitions/{suiteDefinitionId}/suiteRuns/{suiteRunId}/report",
-    "ListSuiteDefinitions": "GET /suiteDefinitions",
-    "ListSuiteRuns": "GET /suiteRuns",
-    "ListTagsForResource": "GET /tags/{resourceArn}",
-    "StartSuiteRun": "POST /suiteDefinitions/{suiteDefinitionId}/suiteRuns",
-    "StopSuiteRun": "POST /suiteDefinitions/{suiteDefinitionId}/suiteRuns/{suiteRunId}/stop",
-    "TagResource": "POST /tags/{resourceArn}",
-    "UntagResource": "DELETE /tags/{resourceArn}",
-    "UpdateSuiteDefinition": "PATCH /suiteDefinitions/{suiteDefinitionId}",
+    CreateSuiteDefinition: "POST /suiteDefinitions",
+    DeleteSuiteDefinition: "DELETE /suiteDefinitions/{suiteDefinitionId}",
+    GetEndpoint: "GET /endpoint",
+    GetSuiteDefinition: "GET /suiteDefinitions/{suiteDefinitionId}",
+    GetSuiteRun:
+      "GET /suiteDefinitions/{suiteDefinitionId}/suiteRuns/{suiteRunId}",
+    GetSuiteRunReport:
+      "GET /suiteDefinitions/{suiteDefinitionId}/suiteRuns/{suiteRunId}/report",
+    ListSuiteDefinitions: "GET /suiteDefinitions",
+    ListSuiteRuns: "GET /suiteRuns",
+    ListTagsForResource: "GET /tags/{resourceArn}",
+    StartSuiteRun: "POST /suiteDefinitions/{suiteDefinitionId}/suiteRuns",
+    StopSuiteRun:
+      "POST /suiteDefinitions/{suiteDefinitionId}/suiteRuns/{suiteRunId}/stop",
+    TagResource: "POST /tags/{resourceArn}",
+    UntagResource: "DELETE /tags/{resourceArn}",
+    UpdateSuiteDefinition: "PATCH /suiteDefinitions/{suiteDefinitionId}",
   },
 } as const satisfies ServiceMetadata;
 

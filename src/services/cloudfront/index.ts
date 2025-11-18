@@ -5,7 +5,26 @@ import type { CloudFront as _CloudFrontClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException, type CommonAwsError} from "../../error.ts";
+export {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  ValidationException,
+  type CommonAwsError,
+} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -15,1118 +34,1118 @@ const metadata = {
   sigV4ServiceName: "cloudfront",
   endpointPrefix: "cloudfront",
   operations: {
-    "AssociateAlias": {
+    AssociateAlias: {
       http: "PUT /2020-05-31/distribution/{TargetDistributionId}/associate-alias",
     },
-    "AssociateDistributionTenantWebACL": {
+    AssociateDistributionTenantWebACL: {
       http: "PUT /2020-05-31/distribution-tenant/{Id}/associate-web-acl",
       inputTraits: {
-        "IfMatch": "If-Match",
+        IfMatch: "If-Match",
       },
       outputTraits: {
-        "ETag": "ETag",
+        ETag: "ETag",
       },
     },
-    "AssociateDistributionWebACL": {
+    AssociateDistributionWebACL: {
       http: "PUT /2020-05-31/distribution/{Id}/associate-web-acl",
       inputTraits: {
-        "IfMatch": "If-Match",
+        IfMatch: "If-Match",
       },
       outputTraits: {
-        "ETag": "ETag",
+        ETag: "ETag",
       },
     },
-    "CopyDistribution": {
+    CopyDistribution: {
       http: "POST /2020-05-31/distribution/{PrimaryDistributionId}/copy",
       inputTraits: {
-        "Staging": "Staging",
-        "IfMatch": "If-Match",
+        Staging: "Staging",
+        IfMatch: "If-Match",
       },
       outputTraits: {
-        "Distribution": "httpPayload",
-        "Location": "Location",
-        "ETag": "ETag",
+        Distribution: "httpPayload",
+        Location: "Location",
+        ETag: "ETag",
       },
     },
-    "CreateAnycastIpList": {
+    CreateAnycastIpList: {
       http: "POST /2020-05-31/anycast-ip-list",
       outputTraits: {
-        "AnycastIpList": "httpPayload",
-        "ETag": "ETag",
+        AnycastIpList: "httpPayload",
+        ETag: "ETag",
       },
     },
-    "CreateCachePolicy": {
+    CreateCachePolicy: {
       http: "POST /2020-05-31/cache-policy",
       inputTraits: {
-        "CachePolicyConfig": "httpPayload",
+        CachePolicyConfig: "httpPayload",
       },
       outputTraits: {
-        "CachePolicy": "httpPayload",
-        "Location": "Location",
-        "ETag": "ETag",
+        CachePolicy: "httpPayload",
+        Location: "Location",
+        ETag: "ETag",
       },
     },
-    "CreateCloudFrontOriginAccessIdentity": {
+    CreateCloudFrontOriginAccessIdentity: {
       http: "POST /2020-05-31/origin-access-identity/cloudfront",
       inputTraits: {
-        "CloudFrontOriginAccessIdentityConfig": "httpPayload",
+        CloudFrontOriginAccessIdentityConfig: "httpPayload",
       },
       outputTraits: {
-        "CloudFrontOriginAccessIdentity": "httpPayload",
-        "Location": "Location",
-        "ETag": "ETag",
+        CloudFrontOriginAccessIdentity: "httpPayload",
+        Location: "Location",
+        ETag: "ETag",
       },
     },
-    "CreateConnectionGroup": {
+    CreateConnectionGroup: {
       http: "POST /2020-05-31/connection-group",
       outputTraits: {
-        "ConnectionGroup": "httpPayload",
-        "ETag": "ETag",
+        ConnectionGroup: "httpPayload",
+        ETag: "ETag",
       },
     },
-    "CreateContinuousDeploymentPolicy": {
+    CreateContinuousDeploymentPolicy: {
       http: "POST /2020-05-31/continuous-deployment-policy",
       inputTraits: {
-        "ContinuousDeploymentPolicyConfig": "httpPayload",
+        ContinuousDeploymentPolicyConfig: "httpPayload",
       },
       outputTraits: {
-        "ContinuousDeploymentPolicy": "httpPayload",
-        "Location": "Location",
-        "ETag": "ETag",
+        ContinuousDeploymentPolicy: "httpPayload",
+        Location: "Location",
+        ETag: "ETag",
       },
     },
-    "CreateDistribution": {
+    CreateDistribution: {
       http: "POST /2020-05-31/distribution",
       inputTraits: {
-        "DistributionConfig": "httpPayload",
+        DistributionConfig: "httpPayload",
       },
       outputTraits: {
-        "Distribution": "httpPayload",
-        "Location": "Location",
-        "ETag": "ETag",
+        Distribution: "httpPayload",
+        Location: "Location",
+        ETag: "ETag",
       },
     },
-    "CreateDistributionTenant": {
+    CreateDistributionTenant: {
       http: "POST /2020-05-31/distribution-tenant",
       outputTraits: {
-        "DistributionTenant": "httpPayload",
-        "ETag": "ETag",
+        DistributionTenant: "httpPayload",
+        ETag: "ETag",
       },
     },
-    "CreateDistributionWithTags": {
+    CreateDistributionWithTags: {
       http: "POST /2020-05-31/distribution?WithTags",
       inputTraits: {
-        "DistributionConfigWithTags": "httpPayload",
+        DistributionConfigWithTags: "httpPayload",
       },
       outputTraits: {
-        "Distribution": "httpPayload",
-        "Location": "Location",
-        "ETag": "ETag",
+        Distribution: "httpPayload",
+        Location: "Location",
+        ETag: "ETag",
       },
     },
-    "CreateFieldLevelEncryptionConfig": {
+    CreateFieldLevelEncryptionConfig: {
       http: "POST /2020-05-31/field-level-encryption",
       inputTraits: {
-        "FieldLevelEncryptionConfig": "httpPayload",
+        FieldLevelEncryptionConfig: "httpPayload",
       },
       outputTraits: {
-        "FieldLevelEncryption": "httpPayload",
-        "Location": "Location",
-        "ETag": "ETag",
+        FieldLevelEncryption: "httpPayload",
+        Location: "Location",
+        ETag: "ETag",
       },
     },
-    "CreateFieldLevelEncryptionProfile": {
+    CreateFieldLevelEncryptionProfile: {
       http: "POST /2020-05-31/field-level-encryption-profile",
       inputTraits: {
-        "FieldLevelEncryptionProfileConfig": "httpPayload",
+        FieldLevelEncryptionProfileConfig: "httpPayload",
       },
       outputTraits: {
-        "FieldLevelEncryptionProfile": "httpPayload",
-        "Location": "Location",
-        "ETag": "ETag",
+        FieldLevelEncryptionProfile: "httpPayload",
+        Location: "Location",
+        ETag: "ETag",
       },
     },
-    "CreateFunction": {
+    CreateFunction: {
       http: "POST /2020-05-31/function",
       outputTraits: {
-        "FunctionSummary": "httpPayload",
-        "Location": "Location",
-        "ETag": "ETag",
+        FunctionSummary: "httpPayload",
+        Location: "Location",
+        ETag: "ETag",
       },
     },
-    "CreateInvalidation": {
+    CreateInvalidation: {
       http: "POST /2020-05-31/distribution/{DistributionId}/invalidation",
       inputTraits: {
-        "InvalidationBatch": "httpPayload",
+        InvalidationBatch: "httpPayload",
       },
       outputTraits: {
-        "Location": "Location",
-        "Invalidation": "httpPayload",
+        Location: "Location",
+        Invalidation: "httpPayload",
       },
     },
-    "CreateInvalidationForDistributionTenant": {
+    CreateInvalidationForDistributionTenant: {
       http: "POST /2020-05-31/distribution-tenant/{Id}/invalidation",
       inputTraits: {
-        "InvalidationBatch": "httpPayload",
+        InvalidationBatch: "httpPayload",
       },
       outputTraits: {
-        "Location": "Location",
-        "Invalidation": "httpPayload",
+        Location: "Location",
+        Invalidation: "httpPayload",
       },
     },
-    "CreateKeyGroup": {
+    CreateKeyGroup: {
       http: "POST /2020-05-31/key-group",
       inputTraits: {
-        "KeyGroupConfig": "httpPayload",
+        KeyGroupConfig: "httpPayload",
       },
       outputTraits: {
-        "KeyGroup": "httpPayload",
-        "Location": "Location",
-        "ETag": "ETag",
+        KeyGroup: "httpPayload",
+        Location: "Location",
+        ETag: "ETag",
       },
     },
-    "CreateKeyValueStore": {
+    CreateKeyValueStore: {
       http: "POST /2020-05-31/key-value-store",
       outputTraits: {
-        "KeyValueStore": "httpPayload",
-        "ETag": "ETag",
-        "Location": "Location",
+        KeyValueStore: "httpPayload",
+        ETag: "ETag",
+        Location: "Location",
       },
     },
-    "CreateMonitoringSubscription": {
+    CreateMonitoringSubscription: {
       http: "POST /2020-05-31/distributions/{DistributionId}/monitoring-subscription",
       inputTraits: {
-        "MonitoringSubscription": "httpPayload",
+        MonitoringSubscription: "httpPayload",
       },
       outputTraits: {
-        "MonitoringSubscription": "httpPayload",
+        MonitoringSubscription: "httpPayload",
       },
     },
-    "CreateOriginAccessControl": {
+    CreateOriginAccessControl: {
       http: "POST /2020-05-31/origin-access-control",
       inputTraits: {
-        "OriginAccessControlConfig": "httpPayload",
+        OriginAccessControlConfig: "httpPayload",
       },
       outputTraits: {
-        "OriginAccessControl": "httpPayload",
-        "Location": "Location",
-        "ETag": "ETag",
+        OriginAccessControl: "httpPayload",
+        Location: "Location",
+        ETag: "ETag",
       },
     },
-    "CreateOriginRequestPolicy": {
+    CreateOriginRequestPolicy: {
       http: "POST /2020-05-31/origin-request-policy",
       inputTraits: {
-        "OriginRequestPolicyConfig": "httpPayload",
+        OriginRequestPolicyConfig: "httpPayload",
       },
       outputTraits: {
-        "OriginRequestPolicy": "httpPayload",
-        "Location": "Location",
-        "ETag": "ETag",
+        OriginRequestPolicy: "httpPayload",
+        Location: "Location",
+        ETag: "ETag",
       },
     },
-    "CreatePublicKey": {
+    CreatePublicKey: {
       http: "POST /2020-05-31/public-key",
       inputTraits: {
-        "PublicKeyConfig": "httpPayload",
+        PublicKeyConfig: "httpPayload",
       },
       outputTraits: {
-        "PublicKey": "httpPayload",
-        "Location": "Location",
-        "ETag": "ETag",
+        PublicKey: "httpPayload",
+        Location: "Location",
+        ETag: "ETag",
       },
     },
-    "CreateRealtimeLogConfig": {
+    CreateRealtimeLogConfig: {
       http: "POST /2020-05-31/realtime-log-config",
     },
-    "CreateResponseHeadersPolicy": {
+    CreateResponseHeadersPolicy: {
       http: "POST /2020-05-31/response-headers-policy",
       inputTraits: {
-        "ResponseHeadersPolicyConfig": "httpPayload",
+        ResponseHeadersPolicyConfig: "httpPayload",
       },
       outputTraits: {
-        "ResponseHeadersPolicy": "httpPayload",
-        "Location": "Location",
-        "ETag": "ETag",
+        ResponseHeadersPolicy: "httpPayload",
+        Location: "Location",
+        ETag: "ETag",
       },
     },
-    "CreateStreamingDistribution": {
+    CreateStreamingDistribution: {
       http: "POST /2020-05-31/streaming-distribution",
       inputTraits: {
-        "StreamingDistributionConfig": "httpPayload",
+        StreamingDistributionConfig: "httpPayload",
       },
       outputTraits: {
-        "StreamingDistribution": "httpPayload",
-        "Location": "Location",
-        "ETag": "ETag",
+        StreamingDistribution: "httpPayload",
+        Location: "Location",
+        ETag: "ETag",
       },
     },
-    "CreateStreamingDistributionWithTags": {
+    CreateStreamingDistributionWithTags: {
       http: "POST /2020-05-31/streaming-distribution?WithTags",
       inputTraits: {
-        "StreamingDistributionConfigWithTags": "httpPayload",
+        StreamingDistributionConfigWithTags: "httpPayload",
       },
       outputTraits: {
-        "StreamingDistribution": "httpPayload",
-        "Location": "Location",
-        "ETag": "ETag",
+        StreamingDistribution: "httpPayload",
+        Location: "Location",
+        ETag: "ETag",
       },
     },
-    "CreateVpcOrigin": {
+    CreateVpcOrigin: {
       http: "POST /2020-05-31/vpc-origin",
       outputTraits: {
-        "VpcOrigin": "httpPayload",
-        "Location": "Location",
-        "ETag": "ETag",
+        VpcOrigin: "httpPayload",
+        Location: "Location",
+        ETag: "ETag",
       },
     },
-    "DeleteAnycastIpList": {
+    DeleteAnycastIpList: {
       http: "DELETE /2020-05-31/anycast-ip-list/{Id}",
       inputTraits: {
-        "IfMatch": "If-Match",
+        IfMatch: "If-Match",
       },
     },
-    "DeleteCachePolicy": {
+    DeleteCachePolicy: {
       http: "DELETE /2020-05-31/cache-policy/{Id}",
       inputTraits: {
-        "IfMatch": "If-Match",
+        IfMatch: "If-Match",
       },
     },
-    "DeleteCloudFrontOriginAccessIdentity": {
+    DeleteCloudFrontOriginAccessIdentity: {
       http: "DELETE /2020-05-31/origin-access-identity/cloudfront/{Id}",
       inputTraits: {
-        "IfMatch": "If-Match",
+        IfMatch: "If-Match",
       },
     },
-    "DeleteConnectionGroup": {
+    DeleteConnectionGroup: {
       http: "DELETE /2020-05-31/connection-group/{Id}",
       inputTraits: {
-        "IfMatch": "If-Match",
+        IfMatch: "If-Match",
       },
     },
-    "DeleteContinuousDeploymentPolicy": {
+    DeleteContinuousDeploymentPolicy: {
       http: "DELETE /2020-05-31/continuous-deployment-policy/{Id}",
       inputTraits: {
-        "IfMatch": "If-Match",
+        IfMatch: "If-Match",
       },
     },
-    "DeleteDistribution": {
+    DeleteDistribution: {
       http: "DELETE /2020-05-31/distribution/{Id}",
       inputTraits: {
-        "IfMatch": "If-Match",
+        IfMatch: "If-Match",
       },
     },
-    "DeleteDistributionTenant": {
+    DeleteDistributionTenant: {
       http: "DELETE /2020-05-31/distribution-tenant/{Id}",
       inputTraits: {
-        "IfMatch": "If-Match",
+        IfMatch: "If-Match",
       },
     },
-    "DeleteFieldLevelEncryptionConfig": {
+    DeleteFieldLevelEncryptionConfig: {
       http: "DELETE /2020-05-31/field-level-encryption/{Id}",
       inputTraits: {
-        "IfMatch": "If-Match",
+        IfMatch: "If-Match",
       },
     },
-    "DeleteFieldLevelEncryptionProfile": {
+    DeleteFieldLevelEncryptionProfile: {
       http: "DELETE /2020-05-31/field-level-encryption-profile/{Id}",
       inputTraits: {
-        "IfMatch": "If-Match",
+        IfMatch: "If-Match",
       },
     },
-    "DeleteFunction": {
+    DeleteFunction: {
       http: "DELETE /2020-05-31/function/{Name}",
       inputTraits: {
-        "IfMatch": "If-Match",
+        IfMatch: "If-Match",
       },
     },
-    "DeleteKeyGroup": {
+    DeleteKeyGroup: {
       http: "DELETE /2020-05-31/key-group/{Id}",
       inputTraits: {
-        "IfMatch": "If-Match",
+        IfMatch: "If-Match",
       },
     },
-    "DeleteKeyValueStore": {
+    DeleteKeyValueStore: {
       http: "DELETE /2020-05-31/key-value-store/{Name}",
       inputTraits: {
-        "IfMatch": "If-Match",
+        IfMatch: "If-Match",
       },
     },
-    "DeleteMonitoringSubscription": {
+    DeleteMonitoringSubscription: {
       http: "DELETE /2020-05-31/distributions/{DistributionId}/monitoring-subscription",
     },
-    "DeleteOriginAccessControl": {
+    DeleteOriginAccessControl: {
       http: "DELETE /2020-05-31/origin-access-control/{Id}",
       inputTraits: {
-        "IfMatch": "If-Match",
+        IfMatch: "If-Match",
       },
     },
-    "DeleteOriginRequestPolicy": {
+    DeleteOriginRequestPolicy: {
       http: "DELETE /2020-05-31/origin-request-policy/{Id}",
       inputTraits: {
-        "IfMatch": "If-Match",
+        IfMatch: "If-Match",
       },
     },
-    "DeletePublicKey": {
+    DeletePublicKey: {
       http: "DELETE /2020-05-31/public-key/{Id}",
       inputTraits: {
-        "IfMatch": "If-Match",
+        IfMatch: "If-Match",
       },
     },
-    "DeleteRealtimeLogConfig": {
+    DeleteRealtimeLogConfig: {
       http: "POST /2020-05-31/delete-realtime-log-config",
     },
-    "DeleteResourcePolicy": {
+    DeleteResourcePolicy: {
       http: "POST /2020-05-31/delete-resource-policy",
     },
-    "DeleteResponseHeadersPolicy": {
+    DeleteResponseHeadersPolicy: {
       http: "DELETE /2020-05-31/response-headers-policy/{Id}",
       inputTraits: {
-        "IfMatch": "If-Match",
+        IfMatch: "If-Match",
       },
     },
-    "DeleteStreamingDistribution": {
+    DeleteStreamingDistribution: {
       http: "DELETE /2020-05-31/streaming-distribution/{Id}",
       inputTraits: {
-        "IfMatch": "If-Match",
+        IfMatch: "If-Match",
       },
     },
-    "DeleteVpcOrigin": {
+    DeleteVpcOrigin: {
       http: "DELETE /2020-05-31/vpc-origin/{Id}",
       inputTraits: {
-        "IfMatch": "If-Match",
+        IfMatch: "If-Match",
       },
       outputTraits: {
-        "VpcOrigin": "httpPayload",
-        "ETag": "ETag",
+        VpcOrigin: "httpPayload",
+        ETag: "ETag",
       },
     },
-    "DescribeFunction": {
+    DescribeFunction: {
       http: "GET /2020-05-31/function/{Name}/describe",
       outputTraits: {
-        "FunctionSummary": "httpPayload",
-        "ETag": "ETag",
+        FunctionSummary: "httpPayload",
+        ETag: "ETag",
       },
     },
-    "DescribeKeyValueStore": {
+    DescribeKeyValueStore: {
       http: "GET /2020-05-31/key-value-store/{Name}",
       outputTraits: {
-        "KeyValueStore": "httpPayload",
-        "ETag": "ETag",
+        KeyValueStore: "httpPayload",
+        ETag: "ETag",
       },
     },
-    "DisassociateDistributionTenantWebACL": {
+    DisassociateDistributionTenantWebACL: {
       http: "PUT /2020-05-31/distribution-tenant/{Id}/disassociate-web-acl",
       inputTraits: {
-        "IfMatch": "If-Match",
+        IfMatch: "If-Match",
       },
       outputTraits: {
-        "ETag": "ETag",
+        ETag: "ETag",
       },
     },
-    "DisassociateDistributionWebACL": {
+    DisassociateDistributionWebACL: {
       http: "PUT /2020-05-31/distribution/{Id}/disassociate-web-acl",
       inputTraits: {
-        "IfMatch": "If-Match",
+        IfMatch: "If-Match",
       },
       outputTraits: {
-        "ETag": "ETag",
+        ETag: "ETag",
       },
     },
-    "GetAnycastIpList": {
+    GetAnycastIpList: {
       http: "GET /2020-05-31/anycast-ip-list/{Id}",
       outputTraits: {
-        "AnycastIpList": "httpPayload",
-        "ETag": "ETag",
+        AnycastIpList: "httpPayload",
+        ETag: "ETag",
       },
     },
-    "GetCachePolicy": {
+    GetCachePolicy: {
       http: "GET /2020-05-31/cache-policy/{Id}",
       outputTraits: {
-        "CachePolicy": "httpPayload",
-        "ETag": "ETag",
+        CachePolicy: "httpPayload",
+        ETag: "ETag",
       },
     },
-    "GetCachePolicyConfig": {
+    GetCachePolicyConfig: {
       http: "GET /2020-05-31/cache-policy/{Id}/config",
       outputTraits: {
-        "CachePolicyConfig": "httpPayload",
-        "ETag": "ETag",
+        CachePolicyConfig: "httpPayload",
+        ETag: "ETag",
       },
     },
-    "GetCloudFrontOriginAccessIdentity": {
+    GetCloudFrontOriginAccessIdentity: {
       http: "GET /2020-05-31/origin-access-identity/cloudfront/{Id}",
       outputTraits: {
-        "CloudFrontOriginAccessIdentity": "httpPayload",
-        "ETag": "ETag",
+        CloudFrontOriginAccessIdentity: "httpPayload",
+        ETag: "ETag",
       },
     },
-    "GetCloudFrontOriginAccessIdentityConfig": {
+    GetCloudFrontOriginAccessIdentityConfig: {
       http: "GET /2020-05-31/origin-access-identity/cloudfront/{Id}/config",
       outputTraits: {
-        "CloudFrontOriginAccessIdentityConfig": "httpPayload",
-        "ETag": "ETag",
+        CloudFrontOriginAccessIdentityConfig: "httpPayload",
+        ETag: "ETag",
       },
     },
-    "GetConnectionGroup": {
+    GetConnectionGroup: {
       http: "GET /2020-05-31/connection-group/{Identifier}",
       outputTraits: {
-        "ConnectionGroup": "httpPayload",
-        "ETag": "ETag",
+        ConnectionGroup: "httpPayload",
+        ETag: "ETag",
       },
     },
-    "GetConnectionGroupByRoutingEndpoint": {
+    GetConnectionGroupByRoutingEndpoint: {
       http: "GET /2020-05-31/connection-group",
       outputTraits: {
-        "ConnectionGroup": "httpPayload",
-        "ETag": "ETag",
+        ConnectionGroup: "httpPayload",
+        ETag: "ETag",
       },
     },
-    "GetContinuousDeploymentPolicy": {
+    GetContinuousDeploymentPolicy: {
       http: "GET /2020-05-31/continuous-deployment-policy/{Id}",
       outputTraits: {
-        "ContinuousDeploymentPolicy": "httpPayload",
-        "ETag": "ETag",
+        ContinuousDeploymentPolicy: "httpPayload",
+        ETag: "ETag",
       },
     },
-    "GetContinuousDeploymentPolicyConfig": {
+    GetContinuousDeploymentPolicyConfig: {
       http: "GET /2020-05-31/continuous-deployment-policy/{Id}/config",
       outputTraits: {
-        "ContinuousDeploymentPolicyConfig": "httpPayload",
-        "ETag": "ETag",
+        ContinuousDeploymentPolicyConfig: "httpPayload",
+        ETag: "ETag",
       },
     },
-    "GetDistribution": {
+    GetDistribution: {
       http: "GET /2020-05-31/distribution/{Id}",
       outputTraits: {
-        "Distribution": "httpPayload",
-        "ETag": "ETag",
+        Distribution: "httpPayload",
+        ETag: "ETag",
       },
     },
-    "GetDistributionConfig": {
+    GetDistributionConfig: {
       http: "GET /2020-05-31/distribution/{Id}/config",
       outputTraits: {
-        "DistributionConfig": "httpPayload",
-        "ETag": "ETag",
+        DistributionConfig: "httpPayload",
+        ETag: "ETag",
       },
     },
-    "GetDistributionTenant": {
+    GetDistributionTenant: {
       http: "GET /2020-05-31/distribution-tenant/{Identifier}",
       outputTraits: {
-        "DistributionTenant": "httpPayload",
-        "ETag": "ETag",
+        DistributionTenant: "httpPayload",
+        ETag: "ETag",
       },
     },
-    "GetDistributionTenantByDomain": {
+    GetDistributionTenantByDomain: {
       http: "GET /2020-05-31/distribution-tenant",
       outputTraits: {
-        "DistributionTenant": "httpPayload",
-        "ETag": "ETag",
+        DistributionTenant: "httpPayload",
+        ETag: "ETag",
       },
     },
-    "GetFieldLevelEncryption": {
+    GetFieldLevelEncryption: {
       http: "GET /2020-05-31/field-level-encryption/{Id}",
       outputTraits: {
-        "FieldLevelEncryption": "httpPayload",
-        "ETag": "ETag",
+        FieldLevelEncryption: "httpPayload",
+        ETag: "ETag",
       },
     },
-    "GetFieldLevelEncryptionConfig": {
+    GetFieldLevelEncryptionConfig: {
       http: "GET /2020-05-31/field-level-encryption/{Id}/config",
       outputTraits: {
-        "FieldLevelEncryptionConfig": "httpPayload",
-        "ETag": "ETag",
+        FieldLevelEncryptionConfig: "httpPayload",
+        ETag: "ETag",
       },
     },
-    "GetFieldLevelEncryptionProfile": {
+    GetFieldLevelEncryptionProfile: {
       http: "GET /2020-05-31/field-level-encryption-profile/{Id}",
       outputTraits: {
-        "FieldLevelEncryptionProfile": "httpPayload",
-        "ETag": "ETag",
+        FieldLevelEncryptionProfile: "httpPayload",
+        ETag: "ETag",
       },
     },
-    "GetFieldLevelEncryptionProfileConfig": {
+    GetFieldLevelEncryptionProfileConfig: {
       http: "GET /2020-05-31/field-level-encryption-profile/{Id}/config",
       outputTraits: {
-        "FieldLevelEncryptionProfileConfig": "httpPayload",
-        "ETag": "ETag",
+        FieldLevelEncryptionProfileConfig: "httpPayload",
+        ETag: "ETag",
       },
     },
-    "GetFunction": {
+    GetFunction: {
       http: "GET /2020-05-31/function/{Name}",
       outputTraits: {
-        "FunctionCode": "httpPayload",
-        "ETag": "ETag",
-        "ContentType": "Content-Type",
+        FunctionCode: "httpPayload",
+        ETag: "ETag",
+        ContentType: "Content-Type",
       },
     },
-    "GetInvalidation": {
+    GetInvalidation: {
       http: "GET /2020-05-31/distribution/{DistributionId}/invalidation/{Id}",
       outputTraits: {
-        "Invalidation": "httpPayload",
+        Invalidation: "httpPayload",
       },
     },
-    "GetInvalidationForDistributionTenant": {
+    GetInvalidationForDistributionTenant: {
       http: "GET /2020-05-31/distribution-tenant/{DistributionTenantId}/invalidation/{Id}",
       outputTraits: {
-        "Invalidation": "httpPayload",
+        Invalidation: "httpPayload",
       },
     },
-    "GetKeyGroup": {
+    GetKeyGroup: {
       http: "GET /2020-05-31/key-group/{Id}",
       outputTraits: {
-        "KeyGroup": "httpPayload",
-        "ETag": "ETag",
+        KeyGroup: "httpPayload",
+        ETag: "ETag",
       },
     },
-    "GetKeyGroupConfig": {
+    GetKeyGroupConfig: {
       http: "GET /2020-05-31/key-group/{Id}/config",
       outputTraits: {
-        "KeyGroupConfig": "httpPayload",
-        "ETag": "ETag",
+        KeyGroupConfig: "httpPayload",
+        ETag: "ETag",
       },
     },
-    "GetManagedCertificateDetails": {
+    GetManagedCertificateDetails: {
       http: "GET /2020-05-31/managed-certificate/{Identifier}",
       outputTraits: {
-        "ManagedCertificateDetails": "httpPayload",
+        ManagedCertificateDetails: "httpPayload",
       },
     },
-    "GetMonitoringSubscription": {
+    GetMonitoringSubscription: {
       http: "GET /2020-05-31/distributions/{DistributionId}/monitoring-subscription",
       outputTraits: {
-        "MonitoringSubscription": "httpPayload",
+        MonitoringSubscription: "httpPayload",
       },
     },
-    "GetOriginAccessControl": {
+    GetOriginAccessControl: {
       http: "GET /2020-05-31/origin-access-control/{Id}",
       outputTraits: {
-        "OriginAccessControl": "httpPayload",
-        "ETag": "ETag",
+        OriginAccessControl: "httpPayload",
+        ETag: "ETag",
       },
     },
-    "GetOriginAccessControlConfig": {
+    GetOriginAccessControlConfig: {
       http: "GET /2020-05-31/origin-access-control/{Id}/config",
       outputTraits: {
-        "OriginAccessControlConfig": "httpPayload",
-        "ETag": "ETag",
+        OriginAccessControlConfig: "httpPayload",
+        ETag: "ETag",
       },
     },
-    "GetOriginRequestPolicy": {
+    GetOriginRequestPolicy: {
       http: "GET /2020-05-31/origin-request-policy/{Id}",
       outputTraits: {
-        "OriginRequestPolicy": "httpPayload",
-        "ETag": "ETag",
+        OriginRequestPolicy: "httpPayload",
+        ETag: "ETag",
       },
     },
-    "GetOriginRequestPolicyConfig": {
+    GetOriginRequestPolicyConfig: {
       http: "GET /2020-05-31/origin-request-policy/{Id}/config",
       outputTraits: {
-        "OriginRequestPolicyConfig": "httpPayload",
-        "ETag": "ETag",
+        OriginRequestPolicyConfig: "httpPayload",
+        ETag: "ETag",
       },
     },
-    "GetPublicKey": {
+    GetPublicKey: {
       http: "GET /2020-05-31/public-key/{Id}",
       outputTraits: {
-        "PublicKey": "httpPayload",
-        "ETag": "ETag",
+        PublicKey: "httpPayload",
+        ETag: "ETag",
       },
     },
-    "GetPublicKeyConfig": {
+    GetPublicKeyConfig: {
       http: "GET /2020-05-31/public-key/{Id}/config",
       outputTraits: {
-        "PublicKeyConfig": "httpPayload",
-        "ETag": "ETag",
+        PublicKeyConfig: "httpPayload",
+        ETag: "ETag",
       },
     },
-    "GetRealtimeLogConfig": {
+    GetRealtimeLogConfig: {
       http: "POST /2020-05-31/get-realtime-log-config",
     },
-    "GetResourcePolicy": {
+    GetResourcePolicy: {
       http: "POST /2020-05-31/get-resource-policy",
     },
-    "GetResponseHeadersPolicy": {
+    GetResponseHeadersPolicy: {
       http: "GET /2020-05-31/response-headers-policy/{Id}",
       outputTraits: {
-        "ResponseHeadersPolicy": "httpPayload",
-        "ETag": "ETag",
+        ResponseHeadersPolicy: "httpPayload",
+        ETag: "ETag",
       },
     },
-    "GetResponseHeadersPolicyConfig": {
+    GetResponseHeadersPolicyConfig: {
       http: "GET /2020-05-31/response-headers-policy/{Id}/config",
       outputTraits: {
-        "ResponseHeadersPolicyConfig": "httpPayload",
-        "ETag": "ETag",
+        ResponseHeadersPolicyConfig: "httpPayload",
+        ETag: "ETag",
       },
     },
-    "GetStreamingDistribution": {
+    GetStreamingDistribution: {
       http: "GET /2020-05-31/streaming-distribution/{Id}",
       outputTraits: {
-        "StreamingDistribution": "httpPayload",
-        "ETag": "ETag",
+        StreamingDistribution: "httpPayload",
+        ETag: "ETag",
       },
     },
-    "GetStreamingDistributionConfig": {
+    GetStreamingDistributionConfig: {
       http: "GET /2020-05-31/streaming-distribution/{Id}/config",
       outputTraits: {
-        "StreamingDistributionConfig": "httpPayload",
-        "ETag": "ETag",
+        StreamingDistributionConfig: "httpPayload",
+        ETag: "ETag",
       },
     },
-    "GetVpcOrigin": {
+    GetVpcOrigin: {
       http: "GET /2020-05-31/vpc-origin/{Id}",
       outputTraits: {
-        "VpcOrigin": "httpPayload",
-        "ETag": "ETag",
+        VpcOrigin: "httpPayload",
+        ETag: "ETag",
       },
     },
-    "ListAnycastIpLists": {
+    ListAnycastIpLists: {
       http: "GET /2020-05-31/anycast-ip-list",
       outputTraits: {
-        "AnycastIpLists": "httpPayload",
+        AnycastIpLists: "httpPayload",
       },
     },
-    "ListCachePolicies": {
+    ListCachePolicies: {
       http: "GET /2020-05-31/cache-policy",
       outputTraits: {
-        "CachePolicyList": "httpPayload",
+        CachePolicyList: "httpPayload",
       },
     },
-    "ListCloudFrontOriginAccessIdentities": {
+    ListCloudFrontOriginAccessIdentities: {
       http: "GET /2020-05-31/origin-access-identity/cloudfront",
       outputTraits: {
-        "CloudFrontOriginAccessIdentityList": "httpPayload",
+        CloudFrontOriginAccessIdentityList: "httpPayload",
       },
     },
-    "ListConflictingAliases": {
+    ListConflictingAliases: {
       http: "GET /2020-05-31/conflicting-alias",
       outputTraits: {
-        "ConflictingAliasesList": "httpPayload",
+        ConflictingAliasesList: "httpPayload",
       },
     },
-    "ListConnectionGroups": {
+    ListConnectionGroups: {
       http: "POST /2020-05-31/connection-groups",
     },
-    "ListContinuousDeploymentPolicies": {
+    ListContinuousDeploymentPolicies: {
       http: "GET /2020-05-31/continuous-deployment-policy",
       outputTraits: {
-        "ContinuousDeploymentPolicyList": "httpPayload",
+        ContinuousDeploymentPolicyList: "httpPayload",
       },
     },
-    "ListDistributions": {
+    ListDistributions: {
       http: "GET /2020-05-31/distribution",
       outputTraits: {
-        "DistributionList": "httpPayload",
+        DistributionList: "httpPayload",
       },
     },
-    "ListDistributionsByAnycastIpListId": {
+    ListDistributionsByAnycastIpListId: {
       http: "GET /2020-05-31/distributionsByAnycastIpListId/{AnycastIpListId}",
       outputTraits: {
-        "DistributionList": "httpPayload",
+        DistributionList: "httpPayload",
       },
     },
-    "ListDistributionsByCachePolicyId": {
+    ListDistributionsByCachePolicyId: {
       http: "GET /2020-05-31/distributionsByCachePolicyId/{CachePolicyId}",
       outputTraits: {
-        "DistributionIdList": "httpPayload",
+        DistributionIdList: "httpPayload",
       },
     },
-    "ListDistributionsByConnectionMode": {
+    ListDistributionsByConnectionMode: {
       http: "GET /2020-05-31/distributionsByConnectionMode/{ConnectionMode}",
       outputTraits: {
-        "DistributionList": "httpPayload",
+        DistributionList: "httpPayload",
       },
     },
-    "ListDistributionsByKeyGroup": {
+    ListDistributionsByKeyGroup: {
       http: "GET /2020-05-31/distributionsByKeyGroupId/{KeyGroupId}",
       outputTraits: {
-        "DistributionIdList": "httpPayload",
+        DistributionIdList: "httpPayload",
       },
     },
-    "ListDistributionsByOriginRequestPolicyId": {
+    ListDistributionsByOriginRequestPolicyId: {
       http: "GET /2020-05-31/distributionsByOriginRequestPolicyId/{OriginRequestPolicyId}",
       outputTraits: {
-        "DistributionIdList": "httpPayload",
+        DistributionIdList: "httpPayload",
       },
     },
-    "ListDistributionsByOwnedResource": {
+    ListDistributionsByOwnedResource: {
       http: "GET /2020-05-31/distributionsByOwnedResource/{ResourceArn}",
       outputTraits: {
-        "DistributionList": "httpPayload",
+        DistributionList: "httpPayload",
       },
     },
-    "ListDistributionsByRealtimeLogConfig": {
+    ListDistributionsByRealtimeLogConfig: {
       http: "POST /2020-05-31/distributionsByRealtimeLogConfig",
       outputTraits: {
-        "DistributionList": "httpPayload",
+        DistributionList: "httpPayload",
       },
     },
-    "ListDistributionsByResponseHeadersPolicyId": {
+    ListDistributionsByResponseHeadersPolicyId: {
       http: "GET /2020-05-31/distributionsByResponseHeadersPolicyId/{ResponseHeadersPolicyId}",
       outputTraits: {
-        "DistributionIdList": "httpPayload",
+        DistributionIdList: "httpPayload",
       },
     },
-    "ListDistributionsByVpcOriginId": {
+    ListDistributionsByVpcOriginId: {
       http: "GET /2020-05-31/distributionsByVpcOriginId/{VpcOriginId}",
       outputTraits: {
-        "DistributionIdList": "httpPayload",
+        DistributionIdList: "httpPayload",
       },
     },
-    "ListDistributionsByWebACLId": {
+    ListDistributionsByWebACLId: {
       http: "GET /2020-05-31/distributionsByWebACLId/{WebACLId}",
       outputTraits: {
-        "DistributionList": "httpPayload",
+        DistributionList: "httpPayload",
       },
     },
-    "ListDistributionTenants": {
+    ListDistributionTenants: {
       http: "POST /2020-05-31/distribution-tenants",
     },
-    "ListDistributionTenantsByCustomization": {
+    ListDistributionTenantsByCustomization: {
       http: "POST /2020-05-31/distribution-tenants-by-customization",
     },
-    "ListDomainConflicts": {
+    ListDomainConflicts: {
       http: "POST /2020-05-31/domain-conflicts",
     },
-    "ListFieldLevelEncryptionConfigs": {
+    ListFieldLevelEncryptionConfigs: {
       http: "GET /2020-05-31/field-level-encryption",
       outputTraits: {
-        "FieldLevelEncryptionList": "httpPayload",
+        FieldLevelEncryptionList: "httpPayload",
       },
     },
-    "ListFieldLevelEncryptionProfiles": {
+    ListFieldLevelEncryptionProfiles: {
       http: "GET /2020-05-31/field-level-encryption-profile",
       outputTraits: {
-        "FieldLevelEncryptionProfileList": "httpPayload",
+        FieldLevelEncryptionProfileList: "httpPayload",
       },
     },
-    "ListFunctions": {
+    ListFunctions: {
       http: "GET /2020-05-31/function",
       outputTraits: {
-        "FunctionList": "httpPayload",
+        FunctionList: "httpPayload",
       },
     },
-    "ListInvalidations": {
+    ListInvalidations: {
       http: "GET /2020-05-31/distribution/{DistributionId}/invalidation",
       outputTraits: {
-        "InvalidationList": "httpPayload",
+        InvalidationList: "httpPayload",
       },
     },
-    "ListInvalidationsForDistributionTenant": {
+    ListInvalidationsForDistributionTenant: {
       http: "GET /2020-05-31/distribution-tenant/{Id}/invalidation",
       outputTraits: {
-        "InvalidationList": "httpPayload",
+        InvalidationList: "httpPayload",
       },
     },
-    "ListKeyGroups": {
+    ListKeyGroups: {
       http: "GET /2020-05-31/key-group",
       outputTraits: {
-        "KeyGroupList": "httpPayload",
+        KeyGroupList: "httpPayload",
       },
     },
-    "ListKeyValueStores": {
+    ListKeyValueStores: {
       http: "GET /2020-05-31/key-value-store",
       outputTraits: {
-        "KeyValueStoreList": "httpPayload",
+        KeyValueStoreList: "httpPayload",
       },
     },
-    "ListOriginAccessControls": {
+    ListOriginAccessControls: {
       http: "GET /2020-05-31/origin-access-control",
       outputTraits: {
-        "OriginAccessControlList": "httpPayload",
+        OriginAccessControlList: "httpPayload",
       },
     },
-    "ListOriginRequestPolicies": {
+    ListOriginRequestPolicies: {
       http: "GET /2020-05-31/origin-request-policy",
       outputTraits: {
-        "OriginRequestPolicyList": "httpPayload",
+        OriginRequestPolicyList: "httpPayload",
       },
     },
-    "ListPublicKeys": {
+    ListPublicKeys: {
       http: "GET /2020-05-31/public-key",
       outputTraits: {
-        "PublicKeyList": "httpPayload",
+        PublicKeyList: "httpPayload",
       },
     },
-    "ListRealtimeLogConfigs": {
+    ListRealtimeLogConfigs: {
       http: "GET /2020-05-31/realtime-log-config",
       outputTraits: {
-        "RealtimeLogConfigs": "httpPayload",
+        RealtimeLogConfigs: "httpPayload",
       },
     },
-    "ListResponseHeadersPolicies": {
+    ListResponseHeadersPolicies: {
       http: "GET /2020-05-31/response-headers-policy",
       outputTraits: {
-        "ResponseHeadersPolicyList": "httpPayload",
+        ResponseHeadersPolicyList: "httpPayload",
       },
     },
-    "ListStreamingDistributions": {
+    ListStreamingDistributions: {
       http: "GET /2020-05-31/streaming-distribution",
       outputTraits: {
-        "StreamingDistributionList": "httpPayload",
+        StreamingDistributionList: "httpPayload",
       },
     },
-    "ListTagsForResource": {
+    ListTagsForResource: {
       http: "GET /2020-05-31/tagging",
       outputTraits: {
-        "Tags": "httpPayload",
+        Tags: "httpPayload",
       },
     },
-    "ListVpcOrigins": {
+    ListVpcOrigins: {
       http: "GET /2020-05-31/vpc-origin",
       outputTraits: {
-        "VpcOriginList": "httpPayload",
+        VpcOriginList: "httpPayload",
       },
     },
-    "PublishFunction": {
+    PublishFunction: {
       http: "POST /2020-05-31/function/{Name}/publish",
       inputTraits: {
-        "IfMatch": "If-Match",
+        IfMatch: "If-Match",
       },
       outputTraits: {
-        "FunctionSummary": "httpPayload",
+        FunctionSummary: "httpPayload",
       },
     },
-    "PutResourcePolicy": {
+    PutResourcePolicy: {
       http: "POST /2020-05-31/put-resource-policy",
     },
-    "TagResource": {
+    TagResource: {
       http: "POST /2020-05-31/tagging?Operation=Tag",
       inputTraits: {
-        "Tags": "httpPayload",
+        Tags: "httpPayload",
       },
     },
-    "TestFunction": {
+    TestFunction: {
       http: "POST /2020-05-31/function/{Name}/test",
       inputTraits: {
-        "IfMatch": "If-Match",
+        IfMatch: "If-Match",
       },
       outputTraits: {
-        "TestResult": "httpPayload",
+        TestResult: "httpPayload",
       },
     },
-    "UntagResource": {
+    UntagResource: {
       http: "POST /2020-05-31/tagging?Operation=Untag",
       inputTraits: {
-        "TagKeys": "httpPayload",
+        TagKeys: "httpPayload",
       },
     },
-    "UpdateAnycastIpList": {
+    UpdateAnycastIpList: {
       http: "PUT /2020-05-31/anycast-ip-list/{Id}",
       inputTraits: {
-        "IfMatch": "If-Match",
+        IfMatch: "If-Match",
       },
       outputTraits: {
-        "AnycastIpList": "httpPayload",
-        "ETag": "ETag",
+        AnycastIpList: "httpPayload",
+        ETag: "ETag",
       },
     },
-    "UpdateCachePolicy": {
+    UpdateCachePolicy: {
       http: "PUT /2020-05-31/cache-policy/{Id}",
       inputTraits: {
-        "CachePolicyConfig": "httpPayload",
-        "IfMatch": "If-Match",
+        CachePolicyConfig: "httpPayload",
+        IfMatch: "If-Match",
       },
       outputTraits: {
-        "CachePolicy": "httpPayload",
-        "ETag": "ETag",
+        CachePolicy: "httpPayload",
+        ETag: "ETag",
       },
     },
-    "UpdateCloudFrontOriginAccessIdentity": {
+    UpdateCloudFrontOriginAccessIdentity: {
       http: "PUT /2020-05-31/origin-access-identity/cloudfront/{Id}/config",
       inputTraits: {
-        "CloudFrontOriginAccessIdentityConfig": "httpPayload",
-        "IfMatch": "If-Match",
+        CloudFrontOriginAccessIdentityConfig: "httpPayload",
+        IfMatch: "If-Match",
       },
       outputTraits: {
-        "CloudFrontOriginAccessIdentity": "httpPayload",
-        "ETag": "ETag",
+        CloudFrontOriginAccessIdentity: "httpPayload",
+        ETag: "ETag",
       },
     },
-    "UpdateConnectionGroup": {
+    UpdateConnectionGroup: {
       http: "PUT /2020-05-31/connection-group/{Id}",
       inputTraits: {
-        "IfMatch": "If-Match",
+        IfMatch: "If-Match",
       },
       outputTraits: {
-        "ConnectionGroup": "httpPayload",
-        "ETag": "ETag",
+        ConnectionGroup: "httpPayload",
+        ETag: "ETag",
       },
     },
-    "UpdateContinuousDeploymentPolicy": {
+    UpdateContinuousDeploymentPolicy: {
       http: "PUT /2020-05-31/continuous-deployment-policy/{Id}",
       inputTraits: {
-        "ContinuousDeploymentPolicyConfig": "httpPayload",
-        "IfMatch": "If-Match",
+        ContinuousDeploymentPolicyConfig: "httpPayload",
+        IfMatch: "If-Match",
       },
       outputTraits: {
-        "ContinuousDeploymentPolicy": "httpPayload",
-        "ETag": "ETag",
+        ContinuousDeploymentPolicy: "httpPayload",
+        ETag: "ETag",
       },
     },
-    "UpdateDistribution": {
+    UpdateDistribution: {
       http: "PUT /2020-05-31/distribution/{Id}/config",
       inputTraits: {
-        "DistributionConfig": "httpPayload",
-        "IfMatch": "If-Match",
+        DistributionConfig: "httpPayload",
+        IfMatch: "If-Match",
       },
       outputTraits: {
-        "Distribution": "httpPayload",
-        "ETag": "ETag",
+        Distribution: "httpPayload",
+        ETag: "ETag",
       },
     },
-    "UpdateDistributionTenant": {
+    UpdateDistributionTenant: {
       http: "PUT /2020-05-31/distribution-tenant/{Id}",
       inputTraits: {
-        "IfMatch": "If-Match",
+        IfMatch: "If-Match",
       },
       outputTraits: {
-        "DistributionTenant": "httpPayload",
-        "ETag": "ETag",
+        DistributionTenant: "httpPayload",
+        ETag: "ETag",
       },
     },
-    "UpdateDistributionWithStagingConfig": {
+    UpdateDistributionWithStagingConfig: {
       http: "PUT /2020-05-31/distribution/{Id}/promote-staging-config",
       inputTraits: {
-        "IfMatch": "If-Match",
+        IfMatch: "If-Match",
       },
       outputTraits: {
-        "Distribution": "httpPayload",
-        "ETag": "ETag",
+        Distribution: "httpPayload",
+        ETag: "ETag",
       },
     },
-    "UpdateDomainAssociation": {
+    UpdateDomainAssociation: {
       http: "POST /2020-05-31/domain-association",
       inputTraits: {
-        "IfMatch": "If-Match",
+        IfMatch: "If-Match",
       },
       outputTraits: {
-        "ETag": "ETag",
+        ETag: "ETag",
       },
     },
-    "UpdateFieldLevelEncryptionConfig": {
+    UpdateFieldLevelEncryptionConfig: {
       http: "PUT /2020-05-31/field-level-encryption/{Id}/config",
       inputTraits: {
-        "FieldLevelEncryptionConfig": "httpPayload",
-        "IfMatch": "If-Match",
+        FieldLevelEncryptionConfig: "httpPayload",
+        IfMatch: "If-Match",
       },
       outputTraits: {
-        "FieldLevelEncryption": "httpPayload",
-        "ETag": "ETag",
+        FieldLevelEncryption: "httpPayload",
+        ETag: "ETag",
       },
     },
-    "UpdateFieldLevelEncryptionProfile": {
+    UpdateFieldLevelEncryptionProfile: {
       http: "PUT /2020-05-31/field-level-encryption-profile/{Id}/config",
       inputTraits: {
-        "FieldLevelEncryptionProfileConfig": "httpPayload",
-        "IfMatch": "If-Match",
+        FieldLevelEncryptionProfileConfig: "httpPayload",
+        IfMatch: "If-Match",
       },
       outputTraits: {
-        "FieldLevelEncryptionProfile": "httpPayload",
-        "ETag": "ETag",
+        FieldLevelEncryptionProfile: "httpPayload",
+        ETag: "ETag",
       },
     },
-    "UpdateFunction": {
+    UpdateFunction: {
       http: "PUT /2020-05-31/function/{Name}",
       inputTraits: {
-        "IfMatch": "If-Match",
+        IfMatch: "If-Match",
       },
       outputTraits: {
-        "FunctionSummary": "httpPayload",
-        "ETag": "ETtag",
+        FunctionSummary: "httpPayload",
+        ETag: "ETtag",
       },
     },
-    "UpdateKeyGroup": {
+    UpdateKeyGroup: {
       http: "PUT /2020-05-31/key-group/{Id}",
       inputTraits: {
-        "KeyGroupConfig": "httpPayload",
-        "IfMatch": "If-Match",
+        KeyGroupConfig: "httpPayload",
+        IfMatch: "If-Match",
       },
       outputTraits: {
-        "KeyGroup": "httpPayload",
-        "ETag": "ETag",
+        KeyGroup: "httpPayload",
+        ETag: "ETag",
       },
     },
-    "UpdateKeyValueStore": {
+    UpdateKeyValueStore: {
       http: "PUT /2020-05-31/key-value-store/{Name}",
       inputTraits: {
-        "IfMatch": "If-Match",
+        IfMatch: "If-Match",
       },
       outputTraits: {
-        "KeyValueStore": "httpPayload",
-        "ETag": "ETag",
+        KeyValueStore: "httpPayload",
+        ETag: "ETag",
       },
     },
-    "UpdateOriginAccessControl": {
+    UpdateOriginAccessControl: {
       http: "PUT /2020-05-31/origin-access-control/{Id}/config",
       inputTraits: {
-        "OriginAccessControlConfig": "httpPayload",
-        "IfMatch": "If-Match",
+        OriginAccessControlConfig: "httpPayload",
+        IfMatch: "If-Match",
       },
       outputTraits: {
-        "OriginAccessControl": "httpPayload",
-        "ETag": "ETag",
+        OriginAccessControl: "httpPayload",
+        ETag: "ETag",
       },
     },
-    "UpdateOriginRequestPolicy": {
+    UpdateOriginRequestPolicy: {
       http: "PUT /2020-05-31/origin-request-policy/{Id}",
       inputTraits: {
-        "OriginRequestPolicyConfig": "httpPayload",
-        "IfMatch": "If-Match",
+        OriginRequestPolicyConfig: "httpPayload",
+        IfMatch: "If-Match",
       },
       outputTraits: {
-        "OriginRequestPolicy": "httpPayload",
-        "ETag": "ETag",
+        OriginRequestPolicy: "httpPayload",
+        ETag: "ETag",
       },
     },
-    "UpdatePublicKey": {
+    UpdatePublicKey: {
       http: "PUT /2020-05-31/public-key/{Id}/config",
       inputTraits: {
-        "PublicKeyConfig": "httpPayload",
-        "IfMatch": "If-Match",
+        PublicKeyConfig: "httpPayload",
+        IfMatch: "If-Match",
       },
       outputTraits: {
-        "PublicKey": "httpPayload",
-        "ETag": "ETag",
+        PublicKey: "httpPayload",
+        ETag: "ETag",
       },
     },
-    "UpdateRealtimeLogConfig": {
+    UpdateRealtimeLogConfig: {
       http: "PUT /2020-05-31/realtime-log-config",
     },
-    "UpdateResponseHeadersPolicy": {
+    UpdateResponseHeadersPolicy: {
       http: "PUT /2020-05-31/response-headers-policy/{Id}",
       inputTraits: {
-        "ResponseHeadersPolicyConfig": "httpPayload",
-        "IfMatch": "If-Match",
+        ResponseHeadersPolicyConfig: "httpPayload",
+        IfMatch: "If-Match",
       },
       outputTraits: {
-        "ResponseHeadersPolicy": "httpPayload",
-        "ETag": "ETag",
+        ResponseHeadersPolicy: "httpPayload",
+        ETag: "ETag",
       },
     },
-    "UpdateStreamingDistribution": {
+    UpdateStreamingDistribution: {
       http: "PUT /2020-05-31/streaming-distribution/{Id}/config",
       inputTraits: {
-        "StreamingDistributionConfig": "httpPayload",
-        "IfMatch": "If-Match",
+        StreamingDistributionConfig: "httpPayload",
+        IfMatch: "If-Match",
       },
       outputTraits: {
-        "StreamingDistribution": "httpPayload",
-        "ETag": "ETag",
+        StreamingDistribution: "httpPayload",
+        ETag: "ETag",
       },
     },
-    "UpdateVpcOrigin": {
+    UpdateVpcOrigin: {
       http: "PUT /2020-05-31/vpc-origin/{Id}",
       inputTraits: {
-        "VpcOriginEndpointConfig": "httpPayload",
-        "IfMatch": "If-Match",
+        VpcOriginEndpointConfig: "httpPayload",
+        IfMatch: "If-Match",
       },
       outputTraits: {
-        "VpcOrigin": "httpPayload",
-        "ETag": "ETag",
+        VpcOrigin: "httpPayload",
+        ETag: "ETag",
       },
     },
-    "VerifyDnsConfiguration": {
+    VerifyDnsConfiguration: {
       http: "POST /2020-05-31/verify-dns-configuration",
     },
   },

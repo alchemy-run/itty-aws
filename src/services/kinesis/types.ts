@@ -1,6 +1,39 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
-type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | ThrottlingException | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ValidationException;
+import type {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+type CommonAwsError =
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | ThrottlingException
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | AccessDeniedException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class Kinesis extends AWSServiceClient {
@@ -8,37 +41,64 @@ export declare class Kinesis extends AWSServiceClient {
     input: AddTagsToStreamInput,
   ): Effect.Effect<
     {},
-    AccessDeniedException | InvalidArgumentException | LimitExceededException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
+    | AccessDeniedException
+    | InvalidArgumentException
+    | LimitExceededException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   createStream(
     input: CreateStreamInput,
   ): Effect.Effect<
     {},
-    InvalidArgumentException | LimitExceededException | ResourceInUseException | ValidationException | CommonAwsError
+    | InvalidArgumentException
+    | LimitExceededException
+    | ResourceInUseException
+    | ValidationException
+    | CommonAwsError
   >;
   decreaseStreamRetentionPeriod(
     input: DecreaseStreamRetentionPeriodInput,
   ): Effect.Effect<
     {},
-    AccessDeniedException | InvalidArgumentException | LimitExceededException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
+    | AccessDeniedException
+    | InvalidArgumentException
+    | LimitExceededException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   deleteResourcePolicy(
     input: DeleteResourcePolicyInput,
   ): Effect.Effect<
     {},
-    AccessDeniedException | InvalidArgumentException | LimitExceededException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
+    | AccessDeniedException
+    | InvalidArgumentException
+    | LimitExceededException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   deleteStream(
     input: DeleteStreamInput,
   ): Effect.Effect<
     {},
-    AccessDeniedException | InvalidArgumentException | LimitExceededException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
+    | AccessDeniedException
+    | InvalidArgumentException
+    | LimitExceededException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   deregisterStreamConsumer(
     input: DeregisterStreamConsumerInput,
   ): Effect.Effect<
     {},
-    InvalidArgumentException | LimitExceededException | ResourceNotFoundException | CommonAwsError
+    | InvalidArgumentException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   describeAccountSettings(
     input: DescribeAccountSettingsInput,
@@ -56,187 +116,363 @@ export declare class Kinesis extends AWSServiceClient {
     input: DescribeStreamInput,
   ): Effect.Effect<
     DescribeStreamOutput,
-    AccessDeniedException | InvalidArgumentException | LimitExceededException | ResourceNotFoundException | CommonAwsError
+    | AccessDeniedException
+    | InvalidArgumentException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   describeStreamConsumer(
     input: DescribeStreamConsumerInput,
   ): Effect.Effect<
     DescribeStreamConsumerOutput,
-    InvalidArgumentException | LimitExceededException | ResourceNotFoundException | CommonAwsError
+    | InvalidArgumentException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   describeStreamSummary(
     input: DescribeStreamSummaryInput,
   ): Effect.Effect<
     DescribeStreamSummaryOutput,
-    AccessDeniedException | InvalidArgumentException | LimitExceededException | ResourceNotFoundException | CommonAwsError
+    | AccessDeniedException
+    | InvalidArgumentException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   disableEnhancedMonitoring(
     input: DisableEnhancedMonitoringInput,
   ): Effect.Effect<
     EnhancedMonitoringOutput,
-    AccessDeniedException | InvalidArgumentException | LimitExceededException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
+    | AccessDeniedException
+    | InvalidArgumentException
+    | LimitExceededException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   enableEnhancedMonitoring(
     input: EnableEnhancedMonitoringInput,
   ): Effect.Effect<
     EnhancedMonitoringOutput,
-    AccessDeniedException | InvalidArgumentException | LimitExceededException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
+    | AccessDeniedException
+    | InvalidArgumentException
+    | LimitExceededException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   getRecords(
     input: GetRecordsInput,
   ): Effect.Effect<
     GetRecordsOutput,
-    AccessDeniedException | ExpiredIteratorException | InternalFailureException | InvalidArgumentException | KMSAccessDeniedException | KMSDisabledException | KMSInvalidStateException | KMSNotFoundException | KMSOptInRequired | KMSThrottlingException | ProvisionedThroughputExceededException | ResourceNotFoundException | CommonAwsError
+    | AccessDeniedException
+    | ExpiredIteratorException
+    | InternalFailureException
+    | InvalidArgumentException
+    | KMSAccessDeniedException
+    | KMSDisabledException
+    | KMSInvalidStateException
+    | KMSNotFoundException
+    | KMSOptInRequired
+    | KMSThrottlingException
+    | ProvisionedThroughputExceededException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   getResourcePolicy(
     input: GetResourcePolicyInput,
   ): Effect.Effect<
     GetResourcePolicyOutput,
-    AccessDeniedException | InvalidArgumentException | LimitExceededException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
+    | AccessDeniedException
+    | InvalidArgumentException
+    | LimitExceededException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   getShardIterator(
     input: GetShardIteratorInput,
   ): Effect.Effect<
     GetShardIteratorOutput,
-    AccessDeniedException | InternalFailureException | InvalidArgumentException | ProvisionedThroughputExceededException | ResourceNotFoundException | CommonAwsError
+    | AccessDeniedException
+    | InternalFailureException
+    | InvalidArgumentException
+    | ProvisionedThroughputExceededException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   increaseStreamRetentionPeriod(
     input: IncreaseStreamRetentionPeriodInput,
   ): Effect.Effect<
     {},
-    AccessDeniedException | InvalidArgumentException | LimitExceededException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
+    | AccessDeniedException
+    | InvalidArgumentException
+    | LimitExceededException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   listShards(
     input: ListShardsInput,
   ): Effect.Effect<
     ListShardsOutput,
-    AccessDeniedException | ExpiredNextTokenException | InvalidArgumentException | LimitExceededException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
+    | AccessDeniedException
+    | ExpiredNextTokenException
+    | InvalidArgumentException
+    | LimitExceededException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   listStreamConsumers(
     input: ListStreamConsumersInput,
   ): Effect.Effect<
     ListStreamConsumersOutput,
-    ExpiredNextTokenException | InvalidArgumentException | LimitExceededException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
+    | ExpiredNextTokenException
+    | InvalidArgumentException
+    | LimitExceededException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   listStreams(
     input: ListStreamsInput,
   ): Effect.Effect<
     ListStreamsOutput,
-    ExpiredNextTokenException | InvalidArgumentException | LimitExceededException | CommonAwsError
+    | ExpiredNextTokenException
+    | InvalidArgumentException
+    | LimitExceededException
+    | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceInput,
   ): Effect.Effect<
     ListTagsForResourceOutput,
-    AccessDeniedException | InvalidArgumentException | LimitExceededException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
+    | AccessDeniedException
+    | InvalidArgumentException
+    | LimitExceededException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   listTagsForStream(
     input: ListTagsForStreamInput,
   ): Effect.Effect<
     ListTagsForStreamOutput,
-    AccessDeniedException | InvalidArgumentException | LimitExceededException | ResourceNotFoundException | CommonAwsError
+    | AccessDeniedException
+    | InvalidArgumentException
+    | LimitExceededException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   mergeShards(
     input: MergeShardsInput,
   ): Effect.Effect<
     {},
-    AccessDeniedException | InvalidArgumentException | LimitExceededException | ResourceInUseException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InvalidArgumentException
+    | LimitExceededException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   putRecord(
     input: PutRecordInput,
   ): Effect.Effect<
     PutRecordOutput,
-    AccessDeniedException | InternalFailureException | InvalidArgumentException | KMSAccessDeniedException | KMSDisabledException | KMSInvalidStateException | KMSNotFoundException | KMSOptInRequired | KMSThrottlingException | ProvisionedThroughputExceededException | ResourceNotFoundException | CommonAwsError
+    | AccessDeniedException
+    | InternalFailureException
+    | InvalidArgumentException
+    | KMSAccessDeniedException
+    | KMSDisabledException
+    | KMSInvalidStateException
+    | KMSNotFoundException
+    | KMSOptInRequired
+    | KMSThrottlingException
+    | ProvisionedThroughputExceededException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   putRecords(
     input: PutRecordsInput,
   ): Effect.Effect<
     PutRecordsOutput,
-    AccessDeniedException | InternalFailureException | InvalidArgumentException | KMSAccessDeniedException | KMSDisabledException | KMSInvalidStateException | KMSNotFoundException | KMSOptInRequired | KMSThrottlingException | ProvisionedThroughputExceededException | ResourceNotFoundException | CommonAwsError
+    | AccessDeniedException
+    | InternalFailureException
+    | InvalidArgumentException
+    | KMSAccessDeniedException
+    | KMSDisabledException
+    | KMSInvalidStateException
+    | KMSNotFoundException
+    | KMSOptInRequired
+    | KMSThrottlingException
+    | ProvisionedThroughputExceededException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   putResourcePolicy(
     input: PutResourcePolicyInput,
   ): Effect.Effect<
     {},
-    AccessDeniedException | InvalidArgumentException | LimitExceededException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
+    | AccessDeniedException
+    | InvalidArgumentException
+    | LimitExceededException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   registerStreamConsumer(
     input: RegisterStreamConsumerInput,
   ): Effect.Effect<
     RegisterStreamConsumerOutput,
-    InvalidArgumentException | LimitExceededException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
+    | InvalidArgumentException
+    | LimitExceededException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   removeTagsFromStream(
     input: RemoveTagsFromStreamInput,
   ): Effect.Effect<
     {},
-    AccessDeniedException | InvalidArgumentException | LimitExceededException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
+    | AccessDeniedException
+    | InvalidArgumentException
+    | LimitExceededException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   splitShard(
     input: SplitShardInput,
   ): Effect.Effect<
     {},
-    AccessDeniedException | InvalidArgumentException | LimitExceededException | ResourceInUseException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InvalidArgumentException
+    | LimitExceededException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   startStreamEncryption(
     input: StartStreamEncryptionInput,
   ): Effect.Effect<
     {},
-    AccessDeniedException | InvalidArgumentException | KMSAccessDeniedException | KMSDisabledException | KMSInvalidStateException | KMSNotFoundException | KMSOptInRequired | KMSThrottlingException | LimitExceededException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
+    | AccessDeniedException
+    | InvalidArgumentException
+    | KMSAccessDeniedException
+    | KMSDisabledException
+    | KMSInvalidStateException
+    | KMSNotFoundException
+    | KMSOptInRequired
+    | KMSThrottlingException
+    | LimitExceededException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   stopStreamEncryption(
     input: StopStreamEncryptionInput,
   ): Effect.Effect<
     {},
-    AccessDeniedException | InvalidArgumentException | LimitExceededException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
+    | AccessDeniedException
+    | InvalidArgumentException
+    | LimitExceededException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   subscribeToShard(
     input: SubscribeToShardInput,
   ): Effect.Effect<
     SubscribeToShardOutput,
-    AccessDeniedException | InvalidArgumentException | LimitExceededException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
+    | AccessDeniedException
+    | InvalidArgumentException
+    | LimitExceededException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   tagResource(
     input: TagResourceInput,
   ): Effect.Effect<
     {},
-    AccessDeniedException | InvalidArgumentException | LimitExceededException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
+    | AccessDeniedException
+    | InvalidArgumentException
+    | LimitExceededException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   untagResource(
     input: UntagResourceInput,
   ): Effect.Effect<
     {},
-    AccessDeniedException | InvalidArgumentException | LimitExceededException | ResourceInUseException | ResourceNotFoundException | CommonAwsError
+    | AccessDeniedException
+    | InvalidArgumentException
+    | LimitExceededException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   updateAccountSettings(
     input: UpdateAccountSettingsInput,
   ): Effect.Effect<
     UpdateAccountSettingsOutput,
-    InvalidArgumentException | LimitExceededException | ValidationException | CommonAwsError
+    | InvalidArgumentException
+    | LimitExceededException
+    | ValidationException
+    | CommonAwsError
   >;
   updateMaxRecordSize(
     input: UpdateMaxRecordSizeInput,
   ): Effect.Effect<
     {},
-    AccessDeniedException | InvalidArgumentException | LimitExceededException | ResourceInUseException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InvalidArgumentException
+    | LimitExceededException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   updateShardCount(
     input: UpdateShardCountInput,
   ): Effect.Effect<
     UpdateShardCountOutput,
-    AccessDeniedException | InvalidArgumentException | LimitExceededException | ResourceInUseException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InvalidArgumentException
+    | LimitExceededException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   updateStreamMode(
     input: UpdateStreamModeInput,
   ): Effect.Effect<
     {},
-    InvalidArgumentException | LimitExceededException | ResourceInUseException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | InvalidArgumentException
+    | LimitExceededException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   updateStreamWarmThroughput(
     input: UpdateStreamWarmThroughputInput,
   ): Effect.Effect<
     UpdateStreamWarmThroughputOutput,
-    AccessDeniedException | InvalidArgumentException | LimitExceededException | ResourceInUseException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InvalidArgumentException
+    | LimitExceededException
+    | ResourceInUseException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
 }
 
@@ -307,13 +543,11 @@ export interface DeregisterStreamConsumerInput {
   ConsumerName?: string;
   ConsumerARN?: string;
 }
-export interface DescribeAccountSettingsInput {
-}
+export interface DescribeAccountSettingsInput {}
 export interface DescribeAccountSettingsOutput {
   MinimumThroughputBillingCommitment?: MinimumThroughputBillingCommitmentOutput;
 }
-export interface DescribeLimitsInput {
-}
+export interface DescribeLimitsInput {}
 export interface DescribeLimitsOutput {
   ShardLimit: number;
   OpenShardCount: number;
@@ -535,21 +769,34 @@ export interface MergeShardsInput {
   AdjacentShardToMerge: string;
   StreamARN?: string;
 }
-export type MetricsName = "IncomingBytes" | "IncomingRecords" | "OutgoingBytes" | "OutgoingRecords" | "WriteProvisionedThroughputExceeded" | "ReadProvisionedThroughputExceeded" | "IteratorAgeMilliseconds" | "ALL";
+export type MetricsName =
+  | "IncomingBytes"
+  | "IncomingRecords"
+  | "OutgoingBytes"
+  | "OutgoingRecords"
+  | "WriteProvisionedThroughputExceeded"
+  | "ReadProvisionedThroughputExceeded"
+  | "IteratorAgeMilliseconds"
+  | "ALL";
 export type MetricsNameList = Array<MetricsName>;
 export type MillisBehindLatest = number;
 
 export interface MinimumThroughputBillingCommitmentInput {
   Status: MinimumThroughputBillingCommitmentInputStatus;
 }
-export type MinimumThroughputBillingCommitmentInputStatus = "ENABLED" | "DISABLED";
+export type MinimumThroughputBillingCommitmentInputStatus =
+  | "ENABLED"
+  | "DISABLED";
 export interface MinimumThroughputBillingCommitmentOutput {
   Status: MinimumThroughputBillingCommitmentOutputStatus;
   StartedAt?: Date | string;
   EndedAt?: Date | string;
   EarliestAllowedEndAt?: Date | string;
 }
-export type MinimumThroughputBillingCommitmentOutputStatus = "ENABLED" | "DISABLED" | "ENABLED_UNTIL_EARLIEST_ALLOWED_END";
+export type MinimumThroughputBillingCommitmentOutputStatus =
+  | "ENABLED"
+  | "DISABLED"
+  | "ENABLED_UNTIL_EARLIEST_ALLOWED_END";
 export type NaturalIntegerObject = number;
 
 export type NextToken = string;
@@ -665,13 +912,24 @@ export interface ShardFilter {
   ShardId?: string;
   Timestamp?: Date | string;
 }
-export type ShardFilterType = "AFTER_SHARD_ID" | "AT_TRIM_HORIZON" | "FROM_TRIM_HORIZON" | "AT_LATEST" | "AT_TIMESTAMP" | "FROM_TIMESTAMP";
+export type ShardFilterType =
+  | "AFTER_SHARD_ID"
+  | "AT_TRIM_HORIZON"
+  | "FROM_TRIM_HORIZON"
+  | "AT_LATEST"
+  | "AT_TIMESTAMP"
+  | "FROM_TIMESTAMP";
 export type ShardId = string;
 
 export type ShardIdList = Array<string>;
 export type ShardIterator = string;
 
-export type ShardIteratorType = "AT_SEQUENCE_NUMBER" | "AFTER_SEQUENCE_NUMBER" | "TRIM_HORIZON" | "LATEST" | "AT_TIMESTAMP";
+export type ShardIteratorType =
+  | "AT_SEQUENCE_NUMBER"
+  | "AFTER_SEQUENCE_NUMBER"
+  | "TRIM_HORIZON"
+  | "LATEST"
+  | "AT_TIMESTAMP";
 export type ShardList = Array<Shard>;
 export interface SplitShardInput {
   StreamName?: string;
@@ -761,7 +1019,35 @@ interface _SubscribeToShardEventStream {
   InternalFailureException?: InternalFailureException;
 }
 
-export type SubscribeToShardEventStream = (_SubscribeToShardEventStream & { SubscribeToShardEvent: SubscribeToShardEvent }) | (_SubscribeToShardEventStream & { ResourceNotFoundException: ResourceNotFoundException }) | (_SubscribeToShardEventStream & { ResourceInUseException: ResourceInUseException }) | (_SubscribeToShardEventStream & { KMSDisabledException: KMSDisabledException }) | (_SubscribeToShardEventStream & { KMSInvalidStateException: KMSInvalidStateException }) | (_SubscribeToShardEventStream & { KMSAccessDeniedException: KMSAccessDeniedException }) | (_SubscribeToShardEventStream & { KMSNotFoundException: KMSNotFoundException }) | (_SubscribeToShardEventStream & { KMSOptInRequired: KMSOptInRequired }) | (_SubscribeToShardEventStream & { KMSThrottlingException: KMSThrottlingException }) | (_SubscribeToShardEventStream & { InternalFailureException: InternalFailureException });
+export type SubscribeToShardEventStream =
+  | (_SubscribeToShardEventStream & {
+      SubscribeToShardEvent: SubscribeToShardEvent;
+    })
+  | (_SubscribeToShardEventStream & {
+      ResourceNotFoundException: ResourceNotFoundException;
+    })
+  | (_SubscribeToShardEventStream & {
+      ResourceInUseException: ResourceInUseException;
+    })
+  | (_SubscribeToShardEventStream & {
+      KMSDisabledException: KMSDisabledException;
+    })
+  | (_SubscribeToShardEventStream & {
+      KMSInvalidStateException: KMSInvalidStateException;
+    })
+  | (_SubscribeToShardEventStream & {
+      KMSAccessDeniedException: KMSAccessDeniedException;
+    })
+  | (_SubscribeToShardEventStream & {
+      KMSNotFoundException: KMSNotFoundException;
+    })
+  | (_SubscribeToShardEventStream & { KMSOptInRequired: KMSOptInRequired })
+  | (_SubscribeToShardEventStream & {
+      KMSThrottlingException: KMSThrottlingException;
+    })
+  | (_SubscribeToShardEventStream & {
+      InternalFailureException: InternalFailureException;
+    });
 export interface SubscribeToShardInput {
   ConsumerARN: string;
   ShardId: string;
@@ -909,17 +1195,13 @@ export declare namespace DeregisterStreamConsumer {
 export declare namespace DescribeAccountSettings {
   export type Input = DescribeAccountSettingsInput;
   export type Output = DescribeAccountSettingsOutput;
-  export type Error =
-    | LimitExceededException
-    | CommonAwsError;
+  export type Error = LimitExceededException | CommonAwsError;
 }
 
 export declare namespace DescribeLimits {
   export type Input = DescribeLimitsInput;
   export type Output = DescribeLimitsOutput;
-  export type Error =
-    | LimitExceededException
-    | CommonAwsError;
+  export type Error = LimitExceededException | CommonAwsError;
 }
 
 export declare namespace DescribeStream {
@@ -1315,5 +1597,21 @@ export declare namespace UpdateStreamWarmThroughput {
     | CommonAwsError;
 }
 
-export type KinesisErrors = AccessDeniedException | ExpiredIteratorException | ExpiredNextTokenException | InternalFailureException | InvalidArgumentException | KMSAccessDeniedException | KMSDisabledException | KMSInvalidStateException | KMSNotFoundException | KMSOptInRequired | KMSThrottlingException | LimitExceededException | ProvisionedThroughputExceededException | ResourceInUseException | ResourceNotFoundException | ValidationException | CommonAwsError;
-
+export type KinesisErrors =
+  | AccessDeniedException
+  | ExpiredIteratorException
+  | ExpiredNextTokenException
+  | InternalFailureException
+  | InvalidArgumentException
+  | KMSAccessDeniedException
+  | KMSDisabledException
+  | KMSInvalidStateException
+  | KMSNotFoundException
+  | KMSOptInRequired
+  | KMSThrottlingException
+  | LimitExceededException
+  | ProvisionedThroughputExceededException
+  | ResourceInUseException
+  | ResourceNotFoundException
+  | ValidationException
+  | CommonAwsError;

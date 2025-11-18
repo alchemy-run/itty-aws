@@ -1,6 +1,38 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
-type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
+import type {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+type CommonAwsError =
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | AccessDeniedException
+  | ThrottlingException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class CleanRoomsML extends AWSServiceClient {
@@ -8,247 +40,409 @@ export declare class CleanRoomsML extends AWSServiceClient {
     input: ListCollaborationConfiguredModelAlgorithmAssociationsRequest,
   ): Effect.Effect<
     ListCollaborationConfiguredModelAlgorithmAssociationsResponse,
-    AccessDeniedException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listCollaborationMLInputChannels(
     input: ListCollaborationMLInputChannelsRequest,
   ): Effect.Effect<
     ListCollaborationMLInputChannelsResponse,
-    AccessDeniedException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listCollaborationTrainedModelExportJobs(
     input: ListCollaborationTrainedModelExportJobsRequest,
   ): Effect.Effect<
     ListCollaborationTrainedModelExportJobsResponse,
-    AccessDeniedException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listCollaborationTrainedModelInferenceJobs(
     input: ListCollaborationTrainedModelInferenceJobsRequest,
   ): Effect.Effect<
     ListCollaborationTrainedModelInferenceJobsResponse,
-    AccessDeniedException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listCollaborationTrainedModels(
     input: ListCollaborationTrainedModelsRequest,
   ): Effect.Effect<
     ListCollaborationTrainedModelsResponse,
-    AccessDeniedException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    AccessDeniedException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    AccessDeniedException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    AccessDeniedException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   cancelTrainedModel(
     input: CancelTrainedModelRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | ConflictException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   cancelTrainedModelInferenceJob(
     input: CancelTrainedModelInferenceJobRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | ConflictException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createAudienceModel(
     input: CreateAudienceModelRequest,
   ): Effect.Effect<
     CreateAudienceModelResponse,
-    AccessDeniedException | ConflictException | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError
   >;
   createConfiguredAudienceModel(
     input: CreateConfiguredAudienceModelRequest,
   ): Effect.Effect<
     CreateConfiguredAudienceModelResponse,
-    AccessDeniedException | ConflictException | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError
   >;
   createConfiguredModelAlgorithm(
     input: CreateConfiguredModelAlgorithmRequest,
   ): Effect.Effect<
     CreateConfiguredModelAlgorithmResponse,
-    AccessDeniedException | ConflictException | ServiceQuotaExceededException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError
   >;
   createConfiguredModelAlgorithmAssociation(
     input: CreateConfiguredModelAlgorithmAssociationRequest,
   ): Effect.Effect<
     CreateConfiguredModelAlgorithmAssociationResponse,
-    AccessDeniedException | ConflictException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createMLInputChannel(
     input: CreateMLInputChannelRequest,
   ): Effect.Effect<
     CreateMLInputChannelResponse,
-    AccessDeniedException | ConflictException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createTrainedModel(
     input: CreateTrainedModelRequest,
   ): Effect.Effect<
     CreateTrainedModelResponse,
-    AccessDeniedException | ConflictException | InternalServiceException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServiceException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createTrainingDataset(
     input: CreateTrainingDatasetRequest,
   ): Effect.Effect<
     CreateTrainingDatasetResponse,
-    AccessDeniedException | ConflictException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteAudienceGenerationJob(
     input: DeleteAudienceGenerationJobRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | ConflictException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteAudienceModel(
     input: DeleteAudienceModelRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | ConflictException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteConfiguredAudienceModel(
     input: DeleteConfiguredAudienceModelRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | ConflictException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteConfiguredAudienceModelPolicy(
     input: DeleteConfiguredAudienceModelPolicyRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteConfiguredModelAlgorithm(
     input: DeleteConfiguredModelAlgorithmRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | ConflictException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteConfiguredModelAlgorithmAssociation(
     input: DeleteConfiguredModelAlgorithmAssociationRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | ConflictException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteMLConfiguration(
     input: DeleteMLConfigurationRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteMLInputChannelData(
     input: DeleteMLInputChannelDataRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | ConflictException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteTrainedModelOutput(
     input: DeleteTrainedModelOutputRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | ConflictException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteTrainingDataset(
     input: DeleteTrainingDatasetRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | ConflictException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   getAudienceGenerationJob(
     input: GetAudienceGenerationJobRequest,
   ): Effect.Effect<
     GetAudienceGenerationJobResponse,
-    AccessDeniedException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   getAudienceModel(
     input: GetAudienceModelRequest,
   ): Effect.Effect<
     GetAudienceModelResponse,
-    AccessDeniedException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   getCollaborationConfiguredModelAlgorithmAssociation(
     input: GetCollaborationConfiguredModelAlgorithmAssociationRequest,
   ): Effect.Effect<
     GetCollaborationConfiguredModelAlgorithmAssociationResponse,
-    AccessDeniedException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getCollaborationMLInputChannel(
     input: GetCollaborationMLInputChannelRequest,
   ): Effect.Effect<
     GetCollaborationMLInputChannelResponse,
-    AccessDeniedException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getCollaborationTrainedModel(
     input: GetCollaborationTrainedModelRequest,
   ): Effect.Effect<
     GetCollaborationTrainedModelResponse,
-    AccessDeniedException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getConfiguredAudienceModel(
     input: GetConfiguredAudienceModelRequest,
   ): Effect.Effect<
     GetConfiguredAudienceModelResponse,
-    AccessDeniedException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   getConfiguredAudienceModelPolicy(
     input: GetConfiguredAudienceModelPolicyRequest,
   ): Effect.Effect<
     GetConfiguredAudienceModelPolicyResponse,
-    AccessDeniedException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   getConfiguredModelAlgorithm(
     input: GetConfiguredModelAlgorithmRequest,
   ): Effect.Effect<
     GetConfiguredModelAlgorithmResponse,
-    AccessDeniedException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   getConfiguredModelAlgorithmAssociation(
     input: GetConfiguredModelAlgorithmAssociationRequest,
   ): Effect.Effect<
     GetConfiguredModelAlgorithmAssociationResponse,
-    AccessDeniedException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getMLConfiguration(
     input: GetMLConfigurationRequest,
   ): Effect.Effect<
     GetMLConfigurationResponse,
-    AccessDeniedException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getMLInputChannel(
     input: GetMLInputChannelRequest,
   ): Effect.Effect<
     GetMLInputChannelResponse,
-    AccessDeniedException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getTrainedModel(
     input: GetTrainedModelRequest,
   ): Effect.Effect<
     GetTrainedModelResponse,
-    AccessDeniedException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getTrainedModelInferenceJob(
     input: GetTrainedModelInferenceJobRequest,
   ): Effect.Effect<
     GetTrainedModelInferenceJobResponse,
-    AccessDeniedException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getTrainingDataset(
     input: GetTrainingDatasetRequest,
   ): Effect.Effect<
     GetTrainingDatasetResponse,
-    AccessDeniedException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   listAudienceExportJobs(
     input: ListAudienceExportJobsRequest,
@@ -278,7 +472,10 @@ export declare class CleanRoomsML extends AWSServiceClient {
     input: ListConfiguredModelAlgorithmAssociationsRequest,
   ): Effect.Effect<
     ListConfiguredModelAlgorithmAssociationsResponse,
-    AccessDeniedException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listConfiguredModelAlgorithms(
     input: ListConfiguredModelAlgorithmsRequest,
@@ -290,25 +487,38 @@ export declare class CleanRoomsML extends AWSServiceClient {
     input: ListMLInputChannelsRequest,
   ): Effect.Effect<
     ListMLInputChannelsResponse,
-    AccessDeniedException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listTrainedModelInferenceJobs(
     input: ListTrainedModelInferenceJobsRequest,
   ): Effect.Effect<
     ListTrainedModelInferenceJobsResponse,
-    AccessDeniedException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listTrainedModelVersions(
     input: ListTrainedModelVersionsRequest,
   ): Effect.Effect<
     ListTrainedModelVersionsResponse,
-    AccessDeniedException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listTrainedModels(
     input: ListTrainedModelsRequest,
   ): Effect.Effect<
     ListTrainedModelsResponse,
-    AccessDeniedException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listTrainingDatasets(
     input: ListTrainingDatasetsRequest,
@@ -320,43 +530,75 @@ export declare class CleanRoomsML extends AWSServiceClient {
     input: PutConfiguredAudienceModelPolicyRequest,
   ): Effect.Effect<
     PutConfiguredAudienceModelPolicyResponse,
-    AccessDeniedException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   putMLConfiguration(
     input: PutMLConfigurationRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   startAudienceExportJob(
     input: StartAudienceExportJobRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | ConflictException | ResourceNotFoundException | ServiceQuotaExceededException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ValidationException
+    | CommonAwsError
   >;
   startAudienceGenerationJob(
     input: StartAudienceGenerationJobRequest,
   ): Effect.Effect<
     StartAudienceGenerationJobResponse,
-    AccessDeniedException | ConflictException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   startTrainedModelExportJob(
     input: StartTrainedModelExportJobRequest,
   ): Effect.Effect<
     {},
-    AccessDeniedException | ConflictException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   startTrainedModelInferenceJob(
     input: StartTrainedModelInferenceJobRequest,
   ): Effect.Effect<
     StartTrainedModelInferenceJobResponse,
-    AccessDeniedException | ConflictException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateConfiguredAudienceModel(
     input: UpdateConfiguredAudienceModelRequest,
   ): Effect.Effect<
     UpdateConfiguredAudienceModelResponse,
-    AccessDeniedException | ConflictException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
 }
 
@@ -377,7 +619,11 @@ export interface AccessBudgetDetails {
 }
 export type AccessBudgetDetailsList = Array<AccessBudgetDetails>;
 export type AccessBudgets = Array<AccessBudget>;
-export type AccessBudgetType = "CALENDAR_DAY" | "CALENDAR_MONTH" | "CALENDAR_WEEK" | "LIFETIME";
+export type AccessBudgetType =
+  | "CALENDAR_DAY"
+  | "CALENDAR_MONTH"
+  | "CALENDAR_WEEK"
+  | "LIFETIME";
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",
 )<{
@@ -396,7 +642,11 @@ export interface AudienceDestination {
 export type AudienceExportJobArn = string;
 
 export type AudienceExportJobList = Array<AudienceExportJobSummary>;
-export type AudienceExportJobStatus = "CREATE_PENDING" | "CREATE_IN_PROGRESS" | "CREATE_FAILED" | "ACTIVE";
+export type AudienceExportJobStatus =
+  | "CREATE_PENDING"
+  | "CREATE_IN_PROGRESS"
+  | "CREATE_FAILED"
+  | "ACTIVE";
 export interface AudienceExportJobSummary {
   createTime: Date | string;
   updateTime: Date | string;
@@ -417,7 +667,14 @@ export interface AudienceGenerationJobDataSource {
   sqlComputeConfiguration?: ComputeConfiguration;
 }
 export type AudienceGenerationJobList = Array<AudienceGenerationJobSummary>;
-export type AudienceGenerationJobStatus = "CREATE_PENDING" | "CREATE_IN_PROGRESS" | "CREATE_FAILED" | "ACTIVE" | "DELETE_PENDING" | "DELETE_IN_PROGRESS" | "DELETE_FAILED";
+export type AudienceGenerationJobStatus =
+  | "CREATE_PENDING"
+  | "CREATE_IN_PROGRESS"
+  | "CREATE_FAILED"
+  | "ACTIVE"
+  | "DELETE_PENDING"
+  | "DELETE_IN_PROGRESS"
+  | "DELETE_FAILED";
 export interface AudienceGenerationJobSummary {
   createTime: Date | string;
   updateTime: Date | string;
@@ -432,7 +689,14 @@ export interface AudienceGenerationJobSummary {
 export type AudienceModelArn = string;
 
 export type AudienceModelList = Array<AudienceModelSummary>;
-export type AudienceModelStatus = "CREATE_PENDING" | "CREATE_IN_PROGRESS" | "CREATE_FAILED" | "ACTIVE" | "DELETE_PENDING" | "DELETE_IN_PROGRESS" | "DELETE_FAILED";
+export type AudienceModelStatus =
+  | "CREATE_PENDING"
+  | "CREATE_IN_PROGRESS"
+  | "CREATE_FAILED"
+  | "ACTIVE"
+  | "DELETE_PENDING"
+  | "DELETE_IN_PROGRESS"
+  | "DELETE_FAILED";
 export interface AudienceModelSummary {
   createTime: Date | string;
   updateTime: Date | string;
@@ -472,7 +736,8 @@ export interface CancelTrainedModelRequest {
   trainedModelArn: string;
   versionIdentifier?: string;
 }
-export type CollaborationConfiguredModelAlgorithmAssociationList = Array<CollaborationConfiguredModelAlgorithmAssociationSummary>;
+export type CollaborationConfiguredModelAlgorithmAssociationList =
+  Array<CollaborationConfiguredModelAlgorithmAssociationSummary>;
 export interface CollaborationConfiguredModelAlgorithmAssociationSummary {
   createTime: Date | string;
   updateTime: Date | string;
@@ -484,7 +749,8 @@ export interface CollaborationConfiguredModelAlgorithmAssociationSummary {
   configuredModelAlgorithmArn: string;
   creatorAccountId: string;
 }
-export type CollaborationMLInputChannelsList = Array<CollaborationMLInputChannelSummary>;
+export type CollaborationMLInputChannelsList =
+  Array<CollaborationMLInputChannelSummary>;
 export interface CollaborationMLInputChannelSummary {
   createTime: Date | string;
   updateTime: Date | string;
@@ -497,7 +763,8 @@ export interface CollaborationMLInputChannelSummary {
   creatorAccountId: string;
   description?: string;
 }
-export type CollaborationTrainedModelExportJobList = Array<CollaborationTrainedModelExportJobSummary>;
+export type CollaborationTrainedModelExportJobList =
+  Array<CollaborationTrainedModelExportJobSummary>;
 export interface CollaborationTrainedModelExportJobSummary {
   createTime: Date | string;
   updateTime: Date | string;
@@ -512,7 +779,8 @@ export interface CollaborationTrainedModelExportJobSummary {
   membershipIdentifier: string;
   collaborationIdentifier: string;
 }
-export type CollaborationTrainedModelInferenceJobList = Array<CollaborationTrainedModelInferenceJobSummary>;
+export type CollaborationTrainedModelInferenceJobList =
+  Array<CollaborationTrainedModelInferenceJobSummary>;
 export interface CollaborationTrainedModelInferenceJobSummary {
   trainedModelInferenceJobArn: string;
   configuredModelAlgorithmAssociationArn?: string;
@@ -532,7 +800,8 @@ export interface CollaborationTrainedModelInferenceJobSummary {
   updateTime: Date | string;
   creatorAccountId: string;
 }
-export type CollaborationTrainedModelList = Array<CollaborationTrainedModelSummary>;
+export type CollaborationTrainedModelList =
+  Array<CollaborationTrainedModelSummary>;
 export interface CollaborationTrainedModelSummary {
   createTime: Date | string;
   updateTime: Date | string;
@@ -553,13 +822,20 @@ export interface ColumnSchema {
   columnName: string;
   columnTypes: Array<ColumnType>;
 }
-export type ColumnType = "USER_ID" | "ITEM_ID" | "TIMESTAMP" | "CATEGORICAL_FEATURE" | "NUMERICAL_FEATURE";
+export type ColumnType =
+  | "USER_ID"
+  | "ITEM_ID"
+  | "TIMESTAMP"
+  | "CATEGORICAL_FEATURE"
+  | "NUMERICAL_FEATURE";
 export type ColumnTypeList = Array<ColumnType>;
 interface _ComputeConfiguration {
   worker?: WorkerComputeConfiguration;
 }
 
-export type ComputeConfiguration = (_ComputeConfiguration & { worker: WorkerComputeConfiguration });
+export type ComputeConfiguration = _ComputeConfiguration & {
+  worker: WorkerComputeConfiguration;
+};
 export type ConfiguredAudienceModelArn = string;
 
 export type ConfiguredAudienceModelList = Array<ConfiguredAudienceModelSummary>;
@@ -583,7 +859,8 @@ export type ConfiguredModelAlgorithmArn = string;
 export type ConfiguredModelAlgorithmAssociationArn = string;
 
 export type ConfiguredModelAlgorithmAssociationArnList = Array<string>;
-export type ConfiguredModelAlgorithmAssociationList = Array<ConfiguredModelAlgorithmAssociationSummary>;
+export type ConfiguredModelAlgorithmAssociationList =
+  Array<ConfiguredModelAlgorithmAssociationSummary>;
 export interface ConfiguredModelAlgorithmAssociationSummary {
   createTime: Date | string;
   updateTime: Date | string;
@@ -594,7 +871,8 @@ export interface ConfiguredModelAlgorithmAssociationSummary {
   membershipIdentifier: string;
   collaborationIdentifier: string;
 }
-export type ConfiguredModelAlgorithmList = Array<ConfiguredModelAlgorithmSummary>;
+export type ConfiguredModelAlgorithmList =
+  Array<ConfiguredModelAlgorithmSummary>;
 export interface ConfiguredModelAlgorithmSummary {
   createTime: Date | string;
   updateTime: Date | string;
@@ -767,7 +1045,10 @@ export interface DeleteTrainingDatasetRequest {
 export interface Destination {
   s3Destination: S3ConfigMap;
 }
-export type EntityType = "ALL_PERSONALLY_IDENTIFIABLE_INFORMATION" | "NUMBERS" | "CUSTOM";
+export type EntityType =
+  | "ALL_PERSONALLY_IDENTIFIABLE_INFORMATION"
+  | "NUMBERS"
+  | "CUSTOM";
 export type EntityTypeList = Array<EntityType>;
 export type Environment = Record<string, string>;
 export interface GetAudienceGenerationJobRequest {
@@ -1061,8 +1342,10 @@ export interface IncrementalTrainingDataChannelOutput {
   versionIdentifier?: string;
   modelName: string;
 }
-export type IncrementalTrainingDataChannels = Array<IncrementalTrainingDataChannel>;
-export type IncrementalTrainingDataChannelsOutput = Array<IncrementalTrainingDataChannelOutput>;
+export type IncrementalTrainingDataChannels =
+  Array<IncrementalTrainingDataChannel>;
+export type IncrementalTrainingDataChannelsOutput =
+  Array<IncrementalTrainingDataChannelOutput>;
 export interface InferenceContainerConfig {
   imageUri: string;
 }
@@ -1070,7 +1353,101 @@ export interface InferenceContainerExecutionParameters {
   maxPayloadInMB?: number;
 }
 export type InferenceEnvironmentMap = Record<string, string>;
-export type InferenceInstanceType = "ml.r7i.48xlarge" | "ml.r6i.16xlarge" | "ml.m6i.xlarge" | "ml.m5.4xlarge" | "ml.p2.xlarge" | "ml.m4.16xlarge" | "ml.r7i.16xlarge" | "ml.m7i.xlarge" | "ml.m6i.12xlarge" | "ml.r7i.8xlarge" | "ml.r7i.large" | "ml.m7i.12xlarge" | "ml.m6i.24xlarge" | "ml.m7i.24xlarge" | "ml.r6i.8xlarge" | "ml.r6i.large" | "ml.g5.2xlarge" | "ml.m5.large" | "ml.m7i.48xlarge" | "ml.m6i.16xlarge" | "ml.p2.16xlarge" | "ml.g5.4xlarge" | "ml.m7i.16xlarge" | "ml.c4.2xlarge" | "ml.c5.2xlarge" | "ml.c6i.32xlarge" | "ml.c4.4xlarge" | "ml.g5.8xlarge" | "ml.c6i.xlarge" | "ml.c5.4xlarge" | "ml.g4dn.xlarge" | "ml.c7i.xlarge" | "ml.c6i.12xlarge" | "ml.g4dn.12xlarge" | "ml.c7i.12xlarge" | "ml.c6i.24xlarge" | "ml.g4dn.2xlarge" | "ml.c7i.24xlarge" | "ml.c7i.2xlarge" | "ml.c4.8xlarge" | "ml.c6i.2xlarge" | "ml.g4dn.4xlarge" | "ml.c7i.48xlarge" | "ml.c7i.4xlarge" | "ml.c6i.16xlarge" | "ml.c5.9xlarge" | "ml.g4dn.16xlarge" | "ml.c7i.16xlarge" | "ml.c6i.4xlarge" | "ml.c5.xlarge" | "ml.c4.xlarge" | "ml.g4dn.8xlarge" | "ml.c7i.8xlarge" | "ml.c7i.large" | "ml.g5.xlarge" | "ml.c6i.8xlarge" | "ml.c6i.large" | "ml.g5.12xlarge" | "ml.g5.24xlarge" | "ml.m7i.2xlarge" | "ml.c5.18xlarge" | "ml.g5.48xlarge" | "ml.m6i.2xlarge" | "ml.g5.16xlarge" | "ml.m7i.4xlarge" | "ml.r6i.32xlarge" | "ml.m6i.4xlarge" | "ml.m5.xlarge" | "ml.m4.10xlarge" | "ml.r6i.xlarge" | "ml.m5.12xlarge" | "ml.m4.xlarge" | "ml.r7i.2xlarge" | "ml.r7i.xlarge" | "ml.r6i.12xlarge" | "ml.m5.24xlarge" | "ml.r7i.12xlarge" | "ml.m7i.8xlarge" | "ml.m7i.large" | "ml.r6i.24xlarge" | "ml.r6i.2xlarge" | "ml.m4.2xlarge" | "ml.r7i.24xlarge" | "ml.r7i.4xlarge" | "ml.m6i.8xlarge" | "ml.m6i.large" | "ml.m5.2xlarge" | "ml.p2.8xlarge" | "ml.r6i.4xlarge" | "ml.m6i.32xlarge" | "ml.m4.4xlarge" | "ml.p3.16xlarge" | "ml.p3.2xlarge" | "ml.p3.8xlarge";
+export type InferenceInstanceType =
+  | "ml.r7i.48xlarge"
+  | "ml.r6i.16xlarge"
+  | "ml.m6i.xlarge"
+  | "ml.m5.4xlarge"
+  | "ml.p2.xlarge"
+  | "ml.m4.16xlarge"
+  | "ml.r7i.16xlarge"
+  | "ml.m7i.xlarge"
+  | "ml.m6i.12xlarge"
+  | "ml.r7i.8xlarge"
+  | "ml.r7i.large"
+  | "ml.m7i.12xlarge"
+  | "ml.m6i.24xlarge"
+  | "ml.m7i.24xlarge"
+  | "ml.r6i.8xlarge"
+  | "ml.r6i.large"
+  | "ml.g5.2xlarge"
+  | "ml.m5.large"
+  | "ml.m7i.48xlarge"
+  | "ml.m6i.16xlarge"
+  | "ml.p2.16xlarge"
+  | "ml.g5.4xlarge"
+  | "ml.m7i.16xlarge"
+  | "ml.c4.2xlarge"
+  | "ml.c5.2xlarge"
+  | "ml.c6i.32xlarge"
+  | "ml.c4.4xlarge"
+  | "ml.g5.8xlarge"
+  | "ml.c6i.xlarge"
+  | "ml.c5.4xlarge"
+  | "ml.g4dn.xlarge"
+  | "ml.c7i.xlarge"
+  | "ml.c6i.12xlarge"
+  | "ml.g4dn.12xlarge"
+  | "ml.c7i.12xlarge"
+  | "ml.c6i.24xlarge"
+  | "ml.g4dn.2xlarge"
+  | "ml.c7i.24xlarge"
+  | "ml.c7i.2xlarge"
+  | "ml.c4.8xlarge"
+  | "ml.c6i.2xlarge"
+  | "ml.g4dn.4xlarge"
+  | "ml.c7i.48xlarge"
+  | "ml.c7i.4xlarge"
+  | "ml.c6i.16xlarge"
+  | "ml.c5.9xlarge"
+  | "ml.g4dn.16xlarge"
+  | "ml.c7i.16xlarge"
+  | "ml.c6i.4xlarge"
+  | "ml.c5.xlarge"
+  | "ml.c4.xlarge"
+  | "ml.g4dn.8xlarge"
+  | "ml.c7i.8xlarge"
+  | "ml.c7i.large"
+  | "ml.g5.xlarge"
+  | "ml.c6i.8xlarge"
+  | "ml.c6i.large"
+  | "ml.g5.12xlarge"
+  | "ml.g5.24xlarge"
+  | "ml.m7i.2xlarge"
+  | "ml.c5.18xlarge"
+  | "ml.g5.48xlarge"
+  | "ml.m6i.2xlarge"
+  | "ml.g5.16xlarge"
+  | "ml.m7i.4xlarge"
+  | "ml.r6i.32xlarge"
+  | "ml.m6i.4xlarge"
+  | "ml.m5.xlarge"
+  | "ml.m4.10xlarge"
+  | "ml.r6i.xlarge"
+  | "ml.m5.12xlarge"
+  | "ml.m4.xlarge"
+  | "ml.r7i.2xlarge"
+  | "ml.r7i.xlarge"
+  | "ml.r6i.12xlarge"
+  | "ml.m5.24xlarge"
+  | "ml.r7i.12xlarge"
+  | "ml.m7i.8xlarge"
+  | "ml.m7i.large"
+  | "ml.r6i.24xlarge"
+  | "ml.r6i.2xlarge"
+  | "ml.m4.2xlarge"
+  | "ml.r7i.24xlarge"
+  | "ml.r7i.4xlarge"
+  | "ml.m6i.8xlarge"
+  | "ml.m6i.large"
+  | "ml.m5.2xlarge"
+  | "ml.p2.8xlarge"
+  | "ml.r6i.4xlarge"
+  | "ml.m6i.32xlarge"
+  | "ml.m4.4xlarge"
+  | "ml.p3.16xlarge"
+  | "ml.p3.2xlarge"
+  | "ml.p3.8xlarge";
 export interface InferenceOutputConfiguration {
   accept?: string;
   members: Array<InferenceReceiverMember>;
@@ -1091,8 +1468,143 @@ interface _InputChannelDataSource {
   protectedQueryInputParameters?: ProtectedQueryInputParameters;
 }
 
-export type InputChannelDataSource = (_InputChannelDataSource & { protectedQueryInputParameters: ProtectedQueryInputParameters });
-export type InstanceType = "ml.m4.xlarge" | "ml.m4.2xlarge" | "ml.m4.4xlarge" | "ml.m4.10xlarge" | "ml.m4.16xlarge" | "ml.g4dn.xlarge" | "ml.g4dn.2xlarge" | "ml.g4dn.4xlarge" | "ml.g4dn.8xlarge" | "ml.g4dn.12xlarge" | "ml.g4dn.16xlarge" | "ml.m5.large" | "ml.m5.xlarge" | "ml.m5.2xlarge" | "ml.m5.4xlarge" | "ml.m5.12xlarge" | "ml.m5.24xlarge" | "ml.c4.xlarge" | "ml.c4.2xlarge" | "ml.c4.4xlarge" | "ml.c4.8xlarge" | "ml.p2.xlarge" | "ml.p2.8xlarge" | "ml.p2.16xlarge" | "ml.p4d.24xlarge" | "ml.p4de.24xlarge" | "ml.p5.48xlarge" | "ml.c5.xlarge" | "ml.c5.2xlarge" | "ml.c5.4xlarge" | "ml.c5.9xlarge" | "ml.c5.18xlarge" | "ml.c5n.xlarge" | "ml.c5n.2xlarge" | "ml.c5n.4xlarge" | "ml.c5n.9xlarge" | "ml.c5n.18xlarge" | "ml.g5.xlarge" | "ml.g5.2xlarge" | "ml.g5.4xlarge" | "ml.g5.8xlarge" | "ml.g5.16xlarge" | "ml.g5.12xlarge" | "ml.g5.24xlarge" | "ml.g5.48xlarge" | "ml.trn1.2xlarge" | "ml.trn1.32xlarge" | "ml.trn1n.32xlarge" | "ml.m6i.large" | "ml.m6i.xlarge" | "ml.m6i.2xlarge" | "ml.m6i.4xlarge" | "ml.m6i.8xlarge" | "ml.m6i.12xlarge" | "ml.m6i.16xlarge" | "ml.m6i.24xlarge" | "ml.m6i.32xlarge" | "ml.c6i.xlarge" | "ml.c6i.2xlarge" | "ml.c6i.8xlarge" | "ml.c6i.4xlarge" | "ml.c6i.12xlarge" | "ml.c6i.16xlarge" | "ml.c6i.24xlarge" | "ml.c6i.32xlarge" | "ml.r5d.large" | "ml.r5d.xlarge" | "ml.r5d.2xlarge" | "ml.r5d.4xlarge" | "ml.r5d.8xlarge" | "ml.r5d.12xlarge" | "ml.r5d.16xlarge" | "ml.r5d.24xlarge" | "ml.t3.medium" | "ml.t3.large" | "ml.t3.xlarge" | "ml.t3.2xlarge" | "ml.r5.large" | "ml.r5.xlarge" | "ml.r5.2xlarge" | "ml.r5.4xlarge" | "ml.r5.8xlarge" | "ml.r5.12xlarge" | "ml.r5.16xlarge" | "ml.r5.24xlarge" | "ml.c7i.large" | "ml.c7i.xlarge" | "ml.c7i.2xlarge" | "ml.c7i.4xlarge" | "ml.c7i.8xlarge" | "ml.c7i.12xlarge" | "ml.c7i.16xlarge" | "ml.c7i.24xlarge" | "ml.c7i.48xlarge" | "ml.m7i.large" | "ml.m7i.xlarge" | "ml.m7i.2xlarge" | "ml.m7i.4xlarge" | "ml.m7i.8xlarge" | "ml.m7i.12xlarge" | "ml.m7i.16xlarge" | "ml.m7i.24xlarge" | "ml.m7i.48xlarge" | "ml.r7i.large" | "ml.r7i.xlarge" | "ml.r7i.2xlarge" | "ml.r7i.4xlarge" | "ml.r7i.8xlarge" | "ml.r7i.12xlarge" | "ml.r7i.16xlarge" | "ml.r7i.24xlarge" | "ml.r7i.48xlarge" | "ml.g6.xlarge" | "ml.g6.2xlarge" | "ml.g6.4xlarge" | "ml.g6.8xlarge" | "ml.g6.12xlarge" | "ml.g6.16xlarge" | "ml.g6.24xlarge" | "ml.g6.48xlarge" | "ml.g6e.xlarge" | "ml.g6e.2xlarge" | "ml.g6e.4xlarge" | "ml.g6e.8xlarge" | "ml.g6e.12xlarge" | "ml.g6e.16xlarge" | "ml.g6e.24xlarge" | "ml.g6e.48xlarge" | "ml.p5en.48xlarge" | "ml.p3.2xlarge" | "ml.p3.8xlarge" | "ml.p3.16xlarge" | "ml.p3dn.24xlarge";
+export type InputChannelDataSource = _InputChannelDataSource & {
+  protectedQueryInputParameters: ProtectedQueryInputParameters;
+};
+export type InstanceType =
+  | "ml.m4.xlarge"
+  | "ml.m4.2xlarge"
+  | "ml.m4.4xlarge"
+  | "ml.m4.10xlarge"
+  | "ml.m4.16xlarge"
+  | "ml.g4dn.xlarge"
+  | "ml.g4dn.2xlarge"
+  | "ml.g4dn.4xlarge"
+  | "ml.g4dn.8xlarge"
+  | "ml.g4dn.12xlarge"
+  | "ml.g4dn.16xlarge"
+  | "ml.m5.large"
+  | "ml.m5.xlarge"
+  | "ml.m5.2xlarge"
+  | "ml.m5.4xlarge"
+  | "ml.m5.12xlarge"
+  | "ml.m5.24xlarge"
+  | "ml.c4.xlarge"
+  | "ml.c4.2xlarge"
+  | "ml.c4.4xlarge"
+  | "ml.c4.8xlarge"
+  | "ml.p2.xlarge"
+  | "ml.p2.8xlarge"
+  | "ml.p2.16xlarge"
+  | "ml.p4d.24xlarge"
+  | "ml.p4de.24xlarge"
+  | "ml.p5.48xlarge"
+  | "ml.c5.xlarge"
+  | "ml.c5.2xlarge"
+  | "ml.c5.4xlarge"
+  | "ml.c5.9xlarge"
+  | "ml.c5.18xlarge"
+  | "ml.c5n.xlarge"
+  | "ml.c5n.2xlarge"
+  | "ml.c5n.4xlarge"
+  | "ml.c5n.9xlarge"
+  | "ml.c5n.18xlarge"
+  | "ml.g5.xlarge"
+  | "ml.g5.2xlarge"
+  | "ml.g5.4xlarge"
+  | "ml.g5.8xlarge"
+  | "ml.g5.16xlarge"
+  | "ml.g5.12xlarge"
+  | "ml.g5.24xlarge"
+  | "ml.g5.48xlarge"
+  | "ml.trn1.2xlarge"
+  | "ml.trn1.32xlarge"
+  | "ml.trn1n.32xlarge"
+  | "ml.m6i.large"
+  | "ml.m6i.xlarge"
+  | "ml.m6i.2xlarge"
+  | "ml.m6i.4xlarge"
+  | "ml.m6i.8xlarge"
+  | "ml.m6i.12xlarge"
+  | "ml.m6i.16xlarge"
+  | "ml.m6i.24xlarge"
+  | "ml.m6i.32xlarge"
+  | "ml.c6i.xlarge"
+  | "ml.c6i.2xlarge"
+  | "ml.c6i.8xlarge"
+  | "ml.c6i.4xlarge"
+  | "ml.c6i.12xlarge"
+  | "ml.c6i.16xlarge"
+  | "ml.c6i.24xlarge"
+  | "ml.c6i.32xlarge"
+  | "ml.r5d.large"
+  | "ml.r5d.xlarge"
+  | "ml.r5d.2xlarge"
+  | "ml.r5d.4xlarge"
+  | "ml.r5d.8xlarge"
+  | "ml.r5d.12xlarge"
+  | "ml.r5d.16xlarge"
+  | "ml.r5d.24xlarge"
+  | "ml.t3.medium"
+  | "ml.t3.large"
+  | "ml.t3.xlarge"
+  | "ml.t3.2xlarge"
+  | "ml.r5.large"
+  | "ml.r5.xlarge"
+  | "ml.r5.2xlarge"
+  | "ml.r5.4xlarge"
+  | "ml.r5.8xlarge"
+  | "ml.r5.12xlarge"
+  | "ml.r5.16xlarge"
+  | "ml.r5.24xlarge"
+  | "ml.c7i.large"
+  | "ml.c7i.xlarge"
+  | "ml.c7i.2xlarge"
+  | "ml.c7i.4xlarge"
+  | "ml.c7i.8xlarge"
+  | "ml.c7i.12xlarge"
+  | "ml.c7i.16xlarge"
+  | "ml.c7i.24xlarge"
+  | "ml.c7i.48xlarge"
+  | "ml.m7i.large"
+  | "ml.m7i.xlarge"
+  | "ml.m7i.2xlarge"
+  | "ml.m7i.4xlarge"
+  | "ml.m7i.8xlarge"
+  | "ml.m7i.12xlarge"
+  | "ml.m7i.16xlarge"
+  | "ml.m7i.24xlarge"
+  | "ml.m7i.48xlarge"
+  | "ml.r7i.large"
+  | "ml.r7i.xlarge"
+  | "ml.r7i.2xlarge"
+  | "ml.r7i.4xlarge"
+  | "ml.r7i.8xlarge"
+  | "ml.r7i.12xlarge"
+  | "ml.r7i.16xlarge"
+  | "ml.r7i.24xlarge"
+  | "ml.r7i.48xlarge"
+  | "ml.g6.xlarge"
+  | "ml.g6.2xlarge"
+  | "ml.g6.4xlarge"
+  | "ml.g6.8xlarge"
+  | "ml.g6.12xlarge"
+  | "ml.g6.16xlarge"
+  | "ml.g6.24xlarge"
+  | "ml.g6.48xlarge"
+  | "ml.g6e.xlarge"
+  | "ml.g6e.2xlarge"
+  | "ml.g6e.4xlarge"
+  | "ml.g6e.8xlarge"
+  | "ml.g6e.12xlarge"
+  | "ml.g6e.16xlarge"
+  | "ml.g6e.24xlarge"
+  | "ml.g6e.48xlarge"
+  | "ml.p5en.48xlarge"
+  | "ml.p3.2xlarge"
+  | "ml.p3.8xlarge"
+  | "ml.p3.16xlarge"
+  | "ml.p3dn.24xlarge";
 export declare class InternalServiceException extends EffectData.TaggedError(
   "InternalServiceException",
 )<{
@@ -1289,7 +1801,15 @@ export type MinMatchingSeedSize = number;
 export type MLInputChannelArn = string;
 
 export type MLInputChannelsList = Array<MLInputChannelSummary>;
-export type MLInputChannelStatus = "CREATE_PENDING" | "CREATE_IN_PROGRESS" | "CREATE_FAILED" | "ACTIVE" | "DELETE_PENDING" | "DELETE_IN_PROGRESS" | "DELETE_FAILED" | "INACTIVE";
+export type MLInputChannelStatus =
+  | "CREATE_PENDING"
+  | "CREATE_IN_PROGRESS"
+  | "CREATE_FAILED"
+  | "ACTIVE"
+  | "DELETE_PENDING"
+  | "DELETE_IN_PROGRESS"
+  | "DELETE_FAILED"
+  | "INACTIVE";
 export interface MLInputChannelSummary {
   createTime: Date | string;
   updateTime: Date | string;
@@ -1327,12 +1847,16 @@ export type ParameterKey = string;
 export type ParameterMap = Record<string, string>;
 export type ParameterValue = string;
 
-export type PolicyExistenceCondition = "POLICY_MUST_EXIST" | "POLICY_MUST_NOT_EXIST";
+export type PolicyExistenceCondition =
+  | "POLICY_MUST_EXIST"
+  | "POLICY_MUST_NOT_EXIST";
 interface _PrivacyBudgets {
   accessBudgets?: Array<AccessBudget>;
 }
 
-export type PrivacyBudgets = (_PrivacyBudgets & { accessBudgets: Array<AccessBudget> });
+export type PrivacyBudgets = _PrivacyBudgets & {
+  accessBudgets: Array<AccessBudget>;
+};
 export interface PrivacyConfiguration {
   policies: PrivacyConfigurationPolicies;
 }
@@ -1461,8 +1985,7 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {
-}
+export interface TagResourceResponse {}
 export type TagValue = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(
@@ -1483,14 +2006,19 @@ export type TrainedModelExportFileType = "MODEL" | "OUTPUT";
 export type TrainedModelExportFileTypeList = Array<TrainedModelExportFileType>;
 export type TrainedModelExportJobArn = string;
 
-export type TrainedModelExportJobStatus = "CREATE_PENDING" | "CREATE_IN_PROGRESS" | "CREATE_FAILED" | "ACTIVE";
+export type TrainedModelExportJobStatus =
+  | "CREATE_PENDING"
+  | "CREATE_IN_PROGRESS"
+  | "CREATE_FAILED"
+  | "ACTIVE";
 export interface TrainedModelExportOutputConfiguration {
   members: Array<TrainedModelExportReceiverMember>;
 }
 export interface TrainedModelExportReceiverMember {
   accountId: string;
 }
-export type TrainedModelExportReceiverMembers = Array<TrainedModelExportReceiverMember>;
+export type TrainedModelExportReceiverMembers =
+  Array<TrainedModelExportReceiverMember>;
 export interface TrainedModelExportsConfigurationPolicy {
   maxSize: TrainedModelExportsMaxSize;
   filesToExport: Array<TrainedModelExportFileType>;
@@ -1504,12 +2032,21 @@ export type TrainedModelExportsMaxSizeValue = number;
 
 export type TrainedModelInferenceJobArn = string;
 
-export type TrainedModelInferenceJobList = Array<TrainedModelInferenceJobSummary>;
+export type TrainedModelInferenceJobList =
+  Array<TrainedModelInferenceJobSummary>;
 export interface TrainedModelInferenceJobsConfigurationPolicy {
   containerLogs?: Array<LogsConfigurationPolicy>;
   maxOutputSize?: TrainedModelInferenceMaxOutputSize;
 }
-export type TrainedModelInferenceJobStatus = "CREATE_PENDING" | "CREATE_IN_PROGRESS" | "CREATE_FAILED" | "ACTIVE" | "CANCEL_PENDING" | "CANCEL_IN_PROGRESS" | "CANCEL_FAILED" | "INACTIVE";
+export type TrainedModelInferenceJobStatus =
+  | "CREATE_PENDING"
+  | "CREATE_IN_PROGRESS"
+  | "CREATE_FAILED"
+  | "ACTIVE"
+  | "CANCEL_PENDING"
+  | "CANCEL_IN_PROGRESS"
+  | "CANCEL_FAILED"
+  | "INACTIVE";
 export interface TrainedModelInferenceJobSummary {
   trainedModelInferenceJobArn: string;
   configuredModelAlgorithmAssociationArn?: string;
@@ -1541,7 +2078,18 @@ export interface TrainedModelsConfigurationPolicy {
   containerMetrics?: MetricsConfigurationPolicy;
   maxArtifactSize?: TrainedModelArtifactMaxSize;
 }
-export type TrainedModelStatus = "CREATE_PENDING" | "CREATE_IN_PROGRESS" | "CREATE_FAILED" | "ACTIVE" | "DELETE_PENDING" | "DELETE_IN_PROGRESS" | "DELETE_FAILED" | "INACTIVE" | "CANCEL_PENDING" | "CANCEL_IN_PROGRESS" | "CANCEL_FAILED";
+export type TrainedModelStatus =
+  | "CREATE_PENDING"
+  | "CREATE_IN_PROGRESS"
+  | "CREATE_FAILED"
+  | "ACTIVE"
+  | "DELETE_PENDING"
+  | "DELETE_IN_PROGRESS"
+  | "DELETE_FAILED"
+  | "INACTIVE"
+  | "CANCEL_PENDING"
+  | "CANCEL_IN_PROGRESS"
+  | "CANCEL_FAILED";
 export interface TrainedModelSummary {
   createTime: Date | string;
   updateTime: Date | string;
@@ -1572,8 +2120,7 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {
-}
+export interface UntagResourceResponse {}
 export interface UpdateConfiguredAudienceModelRequest {
   configuredAudienceModelArn: string;
   outputConfig?: ConfiguredAudienceModelOutputConfig;
@@ -1599,8 +2146,10 @@ export interface WorkerComputeConfiguration {
 }
 export type WorkerComputeType = "CR.1X" | "CR.4X";
 export declare namespace ListCollaborationConfiguredModelAlgorithmAssociations {
-  export type Input = ListCollaborationConfiguredModelAlgorithmAssociationsRequest;
-  export type Output = ListCollaborationConfiguredModelAlgorithmAssociationsResponse;
+  export type Input =
+    ListCollaborationConfiguredModelAlgorithmAssociationsRequest;
+  export type Output =
+    ListCollaborationConfiguredModelAlgorithmAssociationsResponse;
   export type Error =
     | AccessDeniedException
     | ThrottlingException
@@ -1920,8 +2469,10 @@ export declare namespace GetAudienceModel {
 }
 
 export declare namespace GetCollaborationConfiguredModelAlgorithmAssociation {
-  export type Input = GetCollaborationConfiguredModelAlgorithmAssociationRequest;
-  export type Output = GetCollaborationConfiguredModelAlgorithmAssociationResponse;
+  export type Input =
+    GetCollaborationConfiguredModelAlgorithmAssociationRequest;
+  export type Output =
+    GetCollaborationConfiguredModelAlgorithmAssociationResponse;
   export type Error =
     | AccessDeniedException
     | ResourceNotFoundException
@@ -2233,5 +2784,12 @@ export declare namespace UpdateConfiguredAudienceModel {
     | CommonAwsError;
 }
 
-export type CleanRoomsMLErrors = AccessDeniedException | ConflictException | InternalServiceException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError;
-
+export type CleanRoomsMLErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServiceException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

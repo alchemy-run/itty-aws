@@ -1,6 +1,40 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException } from "../../error.ts";
-type CommonAwsError = AccessDeniedException | ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | ValidationException | ThrottlingException;
+import type {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  ValidationException,
+} from "../../error.ts";
+type CommonAwsError =
+  | AccessDeniedException
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | ValidationException
+  | ThrottlingException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class AmplifyUIBuilder extends AWSServiceClient {
@@ -20,7 +54,12 @@ export declare class AmplifyUIBuilder extends AWSServiceClient {
     input: ListTagsForResourceRequest,
   ): Effect.Effect<
     ListTagsForResourceResponse,
-    InternalServerException | InvalidParameterException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalServerException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   putMetadataFlag(
     input: PutMetadataFlagRequest,
@@ -38,49 +77,80 @@ export declare class AmplifyUIBuilder extends AWSServiceClient {
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    InternalServerException | InvalidParameterException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalServerException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    InternalServerException | InvalidParameterException | ResourceNotFoundException | ThrottlingException | UnauthorizedException | CommonAwsError
+    | InternalServerException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | UnauthorizedException
+    | CommonAwsError
   >;
   createComponent(
     input: CreateComponentRequest,
   ): Effect.Effect<
     CreateComponentResponse,
-    InternalServerException | InvalidParameterException | ResourceConflictException | ServiceQuotaExceededException | CommonAwsError
+    | InternalServerException
+    | InvalidParameterException
+    | ResourceConflictException
+    | ServiceQuotaExceededException
+    | CommonAwsError
   >;
   createForm(
     input: CreateFormRequest,
   ): Effect.Effect<
     CreateFormResponse,
-    InternalServerException | InvalidParameterException | ResourceConflictException | ServiceQuotaExceededException | CommonAwsError
+    | InternalServerException
+    | InvalidParameterException
+    | ResourceConflictException
+    | ServiceQuotaExceededException
+    | CommonAwsError
   >;
   createTheme(
     input: CreateThemeRequest,
   ): Effect.Effect<
     CreateThemeResponse,
-    InternalServerException | InvalidParameterException | ResourceConflictException | ServiceQuotaExceededException | CommonAwsError
+    | InternalServerException
+    | InvalidParameterException
+    | ResourceConflictException
+    | ServiceQuotaExceededException
+    | CommonAwsError
   >;
   deleteComponent(
     input: DeleteComponentRequest,
   ): Effect.Effect<
     {},
-    InternalServerException | InvalidParameterException | ResourceNotFoundException | CommonAwsError
+    | InternalServerException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   deleteForm(
     input: DeleteFormRequest,
   ): Effect.Effect<
     {},
-    InternalServerException | InvalidParameterException | ResourceNotFoundException | CommonAwsError
+    | InternalServerException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   deleteTheme(
     input: DeleteThemeRequest,
   ): Effect.Effect<
     {},
-    InternalServerException | InvalidParameterException | ResourceNotFoundException | CommonAwsError
+    | InternalServerException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   exportComponents(
     input: ExportComponentsRequest,
@@ -104,31 +174,47 @@ export declare class AmplifyUIBuilder extends AWSServiceClient {
     input: GetCodegenJobRequest,
   ): Effect.Effect<
     GetCodegenJobResponse,
-    InternalServerException | InvalidParameterException | ResourceNotFoundException | ThrottlingException | CommonAwsError
+    | InternalServerException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | CommonAwsError
   >;
   getComponent(
     input: GetComponentRequest,
   ): Effect.Effect<
     GetComponentResponse,
-    InternalServerException | InvalidParameterException | ResourceNotFoundException | CommonAwsError
+    | InternalServerException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   getForm(
     input: GetFormRequest,
   ): Effect.Effect<
     GetFormResponse,
-    InternalServerException | InvalidParameterException | ResourceNotFoundException | CommonAwsError
+    | InternalServerException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   getTheme(
     input: GetThemeRequest,
   ): Effect.Effect<
     GetThemeResponse,
-    InternalServerException | InvalidParameterException | ResourceNotFoundException | CommonAwsError
+    | InternalServerException
+    | InvalidParameterException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   listCodegenJobs(
     input: ListCodegenJobsRequest,
   ): Effect.Effect<
     ListCodegenJobsResponse,
-    InternalServerException | InvalidParameterException | ThrottlingException | CommonAwsError
+    | InternalServerException
+    | InvalidParameterException
+    | ThrottlingException
+    | CommonAwsError
   >;
   listComponents(
     input: ListComponentsRequest,
@@ -152,25 +238,37 @@ export declare class AmplifyUIBuilder extends AWSServiceClient {
     input: StartCodegenJobRequest,
   ): Effect.Effect<
     StartCodegenJobResponse,
-    InternalServerException | InvalidParameterException | ThrottlingException | CommonAwsError
+    | InternalServerException
+    | InvalidParameterException
+    | ThrottlingException
+    | CommonAwsError
   >;
   updateComponent(
     input: UpdateComponentRequest,
   ): Effect.Effect<
     UpdateComponentResponse,
-    InternalServerException | InvalidParameterException | ResourceConflictException | CommonAwsError
+    | InternalServerException
+    | InvalidParameterException
+    | ResourceConflictException
+    | CommonAwsError
   >;
   updateForm(
     input: UpdateFormRequest,
   ): Effect.Effect<
     UpdateFormResponse,
-    InternalServerException | InvalidParameterException | ResourceConflictException | CommonAwsError
+    | InternalServerException
+    | InvalidParameterException
+    | ResourceConflictException
+    | CommonAwsError
   >;
   updateTheme(
     input: UpdateThemeRequest,
   ): Effect.Effect<
     UpdateThemeResponse,
-    InternalServerException | InvalidParameterException | ResourceConflictException | CommonAwsError
+    | InternalServerException
+    | InvalidParameterException
+    | ResourceConflictException
+    | CommonAwsError
   >;
 }
 
@@ -193,7 +291,10 @@ interface _ApiConfiguration {
   noApiConfig?: NoApiRenderConfig;
 }
 
-export type ApiConfiguration = (_ApiConfiguration & { graphQLConfig: GraphQLRenderConfig }) | (_ApiConfiguration & { dataStoreConfig: DataStoreRenderConfig }) | (_ApiConfiguration & { noApiConfig: NoApiRenderConfig });
+export type ApiConfiguration =
+  | (_ApiConfiguration & { graphQLConfig: GraphQLRenderConfig })
+  | (_ApiConfiguration & { dataStoreConfig: DataStoreRenderConfig })
+  | (_ApiConfiguration & { noApiConfig: NoApiRenderConfig });
 export type AppId = string;
 
 export type AssociatedFieldsList = Array<string>;
@@ -221,7 +322,24 @@ export interface CodegenGenericDataField {
   isArray: boolean;
   relationship?: CodegenGenericDataRelationshipType;
 }
-export type CodegenGenericDataFieldDataType = "ID" | "String" | "Int" | "Float" | "AWSDate" | "AWSTime" | "AWSDateTime" | "AWSTimestamp" | "AWSEmail" | "AWSURL" | "AWSIPAddress" | "Boolean" | "AWSJSON" | "AWSPhone" | "Enum" | "Model" | "NonModel";
+export type CodegenGenericDataFieldDataType =
+  | "ID"
+  | "String"
+  | "Int"
+  | "Float"
+  | "AWSDate"
+  | "AWSTime"
+  | "AWSDateTime"
+  | "AWSTimestamp"
+  | "AWSEmail"
+  | "AWSURL"
+  | "AWSIPAddress"
+  | "Boolean"
+  | "AWSJSON"
+  | "AWSPhone"
+  | "Enum"
+  | "Model"
+  | "NonModel";
 export type CodegenGenericDataFields = Record<string, CodegenGenericDataField>;
 export interface CodegenGenericDataModel {
   fields: Record<string, CodegenGenericDataField>;
@@ -232,8 +350,14 @@ export type CodegenGenericDataModels = Record<string, CodegenGenericDataModel>;
 export interface CodegenGenericDataNonModel {
   fields: Record<string, CodegenGenericDataField>;
 }
-export type CodegenGenericDataNonModelFields = Record<string, CodegenGenericDataField>;
-export type CodegenGenericDataNonModels = Record<string, CodegenGenericDataNonModel>;
+export type CodegenGenericDataNonModelFields = Record<
+  string,
+  CodegenGenericDataField
+>;
+export type CodegenGenericDataNonModels = Record<
+  string,
+  CodegenGenericDataNonModel
+>;
 export interface CodegenGenericDataRelationshipType {
   type: GenericDataRelationshipType;
   relatedModelName: string;
@@ -275,7 +399,9 @@ interface _CodegenJobRenderConfig {
   react?: ReactStartCodegenJobData;
 }
 
-export type CodegenJobRenderConfig = (_CodegenJobRenderConfig & { react: ReactStartCodegenJobData });
+export type CodegenJobRenderConfig = _CodegenJobRenderConfig & {
+  react: ReactStartCodegenJobData;
+};
 export type CodegenJobStatus = "in_progress" | "failed" | "succeeded";
 export interface CodegenJobSummary {
   appId: string;
@@ -305,7 +431,10 @@ export interface Component {
   events?: Record<string, ComponentEvent>;
   schemaVersion?: string;
 }
-export type ComponentBindingProperties = Record<string, ComponentBindingPropertiesValue>;
+export type ComponentBindingProperties = Record<
+  string,
+  ComponentBindingPropertiesValue
+>;
 export interface ComponentBindingPropertiesValue {
   type?: string;
   bindingProperties?: ComponentBindingPropertiesValueProperties;
@@ -330,7 +459,10 @@ export interface ComponentChild {
   sourceId?: string;
 }
 export type ComponentChildList = Array<ComponentChild>;
-export type ComponentCollectionProperties = Record<string, ComponentDataConfiguration>;
+export type ComponentCollectionProperties = Record<
+  string,
+  ComponentDataConfiguration
+>;
 export interface ComponentConditionProperty {
   property?: string;
   field?: string;
@@ -455,8 +587,7 @@ export interface CreateThemeRequest {
 export interface CreateThemeResponse {
   entity?: Theme;
 }
-export interface DataStoreRenderConfig {
-}
+export interface DataStoreRenderConfig {}
 export interface DeleteComponentRequest {
   appId: string;
   environmentName: string;
@@ -545,7 +676,10 @@ interface _FieldPosition {
   below?: string;
 }
 
-export type FieldPosition = (_FieldPosition & { fixed: FixedPosition }) | (_FieldPosition & { rightOf: string }) | (_FieldPosition & { below: string });
+export type FieldPosition =
+  | (_FieldPosition & { fixed: FixedPosition })
+  | (_FieldPosition & { rightOf: string })
+  | (_FieldPosition & { below: string });
 export type FieldsMap = Record<string, FieldConfig>;
 export interface FieldValidationConfiguration {
   type: string;
@@ -601,7 +735,10 @@ export interface FormDataTypeConfig {
   dataSourceType: string;
   dataTypeName: string;
 }
-export type FormInputBindingProperties = Record<string, FormInputBindingPropertiesValue>;
+export type FormInputBindingProperties = Record<
+  string,
+  FormInputBindingPropertiesValue
+>;
 export interface FormInputBindingPropertiesValue {
   type?: string;
   bindingProperties?: FormInputBindingPropertiesValueProperties;
@@ -632,7 +769,9 @@ interface _FormStyleConfig {
   value?: string;
 }
 
-export type FormStyleConfig = (_FormStyleConfig & { tokenReference: string }) | (_FormStyleConfig & { value: string });
+export type FormStyleConfig =
+  | (_FormStyleConfig & { tokenReference: string })
+  | (_FormStyleConfig & { value: string });
 export interface FormSummary {
   appId: string;
   dataType: FormDataTypeConfig;
@@ -760,8 +899,7 @@ export interface MutationActionSetStateParameter {
   property: string;
   set: ComponentProperty;
 }
-export interface NoApiRenderConfig {
-}
+export interface NoApiRenderConfig {}
 export type NumValues = Array<number>;
 export type OperandType = string;
 
@@ -863,8 +1001,7 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {
-}
+export interface TagResourceResponse {}
 export type Tags = Record<string, string>;
 export type TagValue = string;
 
@@ -914,8 +1051,7 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {
-}
+export interface UntagResourceResponse {}
 export interface UpdateComponentData {
   id?: string;
   name?: string;
@@ -992,9 +1128,7 @@ export interface ValueMappings {
 export declare namespace ExchangeCodeForToken {
   export type Input = ExchangeCodeForTokenRequest;
   export type Output = ExchangeCodeForTokenResponse;
-  export type Error =
-    | InvalidParameterException
-    | CommonAwsError;
+  export type Error = InvalidParameterException | CommonAwsError;
 }
 
 export declare namespace GetMetadata {
@@ -1030,9 +1164,7 @@ export declare namespace PutMetadataFlag {
 export declare namespace RefreshToken {
   export type Input = RefreshTokenRequest;
   export type Output = RefreshTokenResponse;
-  export type Error =
-    | InvalidParameterException
-    | CommonAwsError;
+  export type Error = InvalidParameterException | CommonAwsError;
 }
 
 export declare namespace TagResource {
@@ -1267,5 +1399,12 @@ export declare namespace UpdateTheme {
     | CommonAwsError;
 }
 
-export type AmplifyUIBuilderErrors = InternalServerException | InvalidParameterException | ResourceConflictException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | UnauthorizedException | CommonAwsError;
-
+export type AmplifyUIBuilderErrors =
+  | InternalServerException
+  | InvalidParameterException
+  | ResourceConflictException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | UnauthorizedException
+  | CommonAwsError;

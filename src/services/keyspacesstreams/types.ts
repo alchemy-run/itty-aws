@@ -1,6 +1,38 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
-type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
+import type {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+type CommonAwsError =
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | AccessDeniedException
+  | ThrottlingException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class KeyspacesStreams extends AWSServiceClient {
@@ -8,25 +40,45 @@ export declare class KeyspacesStreams extends AWSServiceClient {
     input: GetRecordsInput,
   ): Effect.Effect<
     GetRecordsOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getShardIterator(
     input: GetShardIteratorInput,
   ): Effect.Effect<
     GetShardIteratorOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getStream(
     input: GetStreamInput,
   ): Effect.Effect<
     GetStreamOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listStreams(
     input: ListStreamsInput,
   ): Effect.Effect<
     ListStreamsOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
 }
 
@@ -120,7 +172,32 @@ interface _KeyspacesCellValue {
   udtT?: Record<string, KeyspacesCell>;
 }
 
-export type KeyspacesCellValue = (_KeyspacesCellValue & { asciiT: string }) | (_KeyspacesCellValue & { bigintT: string }) | (_KeyspacesCellValue & { blobT: Uint8Array | string }) | (_KeyspacesCellValue & { boolT: boolean }) | (_KeyspacesCellValue & { counterT: string }) | (_KeyspacesCellValue & { dateT: string }) | (_KeyspacesCellValue & { decimalT: string }) | (_KeyspacesCellValue & { doubleT: string }) | (_KeyspacesCellValue & { floatT: string }) | (_KeyspacesCellValue & { inetT: string }) | (_KeyspacesCellValue & { intT: string }) | (_KeyspacesCellValue & { listT: Array<KeyspacesCell> }) | (_KeyspacesCellValue & { mapT: Array<KeyspacesCellMapDefinition> }) | (_KeyspacesCellValue & { setT: Array<KeyspacesCell> }) | (_KeyspacesCellValue & { smallintT: string }) | (_KeyspacesCellValue & { textT: string }) | (_KeyspacesCellValue & { timeT: string }) | (_KeyspacesCellValue & { timestampT: string }) | (_KeyspacesCellValue & { timeuuidT: string }) | (_KeyspacesCellValue & { tinyintT: string }) | (_KeyspacesCellValue & { tupleT: Array<KeyspacesCell> }) | (_KeyspacesCellValue & { uuidT: string }) | (_KeyspacesCellValue & { varcharT: string }) | (_KeyspacesCellValue & { varintT: string }) | (_KeyspacesCellValue & { udtT: Record<string, KeyspacesCell> });
+export type KeyspacesCellValue =
+  | (_KeyspacesCellValue & { asciiT: string })
+  | (_KeyspacesCellValue & { bigintT: string })
+  | (_KeyspacesCellValue & { blobT: Uint8Array | string })
+  | (_KeyspacesCellValue & { boolT: boolean })
+  | (_KeyspacesCellValue & { counterT: string })
+  | (_KeyspacesCellValue & { dateT: string })
+  | (_KeyspacesCellValue & { decimalT: string })
+  | (_KeyspacesCellValue & { doubleT: string })
+  | (_KeyspacesCellValue & { floatT: string })
+  | (_KeyspacesCellValue & { inetT: string })
+  | (_KeyspacesCellValue & { intT: string })
+  | (_KeyspacesCellValue & { listT: Array<KeyspacesCell> })
+  | (_KeyspacesCellValue & { mapT: Array<KeyspacesCellMapDefinition> })
+  | (_KeyspacesCellValue & { setT: Array<KeyspacesCell> })
+  | (_KeyspacesCellValue & { smallintT: string })
+  | (_KeyspacesCellValue & { textT: string })
+  | (_KeyspacesCellValue & { timeT: string })
+  | (_KeyspacesCellValue & { timestampT: string })
+  | (_KeyspacesCellValue & { timeuuidT: string })
+  | (_KeyspacesCellValue & { tinyintT: string })
+  | (_KeyspacesCellValue & { tupleT: Array<KeyspacesCell> })
+  | (_KeyspacesCellValue & { uuidT: string })
+  | (_KeyspacesCellValue & { varcharT: string })
+  | (_KeyspacesCellValue & { varintT: string })
+  | (_KeyspacesCellValue & { udtT: Record<string, KeyspacesCell> });
 export type KeyspacesKeysMap = Record<string, KeyspacesCellValue>;
 export interface KeyspacesMetadata {
   expirationTime?: string;
@@ -183,7 +260,11 @@ export type ShardIdToken = string;
 
 export type ShardIterator = string;
 
-export type ShardIteratorType = "TRIM_HORIZON" | "LATEST" | "AT_SEQUENCE_NUMBER" | "AFTER_SEQUENCE_NUMBER";
+export type ShardIteratorType =
+  | "TRIM_HORIZON"
+  | "LATEST"
+  | "AT_SEQUENCE_NUMBER"
+  | "AFTER_SEQUENCE_NUMBER";
 export interface Stream {
   streamArn: string;
   keyspaceName: string;
@@ -196,7 +277,11 @@ export type StreamArnToken = string;
 
 export type StreamList = Array<Stream>;
 export type StreamStatus = "ENABLING" | "ENABLED" | "DISABLING" | "DISABLED";
-export type StreamViewType = "NEW_IMAGE" | "OLD_IMAGE" | "NEW_AND_OLD_IMAGES" | "KEYS_ONLY";
+export type StreamViewType =
+  | "NEW_IMAGE"
+  | "OLD_IMAGE"
+  | "NEW_AND_OLD_IMAGES"
+  | "KEYS_ONLY";
 export type TableName = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(
@@ -210,7 +295,11 @@ export declare class ValidationException extends EffectData.TaggedError(
   readonly message?: string;
   readonly errorCode?: ValidationExceptionType;
 }> {}
-export type ValidationExceptionType = "InvalidFormat" | "TrimmedDataAccess" | "ExpiredIterator" | "ExpiredNextToken";
+export type ValidationExceptionType =
+  | "InvalidFormat"
+  | "TrimmedDataAccess"
+  | "ExpiredIterator"
+  | "ExpiredNextToken";
 export declare namespace GetRecords {
   export type Input = GetRecordsInput;
   export type Output = GetRecordsOutput;
@@ -259,5 +348,10 @@ export declare namespace ListStreams {
     | CommonAwsError;
 }
 
-export type KeyspacesStreamsErrors = AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError;
-
+export type KeyspacesStreamsErrors =
+  | AccessDeniedException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

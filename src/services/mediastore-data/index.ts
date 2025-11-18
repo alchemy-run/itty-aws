@@ -5,7 +5,26 @@ import type { MediaStoreData as _MediaStoreDataClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException, type CommonAwsError} from "../../error.ts";
+export {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  ValidationException,
+  type CommonAwsError,
+} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -15,32 +34,32 @@ const metadata = {
   sigV4ServiceName: "mediastore",
   endpointPrefix: "data.mediastore",
   operations: {
-    "DeleteObject": "DELETE /{Path+}",
-    "DescribeObject": {
+    DeleteObject: "DELETE /{Path+}",
+    DescribeObject: {
       http: "HEAD /{Path+}",
       traits: {
-        "ETag": "ETag",
-        "ContentType": "Content-Type",
-        "ContentLength": "Content-Length",
-        "CacheControl": "Cache-Control",
-        "LastModified": "Last-Modified",
+        ETag: "ETag",
+        ContentType: "Content-Type",
+        ContentLength: "Content-Length",
+        CacheControl: "Cache-Control",
+        LastModified: "Last-Modified",
       },
     },
-    "GetObject": {
+    GetObject: {
       http: "GET /{Path+}",
       traits: {
-        "Body": "httpPayload",
-        "CacheControl": "Cache-Control",
-        "ContentRange": "Content-Range",
-        "ContentLength": "Content-Length",
-        "ContentType": "Content-Type",
-        "ETag": "ETag",
-        "LastModified": "Last-Modified",
-        "StatusCode": "httpResponseCode",
+        Body: "httpPayload",
+        CacheControl: "Cache-Control",
+        ContentRange: "Content-Range",
+        ContentLength: "Content-Length",
+        ContentType: "Content-Type",
+        ETag: "ETag",
+        LastModified: "Last-Modified",
+        StatusCode: "httpResponseCode",
       },
     },
-    "ListItems": "GET /",
-    "PutObject": "PUT /{Path+}",
+    ListItems: "GET /",
+    PutObject: "PUT /{Path+}",
   },
 } as const satisfies ServiceMetadata;
 

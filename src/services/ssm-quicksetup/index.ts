@@ -5,7 +5,23 @@ import type { SSMQuickSetup as _SSMQuickSetupClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, type CommonAwsError} from "../../error.ts";
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  type CommonAwsError,
+} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -14,24 +30,25 @@ const metadata = {
   protocol: "restJson1",
   sigV4ServiceName: "ssm-quicksetup",
   operations: {
-    "CreateConfigurationManager": "POST /configurationManager",
-    "DeleteConfigurationManager": "DELETE /configurationManager/{ManagerArn}",
-    "GetConfiguration": "GET /getConfiguration/{ConfigurationId}",
-    "GetConfigurationManager": "GET /configurationManager/{ManagerArn}",
-    "GetServiceSettings": "GET /serviceSettings",
-    "ListConfigurationManagers": "POST /listConfigurationManagers",
-    "ListConfigurations": "POST /listConfigurations",
-    "ListQuickSetupTypes": "GET /listQuickSetupTypes",
-    "ListTagsForResource": "GET /tags/{ResourceArn}",
-    "TagResource": "PUT /tags/{ResourceArn}",
-    "UntagResource": "DELETE /tags/{ResourceArn}",
-    "UpdateConfigurationDefinition": "PUT /configurationDefinition/{ManagerArn}/{Id}",
-    "UpdateConfigurationManager": "PUT /configurationManager/{ManagerArn}",
-    "UpdateServiceSettings": "PUT /serviceSettings",
+    CreateConfigurationManager: "POST /configurationManager",
+    DeleteConfigurationManager: "DELETE /configurationManager/{ManagerArn}",
+    GetConfiguration: "GET /getConfiguration/{ConfigurationId}",
+    GetConfigurationManager: "GET /configurationManager/{ManagerArn}",
+    GetServiceSettings: "GET /serviceSettings",
+    ListConfigurationManagers: "POST /listConfigurationManagers",
+    ListConfigurations: "POST /listConfigurations",
+    ListQuickSetupTypes: "GET /listQuickSetupTypes",
+    ListTagsForResource: "GET /tags/{ResourceArn}",
+    TagResource: "PUT /tags/{ResourceArn}",
+    UntagResource: "DELETE /tags/{ResourceArn}",
+    UpdateConfigurationDefinition:
+      "PUT /configurationDefinition/{ManagerArn}/{Id}",
+    UpdateConfigurationManager: "PUT /configurationManager/{ManagerArn}",
+    UpdateServiceSettings: "PUT /serviceSettings",
   },
   retryableErrors: {
-    "InternalServerException": {},
-    "ThrottlingException": {},
+    InternalServerException: {},
+    ThrottlingException: {},
   },
 } as const satisfies ServiceMetadata;
 

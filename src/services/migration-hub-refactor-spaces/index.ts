@@ -5,7 +5,23 @@ import type { MigrationHubRefactorSpaces as _MigrationHubRefactorSpacesClient } 
 
 export * from "./types.ts";
 
-export {ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, type CommonAwsError} from "../../error.ts";
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  type CommonAwsError,
+} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -15,35 +31,48 @@ const metadata = {
   sigV4ServiceName: "refactor-spaces",
   endpointPrefix: "refactor-spaces",
   operations: {
-    "CreateApplication": "POST /environments/{EnvironmentIdentifier}/applications",
-    "CreateEnvironment": "POST /environments",
-    "CreateRoute": "POST /environments/{EnvironmentIdentifier}/applications/{ApplicationIdentifier}/routes",
-    "CreateService": "POST /environments/{EnvironmentIdentifier}/applications/{ApplicationIdentifier}/services",
-    "DeleteApplication": "DELETE /environments/{EnvironmentIdentifier}/applications/{ApplicationIdentifier}",
-    "DeleteEnvironment": "DELETE /environments/{EnvironmentIdentifier}",
-    "DeleteResourcePolicy": "DELETE /resourcepolicy/{Identifier}",
-    "DeleteRoute": "DELETE /environments/{EnvironmentIdentifier}/applications/{ApplicationIdentifier}/routes/{RouteIdentifier}",
-    "DeleteService": "DELETE /environments/{EnvironmentIdentifier}/applications/{ApplicationIdentifier}/services/{ServiceIdentifier}",
-    "GetApplication": "GET /environments/{EnvironmentIdentifier}/applications/{ApplicationIdentifier}",
-    "GetEnvironment": "GET /environments/{EnvironmentIdentifier}",
-    "GetResourcePolicy": "GET /resourcepolicy/{Identifier}",
-    "GetRoute": "GET /environments/{EnvironmentIdentifier}/applications/{ApplicationIdentifier}/routes/{RouteIdentifier}",
-    "GetService": "GET /environments/{EnvironmentIdentifier}/applications/{ApplicationIdentifier}/services/{ServiceIdentifier}",
-    "ListApplications": "GET /environments/{EnvironmentIdentifier}/applications",
-    "ListEnvironments": "GET /environments",
-    "ListEnvironmentVpcs": "GET /environments/{EnvironmentIdentifier}/vpcs",
-    "ListRoutes": "GET /environments/{EnvironmentIdentifier}/applications/{ApplicationIdentifier}/routes",
-    "ListServices": "GET /environments/{EnvironmentIdentifier}/applications/{ApplicationIdentifier}/services",
-    "ListTagsForResource": "GET /tags/{ResourceArn}",
-    "PutResourcePolicy": "PUT /resourcepolicy",
-    "TagResource": "POST /tags/{ResourceArn}",
-    "UntagResource": "DELETE /tags/{ResourceArn}",
-    "UpdateRoute": "PATCH /environments/{EnvironmentIdentifier}/applications/{ApplicationIdentifier}/routes/{RouteIdentifier}",
+    CreateApplication:
+      "POST /environments/{EnvironmentIdentifier}/applications",
+    CreateEnvironment: "POST /environments",
+    CreateRoute:
+      "POST /environments/{EnvironmentIdentifier}/applications/{ApplicationIdentifier}/routes",
+    CreateService:
+      "POST /environments/{EnvironmentIdentifier}/applications/{ApplicationIdentifier}/services",
+    DeleteApplication:
+      "DELETE /environments/{EnvironmentIdentifier}/applications/{ApplicationIdentifier}",
+    DeleteEnvironment: "DELETE /environments/{EnvironmentIdentifier}",
+    DeleteResourcePolicy: "DELETE /resourcepolicy/{Identifier}",
+    DeleteRoute:
+      "DELETE /environments/{EnvironmentIdentifier}/applications/{ApplicationIdentifier}/routes/{RouteIdentifier}",
+    DeleteService:
+      "DELETE /environments/{EnvironmentIdentifier}/applications/{ApplicationIdentifier}/services/{ServiceIdentifier}",
+    GetApplication:
+      "GET /environments/{EnvironmentIdentifier}/applications/{ApplicationIdentifier}",
+    GetEnvironment: "GET /environments/{EnvironmentIdentifier}",
+    GetResourcePolicy: "GET /resourcepolicy/{Identifier}",
+    GetRoute:
+      "GET /environments/{EnvironmentIdentifier}/applications/{ApplicationIdentifier}/routes/{RouteIdentifier}",
+    GetService:
+      "GET /environments/{EnvironmentIdentifier}/applications/{ApplicationIdentifier}/services/{ServiceIdentifier}",
+    ListApplications: "GET /environments/{EnvironmentIdentifier}/applications",
+    ListEnvironments: "GET /environments",
+    ListEnvironmentVpcs: "GET /environments/{EnvironmentIdentifier}/vpcs",
+    ListRoutes:
+      "GET /environments/{EnvironmentIdentifier}/applications/{ApplicationIdentifier}/routes",
+    ListServices:
+      "GET /environments/{EnvironmentIdentifier}/applications/{ApplicationIdentifier}/services",
+    ListTagsForResource: "GET /tags/{ResourceArn}",
+    PutResourcePolicy: "PUT /resourcepolicy",
+    TagResource: "POST /tags/{ResourceArn}",
+    UntagResource: "DELETE /tags/{ResourceArn}",
+    UpdateRoute:
+      "PATCH /environments/{EnvironmentIdentifier}/applications/{ApplicationIdentifier}/routes/{RouteIdentifier}",
   },
 } as const satisfies ServiceMetadata;
 
 export type _MigrationHubRefactorSpaces = _MigrationHubRefactorSpacesClient;
-export interface MigrationHubRefactorSpaces extends _MigrationHubRefactorSpaces {}
+export interface MigrationHubRefactorSpaces
+  extends _MigrationHubRefactorSpaces {}
 export const MigrationHubRefactorSpaces = class extends AWSServiceClient {
   constructor(cfg: Partial<AWSClientConfig> = {}) {
     const config: AWSClientConfig = {

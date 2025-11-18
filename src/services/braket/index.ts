@@ -5,7 +5,23 @@ import type { Braket as _BraketClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, type CommonAwsError} from "../../error.ts";
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  type CommonAwsError,
+} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -14,19 +30,19 @@ const metadata = {
   protocol: "restJson1",
   sigV4ServiceName: "braket",
   operations: {
-    "ListTagsForResource": "GET /tags/{resourceArn}",
-    "TagResource": "POST /tags/{resourceArn}",
-    "UntagResource": "DELETE /tags/{resourceArn}",
-    "CancelJob": "PUT /job/{jobArn}/cancel",
-    "CancelQuantumTask": "PUT /quantum-task/{quantumTaskArn}/cancel",
-    "CreateJob": "POST /job",
-    "CreateQuantumTask": "POST /quantum-task",
-    "GetDevice": "GET /device/{deviceArn}",
-    "GetJob": "GET /job/{jobArn}",
-    "GetQuantumTask": "GET /quantum-task/{quantumTaskArn}",
-    "SearchDevices": "POST /devices",
-    "SearchJobs": "POST /jobs",
-    "SearchQuantumTasks": "POST /quantum-tasks",
+    ListTagsForResource: "GET /tags/{resourceArn}",
+    TagResource: "POST /tags/{resourceArn}",
+    UntagResource: "DELETE /tags/{resourceArn}",
+    CancelJob: "PUT /job/{jobArn}/cancel",
+    CancelQuantumTask: "PUT /quantum-task/{quantumTaskArn}/cancel",
+    CreateJob: "POST /job",
+    CreateQuantumTask: "POST /quantum-task",
+    GetDevice: "GET /device/{deviceArn}",
+    GetJob: "GET /job/{jobArn}",
+    GetQuantumTask: "GET /quantum-task/{quantumTaskArn}",
+    SearchDevices: "POST /devices",
+    SearchJobs: "POST /jobs",
+    SearchQuantumTasks: "POST /quantum-tasks",
   },
 } as const satisfies ServiceMetadata;
 

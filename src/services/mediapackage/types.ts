@@ -7,121 +7,212 @@ export declare class MediaPackage extends AWSServiceClient {
     input: ConfigureLogsRequest,
   ): Effect.Effect<
     ConfigureLogsResponse,
-    ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | UnprocessableEntityException | CommonAwsError
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | UnprocessableEntityException
+    | CommonAwsError
   >;
   createChannel(
     input: CreateChannelRequest,
   ): Effect.Effect<
     CreateChannelResponse,
-    ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | UnprocessableEntityException | CommonAwsError
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | UnprocessableEntityException
+    | CommonAwsError
   >;
   createHarvestJob(
     input: CreateHarvestJobRequest,
   ): Effect.Effect<
     CreateHarvestJobResponse,
-    ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | UnprocessableEntityException | CommonAwsError
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | UnprocessableEntityException
+    | CommonAwsError
   >;
   createOriginEndpoint(
     input: CreateOriginEndpointRequest,
   ): Effect.Effect<
     CreateOriginEndpointResponse,
-    ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | UnprocessableEntityException | CommonAwsError
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | UnprocessableEntityException
+    | CommonAwsError
   >;
   deleteChannel(
     input: DeleteChannelRequest,
   ): Effect.Effect<
     DeleteChannelResponse,
-    ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | UnprocessableEntityException | CommonAwsError
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | UnprocessableEntityException
+    | CommonAwsError
   >;
   deleteOriginEndpoint(
     input: DeleteOriginEndpointRequest,
   ): Effect.Effect<
     DeleteOriginEndpointResponse,
-    ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | UnprocessableEntityException | CommonAwsError
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | UnprocessableEntityException
+    | CommonAwsError
   >;
   describeChannel(
     input: DescribeChannelRequest,
   ): Effect.Effect<
     DescribeChannelResponse,
-    ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | UnprocessableEntityException | CommonAwsError
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | UnprocessableEntityException
+    | CommonAwsError
   >;
   describeHarvestJob(
     input: DescribeHarvestJobRequest,
   ): Effect.Effect<
     DescribeHarvestJobResponse,
-    ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | UnprocessableEntityException | CommonAwsError
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | UnprocessableEntityException
+    | CommonAwsError
   >;
   describeOriginEndpoint(
     input: DescribeOriginEndpointRequest,
   ): Effect.Effect<
     DescribeOriginEndpointResponse,
-    ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | UnprocessableEntityException | CommonAwsError
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | UnprocessableEntityException
+    | CommonAwsError
   >;
   listChannels(
     input: ListChannelsRequest,
   ): Effect.Effect<
     ListChannelsResponse,
-    ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | UnprocessableEntityException | CommonAwsError
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | UnprocessableEntityException
+    | CommonAwsError
   >;
   listHarvestJobs(
     input: ListHarvestJobsRequest,
   ): Effect.Effect<
     ListHarvestJobsResponse,
-    ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | UnprocessableEntityException | CommonAwsError
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | UnprocessableEntityException
+    | CommonAwsError
   >;
   listOriginEndpoints(
     input: ListOriginEndpointsRequest,
   ): Effect.Effect<
     ListOriginEndpointsResponse,
-    ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | UnprocessableEntityException | CommonAwsError
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | UnprocessableEntityException
+    | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
-  ): Effect.Effect<
-    ListTagsForResourceResponse,
-    CommonAwsError
-  >;
+  ): Effect.Effect<ListTagsForResourceResponse, CommonAwsError>;
   rotateChannelCredentials(
     input: RotateChannelCredentialsRequest,
   ): Effect.Effect<
     RotateChannelCredentialsResponse,
-    ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | UnprocessableEntityException | CommonAwsError
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | UnprocessableEntityException
+    | CommonAwsError
   >;
   rotateIngestEndpointCredentials(
     input: RotateIngestEndpointCredentialsRequest,
   ): Effect.Effect<
     RotateIngestEndpointCredentialsResponse,
-    ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | UnprocessableEntityException | CommonAwsError
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | UnprocessableEntityException
+    | CommonAwsError
   >;
-  tagResource(
-    input: TagResourceRequest,
-  ): Effect.Effect<
-    {},
-    CommonAwsError
-  >;
-  untagResource(
-    input: UntagResourceRequest,
-  ): Effect.Effect<
-    {},
-    CommonAwsError
-  >;
+  tagResource(input: TagResourceRequest): Effect.Effect<{}, CommonAwsError>;
+  untagResource(input: UntagResourceRequest): Effect.Effect<{}, CommonAwsError>;
   updateChannel(
     input: UpdateChannelRequest,
   ): Effect.Effect<
     UpdateChannelResponse,
-    ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | UnprocessableEntityException | CommonAwsError
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | UnprocessableEntityException
+    | CommonAwsError
   >;
   updateOriginEndpoint(
     input: UpdateOriginEndpointRequest,
   ): Effect.Effect<
     UpdateOriginEndpointResponse,
-    ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | UnprocessableEntityException | CommonAwsError
+    | ForbiddenException
+    | InternalServerErrorException
+    | NotFoundException
+    | ServiceUnavailableException
+    | TooManyRequestsException
+    | UnprocessableEntityException
+    | CommonAwsError
   >;
 }
 
 export declare class Mediapackage extends MediaPackage {}
 
-export type __AdTriggersElement = "SPLICE_INSERT" | "BREAK" | "PROVIDER_ADVERTISEMENT" | "DISTRIBUTOR_ADVERTISEMENT" | "PROVIDER_PLACEMENT_OPPORTUNITY" | "DISTRIBUTOR_PLACEMENT_OPPORTUNITY" | "PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY" | "DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY";
+export type __AdTriggersElement =
+  | "SPLICE_INSERT"
+  | "BREAK"
+  | "PROVIDER_ADVERTISEMENT"
+  | "DISTRIBUTOR_ADVERTISEMENT"
+  | "PROVIDER_PLACEMENT_OPPORTUNITY"
+  | "DISTRIBUTOR_PLACEMENT_OPPORTUNITY"
+  | "PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY"
+  | "DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY";
 export type __boolean = boolean;
 
 export type __integer = number;
@@ -131,15 +222,24 @@ export type __listOf__string = Array<string>;
 export type __listOfChannel = Array<Channel>;
 export type __listOfHarvestJob = Array<HarvestJob>;
 export type __listOfHlsManifest = Array<HlsManifest>;
-export type __listOfHlsManifestCreateOrUpdateParameters = Array<HlsManifestCreateOrUpdateParameters>;
+export type __listOfHlsManifestCreateOrUpdateParameters =
+  Array<HlsManifestCreateOrUpdateParameters>;
 export type __listOfIngestEndpoint = Array<IngestEndpoint>;
 export type __listOfOriginEndpoint = Array<OriginEndpoint>;
 export type __mapOf__string = Record<string, string>;
 export type __PeriodTriggersElement = "ADS";
 export type __string = string;
 
-export type AdMarkers = "NONE" | "SCTE35_ENHANCED" | "PASSTHROUGH" | "DATERANGE";
-export type AdsOnDeliveryRestrictions = "NONE" | "RESTRICTED" | "UNRESTRICTED" | "BOTH";
+export type AdMarkers =
+  | "NONE"
+  | "SCTE35_ENHANCED"
+  | "PASSTHROUGH"
+  | "DATERANGE";
+export type AdsOnDeliveryRestrictions =
+  | "NONE"
+  | "RESTRICTED"
+  | "UNRESTRICTED"
+  | "BOTH";
 export type AdTriggers = Array<__AdTriggersElement>;
 export interface Authorization {
   CdnIdentifierSecret: string;
@@ -284,13 +384,11 @@ export interface DashPackage {
 export interface DeleteChannelRequest {
   Id: string;
 }
-export interface DeleteChannelResponse {
-}
+export interface DeleteChannelResponse {}
 export interface DeleteOriginEndpointRequest {
   Id: string;
 }
-export interface DeleteOriginEndpointResponse {
-}
+export interface DeleteOriginEndpointResponse {}
 export interface DescribeChannelRequest {
   Id: string;
 }
@@ -496,8 +594,23 @@ export interface OriginEndpoint {
   Whitelist?: Array<string>;
 }
 export type PlaylistType = "NONE" | "EVENT" | "VOD";
-export type PresetSpeke20Audio = "PRESET-AUDIO-1" | "PRESET-AUDIO-2" | "PRESET-AUDIO-3" | "SHARED" | "UNENCRYPTED";
-export type PresetSpeke20Video = "PRESET-VIDEO-1" | "PRESET-VIDEO-2" | "PRESET-VIDEO-3" | "PRESET-VIDEO-4" | "PRESET-VIDEO-5" | "PRESET-VIDEO-6" | "PRESET-VIDEO-7" | "PRESET-VIDEO-8" | "SHARED" | "UNENCRYPTED";
+export type PresetSpeke20Audio =
+  | "PRESET-AUDIO-1"
+  | "PRESET-AUDIO-2"
+  | "PRESET-AUDIO-3"
+  | "SHARED"
+  | "UNENCRYPTED";
+export type PresetSpeke20Video =
+  | "PRESET-VIDEO-1"
+  | "PRESET-VIDEO-2"
+  | "PRESET-VIDEO-3"
+  | "PRESET-VIDEO-4"
+  | "PRESET-VIDEO-5"
+  | "PRESET-VIDEO-6"
+  | "PRESET-VIDEO-7"
+  | "PRESET-VIDEO-8"
+  | "SHARED"
+  | "UNENCRYPTED";
 export type Profile = "NONE" | "HBBTV_1_5" | "HYBRIDCAST" | "DVB_DASH_2014";
 export interface RotateChannelCredentialsRequest {
   Id: string;
@@ -531,7 +644,10 @@ export interface S3Destination {
   ManifestKey: string;
   RoleArn: string;
 }
-export type SegmentTemplateFormat = "NUMBER_WITH_TIMELINE" | "TIME_WITH_TIMELINE" | "NUMBER_WITH_DURATION";
+export type SegmentTemplateFormat =
+  | "NUMBER_WITH_TIMELINE"
+  | "TIME_WITH_TIMELINE"
+  | "NUMBER_WITH_DURATION";
 export type SensitiveString = string;
 
 export declare class ServiceUnavailableException extends EffectData.TaggedError(
@@ -548,7 +664,10 @@ export interface SpekeKeyProvider {
   Url: string;
 }
 export type Status = "IN_PROGRESS" | "SUCCEEDED" | "FAILED";
-export type StreamOrder = "ORIGINAL" | "VIDEO_BITRATE_ASCENDING" | "VIDEO_BITRATE_DESCENDING";
+export type StreamOrder =
+  | "ORIGINAL"
+  | "VIDEO_BITRATE_ASCENDING"
+  | "VIDEO_BITRATE_DESCENDING";
 export interface StreamSelection {
   MaxVideoBitsPerSecond?: number;
   MinVideoBitsPerSecond?: number;
@@ -780,8 +899,7 @@ export declare namespace ListOriginEndpoints {
 export declare namespace ListTagsForResource {
   export type Input = ListTagsForResourceRequest;
   export type Output = ListTagsForResourceResponse;
-  export type Error =
-    | CommonAwsError;
+  export type Error = CommonAwsError;
 }
 
 export declare namespace RotateChannelCredentials {
@@ -813,15 +931,13 @@ export declare namespace RotateIngestEndpointCredentials {
 export declare namespace TagResource {
   export type Input = TagResourceRequest;
   export type Output = {};
-  export type Error =
-    | CommonAwsError;
+  export type Error = CommonAwsError;
 }
 
 export declare namespace UntagResource {
   export type Input = UntagResourceRequest;
   export type Output = {};
-  export type Error =
-    | CommonAwsError;
+  export type Error = CommonAwsError;
 }
 
 export declare namespace UpdateChannel {
@@ -850,5 +966,11 @@ export declare namespace UpdateOriginEndpoint {
     | CommonAwsError;
 }
 
-export type MediaPackageErrors = ForbiddenException | InternalServerErrorException | NotFoundException | ServiceUnavailableException | TooManyRequestsException | UnprocessableEntityException | CommonAwsError;
-
+export type MediaPackageErrors =
+  | ForbiddenException
+  | InternalServerErrorException
+  | NotFoundException
+  | ServiceUnavailableException
+  | TooManyRequestsException
+  | UnprocessableEntityException
+  | CommonAwsError;

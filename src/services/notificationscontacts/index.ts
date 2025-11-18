@@ -5,7 +5,23 @@ import type { NotificationsContacts as _NotificationsContactsClient } from "./ty
 
 export * from "./types.ts";
 
-export {ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, type CommonAwsError} from "../../error.ts";
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  type CommonAwsError,
+} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -15,19 +31,19 @@ const metadata = {
   sigV4ServiceName: "notifications-contacts",
   endpointPrefix: "notifications-contacts",
   operations: {
-    "ListTagsForResource": "GET /tags/{arn}",
-    "TagResource": "POST /tags/{arn}",
-    "UntagResource": "DELETE /tags/{arn}",
-    "ActivateEmailContact": "PUT /emailcontacts/{arn}/activate/{code}",
-    "CreateEmailContact": "POST /2022-09-19/emailcontacts",
-    "DeleteEmailContact": "DELETE /emailcontacts/{arn}",
-    "GetEmailContact": "GET /emailcontacts/{arn}",
-    "ListEmailContacts": "GET /emailcontacts",
-    "SendActivationCode": "POST /2022-10-31/emailcontacts/{arn}/activate/send",
+    ListTagsForResource: "GET /tags/{arn}",
+    TagResource: "POST /tags/{arn}",
+    UntagResource: "DELETE /tags/{arn}",
+    ActivateEmailContact: "PUT /emailcontacts/{arn}/activate/{code}",
+    CreateEmailContact: "POST /2022-09-19/emailcontacts",
+    DeleteEmailContact: "DELETE /emailcontacts/{arn}",
+    GetEmailContact: "GET /emailcontacts/{arn}",
+    ListEmailContacts: "GET /emailcontacts",
+    SendActivationCode: "POST /2022-10-31/emailcontacts/{arn}/activate/send",
   },
   retryableErrors: {
-    "InternalServerException": {},
-    "ThrottlingException": {"retryAfterSeconds":"Retry-After"},
+    InternalServerException: {},
+    ThrottlingException: { retryAfterSeconds: "Retry-After" },
   },
 } as const satisfies ServiceMetadata;
 

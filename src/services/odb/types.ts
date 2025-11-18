@@ -1,6 +1,38 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
-type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
+import type {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+type CommonAwsError =
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | AccessDeniedException
+  | ThrottlingException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class odb extends AWSServiceClient {
@@ -8,37 +40,63 @@ export declare class odb extends AWSServiceClient {
     input: AcceptMarketplaceRegistrationInput,
   ): Effect.Effect<
     AcceptMarketplaceRegistrationOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getOciOnboardingStatus(
     input: GetOciOnboardingStatusInput,
   ): Effect.Effect<
     GetOciOnboardingStatusOutput,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   initializeService(
     input: InitializeServiceInput,
   ): Effect.Effect<
     InitializeServiceOutput,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listDbSystemShapes(
     input: ListDbSystemShapesInput,
   ): Effect.Effect<
     ListDbSystemShapesOutput,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listGiVersions(
     input: ListGiVersionsInput,
   ): Effect.Effect<
     ListGiVersionsOutput,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listSystemVersions(
     input: ListSystemVersionsInput,
   ): Effect.Effect<
     ListSystemVersionsOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceRequest,
@@ -62,208 +120,377 @@ export declare class odb extends AWSServiceClient {
     input: CreateCloudAutonomousVmClusterInput,
   ): Effect.Effect<
     CreateCloudAutonomousVmClusterOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createCloudExadataInfrastructure(
     input: CreateCloudExadataInfrastructureInput,
   ): Effect.Effect<
     CreateCloudExadataInfrastructureOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createCloudVmCluster(
     input: CreateCloudVmClusterInput,
   ): Effect.Effect<
     CreateCloudVmClusterOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createOdbNetwork(
     input: CreateOdbNetworkInput,
   ): Effect.Effect<
     CreateOdbNetworkOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createOdbPeeringConnection(
     input: CreateOdbPeeringConnectionInput,
   ): Effect.Effect<
     CreateOdbPeeringConnectionOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteCloudAutonomousVmCluster(
     input: DeleteCloudAutonomousVmClusterInput,
   ): Effect.Effect<
     DeleteCloudAutonomousVmClusterOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteCloudExadataInfrastructure(
     input: DeleteCloudExadataInfrastructureInput,
   ): Effect.Effect<
     DeleteCloudExadataInfrastructureOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteCloudVmCluster(
     input: DeleteCloudVmClusterInput,
   ): Effect.Effect<
     DeleteCloudVmClusterOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteOdbNetwork(
     input: DeleteOdbNetworkInput,
   ): Effect.Effect<
     DeleteOdbNetworkOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteOdbPeeringConnection(
     input: DeleteOdbPeeringConnectionInput,
   ): Effect.Effect<
     DeleteOdbPeeringConnectionOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getCloudAutonomousVmCluster(
     input: GetCloudAutonomousVmClusterInput,
   ): Effect.Effect<
     GetCloudAutonomousVmClusterOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getCloudExadataInfrastructure(
     input: GetCloudExadataInfrastructureInput,
   ): Effect.Effect<
     GetCloudExadataInfrastructureOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getCloudExadataInfrastructureUnallocatedResources(
     input: GetCloudExadataInfrastructureUnallocatedResourcesInput,
   ): Effect.Effect<
     GetCloudExadataInfrastructureUnallocatedResourcesOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getCloudVmCluster(
     input: GetCloudVmClusterInput,
   ): Effect.Effect<
     GetCloudVmClusterOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getDbNode(
     input: GetDbNodeInput,
   ): Effect.Effect<
     GetDbNodeOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getDbServer(
     input: GetDbServerInput,
   ): Effect.Effect<
     GetDbServerOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getOdbNetwork(
     input: GetOdbNetworkInput,
   ): Effect.Effect<
     GetOdbNetworkOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getOdbPeeringConnection(
     input: GetOdbPeeringConnectionInput,
   ): Effect.Effect<
     GetOdbPeeringConnectionOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listAutonomousVirtualMachines(
     input: ListAutonomousVirtualMachinesInput,
   ): Effect.Effect<
     ListAutonomousVirtualMachinesOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listCloudAutonomousVmClusters(
     input: ListCloudAutonomousVmClustersInput,
   ): Effect.Effect<
     ListCloudAutonomousVmClustersOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listCloudExadataInfrastructures(
     input: ListCloudExadataInfrastructuresInput,
   ): Effect.Effect<
     ListCloudExadataInfrastructuresOutput,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listCloudVmClusters(
     input: ListCloudVmClustersInput,
   ): Effect.Effect<
     ListCloudVmClustersOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listDbNodes(
     input: ListDbNodesInput,
   ): Effect.Effect<
     ListDbNodesOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listDbServers(
     input: ListDbServersInput,
   ): Effect.Effect<
     ListDbServersOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listOdbNetworks(
     input: ListOdbNetworksInput,
   ): Effect.Effect<
     ListOdbNetworksOutput,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listOdbPeeringConnections(
     input: ListOdbPeeringConnectionsInput,
   ): Effect.Effect<
     ListOdbPeeringConnectionsOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   rebootDbNode(
     input: RebootDbNodeInput,
   ): Effect.Effect<
     RebootDbNodeOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   startDbNode(
     input: StartDbNodeInput,
   ): Effect.Effect<
     StartDbNodeOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   stopDbNode(
     input: StopDbNodeInput,
   ): Effect.Effect<
     StopDbNodeOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateCloudExadataInfrastructure(
     input: UpdateCloudExadataInfrastructureInput,
   ): Effect.Effect<
     UpdateCloudExadataInfrastructureOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateOdbNetwork(
     input: UpdateOdbNetworkInput,
   ): Effect.Effect<
     UpdateOdbNetworkOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateOdbPeeringConnection(
     input: UpdateOdbPeeringConnectionInput,
   ): Effect.Effect<
     UpdateOdbPeeringConnectionOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
 }
 
 export interface AcceptMarketplaceRegistrationInput {
   marketplaceRegistrationToken: string;
 }
-export interface AcceptMarketplaceRegistrationOutput {
-}
+export interface AcceptMarketplaceRegistrationOutput {}
 export type Access = "ENABLED" | "DISABLED";
 export declare class AccessDeniedException extends EffectData.TaggedError(
   "AccessDeniedException",
 )<{
   readonly message: string;
 }> {}
-export type AutonomousVirtualMachineList = Array<AutonomousVirtualMachineSummary>;
+export type AutonomousVirtualMachineList =
+  Array<AutonomousVirtualMachineSummary>;
 export interface AutonomousVirtualMachineSummary {
   autonomousVirtualMachineId?: string;
   status?: ResourceStatus;
@@ -330,12 +557,14 @@ export interface CloudAutonomousVmCluster {
   timeZone?: string;
   totalContainerDatabases?: number;
 }
-export type CloudAutonomousVmClusterList = Array<CloudAutonomousVmClusterSummary>;
+export type CloudAutonomousVmClusterList =
+  Array<CloudAutonomousVmClusterSummary>;
 export interface CloudAutonomousVmClusterResourceDetails {
   cloudAutonomousVmClusterId?: string;
   unallocatedAdbStorageInTBs?: number;
 }
-export type CloudAutonomousVmClusterResourceDetailsList = Array<CloudAutonomousVmClusterResourceDetails>;
+export type CloudAutonomousVmClusterResourceDetailsList =
+  Array<CloudAutonomousVmClusterResourceDetails>;
 export interface CloudAutonomousVmClusterSummary {
   cloudAutonomousVmClusterId: string;
   cloudAutonomousVmClusterArn?: string;
@@ -427,7 +656,8 @@ export interface CloudExadataInfrastructure {
   storageServerType?: string;
   computeModel?: ComputeModel;
 }
-export type CloudExadataInfrastructureList = Array<CloudExadataInfrastructureSummary>;
+export type CloudExadataInfrastructureList =
+  Array<CloudExadataInfrastructureSummary>;
 export interface CloudExadataInfrastructureSummary {
   cloudExadataInfrastructureId: string;
   displayName?: string;
@@ -690,7 +920,14 @@ export interface DataCollectionOptions {
 export interface DayOfWeek {
   name?: DayOfWeekName;
 }
-export type DayOfWeekName = "MONDAY" | "TUESDAY" | "WEDNESDAY" | "THURSDAY" | "FRIDAY" | "SATURDAY" | "SUNDAY";
+export type DayOfWeekName =
+  | "MONDAY"
+  | "TUESDAY"
+  | "WEDNESDAY"
+  | "THURSDAY"
+  | "FRIDAY"
+  | "SATURDAY"
+  | "SUNDAY";
 export type DaysOfWeek = Array<DayOfWeek>;
 export interface DbIormConfig {
   dbName?: string;
@@ -730,7 +967,16 @@ export interface DbNode {
 }
 export type DbNodeList = Array<DbNodeSummary>;
 export type DbNodeMaintenanceType = "VMDB_REBOOT_MIGRATION";
-export type DbNodeResourceStatus = "AVAILABLE" | "FAILED" | "PROVISIONING" | "TERMINATED" | "TERMINATING" | "UPDATING" | "STOPPING" | "STOPPED" | "STARTING";
+export type DbNodeResourceStatus =
+  | "AVAILABLE"
+  | "FAILED"
+  | "PROVISIONING"
+  | "TERMINATED"
+  | "TERMINATING"
+  | "UPDATING"
+  | "STOPPING"
+  | "STOPPED"
+  | "STARTING";
 export interface DbNodeSummary {
   dbNodeId?: string;
   dbNodeArn?: string;
@@ -788,7 +1034,11 @@ export interface DbServerPatchingDetails {
   timePatchingEnded?: string;
   timePatchingStarted?: string;
 }
-export type DbServerPatchingStatus = "COMPLETE" | "FAILED" | "MAINTENANCE_IN_PROGRESS" | "SCHEDULED";
+export type DbServerPatchingStatus =
+  | "COMPLETE"
+  | "FAILED"
+  | "MAINTENANCE_IN_PROGRESS"
+  | "SCHEDULED";
 export interface DbServerSummary {
   dbServerId?: string;
   status?: ResourceStatus;
@@ -841,29 +1091,24 @@ export interface DbSystemShapeSummary {
 export interface DeleteCloudAutonomousVmClusterInput {
   cloudAutonomousVmClusterId: string;
 }
-export interface DeleteCloudAutonomousVmClusterOutput {
-}
+export interface DeleteCloudAutonomousVmClusterOutput {}
 export interface DeleteCloudExadataInfrastructureInput {
   cloudExadataInfrastructureId: string;
 }
-export interface DeleteCloudExadataInfrastructureOutput {
-}
+export interface DeleteCloudExadataInfrastructureOutput {}
 export interface DeleteCloudVmClusterInput {
   cloudVmClusterId: string;
 }
-export interface DeleteCloudVmClusterOutput {
-}
+export interface DeleteCloudVmClusterOutput {}
 export interface DeleteOdbNetworkInput {
   odbNetworkId: string;
   deleteAssociatedResources: boolean;
 }
-export interface DeleteOdbNetworkOutput {
-}
+export interface DeleteOdbNetworkOutput {}
 export interface DeleteOdbPeeringConnectionInput {
   odbPeeringConnectionId: string;
 }
-export interface DeleteOdbPeeringConnectionOutput {
-}
+export interface DeleteOdbPeeringConnectionOutput {}
 export type DiskRedundancy = "HIGH" | "NORMAL";
 export interface ExadataIormConfig {
   dbPlans?: Array<DbIormConfig>;
@@ -912,8 +1157,7 @@ export interface GetDbServerInput {
 export interface GetDbServerOutput {
   dbServer?: DbServer;
 }
-export interface GetOciOnboardingStatusInput {
-}
+export interface GetOciOnboardingStatusInput {}
 export interface GetOciOnboardingStatusOutput {
   status?: OciOnboardingStatus;
   existingTenancyActivationLink?: string;
@@ -936,17 +1180,20 @@ export interface GiVersionSummary {
   version?: string;
 }
 export type HoursOfDay = Array<number>;
-export interface InitializeServiceInput {
-}
-export interface InitializeServiceOutput {
-}
+export interface InitializeServiceInput {}
+export interface InitializeServiceOutput {}
 export declare class InternalServerException extends EffectData.TaggedError(
   "InternalServerException",
 )<{
   readonly message: string;
   readonly retryAfterSeconds?: number;
 }> {}
-export type IormLifecycleState = "BOOTSTRAPPING" | "DISABLED" | "ENABLED" | "FAILED" | "UPDATING";
+export type IormLifecycleState =
+  | "BOOTSTRAPPING"
+  | "DISABLED"
+  | "ENABLED"
+  | "FAILED"
+  | "UPDATING";
 export type LicenseModel = "BRING_YOUR_OWN_LICENSE" | "LICENSE_INCLUDED";
 export interface ListAutonomousVirtualMachinesInput {
   maxResults?: number;
@@ -1065,7 +1312,11 @@ export interface MaintenanceWindow {
   skipRu?: boolean;
   weeksOfMonth?: Array<number>;
 }
-export type ManagedResourceStatus = "ENABLED" | "ENABLING" | "DISABLED" | "DISABLING";
+export type ManagedResourceStatus =
+  | "ENABLED"
+  | "ENABLING"
+  | "DISABLED"
+  | "DISABLING";
 export interface ManagedS3BackupAccess {
   status?: ManagedResourceStatus;
   ipv4Addresses?: Array<string>;
@@ -1082,15 +1333,44 @@ export interface ManagedServices {
 export interface Month {
   name?: MonthName;
 }
-export type MonthName = "JANUARY" | "FEBRUARY" | "MARCH" | "APRIL" | "MAY" | "JUNE" | "JULY" | "AUGUST" | "SEPTEMBER" | "OCTOBER" | "NOVEMBER" | "DECEMBER";
+export type MonthName =
+  | "JANUARY"
+  | "FEBRUARY"
+  | "MARCH"
+  | "APRIL"
+  | "MAY"
+  | "JUNE"
+  | "JULY"
+  | "AUGUST"
+  | "SEPTEMBER"
+  | "OCTOBER"
+  | "NOVEMBER"
+  | "DECEMBER";
 export type Months = Array<Month>;
-export type Objective = "AUTO" | "BALANCED" | "BASIC" | "HIGH_THROUGHPUT" | "LOW_LATENCY";
+export type Objective =
+  | "AUTO"
+  | "BALANCED"
+  | "BASIC"
+  | "HIGH_THROUGHPUT"
+  | "LOW_LATENCY";
 export interface OciDnsForwardingConfig {
   domainName?: string;
   ociDnsListenerIp?: string;
 }
 export type OciDnsForwardingConfigList = Array<OciDnsForwardingConfig>;
-export type OciOnboardingStatus = "NOT_STARTED" | "PENDING_LINK_GENERATION" | "PENDING_CUSTOMER_ACTION" | "PENDING_INITIALIZATION" | "ACTIVATING" | "ACTIVE_IN_HOME_REGION" | "ACTIVE" | "ACTIVE_LIMITED" | "FAILED" | "PUBLIC_OFFER_UNSUPPORTED" | "SUSPENDED" | "CANCELED";
+export type OciOnboardingStatus =
+  | "NOT_STARTED"
+  | "PENDING_LINK_GENERATION"
+  | "PENDING_CUSTOMER_ACTION"
+  | "PENDING_INITIALIZATION"
+  | "ACTIVATING"
+  | "ACTIVE_IN_HOME_REGION"
+  | "ACTIVE"
+  | "ACTIVE_LIMITED"
+  | "FAILED"
+  | "PUBLIC_OFFER_UNSUPPORTED"
+  | "SUSPENDED"
+  | "CANCELED";
 export interface OdbNetwork {
   odbNetworkId: string;
   displayName?: string;
@@ -1197,7 +1477,14 @@ export declare class ResourceNotFoundException extends EffectData.TaggedError(
   readonly resourceId: string;
   readonly resourceType: string;
 }> {}
-export type ResourceStatus = "AVAILABLE" | "FAILED" | "PROVISIONING" | "TERMINATED" | "TERMINATING" | "UPDATING" | "MAINTENANCE_IN_PROGRESS";
+export type ResourceStatus =
+  | "AVAILABLE"
+  | "FAILED"
+  | "PROVISIONING"
+  | "TERMINATED"
+  | "TERMINATING"
+  | "UPDATING"
+  | "MAINTENANCE_IN_PROGRESS";
 export type ResponseTagMap = Record<string, string>;
 export interface S3Access {
   status?: ManagedResourceStatus;
@@ -1253,8 +1540,7 @@ export interface TagResourceRequest {
   resourceArn: string;
   tags: Record<string, string>;
 }
-export interface TagResourceResponse {
-}
+export interface TagResourceResponse {}
 export type TagValue = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(
@@ -1267,8 +1553,7 @@ export interface UntagResourceRequest {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceResponse {
-}
+export interface UntagResourceResponse {}
 export interface UpdateCloudExadataInfrastructureInput {
   cloudExadataInfrastructureId: string;
   maintenanceWindow?: MaintenanceWindow;
@@ -1318,7 +1603,11 @@ export interface ValidationExceptionField {
   message: string;
 }
 export type ValidationExceptionFieldList = Array<ValidationExceptionField>;
-export type ValidationExceptionReason = "unknownOperation" | "cannotParse" | "fieldValidationFailed" | "other";
+export type ValidationExceptionReason =
+  | "unknownOperation"
+  | "cannotParse"
+  | "fieldValidationFailed"
+  | "other";
 export type VpcEndpointType = "SERVICENETWORK";
 export type WeeksOfMonth = Array<number>;
 export interface ZeroEtlAccess {
@@ -1396,9 +1685,7 @@ export declare namespace ListSystemVersions {
 export declare namespace ListTagsForResource {
   export type Input = ListTagsForResourceRequest;
   export type Output = ListTagsForResourceResponse;
-  export type Error =
-    | ResourceNotFoundException
-    | CommonAwsError;
+  export type Error = ResourceNotFoundException | CommonAwsError;
 }
 
 export declare namespace TagResource {
@@ -1413,9 +1700,7 @@ export declare namespace TagResource {
 export declare namespace UntagResource {
   export type Input = UntagResourceRequest;
   export type Output = UntagResourceResponse;
-  export type Error =
-    | ResourceNotFoundException
-    | CommonAwsError;
+  export type Error = ResourceNotFoundException | CommonAwsError;
 }
 
 export declare namespace CreateCloudAutonomousVmCluster {
@@ -1811,5 +2096,12 @@ export declare namespace UpdateOdbPeeringConnection {
     | CommonAwsError;
 }
 
-export type odbErrors = AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError;
-
+export type odbErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

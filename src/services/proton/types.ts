@@ -1,6 +1,38 @@
 import type { Effect, Data as EffectData } from "effect";
-import type { ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError } from "../../error.ts";
-type CommonAwsError = ExpiredTokenException | IncompleteSignature | InternalFailure | MalformedHttpRequestException | NotAuthorized | OptInRequired | RequestAbortedException | RequestEntityTooLargeException | RequestExpired | RequestTimeoutException | ServiceUnavailable | UnrecognizedClientException | UnknownOperationException | ValidationError | AccessDeniedException | ThrottlingException | ValidationException;
+import type {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+} from "../../error.ts";
+type CommonAwsError =
+  | ExpiredTokenException
+  | IncompleteSignature
+  | InternalFailure
+  | MalformedHttpRequestException
+  | NotAuthorized
+  | OptInRequired
+  | RequestAbortedException
+  | RequestEntityTooLargeException
+  | RequestExpired
+  | RequestTimeoutException
+  | ServiceUnavailable
+  | UnrecognizedClientException
+  | UnknownOperationException
+  | ValidationError
+  | AccessDeniedException
+  | ThrottlingException
+  | ValidationException;
 import { AWSServiceClient } from "../../client.ts";
 
 export declare class Proton extends AWSServiceClient {
@@ -8,523 +40,1004 @@ export declare class Proton extends AWSServiceClient {
     input: CancelComponentDeploymentInput,
   ): Effect.Effect<
     CancelComponentDeploymentOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   cancelEnvironmentDeployment(
     input: CancelEnvironmentDeploymentInput,
   ): Effect.Effect<
     CancelEnvironmentDeploymentOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   cancelServiceInstanceDeployment(
     input: CancelServiceInstanceDeploymentInput,
   ): Effect.Effect<
     CancelServiceInstanceDeploymentOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   cancelServicePipelineDeployment(
     input: CancelServicePipelineDeploymentInput,
   ): Effect.Effect<
     CancelServicePipelineDeploymentOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getRepositorySyncStatus(
     input: GetRepositorySyncStatusInput,
   ): Effect.Effect<
     GetRepositorySyncStatusOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getResourcesSummary(
     input: GetResourcesSummaryInput,
   ): Effect.Effect<
     GetResourcesSummaryOutput,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getServiceInstanceSyncStatus(
     input: GetServiceInstanceSyncStatusInput,
   ): Effect.Effect<
     GetServiceInstanceSyncStatusOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getTemplateSyncStatus(
     input: GetTemplateSyncStatusInput,
   ): Effect.Effect<
     GetTemplateSyncStatusOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listRepositorySyncDefinitions(
     input: ListRepositorySyncDefinitionsInput,
   ): Effect.Effect<
     ListRepositorySyncDefinitionsOutput,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listTagsForResource(
     input: ListTagsForResourceInput,
   ): Effect.Effect<
     ListTagsForResourceOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   notifyResourceDeploymentStatusChange(
     input: NotifyResourceDeploymentStatusChangeInput,
   ): Effect.Effect<
     NotifyResourceDeploymentStatusChangeOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   tagResource(
     input: TagResourceInput,
   ): Effect.Effect<
     TagResourceOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   untagResource(
     input: UntagResourceInput,
   ): Effect.Effect<
     UntagResourceOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   acceptEnvironmentAccountConnection(
     input: AcceptEnvironmentAccountConnectionInput,
   ): Effect.Effect<
     AcceptEnvironmentAccountConnectionOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createComponent(
     input: CreateComponentInput,
   ): Effect.Effect<
     CreateComponentOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createEnvironment(
     input: CreateEnvironmentInput,
   ): Effect.Effect<
     CreateEnvironmentOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createEnvironmentAccountConnection(
     input: CreateEnvironmentAccountConnectionInput,
   ): Effect.Effect<
     CreateEnvironmentAccountConnectionOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createEnvironmentTemplate(
     input: CreateEnvironmentTemplateInput,
   ): Effect.Effect<
     CreateEnvironmentTemplateOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createEnvironmentTemplateVersion(
     input: CreateEnvironmentTemplateVersionInput,
   ): Effect.Effect<
     CreateEnvironmentTemplateVersionOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createRepository(
     input: CreateRepositoryInput,
   ): Effect.Effect<
     CreateRepositoryOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createService(
     input: CreateServiceInput,
   ): Effect.Effect<
     CreateServiceOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createServiceInstance(
     input: CreateServiceInstanceInput,
   ): Effect.Effect<
     CreateServiceInstanceOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createServiceSyncConfig(
     input: CreateServiceSyncConfigInput,
   ): Effect.Effect<
     CreateServiceSyncConfigOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createServiceTemplate(
     input: CreateServiceTemplateInput,
   ): Effect.Effect<
     CreateServiceTemplateOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createServiceTemplateVersion(
     input: CreateServiceTemplateVersionInput,
   ): Effect.Effect<
     CreateServiceTemplateVersionOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   createTemplateSyncConfig(
     input: CreateTemplateSyncConfigInput,
   ): Effect.Effect<
     CreateTemplateSyncConfigOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteComponent(
     input: DeleteComponentInput,
   ): Effect.Effect<
     DeleteComponentOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteDeployment(
     input: DeleteDeploymentInput,
   ): Effect.Effect<
     DeleteDeploymentOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteEnvironment(
     input: DeleteEnvironmentInput,
   ): Effect.Effect<
     DeleteEnvironmentOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteEnvironmentAccountConnection(
     input: DeleteEnvironmentAccountConnectionInput,
   ): Effect.Effect<
     DeleteEnvironmentAccountConnectionOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteEnvironmentTemplate(
     input: DeleteEnvironmentTemplateInput,
   ): Effect.Effect<
     DeleteEnvironmentTemplateOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteEnvironmentTemplateVersion(
     input: DeleteEnvironmentTemplateVersionInput,
   ): Effect.Effect<
     DeleteEnvironmentTemplateVersionOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteRepository(
     input: DeleteRepositoryInput,
   ): Effect.Effect<
     DeleteRepositoryOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteService(
     input: DeleteServiceInput,
   ): Effect.Effect<
     DeleteServiceOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteServiceSyncConfig(
     input: DeleteServiceSyncConfigInput,
   ): Effect.Effect<
     DeleteServiceSyncConfigOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteServiceTemplate(
     input: DeleteServiceTemplateInput,
   ): Effect.Effect<
     DeleteServiceTemplateOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteServiceTemplateVersion(
     input: DeleteServiceTemplateVersionInput,
   ): Effect.Effect<
     DeleteServiceTemplateVersionOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   deleteTemplateSyncConfig(
     input: DeleteTemplateSyncConfigInput,
   ): Effect.Effect<
     DeleteTemplateSyncConfigOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getAccountSettings(
     input: GetAccountSettingsInput,
   ): Effect.Effect<
     GetAccountSettingsOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getComponent(
     input: GetComponentInput,
   ): Effect.Effect<
     GetComponentOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getDeployment(
     input: GetDeploymentInput,
   ): Effect.Effect<
     GetDeploymentOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getEnvironment(
     input: GetEnvironmentInput,
   ): Effect.Effect<
     GetEnvironmentOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getEnvironmentAccountConnection(
     input: GetEnvironmentAccountConnectionInput,
   ): Effect.Effect<
     GetEnvironmentAccountConnectionOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getEnvironmentTemplate(
     input: GetEnvironmentTemplateInput,
   ): Effect.Effect<
     GetEnvironmentTemplateOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getEnvironmentTemplateVersion(
     input: GetEnvironmentTemplateVersionInput,
   ): Effect.Effect<
     GetEnvironmentTemplateVersionOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getRepository(
     input: GetRepositoryInput,
   ): Effect.Effect<
     GetRepositoryOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getService(
     input: GetServiceInput,
   ): Effect.Effect<
     GetServiceOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getServiceInstance(
     input: GetServiceInstanceInput,
   ): Effect.Effect<
     GetServiceInstanceOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getServiceSyncBlockerSummary(
     input: GetServiceSyncBlockerSummaryInput,
   ): Effect.Effect<
     GetServiceSyncBlockerSummaryOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getServiceSyncConfig(
     input: GetServiceSyncConfigInput,
   ): Effect.Effect<
     GetServiceSyncConfigOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getServiceTemplate(
     input: GetServiceTemplateInput,
   ): Effect.Effect<
     GetServiceTemplateOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getServiceTemplateVersion(
     input: GetServiceTemplateVersionInput,
   ): Effect.Effect<
     GetServiceTemplateVersionOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   getTemplateSyncConfig(
     input: GetTemplateSyncConfigInput,
   ): Effect.Effect<
     GetTemplateSyncConfigOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listComponentOutputs(
     input: ListComponentOutputsInput,
   ): Effect.Effect<
     ListComponentOutputsOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listComponentProvisionedResources(
     input: ListComponentProvisionedResourcesInput,
   ): Effect.Effect<
     ListComponentProvisionedResourcesOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listComponents(
     input: ListComponentsInput,
   ): Effect.Effect<
     ListComponentsOutput,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listDeployments(
     input: ListDeploymentsInput,
   ): Effect.Effect<
     ListDeploymentsOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listEnvironmentAccountConnections(
     input: ListEnvironmentAccountConnectionsInput,
   ): Effect.Effect<
     ListEnvironmentAccountConnectionsOutput,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listEnvironmentOutputs(
     input: ListEnvironmentOutputsInput,
   ): Effect.Effect<
     ListEnvironmentOutputsOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listEnvironmentProvisionedResources(
     input: ListEnvironmentProvisionedResourcesInput,
   ): Effect.Effect<
     ListEnvironmentProvisionedResourcesOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listEnvironmentTemplateVersions(
     input: ListEnvironmentTemplateVersionsInput,
   ): Effect.Effect<
     ListEnvironmentTemplateVersionsOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listEnvironmentTemplates(
     input: ListEnvironmentTemplatesInput,
   ): Effect.Effect<
     ListEnvironmentTemplatesOutput,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listEnvironments(
     input: ListEnvironmentsInput,
   ): Effect.Effect<
     ListEnvironmentsOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listRepositories(
     input: ListRepositoriesInput,
   ): Effect.Effect<
     ListRepositoriesOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listServiceInstanceOutputs(
     input: ListServiceInstanceOutputsInput,
   ): Effect.Effect<
     ListServiceInstanceOutputsOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listServiceInstanceProvisionedResources(
     input: ListServiceInstanceProvisionedResourcesInput,
   ): Effect.Effect<
     ListServiceInstanceProvisionedResourcesOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listServiceInstances(
     input: ListServiceInstancesInput,
   ): Effect.Effect<
     ListServiceInstancesOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listServicePipelineOutputs(
     input: ListServicePipelineOutputsInput,
   ): Effect.Effect<
     ListServicePipelineOutputsOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listServicePipelineProvisionedResources(
     input: ListServicePipelineProvisionedResourcesInput,
   ): Effect.Effect<
     ListServicePipelineProvisionedResourcesOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listServiceTemplateVersions(
     input: ListServiceTemplateVersionsInput,
   ): Effect.Effect<
     ListServiceTemplateVersionsOutput,
-    AccessDeniedException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listServiceTemplates(
     input: ListServiceTemplatesInput,
   ): Effect.Effect<
     ListServiceTemplatesOutput,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   listServices(
     input: ListServicesInput,
   ): Effect.Effect<
     ListServicesOutput,
-    AccessDeniedException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   rejectEnvironmentAccountConnection(
     input: RejectEnvironmentAccountConnectionInput,
   ): Effect.Effect<
     RejectEnvironmentAccountConnectionOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateAccountSettings(
     input: UpdateAccountSettingsInput,
   ): Effect.Effect<
     UpdateAccountSettingsOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateComponent(
     input: UpdateComponentInput,
   ): Effect.Effect<
     UpdateComponentOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateEnvironment(
     input: UpdateEnvironmentInput,
   ): Effect.Effect<
     UpdateEnvironmentOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateEnvironmentAccountConnection(
     input: UpdateEnvironmentAccountConnectionInput,
   ): Effect.Effect<
     UpdateEnvironmentAccountConnectionOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateEnvironmentTemplate(
     input: UpdateEnvironmentTemplateInput,
   ): Effect.Effect<
     UpdateEnvironmentTemplateOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateEnvironmentTemplateVersion(
     input: UpdateEnvironmentTemplateVersionInput,
   ): Effect.Effect<
     UpdateEnvironmentTemplateVersionOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateService(
     input: UpdateServiceInput,
   ): Effect.Effect<
     UpdateServiceOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ServiceQuotaExceededException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateServiceInstance(
     input: UpdateServiceInstanceInput,
   ): Effect.Effect<
     UpdateServiceInstanceOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateServicePipeline(
     input: UpdateServicePipelineInput,
   ): Effect.Effect<
     UpdateServicePipelineOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateServiceSyncBlocker(
     input: UpdateServiceSyncBlockerInput,
   ): Effect.Effect<
     UpdateServiceSyncBlockerOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateServiceSyncConfig(
     input: UpdateServiceSyncConfigInput,
   ): Effect.Effect<
     UpdateServiceSyncConfigOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateServiceTemplate(
     input: UpdateServiceTemplateInput,
   ): Effect.Effect<
     UpdateServiceTemplateOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateServiceTemplateVersion(
     input: UpdateServiceTemplateVersionInput,
   ): Effect.Effect<
     UpdateServiceTemplateVersionOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
   updateTemplateSyncConfig(
     input: UpdateTemplateSyncConfigInput,
   ): Effect.Effect<
     UpdateTemplateSyncConfigOutput,
-    AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ThrottlingException | ValidationException | CommonAwsError
+    | AccessDeniedException
+    | ConflictException
+    | InternalServerException
+    | ResourceNotFoundException
+    | ThrottlingException
+    | ValidationException
+    | CommonAwsError
   >;
 }
 
@@ -587,8 +1100,10 @@ export interface CompatibleEnvironmentTemplateInput {
   templateName: string;
   majorVersion: string;
 }
-export type CompatibleEnvironmentTemplateInputList = Array<CompatibleEnvironmentTemplateInput>;
-export type CompatibleEnvironmentTemplateList = Array<CompatibleEnvironmentTemplate>;
+export type CompatibleEnvironmentTemplateInputList =
+  Array<CompatibleEnvironmentTemplateInput>;
+export type CompatibleEnvironmentTemplateList =
+  Array<CompatibleEnvironmentTemplate>;
 export interface Component {
   name: string;
   description?: string;
@@ -905,7 +1420,11 @@ interface _DeploymentState {
   component?: ComponentState;
 }
 
-export type DeploymentState = (_DeploymentState & { serviceInstance: ServiceInstanceState }) | (_DeploymentState & { environment: EnvironmentState }) | (_DeploymentState & { servicePipeline: ServicePipelineState }) | (_DeploymentState & { component: ComponentState });
+export type DeploymentState =
+  | (_DeploymentState & { serviceInstance: ServiceInstanceState })
+  | (_DeploymentState & { environment: EnvironmentState })
+  | (_DeploymentState & { servicePipeline: ServicePipelineState })
+  | (_DeploymentState & { component: ComponentState });
 export type DeploymentStatus = string;
 
 export interface DeploymentSummary {
@@ -993,7 +1512,8 @@ export interface EnvironmentAccountConnectionSummary {
   status: string;
   componentRoleArn?: string;
 }
-export type EnvironmentAccountConnectionSummaryList = Array<EnvironmentAccountConnectionSummary>;
+export type EnvironmentAccountConnectionSummaryList =
+  Array<EnvironmentAccountConnectionSummary>;
 export type EnvironmentArn = string;
 
 export interface EnvironmentState {
@@ -1079,13 +1599,13 @@ export interface EnvironmentTemplateVersionSummary {
   createdAt: Date | string;
   lastModifiedAt: Date | string;
 }
-export type EnvironmentTemplateVersionSummaryList = Array<EnvironmentTemplateVersionSummary>;
+export type EnvironmentTemplateVersionSummaryList =
+  Array<EnvironmentTemplateVersionSummary>;
 export type ErrorMessage = string;
 
 export type FullTemplateVersionNumber = string;
 
-export interface GetAccountSettingsInput {
-}
+export interface GetAccountSettingsInput {}
 export interface GetAccountSettingsOutput {
   accountSettings?: AccountSettings;
 }
@@ -1147,8 +1667,7 @@ export interface GetRepositorySyncStatusInput {
 export interface GetRepositorySyncStatusOutput {
   latestSync?: RepositorySyncAttempt;
 }
-export interface GetResourcesSummaryInput {
-}
+export interface GetResourcesSummaryInput {}
 export interface GetResourcesSummaryOutput {
   counts: CountsSummary;
 }
@@ -1444,8 +1963,7 @@ export interface NotifyResourceDeploymentStatusChangeInput {
   deploymentId?: string;
   statusMessage?: string;
 }
-export interface NotifyResourceDeploymentStatusChangeOutput {
-}
+export interface NotifyResourceDeploymentStatusChangeOutput {}
 export type OpsFilePath = string;
 
 export interface Output {
@@ -1754,7 +2272,8 @@ export interface ServiceTemplateVersionSummary {
   createdAt: Date | string;
   lastModifiedAt: Date | string;
 }
-export type ServiceTemplateVersionSummaryList = Array<ServiceTemplateVersionSummary>;
+export type ServiceTemplateVersionSummaryList =
+  Array<ServiceTemplateVersionSummary>;
 export type SHA = string;
 
 export type SortOrder = string;
@@ -1794,8 +2313,7 @@ export interface TagResourceInput {
   resourceArn: string;
   tags: Array<Tag>;
 }
-export interface TagResourceOutput {
-}
+export interface TagResourceOutput {}
 export type TagValue = string;
 
 export type TemplateFileContents = string;
@@ -1820,7 +2338,9 @@ interface _TemplateVersionSourceInput {
   s3?: S3ObjectSource;
 }
 
-export type TemplateVersionSourceInput = (_TemplateVersionSourceInput & { s3: S3ObjectSource });
+export type TemplateVersionSourceInput = _TemplateVersionSourceInput & {
+  s3: S3ObjectSource;
+};
 export type TemplateVersionStatus = string;
 
 export declare class ThrottlingException extends EffectData.TaggedError(
@@ -1832,8 +2352,7 @@ export interface UntagResourceInput {
   resourceArn: string;
   tagKeys: Array<string>;
 }
-export interface UntagResourceOutput {
-}
+export interface UntagResourceOutput {}
 export interface UpdateAccountSettingsInput {
   pipelineServiceRoleArn?: string;
   pipelineProvisioningRepository?: RepositoryBranchInput;
@@ -3074,5 +3593,12 @@ export declare namespace UpdateTemplateSyncConfig {
     | CommonAwsError;
 }
 
-export type ProtonErrors = AccessDeniedException | ConflictException | InternalServerException | ResourceNotFoundException | ServiceQuotaExceededException | ThrottlingException | ValidationException | CommonAwsError;
-
+export type ProtonErrors =
+  | AccessDeniedException
+  | ConflictException
+  | InternalServerException
+  | ResourceNotFoundException
+  | ServiceQuotaExceededException
+  | ThrottlingException
+  | ValidationException
+  | CommonAwsError;

@@ -7,85 +7,130 @@ export declare class MachineLearning extends AWSServiceClient {
     input: AddTagsInput,
   ): Effect.Effect<
     AddTagsOutput,
-    InternalServerException | InvalidInputException | InvalidTagException | ResourceNotFoundException | TagLimitExceededException | CommonAwsError
+    | InternalServerException
+    | InvalidInputException
+    | InvalidTagException
+    | ResourceNotFoundException
+    | TagLimitExceededException
+    | CommonAwsError
   >;
   createBatchPrediction(
     input: CreateBatchPredictionInput,
   ): Effect.Effect<
     CreateBatchPredictionOutput,
-    IdempotentParameterMismatchException | InternalServerException | InvalidInputException | CommonAwsError
+    | IdempotentParameterMismatchException
+    | InternalServerException
+    | InvalidInputException
+    | CommonAwsError
   >;
   createDataSourceFromRDS(
     input: CreateDataSourceFromRDSInput,
   ): Effect.Effect<
     CreateDataSourceFromRDSOutput,
-    IdempotentParameterMismatchException | InternalServerException | InvalidInputException | CommonAwsError
+    | IdempotentParameterMismatchException
+    | InternalServerException
+    | InvalidInputException
+    | CommonAwsError
   >;
   createDataSourceFromRedshift(
     input: CreateDataSourceFromRedshiftInput,
   ): Effect.Effect<
     CreateDataSourceFromRedshiftOutput,
-    IdempotentParameterMismatchException | InternalServerException | InvalidInputException | CommonAwsError
+    | IdempotentParameterMismatchException
+    | InternalServerException
+    | InvalidInputException
+    | CommonAwsError
   >;
   createDataSourceFromS3(
     input: CreateDataSourceFromS3Input,
   ): Effect.Effect<
     CreateDataSourceFromS3Output,
-    IdempotentParameterMismatchException | InternalServerException | InvalidInputException | CommonAwsError
+    | IdempotentParameterMismatchException
+    | InternalServerException
+    | InvalidInputException
+    | CommonAwsError
   >;
   createEvaluation(
     input: CreateEvaluationInput,
   ): Effect.Effect<
     CreateEvaluationOutput,
-    IdempotentParameterMismatchException | InternalServerException | InvalidInputException | CommonAwsError
+    | IdempotentParameterMismatchException
+    | InternalServerException
+    | InvalidInputException
+    | CommonAwsError
   >;
   createMLModel(
     input: CreateMLModelInput,
   ): Effect.Effect<
     CreateMLModelOutput,
-    IdempotentParameterMismatchException | InternalServerException | InvalidInputException | CommonAwsError
+    | IdempotentParameterMismatchException
+    | InternalServerException
+    | InvalidInputException
+    | CommonAwsError
   >;
   createRealtimeEndpoint(
     input: CreateRealtimeEndpointInput,
   ): Effect.Effect<
     CreateRealtimeEndpointOutput,
-    InternalServerException | InvalidInputException | ResourceNotFoundException | CommonAwsError
+    | InternalServerException
+    | InvalidInputException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   deleteBatchPrediction(
     input: DeleteBatchPredictionInput,
   ): Effect.Effect<
     DeleteBatchPredictionOutput,
-    InternalServerException | InvalidInputException | ResourceNotFoundException | CommonAwsError
+    | InternalServerException
+    | InvalidInputException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   deleteDataSource(
     input: DeleteDataSourceInput,
   ): Effect.Effect<
     DeleteDataSourceOutput,
-    InternalServerException | InvalidInputException | ResourceNotFoundException | CommonAwsError
+    | InternalServerException
+    | InvalidInputException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   deleteEvaluation(
     input: DeleteEvaluationInput,
   ): Effect.Effect<
     DeleteEvaluationOutput,
-    InternalServerException | InvalidInputException | ResourceNotFoundException | CommonAwsError
+    | InternalServerException
+    | InvalidInputException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   deleteMLModel(
     input: DeleteMLModelInput,
   ): Effect.Effect<
     DeleteMLModelOutput,
-    InternalServerException | InvalidInputException | ResourceNotFoundException | CommonAwsError
+    | InternalServerException
+    | InvalidInputException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   deleteRealtimeEndpoint(
     input: DeleteRealtimeEndpointInput,
   ): Effect.Effect<
     DeleteRealtimeEndpointOutput,
-    InternalServerException | InvalidInputException | ResourceNotFoundException | CommonAwsError
+    | InternalServerException
+    | InvalidInputException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   deleteTags(
     input: DeleteTagsInput,
   ): Effect.Effect<
     DeleteTagsOutput,
-    InternalServerException | InvalidInputException | InvalidTagException | ResourceNotFoundException | CommonAwsError
+    | InternalServerException
+    | InvalidInputException
+    | InvalidTagException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   describeBatchPredictions(
     input: DescribeBatchPredictionsInput,
@@ -115,61 +160,93 @@ export declare class MachineLearning extends AWSServiceClient {
     input: DescribeTagsInput,
   ): Effect.Effect<
     DescribeTagsOutput,
-    InternalServerException | InvalidInputException | ResourceNotFoundException | CommonAwsError
+    | InternalServerException
+    | InvalidInputException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   getBatchPrediction(
     input: GetBatchPredictionInput,
   ): Effect.Effect<
     GetBatchPredictionOutput,
-    InternalServerException | InvalidInputException | ResourceNotFoundException | CommonAwsError
+    | InternalServerException
+    | InvalidInputException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   getDataSource(
     input: GetDataSourceInput,
   ): Effect.Effect<
     GetDataSourceOutput,
-    InternalServerException | InvalidInputException | ResourceNotFoundException | CommonAwsError
+    | InternalServerException
+    | InvalidInputException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   getEvaluation(
     input: GetEvaluationInput,
   ): Effect.Effect<
     GetEvaluationOutput,
-    InternalServerException | InvalidInputException | ResourceNotFoundException | CommonAwsError
+    | InternalServerException
+    | InvalidInputException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   getMLModel(
     input: GetMLModelInput,
   ): Effect.Effect<
     GetMLModelOutput,
-    InternalServerException | InvalidInputException | ResourceNotFoundException | CommonAwsError
+    | InternalServerException
+    | InvalidInputException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   predict(
     input: PredictInput,
   ): Effect.Effect<
     PredictOutput,
-    InternalServerException | InvalidInputException | LimitExceededException | PredictorNotMountedException | ResourceNotFoundException | CommonAwsError
+    | InternalServerException
+    | InvalidInputException
+    | LimitExceededException
+    | PredictorNotMountedException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   updateBatchPrediction(
     input: UpdateBatchPredictionInput,
   ): Effect.Effect<
     UpdateBatchPredictionOutput,
-    InternalServerException | InvalidInputException | ResourceNotFoundException | CommonAwsError
+    | InternalServerException
+    | InvalidInputException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   updateDataSource(
     input: UpdateDataSourceInput,
   ): Effect.Effect<
     UpdateDataSourceOutput,
-    InternalServerException | InvalidInputException | ResourceNotFoundException | CommonAwsError
+    | InternalServerException
+    | InvalidInputException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   updateEvaluation(
     input: UpdateEvaluationInput,
   ): Effect.Effect<
     UpdateEvaluationOutput,
-    InternalServerException | InvalidInputException | ResourceNotFoundException | CommonAwsError
+    | InternalServerException
+    | InvalidInputException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
   updateMLModel(
     input: UpdateMLModelInput,
   ): Effect.Effect<
     UpdateMLModelOutput,
-    InternalServerException | InvalidInputException | ResourceNotFoundException | CommonAwsError
+    | InternalServerException
+    | InvalidInputException
+    | ResourceNotFoundException
+    | CommonAwsError
   >;
 }
 
@@ -203,7 +280,15 @@ export interface BatchPrediction {
   TotalRecordCount?: number;
   InvalidRecordCount?: number;
 }
-export type BatchPredictionFilterVariable = "CreatedAt" | "LastUpdatedAt" | "Status" | "Name" | "IAMUser" | "MLModelId" | "DataSourceId" | "DataURI";
+export type BatchPredictionFilterVariable =
+  | "CreatedAt"
+  | "LastUpdatedAt"
+  | "Status"
+  | "Name"
+  | "IAMUser"
+  | "MLModelId"
+  | "DataSourceId"
+  | "DataURI";
 export type BatchPredictions = Array<BatchPrediction>;
 export type ComparatorValue = string;
 
@@ -300,7 +385,13 @@ export interface DataSource {
   FinishedAt?: Date | string;
   StartedAt?: Date | string;
 }
-export type DataSourceFilterVariable = "CreatedAt" | "LastUpdatedAt" | "Status" | "Name" | "DataLocationS3" | "IAMUser";
+export type DataSourceFilterVariable =
+  | "CreatedAt"
+  | "LastUpdatedAt"
+  | "Status"
+  | "Name"
+  | "DataLocationS3"
+  | "IAMUser";
 export type DataSources = Array<DataSource>;
 export interface DeleteBatchPredictionInput {
   BatchPredictionId: string;
@@ -438,7 +529,12 @@ export type EntityId = string;
 
 export type EntityName = string;
 
-export type EntityStatus = "PENDING" | "INPROGRESS" | "FAILED" | "COMPLETED" | "DELETED";
+export type EntityStatus =
+  | "PENDING"
+  | "INPROGRESS"
+  | "FAILED"
+  | "COMPLETED"
+  | "DELETED";
 export type EpochTime = Date | string;
 
 export type ErrorCode = number;
@@ -461,7 +557,15 @@ export interface Evaluation {
   FinishedAt?: Date | string;
   StartedAt?: Date | string;
 }
-export type EvaluationFilterVariable = "CreatedAt" | "LastUpdatedAt" | "Status" | "Name" | "IAMUser" | "MLModelId" | "DataSourceId" | "DataURI";
+export type EvaluationFilterVariable =
+  | "CreatedAt"
+  | "LastUpdatedAt"
+  | "Status"
+  | "Name"
+  | "IAMUser"
+  | "MLModelId"
+  | "DataSourceId"
+  | "DataURI";
 export type Evaluations = Array<Evaluation>;
 export type floatLabel = number;
 
@@ -618,7 +722,17 @@ export interface MLModel {
   FinishedAt?: Date | string;
   StartedAt?: Date | string;
 }
-export type MLModelFilterVariable = "CreatedAt" | "LastUpdatedAt" | "Status" | "Name" | "IAMUser" | "TrainingDataSourceId" | "RealtimeEndpointStatus" | "MLModelType" | "Algorithm" | "TrainingDataURI";
+export type MLModelFilterVariable =
+  | "CreatedAt"
+  | "LastUpdatedAt"
+  | "Status"
+  | "Name"
+  | "IAMUser"
+  | "TrainingDataSourceId"
+  | "RealtimeEndpointStatus"
+  | "MLModelType"
+  | "Algorithm"
+  | "TrainingDataURI";
 export type MLModelName = string;
 
 export type MLModels = Array<MLModel>;
@@ -763,7 +877,11 @@ export interface Tag {
   Key?: string;
   Value?: string;
 }
-export type TaggableResourceType = "BatchPrediction" | "DataSource" | "Evaluation" | "MLModel";
+export type TaggableResourceType =
+  | "BatchPrediction"
+  | "DataSource"
+  | "Evaluation"
+  | "MLModel";
 export type TagKey = string;
 
 export type TagKeyList = Array<string>;
@@ -1094,5 +1212,13 @@ export declare namespace UpdateMLModel {
     | CommonAwsError;
 }
 
-export type MachineLearningErrors = IdempotentParameterMismatchException | InternalServerException | InvalidInputException | InvalidTagException | LimitExceededException | PredictorNotMountedException | ResourceNotFoundException | TagLimitExceededException | CommonAwsError;
-
+export type MachineLearningErrors =
+  | IdempotentParameterMismatchException
+  | InternalServerException
+  | InvalidInputException
+  | InvalidTagException
+  | LimitExceededException
+  | PredictorNotMountedException
+  | ResourceNotFoundException
+  | TagLimitExceededException
+  | CommonAwsError;

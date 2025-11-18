@@ -6,7 +6,26 @@ import type { ElasticLoadBalancingv2 as _ElasticLoadBalancingv2Client } from "./
 
 export * from "./types.ts";
 
-export {AccessDeniedException, ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, ThrottlingException, UnrecognizedClientException, UnknownOperationException, ValidationError, ValidationException, type CommonAwsError} from "../../error.ts";
+export {
+  AccessDeniedException,
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  ThrottlingException,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  ValidationException,
+  type CommonAwsError,
+} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -28,6 +47,10 @@ export const ElasticLoadBalancingv2 = class extends AWSServiceClient {
     };
     super(config);
     // biome-ignore lint/correctness/noConstructorReturn: deliberate proxy usage
-    return createServiceProxy(metadata, this.config, new AwsQueryHandler(protocolMetadata));
+    return createServiceProxy(
+      metadata,
+      this.config,
+      new AwsQueryHandler(protocolMetadata),
+    );
   }
 } as unknown as typeof _ElasticLoadBalancingv2Client;

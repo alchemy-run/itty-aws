@@ -5,7 +5,23 @@ import type { BedrockDataAutomation as _BedrockDataAutomationClient } from "./ty
 
 export * from "./types.ts";
 
-export {ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, type CommonAwsError} from "../../error.ts";
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  type CommonAwsError,
+} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -15,20 +31,21 @@ const metadata = {
   sigV4ServiceName: "bedrock",
   endpointPrefix: "bedrock-data-automation",
   operations: {
-    "CreateBlueprintVersion": "POST /blueprints/{blueprintArn}/versions/",
-    "ListTagsForResource": "POST /listTagsForResource",
-    "TagResource": "POST /tagResource",
-    "UntagResource": "POST /untagResource",
-    "CreateBlueprint": "PUT /blueprints/",
-    "CreateDataAutomationProject": "PUT /data-automation-projects/",
-    "DeleteBlueprint": "DELETE /blueprints/{blueprintArn}/",
-    "DeleteDataAutomationProject": "DELETE /data-automation-projects/{projectArn}/",
-    "GetBlueprint": "POST /blueprints/{blueprintArn}/",
-    "GetDataAutomationProject": "POST /data-automation-projects/{projectArn}/",
-    "ListBlueprints": "POST /blueprints/",
-    "ListDataAutomationProjects": "POST /data-automation-projects/",
-    "UpdateBlueprint": "PUT /blueprints/{blueprintArn}/",
-    "UpdateDataAutomationProject": "PUT /data-automation-projects/{projectArn}/",
+    CreateBlueprintVersion: "POST /blueprints/{blueprintArn}/versions/",
+    ListTagsForResource: "POST /listTagsForResource",
+    TagResource: "POST /tagResource",
+    UntagResource: "POST /untagResource",
+    CreateBlueprint: "PUT /blueprints/",
+    CreateDataAutomationProject: "PUT /data-automation-projects/",
+    DeleteBlueprint: "DELETE /blueprints/{blueprintArn}/",
+    DeleteDataAutomationProject:
+      "DELETE /data-automation-projects/{projectArn}/",
+    GetBlueprint: "POST /blueprints/{blueprintArn}/",
+    GetDataAutomationProject: "POST /data-automation-projects/{projectArn}/",
+    ListBlueprints: "POST /blueprints/",
+    ListDataAutomationProjects: "POST /data-automation-projects/",
+    UpdateBlueprint: "PUT /blueprints/{blueprintArn}/",
+    UpdateDataAutomationProject: "PUT /data-automation-projects/{projectArn}/",
   },
 } as const satisfies ServiceMetadata;
 

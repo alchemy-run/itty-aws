@@ -5,7 +5,23 @@ import type { WorkSpacesThinClient as _WorkSpacesThinClientClient } from "./type
 
 export * from "./types.ts";
 
-export {ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, type CommonAwsError} from "../../error.ts";
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  type CommonAwsError,
+} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -14,22 +30,22 @@ const metadata = {
   protocol: "restJson1",
   sigV4ServiceName: "thinclient",
   operations: {
-    "CreateEnvironment": "POST /environments",
-    "DeleteDevice": "DELETE /devices/{id}",
-    "DeleteEnvironment": "DELETE /environments/{id}",
-    "DeregisterDevice": "POST /deregister-device/{id}",
-    "GetDevice": "GET /devices/{id}",
-    "GetEnvironment": "GET /environments/{id}",
-    "GetSoftwareSet": "GET /softwaresets/{id}",
-    "ListDevices": "GET /devices",
-    "ListEnvironments": "GET /environments",
-    "ListSoftwareSets": "GET /softwaresets",
-    "ListTagsForResource": "GET /tags/{resourceArn}",
-    "TagResource": "POST /tags/{resourceArn}",
-    "UntagResource": "DELETE /tags/{resourceArn}",
-    "UpdateDevice": "PATCH /devices/{id}",
-    "UpdateEnvironment": "PATCH /environments/{id}",
-    "UpdateSoftwareSet": "PATCH /softwaresets/{id}",
+    CreateEnvironment: "POST /environments",
+    DeleteDevice: "DELETE /devices/{id}",
+    DeleteEnvironment: "DELETE /environments/{id}",
+    DeregisterDevice: "POST /deregister-device/{id}",
+    GetDevice: "GET /devices/{id}",
+    GetEnvironment: "GET /environments/{id}",
+    GetSoftwareSet: "GET /softwaresets/{id}",
+    ListDevices: "GET /devices",
+    ListEnvironments: "GET /environments",
+    ListSoftwareSets: "GET /softwaresets",
+    ListTagsForResource: "GET /tags/{resourceArn}",
+    TagResource: "POST /tags/{resourceArn}",
+    UntagResource: "DELETE /tags/{resourceArn}",
+    UpdateDevice: "PATCH /devices/{id}",
+    UpdateEnvironment: "PATCH /environments/{id}",
+    UpdateSoftwareSet: "PATCH /softwaresets/{id}",
   },
 } as const satisfies ServiceMetadata;
 

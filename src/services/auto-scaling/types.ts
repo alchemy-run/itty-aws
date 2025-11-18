@@ -37,13 +37,19 @@ export declare class AutoScaling extends AWSServiceClient {
     input: BatchPutScheduledUpdateGroupActionType,
   ): Effect.Effect<
     BatchPutScheduledUpdateGroupActionAnswer,
-    AlreadyExistsFault | LimitExceededFault | ResourceContentionFault | CommonAwsError
+    | AlreadyExistsFault
+    | LimitExceededFault
+    | ResourceContentionFault
+    | CommonAwsError
   >;
   cancelInstanceRefresh(
     input: CancelInstanceRefreshType,
   ): Effect.Effect<
     CancelInstanceRefreshAnswer,
-    ActiveInstanceRefreshNotFoundFault | LimitExceededFault | ResourceContentionFault | CommonAwsError
+    | ActiveInstanceRefreshNotFoundFault
+    | LimitExceededFault
+    | ResourceContentionFault
+    | CommonAwsError
   >;
   completeLifecycleAction(
     input: CompleteLifecycleActionType,
@@ -55,25 +61,39 @@ export declare class AutoScaling extends AWSServiceClient {
     input: CreateAutoScalingGroupType,
   ): Effect.Effect<
     {},
-    AlreadyExistsFault | LimitExceededFault | ResourceContentionFault | ServiceLinkedRoleFailure | CommonAwsError
+    | AlreadyExistsFault
+    | LimitExceededFault
+    | ResourceContentionFault
+    | ServiceLinkedRoleFailure
+    | CommonAwsError
   >;
   createLaunchConfiguration(
     input: CreateLaunchConfigurationType,
   ): Effect.Effect<
     {},
-    AlreadyExistsFault | LimitExceededFault | ResourceContentionFault | CommonAwsError
+    | AlreadyExistsFault
+    | LimitExceededFault
+    | ResourceContentionFault
+    | CommonAwsError
   >;
   createOrUpdateTags(
     input: CreateOrUpdateTagsType,
   ): Effect.Effect<
     {},
-    AlreadyExistsFault | LimitExceededFault | ResourceContentionFault | ResourceInUseFault | CommonAwsError
+    | AlreadyExistsFault
+    | LimitExceededFault
+    | ResourceContentionFault
+    | ResourceInUseFault
+    | CommonAwsError
   >;
   deleteAutoScalingGroup(
     input: DeleteAutoScalingGroupType,
   ): Effect.Effect<
     {},
-    ResourceContentionFault | ResourceInUseFault | ScalingActivityInProgressFault | CommonAwsError
+    | ResourceContentionFault
+    | ResourceInUseFault
+    | ScalingActivityInProgressFault
+    | CommonAwsError
   >;
   deleteLaunchConfiguration(
     input: LaunchConfigurationNameType,
@@ -89,10 +109,7 @@ export declare class AutoScaling extends AWSServiceClient {
   >;
   deleteNotificationConfiguration(
     input: DeleteNotificationConfigurationType,
-  ): Effect.Effect<
-    {},
-    ResourceContentionFault | CommonAwsError
-  >;
+  ): Effect.Effect<{}, ResourceContentionFault | CommonAwsError>;
   deletePolicy(
     input: DeletePolicyType,
   ): Effect.Effect<
@@ -101,10 +118,7 @@ export declare class AutoScaling extends AWSServiceClient {
   >;
   deleteScheduledAction(
     input: DeleteScheduledActionType,
-  ): Effect.Effect<
-    {},
-    ResourceContentionFault | CommonAwsError
-  >;
+  ): Effect.Effect<{}, ResourceContentionFault | CommonAwsError>;
   deleteTags(
     input: DeleteTagsType,
   ): Effect.Effect<
@@ -115,17 +129,17 @@ export declare class AutoScaling extends AWSServiceClient {
     input: DeleteWarmPoolType,
   ): Effect.Effect<
     DeleteWarmPoolAnswer,
-    LimitExceededFault | ResourceContentionFault | ResourceInUseFault | ScalingActivityInProgressFault | CommonAwsError
+    | LimitExceededFault
+    | ResourceContentionFault
+    | ResourceInUseFault
+    | ScalingActivityInProgressFault
+    | CommonAwsError
   >;
-  describeAccountLimits(
-    input: {},
-  ): Effect.Effect<
+  describeAccountLimits(input: {}): Effect.Effect<
     DescribeAccountLimitsAnswer,
     ResourceContentionFault | CommonAwsError
   >;
-  describeAdjustmentTypes(
-    input: {},
-  ): Effect.Effect<
+  describeAdjustmentTypes(input: {}): Effect.Effect<
     DescribeAdjustmentTypesAnswer,
     ResourceContentionFault | CommonAwsError
   >;
@@ -141,9 +155,7 @@ export declare class AutoScaling extends AWSServiceClient {
     AutoScalingInstancesType,
     InvalidNextToken | ResourceContentionFault | CommonAwsError
   >;
-  describeAutoScalingNotificationTypes(
-    input: {},
-  ): Effect.Effect<
+  describeAutoScalingNotificationTypes(input: {}): Effect.Effect<
     DescribeAutoScalingNotificationTypesAnswer,
     ResourceContentionFault | CommonAwsError
   >;
@@ -165,9 +177,7 @@ export declare class AutoScaling extends AWSServiceClient {
     DescribeLifecycleHooksAnswer,
     ResourceContentionFault | CommonAwsError
   >;
-  describeLifecycleHookTypes(
-    input: {},
-  ): Effect.Effect<
+  describeLifecycleHookTypes(input: {}): Effect.Effect<
     DescribeLifecycleHookTypesAnswer,
     ResourceContentionFault | CommonAwsError
   >;
@@ -183,9 +193,7 @@ export declare class AutoScaling extends AWSServiceClient {
     DescribeLoadBalancerTargetGroupsResponse,
     InvalidNextToken | ResourceContentionFault | CommonAwsError
   >;
-  describeMetricCollectionTypes(
-    input: {},
-  ): Effect.Effect<
+  describeMetricCollectionTypes(input: {}): Effect.Effect<
     DescribeMetricCollectionTypesAnswer,
     ResourceContentionFault | CommonAwsError
   >;
@@ -199,7 +207,10 @@ export declare class AutoScaling extends AWSServiceClient {
     input: DescribePoliciesType,
   ): Effect.Effect<
     PoliciesType,
-    InvalidNextToken | ResourceContentionFault | ServiceLinkedRoleFailure | CommonAwsError
+    | InvalidNextToken
+    | ResourceContentionFault
+    | ServiceLinkedRoleFailure
+    | CommonAwsError
   >;
   describeScalingActivities(
     input: DescribeScalingActivitiesType,
@@ -207,9 +218,7 @@ export declare class AutoScaling extends AWSServiceClient {
     ActivitiesType,
     InvalidNextToken | ResourceContentionFault | CommonAwsError
   >;
-  describeScalingProcessTypes(
-    input: {},
-  ): Effect.Effect<
+  describeScalingProcessTypes(input: {}): Effect.Effect<
     ProcessesType,
     ResourceContentionFault | CommonAwsError
   >;
@@ -225,9 +234,7 @@ export declare class AutoScaling extends AWSServiceClient {
     TagsType,
     InvalidNextToken | ResourceContentionFault | CommonAwsError
   >;
-  describeTerminationPolicyTypes(
-    input: {},
-  ): Effect.Effect<
+  describeTerminationPolicyTypes(input: {}): Effect.Effect<
     DescribeTerminationPolicyTypesAnswer,
     ResourceContentionFault | CommonAwsError
   >;
@@ -241,7 +248,10 @@ export declare class AutoScaling extends AWSServiceClient {
     input: DescribeWarmPoolType,
   ): Effect.Effect<
     DescribeWarmPoolAnswer,
-    InvalidNextToken | LimitExceededFault | ResourceContentionFault | CommonAwsError
+    | InvalidNextToken
+    | LimitExceededFault
+    | ResourceContentionFault
+    | CommonAwsError
   >;
   detachInstances(
     input: DetachInstancesQuery,
@@ -269,16 +279,10 @@ export declare class AutoScaling extends AWSServiceClient {
   >;
   disableMetricsCollection(
     input: DisableMetricsCollectionQuery,
-  ): Effect.Effect<
-    {},
-    ResourceContentionFault | CommonAwsError
-  >;
+  ): Effect.Effect<{}, ResourceContentionFault | CommonAwsError>;
   enableMetricsCollection(
     input: EnableMetricsCollectionQuery,
-  ): Effect.Effect<
-    {},
-    ResourceContentionFault | CommonAwsError
-  >;
+  ): Effect.Effect<{}, ResourceContentionFault | CommonAwsError>;
   enterStandby(
     input: EnterStandbyQuery,
   ): Effect.Effect<
@@ -293,10 +297,7 @@ export declare class AutoScaling extends AWSServiceClient {
   >;
   exitStandby(
     input: ExitStandbyQuery,
-  ): Effect.Effect<
-    ExitStandbyAnswer,
-    ResourceContentionFault | CommonAwsError
-  >;
+  ): Effect.Effect<ExitStandbyAnswer, ResourceContentionFault | CommonAwsError>;
   getPredictiveScalingForecast(
     input: GetPredictiveScalingForecastType,
   ): Effect.Effect<
@@ -313,19 +314,28 @@ export declare class AutoScaling extends AWSServiceClient {
     input: PutNotificationConfigurationType,
   ): Effect.Effect<
     {},
-    LimitExceededFault | ResourceContentionFault | ServiceLinkedRoleFailure | CommonAwsError
+    | LimitExceededFault
+    | ResourceContentionFault
+    | ServiceLinkedRoleFailure
+    | CommonAwsError
   >;
   putScalingPolicy(
     input: PutScalingPolicyType,
   ): Effect.Effect<
     PolicyARNType,
-    LimitExceededFault | ResourceContentionFault | ServiceLinkedRoleFailure | CommonAwsError
+    | LimitExceededFault
+    | ResourceContentionFault
+    | ServiceLinkedRoleFailure
+    | CommonAwsError
   >;
   putScheduledUpdateGroupAction(
     input: PutScheduledUpdateGroupActionType,
   ): Effect.Effect<
     {},
-    AlreadyExistsFault | LimitExceededFault | ResourceContentionFault | CommonAwsError
+    | AlreadyExistsFault
+    | LimitExceededFault
+    | ResourceContentionFault
+    | CommonAwsError
   >;
   putWarmPool(
     input: PutWarmPoolType,
@@ -349,7 +359,11 @@ export declare class AutoScaling extends AWSServiceClient {
     input: RollbackInstanceRefreshType,
   ): Effect.Effect<
     RollbackInstanceRefreshAnswer,
-    ActiveInstanceRefreshNotFoundFault | IrreversibleInstanceRefreshFault | LimitExceededFault | ResourceContentionFault | CommonAwsError
+    | ActiveInstanceRefreshNotFoundFault
+    | IrreversibleInstanceRefreshFault
+    | LimitExceededFault
+    | ResourceContentionFault
+    | CommonAwsError
   >;
   setDesiredCapacity(
     input: SetDesiredCapacityType,
@@ -359,10 +373,7 @@ export declare class AutoScaling extends AWSServiceClient {
   >;
   setInstanceHealth(
     input: SetInstanceHealthQuery,
-  ): Effect.Effect<
-    {},
-    ResourceContentionFault | CommonAwsError
-  >;
+  ): Effect.Effect<{}, ResourceContentionFault | CommonAwsError>;
   setInstanceProtection(
     input: SetInstanceProtectionQuery,
   ): Effect.Effect<
@@ -373,7 +384,10 @@ export declare class AutoScaling extends AWSServiceClient {
     input: StartInstanceRefreshType,
   ): Effect.Effect<
     StartInstanceRefreshAnswer,
-    InstanceRefreshInProgressFault | LimitExceededFault | ResourceContentionFault | CommonAwsError
+    | InstanceRefreshInProgressFault
+    | LimitExceededFault
+    | ResourceContentionFault
+    | CommonAwsError
   >;
   suspendProcesses(
     input: ScalingProcessQuery,
@@ -391,7 +405,10 @@ export declare class AutoScaling extends AWSServiceClient {
     input: UpdateAutoScalingGroupType,
   ): Effect.Effect<
     {},
-    ResourceContentionFault | ScalingActivityInProgressFault | ServiceLinkedRoleFailure | CommonAwsError
+    | ResourceContentionFault
+    | ScalingActivityInProgressFault
+    | ServiceLinkedRoleFailure
+    | CommonAwsError
   >;
 }
 
@@ -399,9 +416,20 @@ export interface AcceleratorCountRequest {
   Min?: number;
   Max?: number;
 }
-export type AcceleratorManufacturer = "nvidia" | "amd" | "amazon-web-services" | "xilinx";
+export type AcceleratorManufacturer =
+  | "nvidia"
+  | "amd"
+  | "amazon-web-services"
+  | "xilinx";
 export type AcceleratorManufacturers = Array<AcceleratorManufacturer>;
-export type AcceleratorName = "a100" | "v100" | "k80" | "t4" | "m60" | "radeon-pro-v520" | "vu9p";
+export type AcceleratorName =
+  | "a100"
+  | "v100"
+  | "k80"
+  | "t4"
+  | "m60"
+  | "radeon-pro-v520"
+  | "vu9p";
 export type AcceleratorNames = Array<AcceleratorName>;
 export interface AcceleratorTotalMemoryMiBRequest {
   Min?: number;
@@ -468,20 +496,17 @@ export interface AttachInstancesQuery {
   InstanceIds?: Array<string>;
   AutoScalingGroupName: string;
 }
-export interface AttachLoadBalancersResultType {
-}
+export interface AttachLoadBalancersResultType {}
 export interface AttachLoadBalancersType {
   AutoScalingGroupName: string;
   LoadBalancerNames: Array<string>;
 }
-export interface AttachLoadBalancerTargetGroupsResultType {
-}
+export interface AttachLoadBalancerTargetGroupsResultType {}
 export interface AttachLoadBalancerTargetGroupsType {
   AutoScalingGroupName: string;
   TargetGroupARNs: Array<string>;
 }
-export interface AttachTrafficSourcesResultType {
-}
+export interface AttachTrafficSourcesResultType {}
 export interface AttachTrafficSourcesType {
   AutoScalingGroupName: string;
   TrafficSources: Array<TrafficSourceIdentifier>;
@@ -631,7 +656,9 @@ export interface CancelInstanceRefreshType {
   AutoScalingGroupName: string;
   WaitForTransitioningInstances?: boolean;
 }
-export type CapacityDistributionStrategy = "balanced-only" | "balanced-best-effort";
+export type CapacityDistributionStrategy =
+  | "balanced-only"
+  | "balanced-best-effort";
 export interface CapacityForecast {
   Timestamps: Array<Date | string>;
   Values: Array<number>;
@@ -639,7 +666,11 @@ export interface CapacityForecast {
 export type CapacityRebalanceEnabled = boolean;
 
 export type CapacityReservationIds = Array<string>;
-export type CapacityReservationPreference = "capacity-reservations-only" | "capacity-reservations-first" | "none" | "default";
+export type CapacityReservationPreference =
+  | "capacity-reservations-only"
+  | "capacity-reservations-first"
+  | "none"
+  | "default";
 export type CapacityReservationResourceGroupArns = Array<string>;
 export interface CapacityReservationSpecification {
   CapacityReservationPreference?: CapacityReservationPreference;
@@ -653,8 +684,7 @@ export type CheckpointDelay = number;
 
 export type CheckpointPercentages = Array<number>;
 export type ClassicLinkVPCSecurityGroups = Array<string>;
-export interface CompleteLifecycleActionAnswer {
-}
+export interface CompleteLifecycleActionAnswer {}
 export interface CompleteLifecycleActionType {
   LifecycleHookName: string;
   AutoScalingGroupName: string;
@@ -744,8 +774,7 @@ export interface DeleteAutoScalingGroupType {
   AutoScalingGroupName: string;
   ForceDelete?: boolean;
 }
-export interface DeleteLifecycleHookAnswer {
-}
+export interface DeleteLifecycleHookAnswer {}
 export interface DeleteLifecycleHookType {
   LifecycleHookName: string;
   AutoScalingGroupName: string;
@@ -765,8 +794,7 @@ export interface DeleteScheduledActionType {
 export interface DeleteTagsType {
   Tags: Array<Tag>;
 }
-export interface DeleteWarmPoolAnswer {
-}
+export interface DeleteWarmPoolAnswer {}
 export interface DeleteWarmPoolType {
   AutoScalingGroupName: string;
   ForceDelete?: boolean;
@@ -901,20 +929,17 @@ export interface DetachInstancesQuery {
   AutoScalingGroupName: string;
   ShouldDecrementDesiredCapacity: boolean;
 }
-export interface DetachLoadBalancersResultType {
-}
+export interface DetachLoadBalancersResultType {}
 export interface DetachLoadBalancersType {
   AutoScalingGroupName: string;
   LoadBalancerNames: Array<string>;
 }
-export interface DetachLoadBalancerTargetGroupsResultType {
-}
+export interface DetachLoadBalancerTargetGroupsResultType {}
 export interface DetachLoadBalancerTargetGroupsType {
   AutoScalingGroupName: string;
   TargetGroupARNs: Array<string>;
 }
-export interface DetachTrafficSourcesResultType {
-}
+export interface DetachTrafficSourcesResultType {}
 export interface DetachTrafficSourcesType {
   AutoScalingGroupName: string;
   TrafficSources: Array<TrafficSourceIdentifier>;
@@ -978,7 +1003,8 @@ export interface FailedScheduledUpdateGroupActionRequest {
   ErrorCode?: string;
   ErrorMessage?: string;
 }
-export type FailedScheduledUpdateGroupActionRequests = Array<FailedScheduledUpdateGroupActionRequest>;
+export type FailedScheduledUpdateGroupActionRequests =
+  Array<FailedScheduledUpdateGroupActionRequest>;
 export interface Filter {
   Name?: string;
   Values?: Array<string>;
@@ -1005,7 +1031,9 @@ export type HeartbeatTimeout = number;
 
 export type HonorCooldown = boolean;
 
-export type ImpairedZoneHealthCheckBehavior = "ReplaceUnhealthy" | "IgnoreUnhealthy";
+export type ImpairedZoneHealthCheckBehavior =
+  | "ReplaceUnhealthy"
+  | "IgnoreUnhealthy";
 export type IncludeDeletedGroups = boolean;
 
 export type IncludeInstances = boolean;
@@ -1071,7 +1099,17 @@ export interface InstanceRefreshProgressDetails {
   LivePoolProgress?: InstanceRefreshLivePoolProgress;
   WarmPoolProgress?: InstanceRefreshWarmPoolProgress;
 }
-export type InstanceRefreshStatus = "Pending" | "InProgress" | "Successful" | "Failed" | "Cancelling" | "Cancelled" | "RollbackInProgress" | "RollbackFailed" | "RollbackSuccessful" | "Baking";
+export type InstanceRefreshStatus =
+  | "Pending"
+  | "InProgress"
+  | "Successful"
+  | "Failed"
+  | "Cancelling"
+  | "Cancelled"
+  | "RollbackInProgress"
+  | "RollbackFailed"
+  | "RollbackSuccessful"
+  | "Baking";
 export interface InstanceRefreshWarmPoolProgress {
   PercentageComplete?: number;
   InstancesToUpdate?: number;
@@ -1215,7 +1253,30 @@ export interface LifecycleHookSpecification {
   RoleARN?: string;
 }
 export type LifecycleHookSpecifications = Array<LifecycleHookSpecification>;
-export type LifecycleState = "Pending" | "Pending:Wait" | "Pending:Proceed" | "Quarantined" | "InService" | "Terminating" | "Terminating:Wait" | "Terminating:Proceed" | "Terminated" | "Detaching" | "Detached" | "EnteringStandby" | "Standby" | "Warmed:Pending" | "Warmed:Pending:Wait" | "Warmed:Pending:Proceed" | "Warmed:Terminating" | "Warmed:Terminating:Wait" | "Warmed:Terminating:Proceed" | "Warmed:Terminated" | "Warmed:Stopped" | "Warmed:Running" | "Warmed:Hibernated";
+export type LifecycleState =
+  | "Pending"
+  | "Pending:Wait"
+  | "Pending:Proceed"
+  | "Quarantined"
+  | "InService"
+  | "Terminating"
+  | "Terminating:Wait"
+  | "Terminating:Proceed"
+  | "Terminated"
+  | "Detaching"
+  | "Detached"
+  | "EnteringStandby"
+  | "Standby"
+  | "Warmed:Pending"
+  | "Warmed:Pending:Wait"
+  | "Warmed:Pending:Proceed"
+  | "Warmed:Terminating"
+  | "Warmed:Terminating:Wait"
+  | "Warmed:Terminating:Proceed"
+  | "Warmed:Terminated"
+  | "Warmed:Stopped"
+  | "Warmed:Running"
+  | "Warmed:Hibernated";
 export type LifecycleTransition = string;
 
 export declare class LimitExceededFault extends EffectData.TaggedError(
@@ -1305,8 +1366,17 @@ export interface MetricStat {
   Stat: string;
   Unit?: string;
 }
-export type MetricStatistic = "Average" | "Minimum" | "Maximum" | "SampleCount" | "Sum";
-export type MetricType = "ASGAverageCPUUtilization" | "ASGAverageNetworkIn" | "ASGAverageNetworkOut" | "ALBRequestCountPerTarget";
+export type MetricStatistic =
+  | "Average"
+  | "Minimum"
+  | "Maximum"
+  | "SampleCount"
+  | "Sum";
+export type MetricType =
+  | "ASGAverageCPUUtilization"
+  | "ASGAverageNetworkIn"
+  | "ASGAverageNetworkOut"
+  | "ALBRequestCountPerTarget";
 export type MetricUnit = string;
 
 export type MinAdjustmentMagnitude = number;
@@ -1359,7 +1429,8 @@ export type Overrides = Array<LaunchTemplateOverrides>;
 export interface PerformanceFactorReferenceRequest {
   InstanceFamily?: string;
 }
-export type PerformanceFactorReferenceSetRequest = Array<PerformanceFactorReferenceRequest>;
+export type PerformanceFactorReferenceSetRequest =
+  Array<PerformanceFactorReferenceRequest>;
 export interface PoliciesType {
   ScalingPolicies?: Array<ScalingPolicy>;
   NextToken?: string;
@@ -1372,13 +1443,25 @@ export type PolicyIncrement = number;
 
 export type PolicyNames = Array<string>;
 export type PolicyTypes = Array<string>;
-export type PredefinedLoadMetricType = "ASGTotalCPUUtilization" | "ASGTotalNetworkIn" | "ASGTotalNetworkOut" | "ALBTargetGroupRequestCount";
-export type PredefinedMetricPairType = "ASGCPUUtilization" | "ASGNetworkIn" | "ASGNetworkOut" | "ALBRequestCount";
+export type PredefinedLoadMetricType =
+  | "ASGTotalCPUUtilization"
+  | "ASGTotalNetworkIn"
+  | "ASGTotalNetworkOut"
+  | "ALBTargetGroupRequestCount";
+export type PredefinedMetricPairType =
+  | "ASGCPUUtilization"
+  | "ASGNetworkIn"
+  | "ASGNetworkOut"
+  | "ALBRequestCount";
 export interface PredefinedMetricSpecification {
   PredefinedMetricType: MetricType;
   ResourceLabel?: string;
 }
-export type PredefinedScalingMetricType = "ASGAverageCPUUtilization" | "ASGAverageNetworkIn" | "ASGAverageNetworkOut" | "ALBRequestCountPerTarget";
+export type PredefinedScalingMetricType =
+  | "ASGAverageCPUUtilization"
+  | "ASGAverageNetworkIn"
+  | "ASGAverageNetworkOut"
+  | "ALBRequestCountPerTarget";
 export interface PredictiveScalingConfiguration {
   MetricSpecifications: Array<PredictiveScalingMetricSpecification>;
   Mode?: PredictiveScalingMode;
@@ -1397,7 +1480,9 @@ export interface PredictiveScalingCustomizedScalingMetric {
 }
 export type PredictiveScalingForecastTimestamps = Array<Date | string>;
 export type PredictiveScalingForecastValues = Array<number>;
-export type PredictiveScalingMaxCapacityBreachBehavior = "HonorMaxCapacity" | "IncreaseMaxCapacity";
+export type PredictiveScalingMaxCapacityBreachBehavior =
+  | "HonorMaxCapacity"
+  | "IncreaseMaxCapacity";
 export type PredictiveScalingMaxCapacityBuffer = number;
 
 export interface PredictiveScalingMetricSpecification {
@@ -1409,7 +1494,8 @@ export interface PredictiveScalingMetricSpecification {
   CustomizedLoadMetricSpecification?: PredictiveScalingCustomizedLoadMetric;
   CustomizedCapacityMetricSpecification?: PredictiveScalingCustomizedCapacityMetric;
 }
-export type PredictiveScalingMetricSpecifications = Array<PredictiveScalingMetricSpecification>;
+export type PredictiveScalingMetricSpecifications =
+  Array<PredictiveScalingMetricSpecification>;
 export type PredictiveScalingMode = "ForecastAndScale" | "ForecastOnly";
 export interface PredictiveScalingPredefinedLoadMetric {
   PredefinedMetricType: PredefinedLoadMetricType;
@@ -1439,8 +1525,7 @@ export type PropagateAtLaunch = boolean;
 
 export type ProtectedFromScaleIn = boolean;
 
-export interface PutLifecycleHookAnswer {
-}
+export interface PutLifecycleHookAnswer {}
 export interface PutLifecycleHookType {
   LifecycleHookName: string;
   AutoScalingGroupName: string;
@@ -1484,8 +1569,7 @@ export interface PutScheduledUpdateGroupActionType {
   DesiredCapacity?: number;
   TimeZone?: string;
 }
-export interface PutWarmPoolAnswer {
-}
+export interface PutWarmPoolAnswer {}
 export interface PutWarmPoolType {
   AutoScalingGroupName: string;
   MaxGroupPreparedCapacity?: number;
@@ -1493,8 +1577,7 @@ export interface PutWarmPoolType {
   PoolState?: WarmPoolState;
   InstanceReusePolicy?: InstanceReusePolicy;
 }
-export interface RecordLifecycleActionHeartbeatAnswer {
-}
+export interface RecordLifecycleActionHeartbeatAnswer {}
 export interface RecordLifecycleActionHeartbeatType {
   LifecycleHookName: string;
   AutoScalingGroupName: string;
@@ -1552,7 +1635,20 @@ export declare class ScalingActivityInProgressFault extends EffectData.TaggedErr
 )<{
   readonly message?: string;
 }> {}
-export type ScalingActivityStatusCode = "PendingSpotBidPlacement" | "WaitingForSpotInstanceRequestId" | "WaitingForSpotInstanceId" | "WaitingForInstanceId" | "PreInService" | "InProgress" | "WaitingForELBConnectionDraining" | "MidLifecycleAction" | "WaitingForInstanceWarmup" | "Successful" | "Failed" | "Cancelled" | "WaitingForConnectionDraining";
+export type ScalingActivityStatusCode =
+  | "PendingSpotBidPlacement"
+  | "WaitingForSpotInstanceRequestId"
+  | "WaitingForSpotInstanceId"
+  | "WaitingForInstanceId"
+  | "PreInService"
+  | "InProgress"
+  | "WaitingForELBConnectionDraining"
+  | "MidLifecycleAction"
+  | "WaitingForInstanceWarmup"
+  | "Successful"
+  | "Failed"
+  | "Cancelled"
+  | "WaitingForConnectionDraining";
 export type ScalingPolicies = Array<ScalingPolicy>;
 export interface ScalingPolicy {
   AutoScalingGroupName?: string;
@@ -1606,7 +1702,8 @@ export interface ScheduledUpdateGroupActionRequest {
   DesiredCapacity?: number;
   TimeZone?: string;
 }
-export type ScheduledUpdateGroupActionRequests = Array<ScheduledUpdateGroupActionRequest>;
+export type ScheduledUpdateGroupActionRequests =
+  Array<ScheduledUpdateGroupActionRequest>;
 export type ScheduledUpdateGroupActions = Array<ScheduledUpdateGroupAction>;
 export type SecurityGroups = Array<string>;
 export declare class ServiceLinkedRoleFailure extends EffectData.TaggedError(
@@ -1624,8 +1721,7 @@ export interface SetInstanceHealthQuery {
   HealthStatus: string;
   ShouldRespectGracePeriod?: boolean;
 }
-export interface SetInstanceProtectionAnswer {
-}
+export interface SetInstanceProtectionAnswer {}
 export interface SetInstanceProtectionQuery {
   InstanceIds: Array<string>;
   AutoScalingGroupName: string;
@@ -1697,7 +1793,8 @@ export interface TargetTrackingConfiguration {
   TargetValue: number;
   DisableScaleIn?: boolean;
 }
-export type TargetTrackingMetricDataQueries = Array<TargetTrackingMetricDataQuery>;
+export type TargetTrackingMetricDataQueries =
+  Array<TargetTrackingMetricDataQuery>;
 export interface TargetTrackingMetricDataQuery {
   Id: string;
   Expression?: string;
@@ -1850,9 +1947,7 @@ export declare namespace AttachTrafficSources {
 export declare namespace BatchDeleteScheduledAction {
   export type Input = BatchDeleteScheduledActionType;
   export type Output = BatchDeleteScheduledActionAnswer;
-  export type Error =
-    | ResourceContentionFault
-    | CommonAwsError;
+  export type Error = ResourceContentionFault | CommonAwsError;
 }
 
 export declare namespace BatchPutScheduledUpdateGroupAction {
@@ -1878,9 +1973,7 @@ export declare namespace CancelInstanceRefresh {
 export declare namespace CompleteLifecycleAction {
   export type Input = CompleteLifecycleActionType;
   export type Output = CompleteLifecycleActionAnswer;
-  export type Error =
-    | ResourceContentionFault
-    | CommonAwsError;
+  export type Error = ResourceContentionFault | CommonAwsError;
 }
 
 export declare namespace CreateAutoScalingGroup {
@@ -1937,17 +2030,13 @@ export declare namespace DeleteLaunchConfiguration {
 export declare namespace DeleteLifecycleHook {
   export type Input = DeleteLifecycleHookType;
   export type Output = DeleteLifecycleHookAnswer;
-  export type Error =
-    | ResourceContentionFault
-    | CommonAwsError;
+  export type Error = ResourceContentionFault | CommonAwsError;
 }
 
 export declare namespace DeleteNotificationConfiguration {
   export type Input = DeleteNotificationConfigurationType;
   export type Output = {};
-  export type Error =
-    | ResourceContentionFault
-    | CommonAwsError;
+  export type Error = ResourceContentionFault | CommonAwsError;
 }
 
 export declare namespace DeletePolicy {
@@ -1962,9 +2051,7 @@ export declare namespace DeletePolicy {
 export declare namespace DeleteScheduledAction {
   export type Input = DeleteScheduledActionType;
   export type Output = {};
-  export type Error =
-    | ResourceContentionFault
-    | CommonAwsError;
+  export type Error = ResourceContentionFault | CommonAwsError;
 }
 
 export declare namespace DeleteTags {
@@ -1990,17 +2077,13 @@ export declare namespace DeleteWarmPool {
 export declare namespace DescribeAccountLimits {
   export type Input = {};
   export type Output = DescribeAccountLimitsAnswer;
-  export type Error =
-    | ResourceContentionFault
-    | CommonAwsError;
+  export type Error = ResourceContentionFault | CommonAwsError;
 }
 
 export declare namespace DescribeAdjustmentTypes {
   export type Input = {};
   export type Output = DescribeAdjustmentTypesAnswer;
-  export type Error =
-    | ResourceContentionFault
-    | CommonAwsError;
+  export type Error = ResourceContentionFault | CommonAwsError;
 }
 
 export declare namespace DescribeAutoScalingGroups {
@@ -2024,9 +2107,7 @@ export declare namespace DescribeAutoScalingInstances {
 export declare namespace DescribeAutoScalingNotificationTypes {
   export type Input = {};
   export type Output = DescribeAutoScalingNotificationTypesAnswer;
-  export type Error =
-    | ResourceContentionFault
-    | CommonAwsError;
+  export type Error = ResourceContentionFault | CommonAwsError;
 }
 
 export declare namespace DescribeInstanceRefreshes {
@@ -2050,17 +2131,13 @@ export declare namespace DescribeLaunchConfigurations {
 export declare namespace DescribeLifecycleHooks {
   export type Input = DescribeLifecycleHooksType;
   export type Output = DescribeLifecycleHooksAnswer;
-  export type Error =
-    | ResourceContentionFault
-    | CommonAwsError;
+  export type Error = ResourceContentionFault | CommonAwsError;
 }
 
 export declare namespace DescribeLifecycleHookTypes {
   export type Input = {};
   export type Output = DescribeLifecycleHookTypesAnswer;
-  export type Error =
-    | ResourceContentionFault
-    | CommonAwsError;
+  export type Error = ResourceContentionFault | CommonAwsError;
 }
 
 export declare namespace DescribeLoadBalancers {
@@ -2084,9 +2161,7 @@ export declare namespace DescribeLoadBalancerTargetGroups {
 export declare namespace DescribeMetricCollectionTypes {
   export type Input = {};
   export type Output = DescribeMetricCollectionTypesAnswer;
-  export type Error =
-    | ResourceContentionFault
-    | CommonAwsError;
+  export type Error = ResourceContentionFault | CommonAwsError;
 }
 
 export declare namespace DescribeNotificationConfigurations {
@@ -2120,9 +2195,7 @@ export declare namespace DescribeScalingActivities {
 export declare namespace DescribeScalingProcessTypes {
   export type Input = {};
   export type Output = ProcessesType;
-  export type Error =
-    | ResourceContentionFault
-    | CommonAwsError;
+  export type Error = ResourceContentionFault | CommonAwsError;
 }
 
 export declare namespace DescribeScheduledActions {
@@ -2146,9 +2219,7 @@ export declare namespace DescribeTags {
 export declare namespace DescribeTerminationPolicyTypes {
   export type Input = {};
   export type Output = DescribeTerminationPolicyTypesAnswer;
-  export type Error =
-    | ResourceContentionFault
-    | CommonAwsError;
+  export type Error = ResourceContentionFault | CommonAwsError;
 }
 
 export declare namespace DescribeTrafficSources {
@@ -2173,57 +2244,43 @@ export declare namespace DescribeWarmPool {
 export declare namespace DetachInstances {
   export type Input = DetachInstancesQuery;
   export type Output = DetachInstancesAnswer;
-  export type Error =
-    | ResourceContentionFault
-    | CommonAwsError;
+  export type Error = ResourceContentionFault | CommonAwsError;
 }
 
 export declare namespace DetachLoadBalancers {
   export type Input = DetachLoadBalancersType;
   export type Output = DetachLoadBalancersResultType;
-  export type Error =
-    | ResourceContentionFault
-    | CommonAwsError;
+  export type Error = ResourceContentionFault | CommonAwsError;
 }
 
 export declare namespace DetachLoadBalancerTargetGroups {
   export type Input = DetachLoadBalancerTargetGroupsType;
   export type Output = DetachLoadBalancerTargetGroupsResultType;
-  export type Error =
-    | ResourceContentionFault
-    | CommonAwsError;
+  export type Error = ResourceContentionFault | CommonAwsError;
 }
 
 export declare namespace DetachTrafficSources {
   export type Input = DetachTrafficSourcesType;
   export type Output = DetachTrafficSourcesResultType;
-  export type Error =
-    | ResourceContentionFault
-    | CommonAwsError;
+  export type Error = ResourceContentionFault | CommonAwsError;
 }
 
 export declare namespace DisableMetricsCollection {
   export type Input = DisableMetricsCollectionQuery;
   export type Output = {};
-  export type Error =
-    | ResourceContentionFault
-    | CommonAwsError;
+  export type Error = ResourceContentionFault | CommonAwsError;
 }
 
 export declare namespace EnableMetricsCollection {
   export type Input = EnableMetricsCollectionQuery;
   export type Output = {};
-  export type Error =
-    | ResourceContentionFault
-    | CommonAwsError;
+  export type Error = ResourceContentionFault | CommonAwsError;
 }
 
 export declare namespace EnterStandby {
   export type Input = EnterStandbyQuery;
   export type Output = EnterStandbyAnswer;
-  export type Error =
-    | ResourceContentionFault
-    | CommonAwsError;
+  export type Error = ResourceContentionFault | CommonAwsError;
 }
 
 export declare namespace ExecutePolicy {
@@ -2238,17 +2295,13 @@ export declare namespace ExecutePolicy {
 export declare namespace ExitStandby {
   export type Input = ExitStandbyQuery;
   export type Output = ExitStandbyAnswer;
-  export type Error =
-    | ResourceContentionFault
-    | CommonAwsError;
+  export type Error = ResourceContentionFault | CommonAwsError;
 }
 
 export declare namespace GetPredictiveScalingForecast {
   export type Input = GetPredictiveScalingForecastType;
   export type Output = GetPredictiveScalingForecastAnswer;
-  export type Error =
-    | ResourceContentionFault
-    | CommonAwsError;
+  export type Error = ResourceContentionFault | CommonAwsError;
 }
 
 export declare namespace PutLifecycleHook {
@@ -2302,9 +2355,7 @@ export declare namespace PutWarmPool {
 export declare namespace RecordLifecycleActionHeartbeat {
   export type Input = RecordLifecycleActionHeartbeatType;
   export type Output = RecordLifecycleActionHeartbeatAnswer;
-  export type Error =
-    | ResourceContentionFault
-    | CommonAwsError;
+  export type Error = ResourceContentionFault | CommonAwsError;
 }
 
 export declare namespace ResumeProcesses {
@@ -2339,9 +2390,7 @@ export declare namespace SetDesiredCapacity {
 export declare namespace SetInstanceHealth {
   export type Input = SetInstanceHealthQuery;
   export type Output = {};
-  export type Error =
-    | ResourceContentionFault
-    | CommonAwsError;
+  export type Error = ResourceContentionFault | CommonAwsError;
 }
 
 export declare namespace SetInstanceProtection {
@@ -2391,5 +2440,15 @@ export declare namespace UpdateAutoScalingGroup {
     | CommonAwsError;
 }
 
-export type AutoScalingErrors = ActiveInstanceRefreshNotFoundFault | AlreadyExistsFault | InstanceRefreshInProgressFault | InvalidNextToken | IrreversibleInstanceRefreshFault | LimitExceededFault | ResourceContentionFault | ResourceInUseFault | ScalingActivityInProgressFault | ServiceLinkedRoleFailure | CommonAwsError;
-
+export type AutoScalingErrors =
+  | ActiveInstanceRefreshNotFoundFault
+  | AlreadyExistsFault
+  | InstanceRefreshInProgressFault
+  | InvalidNextToken
+  | IrreversibleInstanceRefreshFault
+  | LimitExceededFault
+  | ResourceContentionFault
+  | ResourceInUseFault
+  | ScalingActivityInProgressFault
+  | ServiceLinkedRoleFailure
+  | CommonAwsError;

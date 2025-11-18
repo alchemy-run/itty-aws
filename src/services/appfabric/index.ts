@@ -5,7 +5,23 @@ import type { AppFabric as _AppFabricClient } from "./types.ts";
 
 export * from "./types.ts";
 
-export {ExpiredTokenException, IncompleteSignature, InternalFailure, MalformedHttpRequestException, NotAuthorized, OptInRequired, RequestAbortedException, RequestEntityTooLargeException, RequestExpired, RequestTimeoutException, ServiceUnavailable, UnrecognizedClientException, UnknownOperationException, ValidationError, type CommonAwsError} from "../../error.ts";
+export {
+  ExpiredTokenException,
+  IncompleteSignature,
+  InternalFailure,
+  MalformedHttpRequestException,
+  NotAuthorized,
+  OptInRequired,
+  RequestAbortedException,
+  RequestEntityTooLargeException,
+  RequestExpired,
+  RequestTimeoutException,
+  ServiceUnavailable,
+  UnrecognizedClientException,
+  UnknownOperationException,
+  ValidationError,
+  type CommonAwsError,
+} from "../../error.ts";
 
 // Service metadata
 const metadata = {
@@ -14,36 +30,51 @@ const metadata = {
   protocol: "restJson1",
   sigV4ServiceName: "appfabric",
   operations: {
-    "BatchGetUserAccessTasks": "POST /useraccess/batchget",
-    "ConnectAppAuthorization": "POST /appbundles/{appBundleIdentifier}/appauthorizations/{appAuthorizationIdentifier}/connect",
-    "CreateAppAuthorization": "POST /appbundles/{appBundleIdentifier}/appauthorizations",
-    "CreateAppBundle": "POST /appbundles",
-    "CreateIngestion": "POST /appbundles/{appBundleIdentifier}/ingestions",
-    "CreateIngestionDestination": "POST /appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}/ingestiondestinations",
-    "DeleteAppAuthorization": "DELETE /appbundles/{appBundleIdentifier}/appauthorizations/{appAuthorizationIdentifier}",
-    "DeleteAppBundle": "DELETE /appbundles/{appBundleIdentifier}",
-    "DeleteIngestion": "DELETE /appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}",
-    "DeleteIngestionDestination": "DELETE /appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}/ingestiondestinations/{ingestionDestinationIdentifier}",
-    "GetAppAuthorization": "GET /appbundles/{appBundleIdentifier}/appauthorizations/{appAuthorizationIdentifier}",
-    "GetAppBundle": "GET /appbundles/{appBundleIdentifier}",
-    "GetIngestion": "GET /appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}",
-    "GetIngestionDestination": "GET /appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}/ingestiondestinations/{ingestionDestinationIdentifier}",
-    "ListAppAuthorizations": "GET /appbundles/{appBundleIdentifier}/appauthorizations",
-    "ListAppBundles": "GET /appbundles",
-    "ListIngestionDestinations": "GET /appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}/ingestiondestinations",
-    "ListIngestions": "GET /appbundles/{appBundleIdentifier}/ingestions",
-    "ListTagsForResource": "GET /tags/{resourceArn}",
-    "StartIngestion": "POST /appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}/start",
-    "StartUserAccessTasks": "POST /useraccess/start",
-    "StopIngestion": "POST /appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}/stop",
-    "TagResource": "POST /tags/{resourceArn}",
-    "UntagResource": "DELETE /tags/{resourceArn}",
-    "UpdateAppAuthorization": "PATCH /appbundles/{appBundleIdentifier}/appauthorizations/{appAuthorizationIdentifier}",
-    "UpdateIngestionDestination": "PATCH /appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}/ingestiondestinations/{ingestionDestinationIdentifier}",
+    BatchGetUserAccessTasks: "POST /useraccess/batchget",
+    ConnectAppAuthorization:
+      "POST /appbundles/{appBundleIdentifier}/appauthorizations/{appAuthorizationIdentifier}/connect",
+    CreateAppAuthorization:
+      "POST /appbundles/{appBundleIdentifier}/appauthorizations",
+    CreateAppBundle: "POST /appbundles",
+    CreateIngestion: "POST /appbundles/{appBundleIdentifier}/ingestions",
+    CreateIngestionDestination:
+      "POST /appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}/ingestiondestinations",
+    DeleteAppAuthorization:
+      "DELETE /appbundles/{appBundleIdentifier}/appauthorizations/{appAuthorizationIdentifier}",
+    DeleteAppBundle: "DELETE /appbundles/{appBundleIdentifier}",
+    DeleteIngestion:
+      "DELETE /appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}",
+    DeleteIngestionDestination:
+      "DELETE /appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}/ingestiondestinations/{ingestionDestinationIdentifier}",
+    GetAppAuthorization:
+      "GET /appbundles/{appBundleIdentifier}/appauthorizations/{appAuthorizationIdentifier}",
+    GetAppBundle: "GET /appbundles/{appBundleIdentifier}",
+    GetIngestion:
+      "GET /appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}",
+    GetIngestionDestination:
+      "GET /appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}/ingestiondestinations/{ingestionDestinationIdentifier}",
+    ListAppAuthorizations:
+      "GET /appbundles/{appBundleIdentifier}/appauthorizations",
+    ListAppBundles: "GET /appbundles",
+    ListIngestionDestinations:
+      "GET /appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}/ingestiondestinations",
+    ListIngestions: "GET /appbundles/{appBundleIdentifier}/ingestions",
+    ListTagsForResource: "GET /tags/{resourceArn}",
+    StartIngestion:
+      "POST /appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}/start",
+    StartUserAccessTasks: "POST /useraccess/start",
+    StopIngestion:
+      "POST /appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}/stop",
+    TagResource: "POST /tags/{resourceArn}",
+    UntagResource: "DELETE /tags/{resourceArn}",
+    UpdateAppAuthorization:
+      "PATCH /appbundles/{appBundleIdentifier}/appauthorizations/{appAuthorizationIdentifier}",
+    UpdateIngestionDestination:
+      "PATCH /appbundles/{appBundleIdentifier}/ingestions/{ingestionIdentifier}/ingestiondestinations/{ingestionDestinationIdentifier}",
   },
   retryableErrors: {
-    "InternalServerException": {"retryAfterSeconds":"Retry-After"},
-    "ThrottlingException": {"retryAfterSeconds":"Retry-After"},
+    InternalServerException: { retryAfterSeconds: "Retry-After" },
+    ThrottlingException: { retryAfterSeconds: "Retry-After" },
   },
 } as const satisfies ServiceMetadata;
 

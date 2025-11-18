@@ -7,109 +7,207 @@ export declare class CloudHSMV2 extends AWSServiceClient {
     input: CopyBackupToRegionRequest,
   ): Effect.Effect<
     CopyBackupToRegionResponse,
-    CloudHsmAccessDeniedException | CloudHsmInternalFailureException | CloudHsmInvalidRequestException | CloudHsmResourceNotFoundException | CloudHsmServiceException | CloudHsmTagException | CommonAwsError
+    | CloudHsmAccessDeniedException
+    | CloudHsmInternalFailureException
+    | CloudHsmInvalidRequestException
+    | CloudHsmResourceNotFoundException
+    | CloudHsmServiceException
+    | CloudHsmTagException
+    | CommonAwsError
   >;
   createCluster(
     input: CreateClusterRequest,
   ): Effect.Effect<
     CreateClusterResponse,
-    CloudHsmAccessDeniedException | CloudHsmInternalFailureException | CloudHsmInvalidRequestException | CloudHsmResourceNotFoundException | CloudHsmServiceException | CloudHsmTagException | CommonAwsError
+    | CloudHsmAccessDeniedException
+    | CloudHsmInternalFailureException
+    | CloudHsmInvalidRequestException
+    | CloudHsmResourceNotFoundException
+    | CloudHsmServiceException
+    | CloudHsmTagException
+    | CommonAwsError
   >;
   createHsm(
     input: CreateHsmRequest,
   ): Effect.Effect<
     CreateHsmResponse,
-    CloudHsmAccessDeniedException | CloudHsmInternalFailureException | CloudHsmInvalidRequestException | CloudHsmResourceNotFoundException | CloudHsmServiceException | CommonAwsError
+    | CloudHsmAccessDeniedException
+    | CloudHsmInternalFailureException
+    | CloudHsmInvalidRequestException
+    | CloudHsmResourceNotFoundException
+    | CloudHsmServiceException
+    | CommonAwsError
   >;
   deleteBackup(
     input: DeleteBackupRequest,
   ): Effect.Effect<
     DeleteBackupResponse,
-    CloudHsmAccessDeniedException | CloudHsmInternalFailureException | CloudHsmInvalidRequestException | CloudHsmResourceNotFoundException | CloudHsmServiceException | CommonAwsError
+    | CloudHsmAccessDeniedException
+    | CloudHsmInternalFailureException
+    | CloudHsmInvalidRequestException
+    | CloudHsmResourceNotFoundException
+    | CloudHsmServiceException
+    | CommonAwsError
   >;
   deleteCluster(
     input: DeleteClusterRequest,
   ): Effect.Effect<
     DeleteClusterResponse,
-    CloudHsmAccessDeniedException | CloudHsmInternalFailureException | CloudHsmInvalidRequestException | CloudHsmResourceNotFoundException | CloudHsmServiceException | CloudHsmTagException | CommonAwsError
+    | CloudHsmAccessDeniedException
+    | CloudHsmInternalFailureException
+    | CloudHsmInvalidRequestException
+    | CloudHsmResourceNotFoundException
+    | CloudHsmServiceException
+    | CloudHsmTagException
+    | CommonAwsError
   >;
   deleteHsm(
     input: DeleteHsmRequest,
   ): Effect.Effect<
     DeleteHsmResponse,
-    CloudHsmAccessDeniedException | CloudHsmInternalFailureException | CloudHsmInvalidRequestException | CloudHsmResourceNotFoundException | CloudHsmServiceException | CommonAwsError
+    | CloudHsmAccessDeniedException
+    | CloudHsmInternalFailureException
+    | CloudHsmInvalidRequestException
+    | CloudHsmResourceNotFoundException
+    | CloudHsmServiceException
+    | CommonAwsError
   >;
   deleteResourcePolicy(
     input: DeleteResourcePolicyRequest,
   ): Effect.Effect<
     DeleteResourcePolicyResponse,
-    CloudHsmAccessDeniedException | CloudHsmInternalFailureException | CloudHsmInvalidRequestException | CloudHsmResourceNotFoundException | CloudHsmServiceException | CommonAwsError
+    | CloudHsmAccessDeniedException
+    | CloudHsmInternalFailureException
+    | CloudHsmInvalidRequestException
+    | CloudHsmResourceNotFoundException
+    | CloudHsmServiceException
+    | CommonAwsError
   >;
   describeBackups(
     input: DescribeBackupsRequest,
   ): Effect.Effect<
     DescribeBackupsResponse,
-    CloudHsmAccessDeniedException | CloudHsmInternalFailureException | CloudHsmInvalidRequestException | CloudHsmResourceNotFoundException | CloudHsmServiceException | CloudHsmTagException | CommonAwsError
+    | CloudHsmAccessDeniedException
+    | CloudHsmInternalFailureException
+    | CloudHsmInvalidRequestException
+    | CloudHsmResourceNotFoundException
+    | CloudHsmServiceException
+    | CloudHsmTagException
+    | CommonAwsError
   >;
   describeClusters(
     input: DescribeClustersRequest,
   ): Effect.Effect<
     DescribeClustersResponse,
-    CloudHsmAccessDeniedException | CloudHsmInternalFailureException | CloudHsmInvalidRequestException | CloudHsmServiceException | CloudHsmTagException | CommonAwsError
+    | CloudHsmAccessDeniedException
+    | CloudHsmInternalFailureException
+    | CloudHsmInvalidRequestException
+    | CloudHsmServiceException
+    | CloudHsmTagException
+    | CommonAwsError
   >;
   getResourcePolicy(
     input: GetResourcePolicyRequest,
   ): Effect.Effect<
     GetResourcePolicyResponse,
-    CloudHsmAccessDeniedException | CloudHsmInternalFailureException | CloudHsmInvalidRequestException | CloudHsmResourceNotFoundException | CloudHsmServiceException | CommonAwsError
+    | CloudHsmAccessDeniedException
+    | CloudHsmInternalFailureException
+    | CloudHsmInvalidRequestException
+    | CloudHsmResourceNotFoundException
+    | CloudHsmServiceException
+    | CommonAwsError
   >;
   initializeCluster(
     input: InitializeClusterRequest,
   ): Effect.Effect<
     InitializeClusterResponse,
-    CloudHsmAccessDeniedException | CloudHsmInternalFailureException | CloudHsmInvalidRequestException | CloudHsmResourceNotFoundException | CloudHsmServiceException | CommonAwsError
+    | CloudHsmAccessDeniedException
+    | CloudHsmInternalFailureException
+    | CloudHsmInvalidRequestException
+    | CloudHsmResourceNotFoundException
+    | CloudHsmServiceException
+    | CommonAwsError
   >;
   listTags(
     input: ListTagsRequest,
   ): Effect.Effect<
     ListTagsResponse,
-    CloudHsmAccessDeniedException | CloudHsmInternalFailureException | CloudHsmInvalidRequestException | CloudHsmResourceNotFoundException | CloudHsmServiceException | CloudHsmTagException | CommonAwsError
+    | CloudHsmAccessDeniedException
+    | CloudHsmInternalFailureException
+    | CloudHsmInvalidRequestException
+    | CloudHsmResourceNotFoundException
+    | CloudHsmServiceException
+    | CloudHsmTagException
+    | CommonAwsError
   >;
   modifyBackupAttributes(
     input: ModifyBackupAttributesRequest,
   ): Effect.Effect<
     ModifyBackupAttributesResponse,
-    CloudHsmAccessDeniedException | CloudHsmInternalFailureException | CloudHsmInvalidRequestException | CloudHsmResourceNotFoundException | CloudHsmServiceException | CommonAwsError
+    | CloudHsmAccessDeniedException
+    | CloudHsmInternalFailureException
+    | CloudHsmInvalidRequestException
+    | CloudHsmResourceNotFoundException
+    | CloudHsmServiceException
+    | CommonAwsError
   >;
   modifyCluster(
     input: ModifyClusterRequest,
   ): Effect.Effect<
     ModifyClusterResponse,
-    CloudHsmAccessDeniedException | CloudHsmInternalFailureException | CloudHsmInvalidRequestException | CloudHsmResourceNotFoundException | CloudHsmServiceException | CommonAwsError
+    | CloudHsmAccessDeniedException
+    | CloudHsmInternalFailureException
+    | CloudHsmInvalidRequestException
+    | CloudHsmResourceNotFoundException
+    | CloudHsmServiceException
+    | CommonAwsError
   >;
   putResourcePolicy(
     input: PutResourcePolicyRequest,
   ): Effect.Effect<
     PutResourcePolicyResponse,
-    CloudHsmAccessDeniedException | CloudHsmInternalFailureException | CloudHsmInvalidRequestException | CloudHsmResourceNotFoundException | CloudHsmServiceException | CommonAwsError
+    | CloudHsmAccessDeniedException
+    | CloudHsmInternalFailureException
+    | CloudHsmInvalidRequestException
+    | CloudHsmResourceNotFoundException
+    | CloudHsmServiceException
+    | CommonAwsError
   >;
   restoreBackup(
     input: RestoreBackupRequest,
   ): Effect.Effect<
     RestoreBackupResponse,
-    CloudHsmAccessDeniedException | CloudHsmInternalFailureException | CloudHsmInvalidRequestException | CloudHsmResourceNotFoundException | CloudHsmServiceException | CommonAwsError
+    | CloudHsmAccessDeniedException
+    | CloudHsmInternalFailureException
+    | CloudHsmInvalidRequestException
+    | CloudHsmResourceNotFoundException
+    | CloudHsmServiceException
+    | CommonAwsError
   >;
   tagResource(
     input: TagResourceRequest,
   ): Effect.Effect<
     TagResourceResponse,
-    CloudHsmAccessDeniedException | CloudHsmInternalFailureException | CloudHsmInvalidRequestException | CloudHsmResourceLimitExceededException | CloudHsmResourceNotFoundException | CloudHsmServiceException | CloudHsmTagException | CommonAwsError
+    | CloudHsmAccessDeniedException
+    | CloudHsmInternalFailureException
+    | CloudHsmInvalidRequestException
+    | CloudHsmResourceLimitExceededException
+    | CloudHsmResourceNotFoundException
+    | CloudHsmServiceException
+    | CloudHsmTagException
+    | CommonAwsError
   >;
   untagResource(
     input: UntagResourceRequest,
   ): Effect.Effect<
     UntagResourceResponse,
-    CloudHsmAccessDeniedException | CloudHsmInternalFailureException | CloudHsmInvalidRequestException | CloudHsmResourceNotFoundException | CloudHsmServiceException | CloudHsmTagException | CommonAwsError
+    | CloudHsmAccessDeniedException
+    | CloudHsmInternalFailureException
+    | CloudHsmInvalidRequestException
+    | CloudHsmResourceNotFoundException
+    | CloudHsmServiceException
+    | CloudHsmTagException
+    | CommonAwsError
   >;
 }
 
@@ -146,7 +244,11 @@ export type BackupRetentionValue = string;
 export type Backups = Array<Backup>;
 export type BackupsMaxSize = number;
 
-export type BackupState = "CREATE_IN_PROGRESS" | "READY" | "DELETED" | "PENDING_DELETION";
+export type BackupState =
+  | "CREATE_IN_PROGRESS"
+  | "READY"
+  | "DELETED"
+  | "PENDING_DELETION";
 export type CloudhsmV2Boolean = boolean;
 
 export type Cert = string;
@@ -221,7 +323,18 @@ export type ClusterMode = "FIPS" | "NON_FIPS";
 export type Clusters = Array<Cluster>;
 export type ClustersMaxSize = number;
 
-export type ClusterState = "CREATE_IN_PROGRESS" | "UNINITIALIZED" | "INITIALIZE_IN_PROGRESS" | "INITIALIZED" | "ACTIVE" | "UPDATE_IN_PROGRESS" | "MODIFY_IN_PROGRESS" | "ROLLBACK_IN_PROGRESS" | "DELETE_IN_PROGRESS" | "DELETED" | "DEGRADED";
+export type ClusterState =
+  | "CREATE_IN_PROGRESS"
+  | "UNINITIALIZED"
+  | "INITIALIZE_IN_PROGRESS"
+  | "INITIALIZED"
+  | "ACTIVE"
+  | "UPDATE_IN_PROGRESS"
+  | "MODIFY_IN_PROGRESS"
+  | "ROLLBACK_IN_PROGRESS"
+  | "DELETE_IN_PROGRESS"
+  | "DELETED"
+  | "DEGRADED";
 export interface CopyBackupToRegionRequest {
   DestinationRegion: string;
   BackupId: string;
@@ -335,7 +448,12 @@ export interface Hsm {
 export type HsmId = string;
 
 export type Hsms = Array<Hsm>;
-export type HsmState = "CREATE_IN_PROGRESS" | "ACTIVE" | "DEGRADED" | "DELETE_IN_PROGRESS" | "DELETED";
+export type HsmState =
+  | "CREATE_IN_PROGRESS"
+  | "ACTIVE"
+  | "DEGRADED"
+  | "DELETE_IN_PROGRESS"
+  | "DELETED";
 export type HsmType = string;
 
 export interface InitializeClusterRequest {
@@ -424,8 +542,7 @@ export interface TagResourceRequest {
   ResourceId: string;
   TagList: Array<Tag>;
 }
-export interface TagResourceResponse {
-}
+export interface TagResourceResponse {}
 export type TagValue = string;
 
 export type Timestamp = Date | string;
@@ -434,8 +551,7 @@ export interface UntagResourceRequest {
   ResourceId: string;
   TagKeyList: Array<string>;
 }
-export interface UntagResourceResponse {
-}
+export interface UntagResourceResponse {}
 export type VpcId = string;
 
 export declare namespace CopyBackupToRegion {
@@ -662,5 +778,12 @@ export declare namespace UntagResource {
     | CommonAwsError;
 }
 
-export type CloudHSMV2Errors = CloudHsmAccessDeniedException | CloudHsmInternalFailureException | CloudHsmInvalidRequestException | CloudHsmResourceLimitExceededException | CloudHsmResourceNotFoundException | CloudHsmServiceException | CloudHsmTagException | CommonAwsError;
-
+export type CloudHSMV2Errors =
+  | CloudHsmAccessDeniedException
+  | CloudHsmInternalFailureException
+  | CloudHsmInvalidRequestException
+  | CloudHsmResourceLimitExceededException
+  | CloudHsmResourceNotFoundException
+  | CloudHsmServiceException
+  | CloudHsmTagException
+  | CommonAwsError;
