@@ -7,21 +7,14 @@ export default defineConfig({
     },
   },
   output: {
+    module: true,
     target: "node",
     externals: [
-      "@effect/platform",
-      "@effect/platform-node-shared",
-      "@effect/platform-bun",
+      /^@effect\/(.*)/,
       "effect",
+      /^effect\/(.*)/,
       "@aws-sdk/credential-providers",
     ],
-    // externals: {
-    //   "@effect/platform": "@effect/platform",
-    //   "@effect/platform-node-shared": "@effect/platform-node-shared",
-    //   "@effect/platform-bun": "@effect/platform-bun",
-    //   effect: "effect",
-    //   "@aws-sdk/credential-providers": "@aws-sdk/credential-providers",
-    // },
     minify: {
       js: true,
       jsOptions: {

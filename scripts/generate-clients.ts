@@ -9,6 +9,7 @@ import {
   Context,
   Match,
   Ref,
+  Equivalence,
 } from "effect";
 import {
   SmithyModel,
@@ -53,7 +54,6 @@ export class UnableToTransformShapeToType extends Data.TaggedError(
   message: string;
 }> {}
 
-//todo(pear): remove this in favor of find shape
 const findServiceShape = Effect.gen(function* () {
   const model = yield* ModelService;
   const serviceEntry = Object.entries(model.shapes).find(
@@ -371,19 +371,22 @@ const generateClient = Effect.fn(function* (
                     }
                     return Effect.succeed({
                       ...acc,
-                      [key]: value.traits["smithy.api#httpHeader"],
+                      [key]: [value.traits["smithy.api#httpHeader"]],
                     });
                   }
                   if (value.traits?.["smithy.api#httpLabel"] != null) {
                     return Effect.succeed({
                       ...acc,
-                      [key]: `p:${value.traits?.["smithy.rules#contextParam"]?.name ?? key}`,
+                      [key]: [
+                        "p",
+                        value.traits["smithy.rules#contextParam"]?.name ?? key,
+                      ],
                     });
                   }
                   if (value.traits?.["smithy.api#httpPayload"] != null) {
                     return Effect.succeed({
                       ...acc,
-                      [key]: `b:${value.traits["smithy.api#xmlName"]}`,
+                      [key]: ["b", value.traits["smithy.api#xmlName"] ?? key],
                     });
                   }
                   return Effect.succeed(acc);
