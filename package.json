@@ -1,0 +1,22 @@
+{
+  "name": "itty-aws-2",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@rsbuild/core": "^1.6.7",
+    "@types/bun": "latest",
+    "@types/node": "^24.10.1",
+    "dedent": "^1.7.0"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@aws-sdk/credential-providers": "^3.933.0",
+    "@effect/platform": "^0.93.3",
+    "@effect/platform-bun": "^0.83.0",
+    "aws4fetch": "^1.0.20",
+    "effect": "^3.19.4"
+  }
+}

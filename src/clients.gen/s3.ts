@@ -1,0 +1,487 @@
+import { type Effect, Layer, Context, Schema as S } from "effect";
+import type { CommonAwsError } from "../aws-errors";
+import { makeOperation } from "../client";
+import { restXmlProvider, type EndpointMetadata, type ClientConfig } from "../protocols/rest-xml";
+
+//==== Exports ====
+export const metadata = {"protocol":"aws.protocols#restXml","sdkId":"S3","sigV4ServiceName":"s3","version":"2006-03-01"}
+
+export class S3ClientRequirement extends Context.Tag("S3ClientRequirement")<S3ClientRequirement, { call: (metadata: any) => (input: any) => Effect.Effect<any>, _endpointMetadataType: EndpointMetadata }>() {}
+export const createClient = (config: ClientConfig) => Layer.effect(S3ClientRequirement, restXmlProvider(config, metadata));
+
+export const abortMultipartUpload = /*@__PURE__*/ makeOperation<AbortMultipartUploadRequest, AbortMultipartUploadOutput, NoSuchUploadError | CommonAwsError, typeof S3ClientRequirement>({ method: "DELETE", uri: "/{Bucket}/{Key+}?x-id=AbortMultipartUpload", body: {"Bucket":"p:Bucket","Key":"p:Key"} }, S3ClientRequirement)
+export const completeMultipartUpload = /*@__PURE__*/ makeOperation<CompleteMultipartUploadRequest, CompleteMultipartUploadOutput, CommonAwsError, typeof S3ClientRequirement>({ method: "POST", uri: "/{Bucket}/{Key+}", body: {"Bucket":"p:Bucket","Key":"p:Key","MultipartUpload":"b:CompleteMultipartUpload","ChecksumCRC32":"x-amz-checksum-crc32","ChecksumCRC32C":"x-amz-checksum-crc32c","ChecksumCRC64NVME":"x-amz-checksum-crc64nvme","ChecksumSHA1":"x-amz-checksum-sha1","ChecksumSHA256":"x-amz-checksum-sha256","MpuObjectSize":"x-amz-mp-object-size","IfMatch":"If-Match","IfNoneMatch":"If-None-Match","SSECustomerAlgorithm":"x-amz-server-side-encryption-customer-algorithm","SSECustomerKey":"x-amz-server-side-encryption-customer-key","SSECustomerKeyMD5":"x-amz-server-side-encryption-customer-key-MD5"} }, S3ClientRequirement)
+export const copyObject = /*@__PURE__*/ makeOperation<CopyObjectRequest, CopyObjectOutput, ObjectNotInActiveTierErrorError | CommonAwsError, typeof S3ClientRequirement>({ method: "PUT", uri: "/{Bucket}/{Key+}?x-id=CopyObject", body: {"ACL":"x-amz-acl","Bucket":"p:Bucket","CacheControl":"Cache-Control","ContentDisposition":"Content-Disposition","ContentEncoding":"Content-Encoding","ContentLanguage":"Content-Language","ContentType":"Content-Type","Expires":"Expires","GrantReadACP":"x-amz-grant-read-acp","GrantWriteACP":"x-amz-grant-write-acp","IfMatch":"If-Match","IfNoneMatch":"If-None-Match","Key":"p:Key","SSECustomerAlgorithm":"x-amz-server-side-encryption-customer-algorithm","SSECustomerKey":"x-amz-server-side-encryption-customer-key","SSECustomerKeyMD5":"x-amz-server-side-encryption-customer-key-MD5","SSEKMSKeyId":"x-amz-server-side-encryption-aws-kms-key-id","SSEKMSEncryptionContext":"x-amz-server-side-encryption-context","BucketKeyEnabled":"x-amz-server-side-encryption-bucket-key-enabled","CopySourceSSECustomerAlgorithm":"x-amz-copy-source-server-side-encryption-customer-algorithm","CopySourceSSECustomerKey":"x-amz-copy-source-server-side-encryption-customer-key","CopySourceSSECustomerKeyMD5":"x-amz-copy-source-server-side-encryption-customer-key-MD5","ObjectLockLegalHoldStatus":"x-amz-object-lock-legal-hold","ExpectedSourceBucketOwner":"x-amz-source-expected-bucket-owner"} }, S3ClientRequirement)
+export const createBucket = /*@__PURE__*/ makeOperation<CreateBucketRequest, CreateBucketOutput, BucketAlreadyExistsError | BucketAlreadyOwnedByYouError | CommonAwsError, typeof S3ClientRequirement>({ method: "PUT", uri: "/{Bucket}", body: {"ACL":"x-amz-acl","Bucket":"p:Bucket","CreateBucketConfiguration":"b:CreateBucketConfiguration","GrantReadACP":"x-amz-grant-read-acp","GrantWriteACP":"x-amz-grant-write-acp","ObjectLockEnabledForBucket":"x-amz-bucket-object-lock-enabled"} }, S3ClientRequirement)
+export const createBucketMetadataConfiguration = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ method: "POST", uri: "/{Bucket}?metadataConfiguration", body: {"Bucket":"p:Bucket","ContentMD5":"Content-MD5","ChecksumAlgorithm":"x-amz-sdk-checksum-algorithm","MetadataConfiguration":"b:MetadataConfiguration"} }, S3ClientRequirement)
+export const createBucketMetadataTableConfiguration = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ method: "POST", uri: "/{Bucket}?metadataTable", body: {"Bucket":"p:Bucket","ContentMD5":"Content-MD5","ChecksumAlgorithm":"x-amz-sdk-checksum-algorithm","MetadataTableConfiguration":"b:MetadataTableConfiguration"} }, S3ClientRequirement)
+export const createMultipartUpload = /*@__PURE__*/ makeOperation<CreateMultipartUploadRequest, CreateMultipartUploadOutput, CommonAwsError, typeof S3ClientRequirement>({ method: "POST", uri: "/{Bucket}/{Key+}?uploads", body: {"ACL":"x-amz-acl","Bucket":"p:Bucket","CacheControl":"Cache-Control","ContentDisposition":"Content-Disposition","ContentEncoding":"Content-Encoding","ContentLanguage":"Content-Language","ContentType":"Content-Type","Expires":"Expires","GrantReadACP":"x-amz-grant-read-acp","GrantWriteACP":"x-amz-grant-write-acp","Key":"p:Key","SSECustomerAlgorithm":"x-amz-server-side-encryption-customer-algorithm","SSECustomerKey":"x-amz-server-side-encryption-customer-key","SSECustomerKeyMD5":"x-amz-server-side-encryption-customer-key-MD5","SSEKMSKeyId":"x-amz-server-side-encryption-aws-kms-key-id","SSEKMSEncryptionContext":"x-amz-server-side-encryption-context","BucketKeyEnabled":"x-amz-server-side-encryption-bucket-key-enabled","ObjectLockLegalHoldStatus":"x-amz-object-lock-legal-hold"} }, S3ClientRequirement)
+export const createSession = /*@__PURE__*/ makeOperation<CreateSessionRequest, CreateSessionOutput, NoSuchBucketError | CommonAwsError, typeof S3ClientRequirement>({ method: "GET", uri: "/{Bucket}?session", body: {"SessionMode":"x-amz-create-session-mode","Bucket":"p:Bucket","SSEKMSKeyId":"x-amz-server-side-encryption-aws-kms-key-id","SSEKMSEncryptionContext":"x-amz-server-side-encryption-context","BucketKeyEnabled":"x-amz-server-side-encryption-bucket-key-enabled"} }, S3ClientRequirement)
+export const deleteBucket = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ method: "DELETE", uri: "/{Bucket}", body: {"Bucket":"p:Bucket"} }, S3ClientRequirement)
+export const deleteBucketAnalyticsConfiguration = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ method: "DELETE", uri: "/{Bucket}?analytics", body: {"Bucket":"p:Bucket"} }, S3ClientRequirement)
+export const deleteBucketCors = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ method: "DELETE", uri: "/{Bucket}?cors", body: {"Bucket":"p:Bucket"} }, S3ClientRequirement)
+export const deleteBucketEncryption = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ method: "DELETE", uri: "/{Bucket}?encryption", body: {"Bucket":"p:Bucket"} }, S3ClientRequirement)
+export const deleteBucketIntelligentTieringConfiguration = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ method: "DELETE", uri: "/{Bucket}?intelligent-tiering", body: {"Bucket":"p:Bucket"} }, S3ClientRequirement)
+export const deleteBucketInventoryConfiguration = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ method: "DELETE", uri: "/{Bucket}?inventory", body: {"Bucket":"p:Bucket"} }, S3ClientRequirement)
+export const deleteBucketLifecycle = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ method: "DELETE", uri: "/{Bucket}?lifecycle", body: {"Bucket":"p:Bucket"} }, S3ClientRequirement)
+export const deleteBucketMetadataConfiguration = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ method: "DELETE", uri: "/{Bucket}?metadataConfiguration", body: {"Bucket":"p:Bucket"} }, S3ClientRequirement)
+export const deleteBucketMetadataTableConfiguration = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ method: "DELETE", uri: "/{Bucket}?metadataTable", body: {"Bucket":"p:Bucket"} }, S3ClientRequirement)
+export const deleteBucketMetricsConfiguration = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ method: "DELETE", uri: "/{Bucket}?metrics", body: {"Bucket":"p:Bucket"} }, S3ClientRequirement)
+export const deleteBucketOwnershipControls = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ method: "DELETE", uri: "/{Bucket}?ownershipControls", body: {"Bucket":"p:Bucket"} }, S3ClientRequirement)
+export const deleteBucketPolicy = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ method: "DELETE", uri: "/{Bucket}?policy", body: {"Bucket":"p:Bucket"} }, S3ClientRequirement)
+export const deleteBucketReplication = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ method: "DELETE", uri: "/{Bucket}?replication", body: {"Bucket":"p:Bucket"} }, S3ClientRequirement)
+export const deleteBucketTagging = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ method: "DELETE", uri: "/{Bucket}?tagging", body: {"Bucket":"p:Bucket"} }, S3ClientRequirement)
+export const deleteBucketWebsite = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ method: "DELETE", uri: "/{Bucket}?website", body: {"Bucket":"p:Bucket"} }, S3ClientRequirement)
+export const deleteObject = /*@__PURE__*/ makeOperation<DeleteObjectRequest, DeleteObjectOutput, CommonAwsError, typeof S3ClientRequirement>({ method: "DELETE", uri: "/{Bucket}/{Key+}?x-id=DeleteObject", body: {"Bucket":"p:Bucket","Key":"p:Key","MFA":"x-amz-mfa","IfMatch":"If-Match"} }, S3ClientRequirement)
+export const deleteObjects = /*@__PURE__*/ makeOperation<DeleteObjectsRequest, DeleteObjectsOutput, CommonAwsError, typeof S3ClientRequirement>({ method: "POST", uri: "/{Bucket}?delete", body: {"Bucket":"p:Bucket","Delete":"b:Delete","MFA":"x-amz-mfa","ChecksumAlgorithm":"x-amz-sdk-checksum-algorithm"} }, S3ClientRequirement)
+export const deleteObjectTagging = /*@__PURE__*/ makeOperation<DeleteObjectTaggingRequest, DeleteObjectTaggingOutput, CommonAwsError, typeof S3ClientRequirement>({ method: "DELETE", uri: "/{Bucket}/{Key+}?tagging", body: {"Bucket":"p:Bucket","Key":"p:Key"} }, S3ClientRequirement)
+export const deletePublicAccessBlock = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ method: "DELETE", uri: "/{Bucket}?publicAccessBlock", body: {"Bucket":"p:Bucket"} }, S3ClientRequirement)
+export const getBucketAccelerateConfiguration = /*@__PURE__*/ makeOperation<GetBucketAccelerateConfigurationRequest, GetBucketAccelerateConfigurationOutput, CommonAwsError, typeof S3ClientRequirement>({ method: "GET", uri: "/{Bucket}?accelerate", body: {"Bucket":"p:Bucket"} }, S3ClientRequirement)
+export const getBucketAcl = /*@__PURE__*/ makeOperation<GetBucketAclRequest, GetBucketAclOutput, CommonAwsError, typeof S3ClientRequirement>({ method: "GET", uri: "/{Bucket}?acl", body: {"Bucket":"p:Bucket"} }, S3ClientRequirement)
+export const getBucketAnalyticsConfiguration = /*@__PURE__*/ makeOperation<GetBucketAnalyticsConfigurationRequest, GetBucketAnalyticsConfigurationOutput, CommonAwsError, typeof S3ClientRequirement>({ method: "GET", uri: "/{Bucket}?analytics&x-id=GetBucketAnalyticsConfiguration", body: {"Bucket":"p:Bucket"} }, S3ClientRequirement)
+export const getBucketCors = /*@__PURE__*/ makeOperation<GetBucketCorsRequest, GetBucketCorsOutput, CommonAwsError, typeof S3ClientRequirement>({ method: "GET", uri: "/{Bucket}?cors", body: {"Bucket":"p:Bucket"} }, S3ClientRequirement)
+export const getBucketEncryption = /*@__PURE__*/ makeOperation<GetBucketEncryptionRequest, GetBucketEncryptionOutput, CommonAwsError, typeof S3ClientRequirement>({ method: "GET", uri: "/{Bucket}?encryption", body: {"Bucket":"p:Bucket"} }, S3ClientRequirement)
+export const getBucketIntelligentTieringConfiguration = /*@__PURE__*/ makeOperation<GetBucketIntelligentTieringConfigurationRequest, GetBucketIntelligentTieringConfigurationOutput, CommonAwsError, typeof S3ClientRequirement>({ method: "GET", uri: "/{Bucket}?intelligent-tiering&x-id=GetBucketIntelligentTieringConfiguration", body: {"Bucket":"p:Bucket"} }, S3ClientRequirement)
+export const getBucketInventoryConfiguration = /*@__PURE__*/ makeOperation<GetBucketInventoryConfigurationRequest, GetBucketInventoryConfigurationOutput, CommonAwsError, typeof S3ClientRequirement>({ method: "GET", uri: "/{Bucket}?inventory&x-id=GetBucketInventoryConfiguration", body: {"Bucket":"p:Bucket"} }, S3ClientRequirement)
+export const getBucketLifecycleConfiguration = /*@__PURE__*/ makeOperation<GetBucketLifecycleConfigurationRequest, GetBucketLifecycleConfigurationOutput, CommonAwsError, typeof S3ClientRequirement>({ method: "GET", uri: "/{Bucket}?lifecycle", body: {"Bucket":"p:Bucket"} }, S3ClientRequirement)
+export const getBucketLocation = /*@__PURE__*/ makeOperation<GetBucketLocationRequest, GetBucketLocationOutput, CommonAwsError, typeof S3ClientRequirement>({ method: "GET", uri: "/{Bucket}?location", body: {"Bucket":"p:Bucket"} }, S3ClientRequirement)
+export const getBucketLogging = /*@__PURE__*/ makeOperation<GetBucketLoggingRequest, GetBucketLoggingOutput, CommonAwsError, typeof S3ClientRequirement>({ method: "GET", uri: "/{Bucket}?logging", body: {"Bucket":"p:Bucket"} }, S3ClientRequirement)
+export const getBucketMetadataConfiguration = /*@__PURE__*/ makeOperation<GetBucketMetadataConfigurationRequest, GetBucketMetadataConfigurationOutput, CommonAwsError, typeof S3ClientRequirement>({ method: "GET", uri: "/{Bucket}?metadataConfiguration", body: {"Bucket":"p:Bucket"} }, S3ClientRequirement)
+export const getBucketMetadataTableConfiguration = /*@__PURE__*/ makeOperation<GetBucketMetadataTableConfigurationRequest, GetBucketMetadataTableConfigurationOutput, CommonAwsError, typeof S3ClientRequirement>({ method: "GET", uri: "/{Bucket}?metadataTable", body: {"Bucket":"p:Bucket"} }, S3ClientRequirement)
+export const getBucketMetricsConfiguration = /*@__PURE__*/ makeOperation<GetBucketMetricsConfigurationRequest, GetBucketMetricsConfigurationOutput, CommonAwsError, typeof S3ClientRequirement>({ method: "GET", uri: "/{Bucket}?metrics&x-id=GetBucketMetricsConfiguration", body: {"Bucket":"p:Bucket"} }, S3ClientRequirement)
+export const getBucketNotificationConfiguration = /*@__PURE__*/ makeOperation<GetBucketNotificationConfigurationRequest, NotificationConfiguration, CommonAwsError, typeof S3ClientRequirement>({ method: "GET", uri: "/{Bucket}?notification", body: {"Bucket":"p:Bucket"} }, S3ClientRequirement)
+export const getBucketOwnershipControls = /*@__PURE__*/ makeOperation<GetBucketOwnershipControlsRequest, GetBucketOwnershipControlsOutput, CommonAwsError, typeof S3ClientRequirement>({ method: "GET", uri: "/{Bucket}?ownershipControls", body: {"Bucket":"p:Bucket"} }, S3ClientRequirement)
+export const getBucketPolicy = /*@__PURE__*/ makeOperation<GetBucketPolicyRequest, GetBucketPolicyOutput, CommonAwsError, typeof S3ClientRequirement>({ method: "GET", uri: "/{Bucket}?policy", body: {"Bucket":"p:Bucket"} }, S3ClientRequirement)
+export const getBucketPolicyStatus = /*@__PURE__*/ makeOperation<GetBucketPolicyStatusRequest, GetBucketPolicyStatusOutput, CommonAwsError, typeof S3ClientRequirement>({ method: "GET", uri: "/{Bucket}?policyStatus", body: {"Bucket":"p:Bucket"} }, S3ClientRequirement)
+export const getBucketReplication = /*@__PURE__*/ makeOperation<GetBucketReplicationRequest, GetBucketReplicationOutput, CommonAwsError, typeof S3ClientRequirement>({ method: "GET", uri: "/{Bucket}?replication", body: {"Bucket":"p:Bucket"} }, S3ClientRequirement)
+export const getBucketRequestPayment = /*@__PURE__*/ makeOperation<GetBucketRequestPaymentRequest, GetBucketRequestPaymentOutput, CommonAwsError, typeof S3ClientRequirement>({ method: "GET", uri: "/{Bucket}?requestPayment", body: {"Bucket":"p:Bucket"} }, S3ClientRequirement)
+export const getBucketTagging = /*@__PURE__*/ makeOperation<GetBucketTaggingRequest, GetBucketTaggingOutput, CommonAwsError, typeof S3ClientRequirement>({ method: "GET", uri: "/{Bucket}?tagging", body: {"Bucket":"p:Bucket"} }, S3ClientRequirement)
+export const getBucketVersioning = /*@__PURE__*/ makeOperation<GetBucketVersioningRequest, GetBucketVersioningOutput, CommonAwsError, typeof S3ClientRequirement>({ method: "GET", uri: "/{Bucket}?versioning", body: {"Bucket":"p:Bucket"} }, S3ClientRequirement)
+export const getBucketWebsite = /*@__PURE__*/ makeOperation<GetBucketWebsiteRequest, GetBucketWebsiteOutput, CommonAwsError, typeof S3ClientRequirement>({ method: "GET", uri: "/{Bucket}?website", body: {"Bucket":"p:Bucket"} }, S3ClientRequirement)
+export const getObject = /*@__PURE__*/ makeOperation<GetObjectRequest, GetObjectOutput, InvalidObjectStateError | NoSuchKeyError | CommonAwsError, typeof S3ClientRequirement>({ method: "GET", uri: "/{Bucket}/{Key+}?x-id=GetObject", body: {"Bucket":"p:Bucket","IfMatch":"If-Match","IfModifiedSince":"If-Modified-Since","IfNoneMatch":"If-None-Match","IfUnmodifiedSince":"If-Unmodified-Since","Key":"p:Key","Range":"Range","SSECustomerAlgorithm":"x-amz-server-side-encryption-customer-algorithm","SSECustomerKey":"x-amz-server-side-encryption-customer-key","SSECustomerKeyMD5":"x-amz-server-side-encryption-customer-key-MD5"} }, S3ClientRequirement)
+export const getObjectAcl = /*@__PURE__*/ makeOperation<GetObjectAclRequest, GetObjectAclOutput, NoSuchKeyError | CommonAwsError, typeof S3ClientRequirement>({ method: "GET", uri: "/{Bucket}/{Key+}?acl", body: {"Bucket":"p:Bucket","Key":"p:Key"} }, S3ClientRequirement)
+export const getObjectAttributes = /*@__PURE__*/ makeOperation<GetObjectAttributesRequest, GetObjectAttributesOutput, NoSuchKeyError | CommonAwsError, typeof S3ClientRequirement>({ method: "GET", uri: "/{Bucket}/{Key+}?attributes", body: {"Bucket":"p:Bucket","Key":"p:Key","SSECustomerAlgorithm":"x-amz-server-side-encryption-customer-algorithm","SSECustomerKey":"x-amz-server-side-encryption-customer-key","SSECustomerKeyMD5":"x-amz-server-side-encryption-customer-key-MD5"} }, S3ClientRequirement)
+export const getObjectLegalHold = /*@__PURE__*/ makeOperation<GetObjectLegalHoldRequest, GetObjectLegalHoldOutput, CommonAwsError, typeof S3ClientRequirement>({ method: "GET", uri: "/{Bucket}/{Key+}?legal-hold", body: {"Bucket":"p:Bucket","Key":"p:Key"} }, S3ClientRequirement)
+export const getObjectLockConfiguration = /*@__PURE__*/ makeOperation<GetObjectLockConfigurationRequest, GetObjectLockConfigurationOutput, CommonAwsError, typeof S3ClientRequirement>({ method: "GET", uri: "/{Bucket}?object-lock", body: {"Bucket":"p:Bucket"} }, S3ClientRequirement)
+export const getObjectRetention = /*@__PURE__*/ makeOperation<GetObjectRetentionRequest, GetObjectRetentionOutput, CommonAwsError, typeof S3ClientRequirement>({ method: "GET", uri: "/{Bucket}/{Key+}?retention", body: {"Bucket":"p:Bucket","Key":"p:Key"} }, S3ClientRequirement)
+export const getObjectTagging = /*@__PURE__*/ makeOperation<GetObjectTaggingRequest, GetObjectTaggingOutput, CommonAwsError, typeof S3ClientRequirement>({ method: "GET", uri: "/{Bucket}/{Key+}?tagging", body: {"Bucket":"p:Bucket","Key":"p:Key"} }, S3ClientRequirement)
+export const getObjectTorrent = /*@__PURE__*/ makeOperation<GetObjectTorrentRequest, GetObjectTorrentOutput, CommonAwsError, typeof S3ClientRequirement>({ method: "GET", uri: "/{Bucket}/{Key+}?torrent", body: {"Bucket":"p:Bucket","Key":"p:Key"} }, S3ClientRequirement)
+export const getPublicAccessBlock = /*@__PURE__*/ makeOperation<GetPublicAccessBlockRequest, GetPublicAccessBlockOutput, CommonAwsError, typeof S3ClientRequirement>({ method: "GET", uri: "/{Bucket}?publicAccessBlock", body: {"Bucket":"p:Bucket"} }, S3ClientRequirement)
+export const headBucket = /*@__PURE__*/ makeOperation<HeadBucketRequest, HeadBucketOutput, NotFoundError | CommonAwsError, typeof S3ClientRequirement>({ method: "HEAD", uri: "/{Bucket}", body: {"Bucket":"p:Bucket"} }, S3ClientRequirement)
+export const headObject = /*@__PURE__*/ makeOperation<HeadObjectRequest, HeadObjectOutput, NotFoundError | CommonAwsError, typeof S3ClientRequirement>({ method: "HEAD", uri: "/{Bucket}/{Key+}", body: {"Bucket":"p:Bucket","IfMatch":"If-Match","IfModifiedSince":"If-Modified-Since","IfNoneMatch":"If-None-Match","IfUnmodifiedSince":"If-Unmodified-Since","Key":"p:Key","Range":"Range","SSECustomerAlgorithm":"x-amz-server-side-encryption-customer-algorithm","SSECustomerKey":"x-amz-server-side-encryption-customer-key","SSECustomerKeyMD5":"x-amz-server-side-encryption-customer-key-MD5"} }, S3ClientRequirement)
+export const listBucketAnalyticsConfigurations = /*@__PURE__*/ makeOperation<ListBucketAnalyticsConfigurationsRequest, ListBucketAnalyticsConfigurationsOutput, CommonAwsError, typeof S3ClientRequirement>({ method: "GET", uri: "/{Bucket}?analytics&x-id=ListBucketAnalyticsConfigurations", body: {"Bucket":"p:Bucket"} }, S3ClientRequirement)
+export const listBucketIntelligentTieringConfigurations = /*@__PURE__*/ makeOperation<ListBucketIntelligentTieringConfigurationsRequest, ListBucketIntelligentTieringConfigurationsOutput, CommonAwsError, typeof S3ClientRequirement>({ method: "GET", uri: "/{Bucket}?intelligent-tiering&x-id=ListBucketIntelligentTieringConfigurations", body: {"Bucket":"p:Bucket"} }, S3ClientRequirement)
+export const listBucketInventoryConfigurations = /*@__PURE__*/ makeOperation<ListBucketInventoryConfigurationsRequest, ListBucketInventoryConfigurationsOutput, CommonAwsError, typeof S3ClientRequirement>({ method: "GET", uri: "/{Bucket}?inventory&x-id=ListBucketInventoryConfigurations", body: {"Bucket":"p:Bucket"} }, S3ClientRequirement)
+export const listBucketMetricsConfigurations = /*@__PURE__*/ makeOperation<ListBucketMetricsConfigurationsRequest, ListBucketMetricsConfigurationsOutput, CommonAwsError, typeof S3ClientRequirement>({ method: "GET", uri: "/{Bucket}?metrics&x-id=ListBucketMetricsConfigurations", body: {"Bucket":"p:Bucket"} }, S3ClientRequirement)
+export const listBuckets = /*@__PURE__*/ makeOperation<ListBucketsRequest, ListBucketsOutput, CommonAwsError, typeof S3ClientRequirement>({ method: "GET", uri: "/?x-id=ListBuckets", body: {} }, S3ClientRequirement)
+export const listDirectoryBuckets = /*@__PURE__*/ makeOperation<ListDirectoryBucketsRequest, ListDirectoryBucketsOutput, CommonAwsError, typeof S3ClientRequirement>({ method: "GET", uri: "/?x-id=ListDirectoryBuckets", body: {} }, S3ClientRequirement)
+export const listMultipartUploads = /*@__PURE__*/ makeOperation<ListMultipartUploadsRequest, ListMultipartUploadsOutput, CommonAwsError, typeof S3ClientRequirement>({ method: "GET", uri: "/{Bucket}?uploads", body: {"Bucket":"p:Bucket"} }, S3ClientRequirement)
+export const listObjects = /*@__PURE__*/ makeOperation<ListObjectsRequest, ListObjectsOutput, NoSuchBucketError | CommonAwsError, typeof S3ClientRequirement>({ method: "GET", uri: "/{Bucket}", body: {"Bucket":"p:Bucket"} }, S3ClientRequirement)
+export const listObjectsV2 = /*@__PURE__*/ makeOperation<ListObjectsV2Request, ListObjectsV2Output, NoSuchBucketError | CommonAwsError, typeof S3ClientRequirement>({ method: "GET", uri: "/{Bucket}?list-type=2", body: {"Bucket":"p:Bucket"} }, S3ClientRequirement)
+export const listObjectVersions = /*@__PURE__*/ makeOperation<ListObjectVersionsRequest, ListObjectVersionsOutput, CommonAwsError, typeof S3ClientRequirement>({ method: "GET", uri: "/{Bucket}?versions", body: {"Bucket":"p:Bucket"} }, S3ClientRequirement)
+export const listParts = /*@__PURE__*/ makeOperation<ListPartsRequest, ListPartsOutput, CommonAwsError, typeof S3ClientRequirement>({ method: "GET", uri: "/{Bucket}/{Key+}?x-id=ListParts", body: {"Bucket":"p:Bucket","Key":"p:Key","SSECustomerAlgorithm":"x-amz-server-side-encryption-customer-algorithm","SSECustomerKey":"x-amz-server-side-encryption-customer-key","SSECustomerKeyMD5":"x-amz-server-side-encryption-customer-key-MD5"} }, S3ClientRequirement)
+export const putBucketAccelerateConfiguration = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ method: "PUT", uri: "/{Bucket}?accelerate", body: {"Bucket":"p:Bucket","AccelerateConfiguration":"b:AccelerateConfiguration","ChecksumAlgorithm":"x-amz-sdk-checksum-algorithm"} }, S3ClientRequirement)
+export const putBucketAcl = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ method: "PUT", uri: "/{Bucket}?acl", body: {"ACL":"x-amz-acl","AccessControlPolicy":"b:AccessControlPolicy","Bucket":"p:Bucket","ContentMD5":"Content-MD5","ChecksumAlgorithm":"x-amz-sdk-checksum-algorithm","GrantReadACP":"x-amz-grant-read-acp","GrantWriteACP":"x-amz-grant-write-acp"} }, S3ClientRequirement)
+export const putBucketAnalyticsConfiguration = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ method: "PUT", uri: "/{Bucket}?analytics", body: {"Bucket":"p:Bucket","AnalyticsConfiguration":"b:AnalyticsConfiguration"} }, S3ClientRequirement)
+export const putBucketCors = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ method: "PUT", uri: "/{Bucket}?cors", body: {"Bucket":"p:Bucket","CORSConfiguration":"b:CORSConfiguration","ContentMD5":"Content-MD5","ChecksumAlgorithm":"x-amz-sdk-checksum-algorithm"} }, S3ClientRequirement)
+export const putBucketEncryption = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ method: "PUT", uri: "/{Bucket}?encryption", body: {"Bucket":"p:Bucket","ContentMD5":"Content-MD5","ChecksumAlgorithm":"x-amz-sdk-checksum-algorithm","ServerSideEncryptionConfiguration":"b:ServerSideEncryptionConfiguration"} }, S3ClientRequirement)
+export const putBucketIntelligentTieringConfiguration = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ method: "PUT", uri: "/{Bucket}?intelligent-tiering", body: {"Bucket":"p:Bucket","IntelligentTieringConfiguration":"b:IntelligentTieringConfiguration"} }, S3ClientRequirement)
+export const putBucketInventoryConfiguration = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ method: "PUT", uri: "/{Bucket}?inventory", body: {"Bucket":"p:Bucket","InventoryConfiguration":"b:InventoryConfiguration"} }, S3ClientRequirement)
+export const putBucketLifecycleConfiguration = /*@__PURE__*/ makeOperation<PutBucketLifecycleConfigurationRequest, PutBucketLifecycleConfigurationOutput, CommonAwsError, typeof S3ClientRequirement>({ method: "PUT", uri: "/{Bucket}?lifecycle", body: {"Bucket":"p:Bucket","ChecksumAlgorithm":"x-amz-sdk-checksum-algorithm","LifecycleConfiguration":"b:LifecycleConfiguration"} }, S3ClientRequirement)
+export const putBucketLogging = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ method: "PUT", uri: "/{Bucket}?logging", body: {"Bucket":"p:Bucket","BucketLoggingStatus":"b:BucketLoggingStatus","ContentMD5":"Content-MD5","ChecksumAlgorithm":"x-amz-sdk-checksum-algorithm"} }, S3ClientRequirement)
+export const putBucketMetricsConfiguration = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ method: "PUT", uri: "/{Bucket}?metrics", body: {"Bucket":"p:Bucket","MetricsConfiguration":"b:MetricsConfiguration"} }, S3ClientRequirement)
+export const putBucketNotificationConfiguration = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ method: "PUT", uri: "/{Bucket}?notification", body: {"Bucket":"p:Bucket","NotificationConfiguration":"b:NotificationConfiguration"} }, S3ClientRequirement)
+export const putBucketOwnershipControls = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ method: "PUT", uri: "/{Bucket}?ownershipControls", body: {"Bucket":"p:Bucket","ContentMD5":"Content-MD5","OwnershipControls":"b:OwnershipControls","ChecksumAlgorithm":"x-amz-sdk-checksum-algorithm"} }, S3ClientRequirement)
+export const putBucketPolicy = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ method: "PUT", uri: "/{Bucket}?policy", body: {"Bucket":"p:Bucket","ContentMD5":"Content-MD5","ChecksumAlgorithm":"x-amz-sdk-checksum-algorithm","Policy":"b:undefined"} }, S3ClientRequirement)
+export const putBucketReplication = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ method: "PUT", uri: "/{Bucket}?replication", body: {"Bucket":"p:Bucket","ContentMD5":"Content-MD5","ChecksumAlgorithm":"x-amz-sdk-checksum-algorithm","ReplicationConfiguration":"b:ReplicationConfiguration","Token":"x-amz-bucket-object-lock-token"} }, S3ClientRequirement)
+export const putBucketRequestPayment = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ method: "PUT", uri: "/{Bucket}?requestPayment", body: {"Bucket":"p:Bucket","ContentMD5":"Content-MD5","ChecksumAlgorithm":"x-amz-sdk-checksum-algorithm","RequestPaymentConfiguration":"b:RequestPaymentConfiguration"} }, S3ClientRequirement)
+export const putBucketTagging = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ method: "PUT", uri: "/{Bucket}?tagging", body: {"Bucket":"p:Bucket","ContentMD5":"Content-MD5","ChecksumAlgorithm":"x-amz-sdk-checksum-algorithm","Tagging":"b:Tagging"} }, S3ClientRequirement)
+export const putBucketVersioning = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ method: "PUT", uri: "/{Bucket}?versioning", body: {"Bucket":"p:Bucket","ContentMD5":"Content-MD5","ChecksumAlgorithm":"x-amz-sdk-checksum-algorithm","MFA":"x-amz-mfa","VersioningConfiguration":"b:VersioningConfiguration"} }, S3ClientRequirement)
+export const putBucketWebsite = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ method: "PUT", uri: "/{Bucket}?website", body: {"Bucket":"p:Bucket","ContentMD5":"Content-MD5","ChecksumAlgorithm":"x-amz-sdk-checksum-algorithm","WebsiteConfiguration":"b:WebsiteConfiguration"} }, S3ClientRequirement)
+export const putObject = /*@__PURE__*/ makeOperation<PutObjectRequest, PutObjectOutput, EncryptionTypeMismatchError | InvalidRequestError | InvalidWriteOffsetError | TooManyPartsError | CommonAwsError, typeof S3ClientRequirement>({ method: "PUT", uri: "/{Bucket}/{Key+}?x-id=PutObject", body: {"ACL":"x-amz-acl","Body":"b:undefined","Bucket":"p:Bucket","CacheControl":"Cache-Control","ContentDisposition":"Content-Disposition","ContentEncoding":"Content-Encoding","ContentLanguage":"Content-Language","ContentLength":"Content-Length","ContentMD5":"Content-MD5","ContentType":"Content-Type","ChecksumAlgorithm":"x-amz-sdk-checksum-algorithm","ChecksumCRC32":"x-amz-checksum-crc32","ChecksumCRC32C":"x-amz-checksum-crc32c","ChecksumCRC64NVME":"x-amz-checksum-crc64nvme","ChecksumSHA1":"x-amz-checksum-sha1","ChecksumSHA256":"x-amz-checksum-sha256","Expires":"Expires","IfMatch":"If-Match","IfNoneMatch":"If-None-Match","GrantReadACP":"x-amz-grant-read-acp","GrantWriteACP":"x-amz-grant-write-acp","Key":"p:Key","SSECustomerAlgorithm":"x-amz-server-side-encryption-customer-algorithm","SSECustomerKey":"x-amz-server-side-encryption-customer-key","SSECustomerKeyMD5":"x-amz-server-side-encryption-customer-key-MD5","SSEKMSKeyId":"x-amz-server-side-encryption-aws-kms-key-id","SSEKMSEncryptionContext":"x-amz-server-side-encryption-context","BucketKeyEnabled":"x-amz-server-side-encryption-bucket-key-enabled","ObjectLockLegalHoldStatus":"x-amz-object-lock-legal-hold"} }, S3ClientRequirement)
+export const putObjectAcl = /*@__PURE__*/ makeOperation<PutObjectAclRequest, PutObjectAclOutput, NoSuchKeyError | CommonAwsError, typeof S3ClientRequirement>({ method: "PUT", uri: "/{Bucket}/{Key+}?acl", body: {"ACL":"x-amz-acl","AccessControlPolicy":"b:AccessControlPolicy","Bucket":"p:Bucket","ContentMD5":"Content-MD5","ChecksumAlgorithm":"x-amz-sdk-checksum-algorithm","GrantReadACP":"x-amz-grant-read-acp","GrantWriteACP":"x-amz-grant-write-acp","Key":"p:Key"} }, S3ClientRequirement)
+export const putObjectLegalHold = /*@__PURE__*/ makeOperation<PutObjectLegalHoldRequest, PutObjectLegalHoldOutput, CommonAwsError, typeof S3ClientRequirement>({ method: "PUT", uri: "/{Bucket}/{Key+}?legal-hold", body: {"Bucket":"p:Bucket","Key":"p:Key","LegalHold":"b:LegalHold","ContentMD5":"Content-MD5","ChecksumAlgorithm":"x-amz-sdk-checksum-algorithm"} }, S3ClientRequirement)
+export const putObjectLockConfiguration = /*@__PURE__*/ makeOperation<PutObjectLockConfigurationRequest, PutObjectLockConfigurationOutput, CommonAwsError, typeof S3ClientRequirement>({ method: "PUT", uri: "/{Bucket}?object-lock", body: {"Bucket":"p:Bucket","ObjectLockConfiguration":"b:ObjectLockConfiguration","Token":"x-amz-bucket-object-lock-token","ContentMD5":"Content-MD5","ChecksumAlgorithm":"x-amz-sdk-checksum-algorithm"} }, S3ClientRequirement)
+export const putObjectRetention = /*@__PURE__*/ makeOperation<PutObjectRetentionRequest, PutObjectRetentionOutput, CommonAwsError, typeof S3ClientRequirement>({ method: "PUT", uri: "/{Bucket}/{Key+}?retention", body: {"Bucket":"p:Bucket","Key":"p:Key","Retention":"b:Retention","ContentMD5":"Content-MD5","ChecksumAlgorithm":"x-amz-sdk-checksum-algorithm"} }, S3ClientRequirement)
+export const putObjectTagging = /*@__PURE__*/ makeOperation<PutObjectTaggingRequest, PutObjectTaggingOutput, CommonAwsError, typeof S3ClientRequirement>({ method: "PUT", uri: "/{Bucket}/{Key+}?tagging", body: {"Bucket":"p:Bucket","Key":"p:Key","ContentMD5":"Content-MD5","ChecksumAlgorithm":"x-amz-sdk-checksum-algorithm","Tagging":"b:Tagging"} }, S3ClientRequirement)
+export const putPublicAccessBlock = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ method: "PUT", uri: "/{Bucket}?publicAccessBlock", body: {"Bucket":"p:Bucket","ContentMD5":"Content-MD5","ChecksumAlgorithm":"x-amz-sdk-checksum-algorithm","PublicAccessBlockConfiguration":"b:PublicAccessBlockConfiguration"} }, S3ClientRequirement)
+export const renameObject = /*@__PURE__*/ makeOperation<RenameObjectRequest, RenameObjectOutput, IdempotencyParameterMismatchError | CommonAwsError, typeof S3ClientRequirement>({ method: "PUT", uri: "/{Bucket}/{Key+}?renameObject", body: {"Bucket":"p:Bucket","Key":"p:Key","DestinationIfMatch":"If-Match","DestinationIfNoneMatch":"If-None-Match","DestinationIfModifiedSince":"If-Modified-Since","DestinationIfUnmodifiedSince":"If-Unmodified-Since","SourceIfMatch":"x-amz-rename-source-if-match","SourceIfNoneMatch":"x-amz-rename-source-if-none-match","SourceIfModifiedSince":"x-amz-rename-source-if-modified-since","SourceIfUnmodifiedSince":"x-amz-rename-source-if-unmodified-since"} }, S3ClientRequirement)
+export const restoreObject = /*@__PURE__*/ makeOperation<RestoreObjectRequest, RestoreObjectOutput, ObjectAlreadyInActiveTierErrorError | CommonAwsError, typeof S3ClientRequirement>({ method: "POST", uri: "/{Bucket}/{Key+}?restore", body: {"Bucket":"p:Bucket","Key":"p:Key","RestoreRequest":"b:RestoreRequest","ChecksumAlgorithm":"x-amz-sdk-checksum-algorithm"} }, S3ClientRequirement)
+export const selectObjectContent = /*@__PURE__*/ makeOperation<SelectObjectContentRequest, SelectObjectContentOutput, CommonAwsError, typeof S3ClientRequirement>({ method: "POST", uri: "/{Bucket}/{Key+}?select&select-type=2", body: {"Bucket":"p:Bucket","Key":"p:Key","SSECustomerAlgorithm":"x-amz-server-side-encryption-customer-algorithm","SSECustomerKey":"x-amz-server-side-encryption-customer-key","SSECustomerKeyMD5":"x-amz-server-side-encryption-customer-key-MD5"} }, S3ClientRequirement)
+export const updateBucketMetadataInventoryTableConfiguration = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ method: "PUT", uri: "/{Bucket}?metadataInventoryTable", body: {"Bucket":"p:Bucket","ContentMD5":"Content-MD5","ChecksumAlgorithm":"x-amz-sdk-checksum-algorithm","InventoryTableConfiguration":"b:InventoryTableConfiguration"} }, S3ClientRequirement)
+export const updateBucketMetadataJournalTableConfiguration = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ method: "PUT", uri: "/{Bucket}?metadataJournalTable", body: {"Bucket":"p:Bucket","ContentMD5":"Content-MD5","ChecksumAlgorithm":"x-amz-sdk-checksum-algorithm","JournalTableConfiguration":"b:JournalTableConfiguration"} }, S3ClientRequirement)
+export const uploadPart = /*@__PURE__*/ makeOperation<UploadPartRequest, UploadPartOutput, CommonAwsError, typeof S3ClientRequirement>({ method: "PUT", uri: "/{Bucket}/{Key+}?x-id=UploadPart", body: {"Body":"b:undefined","Bucket":"p:Bucket","ContentLength":"Content-Length","ContentMD5":"Content-MD5","ChecksumAlgorithm":"x-amz-sdk-checksum-algorithm","ChecksumCRC32":"x-amz-checksum-crc32","ChecksumCRC32C":"x-amz-checksum-crc32c","ChecksumCRC64NVME":"x-amz-checksum-crc64nvme","ChecksumSHA1":"x-amz-checksum-sha1","ChecksumSHA256":"x-amz-checksum-sha256","Key":"p:Key","SSECustomerAlgorithm":"x-amz-server-side-encryption-customer-algorithm","SSECustomerKey":"x-amz-server-side-encryption-customer-key","SSECustomerKeyMD5":"x-amz-server-side-encryption-customer-key-MD5"} }, S3ClientRequirement)
+export const uploadPartCopy = /*@__PURE__*/ makeOperation<UploadPartCopyRequest, UploadPartCopyOutput, CommonAwsError, typeof S3ClientRequirement>({ method: "PUT", uri: "/{Bucket}/{Key+}?x-id=UploadPartCopy", body: {"Bucket":"p:Bucket","Key":"p:Key","SSECustomerAlgorithm":"x-amz-server-side-encryption-customer-algorithm","SSECustomerKey":"x-amz-server-side-encryption-customer-key","SSECustomerKeyMD5":"x-amz-server-side-encryption-customer-key-MD5","CopySourceSSECustomerAlgorithm":"x-amz-copy-source-server-side-encryption-customer-algorithm","CopySourceSSECustomerKey":"x-amz-copy-source-server-side-encryption-customer-key","CopySourceSSECustomerKeyMD5":"x-amz-copy-source-server-side-encryption-customer-key-MD5","ExpectedSourceBucketOwner":"x-amz-source-expected-bucket-owner"} }, S3ClientRequirement)
+export const writeGetObjectResponse = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ method: "POST", uri: "/WriteGetObjectResponse", body: {"Body":"b:undefined","StatusCode":"x-amz-fwd-status","ErrorCode":"x-amz-fwd-error-code","ErrorMessage":"x-amz-fwd-error-message","AcceptRanges":"x-amz-fwd-header-accept-ranges","CacheControl":"x-amz-fwd-header-Cache-Control","ContentDisposition":"x-amz-fwd-header-Content-Disposition","ContentEncoding":"x-amz-fwd-header-Content-Encoding","ContentLanguage":"x-amz-fwd-header-Content-Language","ContentLength":"Content-Length","ContentRange":"x-amz-fwd-header-Content-Range","ContentType":"x-amz-fwd-header-Content-Type","ChecksumCRC32":"x-amz-fwd-header-x-amz-checksum-crc32","ChecksumCRC32C":"x-amz-fwd-header-x-amz-checksum-crc32c","ChecksumCRC64NVME":"x-amz-fwd-header-x-amz-checksum-crc64nvme","ChecksumSHA1":"x-amz-fwd-header-x-amz-checksum-sha1","ChecksumSHA256":"x-amz-fwd-header-x-amz-checksum-sha256","DeleteMarker":"x-amz-fwd-header-x-amz-delete-marker","ETag":"x-amz-fwd-header-ETag","Expires":"x-amz-fwd-header-Expires","Expiration":"x-amz-fwd-header-x-amz-expiration","LastModified":"x-amz-fwd-header-Last-Modified","MissingMeta":"x-amz-fwd-header-x-amz-missing-meta","ObjectLockMode":"x-amz-fwd-header-x-amz-object-lock-mode","ObjectLockLegalHoldStatus":"x-amz-fwd-header-x-amz-object-lock-legal-hold","ObjectLockRetainUntilDate":"x-amz-fwd-header-x-amz-object-lock-retain-until-date","PartsCount":"x-amz-fwd-header-x-amz-mp-parts-count","ReplicationStatus":"x-amz-fwd-header-x-amz-replication-status","RequestCharged":"x-amz-fwd-header-x-amz-request-charged","Restore":"x-amz-fwd-header-x-amz-restore","ServerSideEncryption":"x-amz-fwd-header-x-amz-server-side-encryption","SSECustomerAlgorithm":"x-amz-fwd-header-x-amz-server-side-encryption-customer-algorithm","SSEKMSKeyId":"x-amz-fwd-header-x-amz-server-side-encryption-aws-kms-key-id","SSECustomerKeyMD5":"x-amz-fwd-header-x-amz-server-side-encryption-customer-key-MD5","StorageClass":"x-amz-fwd-header-x-amz-storage-class","TagCount":"x-amz-fwd-header-x-amz-tagging-count","VersionId":"x-amz-fwd-header-x-amz-version-id","BucketKeyEnabled":"x-amz-fwd-header-x-amz-server-side-encryption-bucket-key-enabled"} }, S3ClientRequirement)
+
+//==== Aliased Types ====
+type NoSuchUpload = {};
+type RequestCharged = "requester";
+type AbortMultipartUploadOutput = {RequestCharged?: RequestCharged};
+type RequestPayer = "requester";
+type AbortMultipartUploadRequest = {Bucket: string, Key: string, UploadId: string, RequestPayer?: RequestPayer, ExpectedBucketOwner?: string, IfMatchInitiatedTime?: Date | string};
+type ChecksumType = "COMPOSITE" | "FULL_OBJECT";
+type ServerSideEncryption = "AES256" | "aws:fsx" | "aws:kms" | "aws:kms:dsse";
+type CompleteMultipartUploadOutput = {Location?: string, Bucket?: string, Key?: string, Expiration?: string, ETag?: string, ChecksumCRC32?: string, ChecksumCRC32C?: string, ChecksumCRC64NVME?: string, ChecksumSHA1?: string, ChecksumSHA256?: string, ChecksumType?: ChecksumType, ServerSideEncryption?: ServerSideEncryption, VersionId?: string, SSEKMSKeyId?: string, BucketKeyEnabled?: boolean, RequestCharged?: RequestCharged};
+type CompletedPart = {ETag?: string, ChecksumCRC32?: string, ChecksumCRC32C?: string, ChecksumCRC64NVME?: string, ChecksumSHA1?: string, ChecksumSHA256?: string, PartNumber?: number};
+type CompletedMultipartUpload = {Parts?: Array<CompletedPart>};
+type CompleteMultipartUploadRequest = {Bucket: string, Key: string, MultipartUpload?: CompletedMultipartUpload, UploadId: string, ChecksumCRC32?: string, ChecksumCRC32C?: string, ChecksumCRC64NVME?: string, ChecksumSHA1?: string, ChecksumSHA256?: string, ChecksumType?: ChecksumType, MpuObjectSize?: number, RequestPayer?: RequestPayer, ExpectedBucketOwner?: string, IfMatch?: string, IfNoneMatch?: string, SSECustomerAlgorithm?: string, SSECustomerKey?: string, SSECustomerKeyMD5?: string};
+type ObjectNotInActiveTierError = {};
+type CopyObjectResult = {ETag?: string, LastModified?: Date | string, ChecksumType?: ChecksumType, ChecksumCRC32?: string, ChecksumCRC32C?: string, ChecksumCRC64NVME?: string, ChecksumSHA1?: string, ChecksumSHA256?: string};
+type CopyObjectOutput = {CopyObjectResult?: CopyObjectResult, Expiration?: string, CopySourceVersionId?: string, VersionId?: string, ServerSideEncryption?: ServerSideEncryption, SSECustomerAlgorithm?: string, SSECustomerKeyMD5?: string, SSEKMSKeyId?: string, SSEKMSEncryptionContext?: string, BucketKeyEnabled?: boolean, RequestCharged?: RequestCharged};
+type ObjectCannedACL = "private" | "public-read" | "public-read-write" | "authenticated-read" | "aws-exec-read" | "bucket-owner-read" | "bucket-owner-full-control";
+type ChecksumAlgorithm = "CRC32" | "CRC32C" | "SHA1" | "SHA256" | "CRC64NVME";
+type MetadataDirective = "COPY" | "REPLACE";
+type TaggingDirective = "COPY" | "REPLACE";
+type StorageClass = "STANDARD" | "REDUCED_REDUNDANCY" | "STANDARD_IA" | "ONEZONE_IA" | "INTELLIGENT_TIERING" | "GLACIER" | "DEEP_ARCHIVE" | "OUTPOSTS" | "GLACIER_IR" | "SNOW" | "EXPRESS_ONEZONE" | "FSX_OPENZFS";
+type ObjectLockMode = "GOVERNANCE" | "COMPLIANCE";
+type ObjectLockLegalHoldStatus = "ON" | "OFF";
+type Metadata = Record<string, string>;
+type CopyObjectRequest = {ACL?: ObjectCannedACL, Bucket: string, CacheControl?: string, ChecksumAlgorithm?: ChecksumAlgorithm, ContentDisposition?: string, ContentEncoding?: string, ContentLanguage?: string, ContentType?: string, CopySource: string, CopySourceIfMatch?: string, CopySourceIfModifiedSince?: Date | string, CopySourceIfNoneMatch?: string, CopySourceIfUnmodifiedSince?: Date | string, Expires?: string, GrantFullControl?: string, GrantRead?: string, GrantReadACP?: string, GrantWriteACP?: string, IfMatch?: string, IfNoneMatch?: string, Key: string, Metadata?: Metadata, MetadataDirective?: MetadataDirective, TaggingDirective?: TaggingDirective, ServerSideEncryption?: ServerSideEncryption, StorageClass?: StorageClass, WebsiteRedirectLocation?: string, SSECustomerAlgorithm?: string, SSECustomerKey?: string, SSECustomerKeyMD5?: string, SSEKMSKeyId?: string, SSEKMSEncryptionContext?: string, BucketKeyEnabled?: boolean, CopySourceSSECustomerAlgorithm?: string, CopySourceSSECustomerKey?: string, CopySourceSSECustomerKeyMD5?: string, RequestPayer?: RequestPayer, Tagging?: string, ObjectLockMode?: ObjectLockMode, ObjectLockRetainUntilDate?: Date | string, ObjectLockLegalHoldStatus?: ObjectLockLegalHoldStatus, ExpectedBucketOwner?: string, ExpectedSourceBucketOwner?: string};
+type BucketAlreadyExists = {};
+type BucketAlreadyOwnedByYou = {};
+type CreateBucketOutput = {Location?: string, BucketArn?: string};
+type BucketCannedACL = "private" | "public-read" | "public-read-write" | "authenticated-read";
+type ObjectOwnership = "BucketOwnerPreferred" | "ObjectWriter" | "BucketOwnerEnforced";
+type BucketLocationConstraint = "af-south-1" | "ap-east-1" | "ap-northeast-1" | "ap-northeast-2" | "ap-northeast-3" | "ap-south-1" | "ap-south-2" | "ap-southeast-1" | "ap-southeast-2" | "ap-southeast-3" | "ap-southeast-4" | "ap-southeast-5" | "ca-central-1" | "cn-north-1" | "cn-northwest-1" | "EU" | "eu-central-1" | "eu-central-2" | "eu-north-1" | "eu-south-1" | "eu-south-2" | "eu-west-1" | "eu-west-2" | "eu-west-3" | "il-central-1" | "me-central-1" | "me-south-1" | "sa-east-1" | "us-east-2" | "us-gov-east-1" | "us-gov-west-1" | "us-west-1" | "us-west-2";
+type LocationType = "AvailabilityZone" | "LocalZone";
+type DataRedundancy = "SingleAvailabilityZone" | "SingleLocalZone";
+type BucketType = "Directory";
+type LocationInfo = {Type?: LocationType, Name?: string};
+type BucketInfo = {DataRedundancy?: DataRedundancy, Type?: BucketType};
+type Tag = {Key: string, Value: string};
+type CreateBucketConfiguration = {LocationConstraint?: BucketLocationConstraint, Location?: LocationInfo, Bucket?: BucketInfo, Tags?: Array<Tag>};
+type CreateBucketRequest = {ACL?: BucketCannedACL, Bucket: string, CreateBucketConfiguration?: CreateBucketConfiguration, GrantFullControl?: string, GrantRead?: string, GrantReadACP?: string, GrantWrite?: string, GrantWriteACP?: string, ObjectLockEnabledForBucket?: boolean, ObjectOwnership?: ObjectOwnership};
+type CreateMultipartUploadOutput = {AbortDate?: Date | string, AbortRuleId?: string, Bucket?: string, Key?: string, UploadId?: string, ServerSideEncryption?: ServerSideEncryption, SSECustomerAlgorithm?: string, SSECustomerKeyMD5?: string, SSEKMSKeyId?: string, SSEKMSEncryptionContext?: string, BucketKeyEnabled?: boolean, RequestCharged?: RequestCharged, ChecksumAlgorithm?: ChecksumAlgorithm, ChecksumType?: ChecksumType};
+type CreateMultipartUploadRequest = {ACL?: ObjectCannedACL, Bucket: string, CacheControl?: string, ContentDisposition?: string, ContentEncoding?: string, ContentLanguage?: string, ContentType?: string, Expires?: string, GrantFullControl?: string, GrantRead?: string, GrantReadACP?: string, GrantWriteACP?: string, Key: string, Metadata?: Metadata, ServerSideEncryption?: ServerSideEncryption, StorageClass?: StorageClass, WebsiteRedirectLocation?: string, SSECustomerAlgorithm?: string, SSECustomerKey?: string, SSECustomerKeyMD5?: string, SSEKMSKeyId?: string, SSEKMSEncryptionContext?: string, BucketKeyEnabled?: boolean, RequestPayer?: RequestPayer, Tagging?: string, ObjectLockMode?: ObjectLockMode, ObjectLockRetainUntilDate?: Date | string, ObjectLockLegalHoldStatus?: ObjectLockLegalHoldStatus, ExpectedBucketOwner?: string, ChecksumAlgorithm?: ChecksumAlgorithm, ChecksumType?: ChecksumType};
+type NoSuchBucket = {};
+type SessionCredentials = {AccessKeyId: string, SecretAccessKey: string, SessionToken: string, Expiration: Date | string};
+type CreateSessionOutput = {ServerSideEncryption?: ServerSideEncryption, SSEKMSKeyId?: string, SSEKMSEncryptionContext?: string, BucketKeyEnabled?: boolean, Credentials: SessionCredentials};
+type SessionMode = "ReadOnly" | "ReadWrite";
+type CreateSessionRequest = {SessionMode?: SessionMode, Bucket: string, ServerSideEncryption?: ServerSideEncryption, SSEKMSKeyId?: string, SSEKMSEncryptionContext?: string, BucketKeyEnabled?: boolean};
+type DeleteObjectOutput = {DeleteMarker?: boolean, VersionId?: string, RequestCharged?: RequestCharged};
+type DeleteObjectRequest = {Bucket: string, Key: string, MFA?: string, VersionId?: string, RequestPayer?: RequestPayer, BypassGovernanceRetention?: boolean, ExpectedBucketOwner?: string, IfMatch?: string, IfMatchLastModifiedTime?: Date | string, IfMatchSize?: number};
+type DeletedObject = {Key?: string, VersionId?: string, DeleteMarker?: boolean, DeleteMarkerVersionId?: string};
+type Error = {Key?: string, VersionId?: string, Code?: string, Message?: string};
+type DeleteObjectsOutput = {Deleted?: Array<DeletedObject>, RequestCharged?: RequestCharged, Errors?: Array<Error>};
+type ObjectIdentifier = {Key: string, VersionId?: string, ETag?: string, LastModifiedTime?: Date | string, Size?: number};
+type Delete = {Objects: Array<ObjectIdentifier>, Quiet?: boolean};
+type DeleteObjectsRequest = {Bucket: string, Delete: Delete, MFA?: string, RequestPayer?: RequestPayer, BypassGovernanceRetention?: boolean, ExpectedBucketOwner?: string, ChecksumAlgorithm?: ChecksumAlgorithm};
+type DeleteObjectTaggingOutput = {VersionId?: string};
+type DeleteObjectTaggingRequest = {Bucket: string, Key: string, VersionId?: string, ExpectedBucketOwner?: string};
+type BucketAccelerateStatus = "Enabled" | "Suspended";
+type GetBucketAccelerateConfigurationOutput = {Status?: BucketAccelerateStatus, RequestCharged?: RequestCharged};
+type GetBucketAccelerateConfigurationRequest = {Bucket: string, ExpectedBucketOwner?: string, RequestPayer?: RequestPayer};
+type Permission = "FULL_CONTROL" | "WRITE" | "WRITE_ACP" | "READ" | "READ_ACP";
+type Owner = {DisplayName?: string, ID?: string};
+type Type = "CanonicalUser" | "AmazonCustomerByEmail" | "Group";
+type Grantee = {DisplayName?: string, EmailAddress?: string, ID?: string, URI?: string, Type: Type};
+type Grant = {Grantee?: Grantee, Permission?: Permission};
+type GetBucketAclOutput = {Owner?: Owner, Grants?: Array<Grant>};
+type GetBucketAclRequest = {Bucket: string, ExpectedBucketOwner?: string};
+type StorageClassAnalysisSchemaVersion = "V_1";
+type AnalyticsS3ExportFileFormat = "CSV";
+type AnalyticsAndOperator = {Prefix?: string, Tags?: Array<Tag>};
+type AnalyticsS3BucketDestination = {Format: AnalyticsS3ExportFileFormat, BucketAccountId?: string, Bucket: string, Prefix?: string};
+type AnalyticsFilter = string | Tag | AnalyticsAndOperator;
+type AnalyticsExportDestination = {S3BucketDestination: AnalyticsS3BucketDestination};
+type StorageClassAnalysisDataExport = {OutputSchemaVersion: StorageClassAnalysisSchemaVersion, Destination: AnalyticsExportDestination};
+type StorageClassAnalysis = {DataExport?: StorageClassAnalysisDataExport};
+type AnalyticsConfiguration = {Id: string, Filter?: AnalyticsFilter, StorageClassAnalysis: StorageClassAnalysis};
+type GetBucketAnalyticsConfigurationOutput = {AnalyticsConfiguration?: AnalyticsConfiguration};
+type GetBucketAnalyticsConfigurationRequest = {Bucket: string, Id: string, ExpectedBucketOwner?: string};
+type CORSRule = {ID?: string, AllowedHeaders?: Array<string>, AllowedMethods: Array<string>, AllowedOrigins: Array<string>, ExposeHeaders?: Array<string>, MaxAgeSeconds?: number};
+type GetBucketCorsOutput = {CORSRules?: Array<CORSRule>};
+type GetBucketCorsRequest = {Bucket: string, ExpectedBucketOwner?: string};
+type ServerSideEncryptionByDefault = {SSEAlgorithm: ServerSideEncryption, KMSMasterKeyID?: string};
+type ServerSideEncryptionRule = {ApplyServerSideEncryptionByDefault?: ServerSideEncryptionByDefault, BucketKeyEnabled?: boolean};
+type ServerSideEncryptionConfiguration = {Rules: Array<ServerSideEncryptionRule>};
+type GetBucketEncryptionOutput = {ServerSideEncryptionConfiguration?: ServerSideEncryptionConfiguration};
+type GetBucketEncryptionRequest = {Bucket: string, ExpectedBucketOwner?: string};
+type IntelligentTieringStatus = "Enabled" | "Disabled";
+type IntelligentTieringAccessTier = "ARCHIVE_ACCESS" | "DEEP_ARCHIVE_ACCESS";
+type Tiering = {Days: number, AccessTier: IntelligentTieringAccessTier};
+type IntelligentTieringAndOperator = {Prefix?: string, Tags?: Array<Tag>};
+type IntelligentTieringFilter = {Prefix?: string, Tag?: Tag, And?: IntelligentTieringAndOperator};
+type IntelligentTieringConfiguration = {Id: string, Filter?: IntelligentTieringFilter, Status: IntelligentTieringStatus, Tierings: Array<Tiering>};
+type GetBucketIntelligentTieringConfigurationOutput = {IntelligentTieringConfiguration?: IntelligentTieringConfiguration};
+type GetBucketIntelligentTieringConfigurationRequest = {Bucket: string, Id: string, ExpectedBucketOwner?: string};
+type InventoryIncludedObjectVersions = "All" | "Current";
+type InventoryOptionalField = "Size" | "LastModifiedDate" | "StorageClass" | "ETag" | "IsMultipartUploaded" | "ReplicationStatus" | "EncryptionStatus" | "ObjectLockRetainUntilDate" | "ObjectLockMode" | "ObjectLockLegalHoldStatus" | "IntelligentTieringAccessTier" | "BucketKeyStatus" | "ChecksumAlgorithm" | "ObjectAccessControlList" | "ObjectOwner";
+type InventoryFrequency = "Daily" | "Weekly";
+type InventoryFilter = {Prefix: string};
+type InventorySchedule = {Frequency: InventoryFrequency};
+type InventoryFormat = "CSV" | "ORC" | "Parquet";
+type SSES3 = {};
+type SSEKMS = {KeyId: string};
+type InventoryEncryption = {SSES3?: SSES3, SSEKMS?: SSEKMS};
+type InventoryS3BucketDestination = {AccountId?: string, Bucket: string, Format: InventoryFormat, Prefix?: string, Encryption?: InventoryEncryption};
+type InventoryDestination = {S3BucketDestination: InventoryS3BucketDestination};
+type InventoryConfiguration = {Destination: InventoryDestination, IsEnabled: boolean, Filter?: InventoryFilter, Id: string, IncludedObjectVersions: InventoryIncludedObjectVersions, OptionalFields?: Array<InventoryOptionalField>, Schedule: InventorySchedule};
+type GetBucketInventoryConfigurationOutput = {InventoryConfiguration?: InventoryConfiguration};
+type GetBucketInventoryConfigurationRequest = {Bucket: string, Id: string, ExpectedBucketOwner?: string};
+type TransitionDefaultMinimumObjectSize = "varies_by_storage_class" | "all_storage_classes_128K";
+type ExpirationStatus = "Enabled" | "Disabled";
+type TransitionStorageClass = "GLACIER" | "STANDARD_IA" | "ONEZONE_IA" | "INTELLIGENT_TIERING" | "DEEP_ARCHIVE" | "GLACIER_IR";
+type LifecycleExpiration = {Date?: Date | string, Days?: number, ExpiredObjectDeleteMarker?: boolean};
+type Transition = {Date?: Date | string, Days?: number, StorageClass?: TransitionStorageClass};
+type NoncurrentVersionTransition = {NoncurrentDays?: number, StorageClass?: TransitionStorageClass, NewerNoncurrentVersions?: number};
+type NoncurrentVersionExpiration = {NoncurrentDays?: number, NewerNoncurrentVersions?: number};
+type AbortIncompleteMultipartUpload = {DaysAfterInitiation?: number};
+type LifecycleRuleAndOperator = {Prefix?: string, Tags?: Array<Tag>, ObjectSizeGreaterThan?: number, ObjectSizeLessThan?: number};
+type LifecycleRuleFilter = {Prefix?: string, Tag?: Tag, ObjectSizeGreaterThan?: number, ObjectSizeLessThan?: number, And?: LifecycleRuleAndOperator};
+type LifecycleRule = {Expiration?: LifecycleExpiration, ID?: string, Prefix?: string, Filter?: LifecycleRuleFilter, Status: ExpirationStatus, Transitions?: Array<Transition>, NoncurrentVersionTransitions?: Array<NoncurrentVersionTransition>, NoncurrentVersionExpiration?: NoncurrentVersionExpiration, AbortIncompleteMultipartUpload?: AbortIncompleteMultipartUpload};
+type GetBucketLifecycleConfigurationOutput = {Rules?: Array<LifecycleRule>, TransitionDefaultMinimumObjectSize?: TransitionDefaultMinimumObjectSize};
+type GetBucketLifecycleConfigurationRequest = {Bucket: string, ExpectedBucketOwner?: string};
+type GetBucketLocationOutput = {LocationConstraint?: BucketLocationConstraint};
+type GetBucketLocationRequest = {Bucket: string, ExpectedBucketOwner?: string};
+type BucketLogsPermission = "FULL_CONTROL" | "READ" | "WRITE";
+type SimplePrefix = {};
+type PartitionDateSource = "EventTime" | "DeliveryTime";
+type PartitionedPrefix = {PartitionDateSource?: PartitionDateSource};
+type TargetGrant = {Grantee?: Grantee, Permission?: BucketLogsPermission};
+type TargetObjectKeyFormat = {SimplePrefix?: SimplePrefix, PartitionedPrefix?: PartitionedPrefix};
+type LoggingEnabled = {TargetBucket: string, TargetGrants?: Array<TargetGrant>, TargetPrefix: string, TargetObjectKeyFormat?: TargetObjectKeyFormat};
+type GetBucketLoggingOutput = {LoggingEnabled?: LoggingEnabled};
+type GetBucketLoggingRequest = {Bucket: string, ExpectedBucketOwner?: string};
+type S3TablesBucketType = "aws" | "customer";
+type InventoryConfigurationState = "ENABLED" | "DISABLED";
+type DestinationResult = {TableBucketType?: S3TablesBucketType, TableBucketArn?: string, TableNamespace?: string};
+type ExpirationState = "ENABLED" | "DISABLED";
+type ErrorDetails = {ErrorCode?: string, ErrorMessage?: string};
+type RecordExpiration = {Expiration: ExpirationState, Days?: number};
+type JournalTableConfigurationResult = {TableStatus: string, Error?: ErrorDetails, TableName: string, TableArn?: string, RecordExpiration: RecordExpiration};
+type InventoryTableConfigurationResult = {ConfigurationState: InventoryConfigurationState, TableStatus?: string, Error?: ErrorDetails, TableName?: string, TableArn?: string};
+type MetadataConfigurationResult = {DestinationResult: DestinationResult, JournalTableConfigurationResult?: JournalTableConfigurationResult, InventoryTableConfigurationResult?: InventoryTableConfigurationResult};
+type GetBucketMetadataConfigurationResult = {MetadataConfigurationResult: MetadataConfigurationResult};
+type GetBucketMetadataConfigurationOutput = {GetBucketMetadataConfigurationResult?: GetBucketMetadataConfigurationResult};
+type GetBucketMetadataConfigurationRequest = {Bucket: string, ExpectedBucketOwner?: string};
+type S3TablesDestinationResult = {TableBucketArn: string, TableName: string, TableArn: string, TableNamespace: string};
+type MetadataTableConfigurationResult = {S3TablesDestinationResult: S3TablesDestinationResult};
+type GetBucketMetadataTableConfigurationResult = {MetadataTableConfigurationResult: MetadataTableConfigurationResult, Status: string, Error?: ErrorDetails};
+type GetBucketMetadataTableConfigurationOutput = {GetBucketMetadataTableConfigurationResult?: GetBucketMetadataTableConfigurationResult};
+type GetBucketMetadataTableConfigurationRequest = {Bucket: string, ExpectedBucketOwner?: string};
+type MetricsAndOperator = {Prefix?: string, Tags?: Array<Tag>, AccessPointArn?: string};
+type MetricsFilter = string | Tag | string | MetricsAndOperator;
+type MetricsConfiguration = {Id: string, Filter?: MetricsFilter};
+type GetBucketMetricsConfigurationOutput = {MetricsConfiguration?: MetricsConfiguration};
+type GetBucketMetricsConfigurationRequest = {Bucket: string, Id: string, ExpectedBucketOwner?: string};
+type EventBridgeConfiguration = {};
+type Event = "s3:ReducedRedundancyLostObject" | "s3:ObjectCreated:*" | "s3:ObjectCreated:Put" | "s3:ObjectCreated:Post" | "s3:ObjectCreated:Copy" | "s3:ObjectCreated:CompleteMultipartUpload" | "s3:ObjectRemoved:*" | "s3:ObjectRemoved:Delete" | "s3:ObjectRemoved:DeleteMarkerCreated" | "s3:ObjectRestore:*" | "s3:ObjectRestore:Post" | "s3:ObjectRestore:Completed" | "s3:Replication:*" | "s3:Replication:OperationFailedReplication" | "s3:Replication:OperationNotTracked" | "s3:Replication:OperationMissedThreshold" | "s3:Replication:OperationReplicatedAfterThreshold" | "s3:ObjectRestore:Delete" | "s3:LifecycleTransition" | "s3:IntelligentTiering" | "s3:ObjectAcl:Put" | "s3:LifecycleExpiration:*" | "s3:LifecycleExpiration:Delete" | "s3:LifecycleExpiration:DeleteMarkerCreated" | "s3:ObjectTagging:*" | "s3:ObjectTagging:Put" | "s3:ObjectTagging:Delete";
+type FilterRuleName = "prefix" | "suffix";
+type FilterRule = {Name?: FilterRuleName, Value?: string};
+type S3KeyFilter = {FilterRules?: Array<FilterRule>};
+type NotificationConfigurationFilter = {Key?: S3KeyFilter};
+type TopicConfiguration = {Id?: string, TopicArn: string, Events: Array<Event>, Filter?: NotificationConfigurationFilter};
+type QueueConfiguration = {Id?: string, QueueArn: string, Events: Array<Event>, Filter?: NotificationConfigurationFilter};
+type LambdaFunctionConfiguration = {Id?: string, LambdaFunctionArn: string, Events: Array<Event>, Filter?: NotificationConfigurationFilter};
+type NotificationConfiguration = {TopicConfigurations?: Array<TopicConfiguration>, QueueConfigurations?: Array<QueueConfiguration>, LambdaFunctionConfigurations?: Array<LambdaFunctionConfiguration>, EventBridgeConfiguration?: EventBridgeConfiguration};
+type GetBucketNotificationConfigurationRequest = {Bucket: string, ExpectedBucketOwner?: string};
+type OwnershipControlsRule = {ObjectOwnership: ObjectOwnership};
+type OwnershipControls = {Rules: Array<OwnershipControlsRule>};
+type GetBucketOwnershipControlsOutput = {OwnershipControls?: OwnershipControls};
+type GetBucketOwnershipControlsRequest = {Bucket: string, ExpectedBucketOwner?: string};
+type GetBucketPolicyOutput = {Policy?: string};
+type GetBucketPolicyRequest = {Bucket: string, ExpectedBucketOwner?: string};
+type PolicyStatus = {IsPublic?: boolean};
+type GetBucketPolicyStatusOutput = {PolicyStatus?: PolicyStatus};
+type GetBucketPolicyStatusRequest = {Bucket: string, ExpectedBucketOwner?: string};
+type ReplicationRuleStatus = "Enabled" | "Disabled";
+type ExistingObjectReplicationStatus = "Enabled" | "Disabled";
+type DeleteMarkerReplicationStatus = "Enabled" | "Disabled";
+type ExistingObjectReplication = {Status: ExistingObjectReplicationStatus};
+type DeleteMarkerReplication = {Status?: DeleteMarkerReplicationStatus};
+type SseKmsEncryptedObjectsStatus = "Enabled" | "Disabled";
+type ReplicaModificationsStatus = "Enabled" | "Disabled";
+type OwnerOverride = "Destination";
+type ReplicationTimeStatus = "Enabled" | "Disabled";
+type MetricsStatus = "Enabled" | "Disabled";
+type SseKmsEncryptedObjects = {Status: SseKmsEncryptedObjectsStatus};
+type ReplicaModifications = {Status: ReplicaModificationsStatus};
+type AccessControlTranslation = {Owner: OwnerOverride};
+type EncryptionConfiguration = {ReplicaKmsKeyID?: string};
+type SourceSelectionCriteria = {SseKmsEncryptedObjects?: SseKmsEncryptedObjects, ReplicaModifications?: ReplicaModifications};
+type ReplicationTimeValue = {Minutes?: number};
+type ReplicationRuleAndOperator = {Prefix?: string, Tags?: Array<Tag>};
+type ReplicationTime = {Status: ReplicationTimeStatus, Time: ReplicationTimeValue};
+type Metrics = {Status: MetricsStatus, EventThreshold?: ReplicationTimeValue};
+type ReplicationRuleFilter = {Prefix?: string, Tag?: Tag, And?: ReplicationRuleAndOperator};
+type Destination = {Bucket: string, Account?: string, StorageClass?: StorageClass, AccessControlTranslation?: AccessControlTranslation, EncryptionConfiguration?: EncryptionConfiguration, ReplicationTime?: ReplicationTime, Metrics?: Metrics};
+type ReplicationRule = {ID?: string, Priority?: number, Prefix?: string, Filter?: ReplicationRuleFilter, Status: ReplicationRuleStatus, SourceSelectionCriteria?: SourceSelectionCriteria, ExistingObjectReplication?: ExistingObjectReplication, Destination: Destination, DeleteMarkerReplication?: DeleteMarkerReplication};
+type ReplicationConfiguration = {Role: string, Rules: Array<ReplicationRule>};
+type GetBucketReplicationOutput = {ReplicationConfiguration?: ReplicationConfiguration};
+type GetBucketReplicationRequest = {Bucket: string, ExpectedBucketOwner?: string};
+type Payer = "Requester" | "BucketOwner";
+type GetBucketRequestPaymentOutput = {Payer?: Payer};
+type GetBucketRequestPaymentRequest = {Bucket: string, ExpectedBucketOwner?: string};
+type GetBucketTaggingOutput = {TagSet: Array<Tag>};
+type GetBucketTaggingRequest = {Bucket: string, ExpectedBucketOwner?: string};
+type BucketVersioningStatus = "Enabled" | "Suspended";
+type MFADeleteStatus = "Enabled" | "Disabled";
+type GetBucketVersioningOutput = {Status?: BucketVersioningStatus, MFADelete?: MFADeleteStatus};
+type GetBucketVersioningRequest = {Bucket: string, ExpectedBucketOwner?: string};
+type Protocol = "http" | "https";
+type RedirectAllRequestsTo = {HostName: string, Protocol?: Protocol};
+type IndexDocument = {Suffix: string};
+type ErrorDocument = {Key: string};
+type Condition = {HttpErrorCodeReturnedEquals?: string, KeyPrefixEquals?: string};
+type Redirect = {HostName?: string, HttpRedirectCode?: string, Protocol?: Protocol, ReplaceKeyPrefixWith?: string, ReplaceKeyWith?: string};
+type RoutingRule = {Condition?: Condition, Redirect: Redirect};
+type GetBucketWebsiteOutput = {RedirectAllRequestsTo?: RedirectAllRequestsTo, IndexDocument?: IndexDocument, ErrorDocument?: ErrorDocument, RoutingRules?: Array<RoutingRule>};
+type GetBucketWebsiteRequest = {Bucket: string, ExpectedBucketOwner?: string};
+type InvalidObjectState = {StorageClass?: StorageClass, AccessTier?: IntelligentTieringAccessTier};
+type NoSuchKey = {};
+type ReplicationStatus = "COMPLETE" | "PENDING" | "FAILED" | "REPLICA" | "COMPLETED";
+type GetObjectOutput = {Body?: Uint8Array, DeleteMarker?: boolean, AcceptRanges?: string, Expiration?: string, Restore?: string, LastModified?: Date | string, ContentLength?: number, ETag?: string, ChecksumCRC32?: string, ChecksumCRC32C?: string, ChecksumCRC64NVME?: string, ChecksumSHA1?: string, ChecksumSHA256?: string, ChecksumType?: ChecksumType, MissingMeta?: number, VersionId?: string, CacheControl?: string, ContentDisposition?: string, ContentEncoding?: string, ContentLanguage?: string, ContentRange?: string, ContentType?: string, Expires?: string, WebsiteRedirectLocation?: string, ServerSideEncryption?: ServerSideEncryption, Metadata?: Metadata, SSECustomerAlgorithm?: string, SSECustomerKeyMD5?: string, SSEKMSKeyId?: string, BucketKeyEnabled?: boolean, StorageClass?: StorageClass, RequestCharged?: RequestCharged, ReplicationStatus?: ReplicationStatus, PartsCount?: number, TagCount?: number, ObjectLockMode?: ObjectLockMode, ObjectLockRetainUntilDate?: Date | string, ObjectLockLegalHoldStatus?: ObjectLockLegalHoldStatus};
+type ChecksumMode = "ENABLED";
+type GetObjectRequest = {Bucket: string, IfMatch?: string, IfModifiedSince?: Date | string, IfNoneMatch?: string, IfUnmodifiedSince?: Date | string, Key: string, Range?: string, ResponseCacheControl?: string, ResponseContentDisposition?: string, ResponseContentEncoding?: string, ResponseContentLanguage?: string, ResponseContentType?: string, ResponseExpires?: Date | string, VersionId?: string, SSECustomerAlgorithm?: string, SSECustomerKey?: string, SSECustomerKeyMD5?: string, RequestPayer?: RequestPayer, PartNumber?: number, ExpectedBucketOwner?: string, ChecksumMode?: ChecksumMode};
+type GetObjectAclOutput = {Owner?: Owner, Grants?: Array<Grant>, RequestCharged?: RequestCharged};
+type GetObjectAclRequest = {Bucket: string, Key: string, VersionId?: string, RequestPayer?: RequestPayer, ExpectedBucketOwner?: string};
+type Checksum = {ChecksumCRC32?: string, ChecksumCRC32C?: string, ChecksumCRC64NVME?: string, ChecksumSHA1?: string, ChecksumSHA256?: string, ChecksumType?: ChecksumType};
+type ObjectPart = {PartNumber?: number, Size?: number, ChecksumCRC32?: string, ChecksumCRC32C?: string, ChecksumCRC64NVME?: string, ChecksumSHA1?: string, ChecksumSHA256?: string};
+type GetObjectAttributesParts = {TotalPartsCount?: number, PartNumberMarker?: string, NextPartNumberMarker?: string, MaxParts?: number, IsTruncated?: boolean, Parts?: Array<ObjectPart>};
+type GetObjectAttributesOutput = {DeleteMarker?: boolean, LastModified?: Date | string, VersionId?: string, RequestCharged?: RequestCharged, ETag?: string, Checksum?: Checksum, ObjectParts?: GetObjectAttributesParts, StorageClass?: StorageClass, ObjectSize?: number};
+type ObjectAttributes = "ETag" | "Checksum" | "ObjectParts" | "StorageClass" | "ObjectSize";
+type GetObjectAttributesRequest = {Bucket: string, Key: string, VersionId?: string, MaxParts?: number, PartNumberMarker?: string, SSECustomerAlgorithm?: string, SSECustomerKey?: string, SSECustomerKeyMD5?: string, RequestPayer?: RequestPayer, ExpectedBucketOwner?: string, ObjectAttributes: Array<ObjectAttributes>};
+type ObjectLockLegalHold = {Status?: ObjectLockLegalHoldStatus};
+type GetObjectLegalHoldOutput = {LegalHold?: ObjectLockLegalHold};
+type GetObjectLegalHoldRequest = {Bucket: string, Key: string, VersionId?: string, RequestPayer?: RequestPayer, ExpectedBucketOwner?: string};
+type ObjectLockEnabled = "Enabled";
+type ObjectLockRetentionMode = "GOVERNANCE" | "COMPLIANCE";
+type DefaultRetention = {Mode?: ObjectLockRetentionMode, Days?: number, Years?: number};
+type ObjectLockRule = {DefaultRetention?: DefaultRetention};
+type ObjectLockConfiguration = {ObjectLockEnabled?: ObjectLockEnabled, Rule?: ObjectLockRule};
+type GetObjectLockConfigurationOutput = {ObjectLockConfiguration?: ObjectLockConfiguration};
+type GetObjectLockConfigurationRequest = {Bucket: string, ExpectedBucketOwner?: string};
+type ObjectLockRetention = {Mode?: ObjectLockRetentionMode, RetainUntilDate?: Date | string};
+type GetObjectRetentionOutput = {Retention?: ObjectLockRetention};
+type GetObjectRetentionRequest = {Bucket: string, Key: string, VersionId?: string, RequestPayer?: RequestPayer, ExpectedBucketOwner?: string};
+type GetObjectTaggingOutput = {VersionId?: string, TagSet: Array<Tag>};
+type GetObjectTaggingRequest = {Bucket: string, Key: string, VersionId?: string, ExpectedBucketOwner?: string, RequestPayer?: RequestPayer};
+type GetObjectTorrentOutput = {Body?: Uint8Array, RequestCharged?: RequestCharged};
+type GetObjectTorrentRequest = {Bucket: string, Key: string, RequestPayer?: RequestPayer, ExpectedBucketOwner?: string};
+type PublicAccessBlockConfiguration = {BlockPublicAcls?: boolean, IgnorePublicAcls?: boolean, BlockPublicPolicy?: boolean, RestrictPublicBuckets?: boolean};
+type GetPublicAccessBlockOutput = {PublicAccessBlockConfiguration?: PublicAccessBlockConfiguration};
+type GetPublicAccessBlockRequest = {Bucket: string, ExpectedBucketOwner?: string};
+type NotFound = {};
+type HeadBucketOutput = {BucketArn?: string, BucketLocationType?: LocationType, BucketLocationName?: string, BucketRegion?: string, AccessPointAlias?: boolean};
+type HeadBucketRequest = {Bucket: string, ExpectedBucketOwner?: string};
+type ArchiveStatus = "ARCHIVE_ACCESS" | "DEEP_ARCHIVE_ACCESS";
+type HeadObjectOutput = {DeleteMarker?: boolean, AcceptRanges?: string, Expiration?: string, Restore?: string, ArchiveStatus?: ArchiveStatus, LastModified?: Date | string, ContentLength?: number, ChecksumCRC32?: string, ChecksumCRC32C?: string, ChecksumCRC64NVME?: string, ChecksumSHA1?: string, ChecksumSHA256?: string, ChecksumType?: ChecksumType, ETag?: string, MissingMeta?: number, VersionId?: string, CacheControl?: string, ContentDisposition?: string, ContentEncoding?: string, ContentLanguage?: string, ContentType?: string, ContentRange?: string, Expires?: string, WebsiteRedirectLocation?: string, ServerSideEncryption?: ServerSideEncryption, Metadata?: Metadata, SSECustomerAlgorithm?: string, SSECustomerKeyMD5?: string, SSEKMSKeyId?: string, BucketKeyEnabled?: boolean, StorageClass?: StorageClass, RequestCharged?: RequestCharged, ReplicationStatus?: ReplicationStatus, PartsCount?: number, TagCount?: number, ObjectLockMode?: ObjectLockMode, ObjectLockRetainUntilDate?: Date | string, ObjectLockLegalHoldStatus?: ObjectLockLegalHoldStatus};
+type HeadObjectRequest = {Bucket: string, IfMatch?: string, IfModifiedSince?: Date | string, IfNoneMatch?: string, IfUnmodifiedSince?: Date | string, Key: string, Range?: string, ResponseCacheControl?: string, ResponseContentDisposition?: string, ResponseContentEncoding?: string, ResponseContentLanguage?: string, ResponseContentType?: string, ResponseExpires?: Date | string, VersionId?: string, SSECustomerAlgorithm?: string, SSECustomerKey?: string, SSECustomerKeyMD5?: string, RequestPayer?: RequestPayer, PartNumber?: number, ExpectedBucketOwner?: string, ChecksumMode?: ChecksumMode};
+type ListBucketAnalyticsConfigurationsOutput = {IsTruncated?: boolean, ContinuationToken?: string, NextContinuationToken?: string, AnalyticsConfigurationList?: Array<AnalyticsConfiguration>};
+type ListBucketAnalyticsConfigurationsRequest = {Bucket: string, ContinuationToken?: string, ExpectedBucketOwner?: string};
+type ListBucketIntelligentTieringConfigurationsOutput = {IsTruncated?: boolean, ContinuationToken?: string, NextContinuationToken?: string, IntelligentTieringConfigurationList?: Array<IntelligentTieringConfiguration>};
+type ListBucketIntelligentTieringConfigurationsRequest = {Bucket: string, ContinuationToken?: string, ExpectedBucketOwner?: string};
+type ListBucketInventoryConfigurationsOutput = {ContinuationToken?: string, InventoryConfigurationList?: Array<InventoryConfiguration>, IsTruncated?: boolean, NextContinuationToken?: string};
+type ListBucketInventoryConfigurationsRequest = {Bucket: string, ContinuationToken?: string, ExpectedBucketOwner?: string};
+type ListBucketMetricsConfigurationsOutput = {IsTruncated?: boolean, ContinuationToken?: string, NextContinuationToken?: string, MetricsConfigurationList?: Array<MetricsConfiguration>};
+type ListBucketMetricsConfigurationsRequest = {Bucket: string, ContinuationToken?: string, ExpectedBucketOwner?: string};
+type Bucket = {Name?: string, CreationDate?: Date | string, BucketRegion?: string, BucketArn?: string};
+type ListBucketsOutput = {Buckets?: Array<Bucket>, Owner?: Owner, ContinuationToken?: string, Prefix?: string};
+type ListBucketsRequest = {MaxBuckets?: number, ContinuationToken?: string, Prefix?: string, BucketRegion?: string};
+type ListDirectoryBucketsOutput = {Buckets?: Array<Bucket>, ContinuationToken?: string};
+type ListDirectoryBucketsRequest = {ContinuationToken?: string, MaxDirectoryBuckets?: number};
+type EncodingType = "url";
+type CommonPrefix = {Prefix?: string};
+type Initiator = {ID?: string, DisplayName?: string};
+type MultipartUpload = {UploadId?: string, Key?: string, Initiated?: Date | string, StorageClass?: StorageClass, Owner?: Owner, Initiator?: Initiator, ChecksumAlgorithm?: ChecksumAlgorithm, ChecksumType?: ChecksumType};
+type ListMultipartUploadsOutput = {Bucket?: string, KeyMarker?: string, UploadIdMarker?: string, NextKeyMarker?: string, Prefix?: string, Delimiter?: string, NextUploadIdMarker?: string, MaxUploads?: number, IsTruncated?: boolean, Uploads?: Array<MultipartUpload>, CommonPrefixes?: Array<CommonPrefix>, EncodingType?: EncodingType, RequestCharged?: RequestCharged};
+type ListMultipartUploadsRequest = {Bucket: string, Delimiter?: string, EncodingType?: EncodingType, KeyMarker?: string, MaxUploads?: number, Prefix?: string, UploadIdMarker?: string, ExpectedBucketOwner?: string, RequestPayer?: RequestPayer};
+type ObjectStorageClass = "STANDARD" | "REDUCED_REDUNDANCY" | "GLACIER" | "STANDARD_IA" | "ONEZONE_IA" | "INTELLIGENT_TIERING" | "DEEP_ARCHIVE" | "OUTPOSTS" | "GLACIER_IR" | "SNOW" | "EXPRESS_ONEZONE" | "FSX_OPENZFS";
+type RestoreStatus = {IsRestoreInProgress?: boolean, RestoreExpiryDate?: Date | string};
+type Object = {Key?: string, LastModified?: Date | string, ETag?: string, ChecksumAlgorithm?: Array<ChecksumAlgorithm>, ChecksumType?: ChecksumType, Size?: number, StorageClass?: ObjectStorageClass, Owner?: Owner, RestoreStatus?: RestoreStatus};
+type ListObjectsOutput = {IsTruncated?: boolean, Marker?: string, NextMarker?: string, Contents?: Array<Object>, Name?: string, Prefix?: string, Delimiter?: string, MaxKeys?: number, CommonPrefixes?: Array<CommonPrefix>, EncodingType?: EncodingType, RequestCharged?: RequestCharged};
+type OptionalObjectAttributes = "RestoreStatus";
+type ListObjectsRequest = {Bucket: string, Delimiter?: string, EncodingType?: EncodingType, Marker?: string, MaxKeys?: number, Prefix?: string, RequestPayer?: RequestPayer, ExpectedBucketOwner?: string, OptionalObjectAttributes?: Array<OptionalObjectAttributes>};
+type ListObjectsV2Output = {IsTruncated?: boolean, Contents?: Array<Object>, Name?: string, Prefix?: string, Delimiter?: string, MaxKeys?: number, CommonPrefixes?: Array<CommonPrefix>, EncodingType?: EncodingType, KeyCount?: number, ContinuationToken?: string, NextContinuationToken?: string, StartAfter?: string, RequestCharged?: RequestCharged};
+type ListObjectsV2Request = {Bucket: string, Delimiter?: string, EncodingType?: EncodingType, MaxKeys?: number, Prefix?: string, ContinuationToken?: string, FetchOwner?: boolean, StartAfter?: string, RequestPayer?: RequestPayer, ExpectedBucketOwner?: string, OptionalObjectAttributes?: Array<OptionalObjectAttributes>};
+type ObjectVersionStorageClass = "STANDARD";
+type ObjectVersion = {ETag?: string, ChecksumAlgorithm?: Array<ChecksumAlgorithm>, ChecksumType?: ChecksumType, Size?: number, StorageClass?: ObjectVersionStorageClass, Key?: string, VersionId?: string, IsLatest?: boolean, LastModified?: Date | string, Owner?: Owner, RestoreStatus?: RestoreStatus};
+type DeleteMarkerEntry = {Owner?: Owner, Key?: string, VersionId?: string, IsLatest?: boolean, LastModified?: Date | string};
+type ListObjectVersionsOutput = {IsTruncated?: boolean, KeyMarker?: string, VersionIdMarker?: string, NextKeyMarker?: string, NextVersionIdMarker?: string, Versions?: Array<ObjectVersion>, DeleteMarkers?: Array<DeleteMarkerEntry>, Name?: string, Prefix?: string, Delimiter?: string, MaxKeys?: number, CommonPrefixes?: Array<CommonPrefix>, EncodingType?: EncodingType, RequestCharged?: RequestCharged};
+type ListObjectVersionsRequest = {Bucket: string, Delimiter?: string, EncodingType?: EncodingType, KeyMarker?: string, MaxKeys?: number, Prefix?: string, VersionIdMarker?: string, ExpectedBucketOwner?: string, RequestPayer?: RequestPayer, OptionalObjectAttributes?: Array<OptionalObjectAttributes>};
+type Part = {PartNumber?: number, LastModified?: Date | string, ETag?: string, Size?: number, ChecksumCRC32?: string, ChecksumCRC32C?: string, ChecksumCRC64NVME?: string, ChecksumSHA1?: string, ChecksumSHA256?: string};
+type ListPartsOutput = {AbortDate?: Date | string, AbortRuleId?: string, Bucket?: string, Key?: string, UploadId?: string, PartNumberMarker?: string, NextPartNumberMarker?: string, MaxParts?: number, IsTruncated?: boolean, Parts?: Array<Part>, Initiator?: Initiator, Owner?: Owner, StorageClass?: StorageClass, RequestCharged?: RequestCharged, ChecksumAlgorithm?: ChecksumAlgorithm, ChecksumType?: ChecksumType};
+type ListPartsRequest = {Bucket: string, Key: string, MaxParts?: number, PartNumberMarker?: string, UploadId: string, RequestPayer?: RequestPayer, ExpectedBucketOwner?: string, SSECustomerAlgorithm?: string, SSECustomerKey?: string, SSECustomerKeyMD5?: string};
+type PutBucketLifecycleConfigurationOutput = {TransitionDefaultMinimumObjectSize?: TransitionDefaultMinimumObjectSize};
+type BucketLifecycleConfiguration = {Rules: Array<LifecycleRule>};
+type PutBucketLifecycleConfigurationRequest = {Bucket: string, ChecksumAlgorithm?: ChecksumAlgorithm, LifecycleConfiguration?: BucketLifecycleConfiguration, ExpectedBucketOwner?: string, TransitionDefaultMinimumObjectSize?: TransitionDefaultMinimumObjectSize};
+type EncryptionTypeMismatch = {};
+type InvalidRequest = {};
+type InvalidWriteOffset = {};
+type TooManyParts = {};
+type PutObjectOutput = {Expiration?: string, ETag?: string, ChecksumCRC32?: string, ChecksumCRC32C?: string, ChecksumCRC64NVME?: string, ChecksumSHA1?: string, ChecksumSHA256?: string, ChecksumType?: ChecksumType, ServerSideEncryption?: ServerSideEncryption, VersionId?: string, SSECustomerAlgorithm?: string, SSECustomerKeyMD5?: string, SSEKMSKeyId?: string, SSEKMSEncryptionContext?: string, BucketKeyEnabled?: boolean, Size?: number, RequestCharged?: RequestCharged};
+type PutObjectRequest = {ACL?: ObjectCannedACL, Body?: Uint8Array, Bucket: string, CacheControl?: string, ContentDisposition?: string, ContentEncoding?: string, ContentLanguage?: string, ContentLength?: number, ContentMD5?: string, ContentType?: string, ChecksumAlgorithm?: ChecksumAlgorithm, ChecksumCRC32?: string, ChecksumCRC32C?: string, ChecksumCRC64NVME?: string, ChecksumSHA1?: string, ChecksumSHA256?: string, Expires?: string, IfMatch?: string, IfNoneMatch?: string, GrantFullControl?: string, GrantRead?: string, GrantReadACP?: string, GrantWriteACP?: string, Key: string, WriteOffsetBytes?: number, Metadata?: Metadata, ServerSideEncryption?: ServerSideEncryption, StorageClass?: StorageClass, WebsiteRedirectLocation?: string, SSECustomerAlgorithm?: string, SSECustomerKey?: string, SSECustomerKeyMD5?: string, SSEKMSKeyId?: string, SSEKMSEncryptionContext?: string, BucketKeyEnabled?: boolean, RequestPayer?: RequestPayer, Tagging?: string, ObjectLockMode?: ObjectLockMode, ObjectLockRetainUntilDate?: Date | string, ObjectLockLegalHoldStatus?: ObjectLockLegalHoldStatus, ExpectedBucketOwner?: string};
+type PutObjectAclOutput = {RequestCharged?: RequestCharged};
+type AccessControlPolicy = {Grants?: Array<Grant>, Owner?: Owner};
+type PutObjectAclRequest = {ACL?: ObjectCannedACL, AccessControlPolicy?: AccessControlPolicy, Bucket: string, ContentMD5?: string, ChecksumAlgorithm?: ChecksumAlgorithm, GrantFullControl?: string, GrantRead?: string, GrantReadACP?: string, GrantWrite?: string, GrantWriteACP?: string, Key: string, RequestPayer?: RequestPayer, VersionId?: string, ExpectedBucketOwner?: string};
+type PutObjectLegalHoldOutput = {RequestCharged?: RequestCharged};
+type PutObjectLegalHoldRequest = {Bucket: string, Key: string, LegalHold?: ObjectLockLegalHold, RequestPayer?: RequestPayer, VersionId?: string, ContentMD5?: string, ChecksumAlgorithm?: ChecksumAlgorithm, ExpectedBucketOwner?: string};
+type PutObjectLockConfigurationOutput = {RequestCharged?: RequestCharged};
+type PutObjectLockConfigurationRequest = {Bucket: string, ObjectLockConfiguration?: ObjectLockConfiguration, RequestPayer?: RequestPayer, Token?: string, ContentMD5?: string, ChecksumAlgorithm?: ChecksumAlgorithm, ExpectedBucketOwner?: string};
+type PutObjectRetentionOutput = {RequestCharged?: RequestCharged};
+type PutObjectRetentionRequest = {Bucket: string, Key: string, Retention?: ObjectLockRetention, RequestPayer?: RequestPayer, VersionId?: string, BypassGovernanceRetention?: boolean, ContentMD5?: string, ChecksumAlgorithm?: ChecksumAlgorithm, ExpectedBucketOwner?: string};
+type PutObjectTaggingOutput = {VersionId?: string};
+type Tagging = {TagSet: Array<Tag>};
+type PutObjectTaggingRequest = {Bucket: string, Key: string, VersionId?: string, ContentMD5?: string, ChecksumAlgorithm?: ChecksumAlgorithm, Tagging: Tagging, ExpectedBucketOwner?: string, RequestPayer?: RequestPayer};
+type IdempotencyParameterMismatch = {};
+type RenameObjectOutput = {};
+type RenameObjectRequest = {Bucket: string, Key: string, RenameSource: string, DestinationIfMatch?: string, DestinationIfNoneMatch?: string, DestinationIfModifiedSince?: Date | string, DestinationIfUnmodifiedSince?: Date | string, SourceIfMatch?: string, SourceIfNoneMatch?: string, SourceIfModifiedSince?: Date | string, SourceIfUnmodifiedSince?: Date | string, ClientToken?: string};
+type ObjectAlreadyInActiveTierError = {};
+type RestoreObjectOutput = {RequestCharged?: RequestCharged, RestoreOutputPath?: string};
+type RestoreRequestType = "SELECT";
+type Tier = "Standard" | "Bulk" | "Expedited";
+type ExpressionType = "SQL";
+type GlacierJobParameters = {Tier: Tier};
+type CompressionType = "NONE" | "GZIP" | "BZIP2";
+type ParquetInput = {};
+type FileHeaderInfo = "USE" | "IGNORE" | "NONE";
+type JSONType = "DOCUMENT" | "LINES";
+type QuoteFields = "ALWAYS" | "ASNEEDED";
+type CSVInput = {FileHeaderInfo?: FileHeaderInfo, Comments?: string, QuoteEscapeCharacter?: string, RecordDelimiter?: string, FieldDelimiter?: string, QuoteCharacter?: string, AllowQuotedRecordDelimiter?: boolean};
+type JSONInput = {Type?: JSONType};
+type CSVOutput = {QuoteFields?: QuoteFields, QuoteEscapeCharacter?: string, RecordDelimiter?: string, FieldDelimiter?: string, QuoteCharacter?: string};
+type JSONOutput = {RecordDelimiter?: string};
+type Encryption = {EncryptionType: ServerSideEncryption, KMSKeyId?: string, KMSContext?: string};
+type MetadataEntry = {Name?: string, Value?: string};
+type InputSerialization = {CSV?: CSVInput, CompressionType?: CompressionType, JSON?: JSONInput, Parquet?: ParquetInput};
+type OutputSerialization = {CSV?: CSVOutput, JSON?: JSONOutput};
+type SelectParameters = {InputSerialization: InputSerialization, ExpressionType: ExpressionType, Expression: string, OutputSerialization: OutputSerialization};
+type S3Location = {BucketName: string, Prefix: string, Encryption?: Encryption, CannedACL?: ObjectCannedACL, AccessControlList?: Array<Grant>, Tagging?: Tagging, UserMetadata?: Array<MetadataEntry>, StorageClass?: StorageClass};
+type OutputLocation = {S3?: S3Location};
+type RestoreRequest = {Days?: number, GlacierJobParameters?: GlacierJobParameters, Type?: RestoreRequestType, Tier?: Tier, Description?: string, SelectParameters?: SelectParameters, OutputLocation?: OutputLocation};
+type RestoreObjectRequest = {Bucket: string, Key: string, VersionId?: string, RestoreRequest?: RestoreRequest, RequestPayer?: RequestPayer, ChecksumAlgorithm?: ChecksumAlgorithm, ExpectedBucketOwner?: string};
+type ContinuationEvent = {};
+type EndEvent = {};
+type RecordsEvent = {Payload?: Uint8Array};
+type Stats = {BytesScanned?: number, BytesProcessed?: number, BytesReturned?: number};
+type Progress = {BytesScanned?: number, BytesProcessed?: number, BytesReturned?: number};
+type StatsEvent = {Details?: Stats};
+type ProgressEvent = {Details?: Progress};
+type SelectObjectContentEventStream = RecordsEvent | StatsEvent | ProgressEvent | ContinuationEvent | EndEvent;
+type SelectObjectContentOutput = {Payload?: SelectObjectContentEventStream};
+type RequestProgress = {Enabled?: boolean};
+type ScanRange = {Start?: number, End?: number};
+type SelectObjectContentRequest = {Bucket: string, Key: string, SSECustomerAlgorithm?: string, SSECustomerKey?: string, SSECustomerKeyMD5?: string, Expression: string, ExpressionType: ExpressionType, RequestProgress?: RequestProgress, InputSerialization: InputSerialization, OutputSerialization: OutputSerialization, ScanRange?: ScanRange, ExpectedBucketOwner?: string};
+type UploadPartOutput = {ServerSideEncryption?: ServerSideEncryption, ETag?: string, ChecksumCRC32?: string, ChecksumCRC32C?: string, ChecksumCRC64NVME?: string, ChecksumSHA1?: string, ChecksumSHA256?: string, SSECustomerAlgorithm?: string, SSECustomerKeyMD5?: string, SSEKMSKeyId?: string, BucketKeyEnabled?: boolean, RequestCharged?: RequestCharged};
+type UploadPartRequest = {Body?: Uint8Array, Bucket: string, ContentLength?: number, ContentMD5?: string, ChecksumAlgorithm?: ChecksumAlgorithm, ChecksumCRC32?: string, ChecksumCRC32C?: string, ChecksumCRC64NVME?: string, ChecksumSHA1?: string, ChecksumSHA256?: string, Key: string, PartNumber: number, UploadId: string, SSECustomerAlgorithm?: string, SSECustomerKey?: string, SSECustomerKeyMD5?: string, RequestPayer?: RequestPayer, ExpectedBucketOwner?: string};
+type CopyPartResult = {ETag?: string, LastModified?: Date | string, ChecksumCRC32?: string, ChecksumCRC32C?: string, ChecksumCRC64NVME?: string, ChecksumSHA1?: string, ChecksumSHA256?: string};
+type UploadPartCopyOutput = {CopySourceVersionId?: string, CopyPartResult?: CopyPartResult, ServerSideEncryption?: ServerSideEncryption, SSECustomerAlgorithm?: string, SSECustomerKeyMD5?: string, SSEKMSKeyId?: string, BucketKeyEnabled?: boolean, RequestCharged?: RequestCharged};
+type UploadPartCopyRequest = {Bucket: string, CopySource: string, CopySourceIfMatch?: string, CopySourceIfModifiedSince?: Date | string, CopySourceIfNoneMatch?: string, CopySourceIfUnmodifiedSince?: Date | string, CopySourceRange?: string, Key: string, PartNumber: number, UploadId: string, SSECustomerAlgorithm?: string, SSECustomerKey?: string, SSECustomerKeyMD5?: string, CopySourceSSECustomerAlgorithm?: string, CopySourceSSECustomerKey?: string, CopySourceSSECustomerKeyMD5?: string, RequestPayer?: RequestPayer, ExpectedBucketOwner?: string, ExpectedSourceBucketOwner?: string};
+
+//==== Error Types ====
+export declare class NoSuchUploadError extends S.TaggedError<NoSuchUpload>()(("NoSuchUploadError"), {}).pipe() {}
+export declare class ObjectNotInActiveTierErrorError extends S.TaggedError<ObjectNotInActiveTierError>()(("ObjectNotInActiveTierErrorError"), {}).pipe() {}
+export declare class BucketAlreadyExistsError extends S.TaggedError<BucketAlreadyExists>()(("BucketAlreadyExistsError"), {}).pipe() {}
+export declare class BucketAlreadyOwnedByYouError extends S.TaggedError<BucketAlreadyOwnedByYou>()(("BucketAlreadyOwnedByYouError"), {}).pipe() {}
+export declare class NoSuchBucketError extends S.TaggedError<NoSuchBucket>()(("NoSuchBucketError"), {}).pipe() {}
+export declare class InvalidObjectStateError extends S.TaggedError<InvalidObjectState>()(("InvalidObjectStateError"), {}).pipe() {}
+export declare class NoSuchKeyError extends S.TaggedError<NoSuchKey>()(("NoSuchKeyError"), {}).pipe() {}
+export declare class NotFoundError extends S.TaggedError<NotFound>()(("NotFoundError"), {}).pipe() {}
+export declare class EncryptionTypeMismatchError extends S.TaggedError<EncryptionTypeMismatch>()(("EncryptionTypeMismatchError"), {}).pipe() {}
+export declare class InvalidRequestError extends S.TaggedError<InvalidRequest>()(("InvalidRequestError"), {}).pipe() {}
+export declare class InvalidWriteOffsetError extends S.TaggedError<InvalidWriteOffset>()(("InvalidWriteOffsetError"), {}).pipe() {}
+export declare class TooManyPartsError extends S.TaggedError<TooManyParts>()(("TooManyPartsError"), {}).pipe() {}
+export declare class IdempotencyParameterMismatchError extends S.TaggedError<IdempotencyParameterMismatch>()(("IdempotencyParameterMismatchError"), {}).pipe() {}
+export declare class ObjectAlreadyInActiveTierErrorError extends S.TaggedError<ObjectAlreadyInActiveTierError>()(("ObjectAlreadyInActiveTierErrorError"), {}).pipe() {}
