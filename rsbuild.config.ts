@@ -14,6 +14,9 @@ export default defineConfig({
       "effect",
       /^effect\/(.*)/,
       "@aws-sdk/credential-providers",
+      //todo(pear): these aren't really external
+      "fast-xml-parser",
+      "aws4fetch",
     ],
     minify: {
       js: true,
@@ -36,9 +39,6 @@ export default defineConfig({
     htmlPlugin: false,
   },
   performance: {
-    // bundleAnalyze: {
-    //   generateStatsFile: true,
-    // },
     chunkSplit: {
       strategy: "all-in-one",
     },

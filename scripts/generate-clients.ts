@@ -307,10 +307,10 @@ const generateClient = Effect.fn(function* (
           ),
         onTrue: () => {
           imports.push(
-            `import { restXmlProvider, type EndpointMetadata, type ClientConfig } from "../protocols/rest-xml";`,
+            `import { restXmlProvider, type EndpointMetadata } from "../protocols/rest-xml";`,
           );
           return Effect.succeed(
-            `export const createClient = (config: ClientConfig) => Layer.effect(${serviceName}, restXmlProvider(config, metadata));`,
+            `export const clientLive = Layer.effect(${serviceName}, restXmlProvider(metadata));`,
           );
         },
       },
@@ -377,16 +377,22 @@ const generateClient = Effect.fn(function* (
                   if (value.traits?.["smithy.api#httpLabel"] != null) {
                     return Effect.succeed({
                       ...acc,
-                      [key]: [
-                        "p",
-                        value.traits["smithy.rules#contextParam"]?.name ?? key,
-                      ],
+                      [key]:
+                        value.traits["smithy.rules#contextParam"]?.name != null
+                          ? [
+                              "p",
+                              value.traits["smithy.rules#contextParam"]?.name,
+                            ]
+                          : ["p"],
                     });
                   }
                   if (value.traits?.["smithy.api#httpPayload"] != null) {
                     return Effect.succeed({
                       ...acc,
-                      [key]: ["b", value.traits["smithy.api#xmlName"] ?? key],
+                      [key]:
+                        value.traits["smithy.api#xmlName"] != null
+                          ? ["b", value.traits["smithy.api#xmlName"]]
+                          : ["b"],
                     });
                   }
                   return Effect.succeed(acc);
@@ -409,11 +415,13 @@ const generateClient = Effect.fn(function* (
 
         errors.push("CommonAwsError");
 
+        const exportName = formatName(operationId, true);
         const traits = operationShape.traits["smithy.api#http"];
 
-        const endpointMeta = `{ method: "${traits.method}", uri: "${traits.uri}", body: ${JSON.stringify(body)} }`;
+        //todo(pear): support streaming + inline output types
+        const endpointMeta = `{ name: "${exportName}", method: "${traits.method}", uri: "${traits.uri}", body: ${JSON.stringify(body)}}`;
 
-        return `export const ${formatName(operationId, true)} = /*@__PURE__*/ makeOperation<${inputType}, ${outputType}, ${errors.join(" | ")}, typeof ${serviceName}>(${endpointMeta}, ${serviceName})`;
+        return `export const ${exportName} = /*@__PURE__*/ makeOperation<${inputType}, ${outputType}, ${errors.join(" | ")}, typeof ${serviceName}>(${endpointMeta}, ${serviceName})`;
         // return `export const ${formatName(operationId)} = (inputs: ${inputShape}) => Effect.Effect<${outputShape}, ${errors.join(" | ")}>`;
       }),
     );
