@@ -1,133 +1,197 @@
-import * as FastCheck from "effect/FastCheck";
-import type { ServiceMetadata } from "../client.ts";
-import type {
-  ParsedError,
-  ProtocolHandler,
-  ProtocolRequest,
-} from "./interface.ts";
+import { Effect } from "effect";
+import { HttpClient } from "@effect/platform";
+import type { ServiceMetadata } from "../service-metadata";
+import { Credentials } from "../credentials";
+import { Region } from "../region";
+//todo(pear): this is a massive 7kb
 import { XMLBuilder, XMLParser } from "fast-xml-parser";
-import * as Stream from "effect/Stream";
+//todo(pear): this is a massive 7kb
+import { AwsV4Signer } from "aws4fetch";
+import { createDynamicTaggedError, UnknownAwsError } from "../aws-errors";
 
-type Writeable<T> = { -readonly [P in keyof T]: T[P] };
+const commonErrorDetails = {
+  AccessDeniedException: [],
+  ExpiredTokenException: [],
+  IncompleteSignature: [],
+  InternalFailure: [],
+  MalformedHttpRequestException: [],
+  NotAuthorized: [],
+  OptInRequired: [],
+  RequestAbortedException: [],
+  RequestEntityTooLargeException: [],
+  RequestExpired: [],
+  RequestTimeoutException: [],
+  ServiceUnavailable: [],
+  ThrottlingException: [],
+  UnrecognizedClientException: [],
+  UnknownOperationException: [],
+  ValidationError: [],
+  ValidationException: [],
+};
 
-export class RestXmlHandler implements ProtocolHandler {
-  readonly name = "restXml";
-  readonly contentType = "application/xml";
+//todo(pear): make these single letter variables
+export type EndpointMetadata = {
+  name: string;
+  method: string; //* method => //todo(pear): narrower type
+  uri: string; //* uri
+  body: Record<string, ["p" | "b", string] | [string]>; //* body
+  //todo(pear): these seem to always be in the body?
+  errors: Record<string, Array<string>>;
+  isStream?: boolean;
+};
 
-  buildHttpRequest(
-    input: Record<string, unknown>,
-    operation: string,
-    metadata: ServiceMetadata,
-  ): Promise<ProtocolRequest> {
-    const builder = new XMLBuilder();
+//todo(pear): there is stuff here that could be shared across protocols
+export const restXmlProvider = Effect.fn(function* (metadata: ServiceMetadata) {
+  const credentials = yield* Credentials;
+  const region = yield* Region;
+  const builder = new XMLBuilder();
+  const parser = new XMLParser();
+  const httpClient = yield* HttpClient.HttpClient;
 
-    const operationMeta = metadata?.operations?.[operation];
-    if (operationMeta == null || typeof operationMeta === "string") {
-      throw new Error("idk man?");
-    }
+  return {
+    call: (endpointMetadata: EndpointMetadata) =>
+      Effect.fn(function* (input: Record<string, unknown>) {
+        let uri = endpointMetadata.uri;
+        const rawBody: Record<string, unknown> = {};
+        const unsignedHeaders: Record<string, unknown> = {
+          "User-Agent": "itty-aws",
+        };
 
-    const [method, urlTemplate] = operationMeta.http?.split?.(/ (.+)/) as [
-      string,
-      string,
-    ];
+        for (const key in input) {
+          const value = input[key];
+          const meta = endpointMetadata.body[key];
 
-    const request: Writeable<ProtocolRequest> = {
-      path: urlTemplate,
-      method,
-      headers: {
-        "Content-Type":
-          operationMeta?.inputTraits?.Body === "httpStreaming"
-            ? "application/octet-stream"
-            : this.contentType,
-        "User-Agent": "itty-aws",
-      },
-    };
+          if (!meta) {
+            unsignedHeaders[
+              `x-amz-${key
+                .replace(/([A-Z])/g, "-$1")
+                .toLowerCase()
+                .slice(1)}`
+            ] = value;
+          } else if (meta[0] === "p") {
+            uri = uri.replace(
+              new RegExp(`{${meta[1] ?? key}\\+?}`),
+              `${value}`,
+            );
+          } else if (meta[0] === "b") {
+            rawBody[meta[1] ?? key] = value;
+          } else {
+            unsignedHeaders[meta[0]] = value;
+          }
+        }
 
-    let body: Record<string, unknown> = {};
-    let streamingBody = false;
+        const unsignedBody = builder.build(rawBody);
 
-    for (const [key, value] of Object.entries(input)) {
-      const type = operationMeta.inputTraits?.[key];
-      if (type == null) {
-        request.path = request.path.replace(
-          new RegExp(`\\{${key}\\+?\\}`, "g"),
-          value as string,
+        //todo(pear): more url options?
+        const baseUrl = `https://${metadata.sdkId.toLowerCase()}.${region}.amazonaws.com`;
+        let unsignedUrl = `${baseUrl}${uri}`;
+
+        const creds = yield* credentials.getCredentials();
+        const signer = new AwsV4Signer({
+          method: endpointMetadata.method,
+          url: unsignedUrl,
+          headers: unsignedHeaders,
+          body:
+            endpointMetadata.method === "GET" ||
+            endpointMetadata.method === "DELETE"
+              ? undefined
+              : unsignedBody,
+          accessKeyId: creds.accessKeyId,
+          secretAccessKey: creds.secretAccessKey,
+          sessionToken: creds.sessionToken,
+          service: metadata.sigV4ServiceName,
+          region,
+        });
+
+        //todo(pear): better error
+        const signedRequest = yield* Effect.promise(() => signer.sign());
+
+        yield* Effect.logDebug(
+          `AWS Request - ${metadata.sdkId}:${endpointMetadata.name} - request info:`,
+          {
+            method: signedRequest.method,
+            url: signedRequest.url.toString(),
+            headers: signedRequest.headers,
+            body: signedRequest.body,
+          },
         );
-      } else if (type === "httpPayload") {
-        body[key] = value;
-      } else if (type === "httpStreaming") {
-        streamingBody = true;
-        request.body = value as any;
-      } else {
-        request.headers[type] = value as string;
-      }
-    }
 
-    if (!streamingBody) {
-      request.body = builder.build(body);
-    }
+        //todo(pear): better error
+        const response = yield* httpClient[
+          (signedRequest.method === "DELETE"
+            ? "del"
+            : signedRequest.method.toLowerCase()) as
+            | "get"
+            | "post"
+            | "put"
+            | "del"
+            | "patch"
+            | "head"
+            | "options"
+        ](signedRequest.url, {
+          headers: signedRequest.headers,
+          body: signedRequest.body,
+        });
 
-    return Promise.resolve(request);
-  }
+        yield* Effect.logDebug(
+          `AWS Request - ${metadata.sdkId}:${endpointMetadata.name} - response code: ${response.status}`,
+        );
 
-  async parseResponse(
-    response: Response,
-    _statusCode: number,
-    metadata?: ServiceMetadata,
-    headers?: Headers,
-    operation?: string,
-  ): Promise<unknown> {
-    const operationMeta = metadata?.operations?.[operation!];
-    if (operationMeta == null || typeof operationMeta === "string") {
-      throw new Error("idk man?");
-    }
+        //todo(pear): is this a good error distinguisher
+        if (response.status >= 200 && response.status < 300) {
+          //convert to response type
+          yield* Effect.logDebug(
+            `AWS Request - ${metadata.sdkId}:${endpointMetadata.name} - response headers: ${JSON.stringify(response.headers)}`,
+          );
+          return yield* response.text;
+        } else {
+          const text = yield* response.text;
 
-    let headerData: Record<string, unknown> = {};
+          yield* Effect.logDebug(
+            `AWS Request - ${metadata.sdkId}:${endpointMetadata.name} - raw error:`,
+            text,
+          );
 
-    for (const [key, value] of Object.entries(
-      operationMeta.outputTraits ?? {},
-    )) {
-      if (value !== "httpPayload" && value !== "httpStreaming") {
-        headerData[key] = headers?.get(value.toLowerCase());
-      }
-    }
+          const parsedResponse = parser.parse(text);
 
-    try {
-      if (operationMeta?.outputTraits?.Body === "httpStreaming") {
-        return {
-          ...headerData,
-          Body: Stream.fromReadableStream(
-            () => response.body!,
-            (error) => new Error(`Stream error: ${error}`),
-          ),
-        };
-      } else {
-        const parser = new XMLParser();
-        return {
-          ...headerData,
-          ...parser.parse(await response.text()),
-        };
-      }
-    } catch {
-      return { data: await response.text() };
-    }
-  }
+          yield* Effect.logDebug(
+            `AWS Request - ${metadata.sdkId}:${endpointMetadata.name} - error:`,
+            parsedResponse,
+          );
 
-  async parseError(
-    response: Response,
-    statusCode: number,
-    headers?: Headers,
-  ): Promise<ParsedError> {
-    const responseText = await response.text();
-    const parser = new XMLParser();
-    const error = responseText != null ? parser.parse(responseText) : null;
-    return {
-      errorType: error?.Error?.Code ?? "UnknownError",
-      message: error?.Error?.Message ?? "Unknown error",
-      requestId:
-        headers?.get("x-amzn-requestid") ||
-        headers?.get("x-amz-request-id") ||
-        undefined,
-    };
-  }
-}
+          const errorFmt: Array<string> | undefined =
+            endpointMetadata.errors[parsedResponse.Error.Code] ??
+            //@ts-expect-error
+            commonErrorDetails[parsedResponse.Error.Code];
+
+          return yield* Effect.if(errorFmt != null, {
+            onFalse: () =>
+              Effect.fail(
+                new UnknownAwsError({
+                  key: parsedResponse.Error.Code,
+                  data: parsedResponse,
+                }),
+              ),
+            onTrue: () =>
+              Effect.fail(
+                createDynamicTaggedError(
+                  parsedResponse.Error.Code,
+                  errorFmt!.reduce((acc, curr) => {
+                    const value = parsedResponse.Error[curr];
+                    if (value != null) {
+                      return { ...acc, [curr]: parsedResponse.Error[curr] };
+                    }
+                    return acc;
+                  }, {}),
+                ),
+              ),
+          });
+        }
+
+        yield* Effect.void;
+      }),
+  } as {
+    call: (metadata: any) => (input: any) => Effect.Effect<any>;
+    _endpointMetadataType: EndpointMetadata;
+  };
+});
