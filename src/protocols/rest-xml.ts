@@ -7,6 +7,27 @@ import { Region } from "../region";
 import { XMLBuilder, XMLParser } from "fast-xml-parser";
 //todo(pear): this is a massive 7kb
 import { AwsV4Signer } from "aws4fetch";
+import { createDynamicTaggedError, UnknownAwsError } from "../aws-errors";
+
+const commonErrorDetails = {
+  AccessDeniedException: [],
+  ExpiredTokenException: [],
+  IncompleteSignature: [],
+  InternalFailure: [],
+  MalformedHttpRequestException: [],
+  NotAuthorized: [],
+  OptInRequired: [],
+  RequestAbortedException: [],
+  RequestEntityTooLargeException: [],
+  RequestExpired: [],
+  RequestTimeoutException: [],
+  ServiceUnavailable: [],
+  ThrottlingException: [],
+  UnrecognizedClientException: [],
+  UnknownOperationException: [],
+  ValidationError: [],
+  ValidationException: [],
+};
 
 //todo(pear): make these single letter variables
 export type EndpointMetadata = {
@@ -14,6 +35,8 @@ export type EndpointMetadata = {
   method: string; //* method => //todo(pear): narrower type
   uri: string; //* uri
   body: Record<string, ["p" | "b", string] | [string]>; //* body
+  //todo(pear): these seem to always be in the body?
+  errors: Record<string, Array<string>>;
   isStream?: boolean;
 };
 
@@ -114,6 +137,7 @@ export const restXmlProvider = Effect.fn(function* (metadata: ServiceMetadata) {
           `AWS Request - ${metadata.sdkId}:${endpointMetadata.name} - response code: ${response.status}`,
         );
 
+        //todo(pear): is this a good error distinguisher
         if (response.status >= 200 && response.status < 300) {
           //convert to response type
           yield* Effect.logDebug(
@@ -124,7 +148,7 @@ export const restXmlProvider = Effect.fn(function* (metadata: ServiceMetadata) {
           const text = yield* response.text;
 
           yield* Effect.logDebug(
-            `AWS Request - ${metadata.sdkId}:${endpointMetadata.name} - error:`,
+            `AWS Request - ${metadata.sdkId}:${endpointMetadata.name} - raw error:`,
             text,
           );
 
@@ -134,6 +158,34 @@ export const restXmlProvider = Effect.fn(function* (metadata: ServiceMetadata) {
             `AWS Request - ${metadata.sdkId}:${endpointMetadata.name} - error:`,
             parsedResponse,
           );
+
+          const errorFmt: Array<string> | undefined =
+            endpointMetadata.errors[parsedResponse.Error.Code] ??
+            //@ts-expect-error
+            commonErrorDetails[parsedResponse.Error.Code];
+
+          return yield* Effect.if(errorFmt != null, {
+            onFalse: () =>
+              Effect.fail(
+                new UnknownAwsError({
+                  key: parsedResponse.Error.Code,
+                  data: parsedResponse,
+                }),
+              ),
+            onTrue: () =>
+              Effect.fail(
+                createDynamicTaggedError(
+                  parsedResponse.Error.Code,
+                  errorFmt!.reduce((acc, curr) => {
+                    const value = parsedResponse.Error[curr];
+                    if (value != null) {
+                      return { ...acc, [curr]: parsedResponse.Error[curr] };
+                    }
+                    return acc;
+                  }, {}),
+                ),
+              ),
+          });
         }
 
         yield* Effect.void;

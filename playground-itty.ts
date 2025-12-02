@@ -5,20 +5,24 @@ import { NodeProviderChainCredentialsLive } from "./src/credentials";
 import { Region } from "./src/region";
 import { FetchHttpClient } from "@effect/platform";
 
+const BUCKET_NAME = "alchemy-7uzxjcr";
+
 const program = Effect.gen(function* () {
-  const result = yield* S3.createBucket({
-    Bucket: "alchemy-7uzxjcr",
-    ACL: "private",
-    GrantWrite: "",
-    CreateBucketConfiguration: {
-      Tags: [
-        {
-          Key: "Name",
-          Value: "Alchemy",
-        },
-      ],
-    },
-  });
+  // const result = yield* S3.createBucket({
+  //   Bucket: "alchemy-7uzxjcr",
+  // });
+  const result = yield* S3.getObject({
+    Bucket: BUCKET_NAME,
+    Key: "test.txt",
+  }).pipe(
+    Effect.catchTag(
+      "InvalidObjectStateError",
+      Effect.fn(function* (e) {
+        yield* Effect.logError(e.StorageClass);
+        yield* Effect.logError(e);
+      }),
+    ),
+  );
   yield* Effect.logDebug(result);
 });
 

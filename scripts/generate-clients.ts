@@ -9,7 +9,6 @@ import {
   Context,
   Match,
   Ref,
-  Equivalence,
 } from "effect";
 import {
   SmithyModel,
@@ -324,13 +323,20 @@ const generateClient = Effect.fn(function* (
           "operation",
         );
 
-        const errors = yield* Effect.all(
-          (operationShape.errors ?? []).map(({ target: errorShapeId }) =>
-            findShape(errorShapeId).pipe(
-              Effect.flatMap(convertShapeToTypescript),
-              //todo(pear): error categories
-              Effect.flatMap(createTsError(errorShapeId)),
-            ),
+        const errorObject = yield* Effect.all(
+          (operationShape.errors ?? []).map(
+            Effect.fn(function* ({ target: errorShapeId }) {
+              const shape = yield* findShape(errorShapeId, "structure");
+              const ts = yield* convertShapeToTypescript(shape);
+              const tsError = yield* createTsError(errorShapeId)(ts);
+              const tag = formatName(shape[0]);
+              return {
+                tsError,
+                errorFormat: {
+                  [tag]: Object.keys(shape[1].members),
+                },
+              };
+            }),
           ),
         );
 
@@ -413,15 +419,18 @@ const generateClient = Effect.fn(function* (
           },
         );
 
-        errors.push("CommonAwsError");
-
         const exportName = formatName(operationId, true);
         const traits = operationShape.traits["smithy.api#http"];
 
         //todo(pear): support streaming + inline output types
-        const endpointMeta = `{ name: "${exportName}", method: "${traits.method}", uri: "${traits.uri}", body: ${JSON.stringify(body)}}`;
+        const endpointMeta = `{ name: "${exportName}", method: "${traits.method}", uri: "${traits.uri}", body: ${JSON.stringify(body)}, errors: ${JSON.stringify(
+          errorObject.reduce(
+            (acc, error) => ({ ...acc, ...error.errorFormat }),
+            {},
+          ),
+        )}}`;
 
-        return `export const ${exportName} = /*@__PURE__*/ makeOperation<${inputType}, ${outputType}, ${errors.join(" | ")}, typeof ${serviceName}>(${endpointMeta}, ${serviceName})`;
+        return `export const ${exportName} = /*@__PURE__*/ makeOperation<${inputType}, ${outputType}, ${errorObject.map((e) => e.tsError).join(" | ")}${errorObject.length > 0 ? " | " : ""}CommonAwsError, typeof ${serviceName}>(${endpointMeta}, ${serviceName})`;
         // return `export const ${formatName(operationId)} = (inputs: ${inputShape}) => Effect.Effect<${outputShape}, ${errors.join(" | ")}>`;
       }),
     );
@@ -439,7 +448,8 @@ const generateClient = Effect.fn(function* (
         Array.from(t.entries())
           .map(
             ([errorName, type]) =>
-              `export declare class ${errorName} extends S.TaggedError<${type}>()(("${errorName}"), {}).pipe() {}`,
+              // `export declare class ${errorName} extends S.TaggedError<${type}>()(("${errorName}"), {}).pipe() {}`,
+              `export declare class ${errorName} extends Data.TaggedError("${errorName}")<${type}> {}`,
           )
           .join("\n"),
       ),
