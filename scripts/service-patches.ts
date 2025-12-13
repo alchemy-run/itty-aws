@@ -764,7 +764,7 @@ export const servicePatches: Record<string, ServicePatches> = {
       errors: ["InvalidVpcID.NotFound"],
     },
     DeleteRouteTable: {
-      errors: ["InvalidRouteTableID.NotFound"],
+      errors: ["InvalidRouteTableID.NotFound", "DependencyViolation"],
     },
     DescribeRouteTables: {
       errors: ["InvalidRouteTableID.NotFound", "InvalidRouteTableId.Malformed"],

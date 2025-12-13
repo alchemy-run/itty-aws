@@ -1086,7 +1086,10 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<DeleteRouteServerPeerResult, CommonAwsError>;
   deleteRouteTable(
     input: DeleteRouteTableRequest,
-  ): Effect.Effect<{}, InvalidRouteTableIDNotFound | CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    InvalidRouteTableIDNotFound | DependencyViolation | CommonAwsError
+  >;
   deleteSecurityGroup(
     input: DeleteSecurityGroupRequest,
   ): Effect.Effect<
@@ -23263,7 +23266,10 @@ export declare namespace DeleteRouteServerPeer {
 export declare namespace DeleteRouteTable {
   export type Input = DeleteRouteTableRequest;
   export type Output = {};
-  export type Error = InvalidRouteTableIDNotFound | CommonAwsError;
+  export type Error =
+    | InvalidRouteTableIDNotFound
+    | DependencyViolation
+    | CommonAwsError;
 }
 
 export declare namespace DeleteSecurityGroup {
