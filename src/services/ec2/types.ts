@@ -23,46 +23,79 @@ export declare class EC2 extends AWSServiceClient {
   >;
   acceptTransitGatewayPeeringAttachment(
     input: AcceptTransitGatewayPeeringAttachmentRequest,
-  ): Effect.Effect<AcceptTransitGatewayPeeringAttachmentResult, CommonAwsError>;
+  ): Effect.Effect<
+    AcceptTransitGatewayPeeringAttachmentResult,
+    InvalidTransitGatewayAttachmentIdNotFound | CommonAwsError
+  >;
   acceptTransitGatewayVpcAttachment(
     input: AcceptTransitGatewayVpcAttachmentRequest,
-  ): Effect.Effect<AcceptTransitGatewayVpcAttachmentResult, CommonAwsError>;
+  ): Effect.Effect<
+    AcceptTransitGatewayVpcAttachmentResult,
+    InvalidTransitGatewayAttachmentIdNotFound | CommonAwsError
+  >;
   acceptVpcEndpointConnections(
     input: AcceptVpcEndpointConnectionsRequest,
-  ): Effect.Effect<AcceptVpcEndpointConnectionsResult, CommonAwsError>;
+  ): Effect.Effect<
+    AcceptVpcEndpointConnectionsResult,
+    InvalidVpcEndpointServiceIdNotFound | CommonAwsError
+  >;
   acceptVpcPeeringConnection(
     input: AcceptVpcPeeringConnectionRequest,
-  ): Effect.Effect<AcceptVpcPeeringConnectionResult, CommonAwsError>;
+  ): Effect.Effect<
+    AcceptVpcPeeringConnectionResult,
+    InvalidVpcPeeringConnectionIDNotFound | CommonAwsError
+  >;
   advertiseByoipCidr(
     input: AdvertiseByoipCidrRequest,
   ): Effect.Effect<AdvertiseByoipCidrResult, CommonAwsError>;
   allocateAddress(
     input: AllocateAddressRequest,
-  ): Effect.Effect<AllocateAddressResult, CommonAwsError>;
+  ): Effect.Effect<
+    AllocateAddressResult,
+    AddressLimitExceeded | CommonAwsError
+  >;
   allocateHosts(
     input: AllocateHostsRequest,
-  ): Effect.Effect<AllocateHostsResult, CommonAwsError>;
+  ): Effect.Effect<
+    AllocateHostsResult,
+    InvalidHostConfiguration | CommonAwsError
+  >;
   allocateIpamPoolCidr(
     input: AllocateIpamPoolCidrRequest,
-  ): Effect.Effect<AllocateIpamPoolCidrResult, CommonAwsError>;
+  ): Effect.Effect<
+    AllocateIpamPoolCidrResult,
+    InvalidIpamPoolIdNotFound | CommonAwsError
+  >;
   applySecurityGroupsToClientVpnTargetNetwork(
     input: ApplySecurityGroupsToClientVpnTargetNetworkRequest,
   ): Effect.Effect<
     ApplySecurityGroupsToClientVpnTargetNetworkResult,
-    CommonAwsError
+    | InvalidClientVpnEndpointIdNotFound
+    | InvalidSecurityGroupIdNotFound
+    | CommonAwsError
   >;
   assignIpv6Addresses(
     input: AssignIpv6AddressesRequest,
   ): Effect.Effect<AssignIpv6AddressesResult, CommonAwsError>;
   assignPrivateIpAddresses(
     input: AssignPrivateIpAddressesRequest,
-  ): Effect.Effect<AssignPrivateIpAddressesResult, CommonAwsError>;
+  ): Effect.Effect<
+    AssignPrivateIpAddressesResult,
+    InvalidNetworkInterfaceIDNotFound | CommonAwsError
+  >;
   assignPrivateNatGatewayAddress(
     input: AssignPrivateNatGatewayAddressRequest,
   ): Effect.Effect<AssignPrivateNatGatewayAddressResult, CommonAwsError>;
   associateAddress(
     input: AssociateAddressRequest,
-  ): Effect.Effect<AssociateAddressResult, CommonAwsError>;
+  ): Effect.Effect<
+    AssociateAddressResult,
+    | InvalidAddressIDNotFound
+    | InvalidAllocationIDNotFound
+    | InvalidInstanceIDNotFound
+    | InvalidNetworkInterfaceIDNotFound
+    | CommonAwsError
+  >;
   associateCapacityReservationBillingOwner(
     input: AssociateCapacityReservationBillingOwnerRequest,
   ): Effect.Effect<
@@ -71,19 +104,33 @@ export declare class EC2 extends AWSServiceClient {
   >;
   associateClientVpnTargetNetwork(
     input: AssociateClientVpnTargetNetworkRequest,
-  ): Effect.Effect<AssociateClientVpnTargetNetworkResult, CommonAwsError>;
+  ): Effect.Effect<
+    AssociateClientVpnTargetNetworkResult,
+    | InvalidClientVpnEndpointIdNotFound
+    | InvalidSubnetIDNotFound
+    | CommonAwsError
+  >;
   associateDhcpOptions(
     input: AssociateDhcpOptionsRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    InvalidDhcpOptionIDNotFound | InvalidVpcIDNotFound | CommonAwsError
+  >;
   associateEnclaveCertificateIamRole(
     input: AssociateEnclaveCertificateIamRoleRequest,
   ): Effect.Effect<AssociateEnclaveCertificateIamRoleResult, CommonAwsError>;
   associateIamInstanceProfile(
     input: AssociateIamInstanceProfileRequest,
-  ): Effect.Effect<AssociateIamInstanceProfileResult, CommonAwsError>;
+  ): Effect.Effect<
+    AssociateIamInstanceProfileResult,
+    InvalidInstanceIDNotFound | CommonAwsError
+  >;
   associateInstanceEventWindow(
     input: AssociateInstanceEventWindowRequest,
-  ): Effect.Effect<AssociateInstanceEventWindowResult, CommonAwsError>;
+  ): Effect.Effect<
+    AssociateInstanceEventWindowResult,
+    InvalidInstanceEventWindowIdNotFound | CommonAwsError
+  >;
   associateIpamByoasn(
     input: AssociateIpamByoasnRequest,
   ): Effect.Effect<AssociateIpamByoasnResult, CommonAwsError>;
@@ -98,7 +145,13 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<AssociateRouteServerResult, CommonAwsError>;
   associateRouteTable(
     input: AssociateRouteTableRequest,
-  ): Effect.Effect<AssociateRouteTableResult, CommonAwsError>;
+  ): Effect.Effect<
+    AssociateRouteTableResult,
+    | InvalidRouteTableIDNotFound
+    | InvalidSubnetIDNotFound
+    | InvalidGatewayIDNotFound
+    | CommonAwsError
+  >;
   associateSecurityGroupVpc(
     input: AssociateSecurityGroupVpcRequest,
   ): Effect.Effect<AssociateSecurityGroupVpcResult, CommonAwsError>;
@@ -109,14 +162,27 @@ export declare class EC2 extends AWSServiceClient {
     input: AssociateTransitGatewayMulticastDomainRequest,
   ): Effect.Effect<
     AssociateTransitGatewayMulticastDomainResult,
-    CommonAwsError
+    | InvalidTransitGatewayMulticastDomainIdNotFound
+    | InvalidTransitGatewayAttachmentIdNotFound
+    | InvalidSubnetIDNotFound
+    | CommonAwsError
   >;
   associateTransitGatewayPolicyTable(
     input: AssociateTransitGatewayPolicyTableRequest,
-  ): Effect.Effect<AssociateTransitGatewayPolicyTableResult, CommonAwsError>;
+  ): Effect.Effect<
+    AssociateTransitGatewayPolicyTableResult,
+    | InvalidTransitGatewayPolicyTableIdNotFound
+    | InvalidTransitGatewayAttachmentIdNotFound
+    | CommonAwsError
+  >;
   associateTransitGatewayRouteTable(
     input: AssociateTransitGatewayRouteTableRequest,
-  ): Effect.Effect<AssociateTransitGatewayRouteTableResult, CommonAwsError>;
+  ): Effect.Effect<
+    AssociateTransitGatewayRouteTableResult,
+    | InvalidTransitGatewayRouteTableIdNotFound
+    | InvalidTransitGatewayAttachmentIdNotFound
+    | CommonAwsError
+  >;
   associateTrunkInterface(
     input: AssociateTrunkInterfaceRequest,
   ): Effect.Effect<AssociateTrunkInterfaceResult, CommonAwsError>;
@@ -128,49 +194,99 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<AttachClassicLinkVpcResult, CommonAwsError>;
   attachInternetGateway(
     input: AttachInternetGatewayRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    InvalidInternetGatewayIDNotFound | InvalidVpcIDNotFound | CommonAwsError
+  >;
   attachNetworkInterface(
     input: AttachNetworkInterfaceRequest,
-  ): Effect.Effect<AttachNetworkInterfaceResult, CommonAwsError>;
+  ): Effect.Effect<
+    AttachNetworkInterfaceResult,
+    | InvalidNetworkInterfaceIDNotFound
+    | InvalidInstanceIDNotFound
+    | CommonAwsError
+  >;
   attachVerifiedAccessTrustProvider(
     input: AttachVerifiedAccessTrustProviderRequest,
-  ): Effect.Effect<AttachVerifiedAccessTrustProviderResult, CommonAwsError>;
+  ): Effect.Effect<
+    AttachVerifiedAccessTrustProviderResult,
+    | InvalidVerifiedAccessInstanceIdNotFound
+    | InvalidVerifiedAccessTrustProviderIdNotFound
+    | CommonAwsError
+  >;
   attachVolume(
     input: AttachVolumeRequest,
-  ): Effect.Effect<VolumeAttachment, CommonAwsError>;
+  ): Effect.Effect<
+    VolumeAttachment,
+    | InvalidVolumeNotFound
+    | InvalidInstanceIDNotFound
+    | InvalidVolumeIDMalformed
+    | CommonAwsError
+  >;
   attachVpnGateway(
     input: AttachVpnGatewayRequest,
-  ): Effect.Effect<AttachVpnGatewayResult, CommonAwsError>;
+  ): Effect.Effect<
+    AttachVpnGatewayResult,
+    InvalidVpnGatewayIDNotFound | InvalidVpcIDNotFound | CommonAwsError
+  >;
   authorizeClientVpnIngress(
     input: AuthorizeClientVpnIngressRequest,
-  ): Effect.Effect<AuthorizeClientVpnIngressResult, CommonAwsError>;
+  ): Effect.Effect<
+    AuthorizeClientVpnIngressResult,
+    InvalidClientVpnEndpointIdNotFound | CommonAwsError
+  >;
   authorizeSecurityGroupEgress(
     input: AuthorizeSecurityGroupEgressRequest,
-  ): Effect.Effect<AuthorizeSecurityGroupEgressResult, CommonAwsError>;
+  ): Effect.Effect<
+    AuthorizeSecurityGroupEgressResult,
+    | InvalidGroupNotFound
+    | InvalidSecurityGroupIdNotFound
+    | InvalidPermissionDuplicate
+    | CommonAwsError
+  >;
   authorizeSecurityGroupIngress(
     input: AuthorizeSecurityGroupIngressRequest,
-  ): Effect.Effect<AuthorizeSecurityGroupIngressResult, CommonAwsError>;
+  ): Effect.Effect<
+    AuthorizeSecurityGroupIngressResult,
+    | InvalidGroupNotFound
+    | InvalidSecurityGroupIdNotFound
+    | InvalidPermissionDuplicate
+    | CommonAwsError
+  >;
   bundleInstance(
     input: BundleInstanceRequest,
   ): Effect.Effect<BundleInstanceResult, CommonAwsError>;
   cancelBundleTask(
     input: CancelBundleTaskRequest,
-  ): Effect.Effect<CancelBundleTaskResult, CommonAwsError>;
+  ): Effect.Effect<
+    CancelBundleTaskResult,
+    InvalidBundleIDNotFound | CommonAwsError
+  >;
   cancelCapacityReservation(
     input: CancelCapacityReservationRequest,
-  ): Effect.Effect<CancelCapacityReservationResult, CommonAwsError>;
+  ): Effect.Effect<
+    CancelCapacityReservationResult,
+    | InvalidCapacityReservationIdNotFound
+    | InvalidCapacityReservationIdMalformed
+    | CommonAwsError
+  >;
   cancelCapacityReservationFleets(
     input: CancelCapacityReservationFleetsRequest,
-  ): Effect.Effect<CancelCapacityReservationFleetsResult, CommonAwsError>;
+  ): Effect.Effect<
+    CancelCapacityReservationFleetsResult,
+    | InvalidCapacityReservationFleetIdNotFound
+    | InvalidCapacityReservationFleetIdMalformed
+    | CommonAwsError
+  >;
   cancelConversionTask(
     input: CancelConversionRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, InvalidConversionTaskId | CommonAwsError>;
   cancelDeclarativePoliciesReport(
     input: CancelDeclarativePoliciesReportRequest,
   ): Effect.Effect<CancelDeclarativePoliciesReportResult, CommonAwsError>;
   cancelExportTask(
     input: CancelExportTaskRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, InvalidExportTaskIDNotFound | CommonAwsError>;
   cancelImageLaunchPermission(
     input: CancelImageLaunchPermissionRequest,
   ): Effect.Effect<CancelImageLaunchPermissionResult, CommonAwsError>;
@@ -182,22 +298,44 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<CancelReservedInstancesListingResult, CommonAwsError>;
   cancelSpotFleetRequests(
     input: CancelSpotFleetRequestsRequest,
-  ): Effect.Effect<CancelSpotFleetRequestsResponse, CommonAwsError>;
+  ): Effect.Effect<
+    CancelSpotFleetRequestsResponse,
+    | InvalidSpotFleetRequestIdNotFound
+    | InvalidSpotFleetRequestIdMalformed
+    | CommonAwsError
+  >;
   cancelSpotInstanceRequests(
     input: CancelSpotInstanceRequestsRequest,
-  ): Effect.Effect<CancelSpotInstanceRequestsResult, CommonAwsError>;
+  ): Effect.Effect<
+    CancelSpotInstanceRequestsResult,
+    | InvalidSpotInstanceRequestIDNotFound
+    | InvalidSpotInstanceRequestIDMalformed
+    | CommonAwsError
+  >;
   confirmProductInstance(
     input: ConfirmProductInstanceRequest,
-  ): Effect.Effect<ConfirmProductInstanceResult, CommonAwsError>;
+  ): Effect.Effect<
+    ConfirmProductInstanceResult,
+    InvalidInstanceIDNotFound | CommonAwsError
+  >;
   copyFpgaImage(
     input: CopyFpgaImageRequest,
-  ): Effect.Effect<CopyFpgaImageResult, CommonAwsError>;
+  ): Effect.Effect<
+    CopyFpgaImageResult,
+    InvalidFpgaImageIDNotFound | InvalidFpgaImageIDMalformed | CommonAwsError
+  >;
   copyImage(
     input: CopyImageRequest,
-  ): Effect.Effect<CopyImageResult, CommonAwsError>;
+  ): Effect.Effect<
+    CopyImageResult,
+    InvalidAMIIDNotFound | InvalidAMIIDUnavailable | CommonAwsError
+  >;
   copySnapshot(
     input: CopySnapshotRequest,
-  ): Effect.Effect<CopySnapshotResult, CommonAwsError>;
+  ): Effect.Effect<
+    CopySnapshotResult,
+    InvalidSnapshotNotFound | InvalidSnapshotIdMalformed | CommonAwsError
+  >;
   copyVolumes(
     input: CopyVolumesRequest,
   ): Effect.Effect<CopyVolumesResult, CommonAwsError>;
@@ -221,7 +359,10 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<CreateClientVpnEndpointResult, CommonAwsError>;
   createClientVpnRoute(
     input: CreateClientVpnRouteRequest,
-  ): Effect.Effect<CreateClientVpnRouteResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateClientVpnRouteResult,
+    InvalidClientVpnEndpointIdNotFound | CommonAwsError
+  >;
   createCoipCidr(
     input: CreateCoipCidrRequest,
   ): Effect.Effect<CreateCoipCidrResult, CommonAwsError>;
@@ -245,19 +386,31 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<CreateDhcpOptionsResult, CommonAwsError>;
   createEgressOnlyInternetGateway(
     input: CreateEgressOnlyInternetGatewayRequest,
-  ): Effect.Effect<CreateEgressOnlyInternetGatewayResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateEgressOnlyInternetGatewayResult,
+    InvalidVpcIDNotFound | CommonAwsError
+  >;
   createFleet(
     input: CreateFleetRequest,
   ): Effect.Effect<CreateFleetResult, CommonAwsError>;
   createFlowLogs(
     input: CreateFlowLogsRequest,
-  ): Effect.Effect<CreateFlowLogsResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateFlowLogsResult,
+    | InvalidVpcIDNotFound
+    | InvalidSubnetIDNotFound
+    | InvalidNetworkInterfaceIDNotFound
+    | CommonAwsError
+  >;
   createFpgaImage(
     input: CreateFpgaImageRequest,
   ): Effect.Effect<CreateFpgaImageResult, CommonAwsError>;
   createImage(
     input: CreateImageRequest,
-  ): Effect.Effect<CreateImageResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateImageResult,
+    InvalidInstanceIDNotFound | CommonAwsError
+  >;
   createImageUsageReport(
     input: CreateImageUsageReportRequest,
   ): Effect.Effect<CreateImageUsageReportResult, CommonAwsError>;
@@ -269,7 +422,10 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<CreateInstanceEventWindowResult, CommonAwsError>;
   createInstanceExportTask(
     input: CreateInstanceExportTaskRequest,
-  ): Effect.Effect<CreateInstanceExportTaskResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateInstanceExportTaskResult,
+    InvalidInstanceIDNotFound | CommonAwsError
+  >;
   createInternetGateway(
     input: CreateInternetGatewayRequest,
   ): Effect.Effect<CreateInternetGatewayResult, CommonAwsError>;
@@ -284,7 +440,10 @@ export declare class EC2 extends AWSServiceClient {
   >;
   createIpamPool(
     input: CreateIpamPoolRequest,
-  ): Effect.Effect<CreateIpamPoolResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateIpamPoolResult,
+    InvalidIpamScopeIdNotFound | CommonAwsError
+  >;
   createIpamPrefixListResolver(
     input: CreateIpamPrefixListResolverRequest,
   ): Effect.Effect<CreateIpamPrefixListResolverResult, CommonAwsError>;
@@ -296,19 +455,38 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<CreateIpamResourceDiscoveryResult, CommonAwsError>;
   createIpamScope(
     input: CreateIpamScopeRequest,
-  ): Effect.Effect<CreateIpamScopeResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateIpamScopeResult,
+    InvalidIpamIdNotFound | CommonAwsError
+  >;
   createKeyPair(
     input: CreateKeyPairRequest,
-  ): Effect.Effect<KeyPair, CommonAwsError>;
+  ): Effect.Effect<KeyPair, InvalidKeyPairDuplicate | CommonAwsError>;
   createLaunchTemplate(
     input: CreateLaunchTemplateRequest,
-  ): Effect.Effect<CreateLaunchTemplateResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateLaunchTemplateResult,
+    | InvalidLaunchTemplateIdAlreadyExists
+    | InvalidLaunchTemplateNameAlreadyExistsException
+    | CommonAwsError
+  >;
   createLaunchTemplateVersion(
     input: CreateLaunchTemplateVersionRequest,
-  ): Effect.Effect<CreateLaunchTemplateVersionResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateLaunchTemplateVersionResult,
+    | InvalidLaunchTemplateIdNotFound
+    | InvalidLaunchTemplateNameNotFoundException
+    | InvalidLaunchTemplateIdMalformed
+    | CommonAwsError
+  >;
   createLocalGatewayRoute(
     input: CreateLocalGatewayRouteRequest,
-  ): Effect.Effect<CreateLocalGatewayRouteResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateLocalGatewayRouteResult,
+    | InvalidLocalGatewayIDNotFound
+    | InvalidLocalGatewayRouteTableVpcAssociationIdNotFound
+    | CommonAwsError
+  >;
   createLocalGatewayRouteTable(
     input: CreateLocalGatewayRouteTableRequest,
   ): Effect.Effect<CreateLocalGatewayRouteTableResult, CommonAwsError>;
@@ -322,7 +500,7 @@ export declare class EC2 extends AWSServiceClient {
     input: CreateLocalGatewayRouteTableVpcAssociationRequest,
   ): Effect.Effect<
     CreateLocalGatewayRouteTableVpcAssociationResult,
-    CommonAwsError
+    InvalidLocalGatewayIDNotFound | InvalidVpcIDNotFound | CommonAwsError
   >;
   createLocalGatewayVirtualInterface(
     input: CreateLocalGatewayVirtualInterfaceRequest,
@@ -344,13 +522,19 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<CreateManagedPrefixListResult, CommonAwsError>;
   createNatGateway(
     input: CreateNatGatewayRequest,
-  ): Effect.Effect<CreateNatGatewayResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateNatGatewayResult,
+    | InvalidSubnetIDNotFound
+    | InvalidAllocationIDNotFound
+    | InvalidElasticIpIDNotFound
+    | CommonAwsError
+  >;
   createNetworkAcl(
     input: CreateNetworkAclRequest,
   ): Effect.Effect<CreateNetworkAclResult, CommonAwsError>;
   createNetworkAclEntry(
     input: CreateNetworkAclEntryRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, InvalidNetworkAclIDNotFound | CommonAwsError>;
   createNetworkInsightsAccessScope(
     input: CreateNetworkInsightsAccessScopeRequest,
   ): Effect.Effect<CreateNetworkInsightsAccessScopeResult, CommonAwsError>;
@@ -359,19 +543,28 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<CreateNetworkInsightsPathResult, CommonAwsError>;
   createNetworkInterface(
     input: CreateNetworkInterfaceRequest,
-  ): Effect.Effect<CreateNetworkInterfaceResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateNetworkInterfaceResult,
+    InvalidSubnetIDNotFound | InvalidSecurityGroupIdNotFound | CommonAwsError
+  >;
   createNetworkInterfacePermission(
     input: CreateNetworkInterfacePermissionRequest,
   ): Effect.Effect<CreateNetworkInterfacePermissionResult, CommonAwsError>;
   createPlacementGroup(
     input: CreatePlacementGroupRequest,
-  ): Effect.Effect<CreatePlacementGroupResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreatePlacementGroupResult,
+    InvalidPlacementGroupDuplicate | CommonAwsError
+  >;
   createPublicIpv4Pool(
     input: CreatePublicIpv4PoolRequest,
   ): Effect.Effect<CreatePublicIpv4PoolResult, CommonAwsError>;
   createReplaceRootVolumeTask(
     input: CreateReplaceRootVolumeTaskRequest,
-  ): Effect.Effect<CreateReplaceRootVolumeTaskResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateReplaceRootVolumeTaskResult,
+    InvalidInstanceIDNotFound | InvalidSnapshotIdMalformed | CommonAwsError
+  >;
   createReservedInstancesListing(
     input: CreateReservedInstancesListingRequest,
   ): Effect.Effect<CreateReservedInstancesListingResult, CommonAwsError>;
@@ -380,7 +573,17 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<CreateRestoreImageTaskResult, CommonAwsError>;
   createRoute(
     input: CreateRouteRequest,
-  ): Effect.Effect<CreateRouteResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateRouteResult,
+    | InvalidRouteTableIDNotFound
+    | InvalidGatewayIDNotFound
+    | InvalidInstanceIDNotFound
+    | InvalidNetworkInterfaceIDNotFound
+    | InvalidNatGatewayIDNotFound
+    | InvalidTransitGatewayIdNotFound
+    | InvalidVpcPeeringConnectionIDNotFound
+    | CommonAwsError
+  >;
   createRouteServer(
     input: CreateRouteServerRequest,
   ): Effect.Effect<CreateRouteServerResult, CommonAwsError>;
@@ -392,86 +595,157 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<CreateRouteServerPeerResult, CommonAwsError>;
   createRouteTable(
     input: CreateRouteTableRequest,
-  ): Effect.Effect<CreateRouteTableResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateRouteTableResult,
+    InvalidVpcIDNotFound | CommonAwsError
+  >;
   createSecurityGroup(
     input: CreateSecurityGroupRequest,
-  ): Effect.Effect<CreateSecurityGroupResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateSecurityGroupResult,
+    InvalidVpcIDNotFound | InvalidGroupDuplicate | CommonAwsError
+  >;
   createSnapshot(
     input: CreateSnapshotRequest,
-  ): Effect.Effect<Snapshot, CommonAwsError>;
+  ): Effect.Effect<Snapshot, InvalidVolumeNotFound | CommonAwsError>;
   createSnapshots(
     input: CreateSnapshotsRequest,
-  ): Effect.Effect<CreateSnapshotsResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateSnapshotsResult,
+    InvalidInstanceIDNotFound | CommonAwsError
+  >;
   createSpotDatafeedSubscription(
     input: CreateSpotDatafeedSubscriptionRequest,
-  ): Effect.Effect<CreateSpotDatafeedSubscriptionResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateSpotDatafeedSubscriptionResult,
+    InvalidSpotDatafeedNotFound | CommonAwsError
+  >;
   createStoreImageTask(
     input: CreateStoreImageTaskRequest,
   ): Effect.Effect<CreateStoreImageTaskResult, CommonAwsError>;
   createSubnet(
     input: CreateSubnetRequest,
-  ): Effect.Effect<CreateSubnetResult, CommonAwsError>;
+  ): Effect.Effect<CreateSubnetResult, InvalidVpcIDNotFound | CommonAwsError>;
   createSubnetCidrReservation(
     input: CreateSubnetCidrReservationRequest,
-  ): Effect.Effect<CreateSubnetCidrReservationResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateSubnetCidrReservationResult,
+    InvalidSubnetIDNotFound | CommonAwsError
+  >;
   createTags(input: CreateTagsRequest): Effect.Effect<{}, CommonAwsError>;
   createTrafficMirrorFilter(
     input: CreateTrafficMirrorFilterRequest,
   ): Effect.Effect<CreateTrafficMirrorFilterResult, CommonAwsError>;
   createTrafficMirrorFilterRule(
     input: CreateTrafficMirrorFilterRuleRequest,
-  ): Effect.Effect<CreateTrafficMirrorFilterRuleResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateTrafficMirrorFilterRuleResult,
+    InvalidTrafficMirrorFilterIdNotFound | CommonAwsError
+  >;
   createTrafficMirrorSession(
     input: CreateTrafficMirrorSessionRequest,
-  ): Effect.Effect<CreateTrafficMirrorSessionResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateTrafficMirrorSessionResult,
+    | InvalidTrafficMirrorFilterIdNotFound
+    | InvalidTrafficMirrorTargetIdNotFound
+    | InvalidNetworkInterfaceIDNotFound
+    | CommonAwsError
+  >;
   createTrafficMirrorTarget(
     input: CreateTrafficMirrorTargetRequest,
-  ): Effect.Effect<CreateTrafficMirrorTargetResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateTrafficMirrorTargetResult,
+    InvalidNetworkInterfaceIDNotFound | CommonAwsError
+  >;
   createTransitGateway(
     input: CreateTransitGatewayRequest,
-  ): Effect.Effect<CreateTransitGatewayResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateTransitGatewayResult,
+    InvalidTransitGatewayIdNotFound | CommonAwsError
+  >;
   createTransitGatewayConnect(
     input: CreateTransitGatewayConnectRequest,
-  ): Effect.Effect<CreateTransitGatewayConnectResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateTransitGatewayConnectResult,
+    InvalidTransitGatewayAttachmentIdNotFound | CommonAwsError
+  >;
   createTransitGatewayConnectPeer(
     input: CreateTransitGatewayConnectPeerRequest,
-  ): Effect.Effect<CreateTransitGatewayConnectPeerResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateTransitGatewayConnectPeerResult,
+    | InvalidTransitGatewayAttachmentIdNotFound
+    | InvalidTransitGatewayConnectPeerIdMalformed
+    | CommonAwsError
+  >;
   createTransitGatewayMulticastDomain(
     input: CreateTransitGatewayMulticastDomainRequest,
-  ): Effect.Effect<CreateTransitGatewayMulticastDomainResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateTransitGatewayMulticastDomainResult,
+    InvalidTransitGatewayIdNotFound | CommonAwsError
+  >;
   createTransitGatewayPeeringAttachment(
     input: CreateTransitGatewayPeeringAttachmentRequest,
-  ): Effect.Effect<CreateTransitGatewayPeeringAttachmentResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateTransitGatewayPeeringAttachmentResult,
+    InvalidTransitGatewayIdNotFound | CommonAwsError
+  >;
   createTransitGatewayPolicyTable(
     input: CreateTransitGatewayPolicyTableRequest,
-  ): Effect.Effect<CreateTransitGatewayPolicyTableResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateTransitGatewayPolicyTableResult,
+    InvalidTransitGatewayIdNotFound | CommonAwsError
+  >;
   createTransitGatewayPrefixListReference(
     input: CreateTransitGatewayPrefixListReferenceRequest,
   ): Effect.Effect<
     CreateTransitGatewayPrefixListReferenceResult,
-    CommonAwsError
+    | InvalidTransitGatewayRouteTableIdNotFound
+    | InvalidPrefixListIdNotFound
+    | CommonAwsError
   >;
   createTransitGatewayRoute(
     input: CreateTransitGatewayRouteRequest,
-  ): Effect.Effect<CreateTransitGatewayRouteResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateTransitGatewayRouteResult,
+    | InvalidTransitGatewayRouteTableIdNotFound
+    | InvalidTransitGatewayAttachmentIdNotFound
+    | CommonAwsError
+  >;
   createTransitGatewayRouteTable(
     input: CreateTransitGatewayRouteTableRequest,
-  ): Effect.Effect<CreateTransitGatewayRouteTableResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateTransitGatewayRouteTableResult,
+    InvalidTransitGatewayIdNotFound | CommonAwsError
+  >;
   createTransitGatewayRouteTableAnnouncement(
     input: CreateTransitGatewayRouteTableAnnouncementRequest,
   ): Effect.Effect<
     CreateTransitGatewayRouteTableAnnouncementResult,
-    CommonAwsError
+    | InvalidTransitGatewayRouteTableIdNotFound
+    | InvalidTransitGatewayAttachmentIdNotFound
+    | CommonAwsError
   >;
   createTransitGatewayVpcAttachment(
     input: CreateTransitGatewayVpcAttachmentRequest,
-  ): Effect.Effect<CreateTransitGatewayVpcAttachmentResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateTransitGatewayVpcAttachmentResult,
+    | InvalidTransitGatewayIdNotFound
+    | InvalidVpcIDNotFound
+    | InvalidSubnetIDNotFound
+    | CommonAwsError
+  >;
   createVerifiedAccessEndpoint(
     input: CreateVerifiedAccessEndpointRequest,
-  ): Effect.Effect<CreateVerifiedAccessEndpointResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateVerifiedAccessEndpointResult,
+    InvalidVerifiedAccessGroupIdNotFound | CommonAwsError
+  >;
   createVerifiedAccessGroup(
     input: CreateVerifiedAccessGroupRequest,
-  ): Effect.Effect<CreateVerifiedAccessGroupResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateVerifiedAccessGroupResult,
+    InvalidVerifiedAccessInstanceIdNotFound | CommonAwsError
+  >;
   createVerifiedAccessInstance(
     input: CreateVerifiedAccessInstanceRequest,
   ): Effect.Effect<CreateVerifiedAccessInstanceResult, CommonAwsError>;
@@ -480,49 +754,94 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<CreateVerifiedAccessTrustProviderResult, CommonAwsError>;
   createVolume(
     input: CreateVolumeRequest,
-  ): Effect.Effect<Volume, CommonAwsError>;
+  ): Effect.Effect<
+    Volume,
+    | InvalidSnapshotNotFound
+    | InvalidVolumeIDDuplicate
+    | InvalidAvailabilityZone
+    | CommonAwsError
+  >;
   createVpc(
     input: CreateVpcRequest,
-  ): Effect.Effect<CreateVpcResult, CommonAwsError>;
+  ): Effect.Effect<CreateVpcResult, VpcLimitExceeded | CommonAwsError>;
   createVpcBlockPublicAccessExclusion(
     input: CreateVpcBlockPublicAccessExclusionRequest,
   ): Effect.Effect<CreateVpcBlockPublicAccessExclusionResult, CommonAwsError>;
   createVpcEndpoint(
     input: CreateVpcEndpointRequest,
-  ): Effect.Effect<CreateVpcEndpointResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateVpcEndpointResult,
+    | InvalidVpcIDNotFound
+    | InvalidSubnetIDNotFound
+    | InvalidSecurityGroupIdNotFound
+    | InvalidRouteTableIDNotFound
+    | CommonAwsError
+  >;
   createVpcEndpointConnectionNotification(
     input: CreateVpcEndpointConnectionNotificationRequest,
   ): Effect.Effect<
     CreateVpcEndpointConnectionNotificationResult,
-    CommonAwsError
+    | InvalidVpcEndpointIdNotFound
+    | InvalidVpcEndpointServiceIdNotFound
+    | CommonAwsError
   >;
   createVpcEndpointServiceConfiguration(
     input: CreateVpcEndpointServiceConfigurationRequest,
-  ): Effect.Effect<CreateVpcEndpointServiceConfigurationResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateVpcEndpointServiceConfigurationResult,
+    InvalidNetworkLoadBalancerArnNotFound | CommonAwsError
+  >;
   createVpcPeeringConnection(
     input: CreateVpcPeeringConnectionRequest,
-  ): Effect.Effect<CreateVpcPeeringConnectionResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateVpcPeeringConnectionResult,
+    | InvalidVpcIDNotFound
+    | VpcPeeringConnectionAlreadyExists
+    | VpcPeeringConnectionsPerVpcLimitExceeded
+    | CommonAwsError
+  >;
   createVpnConnection(
     input: CreateVpnConnectionRequest,
-  ): Effect.Effect<CreateVpnConnectionResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateVpnConnectionResult,
+    | InvalidCustomerGatewayIDNotFound
+    | InvalidVpnGatewayIDNotFound
+    | InvalidTransitGatewayIdNotFound
+    | VpnConnectionLimitExceeded
+    | CommonAwsError
+  >;
   createVpnConnectionRoute(
     input: CreateVpnConnectionRouteRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, InvalidVpnConnectionIDNotFound | CommonAwsError>;
   createVpnGateway(
     input: CreateVpnGatewayRequest,
-  ): Effect.Effect<CreateVpnGatewayResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateVpnGatewayResult,
+    VpnGatewayLimitExceeded | CommonAwsError
+  >;
   deleteCapacityManagerDataExport(
     input: DeleteCapacityManagerDataExportRequest,
   ): Effect.Effect<DeleteCapacityManagerDataExportResult, CommonAwsError>;
   deleteCarrierGateway(
     input: DeleteCarrierGatewayRequest,
-  ): Effect.Effect<DeleteCarrierGatewayResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteCarrierGatewayResult,
+    InvalidCarrierGatewayIDNotFound | CommonAwsError
+  >;
   deleteClientVpnEndpoint(
     input: DeleteClientVpnEndpointRequest,
-  ): Effect.Effect<DeleteClientVpnEndpointResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteClientVpnEndpointResult,
+    InvalidClientVpnEndpointIdNotFound | CommonAwsError
+  >;
   deleteClientVpnRoute(
     input: DeleteClientVpnRouteRequest,
-  ): Effect.Effect<DeleteClientVpnRouteResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteClientVpnRouteResult,
+    | InvalidClientVpnEndpointIdNotFound
+    | InvalidClientVpnRouteNotFound
+    | CommonAwsError
+  >;
   deleteCoipCidr(
     input: DeleteCoipCidrRequest,
   ): Effect.Effect<DeleteCoipCidrResult, CommonAwsError>;
@@ -531,22 +850,34 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<DeleteCoipPoolResult, CommonAwsError>;
   deleteCustomerGateway(
     input: DeleteCustomerGatewayRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, InvalidCustomerGatewayIDNotFound | CommonAwsError>;
   deleteDhcpOptions(
     input: DeleteDhcpOptionsRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    InvalidDhcpOptionIDNotFound | InvalidDhcpOptionsIdMalformed | CommonAwsError
+  >;
   deleteEgressOnlyInternetGateway(
     input: DeleteEgressOnlyInternetGatewayRequest,
-  ): Effect.Effect<DeleteEgressOnlyInternetGatewayResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteEgressOnlyInternetGatewayResult,
+    InvalidGatewayIDNotFound | CommonAwsError
+  >;
   deleteFleets(
     input: DeleteFleetsRequest,
   ): Effect.Effect<DeleteFleetsResult, CommonAwsError>;
   deleteFlowLogs(
     input: DeleteFlowLogsRequest,
-  ): Effect.Effect<DeleteFlowLogsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteFlowLogsResult,
+    InvalidFlowLogIdNotFound | CommonAwsError
+  >;
   deleteFpgaImage(
     input: DeleteFpgaImageRequest,
-  ): Effect.Effect<DeleteFpgaImageResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteFpgaImageResult,
+    InvalidFpgaImageIDNotFound | InvalidFpgaImageIDMalformed | CommonAwsError
+  >;
   deleteImageUsageReport(
     input: DeleteImageUsageReportRequest,
   ): Effect.Effect<DeleteImageUsageReportResult, CommonAwsError>;
@@ -555,13 +886,16 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<DeleteInstanceConnectEndpointResult, CommonAwsError>;
   deleteInstanceEventWindow(
     input: DeleteInstanceEventWindowRequest,
-  ): Effect.Effect<DeleteInstanceEventWindowResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteInstanceEventWindowResult,
+    InvalidInstanceEventWindowIdNotFound | CommonAwsError
+  >;
   deleteInternetGateway(
     input: DeleteInternetGatewayRequest,
-  ): Effect.Effect<{}, InvalidInternetGatewayNotFound | CommonAwsError>;
+  ): Effect.Effect<{}, InvalidInternetGatewayIDNotFound | CommonAwsError>;
   deleteIpam(
     input: DeleteIpamRequest,
-  ): Effect.Effect<DeleteIpamResult, CommonAwsError>;
+  ): Effect.Effect<DeleteIpamResult, InvalidIpamIdNotFound | CommonAwsError>;
   deleteIpamExternalResourceVerificationToken(
     input: DeleteIpamExternalResourceVerificationTokenRequest,
   ): Effect.Effect<
@@ -570,7 +904,10 @@ export declare class EC2 extends AWSServiceClient {
   >;
   deleteIpamPool(
     input: DeleteIpamPoolRequest,
-  ): Effect.Effect<DeleteIpamPoolResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteIpamPoolResult,
+    InvalidIpamPoolIdNotFound | CommonAwsError
+  >;
   deleteIpamPrefixListResolver(
     input: DeleteIpamPrefixListResolverRequest,
   ): Effect.Effect<DeleteIpamPrefixListResolverResult, CommonAwsError>;
@@ -579,10 +916,16 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<DeleteIpamPrefixListResolverTargetResult, CommonAwsError>;
   deleteIpamResourceDiscovery(
     input: DeleteIpamResourceDiscoveryRequest,
-  ): Effect.Effect<DeleteIpamResourceDiscoveryResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteIpamResourceDiscoveryResult,
+    InvalidIpamResourceDiscoveryIdNotFound | CommonAwsError
+  >;
   deleteIpamScope(
     input: DeleteIpamScopeRequest,
-  ): Effect.Effect<DeleteIpamScopeResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteIpamScopeResult,
+    InvalidIpamScopeIdNotFound | CommonAwsError
+  >;
   deleteKeyPair(
     input: DeleteKeyPairRequest,
   ): Effect.Effect<
@@ -591,13 +934,28 @@ export declare class EC2 extends AWSServiceClient {
   >;
   deleteLaunchTemplate(
     input: DeleteLaunchTemplateRequest,
-  ): Effect.Effect<DeleteLaunchTemplateResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteLaunchTemplateResult,
+    | InvalidLaunchTemplateIdNotFound
+    | InvalidLaunchTemplateNameNotFoundException
+    | InvalidLaunchTemplateIdMalformed
+    | CommonAwsError
+  >;
   deleteLaunchTemplateVersions(
     input: DeleteLaunchTemplateVersionsRequest,
-  ): Effect.Effect<DeleteLaunchTemplateVersionsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteLaunchTemplateVersionsResult,
+    | InvalidLaunchTemplateIdNotFound
+    | InvalidLaunchTemplateIdVersionNotFound
+    | InvalidLaunchTemplateIdMalformed
+    | CommonAwsError
+  >;
   deleteLocalGatewayRoute(
     input: DeleteLocalGatewayRouteRequest,
-  ): Effect.Effect<DeleteLocalGatewayRouteResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteLocalGatewayRouteResult,
+    InvalidLocalGatewayRouteTableVpcAssociationIdNotFound | CommonAwsError
+  >;
   deleteLocalGatewayRouteTable(
     input: DeleteLocalGatewayRouteTableRequest,
   ): Effect.Effect<DeleteLocalGatewayRouteTableResult, CommonAwsError>;
@@ -611,7 +969,7 @@ export declare class EC2 extends AWSServiceClient {
     input: DeleteLocalGatewayRouteTableVpcAssociationRequest,
   ): Effect.Effect<
     DeleteLocalGatewayRouteTableVpcAssociationResult,
-    CommonAwsError
+    InvalidLocalGatewayRouteTableVpcAssociationIdNotFound | CommonAwsError
   >;
   deleteLocalGatewayVirtualInterface(
     input: DeleteLocalGatewayVirtualInterfaceRequest,
@@ -624,47 +982,78 @@ export declare class EC2 extends AWSServiceClient {
   >;
   deleteManagedPrefixList(
     input: DeleteManagedPrefixListRequest,
-  ): Effect.Effect<DeleteManagedPrefixListResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteManagedPrefixListResult,
+    InvalidPrefixListIdNotFound | CommonAwsError
+  >;
   deleteNatGateway(
     input: DeleteNatGatewayRequest,
-  ): Effect.Effect<DeleteNatGatewayResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteNatGatewayResult,
+    InvalidNatGatewayIDNotFound | CommonAwsError
+  >;
   deleteNetworkAcl(
     input: DeleteNetworkAclRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    InvalidNetworkAclIDNotFound | InvalidNetworkAclInUse | CommonAwsError
+  >;
   deleteNetworkAclEntry(
     input: DeleteNetworkAclEntryRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    | InvalidNetworkAclIDNotFound
+    | InvalidNetworkAclEntryNotFound
+    | CommonAwsError
+  >;
   deleteNetworkInsightsAccessScope(
     input: DeleteNetworkInsightsAccessScopeRequest,
-  ): Effect.Effect<DeleteNetworkInsightsAccessScopeResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteNetworkInsightsAccessScopeResult,
+    InvalidNetworkInsightsAccessScopeIdNotFound | CommonAwsError
+  >;
   deleteNetworkInsightsAccessScopeAnalysis(
     input: DeleteNetworkInsightsAccessScopeAnalysisRequest,
   ): Effect.Effect<
     DeleteNetworkInsightsAccessScopeAnalysisResult,
-    CommonAwsError
+    InvalidNetworkInsightsAccessScopeAnalysisIdNotFound | CommonAwsError
   >;
   deleteNetworkInsightsAnalysis(
     input: DeleteNetworkInsightsAnalysisRequest,
-  ): Effect.Effect<DeleteNetworkInsightsAnalysisResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteNetworkInsightsAnalysisResult,
+    InvalidNetworkInsightsAnalysisIdNotFound | CommonAwsError
+  >;
   deleteNetworkInsightsPath(
     input: DeleteNetworkInsightsPathRequest,
-  ): Effect.Effect<DeleteNetworkInsightsPathResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteNetworkInsightsPathResult,
+    InvalidNetworkInsightsPathIdNotFound | CommonAwsError
+  >;
   deleteNetworkInterface(
     input: DeleteNetworkInterfaceRequest,
-  ): Effect.Effect<{}, InvalidNetworkInterfaceNotFound | CommonAwsError>;
+  ): Effect.Effect<{}, InvalidNetworkInterfaceIDNotFound | CommonAwsError>;
   deleteNetworkInterfacePermission(
     input: DeleteNetworkInterfacePermissionRequest,
   ): Effect.Effect<DeleteNetworkInterfacePermissionResult, CommonAwsError>;
   deletePlacementGroup(
     input: DeletePlacementGroupRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    InvalidPlacementGroupUnknown | InvalidPlacementGroupInUse | CommonAwsError
+  >;
   deletePublicIpv4Pool(
     input: DeletePublicIpv4PoolRequest,
   ): Effect.Effect<DeletePublicIpv4PoolResult, CommonAwsError>;
   deleteQueuedReservedInstances(
     input: DeleteQueuedReservedInstancesRequest,
   ): Effect.Effect<DeleteQueuedReservedInstancesResult, CommonAwsError>;
-  deleteRoute(input: DeleteRouteRequest): Effect.Effect<{}, CommonAwsError>;
+  deleteRoute(
+    input: DeleteRouteRequest,
+  ): Effect.Effect<
+    {},
+    InvalidRouteTableIDNotFound | InvalidRouteNotFound | CommonAwsError
+  >;
   deleteRouteServer(
     input: DeleteRouteServerRequest,
   ): Effect.Effect<DeleteRouteServerResult, CommonAwsError>;
@@ -676,89 +1065,162 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<DeleteRouteServerPeerResult, CommonAwsError>;
   deleteRouteTable(
     input: DeleteRouteTableRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, InvalidRouteTableIDNotFound | CommonAwsError>;
   deleteSecurityGroup(
     input: DeleteSecurityGroupRequest,
-  ): Effect.Effect<DeleteSecurityGroupResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteSecurityGroupResult,
+    | InvalidGroupNotFound
+    | InvalidSecurityGroupIdNotFound
+    | InvalidGroupInUse
+    | CommonAwsError
+  >;
   deleteSnapshot(
     input: DeleteSnapshotRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    | InvalidSnapshotNotFound
+    | InvalidSnapshotInUse
+    | InvalidSnapshotIdMalformed
+    | CommonAwsError
+  >;
   deleteSpotDatafeedSubscription(
     input: DeleteSpotDatafeedSubscriptionRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, InvalidSpotDatafeedNotFound | CommonAwsError>;
   deleteSubnet(
     input: DeleteSubnetRequest,
   ): Effect.Effect<{}, InvalidSubnetIDNotFound | CommonAwsError>;
   deleteSubnetCidrReservation(
     input: DeleteSubnetCidrReservationRequest,
-  ): Effect.Effect<DeleteSubnetCidrReservationResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteSubnetCidrReservationResult,
+    InvalidSubnetCidrReservationIdNotFound | CommonAwsError
+  >;
   deleteTags(input: DeleteTagsRequest): Effect.Effect<{}, CommonAwsError>;
   deleteTrafficMirrorFilter(
     input: DeleteTrafficMirrorFilterRequest,
-  ): Effect.Effect<DeleteTrafficMirrorFilterResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteTrafficMirrorFilterResult,
+    | InvalidTrafficMirrorFilterIdNotFound
+    | InvalidTrafficMirrorFilterInUse
+    | CommonAwsError
+  >;
   deleteTrafficMirrorFilterRule(
     input: DeleteTrafficMirrorFilterRuleRequest,
-  ): Effect.Effect<DeleteTrafficMirrorFilterRuleResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteTrafficMirrorFilterRuleResult,
+    InvalidTrafficMirrorFilterRuleIdNotFound | CommonAwsError
+  >;
   deleteTrafficMirrorSession(
     input: DeleteTrafficMirrorSessionRequest,
-  ): Effect.Effect<DeleteTrafficMirrorSessionResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteTrafficMirrorSessionResult,
+    InvalidTrafficMirrorSessionIdNotFound | CommonAwsError
+  >;
   deleteTrafficMirrorTarget(
     input: DeleteTrafficMirrorTargetRequest,
-  ): Effect.Effect<DeleteTrafficMirrorTargetResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteTrafficMirrorTargetResult,
+    InvalidTrafficMirrorTargetIdNotFound | CommonAwsError
+  >;
   deleteTransitGateway(
     input: DeleteTransitGatewayRequest,
-  ): Effect.Effect<DeleteTransitGatewayResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteTransitGatewayResult,
+    | InvalidTransitGatewayIdNotFound
+    | InvalidTransitGatewayNotFound
+    | CommonAwsError
+  >;
   deleteTransitGatewayConnect(
     input: DeleteTransitGatewayConnectRequest,
-  ): Effect.Effect<DeleteTransitGatewayConnectResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteTransitGatewayConnectResult,
+    InvalidTransitGatewayAttachmentIdNotFound | CommonAwsError
+  >;
   deleteTransitGatewayConnectPeer(
     input: DeleteTransitGatewayConnectPeerRequest,
-  ): Effect.Effect<DeleteTransitGatewayConnectPeerResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteTransitGatewayConnectPeerResult,
+    InvalidTransitGatewayConnectPeerIdNotFound | CommonAwsError
+  >;
   deleteTransitGatewayMulticastDomain(
     input: DeleteTransitGatewayMulticastDomainRequest,
-  ): Effect.Effect<DeleteTransitGatewayMulticastDomainResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteTransitGatewayMulticastDomainResult,
+    InvalidTransitGatewayMulticastDomainIdNotFound | CommonAwsError
+  >;
   deleteTransitGatewayPeeringAttachment(
     input: DeleteTransitGatewayPeeringAttachmentRequest,
-  ): Effect.Effect<DeleteTransitGatewayPeeringAttachmentResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteTransitGatewayPeeringAttachmentResult,
+    InvalidTransitGatewayAttachmentIdNotFound | CommonAwsError
+  >;
   deleteTransitGatewayPolicyTable(
     input: DeleteTransitGatewayPolicyTableRequest,
-  ): Effect.Effect<DeleteTransitGatewayPolicyTableResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteTransitGatewayPolicyTableResult,
+    InvalidTransitGatewayPolicyTableIdNotFound | CommonAwsError
+  >;
   deleteTransitGatewayPrefixListReference(
     input: DeleteTransitGatewayPrefixListReferenceRequest,
   ): Effect.Effect<
     DeleteTransitGatewayPrefixListReferenceResult,
-    CommonAwsError
+    InvalidTransitGatewayRouteTableIdNotFound | CommonAwsError
   >;
   deleteTransitGatewayRoute(
     input: DeleteTransitGatewayRouteRequest,
-  ): Effect.Effect<DeleteTransitGatewayRouteResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteTransitGatewayRouteResult,
+    InvalidTransitGatewayRouteTableIdNotFound | CommonAwsError
+  >;
   deleteTransitGatewayRouteTable(
     input: DeleteTransitGatewayRouteTableRequest,
-  ): Effect.Effect<DeleteTransitGatewayRouteTableResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteTransitGatewayRouteTableResult,
+    InvalidTransitGatewayRouteTableIdNotFound | CommonAwsError
+  >;
   deleteTransitGatewayRouteTableAnnouncement(
     input: DeleteTransitGatewayRouteTableAnnouncementRequest,
   ): Effect.Effect<
     DeleteTransitGatewayRouteTableAnnouncementResult,
-    CommonAwsError
+    InvalidTransitGatewayRouteTableAnnouncementIdNotFound | CommonAwsError
   >;
   deleteTransitGatewayVpcAttachment(
     input: DeleteTransitGatewayVpcAttachmentRequest,
-  ): Effect.Effect<DeleteTransitGatewayVpcAttachmentResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteTransitGatewayVpcAttachmentResult,
+    InvalidTransitGatewayAttachmentIdNotFound | CommonAwsError
+  >;
   deleteVerifiedAccessEndpoint(
     input: DeleteVerifiedAccessEndpointRequest,
-  ): Effect.Effect<DeleteVerifiedAccessEndpointResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteVerifiedAccessEndpointResult,
+    InvalidVerifiedAccessEndpointIdNotFound | CommonAwsError
+  >;
   deleteVerifiedAccessGroup(
     input: DeleteVerifiedAccessGroupRequest,
-  ): Effect.Effect<DeleteVerifiedAccessGroupResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteVerifiedAccessGroupResult,
+    InvalidVerifiedAccessGroupIdNotFound | CommonAwsError
+  >;
   deleteVerifiedAccessInstance(
     input: DeleteVerifiedAccessInstanceRequest,
-  ): Effect.Effect<DeleteVerifiedAccessInstanceResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteVerifiedAccessInstanceResult,
+    InvalidVerifiedAccessInstanceIdNotFound | CommonAwsError
+  >;
   deleteVerifiedAccessTrustProvider(
     input: DeleteVerifiedAccessTrustProviderRequest,
-  ): Effect.Effect<DeleteVerifiedAccessTrustProviderResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteVerifiedAccessTrustProviderResult,
+    InvalidVerifiedAccessTrustProviderIdNotFound | CommonAwsError
+  >;
   deleteVolume(
     input: DeleteVolumeRequest,
-  ): Effect.Effect<{}, InvalidVolumeNotFound | CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    InvalidVolumeNotFound | InvalidVolumeIDMalformed | CommonAwsError
+  >;
   deleteVpc(
     input: DeleteVpcRequest,
   ): Effect.Effect<{}, InvalidVpcIDNotFound | CommonAwsError>;
@@ -769,47 +1231,64 @@ export declare class EC2 extends AWSServiceClient {
     input: DeleteVpcEndpointConnectionNotificationsRequest,
   ): Effect.Effect<
     DeleteVpcEndpointConnectionNotificationsResult,
-    CommonAwsError
+    InvalidVpcEndpointIdNotFound | CommonAwsError
   >;
   deleteVpcEndpoints(
     input: DeleteVpcEndpointsRequest,
-  ): Effect.Effect<DeleteVpcEndpointsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteVpcEndpointsResult,
+    InvalidVpcEndpointIdNotFound | CommonAwsError
+  >;
   deleteVpcEndpointServiceConfigurations(
     input: DeleteVpcEndpointServiceConfigurationsRequest,
   ): Effect.Effect<
     DeleteVpcEndpointServiceConfigurationsResult,
-    CommonAwsError
+    InvalidVpcEndpointServiceIdNotFound | CommonAwsError
   >;
   deleteVpcPeeringConnection(
     input: DeleteVpcPeeringConnectionRequest,
   ): Effect.Effect<
     DeleteVpcPeeringConnectionResult,
-    InvalidVpcPeeringConnectionNotFound | CommonAwsError
+    | InvalidVpcPeeringConnectionIDNotFound
+    | InvalidVpcPeeringConnectionNotFound
+    | CommonAwsError
   >;
   deleteVpnConnection(
     input: DeleteVpnConnectionRequest,
-  ): Effect.Effect<{}, InvalidVpnConnectionNotFound | CommonAwsError>;
+  ): Effect.Effect<{}, InvalidVpnConnectionIDNotFound | CommonAwsError>;
   deleteVpnConnectionRoute(
     input: DeleteVpnConnectionRouteRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, InvalidVpnConnectionIDNotFound | CommonAwsError>;
   deleteVpnGateway(
     input: DeleteVpnGatewayRequest,
-  ): Effect.Effect<{}, InvalidVpnGatewayNotFound | CommonAwsError>;
+  ): Effect.Effect<{}, InvalidVpnGatewayIDNotFound | CommonAwsError>;
   deprovisionByoipCidr(
     input: DeprovisionByoipCidrRequest,
   ): Effect.Effect<DeprovisionByoipCidrResult, CommonAwsError>;
   deprovisionIpamByoasn(
     input: DeprovisionIpamByoasnRequest,
-  ): Effect.Effect<DeprovisionIpamByoasnResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeprovisionIpamByoasnResult,
+    InvalidIpamIdNotFound | CommonAwsError
+  >;
   deprovisionIpamPoolCidr(
     input: DeprovisionIpamPoolCidrRequest,
-  ): Effect.Effect<DeprovisionIpamPoolCidrResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeprovisionIpamPoolCidrResult,
+    InvalidIpamPoolIdNotFound | CommonAwsError
+  >;
   deprovisionPublicIpv4PoolCidr(
     input: DeprovisionPublicIpv4PoolCidrRequest,
-  ): Effect.Effect<DeprovisionPublicIpv4PoolCidrResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeprovisionPublicIpv4PoolCidrResult,
+    InvalidPoolIDNotFound | CommonAwsError
+  >;
   deregisterImage(
     input: DeregisterImageRequest,
-  ): Effect.Effect<DeregisterImageResult, CommonAwsError>;
+  ): Effect.Effect<
+    DeregisterImageResult,
+    InvalidAMIIDNotFound | InvalidAMIIDUnavailable | CommonAwsError
+  >;
   deregisterInstanceEventNotificationAttributes(
     input: DeregisterInstanceEventNotificationAttributesRequest,
   ): Effect.Effect<
@@ -820,20 +1299,23 @@ export declare class EC2 extends AWSServiceClient {
     input: DeregisterTransitGatewayMulticastGroupMembersRequest,
   ): Effect.Effect<
     DeregisterTransitGatewayMulticastGroupMembersResult,
-    CommonAwsError
+    InvalidTransitGatewayMulticastDomainIdNotFound | CommonAwsError
   >;
   deregisterTransitGatewayMulticastGroupSources(
     input: DeregisterTransitGatewayMulticastGroupSourcesRequest,
   ): Effect.Effect<
     DeregisterTransitGatewayMulticastGroupSourcesResult,
-    CommonAwsError
+    InvalidTransitGatewayMulticastDomainIdNotFound | CommonAwsError
   >;
   describeAccountAttributes(
     input: DescribeAccountAttributesRequest,
   ): Effect.Effect<DescribeAccountAttributesResult, CommonAwsError>;
   describeAddresses(
     input: DescribeAddressesRequest,
-  ): Effect.Effect<DescribeAddressesResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeAddressesResult,
+    InvalidAddressIDNotFound | InvalidAllocationIDNotFound | CommonAwsError
+  >;
   describeAddressesAttribute(
     input: DescribeAddressesAttributeRequest,
   ): Effect.Effect<DescribeAddressesAttributeResult, CommonAwsError>;
@@ -854,7 +1336,10 @@ export declare class EC2 extends AWSServiceClient {
   >;
   describeBundleTasks(
     input: DescribeBundleTasksRequest,
-  ): Effect.Effect<DescribeBundleTasksResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeBundleTasksResult,
+    InvalidBundleIDNotFound | CommonAwsError
+  >;
   describeByoipCidrs(
     input: DescribeByoipCidrsRequest,
   ): Effect.Effect<DescribeByoipCidrsResult, CommonAwsError>;
@@ -887,52 +1372,97 @@ export declare class EC2 extends AWSServiceClient {
   >;
   describeCapacityReservationFleets(
     input: DescribeCapacityReservationFleetsRequest,
-  ): Effect.Effect<DescribeCapacityReservationFleetsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeCapacityReservationFleetsResult,
+    | InvalidCapacityReservationFleetIdNotFound
+    | InvalidCapacityReservationFleetIdMalformed
+    | CommonAwsError
+  >;
   describeCapacityReservations(
     input: DescribeCapacityReservationsRequest,
-  ): Effect.Effect<DescribeCapacityReservationsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeCapacityReservationsResult,
+    | InvalidCapacityReservationIdNotFound
+    | InvalidCapacityReservationIdMalformed
+    | CommonAwsError
+  >;
   describeCapacityReservationTopology(
     input: DescribeCapacityReservationTopologyRequest,
   ): Effect.Effect<DescribeCapacityReservationTopologyResult, CommonAwsError>;
   describeCarrierGateways(
     input: DescribeCarrierGatewaysRequest,
-  ): Effect.Effect<DescribeCarrierGatewaysResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeCarrierGatewaysResult,
+    InvalidCarrierGatewayIDNotFound | CommonAwsError
+  >;
   describeClassicLinkInstances(
     input: DescribeClassicLinkInstancesRequest,
   ): Effect.Effect<DescribeClassicLinkInstancesResult, CommonAwsError>;
   describeClientVpnAuthorizationRules(
     input: DescribeClientVpnAuthorizationRulesRequest,
-  ): Effect.Effect<DescribeClientVpnAuthorizationRulesResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeClientVpnAuthorizationRulesResult,
+    InvalidClientVpnEndpointIdNotFound | CommonAwsError
+  >;
   describeClientVpnConnections(
     input: DescribeClientVpnConnectionsRequest,
-  ): Effect.Effect<DescribeClientVpnConnectionsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeClientVpnConnectionsResult,
+    InvalidClientVpnEndpointIdNotFound | CommonAwsError
+  >;
   describeClientVpnEndpoints(
     input: DescribeClientVpnEndpointsRequest,
-  ): Effect.Effect<DescribeClientVpnEndpointsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeClientVpnEndpointsResult,
+    InvalidClientVpnEndpointIdNotFound | CommonAwsError
+  >;
   describeClientVpnRoutes(
     input: DescribeClientVpnRoutesRequest,
-  ): Effect.Effect<DescribeClientVpnRoutesResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeClientVpnRoutesResult,
+    InvalidClientVpnEndpointIdNotFound | CommonAwsError
+  >;
   describeClientVpnTargetNetworks(
     input: DescribeClientVpnTargetNetworksRequest,
-  ): Effect.Effect<DescribeClientVpnTargetNetworksResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeClientVpnTargetNetworksResult,
+    InvalidClientVpnEndpointIdNotFound | CommonAwsError
+  >;
   describeCoipPools(
     input: DescribeCoipPoolsRequest,
-  ): Effect.Effect<DescribeCoipPoolsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeCoipPoolsResult,
+    InvalidCoipPoolIdNotFound | InvalidCoipPoolIdMalformed | CommonAwsError
+  >;
   describeConversionTasks(
     input: DescribeConversionTasksRequest,
-  ): Effect.Effect<DescribeConversionTasksResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeConversionTasksResult,
+    InvalidConversionTaskId | InvalidConversionTaskIdMalformed | CommonAwsError
+  >;
   describeCustomerGateways(
     input: DescribeCustomerGatewaysRequest,
-  ): Effect.Effect<DescribeCustomerGatewaysResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeCustomerGatewaysResult,
+    | InvalidCustomerGatewayIDNotFound
+    | InvalidCustomerGatewayIdMalformed
+    | CommonAwsError
+  >;
   describeDeclarativePoliciesReports(
     input: DescribeDeclarativePoliciesReportsRequest,
   ): Effect.Effect<DescribeDeclarativePoliciesReportsResult, CommonAwsError>;
   describeDhcpOptions(
     input: DescribeDhcpOptionsRequest,
-  ): Effect.Effect<DescribeDhcpOptionsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeDhcpOptionsResult,
+    InvalidDhcpOptionIDNotFound | InvalidDhcpOptionsIdMalformed | CommonAwsError
+  >;
   describeEgressOnlyInternetGateways(
     input: DescribeEgressOnlyInternetGatewaysRequest,
-  ): Effect.Effect<DescribeEgressOnlyInternetGatewaysResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeEgressOnlyInternetGatewaysResult,
+    InvalidGatewayIDNotFound | CommonAwsError
+  >;
   describeElasticGpus(
     input: DescribeElasticGpusRequest,
   ): Effect.Effect<DescribeElasticGpusResult, CommonAwsError>;
@@ -941,7 +1471,10 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<DescribeExportImageTasksResult, CommonAwsError>;
   describeExportTasks(
     input: DescribeExportTasksRequest,
-  ): Effect.Effect<DescribeExportTasksResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeExportTasksResult,
+    InvalidExportTaskIDNotFound | CommonAwsError
+  >;
   describeFastLaunchImages(
     input: DescribeFastLaunchImagesRequest,
   ): Effect.Effect<DescribeFastLaunchImagesResult, CommonAwsError>;
@@ -959,27 +1492,45 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<DescribeFleetsResult, CommonAwsError>;
   describeFlowLogs(
     input: DescribeFlowLogsRequest,
-  ): Effect.Effect<DescribeFlowLogsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeFlowLogsResult,
+    InvalidFlowLogIdNotFound | CommonAwsError
+  >;
   describeFpgaImageAttribute(
     input: DescribeFpgaImageAttributeRequest,
-  ): Effect.Effect<DescribeFpgaImageAttributeResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeFpgaImageAttributeResult,
+    InvalidFpgaImageIDNotFound | InvalidFpgaImageIDMalformed | CommonAwsError
+  >;
   describeFpgaImages(
     input: DescribeFpgaImagesRequest,
-  ): Effect.Effect<DescribeFpgaImagesResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeFpgaImagesResult,
+    InvalidFpgaImageIDNotFound | InvalidFpgaImageIDMalformed | CommonAwsError
+  >;
   describeHostReservationOfferings(
     input: DescribeHostReservationOfferingsRequest,
-  ): Effect.Effect<DescribeHostReservationOfferingsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeHostReservationOfferingsResult,
+    InvalidHostReservationOfferingIdMalformed | CommonAwsError
+  >;
   describeHostReservations(
     input: DescribeHostReservationsRequest,
-  ): Effect.Effect<DescribeHostReservationsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeHostReservationsResult,
+    InvalidHostReservationIdMalformed | CommonAwsError
+  >;
   describeHosts(
     input: DescribeHostsRequest,
-  ): Effect.Effect<DescribeHostsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeHostsResult,
+    InvalidHostIDNotFound | InvalidHostIDMalformed | CommonAwsError
+  >;
   describeIamInstanceProfileAssociations(
     input: DescribeIamInstanceProfileAssociationsRequest,
   ): Effect.Effect<
     DescribeIamInstanceProfileAssociationsResult,
-    CommonAwsError
+    InvalidAssociationIDNotFound | CommonAwsError
   >;
   describeIdentityIdFormat(
     input: DescribeIdentityIdFormatRequest,
@@ -989,13 +1540,19 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<DescribeIdFormatResult, CommonAwsError>;
   describeImageAttribute(
     input: DescribeImageAttributeRequest,
-  ): Effect.Effect<ImageAttribute, CommonAwsError>;
+  ): Effect.Effect<
+    ImageAttribute,
+    InvalidAMIIDNotFound | InvalidAMIIDUnavailable | CommonAwsError
+  >;
   describeImageReferences(
     input: DescribeImageReferencesRequest,
   ): Effect.Effect<DescribeImageReferencesResult, CommonAwsError>;
   describeImages(
     input: DescribeImagesRequest,
-  ): Effect.Effect<DescribeImagesResult, InvalidAMIIDNotFound | CommonAwsError>;
+  ): Effect.Effect<
+    DescribeImagesResult,
+    InvalidAMIIDNotFound | InvalidAMIIDMalformed | CommonAwsError
+  >;
   describeImageUsageReportEntries(
     input: DescribeImageUsageReportEntriesRequest,
   ): Effect.Effect<DescribeImageUsageReportEntriesResult, CommonAwsError>;
@@ -1010,7 +1567,10 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<DescribeImportSnapshotTasksResult, CommonAwsError>;
   describeInstanceAttribute(
     input: DescribeInstanceAttributeRequest,
-  ): Effect.Effect<InstanceAttribute, CommonAwsError>;
+  ): Effect.Effect<
+    InstanceAttribute,
+    InvalidInstanceIDNotFound | InvalidInstanceIDMalformed | CommonAwsError
+  >;
   describeInstanceConnectEndpoints(
     input: DescribeInstanceConnectEndpointsRequest,
   ): Effect.Effect<DescribeInstanceConnectEndpointsResult, CommonAwsError>;
@@ -1033,7 +1593,7 @@ export declare class EC2 extends AWSServiceClient {
     input: DescribeInstancesRequest,
   ): Effect.Effect<
     DescribeInstancesResult,
-    InvalidInstanceIDNotFound | CommonAwsError
+    InvalidInstanceIDNotFound | InvalidInstanceIDMalformed | CommonAwsError
   >;
   describeInstanceStatus(
     input: DescribeInstanceStatusRequest,
@@ -1054,7 +1614,9 @@ export declare class EC2 extends AWSServiceClient {
     input: DescribeInternetGatewaysRequest,
   ): Effect.Effect<
     DescribeInternetGatewaysResult,
-    InvalidInternetGatewayNotFound | CommonAwsError
+    | InvalidInternetGatewayNotFound
+    | InvalidInternetGatewayIDNotFound
+    | CommonAwsError
   >;
   describeIpamByoasn(
     input: DescribeIpamByoasnRequest,
@@ -1067,7 +1629,10 @@ export declare class EC2 extends AWSServiceClient {
   >;
   describeIpamPools(
     input: DescribeIpamPoolsRequest,
-  ): Effect.Effect<DescribeIpamPoolsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeIpamPoolsResult,
+    InvalidIpamPoolIdNotFound | CommonAwsError
+  >;
   describeIpamPrefixListResolvers(
     input: DescribeIpamPrefixListResolversRequest,
   ): Effect.Effect<DescribeIpamPrefixListResolversResult, CommonAwsError>;
@@ -1076,19 +1641,25 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<DescribeIpamPrefixListResolverTargetsResult, CommonAwsError>;
   describeIpamResourceDiscoveries(
     input: DescribeIpamResourceDiscoveriesRequest,
-  ): Effect.Effect<DescribeIpamResourceDiscoveriesResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeIpamResourceDiscoveriesResult,
+    InvalidIpamResourceDiscoveryIdNotFound | CommonAwsError
+  >;
   describeIpamResourceDiscoveryAssociations(
     input: DescribeIpamResourceDiscoveryAssociationsRequest,
   ): Effect.Effect<
     DescribeIpamResourceDiscoveryAssociationsResult,
-    CommonAwsError
+    InvalidIpamResourceDiscoveryAssociationIdNotFound | CommonAwsError
   >;
   describeIpams(
     input: DescribeIpamsRequest,
-  ): Effect.Effect<DescribeIpamsResult, CommonAwsError>;
+  ): Effect.Effect<DescribeIpamsResult, InvalidIpamIdNotFound | CommonAwsError>;
   describeIpamScopes(
     input: DescribeIpamScopesRequest,
-  ): Effect.Effect<DescribeIpamScopesResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeIpamScopesResult,
+    InvalidIpamScopeIdNotFound | CommonAwsError
+  >;
   describeIpv6Pools(
     input: DescribeIpv6PoolsRequest,
   ): Effect.Effect<DescribeIpv6PoolsResult, CommonAwsError>;
@@ -1100,33 +1671,52 @@ export declare class EC2 extends AWSServiceClient {
   >;
   describeLaunchTemplates(
     input: DescribeLaunchTemplatesRequest,
-  ): Effect.Effect<DescribeLaunchTemplatesResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeLaunchTemplatesResult,
+    | InvalidLaunchTemplateIdNotFound
+    | InvalidLaunchTemplateNameNotFoundException
+    | InvalidLaunchTemplateIdMalformed
+    | CommonAwsError
+  >;
   describeLaunchTemplateVersions(
     input: DescribeLaunchTemplateVersionsRequest,
-  ): Effect.Effect<DescribeLaunchTemplateVersionsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeLaunchTemplateVersionsResult,
+    | InvalidLaunchTemplateIdNotFound
+    | InvalidLaunchTemplateIdVersionNotFound
+    | InvalidLaunchTemplateIdMalformed
+    | CommonAwsError
+  >;
   describeLocalGatewayRouteTables(
     input: DescribeLocalGatewayRouteTablesRequest,
-  ): Effect.Effect<DescribeLocalGatewayRouteTablesResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeLocalGatewayRouteTablesResult,
+    InvalidLocalGatewayIDNotFound | CommonAwsError
+  >;
   describeLocalGatewayRouteTableVirtualInterfaceGroupAssociations(
     input: DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest,
   ): Effect.Effect<
     DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResult,
-    CommonAwsError
+    | InvalidLocalGatewayRouteTableVirtualInterfaceGroupAssociationIdNotFound
+    | CommonAwsError
   >;
   describeLocalGatewayRouteTableVpcAssociations(
     input: DescribeLocalGatewayRouteTableVpcAssociationsRequest,
   ): Effect.Effect<
     DescribeLocalGatewayRouteTableVpcAssociationsResult,
-    CommonAwsError
+    InvalidLocalGatewayRouteTableVpcAssociationIdNotFound | CommonAwsError
   >;
   describeLocalGateways(
     input: DescribeLocalGatewaysRequest,
-  ): Effect.Effect<DescribeLocalGatewaysResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeLocalGatewaysResult,
+    InvalidLocalGatewayIDNotFound | CommonAwsError
+  >;
   describeLocalGatewayVirtualInterfaceGroups(
     input: DescribeLocalGatewayVirtualInterfaceGroupsRequest,
   ): Effect.Effect<
     DescribeLocalGatewayVirtualInterfaceGroupsResult,
-    CommonAwsError
+    InvalidLocalGatewayVirtualInterfaceGroupIdNotFound | CommonAwsError
   >;
   describeLocalGatewayVirtualInterfaces(
     input: DescribeLocalGatewayVirtualInterfacesRequest,
@@ -1142,7 +1732,10 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<DescribeMacModificationTasksResult, CommonAwsError>;
   describeManagedPrefixLists(
     input: DescribeManagedPrefixListsRequest,
-  ): Effect.Effect<DescribeManagedPrefixListsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeManagedPrefixListsResult,
+    InvalidPrefixListIdNotFound | InvalidPrefixListIdMalformed | CommonAwsError
+  >;
   describeMovingAddresses(
     input: DescribeMovingAddressesRequest,
   ): Effect.Effect<DescribeMovingAddressesResult, CommonAwsError>;
@@ -1150,29 +1743,44 @@ export declare class EC2 extends AWSServiceClient {
     input: DescribeNatGatewaysRequest,
   ): Effect.Effect<
     DescribeNatGatewaysResult,
-    NatGatewayNotFound | CommonAwsError
+    NatGatewayNotFound | InvalidNatGatewayIDNotFound | CommonAwsError
   >;
   describeNetworkAcls(
     input: DescribeNetworkAclsRequest,
-  ): Effect.Effect<DescribeNetworkAclsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeNetworkAclsResult,
+    InvalidNetworkAclIDNotFound | CommonAwsError
+  >;
   describeNetworkInsightsAccessScopeAnalyses(
     input: DescribeNetworkInsightsAccessScopeAnalysesRequest,
   ): Effect.Effect<
     DescribeNetworkInsightsAccessScopeAnalysesResult,
-    CommonAwsError
+    InvalidNetworkInsightsAccessScopeAnalysisIdNotFound | CommonAwsError
   >;
   describeNetworkInsightsAccessScopes(
     input: DescribeNetworkInsightsAccessScopesRequest,
-  ): Effect.Effect<DescribeNetworkInsightsAccessScopesResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeNetworkInsightsAccessScopesResult,
+    InvalidNetworkInsightsAccessScopeIdNotFound | CommonAwsError
+  >;
   describeNetworkInsightsAnalyses(
     input: DescribeNetworkInsightsAnalysesRequest,
-  ): Effect.Effect<DescribeNetworkInsightsAnalysesResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeNetworkInsightsAnalysesResult,
+    InvalidNetworkInsightsAnalysisIdNotFound | CommonAwsError
+  >;
   describeNetworkInsightsPaths(
     input: DescribeNetworkInsightsPathsRequest,
-  ): Effect.Effect<DescribeNetworkInsightsPathsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeNetworkInsightsPathsResult,
+    InvalidNetworkInsightsPathIdNotFound | CommonAwsError
+  >;
   describeNetworkInterfaceAttribute(
     input: DescribeNetworkInterfaceAttributeRequest,
-  ): Effect.Effect<DescribeNetworkInterfaceAttributeResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeNetworkInterfaceAttributeResult,
+    InvalidNetworkInterfaceIDNotFound | CommonAwsError
+  >;
   describeNetworkInterfacePermissions(
     input: DescribeNetworkInterfacePermissionsRequest,
   ): Effect.Effect<DescribeNetworkInterfacePermissionsResult, CommonAwsError>;
@@ -1180,34 +1788,51 @@ export declare class EC2 extends AWSServiceClient {
     input: DescribeNetworkInterfacesRequest,
   ): Effect.Effect<
     DescribeNetworkInterfacesResult,
-    | InvalidNetworkInterfaceIDNotFound
-    | InvalidNetworkInterfaceNotFound
-    | CommonAwsError
+    InvalidNetworkInterfaceIDNotFound | CommonAwsError
   >;
   describeOutpostLags(
     input: DescribeOutpostLagsRequest,
   ): Effect.Effect<DescribeOutpostLagsResult, CommonAwsError>;
   describePlacementGroups(
     input: DescribePlacementGroupsRequest,
-  ): Effect.Effect<DescribePlacementGroupsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribePlacementGroupsResult,
+    InvalidPlacementGroupUnknown | CommonAwsError
+  >;
   describePrefixLists(
     input: DescribePrefixListsRequest,
-  ): Effect.Effect<DescribePrefixListsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribePrefixListsResult,
+    InvalidPrefixListIdNotFound | CommonAwsError
+  >;
   describePrincipalIdFormat(
     input: DescribePrincipalIdFormatRequest,
   ): Effect.Effect<DescribePrincipalIdFormatResult, CommonAwsError>;
   describePublicIpv4Pools(
     input: DescribePublicIpv4PoolsRequest,
-  ): Effect.Effect<DescribePublicIpv4PoolsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribePublicIpv4PoolsResult,
+    InvalidPoolIDNotFound | InvalidPoolIDMalformed | CommonAwsError
+  >;
   describeRegions(
     input: DescribeRegionsRequest,
   ): Effect.Effect<DescribeRegionsResult, CommonAwsError>;
   describeReplaceRootVolumeTasks(
     input: DescribeReplaceRootVolumeTasksRequest,
-  ): Effect.Effect<DescribeReplaceRootVolumeTasksResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeReplaceRootVolumeTasksResult,
+    | InvalidReplaceRootVolumeTaskIdNotFound
+    | InvalidReplaceRootVolumeTaskIdMalformed
+    | CommonAwsError
+  >;
   describeReservedInstances(
     input: DescribeReservedInstancesRequest,
-  ): Effect.Effect<DescribeReservedInstancesResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeReservedInstancesResult,
+    | InvalidReservationIDNotFound
+    | InvalidReservationIDMalformed
+    | CommonAwsError
+  >;
   describeReservedInstancesListings(
     input: DescribeReservedInstancesListingsRequest,
   ): Effect.Effect<DescribeReservedInstancesListingsResult, CommonAwsError>;
@@ -1231,7 +1856,10 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<DescribeRouteServersResult, CommonAwsError>;
   describeRouteTables(
     input: DescribeRouteTablesRequest,
-  ): Effect.Effect<DescribeRouteTablesResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeRouteTablesResult,
+    InvalidRouteTableIDNotFound | InvalidRouteTableIdMalformed | CommonAwsError
+  >;
   describeScheduledInstanceAvailability(
     input: DescribeScheduledInstanceAvailabilityRequest,
   ): Effect.Effect<DescribeScheduledInstanceAvailabilityResult, CommonAwsError>;
@@ -1240,15 +1868,26 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<DescribeScheduledInstancesResult, CommonAwsError>;
   describeSecurityGroupReferences(
     input: DescribeSecurityGroupReferencesRequest,
-  ): Effect.Effect<DescribeSecurityGroupReferencesResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeSecurityGroupReferencesResult,
+    InvalidSecurityGroupIdNotFound | CommonAwsError
+  >;
   describeSecurityGroupRules(
     input: DescribeSecurityGroupRulesRequest,
-  ): Effect.Effect<DescribeSecurityGroupRulesResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeSecurityGroupRulesResult,
+    | InvalidSecurityGroupIdNotFound
+    | InvalidSecurityGroupRuleIdNotFound
+    | CommonAwsError
+  >;
   describeSecurityGroups(
     input: DescribeSecurityGroupsRequest,
   ): Effect.Effect<
     DescribeSecurityGroupsResult,
-    InvalidGroupNotFound | CommonAwsError
+    | InvalidGroupNotFound
+    | InvalidSecurityGroupIdNotFound
+    | InvalidGroupIdMalformed
+    | CommonAwsError
   >;
   describeSecurityGroupVpcAssociations(
     input: DescribeSecurityGroupVpcAssociationsRequest,
@@ -1258,37 +1897,62 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<DescribeServiceLinkVirtualInterfacesResult, CommonAwsError>;
   describeSnapshotAttribute(
     input: DescribeSnapshotAttributeRequest,
-  ): Effect.Effect<DescribeSnapshotAttributeResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeSnapshotAttributeResult,
+    InvalidSnapshotNotFound | InvalidSnapshotIdMalformed | CommonAwsError
+  >;
   describeSnapshots(
     input: DescribeSnapshotsRequest,
-  ): Effect.Effect<DescribeSnapshotsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeSnapshotsResult,
+    InvalidSnapshotNotFound | InvalidSnapshotIdMalformed | CommonAwsError
+  >;
   describeSnapshotTierStatus(
     input: DescribeSnapshotTierStatusRequest,
   ): Effect.Effect<DescribeSnapshotTierStatusResult, CommonAwsError>;
   describeSpotDatafeedSubscription(
     input: DescribeSpotDatafeedSubscriptionRequest,
-  ): Effect.Effect<DescribeSpotDatafeedSubscriptionResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeSpotDatafeedSubscriptionResult,
+    InvalidSpotDatafeedNotFound | CommonAwsError
+  >;
   describeSpotFleetInstances(
     input: DescribeSpotFleetInstancesRequest,
-  ): Effect.Effect<DescribeSpotFleetInstancesResponse, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeSpotFleetInstancesResponse,
+    InvalidSpotFleetRequestIdNotFound | CommonAwsError
+  >;
   describeSpotFleetRequestHistory(
     input: DescribeSpotFleetRequestHistoryRequest,
-  ): Effect.Effect<DescribeSpotFleetRequestHistoryResponse, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeSpotFleetRequestHistoryResponse,
+    InvalidSpotFleetRequestIdNotFound | CommonAwsError
+  >;
   describeSpotFleetRequests(
     input: DescribeSpotFleetRequestsRequest,
-  ): Effect.Effect<DescribeSpotFleetRequestsResponse, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeSpotFleetRequestsResponse,
+    | InvalidSpotFleetRequestIdNotFound
+    | InvalidSpotFleetRequestIdMalformed
+    | CommonAwsError
+  >;
   describeSpotInstanceRequests(
     input: DescribeSpotInstanceRequestsRequest,
   ): Effect.Effect<
     DescribeSpotInstanceRequestsResult,
-    InvalidSpotInstanceRequestIDNotFound | CommonAwsError
+    | InvalidSpotInstanceRequestIDNotFound
+    | InvalidSpotInstanceRequestIDMalformed
+    | CommonAwsError
   >;
   describeSpotPriceHistory(
     input: DescribeSpotPriceHistoryRequest,
   ): Effect.Effect<DescribeSpotPriceHistoryResult, CommonAwsError>;
   describeStaleSecurityGroups(
     input: DescribeStaleSecurityGroupsRequest,
-  ): Effect.Effect<DescribeStaleSecurityGroupsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeStaleSecurityGroupsResult,
+    InvalidVpcIDNotFound | CommonAwsError
+  >;
   describeStoreImageTasks(
     input: DescribeStoreImageTasksRequest,
   ): Effect.Effect<DescribeStoreImageTasksResult, CommonAwsError>;
@@ -1296,7 +1960,7 @@ export declare class EC2 extends AWSServiceClient {
     input: DescribeSubnetsRequest,
   ): Effect.Effect<
     DescribeSubnetsResult,
-    InvalidSubnetIDNotFound | CommonAwsError
+    InvalidSubnetIDNotFound | InvalidSubnetIdMalformed | CommonAwsError
   >;
   describeTags(
     input: DescribeTagsRequest,
@@ -1306,91 +1970,148 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<DescribeTrafficMirrorFilterRulesResult, CommonAwsError>;
   describeTrafficMirrorFilters(
     input: DescribeTrafficMirrorFiltersRequest,
-  ): Effect.Effect<DescribeTrafficMirrorFiltersResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeTrafficMirrorFiltersResult,
+    InvalidTrafficMirrorFilterIdNotFound | CommonAwsError
+  >;
   describeTrafficMirrorSessions(
     input: DescribeTrafficMirrorSessionsRequest,
-  ): Effect.Effect<DescribeTrafficMirrorSessionsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeTrafficMirrorSessionsResult,
+    InvalidTrafficMirrorSessionIdNotFound | CommonAwsError
+  >;
   describeTrafficMirrorTargets(
     input: DescribeTrafficMirrorTargetsRequest,
-  ): Effect.Effect<DescribeTrafficMirrorTargetsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeTrafficMirrorTargetsResult,
+    InvalidTrafficMirrorTargetIdNotFound | CommonAwsError
+  >;
   describeTransitGatewayAttachments(
     input: DescribeTransitGatewayAttachmentsRequest,
-  ): Effect.Effect<DescribeTransitGatewayAttachmentsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeTransitGatewayAttachmentsResult,
+    InvalidTransitGatewayAttachmentIdNotFound | CommonAwsError
+  >;
   describeTransitGatewayConnectPeers(
     input: DescribeTransitGatewayConnectPeersRequest,
-  ): Effect.Effect<DescribeTransitGatewayConnectPeersResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeTransitGatewayConnectPeersResult,
+    InvalidTransitGatewayConnectPeerIdNotFound | CommonAwsError
+  >;
   describeTransitGatewayConnects(
     input: DescribeTransitGatewayConnectsRequest,
-  ): Effect.Effect<DescribeTransitGatewayConnectsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeTransitGatewayConnectsResult,
+    InvalidTransitGatewayAttachmentIdNotFound | CommonAwsError
+  >;
   describeTransitGatewayMulticastDomains(
     input: DescribeTransitGatewayMulticastDomainsRequest,
   ): Effect.Effect<
     DescribeTransitGatewayMulticastDomainsResult,
-    CommonAwsError
+    InvalidTransitGatewayMulticastDomainIdNotFound | CommonAwsError
   >;
   describeTransitGatewayPeeringAttachments(
     input: DescribeTransitGatewayPeeringAttachmentsRequest,
   ): Effect.Effect<
     DescribeTransitGatewayPeeringAttachmentsResult,
-    CommonAwsError
+    InvalidTransitGatewayAttachmentIdNotFound | CommonAwsError
   >;
   describeTransitGatewayPolicyTables(
     input: DescribeTransitGatewayPolicyTablesRequest,
-  ): Effect.Effect<DescribeTransitGatewayPolicyTablesResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeTransitGatewayPolicyTablesResult,
+    InvalidTransitGatewayPolicyTableIdNotFound | CommonAwsError
+  >;
   describeTransitGatewayRouteTableAnnouncements(
     input: DescribeTransitGatewayRouteTableAnnouncementsRequest,
   ): Effect.Effect<
     DescribeTransitGatewayRouteTableAnnouncementsResult,
-    CommonAwsError
+    InvalidTransitGatewayRouteTableAnnouncementIdNotFound | CommonAwsError
   >;
   describeTransitGatewayRouteTables(
     input: DescribeTransitGatewayRouteTablesRequest,
-  ): Effect.Effect<DescribeTransitGatewayRouteTablesResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeTransitGatewayRouteTablesResult,
+    InvalidTransitGatewayRouteTableIdNotFound | CommonAwsError
+  >;
   describeTransitGateways(
     input: DescribeTransitGatewaysRequest,
-  ): Effect.Effect<DescribeTransitGatewaysResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeTransitGatewaysResult,
+    | InvalidTransitGatewayIdNotFound
+    | InvalidTransitGatewayNotFound
+    | InvalidTransitGatewayIdMalformed
+    | CommonAwsError
+  >;
   describeTransitGatewayVpcAttachments(
     input: DescribeTransitGatewayVpcAttachmentsRequest,
-  ): Effect.Effect<DescribeTransitGatewayVpcAttachmentsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeTransitGatewayVpcAttachmentsResult,
+    InvalidTransitGatewayAttachmentIdNotFound | CommonAwsError
+  >;
   describeTrunkInterfaceAssociations(
     input: DescribeTrunkInterfaceAssociationsRequest,
   ): Effect.Effect<DescribeTrunkInterfaceAssociationsResult, CommonAwsError>;
   describeVerifiedAccessEndpoints(
     input: DescribeVerifiedAccessEndpointsRequest,
-  ): Effect.Effect<DescribeVerifiedAccessEndpointsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeVerifiedAccessEndpointsResult,
+    InvalidVerifiedAccessEndpointIdNotFound | CommonAwsError
+  >;
   describeVerifiedAccessGroups(
     input: DescribeVerifiedAccessGroupsRequest,
-  ): Effect.Effect<DescribeVerifiedAccessGroupsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeVerifiedAccessGroupsResult,
+    InvalidVerifiedAccessGroupIdNotFound | CommonAwsError
+  >;
   describeVerifiedAccessInstanceLoggingConfigurations(
     input: DescribeVerifiedAccessInstanceLoggingConfigurationsRequest,
   ): Effect.Effect<
     DescribeVerifiedAccessInstanceLoggingConfigurationsResult,
-    CommonAwsError
+    InvalidVerifiedAccessInstanceIdNotFound | CommonAwsError
   >;
   describeVerifiedAccessInstances(
     input: DescribeVerifiedAccessInstancesRequest,
-  ): Effect.Effect<DescribeVerifiedAccessInstancesResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeVerifiedAccessInstancesResult,
+    InvalidVerifiedAccessInstanceIdNotFound | CommonAwsError
+  >;
   describeVerifiedAccessTrustProviders(
     input: DescribeVerifiedAccessTrustProvidersRequest,
-  ): Effect.Effect<DescribeVerifiedAccessTrustProvidersResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeVerifiedAccessTrustProvidersResult,
+    InvalidVerifiedAccessTrustProviderIdNotFound | CommonAwsError
+  >;
   describeVolumeAttribute(
     input: DescribeVolumeAttributeRequest,
-  ): Effect.Effect<DescribeVolumeAttributeResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeVolumeAttributeResult,
+    InvalidVolumeNotFound | InvalidVolumeIDMalformed | CommonAwsError
+  >;
   describeVolumes(
     input: DescribeVolumesRequest,
   ): Effect.Effect<
     DescribeVolumesResult,
-    InvalidVolumeNotFound | CommonAwsError
+    InvalidVolumeNotFound | InvalidVolumeIDMalformed | CommonAwsError
   >;
   describeVolumesModifications(
     input: DescribeVolumesModificationsRequest,
-  ): Effect.Effect<DescribeVolumesModificationsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeVolumesModificationsResult,
+    InvalidVolumeNotFound | CommonAwsError
+  >;
   describeVolumeStatus(
     input: DescribeVolumeStatusRequest,
-  ): Effect.Effect<DescribeVolumeStatusResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeVolumeStatusResult,
+    InvalidVolumeNotFound | CommonAwsError
+  >;
   describeVpcAttribute(
     input: DescribeVpcAttributeRequest,
-  ): Effect.Effect<DescribeVpcAttributeResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeVpcAttributeResult,
+    InvalidVpcIDNotFound | CommonAwsError
+  >;
   describeVpcBlockPublicAccessExclusions(
     input: DescribeVpcBlockPublicAccessExclusionsRequest,
   ): Effect.Effect<
@@ -1402,10 +2123,16 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<DescribeVpcBlockPublicAccessOptionsResult, CommonAwsError>;
   describeVpcClassicLink(
     input: DescribeVpcClassicLinkRequest,
-  ): Effect.Effect<DescribeVpcClassicLinkResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeVpcClassicLinkResult,
+    InvalidVpcIDNotFound | CommonAwsError
+  >;
   describeVpcClassicLinkDnsSupport(
     input: DescribeVpcClassicLinkDnsSupportRequest,
-  ): Effect.Effect<DescribeVpcClassicLinkDnsSupportResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeVpcClassicLinkDnsSupportResult,
+    InvalidVpcIDNotFound | CommonAwsError
+  >;
   describeVpcEndpointAssociations(
     input: DescribeVpcEndpointAssociationsRequest,
   ): Effect.Effect<DescribeVpcEndpointAssociationsResult, CommonAwsError>;
@@ -1413,23 +2140,35 @@ export declare class EC2 extends AWSServiceClient {
     input: DescribeVpcEndpointConnectionNotificationsRequest,
   ): Effect.Effect<
     DescribeVpcEndpointConnectionNotificationsResult,
-    CommonAwsError
+    InvalidVpcEndpointIdNotFound | CommonAwsError
   >;
   describeVpcEndpointConnections(
     input: DescribeVpcEndpointConnectionsRequest,
-  ): Effect.Effect<DescribeVpcEndpointConnectionsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeVpcEndpointConnectionsResult,
+    InvalidVpcEndpointServiceIdNotFound | CommonAwsError
+  >;
   describeVpcEndpoints(
     input: DescribeVpcEndpointsRequest,
-  ): Effect.Effect<DescribeVpcEndpointsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeVpcEndpointsResult,
+    | InvalidVpcEndpointNotFound
+    | InvalidVpcEndpointIdNotFound
+    | InvalidVpcEndpointIdMalformed
+    | CommonAwsError
+  >;
   describeVpcEndpointServiceConfigurations(
     input: DescribeVpcEndpointServiceConfigurationsRequest,
   ): Effect.Effect<
     DescribeVpcEndpointServiceConfigurationsResult,
-    CommonAwsError
+    InvalidVpcEndpointServiceIdNotFound | CommonAwsError
   >;
   describeVpcEndpointServicePermissions(
     input: DescribeVpcEndpointServicePermissionsRequest,
-  ): Effect.Effect<DescribeVpcEndpointServicePermissionsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeVpcEndpointServicePermissionsResult,
+    InvalidVpcEndpointServiceIdNotFound | CommonAwsError
+  >;
   describeVpcEndpointServices(
     input: DescribeVpcEndpointServicesRequest,
   ): Effect.Effect<DescribeVpcEndpointServicesResult, CommonAwsError>;
@@ -1439,35 +2178,70 @@ export declare class EC2 extends AWSServiceClient {
     DescribeVpcPeeringConnectionsResult,
     | InvalidVpcPeeringConnectionIDNotFound
     | InvalidVpcPeeringConnectionNotFound
+    | InvalidVpcPeeringConnectionIdMalformed
     | CommonAwsError
   >;
   describeVpcs(
     input: DescribeVpcsRequest,
-  ): Effect.Effect<DescribeVpcsResult, InvalidVpcIDNotFound | CommonAwsError>;
+  ): Effect.Effect<
+    DescribeVpcsResult,
+    InvalidVpcIDNotFound | InvalidVpcIDMalformed | CommonAwsError
+  >;
   describeVpnConnections(
     input: DescribeVpnConnectionsRequest,
-  ): Effect.Effect<DescribeVpnConnectionsResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeVpnConnectionsResult,
+    InvalidVpnConnectionIDNotFound | InvalidVpnConnectionID | CommonAwsError
+  >;
   describeVpnGateways(
     input: DescribeVpnGatewaysRequest,
-  ): Effect.Effect<DescribeVpnGatewaysResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeVpnGatewaysResult,
+    InvalidVpnGatewayIDNotFound | CommonAwsError
+  >;
   detachClassicLinkVpc(
     input: DetachClassicLinkVpcRequest,
   ): Effect.Effect<DetachClassicLinkVpcResult, CommonAwsError>;
   detachInternetGateway(
     input: DetachInternetGatewayRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    InvalidInternetGatewayIDNotFound | InvalidVpcIDNotFound | CommonAwsError
+  >;
   detachNetworkInterface(
     input: DetachNetworkInterfaceRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    | InvalidAttachmentIDNotFound
+    | InvalidNetworkInterfaceAttachmentIdMalformed
+    | CommonAwsError
+  >;
   detachVerifiedAccessTrustProvider(
     input: DetachVerifiedAccessTrustProviderRequest,
-  ): Effect.Effect<DetachVerifiedAccessTrustProviderResult, CommonAwsError>;
+  ): Effect.Effect<
+    DetachVerifiedAccessTrustProviderResult,
+    | InvalidVerifiedAccessInstanceIdNotFound
+    | InvalidVerifiedAccessTrustProviderIdNotFound
+    | CommonAwsError
+  >;
   detachVolume(
     input: DetachVolumeRequest,
-  ): Effect.Effect<VolumeAttachment, CommonAwsError>;
+  ): Effect.Effect<
+    VolumeAttachment,
+    | InvalidVolumeNotFound
+    | InvalidInstanceIDNotFound
+    | InvalidAttachmentNotFound
+    | CommonAwsError
+  >;
   detachVpnGateway(
     input: DetachVpnGatewayRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    | InvalidVpnGatewayIDNotFound
+    | InvalidVpcIDNotFound
+    | InvalidVpnGatewayAttachmentNotFound
+    | CommonAwsError
+  >;
   disableAddressTransfer(
     input: DisableAddressTransferRequest,
   ): Effect.Effect<DisableAddressTransferResult, CommonAwsError>;
@@ -1520,20 +2294,28 @@ export declare class EC2 extends AWSServiceClient {
     input: DisableTransitGatewayRouteTablePropagationRequest,
   ): Effect.Effect<
     DisableTransitGatewayRouteTablePropagationResult,
-    CommonAwsError
+    | InvalidTransitGatewayRouteTableIdNotFound
+    | InvalidTransitGatewayAttachmentIdNotFound
+    | CommonAwsError
   >;
   disableVgwRoutePropagation(
     input: DisableVgwRoutePropagationRequest,
   ): Effect.Effect<{}, CommonAwsError>;
   disableVpcClassicLink(
     input: DisableVpcClassicLinkRequest,
-  ): Effect.Effect<DisableVpcClassicLinkResult, CommonAwsError>;
+  ): Effect.Effect<
+    DisableVpcClassicLinkResult,
+    InvalidVpcIDNotFound | CommonAwsError
+  >;
   disableVpcClassicLinkDnsSupport(
     input: DisableVpcClassicLinkDnsSupportRequest,
-  ): Effect.Effect<DisableVpcClassicLinkDnsSupportResult, CommonAwsError>;
+  ): Effect.Effect<
+    DisableVpcClassicLinkDnsSupportResult,
+    InvalidVpcIDNotFound | CommonAwsError
+  >;
   disassociateAddress(
     input: DisassociateAddressRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, InvalidAssociationIDNotFound | CommonAwsError>;
   disassociateCapacityReservationBillingOwner(
     input: DisassociateCapacityReservationBillingOwnerRequest,
   ): Effect.Effect<
@@ -1542,22 +2324,39 @@ export declare class EC2 extends AWSServiceClient {
   >;
   disassociateClientVpnTargetNetwork(
     input: DisassociateClientVpnTargetNetworkRequest,
-  ): Effect.Effect<DisassociateClientVpnTargetNetworkResult, CommonAwsError>;
+  ): Effect.Effect<
+    DisassociateClientVpnTargetNetworkResult,
+    | InvalidClientVpnEndpointIdNotFound
+    | InvalidClientVpnAssociationIdNotFound
+    | CommonAwsError
+  >;
   disassociateEnclaveCertificateIamRole(
     input: DisassociateEnclaveCertificateIamRoleRequest,
   ): Effect.Effect<DisassociateEnclaveCertificateIamRoleResult, CommonAwsError>;
   disassociateIamInstanceProfile(
     input: DisassociateIamInstanceProfileRequest,
-  ): Effect.Effect<DisassociateIamInstanceProfileResult, CommonAwsError>;
+  ): Effect.Effect<
+    DisassociateIamInstanceProfileResult,
+    InvalidAssociationIDNotFound | CommonAwsError
+  >;
   disassociateInstanceEventWindow(
     input: DisassociateInstanceEventWindowRequest,
-  ): Effect.Effect<DisassociateInstanceEventWindowResult, CommonAwsError>;
+  ): Effect.Effect<
+    DisassociateInstanceEventWindowResult,
+    InvalidInstanceEventWindowIdNotFound | CommonAwsError
+  >;
   disassociateIpamByoasn(
     input: DisassociateIpamByoasnRequest,
-  ): Effect.Effect<DisassociateIpamByoasnResult, CommonAwsError>;
+  ): Effect.Effect<
+    DisassociateIpamByoasnResult,
+    InvalidIpamIdNotFound | CommonAwsError
+  >;
   disassociateIpamResourceDiscovery(
     input: DisassociateIpamResourceDiscoveryRequest,
-  ): Effect.Effect<DisassociateIpamResourceDiscoveryResult, CommonAwsError>;
+  ): Effect.Effect<
+    DisassociateIpamResourceDiscoveryResult,
+    InvalidIpamResourceDiscoveryAssociationIdNotFound | CommonAwsError
+  >;
   disassociateNatGatewayAddress(
     input: DisassociateNatGatewayAddressRequest,
   ): Effect.Effect<DisassociateNatGatewayAddressResult, CommonAwsError>;
@@ -1566,7 +2365,7 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<DisassociateRouteServerResult, CommonAwsError>;
   disassociateRouteTable(
     input: DisassociateRouteTableRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, InvalidAssociationIDNotFound | CommonAwsError>;
   disassociateSecurityGroupVpc(
     input: DisassociateSecurityGroupVpcRequest,
   ): Effect.Effect<DisassociateSecurityGroupVpcResult, CommonAwsError>;
@@ -1577,14 +2376,20 @@ export declare class EC2 extends AWSServiceClient {
     input: DisassociateTransitGatewayMulticastDomainRequest,
   ): Effect.Effect<
     DisassociateTransitGatewayMulticastDomainResult,
-    CommonAwsError
+    InvalidTransitGatewayMulticastDomainIdNotFound | CommonAwsError
   >;
   disassociateTransitGatewayPolicyTable(
     input: DisassociateTransitGatewayPolicyTableRequest,
-  ): Effect.Effect<DisassociateTransitGatewayPolicyTableResult, CommonAwsError>;
+  ): Effect.Effect<
+    DisassociateTransitGatewayPolicyTableResult,
+    InvalidTransitGatewayPolicyTableIdNotFound | CommonAwsError
+  >;
   disassociateTransitGatewayRouteTable(
     input: DisassociateTransitGatewayRouteTableRequest,
-  ): Effect.Effect<DisassociateTransitGatewayRouteTableResult, CommonAwsError>;
+  ): Effect.Effect<
+    DisassociateTransitGatewayRouteTableResult,
+    InvalidTransitGatewayRouteTableIdNotFound | CommonAwsError
+  >;
   disassociateTrunkInterface(
     input: DisassociateTrunkInterfaceRequest,
   ): Effect.Effect<DisassociateTrunkInterfaceResult, CommonAwsError>;
@@ -1649,35 +2454,49 @@ export declare class EC2 extends AWSServiceClient {
     input: EnableTransitGatewayRouteTablePropagationRequest,
   ): Effect.Effect<
     EnableTransitGatewayRouteTablePropagationResult,
-    CommonAwsError
+    | InvalidTransitGatewayRouteTableIdNotFound
+    | InvalidTransitGatewayAttachmentIdNotFound
+    | CommonAwsError
   >;
   enableVgwRoutePropagation(
     input: EnableVgwRoutePropagationRequest,
   ): Effect.Effect<{}, CommonAwsError>;
   enableVolumeIO(
     input: EnableVolumeIORequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, InvalidVolumeNotFound | CommonAwsError>;
   enableVpcClassicLink(
     input: EnableVpcClassicLinkRequest,
-  ): Effect.Effect<EnableVpcClassicLinkResult, CommonAwsError>;
+  ): Effect.Effect<
+    EnableVpcClassicLinkResult,
+    InvalidVpcIDNotFound | CommonAwsError
+  >;
   enableVpcClassicLinkDnsSupport(
     input: EnableVpcClassicLinkDnsSupportRequest,
-  ): Effect.Effect<EnableVpcClassicLinkDnsSupportResult, CommonAwsError>;
+  ): Effect.Effect<
+    EnableVpcClassicLinkDnsSupportResult,
+    InvalidVpcIDNotFound | CommonAwsError
+  >;
   exportClientVpnClientCertificateRevocationList(
     input: ExportClientVpnClientCertificateRevocationListRequest,
   ): Effect.Effect<
     ExportClientVpnClientCertificateRevocationListResult,
-    CommonAwsError
+    InvalidClientVpnEndpointIdNotFound | CommonAwsError
   >;
   exportClientVpnClientConfiguration(
     input: ExportClientVpnClientConfigurationRequest,
-  ): Effect.Effect<ExportClientVpnClientConfigurationResult, CommonAwsError>;
+  ): Effect.Effect<
+    ExportClientVpnClientConfigurationResult,
+    InvalidClientVpnEndpointIdNotFound | CommonAwsError
+  >;
   exportImage(
     input: ExportImageRequest,
   ): Effect.Effect<ExportImageResult, CommonAwsError>;
   exportTransitGatewayRoutes(
     input: ExportTransitGatewayRoutesRequest,
-  ): Effect.Effect<ExportTransitGatewayRoutesResult, CommonAwsError>;
+  ): Effect.Effect<
+    ExportTransitGatewayRoutesResult,
+    InvalidTransitGatewayRouteTableIdNotFound | CommonAwsError
+  >;
   exportVerifiedAccessInstanceClientConfiguration(
     input: ExportVerifiedAccessInstanceClientConfigurationRequest,
   ): Effect.Effect<
@@ -1713,16 +2532,25 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<GetCapacityManagerMetricDimensionsResult, CommonAwsError>;
   getCapacityReservationUsage(
     input: GetCapacityReservationUsageRequest,
-  ): Effect.Effect<GetCapacityReservationUsageResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetCapacityReservationUsageResult,
+    InvalidCapacityReservationIdNotFound | CommonAwsError
+  >;
   getCoipPoolUsage(
     input: GetCoipPoolUsageRequest,
   ): Effect.Effect<GetCoipPoolUsageResult, CommonAwsError>;
   getConsoleOutput(
     input: GetConsoleOutputRequest,
-  ): Effect.Effect<GetConsoleOutputResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetConsoleOutputResult,
+    InvalidInstanceIDNotFound | CommonAwsError
+  >;
   getConsoleScreenshot(
     input: GetConsoleScreenshotRequest,
-  ): Effect.Effect<GetConsoleScreenshotResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetConsoleScreenshotResult,
+    InvalidInstanceIDNotFound | CommonAwsError
+  >;
   getDeclarativePoliciesReportSummary(
     input: GetDeclarativePoliciesReportSummaryRequest,
   ): Effect.Effect<GetDeclarativePoliciesReportSummaryResult, CommonAwsError>;
@@ -1743,7 +2571,10 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<GetGroupsForCapacityReservationResult, CommonAwsError>;
   getHostReservationPurchasePreview(
     input: GetHostReservationPurchasePreviewRequest,
-  ): Effect.Effect<GetHostReservationPurchasePreviewResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetHostReservationPurchasePreviewResult,
+    InvalidHostIDNotFound | CommonAwsError
+  >;
   getImageBlockPublicAccessState(
     input: GetImageBlockPublicAccessStateRequest,
   ): Effect.Effect<GetImageBlockPublicAccessStateResult, CommonAwsError>;
@@ -1757,29 +2588,50 @@ export declare class EC2 extends AWSServiceClient {
     input: GetInstanceTypesFromInstanceRequirementsRequest,
   ): Effect.Effect<
     GetInstanceTypesFromInstanceRequirementsResult,
-    CommonAwsError
+    InvalidInstanceType | CommonAwsError
   >;
   getInstanceUefiData(
     input: GetInstanceUefiDataRequest,
-  ): Effect.Effect<GetInstanceUefiDataResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetInstanceUefiDataResult,
+    InvalidInstanceIDNotFound | CommonAwsError
+  >;
   getIpamAddressHistory(
     input: GetIpamAddressHistoryRequest,
-  ): Effect.Effect<GetIpamAddressHistoryResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetIpamAddressHistoryResult,
+    InvalidIpamScopeIdNotFound | CommonAwsError
+  >;
   getIpamDiscoveredAccounts(
     input: GetIpamDiscoveredAccountsRequest,
-  ): Effect.Effect<GetIpamDiscoveredAccountsResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetIpamDiscoveredAccountsResult,
+    InvalidIpamResourceDiscoveryIdNotFound | CommonAwsError
+  >;
   getIpamDiscoveredPublicAddresses(
     input: GetIpamDiscoveredPublicAddressesRequest,
-  ): Effect.Effect<GetIpamDiscoveredPublicAddressesResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetIpamDiscoveredPublicAddressesResult,
+    InvalidIpamResourceDiscoveryIdNotFound | CommonAwsError
+  >;
   getIpamDiscoveredResourceCidrs(
     input: GetIpamDiscoveredResourceCidrsRequest,
-  ): Effect.Effect<GetIpamDiscoveredResourceCidrsResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetIpamDiscoveredResourceCidrsResult,
+    InvalidIpamResourceDiscoveryIdNotFound | CommonAwsError
+  >;
   getIpamPoolAllocations(
     input: GetIpamPoolAllocationsRequest,
-  ): Effect.Effect<GetIpamPoolAllocationsResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetIpamPoolAllocationsResult,
+    InvalidIpamPoolIdNotFound | CommonAwsError
+  >;
   getIpamPoolCidrs(
     input: GetIpamPoolCidrsRequest,
-  ): Effect.Effect<GetIpamPoolCidrsResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetIpamPoolCidrsResult,
+    InvalidIpamPoolIdNotFound | CommonAwsError
+  >;
   getIpamPrefixListResolverRules(
     input: GetIpamPrefixListResolverRulesRequest,
   ): Effect.Effect<GetIpamPrefixListResolverRulesResult, CommonAwsError>;
@@ -1794,28 +2646,46 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<GetIpamPrefixListResolverVersionsResult, CommonAwsError>;
   getIpamResourceCidrs(
     input: GetIpamResourceCidrsRequest,
-  ): Effect.Effect<GetIpamResourceCidrsResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetIpamResourceCidrsResult,
+    InvalidIpamScopeIdNotFound | CommonAwsError
+  >;
   getLaunchTemplateData(
     input: GetLaunchTemplateDataRequest,
-  ): Effect.Effect<GetLaunchTemplateDataResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetLaunchTemplateDataResult,
+    InvalidInstanceIDNotFound | CommonAwsError
+  >;
   getManagedPrefixListAssociations(
     input: GetManagedPrefixListAssociationsRequest,
-  ): Effect.Effect<GetManagedPrefixListAssociationsResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetManagedPrefixListAssociationsResult,
+    InvalidPrefixListIdNotFound | CommonAwsError
+  >;
   getManagedPrefixListEntries(
     input: GetManagedPrefixListEntriesRequest,
-  ): Effect.Effect<GetManagedPrefixListEntriesResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetManagedPrefixListEntriesResult,
+    InvalidPrefixListIdNotFound | CommonAwsError
+  >;
   getNetworkInsightsAccessScopeAnalysisFindings(
     input: GetNetworkInsightsAccessScopeAnalysisFindingsRequest,
   ): Effect.Effect<
     GetNetworkInsightsAccessScopeAnalysisFindingsResult,
-    CommonAwsError
+    InvalidNetworkInsightsAccessScopeAnalysisIdNotFound | CommonAwsError
   >;
   getNetworkInsightsAccessScopeContent(
     input: GetNetworkInsightsAccessScopeContentRequest,
-  ): Effect.Effect<GetNetworkInsightsAccessScopeContentResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetNetworkInsightsAccessScopeContentResult,
+    InvalidNetworkInsightsAccessScopeIdNotFound | CommonAwsError
+  >;
   getPasswordData(
     input: GetPasswordDataRequest,
-  ): Effect.Effect<GetPasswordDataResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetPasswordDataResult,
+    InvalidInstanceIDNotFound | CommonAwsError
+  >;
   getReservedInstancesExchangeQuote(
     input: GetReservedInstancesExchangeQuoteRequest,
   ): Effect.Effect<GetReservedInstancesExchangeQuoteResult, CommonAwsError>;
@@ -1842,52 +2712,67 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<GetSpotPlacementScoresResult, CommonAwsError>;
   getSubnetCidrReservations(
     input: GetSubnetCidrReservationsRequest,
-  ): Effect.Effect<GetSubnetCidrReservationsResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetSubnetCidrReservationsResult,
+    InvalidSubnetIDNotFound | CommonAwsError
+  >;
   getTransitGatewayAttachmentPropagations(
     input: GetTransitGatewayAttachmentPropagationsRequest,
   ): Effect.Effect<
     GetTransitGatewayAttachmentPropagationsResult,
-    CommonAwsError
+    InvalidTransitGatewayAttachmentIdNotFound | CommonAwsError
   >;
   getTransitGatewayMulticastDomainAssociations(
     input: GetTransitGatewayMulticastDomainAssociationsRequest,
   ): Effect.Effect<
     GetTransitGatewayMulticastDomainAssociationsResult,
-    CommonAwsError
+    InvalidTransitGatewayMulticastDomainIdNotFound | CommonAwsError
   >;
   getTransitGatewayPolicyTableAssociations(
     input: GetTransitGatewayPolicyTableAssociationsRequest,
   ): Effect.Effect<
     GetTransitGatewayPolicyTableAssociationsResult,
-    CommonAwsError
+    InvalidTransitGatewayPolicyTableIdNotFound | CommonAwsError
   >;
   getTransitGatewayPolicyTableEntries(
     input: GetTransitGatewayPolicyTableEntriesRequest,
-  ): Effect.Effect<GetTransitGatewayPolicyTableEntriesResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetTransitGatewayPolicyTableEntriesResult,
+    InvalidTransitGatewayPolicyTableIdNotFound | CommonAwsError
+  >;
   getTransitGatewayPrefixListReferences(
     input: GetTransitGatewayPrefixListReferencesRequest,
-  ): Effect.Effect<GetTransitGatewayPrefixListReferencesResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetTransitGatewayPrefixListReferencesResult,
+    InvalidTransitGatewayRouteTableIdNotFound | CommonAwsError
+  >;
   getTransitGatewayRouteTableAssociations(
     input: GetTransitGatewayRouteTableAssociationsRequest,
   ): Effect.Effect<
     GetTransitGatewayRouteTableAssociationsResult,
-    CommonAwsError
+    InvalidTransitGatewayRouteTableIdNotFound | CommonAwsError
   >;
   getTransitGatewayRouteTablePropagations(
     input: GetTransitGatewayRouteTablePropagationsRequest,
   ): Effect.Effect<
     GetTransitGatewayRouteTablePropagationsResult,
-    CommonAwsError
+    InvalidTransitGatewayRouteTableIdNotFound | CommonAwsError
   >;
   getVerifiedAccessEndpointPolicy(
     input: GetVerifiedAccessEndpointPolicyRequest,
-  ): Effect.Effect<GetVerifiedAccessEndpointPolicyResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetVerifiedAccessEndpointPolicyResult,
+    InvalidVerifiedAccessEndpointIdNotFound | CommonAwsError
+  >;
   getVerifiedAccessEndpointTargets(
     input: GetVerifiedAccessEndpointTargetsRequest,
   ): Effect.Effect<GetVerifiedAccessEndpointTargetsResult, CommonAwsError>;
   getVerifiedAccessGroupPolicy(
     input: GetVerifiedAccessGroupPolicyRequest,
-  ): Effect.Effect<GetVerifiedAccessGroupPolicyResult, CommonAwsError>;
+  ): Effect.Effect<
+    GetVerifiedAccessGroupPolicyResult,
+    InvalidVerifiedAccessGroupIdNotFound | CommonAwsError
+  >;
   getVpnConnectionDeviceSampleConfiguration(
     input: GetVpnConnectionDeviceSampleConfigurationRequest,
   ): Effect.Effect<
@@ -1904,7 +2789,7 @@ export declare class EC2 extends AWSServiceClient {
     input: ImportClientVpnClientCertificateRevocationListRequest,
   ): Effect.Effect<
     ImportClientVpnClientCertificateRevocationListResult,
-    CommonAwsError
+    InvalidClientVpnEndpointIdNotFound | CommonAwsError
   >;
   importImage(
     input: ImportImageRequest,
@@ -1914,7 +2799,10 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<ImportInstanceResult, CommonAwsError>;
   importKeyPair(
     input: ImportKeyPairRequest,
-  ): Effect.Effect<ImportKeyPairResult, CommonAwsError>;
+  ): Effect.Effect<
+    ImportKeyPairResult,
+    InvalidKeyPairDuplicate | InvalidKeyPairFormat | CommonAwsError
+  >;
   importSnapshot(
     input: ImportSnapshotRequest,
   ): Effect.Effect<ImportSnapshotResult, CommonAwsError>;
@@ -1938,13 +2826,22 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<ModifyAvailabilityZoneGroupResult, CommonAwsError>;
   modifyCapacityReservation(
     input: ModifyCapacityReservationRequest,
-  ): Effect.Effect<ModifyCapacityReservationResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyCapacityReservationResult,
+    InvalidCapacityReservationIdNotFound | CommonAwsError
+  >;
   modifyCapacityReservationFleet(
     input: ModifyCapacityReservationFleetRequest,
-  ): Effect.Effect<ModifyCapacityReservationFleetResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyCapacityReservationFleetResult,
+    InvalidCapacityReservationFleetIdNotFound | CommonAwsError
+  >;
   modifyClientVpnEndpoint(
     input: ModifyClientVpnEndpointRequest,
-  ): Effect.Effect<ModifyClientVpnEndpointResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyClientVpnEndpointResult,
+    InvalidClientVpnEndpointIdNotFound | CommonAwsError
+  >;
   modifyDefaultCreditSpecification(
     input: ModifyDefaultCreditSpecificationRequest,
   ): Effect.Effect<ModifyDefaultCreditSpecificationResult, CommonAwsError>;
@@ -1956,10 +2853,13 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<ModifyFleetResult, CommonAwsError>;
   modifyFpgaImageAttribute(
     input: ModifyFpgaImageAttributeRequest,
-  ): Effect.Effect<ModifyFpgaImageAttributeResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyFpgaImageAttributeResult,
+    InvalidFpgaImageIDNotFound | CommonAwsError
+  >;
   modifyHosts(
     input: ModifyHostsRequest,
-  ): Effect.Effect<ModifyHostsResult, CommonAwsError>;
+  ): Effect.Effect<ModifyHostsResult, InvalidHostIDNotFound | CommonAwsError>;
   modifyIdentityIdFormat(
     input: ModifyIdentityIdFormatRequest,
   ): Effect.Effect<{}, CommonAwsError>;
@@ -1968,15 +2868,20 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<{}, CommonAwsError>;
   modifyImageAttribute(
     input: ModifyImageAttributeRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    InvalidAMIIDNotFound | InvalidAMIIDUnavailable | CommonAwsError
+  >;
   modifyInstanceAttribute(
     input: ModifyInstanceAttributeRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, InvalidInstanceIDNotFound | CommonAwsError>;
   modifyInstanceCapacityReservationAttributes(
     input: ModifyInstanceCapacityReservationAttributesRequest,
   ): Effect.Effect<
     ModifyInstanceCapacityReservationAttributesResult,
-    CommonAwsError
+    | InvalidInstanceIDNotFound
+    | InvalidCapacityReservationIdNotFound
+    | CommonAwsError
   >;
   modifyInstanceConnectEndpoint(
     input: ModifyInstanceConnectEndpointRequest,
@@ -1986,34 +2891,58 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<ModifyInstanceCpuOptionsResult, CommonAwsError>;
   modifyInstanceCreditSpecification(
     input: ModifyInstanceCreditSpecificationRequest,
-  ): Effect.Effect<ModifyInstanceCreditSpecificationResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyInstanceCreditSpecificationResult,
+    InvalidInstanceIDNotFound | CommonAwsError
+  >;
   modifyInstanceEventStartTime(
     input: ModifyInstanceEventStartTimeRequest,
-  ): Effect.Effect<ModifyInstanceEventStartTimeResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyInstanceEventStartTimeResult,
+    InvalidInstanceIDNotFound | CommonAwsError
+  >;
   modifyInstanceEventWindow(
     input: ModifyInstanceEventWindowRequest,
-  ): Effect.Effect<ModifyInstanceEventWindowResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyInstanceEventWindowResult,
+    InvalidInstanceEventWindowIdNotFound | CommonAwsError
+  >;
   modifyInstanceMaintenanceOptions(
     input: ModifyInstanceMaintenanceOptionsRequest,
-  ): Effect.Effect<ModifyInstanceMaintenanceOptionsResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyInstanceMaintenanceOptionsResult,
+    InvalidInstanceIDNotFound | CommonAwsError
+  >;
   modifyInstanceMetadataDefaults(
     input: ModifyInstanceMetadataDefaultsRequest,
-  ): Effect.Effect<ModifyInstanceMetadataDefaultsResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyInstanceMetadataDefaultsResult,
+    InvalidInstanceIDNotFound | CommonAwsError
+  >;
   modifyInstanceMetadataOptions(
     input: ModifyInstanceMetadataOptionsRequest,
-  ): Effect.Effect<ModifyInstanceMetadataOptionsResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyInstanceMetadataOptionsResult,
+    InvalidInstanceIDNotFound | CommonAwsError
+  >;
   modifyInstanceNetworkPerformanceOptions(
     input: ModifyInstanceNetworkPerformanceRequest,
   ): Effect.Effect<ModifyInstanceNetworkPerformanceResult, CommonAwsError>;
   modifyInstancePlacement(
     input: ModifyInstancePlacementRequest,
-  ): Effect.Effect<ModifyInstancePlacementResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyInstancePlacementResult,
+    InvalidInstanceIDNotFound | InvalidHostIDNotFound | CommonAwsError
+  >;
   modifyIpam(
     input: ModifyIpamRequest,
-  ): Effect.Effect<ModifyIpamResult, CommonAwsError>;
+  ): Effect.Effect<ModifyIpamResult, InvalidIpamIdNotFound | CommonAwsError>;
   modifyIpamPool(
     input: ModifyIpamPoolRequest,
-  ): Effect.Effect<ModifyIpamPoolResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyIpamPoolResult,
+    InvalidIpamPoolIdNotFound | CommonAwsError
+  >;
   modifyIpamPrefixListResolver(
     input: ModifyIpamPrefixListResolverRequest,
   ): Effect.Effect<ModifyIpamPrefixListResolverResult, CommonAwsError>;
@@ -2022,25 +2951,47 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<ModifyIpamPrefixListResolverTargetResult, CommonAwsError>;
   modifyIpamResourceCidr(
     input: ModifyIpamResourceCidrRequest,
-  ): Effect.Effect<ModifyIpamResourceCidrResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyIpamResourceCidrResult,
+    InvalidIpamPoolIdNotFound | CommonAwsError
+  >;
   modifyIpamResourceDiscovery(
     input: ModifyIpamResourceDiscoveryRequest,
-  ): Effect.Effect<ModifyIpamResourceDiscoveryResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyIpamResourceDiscoveryResult,
+    InvalidIpamResourceDiscoveryIdNotFound | CommonAwsError
+  >;
   modifyIpamScope(
     input: ModifyIpamScopeRequest,
-  ): Effect.Effect<ModifyIpamScopeResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyIpamScopeResult,
+    InvalidIpamScopeIdNotFound | CommonAwsError
+  >;
   modifyLaunchTemplate(
     input: ModifyLaunchTemplateRequest,
-  ): Effect.Effect<ModifyLaunchTemplateResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyLaunchTemplateResult,
+    | InvalidLaunchTemplateIdNotFound
+    | InvalidLaunchTemplateNameNotFoundException
+    | CommonAwsError
+  >;
   modifyLocalGatewayRoute(
     input: ModifyLocalGatewayRouteRequest,
   ): Effect.Effect<ModifyLocalGatewayRouteResult, CommonAwsError>;
   modifyManagedPrefixList(
     input: ModifyManagedPrefixListRequest,
-  ): Effect.Effect<ModifyManagedPrefixListResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyManagedPrefixListResult,
+    InvalidPrefixListIdNotFound | CommonAwsError
+  >;
   modifyNetworkInterfaceAttribute(
     input: ModifyNetworkInterfaceAttributeRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    | InvalidNetworkInterfaceIDNotFound
+    | InvalidSecurityGroupIdNotFound
+    | CommonAwsError
+  >;
   modifyPrivateDnsNameOptions(
     input: ModifyPrivateDnsNameOptionsRequest,
   ): Effect.Effect<ModifyPrivateDnsNameOptionsResult, CommonAwsError>;
@@ -2049,82 +3000,123 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<ModifyPublicIpDnsNameOptionsResult, CommonAwsError>;
   modifyReservedInstances(
     input: ModifyReservedInstancesRequest,
-  ): Effect.Effect<ModifyReservedInstancesResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyReservedInstancesResult,
+    InvalidReservationIDNotFound | CommonAwsError
+  >;
   modifyRouteServer(
     input: ModifyRouteServerRequest,
   ): Effect.Effect<ModifyRouteServerResult, CommonAwsError>;
   modifySecurityGroupRules(
     input: ModifySecurityGroupRulesRequest,
-  ): Effect.Effect<ModifySecurityGroupRulesResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifySecurityGroupRulesResult,
+    | InvalidSecurityGroupIdNotFound
+    | InvalidSecurityGroupRuleIdNotFound
+    | CommonAwsError
+  >;
   modifySnapshotAttribute(
     input: ModifySnapshotAttributeRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, InvalidSnapshotNotFound | CommonAwsError>;
   modifySnapshotTier(
     input: ModifySnapshotTierRequest,
   ): Effect.Effect<ModifySnapshotTierResult, CommonAwsError>;
   modifySpotFleetRequest(
     input: ModifySpotFleetRequestRequest,
-  ): Effect.Effect<ModifySpotFleetRequestResponse, CommonAwsError>;
+  ): Effect.Effect<
+    ModifySpotFleetRequestResponse,
+    InvalidSpotFleetRequestIdNotFound | CommonAwsError
+  >;
   modifySubnetAttribute(
     input: ModifySubnetAttributeRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, InvalidSubnetIDNotFound | CommonAwsError>;
   modifyTrafficMirrorFilterNetworkServices(
     input: ModifyTrafficMirrorFilterNetworkServicesRequest,
   ): Effect.Effect<
     ModifyTrafficMirrorFilterNetworkServicesResult,
-    CommonAwsError
+    InvalidTrafficMirrorFilterIdNotFound | CommonAwsError
   >;
   modifyTrafficMirrorFilterRule(
     input: ModifyTrafficMirrorFilterRuleRequest,
-  ): Effect.Effect<ModifyTrafficMirrorFilterRuleResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyTrafficMirrorFilterRuleResult,
+    InvalidTrafficMirrorFilterRuleIdNotFound | CommonAwsError
+  >;
   modifyTrafficMirrorSession(
     input: ModifyTrafficMirrorSessionRequest,
-  ): Effect.Effect<ModifyTrafficMirrorSessionResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyTrafficMirrorSessionResult,
+    InvalidTrafficMirrorSessionIdNotFound | CommonAwsError
+  >;
   modifyTransitGateway(
     input: ModifyTransitGatewayRequest,
-  ): Effect.Effect<ModifyTransitGatewayResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyTransitGatewayResult,
+    InvalidTransitGatewayIdNotFound | CommonAwsError
+  >;
   modifyTransitGatewayPrefixListReference(
     input: ModifyTransitGatewayPrefixListReferenceRequest,
   ): Effect.Effect<
     ModifyTransitGatewayPrefixListReferenceResult,
-    CommonAwsError
+    InvalidTransitGatewayRouteTableIdNotFound | CommonAwsError
   >;
   modifyTransitGatewayVpcAttachment(
     input: ModifyTransitGatewayVpcAttachmentRequest,
-  ): Effect.Effect<ModifyTransitGatewayVpcAttachmentResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyTransitGatewayVpcAttachmentResult,
+    InvalidTransitGatewayAttachmentIdNotFound | CommonAwsError
+  >;
   modifyVerifiedAccessEndpoint(
     input: ModifyVerifiedAccessEndpointRequest,
-  ): Effect.Effect<ModifyVerifiedAccessEndpointResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyVerifiedAccessEndpointResult,
+    InvalidVerifiedAccessEndpointIdNotFound | CommonAwsError
+  >;
   modifyVerifiedAccessEndpointPolicy(
     input: ModifyVerifiedAccessEndpointPolicyRequest,
-  ): Effect.Effect<ModifyVerifiedAccessEndpointPolicyResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyVerifiedAccessEndpointPolicyResult,
+    InvalidVerifiedAccessEndpointIdNotFound | CommonAwsError
+  >;
   modifyVerifiedAccessGroup(
     input: ModifyVerifiedAccessGroupRequest,
-  ): Effect.Effect<ModifyVerifiedAccessGroupResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyVerifiedAccessGroupResult,
+    InvalidVerifiedAccessGroupIdNotFound | CommonAwsError
+  >;
   modifyVerifiedAccessGroupPolicy(
     input: ModifyVerifiedAccessGroupPolicyRequest,
-  ): Effect.Effect<ModifyVerifiedAccessGroupPolicyResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyVerifiedAccessGroupPolicyResult,
+    InvalidVerifiedAccessGroupIdNotFound | CommonAwsError
+  >;
   modifyVerifiedAccessInstance(
     input: ModifyVerifiedAccessInstanceRequest,
-  ): Effect.Effect<ModifyVerifiedAccessInstanceResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyVerifiedAccessInstanceResult,
+    InvalidVerifiedAccessInstanceIdNotFound | CommonAwsError
+  >;
   modifyVerifiedAccessInstanceLoggingConfiguration(
     input: ModifyVerifiedAccessInstanceLoggingConfigurationRequest,
   ): Effect.Effect<
     ModifyVerifiedAccessInstanceLoggingConfigurationResult,
-    CommonAwsError
+    InvalidVerifiedAccessInstanceIdNotFound | CommonAwsError
   >;
   modifyVerifiedAccessTrustProvider(
     input: ModifyVerifiedAccessTrustProviderRequest,
-  ): Effect.Effect<ModifyVerifiedAccessTrustProviderResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyVerifiedAccessTrustProviderResult,
+    InvalidVerifiedAccessTrustProviderIdNotFound | CommonAwsError
+  >;
   modifyVolume(
     input: ModifyVolumeRequest,
-  ): Effect.Effect<ModifyVolumeResult, CommonAwsError>;
+  ): Effect.Effect<ModifyVolumeResult, InvalidVolumeNotFound | CommonAwsError>;
   modifyVolumeAttribute(
     input: ModifyVolumeAttributeRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, InvalidVolumeNotFound | CommonAwsError>;
   modifyVpcAttribute(
     input: ModifyVpcAttributeRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, InvalidVpcIDNotFound | CommonAwsError>;
   modifyVpcBlockPublicAccessExclusion(
     input: ModifyVpcBlockPublicAccessExclusionRequest,
   ): Effect.Effect<ModifyVpcBlockPublicAccessExclusionResult, CommonAwsError>;
@@ -2133,52 +3125,85 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<ModifyVpcBlockPublicAccessOptionsResult, CommonAwsError>;
   modifyVpcEndpoint(
     input: ModifyVpcEndpointRequest,
-  ): Effect.Effect<ModifyVpcEndpointResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyVpcEndpointResult,
+    InvalidVpcEndpointIdNotFound | CommonAwsError
+  >;
   modifyVpcEndpointConnectionNotification(
     input: ModifyVpcEndpointConnectionNotificationRequest,
   ): Effect.Effect<
     ModifyVpcEndpointConnectionNotificationResult,
-    CommonAwsError
+    InvalidVpcEndpointIdNotFound | CommonAwsError
   >;
   modifyVpcEndpointServiceConfiguration(
     input: ModifyVpcEndpointServiceConfigurationRequest,
-  ): Effect.Effect<ModifyVpcEndpointServiceConfigurationResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyVpcEndpointServiceConfigurationResult,
+    InvalidVpcEndpointServiceIdNotFound | CommonAwsError
+  >;
   modifyVpcEndpointServicePayerResponsibility(
     input: ModifyVpcEndpointServicePayerResponsibilityRequest,
   ): Effect.Effect<
     ModifyVpcEndpointServicePayerResponsibilityResult,
-    CommonAwsError
+    InvalidVpcEndpointServiceIdNotFound | CommonAwsError
   >;
   modifyVpcEndpointServicePermissions(
     input: ModifyVpcEndpointServicePermissionsRequest,
-  ): Effect.Effect<ModifyVpcEndpointServicePermissionsResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyVpcEndpointServicePermissionsResult,
+    InvalidVpcEndpointServiceIdNotFound | CommonAwsError
+  >;
   modifyVpcPeeringConnectionOptions(
     input: ModifyVpcPeeringConnectionOptionsRequest,
-  ): Effect.Effect<ModifyVpcPeeringConnectionOptionsResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyVpcPeeringConnectionOptionsResult,
+    InvalidVpcPeeringConnectionIDNotFound | CommonAwsError
+  >;
   modifyVpcTenancy(
     input: ModifyVpcTenancyRequest,
-  ): Effect.Effect<ModifyVpcTenancyResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyVpcTenancyResult,
+    InvalidVpcIDNotFound | CommonAwsError
+  >;
   modifyVpnConnection(
     input: ModifyVpnConnectionRequest,
-  ): Effect.Effect<ModifyVpnConnectionResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyVpnConnectionResult,
+    InvalidVpnConnectionIDNotFound | CommonAwsError
+  >;
   modifyVpnConnectionOptions(
     input: ModifyVpnConnectionOptionsRequest,
-  ): Effect.Effect<ModifyVpnConnectionOptionsResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyVpnConnectionOptionsResult,
+    InvalidVpnConnectionIDNotFound | CommonAwsError
+  >;
   modifyVpnTunnelCertificate(
     input: ModifyVpnTunnelCertificateRequest,
-  ): Effect.Effect<ModifyVpnTunnelCertificateResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyVpnTunnelCertificateResult,
+    InvalidVpnConnectionIDNotFound | CommonAwsError
+  >;
   modifyVpnTunnelOptions(
     input: ModifyVpnTunnelOptionsRequest,
-  ): Effect.Effect<ModifyVpnTunnelOptionsResult, CommonAwsError>;
+  ): Effect.Effect<
+    ModifyVpnTunnelOptionsResult,
+    InvalidVpnConnectionIDNotFound | CommonAwsError
+  >;
   monitorInstances(
     input: MonitorInstancesRequest,
-  ): Effect.Effect<MonitorInstancesResult, CommonAwsError>;
+  ): Effect.Effect<
+    MonitorInstancesResult,
+    InvalidInstanceIDNotFound | CommonAwsError
+  >;
   moveAddressToVpc(
     input: MoveAddressToVpcRequest,
   ): Effect.Effect<MoveAddressToVpcResult, CommonAwsError>;
   moveByoipCidrToIpam(
     input: MoveByoipCidrToIpamRequest,
-  ): Effect.Effect<MoveByoipCidrToIpamResult, CommonAwsError>;
+  ): Effect.Effect<
+    MoveByoipCidrToIpamResult,
+    InvalidIpamPoolIdNotFound | CommonAwsError
+  >;
   moveCapacityReservationInstances(
     input: MoveCapacityReservationInstancesRequest,
   ): Effect.Effect<MoveCapacityReservationInstancesResult, CommonAwsError>;
@@ -2187,13 +3212,22 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<ProvisionByoipCidrResult, CommonAwsError>;
   provisionIpamByoasn(
     input: ProvisionIpamByoasnRequest,
-  ): Effect.Effect<ProvisionIpamByoasnResult, CommonAwsError>;
+  ): Effect.Effect<
+    ProvisionIpamByoasnResult,
+    InvalidIpamIdNotFound | CommonAwsError
+  >;
   provisionIpamPoolCidr(
     input: ProvisionIpamPoolCidrRequest,
-  ): Effect.Effect<ProvisionIpamPoolCidrResult, CommonAwsError>;
+  ): Effect.Effect<
+    ProvisionIpamPoolCidrResult,
+    InvalidIpamPoolIdNotFound | CommonAwsError
+  >;
   provisionPublicIpv4PoolCidr(
     input: ProvisionPublicIpv4PoolCidrRequest,
-  ): Effect.Effect<ProvisionPublicIpv4PoolCidrResult, CommonAwsError>;
+  ): Effect.Effect<
+    ProvisionPublicIpv4PoolCidrResult,
+    InvalidPoolIDNotFound | InvalidIpamPoolIdNotFound | CommonAwsError
+  >;
   purchaseCapacityBlock(
     input: PurchaseCapacityBlockRequest,
   ): Effect.Effect<PurchaseCapacityBlockResult, CommonAwsError>;
@@ -2202,7 +3236,10 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<PurchaseCapacityBlockExtensionResult, CommonAwsError>;
   purchaseHostReservation(
     input: PurchaseHostReservationRequest,
-  ): Effect.Effect<PurchaseHostReservationResult, CommonAwsError>;
+  ): Effect.Effect<
+    PurchaseHostReservationResult,
+    InvalidHostIDNotFound | CommonAwsError
+  >;
   purchaseReservedInstancesOffering(
     input: PurchaseReservedInstancesOfferingRequest,
   ): Effect.Effect<PurchaseReservedInstancesOfferingResult, CommonAwsError>;
@@ -2211,7 +3248,7 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<PurchaseScheduledInstancesResult, CommonAwsError>;
   rebootInstances(
     input: RebootInstancesRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, InvalidInstanceIDNotFound | CommonAwsError>;
   registerImage(
     input: RegisterImageRequest,
   ): Effect.Effect<RegisterImageResult, CommonAwsError>;
@@ -2225,13 +3262,13 @@ export declare class EC2 extends AWSServiceClient {
     input: RegisterTransitGatewayMulticastGroupMembersRequest,
   ): Effect.Effect<
     RegisterTransitGatewayMulticastGroupMembersResult,
-    CommonAwsError
+    InvalidTransitGatewayMulticastDomainIdNotFound | CommonAwsError
   >;
   registerTransitGatewayMulticastGroupSources(
     input: RegisterTransitGatewayMulticastGroupSourcesRequest,
   ): Effect.Effect<
     RegisterTransitGatewayMulticastGroupSourcesResult,
-    CommonAwsError
+    InvalidTransitGatewayMulticastDomainIdNotFound | CommonAwsError
   >;
   rejectCapacityReservationBillingOwnership(
     input: RejectCapacityReservationBillingOwnershipRequest,
@@ -2247,28 +3284,49 @@ export declare class EC2 extends AWSServiceClient {
   >;
   rejectTransitGatewayPeeringAttachment(
     input: RejectTransitGatewayPeeringAttachmentRequest,
-  ): Effect.Effect<RejectTransitGatewayPeeringAttachmentResult, CommonAwsError>;
+  ): Effect.Effect<
+    RejectTransitGatewayPeeringAttachmentResult,
+    InvalidTransitGatewayAttachmentIdNotFound | CommonAwsError
+  >;
   rejectTransitGatewayVpcAttachment(
     input: RejectTransitGatewayVpcAttachmentRequest,
-  ): Effect.Effect<RejectTransitGatewayVpcAttachmentResult, CommonAwsError>;
+  ): Effect.Effect<
+    RejectTransitGatewayVpcAttachmentResult,
+    InvalidTransitGatewayAttachmentIdNotFound | CommonAwsError
+  >;
   rejectVpcEndpointConnections(
     input: RejectVpcEndpointConnectionsRequest,
-  ): Effect.Effect<RejectVpcEndpointConnectionsResult, CommonAwsError>;
+  ): Effect.Effect<
+    RejectVpcEndpointConnectionsResult,
+    InvalidVpcEndpointServiceIdNotFound | CommonAwsError
+  >;
   rejectVpcPeeringConnection(
     input: RejectVpcPeeringConnectionRequest,
-  ): Effect.Effect<RejectVpcPeeringConnectionResult, CommonAwsError>;
+  ): Effect.Effect<
+    RejectVpcPeeringConnectionResult,
+    InvalidVpcPeeringConnectionIDNotFound | CommonAwsError
+  >;
   releaseAddress(
     input: ReleaseAddressRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    InvalidAddressIDNotFound | InvalidAllocationIDNotFound | CommonAwsError
+  >;
   releaseHosts(
     input: ReleaseHostsRequest,
-  ): Effect.Effect<ReleaseHostsResult, CommonAwsError>;
+  ): Effect.Effect<ReleaseHostsResult, InvalidHostIDNotFound | CommonAwsError>;
   releaseIpamPoolAllocation(
     input: ReleaseIpamPoolAllocationRequest,
-  ): Effect.Effect<ReleaseIpamPoolAllocationResult, CommonAwsError>;
+  ): Effect.Effect<
+    ReleaseIpamPoolAllocationResult,
+    InvalidIpamPoolIdNotFound | CommonAwsError
+  >;
   replaceIamInstanceProfileAssociation(
     input: ReplaceIamInstanceProfileAssociationRequest,
-  ): Effect.Effect<ReplaceIamInstanceProfileAssociationResult, CommonAwsError>;
+  ): Effect.Effect<
+    ReplaceIamInstanceProfileAssociationResult,
+    InvalidAssociationIDNotFound | CommonAwsError
+  >;
   replaceImageCriteriaInAllowedImagesSettings(
     input: ReplaceImageCriteriaInAllowedImagesSettingsRequest,
   ): Effect.Effect<
@@ -2277,23 +3335,42 @@ export declare class EC2 extends AWSServiceClient {
   >;
   replaceNetworkAclAssociation(
     input: ReplaceNetworkAclAssociationRequest,
-  ): Effect.Effect<ReplaceNetworkAclAssociationResult, CommonAwsError>;
+  ): Effect.Effect<
+    ReplaceNetworkAclAssociationResult,
+    InvalidNetworkAclIDNotFound | InvalidAssociationIDNotFound | CommonAwsError
+  >;
   replaceNetworkAclEntry(
     input: ReplaceNetworkAclEntryRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
-  replaceRoute(input: ReplaceRouteRequest): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    | InvalidNetworkAclIDNotFound
+    | InvalidNetworkAclEntryNotFound
+    | CommonAwsError
+  >;
+  replaceRoute(
+    input: ReplaceRouteRequest,
+  ): Effect.Effect<
+    {},
+    InvalidRouteTableIDNotFound | InvalidRouteNotFound | CommonAwsError
+  >;
   replaceRouteTableAssociation(
     input: ReplaceRouteTableAssociationRequest,
-  ): Effect.Effect<ReplaceRouteTableAssociationResult, CommonAwsError>;
+  ): Effect.Effect<
+    ReplaceRouteTableAssociationResult,
+    InvalidRouteTableIDNotFound | InvalidAssociationIDNotFound | CommonAwsError
+  >;
   replaceTransitGatewayRoute(
     input: ReplaceTransitGatewayRouteRequest,
-  ): Effect.Effect<ReplaceTransitGatewayRouteResult, CommonAwsError>;
+  ): Effect.Effect<
+    ReplaceTransitGatewayRouteResult,
+    InvalidTransitGatewayRouteTableIdNotFound | CommonAwsError
+  >;
   replaceVpnTunnel(
     input: ReplaceVpnTunnelRequest,
   ): Effect.Effect<ReplaceVpnTunnelResult, CommonAwsError>;
   reportInstanceStatus(
     input: ReportInstanceStatusRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, InvalidInstanceIDNotFound | CommonAwsError>;
   requestSpotFleet(
     input: RequestSpotFleetRequest,
   ): Effect.Effect<RequestSpotFleetResponse, CommonAwsError>;
@@ -2308,19 +3385,22 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<ResetEbsDefaultKmsKeyIdResult, CommonAwsError>;
   resetFpgaImageAttribute(
     input: ResetFpgaImageAttributeRequest,
-  ): Effect.Effect<ResetFpgaImageAttributeResult, CommonAwsError>;
+  ): Effect.Effect<
+    ResetFpgaImageAttributeResult,
+    InvalidFpgaImageIDNotFound | CommonAwsError
+  >;
   resetImageAttribute(
     input: ResetImageAttributeRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, InvalidAMIIDNotFound | CommonAwsError>;
   resetInstanceAttribute(
     input: ResetInstanceAttributeRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, InvalidInstanceIDNotFound | CommonAwsError>;
   resetNetworkInterfaceAttribute(
     input: ResetNetworkInterfaceAttributeRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, InvalidNetworkInterfaceIDNotFound | CommonAwsError>;
   resetSnapshotAttribute(
     input: ResetSnapshotAttributeRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, InvalidSnapshotNotFound | CommonAwsError>;
   restoreAddressToClassic(
     input: RestoreAddressToClassicRequest,
   ): Effect.Effect<RestoreAddressToClassicResult, CommonAwsError>;
@@ -2329,7 +3409,10 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<RestoreImageFromRecycleBinResult, CommonAwsError>;
   restoreManagedPrefixListVersion(
     input: RestoreManagedPrefixListVersionRequest,
-  ): Effect.Effect<RestoreManagedPrefixListVersionResult, CommonAwsError>;
+  ): Effect.Effect<
+    RestoreManagedPrefixListVersionResult,
+    InvalidPrefixListIdNotFound | CommonAwsError
+  >;
   restoreSnapshotFromRecycleBin(
     input: RestoreSnapshotFromRecycleBinRequest,
   ): Effect.Effect<RestoreSnapshotFromRecycleBinResult, CommonAwsError>;
@@ -2338,13 +3421,30 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<RestoreSnapshotTierResult, CommonAwsError>;
   revokeClientVpnIngress(
     input: RevokeClientVpnIngressRequest,
-  ): Effect.Effect<RevokeClientVpnIngressResult, CommonAwsError>;
+  ): Effect.Effect<
+    RevokeClientVpnIngressResult,
+    | InvalidClientVpnEndpointIdNotFound
+    | InvalidClientVpnEndpointAuthorizationRuleNotFound
+    | CommonAwsError
+  >;
   revokeSecurityGroupEgress(
     input: RevokeSecurityGroupEgressRequest,
-  ): Effect.Effect<RevokeSecurityGroupEgressResult, CommonAwsError>;
+  ): Effect.Effect<
+    RevokeSecurityGroupEgressResult,
+    | InvalidGroupNotFound
+    | InvalidSecurityGroupIdNotFound
+    | InvalidPermissionNotFound
+    | CommonAwsError
+  >;
   revokeSecurityGroupIngress(
     input: RevokeSecurityGroupIngressRequest,
-  ): Effect.Effect<RevokeSecurityGroupIngressResult, CommonAwsError>;
+  ): Effect.Effect<
+    RevokeSecurityGroupIngressResult,
+    | InvalidGroupNotFound
+    | InvalidSecurityGroupIdNotFound
+    | InvalidPermissionNotFound
+    | CommonAwsError
+  >;
   runInstances(
     input: RunInstancesRequest,
   ): Effect.Effect<Reservation, CommonAwsError>;
@@ -2356,28 +3456,40 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<SearchLocalGatewayRoutesResult, CommonAwsError>;
   searchTransitGatewayMulticastGroups(
     input: SearchTransitGatewayMulticastGroupsRequest,
-  ): Effect.Effect<SearchTransitGatewayMulticastGroupsResult, CommonAwsError>;
+  ): Effect.Effect<
+    SearchTransitGatewayMulticastGroupsResult,
+    InvalidTransitGatewayMulticastDomainIdNotFound | CommonAwsError
+  >;
   searchTransitGatewayRoutes(
     input: SearchTransitGatewayRoutesRequest,
-  ): Effect.Effect<SearchTransitGatewayRoutesResult, CommonAwsError>;
+  ): Effect.Effect<
+    SearchTransitGatewayRoutesResult,
+    InvalidTransitGatewayRouteTableIdNotFound | CommonAwsError
+  >;
   sendDiagnosticInterrupt(
     input: SendDiagnosticInterruptRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, InvalidInstanceIDNotFound | CommonAwsError>;
   startDeclarativePoliciesReport(
     input: StartDeclarativePoliciesReportRequest,
   ): Effect.Effect<StartDeclarativePoliciesReportResult, CommonAwsError>;
   startInstances(
     input: StartInstancesRequest,
-  ): Effect.Effect<StartInstancesResult, CommonAwsError>;
+  ): Effect.Effect<
+    StartInstancesResult,
+    InvalidInstanceIDNotFound | CommonAwsError
+  >;
   startNetworkInsightsAccessScopeAnalysis(
     input: StartNetworkInsightsAccessScopeAnalysisRequest,
   ): Effect.Effect<
     StartNetworkInsightsAccessScopeAnalysisResult,
-    CommonAwsError
+    InvalidNetworkInsightsAccessScopeIdNotFound | CommonAwsError
   >;
   startNetworkInsightsAnalysis(
     input: StartNetworkInsightsAnalysisRequest,
-  ): Effect.Effect<StartNetworkInsightsAnalysisResult, CommonAwsError>;
+  ): Effect.Effect<
+    StartNetworkInsightsAnalysisResult,
+    InvalidNetworkInsightsPathIdNotFound | CommonAwsError
+  >;
   startVpcEndpointServicePrivateDnsVerification(
     input: StartVpcEndpointServicePrivateDnsVerificationRequest,
   ): Effect.Effect<
@@ -2386,19 +3498,28 @@ export declare class EC2 extends AWSServiceClient {
   >;
   stopInstances(
     input: StopInstancesRequest,
-  ): Effect.Effect<StopInstancesResult, CommonAwsError>;
+  ): Effect.Effect<
+    StopInstancesResult,
+    InvalidInstanceIDNotFound | CommonAwsError
+  >;
   terminateClientVpnConnections(
     input: TerminateClientVpnConnectionsRequest,
-  ): Effect.Effect<TerminateClientVpnConnectionsResult, CommonAwsError>;
+  ): Effect.Effect<
+    TerminateClientVpnConnectionsResult,
+    InvalidClientVpnEndpointIdNotFound | CommonAwsError
+  >;
   terminateInstances(
     input: TerminateInstancesRequest,
-  ): Effect.Effect<TerminateInstancesResult, CommonAwsError>;
+  ): Effect.Effect<
+    TerminateInstancesResult,
+    InvalidInstanceIDNotFound | CommonAwsError
+  >;
   unassignIpv6Addresses(
     input: UnassignIpv6AddressesRequest,
   ): Effect.Effect<UnassignIpv6AddressesResult, CommonAwsError>;
   unassignPrivateIpAddresses(
     input: UnassignPrivateIpAddressesRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, InvalidNetworkInterfaceIDNotFound | CommonAwsError>;
   unassignPrivateNatGatewayAddress(
     input: UnassignPrivateNatGatewayAddressRequest,
   ): Effect.Effect<UnassignPrivateNatGatewayAddressResult, CommonAwsError>;
@@ -2407,7 +3528,10 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<UnlockSnapshotResult, CommonAwsError>;
   unmonitorInstances(
     input: UnmonitorInstancesRequest,
-  ): Effect.Effect<UnmonitorInstancesResult, CommonAwsError>;
+  ): Effect.Effect<
+    UnmonitorInstancesResult,
+    InvalidInstanceIDNotFound | CommonAwsError
+  >;
   updateCapacityManagerOrganizationsAccess(
     input: UpdateCapacityManagerOrganizationsAccessRequest,
   ): Effect.Effect<
@@ -2418,13 +3542,13 @@ export declare class EC2 extends AWSServiceClient {
     input: UpdateSecurityGroupRuleDescriptionsEgressRequest,
   ): Effect.Effect<
     UpdateSecurityGroupRuleDescriptionsEgressResult,
-    CommonAwsError
+    InvalidSecurityGroupIdNotFound | CommonAwsError
   >;
   updateSecurityGroupRuleDescriptionsIngress(
     input: UpdateSecurityGroupRuleDescriptionsIngressRequest,
   ): Effect.Effect<
     UpdateSecurityGroupRuleDescriptionsIngressResult,
-    CommonAwsError
+    InvalidSecurityGroupIdNotFound | CommonAwsError
   >;
   withdrawByoipCidr(
     input: WithdrawByoipCidrRequest,
@@ -19978,68 +21102,596 @@ export interface WithdrawByoipCidrResult {
 }
 export type ZoneIdStringList = Array<string>;
 export type ZoneNameStringList = Array<string>;
-export declare class InvalidInternetGatewayNotFound extends EffectData.TaggedError(
-  "InvalidInternetGateway.NotFound",
+export declare class InvalidTransitGatewayAttachmentIdNotFound extends EffectData.TaggedError(
+  "InvalidTransitGatewayAttachmentId.NotFound",
 )<{}> {}
 
-export declare class InvalidKeyPairNotFound extends EffectData.TaggedError(
-  "InvalidKeyPair.NotFound",
+export declare class InvalidVpcEndpointServiceIdNotFound extends EffectData.TaggedError(
+  "InvalidVpcEndpointServiceId.NotFound",
 )<{}> {}
 
-export declare class InvalidNetworkInterfaceNotFound extends EffectData.TaggedError(
-  "InvalidNetworkInterface.NotFound",
+export declare class InvalidVpcPeeringConnectionIDNotFound extends EffectData.TaggedError(
+  "InvalidVpcPeeringConnectionID.NotFound",
 )<{}> {}
 
-export declare class InvalidSubnetIDNotFound extends EffectData.TaggedError(
-  "InvalidSubnetID.NotFound",
+export declare class AddressLimitExceeded extends EffectData.TaggedError(
+  "AddressLimitExceeded",
 )<{}> {}
 
-export declare class InvalidVolumeNotFound extends EffectData.TaggedError(
-  "InvalidVolume.NotFound",
+export declare class InvalidHostConfiguration extends EffectData.TaggedError(
+  "InvalidHostConfiguration",
 )<{}> {}
 
-export declare class InvalidVpcIDNotFound extends EffectData.TaggedError(
-  "InvalidVpcID.NotFound",
+export declare class InvalidIpamPoolIdNotFound extends EffectData.TaggedError(
+  "InvalidIpamPoolId.NotFound",
 )<{}> {}
 
-export declare class InvalidVpcPeeringConnectionNotFound extends EffectData.TaggedError(
-  "InvalidVpcPeeringConnection.NotFound",
+export declare class InvalidClientVpnEndpointIdNotFound extends EffectData.TaggedError(
+  "InvalidClientVpnEndpointId.NotFound",
 )<{}> {}
 
-export declare class InvalidVpnConnectionNotFound extends EffectData.TaggedError(
-  "InvalidVpnConnection.NotFound",
-)<{}> {}
-
-export declare class InvalidVpnGatewayNotFound extends EffectData.TaggedError(
-  "InvalidVpnGateway.NotFound",
-)<{}> {}
-
-export declare class InvalidAMIIDNotFound extends EffectData.TaggedError(
-  "InvalidAMIID.NotFound",
-)<{}> {}
-
-export declare class InvalidInstanceIDNotFound extends EffectData.TaggedError(
-  "InvalidInstanceID.NotFound",
-)<{}> {}
-
-export declare class NatGatewayNotFound extends EffectData.TaggedError(
-  "NatGatewayNotFound",
+export declare class InvalidSecurityGroupIdNotFound extends EffectData.TaggedError(
+  "InvalidSecurityGroupId.NotFound",
 )<{}> {}
 
 export declare class InvalidNetworkInterfaceIDNotFound extends EffectData.TaggedError(
   "InvalidNetworkInterfaceID.NotFound",
 )<{}> {}
 
+export declare class InvalidAddressIDNotFound extends EffectData.TaggedError(
+  "InvalidAddressID.NotFound",
+)<{}> {}
+
+export declare class InvalidAllocationIDNotFound extends EffectData.TaggedError(
+  "InvalidAllocationID.NotFound",
+)<{}> {}
+
+export declare class InvalidInstanceIDNotFound extends EffectData.TaggedError(
+  "InvalidInstanceID.NotFound",
+)<{}> {}
+
+export declare class InvalidSubnetIDNotFound extends EffectData.TaggedError(
+  "InvalidSubnetID.NotFound",
+)<{}> {}
+
+export declare class InvalidDhcpOptionIDNotFound extends EffectData.TaggedError(
+  "InvalidDhcpOptionID.NotFound",
+)<{}> {}
+
+export declare class InvalidVpcIDNotFound extends EffectData.TaggedError(
+  "InvalidVpcID.NotFound",
+)<{}> {}
+
+export declare class InvalidInstanceEventWindowIdNotFound extends EffectData.TaggedError(
+  "InvalidInstanceEventWindowId.NotFound",
+)<{}> {}
+
+export declare class InvalidRouteTableIDNotFound extends EffectData.TaggedError(
+  "InvalidRouteTableID.NotFound",
+)<{}> {}
+
+export declare class InvalidGatewayIDNotFound extends EffectData.TaggedError(
+  "InvalidGatewayID.NotFound",
+)<{}> {}
+
+export declare class InvalidTransitGatewayMulticastDomainIdNotFound extends EffectData.TaggedError(
+  "InvalidTransitGatewayMulticastDomainId.NotFound",
+)<{}> {}
+
+export declare class InvalidTransitGatewayPolicyTableIdNotFound extends EffectData.TaggedError(
+  "InvalidTransitGatewayPolicyTableId.NotFound",
+)<{}> {}
+
+export declare class InvalidTransitGatewayRouteTableIdNotFound extends EffectData.TaggedError(
+  "InvalidTransitGatewayRouteTableId.NotFound",
+)<{}> {}
+
+export declare class InvalidInternetGatewayIDNotFound extends EffectData.TaggedError(
+  "InvalidInternetGatewayID.NotFound",
+)<{}> {}
+
+export declare class InvalidVerifiedAccessInstanceIdNotFound extends EffectData.TaggedError(
+  "InvalidVerifiedAccessInstanceId.NotFound",
+)<{}> {}
+
+export declare class InvalidVerifiedAccessTrustProviderIdNotFound extends EffectData.TaggedError(
+  "InvalidVerifiedAccessTrustProviderId.NotFound",
+)<{}> {}
+
+export declare class InvalidVolumeNotFound extends EffectData.TaggedError(
+  "InvalidVolume.NotFound",
+)<{}> {}
+
+export declare class InvalidVolumeIDMalformed extends EffectData.TaggedError(
+  "InvalidVolumeID.Malformed",
+)<{}> {}
+
+export declare class InvalidVpnGatewayIDNotFound extends EffectData.TaggedError(
+  "InvalidVpnGatewayID.NotFound",
+)<{}> {}
+
 export declare class InvalidGroupNotFound extends EffectData.TaggedError(
   "InvalidGroup.NotFound",
+)<{}> {}
+
+export declare class InvalidPermissionDuplicate extends EffectData.TaggedError(
+  "InvalidPermission.Duplicate",
+)<{}> {}
+
+export declare class InvalidBundleIDNotFound extends EffectData.TaggedError(
+  "InvalidBundleID.NotFound",
+)<{}> {}
+
+export declare class InvalidCapacityReservationIdNotFound extends EffectData.TaggedError(
+  "InvalidCapacityReservationId.NotFound",
+)<{}> {}
+
+export declare class InvalidCapacityReservationIdMalformed extends EffectData.TaggedError(
+  "InvalidCapacityReservationId.Malformed",
+)<{}> {}
+
+export declare class InvalidCapacityReservationFleetIdNotFound extends EffectData.TaggedError(
+  "InvalidCapacityReservationFleetId.NotFound",
+)<{}> {}
+
+export declare class InvalidCapacityReservationFleetIdMalformed extends EffectData.TaggedError(
+  "InvalidCapacityReservationFleetId.Malformed",
+)<{}> {}
+
+export declare class InvalidConversionTaskId extends EffectData.TaggedError(
+  "InvalidConversionTaskId",
+)<{}> {}
+
+export declare class InvalidExportTaskIDNotFound extends EffectData.TaggedError(
+  "InvalidExportTaskID.NotFound",
+)<{}> {}
+
+export declare class InvalidSpotFleetRequestIdNotFound extends EffectData.TaggedError(
+  "InvalidSpotFleetRequestId.NotFound",
+)<{}> {}
+
+export declare class InvalidSpotFleetRequestIdMalformed extends EffectData.TaggedError(
+  "InvalidSpotFleetRequestId.Malformed",
 )<{}> {}
 
 export declare class InvalidSpotInstanceRequestIDNotFound extends EffectData.TaggedError(
   "InvalidSpotInstanceRequestID.NotFound",
 )<{}> {}
 
-export declare class InvalidVpcPeeringConnectionIDNotFound extends EffectData.TaggedError(
-  "InvalidVpcPeeringConnectionID.NotFound",
+export declare class InvalidSpotInstanceRequestIDMalformed extends EffectData.TaggedError(
+  "InvalidSpotInstanceRequestID.Malformed",
+)<{}> {}
+
+export declare class InvalidFpgaImageIDNotFound extends EffectData.TaggedError(
+  "InvalidFpgaImageID.NotFound",
+)<{}> {}
+
+export declare class InvalidFpgaImageIDMalformed extends EffectData.TaggedError(
+  "InvalidFpgaImageID.Malformed",
+)<{}> {}
+
+export declare class InvalidAMIIDNotFound extends EffectData.TaggedError(
+  "InvalidAMIID.NotFound",
+)<{}> {}
+
+export declare class InvalidAMIIDUnavailable extends EffectData.TaggedError(
+  "InvalidAMIID.Unavailable",
+)<{}> {}
+
+export declare class InvalidSnapshotNotFound extends EffectData.TaggedError(
+  "InvalidSnapshot.NotFound",
+)<{}> {}
+
+export declare class InvalidSnapshotIdMalformed extends EffectData.TaggedError(
+  "InvalidSnapshotId.Malformed",
+)<{}> {}
+
+export declare class InvalidIpamScopeIdNotFound extends EffectData.TaggedError(
+  "InvalidIpamScopeId.NotFound",
+)<{}> {}
+
+export declare class InvalidIpamIdNotFound extends EffectData.TaggedError(
+  "InvalidIpamId.NotFound",
+)<{}> {}
+
+export declare class InvalidKeyPairDuplicate extends EffectData.TaggedError(
+  "InvalidKeyPair.Duplicate",
+)<{}> {}
+
+export declare class InvalidLaunchTemplateIdAlreadyExists extends EffectData.TaggedError(
+  "InvalidLaunchTemplateId.AlreadyExists",
+)<{}> {}
+
+export declare class InvalidLaunchTemplateNameAlreadyExistsException extends EffectData.TaggedError(
+  "InvalidLaunchTemplateName.AlreadyExistsException",
+)<{}> {}
+
+export declare class InvalidLaunchTemplateIdNotFound extends EffectData.TaggedError(
+  "InvalidLaunchTemplateId.NotFound",
+)<{}> {}
+
+export declare class InvalidLaunchTemplateNameNotFoundException extends EffectData.TaggedError(
+  "InvalidLaunchTemplateName.NotFoundException",
+)<{}> {}
+
+export declare class InvalidLaunchTemplateIdMalformed extends EffectData.TaggedError(
+  "InvalidLaunchTemplateId.Malformed",
+)<{}> {}
+
+export declare class InvalidLocalGatewayIDNotFound extends EffectData.TaggedError(
+  "InvalidLocalGatewayID.NotFound",
+)<{}> {}
+
+export declare class InvalidLocalGatewayRouteTableVpcAssociationIdNotFound extends EffectData.TaggedError(
+  "InvalidLocalGatewayRouteTableVpcAssociationId.NotFound",
+)<{}> {}
+
+export declare class InvalidElasticIpIDNotFound extends EffectData.TaggedError(
+  "InvalidElasticIpID.NotFound",
+)<{}> {}
+
+export declare class InvalidNetworkAclIDNotFound extends EffectData.TaggedError(
+  "InvalidNetworkAclID.NotFound",
+)<{}> {}
+
+export declare class InvalidPlacementGroupDuplicate extends EffectData.TaggedError(
+  "InvalidPlacementGroup.Duplicate",
+)<{}> {}
+
+export declare class InvalidNatGatewayIDNotFound extends EffectData.TaggedError(
+  "InvalidNatGatewayID.NotFound",
+)<{}> {}
+
+export declare class InvalidTransitGatewayIdNotFound extends EffectData.TaggedError(
+  "InvalidTransitGatewayId.NotFound",
+)<{}> {}
+
+export declare class InvalidGroupDuplicate extends EffectData.TaggedError(
+  "InvalidGroup.Duplicate",
+)<{}> {}
+
+export declare class InvalidSpotDatafeedNotFound extends EffectData.TaggedError(
+  "InvalidSpotDatafeed.NotFound",
+)<{}> {}
+
+export declare class InvalidTrafficMirrorFilterIdNotFound extends EffectData.TaggedError(
+  "InvalidTrafficMirrorFilterId.NotFound",
+)<{}> {}
+
+export declare class InvalidTrafficMirrorTargetIdNotFound extends EffectData.TaggedError(
+  "InvalidTrafficMirrorTargetId.NotFound",
+)<{}> {}
+
+export declare class InvalidTransitGatewayConnectPeerIdMalformed extends EffectData.TaggedError(
+  "InvalidTransitGatewayConnectPeerId.Malformed",
+)<{}> {}
+
+export declare class InvalidPrefixListIdNotFound extends EffectData.TaggedError(
+  "InvalidPrefixListId.NotFound",
+)<{}> {}
+
+export declare class InvalidVerifiedAccessGroupIdNotFound extends EffectData.TaggedError(
+  "InvalidVerifiedAccessGroupId.NotFound",
+)<{}> {}
+
+export declare class InvalidVolumeIDDuplicate extends EffectData.TaggedError(
+  "InvalidVolumeID.Duplicate",
+)<{}> {}
+
+export declare class InvalidAvailabilityZone extends EffectData.TaggedError(
+  "InvalidAvailabilityZone",
+)<{}> {}
+
+export declare class VpcLimitExceeded extends EffectData.TaggedError(
+  "VpcLimitExceeded",
+)<{}> {}
+
+export declare class InvalidVpcEndpointIdNotFound extends EffectData.TaggedError(
+  "InvalidVpcEndpointId.NotFound",
+)<{}> {}
+
+export declare class InvalidNetworkLoadBalancerArnNotFound extends EffectData.TaggedError(
+  "InvalidNetworkLoadBalancerArn.NotFound",
+)<{}> {}
+
+export declare class VpcPeeringConnectionAlreadyExists extends EffectData.TaggedError(
+  "VpcPeeringConnectionAlreadyExists",
+)<{}> {}
+
+export declare class VpcPeeringConnectionsPerVpcLimitExceeded extends EffectData.TaggedError(
+  "VpcPeeringConnectionsPerVpcLimitExceeded",
+)<{}> {}
+
+export declare class InvalidCustomerGatewayIDNotFound extends EffectData.TaggedError(
+  "InvalidCustomerGatewayID.NotFound",
+)<{}> {}
+
+export declare class VpnConnectionLimitExceeded extends EffectData.TaggedError(
+  "VpnConnectionLimitExceeded",
+)<{}> {}
+
+export declare class InvalidVpnConnectionIDNotFound extends EffectData.TaggedError(
+  "InvalidVpnConnectionID.NotFound",
+)<{}> {}
+
+export declare class VpnGatewayLimitExceeded extends EffectData.TaggedError(
+  "VpnGatewayLimitExceeded",
+)<{}> {}
+
+export declare class InvalidCarrierGatewayIDNotFound extends EffectData.TaggedError(
+  "InvalidCarrierGatewayID.NotFound",
+)<{}> {}
+
+export declare class InvalidClientVpnRouteNotFound extends EffectData.TaggedError(
+  "InvalidClientVpnRouteNotFound",
+)<{}> {}
+
+export declare class InvalidDhcpOptionsIdMalformed extends EffectData.TaggedError(
+  "InvalidDhcpOptionsId.Malformed",
+)<{}> {}
+
+export declare class InvalidFlowLogIdNotFound extends EffectData.TaggedError(
+  "InvalidFlowLogId.NotFound",
+)<{}> {}
+
+export declare class InvalidIpamResourceDiscoveryIdNotFound extends EffectData.TaggedError(
+  "InvalidIpamResourceDiscoveryId.NotFound",
+)<{}> {}
+
+export declare class InvalidKeyPairNotFound extends EffectData.TaggedError(
+  "InvalidKeyPair.NotFound",
+)<{}> {}
+
+export declare class InvalidLaunchTemplateIdVersionNotFound extends EffectData.TaggedError(
+  "InvalidLaunchTemplateId.VersionNotFound",
+)<{}> {}
+
+export declare class InvalidNetworkAclInUse extends EffectData.TaggedError(
+  "InvalidNetworkAcl.InUse",
+)<{}> {}
+
+export declare class InvalidNetworkAclEntryNotFound extends EffectData.TaggedError(
+  "InvalidNetworkAclEntry.NotFound",
+)<{}> {}
+
+export declare class InvalidNetworkInsightsAccessScopeIdNotFound extends EffectData.TaggedError(
+  "InvalidNetworkInsightsAccessScopeId.NotFound",
+)<{}> {}
+
+export declare class InvalidNetworkInsightsAccessScopeAnalysisIdNotFound extends EffectData.TaggedError(
+  "InvalidNetworkInsightsAccessScopeAnalysisId.NotFound",
+)<{}> {}
+
+export declare class InvalidNetworkInsightsAnalysisIdNotFound extends EffectData.TaggedError(
+  "InvalidNetworkInsightsAnalysisId.NotFound",
+)<{}> {}
+
+export declare class InvalidNetworkInsightsPathIdNotFound extends EffectData.TaggedError(
+  "InvalidNetworkInsightsPathId.NotFound",
+)<{}> {}
+
+export declare class InvalidPlacementGroupUnknown extends EffectData.TaggedError(
+  "InvalidPlacementGroup.Unknown",
+)<{}> {}
+
+export declare class InvalidPlacementGroupInUse extends EffectData.TaggedError(
+  "InvalidPlacementGroup.InUse",
+)<{}> {}
+
+export declare class InvalidRouteNotFound extends EffectData.TaggedError(
+  "InvalidRoute.NotFound",
+)<{}> {}
+
+export declare class InvalidGroupInUse extends EffectData.TaggedError(
+  "InvalidGroup.InUse",
+)<{}> {}
+
+export declare class InvalidSnapshotInUse extends EffectData.TaggedError(
+  "InvalidSnapshot.InUse",
+)<{}> {}
+
+export declare class InvalidSubnetCidrReservationIdNotFound extends EffectData.TaggedError(
+  "InvalidSubnetCidrReservationId.NotFound",
+)<{}> {}
+
+export declare class InvalidTrafficMirrorFilterInUse extends EffectData.TaggedError(
+  "InvalidTrafficMirrorFilter.InUse",
+)<{}> {}
+
+export declare class InvalidTrafficMirrorFilterRuleIdNotFound extends EffectData.TaggedError(
+  "InvalidTrafficMirrorFilterRuleId.NotFound",
+)<{}> {}
+
+export declare class InvalidTrafficMirrorSessionIdNotFound extends EffectData.TaggedError(
+  "InvalidTrafficMirrorSessionId.NotFound",
+)<{}> {}
+
+export declare class InvalidTransitGatewayNotFound extends EffectData.TaggedError(
+  "InvalidTransitGateway.NotFound",
+)<{}> {}
+
+export declare class InvalidTransitGatewayConnectPeerIdNotFound extends EffectData.TaggedError(
+  "InvalidTransitGatewayConnectPeerId.NotFound",
+)<{}> {}
+
+export declare class InvalidTransitGatewayRouteTableAnnouncementIdNotFound extends EffectData.TaggedError(
+  "InvalidTransitGatewayRouteTableAnnouncementId.NotFound",
+)<{}> {}
+
+export declare class InvalidVerifiedAccessEndpointIdNotFound extends EffectData.TaggedError(
+  "InvalidVerifiedAccessEndpointId.NotFound",
+)<{}> {}
+
+export declare class InvalidVpcPeeringConnectionNotFound extends EffectData.TaggedError(
+  "InvalidVpcPeeringConnection.NotFound",
+)<{}> {}
+
+export declare class InvalidPoolIDNotFound extends EffectData.TaggedError(
+  "InvalidPoolID.NotFound",
+)<{}> {}
+
+export declare class InvalidCoipPoolIdNotFound extends EffectData.TaggedError(
+  "InvalidCoipPoolId.NotFound",
+)<{}> {}
+
+export declare class InvalidCoipPoolIdMalformed extends EffectData.TaggedError(
+  "InvalidCoipPoolId.Malformed",
+)<{}> {}
+
+export declare class InvalidConversionTaskIdMalformed extends EffectData.TaggedError(
+  "InvalidConversionTaskId.Malformed",
+)<{}> {}
+
+export declare class InvalidCustomerGatewayIdMalformed extends EffectData.TaggedError(
+  "InvalidCustomerGatewayId.Malformed",
+)<{}> {}
+
+export declare class InvalidHostReservationOfferingIdMalformed extends EffectData.TaggedError(
+  "InvalidHostReservationOfferingId.Malformed",
+)<{}> {}
+
+export declare class InvalidHostReservationIdMalformed extends EffectData.TaggedError(
+  "InvalidHostReservationId.Malformed",
+)<{}> {}
+
+export declare class InvalidHostIDNotFound extends EffectData.TaggedError(
+  "InvalidHostID.NotFound",
+)<{}> {}
+
+export declare class InvalidHostIDMalformed extends EffectData.TaggedError(
+  "InvalidHostID.Malformed",
+)<{}> {}
+
+export declare class InvalidAssociationIDNotFound extends EffectData.TaggedError(
+  "InvalidAssociationID.NotFound",
+)<{}> {}
+
+export declare class InvalidAMIIDMalformed extends EffectData.TaggedError(
+  "InvalidAMIID.Malformed",
+)<{}> {}
+
+export declare class InvalidInstanceIDMalformed extends EffectData.TaggedError(
+  "InvalidInstanceID.Malformed",
+)<{}> {}
+
+export declare class InvalidInternetGatewayNotFound extends EffectData.TaggedError(
+  "InvalidInternetGateway.NotFound",
+)<{}> {}
+
+export declare class InvalidIpamResourceDiscoveryAssociationIdNotFound extends EffectData.TaggedError(
+  "InvalidIpamResourceDiscoveryAssociationId.NotFound",
+)<{}> {}
+
+export declare class InvalidLocalGatewayRouteTableVirtualInterfaceGroupAssociationIdNotFound extends EffectData.TaggedError(
+  "InvalidLocalGatewayRouteTableVirtualInterfaceGroupAssociationId.NotFound",
+)<{}> {}
+
+export declare class InvalidLocalGatewayVirtualInterfaceGroupIdNotFound extends EffectData.TaggedError(
+  "InvalidLocalGatewayVirtualInterfaceGroupId.NotFound",
+)<{}> {}
+
+export declare class InvalidPrefixListIdMalformed extends EffectData.TaggedError(
+  "InvalidPrefixListId.Malformed",
+)<{}> {}
+
+export declare class NatGatewayNotFound extends EffectData.TaggedError(
+  "NatGatewayNotFound",
+)<{}> {}
+
+export declare class InvalidPoolIDMalformed extends EffectData.TaggedError(
+  "InvalidPoolID.Malformed",
+)<{}> {}
+
+export declare class InvalidReplaceRootVolumeTaskIdNotFound extends EffectData.TaggedError(
+  "InvalidReplaceRootVolumeTaskId.NotFound",
+)<{}> {}
+
+export declare class InvalidReplaceRootVolumeTaskIdMalformed extends EffectData.TaggedError(
+  "InvalidReplaceRootVolumeTaskId.Malformed",
+)<{}> {}
+
+export declare class InvalidReservationIDNotFound extends EffectData.TaggedError(
+  "InvalidReservationID.NotFound",
+)<{}> {}
+
+export declare class InvalidReservationIDMalformed extends EffectData.TaggedError(
+  "InvalidReservationID.Malformed",
+)<{}> {}
+
+export declare class InvalidRouteTableIdMalformed extends EffectData.TaggedError(
+  "InvalidRouteTableId.Malformed",
+)<{}> {}
+
+export declare class InvalidSecurityGroupRuleIdNotFound extends EffectData.TaggedError(
+  "InvalidSecurityGroupRuleId.NotFound",
+)<{}> {}
+
+export declare class InvalidGroupIdMalformed extends EffectData.TaggedError(
+  "InvalidGroupId.Malformed",
+)<{}> {}
+
+export declare class InvalidSubnetIdMalformed extends EffectData.TaggedError(
+  "InvalidSubnetId.Malformed",
+)<{}> {}
+
+export declare class InvalidTransitGatewayIdMalformed extends EffectData.TaggedError(
+  "InvalidTransitGatewayId.Malformed",
+)<{}> {}
+
+export declare class InvalidVpcEndpointNotFound extends EffectData.TaggedError(
+  "InvalidVpcEndpoint.NotFound",
+)<{}> {}
+
+export declare class InvalidVpcEndpointIdMalformed extends EffectData.TaggedError(
+  "InvalidVpcEndpointId.Malformed",
+)<{}> {}
+
+export declare class InvalidVpcPeeringConnectionIdMalformed extends EffectData.TaggedError(
+  "InvalidVpcPeeringConnectionId.Malformed",
+)<{}> {}
+
+export declare class InvalidVpcIDMalformed extends EffectData.TaggedError(
+  "InvalidVpcID.Malformed",
+)<{}> {}
+
+export declare class InvalidVpnConnectionID extends EffectData.TaggedError(
+  "InvalidVpnConnectionID",
+)<{}> {}
+
+export declare class InvalidAttachmentIDNotFound extends EffectData.TaggedError(
+  "InvalidAttachmentID.NotFound",
+)<{}> {}
+
+export declare class InvalidNetworkInterfaceAttachmentIdMalformed extends EffectData.TaggedError(
+  "InvalidNetworkInterfaceAttachmentId.Malformed",
+)<{}> {}
+
+export declare class InvalidAttachmentNotFound extends EffectData.TaggedError(
+  "InvalidAttachment.NotFound",
+)<{}> {}
+
+export declare class InvalidVpnGatewayAttachmentNotFound extends EffectData.TaggedError(
+  "InvalidVpnGatewayAttachment.NotFound",
+)<{}> {}
+
+export declare class InvalidClientVpnAssociationIdNotFound extends EffectData.TaggedError(
+  "InvalidClientVpnAssociationIdNotFound",
+)<{}> {}
+
+export declare class InvalidInstanceType extends EffectData.TaggedError(
+  "InvalidInstanceType",
+)<{}> {}
+
+export declare class InvalidKeyPairFormat extends EffectData.TaggedError(
+  "InvalidKeyPair.Format",
+)<{}> {}
+
+export declare class InvalidClientVpnEndpointAuthorizationRuleNotFound extends EffectData.TaggedError(
+  "InvalidClientVpnEndpointAuthorizationRuleNotFound",
+)<{}> {}
+
+export declare class InvalidPermissionNotFound extends EffectData.TaggedError(
+  "InvalidPermission.NotFound",
 )<{}> {}
 
 export declare namespace AcceptAddressTransfer {
@@ -20069,25 +21721,29 @@ export declare namespace AcceptTransitGatewayMulticastDomainAssociations {
 export declare namespace AcceptTransitGatewayPeeringAttachment {
   export type Input = AcceptTransitGatewayPeeringAttachmentRequest;
   export type Output = AcceptTransitGatewayPeeringAttachmentResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidTransitGatewayAttachmentIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace AcceptTransitGatewayVpcAttachment {
   export type Input = AcceptTransitGatewayVpcAttachmentRequest;
   export type Output = AcceptTransitGatewayVpcAttachmentResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidTransitGatewayAttachmentIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace AcceptVpcEndpointConnections {
   export type Input = AcceptVpcEndpointConnectionsRequest;
   export type Output = AcceptVpcEndpointConnectionsResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidVpcEndpointServiceIdNotFound | CommonAwsError;
 }
 
 export declare namespace AcceptVpcPeeringConnection {
   export type Input = AcceptVpcPeeringConnectionRequest;
   export type Output = AcceptVpcPeeringConnectionResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidVpcPeeringConnectionIDNotFound | CommonAwsError;
 }
 
 export declare namespace AdvertiseByoipCidr {
@@ -20099,25 +21755,28 @@ export declare namespace AdvertiseByoipCidr {
 export declare namespace AllocateAddress {
   export type Input = AllocateAddressRequest;
   export type Output = AllocateAddressResult;
-  export type Error = CommonAwsError;
+  export type Error = AddressLimitExceeded | CommonAwsError;
 }
 
 export declare namespace AllocateHosts {
   export type Input = AllocateHostsRequest;
   export type Output = AllocateHostsResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidHostConfiguration | CommonAwsError;
 }
 
 export declare namespace AllocateIpamPoolCidr {
   export type Input = AllocateIpamPoolCidrRequest;
   export type Output = AllocateIpamPoolCidrResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidIpamPoolIdNotFound | CommonAwsError;
 }
 
 export declare namespace ApplySecurityGroupsToClientVpnTargetNetwork {
   export type Input = ApplySecurityGroupsToClientVpnTargetNetworkRequest;
   export type Output = ApplySecurityGroupsToClientVpnTargetNetworkResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidClientVpnEndpointIdNotFound
+    | InvalidSecurityGroupIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace AssignIpv6Addresses {
@@ -20129,7 +21788,7 @@ export declare namespace AssignIpv6Addresses {
 export declare namespace AssignPrivateIpAddresses {
   export type Input = AssignPrivateIpAddressesRequest;
   export type Output = AssignPrivateIpAddressesResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidNetworkInterfaceIDNotFound | CommonAwsError;
 }
 
 export declare namespace AssignPrivateNatGatewayAddress {
@@ -20141,7 +21800,12 @@ export declare namespace AssignPrivateNatGatewayAddress {
 export declare namespace AssociateAddress {
   export type Input = AssociateAddressRequest;
   export type Output = AssociateAddressResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidAddressIDNotFound
+    | InvalidAllocationIDNotFound
+    | InvalidInstanceIDNotFound
+    | InvalidNetworkInterfaceIDNotFound
+    | CommonAwsError;
 }
 
 export declare namespace AssociateCapacityReservationBillingOwner {
@@ -20153,13 +21817,19 @@ export declare namespace AssociateCapacityReservationBillingOwner {
 export declare namespace AssociateClientVpnTargetNetwork {
   export type Input = AssociateClientVpnTargetNetworkRequest;
   export type Output = AssociateClientVpnTargetNetworkResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidClientVpnEndpointIdNotFound
+    | InvalidSubnetIDNotFound
+    | CommonAwsError;
 }
 
 export declare namespace AssociateDhcpOptions {
   export type Input = AssociateDhcpOptionsRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidDhcpOptionIDNotFound
+    | InvalidVpcIDNotFound
+    | CommonAwsError;
 }
 
 export declare namespace AssociateEnclaveCertificateIamRole {
@@ -20171,13 +21841,13 @@ export declare namespace AssociateEnclaveCertificateIamRole {
 export declare namespace AssociateIamInstanceProfile {
   export type Input = AssociateIamInstanceProfileRequest;
   export type Output = AssociateIamInstanceProfileResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidInstanceIDNotFound | CommonAwsError;
 }
 
 export declare namespace AssociateInstanceEventWindow {
   export type Input = AssociateInstanceEventWindowRequest;
   export type Output = AssociateInstanceEventWindowResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidInstanceEventWindowIdNotFound | CommonAwsError;
 }
 
 export declare namespace AssociateIpamByoasn {
@@ -20207,7 +21877,11 @@ export declare namespace AssociateRouteServer {
 export declare namespace AssociateRouteTable {
   export type Input = AssociateRouteTableRequest;
   export type Output = AssociateRouteTableResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidRouteTableIDNotFound
+    | InvalidSubnetIDNotFound
+    | InvalidGatewayIDNotFound
+    | CommonAwsError;
 }
 
 export declare namespace AssociateSecurityGroupVpc {
@@ -20225,19 +21899,29 @@ export declare namespace AssociateSubnetCidrBlock {
 export declare namespace AssociateTransitGatewayMulticastDomain {
   export type Input = AssociateTransitGatewayMulticastDomainRequest;
   export type Output = AssociateTransitGatewayMulticastDomainResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidTransitGatewayMulticastDomainIdNotFound
+    | InvalidTransitGatewayAttachmentIdNotFound
+    | InvalidSubnetIDNotFound
+    | CommonAwsError;
 }
 
 export declare namespace AssociateTransitGatewayPolicyTable {
   export type Input = AssociateTransitGatewayPolicyTableRequest;
   export type Output = AssociateTransitGatewayPolicyTableResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidTransitGatewayPolicyTableIdNotFound
+    | InvalidTransitGatewayAttachmentIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace AssociateTransitGatewayRouteTable {
   export type Input = AssociateTransitGatewayRouteTableRequest;
   export type Output = AssociateTransitGatewayRouteTableResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidTransitGatewayRouteTableIdNotFound
+    | InvalidTransitGatewayAttachmentIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace AssociateTrunkInterface {
@@ -20261,49 +21945,73 @@ export declare namespace AttachClassicLinkVpc {
 export declare namespace AttachInternetGateway {
   export type Input = AttachInternetGatewayRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidInternetGatewayIDNotFound
+    | InvalidVpcIDNotFound
+    | CommonAwsError;
 }
 
 export declare namespace AttachNetworkInterface {
   export type Input = AttachNetworkInterfaceRequest;
   export type Output = AttachNetworkInterfaceResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidNetworkInterfaceIDNotFound
+    | InvalidInstanceIDNotFound
+    | CommonAwsError;
 }
 
 export declare namespace AttachVerifiedAccessTrustProvider {
   export type Input = AttachVerifiedAccessTrustProviderRequest;
   export type Output = AttachVerifiedAccessTrustProviderResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidVerifiedAccessInstanceIdNotFound
+    | InvalidVerifiedAccessTrustProviderIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace AttachVolume {
   export type Input = AttachVolumeRequest;
   export type Output = VolumeAttachment;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidVolumeNotFound
+    | InvalidInstanceIDNotFound
+    | InvalidVolumeIDMalformed
+    | CommonAwsError;
 }
 
 export declare namespace AttachVpnGateway {
   export type Input = AttachVpnGatewayRequest;
   export type Output = AttachVpnGatewayResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidVpnGatewayIDNotFound
+    | InvalidVpcIDNotFound
+    | CommonAwsError;
 }
 
 export declare namespace AuthorizeClientVpnIngress {
   export type Input = AuthorizeClientVpnIngressRequest;
   export type Output = AuthorizeClientVpnIngressResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidClientVpnEndpointIdNotFound | CommonAwsError;
 }
 
 export declare namespace AuthorizeSecurityGroupEgress {
   export type Input = AuthorizeSecurityGroupEgressRequest;
   export type Output = AuthorizeSecurityGroupEgressResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidGroupNotFound
+    | InvalidSecurityGroupIdNotFound
+    | InvalidPermissionDuplicate
+    | CommonAwsError;
 }
 
 export declare namespace AuthorizeSecurityGroupIngress {
   export type Input = AuthorizeSecurityGroupIngressRequest;
   export type Output = AuthorizeSecurityGroupIngressResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidGroupNotFound
+    | InvalidSecurityGroupIdNotFound
+    | InvalidPermissionDuplicate
+    | CommonAwsError;
 }
 
 export declare namespace BundleInstance {
@@ -20315,25 +22023,31 @@ export declare namespace BundleInstance {
 export declare namespace CancelBundleTask {
   export type Input = CancelBundleTaskRequest;
   export type Output = CancelBundleTaskResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidBundleIDNotFound | CommonAwsError;
 }
 
 export declare namespace CancelCapacityReservation {
   export type Input = CancelCapacityReservationRequest;
   export type Output = CancelCapacityReservationResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidCapacityReservationIdNotFound
+    | InvalidCapacityReservationIdMalformed
+    | CommonAwsError;
 }
 
 export declare namespace CancelCapacityReservationFleets {
   export type Input = CancelCapacityReservationFleetsRequest;
   export type Output = CancelCapacityReservationFleetsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidCapacityReservationFleetIdNotFound
+    | InvalidCapacityReservationFleetIdMalformed
+    | CommonAwsError;
 }
 
 export declare namespace CancelConversionTask {
   export type Input = CancelConversionRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error = InvalidConversionTaskId | CommonAwsError;
 }
 
 export declare namespace CancelDeclarativePoliciesReport {
@@ -20345,7 +22059,7 @@ export declare namespace CancelDeclarativePoliciesReport {
 export declare namespace CancelExportTask {
   export type Input = CancelExportTaskRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error = InvalidExportTaskIDNotFound | CommonAwsError;
 }
 
 export declare namespace CancelImageLaunchPermission {
@@ -20369,37 +22083,52 @@ export declare namespace CancelReservedInstancesListing {
 export declare namespace CancelSpotFleetRequests {
   export type Input = CancelSpotFleetRequestsRequest;
   export type Output = CancelSpotFleetRequestsResponse;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidSpotFleetRequestIdNotFound
+    | InvalidSpotFleetRequestIdMalformed
+    | CommonAwsError;
 }
 
 export declare namespace CancelSpotInstanceRequests {
   export type Input = CancelSpotInstanceRequestsRequest;
   export type Output = CancelSpotInstanceRequestsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidSpotInstanceRequestIDNotFound
+    | InvalidSpotInstanceRequestIDMalformed
+    | CommonAwsError;
 }
 
 export declare namespace ConfirmProductInstance {
   export type Input = ConfirmProductInstanceRequest;
   export type Output = ConfirmProductInstanceResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidInstanceIDNotFound | CommonAwsError;
 }
 
 export declare namespace CopyFpgaImage {
   export type Input = CopyFpgaImageRequest;
   export type Output = CopyFpgaImageResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidFpgaImageIDNotFound
+    | InvalidFpgaImageIDMalformed
+    | CommonAwsError;
 }
 
 export declare namespace CopyImage {
   export type Input = CopyImageRequest;
   export type Output = CopyImageResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidAMIIDNotFound
+    | InvalidAMIIDUnavailable
+    | CommonAwsError;
 }
 
 export declare namespace CopySnapshot {
   export type Input = CopySnapshotRequest;
   export type Output = CopySnapshotResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidSnapshotNotFound
+    | InvalidSnapshotIdMalformed
+    | CommonAwsError;
 }
 
 export declare namespace CopyVolumes {
@@ -20447,7 +22176,7 @@ export declare namespace CreateClientVpnEndpoint {
 export declare namespace CreateClientVpnRoute {
   export type Input = CreateClientVpnRouteRequest;
   export type Output = CreateClientVpnRouteResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidClientVpnEndpointIdNotFound | CommonAwsError;
 }
 
 export declare namespace CreateCoipCidr {
@@ -20495,7 +22224,7 @@ export declare namespace CreateDhcpOptions {
 export declare namespace CreateEgressOnlyInternetGateway {
   export type Input = CreateEgressOnlyInternetGatewayRequest;
   export type Output = CreateEgressOnlyInternetGatewayResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidVpcIDNotFound | CommonAwsError;
 }
 
 export declare namespace CreateFleet {
@@ -20507,7 +22236,11 @@ export declare namespace CreateFleet {
 export declare namespace CreateFlowLogs {
   export type Input = CreateFlowLogsRequest;
   export type Output = CreateFlowLogsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidVpcIDNotFound
+    | InvalidSubnetIDNotFound
+    | InvalidNetworkInterfaceIDNotFound
+    | CommonAwsError;
 }
 
 export declare namespace CreateFpgaImage {
@@ -20519,7 +22252,7 @@ export declare namespace CreateFpgaImage {
 export declare namespace CreateImage {
   export type Input = CreateImageRequest;
   export type Output = CreateImageResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidInstanceIDNotFound | CommonAwsError;
 }
 
 export declare namespace CreateImageUsageReport {
@@ -20543,7 +22276,7 @@ export declare namespace CreateInstanceEventWindow {
 export declare namespace CreateInstanceExportTask {
   export type Input = CreateInstanceExportTaskRequest;
   export type Output = CreateInstanceExportTaskResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidInstanceIDNotFound | CommonAwsError;
 }
 
 export declare namespace CreateInternetGateway {
@@ -20567,7 +22300,7 @@ export declare namespace CreateIpamExternalResourceVerificationToken {
 export declare namespace CreateIpamPool {
   export type Input = CreateIpamPoolRequest;
   export type Output = CreateIpamPoolResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidIpamScopeIdNotFound | CommonAwsError;
 }
 
 export declare namespace CreateIpamPrefixListResolver {
@@ -20591,31 +22324,41 @@ export declare namespace CreateIpamResourceDiscovery {
 export declare namespace CreateIpamScope {
   export type Input = CreateIpamScopeRequest;
   export type Output = CreateIpamScopeResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidIpamIdNotFound | CommonAwsError;
 }
 
 export declare namespace CreateKeyPair {
   export type Input = CreateKeyPairRequest;
   export type Output = KeyPair;
-  export type Error = CommonAwsError;
+  export type Error = InvalidKeyPairDuplicate | CommonAwsError;
 }
 
 export declare namespace CreateLaunchTemplate {
   export type Input = CreateLaunchTemplateRequest;
   export type Output = CreateLaunchTemplateResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidLaunchTemplateIdAlreadyExists
+    | InvalidLaunchTemplateNameAlreadyExistsException
+    | CommonAwsError;
 }
 
 export declare namespace CreateLaunchTemplateVersion {
   export type Input = CreateLaunchTemplateVersionRequest;
   export type Output = CreateLaunchTemplateVersionResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidLaunchTemplateIdNotFound
+    | InvalidLaunchTemplateNameNotFoundException
+    | InvalidLaunchTemplateIdMalformed
+    | CommonAwsError;
 }
 
 export declare namespace CreateLocalGatewayRoute {
   export type Input = CreateLocalGatewayRouteRequest;
   export type Output = CreateLocalGatewayRouteResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidLocalGatewayIDNotFound
+    | InvalidLocalGatewayRouteTableVpcAssociationIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace CreateLocalGatewayRouteTable {
@@ -20635,7 +22378,10 @@ export declare namespace CreateLocalGatewayRouteTableVirtualInterfaceGroupAssoci
 export declare namespace CreateLocalGatewayRouteTableVpcAssociation {
   export type Input = CreateLocalGatewayRouteTableVpcAssociationRequest;
   export type Output = CreateLocalGatewayRouteTableVpcAssociationResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidLocalGatewayIDNotFound
+    | InvalidVpcIDNotFound
+    | CommonAwsError;
 }
 
 export declare namespace CreateLocalGatewayVirtualInterface {
@@ -20665,7 +22411,11 @@ export declare namespace CreateManagedPrefixList {
 export declare namespace CreateNatGateway {
   export type Input = CreateNatGatewayRequest;
   export type Output = CreateNatGatewayResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidSubnetIDNotFound
+    | InvalidAllocationIDNotFound
+    | InvalidElasticIpIDNotFound
+    | CommonAwsError;
 }
 
 export declare namespace CreateNetworkAcl {
@@ -20677,7 +22427,7 @@ export declare namespace CreateNetworkAcl {
 export declare namespace CreateNetworkAclEntry {
   export type Input = CreateNetworkAclEntryRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error = InvalidNetworkAclIDNotFound | CommonAwsError;
 }
 
 export declare namespace CreateNetworkInsightsAccessScope {
@@ -20695,7 +22445,10 @@ export declare namespace CreateNetworkInsightsPath {
 export declare namespace CreateNetworkInterface {
   export type Input = CreateNetworkInterfaceRequest;
   export type Output = CreateNetworkInterfaceResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidSubnetIDNotFound
+    | InvalidSecurityGroupIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace CreateNetworkInterfacePermission {
@@ -20707,7 +22460,7 @@ export declare namespace CreateNetworkInterfacePermission {
 export declare namespace CreatePlacementGroup {
   export type Input = CreatePlacementGroupRequest;
   export type Output = CreatePlacementGroupResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidPlacementGroupDuplicate | CommonAwsError;
 }
 
 export declare namespace CreatePublicIpv4Pool {
@@ -20719,7 +22472,10 @@ export declare namespace CreatePublicIpv4Pool {
 export declare namespace CreateReplaceRootVolumeTask {
   export type Input = CreateReplaceRootVolumeTaskRequest;
   export type Output = CreateReplaceRootVolumeTaskResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidInstanceIDNotFound
+    | InvalidSnapshotIdMalformed
+    | CommonAwsError;
 }
 
 export declare namespace CreateReservedInstancesListing {
@@ -20737,7 +22493,15 @@ export declare namespace CreateRestoreImageTask {
 export declare namespace CreateRoute {
   export type Input = CreateRouteRequest;
   export type Output = CreateRouteResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidRouteTableIDNotFound
+    | InvalidGatewayIDNotFound
+    | InvalidInstanceIDNotFound
+    | InvalidNetworkInterfaceIDNotFound
+    | InvalidNatGatewayIDNotFound
+    | InvalidTransitGatewayIdNotFound
+    | InvalidVpcPeeringConnectionIDNotFound
+    | CommonAwsError;
 }
 
 export declare namespace CreateRouteServer {
@@ -20761,31 +22525,34 @@ export declare namespace CreateRouteServerPeer {
 export declare namespace CreateRouteTable {
   export type Input = CreateRouteTableRequest;
   export type Output = CreateRouteTableResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidVpcIDNotFound | CommonAwsError;
 }
 
 export declare namespace CreateSecurityGroup {
   export type Input = CreateSecurityGroupRequest;
   export type Output = CreateSecurityGroupResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidVpcIDNotFound
+    | InvalidGroupDuplicate
+    | CommonAwsError;
 }
 
 export declare namespace CreateSnapshot {
   export type Input = CreateSnapshotRequest;
   export type Output = Snapshot;
-  export type Error = CommonAwsError;
+  export type Error = InvalidVolumeNotFound | CommonAwsError;
 }
 
 export declare namespace CreateSnapshots {
   export type Input = CreateSnapshotsRequest;
   export type Output = CreateSnapshotsResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidInstanceIDNotFound | CommonAwsError;
 }
 
 export declare namespace CreateSpotDatafeedSubscription {
   export type Input = CreateSpotDatafeedSubscriptionRequest;
   export type Output = CreateSpotDatafeedSubscriptionResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidSpotDatafeedNotFound | CommonAwsError;
 }
 
 export declare namespace CreateStoreImageTask {
@@ -20797,13 +22564,13 @@ export declare namespace CreateStoreImageTask {
 export declare namespace CreateSubnet {
   export type Input = CreateSubnetRequest;
   export type Output = CreateSubnetResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidVpcIDNotFound | CommonAwsError;
 }
 
 export declare namespace CreateSubnetCidrReservation {
   export type Input = CreateSubnetCidrReservationRequest;
   export type Output = CreateSubnetCidrReservationResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidSubnetIDNotFound | CommonAwsError;
 }
 
 export declare namespace CreateTags {
@@ -20821,97 +22588,119 @@ export declare namespace CreateTrafficMirrorFilter {
 export declare namespace CreateTrafficMirrorFilterRule {
   export type Input = CreateTrafficMirrorFilterRuleRequest;
   export type Output = CreateTrafficMirrorFilterRuleResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidTrafficMirrorFilterIdNotFound | CommonAwsError;
 }
 
 export declare namespace CreateTrafficMirrorSession {
   export type Input = CreateTrafficMirrorSessionRequest;
   export type Output = CreateTrafficMirrorSessionResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidTrafficMirrorFilterIdNotFound
+    | InvalidTrafficMirrorTargetIdNotFound
+    | InvalidNetworkInterfaceIDNotFound
+    | CommonAwsError;
 }
 
 export declare namespace CreateTrafficMirrorTarget {
   export type Input = CreateTrafficMirrorTargetRequest;
   export type Output = CreateTrafficMirrorTargetResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidNetworkInterfaceIDNotFound | CommonAwsError;
 }
 
 export declare namespace CreateTransitGateway {
   export type Input = CreateTransitGatewayRequest;
   export type Output = CreateTransitGatewayResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidTransitGatewayIdNotFound | CommonAwsError;
 }
 
 export declare namespace CreateTransitGatewayConnect {
   export type Input = CreateTransitGatewayConnectRequest;
   export type Output = CreateTransitGatewayConnectResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidTransitGatewayAttachmentIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace CreateTransitGatewayConnectPeer {
   export type Input = CreateTransitGatewayConnectPeerRequest;
   export type Output = CreateTransitGatewayConnectPeerResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidTransitGatewayAttachmentIdNotFound
+    | InvalidTransitGatewayConnectPeerIdMalformed
+    | CommonAwsError;
 }
 
 export declare namespace CreateTransitGatewayMulticastDomain {
   export type Input = CreateTransitGatewayMulticastDomainRequest;
   export type Output = CreateTransitGatewayMulticastDomainResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidTransitGatewayIdNotFound | CommonAwsError;
 }
 
 export declare namespace CreateTransitGatewayPeeringAttachment {
   export type Input = CreateTransitGatewayPeeringAttachmentRequest;
   export type Output = CreateTransitGatewayPeeringAttachmentResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidTransitGatewayIdNotFound | CommonAwsError;
 }
 
 export declare namespace CreateTransitGatewayPolicyTable {
   export type Input = CreateTransitGatewayPolicyTableRequest;
   export type Output = CreateTransitGatewayPolicyTableResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidTransitGatewayIdNotFound | CommonAwsError;
 }
 
 export declare namespace CreateTransitGatewayPrefixListReference {
   export type Input = CreateTransitGatewayPrefixListReferenceRequest;
   export type Output = CreateTransitGatewayPrefixListReferenceResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidTransitGatewayRouteTableIdNotFound
+    | InvalidPrefixListIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace CreateTransitGatewayRoute {
   export type Input = CreateTransitGatewayRouteRequest;
   export type Output = CreateTransitGatewayRouteResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidTransitGatewayRouteTableIdNotFound
+    | InvalidTransitGatewayAttachmentIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace CreateTransitGatewayRouteTable {
   export type Input = CreateTransitGatewayRouteTableRequest;
   export type Output = CreateTransitGatewayRouteTableResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidTransitGatewayIdNotFound | CommonAwsError;
 }
 
 export declare namespace CreateTransitGatewayRouteTableAnnouncement {
   export type Input = CreateTransitGatewayRouteTableAnnouncementRequest;
   export type Output = CreateTransitGatewayRouteTableAnnouncementResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidTransitGatewayRouteTableIdNotFound
+    | InvalidTransitGatewayAttachmentIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace CreateTransitGatewayVpcAttachment {
   export type Input = CreateTransitGatewayVpcAttachmentRequest;
   export type Output = CreateTransitGatewayVpcAttachmentResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidTransitGatewayIdNotFound
+    | InvalidVpcIDNotFound
+    | InvalidSubnetIDNotFound
+    | CommonAwsError;
 }
 
 export declare namespace CreateVerifiedAccessEndpoint {
   export type Input = CreateVerifiedAccessEndpointRequest;
   export type Output = CreateVerifiedAccessEndpointResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidVerifiedAccessGroupIdNotFound | CommonAwsError;
 }
 
 export declare namespace CreateVerifiedAccessGroup {
   export type Input = CreateVerifiedAccessGroupRequest;
   export type Output = CreateVerifiedAccessGroupResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidVerifiedAccessInstanceIdNotFound | CommonAwsError;
 }
 
 export declare namespace CreateVerifiedAccessInstance {
@@ -20929,13 +22718,17 @@ export declare namespace CreateVerifiedAccessTrustProvider {
 export declare namespace CreateVolume {
   export type Input = CreateVolumeRequest;
   export type Output = Volume;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidSnapshotNotFound
+    | InvalidVolumeIDDuplicate
+    | InvalidAvailabilityZone
+    | CommonAwsError;
 }
 
 export declare namespace CreateVpc {
   export type Input = CreateVpcRequest;
   export type Output = CreateVpcResult;
-  export type Error = CommonAwsError;
+  export type Error = VpcLimitExceeded | CommonAwsError;
 }
 
 export declare namespace CreateVpcBlockPublicAccessExclusion {
@@ -20947,43 +22740,60 @@ export declare namespace CreateVpcBlockPublicAccessExclusion {
 export declare namespace CreateVpcEndpoint {
   export type Input = CreateVpcEndpointRequest;
   export type Output = CreateVpcEndpointResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidVpcIDNotFound
+    | InvalidSubnetIDNotFound
+    | InvalidSecurityGroupIdNotFound
+    | InvalidRouteTableIDNotFound
+    | CommonAwsError;
 }
 
 export declare namespace CreateVpcEndpointConnectionNotification {
   export type Input = CreateVpcEndpointConnectionNotificationRequest;
   export type Output = CreateVpcEndpointConnectionNotificationResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidVpcEndpointIdNotFound
+    | InvalidVpcEndpointServiceIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace CreateVpcEndpointServiceConfiguration {
   export type Input = CreateVpcEndpointServiceConfigurationRequest;
   export type Output = CreateVpcEndpointServiceConfigurationResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidNetworkLoadBalancerArnNotFound | CommonAwsError;
 }
 
 export declare namespace CreateVpcPeeringConnection {
   export type Input = CreateVpcPeeringConnectionRequest;
   export type Output = CreateVpcPeeringConnectionResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidVpcIDNotFound
+    | VpcPeeringConnectionAlreadyExists
+    | VpcPeeringConnectionsPerVpcLimitExceeded
+    | CommonAwsError;
 }
 
 export declare namespace CreateVpnConnection {
   export type Input = CreateVpnConnectionRequest;
   export type Output = CreateVpnConnectionResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidCustomerGatewayIDNotFound
+    | InvalidVpnGatewayIDNotFound
+    | InvalidTransitGatewayIdNotFound
+    | VpnConnectionLimitExceeded
+    | CommonAwsError;
 }
 
 export declare namespace CreateVpnConnectionRoute {
   export type Input = CreateVpnConnectionRouteRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error = InvalidVpnConnectionIDNotFound | CommonAwsError;
 }
 
 export declare namespace CreateVpnGateway {
   export type Input = CreateVpnGatewayRequest;
   export type Output = CreateVpnGatewayResult;
-  export type Error = CommonAwsError;
+  export type Error = VpnGatewayLimitExceeded | CommonAwsError;
 }
 
 export declare namespace DeleteCapacityManagerDataExport {
@@ -20995,19 +22805,22 @@ export declare namespace DeleteCapacityManagerDataExport {
 export declare namespace DeleteCarrierGateway {
   export type Input = DeleteCarrierGatewayRequest;
   export type Output = DeleteCarrierGatewayResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidCarrierGatewayIDNotFound | CommonAwsError;
 }
 
 export declare namespace DeleteClientVpnEndpoint {
   export type Input = DeleteClientVpnEndpointRequest;
   export type Output = DeleteClientVpnEndpointResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidClientVpnEndpointIdNotFound | CommonAwsError;
 }
 
 export declare namespace DeleteClientVpnRoute {
   export type Input = DeleteClientVpnRouteRequest;
   export type Output = DeleteClientVpnRouteResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidClientVpnEndpointIdNotFound
+    | InvalidClientVpnRouteNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DeleteCoipCidr {
@@ -21025,19 +22838,22 @@ export declare namespace DeleteCoipPool {
 export declare namespace DeleteCustomerGateway {
   export type Input = DeleteCustomerGatewayRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error = InvalidCustomerGatewayIDNotFound | CommonAwsError;
 }
 
 export declare namespace DeleteDhcpOptions {
   export type Input = DeleteDhcpOptionsRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidDhcpOptionIDNotFound
+    | InvalidDhcpOptionsIdMalformed
+    | CommonAwsError;
 }
 
 export declare namespace DeleteEgressOnlyInternetGateway {
   export type Input = DeleteEgressOnlyInternetGatewayRequest;
   export type Output = DeleteEgressOnlyInternetGatewayResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidGatewayIDNotFound | CommonAwsError;
 }
 
 export declare namespace DeleteFleets {
@@ -21049,13 +22865,16 @@ export declare namespace DeleteFleets {
 export declare namespace DeleteFlowLogs {
   export type Input = DeleteFlowLogsRequest;
   export type Output = DeleteFlowLogsResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidFlowLogIdNotFound | CommonAwsError;
 }
 
 export declare namespace DeleteFpgaImage {
   export type Input = DeleteFpgaImageRequest;
   export type Output = DeleteFpgaImageResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidFpgaImageIDNotFound
+    | InvalidFpgaImageIDMalformed
+    | CommonAwsError;
 }
 
 export declare namespace DeleteImageUsageReport {
@@ -21073,19 +22892,19 @@ export declare namespace DeleteInstanceConnectEndpoint {
 export declare namespace DeleteInstanceEventWindow {
   export type Input = DeleteInstanceEventWindowRequest;
   export type Output = DeleteInstanceEventWindowResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidInstanceEventWindowIdNotFound | CommonAwsError;
 }
 
 export declare namespace DeleteInternetGateway {
   export type Input = DeleteInternetGatewayRequest;
   export type Output = {};
-  export type Error = InvalidInternetGatewayNotFound | CommonAwsError;
+  export type Error = InvalidInternetGatewayIDNotFound | CommonAwsError;
 }
 
 export declare namespace DeleteIpam {
   export type Input = DeleteIpamRequest;
   export type Output = DeleteIpamResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidIpamIdNotFound | CommonAwsError;
 }
 
 export declare namespace DeleteIpamExternalResourceVerificationToken {
@@ -21097,7 +22916,7 @@ export declare namespace DeleteIpamExternalResourceVerificationToken {
 export declare namespace DeleteIpamPool {
   export type Input = DeleteIpamPoolRequest;
   export type Output = DeleteIpamPoolResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidIpamPoolIdNotFound | CommonAwsError;
 }
 
 export declare namespace DeleteIpamPrefixListResolver {
@@ -21115,13 +22934,13 @@ export declare namespace DeleteIpamPrefixListResolverTarget {
 export declare namespace DeleteIpamResourceDiscovery {
   export type Input = DeleteIpamResourceDiscoveryRequest;
   export type Output = DeleteIpamResourceDiscoveryResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidIpamResourceDiscoveryIdNotFound | CommonAwsError;
 }
 
 export declare namespace DeleteIpamScope {
   export type Input = DeleteIpamScopeRequest;
   export type Output = DeleteIpamScopeResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidIpamScopeIdNotFound | CommonAwsError;
 }
 
 export declare namespace DeleteKeyPair {
@@ -21133,19 +22952,29 @@ export declare namespace DeleteKeyPair {
 export declare namespace DeleteLaunchTemplate {
   export type Input = DeleteLaunchTemplateRequest;
   export type Output = DeleteLaunchTemplateResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidLaunchTemplateIdNotFound
+    | InvalidLaunchTemplateNameNotFoundException
+    | InvalidLaunchTemplateIdMalformed
+    | CommonAwsError;
 }
 
 export declare namespace DeleteLaunchTemplateVersions {
   export type Input = DeleteLaunchTemplateVersionsRequest;
   export type Output = DeleteLaunchTemplateVersionsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidLaunchTemplateIdNotFound
+    | InvalidLaunchTemplateIdVersionNotFound
+    | InvalidLaunchTemplateIdMalformed
+    | CommonAwsError;
 }
 
 export declare namespace DeleteLocalGatewayRoute {
   export type Input = DeleteLocalGatewayRouteRequest;
   export type Output = DeleteLocalGatewayRouteResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidLocalGatewayRouteTableVpcAssociationIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DeleteLocalGatewayRouteTable {
@@ -21165,7 +22994,9 @@ export declare namespace DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssoci
 export declare namespace DeleteLocalGatewayRouteTableVpcAssociation {
   export type Input = DeleteLocalGatewayRouteTableVpcAssociationRequest;
   export type Output = DeleteLocalGatewayRouteTableVpcAssociationResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidLocalGatewayRouteTableVpcAssociationIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DeleteLocalGatewayVirtualInterface {
@@ -21183,55 +23014,65 @@ export declare namespace DeleteLocalGatewayVirtualInterfaceGroup {
 export declare namespace DeleteManagedPrefixList {
   export type Input = DeleteManagedPrefixListRequest;
   export type Output = DeleteManagedPrefixListResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidPrefixListIdNotFound | CommonAwsError;
 }
 
 export declare namespace DeleteNatGateway {
   export type Input = DeleteNatGatewayRequest;
   export type Output = DeleteNatGatewayResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidNatGatewayIDNotFound | CommonAwsError;
 }
 
 export declare namespace DeleteNetworkAcl {
   export type Input = DeleteNetworkAclRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidNetworkAclIDNotFound
+    | InvalidNetworkAclInUse
+    | CommonAwsError;
 }
 
 export declare namespace DeleteNetworkAclEntry {
   export type Input = DeleteNetworkAclEntryRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidNetworkAclIDNotFound
+    | InvalidNetworkAclEntryNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DeleteNetworkInsightsAccessScope {
   export type Input = DeleteNetworkInsightsAccessScopeRequest;
   export type Output = DeleteNetworkInsightsAccessScopeResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidNetworkInsightsAccessScopeIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DeleteNetworkInsightsAccessScopeAnalysis {
   export type Input = DeleteNetworkInsightsAccessScopeAnalysisRequest;
   export type Output = DeleteNetworkInsightsAccessScopeAnalysisResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidNetworkInsightsAccessScopeAnalysisIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DeleteNetworkInsightsAnalysis {
   export type Input = DeleteNetworkInsightsAnalysisRequest;
   export type Output = DeleteNetworkInsightsAnalysisResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidNetworkInsightsAnalysisIdNotFound | CommonAwsError;
 }
 
 export declare namespace DeleteNetworkInsightsPath {
   export type Input = DeleteNetworkInsightsPathRequest;
   export type Output = DeleteNetworkInsightsPathResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidNetworkInsightsPathIdNotFound | CommonAwsError;
 }
 
 export declare namespace DeleteNetworkInterface {
   export type Input = DeleteNetworkInterfaceRequest;
   export type Output = {};
-  export type Error = InvalidNetworkInterfaceNotFound | CommonAwsError;
+  export type Error = InvalidNetworkInterfaceIDNotFound | CommonAwsError;
 }
 
 export declare namespace DeleteNetworkInterfacePermission {
@@ -21243,7 +23084,10 @@ export declare namespace DeleteNetworkInterfacePermission {
 export declare namespace DeletePlacementGroup {
   export type Input = DeletePlacementGroupRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidPlacementGroupUnknown
+    | InvalidPlacementGroupInUse
+    | CommonAwsError;
 }
 
 export declare namespace DeletePublicIpv4Pool {
@@ -21261,7 +23105,10 @@ export declare namespace DeleteQueuedReservedInstances {
 export declare namespace DeleteRoute {
   export type Input = DeleteRouteRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidRouteTableIDNotFound
+    | InvalidRouteNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DeleteRouteServer {
@@ -21285,25 +23132,33 @@ export declare namespace DeleteRouteServerPeer {
 export declare namespace DeleteRouteTable {
   export type Input = DeleteRouteTableRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error = InvalidRouteTableIDNotFound | CommonAwsError;
 }
 
 export declare namespace DeleteSecurityGroup {
   export type Input = DeleteSecurityGroupRequest;
   export type Output = DeleteSecurityGroupResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidGroupNotFound
+    | InvalidSecurityGroupIdNotFound
+    | InvalidGroupInUse
+    | CommonAwsError;
 }
 
 export declare namespace DeleteSnapshot {
   export type Input = DeleteSnapshotRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidSnapshotNotFound
+    | InvalidSnapshotInUse
+    | InvalidSnapshotIdMalformed
+    | CommonAwsError;
 }
 
 export declare namespace DeleteSpotDatafeedSubscription {
   export type Input = DeleteSpotDatafeedSubscriptionRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error = InvalidSpotDatafeedNotFound | CommonAwsError;
 }
 
 export declare namespace DeleteSubnet {
@@ -21315,7 +23170,7 @@ export declare namespace DeleteSubnet {
 export declare namespace DeleteSubnetCidrReservation {
   export type Input = DeleteSubnetCidrReservationRequest;
   export type Output = DeleteSubnetCidrReservationResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidSubnetCidrReservationIdNotFound | CommonAwsError;
 }
 
 export declare namespace DeleteTags {
@@ -21327,121 +23182,152 @@ export declare namespace DeleteTags {
 export declare namespace DeleteTrafficMirrorFilter {
   export type Input = DeleteTrafficMirrorFilterRequest;
   export type Output = DeleteTrafficMirrorFilterResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidTrafficMirrorFilterIdNotFound
+    | InvalidTrafficMirrorFilterInUse
+    | CommonAwsError;
 }
 
 export declare namespace DeleteTrafficMirrorFilterRule {
   export type Input = DeleteTrafficMirrorFilterRuleRequest;
   export type Output = DeleteTrafficMirrorFilterRuleResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidTrafficMirrorFilterRuleIdNotFound | CommonAwsError;
 }
 
 export declare namespace DeleteTrafficMirrorSession {
   export type Input = DeleteTrafficMirrorSessionRequest;
   export type Output = DeleteTrafficMirrorSessionResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidTrafficMirrorSessionIdNotFound | CommonAwsError;
 }
 
 export declare namespace DeleteTrafficMirrorTarget {
   export type Input = DeleteTrafficMirrorTargetRequest;
   export type Output = DeleteTrafficMirrorTargetResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidTrafficMirrorTargetIdNotFound | CommonAwsError;
 }
 
 export declare namespace DeleteTransitGateway {
   export type Input = DeleteTransitGatewayRequest;
   export type Output = DeleteTransitGatewayResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidTransitGatewayIdNotFound
+    | InvalidTransitGatewayNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DeleteTransitGatewayConnect {
   export type Input = DeleteTransitGatewayConnectRequest;
   export type Output = DeleteTransitGatewayConnectResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidTransitGatewayAttachmentIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DeleteTransitGatewayConnectPeer {
   export type Input = DeleteTransitGatewayConnectPeerRequest;
   export type Output = DeleteTransitGatewayConnectPeerResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidTransitGatewayConnectPeerIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DeleteTransitGatewayMulticastDomain {
   export type Input = DeleteTransitGatewayMulticastDomainRequest;
   export type Output = DeleteTransitGatewayMulticastDomainResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidTransitGatewayMulticastDomainIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DeleteTransitGatewayPeeringAttachment {
   export type Input = DeleteTransitGatewayPeeringAttachmentRequest;
   export type Output = DeleteTransitGatewayPeeringAttachmentResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidTransitGatewayAttachmentIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DeleteTransitGatewayPolicyTable {
   export type Input = DeleteTransitGatewayPolicyTableRequest;
   export type Output = DeleteTransitGatewayPolicyTableResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidTransitGatewayPolicyTableIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DeleteTransitGatewayPrefixListReference {
   export type Input = DeleteTransitGatewayPrefixListReferenceRequest;
   export type Output = DeleteTransitGatewayPrefixListReferenceResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidTransitGatewayRouteTableIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DeleteTransitGatewayRoute {
   export type Input = DeleteTransitGatewayRouteRequest;
   export type Output = DeleteTransitGatewayRouteResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidTransitGatewayRouteTableIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DeleteTransitGatewayRouteTable {
   export type Input = DeleteTransitGatewayRouteTableRequest;
   export type Output = DeleteTransitGatewayRouteTableResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidTransitGatewayRouteTableIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DeleteTransitGatewayRouteTableAnnouncement {
   export type Input = DeleteTransitGatewayRouteTableAnnouncementRequest;
   export type Output = DeleteTransitGatewayRouteTableAnnouncementResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidTransitGatewayRouteTableAnnouncementIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DeleteTransitGatewayVpcAttachment {
   export type Input = DeleteTransitGatewayVpcAttachmentRequest;
   export type Output = DeleteTransitGatewayVpcAttachmentResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidTransitGatewayAttachmentIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DeleteVerifiedAccessEndpoint {
   export type Input = DeleteVerifiedAccessEndpointRequest;
   export type Output = DeleteVerifiedAccessEndpointResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidVerifiedAccessEndpointIdNotFound | CommonAwsError;
 }
 
 export declare namespace DeleteVerifiedAccessGroup {
   export type Input = DeleteVerifiedAccessGroupRequest;
   export type Output = DeleteVerifiedAccessGroupResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidVerifiedAccessGroupIdNotFound | CommonAwsError;
 }
 
 export declare namespace DeleteVerifiedAccessInstance {
   export type Input = DeleteVerifiedAccessInstanceRequest;
   export type Output = DeleteVerifiedAccessInstanceResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidVerifiedAccessInstanceIdNotFound | CommonAwsError;
 }
 
 export declare namespace DeleteVerifiedAccessTrustProvider {
   export type Input = DeleteVerifiedAccessTrustProviderRequest;
   export type Output = DeleteVerifiedAccessTrustProviderResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidVerifiedAccessTrustProviderIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DeleteVolume {
   export type Input = DeleteVolumeRequest;
   export type Output = {};
-  export type Error = InvalidVolumeNotFound | CommonAwsError;
+  export type Error =
+    | InvalidVolumeNotFound
+    | InvalidVolumeIDMalformed
+    | CommonAwsError;
 }
 
 export declare namespace DeleteVpc {
@@ -21459,43 +23345,46 @@ export declare namespace DeleteVpcBlockPublicAccessExclusion {
 export declare namespace DeleteVpcEndpointConnectionNotifications {
   export type Input = DeleteVpcEndpointConnectionNotificationsRequest;
   export type Output = DeleteVpcEndpointConnectionNotificationsResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidVpcEndpointIdNotFound | CommonAwsError;
 }
 
 export declare namespace DeleteVpcEndpoints {
   export type Input = DeleteVpcEndpointsRequest;
   export type Output = DeleteVpcEndpointsResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidVpcEndpointIdNotFound | CommonAwsError;
 }
 
 export declare namespace DeleteVpcEndpointServiceConfigurations {
   export type Input = DeleteVpcEndpointServiceConfigurationsRequest;
   export type Output = DeleteVpcEndpointServiceConfigurationsResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidVpcEndpointServiceIdNotFound | CommonAwsError;
 }
 
 export declare namespace DeleteVpcPeeringConnection {
   export type Input = DeleteVpcPeeringConnectionRequest;
   export type Output = DeleteVpcPeeringConnectionResult;
-  export type Error = InvalidVpcPeeringConnectionNotFound | CommonAwsError;
+  export type Error =
+    | InvalidVpcPeeringConnectionIDNotFound
+    | InvalidVpcPeeringConnectionNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DeleteVpnConnection {
   export type Input = DeleteVpnConnectionRequest;
   export type Output = {};
-  export type Error = InvalidVpnConnectionNotFound | CommonAwsError;
+  export type Error = InvalidVpnConnectionIDNotFound | CommonAwsError;
 }
 
 export declare namespace DeleteVpnConnectionRoute {
   export type Input = DeleteVpnConnectionRouteRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error = InvalidVpnConnectionIDNotFound | CommonAwsError;
 }
 
 export declare namespace DeleteVpnGateway {
   export type Input = DeleteVpnGatewayRequest;
   export type Output = {};
-  export type Error = InvalidVpnGatewayNotFound | CommonAwsError;
+  export type Error = InvalidVpnGatewayIDNotFound | CommonAwsError;
 }
 
 export declare namespace DeprovisionByoipCidr {
@@ -21507,25 +23396,28 @@ export declare namespace DeprovisionByoipCidr {
 export declare namespace DeprovisionIpamByoasn {
   export type Input = DeprovisionIpamByoasnRequest;
   export type Output = DeprovisionIpamByoasnResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidIpamIdNotFound | CommonAwsError;
 }
 
 export declare namespace DeprovisionIpamPoolCidr {
   export type Input = DeprovisionIpamPoolCidrRequest;
   export type Output = DeprovisionIpamPoolCidrResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidIpamPoolIdNotFound | CommonAwsError;
 }
 
 export declare namespace DeprovisionPublicIpv4PoolCidr {
   export type Input = DeprovisionPublicIpv4PoolCidrRequest;
   export type Output = DeprovisionPublicIpv4PoolCidrResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidPoolIDNotFound | CommonAwsError;
 }
 
 export declare namespace DeregisterImage {
   export type Input = DeregisterImageRequest;
   export type Output = DeregisterImageResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidAMIIDNotFound
+    | InvalidAMIIDUnavailable
+    | CommonAwsError;
 }
 
 export declare namespace DeregisterInstanceEventNotificationAttributes {
@@ -21537,13 +23429,17 @@ export declare namespace DeregisterInstanceEventNotificationAttributes {
 export declare namespace DeregisterTransitGatewayMulticastGroupMembers {
   export type Input = DeregisterTransitGatewayMulticastGroupMembersRequest;
   export type Output = DeregisterTransitGatewayMulticastGroupMembersResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidTransitGatewayMulticastDomainIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DeregisterTransitGatewayMulticastGroupSources {
   export type Input = DeregisterTransitGatewayMulticastGroupSourcesRequest;
   export type Output = DeregisterTransitGatewayMulticastGroupSourcesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidTransitGatewayMulticastDomainIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DescribeAccountAttributes {
@@ -21555,7 +23451,10 @@ export declare namespace DescribeAccountAttributes {
 export declare namespace DescribeAddresses {
   export type Input = DescribeAddressesRequest;
   export type Output = DescribeAddressesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidAddressIDNotFound
+    | InvalidAllocationIDNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DescribeAddressesAttribute {
@@ -21591,7 +23490,7 @@ export declare namespace DescribeAwsNetworkPerformanceMetricSubscriptions {
 export declare namespace DescribeBundleTasks {
   export type Input = DescribeBundleTasksRequest;
   export type Output = DescribeBundleTasksResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidBundleIDNotFound | CommonAwsError;
 }
 
 export declare namespace DescribeByoipCidrs {
@@ -21645,13 +23544,19 @@ export declare namespace DescribeCapacityReservationBillingRequests {
 export declare namespace DescribeCapacityReservationFleets {
   export type Input = DescribeCapacityReservationFleetsRequest;
   export type Output = DescribeCapacityReservationFleetsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidCapacityReservationFleetIdNotFound
+    | InvalidCapacityReservationFleetIdMalformed
+    | CommonAwsError;
 }
 
 export declare namespace DescribeCapacityReservations {
   export type Input = DescribeCapacityReservationsRequest;
   export type Output = DescribeCapacityReservationsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidCapacityReservationIdNotFound
+    | InvalidCapacityReservationIdMalformed
+    | CommonAwsError;
 }
 
 export declare namespace DescribeCapacityReservationTopology {
@@ -21663,7 +23568,7 @@ export declare namespace DescribeCapacityReservationTopology {
 export declare namespace DescribeCarrierGateways {
   export type Input = DescribeCarrierGatewaysRequest;
   export type Output = DescribeCarrierGatewaysResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidCarrierGatewayIDNotFound | CommonAwsError;
 }
 
 export declare namespace DescribeClassicLinkInstances {
@@ -21675,49 +23580,58 @@ export declare namespace DescribeClassicLinkInstances {
 export declare namespace DescribeClientVpnAuthorizationRules {
   export type Input = DescribeClientVpnAuthorizationRulesRequest;
   export type Output = DescribeClientVpnAuthorizationRulesResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidClientVpnEndpointIdNotFound | CommonAwsError;
 }
 
 export declare namespace DescribeClientVpnConnections {
   export type Input = DescribeClientVpnConnectionsRequest;
   export type Output = DescribeClientVpnConnectionsResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidClientVpnEndpointIdNotFound | CommonAwsError;
 }
 
 export declare namespace DescribeClientVpnEndpoints {
   export type Input = DescribeClientVpnEndpointsRequest;
   export type Output = DescribeClientVpnEndpointsResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidClientVpnEndpointIdNotFound | CommonAwsError;
 }
 
 export declare namespace DescribeClientVpnRoutes {
   export type Input = DescribeClientVpnRoutesRequest;
   export type Output = DescribeClientVpnRoutesResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidClientVpnEndpointIdNotFound | CommonAwsError;
 }
 
 export declare namespace DescribeClientVpnTargetNetworks {
   export type Input = DescribeClientVpnTargetNetworksRequest;
   export type Output = DescribeClientVpnTargetNetworksResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidClientVpnEndpointIdNotFound | CommonAwsError;
 }
 
 export declare namespace DescribeCoipPools {
   export type Input = DescribeCoipPoolsRequest;
   export type Output = DescribeCoipPoolsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidCoipPoolIdNotFound
+    | InvalidCoipPoolIdMalformed
+    | CommonAwsError;
 }
 
 export declare namespace DescribeConversionTasks {
   export type Input = DescribeConversionTasksRequest;
   export type Output = DescribeConversionTasksResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidConversionTaskId
+    | InvalidConversionTaskIdMalformed
+    | CommonAwsError;
 }
 
 export declare namespace DescribeCustomerGateways {
   export type Input = DescribeCustomerGatewaysRequest;
   export type Output = DescribeCustomerGatewaysResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidCustomerGatewayIDNotFound
+    | InvalidCustomerGatewayIdMalformed
+    | CommonAwsError;
 }
 
 export declare namespace DescribeDeclarativePoliciesReports {
@@ -21729,13 +23643,16 @@ export declare namespace DescribeDeclarativePoliciesReports {
 export declare namespace DescribeDhcpOptions {
   export type Input = DescribeDhcpOptionsRequest;
   export type Output = DescribeDhcpOptionsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidDhcpOptionIDNotFound
+    | InvalidDhcpOptionsIdMalformed
+    | CommonAwsError;
 }
 
 export declare namespace DescribeEgressOnlyInternetGateways {
   export type Input = DescribeEgressOnlyInternetGatewaysRequest;
   export type Output = DescribeEgressOnlyInternetGatewaysResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidGatewayIDNotFound | CommonAwsError;
 }
 
 export declare namespace DescribeElasticGpus {
@@ -21753,7 +23670,7 @@ export declare namespace DescribeExportImageTasks {
 export declare namespace DescribeExportTasks {
   export type Input = DescribeExportTasksRequest;
   export type Output = DescribeExportTasksResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidExportTaskIDNotFound | CommonAwsError;
 }
 
 export declare namespace DescribeFastLaunchImages {
@@ -21789,43 +23706,54 @@ export declare namespace DescribeFleets {
 export declare namespace DescribeFlowLogs {
   export type Input = DescribeFlowLogsRequest;
   export type Output = DescribeFlowLogsResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidFlowLogIdNotFound | CommonAwsError;
 }
 
 export declare namespace DescribeFpgaImageAttribute {
   export type Input = DescribeFpgaImageAttributeRequest;
   export type Output = DescribeFpgaImageAttributeResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidFpgaImageIDNotFound
+    | InvalidFpgaImageIDMalformed
+    | CommonAwsError;
 }
 
 export declare namespace DescribeFpgaImages {
   export type Input = DescribeFpgaImagesRequest;
   export type Output = DescribeFpgaImagesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidFpgaImageIDNotFound
+    | InvalidFpgaImageIDMalformed
+    | CommonAwsError;
 }
 
 export declare namespace DescribeHostReservationOfferings {
   export type Input = DescribeHostReservationOfferingsRequest;
   export type Output = DescribeHostReservationOfferingsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidHostReservationOfferingIdMalformed
+    | CommonAwsError;
 }
 
 export declare namespace DescribeHostReservations {
   export type Input = DescribeHostReservationsRequest;
   export type Output = DescribeHostReservationsResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidHostReservationIdMalformed | CommonAwsError;
 }
 
 export declare namespace DescribeHosts {
   export type Input = DescribeHostsRequest;
   export type Output = DescribeHostsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidHostIDNotFound
+    | InvalidHostIDMalformed
+    | CommonAwsError;
 }
 
 export declare namespace DescribeIamInstanceProfileAssociations {
   export type Input = DescribeIamInstanceProfileAssociationsRequest;
   export type Output = DescribeIamInstanceProfileAssociationsResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidAssociationIDNotFound | CommonAwsError;
 }
 
 export declare namespace DescribeIdentityIdFormat {
@@ -21843,7 +23771,10 @@ export declare namespace DescribeIdFormat {
 export declare namespace DescribeImageAttribute {
   export type Input = DescribeImageAttributeRequest;
   export type Output = ImageAttribute;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidAMIIDNotFound
+    | InvalidAMIIDUnavailable
+    | CommonAwsError;
 }
 
 export declare namespace DescribeImageReferences {
@@ -21855,7 +23786,10 @@ export declare namespace DescribeImageReferences {
 export declare namespace DescribeImages {
   export type Input = DescribeImagesRequest;
   export type Output = DescribeImagesResult;
-  export type Error = InvalidAMIIDNotFound | CommonAwsError;
+  export type Error =
+    | InvalidAMIIDNotFound
+    | InvalidAMIIDMalformed
+    | CommonAwsError;
 }
 
 export declare namespace DescribeImageUsageReportEntries {
@@ -21885,7 +23819,10 @@ export declare namespace DescribeImportSnapshotTasks {
 export declare namespace DescribeInstanceAttribute {
   export type Input = DescribeInstanceAttributeRequest;
   export type Output = InstanceAttribute;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidInstanceIDNotFound
+    | InvalidInstanceIDMalformed
+    | CommonAwsError;
 }
 
 export declare namespace DescribeInstanceConnectEndpoints {
@@ -21921,7 +23858,10 @@ export declare namespace DescribeInstanceImageMetadata {
 export declare namespace DescribeInstances {
   export type Input = DescribeInstancesRequest;
   export type Output = DescribeInstancesResult;
-  export type Error = InvalidInstanceIDNotFound | CommonAwsError;
+  export type Error =
+    | InvalidInstanceIDNotFound
+    | InvalidInstanceIDMalformed
+    | CommonAwsError;
 }
 
 export declare namespace DescribeInstanceStatus {
@@ -21951,7 +23891,10 @@ export declare namespace DescribeInstanceTypes {
 export declare namespace DescribeInternetGateways {
   export type Input = DescribeInternetGatewaysRequest;
   export type Output = DescribeInternetGatewaysResult;
-  export type Error = InvalidInternetGatewayNotFound | CommonAwsError;
+  export type Error =
+    | InvalidInternetGatewayNotFound
+    | InvalidInternetGatewayIDNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DescribeIpamByoasn {
@@ -21969,7 +23912,7 @@ export declare namespace DescribeIpamExternalResourceVerificationTokens {
 export declare namespace DescribeIpamPools {
   export type Input = DescribeIpamPoolsRequest;
   export type Output = DescribeIpamPoolsResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidIpamPoolIdNotFound | CommonAwsError;
 }
 
 export declare namespace DescribeIpamPrefixListResolvers {
@@ -21987,25 +23930,27 @@ export declare namespace DescribeIpamPrefixListResolverTargets {
 export declare namespace DescribeIpamResourceDiscoveries {
   export type Input = DescribeIpamResourceDiscoveriesRequest;
   export type Output = DescribeIpamResourceDiscoveriesResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidIpamResourceDiscoveryIdNotFound | CommonAwsError;
 }
 
 export declare namespace DescribeIpamResourceDiscoveryAssociations {
   export type Input = DescribeIpamResourceDiscoveryAssociationsRequest;
   export type Output = DescribeIpamResourceDiscoveryAssociationsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidIpamResourceDiscoveryAssociationIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DescribeIpams {
   export type Input = DescribeIpamsRequest;
   export type Output = DescribeIpamsResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidIpamIdNotFound | CommonAwsError;
 }
 
 export declare namespace DescribeIpamScopes {
   export type Input = DescribeIpamScopesRequest;
   export type Output = DescribeIpamScopesResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidIpamScopeIdNotFound | CommonAwsError;
 }
 
 export declare namespace DescribeIpv6Pools {
@@ -22023,19 +23968,27 @@ export declare namespace DescribeKeyPairs {
 export declare namespace DescribeLaunchTemplates {
   export type Input = DescribeLaunchTemplatesRequest;
   export type Output = DescribeLaunchTemplatesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidLaunchTemplateIdNotFound
+    | InvalidLaunchTemplateNameNotFoundException
+    | InvalidLaunchTemplateIdMalformed
+    | CommonAwsError;
 }
 
 export declare namespace DescribeLaunchTemplateVersions {
   export type Input = DescribeLaunchTemplateVersionsRequest;
   export type Output = DescribeLaunchTemplateVersionsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidLaunchTemplateIdNotFound
+    | InvalidLaunchTemplateIdVersionNotFound
+    | InvalidLaunchTemplateIdMalformed
+    | CommonAwsError;
 }
 
 export declare namespace DescribeLocalGatewayRouteTables {
   export type Input = DescribeLocalGatewayRouteTablesRequest;
   export type Output = DescribeLocalGatewayRouteTablesResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidLocalGatewayIDNotFound | CommonAwsError;
 }
 
 export declare namespace DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations {
@@ -22043,25 +23996,31 @@ export declare namespace DescribeLocalGatewayRouteTableVirtualInterfaceGroupAsso
     DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest;
   export type Output =
     DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidLocalGatewayRouteTableVirtualInterfaceGroupAssociationIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DescribeLocalGatewayRouteTableVpcAssociations {
   export type Input = DescribeLocalGatewayRouteTableVpcAssociationsRequest;
   export type Output = DescribeLocalGatewayRouteTableVpcAssociationsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidLocalGatewayRouteTableVpcAssociationIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DescribeLocalGateways {
   export type Input = DescribeLocalGatewaysRequest;
   export type Output = DescribeLocalGatewaysResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidLocalGatewayIDNotFound | CommonAwsError;
 }
 
 export declare namespace DescribeLocalGatewayVirtualInterfaceGroups {
   export type Input = DescribeLocalGatewayVirtualInterfaceGroupsRequest;
   export type Output = DescribeLocalGatewayVirtualInterfaceGroupsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidLocalGatewayVirtualInterfaceGroupIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DescribeLocalGatewayVirtualInterfaces {
@@ -22091,7 +24050,10 @@ export declare namespace DescribeMacModificationTasks {
 export declare namespace DescribeManagedPrefixLists {
   export type Input = DescribeManagedPrefixListsRequest;
   export type Output = DescribeManagedPrefixListsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidPrefixListIdNotFound
+    | InvalidPrefixListIdMalformed
+    | CommonAwsError;
 }
 
 export declare namespace DescribeMovingAddresses {
@@ -22103,43 +24065,50 @@ export declare namespace DescribeMovingAddresses {
 export declare namespace DescribeNatGateways {
   export type Input = DescribeNatGatewaysRequest;
   export type Output = DescribeNatGatewaysResult;
-  export type Error = NatGatewayNotFound | CommonAwsError;
+  export type Error =
+    | NatGatewayNotFound
+    | InvalidNatGatewayIDNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DescribeNetworkAcls {
   export type Input = DescribeNetworkAclsRequest;
   export type Output = DescribeNetworkAclsResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidNetworkAclIDNotFound | CommonAwsError;
 }
 
 export declare namespace DescribeNetworkInsightsAccessScopeAnalyses {
   export type Input = DescribeNetworkInsightsAccessScopeAnalysesRequest;
   export type Output = DescribeNetworkInsightsAccessScopeAnalysesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidNetworkInsightsAccessScopeAnalysisIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DescribeNetworkInsightsAccessScopes {
   export type Input = DescribeNetworkInsightsAccessScopesRequest;
   export type Output = DescribeNetworkInsightsAccessScopesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidNetworkInsightsAccessScopeIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DescribeNetworkInsightsAnalyses {
   export type Input = DescribeNetworkInsightsAnalysesRequest;
   export type Output = DescribeNetworkInsightsAnalysesResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidNetworkInsightsAnalysisIdNotFound | CommonAwsError;
 }
 
 export declare namespace DescribeNetworkInsightsPaths {
   export type Input = DescribeNetworkInsightsPathsRequest;
   export type Output = DescribeNetworkInsightsPathsResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidNetworkInsightsPathIdNotFound | CommonAwsError;
 }
 
 export declare namespace DescribeNetworkInterfaceAttribute {
   export type Input = DescribeNetworkInterfaceAttributeRequest;
   export type Output = DescribeNetworkInterfaceAttributeResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidNetworkInterfaceIDNotFound | CommonAwsError;
 }
 
 export declare namespace DescribeNetworkInterfacePermissions {
@@ -22151,10 +24120,7 @@ export declare namespace DescribeNetworkInterfacePermissions {
 export declare namespace DescribeNetworkInterfaces {
   export type Input = DescribeNetworkInterfacesRequest;
   export type Output = DescribeNetworkInterfacesResult;
-  export type Error =
-    | InvalidNetworkInterfaceIDNotFound
-    | InvalidNetworkInterfaceNotFound
-    | CommonAwsError;
+  export type Error = InvalidNetworkInterfaceIDNotFound | CommonAwsError;
 }
 
 export declare namespace DescribeOutpostLags {
@@ -22166,13 +24132,13 @@ export declare namespace DescribeOutpostLags {
 export declare namespace DescribePlacementGroups {
   export type Input = DescribePlacementGroupsRequest;
   export type Output = DescribePlacementGroupsResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidPlacementGroupUnknown | CommonAwsError;
 }
 
 export declare namespace DescribePrefixLists {
   export type Input = DescribePrefixListsRequest;
   export type Output = DescribePrefixListsResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidPrefixListIdNotFound | CommonAwsError;
 }
 
 export declare namespace DescribePrincipalIdFormat {
@@ -22184,7 +24150,10 @@ export declare namespace DescribePrincipalIdFormat {
 export declare namespace DescribePublicIpv4Pools {
   export type Input = DescribePublicIpv4PoolsRequest;
   export type Output = DescribePublicIpv4PoolsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidPoolIDNotFound
+    | InvalidPoolIDMalformed
+    | CommonAwsError;
 }
 
 export declare namespace DescribeRegions {
@@ -22196,13 +24165,19 @@ export declare namespace DescribeRegions {
 export declare namespace DescribeReplaceRootVolumeTasks {
   export type Input = DescribeReplaceRootVolumeTasksRequest;
   export type Output = DescribeReplaceRootVolumeTasksResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidReplaceRootVolumeTaskIdNotFound
+    | InvalidReplaceRootVolumeTaskIdMalformed
+    | CommonAwsError;
 }
 
 export declare namespace DescribeReservedInstances {
   export type Input = DescribeReservedInstancesRequest;
   export type Output = DescribeReservedInstancesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidReservationIDNotFound
+    | InvalidReservationIDMalformed
+    | CommonAwsError;
 }
 
 export declare namespace DescribeReservedInstancesListings {
@@ -22244,7 +24219,10 @@ export declare namespace DescribeRouteServers {
 export declare namespace DescribeRouteTables {
   export type Input = DescribeRouteTablesRequest;
   export type Output = DescribeRouteTablesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidRouteTableIDNotFound
+    | InvalidRouteTableIdMalformed
+    | CommonAwsError;
 }
 
 export declare namespace DescribeScheduledInstanceAvailability {
@@ -22262,19 +24240,26 @@ export declare namespace DescribeScheduledInstances {
 export declare namespace DescribeSecurityGroupReferences {
   export type Input = DescribeSecurityGroupReferencesRequest;
   export type Output = DescribeSecurityGroupReferencesResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidSecurityGroupIdNotFound | CommonAwsError;
 }
 
 export declare namespace DescribeSecurityGroupRules {
   export type Input = DescribeSecurityGroupRulesRequest;
   export type Output = DescribeSecurityGroupRulesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidSecurityGroupIdNotFound
+    | InvalidSecurityGroupRuleIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DescribeSecurityGroups {
   export type Input = DescribeSecurityGroupsRequest;
   export type Output = DescribeSecurityGroupsResult;
-  export type Error = InvalidGroupNotFound | CommonAwsError;
+  export type Error =
+    | InvalidGroupNotFound
+    | InvalidSecurityGroupIdNotFound
+    | InvalidGroupIdMalformed
+    | CommonAwsError;
 }
 
 export declare namespace DescribeSecurityGroupVpcAssociations {
@@ -22292,13 +24277,19 @@ export declare namespace DescribeServiceLinkVirtualInterfaces {
 export declare namespace DescribeSnapshotAttribute {
   export type Input = DescribeSnapshotAttributeRequest;
   export type Output = DescribeSnapshotAttributeResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidSnapshotNotFound
+    | InvalidSnapshotIdMalformed
+    | CommonAwsError;
 }
 
 export declare namespace DescribeSnapshots {
   export type Input = DescribeSnapshotsRequest;
   export type Output = DescribeSnapshotsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidSnapshotNotFound
+    | InvalidSnapshotIdMalformed
+    | CommonAwsError;
 }
 
 export declare namespace DescribeSnapshotTierStatus {
@@ -22310,31 +24301,37 @@ export declare namespace DescribeSnapshotTierStatus {
 export declare namespace DescribeSpotDatafeedSubscription {
   export type Input = DescribeSpotDatafeedSubscriptionRequest;
   export type Output = DescribeSpotDatafeedSubscriptionResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidSpotDatafeedNotFound | CommonAwsError;
 }
 
 export declare namespace DescribeSpotFleetInstances {
   export type Input = DescribeSpotFleetInstancesRequest;
   export type Output = DescribeSpotFleetInstancesResponse;
-  export type Error = CommonAwsError;
+  export type Error = InvalidSpotFleetRequestIdNotFound | CommonAwsError;
 }
 
 export declare namespace DescribeSpotFleetRequestHistory {
   export type Input = DescribeSpotFleetRequestHistoryRequest;
   export type Output = DescribeSpotFleetRequestHistoryResponse;
-  export type Error = CommonAwsError;
+  export type Error = InvalidSpotFleetRequestIdNotFound | CommonAwsError;
 }
 
 export declare namespace DescribeSpotFleetRequests {
   export type Input = DescribeSpotFleetRequestsRequest;
   export type Output = DescribeSpotFleetRequestsResponse;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidSpotFleetRequestIdNotFound
+    | InvalidSpotFleetRequestIdMalformed
+    | CommonAwsError;
 }
 
 export declare namespace DescribeSpotInstanceRequests {
   export type Input = DescribeSpotInstanceRequestsRequest;
   export type Output = DescribeSpotInstanceRequestsResult;
-  export type Error = InvalidSpotInstanceRequestIDNotFound | CommonAwsError;
+  export type Error =
+    | InvalidSpotInstanceRequestIDNotFound
+    | InvalidSpotInstanceRequestIDMalformed
+    | CommonAwsError;
 }
 
 export declare namespace DescribeSpotPriceHistory {
@@ -22346,7 +24343,7 @@ export declare namespace DescribeSpotPriceHistory {
 export declare namespace DescribeStaleSecurityGroups {
   export type Input = DescribeStaleSecurityGroupsRequest;
   export type Output = DescribeStaleSecurityGroupsResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidVpcIDNotFound | CommonAwsError;
 }
 
 export declare namespace DescribeStoreImageTasks {
@@ -22358,7 +24355,10 @@ export declare namespace DescribeStoreImageTasks {
 export declare namespace DescribeSubnets {
   export type Input = DescribeSubnetsRequest;
   export type Output = DescribeSubnetsResult;
-  export type Error = InvalidSubnetIDNotFound | CommonAwsError;
+  export type Error =
+    | InvalidSubnetIDNotFound
+    | InvalidSubnetIdMalformed
+    | CommonAwsError;
 }
 
 export declare namespace DescribeTags {
@@ -22376,79 +24376,101 @@ export declare namespace DescribeTrafficMirrorFilterRules {
 export declare namespace DescribeTrafficMirrorFilters {
   export type Input = DescribeTrafficMirrorFiltersRequest;
   export type Output = DescribeTrafficMirrorFiltersResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidTrafficMirrorFilterIdNotFound | CommonAwsError;
 }
 
 export declare namespace DescribeTrafficMirrorSessions {
   export type Input = DescribeTrafficMirrorSessionsRequest;
   export type Output = DescribeTrafficMirrorSessionsResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidTrafficMirrorSessionIdNotFound | CommonAwsError;
 }
 
 export declare namespace DescribeTrafficMirrorTargets {
   export type Input = DescribeTrafficMirrorTargetsRequest;
   export type Output = DescribeTrafficMirrorTargetsResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidTrafficMirrorTargetIdNotFound | CommonAwsError;
 }
 
 export declare namespace DescribeTransitGatewayAttachments {
   export type Input = DescribeTransitGatewayAttachmentsRequest;
   export type Output = DescribeTransitGatewayAttachmentsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidTransitGatewayAttachmentIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DescribeTransitGatewayConnectPeers {
   export type Input = DescribeTransitGatewayConnectPeersRequest;
   export type Output = DescribeTransitGatewayConnectPeersResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidTransitGatewayConnectPeerIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DescribeTransitGatewayConnects {
   export type Input = DescribeTransitGatewayConnectsRequest;
   export type Output = DescribeTransitGatewayConnectsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidTransitGatewayAttachmentIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DescribeTransitGatewayMulticastDomains {
   export type Input = DescribeTransitGatewayMulticastDomainsRequest;
   export type Output = DescribeTransitGatewayMulticastDomainsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidTransitGatewayMulticastDomainIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DescribeTransitGatewayPeeringAttachments {
   export type Input = DescribeTransitGatewayPeeringAttachmentsRequest;
   export type Output = DescribeTransitGatewayPeeringAttachmentsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidTransitGatewayAttachmentIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DescribeTransitGatewayPolicyTables {
   export type Input = DescribeTransitGatewayPolicyTablesRequest;
   export type Output = DescribeTransitGatewayPolicyTablesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidTransitGatewayPolicyTableIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DescribeTransitGatewayRouteTableAnnouncements {
   export type Input = DescribeTransitGatewayRouteTableAnnouncementsRequest;
   export type Output = DescribeTransitGatewayRouteTableAnnouncementsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidTransitGatewayRouteTableAnnouncementIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DescribeTransitGatewayRouteTables {
   export type Input = DescribeTransitGatewayRouteTablesRequest;
   export type Output = DescribeTransitGatewayRouteTablesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidTransitGatewayRouteTableIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DescribeTransitGateways {
   export type Input = DescribeTransitGatewaysRequest;
   export type Output = DescribeTransitGatewaysResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidTransitGatewayIdNotFound
+    | InvalidTransitGatewayNotFound
+    | InvalidTransitGatewayIdMalformed
+    | CommonAwsError;
 }
 
 export declare namespace DescribeTransitGatewayVpcAttachments {
   export type Input = DescribeTransitGatewayVpcAttachmentsRequest;
   export type Output = DescribeTransitGatewayVpcAttachmentsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidTransitGatewayAttachmentIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DescribeTrunkInterfaceAssociations {
@@ -22460,13 +24482,13 @@ export declare namespace DescribeTrunkInterfaceAssociations {
 export declare namespace DescribeVerifiedAccessEndpoints {
   export type Input = DescribeVerifiedAccessEndpointsRequest;
   export type Output = DescribeVerifiedAccessEndpointsResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidVerifiedAccessEndpointIdNotFound | CommonAwsError;
 }
 
 export declare namespace DescribeVerifiedAccessGroups {
   export type Input = DescribeVerifiedAccessGroupsRequest;
   export type Output = DescribeVerifiedAccessGroupsResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidVerifiedAccessGroupIdNotFound | CommonAwsError;
 }
 
 export declare namespace DescribeVerifiedAccessInstanceLoggingConfigurations {
@@ -22474,49 +24496,57 @@ export declare namespace DescribeVerifiedAccessInstanceLoggingConfigurations {
     DescribeVerifiedAccessInstanceLoggingConfigurationsRequest;
   export type Output =
     DescribeVerifiedAccessInstanceLoggingConfigurationsResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidVerifiedAccessInstanceIdNotFound | CommonAwsError;
 }
 
 export declare namespace DescribeVerifiedAccessInstances {
   export type Input = DescribeVerifiedAccessInstancesRequest;
   export type Output = DescribeVerifiedAccessInstancesResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidVerifiedAccessInstanceIdNotFound | CommonAwsError;
 }
 
 export declare namespace DescribeVerifiedAccessTrustProviders {
   export type Input = DescribeVerifiedAccessTrustProvidersRequest;
   export type Output = DescribeVerifiedAccessTrustProvidersResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidVerifiedAccessTrustProviderIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DescribeVolumeAttribute {
   export type Input = DescribeVolumeAttributeRequest;
   export type Output = DescribeVolumeAttributeResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidVolumeNotFound
+    | InvalidVolumeIDMalformed
+    | CommonAwsError;
 }
 
 export declare namespace DescribeVolumes {
   export type Input = DescribeVolumesRequest;
   export type Output = DescribeVolumesResult;
-  export type Error = InvalidVolumeNotFound | CommonAwsError;
+  export type Error =
+    | InvalidVolumeNotFound
+    | InvalidVolumeIDMalformed
+    | CommonAwsError;
 }
 
 export declare namespace DescribeVolumesModifications {
   export type Input = DescribeVolumesModificationsRequest;
   export type Output = DescribeVolumesModificationsResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidVolumeNotFound | CommonAwsError;
 }
 
 export declare namespace DescribeVolumeStatus {
   export type Input = DescribeVolumeStatusRequest;
   export type Output = DescribeVolumeStatusResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidVolumeNotFound | CommonAwsError;
 }
 
 export declare namespace DescribeVpcAttribute {
   export type Input = DescribeVpcAttributeRequest;
   export type Output = DescribeVpcAttributeResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidVpcIDNotFound | CommonAwsError;
 }
 
 export declare namespace DescribeVpcBlockPublicAccessExclusions {
@@ -22534,13 +24564,13 @@ export declare namespace DescribeVpcBlockPublicAccessOptions {
 export declare namespace DescribeVpcClassicLink {
   export type Input = DescribeVpcClassicLinkRequest;
   export type Output = DescribeVpcClassicLinkResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidVpcIDNotFound | CommonAwsError;
 }
 
 export declare namespace DescribeVpcClassicLinkDnsSupport {
   export type Input = DescribeVpcClassicLinkDnsSupportRequest;
   export type Output = DescribeVpcClassicLinkDnsSupportResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidVpcIDNotFound | CommonAwsError;
 }
 
 export declare namespace DescribeVpcEndpointAssociations {
@@ -22552,31 +24582,35 @@ export declare namespace DescribeVpcEndpointAssociations {
 export declare namespace DescribeVpcEndpointConnectionNotifications {
   export type Input = DescribeVpcEndpointConnectionNotificationsRequest;
   export type Output = DescribeVpcEndpointConnectionNotificationsResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidVpcEndpointIdNotFound | CommonAwsError;
 }
 
 export declare namespace DescribeVpcEndpointConnections {
   export type Input = DescribeVpcEndpointConnectionsRequest;
   export type Output = DescribeVpcEndpointConnectionsResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidVpcEndpointServiceIdNotFound | CommonAwsError;
 }
 
 export declare namespace DescribeVpcEndpoints {
   export type Input = DescribeVpcEndpointsRequest;
   export type Output = DescribeVpcEndpointsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidVpcEndpointNotFound
+    | InvalidVpcEndpointIdNotFound
+    | InvalidVpcEndpointIdMalformed
+    | CommonAwsError;
 }
 
 export declare namespace DescribeVpcEndpointServiceConfigurations {
   export type Input = DescribeVpcEndpointServiceConfigurationsRequest;
   export type Output = DescribeVpcEndpointServiceConfigurationsResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidVpcEndpointServiceIdNotFound | CommonAwsError;
 }
 
 export declare namespace DescribeVpcEndpointServicePermissions {
   export type Input = DescribeVpcEndpointServicePermissionsRequest;
   export type Output = DescribeVpcEndpointServicePermissionsResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidVpcEndpointServiceIdNotFound | CommonAwsError;
 }
 
 export declare namespace DescribeVpcEndpointServices {
@@ -22591,25 +24625,32 @@ export declare namespace DescribeVpcPeeringConnections {
   export type Error =
     | InvalidVpcPeeringConnectionIDNotFound
     | InvalidVpcPeeringConnectionNotFound
+    | InvalidVpcPeeringConnectionIdMalformed
     | CommonAwsError;
 }
 
 export declare namespace DescribeVpcs {
   export type Input = DescribeVpcsRequest;
   export type Output = DescribeVpcsResult;
-  export type Error = InvalidVpcIDNotFound | CommonAwsError;
+  export type Error =
+    | InvalidVpcIDNotFound
+    | InvalidVpcIDMalformed
+    | CommonAwsError;
 }
 
 export declare namespace DescribeVpnConnections {
   export type Input = DescribeVpnConnectionsRequest;
   export type Output = DescribeVpnConnectionsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidVpnConnectionIDNotFound
+    | InvalidVpnConnectionID
+    | CommonAwsError;
 }
 
 export declare namespace DescribeVpnGateways {
   export type Input = DescribeVpnGatewaysRequest;
   export type Output = DescribeVpnGatewaysResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidVpnGatewayIDNotFound | CommonAwsError;
 }
 
 export declare namespace DetachClassicLinkVpc {
@@ -22621,31 +24662,48 @@ export declare namespace DetachClassicLinkVpc {
 export declare namespace DetachInternetGateway {
   export type Input = DetachInternetGatewayRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidInternetGatewayIDNotFound
+    | InvalidVpcIDNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DetachNetworkInterface {
   export type Input = DetachNetworkInterfaceRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidAttachmentIDNotFound
+    | InvalidNetworkInterfaceAttachmentIdMalformed
+    | CommonAwsError;
 }
 
 export declare namespace DetachVerifiedAccessTrustProvider {
   export type Input = DetachVerifiedAccessTrustProviderRequest;
   export type Output = DetachVerifiedAccessTrustProviderResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidVerifiedAccessInstanceIdNotFound
+    | InvalidVerifiedAccessTrustProviderIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DetachVolume {
   export type Input = DetachVolumeRequest;
   export type Output = VolumeAttachment;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidVolumeNotFound
+    | InvalidInstanceIDNotFound
+    | InvalidAttachmentNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DetachVpnGateway {
   export type Input = DetachVpnGatewayRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidVpnGatewayIDNotFound
+    | InvalidVpcIDNotFound
+    | InvalidVpnGatewayAttachmentNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DisableAddressTransfer {
@@ -22741,7 +24799,10 @@ export declare namespace DisableSnapshotBlockPublicAccess {
 export declare namespace DisableTransitGatewayRouteTablePropagation {
   export type Input = DisableTransitGatewayRouteTablePropagationRequest;
   export type Output = DisableTransitGatewayRouteTablePropagationResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidTransitGatewayRouteTableIdNotFound
+    | InvalidTransitGatewayAttachmentIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DisableVgwRoutePropagation {
@@ -22753,19 +24814,19 @@ export declare namespace DisableVgwRoutePropagation {
 export declare namespace DisableVpcClassicLink {
   export type Input = DisableVpcClassicLinkRequest;
   export type Output = DisableVpcClassicLinkResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidVpcIDNotFound | CommonAwsError;
 }
 
 export declare namespace DisableVpcClassicLinkDnsSupport {
   export type Input = DisableVpcClassicLinkDnsSupportRequest;
   export type Output = DisableVpcClassicLinkDnsSupportResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidVpcIDNotFound | CommonAwsError;
 }
 
 export declare namespace DisassociateAddress {
   export type Input = DisassociateAddressRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error = InvalidAssociationIDNotFound | CommonAwsError;
 }
 
 export declare namespace DisassociateCapacityReservationBillingOwner {
@@ -22777,7 +24838,10 @@ export declare namespace DisassociateCapacityReservationBillingOwner {
 export declare namespace DisassociateClientVpnTargetNetwork {
   export type Input = DisassociateClientVpnTargetNetworkRequest;
   export type Output = DisassociateClientVpnTargetNetworkResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidClientVpnEndpointIdNotFound
+    | InvalidClientVpnAssociationIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DisassociateEnclaveCertificateIamRole {
@@ -22789,25 +24853,27 @@ export declare namespace DisassociateEnclaveCertificateIamRole {
 export declare namespace DisassociateIamInstanceProfile {
   export type Input = DisassociateIamInstanceProfileRequest;
   export type Output = DisassociateIamInstanceProfileResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidAssociationIDNotFound | CommonAwsError;
 }
 
 export declare namespace DisassociateInstanceEventWindow {
   export type Input = DisassociateInstanceEventWindowRequest;
   export type Output = DisassociateInstanceEventWindowResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidInstanceEventWindowIdNotFound | CommonAwsError;
 }
 
 export declare namespace DisassociateIpamByoasn {
   export type Input = DisassociateIpamByoasnRequest;
   export type Output = DisassociateIpamByoasnResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidIpamIdNotFound | CommonAwsError;
 }
 
 export declare namespace DisassociateIpamResourceDiscovery {
   export type Input = DisassociateIpamResourceDiscoveryRequest;
   export type Output = DisassociateIpamResourceDiscoveryResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidIpamResourceDiscoveryAssociationIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DisassociateNatGatewayAddress {
@@ -22825,7 +24891,7 @@ export declare namespace DisassociateRouteServer {
 export declare namespace DisassociateRouteTable {
   export type Input = DisassociateRouteTableRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error = InvalidAssociationIDNotFound | CommonAwsError;
 }
 
 export declare namespace DisassociateSecurityGroupVpc {
@@ -22843,19 +24909,25 @@ export declare namespace DisassociateSubnetCidrBlock {
 export declare namespace DisassociateTransitGatewayMulticastDomain {
   export type Input = DisassociateTransitGatewayMulticastDomainRequest;
   export type Output = DisassociateTransitGatewayMulticastDomainResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidTransitGatewayMulticastDomainIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DisassociateTransitGatewayPolicyTable {
   export type Input = DisassociateTransitGatewayPolicyTableRequest;
   export type Output = DisassociateTransitGatewayPolicyTableResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidTransitGatewayPolicyTableIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DisassociateTransitGatewayRouteTable {
   export type Input = DisassociateTransitGatewayRouteTableRequest;
   export type Output = DisassociateTransitGatewayRouteTableResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidTransitGatewayRouteTableIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DisassociateTrunkInterface {
@@ -22969,7 +25041,10 @@ export declare namespace EnableSnapshotBlockPublicAccess {
 export declare namespace EnableTransitGatewayRouteTablePropagation {
   export type Input = EnableTransitGatewayRouteTablePropagationRequest;
   export type Output = EnableTransitGatewayRouteTablePropagationResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidTransitGatewayRouteTableIdNotFound
+    | InvalidTransitGatewayAttachmentIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace EnableVgwRoutePropagation {
@@ -22981,31 +25056,31 @@ export declare namespace EnableVgwRoutePropagation {
 export declare namespace EnableVolumeIO {
   export type Input = EnableVolumeIORequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error = InvalidVolumeNotFound | CommonAwsError;
 }
 
 export declare namespace EnableVpcClassicLink {
   export type Input = EnableVpcClassicLinkRequest;
   export type Output = EnableVpcClassicLinkResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidVpcIDNotFound | CommonAwsError;
 }
 
 export declare namespace EnableVpcClassicLinkDnsSupport {
   export type Input = EnableVpcClassicLinkDnsSupportRequest;
   export type Output = EnableVpcClassicLinkDnsSupportResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidVpcIDNotFound | CommonAwsError;
 }
 
 export declare namespace ExportClientVpnClientCertificateRevocationList {
   export type Input = ExportClientVpnClientCertificateRevocationListRequest;
   export type Output = ExportClientVpnClientCertificateRevocationListResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidClientVpnEndpointIdNotFound | CommonAwsError;
 }
 
 export declare namespace ExportClientVpnClientConfiguration {
   export type Input = ExportClientVpnClientConfigurationRequest;
   export type Output = ExportClientVpnClientConfigurationResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidClientVpnEndpointIdNotFound | CommonAwsError;
 }
 
 export declare namespace ExportImage {
@@ -23017,7 +25092,9 @@ export declare namespace ExportImage {
 export declare namespace ExportTransitGatewayRoutes {
   export type Input = ExportTransitGatewayRoutesRequest;
   export type Output = ExportTransitGatewayRoutesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidTransitGatewayRouteTableIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace ExportVerifiedAccessInstanceClientConfiguration {
@@ -23077,7 +25154,7 @@ export declare namespace GetCapacityManagerMetricDimensions {
 export declare namespace GetCapacityReservationUsage {
   export type Input = GetCapacityReservationUsageRequest;
   export type Output = GetCapacityReservationUsageResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidCapacityReservationIdNotFound | CommonAwsError;
 }
 
 export declare namespace GetCoipPoolUsage {
@@ -23089,13 +25166,13 @@ export declare namespace GetCoipPoolUsage {
 export declare namespace GetConsoleOutput {
   export type Input = GetConsoleOutputRequest;
   export type Output = GetConsoleOutputResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidInstanceIDNotFound | CommonAwsError;
 }
 
 export declare namespace GetConsoleScreenshot {
   export type Input = GetConsoleScreenshotRequest;
   export type Output = GetConsoleScreenshotResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidInstanceIDNotFound | CommonAwsError;
 }
 
 export declare namespace GetDeclarativePoliciesReportSummary {
@@ -23137,7 +25214,7 @@ export declare namespace GetGroupsForCapacityReservation {
 export declare namespace GetHostReservationPurchasePreview {
   export type Input = GetHostReservationPurchasePreviewRequest;
   export type Output = GetHostReservationPurchasePreviewResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidHostIDNotFound | CommonAwsError;
 }
 
 export declare namespace GetImageBlockPublicAccessState {
@@ -23161,49 +25238,49 @@ export declare namespace GetInstanceTpmEkPub {
 export declare namespace GetInstanceTypesFromInstanceRequirements {
   export type Input = GetInstanceTypesFromInstanceRequirementsRequest;
   export type Output = GetInstanceTypesFromInstanceRequirementsResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidInstanceType | CommonAwsError;
 }
 
 export declare namespace GetInstanceUefiData {
   export type Input = GetInstanceUefiDataRequest;
   export type Output = GetInstanceUefiDataResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidInstanceIDNotFound | CommonAwsError;
 }
 
 export declare namespace GetIpamAddressHistory {
   export type Input = GetIpamAddressHistoryRequest;
   export type Output = GetIpamAddressHistoryResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidIpamScopeIdNotFound | CommonAwsError;
 }
 
 export declare namespace GetIpamDiscoveredAccounts {
   export type Input = GetIpamDiscoveredAccountsRequest;
   export type Output = GetIpamDiscoveredAccountsResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidIpamResourceDiscoveryIdNotFound | CommonAwsError;
 }
 
 export declare namespace GetIpamDiscoveredPublicAddresses {
   export type Input = GetIpamDiscoveredPublicAddressesRequest;
   export type Output = GetIpamDiscoveredPublicAddressesResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidIpamResourceDiscoveryIdNotFound | CommonAwsError;
 }
 
 export declare namespace GetIpamDiscoveredResourceCidrs {
   export type Input = GetIpamDiscoveredResourceCidrsRequest;
   export type Output = GetIpamDiscoveredResourceCidrsResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidIpamResourceDiscoveryIdNotFound | CommonAwsError;
 }
 
 export declare namespace GetIpamPoolAllocations {
   export type Input = GetIpamPoolAllocationsRequest;
   export type Output = GetIpamPoolAllocationsResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidIpamPoolIdNotFound | CommonAwsError;
 }
 
 export declare namespace GetIpamPoolCidrs {
   export type Input = GetIpamPoolCidrsRequest;
   export type Output = GetIpamPoolCidrsResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidIpamPoolIdNotFound | CommonAwsError;
 }
 
 export declare namespace GetIpamPrefixListResolverRules {
@@ -23227,43 +25304,47 @@ export declare namespace GetIpamPrefixListResolverVersions {
 export declare namespace GetIpamResourceCidrs {
   export type Input = GetIpamResourceCidrsRequest;
   export type Output = GetIpamResourceCidrsResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidIpamScopeIdNotFound | CommonAwsError;
 }
 
 export declare namespace GetLaunchTemplateData {
   export type Input = GetLaunchTemplateDataRequest;
   export type Output = GetLaunchTemplateDataResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidInstanceIDNotFound | CommonAwsError;
 }
 
 export declare namespace GetManagedPrefixListAssociations {
   export type Input = GetManagedPrefixListAssociationsRequest;
   export type Output = GetManagedPrefixListAssociationsResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidPrefixListIdNotFound | CommonAwsError;
 }
 
 export declare namespace GetManagedPrefixListEntries {
   export type Input = GetManagedPrefixListEntriesRequest;
   export type Output = GetManagedPrefixListEntriesResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidPrefixListIdNotFound | CommonAwsError;
 }
 
 export declare namespace GetNetworkInsightsAccessScopeAnalysisFindings {
   export type Input = GetNetworkInsightsAccessScopeAnalysisFindingsRequest;
   export type Output = GetNetworkInsightsAccessScopeAnalysisFindingsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidNetworkInsightsAccessScopeAnalysisIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace GetNetworkInsightsAccessScopeContent {
   export type Input = GetNetworkInsightsAccessScopeContentRequest;
   export type Output = GetNetworkInsightsAccessScopeContentResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidNetworkInsightsAccessScopeIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace GetPasswordData {
   export type Input = GetPasswordDataRequest;
   export type Output = GetPasswordDataResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidInstanceIDNotFound | CommonAwsError;
 }
 
 export declare namespace GetReservedInstancesExchangeQuote {
@@ -23317,55 +25398,69 @@ export declare namespace GetSpotPlacementScores {
 export declare namespace GetSubnetCidrReservations {
   export type Input = GetSubnetCidrReservationsRequest;
   export type Output = GetSubnetCidrReservationsResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidSubnetIDNotFound | CommonAwsError;
 }
 
 export declare namespace GetTransitGatewayAttachmentPropagations {
   export type Input = GetTransitGatewayAttachmentPropagationsRequest;
   export type Output = GetTransitGatewayAttachmentPropagationsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidTransitGatewayAttachmentIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace GetTransitGatewayMulticastDomainAssociations {
   export type Input = GetTransitGatewayMulticastDomainAssociationsRequest;
   export type Output = GetTransitGatewayMulticastDomainAssociationsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidTransitGatewayMulticastDomainIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace GetTransitGatewayPolicyTableAssociations {
   export type Input = GetTransitGatewayPolicyTableAssociationsRequest;
   export type Output = GetTransitGatewayPolicyTableAssociationsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidTransitGatewayPolicyTableIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace GetTransitGatewayPolicyTableEntries {
   export type Input = GetTransitGatewayPolicyTableEntriesRequest;
   export type Output = GetTransitGatewayPolicyTableEntriesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidTransitGatewayPolicyTableIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace GetTransitGatewayPrefixListReferences {
   export type Input = GetTransitGatewayPrefixListReferencesRequest;
   export type Output = GetTransitGatewayPrefixListReferencesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidTransitGatewayRouteTableIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace GetTransitGatewayRouteTableAssociations {
   export type Input = GetTransitGatewayRouteTableAssociationsRequest;
   export type Output = GetTransitGatewayRouteTableAssociationsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidTransitGatewayRouteTableIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace GetTransitGatewayRouteTablePropagations {
   export type Input = GetTransitGatewayRouteTablePropagationsRequest;
   export type Output = GetTransitGatewayRouteTablePropagationsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidTransitGatewayRouteTableIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace GetVerifiedAccessEndpointPolicy {
   export type Input = GetVerifiedAccessEndpointPolicyRequest;
   export type Output = GetVerifiedAccessEndpointPolicyResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidVerifiedAccessEndpointIdNotFound | CommonAwsError;
 }
 
 export declare namespace GetVerifiedAccessEndpointTargets {
@@ -23377,7 +25472,7 @@ export declare namespace GetVerifiedAccessEndpointTargets {
 export declare namespace GetVerifiedAccessGroupPolicy {
   export type Input = GetVerifiedAccessGroupPolicyRequest;
   export type Output = GetVerifiedAccessGroupPolicyResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidVerifiedAccessGroupIdNotFound | CommonAwsError;
 }
 
 export declare namespace GetVpnConnectionDeviceSampleConfiguration {
@@ -23401,7 +25496,7 @@ export declare namespace GetVpnTunnelReplacementStatus {
 export declare namespace ImportClientVpnClientCertificateRevocationList {
   export type Input = ImportClientVpnClientCertificateRevocationListRequest;
   export type Output = ImportClientVpnClientCertificateRevocationListResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidClientVpnEndpointIdNotFound | CommonAwsError;
 }
 
 export declare namespace ImportImage {
@@ -23419,7 +25514,10 @@ export declare namespace ImportInstance {
 export declare namespace ImportKeyPair {
   export type Input = ImportKeyPairRequest;
   export type Output = ImportKeyPairResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidKeyPairDuplicate
+    | InvalidKeyPairFormat
+    | CommonAwsError;
 }
 
 export declare namespace ImportSnapshot {
@@ -23467,19 +25565,21 @@ export declare namespace ModifyAvailabilityZoneGroup {
 export declare namespace ModifyCapacityReservation {
   export type Input = ModifyCapacityReservationRequest;
   export type Output = ModifyCapacityReservationResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidCapacityReservationIdNotFound | CommonAwsError;
 }
 
 export declare namespace ModifyCapacityReservationFleet {
   export type Input = ModifyCapacityReservationFleetRequest;
   export type Output = ModifyCapacityReservationFleetResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidCapacityReservationFleetIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace ModifyClientVpnEndpoint {
   export type Input = ModifyClientVpnEndpointRequest;
   export type Output = ModifyClientVpnEndpointResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidClientVpnEndpointIdNotFound | CommonAwsError;
 }
 
 export declare namespace ModifyDefaultCreditSpecification {
@@ -23503,13 +25603,13 @@ export declare namespace ModifyFleet {
 export declare namespace ModifyFpgaImageAttribute {
   export type Input = ModifyFpgaImageAttributeRequest;
   export type Output = ModifyFpgaImageAttributeResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidFpgaImageIDNotFound | CommonAwsError;
 }
 
 export declare namespace ModifyHosts {
   export type Input = ModifyHostsRequest;
   export type Output = ModifyHostsResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidHostIDNotFound | CommonAwsError;
 }
 
 export declare namespace ModifyIdentityIdFormat {
@@ -23527,19 +25627,25 @@ export declare namespace ModifyIdFormat {
 export declare namespace ModifyImageAttribute {
   export type Input = ModifyImageAttributeRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidAMIIDNotFound
+    | InvalidAMIIDUnavailable
+    | CommonAwsError;
 }
 
 export declare namespace ModifyInstanceAttribute {
   export type Input = ModifyInstanceAttributeRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error = InvalidInstanceIDNotFound | CommonAwsError;
 }
 
 export declare namespace ModifyInstanceCapacityReservationAttributes {
   export type Input = ModifyInstanceCapacityReservationAttributesRequest;
   export type Output = ModifyInstanceCapacityReservationAttributesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidInstanceIDNotFound
+    | InvalidCapacityReservationIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace ModifyInstanceConnectEndpoint {
@@ -23557,37 +25663,37 @@ export declare namespace ModifyInstanceCpuOptions {
 export declare namespace ModifyInstanceCreditSpecification {
   export type Input = ModifyInstanceCreditSpecificationRequest;
   export type Output = ModifyInstanceCreditSpecificationResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidInstanceIDNotFound | CommonAwsError;
 }
 
 export declare namespace ModifyInstanceEventStartTime {
   export type Input = ModifyInstanceEventStartTimeRequest;
   export type Output = ModifyInstanceEventStartTimeResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidInstanceIDNotFound | CommonAwsError;
 }
 
 export declare namespace ModifyInstanceEventWindow {
   export type Input = ModifyInstanceEventWindowRequest;
   export type Output = ModifyInstanceEventWindowResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidInstanceEventWindowIdNotFound | CommonAwsError;
 }
 
 export declare namespace ModifyInstanceMaintenanceOptions {
   export type Input = ModifyInstanceMaintenanceOptionsRequest;
   export type Output = ModifyInstanceMaintenanceOptionsResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidInstanceIDNotFound | CommonAwsError;
 }
 
 export declare namespace ModifyInstanceMetadataDefaults {
   export type Input = ModifyInstanceMetadataDefaultsRequest;
   export type Output = ModifyInstanceMetadataDefaultsResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidInstanceIDNotFound | CommonAwsError;
 }
 
 export declare namespace ModifyInstanceMetadataOptions {
   export type Input = ModifyInstanceMetadataOptionsRequest;
   export type Output = ModifyInstanceMetadataOptionsResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidInstanceIDNotFound | CommonAwsError;
 }
 
 export declare namespace ModifyInstanceNetworkPerformanceOptions {
@@ -23599,19 +25705,22 @@ export declare namespace ModifyInstanceNetworkPerformanceOptions {
 export declare namespace ModifyInstancePlacement {
   export type Input = ModifyInstancePlacementRequest;
   export type Output = ModifyInstancePlacementResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidInstanceIDNotFound
+    | InvalidHostIDNotFound
+    | CommonAwsError;
 }
 
 export declare namespace ModifyIpam {
   export type Input = ModifyIpamRequest;
   export type Output = ModifyIpamResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidIpamIdNotFound | CommonAwsError;
 }
 
 export declare namespace ModifyIpamPool {
   export type Input = ModifyIpamPoolRequest;
   export type Output = ModifyIpamPoolResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidIpamPoolIdNotFound | CommonAwsError;
 }
 
 export declare namespace ModifyIpamPrefixListResolver {
@@ -23629,25 +25738,28 @@ export declare namespace ModifyIpamPrefixListResolverTarget {
 export declare namespace ModifyIpamResourceCidr {
   export type Input = ModifyIpamResourceCidrRequest;
   export type Output = ModifyIpamResourceCidrResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidIpamPoolIdNotFound | CommonAwsError;
 }
 
 export declare namespace ModifyIpamResourceDiscovery {
   export type Input = ModifyIpamResourceDiscoveryRequest;
   export type Output = ModifyIpamResourceDiscoveryResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidIpamResourceDiscoveryIdNotFound | CommonAwsError;
 }
 
 export declare namespace ModifyIpamScope {
   export type Input = ModifyIpamScopeRequest;
   export type Output = ModifyIpamScopeResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidIpamScopeIdNotFound | CommonAwsError;
 }
 
 export declare namespace ModifyLaunchTemplate {
   export type Input = ModifyLaunchTemplateRequest;
   export type Output = ModifyLaunchTemplateResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidLaunchTemplateIdNotFound
+    | InvalidLaunchTemplateNameNotFoundException
+    | CommonAwsError;
 }
 
 export declare namespace ModifyLocalGatewayRoute {
@@ -23659,13 +25771,16 @@ export declare namespace ModifyLocalGatewayRoute {
 export declare namespace ModifyManagedPrefixList {
   export type Input = ModifyManagedPrefixListRequest;
   export type Output = ModifyManagedPrefixListResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidPrefixListIdNotFound | CommonAwsError;
 }
 
 export declare namespace ModifyNetworkInterfaceAttribute {
   export type Input = ModifyNetworkInterfaceAttributeRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidNetworkInterfaceIDNotFound
+    | InvalidSecurityGroupIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace ModifyPrivateDnsNameOptions {
@@ -23683,7 +25798,7 @@ export declare namespace ModifyPublicIpDnsNameOptions {
 export declare namespace ModifyReservedInstances {
   export type Input = ModifyReservedInstancesRequest;
   export type Output = ModifyReservedInstancesResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidReservationIDNotFound | CommonAwsError;
 }
 
 export declare namespace ModifyRouteServer {
@@ -23695,13 +25810,16 @@ export declare namespace ModifyRouteServer {
 export declare namespace ModifySecurityGroupRules {
   export type Input = ModifySecurityGroupRulesRequest;
   export type Output = ModifySecurityGroupRulesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidSecurityGroupIdNotFound
+    | InvalidSecurityGroupRuleIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace ModifySnapshotAttribute {
   export type Input = ModifySnapshotAttributeRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error = InvalidSnapshotNotFound | CommonAwsError;
 }
 
 export declare namespace ModifySnapshotTier {
@@ -23713,109 +25831,115 @@ export declare namespace ModifySnapshotTier {
 export declare namespace ModifySpotFleetRequest {
   export type Input = ModifySpotFleetRequestRequest;
   export type Output = ModifySpotFleetRequestResponse;
-  export type Error = CommonAwsError;
+  export type Error = InvalidSpotFleetRequestIdNotFound | CommonAwsError;
 }
 
 export declare namespace ModifySubnetAttribute {
   export type Input = ModifySubnetAttributeRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error = InvalidSubnetIDNotFound | CommonAwsError;
 }
 
 export declare namespace ModifyTrafficMirrorFilterNetworkServices {
   export type Input = ModifyTrafficMirrorFilterNetworkServicesRequest;
   export type Output = ModifyTrafficMirrorFilterNetworkServicesResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidTrafficMirrorFilterIdNotFound | CommonAwsError;
 }
 
 export declare namespace ModifyTrafficMirrorFilterRule {
   export type Input = ModifyTrafficMirrorFilterRuleRequest;
   export type Output = ModifyTrafficMirrorFilterRuleResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidTrafficMirrorFilterRuleIdNotFound | CommonAwsError;
 }
 
 export declare namespace ModifyTrafficMirrorSession {
   export type Input = ModifyTrafficMirrorSessionRequest;
   export type Output = ModifyTrafficMirrorSessionResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidTrafficMirrorSessionIdNotFound | CommonAwsError;
 }
 
 export declare namespace ModifyTransitGateway {
   export type Input = ModifyTransitGatewayRequest;
   export type Output = ModifyTransitGatewayResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidTransitGatewayIdNotFound | CommonAwsError;
 }
 
 export declare namespace ModifyTransitGatewayPrefixListReference {
   export type Input = ModifyTransitGatewayPrefixListReferenceRequest;
   export type Output = ModifyTransitGatewayPrefixListReferenceResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidTransitGatewayRouteTableIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace ModifyTransitGatewayVpcAttachment {
   export type Input = ModifyTransitGatewayVpcAttachmentRequest;
   export type Output = ModifyTransitGatewayVpcAttachmentResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidTransitGatewayAttachmentIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace ModifyVerifiedAccessEndpoint {
   export type Input = ModifyVerifiedAccessEndpointRequest;
   export type Output = ModifyVerifiedAccessEndpointResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidVerifiedAccessEndpointIdNotFound | CommonAwsError;
 }
 
 export declare namespace ModifyVerifiedAccessEndpointPolicy {
   export type Input = ModifyVerifiedAccessEndpointPolicyRequest;
   export type Output = ModifyVerifiedAccessEndpointPolicyResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidVerifiedAccessEndpointIdNotFound | CommonAwsError;
 }
 
 export declare namespace ModifyVerifiedAccessGroup {
   export type Input = ModifyVerifiedAccessGroupRequest;
   export type Output = ModifyVerifiedAccessGroupResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidVerifiedAccessGroupIdNotFound | CommonAwsError;
 }
 
 export declare namespace ModifyVerifiedAccessGroupPolicy {
   export type Input = ModifyVerifiedAccessGroupPolicyRequest;
   export type Output = ModifyVerifiedAccessGroupPolicyResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidVerifiedAccessGroupIdNotFound | CommonAwsError;
 }
 
 export declare namespace ModifyVerifiedAccessInstance {
   export type Input = ModifyVerifiedAccessInstanceRequest;
   export type Output = ModifyVerifiedAccessInstanceResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidVerifiedAccessInstanceIdNotFound | CommonAwsError;
 }
 
 export declare namespace ModifyVerifiedAccessInstanceLoggingConfiguration {
   export type Input = ModifyVerifiedAccessInstanceLoggingConfigurationRequest;
   export type Output = ModifyVerifiedAccessInstanceLoggingConfigurationResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidVerifiedAccessInstanceIdNotFound | CommonAwsError;
 }
 
 export declare namespace ModifyVerifiedAccessTrustProvider {
   export type Input = ModifyVerifiedAccessTrustProviderRequest;
   export type Output = ModifyVerifiedAccessTrustProviderResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidVerifiedAccessTrustProviderIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace ModifyVolume {
   export type Input = ModifyVolumeRequest;
   export type Output = ModifyVolumeResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidVolumeNotFound | CommonAwsError;
 }
 
 export declare namespace ModifyVolumeAttribute {
   export type Input = ModifyVolumeAttributeRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error = InvalidVolumeNotFound | CommonAwsError;
 }
 
 export declare namespace ModifyVpcAttribute {
   export type Input = ModifyVpcAttributeRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error = InvalidVpcIDNotFound | CommonAwsError;
 }
 
 export declare namespace ModifyVpcBlockPublicAccessExclusion {
@@ -23833,73 +25957,73 @@ export declare namespace ModifyVpcBlockPublicAccessOptions {
 export declare namespace ModifyVpcEndpoint {
   export type Input = ModifyVpcEndpointRequest;
   export type Output = ModifyVpcEndpointResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidVpcEndpointIdNotFound | CommonAwsError;
 }
 
 export declare namespace ModifyVpcEndpointConnectionNotification {
   export type Input = ModifyVpcEndpointConnectionNotificationRequest;
   export type Output = ModifyVpcEndpointConnectionNotificationResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidVpcEndpointIdNotFound | CommonAwsError;
 }
 
 export declare namespace ModifyVpcEndpointServiceConfiguration {
   export type Input = ModifyVpcEndpointServiceConfigurationRequest;
   export type Output = ModifyVpcEndpointServiceConfigurationResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidVpcEndpointServiceIdNotFound | CommonAwsError;
 }
 
 export declare namespace ModifyVpcEndpointServicePayerResponsibility {
   export type Input = ModifyVpcEndpointServicePayerResponsibilityRequest;
   export type Output = ModifyVpcEndpointServicePayerResponsibilityResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidVpcEndpointServiceIdNotFound | CommonAwsError;
 }
 
 export declare namespace ModifyVpcEndpointServicePermissions {
   export type Input = ModifyVpcEndpointServicePermissionsRequest;
   export type Output = ModifyVpcEndpointServicePermissionsResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidVpcEndpointServiceIdNotFound | CommonAwsError;
 }
 
 export declare namespace ModifyVpcPeeringConnectionOptions {
   export type Input = ModifyVpcPeeringConnectionOptionsRequest;
   export type Output = ModifyVpcPeeringConnectionOptionsResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidVpcPeeringConnectionIDNotFound | CommonAwsError;
 }
 
 export declare namespace ModifyVpcTenancy {
   export type Input = ModifyVpcTenancyRequest;
   export type Output = ModifyVpcTenancyResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidVpcIDNotFound | CommonAwsError;
 }
 
 export declare namespace ModifyVpnConnection {
   export type Input = ModifyVpnConnectionRequest;
   export type Output = ModifyVpnConnectionResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidVpnConnectionIDNotFound | CommonAwsError;
 }
 
 export declare namespace ModifyVpnConnectionOptions {
   export type Input = ModifyVpnConnectionOptionsRequest;
   export type Output = ModifyVpnConnectionOptionsResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidVpnConnectionIDNotFound | CommonAwsError;
 }
 
 export declare namespace ModifyVpnTunnelCertificate {
   export type Input = ModifyVpnTunnelCertificateRequest;
   export type Output = ModifyVpnTunnelCertificateResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidVpnConnectionIDNotFound | CommonAwsError;
 }
 
 export declare namespace ModifyVpnTunnelOptions {
   export type Input = ModifyVpnTunnelOptionsRequest;
   export type Output = ModifyVpnTunnelOptionsResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidVpnConnectionIDNotFound | CommonAwsError;
 }
 
 export declare namespace MonitorInstances {
   export type Input = MonitorInstancesRequest;
   export type Output = MonitorInstancesResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidInstanceIDNotFound | CommonAwsError;
 }
 
 export declare namespace MoveAddressToVpc {
@@ -23911,7 +26035,7 @@ export declare namespace MoveAddressToVpc {
 export declare namespace MoveByoipCidrToIpam {
   export type Input = MoveByoipCidrToIpamRequest;
   export type Output = MoveByoipCidrToIpamResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidIpamPoolIdNotFound | CommonAwsError;
 }
 
 export declare namespace MoveCapacityReservationInstances {
@@ -23929,19 +26053,22 @@ export declare namespace ProvisionByoipCidr {
 export declare namespace ProvisionIpamByoasn {
   export type Input = ProvisionIpamByoasnRequest;
   export type Output = ProvisionIpamByoasnResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidIpamIdNotFound | CommonAwsError;
 }
 
 export declare namespace ProvisionIpamPoolCidr {
   export type Input = ProvisionIpamPoolCidrRequest;
   export type Output = ProvisionIpamPoolCidrResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidIpamPoolIdNotFound | CommonAwsError;
 }
 
 export declare namespace ProvisionPublicIpv4PoolCidr {
   export type Input = ProvisionPublicIpv4PoolCidrRequest;
   export type Output = ProvisionPublicIpv4PoolCidrResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidPoolIDNotFound
+    | InvalidIpamPoolIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace PurchaseCapacityBlock {
@@ -23959,7 +26086,7 @@ export declare namespace PurchaseCapacityBlockExtension {
 export declare namespace PurchaseHostReservation {
   export type Input = PurchaseHostReservationRequest;
   export type Output = PurchaseHostReservationResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidHostIDNotFound | CommonAwsError;
 }
 
 export declare namespace PurchaseReservedInstancesOffering {
@@ -23977,7 +26104,7 @@ export declare namespace PurchaseScheduledInstances {
 export declare namespace RebootInstances {
   export type Input = RebootInstancesRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error = InvalidInstanceIDNotFound | CommonAwsError;
 }
 
 export declare namespace RegisterImage {
@@ -23995,13 +26122,17 @@ export declare namespace RegisterInstanceEventNotificationAttributes {
 export declare namespace RegisterTransitGatewayMulticastGroupMembers {
   export type Input = RegisterTransitGatewayMulticastGroupMembersRequest;
   export type Output = RegisterTransitGatewayMulticastGroupMembersResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidTransitGatewayMulticastDomainIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace RegisterTransitGatewayMulticastGroupSources {
   export type Input = RegisterTransitGatewayMulticastGroupSourcesRequest;
   export type Output = RegisterTransitGatewayMulticastGroupSourcesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidTransitGatewayMulticastDomainIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace RejectCapacityReservationBillingOwnership {
@@ -24019,49 +26150,56 @@ export declare namespace RejectTransitGatewayMulticastDomainAssociations {
 export declare namespace RejectTransitGatewayPeeringAttachment {
   export type Input = RejectTransitGatewayPeeringAttachmentRequest;
   export type Output = RejectTransitGatewayPeeringAttachmentResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidTransitGatewayAttachmentIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace RejectTransitGatewayVpcAttachment {
   export type Input = RejectTransitGatewayVpcAttachmentRequest;
   export type Output = RejectTransitGatewayVpcAttachmentResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidTransitGatewayAttachmentIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace RejectVpcEndpointConnections {
   export type Input = RejectVpcEndpointConnectionsRequest;
   export type Output = RejectVpcEndpointConnectionsResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidVpcEndpointServiceIdNotFound | CommonAwsError;
 }
 
 export declare namespace RejectVpcPeeringConnection {
   export type Input = RejectVpcPeeringConnectionRequest;
   export type Output = RejectVpcPeeringConnectionResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidVpcPeeringConnectionIDNotFound | CommonAwsError;
 }
 
 export declare namespace ReleaseAddress {
   export type Input = ReleaseAddressRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidAddressIDNotFound
+    | InvalidAllocationIDNotFound
+    | CommonAwsError;
 }
 
 export declare namespace ReleaseHosts {
   export type Input = ReleaseHostsRequest;
   export type Output = ReleaseHostsResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidHostIDNotFound | CommonAwsError;
 }
 
 export declare namespace ReleaseIpamPoolAllocation {
   export type Input = ReleaseIpamPoolAllocationRequest;
   export type Output = ReleaseIpamPoolAllocationResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidIpamPoolIdNotFound | CommonAwsError;
 }
 
 export declare namespace ReplaceIamInstanceProfileAssociation {
   export type Input = ReplaceIamInstanceProfileAssociationRequest;
   export type Output = ReplaceIamInstanceProfileAssociationResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidAssociationIDNotFound | CommonAwsError;
 }
 
 export declare namespace ReplaceImageCriteriaInAllowedImagesSettings {
@@ -24073,31 +26211,45 @@ export declare namespace ReplaceImageCriteriaInAllowedImagesSettings {
 export declare namespace ReplaceNetworkAclAssociation {
   export type Input = ReplaceNetworkAclAssociationRequest;
   export type Output = ReplaceNetworkAclAssociationResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidNetworkAclIDNotFound
+    | InvalidAssociationIDNotFound
+    | CommonAwsError;
 }
 
 export declare namespace ReplaceNetworkAclEntry {
   export type Input = ReplaceNetworkAclEntryRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidNetworkAclIDNotFound
+    | InvalidNetworkAclEntryNotFound
+    | CommonAwsError;
 }
 
 export declare namespace ReplaceRoute {
   export type Input = ReplaceRouteRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidRouteTableIDNotFound
+    | InvalidRouteNotFound
+    | CommonAwsError;
 }
 
 export declare namespace ReplaceRouteTableAssociation {
   export type Input = ReplaceRouteTableAssociationRequest;
   export type Output = ReplaceRouteTableAssociationResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidRouteTableIDNotFound
+    | InvalidAssociationIDNotFound
+    | CommonAwsError;
 }
 
 export declare namespace ReplaceTransitGatewayRoute {
   export type Input = ReplaceTransitGatewayRouteRequest;
   export type Output = ReplaceTransitGatewayRouteResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidTransitGatewayRouteTableIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace ReplaceVpnTunnel {
@@ -24109,7 +26261,7 @@ export declare namespace ReplaceVpnTunnel {
 export declare namespace ReportInstanceStatus {
   export type Input = ReportInstanceStatusRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error = InvalidInstanceIDNotFound | CommonAwsError;
 }
 
 export declare namespace RequestSpotFleet {
@@ -24139,31 +26291,31 @@ export declare namespace ResetEbsDefaultKmsKeyId {
 export declare namespace ResetFpgaImageAttribute {
   export type Input = ResetFpgaImageAttributeRequest;
   export type Output = ResetFpgaImageAttributeResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidFpgaImageIDNotFound | CommonAwsError;
 }
 
 export declare namespace ResetImageAttribute {
   export type Input = ResetImageAttributeRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error = InvalidAMIIDNotFound | CommonAwsError;
 }
 
 export declare namespace ResetInstanceAttribute {
   export type Input = ResetInstanceAttributeRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error = InvalidInstanceIDNotFound | CommonAwsError;
 }
 
 export declare namespace ResetNetworkInterfaceAttribute {
   export type Input = ResetNetworkInterfaceAttributeRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error = InvalidNetworkInterfaceIDNotFound | CommonAwsError;
 }
 
 export declare namespace ResetSnapshotAttribute {
   export type Input = ResetSnapshotAttributeRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error = InvalidSnapshotNotFound | CommonAwsError;
 }
 
 export declare namespace RestoreAddressToClassic {
@@ -24181,7 +26333,7 @@ export declare namespace RestoreImageFromRecycleBin {
 export declare namespace RestoreManagedPrefixListVersion {
   export type Input = RestoreManagedPrefixListVersionRequest;
   export type Output = RestoreManagedPrefixListVersionResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidPrefixListIdNotFound | CommonAwsError;
 }
 
 export declare namespace RestoreSnapshotFromRecycleBin {
@@ -24199,19 +26351,30 @@ export declare namespace RestoreSnapshotTier {
 export declare namespace RevokeClientVpnIngress {
   export type Input = RevokeClientVpnIngressRequest;
   export type Output = RevokeClientVpnIngressResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidClientVpnEndpointIdNotFound
+    | InvalidClientVpnEndpointAuthorizationRuleNotFound
+    | CommonAwsError;
 }
 
 export declare namespace RevokeSecurityGroupEgress {
   export type Input = RevokeSecurityGroupEgressRequest;
   export type Output = RevokeSecurityGroupEgressResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidGroupNotFound
+    | InvalidSecurityGroupIdNotFound
+    | InvalidPermissionNotFound
+    | CommonAwsError;
 }
 
 export declare namespace RevokeSecurityGroupIngress {
   export type Input = RevokeSecurityGroupIngressRequest;
   export type Output = RevokeSecurityGroupIngressResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidGroupNotFound
+    | InvalidSecurityGroupIdNotFound
+    | InvalidPermissionNotFound
+    | CommonAwsError;
 }
 
 export declare namespace RunInstances {
@@ -24235,19 +26398,23 @@ export declare namespace SearchLocalGatewayRoutes {
 export declare namespace SearchTransitGatewayMulticastGroups {
   export type Input = SearchTransitGatewayMulticastGroupsRequest;
   export type Output = SearchTransitGatewayMulticastGroupsResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidTransitGatewayMulticastDomainIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace SearchTransitGatewayRoutes {
   export type Input = SearchTransitGatewayRoutesRequest;
   export type Output = SearchTransitGatewayRoutesResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidTransitGatewayRouteTableIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace SendDiagnosticInterrupt {
   export type Input = SendDiagnosticInterruptRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error = InvalidInstanceIDNotFound | CommonAwsError;
 }
 
 export declare namespace StartDeclarativePoliciesReport {
@@ -24259,19 +26426,21 @@ export declare namespace StartDeclarativePoliciesReport {
 export declare namespace StartInstances {
   export type Input = StartInstancesRequest;
   export type Output = StartInstancesResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidInstanceIDNotFound | CommonAwsError;
 }
 
 export declare namespace StartNetworkInsightsAccessScopeAnalysis {
   export type Input = StartNetworkInsightsAccessScopeAnalysisRequest;
   export type Output = StartNetworkInsightsAccessScopeAnalysisResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidNetworkInsightsAccessScopeIdNotFound
+    | CommonAwsError;
 }
 
 export declare namespace StartNetworkInsightsAnalysis {
   export type Input = StartNetworkInsightsAnalysisRequest;
   export type Output = StartNetworkInsightsAnalysisResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidNetworkInsightsPathIdNotFound | CommonAwsError;
 }
 
 export declare namespace StartVpcEndpointServicePrivateDnsVerification {
@@ -24283,19 +26452,19 @@ export declare namespace StartVpcEndpointServicePrivateDnsVerification {
 export declare namespace StopInstances {
   export type Input = StopInstancesRequest;
   export type Output = StopInstancesResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidInstanceIDNotFound | CommonAwsError;
 }
 
 export declare namespace TerminateClientVpnConnections {
   export type Input = TerminateClientVpnConnectionsRequest;
   export type Output = TerminateClientVpnConnectionsResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidClientVpnEndpointIdNotFound | CommonAwsError;
 }
 
 export declare namespace TerminateInstances {
   export type Input = TerminateInstancesRequest;
   export type Output = TerminateInstancesResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidInstanceIDNotFound | CommonAwsError;
 }
 
 export declare namespace UnassignIpv6Addresses {
@@ -24307,7 +26476,7 @@ export declare namespace UnassignIpv6Addresses {
 export declare namespace UnassignPrivateIpAddresses {
   export type Input = UnassignPrivateIpAddressesRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error = InvalidNetworkInterfaceIDNotFound | CommonAwsError;
 }
 
 export declare namespace UnassignPrivateNatGatewayAddress {
@@ -24325,7 +26494,7 @@ export declare namespace UnlockSnapshot {
 export declare namespace UnmonitorInstances {
   export type Input = UnmonitorInstancesRequest;
   export type Output = UnmonitorInstancesResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidInstanceIDNotFound | CommonAwsError;
 }
 
 export declare namespace UpdateCapacityManagerOrganizationsAccess {
@@ -24337,13 +26506,13 @@ export declare namespace UpdateCapacityManagerOrganizationsAccess {
 export declare namespace UpdateSecurityGroupRuleDescriptionsEgress {
   export type Input = UpdateSecurityGroupRuleDescriptionsEgressRequest;
   export type Output = UpdateSecurityGroupRuleDescriptionsEgressResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidSecurityGroupIdNotFound | CommonAwsError;
 }
 
 export declare namespace UpdateSecurityGroupRuleDescriptionsIngress {
   export type Input = UpdateSecurityGroupRuleDescriptionsIngressRequest;
   export type Output = UpdateSecurityGroupRuleDescriptionsIngressResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidSecurityGroupIdNotFound | CommonAwsError;
 }
 
 export declare namespace WithdrawByoipCidr {
@@ -24353,20 +26522,152 @@ export declare namespace WithdrawByoipCidr {
 }
 
 export type EC2Errors =
-  | InvalidInternetGatewayNotFound
-  | InvalidKeyPairNotFound
-  | InvalidNetworkInterfaceNotFound
-  | InvalidSubnetIDNotFound
-  | InvalidVolumeNotFound
-  | InvalidVpcIDNotFound
-  | InvalidVpcPeeringConnectionNotFound
-  | InvalidVpnConnectionNotFound
-  | InvalidVpnGatewayNotFound
-  | InvalidAMIIDNotFound
-  | InvalidInstanceIDNotFound
-  | NatGatewayNotFound
-  | InvalidNetworkInterfaceIDNotFound
-  | InvalidGroupNotFound
-  | InvalidSpotInstanceRequestIDNotFound
+  | InvalidTransitGatewayAttachmentIdNotFound
+  | InvalidVpcEndpointServiceIdNotFound
   | InvalidVpcPeeringConnectionIDNotFound
+  | AddressLimitExceeded
+  | InvalidHostConfiguration
+  | InvalidIpamPoolIdNotFound
+  | InvalidClientVpnEndpointIdNotFound
+  | InvalidSecurityGroupIdNotFound
+  | InvalidNetworkInterfaceIDNotFound
+  | InvalidAddressIDNotFound
+  | InvalidAllocationIDNotFound
+  | InvalidInstanceIDNotFound
+  | InvalidSubnetIDNotFound
+  | InvalidDhcpOptionIDNotFound
+  | InvalidVpcIDNotFound
+  | InvalidInstanceEventWindowIdNotFound
+  | InvalidRouteTableIDNotFound
+  | InvalidGatewayIDNotFound
+  | InvalidTransitGatewayMulticastDomainIdNotFound
+  | InvalidTransitGatewayPolicyTableIdNotFound
+  | InvalidTransitGatewayRouteTableIdNotFound
+  | InvalidInternetGatewayIDNotFound
+  | InvalidVerifiedAccessInstanceIdNotFound
+  | InvalidVerifiedAccessTrustProviderIdNotFound
+  | InvalidVolumeNotFound
+  | InvalidVolumeIDMalformed
+  | InvalidVpnGatewayIDNotFound
+  | InvalidGroupNotFound
+  | InvalidPermissionDuplicate
+  | InvalidBundleIDNotFound
+  | InvalidCapacityReservationIdNotFound
+  | InvalidCapacityReservationIdMalformed
+  | InvalidCapacityReservationFleetIdNotFound
+  | InvalidCapacityReservationFleetIdMalformed
+  | InvalidConversionTaskId
+  | InvalidExportTaskIDNotFound
+  | InvalidSpotFleetRequestIdNotFound
+  | InvalidSpotFleetRequestIdMalformed
+  | InvalidSpotInstanceRequestIDNotFound
+  | InvalidSpotInstanceRequestIDMalformed
+  | InvalidFpgaImageIDNotFound
+  | InvalidFpgaImageIDMalformed
+  | InvalidAMIIDNotFound
+  | InvalidAMIIDUnavailable
+  | InvalidSnapshotNotFound
+  | InvalidSnapshotIdMalformed
+  | InvalidIpamScopeIdNotFound
+  | InvalidIpamIdNotFound
+  | InvalidKeyPairDuplicate
+  | InvalidLaunchTemplateIdAlreadyExists
+  | InvalidLaunchTemplateNameAlreadyExistsException
+  | InvalidLaunchTemplateIdNotFound
+  | InvalidLaunchTemplateNameNotFoundException
+  | InvalidLaunchTemplateIdMalformed
+  | InvalidLocalGatewayIDNotFound
+  | InvalidLocalGatewayRouteTableVpcAssociationIdNotFound
+  | InvalidElasticIpIDNotFound
+  | InvalidNetworkAclIDNotFound
+  | InvalidPlacementGroupDuplicate
+  | InvalidNatGatewayIDNotFound
+  | InvalidTransitGatewayIdNotFound
+  | InvalidGroupDuplicate
+  | InvalidSpotDatafeedNotFound
+  | InvalidTrafficMirrorFilterIdNotFound
+  | InvalidTrafficMirrorTargetIdNotFound
+  | InvalidTransitGatewayConnectPeerIdMalformed
+  | InvalidPrefixListIdNotFound
+  | InvalidVerifiedAccessGroupIdNotFound
+  | InvalidVolumeIDDuplicate
+  | InvalidAvailabilityZone
+  | VpcLimitExceeded
+  | InvalidVpcEndpointIdNotFound
+  | InvalidNetworkLoadBalancerArnNotFound
+  | VpcPeeringConnectionAlreadyExists
+  | VpcPeeringConnectionsPerVpcLimitExceeded
+  | InvalidCustomerGatewayIDNotFound
+  | VpnConnectionLimitExceeded
+  | InvalidVpnConnectionIDNotFound
+  | VpnGatewayLimitExceeded
+  | InvalidCarrierGatewayIDNotFound
+  | InvalidClientVpnRouteNotFound
+  | InvalidDhcpOptionsIdMalformed
+  | InvalidFlowLogIdNotFound
+  | InvalidIpamResourceDiscoveryIdNotFound
+  | InvalidKeyPairNotFound
+  | InvalidLaunchTemplateIdVersionNotFound
+  | InvalidNetworkAclInUse
+  | InvalidNetworkAclEntryNotFound
+  | InvalidNetworkInsightsAccessScopeIdNotFound
+  | InvalidNetworkInsightsAccessScopeAnalysisIdNotFound
+  | InvalidNetworkInsightsAnalysisIdNotFound
+  | InvalidNetworkInsightsPathIdNotFound
+  | InvalidPlacementGroupUnknown
+  | InvalidPlacementGroupInUse
+  | InvalidRouteNotFound
+  | InvalidGroupInUse
+  | InvalidSnapshotInUse
+  | InvalidSubnetCidrReservationIdNotFound
+  | InvalidTrafficMirrorFilterInUse
+  | InvalidTrafficMirrorFilterRuleIdNotFound
+  | InvalidTrafficMirrorSessionIdNotFound
+  | InvalidTransitGatewayNotFound
+  | InvalidTransitGatewayConnectPeerIdNotFound
+  | InvalidTransitGatewayRouteTableAnnouncementIdNotFound
+  | InvalidVerifiedAccessEndpointIdNotFound
+  | InvalidVpcPeeringConnectionNotFound
+  | InvalidPoolIDNotFound
+  | InvalidCoipPoolIdNotFound
+  | InvalidCoipPoolIdMalformed
+  | InvalidConversionTaskIdMalformed
+  | InvalidCustomerGatewayIdMalformed
+  | InvalidHostReservationOfferingIdMalformed
+  | InvalidHostReservationIdMalformed
+  | InvalidHostIDNotFound
+  | InvalidHostIDMalformed
+  | InvalidAssociationIDNotFound
+  | InvalidAMIIDMalformed
+  | InvalidInstanceIDMalformed
+  | InvalidInternetGatewayNotFound
+  | InvalidIpamResourceDiscoveryAssociationIdNotFound
+  | InvalidLocalGatewayRouteTableVirtualInterfaceGroupAssociationIdNotFound
+  | InvalidLocalGatewayVirtualInterfaceGroupIdNotFound
+  | InvalidPrefixListIdMalformed
+  | NatGatewayNotFound
+  | InvalidPoolIDMalformed
+  | InvalidReplaceRootVolumeTaskIdNotFound
+  | InvalidReplaceRootVolumeTaskIdMalformed
+  | InvalidReservationIDNotFound
+  | InvalidReservationIDMalformed
+  | InvalidRouteTableIdMalformed
+  | InvalidSecurityGroupRuleIdNotFound
+  | InvalidGroupIdMalformed
+  | InvalidSubnetIdMalformed
+  | InvalidTransitGatewayIdMalformed
+  | InvalidVpcEndpointNotFound
+  | InvalidVpcEndpointIdMalformed
+  | InvalidVpcPeeringConnectionIdMalformed
+  | InvalidVpcIDMalformed
+  | InvalidVpnConnectionID
+  | InvalidAttachmentIDNotFound
+  | InvalidNetworkInterfaceAttachmentIdMalformed
+  | InvalidAttachmentNotFound
+  | InvalidVpnGatewayAttachmentNotFound
+  | InvalidClientVpnAssociationIdNotFound
+  | InvalidInstanceType
+  | InvalidKeyPairFormat
+  | InvalidClientVpnEndpointAuthorizationRuleNotFound
+  | InvalidPermissionNotFound
   | CommonAwsError;
