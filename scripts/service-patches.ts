@@ -800,6 +800,7 @@ export const servicePatches: Record<string, ServicePatches> = {
         "InvalidSecurityGroupId.NotFound",
         "InvalidGroupId.Malformed",
         "InvalidGroup.InUse",
+        "DependencyViolation",
       ],
     },
     DescribeSecurityGroupReferences: {
@@ -1354,7 +1355,7 @@ export const servicePatches: Record<string, ServicePatches> = {
       errors: ["VpcLimitExceeded"],
     },
     DeleteVpc: {
-      errors: ["InvalidVpcID.NotFound"],
+      errors: ["InvalidVpcID.NotFound", "DependencyViolation"],
     },
     DescribeVpcAttribute: {
       errors: ["InvalidVpcID.NotFound"],

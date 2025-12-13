@@ -197,6 +197,7 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<
     {},
     | InvalidInternetGatewayIDNotFound
+    | InvalidInternetGatewayIdMalformed
     | InvalidVpcIDNotFound
     | ResourceAlreadyAssociated
     | CommonAwsError
@@ -337,7 +338,7 @@ export declare class EC2 extends AWSServiceClient {
     input: CopySnapshotRequest,
   ): Effect.Effect<
     CopySnapshotResult,
-    InvalidSnapshotNotFound | InvalidSnapshotIdMalformed | CommonAwsError
+    InvalidSnapshotNotFound | InvalidSnapshotIDMalformed | CommonAwsError
   >;
   copyVolumes(
     input: CopyVolumesRequest,
@@ -439,10 +440,7 @@ export declare class EC2 extends AWSServiceClient {
   >;
   createInternetGateway(
     input: CreateInternetGatewayRequest,
-  ): Effect.Effect<
-    CreateInternetGatewayResult,
-    InternetGatewayLimitExceeded | CommonAwsError
-  >;
+  ): Effect.Effect<CreateInternetGatewayResult, CommonAwsError>;
   createIpam(
     input: CreateIpamRequest,
   ): Effect.Effect<CreateIpamResult, CommonAwsError>;
@@ -908,7 +906,10 @@ export declare class EC2 extends AWSServiceClient {
     input: DeleteInternetGatewayRequest,
   ): Effect.Effect<
     {},
-    InvalidInternetGatewayIDNotFound | DependencyViolation | CommonAwsError
+    | InvalidInternetGatewayIDNotFound
+    | InvalidInternetGatewayIdMalformed
+    | DependencyViolation
+    | CommonAwsError
   >;
   deleteIpam(
     input: DeleteIpamRequest,
@@ -1007,13 +1008,16 @@ export declare class EC2 extends AWSServiceClient {
     input: DeleteNatGatewayRequest,
   ): Effect.Effect<
     DeleteNatGatewayResult,
-    InvalidNatGatewayIDNotFound | NatGatewayNotFound | CommonAwsError
+    NatGatewayNotFound | NatGatewayMalformed | CommonAwsError
   >;
   deleteNetworkAcl(
     input: DeleteNetworkAclRequest,
   ): Effect.Effect<
     {},
-    InvalidNetworkAclIDNotFound | InvalidNetworkAclInUse | CommonAwsError
+    | InvalidNetworkAclIDNotFound
+    | InvalidNetworkAclIdMalformed
+    | InvalidNetworkAclInUse
+    | CommonAwsError
   >;
   deleteNetworkAclEntry(
     input: DeleteNetworkAclEntryRequest,
@@ -1089,7 +1093,9 @@ export declare class EC2 extends AWSServiceClient {
     DeleteSecurityGroupResult,
     | InvalidGroupNotFound
     | InvalidSecurityGroupIdNotFound
+    | InvalidGroupIdMalformed
     | InvalidGroupInUse
+    | DependencyViolation
     | CommonAwsError
   >;
   deleteSnapshot(
@@ -1098,7 +1104,7 @@ export declare class EC2 extends AWSServiceClient {
     {},
     | InvalidSnapshotNotFound
     | InvalidSnapshotInUse
-    | InvalidSnapshotIdMalformed
+    | InvalidSnapshotIDMalformed
     | CommonAwsError
   >;
   deleteSpotDatafeedSubscription(
@@ -1106,7 +1112,10 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<{}, InvalidSpotDatafeedNotFound | CommonAwsError>;
   deleteSubnet(
     input: DeleteSubnetRequest,
-  ): Effect.Effect<{}, InvalidSubnetIDNotFound | CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    InvalidSubnetIDNotFound | InvalidSubnetIdMalformed | CommonAwsError
+  >;
   deleteSubnetCidrReservation(
     input: DeleteSubnetCidrReservationRequest,
   ): Effect.Effect<
@@ -1236,11 +1245,17 @@ export declare class EC2 extends AWSServiceClient {
     input: DeleteVolumeRequest,
   ): Effect.Effect<
     {},
-    InvalidVolumeNotFound | InvalidVolumeIDMalformed | CommonAwsError
+    | InvalidVolumeNotFound
+    | InvalidVolumeIDMalformed
+    | InvalidParameterValue
+    | CommonAwsError
   >;
   deleteVpc(
     input: DeleteVpcRequest,
-  ): Effect.Effect<{}, InvalidVpcIDNotFound | CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    InvalidVpcIDNotFound | DependencyViolation | CommonAwsError
+  >;
   deleteVpcBlockPublicAccessExclusion(
     input: DeleteVpcBlockPublicAccessExclusionRequest,
   ): Effect.Effect<DeleteVpcBlockPublicAccessExclusionResult, CommonAwsError>;
@@ -1633,6 +1648,7 @@ export declare class EC2 extends AWSServiceClient {
     DescribeInternetGatewaysResult,
     | InvalidInternetGatewayNotFound
     | InvalidInternetGatewayIDNotFound
+    | InvalidInternetGatewayIdMalformed
     | CommonAwsError
   >;
   describeIpamByoasn(
@@ -1760,7 +1776,7 @@ export declare class EC2 extends AWSServiceClient {
     input: DescribeNatGatewaysRequest,
   ): Effect.Effect<
     DescribeNatGatewaysResult,
-    NatGatewayNotFound | InvalidNatGatewayIDNotFound | CommonAwsError
+    NatGatewayNotFound | NatGatewayMalformed | CommonAwsError
   >;
   describeNetworkAcls(
     input: DescribeNetworkAclsRequest,
@@ -1916,13 +1932,13 @@ export declare class EC2 extends AWSServiceClient {
     input: DescribeSnapshotAttributeRequest,
   ): Effect.Effect<
     DescribeSnapshotAttributeResult,
-    InvalidSnapshotNotFound | InvalidSnapshotIdMalformed | CommonAwsError
+    InvalidSnapshotNotFound | InvalidSnapshotIDMalformed | CommonAwsError
   >;
   describeSnapshots(
     input: DescribeSnapshotsRequest,
   ): Effect.Effect<
     DescribeSnapshotsResult,
-    InvalidSnapshotNotFound | InvalidSnapshotIdMalformed | CommonAwsError
+    InvalidSnapshotNotFound | InvalidSnapshotIDMalformed | CommonAwsError
   >;
   describeSnapshotTierStatus(
     input: DescribeSnapshotTierStatusRequest,
@@ -2109,7 +2125,10 @@ export declare class EC2 extends AWSServiceClient {
     input: DescribeVolumesRequest,
   ): Effect.Effect<
     DescribeVolumesResult,
-    InvalidVolumeNotFound | InvalidVolumeIDMalformed | CommonAwsError
+    | InvalidVolumeNotFound
+    | InvalidVolumeIDMalformed
+    | InvalidParameterValue
+    | CommonAwsError
   >;
   describeVolumesModifications(
     input: DescribeVolumesModificationsRequest,
@@ -2224,6 +2243,7 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<
     {},
     | InvalidInternetGatewayIDNotFound
+    | InvalidInternetGatewayIdMalformed
     | InvalidVpcIDNotFound
     | GatewayNotAttached
     | CommonAwsError
@@ -21235,6 +21255,10 @@ export declare class InvalidInternetGatewayIDNotFound extends EffectData.TaggedE
   "InvalidInternetGatewayID.NotFound",
 )<{}> {}
 
+export declare class InvalidInternetGatewayIdMalformed extends EffectData.TaggedError(
+  "InvalidInternetGatewayId.Malformed",
+)<{}> {}
+
 export declare class ResourceAlreadyAssociated extends EffectData.TaggedError(
   "Resource.AlreadyAssociated",
 )<{}> {}
@@ -21331,8 +21355,8 @@ export declare class InvalidSnapshotNotFound extends EffectData.TaggedError(
   "InvalidSnapshot.NotFound",
 )<{}> {}
 
-export declare class InvalidSnapshotIdMalformed extends EffectData.TaggedError(
-  "InvalidSnapshotId.Malformed",
+export declare class InvalidSnapshotIDMalformed extends EffectData.TaggedError(
+  "InvalidSnapshotID.Malformed",
 )<{}> {}
 
 export declare class InvalidCustomerGatewayDuplicateIpAddress extends EffectData.TaggedError(
@@ -21345,10 +21369,6 @@ export declare class CustomerGatewayLimitExceeded extends EffectData.TaggedError
 
 export declare class DhcpOptionsLimitExceeded extends EffectData.TaggedError(
   "DhcpOptionsLimitExceeded",
-)<{}> {}
-
-export declare class InternetGatewayLimitExceeded extends EffectData.TaggedError(
-  "InternetGatewayLimitExceeded",
 )<{}> {}
 
 export declare class InvalidIpamScopeIdNotFound extends EffectData.TaggedError(
@@ -21401,6 +21421,10 @@ export declare class InvalidNetworkAclIDNotFound extends EffectData.TaggedError(
 
 export declare class InvalidPlacementGroupDuplicate extends EffectData.TaggedError(
   "InvalidPlacementGroup.Duplicate",
+)<{}> {}
+
+export declare class InvalidSnapshotIdMalformed extends EffectData.TaggedError(
+  "InvalidSnapshotId.Malformed",
 )<{}> {}
 
 export declare class InvalidNatGatewayIDNotFound extends EffectData.TaggedError(
@@ -21519,6 +21543,14 @@ export declare class NatGatewayNotFound extends EffectData.TaggedError(
   "NatGatewayNotFound",
 )<{}> {}
 
+export declare class NatGatewayMalformed extends EffectData.TaggedError(
+  "NatGatewayMalformed",
+)<{}> {}
+
+export declare class InvalidNetworkAclIdMalformed extends EffectData.TaggedError(
+  "InvalidNetworkAclId.Malformed",
+)<{}> {}
+
 export declare class InvalidNetworkAclInUse extends EffectData.TaggedError(
   "InvalidNetworkAcl.InUse",
 )<{}> {}
@@ -21555,12 +21587,20 @@ export declare class InvalidRouteNotFound extends EffectData.TaggedError(
   "InvalidRoute.NotFound",
 )<{}> {}
 
+export declare class InvalidGroupIdMalformed extends EffectData.TaggedError(
+  "InvalidGroupId.Malformed",
+)<{}> {}
+
 export declare class InvalidGroupInUse extends EffectData.TaggedError(
   "InvalidGroup.InUse",
 )<{}> {}
 
 export declare class InvalidSnapshotInUse extends EffectData.TaggedError(
   "InvalidSnapshot.InUse",
+)<{}> {}
+
+export declare class InvalidSubnetIdMalformed extends EffectData.TaggedError(
+  "InvalidSubnetId.Malformed",
 )<{}> {}
 
 export declare class InvalidSubnetCidrReservationIdNotFound extends EffectData.TaggedError(
@@ -21593,6 +21633,10 @@ export declare class InvalidTransitGatewayRouteTableAnnouncementIdNotFound exten
 
 export declare class InvalidVerifiedAccessEndpointIdNotFound extends EffectData.TaggedError(
   "InvalidVerifiedAccessEndpointId.NotFound",
+)<{}> {}
+
+export declare class InvalidParameterValue extends EffectData.TaggedError(
+  "InvalidParameterValue",
 )<{}> {}
 
 export declare class InvalidVpcPeeringConnectionNotFound extends EffectData.TaggedError(
@@ -21695,14 +21739,6 @@ export declare class InvalidSecurityGroupRuleIdNotFound extends EffectData.Tagge
   "InvalidSecurityGroupRuleId.NotFound",
 )<{}> {}
 
-export declare class InvalidGroupIdMalformed extends EffectData.TaggedError(
-  "InvalidGroupId.Malformed",
-)<{}> {}
-
-export declare class InvalidSubnetIdMalformed extends EffectData.TaggedError(
-  "InvalidSubnetId.Malformed",
-)<{}> {}
-
 export declare class InvalidTransitGatewayIdMalformed extends EffectData.TaggedError(
   "InvalidTransitGatewayId.Malformed",
 )<{}> {}
@@ -21773,10 +21809,6 @@ export declare class InvalidPermissionNotFound extends EffectData.TaggedError(
 
 export declare class InvalidBlockDeviceMapping extends EffectData.TaggedError(
   "InvalidBlockDeviceMapping",
-)<{}> {}
-
-export declare class InvalidParameterValue extends EffectData.TaggedError(
-  "InvalidParameterValue",
 )<{}> {}
 
 export declare class InsufficientInstanceCapacity extends EffectData.TaggedError(
@@ -22036,6 +22068,7 @@ export declare namespace AttachInternetGateway {
   export type Output = {};
   export type Error =
     | InvalidInternetGatewayIDNotFound
+    | InvalidInternetGatewayIdMalformed
     | InvalidVpcIDNotFound
     | ResourceAlreadyAssociated
     | CommonAwsError;
@@ -22217,7 +22250,7 @@ export declare namespace CopySnapshot {
   export type Output = CopySnapshotResult;
   export type Error =
     | InvalidSnapshotNotFound
-    | InvalidSnapshotIdMalformed
+    | InvalidSnapshotIDMalformed
     | CommonAwsError;
 }
 
@@ -22375,7 +22408,7 @@ export declare namespace CreateInstanceExportTask {
 export declare namespace CreateInternetGateway {
   export type Input = CreateInternetGatewayRequest;
   export type Output = CreateInternetGatewayResult;
-  export type Error = InternetGatewayLimitExceeded | CommonAwsError;
+  export type Error = CommonAwsError;
 }
 
 export declare namespace CreateIpam {
@@ -22993,6 +23026,7 @@ export declare namespace DeleteInternetGateway {
   export type Output = {};
   export type Error =
     | InvalidInternetGatewayIDNotFound
+    | InvalidInternetGatewayIdMalformed
     | DependencyViolation
     | CommonAwsError;
 }
@@ -23116,10 +23150,7 @@ export declare namespace DeleteManagedPrefixList {
 export declare namespace DeleteNatGateway {
   export type Input = DeleteNatGatewayRequest;
   export type Output = DeleteNatGatewayResult;
-  export type Error =
-    | InvalidNatGatewayIDNotFound
-    | NatGatewayNotFound
-    | CommonAwsError;
+  export type Error = NatGatewayNotFound | NatGatewayMalformed | CommonAwsError;
 }
 
 export declare namespace DeleteNetworkAcl {
@@ -23127,6 +23158,7 @@ export declare namespace DeleteNetworkAcl {
   export type Output = {};
   export type Error =
     | InvalidNetworkAclIDNotFound
+    | InvalidNetworkAclIdMalformed
     | InvalidNetworkAclInUse
     | CommonAwsError;
 }
@@ -23240,7 +23272,9 @@ export declare namespace DeleteSecurityGroup {
   export type Error =
     | InvalidGroupNotFound
     | InvalidSecurityGroupIdNotFound
+    | InvalidGroupIdMalformed
     | InvalidGroupInUse
+    | DependencyViolation
     | CommonAwsError;
 }
 
@@ -23250,7 +23284,7 @@ export declare namespace DeleteSnapshot {
   export type Error =
     | InvalidSnapshotNotFound
     | InvalidSnapshotInUse
-    | InvalidSnapshotIdMalformed
+    | InvalidSnapshotIDMalformed
     | CommonAwsError;
 }
 
@@ -23263,7 +23297,10 @@ export declare namespace DeleteSpotDatafeedSubscription {
 export declare namespace DeleteSubnet {
   export type Input = DeleteSubnetRequest;
   export type Output = {};
-  export type Error = InvalidSubnetIDNotFound | CommonAwsError;
+  export type Error =
+    | InvalidSubnetIDNotFound
+    | InvalidSubnetIdMalformed
+    | CommonAwsError;
 }
 
 export declare namespace DeleteSubnetCidrReservation {
@@ -23426,13 +23463,17 @@ export declare namespace DeleteVolume {
   export type Error =
     | InvalidVolumeNotFound
     | InvalidVolumeIDMalformed
+    | InvalidParameterValue
     | CommonAwsError;
 }
 
 export declare namespace DeleteVpc {
   export type Input = DeleteVpcRequest;
   export type Output = {};
-  export type Error = InvalidVpcIDNotFound | CommonAwsError;
+  export type Error =
+    | InvalidVpcIDNotFound
+    | DependencyViolation
+    | CommonAwsError;
 }
 
 export declare namespace DeleteVpcBlockPublicAccessExclusion {
@@ -23993,6 +24034,7 @@ export declare namespace DescribeInternetGateways {
   export type Error =
     | InvalidInternetGatewayNotFound
     | InvalidInternetGatewayIDNotFound
+    | InvalidInternetGatewayIdMalformed
     | CommonAwsError;
 }
 
@@ -24164,10 +24206,7 @@ export declare namespace DescribeMovingAddresses {
 export declare namespace DescribeNatGateways {
   export type Input = DescribeNatGatewaysRequest;
   export type Output = DescribeNatGatewaysResult;
-  export type Error =
-    | NatGatewayNotFound
-    | InvalidNatGatewayIDNotFound
-    | CommonAwsError;
+  export type Error = NatGatewayNotFound | NatGatewayMalformed | CommonAwsError;
 }
 
 export declare namespace DescribeNetworkAcls {
@@ -24378,7 +24417,7 @@ export declare namespace DescribeSnapshotAttribute {
   export type Output = DescribeSnapshotAttributeResult;
   export type Error =
     | InvalidSnapshotNotFound
-    | InvalidSnapshotIdMalformed
+    | InvalidSnapshotIDMalformed
     | CommonAwsError;
 }
 
@@ -24387,7 +24426,7 @@ export declare namespace DescribeSnapshots {
   export type Output = DescribeSnapshotsResult;
   export type Error =
     | InvalidSnapshotNotFound
-    | InvalidSnapshotIdMalformed
+    | InvalidSnapshotIDMalformed
     | CommonAwsError;
 }
 
@@ -24627,6 +24666,7 @@ export declare namespace DescribeVolumes {
   export type Error =
     | InvalidVolumeNotFound
     | InvalidVolumeIDMalformed
+    | InvalidParameterValue
     | CommonAwsError;
 }
 
@@ -24763,6 +24803,7 @@ export declare namespace DetachInternetGateway {
   export type Output = {};
   export type Error =
     | InvalidInternetGatewayIDNotFound
+    | InvalidInternetGatewayIdMalformed
     | InvalidVpcIDNotFound
     | GatewayNotAttached
     | CommonAwsError;
@@ -26663,6 +26704,7 @@ export type EC2Errors =
   | InvalidTransitGatewayPolicyTableIdNotFound
   | InvalidTransitGatewayRouteTableIdNotFound
   | InvalidInternetGatewayIDNotFound
+  | InvalidInternetGatewayIdMalformed
   | ResourceAlreadyAssociated
   | InvalidVerifiedAccessInstanceIdNotFound
   | InvalidVerifiedAccessTrustProviderIdNotFound
@@ -26687,11 +26729,10 @@ export type EC2Errors =
   | InvalidAMIIDNotFound
   | InvalidAMIIDUnavailable
   | InvalidSnapshotNotFound
-  | InvalidSnapshotIdMalformed
+  | InvalidSnapshotIDMalformed
   | InvalidCustomerGatewayDuplicateIpAddress
   | CustomerGatewayLimitExceeded
   | DhcpOptionsLimitExceeded
-  | InternetGatewayLimitExceeded
   | InvalidIpamScopeIdNotFound
   | InvalidIpamIdNotFound
   | InvalidKeyPairDuplicate
@@ -26705,6 +26746,7 @@ export type EC2Errors =
   | InvalidElasticIpIDNotFound
   | InvalidNetworkAclIDNotFound
   | InvalidPlacementGroupDuplicate
+  | InvalidSnapshotIdMalformed
   | InvalidNatGatewayIDNotFound
   | InvalidTransitGatewayIdNotFound
   | InvalidGroupDuplicate
@@ -26734,6 +26776,8 @@ export type EC2Errors =
   | InvalidKeyPairNotFound
   | InvalidLaunchTemplateIdVersionNotFound
   | NatGatewayNotFound
+  | NatGatewayMalformed
+  | InvalidNetworkAclIdMalformed
   | InvalidNetworkAclInUse
   | InvalidNetworkAclEntryNotFound
   | InvalidNetworkInsightsAccessScopeIdNotFound
@@ -26743,8 +26787,10 @@ export type EC2Errors =
   | InvalidPlacementGroupUnknown
   | InvalidPlacementGroupInUse
   | InvalidRouteNotFound
+  | InvalidGroupIdMalformed
   | InvalidGroupInUse
   | InvalidSnapshotInUse
+  | InvalidSubnetIdMalformed
   | InvalidSubnetCidrReservationIdNotFound
   | InvalidTrafficMirrorFilterInUse
   | InvalidTrafficMirrorFilterRuleIdNotFound
@@ -26753,6 +26799,7 @@ export type EC2Errors =
   | InvalidTransitGatewayConnectPeerIdNotFound
   | InvalidTransitGatewayRouteTableAnnouncementIdNotFound
   | InvalidVerifiedAccessEndpointIdNotFound
+  | InvalidParameterValue
   | InvalidVpcPeeringConnectionNotFound
   | InvalidPoolIDNotFound
   | InvalidCoipPoolIdNotFound
@@ -26778,8 +26825,6 @@ export type EC2Errors =
   | InvalidReservationIDMalformed
   | InvalidRouteTableIdMalformed
   | InvalidSecurityGroupRuleIdNotFound
-  | InvalidGroupIdMalformed
-  | InvalidSubnetIdMalformed
   | InvalidTransitGatewayIdMalformed
   | InvalidVpcEndpointNotFound
   | InvalidVpcEndpointIdMalformed
@@ -26798,6 +26843,5 @@ export type EC2Errors =
   | InvalidClientVpnEndpointAuthorizationRuleNotFound
   | InvalidPermissionNotFound
   | InvalidBlockDeviceMapping
-  | InvalidParameterValue
   | InsufficientInstanceCapacity
   | CommonAwsError;
