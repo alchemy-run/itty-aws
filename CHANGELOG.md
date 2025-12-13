@@ -1,3 +1,13 @@
+## v0.8.3
+
+### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
+
+- **ec2**: Add DependencyViolation to DeleteRouteTable &nbsp;-&nbsp; by **Sam Goodwin** [<samp>(b80d7)</samp>](https://github.com/sam-goodwin/itty-aws/commit/b80d72e8)
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sam-goodwin/itty-aws/compare/v0.8.2...v0.8.3)
+
+---
+
 ## v0.8.2
 
 ### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
