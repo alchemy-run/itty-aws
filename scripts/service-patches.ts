@@ -203,6 +203,12 @@ export const servicePatches: Record<string, ServicePatches> = {
     },
 
     // ========== Customer Gateway Operations ==========
+    CreateCustomerGateway: {
+      errors: [
+        "InvalidCustomerGateway.DuplicateIpAddress",
+        "CustomerGatewayLimitExceeded",
+      ],
+    },
     DeleteCustomerGateway: {
       errors: ["InvalidCustomerGatewayID.NotFound"],
     },
@@ -214,6 +220,9 @@ export const servicePatches: Record<string, ServicePatches> = {
     },
 
     // ========== DHCP Options Operations ==========
+    CreateDhcpOptions: {
+      errors: ["DhcpOptionsLimitExceeded"],
+    },
     AssociateDhcpOptions: {
       errors: ["InvalidDhcpOptionID.NotFound", "InvalidVpcID.NotFound"],
     },
@@ -340,7 +349,7 @@ export const servicePatches: Record<string, ServicePatches> = {
       ],
     },
     ModifyInstanceCreditSpecification: {
-      errors: ["InvalidInstanceID.NotFound"],
+      errors: ["InstanceCreditSpecification.NotSupported"],
     },
     ModifyInstanceEventStartTime: {
       errors: ["InvalidInstanceID.NotFound"],
@@ -384,6 +393,20 @@ export const servicePatches: Record<string, ServicePatches> = {
     UnmonitorInstances: {
       errors: ["InvalidInstanceID.NotFound"],
     },
+    RunInstances: {
+      errors: [
+        "InvalidAMIID.NotFound",
+        "InvalidAMIID.Malformed",
+        "InvalidAMIID.Unavailable",
+        "InvalidSubnetID.NotFound",
+        "InvalidSecurityGroupId.NotFound",
+        "InvalidKeyPair.NotFound",
+        "InvalidBlockDeviceMapping",
+        "InvalidInstanceType",
+        "InvalidParameterValue",
+        "InsufficientInstanceCapacity",
+      ],
+    },
 
     // ========== Instance Event Window Operations ==========
     AssociateInstanceEventWindow: {
@@ -401,16 +424,33 @@ export const servicePatches: Record<string, ServicePatches> = {
 
     // ========== Internet Gateway Operations ==========
     AttachInternetGateway: {
-      errors: ["InvalidInternetGatewayID.NotFound", "InvalidVpcID.NotFound"],
+      errors: [
+        "InvalidInternetGatewayID.NotFound",
+        "InvalidInternetGatewayId.Malformed",
+        "InvalidVpcID.NotFound",
+        "Resource.AlreadyAssociated",
+      ],
     },
     DeleteInternetGateway: {
-      errors: ["InvalidInternetGatewayID.NotFound"],
+      errors: [
+        "InvalidInternetGatewayID.NotFound",
+        "InvalidInternetGatewayId.Malformed",
+        "DependencyViolation",
+      ],
     },
     DescribeInternetGateways: {
-      errors: ["InvalidInternetGatewayID.NotFound"],
+      errors: [
+        "InvalidInternetGatewayID.NotFound",
+        "InvalidInternetGatewayId.Malformed",
+      ],
     },
     DetachInternetGateway: {
-      errors: ["InvalidInternetGatewayID.NotFound", "InvalidVpcID.NotFound"],
+      errors: [
+        "InvalidInternetGatewayID.NotFound",
+        "InvalidInternetGatewayId.Malformed",
+        "InvalidVpcID.NotFound",
+        "Gateway.NotAttached",
+      ],
     },
 
     // ========== Key Pair Operations ==========
@@ -522,10 +562,10 @@ export const servicePatches: Record<string, ServicePatches> = {
       ],
     },
     DeleteNatGateway: {
-      errors: ["InvalidNatGatewayID.NotFound"],
+      errors: ["NatGatewayNotFound", "NatGatewayMalformed"],
     },
     DescribeNatGateways: {
-      errors: ["InvalidNatGatewayID.NotFound"],
+      errors: ["NatGatewayNotFound", "NatGatewayMalformed"],
     },
 
     // ========== Network ACL Operations ==========
@@ -533,7 +573,11 @@ export const servicePatches: Record<string, ServicePatches> = {
       errors: ["InvalidNetworkAclID.NotFound"],
     },
     DeleteNetworkAcl: {
-      errors: ["InvalidNetworkAclID.NotFound", "InvalidNetworkAcl.InUse"],
+      errors: [
+        "InvalidNetworkAclID.NotFound",
+        "InvalidNetworkAclId.Malformed",
+        "InvalidNetworkAcl.InUse",
+      ],
     },
     DeleteNetworkAclEntry: {
       errors: [
@@ -754,6 +798,7 @@ export const servicePatches: Record<string, ServicePatches> = {
       errors: [
         "InvalidGroup.NotFound",
         "InvalidSecurityGroupId.NotFound",
+        "InvalidGroupId.Malformed",
         "InvalidGroup.InUse",
       ],
     },
@@ -805,7 +850,7 @@ export const servicePatches: Record<string, ServicePatches> = {
 
     // ========== Snapshot Operations ==========
     CopySnapshot: {
-      errors: ["InvalidSnapshot.NotFound", "InvalidSnapshotId.Malformed"],
+      errors: ["InvalidSnapshot.NotFound", "InvalidSnapshotID.Malformed"],
     },
     CreateSnapshot: {
       errors: ["InvalidVolume.NotFound"],
@@ -817,14 +862,14 @@ export const servicePatches: Record<string, ServicePatches> = {
       errors: [
         "InvalidSnapshot.NotFound",
         "InvalidSnapshot.InUse",
-        "InvalidSnapshotId.Malformed",
+        "InvalidSnapshotID.Malformed",
       ],
     },
     DescribeSnapshotAttribute: {
-      errors: ["InvalidSnapshot.NotFound", "InvalidSnapshotId.Malformed"],
+      errors: ["InvalidSnapshot.NotFound", "InvalidSnapshotID.Malformed"],
     },
     DescribeSnapshots: {
-      errors: ["InvalidSnapshot.NotFound", "InvalidSnapshotId.Malformed"],
+      errors: ["InvalidSnapshot.NotFound", "InvalidSnapshotID.Malformed"],
     },
     ModifySnapshotAttribute: {
       errors: ["InvalidSnapshot.NotFound"],
@@ -885,7 +930,7 @@ export const servicePatches: Record<string, ServicePatches> = {
       errors: ["InvalidSubnetID.NotFound"],
     },
     DeleteSubnet: {
-      errors: ["InvalidSubnetID.NotFound"],
+      errors: ["InvalidSubnetID.NotFound", "InvalidSubnetId.Malformed"],
     },
     DeleteSubnetCidrReservation: {
       errors: ["InvalidSubnetCidrReservationId.NotFound"],
@@ -1265,13 +1310,21 @@ export const servicePatches: Record<string, ServicePatches> = {
       ],
     },
     DeleteVolume: {
-      errors: ["InvalidVolume.NotFound", "InvalidVolumeID.Malformed"],
+      errors: [
+        "InvalidVolume.NotFound",
+        "InvalidVolumeID.Malformed",
+        "InvalidParameterValue",
+      ],
     },
     DescribeVolumeAttribute: {
       errors: ["InvalidVolume.NotFound", "InvalidVolumeID.Malformed"],
     },
     DescribeVolumes: {
-      errors: ["InvalidVolume.NotFound", "InvalidVolumeID.Malformed"],
+      errors: [
+        "InvalidVolume.NotFound",
+        "InvalidVolumeID.Malformed",
+        "InvalidParameterValue",
+      ],
     },
     DescribeVolumesModifications: {
       errors: ["InvalidVolume.NotFound"],
@@ -1485,6 +1538,20 @@ export const servicePatches: Record<string, ServicePatches> = {
         "InvalidVpnGatewayID.NotFound",
         "InvalidVpcID.NotFound",
         "InvalidVpnGatewayAttachment.NotFound",
+      ],
+    },
+    DisableVgwRoutePropagation: {
+      errors: [
+        "InvalidRouteTableID.NotFound",
+        "InvalidVpnGatewayID.NotFound",
+        "Gateway.NotAttached",
+      ],
+    },
+    EnableVgwRoutePropagation: {
+      errors: [
+        "InvalidRouteTableID.NotFound",
+        "InvalidVpnGatewayID.NotFound",
+        "Gateway.NotAttached",
       ],
     },
 

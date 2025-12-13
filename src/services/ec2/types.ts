@@ -196,7 +196,10 @@ export declare class EC2 extends AWSServiceClient {
     input: AttachInternetGatewayRequest,
   ): Effect.Effect<
     {},
-    InvalidInternetGatewayIDNotFound | InvalidVpcIDNotFound | CommonAwsError
+    | InvalidInternetGatewayIDNotFound
+    | InvalidVpcIDNotFound
+    | ResourceAlreadyAssociated
+    | CommonAwsError
   >;
   attachNetworkInterface(
     input: AttachNetworkInterfaceRequest,
@@ -371,7 +374,12 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<CreateCoipPoolResult, CommonAwsError>;
   createCustomerGateway(
     input: CreateCustomerGatewayRequest,
-  ): Effect.Effect<CreateCustomerGatewayResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateCustomerGatewayResult,
+    | InvalidCustomerGatewayDuplicateIpAddress
+    | CustomerGatewayLimitExceeded
+    | CommonAwsError
+  >;
   createDefaultSubnet(
     input: CreateDefaultSubnetRequest,
   ): Effect.Effect<CreateDefaultSubnetResult, CommonAwsError>;
@@ -383,7 +391,10 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<CreateDelegateMacVolumeOwnershipTaskResult, CommonAwsError>;
   createDhcpOptions(
     input: CreateDhcpOptionsRequest,
-  ): Effect.Effect<CreateDhcpOptionsResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateDhcpOptionsResult,
+    DhcpOptionsLimitExceeded | CommonAwsError
+  >;
   createEgressOnlyInternetGateway(
     input: CreateEgressOnlyInternetGatewayRequest,
   ): Effect.Effect<
@@ -428,7 +439,10 @@ export declare class EC2 extends AWSServiceClient {
   >;
   createInternetGateway(
     input: CreateInternetGatewayRequest,
-  ): Effect.Effect<CreateInternetGatewayResult, CommonAwsError>;
+  ): Effect.Effect<
+    CreateInternetGatewayResult,
+    InternetGatewayLimitExceeded | CommonAwsError
+  >;
   createIpam(
     input: CreateIpamRequest,
   ): Effect.Effect<CreateIpamResult, CommonAwsError>;
@@ -892,7 +906,10 @@ export declare class EC2 extends AWSServiceClient {
   >;
   deleteInternetGateway(
     input: DeleteInternetGatewayRequest,
-  ): Effect.Effect<{}, InvalidInternetGatewayIDNotFound | CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    InvalidInternetGatewayIDNotFound | DependencyViolation | CommonAwsError
+  >;
   deleteIpam(
     input: DeleteIpamRequest,
   ): Effect.Effect<DeleteIpamResult, InvalidIpamIdNotFound | CommonAwsError>;
@@ -990,7 +1007,7 @@ export declare class EC2 extends AWSServiceClient {
     input: DeleteNatGatewayRequest,
   ): Effect.Effect<
     DeleteNatGatewayResult,
-    InvalidNatGatewayIDNotFound | CommonAwsError
+    InvalidNatGatewayIDNotFound | NatGatewayNotFound | CommonAwsError
   >;
   deleteNetworkAcl(
     input: DeleteNetworkAclRequest,
@@ -2206,7 +2223,10 @@ export declare class EC2 extends AWSServiceClient {
     input: DetachInternetGatewayRequest,
   ): Effect.Effect<
     {},
-    InvalidInternetGatewayIDNotFound | InvalidVpcIDNotFound | CommonAwsError
+    | InvalidInternetGatewayIDNotFound
+    | InvalidVpcIDNotFound
+    | GatewayNotAttached
+    | CommonAwsError
   >;
   detachNetworkInterface(
     input: DetachNetworkInterfaceRequest,
@@ -2300,7 +2320,13 @@ export declare class EC2 extends AWSServiceClient {
   >;
   disableVgwRoutePropagation(
     input: DisableVgwRoutePropagationRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    | InvalidRouteTableIDNotFound
+    | InvalidVpnGatewayIDNotFound
+    | GatewayNotAttached
+    | CommonAwsError
+  >;
   disableVpcClassicLink(
     input: DisableVpcClassicLinkRequest,
   ): Effect.Effect<
@@ -2460,7 +2486,13 @@ export declare class EC2 extends AWSServiceClient {
   >;
   enableVgwRoutePropagation(
     input: EnableVgwRoutePropagationRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    | InvalidRouteTableIDNotFound
+    | InvalidVpnGatewayIDNotFound
+    | GatewayNotAttached
+    | CommonAwsError
+  >;
   enableVolumeIO(
     input: EnableVolumeIORequest,
   ): Effect.Effect<{}, InvalidVolumeNotFound | CommonAwsError>;
@@ -2893,7 +2925,7 @@ export declare class EC2 extends AWSServiceClient {
     input: ModifyInstanceCreditSpecificationRequest,
   ): Effect.Effect<
     ModifyInstanceCreditSpecificationResult,
-    InvalidInstanceIDNotFound | CommonAwsError
+    InstanceCreditSpecificationNotSupported | CommonAwsError
   >;
   modifyInstanceEventStartTime(
     input: ModifyInstanceEventStartTimeRequest,
@@ -3447,7 +3479,20 @@ export declare class EC2 extends AWSServiceClient {
   >;
   runInstances(
     input: RunInstancesRequest,
-  ): Effect.Effect<Reservation, CommonAwsError>;
+  ): Effect.Effect<
+    Reservation,
+    | InvalidAMIIDNotFound
+    | InvalidAMIIDMalformed
+    | InvalidAMIIDUnavailable
+    | InvalidSubnetIDNotFound
+    | InvalidSecurityGroupIdNotFound
+    | InvalidKeyPairNotFound
+    | InvalidBlockDeviceMapping
+    | InvalidInstanceType
+    | InvalidParameterValue
+    | InsufficientInstanceCapacity
+    | CommonAwsError
+  >;
   runScheduledInstances(
     input: RunScheduledInstancesRequest,
   ): Effect.Effect<RunScheduledInstancesResult, CommonAwsError>;
@@ -21190,6 +21235,10 @@ export declare class InvalidInternetGatewayIDNotFound extends EffectData.TaggedE
   "InvalidInternetGatewayID.NotFound",
 )<{}> {}
 
+export declare class ResourceAlreadyAssociated extends EffectData.TaggedError(
+  "Resource.AlreadyAssociated",
+)<{}> {}
+
 export declare class InvalidVerifiedAccessInstanceIdNotFound extends EffectData.TaggedError(
   "InvalidVerifiedAccessInstanceId.NotFound",
 )<{}> {}
@@ -21284,6 +21333,22 @@ export declare class InvalidSnapshotNotFound extends EffectData.TaggedError(
 
 export declare class InvalidSnapshotIdMalformed extends EffectData.TaggedError(
   "InvalidSnapshotId.Malformed",
+)<{}> {}
+
+export declare class InvalidCustomerGatewayDuplicateIpAddress extends EffectData.TaggedError(
+  "InvalidCustomerGateway.DuplicateIpAddress",
+)<{}> {}
+
+export declare class CustomerGatewayLimitExceeded extends EffectData.TaggedError(
+  "CustomerGatewayLimitExceeded",
+)<{}> {}
+
+export declare class DhcpOptionsLimitExceeded extends EffectData.TaggedError(
+  "DhcpOptionsLimitExceeded",
+)<{}> {}
+
+export declare class InternetGatewayLimitExceeded extends EffectData.TaggedError(
+  "InternetGatewayLimitExceeded",
 )<{}> {}
 
 export declare class InvalidIpamScopeIdNotFound extends EffectData.TaggedError(
@@ -21434,6 +21499,10 @@ export declare class InvalidFlowLogIdNotFound extends EffectData.TaggedError(
   "InvalidFlowLogId.NotFound",
 )<{}> {}
 
+export declare class DependencyViolation extends EffectData.TaggedError(
+  "DependencyViolation",
+)<{}> {}
+
 export declare class InvalidIpamResourceDiscoveryIdNotFound extends EffectData.TaggedError(
   "InvalidIpamResourceDiscoveryId.NotFound",
 )<{}> {}
@@ -21444,6 +21513,10 @@ export declare class InvalidKeyPairNotFound extends EffectData.TaggedError(
 
 export declare class InvalidLaunchTemplateIdVersionNotFound extends EffectData.TaggedError(
   "InvalidLaunchTemplateId.VersionNotFound",
+)<{}> {}
+
+export declare class NatGatewayNotFound extends EffectData.TaggedError(
+  "NatGatewayNotFound",
 )<{}> {}
 
 export declare class InvalidNetworkAclInUse extends EffectData.TaggedError(
@@ -21594,10 +21667,6 @@ export declare class InvalidPrefixListIdMalformed extends EffectData.TaggedError
   "InvalidPrefixListId.Malformed",
 )<{}> {}
 
-export declare class NatGatewayNotFound extends EffectData.TaggedError(
-  "NatGatewayNotFound",
-)<{}> {}
-
 export declare class InvalidPoolIDMalformed extends EffectData.TaggedError(
   "InvalidPoolID.Malformed",
 )<{}> {}
@@ -21658,6 +21727,10 @@ export declare class InvalidVpnConnectionID extends EffectData.TaggedError(
   "InvalidVpnConnectionID",
 )<{}> {}
 
+export declare class GatewayNotAttached extends EffectData.TaggedError(
+  "Gateway.NotAttached",
+)<{}> {}
+
 export declare class InvalidAttachmentIDNotFound extends EffectData.TaggedError(
   "InvalidAttachmentID.NotFound",
 )<{}> {}
@@ -21686,12 +21759,28 @@ export declare class InvalidKeyPairFormat extends EffectData.TaggedError(
   "InvalidKeyPair.Format",
 )<{}> {}
 
+export declare class InstanceCreditSpecificationNotSupported extends EffectData.TaggedError(
+  "InstanceCreditSpecification.NotSupported",
+)<{}> {}
+
 export declare class InvalidClientVpnEndpointAuthorizationRuleNotFound extends EffectData.TaggedError(
   "InvalidClientVpnEndpointAuthorizationRuleNotFound",
 )<{}> {}
 
 export declare class InvalidPermissionNotFound extends EffectData.TaggedError(
   "InvalidPermission.NotFound",
+)<{}> {}
+
+export declare class InvalidBlockDeviceMapping extends EffectData.TaggedError(
+  "InvalidBlockDeviceMapping",
+)<{}> {}
+
+export declare class InvalidParameterValue extends EffectData.TaggedError(
+  "InvalidParameterValue",
+)<{}> {}
+
+export declare class InsufficientInstanceCapacity extends EffectData.TaggedError(
+  "InsufficientInstanceCapacity",
 )<{}> {}
 
 export declare namespace AcceptAddressTransfer {
@@ -21948,6 +22037,7 @@ export declare namespace AttachInternetGateway {
   export type Error =
     | InvalidInternetGatewayIDNotFound
     | InvalidVpcIDNotFound
+    | ResourceAlreadyAssociated
     | CommonAwsError;
 }
 
@@ -22194,7 +22284,10 @@ export declare namespace CreateCoipPool {
 export declare namespace CreateCustomerGateway {
   export type Input = CreateCustomerGatewayRequest;
   export type Output = CreateCustomerGatewayResult;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidCustomerGatewayDuplicateIpAddress
+    | CustomerGatewayLimitExceeded
+    | CommonAwsError;
 }
 
 export declare namespace CreateDefaultSubnet {
@@ -22218,7 +22311,7 @@ export declare namespace CreateDelegateMacVolumeOwnershipTask {
 export declare namespace CreateDhcpOptions {
   export type Input = CreateDhcpOptionsRequest;
   export type Output = CreateDhcpOptionsResult;
-  export type Error = CommonAwsError;
+  export type Error = DhcpOptionsLimitExceeded | CommonAwsError;
 }
 
 export declare namespace CreateEgressOnlyInternetGateway {
@@ -22282,7 +22375,7 @@ export declare namespace CreateInstanceExportTask {
 export declare namespace CreateInternetGateway {
   export type Input = CreateInternetGatewayRequest;
   export type Output = CreateInternetGatewayResult;
-  export type Error = CommonAwsError;
+  export type Error = InternetGatewayLimitExceeded | CommonAwsError;
 }
 
 export declare namespace CreateIpam {
@@ -22898,7 +22991,10 @@ export declare namespace DeleteInstanceEventWindow {
 export declare namespace DeleteInternetGateway {
   export type Input = DeleteInternetGatewayRequest;
   export type Output = {};
-  export type Error = InvalidInternetGatewayIDNotFound | CommonAwsError;
+  export type Error =
+    | InvalidInternetGatewayIDNotFound
+    | DependencyViolation
+    | CommonAwsError;
 }
 
 export declare namespace DeleteIpam {
@@ -23020,7 +23116,10 @@ export declare namespace DeleteManagedPrefixList {
 export declare namespace DeleteNatGateway {
   export type Input = DeleteNatGatewayRequest;
   export type Output = DeleteNatGatewayResult;
-  export type Error = InvalidNatGatewayIDNotFound | CommonAwsError;
+  export type Error =
+    | InvalidNatGatewayIDNotFound
+    | NatGatewayNotFound
+    | CommonAwsError;
 }
 
 export declare namespace DeleteNetworkAcl {
@@ -24665,6 +24764,7 @@ export declare namespace DetachInternetGateway {
   export type Error =
     | InvalidInternetGatewayIDNotFound
     | InvalidVpcIDNotFound
+    | GatewayNotAttached
     | CommonAwsError;
 }
 
@@ -24808,7 +24908,11 @@ export declare namespace DisableTransitGatewayRouteTablePropagation {
 export declare namespace DisableVgwRoutePropagation {
   export type Input = DisableVgwRoutePropagationRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidRouteTableIDNotFound
+    | InvalidVpnGatewayIDNotFound
+    | GatewayNotAttached
+    | CommonAwsError;
 }
 
 export declare namespace DisableVpcClassicLink {
@@ -25050,7 +25154,11 @@ export declare namespace EnableTransitGatewayRouteTablePropagation {
 export declare namespace EnableVgwRoutePropagation {
   export type Input = EnableVgwRoutePropagationRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidRouteTableIDNotFound
+    | InvalidVpnGatewayIDNotFound
+    | GatewayNotAttached
+    | CommonAwsError;
 }
 
 export declare namespace EnableVolumeIO {
@@ -25663,7 +25771,7 @@ export declare namespace ModifyInstanceCpuOptions {
 export declare namespace ModifyInstanceCreditSpecification {
   export type Input = ModifyInstanceCreditSpecificationRequest;
   export type Output = ModifyInstanceCreditSpecificationResult;
-  export type Error = InvalidInstanceIDNotFound | CommonAwsError;
+  export type Error = InstanceCreditSpecificationNotSupported | CommonAwsError;
 }
 
 export declare namespace ModifyInstanceEventStartTime {
@@ -26380,7 +26488,18 @@ export declare namespace RevokeSecurityGroupIngress {
 export declare namespace RunInstances {
   export type Input = RunInstancesRequest;
   export type Output = Reservation;
-  export type Error = CommonAwsError;
+  export type Error =
+    | InvalidAMIIDNotFound
+    | InvalidAMIIDMalformed
+    | InvalidAMIIDUnavailable
+    | InvalidSubnetIDNotFound
+    | InvalidSecurityGroupIdNotFound
+    | InvalidKeyPairNotFound
+    | InvalidBlockDeviceMapping
+    | InvalidInstanceType
+    | InvalidParameterValue
+    | InsufficientInstanceCapacity
+    | CommonAwsError;
 }
 
 export declare namespace RunScheduledInstances {
@@ -26544,6 +26663,7 @@ export type EC2Errors =
   | InvalidTransitGatewayPolicyTableIdNotFound
   | InvalidTransitGatewayRouteTableIdNotFound
   | InvalidInternetGatewayIDNotFound
+  | ResourceAlreadyAssociated
   | InvalidVerifiedAccessInstanceIdNotFound
   | InvalidVerifiedAccessTrustProviderIdNotFound
   | InvalidVolumeNotFound
@@ -26568,6 +26688,10 @@ export type EC2Errors =
   | InvalidAMIIDUnavailable
   | InvalidSnapshotNotFound
   | InvalidSnapshotIdMalformed
+  | InvalidCustomerGatewayDuplicateIpAddress
+  | CustomerGatewayLimitExceeded
+  | DhcpOptionsLimitExceeded
+  | InternetGatewayLimitExceeded
   | InvalidIpamScopeIdNotFound
   | InvalidIpamIdNotFound
   | InvalidKeyPairDuplicate
@@ -26605,9 +26729,11 @@ export type EC2Errors =
   | InvalidClientVpnRouteNotFound
   | InvalidDhcpOptionsIdMalformed
   | InvalidFlowLogIdNotFound
+  | DependencyViolation
   | InvalidIpamResourceDiscoveryIdNotFound
   | InvalidKeyPairNotFound
   | InvalidLaunchTemplateIdVersionNotFound
+  | NatGatewayNotFound
   | InvalidNetworkAclInUse
   | InvalidNetworkAclEntryNotFound
   | InvalidNetworkInsightsAccessScopeIdNotFound
@@ -26645,7 +26771,6 @@ export type EC2Errors =
   | InvalidLocalGatewayRouteTableVirtualInterfaceGroupAssociationIdNotFound
   | InvalidLocalGatewayVirtualInterfaceGroupIdNotFound
   | InvalidPrefixListIdMalformed
-  | NatGatewayNotFound
   | InvalidPoolIDMalformed
   | InvalidReplaceRootVolumeTaskIdNotFound
   | InvalidReplaceRootVolumeTaskIdMalformed
@@ -26661,6 +26786,7 @@ export type EC2Errors =
   | InvalidVpcPeeringConnectionIdMalformed
   | InvalidVpcIDMalformed
   | InvalidVpnConnectionID
+  | GatewayNotAttached
   | InvalidAttachmentIDNotFound
   | InvalidNetworkInterfaceAttachmentIdMalformed
   | InvalidAttachmentNotFound
@@ -26668,6 +26794,10 @@ export type EC2Errors =
   | InvalidClientVpnAssociationIdNotFound
   | InvalidInstanceType
   | InvalidKeyPairFormat
+  | InstanceCreditSpecificationNotSupported
   | InvalidClientVpnEndpointAuthorizationRuleNotFound
   | InvalidPermissionNotFound
+  | InvalidBlockDeviceMapping
+  | InvalidParameterValue
+  | InsufficientInstanceCapacity
   | CommonAwsError;
