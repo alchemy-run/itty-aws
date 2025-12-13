@@ -1,3 +1,13 @@
+## v0.8.2
+
+### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
+
+- **ec2**: Add DependencyViolation to DeleteVpc &nbsp;-&nbsp; by **Sam Goodwin** [<samp>(cd2c7)</samp>](https://github.com/sam-goodwin/itty-aws/commit/cd2c79a2)
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sam-goodwin/itty-aws/compare/v0.8.1...v0.8.2)
+
+---
+
 ## v0.8.1
 
 ### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
