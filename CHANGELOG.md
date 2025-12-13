@@ -1,3 +1,13 @@
+## v0.8.1
+
+### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
+
+- **ec2**: Discover and add more EC2 errors &nbsp;-&nbsp; by **Sam Goodwin** [<samp>(33017)</samp>](https://github.com/sam-goodwin/itty-aws/commit/3301772c)
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sam-goodwin/itty-aws/compare/v0.8.0...v0.8.1)
+
+---
+
 ## v0.8.0
 
 ### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
