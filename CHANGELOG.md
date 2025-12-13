@@ -1,3 +1,13 @@
+## v0.8.0
+
+### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
+
+- **ec2**: Patch all missing error codes &nbsp;-&nbsp; by **Sam Goodwin** in https://github.com/sam-goodwin/itty-aws/issues/84 [<samp>(31f03)</samp>](https://github.com/sam-goodwin/itty-aws/commit/31f03de8)
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sam-goodwin/itty-aws/compare/v0.7.2...v0.8.0)
+
+---
+
 ## v0.7.2
 
 ### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
