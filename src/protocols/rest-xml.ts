@@ -86,6 +86,15 @@ export const restXmlProvider = Effect.fn(function* (metadata: ServiceMetadata) {
         const baseUrl = `https://${metadata.sdkId.toLowerCase()}.${region}.amazonaws.com`;
         let unsignedUrl = `${baseUrl}${uri}`;
 
+        yield* Effect.logDebug(
+          `AWS Request - ${metadata.sdkId}:${endpointMetadata.name} - data:`,
+          {
+            unsignedUrl,
+            unsignedHeaders,
+            unsignedBody,
+          },
+        );
+
         const creds = yield* credentials.getCredentials();
         const signer = new AwsV4Signer({
           method: endpointMetadata.method,
@@ -143,6 +152,7 @@ export const restXmlProvider = Effect.fn(function* (metadata: ServiceMetadata) {
           yield* Effect.logDebug(
             `AWS Request - ${metadata.sdkId}:${endpointMetadata.name} - response headers: ${JSON.stringify(response.headers)}`,
           );
+          yield* Effect.logDebug("test", endpointMetadata);
           return yield* response.text;
         } else {
           const text = yield* response.text;
@@ -187,8 +197,6 @@ export const restXmlProvider = Effect.fn(function* (metadata: ServiceMetadata) {
               ),
           });
         }
-
-        yield* Effect.void;
       }),
   } as {
     call: (metadata: any) => (input: any) => Effect.Effect<any>;

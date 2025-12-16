@@ -10,3 +10,5 @@
     at <anonymous> (D:\code\OSS\alchemy\itty-aws-2\src\client.ts:25:28)
     at <anonymous> (D:\code\OSS\alchemy\itty-aws-2\src\client.ts:25:41)
     ```
+- make everything into thunks
+- memory impact

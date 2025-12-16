@@ -162,16 +162,6 @@ export declare class ValidationException extends S.TaggedError<ValidationExcepti
 
 //=====================
 
-export class UnknownAwsError extends S.TaggedError<UnknownAwsError>()(
-  "UnknownAwsError",
-  {
-    key: S.String,
-    data: S.Unknown,
-  },
-).pipe(withCategory(ERROR_CATEGORIES.AWS_ERROR)) {}
-
-//=====================
-
 export function createDynamicTaggedError(
   tag: string,
   errorData: Record<string, unknown>,

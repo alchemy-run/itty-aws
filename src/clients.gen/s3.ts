@@ -1,487 +1,5632 @@
-import { type Effect, Layer, Context, Data } from "effect";
-import type { CommonAwsError } from "../aws-errors";
-import { makeOperation } from "../client";
-import { restXmlProvider, type EndpointMetadata } from "../protocols/rest-xml";
+import { Schema } from "effect";
+import {
+  FormatXMLRequest,
+  FormatXMLResponse,
+  makeOperation,
+  NoopRequest,
+  NoopResponse,
+} from "../client";
+import {
+  Operation,
+  Path,
+  Header,
+  StreamBody,
+  Body,
+  Error,
+} from "../schema-helpers";
 
-//==== Exports ====
-export const metadata = {"protocol":"aws.protocols#restXml","sdkId":"S3","sigV4ServiceName":"s3","version":"2006-03-01"}
-
-export class S3ClientRequirement extends Context.Tag("S3ClientRequirement")<S3ClientRequirement, { call: (metadata: any) => (input: any) => Effect.Effect<any>, _endpointMetadataType: EndpointMetadata }>() {}
-export const clientLive = Layer.effect(S3ClientRequirement, restXmlProvider(metadata));
-
-export const abortMultipartUpload = /*@__PURE__*/ makeOperation<AbortMultipartUploadRequest, AbortMultipartUploadOutput, NoSuchUploadError | CommonAwsError, typeof S3ClientRequirement>({ name: "abortMultipartUpload", method: "DELETE", uri: "/{Bucket}/{Key+}?x-id=AbortMultipartUpload", body: {"Bucket":["p","Bucket"],"Key":["p","Key"]}, errors: {"NoSuchUpload":[]}}, S3ClientRequirement)
-export const completeMultipartUpload = /*@__PURE__*/ makeOperation<CompleteMultipartUploadRequest, CompleteMultipartUploadOutput, CommonAwsError, typeof S3ClientRequirement>({ name: "completeMultipartUpload", method: "POST", uri: "/{Bucket}/{Key+}", body: {"Bucket":["p","Bucket"],"Key":["p","Key"],"MultipartUpload":["b","CompleteMultipartUpload"],"ChecksumCRC32":["x-amz-checksum-crc32"],"ChecksumCRC32C":["x-amz-checksum-crc32c"],"ChecksumCRC64NVME":["x-amz-checksum-crc64nvme"],"ChecksumSHA1":["x-amz-checksum-sha1"],"ChecksumSHA256":["x-amz-checksum-sha256"],"MpuObjectSize":["x-amz-mp-object-size"],"IfMatch":["If-Match"],"IfNoneMatch":["If-None-Match"],"SSECustomerAlgorithm":["x-amz-server-side-encryption-customer-algorithm"],"SSECustomerKey":["x-amz-server-side-encryption-customer-key"],"SSECustomerKeyMD5":["x-amz-server-side-encryption-customer-key-MD5"]}, errors: {}}, S3ClientRequirement)
-export const copyObject = /*@__PURE__*/ makeOperation<CopyObjectRequest, CopyObjectOutput, ObjectNotInActiveTierErrorError | CommonAwsError, typeof S3ClientRequirement>({ name: "copyObject", method: "PUT", uri: "/{Bucket}/{Key+}?x-id=CopyObject", body: {"ACL":["x-amz-acl"],"Bucket":["p","Bucket"],"CacheControl":["Cache-Control"],"ContentDisposition":["Content-Disposition"],"ContentEncoding":["Content-Encoding"],"ContentLanguage":["Content-Language"],"ContentType":["Content-Type"],"Expires":["Expires"],"GrantReadACP":["x-amz-grant-read-acp"],"GrantWriteACP":["x-amz-grant-write-acp"],"IfMatch":["If-Match"],"IfNoneMatch":["If-None-Match"],"Key":["p","Key"],"SSECustomerAlgorithm":["x-amz-server-side-encryption-customer-algorithm"],"SSECustomerKey":["x-amz-server-side-encryption-customer-key"],"SSECustomerKeyMD5":["x-amz-server-side-encryption-customer-key-MD5"],"SSEKMSKeyId":["x-amz-server-side-encryption-aws-kms-key-id"],"SSEKMSEncryptionContext":["x-amz-server-side-encryption-context"],"BucketKeyEnabled":["x-amz-server-side-encryption-bucket-key-enabled"],"CopySourceSSECustomerAlgorithm":["x-amz-copy-source-server-side-encryption-customer-algorithm"],"CopySourceSSECustomerKey":["x-amz-copy-source-server-side-encryption-customer-key"],"CopySourceSSECustomerKeyMD5":["x-amz-copy-source-server-side-encryption-customer-key-MD5"],"ObjectLockLegalHoldStatus":["x-amz-object-lock-legal-hold"],"ExpectedSourceBucketOwner":["x-amz-source-expected-bucket-owner"]}, errors: {"ObjectNotInActiveTierError":[]}}, S3ClientRequirement)
-export const createBucket = /*@__PURE__*/ makeOperation<CreateBucketRequest, CreateBucketOutput, BucketAlreadyExistsError | BucketAlreadyOwnedByYouError | CommonAwsError, typeof S3ClientRequirement>({ name: "createBucket", method: "PUT", uri: "/{Bucket}", body: {"ACL":["x-amz-acl"],"Bucket":["p","Bucket"],"CreateBucketConfiguration":["b","CreateBucketConfiguration"],"GrantReadACP":["x-amz-grant-read-acp"],"GrantWriteACP":["x-amz-grant-write-acp"],"ObjectLockEnabledForBucket":["x-amz-bucket-object-lock-enabled"]}, errors: {"BucketAlreadyExists":[],"BucketAlreadyOwnedByYou":[]}}, S3ClientRequirement)
-export const createBucketMetadataConfiguration = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ name: "createBucketMetadataConfiguration", method: "POST", uri: "/{Bucket}?metadataConfiguration", body: {"Bucket":["p","Bucket"],"ContentMD5":["Content-MD5"],"ChecksumAlgorithm":["x-amz-sdk-checksum-algorithm"],"MetadataConfiguration":["b","MetadataConfiguration"]}, errors: {}}, S3ClientRequirement)
-export const createBucketMetadataTableConfiguration = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ name: "createBucketMetadataTableConfiguration", method: "POST", uri: "/{Bucket}?metadataTable", body: {"Bucket":["p","Bucket"],"ContentMD5":["Content-MD5"],"ChecksumAlgorithm":["x-amz-sdk-checksum-algorithm"],"MetadataTableConfiguration":["b","MetadataTableConfiguration"]}, errors: {}}, S3ClientRequirement)
-export const createMultipartUpload = /*@__PURE__*/ makeOperation<CreateMultipartUploadRequest, CreateMultipartUploadOutput, CommonAwsError, typeof S3ClientRequirement>({ name: "createMultipartUpload", method: "POST", uri: "/{Bucket}/{Key+}?uploads", body: {"ACL":["x-amz-acl"],"Bucket":["p","Bucket"],"CacheControl":["Cache-Control"],"ContentDisposition":["Content-Disposition"],"ContentEncoding":["Content-Encoding"],"ContentLanguage":["Content-Language"],"ContentType":["Content-Type"],"Expires":["Expires"],"GrantReadACP":["x-amz-grant-read-acp"],"GrantWriteACP":["x-amz-grant-write-acp"],"Key":["p","Key"],"SSECustomerAlgorithm":["x-amz-server-side-encryption-customer-algorithm"],"SSECustomerKey":["x-amz-server-side-encryption-customer-key"],"SSECustomerKeyMD5":["x-amz-server-side-encryption-customer-key-MD5"],"SSEKMSKeyId":["x-amz-server-side-encryption-aws-kms-key-id"],"SSEKMSEncryptionContext":["x-amz-server-side-encryption-context"],"BucketKeyEnabled":["x-amz-server-side-encryption-bucket-key-enabled"],"ObjectLockLegalHoldStatus":["x-amz-object-lock-legal-hold"]}, errors: {}}, S3ClientRequirement)
-export const createSession = /*@__PURE__*/ makeOperation<CreateSessionRequest, CreateSessionOutput, NoSuchBucketError | CommonAwsError, typeof S3ClientRequirement>({ name: "createSession", method: "GET", uri: "/{Bucket}?session", body: {"SessionMode":["x-amz-create-session-mode"],"Bucket":["p","Bucket"],"SSEKMSKeyId":["x-amz-server-side-encryption-aws-kms-key-id"],"SSEKMSEncryptionContext":["x-amz-server-side-encryption-context"],"BucketKeyEnabled":["x-amz-server-side-encryption-bucket-key-enabled"]}, errors: {"NoSuchBucket":[]}}, S3ClientRequirement)
-export const deleteBucket = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ name: "deleteBucket", method: "DELETE", uri: "/{Bucket}", body: {"Bucket":["p","Bucket"]}, errors: {}}, S3ClientRequirement)
-export const deleteBucketAnalyticsConfiguration = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ name: "deleteBucketAnalyticsConfiguration", method: "DELETE", uri: "/{Bucket}?analytics", body: {"Bucket":["p","Bucket"]}, errors: {}}, S3ClientRequirement)
-export const deleteBucketCors = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ name: "deleteBucketCors", method: "DELETE", uri: "/{Bucket}?cors", body: {"Bucket":["p","Bucket"]}, errors: {}}, S3ClientRequirement)
-export const deleteBucketEncryption = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ name: "deleteBucketEncryption", method: "DELETE", uri: "/{Bucket}?encryption", body: {"Bucket":["p","Bucket"]}, errors: {}}, S3ClientRequirement)
-export const deleteBucketIntelligentTieringConfiguration = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ name: "deleteBucketIntelligentTieringConfiguration", method: "DELETE", uri: "/{Bucket}?intelligent-tiering", body: {"Bucket":["p","Bucket"]}, errors: {}}, S3ClientRequirement)
-export const deleteBucketInventoryConfiguration = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ name: "deleteBucketInventoryConfiguration", method: "DELETE", uri: "/{Bucket}?inventory", body: {"Bucket":["p","Bucket"]}, errors: {}}, S3ClientRequirement)
-export const deleteBucketLifecycle = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ name: "deleteBucketLifecycle", method: "DELETE", uri: "/{Bucket}?lifecycle", body: {"Bucket":["p","Bucket"]}, errors: {}}, S3ClientRequirement)
-export const deleteBucketMetadataConfiguration = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ name: "deleteBucketMetadataConfiguration", method: "DELETE", uri: "/{Bucket}?metadataConfiguration", body: {"Bucket":["p","Bucket"]}, errors: {}}, S3ClientRequirement)
-export const deleteBucketMetadataTableConfiguration = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ name: "deleteBucketMetadataTableConfiguration", method: "DELETE", uri: "/{Bucket}?metadataTable", body: {"Bucket":["p","Bucket"]}, errors: {}}, S3ClientRequirement)
-export const deleteBucketMetricsConfiguration = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ name: "deleteBucketMetricsConfiguration", method: "DELETE", uri: "/{Bucket}?metrics", body: {"Bucket":["p","Bucket"]}, errors: {}}, S3ClientRequirement)
-export const deleteBucketOwnershipControls = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ name: "deleteBucketOwnershipControls", method: "DELETE", uri: "/{Bucket}?ownershipControls", body: {"Bucket":["p","Bucket"]}, errors: {}}, S3ClientRequirement)
-export const deleteBucketPolicy = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ name: "deleteBucketPolicy", method: "DELETE", uri: "/{Bucket}?policy", body: {"Bucket":["p","Bucket"]}, errors: {}}, S3ClientRequirement)
-export const deleteBucketReplication = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ name: "deleteBucketReplication", method: "DELETE", uri: "/{Bucket}?replication", body: {"Bucket":["p","Bucket"]}, errors: {}}, S3ClientRequirement)
-export const deleteBucketTagging = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ name: "deleteBucketTagging", method: "DELETE", uri: "/{Bucket}?tagging", body: {"Bucket":["p","Bucket"]}, errors: {}}, S3ClientRequirement)
-export const deleteBucketWebsite = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ name: "deleteBucketWebsite", method: "DELETE", uri: "/{Bucket}?website", body: {"Bucket":["p","Bucket"]}, errors: {}}, S3ClientRequirement)
-export const deleteObject = /*@__PURE__*/ makeOperation<DeleteObjectRequest, DeleteObjectOutput, CommonAwsError, typeof S3ClientRequirement>({ name: "deleteObject", method: "DELETE", uri: "/{Bucket}/{Key+}?x-id=DeleteObject", body: {"Bucket":["p","Bucket"],"Key":["p","Key"],"MFA":["x-amz-mfa"],"IfMatch":["If-Match"]}, errors: {}}, S3ClientRequirement)
-export const deleteObjects = /*@__PURE__*/ makeOperation<DeleteObjectsRequest, DeleteObjectsOutput, CommonAwsError, typeof S3ClientRequirement>({ name: "deleteObjects", method: "POST", uri: "/{Bucket}?delete", body: {"Bucket":["p","Bucket"],"Delete":["b","Delete"],"MFA":["x-amz-mfa"],"ChecksumAlgorithm":["x-amz-sdk-checksum-algorithm"]}, errors: {}}, S3ClientRequirement)
-export const deleteObjectTagging = /*@__PURE__*/ makeOperation<DeleteObjectTaggingRequest, DeleteObjectTaggingOutput, CommonAwsError, typeof S3ClientRequirement>({ name: "deleteObjectTagging", method: "DELETE", uri: "/{Bucket}/{Key+}?tagging", body: {"Bucket":["p","Bucket"],"Key":["p"]}, errors: {}}, S3ClientRequirement)
-export const deletePublicAccessBlock = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ name: "deletePublicAccessBlock", method: "DELETE", uri: "/{Bucket}?publicAccessBlock", body: {"Bucket":["p","Bucket"]}, errors: {}}, S3ClientRequirement)
-export const getBucketAccelerateConfiguration = /*@__PURE__*/ makeOperation<GetBucketAccelerateConfigurationRequest, GetBucketAccelerateConfigurationOutput, CommonAwsError, typeof S3ClientRequirement>({ name: "getBucketAccelerateConfiguration", method: "GET", uri: "/{Bucket}?accelerate", body: {"Bucket":["p","Bucket"]}, errors: {}}, S3ClientRequirement)
-export const getBucketAcl = /*@__PURE__*/ makeOperation<GetBucketAclRequest, GetBucketAclOutput, CommonAwsError, typeof S3ClientRequirement>({ name: "getBucketAcl", method: "GET", uri: "/{Bucket}?acl", body: {"Bucket":["p","Bucket"]}, errors: {}}, S3ClientRequirement)
-export const getBucketAnalyticsConfiguration = /*@__PURE__*/ makeOperation<GetBucketAnalyticsConfigurationRequest, GetBucketAnalyticsConfigurationOutput, CommonAwsError, typeof S3ClientRequirement>({ name: "getBucketAnalyticsConfiguration", method: "GET", uri: "/{Bucket}?analytics&x-id=GetBucketAnalyticsConfiguration", body: {"Bucket":["p","Bucket"]}, errors: {}}, S3ClientRequirement)
-export const getBucketCors = /*@__PURE__*/ makeOperation<GetBucketCorsRequest, GetBucketCorsOutput, CommonAwsError, typeof S3ClientRequirement>({ name: "getBucketCors", method: "GET", uri: "/{Bucket}?cors", body: {"Bucket":["p","Bucket"]}, errors: {}}, S3ClientRequirement)
-export const getBucketEncryption = /*@__PURE__*/ makeOperation<GetBucketEncryptionRequest, GetBucketEncryptionOutput, CommonAwsError, typeof S3ClientRequirement>({ name: "getBucketEncryption", method: "GET", uri: "/{Bucket}?encryption", body: {"Bucket":["p","Bucket"]}, errors: {}}, S3ClientRequirement)
-export const getBucketIntelligentTieringConfiguration = /*@__PURE__*/ makeOperation<GetBucketIntelligentTieringConfigurationRequest, GetBucketIntelligentTieringConfigurationOutput, CommonAwsError, typeof S3ClientRequirement>({ name: "getBucketIntelligentTieringConfiguration", method: "GET", uri: "/{Bucket}?intelligent-tiering&x-id=GetBucketIntelligentTieringConfiguration", body: {"Bucket":["p","Bucket"]}, errors: {}}, S3ClientRequirement)
-export const getBucketInventoryConfiguration = /*@__PURE__*/ makeOperation<GetBucketInventoryConfigurationRequest, GetBucketInventoryConfigurationOutput, CommonAwsError, typeof S3ClientRequirement>({ name: "getBucketInventoryConfiguration", method: "GET", uri: "/{Bucket}?inventory&x-id=GetBucketInventoryConfiguration", body: {"Bucket":["p","Bucket"]}, errors: {}}, S3ClientRequirement)
-export const getBucketLifecycleConfiguration = /*@__PURE__*/ makeOperation<GetBucketLifecycleConfigurationRequest, GetBucketLifecycleConfigurationOutput, CommonAwsError, typeof S3ClientRequirement>({ name: "getBucketLifecycleConfiguration", method: "GET", uri: "/{Bucket}?lifecycle", body: {"Bucket":["p","Bucket"]}, errors: {}}, S3ClientRequirement)
-export const getBucketLocation = /*@__PURE__*/ makeOperation<GetBucketLocationRequest, GetBucketLocationOutput, CommonAwsError, typeof S3ClientRequirement>({ name: "getBucketLocation", method: "GET", uri: "/{Bucket}?location", body: {"Bucket":["p","Bucket"]}, errors: {}}, S3ClientRequirement)
-export const getBucketLogging = /*@__PURE__*/ makeOperation<GetBucketLoggingRequest, GetBucketLoggingOutput, CommonAwsError, typeof S3ClientRequirement>({ name: "getBucketLogging", method: "GET", uri: "/{Bucket}?logging", body: {"Bucket":["p","Bucket"]}, errors: {}}, S3ClientRequirement)
-export const getBucketMetadataConfiguration = /*@__PURE__*/ makeOperation<GetBucketMetadataConfigurationRequest, GetBucketMetadataConfigurationOutput, CommonAwsError, typeof S3ClientRequirement>({ name: "getBucketMetadataConfiguration", method: "GET", uri: "/{Bucket}?metadataConfiguration", body: {"Bucket":["p","Bucket"]}, errors: {}}, S3ClientRequirement)
-export const getBucketMetadataTableConfiguration = /*@__PURE__*/ makeOperation<GetBucketMetadataTableConfigurationRequest, GetBucketMetadataTableConfigurationOutput, CommonAwsError, typeof S3ClientRequirement>({ name: "getBucketMetadataTableConfiguration", method: "GET", uri: "/{Bucket}?metadataTable", body: {"Bucket":["p","Bucket"]}, errors: {}}, S3ClientRequirement)
-export const getBucketMetricsConfiguration = /*@__PURE__*/ makeOperation<GetBucketMetricsConfigurationRequest, GetBucketMetricsConfigurationOutput, CommonAwsError, typeof S3ClientRequirement>({ name: "getBucketMetricsConfiguration", method: "GET", uri: "/{Bucket}?metrics&x-id=GetBucketMetricsConfiguration", body: {"Bucket":["p","Bucket"]}, errors: {}}, S3ClientRequirement)
-export const getBucketNotificationConfiguration = /*@__PURE__*/ makeOperation<GetBucketNotificationConfigurationRequest, NotificationConfiguration, CommonAwsError, typeof S3ClientRequirement>({ name: "getBucketNotificationConfiguration", method: "GET", uri: "/{Bucket}?notification", body: {"Bucket":["p","Bucket"]}, errors: {}}, S3ClientRequirement)
-export const getBucketOwnershipControls = /*@__PURE__*/ makeOperation<GetBucketOwnershipControlsRequest, GetBucketOwnershipControlsOutput, CommonAwsError, typeof S3ClientRequirement>({ name: "getBucketOwnershipControls", method: "GET", uri: "/{Bucket}?ownershipControls", body: {"Bucket":["p","Bucket"]}, errors: {}}, S3ClientRequirement)
-export const getBucketPolicy = /*@__PURE__*/ makeOperation<GetBucketPolicyRequest, GetBucketPolicyOutput, CommonAwsError, typeof S3ClientRequirement>({ name: "getBucketPolicy", method: "GET", uri: "/{Bucket}?policy", body: {"Bucket":["p","Bucket"]}, errors: {}}, S3ClientRequirement)
-export const getBucketPolicyStatus = /*@__PURE__*/ makeOperation<GetBucketPolicyStatusRequest, GetBucketPolicyStatusOutput, CommonAwsError, typeof S3ClientRequirement>({ name: "getBucketPolicyStatus", method: "GET", uri: "/{Bucket}?policyStatus", body: {"Bucket":["p","Bucket"]}, errors: {}}, S3ClientRequirement)
-export const getBucketReplication = /*@__PURE__*/ makeOperation<GetBucketReplicationRequest, GetBucketReplicationOutput, CommonAwsError, typeof S3ClientRequirement>({ name: "getBucketReplication", method: "GET", uri: "/{Bucket}?replication", body: {"Bucket":["p","Bucket"]}, errors: {}}, S3ClientRequirement)
-export const getBucketRequestPayment = /*@__PURE__*/ makeOperation<GetBucketRequestPaymentRequest, GetBucketRequestPaymentOutput, CommonAwsError, typeof S3ClientRequirement>({ name: "getBucketRequestPayment", method: "GET", uri: "/{Bucket}?requestPayment", body: {"Bucket":["p","Bucket"]}, errors: {}}, S3ClientRequirement)
-export const getBucketTagging = /*@__PURE__*/ makeOperation<GetBucketTaggingRequest, GetBucketTaggingOutput, CommonAwsError, typeof S3ClientRequirement>({ name: "getBucketTagging", method: "GET", uri: "/{Bucket}?tagging", body: {"Bucket":["p","Bucket"]}, errors: {}}, S3ClientRequirement)
-export const getBucketVersioning = /*@__PURE__*/ makeOperation<GetBucketVersioningRequest, GetBucketVersioningOutput, CommonAwsError, typeof S3ClientRequirement>({ name: "getBucketVersioning", method: "GET", uri: "/{Bucket}?versioning", body: {"Bucket":["p","Bucket"]}, errors: {}}, S3ClientRequirement)
-export const getBucketWebsite = /*@__PURE__*/ makeOperation<GetBucketWebsiteRequest, GetBucketWebsiteOutput, CommonAwsError, typeof S3ClientRequirement>({ name: "getBucketWebsite", method: "GET", uri: "/{Bucket}?website", body: {"Bucket":["p","Bucket"]}, errors: {}}, S3ClientRequirement)
-export const getObject = /*@__PURE__*/ makeOperation<GetObjectRequest, GetObjectOutput, InvalidObjectStateError | NoSuchKeyError | CommonAwsError, typeof S3ClientRequirement>({ name: "getObject", method: "GET", uri: "/{Bucket}/{Key+}?x-id=GetObject", body: {"Bucket":["p","Bucket"],"IfMatch":["If-Match"],"IfModifiedSince":["If-Modified-Since"],"IfNoneMatch":["If-None-Match"],"IfUnmodifiedSince":["If-Unmodified-Since"],"Key":["p","Key"],"Range":["Range"],"SSECustomerAlgorithm":["x-amz-server-side-encryption-customer-algorithm"],"SSECustomerKey":["x-amz-server-side-encryption-customer-key"],"SSECustomerKeyMD5":["x-amz-server-side-encryption-customer-key-MD5"]}, errors: {"InvalidObjectState":["StorageClass","AccessTier"],"NoSuchKey":[]}}, S3ClientRequirement)
-export const getObjectAcl = /*@__PURE__*/ makeOperation<GetObjectAclRequest, GetObjectAclOutput, NoSuchKeyError | CommonAwsError, typeof S3ClientRequirement>({ name: "getObjectAcl", method: "GET", uri: "/{Bucket}/{Key+}?acl", body: {"Bucket":["p","Bucket"],"Key":["p","Key"]}, errors: {"NoSuchKey":[]}}, S3ClientRequirement)
-export const getObjectAttributes = /*@__PURE__*/ makeOperation<GetObjectAttributesRequest, GetObjectAttributesOutput, NoSuchKeyError | CommonAwsError, typeof S3ClientRequirement>({ name: "getObjectAttributes", method: "GET", uri: "/{Bucket}/{Key+}?attributes", body: {"Bucket":["p","Bucket"],"Key":["p"],"SSECustomerAlgorithm":["x-amz-server-side-encryption-customer-algorithm"],"SSECustomerKey":["x-amz-server-side-encryption-customer-key"],"SSECustomerKeyMD5":["x-amz-server-side-encryption-customer-key-MD5"]}, errors: {"NoSuchKey":[]}}, S3ClientRequirement)
-export const getObjectLegalHold = /*@__PURE__*/ makeOperation<GetObjectLegalHoldRequest, GetObjectLegalHoldOutput, CommonAwsError, typeof S3ClientRequirement>({ name: "getObjectLegalHold", method: "GET", uri: "/{Bucket}/{Key+}?legal-hold", body: {"Bucket":["p","Bucket"],"Key":["p"]}, errors: {}}, S3ClientRequirement)
-export const getObjectLockConfiguration = /*@__PURE__*/ makeOperation<GetObjectLockConfigurationRequest, GetObjectLockConfigurationOutput, CommonAwsError, typeof S3ClientRequirement>({ name: "getObjectLockConfiguration", method: "GET", uri: "/{Bucket}?object-lock", body: {"Bucket":["p","Bucket"]}, errors: {}}, S3ClientRequirement)
-export const getObjectRetention = /*@__PURE__*/ makeOperation<GetObjectRetentionRequest, GetObjectRetentionOutput, CommonAwsError, typeof S3ClientRequirement>({ name: "getObjectRetention", method: "GET", uri: "/{Bucket}/{Key+}?retention", body: {"Bucket":["p","Bucket"],"Key":["p"]}, errors: {}}, S3ClientRequirement)
-export const getObjectTagging = /*@__PURE__*/ makeOperation<GetObjectTaggingRequest, GetObjectTaggingOutput, CommonAwsError, typeof S3ClientRequirement>({ name: "getObjectTagging", method: "GET", uri: "/{Bucket}/{Key+}?tagging", body: {"Bucket":["p","Bucket"],"Key":["p"]}, errors: {}}, S3ClientRequirement)
-export const getObjectTorrent = /*@__PURE__*/ makeOperation<GetObjectTorrentRequest, GetObjectTorrentOutput, CommonAwsError, typeof S3ClientRequirement>({ name: "getObjectTorrent", method: "GET", uri: "/{Bucket}/{Key+}?torrent", body: {"Bucket":["p","Bucket"],"Key":["p"]}, errors: {}}, S3ClientRequirement)
-export const getPublicAccessBlock = /*@__PURE__*/ makeOperation<GetPublicAccessBlockRequest, GetPublicAccessBlockOutput, CommonAwsError, typeof S3ClientRequirement>({ name: "getPublicAccessBlock", method: "GET", uri: "/{Bucket}?publicAccessBlock", body: {"Bucket":["p","Bucket"]}, errors: {}}, S3ClientRequirement)
-export const headBucket = /*@__PURE__*/ makeOperation<HeadBucketRequest, HeadBucketOutput, NotFoundError | CommonAwsError, typeof S3ClientRequirement>({ name: "headBucket", method: "HEAD", uri: "/{Bucket}", body: {"Bucket":["p","Bucket"]}, errors: {"NotFound":[]}}, S3ClientRequirement)
-export const headObject = /*@__PURE__*/ makeOperation<HeadObjectRequest, HeadObjectOutput, NotFoundError | CommonAwsError, typeof S3ClientRequirement>({ name: "headObject", method: "HEAD", uri: "/{Bucket}/{Key+}", body: {"Bucket":["p","Bucket"],"IfMatch":["If-Match"],"IfModifiedSince":["If-Modified-Since"],"IfNoneMatch":["If-None-Match"],"IfUnmodifiedSince":["If-Unmodified-Since"],"Key":["p","Key"],"Range":["Range"],"SSECustomerAlgorithm":["x-amz-server-side-encryption-customer-algorithm"],"SSECustomerKey":["x-amz-server-side-encryption-customer-key"],"SSECustomerKeyMD5":["x-amz-server-side-encryption-customer-key-MD5"]}, errors: {"NotFound":[]}}, S3ClientRequirement)
-export const listBucketAnalyticsConfigurations = /*@__PURE__*/ makeOperation<ListBucketAnalyticsConfigurationsRequest, ListBucketAnalyticsConfigurationsOutput, CommonAwsError, typeof S3ClientRequirement>({ name: "listBucketAnalyticsConfigurations", method: "GET", uri: "/{Bucket}?analytics&x-id=ListBucketAnalyticsConfigurations", body: {"Bucket":["p","Bucket"]}, errors: {}}, S3ClientRequirement)
-export const listBucketIntelligentTieringConfigurations = /*@__PURE__*/ makeOperation<ListBucketIntelligentTieringConfigurationsRequest, ListBucketIntelligentTieringConfigurationsOutput, CommonAwsError, typeof S3ClientRequirement>({ name: "listBucketIntelligentTieringConfigurations", method: "GET", uri: "/{Bucket}?intelligent-tiering&x-id=ListBucketIntelligentTieringConfigurations", body: {"Bucket":["p","Bucket"]}, errors: {}}, S3ClientRequirement)
-export const listBucketInventoryConfigurations = /*@__PURE__*/ makeOperation<ListBucketInventoryConfigurationsRequest, ListBucketInventoryConfigurationsOutput, CommonAwsError, typeof S3ClientRequirement>({ name: "listBucketInventoryConfigurations", method: "GET", uri: "/{Bucket}?inventory&x-id=ListBucketInventoryConfigurations", body: {"Bucket":["p","Bucket"]}, errors: {}}, S3ClientRequirement)
-export const listBucketMetricsConfigurations = /*@__PURE__*/ makeOperation<ListBucketMetricsConfigurationsRequest, ListBucketMetricsConfigurationsOutput, CommonAwsError, typeof S3ClientRequirement>({ name: "listBucketMetricsConfigurations", method: "GET", uri: "/{Bucket}?metrics&x-id=ListBucketMetricsConfigurations", body: {"Bucket":["p","Bucket"]}, errors: {}}, S3ClientRequirement)
-export const listBuckets = /*@__PURE__*/ makeOperation<ListBucketsRequest, ListBucketsOutput, CommonAwsError, typeof S3ClientRequirement>({ name: "listBuckets", method: "GET", uri: "/?x-id=ListBuckets", body: {}, errors: {}}, S3ClientRequirement)
-export const listDirectoryBuckets = /*@__PURE__*/ makeOperation<ListDirectoryBucketsRequest, ListDirectoryBucketsOutput, CommonAwsError, typeof S3ClientRequirement>({ name: "listDirectoryBuckets", method: "GET", uri: "/?x-id=ListDirectoryBuckets", body: {}, errors: {}}, S3ClientRequirement)
-export const listMultipartUploads = /*@__PURE__*/ makeOperation<ListMultipartUploadsRequest, ListMultipartUploadsOutput, CommonAwsError, typeof S3ClientRequirement>({ name: "listMultipartUploads", method: "GET", uri: "/{Bucket}?uploads", body: {"Bucket":["p","Bucket"]}, errors: {}}, S3ClientRequirement)
-export const listObjects = /*@__PURE__*/ makeOperation<ListObjectsRequest, ListObjectsOutput, NoSuchBucketError | CommonAwsError, typeof S3ClientRequirement>({ name: "listObjects", method: "GET", uri: "/{Bucket}", body: {"Bucket":["p","Bucket"]}, errors: {"NoSuchBucket":[]}}, S3ClientRequirement)
-export const listObjectsV2 = /*@__PURE__*/ makeOperation<ListObjectsV2Request, ListObjectsV2Output, NoSuchBucketError | CommonAwsError, typeof S3ClientRequirement>({ name: "listObjectsV2", method: "GET", uri: "/{Bucket}?list-type=2", body: {"Bucket":["p","Bucket"]}, errors: {"NoSuchBucket":[]}}, S3ClientRequirement)
-export const listObjectVersions = /*@__PURE__*/ makeOperation<ListObjectVersionsRequest, ListObjectVersionsOutput, CommonAwsError, typeof S3ClientRequirement>({ name: "listObjectVersions", method: "GET", uri: "/{Bucket}?versions", body: {"Bucket":["p","Bucket"]}, errors: {}}, S3ClientRequirement)
-export const listParts = /*@__PURE__*/ makeOperation<ListPartsRequest, ListPartsOutput, CommonAwsError, typeof S3ClientRequirement>({ name: "listParts", method: "GET", uri: "/{Bucket}/{Key+}?x-id=ListParts", body: {"Bucket":["p","Bucket"],"Key":["p","Key"],"SSECustomerAlgorithm":["x-amz-server-side-encryption-customer-algorithm"],"SSECustomerKey":["x-amz-server-side-encryption-customer-key"],"SSECustomerKeyMD5":["x-amz-server-side-encryption-customer-key-MD5"]}, errors: {}}, S3ClientRequirement)
-export const putBucketAccelerateConfiguration = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ name: "putBucketAccelerateConfiguration", method: "PUT", uri: "/{Bucket}?accelerate", body: {"Bucket":["p","Bucket"],"AccelerateConfiguration":["b","AccelerateConfiguration"],"ChecksumAlgorithm":["x-amz-sdk-checksum-algorithm"]}, errors: {}}, S3ClientRequirement)
-export const putBucketAcl = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ name: "putBucketAcl", method: "PUT", uri: "/{Bucket}?acl", body: {"ACL":["x-amz-acl"],"AccessControlPolicy":["b","AccessControlPolicy"],"Bucket":["p","Bucket"],"ContentMD5":["Content-MD5"],"ChecksumAlgorithm":["x-amz-sdk-checksum-algorithm"],"GrantReadACP":["x-amz-grant-read-acp"],"GrantWriteACP":["x-amz-grant-write-acp"]}, errors: {}}, S3ClientRequirement)
-export const putBucketAnalyticsConfiguration = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ name: "putBucketAnalyticsConfiguration", method: "PUT", uri: "/{Bucket}?analytics", body: {"Bucket":["p","Bucket"],"AnalyticsConfiguration":["b","AnalyticsConfiguration"]}, errors: {}}, S3ClientRequirement)
-export const putBucketCors = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ name: "putBucketCors", method: "PUT", uri: "/{Bucket}?cors", body: {"Bucket":["p","Bucket"],"CORSConfiguration":["b","CORSConfiguration"],"ContentMD5":["Content-MD5"],"ChecksumAlgorithm":["x-amz-sdk-checksum-algorithm"]}, errors: {}}, S3ClientRequirement)
-export const putBucketEncryption = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ name: "putBucketEncryption", method: "PUT", uri: "/{Bucket}?encryption", body: {"Bucket":["p","Bucket"],"ContentMD5":["Content-MD5"],"ChecksumAlgorithm":["x-amz-sdk-checksum-algorithm"],"ServerSideEncryptionConfiguration":["b","ServerSideEncryptionConfiguration"]}, errors: {}}, S3ClientRequirement)
-export const putBucketIntelligentTieringConfiguration = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ name: "putBucketIntelligentTieringConfiguration", method: "PUT", uri: "/{Bucket}?intelligent-tiering", body: {"Bucket":["p","Bucket"],"IntelligentTieringConfiguration":["b","IntelligentTieringConfiguration"]}, errors: {}}, S3ClientRequirement)
-export const putBucketInventoryConfiguration = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ name: "putBucketInventoryConfiguration", method: "PUT", uri: "/{Bucket}?inventory", body: {"Bucket":["p","Bucket"],"InventoryConfiguration":["b","InventoryConfiguration"]}, errors: {}}, S3ClientRequirement)
-export const putBucketLifecycleConfiguration = /*@__PURE__*/ makeOperation<PutBucketLifecycleConfigurationRequest, PutBucketLifecycleConfigurationOutput, CommonAwsError, typeof S3ClientRequirement>({ name: "putBucketLifecycleConfiguration", method: "PUT", uri: "/{Bucket}?lifecycle", body: {"Bucket":["p","Bucket"],"ChecksumAlgorithm":["x-amz-sdk-checksum-algorithm"],"LifecycleConfiguration":["b","LifecycleConfiguration"]}, errors: {}}, S3ClientRequirement)
-export const putBucketLogging = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ name: "putBucketLogging", method: "PUT", uri: "/{Bucket}?logging", body: {"Bucket":["p","Bucket"],"BucketLoggingStatus":["b","BucketLoggingStatus"],"ContentMD5":["Content-MD5"],"ChecksumAlgorithm":["x-amz-sdk-checksum-algorithm"]}, errors: {}}, S3ClientRequirement)
-export const putBucketMetricsConfiguration = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ name: "putBucketMetricsConfiguration", method: "PUT", uri: "/{Bucket}?metrics", body: {"Bucket":["p","Bucket"],"MetricsConfiguration":["b","MetricsConfiguration"]}, errors: {}}, S3ClientRequirement)
-export const putBucketNotificationConfiguration = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ name: "putBucketNotificationConfiguration", method: "PUT", uri: "/{Bucket}?notification", body: {"Bucket":["p","Bucket"],"NotificationConfiguration":["b","NotificationConfiguration"]}, errors: {}}, S3ClientRequirement)
-export const putBucketOwnershipControls = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ name: "putBucketOwnershipControls", method: "PUT", uri: "/{Bucket}?ownershipControls", body: {"Bucket":["p","Bucket"],"ContentMD5":["Content-MD5"],"OwnershipControls":["b","OwnershipControls"],"ChecksumAlgorithm":["x-amz-sdk-checksum-algorithm"]}, errors: {}}, S3ClientRequirement)
-export const putBucketPolicy = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ name: "putBucketPolicy", method: "PUT", uri: "/{Bucket}?policy", body: {"Bucket":["p","Bucket"],"ContentMD5":["Content-MD5"],"ChecksumAlgorithm":["x-amz-sdk-checksum-algorithm"],"Policy":["b"]}, errors: {}}, S3ClientRequirement)
-export const putBucketReplication = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ name: "putBucketReplication", method: "PUT", uri: "/{Bucket}?replication", body: {"Bucket":["p","Bucket"],"ContentMD5":["Content-MD5"],"ChecksumAlgorithm":["x-amz-sdk-checksum-algorithm"],"ReplicationConfiguration":["b","ReplicationConfiguration"],"Token":["x-amz-bucket-object-lock-token"]}, errors: {}}, S3ClientRequirement)
-export const putBucketRequestPayment = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ name: "putBucketRequestPayment", method: "PUT", uri: "/{Bucket}?requestPayment", body: {"Bucket":["p","Bucket"],"ContentMD5":["Content-MD5"],"ChecksumAlgorithm":["x-amz-sdk-checksum-algorithm"],"RequestPaymentConfiguration":["b","RequestPaymentConfiguration"]}, errors: {}}, S3ClientRequirement)
-export const putBucketTagging = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ name: "putBucketTagging", method: "PUT", uri: "/{Bucket}?tagging", body: {"Bucket":["p","Bucket"],"ContentMD5":["Content-MD5"],"ChecksumAlgorithm":["x-amz-sdk-checksum-algorithm"],"Tagging":["b","Tagging"]}, errors: {}}, S3ClientRequirement)
-export const putBucketVersioning = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ name: "putBucketVersioning", method: "PUT", uri: "/{Bucket}?versioning", body: {"Bucket":["p","Bucket"],"ContentMD5":["Content-MD5"],"ChecksumAlgorithm":["x-amz-sdk-checksum-algorithm"],"MFA":["x-amz-mfa"],"VersioningConfiguration":["b","VersioningConfiguration"]}, errors: {}}, S3ClientRequirement)
-export const putBucketWebsite = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ name: "putBucketWebsite", method: "PUT", uri: "/{Bucket}?website", body: {"Bucket":["p","Bucket"],"ContentMD5":["Content-MD5"],"ChecksumAlgorithm":["x-amz-sdk-checksum-algorithm"],"WebsiteConfiguration":["b","WebsiteConfiguration"]}, errors: {}}, S3ClientRequirement)
-export const putObject = /*@__PURE__*/ makeOperation<PutObjectRequest, PutObjectOutput, EncryptionTypeMismatchError | InvalidRequestError | InvalidWriteOffsetError | TooManyPartsError | CommonAwsError, typeof S3ClientRequirement>({ name: "putObject", method: "PUT", uri: "/{Bucket}/{Key+}?x-id=PutObject", body: {"ACL":["x-amz-acl"],"Body":["b"],"Bucket":["p","Bucket"],"CacheControl":["Cache-Control"],"ContentDisposition":["Content-Disposition"],"ContentEncoding":["Content-Encoding"],"ContentLanguage":["Content-Language"],"ContentLength":["Content-Length"],"ContentMD5":["Content-MD5"],"ContentType":["Content-Type"],"ChecksumAlgorithm":["x-amz-sdk-checksum-algorithm"],"ChecksumCRC32":["x-amz-checksum-crc32"],"ChecksumCRC32C":["x-amz-checksum-crc32c"],"ChecksumCRC64NVME":["x-amz-checksum-crc64nvme"],"ChecksumSHA1":["x-amz-checksum-sha1"],"ChecksumSHA256":["x-amz-checksum-sha256"],"Expires":["Expires"],"IfMatch":["If-Match"],"IfNoneMatch":["If-None-Match"],"GrantReadACP":["x-amz-grant-read-acp"],"GrantWriteACP":["x-amz-grant-write-acp"],"Key":["p","Key"],"SSECustomerAlgorithm":["x-amz-server-side-encryption-customer-algorithm"],"SSECustomerKey":["x-amz-server-side-encryption-customer-key"],"SSECustomerKeyMD5":["x-amz-server-side-encryption-customer-key-MD5"],"SSEKMSKeyId":["x-amz-server-side-encryption-aws-kms-key-id"],"SSEKMSEncryptionContext":["x-amz-server-side-encryption-context"],"BucketKeyEnabled":["x-amz-server-side-encryption-bucket-key-enabled"],"ObjectLockLegalHoldStatus":["x-amz-object-lock-legal-hold"]}, errors: {"EncryptionTypeMismatch":[],"InvalidRequest":[],"InvalidWriteOffset":[],"TooManyParts":[]}}, S3ClientRequirement)
-export const putObjectAcl = /*@__PURE__*/ makeOperation<PutObjectAclRequest, PutObjectAclOutput, NoSuchKeyError | CommonAwsError, typeof S3ClientRequirement>({ name: "putObjectAcl", method: "PUT", uri: "/{Bucket}/{Key+}?acl", body: {"ACL":["x-amz-acl"],"AccessControlPolicy":["b","AccessControlPolicy"],"Bucket":["p","Bucket"],"ContentMD5":["Content-MD5"],"ChecksumAlgorithm":["x-amz-sdk-checksum-algorithm"],"GrantReadACP":["x-amz-grant-read-acp"],"GrantWriteACP":["x-amz-grant-write-acp"],"Key":["p","Key"]}, errors: {"NoSuchKey":[]}}, S3ClientRequirement)
-export const putObjectLegalHold = /*@__PURE__*/ makeOperation<PutObjectLegalHoldRequest, PutObjectLegalHoldOutput, CommonAwsError, typeof S3ClientRequirement>({ name: "putObjectLegalHold", method: "PUT", uri: "/{Bucket}/{Key+}?legal-hold", body: {"Bucket":["p","Bucket"],"Key":["p"],"LegalHold":["b","LegalHold"],"ContentMD5":["Content-MD5"],"ChecksumAlgorithm":["x-amz-sdk-checksum-algorithm"]}, errors: {}}, S3ClientRequirement)
-export const putObjectLockConfiguration = /*@__PURE__*/ makeOperation<PutObjectLockConfigurationRequest, PutObjectLockConfigurationOutput, CommonAwsError, typeof S3ClientRequirement>({ name: "putObjectLockConfiguration", method: "PUT", uri: "/{Bucket}?object-lock", body: {"Bucket":["p","Bucket"],"ObjectLockConfiguration":["b","ObjectLockConfiguration"],"Token":["x-amz-bucket-object-lock-token"],"ContentMD5":["Content-MD5"],"ChecksumAlgorithm":["x-amz-sdk-checksum-algorithm"]}, errors: {}}, S3ClientRequirement)
-export const putObjectRetention = /*@__PURE__*/ makeOperation<PutObjectRetentionRequest, PutObjectRetentionOutput, CommonAwsError, typeof S3ClientRequirement>({ name: "putObjectRetention", method: "PUT", uri: "/{Bucket}/{Key+}?retention", body: {"Bucket":["p","Bucket"],"Key":["p"],"Retention":["b","Retention"],"ContentMD5":["Content-MD5"],"ChecksumAlgorithm":["x-amz-sdk-checksum-algorithm"]}, errors: {}}, S3ClientRequirement)
-export const putObjectTagging = /*@__PURE__*/ makeOperation<PutObjectTaggingRequest, PutObjectTaggingOutput, CommonAwsError, typeof S3ClientRequirement>({ name: "putObjectTagging", method: "PUT", uri: "/{Bucket}/{Key+}?tagging", body: {"Bucket":["p","Bucket"],"Key":["p"],"ContentMD5":["Content-MD5"],"ChecksumAlgorithm":["x-amz-sdk-checksum-algorithm"],"Tagging":["b","Tagging"]}, errors: {}}, S3ClientRequirement)
-export const putPublicAccessBlock = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ name: "putPublicAccessBlock", method: "PUT", uri: "/{Bucket}?publicAccessBlock", body: {"Bucket":["p","Bucket"],"ContentMD5":["Content-MD5"],"ChecksumAlgorithm":["x-amz-sdk-checksum-algorithm"],"PublicAccessBlockConfiguration":["b","PublicAccessBlockConfiguration"]}, errors: {}}, S3ClientRequirement)
-export const renameObject = /*@__PURE__*/ makeOperation<RenameObjectRequest, RenameObjectOutput, IdempotencyParameterMismatchError | CommonAwsError, typeof S3ClientRequirement>({ name: "renameObject", method: "PUT", uri: "/{Bucket}/{Key+}?renameObject", body: {"Bucket":["p","Bucket"],"Key":["p","Key"],"DestinationIfMatch":["If-Match"],"DestinationIfNoneMatch":["If-None-Match"],"DestinationIfModifiedSince":["If-Modified-Since"],"DestinationIfUnmodifiedSince":["If-Unmodified-Since"],"SourceIfMatch":["x-amz-rename-source-if-match"],"SourceIfNoneMatch":["x-amz-rename-source-if-none-match"],"SourceIfModifiedSince":["x-amz-rename-source-if-modified-since"],"SourceIfUnmodifiedSince":["x-amz-rename-source-if-unmodified-since"]}, errors: {"IdempotencyParameterMismatch":[]}}, S3ClientRequirement)
-export const restoreObject = /*@__PURE__*/ makeOperation<RestoreObjectRequest, RestoreObjectOutput, ObjectAlreadyInActiveTierErrorError | CommonAwsError, typeof S3ClientRequirement>({ name: "restoreObject", method: "POST", uri: "/{Bucket}/{Key+}?restore", body: {"Bucket":["p","Bucket"],"Key":["p"],"RestoreRequest":["b","RestoreRequest"],"ChecksumAlgorithm":["x-amz-sdk-checksum-algorithm"]}, errors: {"ObjectAlreadyInActiveTierError":[]}}, S3ClientRequirement)
-export const selectObjectContent = /*@__PURE__*/ makeOperation<SelectObjectContentRequest, SelectObjectContentOutput, CommonAwsError, typeof S3ClientRequirement>({ name: "selectObjectContent", method: "POST", uri: "/{Bucket}/{Key+}?select&select-type=2", body: {"Bucket":["p","Bucket"],"Key":["p"],"SSECustomerAlgorithm":["x-amz-server-side-encryption-customer-algorithm"],"SSECustomerKey":["x-amz-server-side-encryption-customer-key"],"SSECustomerKeyMD5":["x-amz-server-side-encryption-customer-key-MD5"]}, errors: {}}, S3ClientRequirement)
-export const updateBucketMetadataInventoryTableConfiguration = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ name: "updateBucketMetadataInventoryTableConfiguration", method: "PUT", uri: "/{Bucket}?metadataInventoryTable", body: {"Bucket":["p","Bucket"],"ContentMD5":["Content-MD5"],"ChecksumAlgorithm":["x-amz-sdk-checksum-algorithm"],"InventoryTableConfiguration":["b","InventoryTableConfiguration"]}, errors: {}}, S3ClientRequirement)
-export const updateBucketMetadataJournalTableConfiguration = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ name: "updateBucketMetadataJournalTableConfiguration", method: "PUT", uri: "/{Bucket}?metadataJournalTable", body: {"Bucket":["p","Bucket"],"ContentMD5":["Content-MD5"],"ChecksumAlgorithm":["x-amz-sdk-checksum-algorithm"],"JournalTableConfiguration":["b","JournalTableConfiguration"]}, errors: {}}, S3ClientRequirement)
-export const uploadPart = /*@__PURE__*/ makeOperation<UploadPartRequest, UploadPartOutput, CommonAwsError, typeof S3ClientRequirement>({ name: "uploadPart", method: "PUT", uri: "/{Bucket}/{Key+}?x-id=UploadPart", body: {"Body":["b"],"Bucket":["p","Bucket"],"ContentLength":["Content-Length"],"ContentMD5":["Content-MD5"],"ChecksumAlgorithm":["x-amz-sdk-checksum-algorithm"],"ChecksumCRC32":["x-amz-checksum-crc32"],"ChecksumCRC32C":["x-amz-checksum-crc32c"],"ChecksumCRC64NVME":["x-amz-checksum-crc64nvme"],"ChecksumSHA1":["x-amz-checksum-sha1"],"ChecksumSHA256":["x-amz-checksum-sha256"],"Key":["p","Key"],"SSECustomerAlgorithm":["x-amz-server-side-encryption-customer-algorithm"],"SSECustomerKey":["x-amz-server-side-encryption-customer-key"],"SSECustomerKeyMD5":["x-amz-server-side-encryption-customer-key-MD5"]}, errors: {}}, S3ClientRequirement)
-export const uploadPartCopy = /*@__PURE__*/ makeOperation<UploadPartCopyRequest, UploadPartCopyOutput, CommonAwsError, typeof S3ClientRequirement>({ name: "uploadPartCopy", method: "PUT", uri: "/{Bucket}/{Key+}?x-id=UploadPartCopy", body: {"Bucket":["p","Bucket"],"Key":["p"],"SSECustomerAlgorithm":["x-amz-server-side-encryption-customer-algorithm"],"SSECustomerKey":["x-amz-server-side-encryption-customer-key"],"SSECustomerKeyMD5":["x-amz-server-side-encryption-customer-key-MD5"],"CopySourceSSECustomerAlgorithm":["x-amz-copy-source-server-side-encryption-customer-algorithm"],"CopySourceSSECustomerKey":["x-amz-copy-source-server-side-encryption-customer-key"],"CopySourceSSECustomerKeyMD5":["x-amz-copy-source-server-side-encryption-customer-key-MD5"],"ExpectedSourceBucketOwner":["x-amz-source-expected-bucket-owner"]}, errors: {}}, S3ClientRequirement)
-export const writeGetObjectResponse = /*@__PURE__*/ makeOperation<void, void, CommonAwsError, typeof S3ClientRequirement>({ name: "writeGetObjectResponse", method: "POST", uri: "/WriteGetObjectResponse", body: {"Body":["b"],"StatusCode":["x-amz-fwd-status"],"ErrorCode":["x-amz-fwd-error-code"],"ErrorMessage":["x-amz-fwd-error-message"],"AcceptRanges":["x-amz-fwd-header-accept-ranges"],"CacheControl":["x-amz-fwd-header-Cache-Control"],"ContentDisposition":["x-amz-fwd-header-Content-Disposition"],"ContentEncoding":["x-amz-fwd-header-Content-Encoding"],"ContentLanguage":["x-amz-fwd-header-Content-Language"],"ContentLength":["Content-Length"],"ContentRange":["x-amz-fwd-header-Content-Range"],"ContentType":["x-amz-fwd-header-Content-Type"],"ChecksumCRC32":["x-amz-fwd-header-x-amz-checksum-crc32"],"ChecksumCRC32C":["x-amz-fwd-header-x-amz-checksum-crc32c"],"ChecksumCRC64NVME":["x-amz-fwd-header-x-amz-checksum-crc64nvme"],"ChecksumSHA1":["x-amz-fwd-header-x-amz-checksum-sha1"],"ChecksumSHA256":["x-amz-fwd-header-x-amz-checksum-sha256"],"DeleteMarker":["x-amz-fwd-header-x-amz-delete-marker"],"ETag":["x-amz-fwd-header-ETag"],"Expires":["x-amz-fwd-header-Expires"],"Expiration":["x-amz-fwd-header-x-amz-expiration"],"LastModified":["x-amz-fwd-header-Last-Modified"],"MissingMeta":["x-amz-fwd-header-x-amz-missing-meta"],"ObjectLockMode":["x-amz-fwd-header-x-amz-object-lock-mode"],"ObjectLockLegalHoldStatus":["x-amz-fwd-header-x-amz-object-lock-legal-hold"],"ObjectLockRetainUntilDate":["x-amz-fwd-header-x-amz-object-lock-retain-until-date"],"PartsCount":["x-amz-fwd-header-x-amz-mp-parts-count"],"ReplicationStatus":["x-amz-fwd-header-x-amz-replication-status"],"RequestCharged":["x-amz-fwd-header-x-amz-request-charged"],"Restore":["x-amz-fwd-header-x-amz-restore"],"ServerSideEncryption":["x-amz-fwd-header-x-amz-server-side-encryption"],"SSECustomerAlgorithm":["x-amz-fwd-header-x-amz-server-side-encryption-customer-algorithm"],"SSEKMSKeyId":["x-amz-fwd-header-x-amz-server-side-encryption-aws-kms-key-id"],"SSECustomerKeyMD5":["x-amz-fwd-header-x-amz-server-side-encryption-customer-key-MD5"],"StorageClass":["x-amz-fwd-header-x-amz-storage-class"],"TagCount":["x-amz-fwd-header-x-amz-tagging-count"],"VersionId":["x-amz-fwd-header-x-amz-version-id"],"BucketKeyEnabled":["x-amz-fwd-header-x-amz-server-side-encryption-bucket-key-enabled"]}, errors: {}}, S3ClientRequirement)
-
-//==== Aliased Types ====
-type NoSuchUpload = {};
-type RequestCharged = "requester";
-type AbortMultipartUploadOutput = {RequestCharged?: RequestCharged};
-type RequestPayer = "requester";
-type AbortMultipartUploadRequest = {Bucket: string, Key: string, UploadId: string, RequestPayer?: RequestPayer, ExpectedBucketOwner?: string, IfMatchInitiatedTime?: Date | string};
-type ChecksumType = "COMPOSITE" | "FULL_OBJECT";
-type ServerSideEncryption = "AES256" | "aws:fsx" | "aws:kms" | "aws:kms:dsse";
-type CompleteMultipartUploadOutput = {Location?: string, Bucket?: string, Key?: string, Expiration?: string, ETag?: string, ChecksumCRC32?: string, ChecksumCRC32C?: string, ChecksumCRC64NVME?: string, ChecksumSHA1?: string, ChecksumSHA256?: string, ChecksumType?: ChecksumType, ServerSideEncryption?: ServerSideEncryption, VersionId?: string, SSEKMSKeyId?: string, BucketKeyEnabled?: boolean, RequestCharged?: RequestCharged};
-type CompletedPart = {ETag?: string, ChecksumCRC32?: string, ChecksumCRC32C?: string, ChecksumCRC64NVME?: string, ChecksumSHA1?: string, ChecksumSHA256?: string, PartNumber?: number};
-type CompletedMultipartUpload = {Parts?: Array<CompletedPart>};
-type CompleteMultipartUploadRequest = {Bucket: string, Key: string, MultipartUpload?: CompletedMultipartUpload, UploadId: string, ChecksumCRC32?: string, ChecksumCRC32C?: string, ChecksumCRC64NVME?: string, ChecksumSHA1?: string, ChecksumSHA256?: string, ChecksumType?: ChecksumType, MpuObjectSize?: number, RequestPayer?: RequestPayer, ExpectedBucketOwner?: string, IfMatch?: string, IfNoneMatch?: string, SSECustomerAlgorithm?: string, SSECustomerKey?: string, SSECustomerKeyMD5?: string};
-type ObjectNotInActiveTierError = {};
-type CopyObjectResult = {ETag?: string, LastModified?: Date | string, ChecksumType?: ChecksumType, ChecksumCRC32?: string, ChecksumCRC32C?: string, ChecksumCRC64NVME?: string, ChecksumSHA1?: string, ChecksumSHA256?: string};
-type CopyObjectOutput = {CopyObjectResult?: CopyObjectResult, Expiration?: string, CopySourceVersionId?: string, VersionId?: string, ServerSideEncryption?: ServerSideEncryption, SSECustomerAlgorithm?: string, SSECustomerKeyMD5?: string, SSEKMSKeyId?: string, SSEKMSEncryptionContext?: string, BucketKeyEnabled?: boolean, RequestCharged?: RequestCharged};
-type ObjectCannedACL = "private" | "public-read" | "public-read-write" | "authenticated-read" | "aws-exec-read" | "bucket-owner-read" | "bucket-owner-full-control";
-type ChecksumAlgorithm = "CRC32" | "CRC32C" | "SHA1" | "SHA256" | "CRC64NVME";
-type MetadataDirective = "COPY" | "REPLACE";
-type TaggingDirective = "COPY" | "REPLACE";
-type StorageClass = "STANDARD" | "REDUCED_REDUNDANCY" | "STANDARD_IA" | "ONEZONE_IA" | "INTELLIGENT_TIERING" | "GLACIER" | "DEEP_ARCHIVE" | "OUTPOSTS" | "GLACIER_IR" | "SNOW" | "EXPRESS_ONEZONE" | "FSX_OPENZFS";
-type ObjectLockMode = "GOVERNANCE" | "COMPLIANCE";
-type ObjectLockLegalHoldStatus = "ON" | "OFF";
-type Metadata = Record<string, string>;
-type CopyObjectRequest = {ACL?: ObjectCannedACL, Bucket: string, CacheControl?: string, ChecksumAlgorithm?: ChecksumAlgorithm, ContentDisposition?: string, ContentEncoding?: string, ContentLanguage?: string, ContentType?: string, CopySource: string, CopySourceIfMatch?: string, CopySourceIfModifiedSince?: Date | string, CopySourceIfNoneMatch?: string, CopySourceIfUnmodifiedSince?: Date | string, Expires?: string, GrantFullControl?: string, GrantRead?: string, GrantReadACP?: string, GrantWriteACP?: string, IfMatch?: string, IfNoneMatch?: string, Key: string, Metadata?: Metadata, MetadataDirective?: MetadataDirective, TaggingDirective?: TaggingDirective, ServerSideEncryption?: ServerSideEncryption, StorageClass?: StorageClass, WebsiteRedirectLocation?: string, SSECustomerAlgorithm?: string, SSECustomerKey?: string, SSECustomerKeyMD5?: string, SSEKMSKeyId?: string, SSEKMSEncryptionContext?: string, BucketKeyEnabled?: boolean, CopySourceSSECustomerAlgorithm?: string, CopySourceSSECustomerKey?: string, CopySourceSSECustomerKeyMD5?: string, RequestPayer?: RequestPayer, Tagging?: string, ObjectLockMode?: ObjectLockMode, ObjectLockRetainUntilDate?: Date | string, ObjectLockLegalHoldStatus?: ObjectLockLegalHoldStatus, ExpectedBucketOwner?: string, ExpectedSourceBucketOwner?: string};
-type BucketAlreadyExists = {};
-type BucketAlreadyOwnedByYou = {};
-type CreateBucketOutput = {Location?: string, BucketArn?: string};
-type BucketCannedACL = "private" | "public-read" | "public-read-write" | "authenticated-read";
-type ObjectOwnership = "BucketOwnerPreferred" | "ObjectWriter" | "BucketOwnerEnforced";
-type BucketLocationConstraint = "af-south-1" | "ap-east-1" | "ap-northeast-1" | "ap-northeast-2" | "ap-northeast-3" | "ap-south-1" | "ap-south-2" | "ap-southeast-1" | "ap-southeast-2" | "ap-southeast-3" | "ap-southeast-4" | "ap-southeast-5" | "ca-central-1" | "cn-north-1" | "cn-northwest-1" | "EU" | "eu-central-1" | "eu-central-2" | "eu-north-1" | "eu-south-1" | "eu-south-2" | "eu-west-1" | "eu-west-2" | "eu-west-3" | "il-central-1" | "me-central-1" | "me-south-1" | "sa-east-1" | "us-east-2" | "us-gov-east-1" | "us-gov-west-1" | "us-west-1" | "us-west-2";
-type LocationType = "AvailabilityZone" | "LocalZone";
-type DataRedundancy = "SingleAvailabilityZone" | "SingleLocalZone";
-type BucketType = "Directory";
-type LocationInfo = {Type?: LocationType, Name?: string};
-type BucketInfo = {DataRedundancy?: DataRedundancy, Type?: BucketType};
-type Tag = {Key: string, Value: string};
-type CreateBucketConfiguration = {LocationConstraint?: BucketLocationConstraint, Location?: LocationInfo, Bucket?: BucketInfo, Tags?: Array<Tag>};
-type CreateBucketRequest = {ACL?: BucketCannedACL, Bucket: string, CreateBucketConfiguration?: CreateBucketConfiguration, GrantFullControl?: string, GrantRead?: string, GrantReadACP?: string, GrantWrite?: string, GrantWriteACP?: string, ObjectLockEnabledForBucket?: boolean, ObjectOwnership?: ObjectOwnership};
-type CreateMultipartUploadOutput = {AbortDate?: Date | string, AbortRuleId?: string, Bucket?: string, Key?: string, UploadId?: string, ServerSideEncryption?: ServerSideEncryption, SSECustomerAlgorithm?: string, SSECustomerKeyMD5?: string, SSEKMSKeyId?: string, SSEKMSEncryptionContext?: string, BucketKeyEnabled?: boolean, RequestCharged?: RequestCharged, ChecksumAlgorithm?: ChecksumAlgorithm, ChecksumType?: ChecksumType};
-type CreateMultipartUploadRequest = {ACL?: ObjectCannedACL, Bucket: string, CacheControl?: string, ContentDisposition?: string, ContentEncoding?: string, ContentLanguage?: string, ContentType?: string, Expires?: string, GrantFullControl?: string, GrantRead?: string, GrantReadACP?: string, GrantWriteACP?: string, Key: string, Metadata?: Metadata, ServerSideEncryption?: ServerSideEncryption, StorageClass?: StorageClass, WebsiteRedirectLocation?: string, SSECustomerAlgorithm?: string, SSECustomerKey?: string, SSECustomerKeyMD5?: string, SSEKMSKeyId?: string, SSEKMSEncryptionContext?: string, BucketKeyEnabled?: boolean, RequestPayer?: RequestPayer, Tagging?: string, ObjectLockMode?: ObjectLockMode, ObjectLockRetainUntilDate?: Date | string, ObjectLockLegalHoldStatus?: ObjectLockLegalHoldStatus, ExpectedBucketOwner?: string, ChecksumAlgorithm?: ChecksumAlgorithm, ChecksumType?: ChecksumType};
-type NoSuchBucket = {};
-type SessionCredentials = {AccessKeyId: string, SecretAccessKey: string, SessionToken: string, Expiration: Date | string};
-type CreateSessionOutput = {ServerSideEncryption?: ServerSideEncryption, SSEKMSKeyId?: string, SSEKMSEncryptionContext?: string, BucketKeyEnabled?: boolean, Credentials: SessionCredentials};
-type SessionMode = "ReadOnly" | "ReadWrite";
-type CreateSessionRequest = {SessionMode?: SessionMode, Bucket: string, ServerSideEncryption?: ServerSideEncryption, SSEKMSKeyId?: string, SSEKMSEncryptionContext?: string, BucketKeyEnabled?: boolean};
-type DeleteObjectOutput = {DeleteMarker?: boolean, VersionId?: string, RequestCharged?: RequestCharged};
-type DeleteObjectRequest = {Bucket: string, Key: string, MFA?: string, VersionId?: string, RequestPayer?: RequestPayer, BypassGovernanceRetention?: boolean, ExpectedBucketOwner?: string, IfMatch?: string, IfMatchLastModifiedTime?: Date | string, IfMatchSize?: number};
-type DeletedObject = {Key?: string, VersionId?: string, DeleteMarker?: boolean, DeleteMarkerVersionId?: string};
-type Error = {Key?: string, VersionId?: string, Code?: string, Message?: string};
-type DeleteObjectsOutput = {Deleted?: Array<DeletedObject>, RequestCharged?: RequestCharged, Errors?: Array<Error>};
-type ObjectIdentifier = {Key: string, VersionId?: string, ETag?: string, LastModifiedTime?: Date | string, Size?: number};
-type Delete = {Objects: Array<ObjectIdentifier>, Quiet?: boolean};
-type DeleteObjectsRequest = {Bucket: string, Delete: Delete, MFA?: string, RequestPayer?: RequestPayer, BypassGovernanceRetention?: boolean, ExpectedBucketOwner?: string, ChecksumAlgorithm?: ChecksumAlgorithm};
-type DeleteObjectTaggingOutput = {VersionId?: string};
-type DeleteObjectTaggingRequest = {Bucket: string, Key: string, VersionId?: string, ExpectedBucketOwner?: string};
-type BucketAccelerateStatus = "Enabled" | "Suspended";
-type GetBucketAccelerateConfigurationOutput = {Status?: BucketAccelerateStatus, RequestCharged?: RequestCharged};
-type GetBucketAccelerateConfigurationRequest = {Bucket: string, ExpectedBucketOwner?: string, RequestPayer?: RequestPayer};
-type Permission = "FULL_CONTROL" | "WRITE" | "WRITE_ACP" | "READ" | "READ_ACP";
-type Owner = {DisplayName?: string, ID?: string};
-type Type = "CanonicalUser" | "AmazonCustomerByEmail" | "Group";
-type Grantee = {DisplayName?: string, EmailAddress?: string, ID?: string, URI?: string, Type: Type};
-type Grant = {Grantee?: Grantee, Permission?: Permission};
-type GetBucketAclOutput = {Owner?: Owner, Grants?: Array<Grant>};
-type GetBucketAclRequest = {Bucket: string, ExpectedBucketOwner?: string};
-type StorageClassAnalysisSchemaVersion = "V_1";
-type AnalyticsS3ExportFileFormat = "CSV";
-type AnalyticsAndOperator = {Prefix?: string, Tags?: Array<Tag>};
-type AnalyticsS3BucketDestination = {Format: AnalyticsS3ExportFileFormat, BucketAccountId?: string, Bucket: string, Prefix?: string};
-type AnalyticsFilter = string | Tag | AnalyticsAndOperator;
-type AnalyticsExportDestination = {S3BucketDestination: AnalyticsS3BucketDestination};
-type StorageClassAnalysisDataExport = {OutputSchemaVersion: StorageClassAnalysisSchemaVersion, Destination: AnalyticsExportDestination};
-type StorageClassAnalysis = {DataExport?: StorageClassAnalysisDataExport};
-type AnalyticsConfiguration = {Id: string, Filter?: AnalyticsFilter, StorageClassAnalysis: StorageClassAnalysis};
-type GetBucketAnalyticsConfigurationOutput = {AnalyticsConfiguration?: AnalyticsConfiguration};
-type GetBucketAnalyticsConfigurationRequest = {Bucket: string, Id: string, ExpectedBucketOwner?: string};
-type CORSRule = {ID?: string, AllowedHeaders?: Array<string>, AllowedMethods: Array<string>, AllowedOrigins: Array<string>, ExposeHeaders?: Array<string>, MaxAgeSeconds?: number};
-type GetBucketCorsOutput = {CORSRules?: Array<CORSRule>};
-type GetBucketCorsRequest = {Bucket: string, ExpectedBucketOwner?: string};
-type ServerSideEncryptionByDefault = {SSEAlgorithm: ServerSideEncryption, KMSMasterKeyID?: string};
-type ServerSideEncryptionRule = {ApplyServerSideEncryptionByDefault?: ServerSideEncryptionByDefault, BucketKeyEnabled?: boolean};
-type ServerSideEncryptionConfiguration = {Rules: Array<ServerSideEncryptionRule>};
-type GetBucketEncryptionOutput = {ServerSideEncryptionConfiguration?: ServerSideEncryptionConfiguration};
-type GetBucketEncryptionRequest = {Bucket: string, ExpectedBucketOwner?: string};
-type IntelligentTieringStatus = "Enabled" | "Disabled";
-type IntelligentTieringAccessTier = "ARCHIVE_ACCESS" | "DEEP_ARCHIVE_ACCESS";
-type Tiering = {Days: number, AccessTier: IntelligentTieringAccessTier};
-type IntelligentTieringAndOperator = {Prefix?: string, Tags?: Array<Tag>};
-type IntelligentTieringFilter = {Prefix?: string, Tag?: Tag, And?: IntelligentTieringAndOperator};
-type IntelligentTieringConfiguration = {Id: string, Filter?: IntelligentTieringFilter, Status: IntelligentTieringStatus, Tierings: Array<Tiering>};
-type GetBucketIntelligentTieringConfigurationOutput = {IntelligentTieringConfiguration?: IntelligentTieringConfiguration};
-type GetBucketIntelligentTieringConfigurationRequest = {Bucket: string, Id: string, ExpectedBucketOwner?: string};
-type InventoryIncludedObjectVersions = "All" | "Current";
-type InventoryOptionalField = "Size" | "LastModifiedDate" | "StorageClass" | "ETag" | "IsMultipartUploaded" | "ReplicationStatus" | "EncryptionStatus" | "ObjectLockRetainUntilDate" | "ObjectLockMode" | "ObjectLockLegalHoldStatus" | "IntelligentTieringAccessTier" | "BucketKeyStatus" | "ChecksumAlgorithm" | "ObjectAccessControlList" | "ObjectOwner";
-type InventoryFrequency = "Daily" | "Weekly";
-type InventoryFilter = {Prefix: string};
-type InventorySchedule = {Frequency: InventoryFrequency};
-type InventoryFormat = "CSV" | "ORC" | "Parquet";
-type SSES3 = {};
-type SSEKMS = {KeyId: string};
-type InventoryEncryption = {SSES3?: SSES3, SSEKMS?: SSEKMS};
-type InventoryS3BucketDestination = {AccountId?: string, Bucket: string, Format: InventoryFormat, Prefix?: string, Encryption?: InventoryEncryption};
-type InventoryDestination = {S3BucketDestination: InventoryS3BucketDestination};
-type InventoryConfiguration = {Destination: InventoryDestination, IsEnabled: boolean, Filter?: InventoryFilter, Id: string, IncludedObjectVersions: InventoryIncludedObjectVersions, OptionalFields?: Array<InventoryOptionalField>, Schedule: InventorySchedule};
-type GetBucketInventoryConfigurationOutput = {InventoryConfiguration?: InventoryConfiguration};
-type GetBucketInventoryConfigurationRequest = {Bucket: string, Id: string, ExpectedBucketOwner?: string};
-type TransitionDefaultMinimumObjectSize = "varies_by_storage_class" | "all_storage_classes_128K";
-type ExpirationStatus = "Enabled" | "Disabled";
-type TransitionStorageClass = "GLACIER" | "STANDARD_IA" | "ONEZONE_IA" | "INTELLIGENT_TIERING" | "DEEP_ARCHIVE" | "GLACIER_IR";
-type LifecycleExpiration = {Date?: Date | string, Days?: number, ExpiredObjectDeleteMarker?: boolean};
-type Transition = {Date?: Date | string, Days?: number, StorageClass?: TransitionStorageClass};
-type NoncurrentVersionTransition = {NoncurrentDays?: number, StorageClass?: TransitionStorageClass, NewerNoncurrentVersions?: number};
-type NoncurrentVersionExpiration = {NoncurrentDays?: number, NewerNoncurrentVersions?: number};
-type AbortIncompleteMultipartUpload = {DaysAfterInitiation?: number};
-type LifecycleRuleAndOperator = {Prefix?: string, Tags?: Array<Tag>, ObjectSizeGreaterThan?: number, ObjectSizeLessThan?: number};
-type LifecycleRuleFilter = {Prefix?: string, Tag?: Tag, ObjectSizeGreaterThan?: number, ObjectSizeLessThan?: number, And?: LifecycleRuleAndOperator};
-type LifecycleRule = {Expiration?: LifecycleExpiration, ID?: string, Prefix?: string, Filter?: LifecycleRuleFilter, Status: ExpirationStatus, Transitions?: Array<Transition>, NoncurrentVersionTransitions?: Array<NoncurrentVersionTransition>, NoncurrentVersionExpiration?: NoncurrentVersionExpiration, AbortIncompleteMultipartUpload?: AbortIncompleteMultipartUpload};
-type GetBucketLifecycleConfigurationOutput = {Rules?: Array<LifecycleRule>, TransitionDefaultMinimumObjectSize?: TransitionDefaultMinimumObjectSize};
-type GetBucketLifecycleConfigurationRequest = {Bucket: string, ExpectedBucketOwner?: string};
-type GetBucketLocationOutput = {LocationConstraint?: BucketLocationConstraint};
-type GetBucketLocationRequest = {Bucket: string, ExpectedBucketOwner?: string};
-type BucketLogsPermission = "FULL_CONTROL" | "READ" | "WRITE";
-type SimplePrefix = {};
-type PartitionDateSource = "EventTime" | "DeliveryTime";
-type PartitionedPrefix = {PartitionDateSource?: PartitionDateSource};
-type TargetGrant = {Grantee?: Grantee, Permission?: BucketLogsPermission};
-type TargetObjectKeyFormat = {SimplePrefix?: SimplePrefix, PartitionedPrefix?: PartitionedPrefix};
-type LoggingEnabled = {TargetBucket: string, TargetGrants?: Array<TargetGrant>, TargetPrefix: string, TargetObjectKeyFormat?: TargetObjectKeyFormat};
-type GetBucketLoggingOutput = {LoggingEnabled?: LoggingEnabled};
-type GetBucketLoggingRequest = {Bucket: string, ExpectedBucketOwner?: string};
-type S3TablesBucketType = "aws" | "customer";
-type InventoryConfigurationState = "ENABLED" | "DISABLED";
-type DestinationResult = {TableBucketType?: S3TablesBucketType, TableBucketArn?: string, TableNamespace?: string};
-type ExpirationState = "ENABLED" | "DISABLED";
-type ErrorDetails = {ErrorCode?: string, ErrorMessage?: string};
-type RecordExpiration = {Expiration: ExpirationState, Days?: number};
-type JournalTableConfigurationResult = {TableStatus: string, Error?: ErrorDetails, TableName: string, TableArn?: string, RecordExpiration: RecordExpiration};
-type InventoryTableConfigurationResult = {ConfigurationState: InventoryConfigurationState, TableStatus?: string, Error?: ErrorDetails, TableName?: string, TableArn?: string};
-type MetadataConfigurationResult = {DestinationResult: DestinationResult, JournalTableConfigurationResult?: JournalTableConfigurationResult, InventoryTableConfigurationResult?: InventoryTableConfigurationResult};
-type GetBucketMetadataConfigurationResult = {MetadataConfigurationResult: MetadataConfigurationResult};
-type GetBucketMetadataConfigurationOutput = {GetBucketMetadataConfigurationResult?: GetBucketMetadataConfigurationResult};
-type GetBucketMetadataConfigurationRequest = {Bucket: string, ExpectedBucketOwner?: string};
-type S3TablesDestinationResult = {TableBucketArn: string, TableName: string, TableArn: string, TableNamespace: string};
-type MetadataTableConfigurationResult = {S3TablesDestinationResult: S3TablesDestinationResult};
-type GetBucketMetadataTableConfigurationResult = {MetadataTableConfigurationResult: MetadataTableConfigurationResult, Status: string, Error?: ErrorDetails};
-type GetBucketMetadataTableConfigurationOutput = {GetBucketMetadataTableConfigurationResult?: GetBucketMetadataTableConfigurationResult};
-type GetBucketMetadataTableConfigurationRequest = {Bucket: string, ExpectedBucketOwner?: string};
-type MetricsAndOperator = {Prefix?: string, Tags?: Array<Tag>, AccessPointArn?: string};
-type MetricsFilter = string | Tag | string | MetricsAndOperator;
-type MetricsConfiguration = {Id: string, Filter?: MetricsFilter};
-type GetBucketMetricsConfigurationOutput = {MetricsConfiguration?: MetricsConfiguration};
-type GetBucketMetricsConfigurationRequest = {Bucket: string, Id: string, ExpectedBucketOwner?: string};
-type EventBridgeConfiguration = {};
-type Event = "s3:ReducedRedundancyLostObject" | "s3:ObjectCreated:*" | "s3:ObjectCreated:Put" | "s3:ObjectCreated:Post" | "s3:ObjectCreated:Copy" | "s3:ObjectCreated:CompleteMultipartUpload" | "s3:ObjectRemoved:*" | "s3:ObjectRemoved:Delete" | "s3:ObjectRemoved:DeleteMarkerCreated" | "s3:ObjectRestore:*" | "s3:ObjectRestore:Post" | "s3:ObjectRestore:Completed" | "s3:Replication:*" | "s3:Replication:OperationFailedReplication" | "s3:Replication:OperationNotTracked" | "s3:Replication:OperationMissedThreshold" | "s3:Replication:OperationReplicatedAfterThreshold" | "s3:ObjectRestore:Delete" | "s3:LifecycleTransition" | "s3:IntelligentTiering" | "s3:ObjectAcl:Put" | "s3:LifecycleExpiration:*" | "s3:LifecycleExpiration:Delete" | "s3:LifecycleExpiration:DeleteMarkerCreated" | "s3:ObjectTagging:*" | "s3:ObjectTagging:Put" | "s3:ObjectTagging:Delete";
-type FilterRuleName = "prefix" | "suffix";
-type FilterRule = {Name?: FilterRuleName, Value?: string};
-type S3KeyFilter = {FilterRules?: Array<FilterRule>};
-type NotificationConfigurationFilter = {Key?: S3KeyFilter};
-type TopicConfiguration = {Id?: string, TopicArn: string, Events: Array<Event>, Filter?: NotificationConfigurationFilter};
-type QueueConfiguration = {Id?: string, QueueArn: string, Events: Array<Event>, Filter?: NotificationConfigurationFilter};
-type LambdaFunctionConfiguration = {Id?: string, LambdaFunctionArn: string, Events: Array<Event>, Filter?: NotificationConfigurationFilter};
-type NotificationConfiguration = {TopicConfigurations?: Array<TopicConfiguration>, QueueConfigurations?: Array<QueueConfiguration>, LambdaFunctionConfigurations?: Array<LambdaFunctionConfiguration>, EventBridgeConfiguration?: EventBridgeConfiguration};
-type GetBucketNotificationConfigurationRequest = {Bucket: string, ExpectedBucketOwner?: string};
-type OwnershipControlsRule = {ObjectOwnership: ObjectOwnership};
-type OwnershipControls = {Rules: Array<OwnershipControlsRule>};
-type GetBucketOwnershipControlsOutput = {OwnershipControls?: OwnershipControls};
-type GetBucketOwnershipControlsRequest = {Bucket: string, ExpectedBucketOwner?: string};
-type GetBucketPolicyOutput = {Policy?: string};
-type GetBucketPolicyRequest = {Bucket: string, ExpectedBucketOwner?: string};
-type PolicyStatus = {IsPublic?: boolean};
-type GetBucketPolicyStatusOutput = {PolicyStatus?: PolicyStatus};
-type GetBucketPolicyStatusRequest = {Bucket: string, ExpectedBucketOwner?: string};
-type ReplicationRuleStatus = "Enabled" | "Disabled";
-type ExistingObjectReplicationStatus = "Enabled" | "Disabled";
-type DeleteMarkerReplicationStatus = "Enabled" | "Disabled";
-type ExistingObjectReplication = {Status: ExistingObjectReplicationStatus};
-type DeleteMarkerReplication = {Status?: DeleteMarkerReplicationStatus};
-type SseKmsEncryptedObjectsStatus = "Enabled" | "Disabled";
-type ReplicaModificationsStatus = "Enabled" | "Disabled";
-type OwnerOverride = "Destination";
-type ReplicationTimeStatus = "Enabled" | "Disabled";
-type MetricsStatus = "Enabled" | "Disabled";
-type SseKmsEncryptedObjects = {Status: SseKmsEncryptedObjectsStatus};
-type ReplicaModifications = {Status: ReplicaModificationsStatus};
-type AccessControlTranslation = {Owner: OwnerOverride};
-type EncryptionConfiguration = {ReplicaKmsKeyID?: string};
-type SourceSelectionCriteria = {SseKmsEncryptedObjects?: SseKmsEncryptedObjects, ReplicaModifications?: ReplicaModifications};
-type ReplicationTimeValue = {Minutes?: number};
-type ReplicationRuleAndOperator = {Prefix?: string, Tags?: Array<Tag>};
-type ReplicationTime = {Status: ReplicationTimeStatus, Time: ReplicationTimeValue};
-type Metrics = {Status: MetricsStatus, EventThreshold?: ReplicationTimeValue};
-type ReplicationRuleFilter = {Prefix?: string, Tag?: Tag, And?: ReplicationRuleAndOperator};
-type Destination = {Bucket: string, Account?: string, StorageClass?: StorageClass, AccessControlTranslation?: AccessControlTranslation, EncryptionConfiguration?: EncryptionConfiguration, ReplicationTime?: ReplicationTime, Metrics?: Metrics};
-type ReplicationRule = {ID?: string, Priority?: number, Prefix?: string, Filter?: ReplicationRuleFilter, Status: ReplicationRuleStatus, SourceSelectionCriteria?: SourceSelectionCriteria, ExistingObjectReplication?: ExistingObjectReplication, Destination: Destination, DeleteMarkerReplication?: DeleteMarkerReplication};
-type ReplicationConfiguration = {Role: string, Rules: Array<ReplicationRule>};
-type GetBucketReplicationOutput = {ReplicationConfiguration?: ReplicationConfiguration};
-type GetBucketReplicationRequest = {Bucket: string, ExpectedBucketOwner?: string};
-type Payer = "Requester" | "BucketOwner";
-type GetBucketRequestPaymentOutput = {Payer?: Payer};
-type GetBucketRequestPaymentRequest = {Bucket: string, ExpectedBucketOwner?: string};
-type GetBucketTaggingOutput = {TagSet: Array<Tag>};
-type GetBucketTaggingRequest = {Bucket: string, ExpectedBucketOwner?: string};
-type BucketVersioningStatus = "Enabled" | "Suspended";
-type MFADeleteStatus = "Enabled" | "Disabled";
-type GetBucketVersioningOutput = {Status?: BucketVersioningStatus, MFADelete?: MFADeleteStatus};
-type GetBucketVersioningRequest = {Bucket: string, ExpectedBucketOwner?: string};
-type Protocol = "http" | "https";
-type RedirectAllRequestsTo = {HostName: string, Protocol?: Protocol};
-type IndexDocument = {Suffix: string};
-type ErrorDocument = {Key: string};
-type Condition = {HttpErrorCodeReturnedEquals?: string, KeyPrefixEquals?: string};
-type Redirect = {HostName?: string, HttpRedirectCode?: string, Protocol?: Protocol, ReplaceKeyPrefixWith?: string, ReplaceKeyWith?: string};
-type RoutingRule = {Condition?: Condition, Redirect: Redirect};
-type GetBucketWebsiteOutput = {RedirectAllRequestsTo?: RedirectAllRequestsTo, IndexDocument?: IndexDocument, ErrorDocument?: ErrorDocument, RoutingRules?: Array<RoutingRule>};
-type GetBucketWebsiteRequest = {Bucket: string, ExpectedBucketOwner?: string};
-type InvalidObjectState = {StorageClass?: StorageClass, AccessTier?: IntelligentTieringAccessTier};
-type NoSuchKey = {};
-type ReplicationStatus = "COMPLETE" | "PENDING" | "FAILED" | "REPLICA" | "COMPLETED";
-type GetObjectOutput = {Body?: Uint8Array, DeleteMarker?: boolean, AcceptRanges?: string, Expiration?: string, Restore?: string, LastModified?: Date | string, ContentLength?: number, ETag?: string, ChecksumCRC32?: string, ChecksumCRC32C?: string, ChecksumCRC64NVME?: string, ChecksumSHA1?: string, ChecksumSHA256?: string, ChecksumType?: ChecksumType, MissingMeta?: number, VersionId?: string, CacheControl?: string, ContentDisposition?: string, ContentEncoding?: string, ContentLanguage?: string, ContentRange?: string, ContentType?: string, Expires?: string, WebsiteRedirectLocation?: string, ServerSideEncryption?: ServerSideEncryption, Metadata?: Metadata, SSECustomerAlgorithm?: string, SSECustomerKeyMD5?: string, SSEKMSKeyId?: string, BucketKeyEnabled?: boolean, StorageClass?: StorageClass, RequestCharged?: RequestCharged, ReplicationStatus?: ReplicationStatus, PartsCount?: number, TagCount?: number, ObjectLockMode?: ObjectLockMode, ObjectLockRetainUntilDate?: Date | string, ObjectLockLegalHoldStatus?: ObjectLockLegalHoldStatus};
-type ChecksumMode = "ENABLED";
-type GetObjectRequest = {Bucket: string, IfMatch?: string, IfModifiedSince?: Date | string, IfNoneMatch?: string, IfUnmodifiedSince?: Date | string, Key: string, Range?: string, ResponseCacheControl?: string, ResponseContentDisposition?: string, ResponseContentEncoding?: string, ResponseContentLanguage?: string, ResponseContentType?: string, ResponseExpires?: Date | string, VersionId?: string, SSECustomerAlgorithm?: string, SSECustomerKey?: string, SSECustomerKeyMD5?: string, RequestPayer?: RequestPayer, PartNumber?: number, ExpectedBucketOwner?: string, ChecksumMode?: ChecksumMode};
-type GetObjectAclOutput = {Owner?: Owner, Grants?: Array<Grant>, RequestCharged?: RequestCharged};
-type GetObjectAclRequest = {Bucket: string, Key: string, VersionId?: string, RequestPayer?: RequestPayer, ExpectedBucketOwner?: string};
-type Checksum = {ChecksumCRC32?: string, ChecksumCRC32C?: string, ChecksumCRC64NVME?: string, ChecksumSHA1?: string, ChecksumSHA256?: string, ChecksumType?: ChecksumType};
-type ObjectPart = {PartNumber?: number, Size?: number, ChecksumCRC32?: string, ChecksumCRC32C?: string, ChecksumCRC64NVME?: string, ChecksumSHA1?: string, ChecksumSHA256?: string};
-type GetObjectAttributesParts = {TotalPartsCount?: number, PartNumberMarker?: string, NextPartNumberMarker?: string, MaxParts?: number, IsTruncated?: boolean, Parts?: Array<ObjectPart>};
-type GetObjectAttributesOutput = {DeleteMarker?: boolean, LastModified?: Date | string, VersionId?: string, RequestCharged?: RequestCharged, ETag?: string, Checksum?: Checksum, ObjectParts?: GetObjectAttributesParts, StorageClass?: StorageClass, ObjectSize?: number};
-type ObjectAttributes = "ETag" | "Checksum" | "ObjectParts" | "StorageClass" | "ObjectSize";
-type GetObjectAttributesRequest = {Bucket: string, Key: string, VersionId?: string, MaxParts?: number, PartNumberMarker?: string, SSECustomerAlgorithm?: string, SSECustomerKey?: string, SSECustomerKeyMD5?: string, RequestPayer?: RequestPayer, ExpectedBucketOwner?: string, ObjectAttributes: Array<ObjectAttributes>};
-type ObjectLockLegalHold = {Status?: ObjectLockLegalHoldStatus};
-type GetObjectLegalHoldOutput = {LegalHold?: ObjectLockLegalHold};
-type GetObjectLegalHoldRequest = {Bucket: string, Key: string, VersionId?: string, RequestPayer?: RequestPayer, ExpectedBucketOwner?: string};
-type ObjectLockEnabled = "Enabled";
-type ObjectLockRetentionMode = "GOVERNANCE" | "COMPLIANCE";
-type DefaultRetention = {Mode?: ObjectLockRetentionMode, Days?: number, Years?: number};
-type ObjectLockRule = {DefaultRetention?: DefaultRetention};
-type ObjectLockConfiguration = {ObjectLockEnabled?: ObjectLockEnabled, Rule?: ObjectLockRule};
-type GetObjectLockConfigurationOutput = {ObjectLockConfiguration?: ObjectLockConfiguration};
-type GetObjectLockConfigurationRequest = {Bucket: string, ExpectedBucketOwner?: string};
-type ObjectLockRetention = {Mode?: ObjectLockRetentionMode, RetainUntilDate?: Date | string};
-type GetObjectRetentionOutput = {Retention?: ObjectLockRetention};
-type GetObjectRetentionRequest = {Bucket: string, Key: string, VersionId?: string, RequestPayer?: RequestPayer, ExpectedBucketOwner?: string};
-type GetObjectTaggingOutput = {VersionId?: string, TagSet: Array<Tag>};
-type GetObjectTaggingRequest = {Bucket: string, Key: string, VersionId?: string, ExpectedBucketOwner?: string, RequestPayer?: RequestPayer};
-type GetObjectTorrentOutput = {Body?: Uint8Array, RequestCharged?: RequestCharged};
-type GetObjectTorrentRequest = {Bucket: string, Key: string, RequestPayer?: RequestPayer, ExpectedBucketOwner?: string};
-type PublicAccessBlockConfiguration = {BlockPublicAcls?: boolean, IgnorePublicAcls?: boolean, BlockPublicPolicy?: boolean, RestrictPublicBuckets?: boolean};
-type GetPublicAccessBlockOutput = {PublicAccessBlockConfiguration?: PublicAccessBlockConfiguration};
-type GetPublicAccessBlockRequest = {Bucket: string, ExpectedBucketOwner?: string};
-type NotFound = {};
-type HeadBucketOutput = {BucketArn?: string, BucketLocationType?: LocationType, BucketLocationName?: string, BucketRegion?: string, AccessPointAlias?: boolean};
-type HeadBucketRequest = {Bucket: string, ExpectedBucketOwner?: string};
-type ArchiveStatus = "ARCHIVE_ACCESS" | "DEEP_ARCHIVE_ACCESS";
-type HeadObjectOutput = {DeleteMarker?: boolean, AcceptRanges?: string, Expiration?: string, Restore?: string, ArchiveStatus?: ArchiveStatus, LastModified?: Date | string, ContentLength?: number, ChecksumCRC32?: string, ChecksumCRC32C?: string, ChecksumCRC64NVME?: string, ChecksumSHA1?: string, ChecksumSHA256?: string, ChecksumType?: ChecksumType, ETag?: string, MissingMeta?: number, VersionId?: string, CacheControl?: string, ContentDisposition?: string, ContentEncoding?: string, ContentLanguage?: string, ContentType?: string, ContentRange?: string, Expires?: string, WebsiteRedirectLocation?: string, ServerSideEncryption?: ServerSideEncryption, Metadata?: Metadata, SSECustomerAlgorithm?: string, SSECustomerKeyMD5?: string, SSEKMSKeyId?: string, BucketKeyEnabled?: boolean, StorageClass?: StorageClass, RequestCharged?: RequestCharged, ReplicationStatus?: ReplicationStatus, PartsCount?: number, TagCount?: number, ObjectLockMode?: ObjectLockMode, ObjectLockRetainUntilDate?: Date | string, ObjectLockLegalHoldStatus?: ObjectLockLegalHoldStatus};
-type HeadObjectRequest = {Bucket: string, IfMatch?: string, IfModifiedSince?: Date | string, IfNoneMatch?: string, IfUnmodifiedSince?: Date | string, Key: string, Range?: string, ResponseCacheControl?: string, ResponseContentDisposition?: string, ResponseContentEncoding?: string, ResponseContentLanguage?: string, ResponseContentType?: string, ResponseExpires?: Date | string, VersionId?: string, SSECustomerAlgorithm?: string, SSECustomerKey?: string, SSECustomerKeyMD5?: string, RequestPayer?: RequestPayer, PartNumber?: number, ExpectedBucketOwner?: string, ChecksumMode?: ChecksumMode};
-type ListBucketAnalyticsConfigurationsOutput = {IsTruncated?: boolean, ContinuationToken?: string, NextContinuationToken?: string, AnalyticsConfigurationList?: Array<AnalyticsConfiguration>};
-type ListBucketAnalyticsConfigurationsRequest = {Bucket: string, ContinuationToken?: string, ExpectedBucketOwner?: string};
-type ListBucketIntelligentTieringConfigurationsOutput = {IsTruncated?: boolean, ContinuationToken?: string, NextContinuationToken?: string, IntelligentTieringConfigurationList?: Array<IntelligentTieringConfiguration>};
-type ListBucketIntelligentTieringConfigurationsRequest = {Bucket: string, ContinuationToken?: string, ExpectedBucketOwner?: string};
-type ListBucketInventoryConfigurationsOutput = {ContinuationToken?: string, InventoryConfigurationList?: Array<InventoryConfiguration>, IsTruncated?: boolean, NextContinuationToken?: string};
-type ListBucketInventoryConfigurationsRequest = {Bucket: string, ContinuationToken?: string, ExpectedBucketOwner?: string};
-type ListBucketMetricsConfigurationsOutput = {IsTruncated?: boolean, ContinuationToken?: string, NextContinuationToken?: string, MetricsConfigurationList?: Array<MetricsConfiguration>};
-type ListBucketMetricsConfigurationsRequest = {Bucket: string, ContinuationToken?: string, ExpectedBucketOwner?: string};
-type Bucket = {Name?: string, CreationDate?: Date | string, BucketRegion?: string, BucketArn?: string};
-type ListBucketsOutput = {Buckets?: Array<Bucket>, Owner?: Owner, ContinuationToken?: string, Prefix?: string};
-type ListBucketsRequest = {MaxBuckets?: number, ContinuationToken?: string, Prefix?: string, BucketRegion?: string};
-type ListDirectoryBucketsOutput = {Buckets?: Array<Bucket>, ContinuationToken?: string};
-type ListDirectoryBucketsRequest = {ContinuationToken?: string, MaxDirectoryBuckets?: number};
-type EncodingType = "url";
-type CommonPrefix = {Prefix?: string};
-type Initiator = {ID?: string, DisplayName?: string};
-type MultipartUpload = {UploadId?: string, Key?: string, Initiated?: Date | string, StorageClass?: StorageClass, Owner?: Owner, Initiator?: Initiator, ChecksumAlgorithm?: ChecksumAlgorithm, ChecksumType?: ChecksumType};
-type ListMultipartUploadsOutput = {Bucket?: string, KeyMarker?: string, UploadIdMarker?: string, NextKeyMarker?: string, Prefix?: string, Delimiter?: string, NextUploadIdMarker?: string, MaxUploads?: number, IsTruncated?: boolean, Uploads?: Array<MultipartUpload>, CommonPrefixes?: Array<CommonPrefix>, EncodingType?: EncodingType, RequestCharged?: RequestCharged};
-type ListMultipartUploadsRequest = {Bucket: string, Delimiter?: string, EncodingType?: EncodingType, KeyMarker?: string, MaxUploads?: number, Prefix?: string, UploadIdMarker?: string, ExpectedBucketOwner?: string, RequestPayer?: RequestPayer};
-type ObjectStorageClass = "STANDARD" | "REDUCED_REDUNDANCY" | "GLACIER" | "STANDARD_IA" | "ONEZONE_IA" | "INTELLIGENT_TIERING" | "DEEP_ARCHIVE" | "OUTPOSTS" | "GLACIER_IR" | "SNOW" | "EXPRESS_ONEZONE" | "FSX_OPENZFS";
-type RestoreStatus = {IsRestoreInProgress?: boolean, RestoreExpiryDate?: Date | string};
-type Object = {Key?: string, LastModified?: Date | string, ETag?: string, ChecksumAlgorithm?: Array<ChecksumAlgorithm>, ChecksumType?: ChecksumType, Size?: number, StorageClass?: ObjectStorageClass, Owner?: Owner, RestoreStatus?: RestoreStatus};
-type ListObjectsOutput = {IsTruncated?: boolean, Marker?: string, NextMarker?: string, Contents?: Array<Object>, Name?: string, Prefix?: string, Delimiter?: string, MaxKeys?: number, CommonPrefixes?: Array<CommonPrefix>, EncodingType?: EncodingType, RequestCharged?: RequestCharged};
-type OptionalObjectAttributes = "RestoreStatus";
-type ListObjectsRequest = {Bucket: string, Delimiter?: string, EncodingType?: EncodingType, Marker?: string, MaxKeys?: number, Prefix?: string, RequestPayer?: RequestPayer, ExpectedBucketOwner?: string, OptionalObjectAttributes?: Array<OptionalObjectAttributes>};
-type ListObjectsV2Output = {IsTruncated?: boolean, Contents?: Array<Object>, Name?: string, Prefix?: string, Delimiter?: string, MaxKeys?: number, CommonPrefixes?: Array<CommonPrefix>, EncodingType?: EncodingType, KeyCount?: number, ContinuationToken?: string, NextContinuationToken?: string, StartAfter?: string, RequestCharged?: RequestCharged};
-type ListObjectsV2Request = {Bucket: string, Delimiter?: string, EncodingType?: EncodingType, MaxKeys?: number, Prefix?: string, ContinuationToken?: string, FetchOwner?: boolean, StartAfter?: string, RequestPayer?: RequestPayer, ExpectedBucketOwner?: string, OptionalObjectAttributes?: Array<OptionalObjectAttributes>};
-type ObjectVersionStorageClass = "STANDARD";
-type ObjectVersion = {ETag?: string, ChecksumAlgorithm?: Array<ChecksumAlgorithm>, ChecksumType?: ChecksumType, Size?: number, StorageClass?: ObjectVersionStorageClass, Key?: string, VersionId?: string, IsLatest?: boolean, LastModified?: Date | string, Owner?: Owner, RestoreStatus?: RestoreStatus};
-type DeleteMarkerEntry = {Owner?: Owner, Key?: string, VersionId?: string, IsLatest?: boolean, LastModified?: Date | string};
-type ListObjectVersionsOutput = {IsTruncated?: boolean, KeyMarker?: string, VersionIdMarker?: string, NextKeyMarker?: string, NextVersionIdMarker?: string, Versions?: Array<ObjectVersion>, DeleteMarkers?: Array<DeleteMarkerEntry>, Name?: string, Prefix?: string, Delimiter?: string, MaxKeys?: number, CommonPrefixes?: Array<CommonPrefix>, EncodingType?: EncodingType, RequestCharged?: RequestCharged};
-type ListObjectVersionsRequest = {Bucket: string, Delimiter?: string, EncodingType?: EncodingType, KeyMarker?: string, MaxKeys?: number, Prefix?: string, VersionIdMarker?: string, ExpectedBucketOwner?: string, RequestPayer?: RequestPayer, OptionalObjectAttributes?: Array<OptionalObjectAttributes>};
-type Part = {PartNumber?: number, LastModified?: Date | string, ETag?: string, Size?: number, ChecksumCRC32?: string, ChecksumCRC32C?: string, ChecksumCRC64NVME?: string, ChecksumSHA1?: string, ChecksumSHA256?: string};
-type ListPartsOutput = {AbortDate?: Date | string, AbortRuleId?: string, Bucket?: string, Key?: string, UploadId?: string, PartNumberMarker?: string, NextPartNumberMarker?: string, MaxParts?: number, IsTruncated?: boolean, Parts?: Array<Part>, Initiator?: Initiator, Owner?: Owner, StorageClass?: StorageClass, RequestCharged?: RequestCharged, ChecksumAlgorithm?: ChecksumAlgorithm, ChecksumType?: ChecksumType};
-type ListPartsRequest = {Bucket: string, Key: string, MaxParts?: number, PartNumberMarker?: string, UploadId: string, RequestPayer?: RequestPayer, ExpectedBucketOwner?: string, SSECustomerAlgorithm?: string, SSECustomerKey?: string, SSECustomerKeyMD5?: string};
-type PutBucketLifecycleConfigurationOutput = {TransitionDefaultMinimumObjectSize?: TransitionDefaultMinimumObjectSize};
-type BucketLifecycleConfiguration = {Rules: Array<LifecycleRule>};
-type PutBucketLifecycleConfigurationRequest = {Bucket: string, ChecksumAlgorithm?: ChecksumAlgorithm, LifecycleConfiguration?: BucketLifecycleConfiguration, ExpectedBucketOwner?: string, TransitionDefaultMinimumObjectSize?: TransitionDefaultMinimumObjectSize};
-type EncryptionTypeMismatch = {};
-type InvalidRequest = {};
-type InvalidWriteOffset = {};
-type TooManyParts = {};
-type PutObjectOutput = {Expiration?: string, ETag?: string, ChecksumCRC32?: string, ChecksumCRC32C?: string, ChecksumCRC64NVME?: string, ChecksumSHA1?: string, ChecksumSHA256?: string, ChecksumType?: ChecksumType, ServerSideEncryption?: ServerSideEncryption, VersionId?: string, SSECustomerAlgorithm?: string, SSECustomerKeyMD5?: string, SSEKMSKeyId?: string, SSEKMSEncryptionContext?: string, BucketKeyEnabled?: boolean, Size?: number, RequestCharged?: RequestCharged};
-type PutObjectRequest = {ACL?: ObjectCannedACL, Body?: Uint8Array, Bucket: string, CacheControl?: string, ContentDisposition?: string, ContentEncoding?: string, ContentLanguage?: string, ContentLength?: number, ContentMD5?: string, ContentType?: string, ChecksumAlgorithm?: ChecksumAlgorithm, ChecksumCRC32?: string, ChecksumCRC32C?: string, ChecksumCRC64NVME?: string, ChecksumSHA1?: string, ChecksumSHA256?: string, Expires?: string, IfMatch?: string, IfNoneMatch?: string, GrantFullControl?: string, GrantRead?: string, GrantReadACP?: string, GrantWriteACP?: string, Key: string, WriteOffsetBytes?: number, Metadata?: Metadata, ServerSideEncryption?: ServerSideEncryption, StorageClass?: StorageClass, WebsiteRedirectLocation?: string, SSECustomerAlgorithm?: string, SSECustomerKey?: string, SSECustomerKeyMD5?: string, SSEKMSKeyId?: string, SSEKMSEncryptionContext?: string, BucketKeyEnabled?: boolean, RequestPayer?: RequestPayer, Tagging?: string, ObjectLockMode?: ObjectLockMode, ObjectLockRetainUntilDate?: Date | string, ObjectLockLegalHoldStatus?: ObjectLockLegalHoldStatus, ExpectedBucketOwner?: string};
-type PutObjectAclOutput = {RequestCharged?: RequestCharged};
-type AccessControlPolicy = {Grants?: Array<Grant>, Owner?: Owner};
-type PutObjectAclRequest = {ACL?: ObjectCannedACL, AccessControlPolicy?: AccessControlPolicy, Bucket: string, ContentMD5?: string, ChecksumAlgorithm?: ChecksumAlgorithm, GrantFullControl?: string, GrantRead?: string, GrantReadACP?: string, GrantWrite?: string, GrantWriteACP?: string, Key: string, RequestPayer?: RequestPayer, VersionId?: string, ExpectedBucketOwner?: string};
-type PutObjectLegalHoldOutput = {RequestCharged?: RequestCharged};
-type PutObjectLegalHoldRequest = {Bucket: string, Key: string, LegalHold?: ObjectLockLegalHold, RequestPayer?: RequestPayer, VersionId?: string, ContentMD5?: string, ChecksumAlgorithm?: ChecksumAlgorithm, ExpectedBucketOwner?: string};
-type PutObjectLockConfigurationOutput = {RequestCharged?: RequestCharged};
-type PutObjectLockConfigurationRequest = {Bucket: string, ObjectLockConfiguration?: ObjectLockConfiguration, RequestPayer?: RequestPayer, Token?: string, ContentMD5?: string, ChecksumAlgorithm?: ChecksumAlgorithm, ExpectedBucketOwner?: string};
-type PutObjectRetentionOutput = {RequestCharged?: RequestCharged};
-type PutObjectRetentionRequest = {Bucket: string, Key: string, Retention?: ObjectLockRetention, RequestPayer?: RequestPayer, VersionId?: string, BypassGovernanceRetention?: boolean, ContentMD5?: string, ChecksumAlgorithm?: ChecksumAlgorithm, ExpectedBucketOwner?: string};
-type PutObjectTaggingOutput = {VersionId?: string};
-type Tagging = {TagSet: Array<Tag>};
-type PutObjectTaggingRequest = {Bucket: string, Key: string, VersionId?: string, ContentMD5?: string, ChecksumAlgorithm?: ChecksumAlgorithm, Tagging: Tagging, ExpectedBucketOwner?: string, RequestPayer?: RequestPayer};
-type IdempotencyParameterMismatch = {};
-type RenameObjectOutput = {};
-type RenameObjectRequest = {Bucket: string, Key: string, RenameSource: string, DestinationIfMatch?: string, DestinationIfNoneMatch?: string, DestinationIfModifiedSince?: Date | string, DestinationIfUnmodifiedSince?: Date | string, SourceIfMatch?: string, SourceIfNoneMatch?: string, SourceIfModifiedSince?: Date | string, SourceIfUnmodifiedSince?: Date | string, ClientToken?: string};
-type ObjectAlreadyInActiveTierError = {};
-type RestoreObjectOutput = {RequestCharged?: RequestCharged, RestoreOutputPath?: string};
-type RestoreRequestType = "SELECT";
-type Tier = "Standard" | "Bulk" | "Expedited";
-type ExpressionType = "SQL";
-type GlacierJobParameters = {Tier: Tier};
-type CompressionType = "NONE" | "GZIP" | "BZIP2";
-type ParquetInput = {};
-type FileHeaderInfo = "USE" | "IGNORE" | "NONE";
-type JSONType = "DOCUMENT" | "LINES";
-type QuoteFields = "ALWAYS" | "ASNEEDED";
-type CSVInput = {FileHeaderInfo?: FileHeaderInfo, Comments?: string, QuoteEscapeCharacter?: string, RecordDelimiter?: string, FieldDelimiter?: string, QuoteCharacter?: string, AllowQuotedRecordDelimiter?: boolean};
-type JSONInput = {Type?: JSONType};
-type CSVOutput = {QuoteFields?: QuoteFields, QuoteEscapeCharacter?: string, RecordDelimiter?: string, FieldDelimiter?: string, QuoteCharacter?: string};
-type JSONOutput = {RecordDelimiter?: string};
-type Encryption = {EncryptionType: ServerSideEncryption, KMSKeyId?: string, KMSContext?: string};
-type MetadataEntry = {Name?: string, Value?: string};
-type InputSerialization = {CSV?: CSVInput, CompressionType?: CompressionType, JSON?: JSONInput, Parquet?: ParquetInput};
-type OutputSerialization = {CSV?: CSVOutput, JSON?: JSONOutput};
-type SelectParameters = {InputSerialization: InputSerialization, ExpressionType: ExpressionType, Expression: string, OutputSerialization: OutputSerialization};
-type S3Location = {BucketName: string, Prefix: string, Encryption?: Encryption, CannedACL?: ObjectCannedACL, AccessControlList?: Array<Grant>, Tagging?: Tagging, UserMetadata?: Array<MetadataEntry>, StorageClass?: StorageClass};
-type OutputLocation = {S3?: S3Location};
-type RestoreRequest = {Days?: number, GlacierJobParameters?: GlacierJobParameters, Type?: RestoreRequestType, Tier?: Tier, Description?: string, SelectParameters?: SelectParameters, OutputLocation?: OutputLocation};
-type RestoreObjectRequest = {Bucket: string, Key: string, VersionId?: string, RestoreRequest?: RestoreRequest, RequestPayer?: RequestPayer, ChecksumAlgorithm?: ChecksumAlgorithm, ExpectedBucketOwner?: string};
-type ContinuationEvent = {};
-type EndEvent = {};
-type RecordsEvent = {Payload?: Uint8Array};
-type Stats = {BytesScanned?: number, BytesProcessed?: number, BytesReturned?: number};
-type Progress = {BytesScanned?: number, BytesProcessed?: number, BytesReturned?: number};
-type StatsEvent = {Details?: Stats};
-type ProgressEvent = {Details?: Progress};
-type SelectObjectContentEventStream = RecordsEvent | StatsEvent | ProgressEvent | ContinuationEvent | EndEvent;
-type SelectObjectContentOutput = {Payload?: SelectObjectContentEventStream};
-type RequestProgress = {Enabled?: boolean};
-type ScanRange = {Start?: number, End?: number};
-type SelectObjectContentRequest = {Bucket: string, Key: string, SSECustomerAlgorithm?: string, SSECustomerKey?: string, SSECustomerKeyMD5?: string, Expression: string, ExpressionType: ExpressionType, RequestProgress?: RequestProgress, InputSerialization: InputSerialization, OutputSerialization: OutputSerialization, ScanRange?: ScanRange, ExpectedBucketOwner?: string};
-type UploadPartOutput = {ServerSideEncryption?: ServerSideEncryption, ETag?: string, ChecksumCRC32?: string, ChecksumCRC32C?: string, ChecksumCRC64NVME?: string, ChecksumSHA1?: string, ChecksumSHA256?: string, SSECustomerAlgorithm?: string, SSECustomerKeyMD5?: string, SSEKMSKeyId?: string, BucketKeyEnabled?: boolean, RequestCharged?: RequestCharged};
-type UploadPartRequest = {Body?: Uint8Array, Bucket: string, ContentLength?: number, ContentMD5?: string, ChecksumAlgorithm?: ChecksumAlgorithm, ChecksumCRC32?: string, ChecksumCRC32C?: string, ChecksumCRC64NVME?: string, ChecksumSHA1?: string, ChecksumSHA256?: string, Key: string, PartNumber: number, UploadId: string, SSECustomerAlgorithm?: string, SSECustomerKey?: string, SSECustomerKeyMD5?: string, RequestPayer?: RequestPayer, ExpectedBucketOwner?: string};
-type CopyPartResult = {ETag?: string, LastModified?: Date | string, ChecksumCRC32?: string, ChecksumCRC32C?: string, ChecksumCRC64NVME?: string, ChecksumSHA1?: string, ChecksumSHA256?: string};
-type UploadPartCopyOutput = {CopySourceVersionId?: string, CopyPartResult?: CopyPartResult, ServerSideEncryption?: ServerSideEncryption, SSECustomerAlgorithm?: string, SSECustomerKeyMD5?: string, SSEKMSKeyId?: string, BucketKeyEnabled?: boolean, RequestCharged?: RequestCharged};
-type UploadPartCopyRequest = {Bucket: string, CopySource: string, CopySourceIfMatch?: string, CopySourceIfModifiedSince?: Date | string, CopySourceIfNoneMatch?: string, CopySourceIfUnmodifiedSince?: Date | string, CopySourceRange?: string, Key: string, PartNumber: number, UploadId: string, SSECustomerAlgorithm?: string, SSECustomerKey?: string, SSECustomerKeyMD5?: string, CopySourceSSECustomerAlgorithm?: string, CopySourceSSECustomerKey?: string, CopySourceSSECustomerKeyMD5?: string, RequestPayer?: RequestPayer, ExpectedBucketOwner?: string, ExpectedSourceBucketOwner?: string};
-
-//==== Error Types ====
-export declare class NoSuchUploadError extends Data.TaggedError("NoSuchUploadError")<NoSuchUpload> {}
-export declare class ObjectNotInActiveTierErrorError extends Data.TaggedError("ObjectNotInActiveTierErrorError")<ObjectNotInActiveTierError> {}
-export declare class BucketAlreadyExistsError extends Data.TaggedError("BucketAlreadyExistsError")<BucketAlreadyExists> {}
-export declare class BucketAlreadyOwnedByYouError extends Data.TaggedError("BucketAlreadyOwnedByYouError")<BucketAlreadyOwnedByYou> {}
-export declare class NoSuchBucketError extends Data.TaggedError("NoSuchBucketError")<NoSuchBucket> {}
-export declare class InvalidObjectStateError extends Data.TaggedError("InvalidObjectStateError")<InvalidObjectState> {}
-export declare class NoSuchKeyError extends Data.TaggedError("NoSuchKeyError")<NoSuchKey> {}
-export declare class NotFoundError extends Data.TaggedError("NotFoundError")<NotFound> {}
-export declare class EncryptionTypeMismatchError extends Data.TaggedError("EncryptionTypeMismatchError")<EncryptionTypeMismatch> {}
-export declare class InvalidRequestError extends Data.TaggedError("InvalidRequestError")<InvalidRequest> {}
-export declare class InvalidWriteOffsetError extends Data.TaggedError("InvalidWriteOffsetError")<InvalidWriteOffset> {}
-export declare class TooManyPartsError extends Data.TaggedError("TooManyPartsError")<TooManyParts> {}
-export declare class IdempotencyParameterMismatchError extends Data.TaggedError("IdempotencyParameterMismatchError")<IdempotencyParameterMismatch> {}
-export declare class ObjectAlreadyInActiveTierErrorError extends Data.TaggedError("ObjectAlreadyInActiveTierErrorError")<ObjectAlreadyInActiveTierError> {}
+export const AbortMultipartUpload = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}/{Key+}?x-id=AbortMultipartUpload",
+        method: "DELETE",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "AbortMultipartUpload",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        Key: Path("Key", Schema.String),
+        UploadId: Schema.String,
+        RequestPayer: Schema.optional(Header("x-amz-request-payer")),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+        IfMatchInitiatedTime: Schema.optional(
+          Header("x-amz-if-match-initiated-time", Schema.Date),
+        ),
+      }),
+      Schema.Struct({
+        RequestCharged: Schema.optional(Header("x-amz-request-charged")),
+      }),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const CompleteMultipartUpload = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}/{Key+}",
+        method: "POST",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "CompleteMultipartUpload",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        Key: Path("Key", Schema.String),
+        MultipartUpload: Schema.optional(
+          Body(
+            "CompleteMultipartUpload",
+            Schema.Struct({
+              Parts: Schema.optional(
+                Schema.Array(
+                  Schema.Struct({
+                    ETag: Schema.optional(Schema.String),
+                    ChecksumCRC32: Schema.optional(Schema.String),
+                    ChecksumCRC32C: Schema.optional(Schema.String),
+                    ChecksumCRC64NVME: Schema.optional(Schema.String),
+                    ChecksumSHA1: Schema.optional(Schema.String),
+                    ChecksumSHA256: Schema.optional(Schema.String),
+                    PartNumber: Schema.optional(Schema.Number),
+                  }),
+                ),
+              ),
+            }),
+          ),
+        ),
+        UploadId: Schema.String,
+        ChecksumCRC32: Schema.optional(Header("x-amz-checksum-crc32")),
+        ChecksumCRC32C: Schema.optional(Header("x-amz-checksum-crc32c")),
+        ChecksumCRC64NVME: Schema.optional(Header("x-amz-checksum-crc64nvme")),
+        ChecksumSHA1: Schema.optional(Header("x-amz-checksum-sha1")),
+        ChecksumSHA256: Schema.optional(Header("x-amz-checksum-sha256")),
+        ChecksumType: Schema.optional(Header("x-amz-checksum-type")),
+        MpuObjectSize: Schema.optional(
+          Header("x-amz-mp-object-size", Schema.Number),
+        ),
+        RequestPayer: Schema.optional(Header("x-amz-request-payer")),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+        IfMatch: Schema.optional(Header("If-Match")),
+        IfNoneMatch: Schema.optional(Header("If-None-Match")),
+        SSECustomerAlgorithm: Schema.optional(
+          Header("x-amz-server-side-encryption-customer-algorithm"),
+        ),
+        SSECustomerKey: Schema.optional(
+          Header("x-amz-server-side-encryption-customer-key"),
+        ),
+        SSECustomerKeyMD5: Schema.optional(
+          Header("x-amz-server-side-encryption-customer-key-MD5"),
+        ),
+      }),
+      Schema.Struct({
+        Location: Schema.optional(Schema.String),
+        Bucket: Schema.optional(Schema.String),
+        Key: Schema.optional(Schema.String),
+        Expiration: Schema.optional(Header("x-amz-expiration")),
+        ETag: Schema.optional(Schema.String),
+        ChecksumCRC32: Schema.optional(Schema.String),
+        ChecksumCRC32C: Schema.optional(Schema.String),
+        ChecksumCRC64NVME: Schema.optional(Schema.String),
+        ChecksumSHA1: Schema.optional(Schema.String),
+        ChecksumSHA256: Schema.optional(Schema.String),
+        ChecksumType: Schema.optional(Schema.String),
+        ServerSideEncryption: Schema.optional(
+          Header("x-amz-server-side-encryption"),
+        ),
+        VersionId: Schema.optional(Header("x-amz-version-id")),
+        SSEKMSKeyId: Schema.optional(
+          Header("x-amz-server-side-encryption-aws-kms-key-id"),
+        ),
+        BucketKeyEnabled: Schema.optional(
+          Header(
+            "x-amz-server-side-encryption-bucket-key-enabled",
+            Schema.Boolean,
+          ),
+        ),
+        RequestCharged: Schema.optional(Header("x-amz-request-charged")),
+      }),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const CopyObject = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}/{Key+}?x-id=CopyObject",
+        method: "PUT",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "CopyObject",
+      },
+      Schema.Struct({
+        ACL: Schema.optional(Header("x-amz-acl")),
+        Bucket: Path("Bucket", Schema.String),
+        CacheControl: Schema.optional(Header("Cache-Control")),
+        ChecksumAlgorithm: Schema.optional(Header("x-amz-checksum-algorithm")),
+        ContentDisposition: Schema.optional(Header("Content-Disposition")),
+        ContentEncoding: Schema.optional(Header("Content-Encoding")),
+        ContentLanguage: Schema.optional(Header("Content-Language")),
+        ContentType: Schema.optional(Header("Content-Type")),
+        CopySource: Header("x-amz-copy-source"),
+        CopySourceIfMatch: Schema.optional(
+          Header("x-amz-copy-source-if-match"),
+        ),
+        CopySourceIfModifiedSince: Schema.optional(
+          Header("x-amz-copy-source-if-modified-since", Schema.Date),
+        ),
+        CopySourceIfNoneMatch: Schema.optional(
+          Header("x-amz-copy-source-if-none-match"),
+        ),
+        CopySourceIfUnmodifiedSince: Schema.optional(
+          Header("x-amz-copy-source-if-unmodified-since", Schema.Date),
+        ),
+        Expires: Schema.optional(Header("Expires")),
+        GrantFullControl: Schema.optional(Header("x-amz-grant-full-control")),
+        GrantRead: Schema.optional(Header("x-amz-grant-read")),
+        GrantReadACP: Schema.optional(Header("x-amz-grant-read-acp")),
+        GrantWriteACP: Schema.optional(Header("x-amz-grant-write-acp")),
+        IfMatch: Schema.optional(Header("If-Match")),
+        IfNoneMatch: Schema.optional(Header("If-None-Match")),
+        Key: Path("Key", Schema.String),
+        Metadata: Schema.optional(
+          Schema.Record({ key: Schema.String, value: Schema.String }),
+        ),
+        MetadataDirective: Schema.optional(Header("x-amz-metadata-directive")),
+        TaggingDirective: Schema.optional(Header("x-amz-tagging-directive")),
+        ServerSideEncryption: Schema.optional(
+          Header("x-amz-server-side-encryption"),
+        ),
+        StorageClass: Schema.optional(Header("x-amz-storage-class")),
+        WebsiteRedirectLocation: Schema.optional(
+          Header("x-amz-website-redirect-location"),
+        ),
+        SSECustomerAlgorithm: Schema.optional(
+          Header("x-amz-server-side-encryption-customer-algorithm"),
+        ),
+        SSECustomerKey: Schema.optional(
+          Header("x-amz-server-side-encryption-customer-key"),
+        ),
+        SSECustomerKeyMD5: Schema.optional(
+          Header("x-amz-server-side-encryption-customer-key-MD5"),
+        ),
+        SSEKMSKeyId: Schema.optional(
+          Header("x-amz-server-side-encryption-aws-kms-key-id"),
+        ),
+        SSEKMSEncryptionContext: Schema.optional(
+          Header("x-amz-server-side-encryption-context"),
+        ),
+        BucketKeyEnabled: Schema.optional(
+          Header(
+            "x-amz-server-side-encryption-bucket-key-enabled",
+            Schema.Boolean,
+          ),
+        ),
+        CopySourceSSECustomerAlgorithm: Schema.optional(
+          Header("x-amz-copy-source-server-side-encryption-customer-algorithm"),
+        ),
+        CopySourceSSECustomerKey: Schema.optional(
+          Header("x-amz-copy-source-server-side-encryption-customer-key"),
+        ),
+        CopySourceSSECustomerKeyMD5: Schema.optional(
+          Header("x-amz-copy-source-server-side-encryption-customer-key-MD5"),
+        ),
+        RequestPayer: Schema.optional(Header("x-amz-request-payer")),
+        Tagging: Schema.optional(Header("x-amz-tagging")),
+        ObjectLockMode: Schema.optional(Header("x-amz-object-lock-mode")),
+        ObjectLockRetainUntilDate: Schema.optional(
+          Header("x-amz-object-lock-retain-until-date", Schema.Date),
+        ),
+        ObjectLockLegalHoldStatus: Schema.optional(
+          Header("x-amz-object-lock-legal-hold"),
+        ),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+        ExpectedSourceBucketOwner: Schema.optional(
+          Header("x-amz-source-expected-bucket-owner"),
+        ),
+      }),
+      Schema.Struct({
+        CopyObjectResult: Schema.optional(
+          Body(
+            "undefined",
+            Schema.Struct({
+              ETag: Schema.optional(Schema.String),
+              LastModified: Schema.optional(Schema.Date),
+              ChecksumType: Schema.optional(Schema.String),
+              ChecksumCRC32: Schema.optional(Schema.String),
+              ChecksumCRC32C: Schema.optional(Schema.String),
+              ChecksumCRC64NVME: Schema.optional(Schema.String),
+              ChecksumSHA1: Schema.optional(Schema.String),
+              ChecksumSHA256: Schema.optional(Schema.String),
+            }),
+          ),
+        ),
+        Expiration: Schema.optional(Header("x-amz-expiration")),
+        CopySourceVersionId: Schema.optional(
+          Header("x-amz-copy-source-version-id"),
+        ),
+        VersionId: Schema.optional(Header("x-amz-version-id")),
+        ServerSideEncryption: Schema.optional(
+          Header("x-amz-server-side-encryption"),
+        ),
+        SSECustomerAlgorithm: Schema.optional(
+          Header("x-amz-server-side-encryption-customer-algorithm"),
+        ),
+        SSECustomerKeyMD5: Schema.optional(
+          Header("x-amz-server-side-encryption-customer-key-MD5"),
+        ),
+        SSEKMSKeyId: Schema.optional(
+          Header("x-amz-server-side-encryption-aws-kms-key-id"),
+        ),
+        SSEKMSEncryptionContext: Schema.optional(
+          Header("x-amz-server-side-encryption-context"),
+        ),
+        BucketKeyEnabled: Schema.optional(
+          Header(
+            "x-amz-server-side-encryption-bucket-key-enabled",
+            Schema.Boolean,
+          ),
+        ),
+        RequestCharged: Schema.optional(Header("x-amz-request-charged")),
+      }),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const CreateBucket = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}",
+        method: "PUT",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "CreateBucket",
+      },
+      Schema.Struct({
+        ACL: Schema.optional(Header("x-amz-acl")),
+        Bucket: Path("Bucket", Schema.String),
+        CreateBucketConfiguration: Schema.optional(
+          Body(
+            "CreateBucketConfiguration",
+            Schema.Struct({
+              LocationConstraint: Schema.optional(Schema.String),
+              Location: Schema.optional(
+                Schema.Struct({
+                  Type: Schema.optional(Schema.String),
+                  Name: Schema.optional(Schema.String),
+                }),
+              ),
+              Bucket: Schema.optional(
+                Schema.Struct({
+                  DataRedundancy: Schema.optional(Schema.String),
+                  Type: Schema.optional(Schema.String),
+                }),
+              ),
+              Tags: Schema.optional(
+                Schema.Array(
+                  Schema.Struct({ Key: Schema.String, Value: Schema.String }),
+                ),
+              ),
+            }),
+          ),
+        ),
+        GrantFullControl: Schema.optional(Header("x-amz-grant-full-control")),
+        GrantRead: Schema.optional(Header("x-amz-grant-read")),
+        GrantReadACP: Schema.optional(Header("x-amz-grant-read-acp")),
+        GrantWrite: Schema.optional(Header("x-amz-grant-write")),
+        GrantWriteACP: Schema.optional(Header("x-amz-grant-write-acp")),
+        ObjectLockEnabledForBucket: Schema.optional(
+          Header("x-amz-bucket-object-lock-enabled", Schema.Boolean),
+        ),
+        ObjectOwnership: Schema.optional(Header("x-amz-object-ownership")),
+      }),
+      Schema.Struct({
+        Location: Schema.optional(Header("Location")),
+        BucketArn: Schema.optional(Header("x-amz-bucket-arn")),
+      }),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const CreateBucketMetadataConfiguration = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}?metadataConfiguration",
+        method: "POST",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "CreateBucketMetadataConfiguration",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        ContentMD5: Schema.optional(Header("Content-MD5")),
+        ChecksumAlgorithm: Schema.optional(
+          Header("x-amz-sdk-checksum-algorithm"),
+        ),
+        MetadataConfiguration: Body(
+          "MetadataConfiguration",
+          Schema.Struct({
+            JournalTableConfiguration: Schema.Struct({
+              RecordExpiration: Schema.Struct({
+                Expiration: Schema.String,
+                Days: Schema.optional(Schema.Number),
+              }),
+              EncryptionConfiguration: Schema.optional(
+                Schema.Struct({
+                  SseAlgorithm: Schema.String,
+                  KmsKeyArn: Schema.optional(Schema.String),
+                }),
+              ),
+            }),
+            InventoryTableConfiguration: Schema.optional(
+              Schema.Struct({
+                ConfigurationState: Schema.String,
+                EncryptionConfiguration: Schema.optional(
+                  Schema.Struct({
+                    SseAlgorithm: Schema.String,
+                    KmsKeyArn: Schema.optional(Schema.String),
+                  }),
+                ),
+              }),
+            ),
+          }),
+        ),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+      }),
+      Schema.Struct({}),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const CreateBucketMetadataTableConfiguration =
+  /*#__PURE__*/ makeOperation(
+    () =>
+      Operation(
+        {
+          uri: "/{Bucket}?metadataTable",
+          method: "POST",
+          sdkId: "S3",
+          sigV4ServiceName: "s3",
+          name: "CreateBucketMetadataTableConfiguration",
+        },
+        Schema.Struct({
+          Bucket: Path("Bucket", Schema.String),
+          ContentMD5: Schema.optional(Header("Content-MD5")),
+          ChecksumAlgorithm: Schema.optional(
+            Header("x-amz-sdk-checksum-algorithm"),
+          ),
+          MetadataTableConfiguration: Body(
+            "MetadataTableConfiguration",
+            Schema.Struct({
+              S3TablesDestination: Schema.Struct({
+                TableBucketArn: Schema.String,
+                TableName: Schema.String,
+              }),
+            }),
+          ),
+          ExpectedBucketOwner: Schema.optional(
+            Header("x-amz-expected-bucket-owner"),
+          ),
+        }),
+        Schema.Struct({}),
+        Schema.Union(Schema.Struct({})),
+      ),
+    FormatXMLRequest,
+    FormatXMLResponse,
+    FormatXMLResponse,
+  );
+export const CreateMultipartUpload = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}/{Key+}?uploads",
+        method: "POST",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "CreateMultipartUpload",
+      },
+      Schema.Struct({
+        ACL: Schema.optional(Header("x-amz-acl")),
+        Bucket: Path("Bucket", Schema.String),
+        CacheControl: Schema.optional(Header("Cache-Control")),
+        ContentDisposition: Schema.optional(Header("Content-Disposition")),
+        ContentEncoding: Schema.optional(Header("Content-Encoding")),
+        ContentLanguage: Schema.optional(Header("Content-Language")),
+        ContentType: Schema.optional(Header("Content-Type")),
+        Expires: Schema.optional(Header("Expires")),
+        GrantFullControl: Schema.optional(Header("x-amz-grant-full-control")),
+        GrantRead: Schema.optional(Header("x-amz-grant-read")),
+        GrantReadACP: Schema.optional(Header("x-amz-grant-read-acp")),
+        GrantWriteACP: Schema.optional(Header("x-amz-grant-write-acp")),
+        Key: Path("Key", Schema.String),
+        Metadata: Schema.optional(
+          Schema.Record({ key: Schema.String, value: Schema.String }),
+        ),
+        ServerSideEncryption: Schema.optional(
+          Header("x-amz-server-side-encryption"),
+        ),
+        StorageClass: Schema.optional(Header("x-amz-storage-class")),
+        WebsiteRedirectLocation: Schema.optional(
+          Header("x-amz-website-redirect-location"),
+        ),
+        SSECustomerAlgorithm: Schema.optional(
+          Header("x-amz-server-side-encryption-customer-algorithm"),
+        ),
+        SSECustomerKey: Schema.optional(
+          Header("x-amz-server-side-encryption-customer-key"),
+        ),
+        SSECustomerKeyMD5: Schema.optional(
+          Header("x-amz-server-side-encryption-customer-key-MD5"),
+        ),
+        SSEKMSKeyId: Schema.optional(
+          Header("x-amz-server-side-encryption-aws-kms-key-id"),
+        ),
+        SSEKMSEncryptionContext: Schema.optional(
+          Header("x-amz-server-side-encryption-context"),
+        ),
+        BucketKeyEnabled: Schema.optional(
+          Header(
+            "x-amz-server-side-encryption-bucket-key-enabled",
+            Schema.Boolean,
+          ),
+        ),
+        RequestPayer: Schema.optional(Header("x-amz-request-payer")),
+        Tagging: Schema.optional(Header("x-amz-tagging")),
+        ObjectLockMode: Schema.optional(Header("x-amz-object-lock-mode")),
+        ObjectLockRetainUntilDate: Schema.optional(
+          Header("x-amz-object-lock-retain-until-date", Schema.Date),
+        ),
+        ObjectLockLegalHoldStatus: Schema.optional(
+          Header("x-amz-object-lock-legal-hold"),
+        ),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+        ChecksumAlgorithm: Schema.optional(Header("x-amz-checksum-algorithm")),
+        ChecksumType: Schema.optional(Header("x-amz-checksum-type")),
+      }),
+      Schema.Struct({
+        AbortDate: Schema.optional(Header("x-amz-abort-date", Schema.Date)),
+        AbortRuleId: Schema.optional(Header("x-amz-abort-rule-id")),
+        Bucket: Schema.optional(Schema.String),
+        Key: Schema.optional(Schema.String),
+        UploadId: Schema.optional(Schema.String),
+        ServerSideEncryption: Schema.optional(
+          Header("x-amz-server-side-encryption"),
+        ),
+        SSECustomerAlgorithm: Schema.optional(
+          Header("x-amz-server-side-encryption-customer-algorithm"),
+        ),
+        SSECustomerKeyMD5: Schema.optional(
+          Header("x-amz-server-side-encryption-customer-key-MD5"),
+        ),
+        SSEKMSKeyId: Schema.optional(
+          Header("x-amz-server-side-encryption-aws-kms-key-id"),
+        ),
+        SSEKMSEncryptionContext: Schema.optional(
+          Header("x-amz-server-side-encryption-context"),
+        ),
+        BucketKeyEnabled: Schema.optional(
+          Header(
+            "x-amz-server-side-encryption-bucket-key-enabled",
+            Schema.Boolean,
+          ),
+        ),
+        RequestCharged: Schema.optional(Header("x-amz-request-charged")),
+        ChecksumAlgorithm: Schema.optional(Header("x-amz-checksum-algorithm")),
+        ChecksumType: Schema.optional(Header("x-amz-checksum-type")),
+      }),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const CreateSession = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}?session",
+        method: "GET",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "CreateSession",
+      },
+      Schema.Struct({
+        SessionMode: Schema.optional(Header("x-amz-create-session-mode")),
+        Bucket: Path("Bucket", Schema.String),
+        ServerSideEncryption: Schema.optional(
+          Header("x-amz-server-side-encryption"),
+        ),
+        SSEKMSKeyId: Schema.optional(
+          Header("x-amz-server-side-encryption-aws-kms-key-id"),
+        ),
+        SSEKMSEncryptionContext: Schema.optional(
+          Header("x-amz-server-side-encryption-context"),
+        ),
+        BucketKeyEnabled: Schema.optional(
+          Header(
+            "x-amz-server-side-encryption-bucket-key-enabled",
+            Schema.Boolean,
+          ),
+        ),
+      }),
+      Schema.Struct({
+        ServerSideEncryption: Schema.optional(
+          Header("x-amz-server-side-encryption"),
+        ),
+        SSEKMSKeyId: Schema.optional(
+          Header("x-amz-server-side-encryption-aws-kms-key-id"),
+        ),
+        SSEKMSEncryptionContext: Schema.optional(
+          Header("x-amz-server-side-encryption-context"),
+        ),
+        BucketKeyEnabled: Schema.optional(
+          Header(
+            "x-amz-server-side-encryption-bucket-key-enabled",
+            Schema.Boolean,
+          ),
+        ),
+        Credentials: Schema.Struct({
+          AccessKeyId: Schema.String,
+          SecretAccessKey: Schema.String,
+          SessionToken: Schema.String,
+          Expiration: Schema.Date,
+        }),
+      }),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const DeleteBucket = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}",
+        method: "DELETE",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "DeleteBucket",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+      }),
+      Schema.Struct({}),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const DeleteBucketAnalyticsConfiguration = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}?analytics",
+        method: "DELETE",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "DeleteBucketAnalyticsConfiguration",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        Id: Schema.String,
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+      }),
+      Schema.Struct({}),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const DeleteBucketCors = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}?cors",
+        method: "DELETE",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "DeleteBucketCors",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+      }),
+      Schema.Struct({}),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const DeleteBucketEncryption = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}?encryption",
+        method: "DELETE",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "DeleteBucketEncryption",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+      }),
+      Schema.Struct({}),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const DeleteBucketIntelligentTieringConfiguration =
+  /*#__PURE__*/ makeOperation(
+    () =>
+      Operation(
+        {
+          uri: "/{Bucket}?intelligent-tiering",
+          method: "DELETE",
+          sdkId: "S3",
+          sigV4ServiceName: "s3",
+          name: "DeleteBucketIntelligentTieringConfiguration",
+        },
+        Schema.Struct({
+          Bucket: Path("Bucket", Schema.String),
+          Id: Schema.String,
+          ExpectedBucketOwner: Schema.optional(
+            Header("x-amz-expected-bucket-owner"),
+          ),
+        }),
+        Schema.Struct({}),
+        Schema.Union(Schema.Struct({})),
+      ),
+    FormatXMLRequest,
+    FormatXMLResponse,
+    FormatXMLResponse,
+  );
+export const DeleteBucketInventoryConfiguration = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}?inventory",
+        method: "DELETE",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "DeleteBucketInventoryConfiguration",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        Id: Schema.String,
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+      }),
+      Schema.Struct({}),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const DeleteBucketLifecycle = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}?lifecycle",
+        method: "DELETE",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "DeleteBucketLifecycle",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+      }),
+      Schema.Struct({}),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const DeleteBucketMetadataConfiguration = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}?metadataConfiguration",
+        method: "DELETE",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "DeleteBucketMetadataConfiguration",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+      }),
+      Schema.Struct({}),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const DeleteBucketMetadataTableConfiguration =
+  /*#__PURE__*/ makeOperation(
+    () =>
+      Operation(
+        {
+          uri: "/{Bucket}?metadataTable",
+          method: "DELETE",
+          sdkId: "S3",
+          sigV4ServiceName: "s3",
+          name: "DeleteBucketMetadataTableConfiguration",
+        },
+        Schema.Struct({
+          Bucket: Path("Bucket", Schema.String),
+          ExpectedBucketOwner: Schema.optional(
+            Header("x-amz-expected-bucket-owner"),
+          ),
+        }),
+        Schema.Struct({}),
+        Schema.Union(Schema.Struct({})),
+      ),
+    FormatXMLRequest,
+    FormatXMLResponse,
+    FormatXMLResponse,
+  );
+export const DeleteBucketMetricsConfiguration = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}?metrics",
+        method: "DELETE",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "DeleteBucketMetricsConfiguration",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        Id: Schema.String,
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+      }),
+      Schema.Struct({}),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const DeleteBucketOwnershipControls = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}?ownershipControls",
+        method: "DELETE",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "DeleteBucketOwnershipControls",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+      }),
+      Schema.Struct({}),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const DeleteBucketPolicy = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}?policy",
+        method: "DELETE",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "DeleteBucketPolicy",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+      }),
+      Schema.Struct({}),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const DeleteBucketReplication = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}?replication",
+        method: "DELETE",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "DeleteBucketReplication",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+      }),
+      Schema.Struct({}),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const DeleteBucketTagging = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}?tagging",
+        method: "DELETE",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "DeleteBucketTagging",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+      }),
+      Schema.Struct({}),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const DeleteBucketWebsite = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}?website",
+        method: "DELETE",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "DeleteBucketWebsite",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+      }),
+      Schema.Struct({}),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const DeleteObject = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}/{Key+}?x-id=DeleteObject",
+        method: "DELETE",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "DeleteObject",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        Key: Path("Key", Schema.String),
+        MFA: Schema.optional(Header("x-amz-mfa")),
+        VersionId: Schema.optional(Schema.String),
+        RequestPayer: Schema.optional(Header("x-amz-request-payer")),
+        BypassGovernanceRetention: Schema.optional(
+          Header("x-amz-bypass-governance-retention", Schema.Boolean),
+        ),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+        IfMatch: Schema.optional(Header("If-Match")),
+        IfMatchLastModifiedTime: Schema.optional(
+          Header("x-amz-if-match-last-modified-time", Schema.Date),
+        ),
+        IfMatchSize: Schema.optional(
+          Header("x-amz-if-match-size", Schema.Number),
+        ),
+      }),
+      Schema.Struct({
+        DeleteMarker: Schema.optional(
+          Header("x-amz-delete-marker", Schema.Boolean),
+        ),
+        VersionId: Schema.optional(Header("x-amz-version-id")),
+        RequestCharged: Schema.optional(Header("x-amz-request-charged")),
+      }),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const DeleteObjects = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}?delete",
+        method: "POST",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "DeleteObjects",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        Delete: Body(
+          "Delete",
+          Schema.Struct({
+            Objects: Schema.Array(
+              Schema.Struct({
+                Key: Schema.String,
+                VersionId: Schema.optional(Schema.String),
+                ETag: Schema.optional(Schema.String),
+                LastModifiedTime: Schema.optional(Schema.Date),
+                Size: Schema.optional(Schema.Number),
+              }),
+            ),
+            Quiet: Schema.optional(Schema.Boolean),
+          }),
+        ),
+        MFA: Schema.optional(Header("x-amz-mfa")),
+        RequestPayer: Schema.optional(Header("x-amz-request-payer")),
+        BypassGovernanceRetention: Schema.optional(
+          Header("x-amz-bypass-governance-retention", Schema.Boolean),
+        ),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+        ChecksumAlgorithm: Schema.optional(
+          Header("x-amz-sdk-checksum-algorithm"),
+        ),
+      }),
+      Schema.Struct({
+        Deleted: Schema.optional(
+          Schema.Array(
+            Schema.Struct({
+              Key: Schema.optional(Schema.String),
+              VersionId: Schema.optional(Schema.String),
+              DeleteMarker: Schema.optional(Schema.Boolean),
+              DeleteMarkerVersionId: Schema.optional(Schema.String),
+            }),
+          ),
+        ),
+        RequestCharged: Schema.optional(Header("x-amz-request-charged")),
+        Errors: Schema.optional(
+          Schema.Array(
+            Schema.Struct({
+              Key: Schema.optional(Schema.String),
+              VersionId: Schema.optional(Schema.String),
+              Code: Schema.optional(Schema.String),
+              Message: Schema.optional(Schema.String),
+            }),
+          ),
+        ),
+      }),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const DeleteObjectTagging = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}/{Key+}?tagging",
+        method: "DELETE",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "DeleteObjectTagging",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        Key: Schema.String,
+        VersionId: Schema.optional(Schema.String),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+      }),
+      Schema.Struct({ VersionId: Schema.optional(Header("x-amz-version-id")) }),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const DeletePublicAccessBlock = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}?publicAccessBlock",
+        method: "DELETE",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "DeletePublicAccessBlock",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+      }),
+      Schema.Struct({}),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const GetBucketAccelerateConfiguration = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}?accelerate",
+        method: "GET",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "GetBucketAccelerateConfiguration",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+        RequestPayer: Schema.optional(Header("x-amz-request-payer")),
+      }),
+      Schema.Struct({
+        Status: Schema.optional(Schema.String),
+        RequestCharged: Schema.optional(Header("x-amz-request-charged")),
+      }),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const GetBucketAcl = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}?acl",
+        method: "GET",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "GetBucketAcl",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+      }),
+      Schema.Struct({
+        Owner: Schema.optional(
+          Schema.Struct({
+            DisplayName: Schema.optional(Schema.String),
+            ID: Schema.optional(Schema.String),
+          }),
+        ),
+        Grants: Schema.optional(
+          Schema.Array(
+            Schema.Struct({
+              Grantee: Schema.optional(
+                Schema.Struct({
+                  DisplayName: Schema.optional(Schema.String),
+                  EmailAddress: Schema.optional(Schema.String),
+                  ID: Schema.optional(Schema.String),
+                  URI: Schema.optional(Schema.String),
+                  Type: Schema.String,
+                }),
+              ),
+              Permission: Schema.optional(Schema.String),
+            }),
+          ),
+        ),
+      }),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const GetBucketAnalyticsConfiguration = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}?analytics&x-id=GetBucketAnalyticsConfiguration",
+        method: "GET",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "GetBucketAnalyticsConfiguration",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        Id: Schema.String,
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+      }),
+      Schema.Struct({
+        AnalyticsConfiguration: Schema.optional(
+          Body(
+            "undefined",
+            Schema.Struct({
+              Id: Schema.String,
+              Filter: Schema.optional(
+                Schema.Union(
+                  Schema.String,
+                  Schema.Struct({ Key: Schema.String, Value: Schema.String }),
+                  Schema.Struct({
+                    Prefix: Schema.optional(Schema.String),
+                    Tags: Schema.optional(
+                      Schema.Array(
+                        Schema.Struct({
+                          Key: Schema.String,
+                          Value: Schema.String,
+                        }),
+                      ),
+                    ),
+                  }),
+                ),
+              ),
+              StorageClassAnalysis: Schema.Struct({
+                DataExport: Schema.optional(
+                  Schema.Struct({
+                    OutputSchemaVersion: Schema.String,
+                    Destination: Schema.Struct({
+                      S3BucketDestination: Schema.Struct({
+                        Format: Schema.String,
+                        BucketAccountId: Schema.optional(Schema.String),
+                        Bucket: Schema.String,
+                        Prefix: Schema.optional(Schema.String),
+                      }),
+                    }),
+                  }),
+                ),
+              }),
+            }),
+          ),
+        ),
+      }),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const GetBucketCors = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}?cors",
+        method: "GET",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "GetBucketCors",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+      }),
+      Schema.Struct({
+        CORSRules: Schema.optional(
+          Schema.Array(
+            Schema.Struct({
+              ID: Schema.optional(Schema.String),
+              AllowedHeaders: Schema.optional(Schema.Array(Schema.String)),
+              AllowedMethods: Schema.Array(Schema.String),
+              AllowedOrigins: Schema.Array(Schema.String),
+              ExposeHeaders: Schema.optional(Schema.Array(Schema.String)),
+              MaxAgeSeconds: Schema.optional(Schema.Number),
+            }),
+          ),
+        ),
+      }),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const GetBucketEncryption = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}?encryption",
+        method: "GET",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "GetBucketEncryption",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+      }),
+      Schema.Struct({
+        ServerSideEncryptionConfiguration: Schema.optional(
+          Body(
+            "undefined",
+            Schema.Struct({
+              Rules: Schema.Array(
+                Schema.Struct({
+                  ApplyServerSideEncryptionByDefault: Schema.optional(
+                    Schema.Struct({
+                      SSEAlgorithm: Schema.String,
+                      KMSMasterKeyID: Schema.optional(Schema.String),
+                    }),
+                  ),
+                  BucketKeyEnabled: Schema.optional(Schema.Boolean),
+                }),
+              ),
+            }),
+          ),
+        ),
+      }),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const GetBucketIntelligentTieringConfiguration =
+  /*#__PURE__*/ makeOperation(
+    () =>
+      Operation(
+        {
+          uri: "/{Bucket}?intelligent-tiering&x-id=GetBucketIntelligentTieringConfiguration",
+          method: "GET",
+          sdkId: "S3",
+          sigV4ServiceName: "s3",
+          name: "GetBucketIntelligentTieringConfiguration",
+        },
+        Schema.Struct({
+          Bucket: Path("Bucket", Schema.String),
+          Id: Schema.String,
+          ExpectedBucketOwner: Schema.optional(
+            Header("x-amz-expected-bucket-owner"),
+          ),
+        }),
+        Schema.Struct({
+          IntelligentTieringConfiguration: Schema.optional(
+            Body(
+              "undefined",
+              Schema.Struct({
+                Id: Schema.String,
+                Filter: Schema.optional(
+                  Schema.Struct({
+                    Prefix: Schema.optional(Schema.String),
+                    Tag: Schema.optional(
+                      Schema.Struct({
+                        Key: Schema.String,
+                        Value: Schema.String,
+                      }),
+                    ),
+                    And: Schema.optional(
+                      Schema.Struct({
+                        Prefix: Schema.optional(Schema.String),
+                        Tags: Schema.optional(
+                          Schema.Array(
+                            Schema.Struct({
+                              Key: Schema.String,
+                              Value: Schema.String,
+                            }),
+                          ),
+                        ),
+                      }),
+                    ),
+                  }),
+                ),
+                Status: Schema.String,
+                Tierings: Schema.Array(
+                  Schema.Struct({
+                    Days: Schema.Number,
+                    AccessTier: Schema.String,
+                  }),
+                ),
+              }),
+            ),
+          ),
+        }),
+        Schema.Union(Schema.Struct({})),
+      ),
+    FormatXMLRequest,
+    FormatXMLResponse,
+    FormatXMLResponse,
+  );
+export const GetBucketInventoryConfiguration = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}?inventory&x-id=GetBucketInventoryConfiguration",
+        method: "GET",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "GetBucketInventoryConfiguration",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        Id: Schema.String,
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+      }),
+      Schema.Struct({
+        InventoryConfiguration: Schema.optional(
+          Body(
+            "undefined",
+            Schema.Struct({
+              Destination: Schema.Struct({
+                S3BucketDestination: Schema.Struct({
+                  AccountId: Schema.optional(Schema.String),
+                  Bucket: Schema.String,
+                  Format: Schema.String,
+                  Prefix: Schema.optional(Schema.String),
+                  Encryption: Schema.optional(
+                    Schema.Struct({
+                      SSES3: Schema.optional(Schema.Struct({})),
+                      SSEKMS: Schema.optional(
+                        Schema.Struct({ KeyId: Schema.String }),
+                      ),
+                    }),
+                  ),
+                }),
+              }),
+              IsEnabled: Schema.Boolean,
+              Filter: Schema.optional(Schema.Struct({ Prefix: Schema.String })),
+              Id: Schema.String,
+              IncludedObjectVersions: Schema.String,
+              OptionalFields: Schema.optional(Schema.Array(Schema.String)),
+              Schedule: Schema.Struct({ Frequency: Schema.String }),
+            }),
+          ),
+        ),
+      }),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const GetBucketLifecycleConfiguration = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}?lifecycle",
+        method: "GET",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "GetBucketLifecycleConfiguration",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+      }),
+      Schema.Struct({
+        Rules: Schema.optional(
+          Schema.Array(
+            Schema.Struct({
+              Expiration: Schema.optional(
+                Schema.Struct({
+                  Date: Schema.optional(Schema.Date),
+                  Days: Schema.optional(Schema.Number),
+                  ExpiredObjectDeleteMarker: Schema.optional(Schema.Boolean),
+                }),
+              ),
+              ID: Schema.optional(Schema.String),
+              Prefix: Schema.optional(Schema.String),
+              Filter: Schema.optional(
+                Schema.Struct({
+                  Prefix: Schema.optional(Schema.String),
+                  Tag: Schema.optional(
+                    Schema.Struct({ Key: Schema.String, Value: Schema.String }),
+                  ),
+                  ObjectSizeGreaterThan: Schema.optional(Schema.Number),
+                  ObjectSizeLessThan: Schema.optional(Schema.Number),
+                  And: Schema.optional(
+                    Schema.Struct({
+                      Prefix: Schema.optional(Schema.String),
+                      Tags: Schema.optional(
+                        Schema.Array(
+                          Schema.Struct({
+                            Key: Schema.String,
+                            Value: Schema.String,
+                          }),
+                        ),
+                      ),
+                      ObjectSizeGreaterThan: Schema.optional(Schema.Number),
+                      ObjectSizeLessThan: Schema.optional(Schema.Number),
+                    }),
+                  ),
+                }),
+              ),
+              Status: Schema.String,
+              Transitions: Schema.optional(
+                Schema.Array(
+                  Schema.Struct({
+                    Date: Schema.optional(Schema.Date),
+                    Days: Schema.optional(Schema.Number),
+                    StorageClass: Schema.optional(Schema.String),
+                  }),
+                ),
+              ),
+              NoncurrentVersionTransitions: Schema.optional(
+                Schema.Array(
+                  Schema.Struct({
+                    NoncurrentDays: Schema.optional(Schema.Number),
+                    StorageClass: Schema.optional(Schema.String),
+                    NewerNoncurrentVersions: Schema.optional(Schema.Number),
+                  }),
+                ),
+              ),
+              NoncurrentVersionExpiration: Schema.optional(
+                Schema.Struct({
+                  NoncurrentDays: Schema.optional(Schema.Number),
+                  NewerNoncurrentVersions: Schema.optional(Schema.Number),
+                }),
+              ),
+              AbortIncompleteMultipartUpload: Schema.optional(
+                Schema.Struct({
+                  DaysAfterInitiation: Schema.optional(Schema.Number),
+                }),
+              ),
+            }),
+          ),
+        ),
+        TransitionDefaultMinimumObjectSize: Schema.optional(
+          Header("x-amz-transition-default-minimum-object-size"),
+        ),
+      }),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const GetBucketLocation = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}?location",
+        method: "GET",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "GetBucketLocation",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+      }),
+      Schema.Struct({ LocationConstraint: Schema.optional(Schema.String) }),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const GetBucketLogging = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}?logging",
+        method: "GET",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "GetBucketLogging",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+      }),
+      Schema.Struct({
+        LoggingEnabled: Schema.optional(
+          Schema.Struct({
+            TargetBucket: Schema.String,
+            TargetGrants: Schema.optional(
+              Schema.Array(
+                Schema.Struct({
+                  Grantee: Schema.optional(
+                    Schema.Struct({
+                      DisplayName: Schema.optional(Schema.String),
+                      EmailAddress: Schema.optional(Schema.String),
+                      ID: Schema.optional(Schema.String),
+                      URI: Schema.optional(Schema.String),
+                      Type: Schema.String,
+                    }),
+                  ),
+                  Permission: Schema.optional(Schema.String),
+                }),
+              ),
+            ),
+            TargetPrefix: Schema.String,
+            TargetObjectKeyFormat: Schema.optional(
+              Schema.Struct({
+                SimplePrefix: Schema.optional(Schema.Struct({})),
+                PartitionedPrefix: Schema.optional(
+                  Schema.Struct({
+                    PartitionDateSource: Schema.optional(Schema.String),
+                  }),
+                ),
+              }),
+            ),
+          }),
+        ),
+      }),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const GetBucketMetadataConfiguration = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}?metadataConfiguration",
+        method: "GET",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "GetBucketMetadataConfiguration",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+      }),
+      Schema.Struct({
+        GetBucketMetadataConfigurationResult: Schema.optional(
+          Body(
+            "undefined",
+            Schema.Struct({
+              MetadataConfigurationResult: Schema.Struct({
+                DestinationResult: Schema.Struct({
+                  TableBucketType: Schema.optional(Schema.String),
+                  TableBucketArn: Schema.optional(Schema.String),
+                  TableNamespace: Schema.optional(Schema.String),
+                }),
+                JournalTableConfigurationResult: Schema.optional(
+                  Schema.Struct({
+                    TableStatus: Schema.String,
+                    Error: Schema.optional(
+                      Schema.Struct({
+                        ErrorCode: Schema.optional(Schema.String),
+                        ErrorMessage: Schema.optional(Schema.String),
+                      }),
+                    ),
+                    TableName: Schema.String,
+                    TableArn: Schema.optional(Schema.String),
+                    RecordExpiration: Schema.Struct({
+                      Expiration: Schema.String,
+                      Days: Schema.optional(Schema.Number),
+                    }),
+                  }),
+                ),
+                InventoryTableConfigurationResult: Schema.optional(
+                  Schema.Struct({
+                    ConfigurationState: Schema.String,
+                    TableStatus: Schema.optional(Schema.String),
+                    Error: Schema.optional(
+                      Schema.Struct({
+                        ErrorCode: Schema.optional(Schema.String),
+                        ErrorMessage: Schema.optional(Schema.String),
+                      }),
+                    ),
+                    TableName: Schema.optional(Schema.String),
+                    TableArn: Schema.optional(Schema.String),
+                  }),
+                ),
+              }),
+            }),
+          ),
+        ),
+      }),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const GetBucketMetadataTableConfiguration = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}?metadataTable",
+        method: "GET",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "GetBucketMetadataTableConfiguration",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+      }),
+      Schema.Struct({
+        GetBucketMetadataTableConfigurationResult: Schema.optional(
+          Body(
+            "undefined",
+            Schema.Struct({
+              MetadataTableConfigurationResult: Schema.Struct({
+                S3TablesDestinationResult: Schema.Struct({
+                  TableBucketArn: Schema.String,
+                  TableName: Schema.String,
+                  TableArn: Schema.String,
+                  TableNamespace: Schema.String,
+                }),
+              }),
+              Status: Schema.String,
+              Error: Schema.optional(
+                Schema.Struct({
+                  ErrorCode: Schema.optional(Schema.String),
+                  ErrorMessage: Schema.optional(Schema.String),
+                }),
+              ),
+            }),
+          ),
+        ),
+      }),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const GetBucketMetricsConfiguration = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}?metrics&x-id=GetBucketMetricsConfiguration",
+        method: "GET",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "GetBucketMetricsConfiguration",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        Id: Schema.String,
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+      }),
+      Schema.Struct({
+        MetricsConfiguration: Schema.optional(
+          Body(
+            "undefined",
+            Schema.Struct({
+              Id: Schema.String,
+              Filter: Schema.optional(
+                Schema.Union(
+                  Schema.String,
+                  Schema.Struct({ Key: Schema.String, Value: Schema.String }),
+                  Schema.String,
+                  Schema.Struct({
+                    Prefix: Schema.optional(Schema.String),
+                    Tags: Schema.optional(
+                      Schema.Array(
+                        Schema.Struct({
+                          Key: Schema.String,
+                          Value: Schema.String,
+                        }),
+                      ),
+                    ),
+                    AccessPointArn: Schema.optional(Schema.String),
+                  }),
+                ),
+              ),
+            }),
+          ),
+        ),
+      }),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const GetBucketNotificationConfiguration = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}?notification",
+        method: "GET",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "GetBucketNotificationConfiguration",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+      }),
+      Schema.Struct({
+        TopicConfigurations: Schema.optional(
+          Schema.Array(
+            Schema.Struct({
+              Id: Schema.optional(Schema.String),
+              TopicArn: Schema.String,
+              Events: Schema.Array(Schema.String),
+              Filter: Schema.optional(
+                Schema.Struct({
+                  Key: Schema.optional(
+                    Schema.Struct({
+                      FilterRules: Schema.optional(
+                        Schema.Array(
+                          Schema.Struct({
+                            Name: Schema.optional(Schema.String),
+                            Value: Schema.optional(Schema.String),
+                          }),
+                        ),
+                      ),
+                    }),
+                  ),
+                }),
+              ),
+            }),
+          ),
+        ),
+        QueueConfigurations: Schema.optional(
+          Schema.Array(
+            Schema.Struct({
+              Id: Schema.optional(Schema.String),
+              QueueArn: Schema.String,
+              Events: Schema.Array(Schema.String),
+              Filter: Schema.optional(
+                Schema.Struct({
+                  Key: Schema.optional(
+                    Schema.Struct({
+                      FilterRules: Schema.optional(
+                        Schema.Array(
+                          Schema.Struct({
+                            Name: Schema.optional(Schema.String),
+                            Value: Schema.optional(Schema.String),
+                          }),
+                        ),
+                      ),
+                    }),
+                  ),
+                }),
+              ),
+            }),
+          ),
+        ),
+        LambdaFunctionConfigurations: Schema.optional(
+          Schema.Array(
+            Schema.Struct({
+              Id: Schema.optional(Schema.String),
+              LambdaFunctionArn: Schema.String,
+              Events: Schema.Array(Schema.String),
+              Filter: Schema.optional(
+                Schema.Struct({
+                  Key: Schema.optional(
+                    Schema.Struct({
+                      FilterRules: Schema.optional(
+                        Schema.Array(
+                          Schema.Struct({
+                            Name: Schema.optional(Schema.String),
+                            Value: Schema.optional(Schema.String),
+                          }),
+                        ),
+                      ),
+                    }),
+                  ),
+                }),
+              ),
+            }),
+          ),
+        ),
+        EventBridgeConfiguration: Schema.optional(Schema.Struct({})),
+      }),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const GetBucketOwnershipControls = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}?ownershipControls",
+        method: "GET",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "GetBucketOwnershipControls",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+      }),
+      Schema.Struct({
+        OwnershipControls: Schema.optional(
+          Body(
+            "undefined",
+            Schema.Struct({
+              Rules: Schema.Array(
+                Schema.Struct({ ObjectOwnership: Schema.String }),
+              ),
+            }),
+          ),
+        ),
+      }),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const GetBucketPolicy = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}?policy",
+        method: "GET",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "GetBucketPolicy",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+      }),
+      Schema.Struct({
+        Policy: Schema.optional(Body("undefined", Schema.String)),
+      }),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const GetBucketPolicyStatus = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}?policyStatus",
+        method: "GET",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "GetBucketPolicyStatus",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+      }),
+      Schema.Struct({
+        PolicyStatus: Schema.optional(
+          Body(
+            "undefined",
+            Schema.Struct({ IsPublic: Schema.optional(Schema.Boolean) }),
+          ),
+        ),
+      }),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const GetBucketReplication = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}?replication",
+        method: "GET",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "GetBucketReplication",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+      }),
+      Schema.Struct({
+        ReplicationConfiguration: Schema.optional(
+          Body(
+            "undefined",
+            Schema.Struct({
+              Role: Schema.String,
+              Rules: Schema.Array(
+                Schema.Struct({
+                  ID: Schema.optional(Schema.String),
+                  Priority: Schema.optional(Schema.Number),
+                  Prefix: Schema.optional(Schema.String),
+                  Filter: Schema.optional(
+                    Schema.Struct({
+                      Prefix: Schema.optional(Schema.String),
+                      Tag: Schema.optional(
+                        Schema.Struct({
+                          Key: Schema.String,
+                          Value: Schema.String,
+                        }),
+                      ),
+                      And: Schema.optional(
+                        Schema.Struct({
+                          Prefix: Schema.optional(Schema.String),
+                          Tags: Schema.optional(
+                            Schema.Array(
+                              Schema.Struct({
+                                Key: Schema.String,
+                                Value: Schema.String,
+                              }),
+                            ),
+                          ),
+                        }),
+                      ),
+                    }),
+                  ),
+                  Status: Schema.String,
+                  SourceSelectionCriteria: Schema.optional(
+                    Schema.Struct({
+                      SseKmsEncryptedObjects: Schema.optional(
+                        Schema.Struct({ Status: Schema.String }),
+                      ),
+                      ReplicaModifications: Schema.optional(
+                        Schema.Struct({ Status: Schema.String }),
+                      ),
+                    }),
+                  ),
+                  ExistingObjectReplication: Schema.optional(
+                    Schema.Struct({ Status: Schema.String }),
+                  ),
+                  Destination: Schema.Struct({
+                    Bucket: Schema.String,
+                    Account: Schema.optional(Schema.String),
+                    StorageClass: Schema.optional(Schema.String),
+                    AccessControlTranslation: Schema.optional(
+                      Schema.Struct({ Owner: Schema.String }),
+                    ),
+                    EncryptionConfiguration: Schema.optional(
+                      Schema.Struct({
+                        ReplicaKmsKeyID: Schema.optional(Schema.String),
+                      }),
+                    ),
+                    ReplicationTime: Schema.optional(
+                      Schema.Struct({
+                        Status: Schema.String,
+                        Time: Schema.Struct({
+                          Minutes: Schema.optional(Schema.Number),
+                        }),
+                      }),
+                    ),
+                    Metrics: Schema.optional(
+                      Schema.Struct({
+                        Status: Schema.String,
+                        EventThreshold: Schema.optional(
+                          Schema.Struct({
+                            Minutes: Schema.optional(Schema.Number),
+                          }),
+                        ),
+                      }),
+                    ),
+                  }),
+                  DeleteMarkerReplication: Schema.optional(
+                    Schema.Struct({ Status: Schema.optional(Schema.String) }),
+                  ),
+                }),
+              ),
+            }),
+          ),
+        ),
+      }),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const GetBucketRequestPayment = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}?requestPayment",
+        method: "GET",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "GetBucketRequestPayment",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+      }),
+      Schema.Struct({ Payer: Schema.optional(Schema.String) }),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const GetBucketTagging = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}?tagging",
+        method: "GET",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "GetBucketTagging",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+      }),
+      Schema.Struct({
+        TagSet: Schema.Array(
+          Schema.Struct({ Key: Schema.String, Value: Schema.String }),
+        ),
+      }),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const GetBucketVersioning = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}?versioning",
+        method: "GET",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "GetBucketVersioning",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+      }),
+      Schema.Struct({
+        Status: Schema.optional(Schema.String),
+        MFADelete: Schema.optional(Schema.String),
+      }),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const GetBucketWebsite = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}?website",
+        method: "GET",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "GetBucketWebsite",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+      }),
+      Schema.Struct({
+        RedirectAllRequestsTo: Schema.optional(
+          Schema.Struct({
+            HostName: Schema.String,
+            Protocol: Schema.optional(Schema.String),
+          }),
+        ),
+        IndexDocument: Schema.optional(
+          Schema.Struct({ Suffix: Schema.String }),
+        ),
+        ErrorDocument: Schema.optional(Schema.Struct({ Key: Schema.String })),
+        RoutingRules: Schema.optional(
+          Schema.Array(
+            Schema.Struct({
+              Condition: Schema.optional(
+                Schema.Struct({
+                  HttpErrorCodeReturnedEquals: Schema.optional(Schema.String),
+                  KeyPrefixEquals: Schema.optional(Schema.String),
+                }),
+              ),
+              Redirect: Schema.Struct({
+                HostName: Schema.optional(Schema.String),
+                HttpRedirectCode: Schema.optional(Schema.String),
+                Protocol: Schema.optional(Schema.String),
+                ReplaceKeyPrefixWith: Schema.optional(Schema.String),
+                ReplaceKeyWith: Schema.optional(Schema.String),
+              }),
+            }),
+          ),
+        ),
+      }),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const GetObject = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}/{Key+}?x-id=GetObject",
+        method: "GET",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "GetObject",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        IfMatch: Schema.optional(Header("If-Match")),
+        IfModifiedSince: Schema.optional(
+          Header("If-Modified-Since", Schema.Date),
+        ),
+        IfNoneMatch: Schema.optional(Header("If-None-Match")),
+        IfUnmodifiedSince: Schema.optional(
+          Header("If-Unmodified-Since", Schema.Date),
+        ),
+        Key: Path("Key", Schema.String),
+        Range: Schema.optional(Header("Range")),
+        ResponseCacheControl: Schema.optional(Schema.String),
+        ResponseContentDisposition: Schema.optional(Schema.String),
+        ResponseContentEncoding: Schema.optional(Schema.String),
+        ResponseContentLanguage: Schema.optional(Schema.String),
+        ResponseContentType: Schema.optional(Schema.String),
+        ResponseExpires: Schema.optional(Schema.Date),
+        VersionId: Schema.optional(Schema.String),
+        SSECustomerAlgorithm: Schema.optional(
+          Header("x-amz-server-side-encryption-customer-algorithm"),
+        ),
+        SSECustomerKey: Schema.optional(
+          Header("x-amz-server-side-encryption-customer-key"),
+        ),
+        SSECustomerKeyMD5: Schema.optional(
+          Header("x-amz-server-side-encryption-customer-key-MD5"),
+        ),
+        RequestPayer: Schema.optional(Header("x-amz-request-payer")),
+        PartNumber: Schema.optional(Schema.Number),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+        ChecksumMode: Schema.optional(Header("x-amz-checksum-mode")),
+      }),
+      Schema.Struct({
+        Body: Schema.optional(Body("undefined", StreamBody())),
+        DeleteMarker: Schema.optional(
+          Header("x-amz-delete-marker", Schema.Boolean),
+        ),
+        AcceptRanges: Schema.optional(Header("accept-ranges")),
+        Expiration: Schema.optional(Header("x-amz-expiration")),
+        Restore: Schema.optional(Header("x-amz-restore")),
+        LastModified: Schema.optional(Header("Last-Modified", Schema.Date)),
+        ContentLength: Schema.optional(Header("Content-Length", Schema.Number)),
+        ETag: Schema.optional(Header("ETag")),
+        ChecksumCRC32: Schema.optional(Header("x-amz-checksum-crc32")),
+        ChecksumCRC32C: Schema.optional(Header("x-amz-checksum-crc32c")),
+        ChecksumCRC64NVME: Schema.optional(Header("x-amz-checksum-crc64nvme")),
+        ChecksumSHA1: Schema.optional(Header("x-amz-checksum-sha1")),
+        ChecksumSHA256: Schema.optional(Header("x-amz-checksum-sha256")),
+        ChecksumType: Schema.optional(Header("x-amz-checksum-type")),
+        MissingMeta: Schema.optional(
+          Header("x-amz-missing-meta", Schema.Number),
+        ),
+        VersionId: Schema.optional(Header("x-amz-version-id")),
+        CacheControl: Schema.optional(Header("Cache-Control")),
+        ContentDisposition: Schema.optional(Header("Content-Disposition")),
+        ContentEncoding: Schema.optional(Header("Content-Encoding")),
+        ContentLanguage: Schema.optional(Header("Content-Language")),
+        ContentRange: Schema.optional(Header("Content-Range")),
+        ContentType: Schema.optional(Header("Content-Type")),
+        Expires: Schema.optional(Header("Expires")),
+        WebsiteRedirectLocation: Schema.optional(
+          Header("x-amz-website-redirect-location"),
+        ),
+        ServerSideEncryption: Schema.optional(
+          Header("x-amz-server-side-encryption"),
+        ),
+        Metadata: Schema.optional(
+          Schema.Record({ key: Schema.String, value: Schema.String }),
+        ),
+        SSECustomerAlgorithm: Schema.optional(
+          Header("x-amz-server-side-encryption-customer-algorithm"),
+        ),
+        SSECustomerKeyMD5: Schema.optional(
+          Header("x-amz-server-side-encryption-customer-key-MD5"),
+        ),
+        SSEKMSKeyId: Schema.optional(
+          Header("x-amz-server-side-encryption-aws-kms-key-id"),
+        ),
+        BucketKeyEnabled: Schema.optional(
+          Header(
+            "x-amz-server-side-encryption-bucket-key-enabled",
+            Schema.Boolean,
+          ),
+        ),
+        StorageClass: Schema.optional(Header("x-amz-storage-class")),
+        RequestCharged: Schema.optional(Header("x-amz-request-charged")),
+        ReplicationStatus: Schema.optional(Header("x-amz-replication-status")),
+        PartsCount: Schema.optional(
+          Header("x-amz-mp-parts-count", Schema.Number),
+        ),
+        TagCount: Schema.optional(Header("x-amz-tagging-count", Schema.Number)),
+        ObjectLockMode: Schema.optional(Header("x-amz-object-lock-mode")),
+        ObjectLockRetainUntilDate: Schema.optional(
+          Header("x-amz-object-lock-retain-until-date", Schema.Date),
+        ),
+        ObjectLockLegalHoldStatus: Schema.optional(
+          Header("x-amz-object-lock-legal-hold"),
+        ),
+      }),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const GetObjectAcl = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}/{Key+}?acl",
+        method: "GET",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "GetObjectAcl",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        Key: Path("Key", Schema.String),
+        VersionId: Schema.optional(Schema.String),
+        RequestPayer: Schema.optional(Header("x-amz-request-payer")),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+      }),
+      Schema.Struct({
+        Owner: Schema.optional(
+          Schema.Struct({
+            DisplayName: Schema.optional(Schema.String),
+            ID: Schema.optional(Schema.String),
+          }),
+        ),
+        Grants: Schema.optional(
+          Schema.Array(
+            Schema.Struct({
+              Grantee: Schema.optional(
+                Schema.Struct({
+                  DisplayName: Schema.optional(Schema.String),
+                  EmailAddress: Schema.optional(Schema.String),
+                  ID: Schema.optional(Schema.String),
+                  URI: Schema.optional(Schema.String),
+                  Type: Schema.String,
+                }),
+              ),
+              Permission: Schema.optional(Schema.String),
+            }),
+          ),
+        ),
+        RequestCharged: Schema.optional(Header("x-amz-request-charged")),
+      }),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const GetObjectAttributes = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}/{Key+}?attributes",
+        method: "GET",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "GetObjectAttributes",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        Key: Schema.String,
+        VersionId: Schema.optional(Schema.String),
+        MaxParts: Schema.optional(Header("x-amz-max-parts", Schema.Number)),
+        PartNumberMarker: Schema.optional(Header("x-amz-part-number-marker")),
+        SSECustomerAlgorithm: Schema.optional(
+          Header("x-amz-server-side-encryption-customer-algorithm"),
+        ),
+        SSECustomerKey: Schema.optional(
+          Header("x-amz-server-side-encryption-customer-key"),
+        ),
+        SSECustomerKeyMD5: Schema.optional(
+          Header("x-amz-server-side-encryption-customer-key-MD5"),
+        ),
+        RequestPayer: Schema.optional(Header("x-amz-request-payer")),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+        ObjectAttributes: Header(
+          "x-amz-object-attributes",
+          Schema.Array(Schema.String),
+        ),
+      }),
+      Schema.Struct({
+        DeleteMarker: Schema.optional(
+          Header("x-amz-delete-marker", Schema.Boolean),
+        ),
+        LastModified: Schema.optional(Header("Last-Modified", Schema.Date)),
+        VersionId: Schema.optional(Header("x-amz-version-id")),
+        RequestCharged: Schema.optional(Header("x-amz-request-charged")),
+        ETag: Schema.optional(Schema.String),
+        Checksum: Schema.optional(
+          Schema.Struct({
+            ChecksumCRC32: Schema.optional(Schema.String),
+            ChecksumCRC32C: Schema.optional(Schema.String),
+            ChecksumCRC64NVME: Schema.optional(Schema.String),
+            ChecksumSHA1: Schema.optional(Schema.String),
+            ChecksumSHA256: Schema.optional(Schema.String),
+            ChecksumType: Schema.optional(Schema.String),
+          }),
+        ),
+        ObjectParts: Schema.optional(
+          Schema.Struct({
+            TotalPartsCount: Schema.optional(Schema.Number),
+            PartNumberMarker: Schema.optional(Schema.String),
+            NextPartNumberMarker: Schema.optional(Schema.String),
+            MaxParts: Schema.optional(Schema.Number),
+            IsTruncated: Schema.optional(Schema.Boolean),
+            Parts: Schema.optional(
+              Schema.Array(
+                Schema.Struct({
+                  PartNumber: Schema.optional(Schema.Number),
+                  Size: Schema.optional(Schema.Number),
+                  ChecksumCRC32: Schema.optional(Schema.String),
+                  ChecksumCRC32C: Schema.optional(Schema.String),
+                  ChecksumCRC64NVME: Schema.optional(Schema.String),
+                  ChecksumSHA1: Schema.optional(Schema.String),
+                  ChecksumSHA256: Schema.optional(Schema.String),
+                }),
+              ),
+            ),
+          }),
+        ),
+        StorageClass: Schema.optional(Schema.String),
+        ObjectSize: Schema.optional(Schema.Number),
+      }),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const GetObjectLegalHold = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}/{Key+}?legal-hold",
+        method: "GET",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "GetObjectLegalHold",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        Key: Schema.String,
+        VersionId: Schema.optional(Schema.String),
+        RequestPayer: Schema.optional(Header("x-amz-request-payer")),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+      }),
+      Schema.Struct({
+        LegalHold: Schema.optional(
+          Body(
+            "LegalHold",
+            Schema.Struct({ Status: Schema.optional(Schema.String) }),
+          ),
+        ),
+      }),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const GetObjectLockConfiguration = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}?object-lock",
+        method: "GET",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "GetObjectLockConfiguration",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+      }),
+      Schema.Struct({
+        ObjectLockConfiguration: Schema.optional(
+          Body(
+            "undefined",
+            Schema.Struct({
+              ObjectLockEnabled: Schema.optional(Schema.String),
+              Rule: Schema.optional(
+                Schema.Struct({
+                  DefaultRetention: Schema.optional(
+                    Schema.Struct({
+                      Mode: Schema.optional(Schema.String),
+                      Days: Schema.optional(Schema.Number),
+                      Years: Schema.optional(Schema.Number),
+                    }),
+                  ),
+                }),
+              ),
+            }),
+          ),
+        ),
+      }),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const GetObjectRetention = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}/{Key+}?retention",
+        method: "GET",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "GetObjectRetention",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        Key: Schema.String,
+        VersionId: Schema.optional(Schema.String),
+        RequestPayer: Schema.optional(Header("x-amz-request-payer")),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+      }),
+      Schema.Struct({
+        Retention: Schema.optional(
+          Body(
+            "Retention",
+            Schema.Struct({
+              Mode: Schema.optional(Schema.String),
+              RetainUntilDate: Schema.optional(Schema.Date),
+            }),
+          ),
+        ),
+      }),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const GetObjectTagging = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}/{Key+}?tagging",
+        method: "GET",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "GetObjectTagging",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        Key: Schema.String,
+        VersionId: Schema.optional(Schema.String),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+        RequestPayer: Schema.optional(Header("x-amz-request-payer")),
+      }),
+      Schema.Struct({
+        VersionId: Schema.optional(Header("x-amz-version-id")),
+        TagSet: Schema.Array(
+          Schema.Struct({ Key: Schema.String, Value: Schema.String }),
+        ),
+      }),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const GetObjectTorrent = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}/{Key+}?torrent",
+        method: "GET",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "GetObjectTorrent",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        Key: Schema.String,
+        RequestPayer: Schema.optional(Header("x-amz-request-payer")),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+      }),
+      Schema.Struct({
+        Body: Schema.optional(Body("undefined", StreamBody())),
+        RequestCharged: Schema.optional(Header("x-amz-request-charged")),
+      }),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const GetPublicAccessBlock = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}?publicAccessBlock",
+        method: "GET",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "GetPublicAccessBlock",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+      }),
+      Schema.Struct({
+        PublicAccessBlockConfiguration: Schema.optional(
+          Body(
+            "undefined",
+            Schema.Struct({
+              BlockPublicAcls: Schema.optional(Schema.Boolean),
+              IgnorePublicAcls: Schema.optional(Schema.Boolean),
+              BlockPublicPolicy: Schema.optional(Schema.Boolean),
+              RestrictPublicBuckets: Schema.optional(Schema.Boolean),
+            }),
+          ),
+        ),
+      }),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const HeadBucket = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}",
+        method: "HEAD",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "HeadBucket",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+      }),
+      Schema.Struct({
+        BucketArn: Schema.optional(Header("x-amz-bucket-arn")),
+        BucketLocationType: Schema.optional(
+          Header("x-amz-bucket-location-type"),
+        ),
+        BucketLocationName: Schema.optional(
+          Header("x-amz-bucket-location-name"),
+        ),
+        BucketRegion: Schema.optional(Header("x-amz-bucket-region")),
+        AccessPointAlias: Schema.optional(
+          Header("x-amz-access-point-alias", Schema.Boolean),
+        ),
+      }),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const HeadObject = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}/{Key+}",
+        method: "HEAD",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "HeadObject",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        IfMatch: Schema.optional(Header("If-Match")),
+        IfModifiedSince: Schema.optional(
+          Header("If-Modified-Since", Schema.Date),
+        ),
+        IfNoneMatch: Schema.optional(Header("If-None-Match")),
+        IfUnmodifiedSince: Schema.optional(
+          Header("If-Unmodified-Since", Schema.Date),
+        ),
+        Key: Path("Key", Schema.String),
+        Range: Schema.optional(Header("Range")),
+        ResponseCacheControl: Schema.optional(Schema.String),
+        ResponseContentDisposition: Schema.optional(Schema.String),
+        ResponseContentEncoding: Schema.optional(Schema.String),
+        ResponseContentLanguage: Schema.optional(Schema.String),
+        ResponseContentType: Schema.optional(Schema.String),
+        ResponseExpires: Schema.optional(Schema.Date),
+        VersionId: Schema.optional(Schema.String),
+        SSECustomerAlgorithm: Schema.optional(
+          Header("x-amz-server-side-encryption-customer-algorithm"),
+        ),
+        SSECustomerKey: Schema.optional(
+          Header("x-amz-server-side-encryption-customer-key"),
+        ),
+        SSECustomerKeyMD5: Schema.optional(
+          Header("x-amz-server-side-encryption-customer-key-MD5"),
+        ),
+        RequestPayer: Schema.optional(Header("x-amz-request-payer")),
+        PartNumber: Schema.optional(Schema.Number),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+        ChecksumMode: Schema.optional(Header("x-amz-checksum-mode")),
+      }),
+      Schema.Struct({
+        DeleteMarker: Schema.optional(
+          Header("x-amz-delete-marker", Schema.Boolean),
+        ),
+        AcceptRanges: Schema.optional(Header("accept-ranges")),
+        Expiration: Schema.optional(Header("x-amz-expiration")),
+        Restore: Schema.optional(Header("x-amz-restore")),
+        ArchiveStatus: Schema.optional(Header("x-amz-archive-status")),
+        LastModified: Schema.optional(Header("Last-Modified", Schema.Date)),
+        ContentLength: Schema.optional(Header("Content-Length", Schema.Number)),
+        ChecksumCRC32: Schema.optional(Header("x-amz-checksum-crc32")),
+        ChecksumCRC32C: Schema.optional(Header("x-amz-checksum-crc32c")),
+        ChecksumCRC64NVME: Schema.optional(Header("x-amz-checksum-crc64nvme")),
+        ChecksumSHA1: Schema.optional(Header("x-amz-checksum-sha1")),
+        ChecksumSHA256: Schema.optional(Header("x-amz-checksum-sha256")),
+        ChecksumType: Schema.optional(Header("x-amz-checksum-type")),
+        ETag: Schema.optional(Header("ETag")),
+        MissingMeta: Schema.optional(
+          Header("x-amz-missing-meta", Schema.Number),
+        ),
+        VersionId: Schema.optional(Header("x-amz-version-id")),
+        CacheControl: Schema.optional(Header("Cache-Control")),
+        ContentDisposition: Schema.optional(Header("Content-Disposition")),
+        ContentEncoding: Schema.optional(Header("Content-Encoding")),
+        ContentLanguage: Schema.optional(Header("Content-Language")),
+        ContentType: Schema.optional(Header("Content-Type")),
+        ContentRange: Schema.optional(Header("Content-Range")),
+        Expires: Schema.optional(Header("Expires")),
+        WebsiteRedirectLocation: Schema.optional(
+          Header("x-amz-website-redirect-location"),
+        ),
+        ServerSideEncryption: Schema.optional(
+          Header("x-amz-server-side-encryption"),
+        ),
+        Metadata: Schema.optional(
+          Schema.Record({ key: Schema.String, value: Schema.String }),
+        ),
+        SSECustomerAlgorithm: Schema.optional(
+          Header("x-amz-server-side-encryption-customer-algorithm"),
+        ),
+        SSECustomerKeyMD5: Schema.optional(
+          Header("x-amz-server-side-encryption-customer-key-MD5"),
+        ),
+        SSEKMSKeyId: Schema.optional(
+          Header("x-amz-server-side-encryption-aws-kms-key-id"),
+        ),
+        BucketKeyEnabled: Schema.optional(
+          Header(
+            "x-amz-server-side-encryption-bucket-key-enabled",
+            Schema.Boolean,
+          ),
+        ),
+        StorageClass: Schema.optional(Header("x-amz-storage-class")),
+        RequestCharged: Schema.optional(Header("x-amz-request-charged")),
+        ReplicationStatus: Schema.optional(Header("x-amz-replication-status")),
+        PartsCount: Schema.optional(
+          Header("x-amz-mp-parts-count", Schema.Number),
+        ),
+        TagCount: Schema.optional(Header("x-amz-tagging-count", Schema.Number)),
+        ObjectLockMode: Schema.optional(Header("x-amz-object-lock-mode")),
+        ObjectLockRetainUntilDate: Schema.optional(
+          Header("x-amz-object-lock-retain-until-date", Schema.Date),
+        ),
+        ObjectLockLegalHoldStatus: Schema.optional(
+          Header("x-amz-object-lock-legal-hold"),
+        ),
+      }),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const ListBucketAnalyticsConfigurations = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}?analytics&x-id=ListBucketAnalyticsConfigurations",
+        method: "GET",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "ListBucketAnalyticsConfigurations",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        ContinuationToken: Schema.optional(Schema.String),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+      }),
+      Schema.Struct({
+        IsTruncated: Schema.optional(Schema.Boolean),
+        ContinuationToken: Schema.optional(Schema.String),
+        NextContinuationToken: Schema.optional(Schema.String),
+        AnalyticsConfigurationList: Schema.optional(
+          Schema.Array(
+            Schema.Struct({
+              Id: Schema.String,
+              Filter: Schema.optional(
+                Schema.Union(
+                  Schema.String,
+                  Schema.Struct({ Key: Schema.String, Value: Schema.String }),
+                  Schema.Struct({
+                    Prefix: Schema.optional(Schema.String),
+                    Tags: Schema.optional(
+                      Schema.Array(
+                        Schema.Struct({
+                          Key: Schema.String,
+                          Value: Schema.String,
+                        }),
+                      ),
+                    ),
+                  }),
+                ),
+              ),
+              StorageClassAnalysis: Schema.Struct({
+                DataExport: Schema.optional(
+                  Schema.Struct({
+                    OutputSchemaVersion: Schema.String,
+                    Destination: Schema.Struct({
+                      S3BucketDestination: Schema.Struct({
+                        Format: Schema.String,
+                        BucketAccountId: Schema.optional(Schema.String),
+                        Bucket: Schema.String,
+                        Prefix: Schema.optional(Schema.String),
+                      }),
+                    }),
+                  }),
+                ),
+              }),
+            }),
+          ),
+        ),
+      }),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const ListBucketIntelligentTieringConfigurations =
+  /*#__PURE__*/ makeOperation(
+    () =>
+      Operation(
+        {
+          uri: "/{Bucket}?intelligent-tiering&x-id=ListBucketIntelligentTieringConfigurations",
+          method: "GET",
+          sdkId: "S3",
+          sigV4ServiceName: "s3",
+          name: "ListBucketIntelligentTieringConfigurations",
+        },
+        Schema.Struct({
+          Bucket: Path("Bucket", Schema.String),
+          ContinuationToken: Schema.optional(Schema.String),
+          ExpectedBucketOwner: Schema.optional(
+            Header("x-amz-expected-bucket-owner"),
+          ),
+        }),
+        Schema.Struct({
+          IsTruncated: Schema.optional(Schema.Boolean),
+          ContinuationToken: Schema.optional(Schema.String),
+          NextContinuationToken: Schema.optional(Schema.String),
+          IntelligentTieringConfigurationList: Schema.optional(
+            Schema.Array(
+              Schema.Struct({
+                Id: Schema.String,
+                Filter: Schema.optional(
+                  Schema.Struct({
+                    Prefix: Schema.optional(Schema.String),
+                    Tag: Schema.optional(
+                      Schema.Struct({
+                        Key: Schema.String,
+                        Value: Schema.String,
+                      }),
+                    ),
+                    And: Schema.optional(
+                      Schema.Struct({
+                        Prefix: Schema.optional(Schema.String),
+                        Tags: Schema.optional(
+                          Schema.Array(
+                            Schema.Struct({
+                              Key: Schema.String,
+                              Value: Schema.String,
+                            }),
+                          ),
+                        ),
+                      }),
+                    ),
+                  }),
+                ),
+                Status: Schema.String,
+                Tierings: Schema.Array(
+                  Schema.Struct({
+                    Days: Schema.Number,
+                    AccessTier: Schema.String,
+                  }),
+                ),
+              }),
+            ),
+          ),
+        }),
+        Schema.Union(Schema.Struct({})),
+      ),
+    FormatXMLRequest,
+    FormatXMLResponse,
+    FormatXMLResponse,
+  );
+export const ListBucketInventoryConfigurations = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}?inventory&x-id=ListBucketInventoryConfigurations",
+        method: "GET",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "ListBucketInventoryConfigurations",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        ContinuationToken: Schema.optional(Schema.String),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+      }),
+      Schema.Struct({
+        ContinuationToken: Schema.optional(Schema.String),
+        InventoryConfigurationList: Schema.optional(
+          Schema.Array(
+            Schema.Struct({
+              Destination: Schema.Struct({
+                S3BucketDestination: Schema.Struct({
+                  AccountId: Schema.optional(Schema.String),
+                  Bucket: Schema.String,
+                  Format: Schema.String,
+                  Prefix: Schema.optional(Schema.String),
+                  Encryption: Schema.optional(
+                    Schema.Struct({
+                      SSES3: Schema.optional(Schema.Struct({})),
+                      SSEKMS: Schema.optional(
+                        Schema.Struct({ KeyId: Schema.String }),
+                      ),
+                    }),
+                  ),
+                }),
+              }),
+              IsEnabled: Schema.Boolean,
+              Filter: Schema.optional(Schema.Struct({ Prefix: Schema.String })),
+              Id: Schema.String,
+              IncludedObjectVersions: Schema.String,
+              OptionalFields: Schema.optional(Schema.Array(Schema.String)),
+              Schedule: Schema.Struct({ Frequency: Schema.String }),
+            }),
+          ),
+        ),
+        IsTruncated: Schema.optional(Schema.Boolean),
+        NextContinuationToken: Schema.optional(Schema.String),
+      }),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const ListBucketMetricsConfigurations = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}?metrics&x-id=ListBucketMetricsConfigurations",
+        method: "GET",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "ListBucketMetricsConfigurations",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        ContinuationToken: Schema.optional(Schema.String),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+      }),
+      Schema.Struct({
+        IsTruncated: Schema.optional(Schema.Boolean),
+        ContinuationToken: Schema.optional(Schema.String),
+        NextContinuationToken: Schema.optional(Schema.String),
+        MetricsConfigurationList: Schema.optional(
+          Schema.Array(
+            Schema.Struct({
+              Id: Schema.String,
+              Filter: Schema.optional(
+                Schema.Union(
+                  Schema.String,
+                  Schema.Struct({ Key: Schema.String, Value: Schema.String }),
+                  Schema.String,
+                  Schema.Struct({
+                    Prefix: Schema.optional(Schema.String),
+                    Tags: Schema.optional(
+                      Schema.Array(
+                        Schema.Struct({
+                          Key: Schema.String,
+                          Value: Schema.String,
+                        }),
+                      ),
+                    ),
+                    AccessPointArn: Schema.optional(Schema.String),
+                  }),
+                ),
+              ),
+            }),
+          ),
+        ),
+      }),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const ListBuckets = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/?x-id=ListBuckets",
+        method: "GET",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "ListBuckets",
+      },
+      Schema.Struct({
+        MaxBuckets: Schema.optional(Schema.Number),
+        ContinuationToken: Schema.optional(Schema.String),
+        Prefix: Schema.optional(Schema.String),
+        BucketRegion: Schema.optional(Schema.String),
+      }),
+      Schema.Struct({
+        Buckets: Schema.optional(
+          Schema.Array(
+            Schema.Struct({
+              Name: Schema.optional(Schema.String),
+              CreationDate: Schema.optional(Schema.Date),
+              BucketRegion: Schema.optional(Schema.String),
+              BucketArn: Schema.optional(Schema.String),
+            }),
+          ),
+        ),
+        Owner: Schema.optional(
+          Schema.Struct({
+            DisplayName: Schema.optional(Schema.String),
+            ID: Schema.optional(Schema.String),
+          }),
+        ),
+        ContinuationToken: Schema.optional(Schema.String),
+        Prefix: Schema.optional(Schema.String),
+      }),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const ListDirectoryBuckets = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/?x-id=ListDirectoryBuckets",
+        method: "GET",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "ListDirectoryBuckets",
+      },
+      Schema.Struct({
+        ContinuationToken: Schema.optional(Schema.String),
+        MaxDirectoryBuckets: Schema.optional(Schema.Number),
+      }),
+      Schema.Struct({
+        Buckets: Schema.optional(
+          Schema.Array(
+            Schema.Struct({
+              Name: Schema.optional(Schema.String),
+              CreationDate: Schema.optional(Schema.Date),
+              BucketRegion: Schema.optional(Schema.String),
+              BucketArn: Schema.optional(Schema.String),
+            }),
+          ),
+        ),
+        ContinuationToken: Schema.optional(Schema.String),
+      }),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const ListMultipartUploads = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}?uploads",
+        method: "GET",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "ListMultipartUploads",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        Delimiter: Schema.optional(Schema.String),
+        EncodingType: Schema.optional(Schema.String),
+        KeyMarker: Schema.optional(Schema.String),
+        MaxUploads: Schema.optional(Schema.Number),
+        Prefix: Schema.optional(Schema.String),
+        UploadIdMarker: Schema.optional(Schema.String),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+        RequestPayer: Schema.optional(Header("x-amz-request-payer")),
+      }),
+      Schema.Struct({
+        Bucket: Schema.optional(Schema.String),
+        KeyMarker: Schema.optional(Schema.String),
+        UploadIdMarker: Schema.optional(Schema.String),
+        NextKeyMarker: Schema.optional(Schema.String),
+        Prefix: Schema.optional(Schema.String),
+        Delimiter: Schema.optional(Schema.String),
+        NextUploadIdMarker: Schema.optional(Schema.String),
+        MaxUploads: Schema.optional(Schema.Number),
+        IsTruncated: Schema.optional(Schema.Boolean),
+        Uploads: Schema.optional(
+          Schema.Array(
+            Schema.Struct({
+              UploadId: Schema.optional(Schema.String),
+              Key: Schema.optional(Schema.String),
+              Initiated: Schema.optional(Schema.Date),
+              StorageClass: Schema.optional(Schema.String),
+              Owner: Schema.optional(
+                Schema.Struct({
+                  DisplayName: Schema.optional(Schema.String),
+                  ID: Schema.optional(Schema.String),
+                }),
+              ),
+              Initiator: Schema.optional(
+                Schema.Struct({
+                  ID: Schema.optional(Schema.String),
+                  DisplayName: Schema.optional(Schema.String),
+                }),
+              ),
+              ChecksumAlgorithm: Schema.optional(Schema.String),
+              ChecksumType: Schema.optional(Schema.String),
+            }),
+          ),
+        ),
+        CommonPrefixes: Schema.optional(
+          Schema.Array(
+            Schema.Struct({ Prefix: Schema.optional(Schema.String) }),
+          ),
+        ),
+        EncodingType: Schema.optional(Schema.String),
+        RequestCharged: Schema.optional(Header("x-amz-request-charged")),
+      }),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const ListObjects = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}",
+        method: "GET",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "ListObjects",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        Delimiter: Schema.optional(Schema.String),
+        EncodingType: Schema.optional(Schema.String),
+        Marker: Schema.optional(Schema.String),
+        MaxKeys: Schema.optional(Schema.Number),
+        Prefix: Schema.optional(Schema.String),
+        RequestPayer: Schema.optional(Header("x-amz-request-payer")),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+        OptionalObjectAttributes: Schema.optional(
+          Header(
+            "x-amz-optional-object-attributes",
+            Schema.Array(Schema.String),
+          ),
+        ),
+      }),
+      Schema.Struct({
+        IsTruncated: Schema.optional(Schema.Boolean),
+        Marker: Schema.optional(Schema.String),
+        NextMarker: Schema.optional(Schema.String),
+        Contents: Schema.optional(
+          Schema.Array(
+            Schema.Struct({
+              Key: Schema.optional(Schema.String),
+              LastModified: Schema.optional(Schema.Date),
+              ETag: Schema.optional(Schema.String),
+              ChecksumAlgorithm: Schema.optional(Schema.Array(Schema.String)),
+              ChecksumType: Schema.optional(Schema.String),
+              Size: Schema.optional(Schema.Number),
+              StorageClass: Schema.optional(Schema.String),
+              Owner: Schema.optional(
+                Schema.Struct({
+                  DisplayName: Schema.optional(Schema.String),
+                  ID: Schema.optional(Schema.String),
+                }),
+              ),
+              RestoreStatus: Schema.optional(
+                Schema.Struct({
+                  IsRestoreInProgress: Schema.optional(Schema.Boolean),
+                  RestoreExpiryDate: Schema.optional(Schema.Date),
+                }),
+              ),
+            }),
+          ),
+        ),
+        Name: Schema.optional(Schema.String),
+        Prefix: Schema.optional(Schema.String),
+        Delimiter: Schema.optional(Schema.String),
+        MaxKeys: Schema.optional(Schema.Number),
+        CommonPrefixes: Schema.optional(
+          Schema.Array(
+            Schema.Struct({ Prefix: Schema.optional(Schema.String) }),
+          ),
+        ),
+        EncodingType: Schema.optional(Schema.String),
+        RequestCharged: Schema.optional(Header("x-amz-request-charged")),
+      }),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const ListObjectsV2 = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}?list-type=2",
+        method: "GET",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "ListObjectsV2",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        Delimiter: Schema.optional(Schema.String),
+        EncodingType: Schema.optional(Schema.String),
+        MaxKeys: Schema.optional(Schema.Number),
+        Prefix: Schema.optional(Schema.String),
+        ContinuationToken: Schema.optional(Schema.String),
+        FetchOwner: Schema.optional(Schema.Boolean),
+        StartAfter: Schema.optional(Schema.String),
+        RequestPayer: Schema.optional(Header("x-amz-request-payer")),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+        OptionalObjectAttributes: Schema.optional(
+          Header(
+            "x-amz-optional-object-attributes",
+            Schema.Array(Schema.String),
+          ),
+        ),
+      }),
+      Schema.Struct({
+        IsTruncated: Schema.optional(Schema.Boolean),
+        Contents: Schema.optional(
+          Schema.Array(
+            Schema.Struct({
+              Key: Schema.optional(Schema.String),
+              LastModified: Schema.optional(Schema.Date),
+              ETag: Schema.optional(Schema.String),
+              ChecksumAlgorithm: Schema.optional(Schema.Array(Schema.String)),
+              ChecksumType: Schema.optional(Schema.String),
+              Size: Schema.optional(Schema.Number),
+              StorageClass: Schema.optional(Schema.String),
+              Owner: Schema.optional(
+                Schema.Struct({
+                  DisplayName: Schema.optional(Schema.String),
+                  ID: Schema.optional(Schema.String),
+                }),
+              ),
+              RestoreStatus: Schema.optional(
+                Schema.Struct({
+                  IsRestoreInProgress: Schema.optional(Schema.Boolean),
+                  RestoreExpiryDate: Schema.optional(Schema.Date),
+                }),
+              ),
+            }),
+          ),
+        ),
+        Name: Schema.optional(Schema.String),
+        Prefix: Schema.optional(Schema.String),
+        Delimiter: Schema.optional(Schema.String),
+        MaxKeys: Schema.optional(Schema.Number),
+        CommonPrefixes: Schema.optional(
+          Schema.Array(
+            Schema.Struct({ Prefix: Schema.optional(Schema.String) }),
+          ),
+        ),
+        EncodingType: Schema.optional(Schema.String),
+        KeyCount: Schema.optional(Schema.Number),
+        ContinuationToken: Schema.optional(Schema.String),
+        NextContinuationToken: Schema.optional(Schema.String),
+        StartAfter: Schema.optional(Schema.String),
+        RequestCharged: Schema.optional(Header("x-amz-request-charged")),
+      }),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const ListObjectVersions = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}?versions",
+        method: "GET",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "ListObjectVersions",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        Delimiter: Schema.optional(Schema.String),
+        EncodingType: Schema.optional(Schema.String),
+        KeyMarker: Schema.optional(Schema.String),
+        MaxKeys: Schema.optional(Schema.Number),
+        Prefix: Schema.optional(Schema.String),
+        VersionIdMarker: Schema.optional(Schema.String),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+        RequestPayer: Schema.optional(Header("x-amz-request-payer")),
+        OptionalObjectAttributes: Schema.optional(
+          Header(
+            "x-amz-optional-object-attributes",
+            Schema.Array(Schema.String),
+          ),
+        ),
+      }),
+      Schema.Struct({
+        IsTruncated: Schema.optional(Schema.Boolean),
+        KeyMarker: Schema.optional(Schema.String),
+        VersionIdMarker: Schema.optional(Schema.String),
+        NextKeyMarker: Schema.optional(Schema.String),
+        NextVersionIdMarker: Schema.optional(Schema.String),
+        Versions: Schema.optional(
+          Schema.Array(
+            Schema.Struct({
+              ETag: Schema.optional(Schema.String),
+              ChecksumAlgorithm: Schema.optional(Schema.Array(Schema.String)),
+              ChecksumType: Schema.optional(Schema.String),
+              Size: Schema.optional(Schema.Number),
+              StorageClass: Schema.optional(Schema.String),
+              Key: Schema.optional(Schema.String),
+              VersionId: Schema.optional(Schema.String),
+              IsLatest: Schema.optional(Schema.Boolean),
+              LastModified: Schema.optional(Schema.Date),
+              Owner: Schema.optional(
+                Schema.Struct({
+                  DisplayName: Schema.optional(Schema.String),
+                  ID: Schema.optional(Schema.String),
+                }),
+              ),
+              RestoreStatus: Schema.optional(
+                Schema.Struct({
+                  IsRestoreInProgress: Schema.optional(Schema.Boolean),
+                  RestoreExpiryDate: Schema.optional(Schema.Date),
+                }),
+              ),
+            }),
+          ),
+        ),
+        DeleteMarkers: Schema.optional(
+          Schema.Array(
+            Schema.Struct({
+              Owner: Schema.optional(
+                Schema.Struct({
+                  DisplayName: Schema.optional(Schema.String),
+                  ID: Schema.optional(Schema.String),
+                }),
+              ),
+              Key: Schema.optional(Schema.String),
+              VersionId: Schema.optional(Schema.String),
+              IsLatest: Schema.optional(Schema.Boolean),
+              LastModified: Schema.optional(Schema.Date),
+            }),
+          ),
+        ),
+        Name: Schema.optional(Schema.String),
+        Prefix: Schema.optional(Schema.String),
+        Delimiter: Schema.optional(Schema.String),
+        MaxKeys: Schema.optional(Schema.Number),
+        CommonPrefixes: Schema.optional(
+          Schema.Array(
+            Schema.Struct({ Prefix: Schema.optional(Schema.String) }),
+          ),
+        ),
+        EncodingType: Schema.optional(Schema.String),
+        RequestCharged: Schema.optional(Header("x-amz-request-charged")),
+      }),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const ListParts = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}/{Key+}?x-id=ListParts",
+        method: "GET",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "ListParts",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        Key: Path("Key", Schema.String),
+        MaxParts: Schema.optional(Schema.Number),
+        PartNumberMarker: Schema.optional(Schema.String),
+        UploadId: Schema.String,
+        RequestPayer: Schema.optional(Header("x-amz-request-payer")),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+        SSECustomerAlgorithm: Schema.optional(
+          Header("x-amz-server-side-encryption-customer-algorithm"),
+        ),
+        SSECustomerKey: Schema.optional(
+          Header("x-amz-server-side-encryption-customer-key"),
+        ),
+        SSECustomerKeyMD5: Schema.optional(
+          Header("x-amz-server-side-encryption-customer-key-MD5"),
+        ),
+      }),
+      Schema.Struct({
+        AbortDate: Schema.optional(Header("x-amz-abort-date", Schema.Date)),
+        AbortRuleId: Schema.optional(Header("x-amz-abort-rule-id")),
+        Bucket: Schema.optional(Schema.String),
+        Key: Schema.optional(Schema.String),
+        UploadId: Schema.optional(Schema.String),
+        PartNumberMarker: Schema.optional(Schema.String),
+        NextPartNumberMarker: Schema.optional(Schema.String),
+        MaxParts: Schema.optional(Schema.Number),
+        IsTruncated: Schema.optional(Schema.Boolean),
+        Parts: Schema.optional(
+          Schema.Array(
+            Schema.Struct({
+              PartNumber: Schema.optional(Schema.Number),
+              LastModified: Schema.optional(Schema.Date),
+              ETag: Schema.optional(Schema.String),
+              Size: Schema.optional(Schema.Number),
+              ChecksumCRC32: Schema.optional(Schema.String),
+              ChecksumCRC32C: Schema.optional(Schema.String),
+              ChecksumCRC64NVME: Schema.optional(Schema.String),
+              ChecksumSHA1: Schema.optional(Schema.String),
+              ChecksumSHA256: Schema.optional(Schema.String),
+            }),
+          ),
+        ),
+        Initiator: Schema.optional(
+          Schema.Struct({
+            ID: Schema.optional(Schema.String),
+            DisplayName: Schema.optional(Schema.String),
+          }),
+        ),
+        Owner: Schema.optional(
+          Schema.Struct({
+            DisplayName: Schema.optional(Schema.String),
+            ID: Schema.optional(Schema.String),
+          }),
+        ),
+        StorageClass: Schema.optional(Schema.String),
+        RequestCharged: Schema.optional(Header("x-amz-request-charged")),
+        ChecksumAlgorithm: Schema.optional(Schema.String),
+        ChecksumType: Schema.optional(Schema.String),
+      }),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const PutBucketAccelerateConfiguration = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}?accelerate",
+        method: "PUT",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "PutBucketAccelerateConfiguration",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        AccelerateConfiguration: Body(
+          "AccelerateConfiguration",
+          Schema.Struct({ Status: Schema.optional(Schema.String) }),
+        ),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+        ChecksumAlgorithm: Schema.optional(
+          Header("x-amz-sdk-checksum-algorithm"),
+        ),
+      }),
+      Schema.Struct({}),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const PutBucketAcl = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}?acl",
+        method: "PUT",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "PutBucketAcl",
+      },
+      Schema.Struct({
+        ACL: Schema.optional(Header("x-amz-acl")),
+        AccessControlPolicy: Schema.optional(
+          Body(
+            "AccessControlPolicy",
+            Schema.Struct({
+              Grants: Schema.optional(
+                Schema.Array(
+                  Schema.Struct({
+                    Grantee: Schema.optional(
+                      Schema.Struct({
+                        DisplayName: Schema.optional(Schema.String),
+                        EmailAddress: Schema.optional(Schema.String),
+                        ID: Schema.optional(Schema.String),
+                        URI: Schema.optional(Schema.String),
+                        Type: Schema.String,
+                      }),
+                    ),
+                    Permission: Schema.optional(Schema.String),
+                  }),
+                ),
+              ),
+              Owner: Schema.optional(
+                Schema.Struct({
+                  DisplayName: Schema.optional(Schema.String),
+                  ID: Schema.optional(Schema.String),
+                }),
+              ),
+            }),
+          ),
+        ),
+        Bucket: Path("Bucket", Schema.String),
+        ContentMD5: Schema.optional(Header("Content-MD5")),
+        ChecksumAlgorithm: Schema.optional(
+          Header("x-amz-sdk-checksum-algorithm"),
+        ),
+        GrantFullControl: Schema.optional(Header("x-amz-grant-full-control")),
+        GrantRead: Schema.optional(Header("x-amz-grant-read")),
+        GrantReadACP: Schema.optional(Header("x-amz-grant-read-acp")),
+        GrantWrite: Schema.optional(Header("x-amz-grant-write")),
+        GrantWriteACP: Schema.optional(Header("x-amz-grant-write-acp")),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+      }),
+      Schema.Struct({}),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const PutBucketAnalyticsConfiguration = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}?analytics",
+        method: "PUT",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "PutBucketAnalyticsConfiguration",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        Id: Schema.String,
+        AnalyticsConfiguration: Body(
+          "AnalyticsConfiguration",
+          Schema.Struct({
+            Id: Schema.String,
+            Filter: Schema.optional(
+              Schema.Union(
+                Schema.String,
+                Schema.Struct({ Key: Schema.String, Value: Schema.String }),
+                Schema.Struct({
+                  Prefix: Schema.optional(Schema.String),
+                  Tags: Schema.optional(
+                    Schema.Array(
+                      Schema.Struct({
+                        Key: Schema.String,
+                        Value: Schema.String,
+                      }),
+                    ),
+                  ),
+                }),
+              ),
+            ),
+            StorageClassAnalysis: Schema.Struct({
+              DataExport: Schema.optional(
+                Schema.Struct({
+                  OutputSchemaVersion: Schema.String,
+                  Destination: Schema.Struct({
+                    S3BucketDestination: Schema.Struct({
+                      Format: Schema.String,
+                      BucketAccountId: Schema.optional(Schema.String),
+                      Bucket: Schema.String,
+                      Prefix: Schema.optional(Schema.String),
+                    }),
+                  }),
+                }),
+              ),
+            }),
+          }),
+        ),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+      }),
+      Schema.Struct({}),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const PutBucketCors = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}?cors",
+        method: "PUT",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "PutBucketCors",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        CORSConfiguration: Body(
+          "CORSConfiguration",
+          Schema.Struct({
+            CORSRules: Schema.Array(
+              Schema.Struct({
+                ID: Schema.optional(Schema.String),
+                AllowedHeaders: Schema.optional(Schema.Array(Schema.String)),
+                AllowedMethods: Schema.Array(Schema.String),
+                AllowedOrigins: Schema.Array(Schema.String),
+                ExposeHeaders: Schema.optional(Schema.Array(Schema.String)),
+                MaxAgeSeconds: Schema.optional(Schema.Number),
+              }),
+            ),
+          }),
+        ),
+        ContentMD5: Schema.optional(Header("Content-MD5")),
+        ChecksumAlgorithm: Schema.optional(
+          Header("x-amz-sdk-checksum-algorithm"),
+        ),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+      }),
+      Schema.Struct({}),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const PutBucketEncryption = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}?encryption",
+        method: "PUT",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "PutBucketEncryption",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        ContentMD5: Schema.optional(Header("Content-MD5")),
+        ChecksumAlgorithm: Schema.optional(
+          Header("x-amz-sdk-checksum-algorithm"),
+        ),
+        ServerSideEncryptionConfiguration: Body(
+          "ServerSideEncryptionConfiguration",
+          Schema.Struct({
+            Rules: Schema.Array(
+              Schema.Struct({
+                ApplyServerSideEncryptionByDefault: Schema.optional(
+                  Schema.Struct({
+                    SSEAlgorithm: Schema.String,
+                    KMSMasterKeyID: Schema.optional(Schema.String),
+                  }),
+                ),
+                BucketKeyEnabled: Schema.optional(Schema.Boolean),
+              }),
+            ),
+          }),
+        ),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+      }),
+      Schema.Struct({}),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const PutBucketIntelligentTieringConfiguration =
+  /*#__PURE__*/ makeOperation(
+    () =>
+      Operation(
+        {
+          uri: "/{Bucket}?intelligent-tiering",
+          method: "PUT",
+          sdkId: "S3",
+          sigV4ServiceName: "s3",
+          name: "PutBucketIntelligentTieringConfiguration",
+        },
+        Schema.Struct({
+          Bucket: Path("Bucket", Schema.String),
+          Id: Schema.String,
+          ExpectedBucketOwner: Schema.optional(
+            Header("x-amz-expected-bucket-owner"),
+          ),
+          IntelligentTieringConfiguration: Body(
+            "IntelligentTieringConfiguration",
+            Schema.Struct({
+              Id: Schema.String,
+              Filter: Schema.optional(
+                Schema.Struct({
+                  Prefix: Schema.optional(Schema.String),
+                  Tag: Schema.optional(
+                    Schema.Struct({ Key: Schema.String, Value: Schema.String }),
+                  ),
+                  And: Schema.optional(
+                    Schema.Struct({
+                      Prefix: Schema.optional(Schema.String),
+                      Tags: Schema.optional(
+                        Schema.Array(
+                          Schema.Struct({
+                            Key: Schema.String,
+                            Value: Schema.String,
+                          }),
+                        ),
+                      ),
+                    }),
+                  ),
+                }),
+              ),
+              Status: Schema.String,
+              Tierings: Schema.Array(
+                Schema.Struct({
+                  Days: Schema.Number,
+                  AccessTier: Schema.String,
+                }),
+              ),
+            }),
+          ),
+        }),
+        Schema.Struct({}),
+        Schema.Union(Schema.Struct({})),
+      ),
+    FormatXMLRequest,
+    FormatXMLResponse,
+    FormatXMLResponse,
+  );
+export const PutBucketInventoryConfiguration = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}?inventory",
+        method: "PUT",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "PutBucketInventoryConfiguration",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        Id: Schema.String,
+        InventoryConfiguration: Body(
+          "InventoryConfiguration",
+          Schema.Struct({
+            Destination: Schema.Struct({
+              S3BucketDestination: Schema.Struct({
+                AccountId: Schema.optional(Schema.String),
+                Bucket: Schema.String,
+                Format: Schema.String,
+                Prefix: Schema.optional(Schema.String),
+                Encryption: Schema.optional(
+                  Schema.Struct({
+                    SSES3: Schema.optional(Schema.Struct({})),
+                    SSEKMS: Schema.optional(
+                      Schema.Struct({ KeyId: Schema.String }),
+                    ),
+                  }),
+                ),
+              }),
+            }),
+            IsEnabled: Schema.Boolean,
+            Filter: Schema.optional(Schema.Struct({ Prefix: Schema.String })),
+            Id: Schema.String,
+            IncludedObjectVersions: Schema.String,
+            OptionalFields: Schema.optional(Schema.Array(Schema.String)),
+            Schedule: Schema.Struct({ Frequency: Schema.String }),
+          }),
+        ),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+      }),
+      Schema.Struct({}),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const PutBucketLifecycleConfiguration = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}?lifecycle",
+        method: "PUT",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "PutBucketLifecycleConfiguration",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        ChecksumAlgorithm: Schema.optional(
+          Header("x-amz-sdk-checksum-algorithm"),
+        ),
+        LifecycleConfiguration: Schema.optional(
+          Body(
+            "LifecycleConfiguration",
+            Schema.Struct({
+              Rules: Schema.Array(
+                Schema.Struct({
+                  Expiration: Schema.optional(
+                    Schema.Struct({
+                      Date: Schema.optional(Schema.Date),
+                      Days: Schema.optional(Schema.Number),
+                      ExpiredObjectDeleteMarker: Schema.optional(
+                        Schema.Boolean,
+                      ),
+                    }),
+                  ),
+                  ID: Schema.optional(Schema.String),
+                  Prefix: Schema.optional(Schema.String),
+                  Filter: Schema.optional(
+                    Schema.Struct({
+                      Prefix: Schema.optional(Schema.String),
+                      Tag: Schema.optional(
+                        Schema.Struct({
+                          Key: Schema.String,
+                          Value: Schema.String,
+                        }),
+                      ),
+                      ObjectSizeGreaterThan: Schema.optional(Schema.Number),
+                      ObjectSizeLessThan: Schema.optional(Schema.Number),
+                      And: Schema.optional(
+                        Schema.Struct({
+                          Prefix: Schema.optional(Schema.String),
+                          Tags: Schema.optional(
+                            Schema.Array(
+                              Schema.Struct({
+                                Key: Schema.String,
+                                Value: Schema.String,
+                              }),
+                            ),
+                          ),
+                          ObjectSizeGreaterThan: Schema.optional(Schema.Number),
+                          ObjectSizeLessThan: Schema.optional(Schema.Number),
+                        }),
+                      ),
+                    }),
+                  ),
+                  Status: Schema.String,
+                  Transitions: Schema.optional(
+                    Schema.Array(
+                      Schema.Struct({
+                        Date: Schema.optional(Schema.Date),
+                        Days: Schema.optional(Schema.Number),
+                        StorageClass: Schema.optional(Schema.String),
+                      }),
+                    ),
+                  ),
+                  NoncurrentVersionTransitions: Schema.optional(
+                    Schema.Array(
+                      Schema.Struct({
+                        NoncurrentDays: Schema.optional(Schema.Number),
+                        StorageClass: Schema.optional(Schema.String),
+                        NewerNoncurrentVersions: Schema.optional(Schema.Number),
+                      }),
+                    ),
+                  ),
+                  NoncurrentVersionExpiration: Schema.optional(
+                    Schema.Struct({
+                      NoncurrentDays: Schema.optional(Schema.Number),
+                      NewerNoncurrentVersions: Schema.optional(Schema.Number),
+                    }),
+                  ),
+                  AbortIncompleteMultipartUpload: Schema.optional(
+                    Schema.Struct({
+                      DaysAfterInitiation: Schema.optional(Schema.Number),
+                    }),
+                  ),
+                }),
+              ),
+            }),
+          ),
+        ),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+        TransitionDefaultMinimumObjectSize: Schema.optional(
+          Header("x-amz-transition-default-minimum-object-size"),
+        ),
+      }),
+      Schema.Struct({
+        TransitionDefaultMinimumObjectSize: Schema.optional(
+          Header("x-amz-transition-default-minimum-object-size"),
+        ),
+      }),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const PutBucketLogging = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}?logging",
+        method: "PUT",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "PutBucketLogging",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        BucketLoggingStatus: Body(
+          "BucketLoggingStatus",
+          Schema.Struct({
+            LoggingEnabled: Schema.optional(
+              Schema.Struct({
+                TargetBucket: Schema.String,
+                TargetGrants: Schema.optional(
+                  Schema.Array(
+                    Schema.Struct({
+                      Grantee: Schema.optional(
+                        Schema.Struct({
+                          DisplayName: Schema.optional(Schema.String),
+                          EmailAddress: Schema.optional(Schema.String),
+                          ID: Schema.optional(Schema.String),
+                          URI: Schema.optional(Schema.String),
+                          Type: Schema.String,
+                        }),
+                      ),
+                      Permission: Schema.optional(Schema.String),
+                    }),
+                  ),
+                ),
+                TargetPrefix: Schema.String,
+                TargetObjectKeyFormat: Schema.optional(
+                  Schema.Struct({
+                    SimplePrefix: Schema.optional(Schema.Struct({})),
+                    PartitionedPrefix: Schema.optional(
+                      Schema.Struct({
+                        PartitionDateSource: Schema.optional(Schema.String),
+                      }),
+                    ),
+                  }),
+                ),
+              }),
+            ),
+          }),
+        ),
+        ContentMD5: Schema.optional(Header("Content-MD5")),
+        ChecksumAlgorithm: Schema.optional(
+          Header("x-amz-sdk-checksum-algorithm"),
+        ),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+      }),
+      Schema.Struct({}),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const PutBucketMetricsConfiguration = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}?metrics",
+        method: "PUT",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "PutBucketMetricsConfiguration",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        Id: Schema.String,
+        MetricsConfiguration: Body(
+          "MetricsConfiguration",
+          Schema.Struct({
+            Id: Schema.String,
+            Filter: Schema.optional(
+              Schema.Union(
+                Schema.String,
+                Schema.Struct({ Key: Schema.String, Value: Schema.String }),
+                Schema.String,
+                Schema.Struct({
+                  Prefix: Schema.optional(Schema.String),
+                  Tags: Schema.optional(
+                    Schema.Array(
+                      Schema.Struct({
+                        Key: Schema.String,
+                        Value: Schema.String,
+                      }),
+                    ),
+                  ),
+                  AccessPointArn: Schema.optional(Schema.String),
+                }),
+              ),
+            ),
+          }),
+        ),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+      }),
+      Schema.Struct({}),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const PutBucketNotificationConfiguration = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}?notification",
+        method: "PUT",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "PutBucketNotificationConfiguration",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        NotificationConfiguration: Body(
+          "NotificationConfiguration",
+          Schema.Struct({
+            TopicConfigurations: Schema.optional(
+              Schema.Array(
+                Schema.Struct({
+                  Id: Schema.optional(Schema.String),
+                  TopicArn: Schema.String,
+                  Events: Schema.Array(Schema.String),
+                  Filter: Schema.optional(
+                    Schema.Struct({
+                      Key: Schema.optional(
+                        Schema.Struct({
+                          FilterRules: Schema.optional(
+                            Schema.Array(
+                              Schema.Struct({
+                                Name: Schema.optional(Schema.String),
+                                Value: Schema.optional(Schema.String),
+                              }),
+                            ),
+                          ),
+                        }),
+                      ),
+                    }),
+                  ),
+                }),
+              ),
+            ),
+            QueueConfigurations: Schema.optional(
+              Schema.Array(
+                Schema.Struct({
+                  Id: Schema.optional(Schema.String),
+                  QueueArn: Schema.String,
+                  Events: Schema.Array(Schema.String),
+                  Filter: Schema.optional(
+                    Schema.Struct({
+                      Key: Schema.optional(
+                        Schema.Struct({
+                          FilterRules: Schema.optional(
+                            Schema.Array(
+                              Schema.Struct({
+                                Name: Schema.optional(Schema.String),
+                                Value: Schema.optional(Schema.String),
+                              }),
+                            ),
+                          ),
+                        }),
+                      ),
+                    }),
+                  ),
+                }),
+              ),
+            ),
+            LambdaFunctionConfigurations: Schema.optional(
+              Schema.Array(
+                Schema.Struct({
+                  Id: Schema.optional(Schema.String),
+                  LambdaFunctionArn: Schema.String,
+                  Events: Schema.Array(Schema.String),
+                  Filter: Schema.optional(
+                    Schema.Struct({
+                      Key: Schema.optional(
+                        Schema.Struct({
+                          FilterRules: Schema.optional(
+                            Schema.Array(
+                              Schema.Struct({
+                                Name: Schema.optional(Schema.String),
+                                Value: Schema.optional(Schema.String),
+                              }),
+                            ),
+                          ),
+                        }),
+                      ),
+                    }),
+                  ),
+                }),
+              ),
+            ),
+            EventBridgeConfiguration: Schema.optional(Schema.Struct({})),
+          }),
+        ),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+        SkipDestinationValidation: Schema.optional(
+          Header("x-amz-skip-destination-validation", Schema.Boolean),
+        ),
+      }),
+      Schema.Struct({}),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const PutBucketOwnershipControls = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}?ownershipControls",
+        method: "PUT",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "PutBucketOwnershipControls",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        ContentMD5: Schema.optional(Header("Content-MD5")),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+        OwnershipControls: Body(
+          "OwnershipControls",
+          Schema.Struct({
+            Rules: Schema.Array(
+              Schema.Struct({ ObjectOwnership: Schema.String }),
+            ),
+          }),
+        ),
+        ChecksumAlgorithm: Schema.optional(
+          Header("x-amz-sdk-checksum-algorithm"),
+        ),
+      }),
+      Schema.Struct({}),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const PutBucketPolicy = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}?policy",
+        method: "PUT",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "PutBucketPolicy",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        ContentMD5: Schema.optional(Header("Content-MD5")),
+        ChecksumAlgorithm: Schema.optional(
+          Header("x-amz-sdk-checksum-algorithm"),
+        ),
+        ConfirmRemoveSelfBucketAccess: Schema.optional(
+          Header("x-amz-confirm-remove-self-bucket-access", Schema.Boolean),
+        ),
+        Policy: Body("undefined", Schema.String),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+      }),
+      Schema.Struct({}),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const PutBucketReplication = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}?replication",
+        method: "PUT",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "PutBucketReplication",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        ContentMD5: Schema.optional(Header("Content-MD5")),
+        ChecksumAlgorithm: Schema.optional(
+          Header("x-amz-sdk-checksum-algorithm"),
+        ),
+        ReplicationConfiguration: Body(
+          "ReplicationConfiguration",
+          Schema.Struct({
+            Role: Schema.String,
+            Rules: Schema.Array(
+              Schema.Struct({
+                ID: Schema.optional(Schema.String),
+                Priority: Schema.optional(Schema.Number),
+                Prefix: Schema.optional(Schema.String),
+                Filter: Schema.optional(
+                  Schema.Struct({
+                    Prefix: Schema.optional(Schema.String),
+                    Tag: Schema.optional(
+                      Schema.Struct({
+                        Key: Schema.String,
+                        Value: Schema.String,
+                      }),
+                    ),
+                    And: Schema.optional(
+                      Schema.Struct({
+                        Prefix: Schema.optional(Schema.String),
+                        Tags: Schema.optional(
+                          Schema.Array(
+                            Schema.Struct({
+                              Key: Schema.String,
+                              Value: Schema.String,
+                            }),
+                          ),
+                        ),
+                      }),
+                    ),
+                  }),
+                ),
+                Status: Schema.String,
+                SourceSelectionCriteria: Schema.optional(
+                  Schema.Struct({
+                    SseKmsEncryptedObjects: Schema.optional(
+                      Schema.Struct({ Status: Schema.String }),
+                    ),
+                    ReplicaModifications: Schema.optional(
+                      Schema.Struct({ Status: Schema.String }),
+                    ),
+                  }),
+                ),
+                ExistingObjectReplication: Schema.optional(
+                  Schema.Struct({ Status: Schema.String }),
+                ),
+                Destination: Schema.Struct({
+                  Bucket: Schema.String,
+                  Account: Schema.optional(Schema.String),
+                  StorageClass: Schema.optional(Schema.String),
+                  AccessControlTranslation: Schema.optional(
+                    Schema.Struct({ Owner: Schema.String }),
+                  ),
+                  EncryptionConfiguration: Schema.optional(
+                    Schema.Struct({
+                      ReplicaKmsKeyID: Schema.optional(Schema.String),
+                    }),
+                  ),
+                  ReplicationTime: Schema.optional(
+                    Schema.Struct({
+                      Status: Schema.String,
+                      Time: Schema.Struct({
+                        Minutes: Schema.optional(Schema.Number),
+                      }),
+                    }),
+                  ),
+                  Metrics: Schema.optional(
+                    Schema.Struct({
+                      Status: Schema.String,
+                      EventThreshold: Schema.optional(
+                        Schema.Struct({
+                          Minutes: Schema.optional(Schema.Number),
+                        }),
+                      ),
+                    }),
+                  ),
+                }),
+                DeleteMarkerReplication: Schema.optional(
+                  Schema.Struct({ Status: Schema.optional(Schema.String) }),
+                ),
+              }),
+            ),
+          }),
+        ),
+        Token: Schema.optional(Header("x-amz-bucket-object-lock-token")),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+      }),
+      Schema.Struct({}),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const PutBucketRequestPayment = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}?requestPayment",
+        method: "PUT",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "PutBucketRequestPayment",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        ContentMD5: Schema.optional(Header("Content-MD5")),
+        ChecksumAlgorithm: Schema.optional(
+          Header("x-amz-sdk-checksum-algorithm"),
+        ),
+        RequestPaymentConfiguration: Body(
+          "RequestPaymentConfiguration",
+          Schema.Struct({ Payer: Schema.String }),
+        ),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+      }),
+      Schema.Struct({}),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const PutBucketTagging = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}?tagging",
+        method: "PUT",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "PutBucketTagging",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        ContentMD5: Schema.optional(Header("Content-MD5")),
+        ChecksumAlgorithm: Schema.optional(
+          Header("x-amz-sdk-checksum-algorithm"),
+        ),
+        Tagging: Body(
+          "Tagging",
+          Schema.Struct({
+            TagSet: Schema.Array(
+              Schema.Struct({ Key: Schema.String, Value: Schema.String }),
+            ),
+          }),
+        ),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+      }),
+      Schema.Struct({}),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const PutBucketVersioning = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}?versioning",
+        method: "PUT",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "PutBucketVersioning",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        ContentMD5: Schema.optional(Header("Content-MD5")),
+        ChecksumAlgorithm: Schema.optional(
+          Header("x-amz-sdk-checksum-algorithm"),
+        ),
+        MFA: Schema.optional(Header("x-amz-mfa")),
+        VersioningConfiguration: Body(
+          "VersioningConfiguration",
+          Schema.Struct({
+            MFADelete: Schema.optional(Schema.String),
+            Status: Schema.optional(Schema.String),
+          }),
+        ),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+      }),
+      Schema.Struct({}),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const PutBucketWebsite = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}?website",
+        method: "PUT",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "PutBucketWebsite",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        ContentMD5: Schema.optional(Header("Content-MD5")),
+        ChecksumAlgorithm: Schema.optional(
+          Header("x-amz-sdk-checksum-algorithm"),
+        ),
+        WebsiteConfiguration: Body(
+          "WebsiteConfiguration",
+          Schema.Struct({
+            ErrorDocument: Schema.optional(
+              Schema.Struct({ Key: Schema.String }),
+            ),
+            IndexDocument: Schema.optional(
+              Schema.Struct({ Suffix: Schema.String }),
+            ),
+            RedirectAllRequestsTo: Schema.optional(
+              Schema.Struct({
+                HostName: Schema.String,
+                Protocol: Schema.optional(Schema.String),
+              }),
+            ),
+            RoutingRules: Schema.optional(
+              Schema.Array(
+                Schema.Struct({
+                  Condition: Schema.optional(
+                    Schema.Struct({
+                      HttpErrorCodeReturnedEquals: Schema.optional(
+                        Schema.String,
+                      ),
+                      KeyPrefixEquals: Schema.optional(Schema.String),
+                    }),
+                  ),
+                  Redirect: Schema.Struct({
+                    HostName: Schema.optional(Schema.String),
+                    HttpRedirectCode: Schema.optional(Schema.String),
+                    Protocol: Schema.optional(Schema.String),
+                    ReplaceKeyPrefixWith: Schema.optional(Schema.String),
+                    ReplaceKeyWith: Schema.optional(Schema.String),
+                  }),
+                }),
+              ),
+            ),
+          }),
+        ),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+      }),
+      Schema.Struct({}),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const PutObject = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}/{Key+}?x-id=PutObject",
+        method: "PUT",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "PutObject",
+      },
+      Schema.Struct({
+        ACL: Schema.optional(Header("x-amz-acl")),
+        Body: Schema.optional(Body("undefined", StreamBody())),
+        Bucket: Path("Bucket", Schema.String),
+        CacheControl: Schema.optional(Header("Cache-Control")),
+        ContentDisposition: Schema.optional(Header("Content-Disposition")),
+        ContentEncoding: Schema.optional(Header("Content-Encoding")),
+        ContentLanguage: Schema.optional(Header("Content-Language")),
+        ContentLength: Schema.optional(Header("Content-Length", Schema.Number)),
+        ContentMD5: Schema.optional(Header("Content-MD5")),
+        ContentType: Schema.optional(Header("Content-Type")),
+        ChecksumAlgorithm: Schema.optional(
+          Header("x-amz-sdk-checksum-algorithm"),
+        ),
+        ChecksumCRC32: Schema.optional(Header("x-amz-checksum-crc32")),
+        ChecksumCRC32C: Schema.optional(Header("x-amz-checksum-crc32c")),
+        ChecksumCRC64NVME: Schema.optional(Header("x-amz-checksum-crc64nvme")),
+        ChecksumSHA1: Schema.optional(Header("x-amz-checksum-sha1")),
+        ChecksumSHA256: Schema.optional(Header("x-amz-checksum-sha256")),
+        Expires: Schema.optional(Header("Expires")),
+        IfMatch: Schema.optional(Header("If-Match")),
+        IfNoneMatch: Schema.optional(Header("If-None-Match")),
+        GrantFullControl: Schema.optional(Header("x-amz-grant-full-control")),
+        GrantRead: Schema.optional(Header("x-amz-grant-read")),
+        GrantReadACP: Schema.optional(Header("x-amz-grant-read-acp")),
+        GrantWriteACP: Schema.optional(Header("x-amz-grant-write-acp")),
+        Key: Path("Key", Schema.String),
+        WriteOffsetBytes: Schema.optional(
+          Header("x-amz-write-offset-bytes", Schema.Number),
+        ),
+        Metadata: Schema.optional(
+          Schema.Record({ key: Schema.String, value: Schema.String }),
+        ),
+        ServerSideEncryption: Schema.optional(
+          Header("x-amz-server-side-encryption"),
+        ),
+        StorageClass: Schema.optional(Header("x-amz-storage-class")),
+        WebsiteRedirectLocation: Schema.optional(
+          Header("x-amz-website-redirect-location"),
+        ),
+        SSECustomerAlgorithm: Schema.optional(
+          Header("x-amz-server-side-encryption-customer-algorithm"),
+        ),
+        SSECustomerKey: Schema.optional(
+          Header("x-amz-server-side-encryption-customer-key"),
+        ),
+        SSECustomerKeyMD5: Schema.optional(
+          Header("x-amz-server-side-encryption-customer-key-MD5"),
+        ),
+        SSEKMSKeyId: Schema.optional(
+          Header("x-amz-server-side-encryption-aws-kms-key-id"),
+        ),
+        SSEKMSEncryptionContext: Schema.optional(
+          Header("x-amz-server-side-encryption-context"),
+        ),
+        BucketKeyEnabled: Schema.optional(
+          Header(
+            "x-amz-server-side-encryption-bucket-key-enabled",
+            Schema.Boolean,
+          ),
+        ),
+        RequestPayer: Schema.optional(Header("x-amz-request-payer")),
+        Tagging: Schema.optional(Header("x-amz-tagging")),
+        ObjectLockMode: Schema.optional(Header("x-amz-object-lock-mode")),
+        ObjectLockRetainUntilDate: Schema.optional(
+          Header("x-amz-object-lock-retain-until-date", Schema.Date),
+        ),
+        ObjectLockLegalHoldStatus: Schema.optional(
+          Header("x-amz-object-lock-legal-hold"),
+        ),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+      }),
+      Schema.Struct({
+        Expiration: Schema.optional(Header("x-amz-expiration")),
+        ETag: Schema.optional(Header("ETag")),
+        ChecksumCRC32: Schema.optional(Header("x-amz-checksum-crc32")),
+        ChecksumCRC32C: Schema.optional(Header("x-amz-checksum-crc32c")),
+        ChecksumCRC64NVME: Schema.optional(Header("x-amz-checksum-crc64nvme")),
+        ChecksumSHA1: Schema.optional(Header("x-amz-checksum-sha1")),
+        ChecksumSHA256: Schema.optional(Header("x-amz-checksum-sha256")),
+        ChecksumType: Schema.optional(Header("x-amz-checksum-type")),
+        ServerSideEncryption: Schema.optional(
+          Header("x-amz-server-side-encryption"),
+        ),
+        VersionId: Schema.optional(Header("x-amz-version-id")),
+        SSECustomerAlgorithm: Schema.optional(
+          Header("x-amz-server-side-encryption-customer-algorithm"),
+        ),
+        SSECustomerKeyMD5: Schema.optional(
+          Header("x-amz-server-side-encryption-customer-key-MD5"),
+        ),
+        SSEKMSKeyId: Schema.optional(
+          Header("x-amz-server-side-encryption-aws-kms-key-id"),
+        ),
+        SSEKMSEncryptionContext: Schema.optional(
+          Header("x-amz-server-side-encryption-context"),
+        ),
+        BucketKeyEnabled: Schema.optional(
+          Header(
+            "x-amz-server-side-encryption-bucket-key-enabled",
+            Schema.Boolean,
+          ),
+        ),
+        Size: Schema.optional(Header("x-amz-object-size", Schema.Number)),
+        RequestCharged: Schema.optional(Header("x-amz-request-charged")),
+      }),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const PutObjectAcl = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}/{Key+}?acl",
+        method: "PUT",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "PutObjectAcl",
+      },
+      Schema.Struct({
+        ACL: Schema.optional(Header("x-amz-acl")),
+        AccessControlPolicy: Schema.optional(
+          Body(
+            "AccessControlPolicy",
+            Schema.Struct({
+              Grants: Schema.optional(
+                Schema.Array(
+                  Schema.Struct({
+                    Grantee: Schema.optional(
+                      Schema.Struct({
+                        DisplayName: Schema.optional(Schema.String),
+                        EmailAddress: Schema.optional(Schema.String),
+                        ID: Schema.optional(Schema.String),
+                        URI: Schema.optional(Schema.String),
+                        Type: Schema.String,
+                      }),
+                    ),
+                    Permission: Schema.optional(Schema.String),
+                  }),
+                ),
+              ),
+              Owner: Schema.optional(
+                Schema.Struct({
+                  DisplayName: Schema.optional(Schema.String),
+                  ID: Schema.optional(Schema.String),
+                }),
+              ),
+            }),
+          ),
+        ),
+        Bucket: Path("Bucket", Schema.String),
+        ContentMD5: Schema.optional(Header("Content-MD5")),
+        ChecksumAlgorithm: Schema.optional(
+          Header("x-amz-sdk-checksum-algorithm"),
+        ),
+        GrantFullControl: Schema.optional(Header("x-amz-grant-full-control")),
+        GrantRead: Schema.optional(Header("x-amz-grant-read")),
+        GrantReadACP: Schema.optional(Header("x-amz-grant-read-acp")),
+        GrantWrite: Schema.optional(Header("x-amz-grant-write")),
+        GrantWriteACP: Schema.optional(Header("x-amz-grant-write-acp")),
+        Key: Path("Key", Schema.String),
+        RequestPayer: Schema.optional(Header("x-amz-request-payer")),
+        VersionId: Schema.optional(Schema.String),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+      }),
+      Schema.Struct({
+        RequestCharged: Schema.optional(Header("x-amz-request-charged")),
+      }),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const PutObjectLegalHold = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}/{Key+}?legal-hold",
+        method: "PUT",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "PutObjectLegalHold",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        Key: Schema.String,
+        LegalHold: Schema.optional(
+          Body(
+            "LegalHold",
+            Schema.Struct({ Status: Schema.optional(Schema.String) }),
+          ),
+        ),
+        RequestPayer: Schema.optional(Header("x-amz-request-payer")),
+        VersionId: Schema.optional(Schema.String),
+        ContentMD5: Schema.optional(Header("Content-MD5")),
+        ChecksumAlgorithm: Schema.optional(
+          Header("x-amz-sdk-checksum-algorithm"),
+        ),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+      }),
+      Schema.Struct({
+        RequestCharged: Schema.optional(Header("x-amz-request-charged")),
+      }),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const PutObjectLockConfiguration = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}?object-lock",
+        method: "PUT",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "PutObjectLockConfiguration",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        ObjectLockConfiguration: Schema.optional(
+          Body(
+            "ObjectLockConfiguration",
+            Schema.Struct({
+              ObjectLockEnabled: Schema.optional(Schema.String),
+              Rule: Schema.optional(
+                Schema.Struct({
+                  DefaultRetention: Schema.optional(
+                    Schema.Struct({
+                      Mode: Schema.optional(Schema.String),
+                      Days: Schema.optional(Schema.Number),
+                      Years: Schema.optional(Schema.Number),
+                    }),
+                  ),
+                }),
+              ),
+            }),
+          ),
+        ),
+        RequestPayer: Schema.optional(Header("x-amz-request-payer")),
+        Token: Schema.optional(Header("x-amz-bucket-object-lock-token")),
+        ContentMD5: Schema.optional(Header("Content-MD5")),
+        ChecksumAlgorithm: Schema.optional(
+          Header("x-amz-sdk-checksum-algorithm"),
+        ),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+      }),
+      Schema.Struct({
+        RequestCharged: Schema.optional(Header("x-amz-request-charged")),
+      }),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const PutObjectRetention = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}/{Key+}?retention",
+        method: "PUT",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "PutObjectRetention",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        Key: Schema.String,
+        Retention: Schema.optional(
+          Body(
+            "Retention",
+            Schema.Struct({
+              Mode: Schema.optional(Schema.String),
+              RetainUntilDate: Schema.optional(Schema.Date),
+            }),
+          ),
+        ),
+        RequestPayer: Schema.optional(Header("x-amz-request-payer")),
+        VersionId: Schema.optional(Schema.String),
+        BypassGovernanceRetention: Schema.optional(
+          Header("x-amz-bypass-governance-retention", Schema.Boolean),
+        ),
+        ContentMD5: Schema.optional(Header("Content-MD5")),
+        ChecksumAlgorithm: Schema.optional(
+          Header("x-amz-sdk-checksum-algorithm"),
+        ),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+      }),
+      Schema.Struct({
+        RequestCharged: Schema.optional(Header("x-amz-request-charged")),
+      }),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const PutObjectTagging = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}/{Key+}?tagging",
+        method: "PUT",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "PutObjectTagging",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        Key: Schema.String,
+        VersionId: Schema.optional(Schema.String),
+        ContentMD5: Schema.optional(Header("Content-MD5")),
+        ChecksumAlgorithm: Schema.optional(
+          Header("x-amz-sdk-checksum-algorithm"),
+        ),
+        Tagging: Body(
+          "Tagging",
+          Schema.Struct({
+            TagSet: Schema.Array(
+              Schema.Struct({ Key: Schema.String, Value: Schema.String }),
+            ),
+          }),
+        ),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+        RequestPayer: Schema.optional(Header("x-amz-request-payer")),
+      }),
+      Schema.Struct({ VersionId: Schema.optional(Header("x-amz-version-id")) }),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const PutPublicAccessBlock = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}?publicAccessBlock",
+        method: "PUT",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "PutPublicAccessBlock",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        ContentMD5: Schema.optional(Header("Content-MD5")),
+        ChecksumAlgorithm: Schema.optional(
+          Header("x-amz-sdk-checksum-algorithm"),
+        ),
+        PublicAccessBlockConfiguration: Body(
+          "PublicAccessBlockConfiguration",
+          Schema.Struct({
+            BlockPublicAcls: Schema.optional(Schema.Boolean),
+            IgnorePublicAcls: Schema.optional(Schema.Boolean),
+            BlockPublicPolicy: Schema.optional(Schema.Boolean),
+            RestrictPublicBuckets: Schema.optional(Schema.Boolean),
+          }),
+        ),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+      }),
+      Schema.Struct({}),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const RenameObject = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}/{Key+}?renameObject",
+        method: "PUT",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "RenameObject",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        Key: Path("Key", Schema.String),
+        RenameSource: Header("x-amz-rename-source"),
+        DestinationIfMatch: Schema.optional(Header("If-Match")),
+        DestinationIfNoneMatch: Schema.optional(Header("If-None-Match")),
+        DestinationIfModifiedSince: Schema.optional(
+          Header("If-Modified-Since", Schema.Date),
+        ),
+        DestinationIfUnmodifiedSince: Schema.optional(
+          Header("If-Unmodified-Since", Schema.Date),
+        ),
+        SourceIfMatch: Schema.optional(Header("x-amz-rename-source-if-match")),
+        SourceIfNoneMatch: Schema.optional(
+          Header("x-amz-rename-source-if-none-match"),
+        ),
+        SourceIfModifiedSince: Schema.optional(
+          Header("x-amz-rename-source-if-modified-since", Schema.Date),
+        ),
+        SourceIfUnmodifiedSince: Schema.optional(
+          Header("x-amz-rename-source-if-unmodified-since", Schema.Date),
+        ),
+        ClientToken: Schema.optional(Header("x-amz-client-token")),
+      }),
+      Schema.Struct({}),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const RestoreObject = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}/{Key+}?restore",
+        method: "POST",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "RestoreObject",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        Key: Schema.String,
+        VersionId: Schema.optional(Schema.String),
+        RestoreRequest: Schema.optional(
+          Body(
+            "RestoreRequest",
+            Schema.Struct({
+              Days: Schema.optional(Schema.Number),
+              GlacierJobParameters: Schema.optional(
+                Schema.Struct({ Tier: Schema.String }),
+              ),
+              Type: Schema.optional(Schema.String),
+              Tier: Schema.optional(Schema.String),
+              Description: Schema.optional(Schema.String),
+              SelectParameters: Schema.optional(
+                Schema.Struct({
+                  InputSerialization: Schema.Struct({
+                    CSV: Schema.optional(
+                      Schema.Struct({
+                        FileHeaderInfo: Schema.optional(Schema.String),
+                        Comments: Schema.optional(Schema.String),
+                        QuoteEscapeCharacter: Schema.optional(Schema.String),
+                        RecordDelimiter: Schema.optional(Schema.String),
+                        FieldDelimiter: Schema.optional(Schema.String),
+                        QuoteCharacter: Schema.optional(Schema.String),
+                        AllowQuotedRecordDelimiter: Schema.optional(
+                          Schema.Boolean,
+                        ),
+                      }),
+                    ),
+                    CompressionType: Schema.optional(Schema.String),
+                    JSON: Schema.optional(
+                      Schema.Struct({ Type: Schema.optional(Schema.String) }),
+                    ),
+                    Parquet: Schema.optional(Schema.Struct({})),
+                  }),
+                  ExpressionType: Schema.String,
+                  Expression: Schema.String,
+                  OutputSerialization: Schema.Struct({
+                    CSV: Schema.optional(
+                      Schema.Struct({
+                        QuoteFields: Schema.optional(Schema.String),
+                        QuoteEscapeCharacter: Schema.optional(Schema.String),
+                        RecordDelimiter: Schema.optional(Schema.String),
+                        FieldDelimiter: Schema.optional(Schema.String),
+                        QuoteCharacter: Schema.optional(Schema.String),
+                      }),
+                    ),
+                    JSON: Schema.optional(
+                      Schema.Struct({
+                        RecordDelimiter: Schema.optional(Schema.String),
+                      }),
+                    ),
+                  }),
+                }),
+              ),
+              OutputLocation: Schema.optional(
+                Schema.Struct({
+                  S3: Schema.optional(
+                    Schema.Struct({
+                      BucketName: Schema.String,
+                      Prefix: Schema.String,
+                      Encryption: Schema.optional(
+                        Schema.Struct({
+                          EncryptionType: Schema.String,
+                          KMSKeyId: Schema.optional(Schema.String),
+                          KMSContext: Schema.optional(Schema.String),
+                        }),
+                      ),
+                      CannedACL: Schema.optional(Schema.String),
+                      AccessControlList: Schema.optional(
+                        Schema.Array(
+                          Schema.Struct({
+                            Grantee: Schema.optional(
+                              Schema.Struct({
+                                DisplayName: Schema.optional(Schema.String),
+                                EmailAddress: Schema.optional(Schema.String),
+                                ID: Schema.optional(Schema.String),
+                                URI: Schema.optional(Schema.String),
+                                Type: Schema.String,
+                              }),
+                            ),
+                            Permission: Schema.optional(Schema.String),
+                          }),
+                        ),
+                      ),
+                      Tagging: Schema.optional(
+                        Schema.Struct({
+                          TagSet: Schema.Array(
+                            Schema.Struct({
+                              Key: Schema.String,
+                              Value: Schema.String,
+                            }),
+                          ),
+                        }),
+                      ),
+                      UserMetadata: Schema.optional(
+                        Schema.Array(
+                          Schema.Struct({
+                            Name: Schema.optional(Schema.String),
+                            Value: Schema.optional(Schema.String),
+                          }),
+                        ),
+                      ),
+                      StorageClass: Schema.optional(Schema.String),
+                    }),
+                  ),
+                }),
+              ),
+            }),
+          ),
+        ),
+        RequestPayer: Schema.optional(Header("x-amz-request-payer")),
+        ChecksumAlgorithm: Schema.optional(
+          Header("x-amz-sdk-checksum-algorithm"),
+        ),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+      }),
+      Schema.Struct({
+        RequestCharged: Schema.optional(Header("x-amz-request-charged")),
+        RestoreOutputPath: Schema.optional(Header("x-amz-restore-output-path")),
+      }),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const SelectObjectContent = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}/{Key+}?select&select-type=2",
+        method: "POST",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "SelectObjectContent",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        Key: Schema.String,
+        SSECustomerAlgorithm: Schema.optional(
+          Header("x-amz-server-side-encryption-customer-algorithm"),
+        ),
+        SSECustomerKey: Schema.optional(
+          Header("x-amz-server-side-encryption-customer-key"),
+        ),
+        SSECustomerKeyMD5: Schema.optional(
+          Header("x-amz-server-side-encryption-customer-key-MD5"),
+        ),
+        Expression: Schema.String,
+        ExpressionType: Schema.String,
+        RequestProgress: Schema.optional(
+          Schema.Struct({ Enabled: Schema.optional(Schema.Boolean) }),
+        ),
+        InputSerialization: Schema.Struct({
+          CSV: Schema.optional(
+            Schema.Struct({
+              FileHeaderInfo: Schema.optional(Schema.String),
+              Comments: Schema.optional(Schema.String),
+              QuoteEscapeCharacter: Schema.optional(Schema.String),
+              RecordDelimiter: Schema.optional(Schema.String),
+              FieldDelimiter: Schema.optional(Schema.String),
+              QuoteCharacter: Schema.optional(Schema.String),
+              AllowQuotedRecordDelimiter: Schema.optional(Schema.Boolean),
+            }),
+          ),
+          CompressionType: Schema.optional(Schema.String),
+          JSON: Schema.optional(
+            Schema.Struct({ Type: Schema.optional(Schema.String) }),
+          ),
+          Parquet: Schema.optional(Schema.Struct({})),
+        }),
+        OutputSerialization: Schema.Struct({
+          CSV: Schema.optional(
+            Schema.Struct({
+              QuoteFields: Schema.optional(Schema.String),
+              QuoteEscapeCharacter: Schema.optional(Schema.String),
+              RecordDelimiter: Schema.optional(Schema.String),
+              FieldDelimiter: Schema.optional(Schema.String),
+              QuoteCharacter: Schema.optional(Schema.String),
+            }),
+          ),
+          JSON: Schema.optional(
+            Schema.Struct({ RecordDelimiter: Schema.optional(Schema.String) }),
+          ),
+        }),
+        ScanRange: Schema.optional(
+          Schema.Struct({
+            Start: Schema.optional(Schema.Number),
+            End: Schema.optional(Schema.Number),
+          }),
+        ),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+      }),
+      Schema.Struct({
+        Payload: Schema.optional(
+          Body(
+            "undefined",
+            Schema.Union(
+              Schema.Struct({ Payload: Schema.optional(StreamBody()) }),
+              Schema.Struct({
+                Details: Schema.optional(
+                  Schema.Struct({
+                    BytesScanned: Schema.optional(Schema.Number),
+                    BytesProcessed: Schema.optional(Schema.Number),
+                    BytesReturned: Schema.optional(Schema.Number),
+                  }),
+                ),
+              }),
+              Schema.Struct({
+                Details: Schema.optional(
+                  Schema.Struct({
+                    BytesScanned: Schema.optional(Schema.Number),
+                    BytesProcessed: Schema.optional(Schema.Number),
+                    BytesReturned: Schema.optional(Schema.Number),
+                  }),
+                ),
+              }),
+              Schema.Struct({}),
+              Schema.Struct({}),
+            ),
+          ),
+        ),
+      }),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const UpdateBucketMetadataInventoryTableConfiguration =
+  /*#__PURE__*/ makeOperation(
+    () =>
+      Operation(
+        {
+          uri: "/{Bucket}?metadataInventoryTable",
+          method: "PUT",
+          sdkId: "S3",
+          sigV4ServiceName: "s3",
+          name: "UpdateBucketMetadataInventoryTableConfiguration",
+        },
+        Schema.Struct({
+          Bucket: Path("Bucket", Schema.String),
+          ContentMD5: Schema.optional(Header("Content-MD5")),
+          ChecksumAlgorithm: Schema.optional(
+            Header("x-amz-sdk-checksum-algorithm"),
+          ),
+          InventoryTableConfiguration: Body(
+            "InventoryTableConfiguration",
+            Schema.Struct({
+              ConfigurationState: Schema.String,
+              EncryptionConfiguration: Schema.optional(
+                Schema.Struct({
+                  SseAlgorithm: Schema.String,
+                  KmsKeyArn: Schema.optional(Schema.String),
+                }),
+              ),
+            }),
+          ),
+          ExpectedBucketOwner: Schema.optional(
+            Header("x-amz-expected-bucket-owner"),
+          ),
+        }),
+        Schema.Struct({}),
+        Schema.Union(Schema.Struct({})),
+      ),
+    FormatXMLRequest,
+    FormatXMLResponse,
+    FormatXMLResponse,
+  );
+export const UpdateBucketMetadataJournalTableConfiguration =
+  /*#__PURE__*/ makeOperation(
+    () =>
+      Operation(
+        {
+          uri: "/{Bucket}?metadataJournalTable",
+          method: "PUT",
+          sdkId: "S3",
+          sigV4ServiceName: "s3",
+          name: "UpdateBucketMetadataJournalTableConfiguration",
+        },
+        Schema.Struct({
+          Bucket: Path("Bucket", Schema.String),
+          ContentMD5: Schema.optional(Header("Content-MD5")),
+          ChecksumAlgorithm: Schema.optional(
+            Header("x-amz-sdk-checksum-algorithm"),
+          ),
+          JournalTableConfiguration: Body(
+            "JournalTableConfiguration",
+            Schema.Struct({
+              RecordExpiration: Schema.Struct({
+                Expiration: Schema.String,
+                Days: Schema.optional(Schema.Number),
+              }),
+            }),
+          ),
+          ExpectedBucketOwner: Schema.optional(
+            Header("x-amz-expected-bucket-owner"),
+          ),
+        }),
+        Schema.Struct({}),
+        Schema.Union(Schema.Struct({})),
+      ),
+    FormatXMLRequest,
+    FormatXMLResponse,
+    FormatXMLResponse,
+  );
+export const UploadPart = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}/{Key+}?x-id=UploadPart",
+        method: "PUT",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "UploadPart",
+      },
+      Schema.Struct({
+        Body: Schema.optional(Body("undefined", StreamBody())),
+        Bucket: Path("Bucket", Schema.String),
+        ContentLength: Schema.optional(Header("Content-Length", Schema.Number)),
+        ContentMD5: Schema.optional(Header("Content-MD5")),
+        ChecksumAlgorithm: Schema.optional(
+          Header("x-amz-sdk-checksum-algorithm"),
+        ),
+        ChecksumCRC32: Schema.optional(Header("x-amz-checksum-crc32")),
+        ChecksumCRC32C: Schema.optional(Header("x-amz-checksum-crc32c")),
+        ChecksumCRC64NVME: Schema.optional(Header("x-amz-checksum-crc64nvme")),
+        ChecksumSHA1: Schema.optional(Header("x-amz-checksum-sha1")),
+        ChecksumSHA256: Schema.optional(Header("x-amz-checksum-sha256")),
+        Key: Path("Key", Schema.String),
+        PartNumber: Schema.Number,
+        UploadId: Schema.String,
+        SSECustomerAlgorithm: Schema.optional(
+          Header("x-amz-server-side-encryption-customer-algorithm"),
+        ),
+        SSECustomerKey: Schema.optional(
+          Header("x-amz-server-side-encryption-customer-key"),
+        ),
+        SSECustomerKeyMD5: Schema.optional(
+          Header("x-amz-server-side-encryption-customer-key-MD5"),
+        ),
+        RequestPayer: Schema.optional(Header("x-amz-request-payer")),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+      }),
+      Schema.Struct({
+        ServerSideEncryption: Schema.optional(
+          Header("x-amz-server-side-encryption"),
+        ),
+        ETag: Schema.optional(Header("ETag")),
+        ChecksumCRC32: Schema.optional(Header("x-amz-checksum-crc32")),
+        ChecksumCRC32C: Schema.optional(Header("x-amz-checksum-crc32c")),
+        ChecksumCRC64NVME: Schema.optional(Header("x-amz-checksum-crc64nvme")),
+        ChecksumSHA1: Schema.optional(Header("x-amz-checksum-sha1")),
+        ChecksumSHA256: Schema.optional(Header("x-amz-checksum-sha256")),
+        SSECustomerAlgorithm: Schema.optional(
+          Header("x-amz-server-side-encryption-customer-algorithm"),
+        ),
+        SSECustomerKeyMD5: Schema.optional(
+          Header("x-amz-server-side-encryption-customer-key-MD5"),
+        ),
+        SSEKMSKeyId: Schema.optional(
+          Header("x-amz-server-side-encryption-aws-kms-key-id"),
+        ),
+        BucketKeyEnabled: Schema.optional(
+          Header(
+            "x-amz-server-side-encryption-bucket-key-enabled",
+            Schema.Boolean,
+          ),
+        ),
+        RequestCharged: Schema.optional(Header("x-amz-request-charged")),
+      }),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const UploadPartCopy = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/{Bucket}/{Key+}?x-id=UploadPartCopy",
+        method: "PUT",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "UploadPartCopy",
+      },
+      Schema.Struct({
+        Bucket: Path("Bucket", Schema.String),
+        CopySource: Header("x-amz-copy-source"),
+        CopySourceIfMatch: Schema.optional(
+          Header("x-amz-copy-source-if-match"),
+        ),
+        CopySourceIfModifiedSince: Schema.optional(
+          Header("x-amz-copy-source-if-modified-since", Schema.Date),
+        ),
+        CopySourceIfNoneMatch: Schema.optional(
+          Header("x-amz-copy-source-if-none-match"),
+        ),
+        CopySourceIfUnmodifiedSince: Schema.optional(
+          Header("x-amz-copy-source-if-unmodified-since", Schema.Date),
+        ),
+        CopySourceRange: Schema.optional(Header("x-amz-copy-source-range")),
+        Key: Schema.String,
+        PartNumber: Schema.Number,
+        UploadId: Schema.String,
+        SSECustomerAlgorithm: Schema.optional(
+          Header("x-amz-server-side-encryption-customer-algorithm"),
+        ),
+        SSECustomerKey: Schema.optional(
+          Header("x-amz-server-side-encryption-customer-key"),
+        ),
+        SSECustomerKeyMD5: Schema.optional(
+          Header("x-amz-server-side-encryption-customer-key-MD5"),
+        ),
+        CopySourceSSECustomerAlgorithm: Schema.optional(
+          Header("x-amz-copy-source-server-side-encryption-customer-algorithm"),
+        ),
+        CopySourceSSECustomerKey: Schema.optional(
+          Header("x-amz-copy-source-server-side-encryption-customer-key"),
+        ),
+        CopySourceSSECustomerKeyMD5: Schema.optional(
+          Header("x-amz-copy-source-server-side-encryption-customer-key-MD5"),
+        ),
+        RequestPayer: Schema.optional(Header("x-amz-request-payer")),
+        ExpectedBucketOwner: Schema.optional(
+          Header("x-amz-expected-bucket-owner"),
+        ),
+        ExpectedSourceBucketOwner: Schema.optional(
+          Header("x-amz-source-expected-bucket-owner"),
+        ),
+      }),
+      Schema.Struct({
+        CopySourceVersionId: Schema.optional(
+          Header("x-amz-copy-source-version-id"),
+        ),
+        CopyPartResult: Schema.optional(
+          Body(
+            "undefined",
+            Schema.Struct({
+              ETag: Schema.optional(Schema.String),
+              LastModified: Schema.optional(Schema.Date),
+              ChecksumCRC32: Schema.optional(Schema.String),
+              ChecksumCRC32C: Schema.optional(Schema.String),
+              ChecksumCRC64NVME: Schema.optional(Schema.String),
+              ChecksumSHA1: Schema.optional(Schema.String),
+              ChecksumSHA256: Schema.optional(Schema.String),
+            }),
+          ),
+        ),
+        ServerSideEncryption: Schema.optional(
+          Header("x-amz-server-side-encryption"),
+        ),
+        SSECustomerAlgorithm: Schema.optional(
+          Header("x-amz-server-side-encryption-customer-algorithm"),
+        ),
+        SSECustomerKeyMD5: Schema.optional(
+          Header("x-amz-server-side-encryption-customer-key-MD5"),
+        ),
+        SSEKMSKeyId: Schema.optional(
+          Header("x-amz-server-side-encryption-aws-kms-key-id"),
+        ),
+        BucketKeyEnabled: Schema.optional(
+          Header(
+            "x-amz-server-side-encryption-bucket-key-enabled",
+            Schema.Boolean,
+          ),
+        ),
+        RequestCharged: Schema.optional(Header("x-amz-request-charged")),
+      }),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);
+export const WriteGetObjectResponse = /*#__PURE__*/ makeOperation(
+  () =>
+    Operation(
+      {
+        uri: "/WriteGetObjectResponse",
+        method: "POST",
+        sdkId: "S3",
+        sigV4ServiceName: "s3",
+        name: "WriteGetObjectResponse",
+      },
+      Schema.Struct({
+        RequestRoute: Header("x-amz-request-route"),
+        RequestToken: Header("x-amz-request-token"),
+        Body: Schema.optional(Body("undefined", StreamBody())),
+        StatusCode: Schema.optional(Header("x-amz-fwd-status", Schema.Number)),
+        ErrorCode: Schema.optional(Header("x-amz-fwd-error-code")),
+        ErrorMessage: Schema.optional(Header("x-amz-fwd-error-message")),
+        AcceptRanges: Schema.optional(Header("x-amz-fwd-header-accept-ranges")),
+        CacheControl: Schema.optional(Header("x-amz-fwd-header-Cache-Control")),
+        ContentDisposition: Schema.optional(
+          Header("x-amz-fwd-header-Content-Disposition"),
+        ),
+        ContentEncoding: Schema.optional(
+          Header("x-amz-fwd-header-Content-Encoding"),
+        ),
+        ContentLanguage: Schema.optional(
+          Header("x-amz-fwd-header-Content-Language"),
+        ),
+        ContentLength: Schema.optional(Header("Content-Length", Schema.Number)),
+        ContentRange: Schema.optional(Header("x-amz-fwd-header-Content-Range")),
+        ContentType: Schema.optional(Header("x-amz-fwd-header-Content-Type")),
+        ChecksumCRC32: Schema.optional(
+          Header("x-amz-fwd-header-x-amz-checksum-crc32"),
+        ),
+        ChecksumCRC32C: Schema.optional(
+          Header("x-amz-fwd-header-x-amz-checksum-crc32c"),
+        ),
+        ChecksumCRC64NVME: Schema.optional(
+          Header("x-amz-fwd-header-x-amz-checksum-crc64nvme"),
+        ),
+        ChecksumSHA1: Schema.optional(
+          Header("x-amz-fwd-header-x-amz-checksum-sha1"),
+        ),
+        ChecksumSHA256: Schema.optional(
+          Header("x-amz-fwd-header-x-amz-checksum-sha256"),
+        ),
+        DeleteMarker: Schema.optional(
+          Header("x-amz-fwd-header-x-amz-delete-marker", Schema.Boolean),
+        ),
+        ETag: Schema.optional(Header("x-amz-fwd-header-ETag")),
+        Expires: Schema.optional(Header("x-amz-fwd-header-Expires")),
+        Expiration: Schema.optional(
+          Header("x-amz-fwd-header-x-amz-expiration"),
+        ),
+        LastModified: Schema.optional(
+          Header("x-amz-fwd-header-Last-Modified", Schema.Date),
+        ),
+        MissingMeta: Schema.optional(
+          Header("x-amz-fwd-header-x-amz-missing-meta", Schema.Number),
+        ),
+        Metadata: Schema.optional(
+          Schema.Record({ key: Schema.String, value: Schema.String }),
+        ),
+        ObjectLockMode: Schema.optional(
+          Header("x-amz-fwd-header-x-amz-object-lock-mode"),
+        ),
+        ObjectLockLegalHoldStatus: Schema.optional(
+          Header("x-amz-fwd-header-x-amz-object-lock-legal-hold"),
+        ),
+        ObjectLockRetainUntilDate: Schema.optional(
+          Header(
+            "x-amz-fwd-header-x-amz-object-lock-retain-until-date",
+            Schema.Date,
+          ),
+        ),
+        PartsCount: Schema.optional(
+          Header("x-amz-fwd-header-x-amz-mp-parts-count", Schema.Number),
+        ),
+        ReplicationStatus: Schema.optional(
+          Header("x-amz-fwd-header-x-amz-replication-status"),
+        ),
+        RequestCharged: Schema.optional(
+          Header("x-amz-fwd-header-x-amz-request-charged"),
+        ),
+        Restore: Schema.optional(Header("x-amz-fwd-header-x-amz-restore")),
+        ServerSideEncryption: Schema.optional(
+          Header("x-amz-fwd-header-x-amz-server-side-encryption"),
+        ),
+        SSECustomerAlgorithm: Schema.optional(
+          Header(
+            "x-amz-fwd-header-x-amz-server-side-encryption-customer-algorithm",
+          ),
+        ),
+        SSEKMSKeyId: Schema.optional(
+          Header(
+            "x-amz-fwd-header-x-amz-server-side-encryption-aws-kms-key-id",
+          ),
+        ),
+        SSECustomerKeyMD5: Schema.optional(
+          Header(
+            "x-amz-fwd-header-x-amz-server-side-encryption-customer-key-MD5",
+          ),
+        ),
+        StorageClass: Schema.optional(
+          Header("x-amz-fwd-header-x-amz-storage-class"),
+        ),
+        TagCount: Schema.optional(
+          Header("x-amz-fwd-header-x-amz-tagging-count", Schema.Number),
+        ),
+        VersionId: Schema.optional(Header("x-amz-fwd-header-x-amz-version-id")),
+        BucketKeyEnabled: Schema.optional(
+          Header(
+            "x-amz-fwd-header-x-amz-server-side-encryption-bucket-key-enabled",
+            Schema.Boolean,
+          ),
+        ),
+      }),
+      Schema.Struct({}),
+      Schema.Union(Schema.Struct({})),
+    ),
+  FormatXMLRequest,
+  FormatXMLResponse,
+  FormatXMLResponse,
+);

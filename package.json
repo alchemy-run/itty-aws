@@ -3,6 +3,7 @@
   "module": "index.ts",
   "type": "module",
   "private": true,
+  "sideEffects": false,
   "devDependencies": {
     "@rsbuild/core": "^1.6.7",
     "@types/bun": "latest",

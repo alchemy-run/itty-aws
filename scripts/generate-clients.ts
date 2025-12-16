@@ -16,7 +16,6 @@ import {
   GenericShape,
   ShapeTypeMap,
 } from "./model-schema";
-import { ServiceMetadata } from "../src/service-metadata";
 import dedent from "dedent";
 
 class ModelService extends Context.Tag("ModelService")<
@@ -106,83 +105,51 @@ function formatName(shapeId: string, lowercase = false) {
   return name;
 }
 
-const createTsAlias = (shapeId: string) =>
-  Effect.fn(function* (type: string) {
-    const { aliases } = yield* TypeStore;
-    const alias = formatName(shapeId);
-
-    const existing = yield* Ref.get(aliases);
-    if (existing.has(alias)) {
-      return alias;
-    }
-
-    yield* Ref.update(aliases, (map) => map.set(alias, type));
-    return alias;
-  });
-
-const createTsError = (shapeId: string) =>
-  Effect.fn(function* (type: string) {
-    const { errors } = yield* TypeStore;
-    const errorName = `${formatName(shapeId)}Error`;
-
-    const existing = yield* Ref.get(errors);
-    if (existing.has(errorName)) {
-      return errorName;
-    }
-
-    yield* Ref.update(errors, (map) => map.set(errorName, type));
-    return errorName;
-  });
-
-//todo(pear): cache this
-const convertShapeToTypescript: (
+const convertShapeToSchema: (
   args_0: [string, GenericShape],
 ) => Effect.Effect<
   string,
-  ShapeNotFound | UnableToTransformShapeToType,
-  ModelService | TypeStore
+  UnableToTransformShapeToType | ShapeNotFound,
+  ModelService
 > = Effect.fn(function* ([targetShapeId, targetShape]: [string, GenericShape]) {
-  const typescriptType = yield* Match.value(targetShape).pipe(
+  const schema = yield* Match.value(targetShape).pipe(
     Match.when(
-      (s) =>
-        // shape.type === "bigDecimal" ||
-        // shape.type === "bigInteger" ||
-        // shape.type === "double" ||
-        // shape.type === "float" ||
-        s.type === "integer" || s.type === "long",
-      () => Effect.succeed("number"),
+      (s) => s.type === "integer" || s.type === "long",
+      () => Effect.succeed("Schema.Number"),
     ),
     Match.when(
       (s) => s.type === "string",
-      () => Effect.succeed("string"),
+      () => Effect.succeed("Schema.String"),
     ),
     Match.when(
       (s) => s.type === "blob",
-      () => Effect.succeed("Uint8Array"),
+      () => Effect.succeed("StreamBody()"),
     ),
     Match.when(
       (s) => s.type === "boolean",
-      () => Effect.succeed("boolean"),
+      () => Effect.succeed("Schema.Boolean"),
     ),
     Match.when(
       (s) => s.type === "timestamp",
-      () => Effect.succeed("Date | string"),
+      () => Effect.succeed("Schema.Date"),
     ),
     Match.when(
       (s) => s.type === "enum",
       (s) =>
         Effect.succeed(
-          Object.values(s.members)
-            .map(({ traits }) => `"${traits["smithy.api#enumValue"]}"`)
-            .join(" | "),
-        ).pipe(Effect.flatMap(createTsAlias(targetShapeId))),
+          Object.values(s.members).map(
+            ({ traits }) =>
+              `Schema.Literal("${traits["smithy.api#enumValue"]}")`,
+          ),
+          // ).pipe(Effect.map((members) => `Schema.Union(${members.join(", ")})`)),
+        ).pipe(Effect.map((members) => `Schema.String`)),
     ),
     Match.when(
       (s) => s.type === "list",
       (s) =>
         findShape(s.member.target).pipe(
-          Effect.flatMap(convertShapeToTypescript),
-          Effect.map((type) => `Array<${type}>`),
+          Effect.flatMap(convertShapeToSchema),
+          Effect.map((type) => `Schema.Array(${type})`),
         ),
     ),
     Match.when(
@@ -191,17 +158,38 @@ const convertShapeToTypescript: (
         Effect.all(
           Object.entries(s.members).map(([memberName, member]) =>
             findShape(member.target).pipe(
-              Effect.flatMap(convertShapeToTypescript),
-              Effect.map(
-                (type) =>
-                  `${memberName}${member.traits?.["smithy.api#required"] != null ? "" : "?"}: ${type}`,
-              ),
+              Effect.flatMap(convertShapeToSchema),
+              Effect.map((baseSchema) => {
+                let schema = baseSchema;
+
+                if (member.traits?.["smithy.api#httpHeader"] != null) {
+                  if (schema === "Schema.String") {
+                    schema = `Header("${member.traits?.["smithy.api#httpHeader"]}")`;
+                  } else {
+                    schema = `Header("${member.traits?.["smithy.api#httpHeader"]}", ${schema})`;
+                  }
+                }
+                if (member.traits?.["smithy.api#httpPayload"] != null) {
+                  schema = `Body("${member.traits?.["smithy.api#xmlName"]}", ${schema})`;
+                }
+                if (
+                  member.traits?.["smithy.api#httpLabel"] != null &&
+                  member.traits?.["smithy.rules#contextParam"] != null
+                ) {
+                  schema = `Path("${(member.traits?.["smithy.rules#contextParam"] as { name: string })?.name}", ${schema})`;
+                }
+
+                if (member.traits?.["smithy.api#required"] == null) {
+                  schema = `Schema.optional(${schema})`;
+                }
+
+                return `${memberName}: ${schema}`;
+              }),
             ),
           ),
           { concurrency: "unbounded" },
         ).pipe(
-          Effect.map((members) => `{${members.join(", ")}}`),
-          Effect.flatMap(createTsAlias(targetShapeId)),
+          Effect.map((members) => `Schema.Struct({${members.join(", ")}})`),
         ),
     ),
     Match.when(
@@ -209,34 +197,27 @@ const convertShapeToTypescript: (
       (s) =>
         Effect.all(
           Object.entries(s.members).map(([_memberName, member]) =>
-            findShape(member.target).pipe(
-              Effect.flatMap(convertShapeToTypescript),
-            ),
+            findShape(member.target).pipe(Effect.flatMap(convertShapeToSchema)),
           ),
           { concurrency: "unbounded" },
-        ).pipe(
-          Effect.map((members) => members.join(" | ")),
-          Effect.flatMap(createTsAlias(targetShapeId)),
-        ),
+        ).pipe(Effect.map((members) => `Schema.Union(${members.join(", ")})`)),
     ),
     Match.when(
       (s) => s.type === "map",
       (s) =>
         Effect.all(
           [
-            findShape(s.key.target).pipe(
-              Effect.flatMap(convertShapeToTypescript),
-            ),
+            findShape(s.key.target).pipe(Effect.flatMap(convertShapeToSchema)),
             findShape(s.value.target).pipe(
-              Effect.flatMap(convertShapeToTypescript),
+              Effect.flatMap(convertShapeToSchema),
             ),
           ],
           { concurrency: "unbounded" },
         ).pipe(
           Effect.map(
-            ([keyType, valueType]) => `Record<${keyType}, ${valueType}>`,
+            ([keySchema, valueSchema]) =>
+              `Schema.Record({key: ${keySchema}, value: ${valueSchema}})`,
           ),
-          Effect.flatMap(createTsAlias(targetShapeId)),
         ),
     ),
     Match.orElse((s) =>
@@ -246,10 +227,11 @@ const convertShapeToTypescript: (
         }),
       ),
     ),
+    // Match.orElse(() => Effect.succeed("$$TEMP_SCHEMA")),
     // Match.exhaustive,
   );
 
-  return typescriptType;
+  return schema;
 });
 
 const generateClient = Effect.fn(function* (
@@ -278,43 +260,6 @@ const generateClient = Effect.fn(function* (
       return yield* Effect.fail(new ProtocolNotFound());
     }
 
-    const metadata = {
-      protocol,
-      sdkId: serviceShape.traits["aws.api#service"].sdkId,
-      sigV4ServiceName: serviceShape.traits["aws.auth#sigv4"].name,
-      version: serviceShape.version,
-    } satisfies ServiceMetadata;
-
-    // const imports = `import { type Effect, Layer, Context, Schema as S } from "effect";\nimport type { CommonAwsError } from "../aws-errors";\nimport { makeOperation } from "../client";`
-    const imports = [
-      `import { type Effect, Layer, Context, Schema as S } from "effect";`,
-      `import type { CommonAwsError } from "../aws-errors";`,
-      `import { makeOperation } from "../client";`,
-    ];
-
-    const serviceName = `${metadata.sdkId}ClientRequirement`;
-
-    const clientServiceTag = dedent`export class ${serviceName} extends Context.Tag("${serviceName}")<${serviceName}, { call: (metadata: any) => (input: any) => Effect.Effect<any>, _endpointMetadataType: EndpointMetadata }>() {}`;
-
-    //todo(pear): move to match
-    const createClient = yield* Effect.if(
-      protocol === "aws.protocols#restXml",
-      {
-        onFalse: () =>
-          Effect.succeed(
-            `import { loggerProvider } from "../protocols/logger";\nexport const createClient = (config: any) => Layer.succeed(${serviceName}, loggerProvider(config, metadata));`,
-          ),
-        onTrue: () => {
-          imports.push(
-            `import { restXmlProvider, type EndpointMetadata } from "../protocols/rest-xml";`,
-          );
-          return Effect.succeed(
-            `export const clientLive = Layer.effect(${serviceName}, restXmlProvider(metadata));`,
-          );
-        },
-      },
-    );
-
     const operations = yield* Effect.forEach(
       serviceShape.operations,
       Effect.fn(function* ({ target: operationId }: { target: string }) {
@@ -323,154 +268,32 @@ const generateClient = Effect.fn(function* (
           "operation",
         );
 
-        const errorObject = yield* Effect.all(
-          (operationShape.errors ?? []).map(
-            Effect.fn(function* ({ target: errorShapeId }) {
-              const shape = yield* findShape(errorShapeId, "structure");
-              const ts = yield* convertShapeToTypescript(shape);
-              const tsError = yield* createTsError(errorShapeId)(ts);
-              const tag = formatName(shape[0]);
-              return {
-                tsError,
-                errorFormat: {
-                  [tag]: Object.keys(shape[1].members),
-                },
-              };
-            }),
-          ),
-        );
-
-        const outputType = yield* Effect.if(
-          operationShape.output.target === "smithy.api#Unit",
-          {
-            onTrue: () => Effect.succeed("void"),
-            onFalse: () =>
-              findShape(operationShape.output.target, "structure").pipe(
-                Effect.flatMap(convertShapeToTypescript),
-              ),
-          },
-        );
-
-        const body = yield* Effect.if(
-          operationShape.input.target === "smithy.api#Unit",
-          {
-            onTrue: () => Effect.succeed("void"),
-            onFalse: Effect.fn(function* () {
-              const [_structureId, structure] = yield* findShape(
-                operationShape.input.target,
-                "structure",
+        const input =
+          operationShape.input.target === "smithy.api#Unit"
+            ? "Schema.Struct({})" //todo(pear): should this be Schema.Never?
+            : yield* findShape(operationShape.input.target).pipe(
+                Effect.flatMap(convertShapeToSchema),
               );
-              return yield* Effect.reduce(
-                Object.entries(structure.members),
-                {} as Record<string, unknown>,
-                (acc, [key, value]) => {
-                  if (value.traits?.["smithy.api#httpHeader"] != null) {
-                    if (
-                      "x-amz-" +
-                        key
-                          .replace(/([A-Z])/g, "-$1")
-                          .toLowerCase()
-                          .slice(1) ===
-                      value.traits["smithy.api#httpHeader"]
-                    ) {
-                      return Effect.succeed(acc);
-                    }
-                    return Effect.succeed({
-                      ...acc,
-                      [key]: [value.traits["smithy.api#httpHeader"]],
-                    });
-                  }
-                  if (value.traits?.["smithy.api#httpLabel"] != null) {
-                    return Effect.succeed({
-                      ...acc,
-                      [key]:
-                        value.traits["smithy.rules#contextParam"]?.name != null
-                          ? [
-                              "p",
-                              value.traits["smithy.rules#contextParam"]?.name,
-                            ]
-                          : ["p"],
-                    });
-                  }
-                  if (value.traits?.["smithy.api#httpPayload"] != null) {
-                    return Effect.succeed({
-                      ...acc,
-                      [key]:
-                        value.traits["smithy.api#xmlName"] != null
-                          ? ["b", value.traits["smithy.api#xmlName"]]
-                          : ["b"],
-                    });
-                  }
-                  return Effect.succeed(acc);
-                },
+        const output =
+          operationShape.output.target === "smithy.api#Unit"
+            ? "Schema.Struct({})" //todo(pear): should this be Schema.Never?
+            : yield* findShape(operationShape.output.target).pipe(
+                Effect.flatMap(convertShapeToSchema),
               );
-            }),
-          },
-        );
 
-        const inputType = yield* Effect.if(
-          operationShape.output.target === "smithy.api#Unit",
-          {
-            onTrue: () => Effect.succeed("void"),
-            onFalse: () =>
-              findShape(operationShape.input.target, "structure").pipe(
-                Effect.flatMap(convertShapeToTypescript),
-              ),
-          },
-        );
-
-        const exportName = formatName(operationId, true);
-        const traits = operationShape.traits["smithy.api#http"];
-
-        //todo(pear): support streaming + inline output types
-        const endpointMeta = `{ name: "${exportName}", method: "${traits.method}", uri: "${traits.uri}", body: ${JSON.stringify(body)}, errors: ${JSON.stringify(
-          errorObject.reduce(
-            (acc, error) => ({ ...acc, ...error.errorFormat }),
-            {},
-          ),
-        )}}`;
-
-        return `export const ${exportName} = /*@__PURE__*/ makeOperation<${inputType}, ${outputType}, ${errorObject.map((e) => e.tsError).join(" | ")}${errorObject.length > 0 ? " | " : ""}CommonAwsError, typeof ${serviceName}>(${endpointMeta}, ${serviceName})`;
-        // return `export const ${formatName(operationId)} = (inputs: ${inputShape}) => Effect.Effect<${outputShape}, ${errors.join(" | ")}>`;
+        //todo(pear): errors
+        //todo(pear): correct middleware (stream bodies should be noop?)
+        return `export const ${formatName(_id)} = /*#__PURE__*/ makeOperation(() => Operation({ uri: "${operationShape["traits"]["smithy.api#http"]["uri"]}", method: "${operationShape["traits"]["smithy.api#http"]["method"]}", sdkId: "${serviceShape.traits["aws.api#service"].sdkId}", sigV4ServiceName: "${serviceShape.traits["aws.auth#sigv4"].name}", name: "${formatName(_id)}" }, ${input}, ${output}, Schema.Union(Schema.Struct({}))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);`;
       }),
     );
 
-    const aliasedTypes = yield* Ref.get(typeAliasStore).pipe(
-      Effect.map((t) =>
-        Array.from(t.entries())
-          .map(([alias, type]) => `type ${alias} = ${type};`)
-          .join("\n"),
-      ),
-    );
-
-    const errorTypes = yield* Ref.get(typeErrorStore).pipe(
-      Effect.map((t) =>
-        Array.from(t.entries())
-          .map(
-            ([errorName, type]) =>
-              // `export declare class ${errorName} extends S.TaggedError<${type}>()(("${errorName}"), {}).pipe() {}`,
-              `export declare class ${errorName} extends Data.TaggedError("${errorName}")<${type}> {}`,
-          )
-          .join("\n"),
-      ),
-    );
-
     const content = dedent`
-      ${imports.join("\n")}
-
-      //==== Exports ====
-      export const metadata = ${JSON.stringify(metadata)}
-
-      ${clientServiceTag}
-      ${createClient}
+      import { Schema} from "effect"
+      import { FormatXMLRequest, FormatXMLResponse, makeOperation, NoopRequest, NoopResponse } from "../client";
+      import { Operation, Path, Header, StreamBody, Body, Error } from "../schema-helpers";
 
       ${operations.join("\n")}
-
-      //==== Aliased Types ====
-      ${aliasedTypes}
-
-      //==== Error Types ====
-      ${errorTypes}\n`;
+      `;
 
     yield* fs.makeDirectory(
       path.dirname(path.join(process.cwd(), outputPath)),
