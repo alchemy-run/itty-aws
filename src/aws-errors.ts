@@ -178,3 +178,21 @@ export function createDynamicTaggedError(
     //@ts-expect-error
   ).pipe(withCategory(...categories)))(errorData);
 }
+
+export type DynamicError<
+  Err extends S.Schema.Any & { fields: { _tag: S.Schema.Any } },
+> = S.TaggedErrorClass<
+  never,
+  S.Schema.Type<Err["fields"]["_tag"]>,
+  Err["fields"]
+>;
+
+export type DynamicErrorUnion<U extends S.Union<readonly S.Schema.Any[]>> =
+  U extends S.Union<infer Members>
+    ? Members[number] extends infer E
+      ? E extends { fields: { _tag: S.Schema.Any } }
+        ? //@ts-expect-error shhhh be quiet typescript
+          DynamicError<E>
+        : never
+      : never
+    : never;

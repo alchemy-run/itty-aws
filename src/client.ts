@@ -1,4 +1,3 @@
-// ============ NEW
 import {
   Schema,
   SchemaAST as AST,
@@ -23,7 +22,11 @@ import {
 } from "./schema-helpers";
 import { HttpBody, HttpClient } from "@effect/platform";
 import type { HttpClientError } from "@effect/platform/HttpClientError";
-import { createDynamicTaggedError } from "./aws-errors";
+import {
+  createDynamicTaggedError,
+  type DynamicError,
+  type DynamicErrorUnion,
+} from "./aws-errors";
 
 const builder = new XMLBuilder();
 const parser = new XMLParser();
@@ -143,7 +146,9 @@ export const makeFormatRequestSchema = <A extends Schema.Schema.AnyNoContext>(
   operationSchema: Schema.Struct<{
     input: A;
     output: Schema.Schema.AnyNoContext;
-    error: Schema.Schema.AnyNoContext;
+    error: Schema.Union<
+      Array<Schema.Schema.Any & { fields: { _tag: Schema.Schema.Any } }>
+    >;
   }>,
   MiddlewareSchema: Schema.Schema<
     Schema.Schema.Type<typeof unsignedRequest>,
@@ -238,7 +243,9 @@ export const makeFormatResponseSchema = <A extends Schema.Schema.AnyNoContext>(
   operationSchema: Schema.Struct<{
     output: A;
     input: Schema.Schema.AnyNoContext;
-    error: Schema.Schema.AnyNoContext;
+    error: Schema.Union<
+      Array<Schema.Schema.Any & { fields: { _tag: Schema.Schema.Any } }>
+    >;
   }>,
   MiddlewareSchema: Schema.Schema<
     Schema.Schema.Type<typeof response>,
@@ -301,7 +308,11 @@ const getNested = (obj: object, path: string) =>
   //@ts-expect-error
   path.split(".").reduce((acc, key) => acc?.[key], obj);
 
-export const makeFormatErrorSchema = <A extends Schema.Schema.AnyNoContext>(
+export const makeFormatErrorSchema = <
+  A extends Schema.Union<
+    Array<Schema.Schema.Any & { fields: { _tag: Schema.Schema.Any } }>
+  >,
+>(
   operationSchema: Schema.Struct<{
     output: Schema.Schema.AnyNoContext;
     input: Schema.Schema.AnyNoContext;
@@ -396,7 +407,9 @@ export const makeOperation = <A extends ReturnType<typeof Operation>>(
   payload: Schema.Schema.Type<A["fields"]["input"]>,
 ) => Effect.Effect<
   Schema.Schema.Type<A["fields"]["output"]>,
-  Error | ParseResult.ParseError | HttpClientError,
+  | DynamicErrorUnion<A["fields"]["error"]>
+  | ParseResult.ParseError
+  | HttpClientError,
   Region | Credentials | HttpClient.HttpClient
 >) => {
   const FormatRequest = makeFormatRequestSchema(

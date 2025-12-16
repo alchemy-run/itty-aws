@@ -13,7 +13,7 @@ export const Header = <
   S extends Schema.Schema.AnyNoContext = typeof Schema.String,
 >(
   headerName: string,
-  schema: S = Schema.String,
+  schema: S,
 ) => schema.pipe(Schema.annotations({ [requestHeaderSymbol]: headerName }));
 export const Body = <S extends Schema.Schema.AnyNoContext>(
   bodyName: string,
@@ -29,8 +29,8 @@ export const Path = <S extends Schema.Schema.AnyNoContext>(
   pathName: string,
   schema: S,
 ) => schema.pipe(Schema.annotations({ [requestPathSymbol]: pathName }));
-export const Error = <S extends Schema.Struct.Fields>(
-  errorName: string,
+export const Error = <Tag extends string, S extends Schema.Struct.Fields>(
+  errorName: Tag,
   schema: Schema.Struct<S>,
 ) =>
   Schema.Struct({
@@ -50,7 +50,9 @@ export const Operation = <
   Input extends Schema.Schema.AnyNoContext,
   Output extends Schema.Schema.AnyNoContext,
   //todo(pear): this should extend schema so we ensure errors are tagged
-  Error extends Schema.Schema.AnyNoContext,
+  Error extends Schema.Union<
+    readonly (Schema.Schema.Any & { fields: { _tag: Schema.Schema.Any } })[]
+  >,
 >(
   meta: OperationMeta,
   inputSchema: Input,

@@ -54,9 +54,9 @@ const input = () =>
         }),
       ),
       Error(
-        "NoSuchBucket",
+        "Test",
         Schema.Struct({
-          Code: Body("Error.Code", Schema.Literal("NoSuchBucket")),
+          Code: Body("Error.Code", Schema.Literal("Test")),
           Message: Body("Error.Message", Schema.String),
           BucketName: Body("Error.BucketName", Schema.String),
         }),
@@ -76,7 +76,8 @@ const program = Effect.gen(function* () {
     NoopResponse,
     FormatXMLResponse,
   );
-  const result = yield* PutObject({
+  //todo(pear): make the errors more readable (probably just export from somewhere, idk)
+  const result = PutObject({
     Bucket: "alchemy-7uzxjcr-test",
     Key: "test-2.txt",
     Body: "this is some text2",
