@@ -22,11 +22,7 @@ import {
 } from "./schema-helpers";
 import { HttpBody, HttpClient } from "@effect/platform";
 import type { HttpClientError } from "@effect/platform/HttpClientError";
-import {
-  createDynamicTaggedError,
-  type DynamicError,
-  type DynamicErrorUnion,
-} from "./aws-errors";
+import { createDynamicTaggedError, type DynamicErrorUnion } from "./aws-errors";
 
 const builder = new XMLBuilder();
 const parser = new XMLParser();
@@ -146,9 +142,11 @@ export const makeFormatRequestSchema = <A extends Schema.Schema.AnyNoContext>(
   operationSchema: Schema.Struct<{
     input: A;
     output: Schema.Schema.AnyNoContext;
-    error: Schema.Union<
-      Array<Schema.Schema.Any & { fields: { _tag: Schema.Schema.Any } }>
-    >;
+    error:
+      | Schema.Union<
+          Array<Schema.Schema.Any & { fields: { _tag: Schema.Schema.Any } }>
+        >
+      | typeof Schema.Void;
   }>,
   MiddlewareSchema: Schema.Schema<
     Schema.Schema.Type<typeof unsignedRequest>,
@@ -243,9 +241,11 @@ export const makeFormatResponseSchema = <A extends Schema.Schema.AnyNoContext>(
   operationSchema: Schema.Struct<{
     output: A;
     input: Schema.Schema.AnyNoContext;
-    error: Schema.Union<
-      Array<Schema.Schema.Any & { fields: { _tag: Schema.Schema.Any } }>
-    >;
+    error:
+      | Schema.Union<
+          Array<Schema.Schema.Any & { fields: { _tag: Schema.Schema.Any } }>
+        >
+      | typeof Schema.Void;
   }>,
   MiddlewareSchema: Schema.Schema<
     Schema.Schema.Type<typeof response>,
@@ -309,9 +309,11 @@ const getNested = (obj: object, path: string) =>
   path.split(".").reduce((acc, key) => acc?.[key], obj);
 
 export const makeFormatErrorSchema = <
-  A extends Schema.Union<
-    Array<Schema.Schema.Any & { fields: { _tag: Schema.Schema.Any } }>
-  >,
+  A extends
+    | Schema.Union<
+        Array<Schema.Schema.Any & { fields: { _tag: Schema.Schema.Any } }>
+      >
+    | typeof Schema.Void,
 >(
   operationSchema: Schema.Struct<{
     output: Schema.Schema.AnyNoContext;
@@ -387,7 +389,7 @@ export const makeFormatErrorSchema = <
 };
 
 export const makeOperation = <A extends ReturnType<typeof Operation>>(
-  operationSchema: A,
+  operationSchemaGenerator: () => A,
   RequestMiddleware: Schema.Schema<
     Schema.Schema.Type<typeof unsignedRequest>,
     Schema.Schema.Type<typeof rawRequest>,
@@ -412,6 +414,7 @@ export const makeOperation = <A extends ReturnType<typeof Operation>>(
   | HttpClientError,
   Region | Credentials | HttpClient.HttpClient
 >) => {
+  const operationSchema = operationSchemaGenerator();
   const FormatRequest = makeFormatRequestSchema(
     operationSchema,
     RequestMiddleware,

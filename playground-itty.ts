@@ -43,25 +43,26 @@ const input = () =>
     Schema.Struct({
       ETag: Header("etag", Schema.String),
     }),
+    Schema.Void,
     //todo(pear): make empty struct the default
-    Schema.Union(
-      Error(
-        "NoSuchBucket",
-        Schema.Struct({
-          Code: Body("Error.Code", Schema.Literal("NoSuchBucket")),
-          Message: Body("Error.Message", Schema.String),
-          BucketName: Body("Error.BucketName", Schema.String),
-        }),
-      ),
-      Error(
-        "Test",
-        Schema.Struct({
-          Code: Body("Error.Code", Schema.Literal("Test")),
-          Message: Body("Error.Message", Schema.String),
-          BucketName: Body("Error.BucketName", Schema.String),
-        }),
-      ),
-    ),
+    // Schema.Union(
+    //   Error(
+    //     "NoSuchBucket",
+    //     Schema.Struct({
+    //       Code: Body("Error.Code", Schema.Literal("NoSuchBucket")),
+    //       Message: Body("Error.Message", Schema.String),
+    //       BucketName: Body("Error.BucketName", Schema.String),
+    //     }),
+    //   ),
+    //   Error(
+    //     "Test",
+    //     Schema.Struct({
+    //       Code: Body("Error.Code", Schema.Literal("Test")),
+    //       Message: Body("Error.Message", Schema.String),
+    //       BucketName: Body("Error.BucketName", Schema.String),
+    //     }),
+    //   ),
+    // ),
   );
 
 import { BunContext, BunRuntime } from "@effect/platform-bun";

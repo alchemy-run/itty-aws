@@ -9,12 +9,19 @@ export const requestPathSymbol = Symbol.for("itty-aws/request-path");
 export const requestMetaSymbol = Symbol.for("itty-aws/request-meta");
 export const requestError = Symbol.for("itty-aws/error");
 
-export const Header = <
-  S extends Schema.Schema.AnyNoContext = typeof Schema.String,
->(
+export function Header(
+  headerName: string,
+): ReturnType<(typeof Schema.String)["annotations"]>;
+export function Header<S extends Schema.Schema.AnyNoContext>(
   headerName: string,
   schema: S,
-) => schema.pipe(Schema.annotations({ [requestHeaderSymbol]: headerName }));
+): ReturnType<S["annotations"]>;
+export function Header(
+  headerName: string,
+  schema: Schema.Schema.AnyNoContext = Schema.String,
+) {
+  return schema.pipe(Schema.annotations({ [requestHeaderSymbol]: headerName }));
+}
 export const Body = <S extends Schema.Schema.AnyNoContext>(
   bodyName: string,
   schema: S,
@@ -50,9 +57,11 @@ export const Operation = <
   Input extends Schema.Schema.AnyNoContext,
   Output extends Schema.Schema.AnyNoContext,
   //todo(pear): this should extend schema so we ensure errors are tagged
-  Error extends Schema.Union<
-    readonly (Schema.Schema.Any & { fields: { _tag: Schema.Schema.Any } })[]
-  >,
+  Error extends
+    | Schema.Union<
+        readonly (Schema.Schema.Any & { fields: { _tag: Schema.Schema.Any } })[]
+      >
+    | typeof Schema.Void,
 >(
   meta: OperationMeta,
   inputSchema: Input,

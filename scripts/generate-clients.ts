@@ -141,6 +141,7 @@ const convertShapeToSchema: (
             ({ traits }) =>
               `Schema.Literal("${traits["smithy.api#enumValue"]}")`,
           ),
+          //todo(pear): figure our a more typesafe way of doing this
           // ).pipe(Effect.map((members) => `Schema.Union(${members.join(", ")})`)),
         ).pipe(Effect.map((members) => `Schema.String`)),
     ),
@@ -281,9 +282,25 @@ const generateClient = Effect.fn(function* (
                 Effect.flatMap(convertShapeToSchema),
               );
 
-        //todo(pear): errors
+        const errors =
+          operationShape.errors == null || operationShape.errors.length === 0
+            ? "Schema.Void"
+            : yield* Effect.forEach(
+                operationShape.errors,
+                ({ target: errorShapeReference }) =>
+                  findShape(errorShapeReference).pipe(
+                    Effect.flatMap(convertShapeToSchema),
+                    Effect.map(
+                      (s) =>
+                        `Error("${formatName(errorShapeReference)}", ${s})`,
+                    ),
+                  ),
+              ).pipe(
+                Effect.map((schemas) => `Schema.Union(${schemas.join(", ")})`),
+              );
+
         //todo(pear): correct middleware (stream bodies should be noop?)
-        return `export const ${formatName(_id)} = /*#__PURE__*/ makeOperation(() => Operation({ uri: "${operationShape["traits"]["smithy.api#http"]["uri"]}", method: "${operationShape["traits"]["smithy.api#http"]["method"]}", sdkId: "${serviceShape.traits["aws.api#service"].sdkId}", sigV4ServiceName: "${serviceShape.traits["aws.auth#sigv4"].name}", name: "${formatName(_id)}" }, ${input}, ${output}, Schema.Union(Schema.Struct({}))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);`;
+        return `export const ${formatName(_id)} = /*#__PURE__*/ makeOperation(() => Operation({ uri: "${operationShape["traits"]["smithy.api#http"]["uri"]}", method: "${operationShape["traits"]["smithy.api#http"]["method"]}", sdkId: "${serviceShape.traits["aws.api#service"].sdkId}", sigV4ServiceName: "${serviceShape.traits["aws.auth#sigv4"].name}", name: "${formatName(_id)}" }, ${input}, ${output}, ${errors}), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);`;
       }),
     );
 
