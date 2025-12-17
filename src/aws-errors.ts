@@ -1,5 +1,6 @@
 import * as S from "effect/Schema";
 import { withCategory, ERROR_CATEGORIES } from "./errors";
+import type { ErrorSchema } from "./schema-helpers";
 
 export type CommonAwsError =
   | AccessDeniedException
@@ -188,14 +189,16 @@ export type DynamicError<
 >;
 
 export type DynamicErrorUnion<
-  U extends S.Union<readonly S.Schema.Any[]> | typeof S.Void,
-> = U extends typeof S.Void
+  ErrorInput extends S.Union<Array<ErrorSchema>> | ErrorSchema | typeof S.Void,
+> = ErrorInput extends typeof S.Void
   ? typeof S.Void
-  : U extends S.Union<infer Members>
-    ? Members[number] extends infer E
-      ? E extends { fields: { _tag: S.Schema.Any } }
-        ? //@ts-expect-error shhhh be quiet typescript
-          DynamicError<E>
+  : ErrorInput extends ErrorSchema
+    ? DynamicError<ErrorInput>
+    : ErrorInput extends S.Union<infer Errors>
+      ? Errors[number] extends infer Error
+        ? Error extends { fields: { _tag: S.Schema.Any } }
+          ? //@ts-expect-error shhhh be quiet typescript
+            DynamicError<Error>
+          : never
         : never
-      : never
-    : never;
+      : never;

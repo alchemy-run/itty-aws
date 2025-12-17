@@ -43,7 +43,7 @@ const input = () =>
     Schema.Struct({
       ETag: Header("etag", Schema.String),
     }),
-    Schema.Void,
+    Error("NoSuchKey", Schema.Struct({})),
     //todo(pear): make empty struct the default
     // Schema.Union(
     //   Error(

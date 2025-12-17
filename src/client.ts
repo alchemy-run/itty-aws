@@ -18,6 +18,7 @@ import {
   requestHeaderSymbol,
   requestMetaSymbol,
   requestPathSymbol,
+  type ErrorSchema,
   type OperationMeta,
 } from "./schema-helpers";
 import { HttpBody, HttpClient } from "@effect/platform";
@@ -142,11 +143,7 @@ export const makeFormatRequestSchema = <A extends Schema.Schema.AnyNoContext>(
   operationSchema: Schema.Struct<{
     input: A;
     output: Schema.Schema.AnyNoContext;
-    error:
-      | Schema.Union<
-          Array<Schema.Schema.Any & { fields: { _tag: Schema.Schema.Any } }>
-        >
-      | typeof Schema.Void;
+    error: Schema.Union<Array<ErrorSchema>> | ErrorSchema | typeof Schema.Void;
   }>,
   MiddlewareSchema: Schema.Schema<
     Schema.Schema.Type<typeof unsignedRequest>,
@@ -241,11 +238,7 @@ export const makeFormatResponseSchema = <A extends Schema.Schema.AnyNoContext>(
   operationSchema: Schema.Struct<{
     output: A;
     input: Schema.Schema.AnyNoContext;
-    error:
-      | Schema.Union<
-          Array<Schema.Schema.Any & { fields: { _tag: Schema.Schema.Any } }>
-        >
-      | typeof Schema.Void;
+    error: Schema.Union<Array<ErrorSchema>> | ErrorSchema | typeof Schema.Void;
   }>,
   MiddlewareSchema: Schema.Schema<
     Schema.Schema.Type<typeof response>,
@@ -309,11 +302,7 @@ const getNested = (obj: object, path: string) =>
   path.split(".").reduce((acc, key) => acc?.[key], obj);
 
 export const makeFormatErrorSchema = <
-  A extends
-    | Schema.Union<
-        Array<Schema.Schema.Any & { fields: { _tag: Schema.Schema.Any } }>
-      >
-    | typeof Schema.Void,
+  A extends Schema.Union<Array<ErrorSchema>> | ErrorSchema | typeof Schema.Void,
 >(
   operationSchema: Schema.Struct<{
     output: Schema.Schema.AnyNoContext;

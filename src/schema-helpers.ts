@@ -44,6 +44,9 @@ export const Error = <Tag extends string, S extends Schema.Struct.Fields>(
     ...schema.fields,
     _tag: Schema.Literal(errorName),
   }).pipe(Schema.annotations({ [requestError]: errorName }));
+export type ErrorSchema = Schema.Schema.Any & {
+  fields: { _tag: Schema.Schema.Any };
+};
 
 export type OperationMeta = {
   uri: string;
@@ -58,9 +61,8 @@ export const Operation = <
   Output extends Schema.Schema.AnyNoContext,
   //todo(pear): this should extend schema so we ensure errors are tagged
   Error extends
-    | Schema.Union<
-        readonly (Schema.Schema.Any & { fields: { _tag: Schema.Schema.Any } })[]
-      >
+    | Schema.Union<Array<ErrorSchema>>
+    | ErrorSchema
     | typeof Schema.Void,
 >(
   meta: OperationMeta,

@@ -296,7 +296,11 @@ const generateClient = Effect.fn(function* (
                     ),
                   ),
               ).pipe(
-                Effect.map((schemas) => `Schema.Union(${schemas.join(", ")})`),
+                Effect.map((schemas) =>
+                  schemas.length === 1
+                    ? schemas[0]
+                    : `Schema.Union(${schemas.join(", ")})`,
+                ),
               );
 
         //todo(pear): correct middleware (stream bodies should be noop?)
