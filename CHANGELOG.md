@@ -1,3 +1,13 @@
+## v0.8.4
+
+### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
+
+- **ec2**: Properly format FilterList in APIs like DescribeSubnets &nbsp;-&nbsp; by **Sam Goodwin** [<samp>(93e59)</samp>](https://github.com/sam-goodwin/itty-aws/commit/93e59f76)
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sam-goodwin/itty-aws/compare/v0.8.3...v0.8.4)
+
+---
+
 ## v0.8.3
 
 ### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
