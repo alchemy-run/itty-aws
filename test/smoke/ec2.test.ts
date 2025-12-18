@@ -174,4 +174,90 @@ describe("EC2 Smoke Tests", () => {
       }),
     { timeout: 10000 },
   );
+
+  it.live(
+    "should describeSubnets with filters and return non-empty list",
+    () =>
+      Effect.gen(function* () {
+        const testVpcName = "itty-aws-test-subnet-vpc";
+
+        // Clean up any existing test VPC first
+        yield* Console.log("Cleaning up any existing test VPC...");
+        const existingVpcs = yield* client.describeVpcs({
+          Filters: [{ Name: "tag:Name", Values: [testVpcName] }],
+        });
+        for (const vpc of existingVpcs.Vpcs ?? []) {
+          // Delete subnets first
+          const subnets = yield* client.describeSubnets({
+            Filters: [{ Name: "vpc-id", Values: [vpc.VpcId!] }],
+          });
+          for (const subnet of subnets.Subnets ?? []) {
+            yield* client
+              .deleteSubnet({ SubnetId: subnet.SubnetId! })
+              .pipe(Effect.catchAll(() => Effect.void));
+          }
+          yield* client
+            .deleteVpc({ VpcId: vpc.VpcId! })
+            .pipe(Effect.catchAll(() => Effect.void));
+        }
+
+        // Step 1: Create a VPC
+        yield* Console.log("Creating VPC for subnet test...");
+        const createVpcResult = yield* client.createVpc({
+          CidrBlock: "10.1.0.0/16",
+          TagSpecifications: [
+            {
+              ResourceType: "vpc",
+              Tags: [{ Key: "Name", Value: testVpcName }],
+            },
+          ],
+        });
+        const vpcId = createVpcResult.Vpc?.VpcId!;
+        yield* Console.log(`Created VPC: ${vpcId}`);
+
+        // Wait for VPC to be available
+        yield* waitForVpcState(vpcId, "available");
+
+        // Step 2: Create a subnet in the VPC
+        yield* Console.log("Creating subnet...");
+        const createSubnetResult = yield* client.createSubnet({
+          VpcId: vpcId,
+          CidrBlock: "10.1.1.0/24",
+          TagSpecifications: [
+            {
+              ResourceType: "subnet",
+              Tags: [{ Key: "Name", Value: "itty-aws-test-subnet" }],
+            },
+          ],
+        });
+        const subnetId = createSubnetResult.Subnet?.SubnetId!;
+        yield* Console.log(`Created subnet: ${subnetId}`);
+
+        // Step 3: Use describeSubnets with vpc-id filter
+        yield* Console.log("Describing subnets with vpc-id filter...");
+        const describeResult = yield* client.describeSubnets({
+          Filters: [{ Name: "vpc-id", Values: [vpcId] }],
+        });
+
+        yield* Console.log(
+          `Found ${describeResult.Subnets?.length ?? 0} subnets`,
+        );
+
+        // Verify we got a non-empty list
+        expect(describeResult.Subnets).toBeDefined();
+        expect(describeResult.Subnets!.length).toBeGreaterThan(0);
+        expect(describeResult.Subnets![0].SubnetId).toBe(subnetId);
+        expect(describeResult.Subnets![0].VpcId).toBe(vpcId);
+
+        // Cleanup: Delete subnet then VPC
+        yield* Console.log("Cleaning up: deleting subnet...");
+        yield* client.deleteSubnet({ SubnetId: subnetId });
+
+        yield* Console.log("Cleaning up: deleting VPC...");
+        yield* client.deleteVpc({ VpcId: vpcId });
+
+        yield* Console.log("describeSubnets with filters test completed!");
+      }),
+    { timeout: 60000 },
+  );
 });

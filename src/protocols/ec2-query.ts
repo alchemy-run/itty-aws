@@ -61,7 +61,13 @@ function toParams(
       value.forEach((item, i) => {
         const idx = i + 1;
         const base = `${prefix}.${idx}`;
-        toParams(shapes, shape.member!.target, item, base, out);
+        const memberTarget = shape.member?.target;
+        if (memberTarget) {
+          toParams(shapes, memberTarget, item, base, out);
+        } else if (item != null) {
+          // No target means it's a primitive (string) list
+          out[base] = String(item);
+        }
       });
       break;
     }
