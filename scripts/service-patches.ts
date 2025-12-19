@@ -52,6 +52,7 @@ export const servicePatches: Record<string, ServicePatches> = {
         "InvalidNetworkInterfaceID.NotFound",
         "InvalidIPAddress.InUse",
         "DependencyViolation",
+        "AuthFailure",
       ],
     },
 
