@@ -1,3 +1,13 @@
+## v0.8.6
+
+### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
+
+- **ec2**: Add errors to ReleaseAddress &nbsp;-&nbsp; by **Sam Goodwin** [<samp>(af414)</samp>](https://github.com/sam-goodwin/itty-aws/commit/af414e73)
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sam-goodwin/itty-aws/compare/v0.8.5...v0.8.6)
+
+---
+
 ## v0.8.5
 
 ### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
