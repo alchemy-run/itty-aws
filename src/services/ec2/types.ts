@@ -3368,7 +3368,12 @@ export declare class EC2 extends AWSServiceClient {
     input: ReleaseAddressRequest,
   ): Effect.Effect<
     {},
-    InvalidAddressIDNotFound | InvalidAllocationIDNotFound | CommonAwsError
+    | InvalidAddressIDNotFound
+    | InvalidAllocationIDNotFound
+    | InvalidNetworkInterfaceIDNotFound
+    | InvalidIPAddressInUse
+    | DependencyViolation
+    | CommonAwsError
   >;
   releaseHosts(
     input: ReleaseHostsRequest,
@@ -21805,6 +21810,10 @@ export declare class InstanceCreditSpecificationNotSupported extends EffectData.
   "InstanceCreditSpecification.NotSupported",
 )<{}> {}
 
+export declare class InvalidIPAddressInUse extends EffectData.TaggedError(
+  "InvalidIPAddress.InUse",
+)<{}> {}
+
 export declare class InvalidClientVpnEndpointAuthorizationRuleNotFound extends EffectData.TaggedError(
   "InvalidClientVpnEndpointAuthorizationRuleNotFound",
 )<{}> {}
@@ -26340,6 +26349,9 @@ export declare namespace ReleaseAddress {
   export type Error =
     | InvalidAddressIDNotFound
     | InvalidAllocationIDNotFound
+    | InvalidNetworkInterfaceIDNotFound
+    | InvalidIPAddressInUse
+    | DependencyViolation
     | CommonAwsError;
 }
 
@@ -26850,6 +26862,7 @@ export type EC2Errors =
   | InvalidInstanceType
   | InvalidKeyPairFormat
   | InstanceCreditSpecificationNotSupported
+  | InvalidIPAddressInUse
   | InvalidClientVpnEndpointAuthorizationRuleNotFound
   | InvalidPermissionNotFound
   | InvalidBlockDeviceMapping

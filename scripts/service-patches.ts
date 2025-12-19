@@ -46,7 +46,13 @@ export const servicePatches: Record<string, ServicePatches> = {
       errors: ["InvalidAssociationID.NotFound"],
     },
     ReleaseAddress: {
-      errors: ["InvalidAddressID.NotFound", "InvalidAllocationID.NotFound"],
+      errors: [
+        "InvalidAddressID.NotFound",
+        "InvalidAllocationID.NotFound",
+        "InvalidNetworkInterfaceID.NotFound",
+        "InvalidIPAddress.InUse",
+        "DependencyViolation",
+      ],
     },
 
     // ========== AMI / Image Operations ==========
