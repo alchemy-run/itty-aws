@@ -2284,6 +2284,7 @@ export declare class EC2 extends AWSServiceClient {
     | InvalidInternetGatewayIdMalformed
     | InvalidVpcIDNotFound
     | GatewayNotAttached
+    | DependencyViolation
     | CommonAwsError
   >;
   detachNetworkInterface(
@@ -2292,6 +2293,7 @@ export declare class EC2 extends AWSServiceClient {
     {},
     | InvalidAttachmentIDNotFound
     | InvalidNetworkInterfaceAttachmentIdMalformed
+    | DependencyViolation
     | CommonAwsError
   >;
   detachVerifiedAccessTrustProvider(
@@ -2300,6 +2302,7 @@ export declare class EC2 extends AWSServiceClient {
     DetachVerifiedAccessTrustProviderResult,
     | InvalidVerifiedAccessInstanceIdNotFound
     | InvalidVerifiedAccessTrustProviderIdNotFound
+    | DependencyViolation
     | CommonAwsError
   >;
   detachVolume(
@@ -2309,6 +2312,7 @@ export declare class EC2 extends AWSServiceClient {
     | InvalidVolumeNotFound
     | InvalidInstanceIDNotFound
     | InvalidAttachmentNotFound
+    | DependencyViolation
     | CommonAwsError
   >;
   detachVpnGateway(
@@ -2318,6 +2322,7 @@ export declare class EC2 extends AWSServiceClient {
     | InvalidVpnGatewayIDNotFound
     | InvalidVpcIDNotFound
     | InvalidVpnGatewayAttachmentNotFound
+    | DependencyViolation
     | CommonAwsError
   >;
   disableAddressTransfer(
@@ -24910,6 +24915,7 @@ export declare namespace DetachInternetGateway {
     | InvalidInternetGatewayIdMalformed
     | InvalidVpcIDNotFound
     | GatewayNotAttached
+    | DependencyViolation
     | CommonAwsError;
 }
 
@@ -24919,6 +24925,7 @@ export declare namespace DetachNetworkInterface {
   export type Error =
     | InvalidAttachmentIDNotFound
     | InvalidNetworkInterfaceAttachmentIdMalformed
+    | DependencyViolation
     | CommonAwsError;
 }
 
@@ -24928,6 +24935,7 @@ export declare namespace DetachVerifiedAccessTrustProvider {
   export type Error =
     | InvalidVerifiedAccessInstanceIdNotFound
     | InvalidVerifiedAccessTrustProviderIdNotFound
+    | DependencyViolation
     | CommonAwsError;
 }
 
@@ -24938,6 +24946,7 @@ export declare namespace DetachVolume {
     | InvalidVolumeNotFound
     | InvalidInstanceIDNotFound
     | InvalidAttachmentNotFound
+    | DependencyViolation
     | CommonAwsError;
 }
 
@@ -24948,6 +24957,7 @@ export declare namespace DetachVpnGateway {
     | InvalidVpnGatewayIDNotFound
     | InvalidVpcIDNotFound
     | InvalidVpnGatewayAttachmentNotFound
+    | DependencyViolation
     | CommonAwsError;
 }
 

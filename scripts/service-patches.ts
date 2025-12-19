@@ -457,6 +457,7 @@ export const servicePatches: Record<string, ServicePatches> = {
         "InvalidInternetGatewayId.Malformed",
         "InvalidVpcID.NotFound",
         "Gateway.NotAttached",
+        "DependencyViolation",
       ],
     },
 
@@ -677,6 +678,7 @@ export const servicePatches: Record<string, ServicePatches> = {
       errors: [
         "InvalidAttachmentID.NotFound",
         "InvalidNetworkInterfaceAttachmentId.Malformed",
+        "DependencyViolation",
       ],
     },
     ModifyNetworkInterfaceAttribute: {
@@ -1297,6 +1299,7 @@ export const servicePatches: Record<string, ServicePatches> = {
       errors: [
         "InvalidVerifiedAccessInstanceId.NotFound",
         "InvalidVerifiedAccessTrustProviderId.NotFound",
+        "DependencyViolation",
       ],
     },
     GetVerifiedAccessEndpointPolicy: {
@@ -1370,6 +1373,7 @@ export const servicePatches: Record<string, ServicePatches> = {
         "InvalidVolume.NotFound",
         "InvalidInstanceID.NotFound",
         "InvalidAttachment.NotFound",
+        "DependencyViolation",
       ],
     },
     EnableVolumeIO: {
@@ -1571,6 +1575,7 @@ export const servicePatches: Record<string, ServicePatches> = {
         "InvalidVpnGatewayID.NotFound",
         "InvalidVpcID.NotFound",
         "InvalidVpnGatewayAttachment.NotFound",
+        "DependencyViolation",
       ],
     },
     DisableVgwRoutePropagation: {
