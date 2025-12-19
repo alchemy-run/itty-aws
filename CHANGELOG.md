@@ -1,3 +1,13 @@
+## v0.8.10
+
+### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
+
+- **ec2**: Add missing DependencyViolation to Detach* &nbsp;-&nbsp; by **Sam Goodwin** [<samp>(25d7b)</samp>](https://github.com/sam-goodwin/itty-aws/commit/25d7ba33)
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sam-goodwin/itty-aws/compare/v0.8.9...v0.8.10)
+
+---
+
 ## v0.8.9
 
 ### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
