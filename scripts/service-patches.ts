@@ -124,7 +124,7 @@ export const servicePatches: Record<string, ServicePatches> = {
 
     // ========== Carrier Gateway Operations ==========
     DeleteCarrierGateway: {
-      errors: ["InvalidCarrierGatewayID.NotFound"],
+      errors: ["InvalidCarrierGatewayID.NotFound", "DependencyViolation"],
     },
     DescribeCarrierGateways: {
       errors: ["InvalidCarrierGatewayID.NotFound"],
@@ -217,7 +217,7 @@ export const servicePatches: Record<string, ServicePatches> = {
       ],
     },
     DeleteCustomerGateway: {
-      errors: ["InvalidCustomerGatewayID.NotFound"],
+      errors: ["InvalidCustomerGatewayID.NotFound", "DependencyViolation"],
     },
     DescribeCustomerGateways: {
       errors: [
@@ -540,7 +540,10 @@ export const servicePatches: Record<string, ServicePatches> = {
       errors: ["InvalidLocalGatewayRouteTableVpcAssociationId.NotFound"],
     },
     DeleteLocalGatewayRouteTableVpcAssociation: {
-      errors: ["InvalidLocalGatewayRouteTableVpcAssociationId.NotFound"],
+      errors: [
+        "InvalidLocalGatewayRouteTableVpcAssociationId.NotFound",
+        "DependencyViolation",
+      ],
     },
     DescribeLocalGatewayRouteTables: {
       errors: ["InvalidLocalGatewayID.NotFound"],
@@ -569,7 +572,11 @@ export const servicePatches: Record<string, ServicePatches> = {
       ],
     },
     DeleteNatGateway: {
-      errors: ["NatGatewayNotFound", "NatGatewayMalformed"],
+      errors: [
+        "NatGatewayNotFound",
+        "NatGatewayMalformed",
+        "DependencyViolation",
+      ],
     },
     DescribeNatGateways: {
       errors: ["NatGatewayNotFound", "NatGatewayMalformed"],
@@ -584,6 +591,7 @@ export const servicePatches: Record<string, ServicePatches> = {
         "InvalidNetworkAclID.NotFound",
         "InvalidNetworkAclId.Malformed",
         "InvalidNetworkAcl.InUse",
+        "DependencyViolation",
       ],
     },
     DeleteNetworkAclEntry: {
@@ -657,7 +665,7 @@ export const servicePatches: Record<string, ServicePatches> = {
       errors: ["InvalidSubnetID.NotFound", "InvalidSecurityGroupId.NotFound"],
     },
     DeleteNetworkInterface: {
-      errors: ["InvalidNetworkInterfaceID.NotFound"],
+      errors: ["InvalidNetworkInterfaceID.NotFound", "DependencyViolation"],
     },
     DescribeNetworkInterfaceAttribute: {
       errors: ["InvalidNetworkInterfaceID.NotFound"],
@@ -1084,6 +1092,7 @@ export const servicePatches: Record<string, ServicePatches> = {
       errors: [
         "InvalidTransitGatewayId.NotFound",
         "InvalidTransitGateway.NotFound",
+        "DependencyViolation",
       ],
     },
     DeleteTransitGatewayConnect: {
@@ -1093,13 +1102,19 @@ export const servicePatches: Record<string, ServicePatches> = {
       errors: ["InvalidTransitGatewayConnectPeerId.NotFound"],
     },
     DeleteTransitGatewayMulticastDomain: {
-      errors: ["InvalidTransitGatewayMulticastDomainId.NotFound"],
+      errors: [
+        "InvalidTransitGatewayMulticastDomainId.NotFound",
+        "DependencyViolation",
+      ],
     },
     DeleteTransitGatewayPeeringAttachment: {
       errors: ["InvalidTransitGatewayAttachmentId.NotFound"],
     },
     DeleteTransitGatewayPolicyTable: {
-      errors: ["InvalidTransitGatewayPolicyTableId.NotFound"],
+      errors: [
+        "InvalidTransitGatewayPolicyTableId.NotFound",
+        "DependencyViolation",
+      ],
     },
     DeleteTransitGatewayPrefixListReference: {
       errors: ["InvalidTransitGatewayRouteTableId.NotFound"],
@@ -1108,7 +1123,10 @@ export const servicePatches: Record<string, ServicePatches> = {
       errors: ["InvalidTransitGatewayRouteTableId.NotFound"],
     },
     DeleteTransitGatewayRouteTable: {
-      errors: ["InvalidTransitGatewayRouteTableId.NotFound"],
+      errors: [
+        "InvalidTransitGatewayRouteTableId.NotFound",
+        "DependencyViolation",
+      ],
     },
     DeleteTransitGatewayRouteTableAnnouncement: {
       errors: ["InvalidTransitGatewayRouteTableAnnouncementId.NotFound"],
@@ -1249,10 +1267,13 @@ export const servicePatches: Record<string, ServicePatches> = {
       errors: ["InvalidVerifiedAccessEndpointId.NotFound"],
     },
     DeleteVerifiedAccessGroup: {
-      errors: ["InvalidVerifiedAccessGroupId.NotFound"],
+      errors: ["InvalidVerifiedAccessGroupId.NotFound", "DependencyViolation"],
     },
     DeleteVerifiedAccessInstance: {
-      errors: ["InvalidVerifiedAccessInstanceId.NotFound"],
+      errors: [
+        "InvalidVerifiedAccessInstanceId.NotFound",
+        "DependencyViolation",
+      ],
     },
     DeleteVerifiedAccessTrustProvider: {
       errors: ["InvalidVerifiedAccessTrustProviderId.NotFound"],
@@ -1540,7 +1561,7 @@ export const servicePatches: Record<string, ServicePatches> = {
       errors: ["VpnGatewayLimitExceeded"],
     },
     DeleteVpnGateway: {
-      errors: ["InvalidVpnGatewayID.NotFound"],
+      errors: ["InvalidVpnGatewayID.NotFound", "DependencyViolation"],
     },
     DescribeVpnGateways: {
       errors: ["InvalidVpnGatewayID.NotFound"],
@@ -1572,7 +1593,7 @@ export const servicePatches: Record<string, ServicePatches> = {
       errors: ["InvalidVpcID.NotFound"],
     },
     DeleteEgressOnlyInternetGateway: {
-      errors: ["InvalidGatewayID.NotFound"],
+      errors: ["InvalidGatewayID.NotFound", "DependencyViolation"],
     },
     DescribeEgressOnlyInternetGateways: {
       errors: ["InvalidGatewayID.NotFound"],
@@ -1589,16 +1610,19 @@ export const servicePatches: Record<string, ServicePatches> = {
       errors: ["InvalidIpamId.NotFound"],
     },
     DeleteIpam: {
-      errors: ["InvalidIpamId.NotFound"],
+      errors: ["InvalidIpamId.NotFound", "DependencyViolation"],
     },
     DeleteIpamPool: {
-      errors: ["InvalidIpamPoolId.NotFound"],
+      errors: ["InvalidIpamPoolId.NotFound", "DependencyViolation"],
     },
     DeleteIpamResourceDiscovery: {
-      errors: ["InvalidIpamResourceDiscoveryId.NotFound"],
+      errors: [
+        "InvalidIpamResourceDiscoveryId.NotFound",
+        "DependencyViolation",
+      ],
     },
     DeleteIpamScope: {
-      errors: ["InvalidIpamScopeId.NotFound"],
+      errors: ["InvalidIpamScopeId.NotFound", "DependencyViolation"],
     },
     DeprovisionIpamByoasn: {
       errors: ["InvalidIpamId.NotFound"],

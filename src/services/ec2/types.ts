@@ -838,7 +838,7 @@ export declare class EC2 extends AWSServiceClient {
     input: DeleteCarrierGatewayRequest,
   ): Effect.Effect<
     DeleteCarrierGatewayResult,
-    InvalidCarrierGatewayIDNotFound | CommonAwsError
+    InvalidCarrierGatewayIDNotFound | DependencyViolation | CommonAwsError
   >;
   deleteClientVpnEndpoint(
     input: DeleteClientVpnEndpointRequest,
@@ -862,7 +862,10 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<DeleteCoipPoolResult, CommonAwsError>;
   deleteCustomerGateway(
     input: DeleteCustomerGatewayRequest,
-  ): Effect.Effect<{}, InvalidCustomerGatewayIDNotFound | CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    InvalidCustomerGatewayIDNotFound | DependencyViolation | CommonAwsError
+  >;
   deleteDhcpOptions(
     input: DeleteDhcpOptionsRequest,
   ): Effect.Effect<
@@ -873,7 +876,7 @@ export declare class EC2 extends AWSServiceClient {
     input: DeleteEgressOnlyInternetGatewayRequest,
   ): Effect.Effect<
     DeleteEgressOnlyInternetGatewayResult,
-    InvalidGatewayIDNotFound | CommonAwsError
+    InvalidGatewayIDNotFound | DependencyViolation | CommonAwsError
   >;
   deleteFleets(
     input: DeleteFleetsRequest,
@@ -913,7 +916,10 @@ export declare class EC2 extends AWSServiceClient {
   >;
   deleteIpam(
     input: DeleteIpamRequest,
-  ): Effect.Effect<DeleteIpamResult, InvalidIpamIdNotFound | CommonAwsError>;
+  ): Effect.Effect<
+    DeleteIpamResult,
+    InvalidIpamIdNotFound | DependencyViolation | CommonAwsError
+  >;
   deleteIpamExternalResourceVerificationToken(
     input: DeleteIpamExternalResourceVerificationTokenRequest,
   ): Effect.Effect<
@@ -924,7 +930,7 @@ export declare class EC2 extends AWSServiceClient {
     input: DeleteIpamPoolRequest,
   ): Effect.Effect<
     DeleteIpamPoolResult,
-    InvalidIpamPoolIdNotFound | CommonAwsError
+    InvalidIpamPoolIdNotFound | DependencyViolation | CommonAwsError
   >;
   deleteIpamPrefixListResolver(
     input: DeleteIpamPrefixListResolverRequest,
@@ -936,13 +942,15 @@ export declare class EC2 extends AWSServiceClient {
     input: DeleteIpamResourceDiscoveryRequest,
   ): Effect.Effect<
     DeleteIpamResourceDiscoveryResult,
-    InvalidIpamResourceDiscoveryIdNotFound | CommonAwsError
+    | InvalidIpamResourceDiscoveryIdNotFound
+    | DependencyViolation
+    | CommonAwsError
   >;
   deleteIpamScope(
     input: DeleteIpamScopeRequest,
   ): Effect.Effect<
     DeleteIpamScopeResult,
-    InvalidIpamScopeIdNotFound | CommonAwsError
+    InvalidIpamScopeIdNotFound | DependencyViolation | CommonAwsError
   >;
   deleteKeyPair(
     input: DeleteKeyPairRequest,
@@ -987,7 +995,9 @@ export declare class EC2 extends AWSServiceClient {
     input: DeleteLocalGatewayRouteTableVpcAssociationRequest,
   ): Effect.Effect<
     DeleteLocalGatewayRouteTableVpcAssociationResult,
-    InvalidLocalGatewayRouteTableVpcAssociationIdNotFound | CommonAwsError
+    | InvalidLocalGatewayRouteTableVpcAssociationIdNotFound
+    | DependencyViolation
+    | CommonAwsError
   >;
   deleteLocalGatewayVirtualInterface(
     input: DeleteLocalGatewayVirtualInterfaceRequest,
@@ -1008,7 +1018,10 @@ export declare class EC2 extends AWSServiceClient {
     input: DeleteNatGatewayRequest,
   ): Effect.Effect<
     DeleteNatGatewayResult,
-    NatGatewayNotFound | NatGatewayMalformed | CommonAwsError
+    | NatGatewayNotFound
+    | NatGatewayMalformed
+    | DependencyViolation
+    | CommonAwsError
   >;
   deleteNetworkAcl(
     input: DeleteNetworkAclRequest,
@@ -1017,6 +1030,7 @@ export declare class EC2 extends AWSServiceClient {
     | InvalidNetworkAclIDNotFound
     | InvalidNetworkAclIdMalformed
     | InvalidNetworkAclInUse
+    | DependencyViolation
     | CommonAwsError
   >;
   deleteNetworkAclEntry(
@@ -1053,7 +1067,10 @@ export declare class EC2 extends AWSServiceClient {
   >;
   deleteNetworkInterface(
     input: DeleteNetworkInterfaceRequest,
-  ): Effect.Effect<{}, InvalidNetworkInterfaceIDNotFound | CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    InvalidNetworkInterfaceIDNotFound | DependencyViolation | CommonAwsError
+  >;
   deleteNetworkInterfacePermission(
     input: DeleteNetworkInterfacePermissionRequest,
   ): Effect.Effect<DeleteNetworkInterfacePermissionResult, CommonAwsError>;
@@ -1161,6 +1178,7 @@ export declare class EC2 extends AWSServiceClient {
     DeleteTransitGatewayResult,
     | InvalidTransitGatewayIdNotFound
     | InvalidTransitGatewayNotFound
+    | DependencyViolation
     | CommonAwsError
   >;
   deleteTransitGatewayConnect(
@@ -1179,7 +1197,9 @@ export declare class EC2 extends AWSServiceClient {
     input: DeleteTransitGatewayMulticastDomainRequest,
   ): Effect.Effect<
     DeleteTransitGatewayMulticastDomainResult,
-    InvalidTransitGatewayMulticastDomainIdNotFound | CommonAwsError
+    | InvalidTransitGatewayMulticastDomainIdNotFound
+    | DependencyViolation
+    | CommonAwsError
   >;
   deleteTransitGatewayPeeringAttachment(
     input: DeleteTransitGatewayPeeringAttachmentRequest,
@@ -1191,7 +1211,9 @@ export declare class EC2 extends AWSServiceClient {
     input: DeleteTransitGatewayPolicyTableRequest,
   ): Effect.Effect<
     DeleteTransitGatewayPolicyTableResult,
-    InvalidTransitGatewayPolicyTableIdNotFound | CommonAwsError
+    | InvalidTransitGatewayPolicyTableIdNotFound
+    | DependencyViolation
+    | CommonAwsError
   >;
   deleteTransitGatewayPrefixListReference(
     input: DeleteTransitGatewayPrefixListReferenceRequest,
@@ -1209,7 +1231,9 @@ export declare class EC2 extends AWSServiceClient {
     input: DeleteTransitGatewayRouteTableRequest,
   ): Effect.Effect<
     DeleteTransitGatewayRouteTableResult,
-    InvalidTransitGatewayRouteTableIdNotFound | CommonAwsError
+    | InvalidTransitGatewayRouteTableIdNotFound
+    | DependencyViolation
+    | CommonAwsError
   >;
   deleteTransitGatewayRouteTableAnnouncement(
     input: DeleteTransitGatewayRouteTableAnnouncementRequest,
@@ -1233,13 +1257,15 @@ export declare class EC2 extends AWSServiceClient {
     input: DeleteVerifiedAccessGroupRequest,
   ): Effect.Effect<
     DeleteVerifiedAccessGroupResult,
-    InvalidVerifiedAccessGroupIdNotFound | CommonAwsError
+    InvalidVerifiedAccessGroupIdNotFound | DependencyViolation | CommonAwsError
   >;
   deleteVerifiedAccessInstance(
     input: DeleteVerifiedAccessInstanceRequest,
   ): Effect.Effect<
     DeleteVerifiedAccessInstanceResult,
-    InvalidVerifiedAccessInstanceIdNotFound | CommonAwsError
+    | InvalidVerifiedAccessInstanceIdNotFound
+    | DependencyViolation
+    | CommonAwsError
   >;
   deleteVerifiedAccessTrustProvider(
     input: DeleteVerifiedAccessTrustProviderRequest,
@@ -1299,7 +1325,10 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<{}, InvalidVpnConnectionIDNotFound | CommonAwsError>;
   deleteVpnGateway(
     input: DeleteVpnGatewayRequest,
-  ): Effect.Effect<{}, InvalidVpnGatewayIDNotFound | CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    InvalidVpnGatewayIDNotFound | DependencyViolation | CommonAwsError
+  >;
   deprovisionByoipCidr(
     input: DeprovisionByoipCidrRequest,
   ): Effect.Effect<DeprovisionByoipCidrResult, CommonAwsError>;
@@ -21523,6 +21552,10 @@ export declare class InvalidCarrierGatewayIDNotFound extends EffectData.TaggedEr
   "InvalidCarrierGatewayID.NotFound",
 )<{}> {}
 
+export declare class DependencyViolation extends EffectData.TaggedError(
+  "DependencyViolation",
+)<{}> {}
+
 export declare class InvalidClientVpnRouteNotFound extends EffectData.TaggedError(
   "InvalidClientVpnRouteNotFound",
 )<{}> {}
@@ -21533,10 +21566,6 @@ export declare class InvalidDhcpOptionsIdMalformed extends EffectData.TaggedErro
 
 export declare class InvalidFlowLogIdNotFound extends EffectData.TaggedError(
   "InvalidFlowLogId.NotFound",
-)<{}> {}
-
-export declare class DependencyViolation extends EffectData.TaggedError(
-  "DependencyViolation",
 )<{}> {}
 
 export declare class InvalidIpamResourceDiscoveryIdNotFound extends EffectData.TaggedError(
@@ -22951,7 +22980,10 @@ export declare namespace DeleteCapacityManagerDataExport {
 export declare namespace DeleteCarrierGateway {
   export type Input = DeleteCarrierGatewayRequest;
   export type Output = DeleteCarrierGatewayResult;
-  export type Error = InvalidCarrierGatewayIDNotFound | CommonAwsError;
+  export type Error =
+    | InvalidCarrierGatewayIDNotFound
+    | DependencyViolation
+    | CommonAwsError;
 }
 
 export declare namespace DeleteClientVpnEndpoint {
@@ -22984,7 +23016,10 @@ export declare namespace DeleteCoipPool {
 export declare namespace DeleteCustomerGateway {
   export type Input = DeleteCustomerGatewayRequest;
   export type Output = {};
-  export type Error = InvalidCustomerGatewayIDNotFound | CommonAwsError;
+  export type Error =
+    | InvalidCustomerGatewayIDNotFound
+    | DependencyViolation
+    | CommonAwsError;
 }
 
 export declare namespace DeleteDhcpOptions {
@@ -22999,7 +23034,10 @@ export declare namespace DeleteDhcpOptions {
 export declare namespace DeleteEgressOnlyInternetGateway {
   export type Input = DeleteEgressOnlyInternetGatewayRequest;
   export type Output = DeleteEgressOnlyInternetGatewayResult;
-  export type Error = InvalidGatewayIDNotFound | CommonAwsError;
+  export type Error =
+    | InvalidGatewayIDNotFound
+    | DependencyViolation
+    | CommonAwsError;
 }
 
 export declare namespace DeleteFleets {
@@ -23054,7 +23092,10 @@ export declare namespace DeleteInternetGateway {
 export declare namespace DeleteIpam {
   export type Input = DeleteIpamRequest;
   export type Output = DeleteIpamResult;
-  export type Error = InvalidIpamIdNotFound | CommonAwsError;
+  export type Error =
+    | InvalidIpamIdNotFound
+    | DependencyViolation
+    | CommonAwsError;
 }
 
 export declare namespace DeleteIpamExternalResourceVerificationToken {
@@ -23066,7 +23107,10 @@ export declare namespace DeleteIpamExternalResourceVerificationToken {
 export declare namespace DeleteIpamPool {
   export type Input = DeleteIpamPoolRequest;
   export type Output = DeleteIpamPoolResult;
-  export type Error = InvalidIpamPoolIdNotFound | CommonAwsError;
+  export type Error =
+    | InvalidIpamPoolIdNotFound
+    | DependencyViolation
+    | CommonAwsError;
 }
 
 export declare namespace DeleteIpamPrefixListResolver {
@@ -23084,13 +23128,19 @@ export declare namespace DeleteIpamPrefixListResolverTarget {
 export declare namespace DeleteIpamResourceDiscovery {
   export type Input = DeleteIpamResourceDiscoveryRequest;
   export type Output = DeleteIpamResourceDiscoveryResult;
-  export type Error = InvalidIpamResourceDiscoveryIdNotFound | CommonAwsError;
+  export type Error =
+    | InvalidIpamResourceDiscoveryIdNotFound
+    | DependencyViolation
+    | CommonAwsError;
 }
 
 export declare namespace DeleteIpamScope {
   export type Input = DeleteIpamScopeRequest;
   export type Output = DeleteIpamScopeResult;
-  export type Error = InvalidIpamScopeIdNotFound | CommonAwsError;
+  export type Error =
+    | InvalidIpamScopeIdNotFound
+    | DependencyViolation
+    | CommonAwsError;
 }
 
 export declare namespace DeleteKeyPair {
@@ -23146,6 +23196,7 @@ export declare namespace DeleteLocalGatewayRouteTableVpcAssociation {
   export type Output = DeleteLocalGatewayRouteTableVpcAssociationResult;
   export type Error =
     | InvalidLocalGatewayRouteTableVpcAssociationIdNotFound
+    | DependencyViolation
     | CommonAwsError;
 }
 
@@ -23170,7 +23221,11 @@ export declare namespace DeleteManagedPrefixList {
 export declare namespace DeleteNatGateway {
   export type Input = DeleteNatGatewayRequest;
   export type Output = DeleteNatGatewayResult;
-  export type Error = NatGatewayNotFound | NatGatewayMalformed | CommonAwsError;
+  export type Error =
+    | NatGatewayNotFound
+    | NatGatewayMalformed
+    | DependencyViolation
+    | CommonAwsError;
 }
 
 export declare namespace DeleteNetworkAcl {
@@ -23180,6 +23235,7 @@ export declare namespace DeleteNetworkAcl {
     | InvalidNetworkAclIDNotFound
     | InvalidNetworkAclIdMalformed
     | InvalidNetworkAclInUse
+    | DependencyViolation
     | CommonAwsError;
 }
 
@@ -23223,7 +23279,10 @@ export declare namespace DeleteNetworkInsightsPath {
 export declare namespace DeleteNetworkInterface {
   export type Input = DeleteNetworkInterfaceRequest;
   export type Output = {};
-  export type Error = InvalidNetworkInterfaceIDNotFound | CommonAwsError;
+  export type Error =
+    | InvalidNetworkInterfaceIDNotFound
+    | DependencyViolation
+    | CommonAwsError;
 }
 
 export declare namespace DeleteNetworkInterfacePermission {
@@ -23372,6 +23431,7 @@ export declare namespace DeleteTransitGateway {
   export type Error =
     | InvalidTransitGatewayIdNotFound
     | InvalidTransitGatewayNotFound
+    | DependencyViolation
     | CommonAwsError;
 }
 
@@ -23396,6 +23456,7 @@ export declare namespace DeleteTransitGatewayMulticastDomain {
   export type Output = DeleteTransitGatewayMulticastDomainResult;
   export type Error =
     | InvalidTransitGatewayMulticastDomainIdNotFound
+    | DependencyViolation
     | CommonAwsError;
 }
 
@@ -23412,6 +23473,7 @@ export declare namespace DeleteTransitGatewayPolicyTable {
   export type Output = DeleteTransitGatewayPolicyTableResult;
   export type Error =
     | InvalidTransitGatewayPolicyTableIdNotFound
+    | DependencyViolation
     | CommonAwsError;
 }
 
@@ -23436,6 +23498,7 @@ export declare namespace DeleteTransitGatewayRouteTable {
   export type Output = DeleteTransitGatewayRouteTableResult;
   export type Error =
     | InvalidTransitGatewayRouteTableIdNotFound
+    | DependencyViolation
     | CommonAwsError;
 }
 
@@ -23464,13 +23527,19 @@ export declare namespace DeleteVerifiedAccessEndpoint {
 export declare namespace DeleteVerifiedAccessGroup {
   export type Input = DeleteVerifiedAccessGroupRequest;
   export type Output = DeleteVerifiedAccessGroupResult;
-  export type Error = InvalidVerifiedAccessGroupIdNotFound | CommonAwsError;
+  export type Error =
+    | InvalidVerifiedAccessGroupIdNotFound
+    | DependencyViolation
+    | CommonAwsError;
 }
 
 export declare namespace DeleteVerifiedAccessInstance {
   export type Input = DeleteVerifiedAccessInstanceRequest;
   export type Output = DeleteVerifiedAccessInstanceResult;
-  export type Error = InvalidVerifiedAccessInstanceIdNotFound | CommonAwsError;
+  export type Error =
+    | InvalidVerifiedAccessInstanceIdNotFound
+    | DependencyViolation
+    | CommonAwsError;
 }
 
 export declare namespace DeleteVerifiedAccessTrustProvider {
@@ -23548,7 +23617,10 @@ export declare namespace DeleteVpnConnectionRoute {
 export declare namespace DeleteVpnGateway {
   export type Input = DeleteVpnGatewayRequest;
   export type Output = {};
-  export type Error = InvalidVpnGatewayIDNotFound | CommonAwsError;
+  export type Error =
+    | InvalidVpnGatewayIDNotFound
+    | DependencyViolation
+    | CommonAwsError;
 }
 
 export declare namespace DeprovisionByoipCidr {
@@ -26796,10 +26868,10 @@ export type EC2Errors =
   | InvalidVpnConnectionIDNotFound
   | VpnGatewayLimitExceeded
   | InvalidCarrierGatewayIDNotFound
+  | DependencyViolation
   | InvalidClientVpnRouteNotFound
   | InvalidDhcpOptionsIdMalformed
   | InvalidFlowLogIdNotFound
-  | DependencyViolation
   | InvalidIpamResourceDiscoveryIdNotFound
   | InvalidKeyPairNotFound
   | InvalidLaunchTemplateIdVersionNotFound
