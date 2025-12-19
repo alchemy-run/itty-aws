@@ -1,3 +1,13 @@
+## v0.8.9
+
+### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
+
+- **ec2**: Add InvalidEgressOnlyInternetGatewayId.NotFound to DeleteEgressOnlyInternetGateway &nbsp;-&nbsp; by **Sam Goodwin** [<samp>(8c502)</samp>](https://github.com/sam-goodwin/itty-aws/commit/8c502315)
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sam-goodwin/itty-aws/compare/v0.8.8...v0.8.9)
+
+---
+
 ## v0.8.8
 
 ### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
