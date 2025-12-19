@@ -876,7 +876,10 @@ export declare class EC2 extends AWSServiceClient {
     input: DeleteEgressOnlyInternetGatewayRequest,
   ): Effect.Effect<
     DeleteEgressOnlyInternetGatewayResult,
-    InvalidGatewayIDNotFound | DependencyViolation | CommonAwsError
+    | InvalidGatewayIDNotFound
+    | DependencyViolation
+    | InvalidEgressOnlyInternetGatewayIdNotFound
+    | CommonAwsError
   >;
   deleteFleets(
     input: DeleteFleetsRequest,
@@ -21564,6 +21567,10 @@ export declare class InvalidDhcpOptionsIdMalformed extends EffectData.TaggedErro
   "InvalidDhcpOptionsId.Malformed",
 )<{}> {}
 
+export declare class InvalidEgressOnlyInternetGatewayIdNotFound extends EffectData.TaggedError(
+  "InvalidEgressOnlyInternetGatewayId.NotFound",
+)<{}> {}
+
 export declare class InvalidFlowLogIdNotFound extends EffectData.TaggedError(
   "InvalidFlowLogId.NotFound",
 )<{}> {}
@@ -23037,6 +23044,7 @@ export declare namespace DeleteEgressOnlyInternetGateway {
   export type Error =
     | InvalidGatewayIDNotFound
     | DependencyViolation
+    | InvalidEgressOnlyInternetGatewayIdNotFound
     | CommonAwsError;
 }
 
@@ -26871,6 +26879,7 @@ export type EC2Errors =
   | DependencyViolation
   | InvalidClientVpnRouteNotFound
   | InvalidDhcpOptionsIdMalformed
+  | InvalidEgressOnlyInternetGatewayIdNotFound
   | InvalidFlowLogIdNotFound
   | InvalidIpamResourceDiscoveryIdNotFound
   | InvalidKeyPairNotFound

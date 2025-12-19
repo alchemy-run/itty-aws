@@ -1593,7 +1593,11 @@ export const servicePatches: Record<string, ServicePatches> = {
       errors: ["InvalidVpcID.NotFound"],
     },
     DeleteEgressOnlyInternetGateway: {
-      errors: ["InvalidGatewayID.NotFound", "DependencyViolation"],
+      errors: [
+        "InvalidGatewayID.NotFound",
+        "DependencyViolation",
+        "InvalidEgressOnlyInternetGatewayId.NotFound",
+      ],
     },
     DescribeEgressOnlyInternetGateways: {
       errors: ["InvalidGatewayID.NotFound"],
