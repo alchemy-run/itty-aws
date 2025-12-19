@@ -1,3 +1,13 @@
+## v0.8.5
+
+### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
+
+- **ec2**: Add DependencyViolation to DeleteSubnet errors &nbsp;-&nbsp; by **Sam Goodwin** [<samp>(5c6fd)</samp>](https://github.com/sam-goodwin/itty-aws/commit/5c6fd68d)
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sam-goodwin/itty-aws/compare/v0.8.4...v0.8.5)
+
+---
+
 ## v0.8.4
 
 ### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
