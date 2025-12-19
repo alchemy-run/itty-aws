@@ -931,7 +931,11 @@ export const servicePatches: Record<string, ServicePatches> = {
       errors: ["InvalidSubnetID.NotFound"],
     },
     DeleteSubnet: {
-      errors: ["InvalidSubnetID.NotFound", "InvalidSubnetId.Malformed"],
+      errors: [
+        "InvalidSubnetID.NotFound",
+        "InvalidSubnetId.Malformed",
+        "DependencyViolation",
+      ],
     },
     DeleteSubnetCidrReservation: {
       errors: ["InvalidSubnetCidrReservationId.NotFound"],

@@ -1117,7 +1117,10 @@ export declare class EC2 extends AWSServiceClient {
     input: DeleteSubnetRequest,
   ): Effect.Effect<
     {},
-    InvalidSubnetIDNotFound | InvalidSubnetIdMalformed | CommonAwsError
+    | InvalidSubnetIDNotFound
+    | InvalidSubnetIdMalformed
+    | DependencyViolation
+    | CommonAwsError
   >;
   deleteSubnetCidrReservation(
     input: DeleteSubnetCidrReservationRequest,
@@ -23306,6 +23309,7 @@ export declare namespace DeleteSubnet {
   export type Error =
     | InvalidSubnetIDNotFound
     | InvalidSubnetIdMalformed
+    | DependencyViolation
     | CommonAwsError;
 }
 
