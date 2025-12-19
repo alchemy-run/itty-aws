@@ -1,3 +1,13 @@
+## v0.8.8
+
+### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
+
+- **ec2**: Add missing DependencyViolation errors &nbsp;-&nbsp; by **Sam Goodwin** [<samp>(ac3f5)</samp>](https://github.com/sam-goodwin/itty-aws/commit/ac3f5365)
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sam-goodwin/itty-aws/compare/v0.8.7...v0.8.8)
+
+---
+
 ## v0.8.7
 
 ### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
