@@ -1,3 +1,15 @@
+## v0.8.7
+
+### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
+
+- **ec2**:
+  - Add errors to ReleaseAddress &nbsp;-&nbsp; by **Sam Goodwin** [<samp>(af414)</samp>](https://github.com/sam-goodwin/itty-aws/commit/af414e73)
+  - Add AuthFailure to ReleaseAddress &nbsp;-&nbsp; by **Sam Goodwin** [<samp>(b6cf3)</samp>](https://github.com/sam-goodwin/itty-aws/commit/b6cf399e)
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sam-goodwin/itty-aws/compare/v0.8.5...v0.8.7)
+
+---
+
 ## v0.8.6
 
 ### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
