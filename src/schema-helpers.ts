@@ -36,7 +36,10 @@ export const Path = <S extends Schema.Schema.AnyNoContext>(
   pathName: string,
   schema: S,
 ) => schema.pipe(Schema.annotations({ [requestPathSymbol]: pathName }));
-export const Error = <Tag extends string, S extends Schema.Struct.Fields>(
+export const ErrorAnnotation = <
+  Tag extends string,
+  S extends Schema.Struct.Fields,
+>(
   errorName: Tag,
   schema: Schema.Struct<S>,
 ) =>

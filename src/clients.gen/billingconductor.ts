@@ -1,0 +1,44 @@
+import { Schema} from "effect"
+import { FormatXMLRequest, FormatXMLResponse, makeOperation } from "../client";
+import { Operation, Path, Header, StreamBody, Body, ErrorAnnotation } from "../schema-helpers";
+const GroupByAttributesList = Schema.Array(Schema.String)
+const TagKeyList = Schema.Array(Schema.String)
+const ListTagsForResourceRequest = Schema.Struct({ResourceArn: Schema.String})
+const UntagResourceRequest = Schema.Struct({ResourceArn: Schema.String, TagKeys: TagKeyList})
+const UntagResourceResponse = Schema.Struct({})
+const AccountIdFilterList = Schema.Array(Schema.String)
+const BillingGroupArnList = Schema.Array(Schema.String)
+const BillingPeriodRange = Schema.Struct({InclusiveStartBillingPeriod: Schema.String, ExclusiveEndBillingPeriod: Schema.String})
+const ListAccountAssociationsFilter = Schema.Struct({Association: Schema.optional(Schema.String), AccountId: Schema.optional(Schema.String), AccountIds: Schema.optional(AccountIdFilterList)})
+const ListBillingGroupCostReportsFilter = Schema.Struct({BillingGroupArns: Schema.optional(BillingGroupArnList)})
+const TagMap = Schema.Record({key: Schema.String, value: Schema.String})
+const GetBillingGroupCostReportInput = Schema.Struct({Arn: Schema.String, BillingPeriodRange: Schema.optional(BillingPeriodRange), GroupBy: Schema.optional(GroupByAttributesList), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)})
+const ListAccountAssociationsInput = Schema.Struct({BillingPeriod: Schema.optional(Schema.String), Filters: Schema.optional(ListAccountAssociationsFilter), NextToken: Schema.optional(Schema.String)})
+const ListBillingGroupCostReportsInput = Schema.Struct({BillingPeriod: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), Filters: Schema.optional(ListBillingGroupCostReportsFilter)})
+const ListTagsForResourceResponse = Schema.Struct({Tags: Schema.optional(TagMap)})
+const TagResourceRequest = Schema.Struct({ResourceArn: Schema.String, Tags: TagMap})
+const TagResourceResponse = Schema.Struct({})
+const AccessDeniedException = Schema.Struct({Message: Schema.String})
+const InternalServerException = Schema.Struct({Message: Schema.String, RetryAfterSeconds: Schema.optional(Header("Retry-After", Schema.Number))})
+const ResourceNotFoundException = Schema.Struct({Message: Schema.String, ResourceId: Schema.String, ResourceType: Schema.String})
+export const TagResource = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/tags/{ResourceArn}", method: "POST", sdkId: "billingconductor", sigV4ServiceName: "billingconductor", name: "TagResource" }, TagResourceRequest, TagResourceResponse, Schema.Union(ErrorAnnotation("AccessDeniedException", AccessDeniedException), ErrorAnnotation("InternalServerException", InternalServerException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException), ErrorAnnotation("ThrottlingException", ThrottlingException), ErrorAnnotation("ValidationException", ValidationException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
+const ThrottlingException = Schema.Struct({Message: Schema.String, RetryAfterSeconds: Schema.optional(Header("Retry-After", Schema.Number))})
+export const UntagResource = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/tags/{ResourceArn}", method: "DELETE", sdkId: "billingconductor", sigV4ServiceName: "billingconductor", name: "UntagResource" }, UntagResourceRequest, UntagResourceResponse, Schema.Union(ErrorAnnotation("AccessDeniedException", AccessDeniedException), ErrorAnnotation("InternalServerException", InternalServerException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException), ErrorAnnotation("ThrottlingException", ThrottlingException), ErrorAnnotation("ValidationException", ValidationException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
+const AccountAssociationsListElement = Schema.Struct({AccountId: Schema.optional(Schema.String), BillingGroupArn: Schema.optional(Schema.String), AccountName: Schema.optional(Schema.String), AccountEmail: Schema.optional(Schema.String)})
+const AccountAssociationsList = Schema.Array(AccountAssociationsListElement)
+const BillingGroupCostReportElement = Schema.Struct({Arn: Schema.optional(Schema.String), AWSCost: Schema.optional(Schema.String), ProformaCost: Schema.optional(Schema.String), Margin: Schema.optional(Schema.String), MarginPercentage: Schema.optional(Schema.String), Currency: Schema.optional(Schema.String)})
+const BillingGroupCostReportList = Schema.Array(BillingGroupCostReportElement)
+const ListAccountAssociationsOutput = Schema.Struct({LinkedAccounts: Schema.optional(AccountAssociationsList), NextToken: Schema.optional(Schema.String)})
+export const ListAccountAssociations = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/list-account-associations", method: "POST", sdkId: "billingconductor", sigV4ServiceName: "billingconductor", name: "ListAccountAssociations" }, ListAccountAssociationsInput, ListAccountAssociationsOutput, Schema.Union(ErrorAnnotation("AccessDeniedException", AccessDeniedException), ErrorAnnotation("InternalServerException", InternalServerException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException), ErrorAnnotation("ThrottlingException", ThrottlingException), ErrorAnnotation("ValidationException", ValidationException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
+const ListBillingGroupCostReportsOutput = Schema.Struct({BillingGroupCostReports: Schema.optional(BillingGroupCostReportList), NextToken: Schema.optional(Schema.String)})
+export const ListBillingGroupCostReports = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/list-billing-group-cost-reports", method: "POST", sdkId: "billingconductor", sigV4ServiceName: "billingconductor", name: "ListBillingGroupCostReports" }, ListBillingGroupCostReportsInput, ListBillingGroupCostReportsOutput, Schema.Union(ErrorAnnotation("AccessDeniedException", AccessDeniedException), ErrorAnnotation("InternalServerException", InternalServerException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException), ErrorAnnotation("ThrottlingException", ThrottlingException), ErrorAnnotation("ValidationException", ValidationException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
+const Attribute = Schema.Struct({Key: Schema.optional(Schema.String), Value: Schema.optional(Schema.String)})
+const AttributesList = Schema.Array(Attribute)
+const BillingGroupCostReportResultElement = Schema.Struct({Arn: Schema.optional(Schema.String), AWSCost: Schema.optional(Schema.String), ProformaCost: Schema.optional(Schema.String), Margin: Schema.optional(Schema.String), MarginPercentage: Schema.optional(Schema.String), Currency: Schema.optional(Schema.String), Attributes: Schema.optional(AttributesList)})
+const BillingGroupCostReportResultsList = Schema.Array(BillingGroupCostReportResultElement)
+const ValidationExceptionField = Schema.Struct({Name: Schema.String, Message: Schema.String})
+const ValidationExceptionFieldList = Schema.Array(ValidationExceptionField)
+const GetBillingGroupCostReportOutput = Schema.Struct({BillingGroupCostReportResults: Schema.optional(BillingGroupCostReportResultsList), NextToken: Schema.optional(Schema.String)})
+export const GetBillingGroupCostReport = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/get-billing-group-cost-report", method: "POST", sdkId: "billingconductor", sigV4ServiceName: "billingconductor", name: "GetBillingGroupCostReport" }, GetBillingGroupCostReportInput, GetBillingGroupCostReportOutput, Schema.Union(ErrorAnnotation("AccessDeniedException", AccessDeniedException), ErrorAnnotation("InternalServerException", InternalServerException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException), ErrorAnnotation("ThrottlingException", ThrottlingException), ErrorAnnotation("ValidationException", ValidationException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
+const ValidationException = Schema.Struct({Message: Schema.String, Reason: Schema.optional(Schema.String), Fields: Schema.optional(ValidationExceptionFieldList)})
+export const ListTagsForResource = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/tags/{ResourceArn}", method: "GET", sdkId: "billingconductor", sigV4ServiceName: "billingconductor", name: "ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, Schema.Union(ErrorAnnotation("AccessDeniedException", AccessDeniedException), ErrorAnnotation("InternalServerException", InternalServerException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException), ErrorAnnotation("ThrottlingException", ThrottlingException), ErrorAnnotation("ValidationException", ValidationException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);

@@ -12,3 +12,5 @@
     ```
 - make everything into thunks
 - memory impact
+- whatever the hell this is
+  - https://github.com/smithy-lang/smithy/blob/main/smithy-aws-traits/src/main/java/software/amazon/smithy/aws/traits/auth/diff/SigV4Migration.java#L131

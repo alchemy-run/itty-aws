@@ -15,6 +15,15 @@ import {
   NoopResponse,
 } from "./src/client";
 
+class NoSuchBucket extends Error(
+  "NoSuchBucket",
+  Schema.Struct({
+    Code: Body("Error.Code", Schema.Literal("NoSuchBucket")),
+    Message: Body("Error.Message", Schema.String),
+    BucketName: Body("Error.BucketName", Schema.String),
+  }),
+) {}
+
 const input = () =>
   Operation(
     {
@@ -43,26 +52,8 @@ const input = () =>
     Schema.Struct({
       ETag: Header("etag", Schema.String),
     }),
-    Error("NoSuchKey", Schema.Struct({})),
     //todo(pear): make empty struct the default
-    // Schema.Union(
-    //   Error(
-    //     "NoSuchBucket",
-    //     Schema.Struct({
-    //       Code: Body("Error.Code", Schema.Literal("NoSuchBucket")),
-    //       Message: Body("Error.Message", Schema.String),
-    //       BucketName: Body("Error.BucketName", Schema.String),
-    //     }),
-    //   ),
-    //   Error(
-    //     "Test",
-    //     Schema.Struct({
-    //       Code: Body("Error.Code", Schema.Literal("Test")),
-    //       Message: Body("Error.Message", Schema.String),
-    //       BucketName: Body("Error.BucketName", Schema.String),
-    //     }),
-    //   ),
-    // ),
+    Schema.Union(NoSuchBucket),
   );
 
 import { BunContext, BunRuntime } from "@effect/platform-bun";
@@ -72,7 +63,7 @@ import { FetchHttpClient } from "@effect/platform";
 
 const program = Effect.gen(function* () {
   const PutObject = makeOperation(
-    input(),
+    input,
     NoopRequest,
     NoopResponse,
     FormatXMLResponse,
