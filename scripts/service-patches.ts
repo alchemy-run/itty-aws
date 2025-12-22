@@ -1873,10 +1873,10 @@ export const servicePatches: Record<string, ServicePatches> = {
       errors: ["NoSuchBucket", "NoSuchCORSConfiguration", "AccessDenied"],
     },
     PutBucketCors: {
-      errors: ["NoSuchBucket", "AccessDenied"],
+      errors: ["NoSuchBucket", "InvalidArgument", "AccessDenied"],
     },
     DeleteBucketCors: {
-      errors: ["NoSuchBucket", "AccessDenied"],
+      errors: ["NoSuchBucket", "NoSuchCORSConfiguration", "AccessDenied"],
     },
 
     // ========== Lifecycle Operations ==========
@@ -1884,10 +1884,15 @@ export const servicePatches: Record<string, ServicePatches> = {
       errors: ["NoSuchBucket", "NoSuchLifecycleConfiguration", "AccessDenied"],
     },
     PutBucketLifecycleConfiguration: {
-      errors: ["NoSuchBucket", "AccessDenied"],
+      errors: ["NoSuchBucket", "InvalidArgument", "AccessDenied"],
     },
     DeleteBucketLifecycle: {
-      errors: ["NoSuchBucket", "NoSuchLifecycleConfiguration", "AccessDenied"],
+      errors: [
+        "NoSuchBucket",
+        "NoSuchLifecycleConfiguration",
+        "MethodNotAllowed",
+        "AccessDenied",
+      ],
     },
 
     // ========== Tagging Operations ==========
@@ -1896,6 +1901,8 @@ export const servicePatches: Record<string, ServicePatches> = {
         "NoSuchBucket",
         "NoSuchTagSet",
         "NoSuchTagSetError",
+        "MethodNotAllowed",
+        "NotImplemented",
         "AccessDenied",
       ],
     },
@@ -1920,10 +1927,10 @@ export const servicePatches: Record<string, ServicePatches> = {
       errors: ["NoSuchBucket", "NoSuchWebsiteConfiguration", "AccessDenied"],
     },
     PutBucketWebsite: {
-      errors: ["NoSuchBucket", "AccessDenied"],
+      errors: ["NoSuchBucket", "InvalidArgument", "AccessDenied"],
     },
     DeleteBucketWebsite: {
-      errors: ["NoSuchBucket", "AccessDenied"],
+      errors: ["NoSuchBucket", "NoSuchWebsiteConfiguration", "AccessDenied"],
     },
 
     // ========== Public Access Block Operations ==========
@@ -1935,10 +1942,14 @@ export const servicePatches: Record<string, ServicePatches> = {
       ],
     },
     PutPublicAccessBlock: {
-      errors: ["NoSuchBucket", "AccessDenied"],
+      errors: ["NoSuchBucket", "InvalidArgument", "AccessDenied"],
     },
     DeletePublicAccessBlock: {
-      errors: ["NoSuchBucket", "AccessDenied"],
+      errors: [
+        "NoSuchBucket",
+        "NoSuchPublicAccessBlockConfiguration",
+        "AccessDenied",
+      ],
     },
 
     // ========== Object Lock Operations ==========
@@ -1947,6 +1958,8 @@ export const servicePatches: Record<string, ServicePatches> = {
         "NoSuchBucket",
         "ObjectLockConfigurationNotFound",
         "ObjectLockConfigurationNotFoundError",
+        "MethodNotAllowed",
+        "NotImplemented",
         "AccessDenied",
       ],
     },
@@ -1975,10 +1988,14 @@ export const servicePatches: Record<string, ServicePatches> = {
       ],
     },
     PutBucketReplication: {
-      errors: ["NoSuchBucket", "InvalidRequest", "AccessDenied"],
+      errors: ["NoSuchBucket", "InvalidRequest", "InvalidArgument", "AccessDenied"],
     },
     DeleteBucketReplication: {
-      errors: ["NoSuchBucket", "AccessDenied"],
+      errors: [
+        "NoSuchBucket",
+        "ReplicationConfigurationNotFoundError",
+        "AccessDenied",
+      ],
     },
 
     // ========== Encryption Operations ==========
@@ -1990,10 +2007,14 @@ export const servicePatches: Record<string, ServicePatches> = {
       ],
     },
     PutBucketEncryption: {
-      errors: ["NoSuchBucket", "AccessDenied"],
+      errors: ["NoSuchBucket", "OperationAborted", "AccessDenied"],
     },
     DeleteBucketEncryption: {
-      errors: ["NoSuchBucket", "AccessDenied"],
+      errors: [
+        "NoSuchBucket",
+        "ServerSideEncryptionConfigurationNotFoundError",
+        "AccessDenied",
+      ],
     },
 
     // ========== Ownership Controls Operations ==========
@@ -2005,10 +2026,10 @@ export const servicePatches: Record<string, ServicePatches> = {
       ],
     },
     PutBucketOwnershipControls: {
-      errors: ["NoSuchBucket", "AccessDenied"],
+      errors: ["NoSuchBucket", "InvalidArgument", "AccessDenied"],
     },
     DeleteBucketOwnershipControls: {
-      errors: ["NoSuchBucket", "AccessDenied"],
+      errors: ["NoSuchBucket", "OwnershipControlsNotFoundError", "AccessDenied"],
     },
 
     // ========== ACL Operations ==========
@@ -2030,7 +2051,12 @@ export const servicePatches: Record<string, ServicePatches> = {
       errors: ["NoSuchBucket", "AccessDenied"],
     },
     PutBucketVersioning: {
-      errors: ["NoSuchBucket", "AccessDenied"],
+      errors: [
+        "NoSuchBucket",
+        "InvalidArgument",
+        "InvalidBucketState",
+        "AccessDenied",
+      ],
     },
 
     // ========== Logging Operations ==========
@@ -2038,7 +2064,7 @@ export const servicePatches: Record<string, ServicePatches> = {
       errors: ["NoSuchBucket", "AccessDenied"],
     },
     PutBucketLogging: {
-      errors: ["NoSuchBucket", "AccessDenied"],
+      errors: ["NoSuchBucket", "InvalidArgument", "AccessDenied"],
     },
 
     // ========== Notification Operations ==========
@@ -2046,7 +2072,7 @@ export const servicePatches: Record<string, ServicePatches> = {
       errors: ["NoSuchBucket", "AccessDenied"],
     },
     PutBucketNotificationConfiguration: {
-      errors: ["NoSuchBucket", "AccessDenied"],
+      errors: ["NoSuchBucket", "InvalidArgument", "AccessDenied"],
     },
 
     // ========== Analytics Configuration Operations ==========
@@ -2054,10 +2080,10 @@ export const servicePatches: Record<string, ServicePatches> = {
       errors: ["NoSuchBucket", "NoSuchConfiguration", "AccessDenied"],
     },
     PutBucketAnalyticsConfiguration: {
-      errors: ["NoSuchBucket", "AccessDenied"],
+      errors: ["NoSuchBucket", "InvalidArgument", "AccessDenied"],
     },
     DeleteBucketAnalyticsConfiguration: {
-      errors: ["NoSuchBucket", "AccessDenied"],
+      errors: ["NoSuchBucket", "NoSuchConfiguration", "AccessDenied"],
     },
     ListBucketAnalyticsConfigurations: {
       errors: ["NoSuchBucket", "AccessDenied"],
@@ -2068,10 +2094,10 @@ export const servicePatches: Record<string, ServicePatches> = {
       errors: ["NoSuchBucket", "NoSuchConfiguration", "AccessDenied"],
     },
     PutBucketInventoryConfiguration: {
-      errors: ["NoSuchBucket", "AccessDenied"],
+      errors: ["NoSuchBucket", "InvalidArgument", "AccessDenied"],
     },
     DeleteBucketInventoryConfiguration: {
-      errors: ["NoSuchBucket", "AccessDenied"],
+      errors: ["NoSuchBucket", "NoSuchConfiguration", "AccessDenied"],
     },
     ListBucketInventoryConfigurations: {
       errors: ["NoSuchBucket", "AccessDenied"],
@@ -2082,10 +2108,10 @@ export const servicePatches: Record<string, ServicePatches> = {
       errors: ["NoSuchBucket", "NoSuchConfiguration", "AccessDenied"],
     },
     PutBucketMetricsConfiguration: {
-      errors: ["NoSuchBucket", "AccessDenied"],
+      errors: ["NoSuchBucket", "InvalidArgument", "AccessDenied"],
     },
     DeleteBucketMetricsConfiguration: {
-      errors: ["NoSuchBucket", "AccessDenied"],
+      errors: ["NoSuchBucket", "NoSuchConfiguration", "AccessDenied"],
     },
     ListBucketMetricsConfigurations: {
       errors: ["NoSuchBucket", "AccessDenied"],
@@ -2096,10 +2122,10 @@ export const servicePatches: Record<string, ServicePatches> = {
       errors: ["NoSuchBucket", "NoSuchConfiguration", "AccessDenied"],
     },
     PutBucketIntelligentTieringConfiguration: {
-      errors: ["NoSuchBucket", "AccessDenied"],
+      errors: ["NoSuchBucket", "InvalidArgument", "AccessDenied"],
     },
     DeleteBucketIntelligentTieringConfiguration: {
-      errors: ["NoSuchBucket", "AccessDenied"],
+      errors: ["NoSuchBucket", "NoSuchConfiguration", "AccessDenied"],
     },
     ListBucketIntelligentTieringConfigurations: {
       errors: ["NoSuchBucket", "AccessDenied"],
@@ -2118,7 +2144,7 @@ export const servicePatches: Record<string, ServicePatches> = {
       errors: ["NoSuchBucket", "AccessDenied"],
     },
     PutBucketRequestPayment: {
-      errors: ["NoSuchBucket", "AccessDenied"],
+      errors: ["NoSuchBucket", "InvalidArgument", "AccessDenied"],
     },
 
     // ========== Location Operations ==========
