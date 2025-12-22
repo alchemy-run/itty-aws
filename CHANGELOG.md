@@ -1,3 +1,13 @@
+## v0.8.11
+
+### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
+
+- **s3**: Add missing error tags &nbsp;-&nbsp; by **Sam Goodwin** [<samp>(c0818)</samp>](https://github.com/sam-goodwin/itty-aws/commit/c08182d2)
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sam-goodwin/itty-aws/compare/v0.8.10...v0.8.11)
+
+---
+
 ## v0.8.10
 
 ### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
