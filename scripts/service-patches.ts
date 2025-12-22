@@ -545,7 +545,11 @@ export const servicePatches: Record<string, ServicePatches> = {
       errors: ["InvalidLocalGatewayID.NotFound", "InvalidVpcID.NotFound"],
     },
     DeleteLocalGatewayRoute: {
-      errors: ["InvalidLocalGatewayRouteTableVpcAssociationId.NotFound"],
+      errors: [
+        "InvalidLocalGatewayRouteTableVpcAssociationId.NotFound",
+        "InvalidLocalGatewayRouteTableID.NotFound",
+        "InvalidRoute.NotFound",
+      ],
     },
     DeleteLocalGatewayRouteTableVpcAssociation: {
       errors: [
@@ -569,6 +573,9 @@ export const servicePatches: Record<string, ServicePatches> = {
     },
     DescribeLocalGatewayVirtualInterfaceGroups: {
       errors: ["InvalidLocalGatewayVirtualInterfaceGroupId.NotFound"],
+    },
+    SearchLocalGatewayRoutes: {
+      errors: ["InvalidLocalGatewayRouteTableID.NotFound"],
     },
 
     // ========== NAT Gateway Operations ==========
@@ -632,7 +639,10 @@ export const servicePatches: Record<string, ServicePatches> = {
       errors: ["InvalidNetworkInsightsAnalysisId.NotFound"],
     },
     DeleteNetworkInsightsPath: {
-      errors: ["InvalidNetworkInsightsPathId.NotFound"],
+      errors: [
+        "InvalidNetworkInsightsPathId.NotFound",
+        "AnalysisExistsForNetworkInsightsPath",
+      ],
     },
     DescribeNetworkInsightsAccessScopeAnalyses: {
       errors: ["InvalidNetworkInsightsAccessScopeAnalysisId.NotFound"],
@@ -1184,10 +1194,16 @@ export const servicePatches: Record<string, ServicePatches> = {
       errors: ["InvalidTransitGatewayAttachmentId.NotFound"],
     },
     DisassociateTransitGatewayMulticastDomain: {
-      errors: ["InvalidTransitGatewayMulticastDomainId.NotFound"],
+      errors: [
+        "InvalidTransitGatewayMulticastDomainId.NotFound",
+        "InvalidTransitGatewayMulticastDomainAssociation.NotFound",
+      ],
     },
     DisassociateTransitGatewayPolicyTable: {
-      errors: ["InvalidTransitGatewayPolicyTableId.NotFound"],
+      errors: [
+        "InvalidTransitGatewayPolicyTableId.NotFound",
+        "InvalidTransitGatewayPolicyTableAssociation.NotFound",
+      ],
     },
     DisassociateTransitGatewayRouteTable: {
       errors: ["InvalidTransitGatewayRouteTableId.NotFound"],
@@ -1460,7 +1476,10 @@ export const servicePatches: Record<string, ServicePatches> = {
       errors: ["InvalidNetworkLoadBalancerArn.NotFound"],
     },
     DeleteVpcEndpointConnectionNotifications: {
-      errors: ["InvalidVpcEndpointId.NotFound"],
+      errors: [
+        "InvalidVpcEndpointId.NotFound",
+        "InvalidConnectionNotification",
+      ],
     },
     DeleteVpcEndpoints: {
       errors: ["InvalidVpcEndpointId.NotFound"],
@@ -1469,7 +1488,10 @@ export const servicePatches: Record<string, ServicePatches> = {
       errors: ["InvalidVpcEndpointServiceId.NotFound"],
     },
     DescribeVpcEndpointConnectionNotifications: {
-      errors: ["InvalidVpcEndpointId.NotFound"],
+      errors: [
+        "InvalidVpcEndpointId.NotFound",
+        "InvalidConnectionNotification",
+      ],
     },
     DescribeVpcEndpointConnections: {
       errors: ["InvalidVpcEndpointServiceId.NotFound"],
@@ -1486,6 +1508,9 @@ export const servicePatches: Record<string, ServicePatches> = {
     },
     DescribeVpcEndpointServicePermissions: {
       errors: ["InvalidVpcEndpointServiceId.NotFound"],
+    },
+    DescribeVpcEndpointServices: {
+      errors: ["InvalidServiceName"],
     },
     ModifyVpcEndpoint: {
       errors: ["InvalidVpcEndpointId.NotFound"],
@@ -1753,7 +1778,11 @@ export const servicePatches: Record<string, ServicePatches> = {
 
     // ========== Public IPv4 Pool Operations ==========
     DescribePublicIpv4Pools: {
-      errors: ["InvalidPoolID.NotFound", "InvalidPoolID.Malformed"],
+      errors: [
+        "InvalidPoolID.NotFound",
+        "InvalidPoolID.Malformed",
+        "InvalidPublicIpv4PoolID.NotFound",
+      ],
     },
 
     // ========== Coip Pool Operations ==========

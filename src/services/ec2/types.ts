@@ -1012,7 +1012,10 @@ export declare class EC2 extends AWSServiceClient {
     input: DeleteLocalGatewayRouteRequest,
   ): Effect.Effect<
     DeleteLocalGatewayRouteResult,
-    InvalidLocalGatewayRouteTableVpcAssociationIdNotFound | CommonAwsError
+    | InvalidLocalGatewayRouteTableVpcAssociationIdNotFound
+    | InvalidLocalGatewayRouteTableIDNotFound
+    | InvalidRouteNotFound
+    | CommonAwsError
   >;
   deleteLocalGatewayRouteTable(
     input: DeleteLocalGatewayRouteTableRequest,
@@ -1095,7 +1098,9 @@ export declare class EC2 extends AWSServiceClient {
     input: DeleteNetworkInsightsPathRequest,
   ): Effect.Effect<
     DeleteNetworkInsightsPathResult,
-    InvalidNetworkInsightsPathIdNotFound | CommonAwsError
+    | InvalidNetworkInsightsPathIdNotFound
+    | AnalysisExistsForNetworkInsightsPath
+    | CommonAwsError
   >;
   deleteNetworkInterface(
     input: DeleteNetworkInterfaceRequest,
@@ -1340,7 +1345,9 @@ export declare class EC2 extends AWSServiceClient {
     input: DeleteVpcEndpointConnectionNotificationsRequest,
   ): Effect.Effect<
     DeleteVpcEndpointConnectionNotificationsResult,
-    InvalidVpcEndpointIdNotFound | CommonAwsError
+    | InvalidVpcEndpointIdNotFound
+    | InvalidConnectionNotification
+    | CommonAwsError
   >;
   deleteVpcEndpoints(
     input: DeleteVpcEndpointsRequest,
@@ -1937,7 +1944,10 @@ export declare class EC2 extends AWSServiceClient {
     input: DescribePublicIpv4PoolsRequest,
   ): Effect.Effect<
     DescribePublicIpv4PoolsResult,
-    InvalidPoolIDNotFound | InvalidPoolIDMalformed | CommonAwsError
+    | InvalidPoolIDNotFound
+    | InvalidPoolIDMalformed
+    | InvalidPublicIpv4PoolIDNotFound
+    | CommonAwsError
   >;
   describeRegions(
     input: DescribeRegionsRequest,
@@ -2277,7 +2287,9 @@ export declare class EC2 extends AWSServiceClient {
     input: DescribeVpcEndpointConnectionNotificationsRequest,
   ): Effect.Effect<
     DescribeVpcEndpointConnectionNotificationsResult,
-    InvalidVpcEndpointIdNotFound | CommonAwsError
+    | InvalidVpcEndpointIdNotFound
+    | InvalidConnectionNotification
+    | CommonAwsError
   >;
   describeVpcEndpointConnections(
     input: DescribeVpcEndpointConnectionsRequest,
@@ -2308,7 +2320,10 @@ export declare class EC2 extends AWSServiceClient {
   >;
   describeVpcEndpointServices(
     input: DescribeVpcEndpointServicesRequest,
-  ): Effect.Effect<DescribeVpcEndpointServicesResult, CommonAwsError>;
+  ): Effect.Effect<
+    DescribeVpcEndpointServicesResult,
+    InvalidServiceName | CommonAwsError
+  >;
   describeVpcPeeringConnections(
     input: DescribeVpcPeeringConnectionsRequest,
   ): Effect.Effect<
@@ -2543,13 +2558,17 @@ export declare class EC2 extends AWSServiceClient {
     input: DisassociateTransitGatewayMulticastDomainRequest,
   ): Effect.Effect<
     DisassociateTransitGatewayMulticastDomainResult,
-    InvalidTransitGatewayMulticastDomainIdNotFound | CommonAwsError
+    | InvalidTransitGatewayMulticastDomainIdNotFound
+    | InvalidTransitGatewayMulticastDomainAssociationNotFound
+    | CommonAwsError
   >;
   disassociateTransitGatewayPolicyTable(
     input: DisassociateTransitGatewayPolicyTableRequest,
   ): Effect.Effect<
     DisassociateTransitGatewayPolicyTableResult,
-    InvalidTransitGatewayPolicyTableIdNotFound | CommonAwsError
+    | InvalidTransitGatewayPolicyTableIdNotFound
+    | InvalidTransitGatewayPolicyTableAssociationNotFound
+    | CommonAwsError
   >;
   disassociateTransitGatewayRouteTable(
     input: DisassociateTransitGatewayRouteTableRequest,
@@ -3674,7 +3693,10 @@ export declare class EC2 extends AWSServiceClient {
   ): Effect.Effect<RunScheduledInstancesResult, CommonAwsError>;
   searchLocalGatewayRoutes(
     input: SearchLocalGatewayRoutesRequest,
-  ): Effect.Effect<SearchLocalGatewayRoutesResult, CommonAwsError>;
+  ): Effect.Effect<
+    SearchLocalGatewayRoutesResult,
+    InvalidLocalGatewayRouteTableIDNotFound | CommonAwsError
+  >;
   searchTransitGatewayMulticastGroups(
     input: SearchTransitGatewayMulticastGroupsRequest,
   ): Effect.Effect<
@@ -21722,6 +21744,14 @@ export declare class InvalidLaunchTemplateIdVersionNotFound extends EffectData.T
   "InvalidLaunchTemplateId.VersionNotFound",
 )<{}> {}
 
+export declare class InvalidLocalGatewayRouteTableIDNotFound extends EffectData.TaggedError(
+  "InvalidLocalGatewayRouteTableID.NotFound",
+)<{}> {}
+
+export declare class InvalidRouteNotFound extends EffectData.TaggedError(
+  "InvalidRoute.NotFound",
+)<{}> {}
+
 export declare class NatGatewayNotFound extends EffectData.TaggedError(
   "NatGatewayNotFound",
 )<{}> {}
@@ -21758,16 +21788,16 @@ export declare class InvalidNetworkInsightsPathIdNotFound extends EffectData.Tag
   "InvalidNetworkInsightsPathId.NotFound",
 )<{}> {}
 
+export declare class AnalysisExistsForNetworkInsightsPath extends EffectData.TaggedError(
+  "AnalysisExistsForNetworkInsightsPath",
+)<{}> {}
+
 export declare class InvalidPlacementGroupUnknown extends EffectData.TaggedError(
   "InvalidPlacementGroup.Unknown",
 )<{}> {}
 
 export declare class InvalidPlacementGroupInUse extends EffectData.TaggedError(
   "InvalidPlacementGroup.InUse",
-)<{}> {}
-
-export declare class InvalidRouteNotFound extends EffectData.TaggedError(
-  "InvalidRoute.NotFound",
 )<{}> {}
 
 export declare class IncorrectState extends EffectData.TaggedError(
@@ -21836,6 +21866,10 @@ export declare class VolumeInUse extends EffectData.TaggedError(
 
 export declare class InvalidVpcBlockPublicAccessExclusionIdNotFound extends EffectData.TaggedError(
   "InvalidVpcBlockPublicAccessExclusionId.NotFound",
+)<{}> {}
+
+export declare class InvalidConnectionNotification extends EffectData.TaggedError(
+  "InvalidConnectionNotification",
 )<{}> {}
 
 export declare class InvalidVpcPeeringConnectionNotFound extends EffectData.TaggedError(
@@ -21918,6 +21952,10 @@ export declare class InvalidPoolIDMalformed extends EffectData.TaggedError(
   "InvalidPoolID.Malformed",
 )<{}> {}
 
+export declare class InvalidPublicIpv4PoolIDNotFound extends EffectData.TaggedError(
+  "InvalidPublicIpv4PoolID.NotFound",
+)<{}> {}
+
 export declare class InvalidReplaceRootVolumeTaskIdNotFound extends EffectData.TaggedError(
   "InvalidReplaceRootVolumeTaskId.NotFound",
 )<{}> {}
@@ -21952,6 +21990,10 @@ export declare class InvalidVpcEndpointNotFound extends EffectData.TaggedError(
 
 export declare class InvalidVpcEndpointIdMalformed extends EffectData.TaggedError(
   "InvalidVpcEndpointId.Malformed",
+)<{}> {}
+
+export declare class InvalidServiceName extends EffectData.TaggedError(
+  "InvalidServiceName",
 )<{}> {}
 
 export declare class InvalidVpcPeeringConnectionIdMalformed extends EffectData.TaggedError(
@@ -22000,6 +22042,14 @@ export declare class InvalidClientVpnAssociationIdNotFound extends EffectData.Ta
 
 export declare class InvalidRouteServerIdNotAssociated extends EffectData.TaggedError(
   "InvalidRouteServerId.NotAssociated",
+)<{}> {}
+
+export declare class InvalidTransitGatewayMulticastDomainAssociationNotFound extends EffectData.TaggedError(
+  "InvalidTransitGatewayMulticastDomainAssociation.NotFound",
+)<{}> {}
+
+export declare class InvalidTransitGatewayPolicyTableAssociationNotFound extends EffectData.TaggedError(
+  "InvalidTransitGatewayPolicyTableAssociation.NotFound",
 )<{}> {}
 
 export declare class InvalidVpcCidrBlockAssociationIDNotFound extends EffectData.TaggedError(
@@ -23380,6 +23430,8 @@ export declare namespace DeleteLocalGatewayRoute {
   export type Output = DeleteLocalGatewayRouteResult;
   export type Error =
     | InvalidLocalGatewayRouteTableVpcAssociationIdNotFound
+    | InvalidLocalGatewayRouteTableIDNotFound
+    | InvalidRouteNotFound
     | CommonAwsError;
 }
 
@@ -23479,7 +23531,10 @@ export declare namespace DeleteNetworkInsightsAnalysis {
 export declare namespace DeleteNetworkInsightsPath {
   export type Input = DeleteNetworkInsightsPathRequest;
   export type Output = DeleteNetworkInsightsPathResult;
-  export type Error = InvalidNetworkInsightsPathIdNotFound | CommonAwsError;
+  export type Error =
+    | InvalidNetworkInsightsPathIdNotFound
+    | AnalysisExistsForNetworkInsightsPath
+    | CommonAwsError;
 }
 
 export declare namespace DeleteNetworkInterface {
@@ -23796,7 +23851,10 @@ export declare namespace DeleteVpcBlockPublicAccessExclusion {
 export declare namespace DeleteVpcEndpointConnectionNotifications {
   export type Input = DeleteVpcEndpointConnectionNotificationsRequest;
   export type Output = DeleteVpcEndpointConnectionNotificationsResult;
-  export type Error = InvalidVpcEndpointIdNotFound | CommonAwsError;
+  export type Error =
+    | InvalidVpcEndpointIdNotFound
+    | InvalidConnectionNotification
+    | CommonAwsError;
 }
 
 export declare namespace DeleteVpcEndpoints {
@@ -24607,6 +24665,7 @@ export declare namespace DescribePublicIpv4Pools {
   export type Error =
     | InvalidPoolIDNotFound
     | InvalidPoolIDMalformed
+    | InvalidPublicIpv4PoolIDNotFound
     | CommonAwsError;
 }
 
@@ -25039,7 +25098,10 @@ export declare namespace DescribeVpcEndpointAssociations {
 export declare namespace DescribeVpcEndpointConnectionNotifications {
   export type Input = DescribeVpcEndpointConnectionNotificationsRequest;
   export type Output = DescribeVpcEndpointConnectionNotificationsResult;
-  export type Error = InvalidVpcEndpointIdNotFound | CommonAwsError;
+  export type Error =
+    | InvalidVpcEndpointIdNotFound
+    | InvalidConnectionNotification
+    | CommonAwsError;
 }
 
 export declare namespace DescribeVpcEndpointConnections {
@@ -25073,7 +25135,7 @@ export declare namespace DescribeVpcEndpointServicePermissions {
 export declare namespace DescribeVpcEndpointServices {
   export type Input = DescribeVpcEndpointServicesRequest;
   export type Output = DescribeVpcEndpointServicesResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidServiceName | CommonAwsError;
 }
 
 export declare namespace DescribeVpcPeeringConnections {
@@ -25390,6 +25452,7 @@ export declare namespace DisassociateTransitGatewayMulticastDomain {
   export type Output = DisassociateTransitGatewayMulticastDomainResult;
   export type Error =
     | InvalidTransitGatewayMulticastDomainIdNotFound
+    | InvalidTransitGatewayMulticastDomainAssociationNotFound
     | CommonAwsError;
 }
 
@@ -25398,6 +25461,7 @@ export declare namespace DisassociateTransitGatewayPolicyTable {
   export type Output = DisassociateTransitGatewayPolicyTableResult;
   export type Error =
     | InvalidTransitGatewayPolicyTableIdNotFound
+    | InvalidTransitGatewayPolicyTableAssociationNotFound
     | CommonAwsError;
 }
 
@@ -26911,7 +26975,7 @@ export declare namespace RunScheduledInstances {
 export declare namespace SearchLocalGatewayRoutes {
   export type Input = SearchLocalGatewayRoutesRequest;
   export type Output = SearchLocalGatewayRoutesResult;
-  export type Error = CommonAwsError;
+  export type Error = InvalidLocalGatewayRouteTableIDNotFound | CommonAwsError;
 }
 
 export declare namespace SearchTransitGatewayMulticastGroups {
@@ -27142,6 +27206,8 @@ export type EC2Errors =
   | InvalidIpamResourceDiscoveryIdNotFound
   | InvalidKeyPairNotFound
   | InvalidLaunchTemplateIdVersionNotFound
+  | InvalidLocalGatewayRouteTableIDNotFound
+  | InvalidRouteNotFound
   | NatGatewayNotFound
   | NatGatewayMalformed
   | InvalidNetworkAclIdMalformed
@@ -27151,9 +27217,9 @@ export type EC2Errors =
   | InvalidNetworkInsightsAccessScopeAnalysisIdNotFound
   | InvalidNetworkInsightsAnalysisIdNotFound
   | InvalidNetworkInsightsPathIdNotFound
+  | AnalysisExistsForNetworkInsightsPath
   | InvalidPlacementGroupUnknown
   | InvalidPlacementGroupInUse
-  | InvalidRouteNotFound
   | IncorrectState
   | InvalidRouteServerPeerIdNotFound
   | InvalidGroupIdMalformed
@@ -27171,6 +27237,7 @@ export type EC2Errors =
   | InvalidParameterValue
   | VolumeInUse
   | InvalidVpcBlockPublicAccessExclusionIdNotFound
+  | InvalidConnectionNotification
   | InvalidVpcPeeringConnectionNotFound
   | InvalidPoolIDNotFound
   | InvalidAddressNotFound
@@ -27191,6 +27258,7 @@ export type EC2Errors =
   | InvalidLocalGatewayVirtualInterfaceGroupIdNotFound
   | InvalidPrefixListIdMalformed
   | InvalidPoolIDMalformed
+  | InvalidPublicIpv4PoolIDNotFound
   | InvalidReplaceRootVolumeTaskIdNotFound
   | InvalidReplaceRootVolumeTaskIdMalformed
   | InvalidReservationIDNotFound
@@ -27200,6 +27268,7 @@ export type EC2Errors =
   | InvalidTransitGatewayIdMalformed
   | InvalidVpcEndpointNotFound
   | InvalidVpcEndpointIdMalformed
+  | InvalidServiceName
   | InvalidVpcPeeringConnectionIdMalformed
   | InvalidVpcIDMalformed
   | InvalidVpnConnectionID
@@ -27212,6 +27281,8 @@ export type EC2Errors =
   | TransitGatewayRouteTablePropagationNotFound
   | InvalidClientVpnAssociationIdNotFound
   | InvalidRouteServerIdNotAssociated
+  | InvalidTransitGatewayMulticastDomainAssociationNotFound
+  | InvalidTransitGatewayPolicyTableAssociationNotFound
   | InvalidVpcCidrBlockAssociationIDNotFound
   | InvalidInstanceType
   | InvalidIpamPoolAllocationIdNotFound
