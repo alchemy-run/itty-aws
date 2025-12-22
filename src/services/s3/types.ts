@@ -9,11 +9,7 @@ export declare class S3 extends AWSServiceClient {
     input: AbortMultipartUploadRequest,
   ): Effect.Effect<
     AbortMultipartUploadOutput,
-    | NoSuchUpload
-    | NoSuchBucket
-    | AccessDenied
-    | OperationAborted
-    | CommonAwsError
+    NoSuchUpload | NoSuchBucket | AccessDenied | CommonAwsError
   >;
   completeMultipartUpload(
     input: CompleteMultipartUploadRequest,
@@ -24,7 +20,6 @@ export declare class S3 extends AWSServiceClient {
     | InvalidPart
     | InvalidPartOrder
     | AccessDenied
-    | OperationAborted
     | CommonAwsError
   >;
   copyObject(
@@ -37,11 +32,6 @@ export declare class S3 extends AWSServiceClient {
     | InvalidArgument
     | InvalidRequest
     | AccessDenied
-    | MethodNotAllowed
-    | NotImplemented
-    | UnsupportedArgument
-    | XNotImplemented
-    | UnsupportedOperation
     | CommonAwsError
   >;
   createBucket(
@@ -53,7 +43,6 @@ export declare class S3 extends AWSServiceClient {
     | IllegalLocationConstraintException
     | InvalidBucketName
     | TooManyBuckets
-    | OperationAborted
     | CommonAwsError
   >;
   createBucketMetadataConfiguration(
@@ -75,32 +64,50 @@ export declare class S3 extends AWSServiceClient {
     input: DeleteBucketRequest,
   ): Effect.Effect<
     {},
-    | NoSuchBucket
-    | BucketNotEmpty
-    | AccessDenied
-    | OperationAborted
-    | CommonAwsError
+    NoSuchBucket | BucketNotEmpty | AccessDenied | CommonAwsError
   >;
   deleteBucketAnalyticsConfiguration(
     input: DeleteBucketAnalyticsConfigurationRequest,
-  ): Effect.Effect<{}, NoSuchBucket | AccessDenied | CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    NoSuchBucket | NoSuchConfiguration | AccessDenied | CommonAwsError
+  >;
   deleteBucketCors(
     input: DeleteBucketCorsRequest,
-  ): Effect.Effect<{}, NoSuchBucket | AccessDenied | CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    NoSuchBucket | NoSuchCORSConfiguration | AccessDenied | CommonAwsError
+  >;
   deleteBucketEncryption(
     input: DeleteBucketEncryptionRequest,
-  ): Effect.Effect<{}, NoSuchBucket | AccessDenied | CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    | NoSuchBucket
+    | ServerSideEncryptionConfigurationNotFoundError
+    | AccessDenied
+    | CommonAwsError
+  >;
   deleteBucketIntelligentTieringConfiguration(
     input: DeleteBucketIntelligentTieringConfigurationRequest,
-  ): Effect.Effect<{}, NoSuchBucket | AccessDenied | CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    NoSuchBucket | NoSuchConfiguration | AccessDenied | CommonAwsError
+  >;
   deleteBucketInventoryConfiguration(
     input: DeleteBucketInventoryConfigurationRequest,
-  ): Effect.Effect<{}, NoSuchBucket | AccessDenied | CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    NoSuchBucket | NoSuchConfiguration | AccessDenied | CommonAwsError
+  >;
   deleteBucketLifecycle(
     input: DeleteBucketLifecycleRequest,
   ): Effect.Effect<
     {},
-    NoSuchBucket | NoSuchLifecycleConfiguration | AccessDenied | CommonAwsError
+    | NoSuchBucket
+    | NoSuchLifecycleConfiguration
+    | MethodNotAllowed
+    | AccessDenied
+    | CommonAwsError
   >;
   deleteBucketMetadataConfiguration(
     input: DeleteBucketMetadataConfigurationRequest,
@@ -113,10 +120,19 @@ export declare class S3 extends AWSServiceClient {
   ): Effect.Effect<{}, NoSuchBucket | AccessDenied | CommonAwsError>;
   deleteBucketMetricsConfiguration(
     input: DeleteBucketMetricsConfigurationRequest,
-  ): Effect.Effect<{}, NoSuchBucket | AccessDenied | CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    NoSuchBucket | NoSuchConfiguration | AccessDenied | CommonAwsError
+  >;
   deleteBucketOwnershipControls(
     input: DeleteBucketOwnershipControlsRequest,
-  ): Effect.Effect<{}, NoSuchBucket | AccessDenied | CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    | NoSuchBucket
+    | OwnershipControlsNotFoundError
+    | AccessDenied
+    | CommonAwsError
+  >;
   deleteBucketPolicy(
     input: DeleteBucketPolicyRequest,
   ): Effect.Effect<
@@ -125,18 +141,27 @@ export declare class S3 extends AWSServiceClient {
   >;
   deleteBucketReplication(
     input: DeleteBucketReplicationRequest,
-  ): Effect.Effect<{}, NoSuchBucket | AccessDenied | CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    | NoSuchBucket
+    | ReplicationConfigurationNotFoundError
+    | AccessDenied
+    | CommonAwsError
+  >;
   deleteBucketTagging(
     input: DeleteBucketTaggingRequest,
   ): Effect.Effect<{}, NoSuchBucket | AccessDenied | CommonAwsError>;
   deleteBucketWebsite(
     input: DeleteBucketWebsiteRequest,
-  ): Effect.Effect<{}, NoSuchBucket | AccessDenied | CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    NoSuchBucket | NoSuchWebsiteConfiguration | AccessDenied | CommonAwsError
+  >;
   deleteObject(
     input: DeleteObjectRequest,
   ): Effect.Effect<
     DeleteObjectOutput,
-    NoSuchBucket | AccessDenied | MethodNotAllowed | CommonAwsError
+    NoSuchBucket | AccessDenied | CommonAwsError
   >;
   deleteObjects(
     input: DeleteObjectsRequest,
@@ -152,7 +177,13 @@ export declare class S3 extends AWSServiceClient {
   >;
   deletePublicAccessBlock(
     input: DeletePublicAccessBlockRequest,
-  ): Effect.Effect<{}, NoSuchBucket | AccessDenied | CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    | NoSuchBucket
+    | NoSuchPublicAccessBlockConfiguration
+    | AccessDenied
+    | CommonAwsError
+  >;
   getBucketAccelerateConfiguration(
     input: GetBucketAccelerateConfigurationRequest,
   ): Effect.Effect<
@@ -287,6 +318,8 @@ export declare class S3 extends AWSServiceClient {
     | NoSuchBucket
     | NoSuchTagSet
     | NoSuchTagSetError
+    | MethodNotAllowed
+    | NotImplemented
     | AccessDenied
     | CommonAwsError
   >;
@@ -310,10 +343,6 @@ export declare class S3 extends AWSServiceClient {
     | NoSuchKey
     | NoSuchBucket
     | AccessDenied
-    | MethodNotAllowed
-    | NotImplemented
-    | XNotImplemented
-    | UnsupportedOperation
     | CommonAwsError
   >;
   getObjectAcl(
@@ -341,6 +370,8 @@ export declare class S3 extends AWSServiceClient {
     | NoSuchBucket
     | ObjectLockConfigurationNotFound
     | ObjectLockConfigurationNotFoundError
+    | MethodNotAllowed
+    | NotImplemented
     | AccessDenied
     | CommonAwsError
   >;
@@ -375,18 +406,13 @@ export declare class S3 extends AWSServiceClient {
     input: HeadBucketRequest,
   ): Effect.Effect<
     HeadBucketOutput,
-    NotFound | NoSuchBucket | AccessDenied | MethodNotAllowed | CommonAwsError
+    NotFound | NoSuchBucket | AccessDenied | CommonAwsError
   >;
   headObject(
     input: HeadObjectRequest,
   ): Effect.Effect<
     HeadObjectOutput,
-    | NotFound
-    | NoSuchKey
-    | NoSuchBucket
-    | AccessDenied
-    | MethodNotAllowed
-    | CommonAwsError
+    NotFound | NoSuchKey | NoSuchBucket | AccessDenied | CommonAwsError
   >;
   listBucketAnalyticsConfigurations(
     input: ListBucketAnalyticsConfigurationsRequest,
@@ -434,12 +460,7 @@ export declare class S3 extends AWSServiceClient {
     input: ListObjectsV2Request,
   ): Effect.Effect<
     ListObjectsV2Output,
-    | NoSuchBucket
-    | AccessDenied
-    | NotImplemented
-    | XNotImplemented
-    | UnsupportedOperation
-    | CommonAwsError
+    NoSuchBucket | AccessDenied | CommonAwsError
   >;
   listObjectVersions(
     input: ListObjectVersionsRequest,
@@ -461,37 +482,64 @@ export declare class S3 extends AWSServiceClient {
   ): Effect.Effect<{}, NoSuchBucket | AccessDenied | CommonAwsError>;
   putBucketAnalyticsConfiguration(
     input: PutBucketAnalyticsConfigurationRequest,
-  ): Effect.Effect<{}, NoSuchBucket | AccessDenied | CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    NoSuchBucket | InvalidArgument | AccessDenied | CommonAwsError
+  >;
   putBucketCors(
     input: PutBucketCorsRequest,
-  ): Effect.Effect<{}, NoSuchBucket | AccessDenied | CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    NoSuchBucket | InvalidArgument | AccessDenied | CommonAwsError
+  >;
   putBucketEncryption(
     input: PutBucketEncryptionRequest,
-  ): Effect.Effect<{}, NoSuchBucket | AccessDenied | CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    NoSuchBucket | OperationAborted | AccessDenied | CommonAwsError
+  >;
   putBucketIntelligentTieringConfiguration(
     input: PutBucketIntelligentTieringConfigurationRequest,
-  ): Effect.Effect<{}, NoSuchBucket | AccessDenied | CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    NoSuchBucket | InvalidArgument | AccessDenied | CommonAwsError
+  >;
   putBucketInventoryConfiguration(
     input: PutBucketInventoryConfigurationRequest,
-  ): Effect.Effect<{}, NoSuchBucket | AccessDenied | CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    NoSuchBucket | InvalidArgument | AccessDenied | CommonAwsError
+  >;
   putBucketLifecycleConfiguration(
     input: PutBucketLifecycleConfigurationRequest,
   ): Effect.Effect<
     PutBucketLifecycleConfigurationOutput,
-    NoSuchBucket | AccessDenied | CommonAwsError
+    NoSuchBucket | InvalidArgument | AccessDenied | CommonAwsError
   >;
   putBucketLogging(
     input: PutBucketLoggingRequest,
-  ): Effect.Effect<{}, NoSuchBucket | AccessDenied | CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    NoSuchBucket | InvalidArgument | AccessDenied | CommonAwsError
+  >;
   putBucketMetricsConfiguration(
     input: PutBucketMetricsConfigurationRequest,
-  ): Effect.Effect<{}, NoSuchBucket | AccessDenied | CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    NoSuchBucket | InvalidArgument | AccessDenied | CommonAwsError
+  >;
   putBucketNotificationConfiguration(
     input: PutBucketNotificationConfigurationRequest,
-  ): Effect.Effect<{}, NoSuchBucket | AccessDenied | CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    NoSuchBucket | InvalidArgument | AccessDenied | CommonAwsError
+  >;
   putBucketOwnershipControls(
     input: PutBucketOwnershipControlsRequest,
-  ): Effect.Effect<{}, NoSuchBucket | AccessDenied | CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    NoSuchBucket | InvalidArgument | AccessDenied | CommonAwsError
+  >;
   putBucketPolicy(
     input: PutBucketPolicyRequest,
   ): Effect.Effect<
@@ -502,20 +550,37 @@ export declare class S3 extends AWSServiceClient {
     input: PutBucketReplicationRequest,
   ): Effect.Effect<
     {},
-    NoSuchBucket | InvalidRequest | AccessDenied | CommonAwsError
+    | NoSuchBucket
+    | InvalidRequest
+    | InvalidArgument
+    | AccessDenied
+    | CommonAwsError
   >;
   putBucketRequestPayment(
     input: PutBucketRequestPaymentRequest,
-  ): Effect.Effect<{}, NoSuchBucket | AccessDenied | CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    NoSuchBucket | InvalidArgument | AccessDenied | CommonAwsError
+  >;
   putBucketTagging(
     input: PutBucketTaggingRequest,
   ): Effect.Effect<{}, NoSuchBucket | AccessDenied | CommonAwsError>;
   putBucketVersioning(
     input: PutBucketVersioningRequest,
-  ): Effect.Effect<{}, NoSuchBucket | AccessDenied | CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    | NoSuchBucket
+    | InvalidArgument
+    | InvalidBucketState
+    | AccessDenied
+    | CommonAwsError
+  >;
   putBucketWebsite(
     input: PutBucketWebsiteRequest,
-  ): Effect.Effect<{}, NoSuchBucket | AccessDenied | CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    NoSuchBucket | InvalidArgument | AccessDenied | CommonAwsError
+  >;
   putObject(
     input: PutObjectRequest,
   ): Effect.Effect<
@@ -528,11 +593,6 @@ export declare class S3 extends AWSServiceClient {
     | InvalidArgument
     | AccessDenied
     | EntityTooLarge
-    | MethodNotAllowed
-    | NotImplemented
-    | UnsupportedArgument
-    | XNotImplemented
-    | UnsupportedOperation
     | CommonAwsError
   >;
   putObjectAcl(
@@ -567,7 +627,10 @@ export declare class S3 extends AWSServiceClient {
   >;
   putPublicAccessBlock(
     input: PutPublicAccessBlockRequest,
-  ): Effect.Effect<{}, NoSuchBucket | AccessDenied | CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    NoSuchBucket | InvalidArgument | AccessDenied | CommonAwsError
+  >;
   renameObject(
     input: RenameObjectRequest,
   ): Effect.Effect<
@@ -3452,10 +3515,6 @@ export declare class AccessDenied extends EffectData.TaggedError(
   "AccessDenied",
 )<{}> {}
 
-export declare class OperationAborted extends EffectData.TaggedError(
-  "OperationAborted",
-)<{}> {}
-
 export declare class InvalidPart extends EffectData.TaggedError(
   "InvalidPart",
 )<{}> {}
@@ -3466,26 +3525,6 @@ export declare class InvalidPartOrder extends EffectData.TaggedError(
 
 export declare class InvalidArgument extends EffectData.TaggedError(
   "InvalidArgument",
-)<{}> {}
-
-export declare class MethodNotAllowed extends EffectData.TaggedError(
-  "MethodNotAllowed",
-)<{}> {}
-
-export declare class NotImplemented extends EffectData.TaggedError(
-  "NotImplemented",
-)<{}> {}
-
-export declare class UnsupportedArgument extends EffectData.TaggedError(
-  "UnsupportedArgument",
-)<{}> {}
-
-export declare class XNotImplemented extends EffectData.TaggedError(
-  "XNotImplemented",
-)<{}> {}
-
-export declare class UnsupportedOperation extends EffectData.TaggedError(
-  "UnsupportedOperation",
 )<{}> {}
 
 export declare class IllegalLocationConstraintException extends EffectData.TaggedError(
@@ -3504,22 +3543,6 @@ export declare class BucketNotEmpty extends EffectData.TaggedError(
   "BucketNotEmpty",
 )<{}> {}
 
-export declare class NoSuchLifecycleConfiguration extends EffectData.TaggedError(
-  "NoSuchLifecycleConfiguration",
-)<{}> {}
-
-export declare class MetadataConfigurationNotFound extends EffectData.TaggedError(
-  "MetadataConfigurationNotFound",
-)<{}> {}
-
-export declare class NoSuchBucketPolicy extends EffectData.TaggedError(
-  "NoSuchBucketPolicy",
-)<{}> {}
-
-export declare class MalformedXML extends EffectData.TaggedError(
-  "MalformedXML",
-)<{}> {}
-
 export declare class NoSuchConfiguration extends EffectData.TaggedError(
   "NoSuchConfiguration",
 )<{}> {}
@@ -3532,16 +3555,44 @@ export declare class ServerSideEncryptionConfigurationNotFoundError extends Effe
   "ServerSideEncryptionConfigurationNotFoundError",
 )<{}> {}
 
+export declare class NoSuchLifecycleConfiguration extends EffectData.TaggedError(
+  "NoSuchLifecycleConfiguration",
+)<{}> {}
+
+export declare class MethodNotAllowed extends EffectData.TaggedError(
+  "MethodNotAllowed",
+)<{}> {}
+
+export declare class MetadataConfigurationNotFound extends EffectData.TaggedError(
+  "MetadataConfigurationNotFound",
+)<{}> {}
+
 export declare class OwnershipControlsNotFoundError extends EffectData.TaggedError(
   "OwnershipControlsNotFoundError",
 )<{}> {}
 
-export declare class InvalidBucketState extends EffectData.TaggedError(
-  "InvalidBucketState",
+export declare class NoSuchBucketPolicy extends EffectData.TaggedError(
+  "NoSuchBucketPolicy",
 )<{}> {}
 
 export declare class ReplicationConfigurationNotFoundError extends EffectData.TaggedError(
   "ReplicationConfigurationNotFoundError",
+)<{}> {}
+
+export declare class NoSuchWebsiteConfiguration extends EffectData.TaggedError(
+  "NoSuchWebsiteConfiguration",
+)<{}> {}
+
+export declare class MalformedXML extends EffectData.TaggedError(
+  "MalformedXML",
+)<{}> {}
+
+export declare class NoSuchPublicAccessBlockConfiguration extends EffectData.TaggedError(
+  "NoSuchPublicAccessBlockConfiguration",
+)<{}> {}
+
+export declare class InvalidBucketState extends EffectData.TaggedError(
+  "InvalidBucketState",
 )<{}> {}
 
 export declare class NoSuchTagSet extends EffectData.TaggedError(
@@ -3552,8 +3603,8 @@ export declare class NoSuchTagSetError extends EffectData.TaggedError(
   "NoSuchTagSetError",
 )<{}> {}
 
-export declare class NoSuchWebsiteConfiguration extends EffectData.TaggedError(
-  "NoSuchWebsiteConfiguration",
+export declare class NotImplemented extends EffectData.TaggedError(
+  "NotImplemented",
 )<{}> {}
 
 export declare class ObjectLockConfigurationNotFound extends EffectData.TaggedError(
@@ -3564,8 +3615,8 @@ export declare class ObjectLockConfigurationNotFoundError extends EffectData.Tag
   "ObjectLockConfigurationNotFoundError",
 )<{}> {}
 
-export declare class NoSuchPublicAccessBlockConfiguration extends EffectData.TaggedError(
-  "NoSuchPublicAccessBlockConfiguration",
+export declare class OperationAborted extends EffectData.TaggedError(
+  "OperationAborted",
 )<{}> {}
 
 export declare class MalformedPolicy extends EffectData.TaggedError(
@@ -3583,7 +3634,6 @@ export declare namespace AbortMultipartUpload {
     | NoSuchUpload
     | NoSuchBucket
     | AccessDenied
-    | OperationAborted
     | CommonAwsError;
 }
 
@@ -3596,7 +3646,6 @@ export declare namespace CompleteMultipartUpload {
     | InvalidPart
     | InvalidPartOrder
     | AccessDenied
-    | OperationAborted
     | CommonAwsError;
 }
 
@@ -3610,11 +3659,6 @@ export declare namespace CopyObject {
     | InvalidArgument
     | InvalidRequest
     | AccessDenied
-    | MethodNotAllowed
-    | NotImplemented
-    | UnsupportedArgument
-    | XNotImplemented
-    | UnsupportedOperation
     | CommonAwsError;
 }
 
@@ -3627,7 +3671,6 @@ export declare namespace CreateBucket {
     | IllegalLocationConstraintException
     | InvalidBucketName
     | TooManyBuckets
-    | OperationAborted
     | CommonAwsError;
 }
 
@@ -3666,38 +3709,57 @@ export declare namespace DeleteBucket {
     | NoSuchBucket
     | BucketNotEmpty
     | AccessDenied
-    | OperationAborted
     | CommonAwsError;
 }
 
 export declare namespace DeleteBucketAnalyticsConfiguration {
   export type Input = DeleteBucketAnalyticsConfigurationRequest;
   export type Output = {};
-  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
+  export type Error =
+    | NoSuchBucket
+    | NoSuchConfiguration
+    | AccessDenied
+    | CommonAwsError;
 }
 
 export declare namespace DeleteBucketCors {
   export type Input = DeleteBucketCorsRequest;
   export type Output = {};
-  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
+  export type Error =
+    | NoSuchBucket
+    | NoSuchCORSConfiguration
+    | AccessDenied
+    | CommonAwsError;
 }
 
 export declare namespace DeleteBucketEncryption {
   export type Input = DeleteBucketEncryptionRequest;
   export type Output = {};
-  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
+  export type Error =
+    | NoSuchBucket
+    | ServerSideEncryptionConfigurationNotFoundError
+    | AccessDenied
+    | CommonAwsError;
 }
 
 export declare namespace DeleteBucketIntelligentTieringConfiguration {
   export type Input = DeleteBucketIntelligentTieringConfigurationRequest;
   export type Output = {};
-  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
+  export type Error =
+    | NoSuchBucket
+    | NoSuchConfiguration
+    | AccessDenied
+    | CommonAwsError;
 }
 
 export declare namespace DeleteBucketInventoryConfiguration {
   export type Input = DeleteBucketInventoryConfigurationRequest;
   export type Output = {};
-  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
+  export type Error =
+    | NoSuchBucket
+    | NoSuchConfiguration
+    | AccessDenied
+    | CommonAwsError;
 }
 
 export declare namespace DeleteBucketLifecycle {
@@ -3706,6 +3768,7 @@ export declare namespace DeleteBucketLifecycle {
   export type Error =
     | NoSuchBucket
     | NoSuchLifecycleConfiguration
+    | MethodNotAllowed
     | AccessDenied
     | CommonAwsError;
 }
@@ -3729,13 +3792,21 @@ export declare namespace DeleteBucketMetadataTableConfiguration {
 export declare namespace DeleteBucketMetricsConfiguration {
   export type Input = DeleteBucketMetricsConfigurationRequest;
   export type Output = {};
-  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
+  export type Error =
+    | NoSuchBucket
+    | NoSuchConfiguration
+    | AccessDenied
+    | CommonAwsError;
 }
 
 export declare namespace DeleteBucketOwnershipControls {
   export type Input = DeleteBucketOwnershipControlsRequest;
   export type Output = {};
-  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
+  export type Error =
+    | NoSuchBucket
+    | OwnershipControlsNotFoundError
+    | AccessDenied
+    | CommonAwsError;
 }
 
 export declare namespace DeleteBucketPolicy {
@@ -3751,7 +3822,11 @@ export declare namespace DeleteBucketPolicy {
 export declare namespace DeleteBucketReplication {
   export type Input = DeleteBucketReplicationRequest;
   export type Output = {};
-  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
+  export type Error =
+    | NoSuchBucket
+    | ReplicationConfigurationNotFoundError
+    | AccessDenied
+    | CommonAwsError;
 }
 
 export declare namespace DeleteBucketTagging {
@@ -3763,17 +3838,17 @@ export declare namespace DeleteBucketTagging {
 export declare namespace DeleteBucketWebsite {
   export type Input = DeleteBucketWebsiteRequest;
   export type Output = {};
-  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
+  export type Error =
+    | NoSuchBucket
+    | NoSuchWebsiteConfiguration
+    | AccessDenied
+    | CommonAwsError;
 }
 
 export declare namespace DeleteObject {
   export type Input = DeleteObjectRequest;
   export type Output = DeleteObjectOutput;
-  export type Error =
-    | NoSuchBucket
-    | AccessDenied
-    | MethodNotAllowed
-    | CommonAwsError;
+  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
 }
 
 export declare namespace DeleteObjects {
@@ -3795,7 +3870,11 @@ export declare namespace DeleteObjectTagging {
 export declare namespace DeletePublicAccessBlock {
   export type Input = DeletePublicAccessBlockRequest;
   export type Output = {};
-  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
+  export type Error =
+    | NoSuchBucket
+    | NoSuchPublicAccessBlockConfiguration
+    | AccessDenied
+    | CommonAwsError;
 }
 
 export declare namespace GetBucketAccelerateConfiguration {
@@ -3968,6 +4047,8 @@ export declare namespace GetBucketTagging {
     | NoSuchBucket
     | NoSuchTagSet
     | NoSuchTagSetError
+    | MethodNotAllowed
+    | NotImplemented
     | AccessDenied
     | CommonAwsError;
 }
@@ -3996,10 +4077,6 @@ export declare namespace GetObject {
     | NoSuchKey
     | NoSuchBucket
     | AccessDenied
-    | MethodNotAllowed
-    | NotImplemented
-    | XNotImplemented
-    | UnsupportedOperation
     | CommonAwsError;
 }
 
@@ -4028,6 +4105,8 @@ export declare namespace GetObjectLockConfiguration {
     | NoSuchBucket
     | ObjectLockConfigurationNotFound
     | ObjectLockConfigurationNotFoundError
+    | MethodNotAllowed
+    | NotImplemented
     | AccessDenied
     | CommonAwsError;
 }
@@ -4063,12 +4142,7 @@ export declare namespace GetPublicAccessBlock {
 export declare namespace HeadBucket {
   export type Input = HeadBucketRequest;
   export type Output = HeadBucketOutput;
-  export type Error =
-    | NotFound
-    | NoSuchBucket
-    | AccessDenied
-    | MethodNotAllowed
-    | CommonAwsError;
+  export type Error = NotFound | NoSuchBucket | AccessDenied | CommonAwsError;
 }
 
 export declare namespace HeadObject {
@@ -4079,7 +4153,6 @@ export declare namespace HeadObject {
     | NoSuchKey
     | NoSuchBucket
     | AccessDenied
-    | MethodNotAllowed
     | CommonAwsError;
 }
 
@@ -4134,13 +4207,7 @@ export declare namespace ListObjects {
 export declare namespace ListObjectsV2 {
   export type Input = ListObjectsV2Request;
   export type Output = ListObjectsV2Output;
-  export type Error =
-    | NoSuchBucket
-    | AccessDenied
-    | NotImplemented
-    | XNotImplemented
-    | UnsupportedOperation
-    | CommonAwsError;
+  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
 }
 
 export declare namespace ListObjectVersions {
@@ -4174,61 +4241,101 @@ export declare namespace PutBucketAcl {
 export declare namespace PutBucketAnalyticsConfiguration {
   export type Input = PutBucketAnalyticsConfigurationRequest;
   export type Output = {};
-  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
+  export type Error =
+    | NoSuchBucket
+    | InvalidArgument
+    | AccessDenied
+    | CommonAwsError;
 }
 
 export declare namespace PutBucketCors {
   export type Input = PutBucketCorsRequest;
   export type Output = {};
-  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
+  export type Error =
+    | NoSuchBucket
+    | InvalidArgument
+    | AccessDenied
+    | CommonAwsError;
 }
 
 export declare namespace PutBucketEncryption {
   export type Input = PutBucketEncryptionRequest;
   export type Output = {};
-  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
+  export type Error =
+    | NoSuchBucket
+    | OperationAborted
+    | AccessDenied
+    | CommonAwsError;
 }
 
 export declare namespace PutBucketIntelligentTieringConfiguration {
   export type Input = PutBucketIntelligentTieringConfigurationRequest;
   export type Output = {};
-  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
+  export type Error =
+    | NoSuchBucket
+    | InvalidArgument
+    | AccessDenied
+    | CommonAwsError;
 }
 
 export declare namespace PutBucketInventoryConfiguration {
   export type Input = PutBucketInventoryConfigurationRequest;
   export type Output = {};
-  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
+  export type Error =
+    | NoSuchBucket
+    | InvalidArgument
+    | AccessDenied
+    | CommonAwsError;
 }
 
 export declare namespace PutBucketLifecycleConfiguration {
   export type Input = PutBucketLifecycleConfigurationRequest;
   export type Output = PutBucketLifecycleConfigurationOutput;
-  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
+  export type Error =
+    | NoSuchBucket
+    | InvalidArgument
+    | AccessDenied
+    | CommonAwsError;
 }
 
 export declare namespace PutBucketLogging {
   export type Input = PutBucketLoggingRequest;
   export type Output = {};
-  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
+  export type Error =
+    | NoSuchBucket
+    | InvalidArgument
+    | AccessDenied
+    | CommonAwsError;
 }
 
 export declare namespace PutBucketMetricsConfiguration {
   export type Input = PutBucketMetricsConfigurationRequest;
   export type Output = {};
-  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
+  export type Error =
+    | NoSuchBucket
+    | InvalidArgument
+    | AccessDenied
+    | CommonAwsError;
 }
 
 export declare namespace PutBucketNotificationConfiguration {
   export type Input = PutBucketNotificationConfigurationRequest;
   export type Output = {};
-  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
+  export type Error =
+    | NoSuchBucket
+    | InvalidArgument
+    | AccessDenied
+    | CommonAwsError;
 }
 
 export declare namespace PutBucketOwnershipControls {
   export type Input = PutBucketOwnershipControlsRequest;
   export type Output = {};
-  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
+  export type Error =
+    | NoSuchBucket
+    | InvalidArgument
+    | AccessDenied
+    | CommonAwsError;
 }
 
 export declare namespace PutBucketPolicy {
@@ -4247,6 +4354,7 @@ export declare namespace PutBucketReplication {
   export type Error =
     | NoSuchBucket
     | InvalidRequest
+    | InvalidArgument
     | AccessDenied
     | CommonAwsError;
 }
@@ -4254,7 +4362,11 @@ export declare namespace PutBucketReplication {
 export declare namespace PutBucketRequestPayment {
   export type Input = PutBucketRequestPaymentRequest;
   export type Output = {};
-  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
+  export type Error =
+    | NoSuchBucket
+    | InvalidArgument
+    | AccessDenied
+    | CommonAwsError;
 }
 
 export declare namespace PutBucketTagging {
@@ -4266,13 +4378,22 @@ export declare namespace PutBucketTagging {
 export declare namespace PutBucketVersioning {
   export type Input = PutBucketVersioningRequest;
   export type Output = {};
-  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
+  export type Error =
+    | NoSuchBucket
+    | InvalidArgument
+    | InvalidBucketState
+    | AccessDenied
+    | CommonAwsError;
 }
 
 export declare namespace PutBucketWebsite {
   export type Input = PutBucketWebsiteRequest;
   export type Output = {};
-  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
+  export type Error =
+    | NoSuchBucket
+    | InvalidArgument
+    | AccessDenied
+    | CommonAwsError;
 }
 
 export declare namespace PutObject {
@@ -4287,11 +4408,6 @@ export declare namespace PutObject {
     | InvalidArgument
     | AccessDenied
     | EntityTooLarge
-    | MethodNotAllowed
-    | NotImplemented
-    | UnsupportedArgument
-    | XNotImplemented
-    | UnsupportedOperation
     | CommonAwsError;
 }
 
@@ -4332,7 +4448,11 @@ export declare namespace PutObjectTagging {
 export declare namespace PutPublicAccessBlock {
   export type Input = PutPublicAccessBlockRequest;
   export type Output = {};
-  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
+  export type Error =
+    | NoSuchBucket
+    | InvalidArgument
+    | AccessDenied
+    | CommonAwsError;
 }
 
 export declare namespace RenameObject {
@@ -4421,35 +4541,32 @@ export type S3Errors =
   | ObjectNotInActiveTierError
   | TooManyParts
   | AccessDenied
-  | OperationAborted
   | InvalidPart
   | InvalidPartOrder
   | InvalidArgument
-  | MethodNotAllowed
-  | NotImplemented
-  | UnsupportedArgument
-  | XNotImplemented
-  | UnsupportedOperation
   | IllegalLocationConstraintException
   | InvalidBucketName
   | TooManyBuckets
   | BucketNotEmpty
-  | NoSuchLifecycleConfiguration
-  | MetadataConfigurationNotFound
-  | NoSuchBucketPolicy
-  | MalformedXML
   | NoSuchConfiguration
   | NoSuchCORSConfiguration
   | ServerSideEncryptionConfigurationNotFoundError
+  | NoSuchLifecycleConfiguration
+  | MethodNotAllowed
+  | MetadataConfigurationNotFound
   | OwnershipControlsNotFoundError
-  | InvalidBucketState
+  | NoSuchBucketPolicy
   | ReplicationConfigurationNotFoundError
+  | NoSuchWebsiteConfiguration
+  | MalformedXML
+  | NoSuchPublicAccessBlockConfiguration
+  | InvalidBucketState
   | NoSuchTagSet
   | NoSuchTagSetError
-  | NoSuchWebsiteConfiguration
+  | NotImplemented
   | ObjectLockConfigurationNotFound
   | ObjectLockConfigurationNotFoundError
-  | NoSuchPublicAccessBlockConfiguration
+  | OperationAborted
   | MalformedPolicy
   | EntityTooLarge
   | CommonAwsError;
