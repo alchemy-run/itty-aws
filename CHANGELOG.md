@@ -1,3 +1,11 @@
+## v0.8.14
+
+*No significant changes*
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sam-goodwin/itty-aws/compare/v0.8.13...v0.8.14)
+
+---
+
 ## v0.8.13
 
 ### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
