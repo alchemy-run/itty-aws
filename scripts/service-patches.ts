@@ -40,7 +40,11 @@ export const servicePatches: Record<string, ServicePatches> = {
       ],
     },
     DescribeAddresses: {
-      errors: ["InvalidAddressID.NotFound", "InvalidAllocationID.NotFound"],
+      errors: [
+        "InvalidAddressID.NotFound",
+        "InvalidAllocationID.NotFound",
+        "InvalidAddress.NotFound",
+      ],
     },
     DisassociateAddress: {
       errors: ["InvalidAssociationID.NotFound"],
@@ -147,7 +151,10 @@ export const servicePatches: Record<string, ServicePatches> = {
       errors: ["InvalidClientVpnEndpointId.NotFound"],
     },
     CreateClientVpnRoute: {
-      errors: ["InvalidClientVpnEndpointId.NotFound"],
+      errors: [
+        "InvalidClientVpnEndpointId.NotFound",
+        "InvalidClientVpnActiveAssociationNotFound",
+      ],
     },
     DeleteClientVpnEndpoint: {
       errors: ["InvalidClientVpnEndpointId.NotFound"],
@@ -1176,12 +1183,6 @@ export const servicePatches: Record<string, ServicePatches> = {
     DescribeTransitGatewayVpcAttachments: {
       errors: ["InvalidTransitGatewayAttachmentId.NotFound"],
     },
-    DisableTransitGatewayRouteTablePropagation: {
-      errors: [
-        "InvalidTransitGatewayRouteTableId.NotFound",
-        "InvalidTransitGatewayAttachmentId.NotFound",
-      ],
-    },
     DisassociateTransitGatewayMulticastDomain: {
       errors: ["InvalidTransitGatewayMulticastDomainId.NotFound"],
     },
@@ -1195,6 +1196,14 @@ export const servicePatches: Record<string, ServicePatches> = {
       errors: [
         "InvalidTransitGatewayRouteTableId.NotFound",
         "InvalidTransitGatewayAttachmentId.NotFound",
+        "TransitGatewayRouteTablePropagation.NotFound",
+      ],
+    },
+    DisableTransitGatewayRouteTablePropagation: {
+      errors: [
+        "InvalidTransitGatewayRouteTableId.NotFound",
+        "InvalidTransitGatewayAttachmentId.NotFound",
+        "TransitGatewayRouteTablePropagation.NotFound",
       ],
     },
     ExportTransitGatewayRoutes: {
@@ -1236,6 +1245,13 @@ export const servicePatches: Record<string, ServicePatches> = {
     RegisterTransitGatewayMulticastGroupSources: {
       errors: ["InvalidTransitGatewayMulticastDomainId.NotFound"],
     },
+    SearchTransitGatewayMulticastGroups: {
+      errors: [
+        "InvalidTransitGatewayMulticastDomainId.NotFound",
+        "TransitGatewayMulticastGroupMember.NotFound",
+        "TransitGatewayMulticastGroupSource.NotFound",
+      ],
+    },
     RejectTransitGatewayPeeringAttachment: {
       errors: ["InvalidTransitGatewayAttachmentId.NotFound"],
     },
@@ -1244,9 +1260,6 @@ export const servicePatches: Record<string, ServicePatches> = {
     },
     ReplaceTransitGatewayRoute: {
       errors: ["InvalidTransitGatewayRouteTableId.NotFound"],
-    },
-    SearchTransitGatewayMulticastGroups: {
-      errors: ["InvalidTransitGatewayMulticastDomainId.NotFound"],
     },
     SearchTransitGatewayRoutes: {
       errors: ["InvalidTransitGatewayRouteTableId.NotFound"],
@@ -1350,6 +1363,7 @@ export const servicePatches: Record<string, ServicePatches> = {
         "InvalidVolume.NotFound",
         "InvalidVolumeID.Malformed",
         "InvalidParameterValue",
+        "VolumeInUse",
       ],
     },
     DescribeVolumeAttribute: {
@@ -1565,7 +1579,11 @@ export const servicePatches: Record<string, ServicePatches> = {
       errors: ["VpnGatewayLimitExceeded"],
     },
     DeleteVpnGateway: {
-      errors: ["InvalidVpnGatewayID.NotFound", "DependencyViolation"],
+      errors: [
+        "InvalidVpnGatewayID.NotFound",
+        "DependencyViolation",
+        "IncorrectState",
+      ],
     },
     DescribeVpnGateways: {
       errors: ["InvalidVpnGatewayID.NotFound"],
@@ -1591,6 +1609,17 @@ export const servicePatches: Record<string, ServicePatches> = {
         "InvalidVpnGatewayID.NotFound",
         "Gateway.NotAttached",
       ],
+    },
+
+    // ========== VPN Concentrator Operations ==========
+    CreateVpnConcentrator: {
+      errors: ["InvalidSubnetID.NotFound"],
+    },
+    DeleteVpnConcentrator: {
+      errors: ["InvalidVpnConcentratorID.NotFound"],
+    },
+    DescribeVpnConcentrators: {
+      errors: ["InvalidVpnConcentratorID.NotFound"],
     },
 
     // ========== Egress-Only Internet Gateway Operations ==========
@@ -1675,8 +1704,12 @@ export const servicePatches: Record<string, ServicePatches> = {
     GetIpamDiscoveredResourceCidrs: {
       errors: ["InvalidIpamResourceDiscoveryId.NotFound"],
     },
+
     GetIpamPoolAllocations: {
-      errors: ["InvalidIpamPoolId.NotFound"],
+      errors: [
+        "InvalidIpamPoolId.NotFound",
+        "InvalidIpamPoolAllocationId.NotFound",
+      ],
     },
     GetIpamPoolCidrs: {
       errors: ["InvalidIpamPoolId.NotFound"],
@@ -1712,7 +1745,10 @@ export const servicePatches: Record<string, ServicePatches> = {
       errors: ["InvalidPoolID.NotFound", "InvalidIpamPoolId.NotFound"],
     },
     ReleaseIpamPoolAllocation: {
-      errors: ["InvalidIpamPoolId.NotFound"],
+      errors: [
+        "InvalidIpamPoolId.NotFound",
+        "InvalidIpamPoolAllocationId.NotFound",
+      ],
     },
 
     // ========== Public IPv4 Pool Operations ==========
@@ -1737,6 +1773,138 @@ export const servicePatches: Record<string, ServicePatches> = {
     },
     ReplaceIamInstanceProfileAssociation: {
       errors: ["InvalidAssociationID.NotFound"],
+    },
+
+    // ========== Fleet Operations ==========
+    DeleteFleets: {
+      errors: ["InvalidFleetId.NotFound"],
+    },
+    DescribeFleets: {
+      errors: ["InvalidFleetId.NotFound"],
+    },
+    ModifyFleet: {
+      errors: ["InvalidFleetId.NotFound"],
+    },
+
+    // ========== Instance Connect Endpoint Operations ==========
+    CreateInstanceConnectEndpoint: {
+      errors: ["InvalidSubnetID.NotFound"],
+    },
+    DeleteInstanceConnectEndpoint: {
+      errors: ["InvalidInstanceConnectEndpointId.NotFound"],
+    },
+    DescribeInstanceConnectEndpoints: {
+      errors: ["InvalidInstanceConnectEndpointId.NotFound"],
+    },
+
+    // ========== Route Server Operations ==========
+    CreateRouteServer: {
+      errors: ["InvalidSubnetID.NotFound"],
+    },
+    DeleteRouteServer: {
+      errors: ["InvalidRouteServerId.NotFound", "IncorrectState"],
+    },
+    DescribeRouteServers: {
+      errors: ["InvalidRouteServerId.NotFound"],
+    },
+    ModifyRouteServer: {
+      errors: ["InvalidRouteServerId.NotFound"],
+    },
+    AssociateRouteServer: {
+      errors: ["InvalidRouteServerId.NotFound", "InvalidVpcID.NotFound"],
+    },
+    DisassociateRouteServer: {
+      errors: [
+        "InvalidRouteServerId.NotAssociated",
+        "InvalidRouteServerId.NotFound",
+        "InvalidVpcID.NotFound",
+      ],
+    },
+    GetRouteServerAssociations: {
+      errors: [
+        "InvalidRouteServerId.NotAssociated",
+        "InvalidRouteServerId.NotFound",
+      ],
+    },
+    EnableRouteServerPropagation: {
+      errors: ["InvalidRouteServerId.NotFound", "InvalidRouteTableID.NotFound"],
+    },
+    DisableRouteServerPropagation: {
+      errors: [
+        "InvalidRouteServerId.NotPropagated",
+        "InvalidRouteServerId.NotFound",
+      ],
+    },
+    GetRouteServerPropagations: {
+      errors: [
+        "InvalidRouteServerId.NotPropagated",
+        "InvalidRouteServerId.NotFound",
+      ],
+    },
+    CreateRouteServerEndpoint: {
+      errors: ["InvalidRouteServerId.NotFound", "InvalidSubnetID.NotFound"],
+    },
+    DeleteRouteServerEndpoint: {
+      errors: ["InvalidRouteServerEndpointId.NotFound", "IncorrectState"],
+    },
+    DescribeRouteServerEndpoints: {
+      errors: ["InvalidRouteServerEndpointId.NotFound"],
+    },
+    CreateRouteServerPeer: {
+      errors: ["InvalidRouteServerEndpointId.NotFound"],
+    },
+    DeleteRouteServerPeer: {
+      errors: ["InvalidRouteServerPeerId.NotFound", "IncorrectState"],
+    },
+    DescribeRouteServerPeers: {
+      errors: ["InvalidRouteServerPeerId.NotFound"],
+    },
+
+    // ========== VPC Block Public Access Operations ==========
+    CreateVpcBlockPublicAccessExclusion: {
+      errors: ["InvalidVpcID.NotFound", "InvalidSubnetID.NotFound"],
+    },
+    DeleteVpcBlockPublicAccessExclusion: {
+      errors: ["InvalidVpcBlockPublicAccessExclusionId.NotFound"],
+    },
+    DescribeVpcBlockPublicAccessExclusions: {
+      errors: ["InvalidVpcBlockPublicAccessExclusionId.NotFound"],
+    },
+    ModifyVpcBlockPublicAccessExclusion: {
+      errors: ["InvalidVpcBlockPublicAccessExclusionId.NotFound"],
+    },
+
+    // ========== VPC CIDR Block Association Operations ==========
+    AssociateVpcCidrBlock: {
+      errors: ["InvalidVpcID.NotFound"],
+    },
+    DisassociateVpcCidrBlock: {
+      errors: [
+        "InvalidVpcCidrBlockAssociationID.NotFound",
+        "InvalidVpcID.NotFound",
+      ],
+    },
+
+    // ========== VPC Encryption Control Operations ==========
+    CreateVpcEncryptionControl: {
+      errors: ["InvalidVpcID.NotFound"],
+    },
+    DeleteVpcEncryptionControl: {
+      errors: ["InvalidVpcEncryptionControlId.NotFound"],
+    },
+    DescribeVpcEncryptionControls: {
+      errors: ["InvalidVpcEncryptionControlId.NotFound"],
+    },
+    ModifyVpcEncryptionControl: {
+      errors: ["InvalidVpcEncryptionControlId.NotFound"],
+    },
+
+    // ========== Security Group VPC Association Operations ==========
+    AssociateSecurityGroupVpc: {
+      errors: ["InvalidGroup.NotFound", "InvalidVpcID.NotFound"],
+    },
+    DisassociateSecurityGroupVpc: {
+      errors: ["InvalidGroup.NotFound", "InvalidVpcID.NotFound"],
     },
   },
   s3: {
@@ -1988,7 +2156,12 @@ export const servicePatches: Record<string, ServicePatches> = {
       ],
     },
     PutBucketReplication: {
-      errors: ["NoSuchBucket", "InvalidRequest", "InvalidArgument", "AccessDenied"],
+      errors: [
+        "NoSuchBucket",
+        "InvalidRequest",
+        "InvalidArgument",
+        "AccessDenied",
+      ],
     },
     DeleteBucketReplication: {
       errors: [
@@ -2029,7 +2202,11 @@ export const servicePatches: Record<string, ServicePatches> = {
       errors: ["NoSuchBucket", "InvalidArgument", "AccessDenied"],
     },
     DeleteBucketOwnershipControls: {
-      errors: ["NoSuchBucket", "OwnershipControlsNotFoundError", "AccessDenied"],
+      errors: [
+        "NoSuchBucket",
+        "OwnershipControlsNotFoundError",
+        "AccessDenied",
+      ],
     },
 
     // ========== ACL Operations ==========
