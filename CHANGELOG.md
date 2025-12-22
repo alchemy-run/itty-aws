@@ -1,3 +1,17 @@
+## v0.8.13
+
+### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
+
+- **ec2**:
+  - Add missing error codes &nbsp;-&nbsp; by **Sam Goodwin** [<samp>(e2814)</samp>](https://github.com/sam-goodwin/itty-aws/commit/e2814560)
+- **s3**:
+  - Add more missing s3 error codes &nbsp;-&nbsp; by **Sam Goodwin** [<samp>(2a141)</samp>](https://github.com/sam-goodwin/itty-aws/commit/2a1417d4)
+  - Add missing s3 error codes &nbsp;-&nbsp; by **Sam Goodwin** [<samp>(0ccc1)</samp>](https://github.com/sam-goodwin/itty-aws/commit/0ccc1de5)
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sam-goodwin/itty-aws/compare/v0.8.12...v0.8.13)
+
+---
+
 ## v0.8.12
 
 ### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
