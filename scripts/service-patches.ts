@@ -1887,7 +1887,7 @@ export const servicePatches: Record<string, ServicePatches> = {
       errors: ["NoSuchBucket", "AccessDenied"],
     },
     DeleteBucketLifecycle: {
-      errors: ["NoSuchBucket", "AccessDenied"],
+      errors: ["NoSuchBucket", "NoSuchLifecycleConfiguration", "AccessDenied"],
     },
 
     // ========== Tagging Operations ==========
