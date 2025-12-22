@@ -7,280 +7,483 @@ import { AWSServiceClient } from "../../client.ts";
 export declare class S3 extends AWSServiceClient {
   abortMultipartUpload(
     input: AbortMultipartUploadRequest,
-  ): Effect.Effect<AbortMultipartUploadOutput, NoSuchUpload | CommonAwsError>;
+  ): Effect.Effect<
+    AbortMultipartUploadOutput,
+    NoSuchUpload | NoSuchBucket | AccessDenied | CommonAwsError
+  >;
   completeMultipartUpload(
     input: CompleteMultipartUploadRequest,
-  ): Effect.Effect<CompleteMultipartUploadOutput, CommonAwsError>;
+  ): Effect.Effect<
+    CompleteMultipartUploadOutput,
+    | NoSuchUpload
+    | NoSuchBucket
+    | InvalidPart
+    | InvalidPartOrder
+    | AccessDenied
+    | CommonAwsError
+  >;
   copyObject(
     input: CopyObjectRequest,
   ): Effect.Effect<
     CopyObjectOutput,
-    ObjectNotInActiveTierError | CommonAwsError
+    | ObjectNotInActiveTierError
+    | NoSuchKey
+    | NoSuchBucket
+    | InvalidArgument
+    | InvalidRequest
+    | AccessDenied
+    | CommonAwsError
   >;
   createBucket(
     input: CreateBucketRequest,
   ): Effect.Effect<
     CreateBucketOutput,
-    BucketAlreadyExists | BucketAlreadyOwnedByYou | CommonAwsError
+    | BucketAlreadyExists
+    | BucketAlreadyOwnedByYou
+    | IllegalLocationConstraintException
+    | InvalidBucketName
+    | TooManyBuckets
+    | CommonAwsError
   >;
   createBucketMetadataConfiguration(
     input: CreateBucketMetadataConfigurationRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, NoSuchBucket | AccessDenied | CommonAwsError>;
   createBucketMetadataTableConfiguration(
     input: CreateBucketMetadataTableConfigurationRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, NoSuchBucket | AccessDenied | CommonAwsError>;
   createMultipartUpload(
     input: CreateMultipartUploadRequest,
-  ): Effect.Effect<CreateMultipartUploadOutput, CommonAwsError>;
+  ): Effect.Effect<
+    CreateMultipartUploadOutput,
+    NoSuchBucket | InvalidArgument | AccessDenied | CommonAwsError
+  >;
   createSession(
     input: CreateSessionRequest,
   ): Effect.Effect<CreateSessionOutput, NoSuchBucket | CommonAwsError>;
-  deleteBucket(input: DeleteBucketRequest): Effect.Effect<{}, CommonAwsError>;
+  deleteBucket(
+    input: DeleteBucketRequest,
+  ): Effect.Effect<
+    {},
+    NoSuchBucket | BucketNotEmpty | AccessDenied | CommonAwsError
+  >;
   deleteBucketAnalyticsConfiguration(
     input: DeleteBucketAnalyticsConfigurationRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, NoSuchBucket | AccessDenied | CommonAwsError>;
   deleteBucketCors(
     input: DeleteBucketCorsRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, NoSuchBucket | AccessDenied | CommonAwsError>;
   deleteBucketEncryption(
     input: DeleteBucketEncryptionRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, NoSuchBucket | AccessDenied | CommonAwsError>;
   deleteBucketIntelligentTieringConfiguration(
     input: DeleteBucketIntelligentTieringConfigurationRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, NoSuchBucket | AccessDenied | CommonAwsError>;
   deleteBucketInventoryConfiguration(
     input: DeleteBucketInventoryConfigurationRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, NoSuchBucket | AccessDenied | CommonAwsError>;
   deleteBucketLifecycle(
     input: DeleteBucketLifecycleRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, NoSuchBucket | AccessDenied | CommonAwsError>;
   deleteBucketMetadataConfiguration(
     input: DeleteBucketMetadataConfigurationRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    NoSuchBucket | MetadataConfigurationNotFound | AccessDenied | CommonAwsError
+  >;
   deleteBucketMetadataTableConfiguration(
     input: DeleteBucketMetadataTableConfigurationRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, NoSuchBucket | AccessDenied | CommonAwsError>;
   deleteBucketMetricsConfiguration(
     input: DeleteBucketMetricsConfigurationRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, NoSuchBucket | AccessDenied | CommonAwsError>;
   deleteBucketOwnershipControls(
     input: DeleteBucketOwnershipControlsRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, NoSuchBucket | AccessDenied | CommonAwsError>;
   deleteBucketPolicy(
     input: DeleteBucketPolicyRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    NoSuchBucket | NoSuchBucketPolicy | AccessDenied | CommonAwsError
+  >;
   deleteBucketReplication(
     input: DeleteBucketReplicationRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, NoSuchBucket | AccessDenied | CommonAwsError>;
   deleteBucketTagging(
     input: DeleteBucketTaggingRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, NoSuchBucket | AccessDenied | CommonAwsError>;
   deleteBucketWebsite(
     input: DeleteBucketWebsiteRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, NoSuchBucket | AccessDenied | CommonAwsError>;
   deleteObject(
     input: DeleteObjectRequest,
-  ): Effect.Effect<DeleteObjectOutput, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteObjectOutput,
+    NoSuchBucket | AccessDenied | CommonAwsError
+  >;
   deleteObjects(
     input: DeleteObjectsRequest,
-  ): Effect.Effect<DeleteObjectsOutput, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteObjectsOutput,
+    NoSuchBucket | MalformedXML | AccessDenied | CommonAwsError
+  >;
   deleteObjectTagging(
     input: DeleteObjectTaggingRequest,
-  ): Effect.Effect<DeleteObjectTaggingOutput, CommonAwsError>;
+  ): Effect.Effect<
+    DeleteObjectTaggingOutput,
+    NoSuchKey | NoSuchBucket | AccessDenied | CommonAwsError
+  >;
   deletePublicAccessBlock(
     input: DeletePublicAccessBlockRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, NoSuchBucket | AccessDenied | CommonAwsError>;
   getBucketAccelerateConfiguration(
     input: GetBucketAccelerateConfigurationRequest,
-  ): Effect.Effect<GetBucketAccelerateConfigurationOutput, CommonAwsError>;
+  ): Effect.Effect<
+    GetBucketAccelerateConfigurationOutput,
+    NoSuchBucket | AccessDenied | CommonAwsError
+  >;
   getBucketAcl(
     input: GetBucketAclRequest,
-  ): Effect.Effect<GetBucketAclOutput, CommonAwsError>;
+  ): Effect.Effect<
+    GetBucketAclOutput,
+    NoSuchBucket | AccessDenied | CommonAwsError
+  >;
   getBucketAnalyticsConfiguration(
     input: GetBucketAnalyticsConfigurationRequest,
-  ): Effect.Effect<GetBucketAnalyticsConfigurationOutput, CommonAwsError>;
+  ): Effect.Effect<
+    GetBucketAnalyticsConfigurationOutput,
+    NoSuchBucket | NoSuchConfiguration | AccessDenied | CommonAwsError
+  >;
   getBucketCors(
     input: GetBucketCorsRequest,
-  ): Effect.Effect<GetBucketCorsOutput, CommonAwsError>;
+  ): Effect.Effect<
+    GetBucketCorsOutput,
+    NoSuchBucket | NoSuchCORSConfiguration | AccessDenied | CommonAwsError
+  >;
   getBucketEncryption(
     input: GetBucketEncryptionRequest,
-  ): Effect.Effect<GetBucketEncryptionOutput, CommonAwsError>;
+  ): Effect.Effect<
+    GetBucketEncryptionOutput,
+    | NoSuchBucket
+    | ServerSideEncryptionConfigurationNotFoundError
+    | AccessDenied
+    | CommonAwsError
+  >;
   getBucketIntelligentTieringConfiguration(
     input: GetBucketIntelligentTieringConfigurationRequest,
   ): Effect.Effect<
     GetBucketIntelligentTieringConfigurationOutput,
-    CommonAwsError
+    NoSuchBucket | NoSuchConfiguration | AccessDenied | CommonAwsError
   >;
   getBucketInventoryConfiguration(
     input: GetBucketInventoryConfigurationRequest,
-  ): Effect.Effect<GetBucketInventoryConfigurationOutput, CommonAwsError>;
+  ): Effect.Effect<
+    GetBucketInventoryConfigurationOutput,
+    NoSuchBucket | NoSuchConfiguration | AccessDenied | CommonAwsError
+  >;
   getBucketLifecycleConfiguration(
     input: GetBucketLifecycleConfigurationRequest,
-  ): Effect.Effect<GetBucketLifecycleConfigurationOutput, CommonAwsError>;
+  ): Effect.Effect<
+    GetBucketLifecycleConfigurationOutput,
+    NoSuchBucket | NoSuchLifecycleConfiguration | AccessDenied | CommonAwsError
+  >;
   getBucketLocation(
     input: GetBucketLocationRequest,
-  ): Effect.Effect<GetBucketLocationOutput, CommonAwsError>;
+  ): Effect.Effect<
+    GetBucketLocationOutput,
+    NoSuchBucket | AccessDenied | CommonAwsError
+  >;
   getBucketLogging(
     input: GetBucketLoggingRequest,
-  ): Effect.Effect<GetBucketLoggingOutput, CommonAwsError>;
+  ): Effect.Effect<
+    GetBucketLoggingOutput,
+    NoSuchBucket | AccessDenied | CommonAwsError
+  >;
   getBucketMetadataConfiguration(
     input: GetBucketMetadataConfigurationRequest,
-  ): Effect.Effect<GetBucketMetadataConfigurationOutput, CommonAwsError>;
+  ): Effect.Effect<
+    GetBucketMetadataConfigurationOutput,
+    NoSuchBucket | MetadataConfigurationNotFound | AccessDenied | CommonAwsError
+  >;
   getBucketMetadataTableConfiguration(
     input: GetBucketMetadataTableConfigurationRequest,
-  ): Effect.Effect<GetBucketMetadataTableConfigurationOutput, CommonAwsError>;
+  ): Effect.Effect<
+    GetBucketMetadataTableConfigurationOutput,
+    NoSuchBucket | AccessDenied | CommonAwsError
+  >;
   getBucketMetricsConfiguration(
     input: GetBucketMetricsConfigurationRequest,
-  ): Effect.Effect<GetBucketMetricsConfigurationOutput, CommonAwsError>;
+  ): Effect.Effect<
+    GetBucketMetricsConfigurationOutput,
+    NoSuchBucket | NoSuchConfiguration | AccessDenied | CommonAwsError
+  >;
   getBucketNotificationConfiguration(
     input: GetBucketNotificationConfigurationRequest,
-  ): Effect.Effect<NotificationConfiguration, CommonAwsError>;
+  ): Effect.Effect<
+    NotificationConfiguration,
+    NoSuchBucket | AccessDenied | CommonAwsError
+  >;
   getBucketOwnershipControls(
     input: GetBucketOwnershipControlsRequest,
-  ): Effect.Effect<GetBucketOwnershipControlsOutput, CommonAwsError>;
+  ): Effect.Effect<
+    GetBucketOwnershipControlsOutput,
+    | NoSuchBucket
+    | OwnershipControlsNotFoundError
+    | AccessDenied
+    | CommonAwsError
+  >;
   getBucketPolicy(
     input: GetBucketPolicyRequest,
-  ): Effect.Effect<GetBucketPolicyOutput, CommonAwsError>;
+  ): Effect.Effect<
+    GetBucketPolicyOutput,
+    | NoSuchBucket
+    | NoSuchBucketPolicy
+    | AccessDenied
+    | InvalidBucketState
+    | CommonAwsError
+  >;
   getBucketPolicyStatus(
     input: GetBucketPolicyStatusRequest,
-  ): Effect.Effect<GetBucketPolicyStatusOutput, CommonAwsError>;
+  ): Effect.Effect<
+    GetBucketPolicyStatusOutput,
+    NoSuchBucket | NoSuchBucketPolicy | AccessDenied | CommonAwsError
+  >;
   getBucketReplication(
     input: GetBucketReplicationRequest,
-  ): Effect.Effect<GetBucketReplicationOutput, CommonAwsError>;
+  ): Effect.Effect<
+    GetBucketReplicationOutput,
+    | NoSuchBucket
+    | ReplicationConfigurationNotFoundError
+    | AccessDenied
+    | CommonAwsError
+  >;
   getBucketRequestPayment(
     input: GetBucketRequestPaymentRequest,
-  ): Effect.Effect<GetBucketRequestPaymentOutput, CommonAwsError>;
+  ): Effect.Effect<
+    GetBucketRequestPaymentOutput,
+    NoSuchBucket | AccessDenied | CommonAwsError
+  >;
   getBucketTagging(
     input: GetBucketTaggingRequest,
-  ): Effect.Effect<GetBucketTaggingOutput, CommonAwsError>;
+  ): Effect.Effect<
+    GetBucketTaggingOutput,
+    | NoSuchBucket
+    | NoSuchTagSet
+    | NoSuchTagSetError
+    | AccessDenied
+    | CommonAwsError
+  >;
   getBucketVersioning(
     input: GetBucketVersioningRequest,
-  ): Effect.Effect<GetBucketVersioningOutput, CommonAwsError>;
+  ): Effect.Effect<
+    GetBucketVersioningOutput,
+    NoSuchBucket | AccessDenied | CommonAwsError
+  >;
   getBucketWebsite(
     input: GetBucketWebsiteRequest,
-  ): Effect.Effect<GetBucketWebsiteOutput, CommonAwsError>;
+  ): Effect.Effect<
+    GetBucketWebsiteOutput,
+    NoSuchBucket | NoSuchWebsiteConfiguration | AccessDenied | CommonAwsError
+  >;
   getObject(
     input: GetObjectRequest,
   ): Effect.Effect<
     GetObjectOutput,
-    InvalidObjectState | NoSuchKey | CommonAwsError
+    | InvalidObjectState
+    | NoSuchKey
+    | NoSuchBucket
+    | AccessDenied
+    | CommonAwsError
   >;
   getObjectAcl(
     input: GetObjectAclRequest,
-  ): Effect.Effect<GetObjectAclOutput, NoSuchKey | CommonAwsError>;
+  ): Effect.Effect<
+    GetObjectAclOutput,
+    NoSuchKey | NoSuchBucket | AccessDenied | CommonAwsError
+  >;
   getObjectAttributes(
     input: GetObjectAttributesRequest,
-  ): Effect.Effect<GetObjectAttributesOutput, NoSuchKey | CommonAwsError>;
+  ): Effect.Effect<
+    GetObjectAttributesOutput,
+    NoSuchKey | NoSuchBucket | AccessDenied | CommonAwsError
+  >;
   getObjectLegalHold(
     input: GetObjectLegalHoldRequest,
-  ): Effect.Effect<GetObjectLegalHoldOutput, CommonAwsError>;
+  ): Effect.Effect<
+    GetObjectLegalHoldOutput,
+    NoSuchKey | NoSuchBucket | AccessDenied | CommonAwsError
+  >;
   getObjectLockConfiguration(
     input: GetObjectLockConfigurationRequest,
-  ): Effect.Effect<GetObjectLockConfigurationOutput, CommonAwsError>;
+  ): Effect.Effect<
+    GetObjectLockConfigurationOutput,
+    | NoSuchBucket
+    | ObjectLockConfigurationNotFound
+    | ObjectLockConfigurationNotFoundError
+    | AccessDenied
+    | CommonAwsError
+  >;
   getObjectRetention(
     input: GetObjectRetentionRequest,
-  ): Effect.Effect<GetObjectRetentionOutput, CommonAwsError>;
+  ): Effect.Effect<
+    GetObjectRetentionOutput,
+    NoSuchKey | NoSuchBucket | AccessDenied | CommonAwsError
+  >;
   getObjectTagging(
     input: GetObjectTaggingRequest,
-  ): Effect.Effect<GetObjectTaggingOutput, CommonAwsError>;
+  ): Effect.Effect<
+    GetObjectTaggingOutput,
+    NoSuchKey | NoSuchBucket | AccessDenied | CommonAwsError
+  >;
   getObjectTorrent(
     input: GetObjectTorrentRequest,
-  ): Effect.Effect<GetObjectTorrentOutput, CommonAwsError>;
+  ): Effect.Effect<
+    GetObjectTorrentOutput,
+    NoSuchKey | NoSuchBucket | AccessDenied | CommonAwsError
+  >;
   getPublicAccessBlock(
     input: GetPublicAccessBlockRequest,
-  ): Effect.Effect<GetPublicAccessBlockOutput, CommonAwsError>;
+  ): Effect.Effect<
+    GetPublicAccessBlockOutput,
+    | NoSuchBucket
+    | NoSuchPublicAccessBlockConfiguration
+    | AccessDenied
+    | CommonAwsError
+  >;
   headBucket(
     input: HeadBucketRequest,
-  ): Effect.Effect<HeadBucketOutput, NotFound | CommonAwsError>;
+  ): Effect.Effect<
+    HeadBucketOutput,
+    NotFound | NoSuchBucket | AccessDenied | CommonAwsError
+  >;
   headObject(
     input: HeadObjectRequest,
-  ): Effect.Effect<HeadObjectOutput, NotFound | CommonAwsError>;
+  ): Effect.Effect<
+    HeadObjectOutput,
+    NotFound | NoSuchKey | NoSuchBucket | AccessDenied | CommonAwsError
+  >;
   listBucketAnalyticsConfigurations(
     input: ListBucketAnalyticsConfigurationsRequest,
-  ): Effect.Effect<ListBucketAnalyticsConfigurationsOutput, CommonAwsError>;
+  ): Effect.Effect<
+    ListBucketAnalyticsConfigurationsOutput,
+    NoSuchBucket | AccessDenied | CommonAwsError
+  >;
   listBucketIntelligentTieringConfigurations(
     input: ListBucketIntelligentTieringConfigurationsRequest,
   ): Effect.Effect<
     ListBucketIntelligentTieringConfigurationsOutput,
-    CommonAwsError
+    NoSuchBucket | AccessDenied | CommonAwsError
   >;
   listBucketInventoryConfigurations(
     input: ListBucketInventoryConfigurationsRequest,
-  ): Effect.Effect<ListBucketInventoryConfigurationsOutput, CommonAwsError>;
+  ): Effect.Effect<
+    ListBucketInventoryConfigurationsOutput,
+    NoSuchBucket | AccessDenied | CommonAwsError
+  >;
   listBucketMetricsConfigurations(
     input: ListBucketMetricsConfigurationsRequest,
-  ): Effect.Effect<ListBucketMetricsConfigurationsOutput, CommonAwsError>;
+  ): Effect.Effect<
+    ListBucketMetricsConfigurationsOutput,
+    NoSuchBucket | AccessDenied | CommonAwsError
+  >;
   listBuckets(
     input: ListBucketsRequest,
-  ): Effect.Effect<ListBucketsOutput, CommonAwsError>;
+  ): Effect.Effect<ListBucketsOutput, AccessDenied | CommonAwsError>;
   listDirectoryBuckets(
     input: ListDirectoryBucketsRequest,
   ): Effect.Effect<ListDirectoryBucketsOutput, CommonAwsError>;
   listMultipartUploads(
     input: ListMultipartUploadsRequest,
-  ): Effect.Effect<ListMultipartUploadsOutput, CommonAwsError>;
+  ): Effect.Effect<
+    ListMultipartUploadsOutput,
+    NoSuchBucket | AccessDenied | CommonAwsError
+  >;
   listObjects(
     input: ListObjectsRequest,
-  ): Effect.Effect<ListObjectsOutput, NoSuchBucket | CommonAwsError>;
+  ): Effect.Effect<
+    ListObjectsOutput,
+    NoSuchBucket | AccessDenied | CommonAwsError
+  >;
   listObjectsV2(
     input: ListObjectsV2Request,
-  ): Effect.Effect<ListObjectsV2Output, NoSuchBucket | CommonAwsError>;
+  ): Effect.Effect<
+    ListObjectsV2Output,
+    NoSuchBucket | AccessDenied | CommonAwsError
+  >;
   listObjectVersions(
     input: ListObjectVersionsRequest,
-  ): Effect.Effect<ListObjectVersionsOutput, CommonAwsError>;
+  ): Effect.Effect<
+    ListObjectVersionsOutput,
+    NoSuchBucket | AccessDenied | CommonAwsError
+  >;
   listParts(
     input: ListPartsRequest,
-  ): Effect.Effect<ListPartsOutput, CommonAwsError>;
+  ): Effect.Effect<
+    ListPartsOutput,
+    NoSuchUpload | NoSuchBucket | AccessDenied | CommonAwsError
+  >;
   putBucketAccelerateConfiguration(
     input: PutBucketAccelerateConfigurationRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
-  putBucketAcl(input: PutBucketAclRequest): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, NoSuchBucket | AccessDenied | CommonAwsError>;
+  putBucketAcl(
+    input: PutBucketAclRequest,
+  ): Effect.Effect<{}, NoSuchBucket | AccessDenied | CommonAwsError>;
   putBucketAnalyticsConfiguration(
     input: PutBucketAnalyticsConfigurationRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
-  putBucketCors(input: PutBucketCorsRequest): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, NoSuchBucket | AccessDenied | CommonAwsError>;
+  putBucketCors(
+    input: PutBucketCorsRequest,
+  ): Effect.Effect<{}, NoSuchBucket | AccessDenied | CommonAwsError>;
   putBucketEncryption(
     input: PutBucketEncryptionRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, NoSuchBucket | AccessDenied | CommonAwsError>;
   putBucketIntelligentTieringConfiguration(
     input: PutBucketIntelligentTieringConfigurationRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, NoSuchBucket | AccessDenied | CommonAwsError>;
   putBucketInventoryConfiguration(
     input: PutBucketInventoryConfigurationRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, NoSuchBucket | AccessDenied | CommonAwsError>;
   putBucketLifecycleConfiguration(
     input: PutBucketLifecycleConfigurationRequest,
-  ): Effect.Effect<PutBucketLifecycleConfigurationOutput, CommonAwsError>;
+  ): Effect.Effect<
+    PutBucketLifecycleConfigurationOutput,
+    NoSuchBucket | AccessDenied | CommonAwsError
+  >;
   putBucketLogging(
     input: PutBucketLoggingRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, NoSuchBucket | AccessDenied | CommonAwsError>;
   putBucketMetricsConfiguration(
     input: PutBucketMetricsConfigurationRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, NoSuchBucket | AccessDenied | CommonAwsError>;
   putBucketNotificationConfiguration(
     input: PutBucketNotificationConfigurationRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, NoSuchBucket | AccessDenied | CommonAwsError>;
   putBucketOwnershipControls(
     input: PutBucketOwnershipControlsRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, NoSuchBucket | AccessDenied | CommonAwsError>;
   putBucketPolicy(
     input: PutBucketPolicyRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    NoSuchBucket | MalformedPolicy | AccessDenied | CommonAwsError
+  >;
   putBucketReplication(
     input: PutBucketReplicationRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<
+    {},
+    NoSuchBucket | InvalidRequest | AccessDenied | CommonAwsError
+  >;
   putBucketRequestPayment(
     input: PutBucketRequestPaymentRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, NoSuchBucket | AccessDenied | CommonAwsError>;
   putBucketTagging(
     input: PutBucketTaggingRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, NoSuchBucket | AccessDenied | CommonAwsError>;
   putBucketVersioning(
     input: PutBucketVersioningRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, NoSuchBucket | AccessDenied | CommonAwsError>;
   putBucketWebsite(
     input: PutBucketWebsiteRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, NoSuchBucket | AccessDenied | CommonAwsError>;
   putObject(
     input: PutObjectRequest,
   ): Effect.Effect<
@@ -289,26 +492,45 @@ export declare class S3 extends AWSServiceClient {
     | InvalidRequest
     | InvalidWriteOffset
     | TooManyParts
+    | NoSuchBucket
+    | InvalidArgument
+    | AccessDenied
+    | EntityTooLarge
     | CommonAwsError
   >;
   putObjectAcl(
     input: PutObjectAclRequest,
-  ): Effect.Effect<PutObjectAclOutput, NoSuchKey | CommonAwsError>;
+  ): Effect.Effect<
+    PutObjectAclOutput,
+    NoSuchKey | NoSuchBucket | AccessDenied | CommonAwsError
+  >;
   putObjectLegalHold(
     input: PutObjectLegalHoldRequest,
-  ): Effect.Effect<PutObjectLegalHoldOutput, CommonAwsError>;
+  ): Effect.Effect<
+    PutObjectLegalHoldOutput,
+    NoSuchKey | NoSuchBucket | AccessDenied | CommonAwsError
+  >;
   putObjectLockConfiguration(
     input: PutObjectLockConfigurationRequest,
-  ): Effect.Effect<PutObjectLockConfigurationOutput, CommonAwsError>;
+  ): Effect.Effect<
+    PutObjectLockConfigurationOutput,
+    NoSuchBucket | InvalidBucketState | AccessDenied | CommonAwsError
+  >;
   putObjectRetention(
     input: PutObjectRetentionRequest,
-  ): Effect.Effect<PutObjectRetentionOutput, CommonAwsError>;
+  ): Effect.Effect<
+    PutObjectRetentionOutput,
+    NoSuchKey | NoSuchBucket | AccessDenied | CommonAwsError
+  >;
   putObjectTagging(
     input: PutObjectTaggingRequest,
-  ): Effect.Effect<PutObjectTaggingOutput, CommonAwsError>;
+  ): Effect.Effect<
+    PutObjectTaggingOutput,
+    NoSuchKey | NoSuchBucket | AccessDenied | CommonAwsError
+  >;
   putPublicAccessBlock(
     input: PutPublicAccessBlockRequest,
-  ): Effect.Effect<{}, CommonAwsError>;
+  ): Effect.Effect<{}, NoSuchBucket | AccessDenied | CommonAwsError>;
   renameObject(
     input: RenameObjectRequest,
   ): Effect.Effect<
@@ -319,11 +541,19 @@ export declare class S3 extends AWSServiceClient {
     input: RestoreObjectRequest,
   ): Effect.Effect<
     RestoreObjectOutput,
-    ObjectAlreadyInActiveTierError | CommonAwsError
+    | ObjectAlreadyInActiveTierError
+    | NoSuchKey
+    | NoSuchBucket
+    | InvalidObjectState
+    | AccessDenied
+    | CommonAwsError
   >;
   selectObjectContent(
     input: SelectObjectContentRequest,
-  ): Effect.Effect<SelectObjectContentOutput, CommonAwsError>;
+  ): Effect.Effect<
+    SelectObjectContentOutput,
+    NoSuchKey | NoSuchBucket | InvalidArgument | AccessDenied | CommonAwsError
+  >;
   updateBucketMetadataInventoryTableConfiguration(
     input: UpdateBucketMetadataInventoryTableConfigurationRequest,
   ): Effect.Effect<{}, CommonAwsError>;
@@ -332,10 +562,25 @@ export declare class S3 extends AWSServiceClient {
   ): Effect.Effect<{}, CommonAwsError>;
   uploadPart(
     input: UploadPartRequest,
-  ): Effect.Effect<UploadPartOutput, CommonAwsError>;
+  ): Effect.Effect<
+    UploadPartOutput,
+    | NoSuchUpload
+    | NoSuchBucket
+    | InvalidArgument
+    | AccessDenied
+    | CommonAwsError
+  >;
   uploadPartCopy(
     input: UploadPartCopyRequest,
-  ): Effect.Effect<UploadPartCopyOutput, CommonAwsError>;
+  ): Effect.Effect<
+    UploadPartCopyOutput,
+    | NoSuchUpload
+    | NoSuchKey
+    | NoSuchBucket
+    | InvalidArgument
+    | AccessDenied
+    | CommonAwsError
+  >;
   writeGetObjectResponse(
     input: WriteGetObjectResponseRequest,
   ): Effect.Effect<{}, CommonAwsError>;
@@ -3166,22 +3411,143 @@ export type WriteOffsetBytes = number;
 
 export type Years = number;
 
+export declare class AccessDenied extends EffectData.TaggedError(
+  "AccessDenied",
+)<{}> {}
+
+export declare class InvalidPart extends EffectData.TaggedError(
+  "InvalidPart",
+)<{}> {}
+
+export declare class InvalidPartOrder extends EffectData.TaggedError(
+  "InvalidPartOrder",
+)<{}> {}
+
+export declare class InvalidArgument extends EffectData.TaggedError(
+  "InvalidArgument",
+)<{}> {}
+
+export declare class IllegalLocationConstraintException extends EffectData.TaggedError(
+  "IllegalLocationConstraintException",
+)<{}> {}
+
+export declare class InvalidBucketName extends EffectData.TaggedError(
+  "InvalidBucketName",
+)<{}> {}
+
+export declare class TooManyBuckets extends EffectData.TaggedError(
+  "TooManyBuckets",
+)<{}> {}
+
+export declare class BucketNotEmpty extends EffectData.TaggedError(
+  "BucketNotEmpty",
+)<{}> {}
+
+export declare class MetadataConfigurationNotFound extends EffectData.TaggedError(
+  "MetadataConfigurationNotFound",
+)<{}> {}
+
+export declare class NoSuchBucketPolicy extends EffectData.TaggedError(
+  "NoSuchBucketPolicy",
+)<{}> {}
+
+export declare class MalformedXML extends EffectData.TaggedError(
+  "MalformedXML",
+)<{}> {}
+
+export declare class NoSuchConfiguration extends EffectData.TaggedError(
+  "NoSuchConfiguration",
+)<{}> {}
+
+export declare class NoSuchCORSConfiguration extends EffectData.TaggedError(
+  "NoSuchCORSConfiguration",
+)<{}> {}
+
+export declare class ServerSideEncryptionConfigurationNotFoundError extends EffectData.TaggedError(
+  "ServerSideEncryptionConfigurationNotFoundError",
+)<{}> {}
+
+export declare class NoSuchLifecycleConfiguration extends EffectData.TaggedError(
+  "NoSuchLifecycleConfiguration",
+)<{}> {}
+
+export declare class OwnershipControlsNotFoundError extends EffectData.TaggedError(
+  "OwnershipControlsNotFoundError",
+)<{}> {}
+
+export declare class InvalidBucketState extends EffectData.TaggedError(
+  "InvalidBucketState",
+)<{}> {}
+
+export declare class ReplicationConfigurationNotFoundError extends EffectData.TaggedError(
+  "ReplicationConfigurationNotFoundError",
+)<{}> {}
+
+export declare class NoSuchTagSet extends EffectData.TaggedError(
+  "NoSuchTagSet",
+)<{}> {}
+
+export declare class NoSuchTagSetError extends EffectData.TaggedError(
+  "NoSuchTagSetError",
+)<{}> {}
+
+export declare class NoSuchWebsiteConfiguration extends EffectData.TaggedError(
+  "NoSuchWebsiteConfiguration",
+)<{}> {}
+
+export declare class ObjectLockConfigurationNotFound extends EffectData.TaggedError(
+  "ObjectLockConfigurationNotFound",
+)<{}> {}
+
+export declare class ObjectLockConfigurationNotFoundError extends EffectData.TaggedError(
+  "ObjectLockConfigurationNotFoundError",
+)<{}> {}
+
+export declare class NoSuchPublicAccessBlockConfiguration extends EffectData.TaggedError(
+  "NoSuchPublicAccessBlockConfiguration",
+)<{}> {}
+
+export declare class MalformedPolicy extends EffectData.TaggedError(
+  "MalformedPolicy",
+)<{}> {}
+
+export declare class EntityTooLarge extends EffectData.TaggedError(
+  "EntityTooLarge",
+)<{}> {}
+
 export declare namespace AbortMultipartUpload {
   export type Input = AbortMultipartUploadRequest;
   export type Output = AbortMultipartUploadOutput;
-  export type Error = NoSuchUpload | CommonAwsError;
+  export type Error =
+    | NoSuchUpload
+    | NoSuchBucket
+    | AccessDenied
+    | CommonAwsError;
 }
 
 export declare namespace CompleteMultipartUpload {
   export type Input = CompleteMultipartUploadRequest;
   export type Output = CompleteMultipartUploadOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | NoSuchUpload
+    | NoSuchBucket
+    | InvalidPart
+    | InvalidPartOrder
+    | AccessDenied
+    | CommonAwsError;
 }
 
 export declare namespace CopyObject {
   export type Input = CopyObjectRequest;
   export type Output = CopyObjectOutput;
-  export type Error = ObjectNotInActiveTierError | CommonAwsError;
+  export type Error =
+    | ObjectNotInActiveTierError
+    | NoSuchKey
+    | NoSuchBucket
+    | InvalidArgument
+    | InvalidRequest
+    | AccessDenied
+    | CommonAwsError;
 }
 
 export declare namespace CreateBucket {
@@ -3190,25 +3556,32 @@ export declare namespace CreateBucket {
   export type Error =
     | BucketAlreadyExists
     | BucketAlreadyOwnedByYou
+    | IllegalLocationConstraintException
+    | InvalidBucketName
+    | TooManyBuckets
     | CommonAwsError;
 }
 
 export declare namespace CreateBucketMetadataConfiguration {
   export type Input = CreateBucketMetadataConfigurationRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
 }
 
 export declare namespace CreateBucketMetadataTableConfiguration {
   export type Input = CreateBucketMetadataTableConfigurationRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
 }
 
 export declare namespace CreateMultipartUpload {
   export type Input = CreateMultipartUploadRequest;
   export type Output = CreateMultipartUploadOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | NoSuchBucket
+    | InvalidArgument
+    | AccessDenied
+    | CommonAwsError;
 }
 
 export declare namespace CreateSession {
@@ -3220,343 +3593,436 @@ export declare namespace CreateSession {
 export declare namespace DeleteBucket {
   export type Input = DeleteBucketRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | NoSuchBucket
+    | BucketNotEmpty
+    | AccessDenied
+    | CommonAwsError;
 }
 
 export declare namespace DeleteBucketAnalyticsConfiguration {
   export type Input = DeleteBucketAnalyticsConfigurationRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
 }
 
 export declare namespace DeleteBucketCors {
   export type Input = DeleteBucketCorsRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
 }
 
 export declare namespace DeleteBucketEncryption {
   export type Input = DeleteBucketEncryptionRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
 }
 
 export declare namespace DeleteBucketIntelligentTieringConfiguration {
   export type Input = DeleteBucketIntelligentTieringConfigurationRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
 }
 
 export declare namespace DeleteBucketInventoryConfiguration {
   export type Input = DeleteBucketInventoryConfigurationRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
 }
 
 export declare namespace DeleteBucketLifecycle {
   export type Input = DeleteBucketLifecycleRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
 }
 
 export declare namespace DeleteBucketMetadataConfiguration {
   export type Input = DeleteBucketMetadataConfigurationRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | NoSuchBucket
+    | MetadataConfigurationNotFound
+    | AccessDenied
+    | CommonAwsError;
 }
 
 export declare namespace DeleteBucketMetadataTableConfiguration {
   export type Input = DeleteBucketMetadataTableConfigurationRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
 }
 
 export declare namespace DeleteBucketMetricsConfiguration {
   export type Input = DeleteBucketMetricsConfigurationRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
 }
 
 export declare namespace DeleteBucketOwnershipControls {
   export type Input = DeleteBucketOwnershipControlsRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
 }
 
 export declare namespace DeleteBucketPolicy {
   export type Input = DeleteBucketPolicyRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | NoSuchBucket
+    | NoSuchBucketPolicy
+    | AccessDenied
+    | CommonAwsError;
 }
 
 export declare namespace DeleteBucketReplication {
   export type Input = DeleteBucketReplicationRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
 }
 
 export declare namespace DeleteBucketTagging {
   export type Input = DeleteBucketTaggingRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
 }
 
 export declare namespace DeleteBucketWebsite {
   export type Input = DeleteBucketWebsiteRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
 }
 
 export declare namespace DeleteObject {
   export type Input = DeleteObjectRequest;
   export type Output = DeleteObjectOutput;
-  export type Error = CommonAwsError;
+  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
 }
 
 export declare namespace DeleteObjects {
   export type Input = DeleteObjectsRequest;
   export type Output = DeleteObjectsOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | NoSuchBucket
+    | MalformedXML
+    | AccessDenied
+    | CommonAwsError;
 }
 
 export declare namespace DeleteObjectTagging {
   export type Input = DeleteObjectTaggingRequest;
   export type Output = DeleteObjectTaggingOutput;
-  export type Error = CommonAwsError;
+  export type Error = NoSuchKey | NoSuchBucket | AccessDenied | CommonAwsError;
 }
 
 export declare namespace DeletePublicAccessBlock {
   export type Input = DeletePublicAccessBlockRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
 }
 
 export declare namespace GetBucketAccelerateConfiguration {
   export type Input = GetBucketAccelerateConfigurationRequest;
   export type Output = GetBucketAccelerateConfigurationOutput;
-  export type Error = CommonAwsError;
+  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
 }
 
 export declare namespace GetBucketAcl {
   export type Input = GetBucketAclRequest;
   export type Output = GetBucketAclOutput;
-  export type Error = CommonAwsError;
+  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
 }
 
 export declare namespace GetBucketAnalyticsConfiguration {
   export type Input = GetBucketAnalyticsConfigurationRequest;
   export type Output = GetBucketAnalyticsConfigurationOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | NoSuchBucket
+    | NoSuchConfiguration
+    | AccessDenied
+    | CommonAwsError;
 }
 
 export declare namespace GetBucketCors {
   export type Input = GetBucketCorsRequest;
   export type Output = GetBucketCorsOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | NoSuchBucket
+    | NoSuchCORSConfiguration
+    | AccessDenied
+    | CommonAwsError;
 }
 
 export declare namespace GetBucketEncryption {
   export type Input = GetBucketEncryptionRequest;
   export type Output = GetBucketEncryptionOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | NoSuchBucket
+    | ServerSideEncryptionConfigurationNotFoundError
+    | AccessDenied
+    | CommonAwsError;
 }
 
 export declare namespace GetBucketIntelligentTieringConfiguration {
   export type Input = GetBucketIntelligentTieringConfigurationRequest;
   export type Output = GetBucketIntelligentTieringConfigurationOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | NoSuchBucket
+    | NoSuchConfiguration
+    | AccessDenied
+    | CommonAwsError;
 }
 
 export declare namespace GetBucketInventoryConfiguration {
   export type Input = GetBucketInventoryConfigurationRequest;
   export type Output = GetBucketInventoryConfigurationOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | NoSuchBucket
+    | NoSuchConfiguration
+    | AccessDenied
+    | CommonAwsError;
 }
 
 export declare namespace GetBucketLifecycleConfiguration {
   export type Input = GetBucketLifecycleConfigurationRequest;
   export type Output = GetBucketLifecycleConfigurationOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | NoSuchBucket
+    | NoSuchLifecycleConfiguration
+    | AccessDenied
+    | CommonAwsError;
 }
 
 export declare namespace GetBucketLocation {
   export type Input = GetBucketLocationRequest;
   export type Output = GetBucketLocationOutput;
-  export type Error = CommonAwsError;
+  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
 }
 
 export declare namespace GetBucketLogging {
   export type Input = GetBucketLoggingRequest;
   export type Output = GetBucketLoggingOutput;
-  export type Error = CommonAwsError;
+  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
 }
 
 export declare namespace GetBucketMetadataConfiguration {
   export type Input = GetBucketMetadataConfigurationRequest;
   export type Output = GetBucketMetadataConfigurationOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | NoSuchBucket
+    | MetadataConfigurationNotFound
+    | AccessDenied
+    | CommonAwsError;
 }
 
 export declare namespace GetBucketMetadataTableConfiguration {
   export type Input = GetBucketMetadataTableConfigurationRequest;
   export type Output = GetBucketMetadataTableConfigurationOutput;
-  export type Error = CommonAwsError;
+  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
 }
 
 export declare namespace GetBucketMetricsConfiguration {
   export type Input = GetBucketMetricsConfigurationRequest;
   export type Output = GetBucketMetricsConfigurationOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | NoSuchBucket
+    | NoSuchConfiguration
+    | AccessDenied
+    | CommonAwsError;
 }
 
 export declare namespace GetBucketNotificationConfiguration {
   export type Input = GetBucketNotificationConfigurationRequest;
   export type Output = NotificationConfiguration;
-  export type Error = CommonAwsError;
+  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
 }
 
 export declare namespace GetBucketOwnershipControls {
   export type Input = GetBucketOwnershipControlsRequest;
   export type Output = GetBucketOwnershipControlsOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | NoSuchBucket
+    | OwnershipControlsNotFoundError
+    | AccessDenied
+    | CommonAwsError;
 }
 
 export declare namespace GetBucketPolicy {
   export type Input = GetBucketPolicyRequest;
   export type Output = GetBucketPolicyOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | NoSuchBucket
+    | NoSuchBucketPolicy
+    | AccessDenied
+    | InvalidBucketState
+    | CommonAwsError;
 }
 
 export declare namespace GetBucketPolicyStatus {
   export type Input = GetBucketPolicyStatusRequest;
   export type Output = GetBucketPolicyStatusOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | NoSuchBucket
+    | NoSuchBucketPolicy
+    | AccessDenied
+    | CommonAwsError;
 }
 
 export declare namespace GetBucketReplication {
   export type Input = GetBucketReplicationRequest;
   export type Output = GetBucketReplicationOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | NoSuchBucket
+    | ReplicationConfigurationNotFoundError
+    | AccessDenied
+    | CommonAwsError;
 }
 
 export declare namespace GetBucketRequestPayment {
   export type Input = GetBucketRequestPaymentRequest;
   export type Output = GetBucketRequestPaymentOutput;
-  export type Error = CommonAwsError;
+  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
 }
 
 export declare namespace GetBucketTagging {
   export type Input = GetBucketTaggingRequest;
   export type Output = GetBucketTaggingOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | NoSuchBucket
+    | NoSuchTagSet
+    | NoSuchTagSetError
+    | AccessDenied
+    | CommonAwsError;
 }
 
 export declare namespace GetBucketVersioning {
   export type Input = GetBucketVersioningRequest;
   export type Output = GetBucketVersioningOutput;
-  export type Error = CommonAwsError;
+  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
 }
 
 export declare namespace GetBucketWebsite {
   export type Input = GetBucketWebsiteRequest;
   export type Output = GetBucketWebsiteOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | NoSuchBucket
+    | NoSuchWebsiteConfiguration
+    | AccessDenied
+    | CommonAwsError;
 }
 
 export declare namespace GetObject {
   export type Input = GetObjectRequest;
   export type Output = GetObjectOutput;
-  export type Error = InvalidObjectState | NoSuchKey | CommonAwsError;
+  export type Error =
+    | InvalidObjectState
+    | NoSuchKey
+    | NoSuchBucket
+    | AccessDenied
+    | CommonAwsError;
 }
 
 export declare namespace GetObjectAcl {
   export type Input = GetObjectAclRequest;
   export type Output = GetObjectAclOutput;
-  export type Error = NoSuchKey | CommonAwsError;
+  export type Error = NoSuchKey | NoSuchBucket | AccessDenied | CommonAwsError;
 }
 
 export declare namespace GetObjectAttributes {
   export type Input = GetObjectAttributesRequest;
   export type Output = GetObjectAttributesOutput;
-  export type Error = NoSuchKey | CommonAwsError;
+  export type Error = NoSuchKey | NoSuchBucket | AccessDenied | CommonAwsError;
 }
 
 export declare namespace GetObjectLegalHold {
   export type Input = GetObjectLegalHoldRequest;
   export type Output = GetObjectLegalHoldOutput;
-  export type Error = CommonAwsError;
+  export type Error = NoSuchKey | NoSuchBucket | AccessDenied | CommonAwsError;
 }
 
 export declare namespace GetObjectLockConfiguration {
   export type Input = GetObjectLockConfigurationRequest;
   export type Output = GetObjectLockConfigurationOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | NoSuchBucket
+    | ObjectLockConfigurationNotFound
+    | ObjectLockConfigurationNotFoundError
+    | AccessDenied
+    | CommonAwsError;
 }
 
 export declare namespace GetObjectRetention {
   export type Input = GetObjectRetentionRequest;
   export type Output = GetObjectRetentionOutput;
-  export type Error = CommonAwsError;
+  export type Error = NoSuchKey | NoSuchBucket | AccessDenied | CommonAwsError;
 }
 
 export declare namespace GetObjectTagging {
   export type Input = GetObjectTaggingRequest;
   export type Output = GetObjectTaggingOutput;
-  export type Error = CommonAwsError;
+  export type Error = NoSuchKey | NoSuchBucket | AccessDenied | CommonAwsError;
 }
 
 export declare namespace GetObjectTorrent {
   export type Input = GetObjectTorrentRequest;
   export type Output = GetObjectTorrentOutput;
-  export type Error = CommonAwsError;
+  export type Error = NoSuchKey | NoSuchBucket | AccessDenied | CommonAwsError;
 }
 
 export declare namespace GetPublicAccessBlock {
   export type Input = GetPublicAccessBlockRequest;
   export type Output = GetPublicAccessBlockOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | NoSuchBucket
+    | NoSuchPublicAccessBlockConfiguration
+    | AccessDenied
+    | CommonAwsError;
 }
 
 export declare namespace HeadBucket {
   export type Input = HeadBucketRequest;
   export type Output = HeadBucketOutput;
-  export type Error = NotFound | CommonAwsError;
+  export type Error = NotFound | NoSuchBucket | AccessDenied | CommonAwsError;
 }
 
 export declare namespace HeadObject {
   export type Input = HeadObjectRequest;
   export type Output = HeadObjectOutput;
-  export type Error = NotFound | CommonAwsError;
+  export type Error =
+    | NotFound
+    | NoSuchKey
+    | NoSuchBucket
+    | AccessDenied
+    | CommonAwsError;
 }
 
 export declare namespace ListBucketAnalyticsConfigurations {
   export type Input = ListBucketAnalyticsConfigurationsRequest;
   export type Output = ListBucketAnalyticsConfigurationsOutput;
-  export type Error = CommonAwsError;
+  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
 }
 
 export declare namespace ListBucketIntelligentTieringConfigurations {
   export type Input = ListBucketIntelligentTieringConfigurationsRequest;
   export type Output = ListBucketIntelligentTieringConfigurationsOutput;
-  export type Error = CommonAwsError;
+  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
 }
 
 export declare namespace ListBucketInventoryConfigurations {
   export type Input = ListBucketInventoryConfigurationsRequest;
   export type Output = ListBucketInventoryConfigurationsOutput;
-  export type Error = CommonAwsError;
+  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
 }
 
 export declare namespace ListBucketMetricsConfigurations {
   export type Input = ListBucketMetricsConfigurationsRequest;
   export type Output = ListBucketMetricsConfigurationsOutput;
-  export type Error = CommonAwsError;
+  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
 }
 
 export declare namespace ListBuckets {
   export type Input = ListBucketsRequest;
   export type Output = ListBucketsOutput;
-  export type Error = CommonAwsError;
+  export type Error = AccessDenied | CommonAwsError;
 }
 
 export declare namespace ListDirectoryBuckets {
@@ -3568,139 +4034,151 @@ export declare namespace ListDirectoryBuckets {
 export declare namespace ListMultipartUploads {
   export type Input = ListMultipartUploadsRequest;
   export type Output = ListMultipartUploadsOutput;
-  export type Error = CommonAwsError;
+  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
 }
 
 export declare namespace ListObjects {
   export type Input = ListObjectsRequest;
   export type Output = ListObjectsOutput;
-  export type Error = NoSuchBucket | CommonAwsError;
+  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
 }
 
 export declare namespace ListObjectsV2 {
   export type Input = ListObjectsV2Request;
   export type Output = ListObjectsV2Output;
-  export type Error = NoSuchBucket | CommonAwsError;
+  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
 }
 
 export declare namespace ListObjectVersions {
   export type Input = ListObjectVersionsRequest;
   export type Output = ListObjectVersionsOutput;
-  export type Error = CommonAwsError;
+  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
 }
 
 export declare namespace ListParts {
   export type Input = ListPartsRequest;
   export type Output = ListPartsOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | NoSuchUpload
+    | NoSuchBucket
+    | AccessDenied
+    | CommonAwsError;
 }
 
 export declare namespace PutBucketAccelerateConfiguration {
   export type Input = PutBucketAccelerateConfigurationRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
 }
 
 export declare namespace PutBucketAcl {
   export type Input = PutBucketAclRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
 }
 
 export declare namespace PutBucketAnalyticsConfiguration {
   export type Input = PutBucketAnalyticsConfigurationRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
 }
 
 export declare namespace PutBucketCors {
   export type Input = PutBucketCorsRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
 }
 
 export declare namespace PutBucketEncryption {
   export type Input = PutBucketEncryptionRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
 }
 
 export declare namespace PutBucketIntelligentTieringConfiguration {
   export type Input = PutBucketIntelligentTieringConfigurationRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
 }
 
 export declare namespace PutBucketInventoryConfiguration {
   export type Input = PutBucketInventoryConfigurationRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
 }
 
 export declare namespace PutBucketLifecycleConfiguration {
   export type Input = PutBucketLifecycleConfigurationRequest;
   export type Output = PutBucketLifecycleConfigurationOutput;
-  export type Error = CommonAwsError;
+  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
 }
 
 export declare namespace PutBucketLogging {
   export type Input = PutBucketLoggingRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
 }
 
 export declare namespace PutBucketMetricsConfiguration {
   export type Input = PutBucketMetricsConfigurationRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
 }
 
 export declare namespace PutBucketNotificationConfiguration {
   export type Input = PutBucketNotificationConfigurationRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
 }
 
 export declare namespace PutBucketOwnershipControls {
   export type Input = PutBucketOwnershipControlsRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
 }
 
 export declare namespace PutBucketPolicy {
   export type Input = PutBucketPolicyRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | NoSuchBucket
+    | MalformedPolicy
+    | AccessDenied
+    | CommonAwsError;
 }
 
 export declare namespace PutBucketReplication {
   export type Input = PutBucketReplicationRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error =
+    | NoSuchBucket
+    | InvalidRequest
+    | AccessDenied
+    | CommonAwsError;
 }
 
 export declare namespace PutBucketRequestPayment {
   export type Input = PutBucketRequestPaymentRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
 }
 
 export declare namespace PutBucketTagging {
   export type Input = PutBucketTaggingRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
 }
 
 export declare namespace PutBucketVersioning {
   export type Input = PutBucketVersioningRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
 }
 
 export declare namespace PutBucketWebsite {
   export type Input = PutBucketWebsiteRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
 }
 
 export declare namespace PutObject {
@@ -3711,43 +4189,51 @@ export declare namespace PutObject {
     | InvalidRequest
     | InvalidWriteOffset
     | TooManyParts
+    | NoSuchBucket
+    | InvalidArgument
+    | AccessDenied
+    | EntityTooLarge
     | CommonAwsError;
 }
 
 export declare namespace PutObjectAcl {
   export type Input = PutObjectAclRequest;
   export type Output = PutObjectAclOutput;
-  export type Error = NoSuchKey | CommonAwsError;
+  export type Error = NoSuchKey | NoSuchBucket | AccessDenied | CommonAwsError;
 }
 
 export declare namespace PutObjectLegalHold {
   export type Input = PutObjectLegalHoldRequest;
   export type Output = PutObjectLegalHoldOutput;
-  export type Error = CommonAwsError;
+  export type Error = NoSuchKey | NoSuchBucket | AccessDenied | CommonAwsError;
 }
 
 export declare namespace PutObjectLockConfiguration {
   export type Input = PutObjectLockConfigurationRequest;
   export type Output = PutObjectLockConfigurationOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | NoSuchBucket
+    | InvalidBucketState
+    | AccessDenied
+    | CommonAwsError;
 }
 
 export declare namespace PutObjectRetention {
   export type Input = PutObjectRetentionRequest;
   export type Output = PutObjectRetentionOutput;
-  export type Error = CommonAwsError;
+  export type Error = NoSuchKey | NoSuchBucket | AccessDenied | CommonAwsError;
 }
 
 export declare namespace PutObjectTagging {
   export type Input = PutObjectTaggingRequest;
   export type Output = PutObjectTaggingOutput;
-  export type Error = CommonAwsError;
+  export type Error = NoSuchKey | NoSuchBucket | AccessDenied | CommonAwsError;
 }
 
 export declare namespace PutPublicAccessBlock {
   export type Input = PutPublicAccessBlockRequest;
   export type Output = {};
-  export type Error = CommonAwsError;
+  export type Error = NoSuchBucket | AccessDenied | CommonAwsError;
 }
 
 export declare namespace RenameObject {
@@ -3759,13 +4245,24 @@ export declare namespace RenameObject {
 export declare namespace RestoreObject {
   export type Input = RestoreObjectRequest;
   export type Output = RestoreObjectOutput;
-  export type Error = ObjectAlreadyInActiveTierError | CommonAwsError;
+  export type Error =
+    | ObjectAlreadyInActiveTierError
+    | NoSuchKey
+    | NoSuchBucket
+    | InvalidObjectState
+    | AccessDenied
+    | CommonAwsError;
 }
 
 export declare namespace SelectObjectContent {
   export type Input = SelectObjectContentRequest;
   export type Output = SelectObjectContentOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | NoSuchKey
+    | NoSuchBucket
+    | InvalidArgument
+    | AccessDenied
+    | CommonAwsError;
 }
 
 export declare namespace UpdateBucketMetadataInventoryTableConfiguration {
@@ -3783,13 +4280,24 @@ export declare namespace UpdateBucketMetadataJournalTableConfiguration {
 export declare namespace UploadPart {
   export type Input = UploadPartRequest;
   export type Output = UploadPartOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | NoSuchUpload
+    | NoSuchBucket
+    | InvalidArgument
+    | AccessDenied
+    | CommonAwsError;
 }
 
 export declare namespace UploadPartCopy {
   export type Input = UploadPartCopyRequest;
   export type Output = UploadPartCopyOutput;
-  export type Error = CommonAwsError;
+  export type Error =
+    | NoSuchUpload
+    | NoSuchKey
+    | NoSuchBucket
+    | InvalidArgument
+    | AccessDenied
+    | CommonAwsError;
 }
 
 export declare namespace WriteGetObjectResponse {
@@ -3813,4 +4321,30 @@ export type S3Errors =
   | ObjectAlreadyInActiveTierError
   | ObjectNotInActiveTierError
   | TooManyParts
+  | AccessDenied
+  | InvalidPart
+  | InvalidPartOrder
+  | InvalidArgument
+  | IllegalLocationConstraintException
+  | InvalidBucketName
+  | TooManyBuckets
+  | BucketNotEmpty
+  | MetadataConfigurationNotFound
+  | NoSuchBucketPolicy
+  | MalformedXML
+  | NoSuchConfiguration
+  | NoSuchCORSConfiguration
+  | ServerSideEncryptionConfigurationNotFoundError
+  | NoSuchLifecycleConfiguration
+  | OwnershipControlsNotFoundError
+  | InvalidBucketState
+  | ReplicationConfigurationNotFoundError
+  | NoSuchTagSet
+  | NoSuchTagSetError
+  | NoSuchWebsiteConfiguration
+  | ObjectLockConfigurationNotFound
+  | ObjectLockConfigurationNotFoundError
+  | NoSuchPublicAccessBlockConfiguration
+  | MalformedPolicy
+  | EntityTooLarge
   | CommonAwsError;

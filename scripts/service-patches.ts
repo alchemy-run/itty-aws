@@ -1739,4 +1739,432 @@ export const servicePatches: Record<string, ServicePatches> = {
       errors: ["InvalidAssociationID.NotFound"],
     },
   },
+  s3: {
+    // ========== Bucket Operations ==========
+    CreateBucket: {
+      errors: [
+        "BucketAlreadyExists",
+        "BucketAlreadyOwnedByYou",
+        "IllegalLocationConstraintException",
+        "InvalidBucketName",
+        "TooManyBuckets",
+      ],
+    },
+    DeleteBucket: {
+      errors: ["NoSuchBucket", "BucketNotEmpty", "AccessDenied"],
+    },
+    HeadBucket: {
+      errors: ["NoSuchBucket", "NotFound", "AccessDenied"],
+    },
+    ListBuckets: {
+      errors: ["AccessDenied"],
+    },
+
+    // ========== Object Operations ==========
+    GetObject: {
+      errors: [
+        "NoSuchKey",
+        "NoSuchBucket",
+        "InvalidObjectState",
+        "AccessDenied",
+      ],
+    },
+    HeadObject: {
+      errors: ["NoSuchKey", "NoSuchBucket", "NotFound", "AccessDenied"],
+    },
+    PutObject: {
+      errors: [
+        "NoSuchBucket",
+        "InvalidArgument",
+        "InvalidRequest",
+        "AccessDenied",
+        "EntityTooLarge",
+      ],
+    },
+    DeleteObject: {
+      errors: ["NoSuchBucket", "AccessDenied"],
+    },
+    DeleteObjects: {
+      errors: ["NoSuchBucket", "MalformedXML", "AccessDenied"],
+    },
+    CopyObject: {
+      errors: [
+        "NoSuchKey",
+        "NoSuchBucket",
+        "InvalidArgument",
+        "InvalidRequest",
+        "AccessDenied",
+      ],
+    },
+    GetObjectAttributes: {
+      errors: ["NoSuchKey", "NoSuchBucket", "AccessDenied"],
+    },
+    ListObjects: {
+      errors: ["NoSuchBucket", "AccessDenied"],
+    },
+    ListObjectsV2: {
+      errors: ["NoSuchBucket", "AccessDenied"],
+    },
+    ListObjectVersions: {
+      errors: ["NoSuchBucket", "AccessDenied"],
+    },
+
+    // ========== Multipart Upload Operations ==========
+    CreateMultipartUpload: {
+      errors: ["NoSuchBucket", "InvalidArgument", "AccessDenied"],
+    },
+    UploadPart: {
+      errors: [
+        "NoSuchUpload",
+        "NoSuchBucket",
+        "InvalidArgument",
+        "AccessDenied",
+      ],
+    },
+    UploadPartCopy: {
+      errors: [
+        "NoSuchUpload",
+        "NoSuchKey",
+        "NoSuchBucket",
+        "InvalidArgument",
+        "AccessDenied",
+      ],
+    },
+    CompleteMultipartUpload: {
+      errors: [
+        "NoSuchUpload",
+        "NoSuchBucket",
+        "InvalidPart",
+        "InvalidPartOrder",
+        "AccessDenied",
+      ],
+    },
+    AbortMultipartUpload: {
+      errors: ["NoSuchUpload", "NoSuchBucket", "AccessDenied"],
+    },
+    ListMultipartUploads: {
+      errors: ["NoSuchBucket", "AccessDenied"],
+    },
+    ListParts: {
+      errors: ["NoSuchUpload", "NoSuchBucket", "AccessDenied"],
+    },
+
+    // ========== Bucket Policy Operations ==========
+    GetBucketPolicy: {
+      errors: [
+        "NoSuchBucket",
+        "NoSuchBucketPolicy",
+        "AccessDenied",
+        "InvalidBucketState",
+      ],
+    },
+    PutBucketPolicy: {
+      errors: ["NoSuchBucket", "MalformedPolicy", "AccessDenied"],
+    },
+    DeleteBucketPolicy: {
+      errors: ["NoSuchBucket", "NoSuchBucketPolicy", "AccessDenied"],
+    },
+    GetBucketPolicyStatus: {
+      errors: ["NoSuchBucket", "NoSuchBucketPolicy", "AccessDenied"],
+    },
+
+    // ========== CORS Operations ==========
+    GetBucketCors: {
+      errors: ["NoSuchBucket", "NoSuchCORSConfiguration", "AccessDenied"],
+    },
+    PutBucketCors: {
+      errors: ["NoSuchBucket", "AccessDenied"],
+    },
+    DeleteBucketCors: {
+      errors: ["NoSuchBucket", "AccessDenied"],
+    },
+
+    // ========== Lifecycle Operations ==========
+    GetBucketLifecycleConfiguration: {
+      errors: ["NoSuchBucket", "NoSuchLifecycleConfiguration", "AccessDenied"],
+    },
+    PutBucketLifecycleConfiguration: {
+      errors: ["NoSuchBucket", "AccessDenied"],
+    },
+    DeleteBucketLifecycle: {
+      errors: ["NoSuchBucket", "AccessDenied"],
+    },
+
+    // ========== Tagging Operations ==========
+    GetBucketTagging: {
+      errors: [
+        "NoSuchBucket",
+        "NoSuchTagSet",
+        "NoSuchTagSetError",
+        "AccessDenied",
+      ],
+    },
+    PutBucketTagging: {
+      errors: ["NoSuchBucket", "AccessDenied"],
+    },
+    DeleteBucketTagging: {
+      errors: ["NoSuchBucket", "AccessDenied"],
+    },
+    GetObjectTagging: {
+      errors: ["NoSuchKey", "NoSuchBucket", "AccessDenied"],
+    },
+    PutObjectTagging: {
+      errors: ["NoSuchKey", "NoSuchBucket", "AccessDenied"],
+    },
+    DeleteObjectTagging: {
+      errors: ["NoSuchKey", "NoSuchBucket", "AccessDenied"],
+    },
+
+    // ========== Website Operations ==========
+    GetBucketWebsite: {
+      errors: ["NoSuchBucket", "NoSuchWebsiteConfiguration", "AccessDenied"],
+    },
+    PutBucketWebsite: {
+      errors: ["NoSuchBucket", "AccessDenied"],
+    },
+    DeleteBucketWebsite: {
+      errors: ["NoSuchBucket", "AccessDenied"],
+    },
+
+    // ========== Public Access Block Operations ==========
+    GetPublicAccessBlock: {
+      errors: [
+        "NoSuchBucket",
+        "NoSuchPublicAccessBlockConfiguration",
+        "AccessDenied",
+      ],
+    },
+    PutPublicAccessBlock: {
+      errors: ["NoSuchBucket", "AccessDenied"],
+    },
+    DeletePublicAccessBlock: {
+      errors: ["NoSuchBucket", "AccessDenied"],
+    },
+
+    // ========== Object Lock Operations ==========
+    GetObjectLockConfiguration: {
+      errors: [
+        "NoSuchBucket",
+        "ObjectLockConfigurationNotFound",
+        "ObjectLockConfigurationNotFoundError",
+        "AccessDenied",
+      ],
+    },
+    PutObjectLockConfiguration: {
+      errors: ["NoSuchBucket", "InvalidBucketState", "AccessDenied"],
+    },
+    GetObjectLegalHold: {
+      errors: ["NoSuchKey", "NoSuchBucket", "AccessDenied"],
+    },
+    PutObjectLegalHold: {
+      errors: ["NoSuchKey", "NoSuchBucket", "AccessDenied"],
+    },
+    GetObjectRetention: {
+      errors: ["NoSuchKey", "NoSuchBucket", "AccessDenied"],
+    },
+    PutObjectRetention: {
+      errors: ["NoSuchKey", "NoSuchBucket", "AccessDenied"],
+    },
+
+    // ========== Replication Operations ==========
+    GetBucketReplication: {
+      errors: [
+        "NoSuchBucket",
+        "ReplicationConfigurationNotFoundError",
+        "AccessDenied",
+      ],
+    },
+    PutBucketReplication: {
+      errors: ["NoSuchBucket", "InvalidRequest", "AccessDenied"],
+    },
+    DeleteBucketReplication: {
+      errors: ["NoSuchBucket", "AccessDenied"],
+    },
+
+    // ========== Encryption Operations ==========
+    GetBucketEncryption: {
+      errors: [
+        "NoSuchBucket",
+        "ServerSideEncryptionConfigurationNotFoundError",
+        "AccessDenied",
+      ],
+    },
+    PutBucketEncryption: {
+      errors: ["NoSuchBucket", "AccessDenied"],
+    },
+    DeleteBucketEncryption: {
+      errors: ["NoSuchBucket", "AccessDenied"],
+    },
+
+    // ========== Ownership Controls Operations ==========
+    GetBucketOwnershipControls: {
+      errors: [
+        "NoSuchBucket",
+        "OwnershipControlsNotFoundError",
+        "AccessDenied",
+      ],
+    },
+    PutBucketOwnershipControls: {
+      errors: ["NoSuchBucket", "AccessDenied"],
+    },
+    DeleteBucketOwnershipControls: {
+      errors: ["NoSuchBucket", "AccessDenied"],
+    },
+
+    // ========== ACL Operations ==========
+    GetBucketAcl: {
+      errors: ["NoSuchBucket", "AccessDenied"],
+    },
+    PutBucketAcl: {
+      errors: ["NoSuchBucket", "AccessDenied"],
+    },
+    GetObjectAcl: {
+      errors: ["NoSuchKey", "NoSuchBucket", "AccessDenied"],
+    },
+    PutObjectAcl: {
+      errors: ["NoSuchKey", "NoSuchBucket", "AccessDenied"],
+    },
+
+    // ========== Versioning Operations ==========
+    GetBucketVersioning: {
+      errors: ["NoSuchBucket", "AccessDenied"],
+    },
+    PutBucketVersioning: {
+      errors: ["NoSuchBucket", "AccessDenied"],
+    },
+
+    // ========== Logging Operations ==========
+    GetBucketLogging: {
+      errors: ["NoSuchBucket", "AccessDenied"],
+    },
+    PutBucketLogging: {
+      errors: ["NoSuchBucket", "AccessDenied"],
+    },
+
+    // ========== Notification Operations ==========
+    GetBucketNotificationConfiguration: {
+      errors: ["NoSuchBucket", "AccessDenied"],
+    },
+    PutBucketNotificationConfiguration: {
+      errors: ["NoSuchBucket", "AccessDenied"],
+    },
+
+    // ========== Analytics Configuration Operations ==========
+    GetBucketAnalyticsConfiguration: {
+      errors: ["NoSuchBucket", "NoSuchConfiguration", "AccessDenied"],
+    },
+    PutBucketAnalyticsConfiguration: {
+      errors: ["NoSuchBucket", "AccessDenied"],
+    },
+    DeleteBucketAnalyticsConfiguration: {
+      errors: ["NoSuchBucket", "AccessDenied"],
+    },
+    ListBucketAnalyticsConfigurations: {
+      errors: ["NoSuchBucket", "AccessDenied"],
+    },
+
+    // ========== Inventory Configuration Operations ==========
+    GetBucketInventoryConfiguration: {
+      errors: ["NoSuchBucket", "NoSuchConfiguration", "AccessDenied"],
+    },
+    PutBucketInventoryConfiguration: {
+      errors: ["NoSuchBucket", "AccessDenied"],
+    },
+    DeleteBucketInventoryConfiguration: {
+      errors: ["NoSuchBucket", "AccessDenied"],
+    },
+    ListBucketInventoryConfigurations: {
+      errors: ["NoSuchBucket", "AccessDenied"],
+    },
+
+    // ========== Metrics Configuration Operations ==========
+    GetBucketMetricsConfiguration: {
+      errors: ["NoSuchBucket", "NoSuchConfiguration", "AccessDenied"],
+    },
+    PutBucketMetricsConfiguration: {
+      errors: ["NoSuchBucket", "AccessDenied"],
+    },
+    DeleteBucketMetricsConfiguration: {
+      errors: ["NoSuchBucket", "AccessDenied"],
+    },
+    ListBucketMetricsConfigurations: {
+      errors: ["NoSuchBucket", "AccessDenied"],
+    },
+
+    // ========== Intelligent-Tiering Configuration Operations ==========
+    GetBucketIntelligentTieringConfiguration: {
+      errors: ["NoSuchBucket", "NoSuchConfiguration", "AccessDenied"],
+    },
+    PutBucketIntelligentTieringConfiguration: {
+      errors: ["NoSuchBucket", "AccessDenied"],
+    },
+    DeleteBucketIntelligentTieringConfiguration: {
+      errors: ["NoSuchBucket", "AccessDenied"],
+    },
+    ListBucketIntelligentTieringConfigurations: {
+      errors: ["NoSuchBucket", "AccessDenied"],
+    },
+
+    // ========== Accelerate Configuration Operations ==========
+    GetBucketAccelerateConfiguration: {
+      errors: ["NoSuchBucket", "AccessDenied"],
+    },
+    PutBucketAccelerateConfiguration: {
+      errors: ["NoSuchBucket", "AccessDenied"],
+    },
+
+    // ========== Request Payment Operations ==========
+    GetBucketRequestPayment: {
+      errors: ["NoSuchBucket", "AccessDenied"],
+    },
+    PutBucketRequestPayment: {
+      errors: ["NoSuchBucket", "AccessDenied"],
+    },
+
+    // ========== Location Operations ==========
+    GetBucketLocation: {
+      errors: ["NoSuchBucket", "AccessDenied"],
+    },
+
+    // ========== Metadata Configuration Operations ==========
+    GetBucketMetadataConfiguration: {
+      errors: ["NoSuchBucket", "MetadataConfigurationNotFound", "AccessDenied"],
+    },
+    CreateBucketMetadataConfiguration: {
+      errors: ["NoSuchBucket", "AccessDenied"],
+    },
+    DeleteBucketMetadataConfiguration: {
+      errors: ["NoSuchBucket", "MetadataConfigurationNotFound", "AccessDenied"],
+    },
+    GetBucketMetadataTableConfiguration: {
+      errors: ["NoSuchBucket", "AccessDenied"],
+    },
+    CreateBucketMetadataTableConfiguration: {
+      errors: ["NoSuchBucket", "AccessDenied"],
+    },
+    DeleteBucketMetadataTableConfiguration: {
+      errors: ["NoSuchBucket", "AccessDenied"],
+    },
+
+    // ========== Restore Operations ==========
+    RestoreObject: {
+      errors: [
+        "NoSuchKey",
+        "NoSuchBucket",
+        "ObjectAlreadyInActiveTierError",
+        "InvalidObjectState",
+        "AccessDenied",
+      ],
+    },
+
+    // ========== Select Operations ==========
+    SelectObjectContent: {
+      errors: ["NoSuchKey", "NoSuchBucket", "InvalidArgument", "AccessDenied"],
+    },
+
+    // ========== Torrent Operations ==========
+    GetObjectTorrent: {
+      errors: ["NoSuchKey", "NoSuchBucket", "AccessDenied"],
+    },
+  },
 };
