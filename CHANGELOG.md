@@ -1,3 +1,13 @@
+## v0.8.12
+
+### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
+
+- **s3**: Add NoSuchLifecycleConfiguration to DeleteBucketLifecycle &nbsp;-&nbsp; by **Sam Goodwin** [<samp>(569e5)</samp>](https://github.com/sam-goodwin/itty-aws/commit/569e5c31)
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sam-goodwin/itty-aws/compare/v0.8.11...v0.8.12)
+
+---
+
 ## v0.8.11
 
 ### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
