@@ -1,0 +1,21 @@
+import { Schema} from "effect"
+import { FormatAwsJSON11Request,FormatJSONResponse,FormatAwsRestJSONError, makeOperation } from "../client";
+import { Operation, Path, Header, StreamBody, Body, ErrorAnnotation } from "../schema-helpers";
+export const ThrottlingException = Schema.Struct({message: Schema.optional(Schema.String)});
+export const ValidationException = Schema.Struct({message: Schema.optional(Schema.String)});
+export const ServiceQuotaExceededException = Schema.Struct({message: Schema.optional(Schema.String)});
+export const ResourceNotFoundException = Schema.Struct({message: Schema.optional(Schema.String)});
+export const TagResourceResponse = Schema.Struct({});
+export const InternalServerException = Schema.Struct({message: Schema.optional(Schema.String)});
+export const AccessDeniedException = Schema.Struct({message: Schema.optional(Schema.String)});
+export const ListTagsForResourceResponse = Schema.Struct({tags: Schema.optional(TagList)});
+export const Tag = Schema.Struct({key: Schema.String, value: Schema.String});
+export const UntagResourceResponse = Schema.Struct({});
+export const TagList = Schema.Array(Tag);
+export const UntagResourceRequest = Schema.Struct({resourceARN: Schema.String, tagKeys: TagKeyList});
+export const TagKeyList = Schema.Array(Schema.String);
+export const TagResourceRequest = Schema.Struct({resourceARN: Schema.String, tags: TagList});
+export const ListTagsForResourceRequest = Schema.Struct({resourceARN: Schema.String});
+export const UntagResource = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/", method: "POST", sdkId: "Bedrock Data Automation Runtime", sigV4ServiceName: "bedrock", name: "AmazonBedrockKeystoneRuntimeService.UntagResource" }, UntagResourceRequest, UntagResourceResponse, Schema.Union(ErrorAnnotation("AccessDeniedException", AccessDeniedException), ErrorAnnotation("InternalServerException", InternalServerException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException), ErrorAnnotation("ThrottlingException", ThrottlingException), ErrorAnnotation("ValidationException", ValidationException))), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const ListTagsForResource = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/", method: "POST", sdkId: "Bedrock Data Automation Runtime", sigV4ServiceName: "bedrock", name: "AmazonBedrockKeystoneRuntimeService.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, Schema.Union(ErrorAnnotation("AccessDeniedException", AccessDeniedException), ErrorAnnotation("InternalServerException", InternalServerException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException), ErrorAnnotation("ThrottlingException", ThrottlingException), ErrorAnnotation("ValidationException", ValidationException))), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+export const TagResource = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/", method: "POST", sdkId: "Bedrock Data Automation Runtime", sigV4ServiceName: "bedrock", name: "AmazonBedrockKeystoneRuntimeService.TagResource" }, TagResourceRequest, TagResourceResponse, Schema.Union(ErrorAnnotation("AccessDeniedException", AccessDeniedException), ErrorAnnotation("InternalServerException", InternalServerException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException), ErrorAnnotation("ServiceQuotaExceededException", ServiceQuotaExceededException), ErrorAnnotation("ThrottlingException", ThrottlingException), ErrorAnnotation("ValidationException", ValidationException))), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

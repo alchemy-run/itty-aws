@@ -1,80 +1,80 @@
 import { Schema} from "effect"
-import { FormatXMLRequest, FormatXMLResponse, makeOperation } from "../client";
+import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperation } from "../client";
 import { Operation, Path, Header, StreamBody, Body, ErrorAnnotation } from "../schema-helpers";
-const SavingsPlanArnList = Schema.Array(Schema.String)
-const SavingsPlanIdList = Schema.Array(Schema.String)
-const SavingsPlanStateList = Schema.Array(Schema.String)
-const UUIDs = Schema.Array(Schema.String)
-const SavingsPlanPaymentOptionList = Schema.Array(Schema.String)
-const SavingsPlanTypeList = Schema.Array(Schema.String)
-const SavingsPlanProductTypeList = Schema.Array(Schema.String)
-const SavingsPlanRateServiceCodeList = Schema.Array(Schema.String)
-const SavingsPlanRateUsageTypeList = Schema.Array(Schema.String)
-const SavingsPlanRateOperationList = Schema.Array(Schema.String)
-const DurationsList = Schema.Array(Schema.Number)
-const CurrencyList = Schema.Array(Schema.String)
-const SavingsPlanDescriptionsList = Schema.Array(Schema.String)
-const SavingsPlanServiceCodeList = Schema.Array(Schema.String)
-const SavingsPlanUsageTypeList = Schema.Array(Schema.String)
-const SavingsPlanOperationList = Schema.Array(Schema.String)
-const TagKeyList = Schema.Array(Schema.String)
-const DeleteQueuedSavingsPlanRequest = Schema.Struct({savingsPlanId: Schema.String})
-const DeleteQueuedSavingsPlanResponse = Schema.Struct({})
-const ListTagsForResourceRequest = Schema.Struct({resourceArn: Schema.String})
-const ReturnSavingsPlanRequest = Schema.Struct({savingsPlanId: Schema.String, clientToken: Schema.optional(Schema.String)})
-const TagResourceRequest = Schema.Struct({resourceArn: Schema.String, tags: TagMap})
-const TagResourceResponse = Schema.Struct({})
-const UntagResourceRequest = Schema.Struct({resourceArn: Schema.String, tagKeys: TagKeyList})
-const UntagResourceResponse = Schema.Struct({})
-const ListOfStrings = Schema.Array(Schema.String)
-const FilterValuesList = Schema.Array(Schema.String)
-const TagMap = Schema.Record({key: Schema.String, value: Schema.String})
-const SavingsPlanRateFilter = Schema.Struct({name: Schema.optional(Schema.String), values: Schema.optional(ListOfStrings)})
-const SavingsPlanRateFilterList = Schema.Array(SavingsPlanRateFilter)
-const SavingsPlanFilter = Schema.Struct({name: Schema.optional(Schema.String), values: Schema.optional(ListOfStrings)})
-const SavingsPlanFilterList = Schema.Array(SavingsPlanFilter)
-const SavingsPlanOfferingRateFilterElement = Schema.Struct({name: Schema.optional(Schema.String), values: Schema.optional(FilterValuesList)})
-const SavingsPlanOfferingRateFiltersList = Schema.Array(SavingsPlanOfferingRateFilterElement)
-const SavingsPlanOfferingFilterElement = Schema.Struct({name: Schema.optional(Schema.String), values: Schema.optional(FilterValuesList)})
-const SavingsPlanOfferingFiltersList = Schema.Array(SavingsPlanOfferingFilterElement)
-const CreateSavingsPlanRequest = Schema.Struct({savingsPlanOfferingId: Schema.String, commitment: Schema.String, upfrontPaymentAmount: Schema.optional(Schema.String), purchaseTime: Schema.optional(Schema.Date), clientToken: Schema.optional(Schema.String), tags: Schema.optional(TagMap)})
-const InternalServerException = Schema.Struct({message: Schema.String})
-const DescribeSavingsPlanRatesRequest = Schema.Struct({savingsPlanId: Schema.String, filters: Schema.optional(SavingsPlanRateFilterList), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)})
-const DescribeSavingsPlansRequest = Schema.Struct({savingsPlanArns: Schema.optional(SavingsPlanArnList), savingsPlanIds: Schema.optional(SavingsPlanIdList), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), states: Schema.optional(SavingsPlanStateList), filters: Schema.optional(SavingsPlanFilterList)})
-const DescribeSavingsPlansOfferingRatesRequest = Schema.Struct({savingsPlanOfferingIds: Schema.optional(UUIDs), savingsPlanPaymentOptions: Schema.optional(SavingsPlanPaymentOptionList), savingsPlanTypes: Schema.optional(SavingsPlanTypeList), products: Schema.optional(SavingsPlanProductTypeList), serviceCodes: Schema.optional(SavingsPlanRateServiceCodeList), usageTypes: Schema.optional(SavingsPlanRateUsageTypeList), operations: Schema.optional(SavingsPlanRateOperationList), filters: Schema.optional(SavingsPlanOfferingRateFiltersList), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)})
-const DescribeSavingsPlansOfferingsRequest = Schema.Struct({offeringIds: Schema.optional(UUIDs), paymentOptions: Schema.optional(SavingsPlanPaymentOptionList), productType: Schema.optional(Schema.String), planTypes: Schema.optional(SavingsPlanTypeList), durations: Schema.optional(DurationsList), currencies: Schema.optional(CurrencyList), descriptions: Schema.optional(SavingsPlanDescriptionsList), serviceCodes: Schema.optional(SavingsPlanServiceCodeList), usageTypes: Schema.optional(SavingsPlanUsageTypeList), operations: Schema.optional(SavingsPlanOperationList), filters: Schema.optional(SavingsPlanOfferingFiltersList), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)})
-const ListTagsForResourceResponse = Schema.Struct({tags: Schema.optional(TagMap)})
-export const ListTagsForResource = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/ListTagsForResource", method: "POST", sdkId: "savingsplans", sigV4ServiceName: "savingsplans", name: "ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, Schema.Union(ErrorAnnotation("InternalServerException", InternalServerException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException), ErrorAnnotation("ValidationException", ValidationException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const ReturnSavingsPlanResponse = Schema.Struct({savingsPlanId: Schema.optional(Schema.String)})
-export const ReturnSavingsPlan = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/ReturnSavingsPlan", method: "POST", sdkId: "savingsplans", sigV4ServiceName: "savingsplans", name: "ReturnSavingsPlan" }, ReturnSavingsPlanRequest, ReturnSavingsPlanResponse, Schema.Union(ErrorAnnotation("InternalServerException", InternalServerException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException), ErrorAnnotation("ServiceQuotaExceededException", ServiceQuotaExceededException), ErrorAnnotation("ValidationException", ValidationException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const ResourceNotFoundException = Schema.Struct({message: Schema.String})
-export const TagResource = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/TagResource", method: "POST", sdkId: "savingsplans", sigV4ServiceName: "savingsplans", name: "TagResource" }, TagResourceRequest, TagResourceResponse, Schema.Union(ErrorAnnotation("InternalServerException", InternalServerException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException), ErrorAnnotation("ServiceQuotaExceededException", ServiceQuotaExceededException), ErrorAnnotation("ValidationException", ValidationException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const ValidationException = Schema.Struct({message: Schema.String})
-export const UntagResource = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/UntagResource", method: "POST", sdkId: "savingsplans", sigV4ServiceName: "savingsplans", name: "UntagResource" }, UntagResourceRequest, UntagResourceResponse, Schema.Union(ErrorAnnotation("InternalServerException", InternalServerException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException), ErrorAnnotation("ValidationException", ValidationException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const CreateSavingsPlanResponse = Schema.Struct({savingsPlanId: Schema.optional(Schema.String)})
-export const CreateSavingsPlan = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/CreateSavingsPlan", method: "POST", sdkId: "savingsplans", sigV4ServiceName: "savingsplans", name: "CreateSavingsPlan" }, CreateSavingsPlanRequest, CreateSavingsPlanResponse, Schema.Union(ErrorAnnotation("InternalServerException", InternalServerException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException), ErrorAnnotation("ServiceQuotaExceededException", ServiceQuotaExceededException), ErrorAnnotation("ValidationException", ValidationException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const ServiceQuotaExceededException = Schema.Struct({message: Schema.String})
-export const DeleteQueuedSavingsPlan = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/DeleteQueuedSavingsPlan", method: "POST", sdkId: "savingsplans", sigV4ServiceName: "savingsplans", name: "DeleteQueuedSavingsPlan" }, DeleteQueuedSavingsPlanRequest, DeleteQueuedSavingsPlanResponse, Schema.Union(ErrorAnnotation("InternalServerException", InternalServerException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException), ErrorAnnotation("ServiceQuotaExceededException", ServiceQuotaExceededException), ErrorAnnotation("ValidationException", ValidationException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const SavingsPlan = Schema.Struct({offeringId: Schema.optional(Schema.String), savingsPlanId: Schema.optional(Schema.String), savingsPlanArn: Schema.optional(Schema.String), description: Schema.optional(Schema.String), start: Schema.optional(Schema.String), end: Schema.optional(Schema.String), state: Schema.optional(Schema.String), region: Schema.optional(Schema.String), ec2InstanceFamily: Schema.optional(Schema.String), savingsPlanType: Schema.optional(Schema.String), paymentOption: Schema.optional(Schema.String), productTypes: Schema.optional(SavingsPlanProductTypeList), currency: Schema.optional(Schema.String), commitment: Schema.optional(Schema.String), upfrontPaymentAmount: Schema.optional(Schema.String), recurringPaymentAmount: Schema.optional(Schema.String), termDurationInSeconds: Schema.optional(Schema.Number), tags: Schema.optional(TagMap), returnableUntil: Schema.optional(Schema.String)})
-const SavingsPlanList = Schema.Array(SavingsPlan)
-const DescribeSavingsPlansResponse = Schema.Struct({savingsPlans: Schema.optional(SavingsPlanList), nextToken: Schema.optional(Schema.String)})
-export const DescribeSavingsPlans = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/DescribeSavingsPlans", method: "POST", sdkId: "savingsplans", sigV4ServiceName: "savingsplans", name: "DescribeSavingsPlans" }, DescribeSavingsPlansRequest, DescribeSavingsPlansResponse, Schema.Union(ErrorAnnotation("InternalServerException", InternalServerException), ErrorAnnotation("ValidationException", ValidationException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const SavingsPlanRateProperty = Schema.Struct({name: Schema.optional(Schema.String), value: Schema.optional(Schema.String)})
-const SavingsPlanRatePropertyList = Schema.Array(SavingsPlanRateProperty)
-const ParentSavingsPlanOffering = Schema.Struct({offeringId: Schema.optional(Schema.String), paymentOption: Schema.optional(Schema.String), planType: Schema.optional(Schema.String), durationSeconds: Schema.optional(Schema.Number), currency: Schema.optional(Schema.String), planDescription: Schema.optional(Schema.String)})
-const SavingsPlanOfferingRateProperty = Schema.Struct({name: Schema.optional(Schema.String), value: Schema.optional(Schema.String)})
-const SavingsPlanOfferingRatePropertyList = Schema.Array(SavingsPlanOfferingRateProperty)
-const SavingsPlanOfferingProperty = Schema.Struct({name: Schema.optional(Schema.String), value: Schema.optional(Schema.String)})
-const SavingsPlanOfferingPropertyList = Schema.Array(SavingsPlanOfferingProperty)
-const SavingsPlanRate = Schema.Struct({rate: Schema.optional(Schema.String), currency: Schema.optional(Schema.String), unit: Schema.optional(Schema.String), productType: Schema.optional(Schema.String), serviceCode: Schema.optional(Schema.String), usageType: Schema.optional(Schema.String), operation: Schema.optional(Schema.String), properties: Schema.optional(SavingsPlanRatePropertyList)})
-const SavingsPlanRateList = Schema.Array(SavingsPlanRate)
-const SavingsPlanOfferingRate = Schema.Struct({savingsPlanOffering: Schema.optional(ParentSavingsPlanOffering), rate: Schema.optional(Schema.String), unit: Schema.optional(Schema.String), productType: Schema.optional(Schema.String), serviceCode: Schema.optional(Schema.String), usageType: Schema.optional(Schema.String), operation: Schema.optional(Schema.String), properties: Schema.optional(SavingsPlanOfferingRatePropertyList)})
-const SavingsPlanOfferingRatesList = Schema.Array(SavingsPlanOfferingRate)
-const SavingsPlanOffering = Schema.Struct({offeringId: Schema.optional(Schema.String), productTypes: Schema.optional(SavingsPlanProductTypeList), planType: Schema.optional(Schema.String), description: Schema.optional(Schema.String), paymentOption: Schema.optional(Schema.String), durationSeconds: Schema.optional(Schema.Number), currency: Schema.optional(Schema.String), serviceCode: Schema.optional(Schema.String), usageType: Schema.optional(Schema.String), operation: Schema.optional(Schema.String), properties: Schema.optional(SavingsPlanOfferingPropertyList)})
-const SavingsPlanOfferingsList = Schema.Array(SavingsPlanOffering)
-const DescribeSavingsPlanRatesResponse = Schema.Struct({savingsPlanId: Schema.optional(Schema.String), searchResults: Schema.optional(SavingsPlanRateList), nextToken: Schema.optional(Schema.String)})
-export const DescribeSavingsPlanRates = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/DescribeSavingsPlanRates", method: "POST", sdkId: "savingsplans", sigV4ServiceName: "savingsplans", name: "DescribeSavingsPlanRates" }, DescribeSavingsPlanRatesRequest, DescribeSavingsPlanRatesResponse, Schema.Union(ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException), ErrorAnnotation("ValidationException", ValidationException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const DescribeSavingsPlansOfferingRatesResponse = Schema.Struct({searchResults: Schema.optional(SavingsPlanOfferingRatesList), nextToken: Schema.optional(Schema.String)})
-export const DescribeSavingsPlansOfferingRates = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/DescribeSavingsPlansOfferingRates", method: "POST", sdkId: "savingsplans", sigV4ServiceName: "savingsplans", name: "DescribeSavingsPlansOfferingRates" }, DescribeSavingsPlansOfferingRatesRequest, DescribeSavingsPlansOfferingRatesResponse, Schema.Union(ErrorAnnotation("InternalServerException", InternalServerException), ErrorAnnotation("ValidationException", ValidationException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const DescribeSavingsPlansOfferingsResponse = Schema.Struct({searchResults: Schema.optional(SavingsPlanOfferingsList), nextToken: Schema.optional(Schema.String)})
-export const DescribeSavingsPlansOfferings = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/DescribeSavingsPlansOfferings", method: "POST", sdkId: "savingsplans", sigV4ServiceName: "savingsplans", name: "DescribeSavingsPlansOfferings" }, DescribeSavingsPlansOfferingsRequest, DescribeSavingsPlansOfferingsResponse, Schema.Union(ErrorAnnotation("InternalServerException", InternalServerException), ErrorAnnotation("ValidationException", ValidationException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
+export const SavingsPlanOfferingPropertyList = Schema.Array(SavingsPlanOfferingProperty);
+export const SavingsPlanOfferingProperty = Schema.Struct({name: Schema.optional(Schema.String), value: Schema.optional(Schema.String)});
+export const SavingsPlanOfferingRatePropertyList = Schema.Array(SavingsPlanOfferingRateProperty);
+export const SavingsPlanOfferingRateProperty = Schema.Struct({name: Schema.optional(Schema.String), value: Schema.optional(Schema.String)});
+export const ParentSavingsPlanOffering = Schema.Struct({offeringId: Schema.optional(Schema.String), paymentOption: Schema.optional(Schema.String), planType: Schema.optional(Schema.String), durationSeconds: Schema.optional(Schema.Number), currency: Schema.optional(Schema.String), planDescription: Schema.optional(Schema.String)});
+export const SavingsPlanRatePropertyList = Schema.Array(SavingsPlanRateProperty);
+export const SavingsPlanRateProperty = Schema.Struct({name: Schema.optional(Schema.String), value: Schema.optional(Schema.String)});
+export const SavingsPlan = Schema.Struct({offeringId: Schema.optional(Schema.String), savingsPlanId: Schema.optional(Schema.String), savingsPlanArn: Schema.optional(Schema.String), description: Schema.optional(Schema.String), start: Schema.optional(Schema.String), end: Schema.optional(Schema.String), state: Schema.optional(Schema.String), region: Schema.optional(Schema.String), ec2InstanceFamily: Schema.optional(Schema.String), savingsPlanType: Schema.optional(Schema.String), paymentOption: Schema.optional(Schema.String), productTypes: Schema.optional(SavingsPlanProductTypeList), currency: Schema.optional(Schema.String), commitment: Schema.optional(Schema.String), upfrontPaymentAmount: Schema.optional(Schema.String), recurringPaymentAmount: Schema.optional(Schema.String), termDurationInSeconds: Schema.optional(Schema.Number), tags: Schema.optional(TagMap), returnableUntil: Schema.optional(Schema.String)});
+export const SavingsPlanList = Schema.Array(SavingsPlan);
+export const InternalServerException = Schema.Struct({message: Schema.String});
+export const SavingsPlanOffering = Schema.Struct({offeringId: Schema.optional(Schema.String), productTypes: Schema.optional(SavingsPlanProductTypeList), planType: Schema.optional(Schema.String), description: Schema.optional(Schema.String), paymentOption: Schema.optional(Schema.String), durationSeconds: Schema.optional(Schema.Number), currency: Schema.optional(Schema.String), serviceCode: Schema.optional(Schema.String), usageType: Schema.optional(Schema.String), operation: Schema.optional(Schema.String), properties: Schema.optional(SavingsPlanOfferingPropertyList)});
+export const SavingsPlanOfferingRate = Schema.Struct({savingsPlanOffering: Schema.optional(ParentSavingsPlanOffering), rate: Schema.optional(Schema.String), unit: Schema.optional(Schema.String), productType: Schema.optional(Schema.String), serviceCode: Schema.optional(Schema.String), usageType: Schema.optional(Schema.String), operation: Schema.optional(Schema.String), properties: Schema.optional(SavingsPlanOfferingRatePropertyList)});
+export const SavingsPlanOfferingsList = Schema.Array(SavingsPlanOffering);
+export const SavingsPlanOfferingFilterElement = Schema.Struct({name: Schema.optional(Schema.String), values: Schema.optional(FilterValuesList)});
+export const SavingsPlanOfferingRatesList = Schema.Array(SavingsPlanOfferingRate);
+export const FilterValuesList = Schema.Array(Schema.String);
+export const SavingsPlanRate = Schema.Struct({rate: Schema.optional(Schema.String), currency: Schema.optional(Schema.String), unit: Schema.optional(Schema.String), productType: Schema.optional(Schema.String), serviceCode: Schema.optional(Schema.String), usageType: Schema.optional(Schema.String), operation: Schema.optional(Schema.String), properties: Schema.optional(SavingsPlanRatePropertyList)});
+export const SavingsPlanOfferingFiltersList = Schema.Array(SavingsPlanOfferingFilterElement);
+export const SavingsPlanRateList = Schema.Array(SavingsPlanRate);
+export const CreateSavingsPlanResponse = Schema.Struct({savingsPlanId: Schema.optional(Schema.String)});
+export const DescribeSavingsPlansResponse = Schema.Struct({savingsPlans: Schema.optional(SavingsPlanList), nextToken: Schema.optional(Schema.String)});
+export const ServiceQuotaExceededException = Schema.Struct({message: Schema.String});
+export const ListTagsForResourceResponse = Schema.Struct({tags: Schema.optional(TagMap)});
+export const DescribeSavingsPlansOfferingRatesResponse = Schema.Struct({searchResults: Schema.optional(SavingsPlanOfferingRatesList), nextToken: Schema.optional(Schema.String)});
+export const DescribeSavingsPlansOfferingsResponse = Schema.Struct({searchResults: Schema.optional(SavingsPlanOfferingsList), nextToken: Schema.optional(Schema.String)});
+export const DescribeSavingsPlanRatesResponse = Schema.Struct({savingsPlanId: Schema.optional(Schema.String), searchResults: Schema.optional(SavingsPlanRateList), nextToken: Schema.optional(Schema.String)});
+export const ValidationException = Schema.Struct({message: Schema.String});
+export const ResourceNotFoundException = Schema.Struct({message: Schema.String});
+export const ReturnSavingsPlanResponse = Schema.Struct({savingsPlanId: Schema.optional(Schema.String)});
+export const ListOfStrings = Schema.Array(Schema.String);
+export const UntagResourceResponse = Schema.Struct({});
+export const TagResourceResponse = Schema.Struct({});
+export const DeleteQueuedSavingsPlanResponse = Schema.Struct({});
+export const TagKeyList = Schema.Array(Schema.String);
+export const SavingsPlanOfferingRateFilterElement = Schema.Struct({name: Schema.optional(Schema.String), values: Schema.optional(FilterValuesList)});
+export const SavingsPlanOperationList = Schema.Array(Schema.String);
+export const SavingsPlanOfferingRateFiltersList = Schema.Array(SavingsPlanOfferingRateFilterElement);
+export const SavingsPlanUsageTypeList = Schema.Array(Schema.String);
+export const SavingsPlanServiceCodeList = Schema.Array(Schema.String);
+export const SavingsPlanDescriptionsList = Schema.Array(Schema.String);
+export const CurrencyList = Schema.Array(Schema.String);
+export const DurationsList = Schema.Array(Schema.Number);
+export const SavingsPlanRateOperationList = Schema.Array(Schema.String);
+export const SavingsPlanFilter = Schema.Struct({name: Schema.optional(Schema.String), values: Schema.optional(ListOfStrings)});
+export const SavingsPlanRateUsageTypeList = Schema.Array(Schema.String);
+export const SavingsPlanFilterList = Schema.Array(SavingsPlanFilter);
+export const SavingsPlanRateServiceCodeList = Schema.Array(Schema.String);
+export const SavingsPlanProductTypeList = Schema.Array(Schema.String);
+export const SavingsPlanRateFilter = Schema.Struct({name: Schema.optional(Schema.String), values: Schema.optional(ListOfStrings)});
+export const SavingsPlanTypeList = Schema.Array(Schema.String);
+export const SavingsPlanRateFilterList = Schema.Array(SavingsPlanRateFilter);
+export const TagMap = Schema.Record({key: Schema.String, value: Schema.String});
+export const UntagResourceRequest = Schema.Struct({resourceArn: Schema.String, tagKeys: TagKeyList});
+export const TagResourceRequest = Schema.Struct({resourceArn: Schema.String, tags: TagMap});
+export const ReturnSavingsPlanRequest = Schema.Struct({savingsPlanId: Schema.String, clientToken: Schema.optional(Schema.String)});
+export const ListTagsForResourceRequest = Schema.Struct({resourceArn: Schema.String});
+export const SavingsPlanPaymentOptionList = Schema.Array(Schema.String);
+export const UUIDs = Schema.Array(Schema.String);
+export const SavingsPlanStateList = Schema.Array(Schema.String);
+export const SavingsPlanIdList = Schema.Array(Schema.String);
+export const DeleteQueuedSavingsPlanRequest = Schema.Struct({savingsPlanId: Schema.String});
+export const DescribeSavingsPlansOfferingsRequest = Schema.Struct({offeringIds: Schema.optional(UUIDs), paymentOptions: Schema.optional(SavingsPlanPaymentOptionList), productType: Schema.optional(Schema.String), planTypes: Schema.optional(SavingsPlanTypeList), durations: Schema.optional(DurationsList), currencies: Schema.optional(CurrencyList), descriptions: Schema.optional(SavingsPlanDescriptionsList), serviceCodes: Schema.optional(SavingsPlanServiceCodeList), usageTypes: Schema.optional(SavingsPlanUsageTypeList), operations: Schema.optional(SavingsPlanOperationList), filters: Schema.optional(SavingsPlanOfferingFiltersList), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
+export const DescribeSavingsPlansOfferingRatesRequest = Schema.Struct({savingsPlanOfferingIds: Schema.optional(UUIDs), savingsPlanPaymentOptions: Schema.optional(SavingsPlanPaymentOptionList), savingsPlanTypes: Schema.optional(SavingsPlanTypeList), products: Schema.optional(SavingsPlanProductTypeList), serviceCodes: Schema.optional(SavingsPlanRateServiceCodeList), usageTypes: Schema.optional(SavingsPlanRateUsageTypeList), operations: Schema.optional(SavingsPlanRateOperationList), filters: Schema.optional(SavingsPlanOfferingRateFiltersList), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
+export const DescribeSavingsPlansRequest = Schema.Struct({savingsPlanArns: Schema.optional(SavingsPlanArnList), savingsPlanIds: Schema.optional(SavingsPlanIdList), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number), states: Schema.optional(SavingsPlanStateList), filters: Schema.optional(SavingsPlanFilterList)});
+export const DescribeSavingsPlanRatesRequest = Schema.Struct({savingsPlanId: Schema.String, filters: Schema.optional(SavingsPlanRateFilterList), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
+export const SavingsPlanArnList = Schema.Array(Schema.String);
+export const CreateSavingsPlanRequest = Schema.Struct({savingsPlanOfferingId: Schema.String, commitment: Schema.String, upfrontPaymentAmount: Schema.optional(Schema.String), purchaseTime: Schema.optional(Schema.Date), clientToken: Schema.optional(Schema.String), tags: Schema.optional(TagMap)});
+export const ListTagsForResource = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/ListTagsForResource", method: "POST", sdkId: "savingsplans", sigV4ServiceName: "savingsplans", name: "AWSSavingsPlan.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, Schema.Union(ErrorAnnotation("InternalServerException", InternalServerException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException), ErrorAnnotation("ValidationException", ValidationException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const ReturnSavingsPlan = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/ReturnSavingsPlan", method: "POST", sdkId: "savingsplans", sigV4ServiceName: "savingsplans", name: "AWSSavingsPlan.ReturnSavingsPlan" }, ReturnSavingsPlanRequest, ReturnSavingsPlanResponse, Schema.Union(ErrorAnnotation("InternalServerException", InternalServerException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException), ErrorAnnotation("ServiceQuotaExceededException", ServiceQuotaExceededException), ErrorAnnotation("ValidationException", ValidationException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const TagResource = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/TagResource", method: "POST", sdkId: "savingsplans", sigV4ServiceName: "savingsplans", name: "AWSSavingsPlan.TagResource" }, TagResourceRequest, TagResourceResponse, Schema.Union(ErrorAnnotation("InternalServerException", InternalServerException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException), ErrorAnnotation("ServiceQuotaExceededException", ServiceQuotaExceededException), ErrorAnnotation("ValidationException", ValidationException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const UntagResource = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/UntagResource", method: "POST", sdkId: "savingsplans", sigV4ServiceName: "savingsplans", name: "AWSSavingsPlan.UntagResource" }, UntagResourceRequest, UntagResourceResponse, Schema.Union(ErrorAnnotation("InternalServerException", InternalServerException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException), ErrorAnnotation("ValidationException", ValidationException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const CreateSavingsPlan = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/CreateSavingsPlan", method: "POST", sdkId: "savingsplans", sigV4ServiceName: "savingsplans", name: "AWSSavingsPlan.CreateSavingsPlan" }, CreateSavingsPlanRequest, CreateSavingsPlanResponse, Schema.Union(ErrorAnnotation("InternalServerException", InternalServerException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException), ErrorAnnotation("ServiceQuotaExceededException", ServiceQuotaExceededException), ErrorAnnotation("ValidationException", ValidationException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const DeleteQueuedSavingsPlan = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/DeleteQueuedSavingsPlan", method: "POST", sdkId: "savingsplans", sigV4ServiceName: "savingsplans", name: "AWSSavingsPlan.DeleteQueuedSavingsPlan" }, DeleteQueuedSavingsPlanRequest, DeleteQueuedSavingsPlanResponse, Schema.Union(ErrorAnnotation("InternalServerException", InternalServerException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException), ErrorAnnotation("ServiceQuotaExceededException", ServiceQuotaExceededException), ErrorAnnotation("ValidationException", ValidationException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const DescribeSavingsPlans = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/DescribeSavingsPlans", method: "POST", sdkId: "savingsplans", sigV4ServiceName: "savingsplans", name: "AWSSavingsPlan.DescribeSavingsPlans" }, DescribeSavingsPlansRequest, DescribeSavingsPlansResponse, Schema.Union(ErrorAnnotation("InternalServerException", InternalServerException), ErrorAnnotation("ValidationException", ValidationException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const DescribeSavingsPlanRates = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/DescribeSavingsPlanRates", method: "POST", sdkId: "savingsplans", sigV4ServiceName: "savingsplans", name: "AWSSavingsPlan.DescribeSavingsPlanRates" }, DescribeSavingsPlanRatesRequest, DescribeSavingsPlanRatesResponse, Schema.Union(ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException), ErrorAnnotation("ValidationException", ValidationException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const DescribeSavingsPlansOfferingRates = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/DescribeSavingsPlansOfferingRates", method: "POST", sdkId: "savingsplans", sigV4ServiceName: "savingsplans", name: "AWSSavingsPlan.DescribeSavingsPlansOfferingRates" }, DescribeSavingsPlansOfferingRatesRequest, DescribeSavingsPlansOfferingRatesResponse, Schema.Union(ErrorAnnotation("InternalServerException", InternalServerException), ErrorAnnotation("ValidationException", ValidationException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const DescribeSavingsPlansOfferings = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/DescribeSavingsPlansOfferings", method: "POST", sdkId: "savingsplans", sigV4ServiceName: "savingsplans", name: "AWSSavingsPlan.DescribeSavingsPlansOfferings" }, DescribeSavingsPlansOfferingsRequest, DescribeSavingsPlansOfferingsResponse, Schema.Union(ErrorAnnotation("InternalServerException", InternalServerException), ErrorAnnotation("ValidationException", ValidationException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

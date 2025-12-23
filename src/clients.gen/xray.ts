@@ -1,250 +1,250 @@
 import { Schema} from "effect"
-import { FormatXMLRequest, FormatXMLResponse, makeOperation } from "../client";
+import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperation } from "../client";
 import { Operation, Path, Header, StreamBody, Body, ErrorAnnotation } from "../schema-helpers";
-const GetEncryptionConfigRequest = Schema.Struct({})
-const GetTraceSegmentDestinationRequest = Schema.Struct({})
-const TraceIdList = Schema.Array(Schema.String)
-const InsightStateList = Schema.Array(Schema.String)
-const TraceSegmentDocumentList = Schema.Array(Schema.String)
-const TraceIdListForRetrieval = Schema.Array(Schema.String)
-const TagKeyList = Schema.Array(Schema.String)
-const BatchGetTracesRequest = Schema.Struct({TraceIds: TraceIdList, NextToken: Schema.optional(Schema.String)})
-const CancelTraceRetrievalRequest = Schema.Struct({RetrievalToken: Schema.String})
-const CancelTraceRetrievalResult = Schema.Struct({})
-const DeleteGroupRequest = Schema.Struct({GroupName: Schema.optional(Schema.String), GroupARN: Schema.optional(Schema.String)})
-const DeleteGroupResult = Schema.Struct({})
-const DeleteResourcePolicyRequest = Schema.Struct({PolicyName: Schema.String, PolicyRevisionId: Schema.optional(Schema.String)})
-const DeleteResourcePolicyResult = Schema.Struct({})
-const DeleteSamplingRuleRequest = Schema.Struct({RuleName: Schema.optional(Schema.String), RuleARN: Schema.optional(Schema.String)})
-const GetGroupRequest = Schema.Struct({GroupName: Schema.optional(Schema.String), GroupARN: Schema.optional(Schema.String)})
-const GetGroupsRequest = Schema.Struct({NextToken: Schema.optional(Schema.String)})
-const GetIndexingRulesRequest = Schema.Struct({NextToken: Schema.optional(Schema.String)})
-const GetInsightRequest = Schema.Struct({InsightId: Schema.String})
-const GetInsightEventsRequest = Schema.Struct({InsightId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)})
-const GetInsightImpactGraphRequest = Schema.Struct({InsightId: Schema.String, StartTime: Schema.Date, EndTime: Schema.Date, NextToken: Schema.optional(Schema.String)})
-const GetInsightSummariesRequest = Schema.Struct({States: Schema.optional(InsightStateList), GroupARN: Schema.optional(Schema.String), GroupName: Schema.optional(Schema.String), StartTime: Schema.Date, EndTime: Schema.Date, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)})
-const GetRetrievedTracesGraphRequest = Schema.Struct({RetrievalToken: Schema.String, NextToken: Schema.optional(Schema.String)})
-const GetSamplingRulesRequest = Schema.Struct({NextToken: Schema.optional(Schema.String)})
-const GetSamplingStatisticSummariesRequest = Schema.Struct({NextToken: Schema.optional(Schema.String)})
-const GetServiceGraphRequest = Schema.Struct({StartTime: Schema.Date, EndTime: Schema.Date, GroupName: Schema.optional(Schema.String), GroupARN: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String)})
-const GetTimeSeriesServiceStatisticsRequest = Schema.Struct({StartTime: Schema.Date, EndTime: Schema.Date, GroupName: Schema.optional(Schema.String), GroupARN: Schema.optional(Schema.String), EntitySelectorExpression: Schema.optional(Schema.String), Period: Schema.optional(Schema.Number), ForecastStatistics: Schema.optional(Schema.Boolean), NextToken: Schema.optional(Schema.String)})
-const GetTraceGraphRequest = Schema.Struct({TraceIds: TraceIdList, NextToken: Schema.optional(Schema.String)})
-const GetTraceSegmentDestinationResult = Schema.Struct({Destination: Schema.optional(Schema.String), Status: Schema.optional(Schema.String)})
-export const GetTraceSegmentDestination = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/GetTraceSegmentDestination", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "GetTraceSegmentDestination" }, GetTraceSegmentDestinationRequest, GetTraceSegmentDestinationResult, Schema.Union(ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const ListResourcePoliciesRequest = Schema.Struct({NextToken: Schema.optional(Schema.String)})
-const ListRetrievedTracesRequest = Schema.Struct({RetrievalToken: Schema.String, TraceFormat: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String)})
-const ListTagsForResourceRequest = Schema.Struct({ResourceARN: Schema.String, NextToken: Schema.optional(Schema.String)})
-const PutEncryptionConfigRequest = Schema.Struct({KeyId: Schema.optional(Schema.String), Type: Schema.String})
-const PutResourcePolicyRequest = Schema.Struct({PolicyName: Schema.String, PolicyDocument: Schema.String, PolicyRevisionId: Schema.optional(Schema.String), BypassPolicyLockoutCheck: Schema.optional(Schema.Boolean)})
-const PutTraceSegmentsRequest = Schema.Struct({TraceSegmentDocuments: TraceSegmentDocumentList})
-const StartTraceRetrievalRequest = Schema.Struct({TraceIds: TraceIdListForRetrieval, StartTime: Schema.Date, EndTime: Schema.Date})
-const TagResourceRequest = Schema.Struct({ResourceARN: Schema.String, Tags: TagList})
-const TagResourceResponse = Schema.Struct({})
-const UntagResourceRequest = Schema.Struct({ResourceARN: Schema.String, TagKeys: TagKeyList})
-const UntagResourceResponse = Schema.Struct({})
-export const UntagResource = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/UntagResource", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "UntagResource" }, UntagResourceRequest, UntagResourceResponse, Schema.Union(ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const UpdateGroupRequest = Schema.Struct({GroupName: Schema.optional(Schema.String), GroupARN: Schema.optional(Schema.String), FilterExpression: Schema.optional(Schema.String), InsightsConfiguration: Schema.optional(InsightsConfiguration)})
-const UpdateTraceSegmentDestinationRequest = Schema.Struct({Destination: Schema.optional(Schema.String)})
-const UnprocessedTraceIdList = Schema.Array(Schema.String)
-const InsightsConfiguration = Schema.Struct({InsightsEnabled: Schema.optional(Schema.Boolean), NotificationsEnabled: Schema.optional(Schema.Boolean)})
-const Tag = Schema.Struct({Key: Schema.String, Value: Schema.String})
-const TagList = Schema.Array(Tag)
-const EncryptionConfig = Schema.Struct({KeyId: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), Type: Schema.optional(Schema.String)})
-const SamplingRuleRecordList = Schema.Array(SamplingRuleRecord)
-const SamplingStatisticsDocument = Schema.Struct({RuleName: Schema.String, ClientID: Schema.String, Timestamp: Schema.Date, RequestCount: Schema.Number, SampledCount: Schema.Number, BorrowCount: Schema.optional(Schema.Number)})
-const SamplingStatisticsDocumentList = Schema.Array(SamplingStatisticsDocument)
-const SamplingBoostStatisticsDocument = Schema.Struct({RuleName: Schema.String, ServiceName: Schema.String, Timestamp: Schema.Date, AnomalyCount: Schema.Number, TotalCount: Schema.Number, SampledAnomalyCount: Schema.Number})
-const SamplingBoostStatisticsDocumentList = Schema.Array(SamplingBoostStatisticsDocument)
-const SamplingStrategy = Schema.Struct({Name: Schema.optional(Schema.String), Value: Schema.optional(Schema.Number)})
-const SamplingRuleUpdate = Schema.Struct({RuleName: Schema.optional(Schema.String), RuleARN: Schema.optional(Schema.String), ResourceARN: Schema.optional(Schema.String), Priority: Schema.optional(Schema.Number), FixedRate: Schema.optional(Schema.Number), ReservoirSize: Schema.optional(Schema.Number), Host: Schema.optional(Schema.String), ServiceName: Schema.optional(Schema.String), ServiceType: Schema.optional(Schema.String), HTTPMethod: Schema.optional(Schema.String), URLPath: Schema.optional(Schema.String), Attributes: Schema.optional(AttributeMap), SamplingRateBoost: Schema.optional(SamplingRateBoost)})
-const InvalidRequestException = Schema.Struct({Message: Schema.optional(Schema.String)})
-export const CancelTraceRetrieval = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/CancelTraceRetrieval", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "CancelTraceRetrieval" }, CancelTraceRetrievalRequest, CancelTraceRetrievalResult, Schema.Union(ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const CreateGroupRequest = Schema.Struct({GroupName: Schema.String, FilterExpression: Schema.optional(Schema.String), InsightsConfiguration: Schema.optional(InsightsConfiguration), Tags: Schema.optional(TagList)})
-const ThrottledException = Schema.Struct({Message: Schema.optional(Schema.String)})
-export const DeleteGroup = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/DeleteGroup", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "DeleteGroup" }, DeleteGroupRequest, DeleteGroupResult, Schema.Union(ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const InvalidPolicyRevisionIdException = Schema.Struct({Message: Schema.optional(Schema.String)})
-export const DeleteResourcePolicy = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/DeleteResourcePolicy", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "DeleteResourcePolicy" }, DeleteResourcePolicyRequest, DeleteResourcePolicyResult, Schema.Union(ErrorAnnotation("InvalidPolicyRevisionIdException", InvalidPolicyRevisionIdException), ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const GetEncryptionConfigResult = Schema.Struct({EncryptionConfig: Schema.optional(EncryptionConfig)})
-export const GetEncryptionConfig = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/EncryptionConfig", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "GetEncryptionConfig" }, GetEncryptionConfigRequest, GetEncryptionConfigResult, Schema.Union(ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const GetSamplingRulesResult = Schema.Struct({SamplingRuleRecords: Schema.optional(SamplingRuleRecordList), NextToken: Schema.optional(Schema.String)})
-export const GetSamplingRules = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/GetSamplingRules", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "GetSamplingRules" }, GetSamplingRulesRequest, GetSamplingRulesResult, Schema.Union(ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const GetSamplingTargetsRequest = Schema.Struct({SamplingStatisticsDocuments: SamplingStatisticsDocumentList, SamplingBoostStatisticsDocuments: Schema.optional(SamplingBoostStatisticsDocumentList)})
-const GetTraceGraphResult = Schema.Struct({Services: Schema.optional(ServiceList), NextToken: Schema.optional(Schema.String)})
-export const GetTraceGraph = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/TraceGraph", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "GetTraceGraph" }, GetTraceGraphRequest, GetTraceGraphResult, Schema.Union(ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const GetTraceSummariesRequest = Schema.Struct({StartTime: Schema.Date, EndTime: Schema.Date, TimeRangeType: Schema.optional(Schema.String), Sampling: Schema.optional(Schema.Boolean), SamplingStrategy: Schema.optional(SamplingStrategy), FilterExpression: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String)})
-const ListTagsForResourceResponse = Schema.Struct({Tags: Schema.optional(TagList), NextToken: Schema.optional(Schema.String)})
-export const ListTagsForResource = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/ListTagsForResource", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, Schema.Union(ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const PutEncryptionConfigResult = Schema.Struct({EncryptionConfig: Schema.optional(EncryptionConfig)})
-export const PutEncryptionConfig = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/PutEncryptionConfig", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "PutEncryptionConfig" }, PutEncryptionConfigRequest, PutEncryptionConfigResult, Schema.Union(ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const PutResourcePolicyResult = Schema.Struct({ResourcePolicy: Schema.optional(ResourcePolicy)})
-const StartTraceRetrievalResult = Schema.Struct({RetrievalToken: Schema.optional(Schema.String)})
-export const StartTraceRetrieval = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/StartTraceRetrieval", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "StartTraceRetrieval" }, StartTraceRetrievalRequest, StartTraceRetrievalResult, Schema.Union(ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const ResourceNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String), ResourceName: Schema.optional(Schema.String)})
-const UpdateGroupResult = Schema.Struct({Group: Schema.optional(Group)})
-export const UpdateGroup = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/UpdateGroup", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "UpdateGroup" }, UpdateGroupRequest, UpdateGroupResult, Schema.Union(ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const UpdateSamplingRuleRequest = Schema.Struct({SamplingRuleUpdate: SamplingRuleUpdate})
-const UpdateTraceSegmentDestinationResult = Schema.Struct({Destination: Schema.optional(Schema.String), Status: Schema.optional(Schema.String)})
-export const UpdateTraceSegmentDestination = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/UpdateTraceSegmentDestination", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "UpdateTraceSegmentDestination" }, UpdateTraceSegmentDestinationRequest, UpdateTraceSegmentDestinationResult, Schema.Union(ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const AttributeMap = Schema.Record({key: Schema.String, value: Schema.String})
-const SamplingRateBoost = Schema.Struct({MaxRate: Schema.Number, CooldownWindowMinutes: Schema.Number})
-const InsightCategoryList = Schema.Array(Schema.String)
-const ServiceNames = Schema.Array(Schema.String)
-const BackendConnectionErrors = Schema.Struct({TimeoutCount: Schema.optional(Schema.Number), ConnectionRefusedCount: Schema.optional(Schema.Number), HTTPCode4XXCount: Schema.optional(Schema.Number), HTTPCode5XXCount: Schema.optional(Schema.Number), UnknownHostCount: Schema.optional(Schema.Number), OtherCount: Schema.optional(Schema.Number)})
-const ProbabilisticRuleValueUpdate = Schema.Struct({DesiredSamplingPercentage: Schema.Number})
-const SamplingRule = Schema.Struct({RuleName: Schema.optional(Schema.String), RuleARN: Schema.optional(Schema.String), ResourceARN: Schema.String, Priority: Schema.Number, FixedRate: Schema.Number, ReservoirSize: Schema.Number, ServiceName: Schema.String, ServiceType: Schema.String, Host: Schema.String, HTTPMethod: Schema.String, URLPath: Schema.String, Version: Schema.Number, Attributes: Schema.optional(AttributeMap), SamplingRateBoost: Schema.optional(SamplingRateBoost)})
-const SamplingRuleRecord = Schema.Struct({SamplingRule: Schema.optional(SamplingRule), CreatedAt: Schema.optional(Schema.Date), ModifiedAt: Schema.optional(Schema.Date)})
-const Group = Schema.Struct({GroupName: Schema.optional(Schema.String), GroupARN: Schema.optional(Schema.String), FilterExpression: Schema.optional(Schema.String), InsightsConfiguration: Schema.optional(InsightsConfiguration)})
-const GroupSummary = Schema.Struct({GroupName: Schema.optional(Schema.String), GroupARN: Schema.optional(Schema.String), FilterExpression: Schema.optional(Schema.String), InsightsConfiguration: Schema.optional(InsightsConfiguration)})
-const GroupSummaryList = Schema.Array(GroupSummary)
-const InsightEvent = Schema.Struct({Summary: Schema.optional(Schema.String), EventTime: Schema.optional(Schema.Date), ClientRequestImpactStatistics: Schema.optional(RequestImpactStatistics), RootCauseServiceRequestImpactStatistics: Schema.optional(RequestImpactStatistics), TopAnomalousServices: Schema.optional(AnomalousServiceList)})
-const InsightEventList = Schema.Array(InsightEvent)
-const InsightSummary = Schema.Struct({InsightId: Schema.optional(Schema.String), GroupARN: Schema.optional(Schema.String), GroupName: Schema.optional(Schema.String), RootCauseServiceId: Schema.optional(ServiceId), Categories: Schema.optional(InsightCategoryList), State: Schema.optional(Schema.String), StartTime: Schema.optional(Schema.Date), EndTime: Schema.optional(Schema.Date), Summary: Schema.optional(Schema.String), ClientRequestImpactStatistics: Schema.optional(RequestImpactStatistics), RootCauseServiceRequestImpactStatistics: Schema.optional(RequestImpactStatistics), TopAnomalousServices: Schema.optional(AnomalousServiceList), LastUpdateTime: Schema.optional(Schema.Date)})
-const InsightSummaryList = Schema.Array(InsightSummary)
-const SamplingStatisticSummary = Schema.Struct({RuleName: Schema.optional(Schema.String), Timestamp: Schema.optional(Schema.Date), RequestCount: Schema.optional(Schema.Number), BorrowCount: Schema.optional(Schema.Number), SampledCount: Schema.optional(Schema.Number)})
-const SamplingStatisticSummaryList = Schema.Array(SamplingStatisticSummary)
-const ResourcePolicy = Schema.Struct({PolicyName: Schema.optional(Schema.String), PolicyDocument: Schema.optional(Schema.String), PolicyRevisionId: Schema.optional(Schema.String), LastUpdatedTime: Schema.optional(Schema.Date)})
-const ResourcePolicyList = Schema.Array(ResourcePolicy)
-const TelemetryRecord = Schema.Struct({Timestamp: Schema.Date, SegmentsReceivedCount: Schema.optional(Schema.Number), SegmentsSentCount: Schema.optional(Schema.Number), SegmentsSpilloverCount: Schema.optional(Schema.Number), SegmentsRejectedCount: Schema.optional(Schema.Number), BackendConnectionErrors: Schema.optional(BackendConnectionErrors)})
-const TelemetryRecordList = Schema.Array(TelemetryRecord)
-const UnprocessedTraceSegment = Schema.Struct({Id: Schema.optional(Schema.String), ErrorCode: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)})
-const UnprocessedTraceSegmentList = Schema.Array(UnprocessedTraceSegment)
-const IndexingRuleValueUpdate = Schema.Union(ProbabilisticRuleValueUpdate)
-const CreateGroupResult = Schema.Struct({Group: Schema.optional(Group)})
-export const CreateGroup = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/CreateGroup", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "CreateGroup" }, CreateGroupRequest, CreateGroupResult, Schema.Union(ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const CreateSamplingRuleRequest = Schema.Struct({SamplingRule: SamplingRule, Tags: Schema.optional(TagList)})
-const DeleteSamplingRuleResult = Schema.Struct({SamplingRuleRecord: Schema.optional(SamplingRuleRecord)})
-export const DeleteSamplingRule = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/DeleteSamplingRule", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "DeleteSamplingRule" }, DeleteSamplingRuleRequest, DeleteSamplingRuleResult, Schema.Union(ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const GetGroupResult = Schema.Struct({Group: Schema.optional(Group)})
-export const GetGroup = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/GetGroup", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "GetGroup" }, GetGroupRequest, GetGroupResult, Schema.Union(ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const GetGroupsResult = Schema.Struct({Groups: Schema.optional(GroupSummaryList), NextToken: Schema.optional(Schema.String)})
-export const GetGroups = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/Groups", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "GetGroups" }, GetGroupsRequest, GetGroupsResult, Schema.Union(ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const GetInsightEventsResult = Schema.Struct({InsightEvents: Schema.optional(InsightEventList), NextToken: Schema.optional(Schema.String)})
-export const GetInsightEvents = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/InsightEvents", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "GetInsightEvents" }, GetInsightEventsRequest, GetInsightEventsResult, Schema.Union(ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const GetInsightSummariesResult = Schema.Struct({InsightSummaries: Schema.optional(InsightSummaryList), NextToken: Schema.optional(Schema.String)})
-export const GetInsightSummaries = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/InsightSummaries", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "GetInsightSummaries" }, GetInsightSummariesRequest, GetInsightSummariesResult, Schema.Union(ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const GetSamplingStatisticSummariesResult = Schema.Struct({SamplingStatisticSummaries: Schema.optional(SamplingStatisticSummaryList), NextToken: Schema.optional(Schema.String)})
-export const GetSamplingStatisticSummaries = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/SamplingStatisticSummaries", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "GetSamplingStatisticSummaries" }, GetSamplingStatisticSummariesRequest, GetSamplingStatisticSummariesResult, Schema.Union(ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const ListResourcePoliciesResult = Schema.Struct({ResourcePolicies: Schema.optional(ResourcePolicyList), NextToken: Schema.optional(Schema.String)})
-export const ListResourcePolicies = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/ListResourcePolicies", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "ListResourcePolicies" }, ListResourcePoliciesRequest, ListResourcePoliciesResult, Schema.Union(ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const LockoutPreventionException = Schema.Struct({Message: Schema.optional(Schema.String)})
-const PutTelemetryRecordsRequest = Schema.Struct({TelemetryRecords: TelemetryRecordList, EC2InstanceId: Schema.optional(Schema.String), Hostname: Schema.optional(Schema.String), ResourceARN: Schema.optional(Schema.String)})
-const PutTelemetryRecordsResult = Schema.Struct({})
-export const PutTelemetryRecords = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/TelemetryRecords", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "PutTelemetryRecords" }, PutTelemetryRecordsRequest, PutTelemetryRecordsResult, Schema.Union(ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const PutTraceSegmentsResult = Schema.Struct({UnprocessedTraceSegments: Schema.optional(UnprocessedTraceSegmentList)})
-export const PutTraceSegments = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/TraceSegments", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "PutTraceSegments" }, PutTraceSegmentsRequest, PutTraceSegmentsResult, Schema.Union(ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const TooManyTagsException = Schema.Struct({Message: Schema.optional(Schema.String), ResourceName: Schema.optional(Schema.String)})
-export const TagResource = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/TagResource", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "TagResource" }, TagResourceRequest, TagResourceResponse, Schema.Union(ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException), ErrorAnnotation("ThrottledException", ThrottledException), ErrorAnnotation("TooManyTagsException", TooManyTagsException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const UpdateIndexingRuleRequest = Schema.Struct({Name: Schema.String, Rule: IndexingRuleValueUpdate})
-const UpdateSamplingRuleResult = Schema.Struct({SamplingRuleRecord: Schema.optional(SamplingRuleRecord)})
-export const UpdateSamplingRule = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/UpdateSamplingRule", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "UpdateSamplingRule" }, UpdateSamplingRuleRequest, UpdateSamplingRuleResult, Schema.Union(ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const Segment = Schema.Struct({Id: Schema.optional(Schema.String), Document: Schema.optional(Schema.String)})
-const SegmentList = Schema.Array(Segment)
-const ServiceId = Schema.Struct({Name: Schema.optional(Schema.String), Names: Schema.optional(ServiceNames), AccountId: Schema.optional(Schema.String), Type: Schema.optional(Schema.String)})
-const RequestImpactStatistics = Schema.Struct({FaultCount: Schema.optional(Schema.Number), OkCount: Schema.optional(Schema.Number), TotalCount: Schema.optional(Schema.Number)})
-const AnomalousService = Schema.Struct({ServiceId: Schema.optional(ServiceId)})
-const AnomalousServiceList = Schema.Array(AnomalousService)
-const InsightImpactGraphEdge = Schema.Struct({ReferenceId: Schema.optional(Schema.Number)})
-const InsightImpactGraphEdgeList = Schema.Array(InsightImpactGraphEdge)
-const GraphLink = Schema.Struct({ReferenceType: Schema.optional(Schema.String), SourceTraceId: Schema.optional(Schema.String), DestinationTraceIds: Schema.optional(TraceIdList)})
-const LinksList = Schema.Array(GraphLink)
-const HistogramEntry = Schema.Struct({Value: Schema.optional(Schema.Number), Count: Schema.optional(Schema.Number)})
-const Histogram = Schema.Array(HistogramEntry)
-const EdgeStatistics = Schema.Struct({OkCount: Schema.optional(Schema.Number), ErrorStatistics: Schema.optional(ErrorStatistics), FaultStatistics: Schema.optional(FaultStatistics), TotalCount: Schema.optional(Schema.Number), TotalResponseTime: Schema.optional(Schema.Number)})
-const ForecastStatistics = Schema.Struct({FaultCountHigh: Schema.optional(Schema.Number), FaultCountLow: Schema.optional(Schema.Number)})
-const ServiceIds = Schema.Array(ServiceId)
-const Span = Schema.Struct({Id: Schema.optional(Schema.String), Document: Schema.optional(Schema.String)})
-const SpanList = Schema.Array(Span)
-const AliasNames = Schema.Array(Schema.String)
-const Trace = Schema.Struct({Id: Schema.optional(Schema.String), Duration: Schema.optional(Schema.Number), LimitExceeded: Schema.optional(Schema.Boolean), Segments: Schema.optional(SegmentList)})
-const TraceList = Schema.Array(Trace)
-const Insight = Schema.Struct({InsightId: Schema.optional(Schema.String), GroupARN: Schema.optional(Schema.String), GroupName: Schema.optional(Schema.String), RootCauseServiceId: Schema.optional(ServiceId), Categories: Schema.optional(InsightCategoryList), State: Schema.optional(Schema.String), StartTime: Schema.optional(Schema.Date), EndTime: Schema.optional(Schema.Date), Summary: Schema.optional(Schema.String), ClientRequestImpactStatistics: Schema.optional(RequestImpactStatistics), RootCauseServiceRequestImpactStatistics: Schema.optional(RequestImpactStatistics), TopAnomalousServices: Schema.optional(AnomalousServiceList)})
-const InsightImpactGraphService = Schema.Struct({ReferenceId: Schema.optional(Schema.Number), Type: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Names: Schema.optional(ServiceNames), AccountId: Schema.optional(Schema.String), Edges: Schema.optional(InsightImpactGraphEdgeList)})
-const InsightImpactGraphServiceList = Schema.Array(InsightImpactGraphService)
-const RetrievedService = Schema.Struct({Service: Schema.optional(Service), Links: Schema.optional(LinksList)})
-const RetrievedServicesList = Schema.Array(RetrievedService)
-const UnprocessedStatistics = Schema.Struct({RuleName: Schema.optional(Schema.String), ErrorCode: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)})
-const UnprocessedStatisticsList = Schema.Array(UnprocessedStatistics)
-const TimeSeriesServiceStatistics = Schema.Struct({Timestamp: Schema.optional(Schema.Date), EdgeSummaryStatistics: Schema.optional(EdgeStatistics), ServiceSummaryStatistics: Schema.optional(ServiceStatistics), ServiceForecastStatistics: Schema.optional(ForecastStatistics), ResponseTimeHistogram: Schema.optional(Histogram)})
-const TimeSeriesServiceStatisticsList = Schema.Array(TimeSeriesServiceStatistics)
-const RetrievedTrace = Schema.Struct({Id: Schema.optional(Schema.String), Duration: Schema.optional(Schema.Number), Spans: Schema.optional(SpanList)})
-const TraceSpanList = Schema.Array(RetrievedTrace)
-const ProbabilisticRuleValue = Schema.Struct({DesiredSamplingPercentage: Schema.Number, ActualSamplingPercentage: Schema.optional(Schema.Number)})
-const Alias = Schema.Struct({Name: Schema.optional(Schema.String), Names: Schema.optional(AliasNames), Type: Schema.optional(Schema.String)})
-const AliasList = Schema.Array(Alias)
-const ErrorStatistics = Schema.Struct({ThrottleCount: Schema.optional(Schema.Number), OtherCount: Schema.optional(Schema.Number), TotalCount: Schema.optional(Schema.Number)})
-const FaultStatistics = Schema.Struct({OtherCount: Schema.optional(Schema.Number), TotalCount: Schema.optional(Schema.Number)})
-const BatchGetTracesResult = Schema.Struct({Traces: Schema.optional(TraceList), UnprocessedTraceIds: Schema.optional(UnprocessedTraceIdList), NextToken: Schema.optional(Schema.String)})
-export const BatchGetTraces = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/Traces", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "BatchGetTraces" }, BatchGetTracesRequest, BatchGetTracesResult, Schema.Union(ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const CreateSamplingRuleResult = Schema.Struct({SamplingRuleRecord: Schema.optional(SamplingRuleRecord)})
-const GetInsightResult = Schema.Struct({Insight: Schema.optional(Insight)})
-export const GetInsight = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/Insight", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "GetInsight" }, GetInsightRequest, GetInsightResult, Schema.Union(ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const GetInsightImpactGraphResult = Schema.Struct({InsightId: Schema.optional(Schema.String), StartTime: Schema.optional(Schema.Date), EndTime: Schema.optional(Schema.Date), ServiceGraphStartTime: Schema.optional(Schema.Date), ServiceGraphEndTime: Schema.optional(Schema.Date), Services: Schema.optional(InsightImpactGraphServiceList), NextToken: Schema.optional(Schema.String)})
-export const GetInsightImpactGraph = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/InsightImpactGraph", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "GetInsightImpactGraph" }, GetInsightImpactGraphRequest, GetInsightImpactGraphResult, Schema.Union(ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const GetRetrievedTracesGraphResult = Schema.Struct({RetrievalStatus: Schema.optional(Schema.String), Services: Schema.optional(RetrievedServicesList), NextToken: Schema.optional(Schema.String)})
-export const GetRetrievedTracesGraph = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/GetRetrievedTracesGraph", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "GetRetrievedTracesGraph" }, GetRetrievedTracesGraphRequest, GetRetrievedTracesGraphResult, Schema.Union(ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const GetTimeSeriesServiceStatisticsResult = Schema.Struct({TimeSeriesServiceStatistics: Schema.optional(TimeSeriesServiceStatisticsList), ContainsOldGroupVersions: Schema.optional(Schema.Boolean), NextToken: Schema.optional(Schema.String)})
-export const GetTimeSeriesServiceStatistics = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/TimeSeriesServiceStatistics", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "GetTimeSeriesServiceStatistics" }, GetTimeSeriesServiceStatisticsRequest, GetTimeSeriesServiceStatisticsResult, Schema.Union(ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const ListRetrievedTracesResult = Schema.Struct({RetrievalStatus: Schema.optional(Schema.String), TraceFormat: Schema.optional(Schema.String), Traces: Schema.optional(TraceSpanList), NextToken: Schema.optional(Schema.String)})
-export const ListRetrievedTraces = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/ListRetrievedTraces", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "ListRetrievedTraces" }, ListRetrievedTracesRequest, ListRetrievedTracesResult, Schema.Union(ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const MalformedPolicyDocumentException = Schema.Struct({Message: Schema.optional(Schema.String)})
-const UpdateIndexingRuleResult = Schema.Struct({IndexingRule: Schema.optional(IndexingRule)})
-export const UpdateIndexingRule = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/UpdateIndexingRule", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "UpdateIndexingRule" }, UpdateIndexingRuleRequest, UpdateIndexingRuleResult, Schema.Union(ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const IndexingRuleValue = Schema.Union(ProbabilisticRuleValue)
-const SamplingBoost = Schema.Struct({BoostRate: Schema.Number, BoostRateTTL: Schema.Date})
-const Edge = Schema.Struct({ReferenceId: Schema.optional(Schema.Number), StartTime: Schema.optional(Schema.Date), EndTime: Schema.optional(Schema.Date), SummaryStatistics: Schema.optional(EdgeStatistics), ResponseTimeHistogram: Schema.optional(Histogram), Aliases: Schema.optional(AliasList), EdgeType: Schema.optional(Schema.String), ReceivedEventAgeHistogram: Schema.optional(Histogram)})
-const EdgeList = Schema.Array(Edge)
-const ServiceStatistics = Schema.Struct({OkCount: Schema.optional(Schema.Number), ErrorStatistics: Schema.optional(ErrorStatistics), FaultStatistics: Schema.optional(FaultStatistics), TotalCount: Schema.optional(Schema.Number), TotalResponseTime: Schema.optional(Schema.Number)})
-const Http = Schema.Struct({HttpURL: Schema.optional(Schema.String), HttpStatus: Schema.optional(Schema.Number), HttpMethod: Schema.optional(Schema.String), UserAgent: Schema.optional(Schema.String), ClientIp: Schema.optional(Schema.String)})
-const TraceUser = Schema.Struct({UserName: Schema.optional(Schema.String), ServiceIds: Schema.optional(ServiceIds)})
-const TraceUsers = Schema.Array(TraceUser)
-const ResourceARNDetail = Schema.Struct({ARN: Schema.optional(Schema.String)})
-const TraceResourceARNs = Schema.Array(ResourceARNDetail)
-const InstanceIdDetail = Schema.Struct({Id: Schema.optional(Schema.String)})
-const TraceInstanceIds = Schema.Array(InstanceIdDetail)
-const AvailabilityZoneDetail = Schema.Struct({Name: Schema.optional(Schema.String)})
-const TraceAvailabilityZones = Schema.Array(AvailabilityZoneDetail)
-const IndexingRule = Schema.Struct({Name: Schema.optional(Schema.String), ModifiedAt: Schema.optional(Schema.Date), Rule: Schema.optional(IndexingRuleValue)})
-const IndexingRuleList = Schema.Array(IndexingRule)
-const SamplingTargetDocument = Schema.Struct({RuleName: Schema.optional(Schema.String), FixedRate: Schema.optional(Schema.Number), ReservoirQuota: Schema.optional(Schema.Number), ReservoirQuotaTTL: Schema.optional(Schema.Date), Interval: Schema.optional(Schema.Number), SamplingBoost: Schema.optional(SamplingBoost)})
-const SamplingTargetDocumentList = Schema.Array(SamplingTargetDocument)
-const Service = Schema.Struct({ReferenceId: Schema.optional(Schema.Number), Name: Schema.optional(Schema.String), Names: Schema.optional(ServiceNames), Root: Schema.optional(Schema.Boolean), AccountId: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), State: Schema.optional(Schema.String), StartTime: Schema.optional(Schema.Date), EndTime: Schema.optional(Schema.Date), Edges: Schema.optional(EdgeList), SummaryStatistics: Schema.optional(ServiceStatistics), DurationHistogram: Schema.optional(Histogram), ResponseTimeHistogram: Schema.optional(Histogram)})
-const ServiceList = Schema.Array(Service)
-const RuleLimitExceededException = Schema.Struct({Message: Schema.optional(Schema.String)})
-export const CreateSamplingRule = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/CreateSamplingRule", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "CreateSamplingRule" }, CreateSamplingRuleRequest, CreateSamplingRuleResult, Schema.Union(ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("RuleLimitExceededException", RuleLimitExceededException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const GetIndexingRulesResult = Schema.Struct({IndexingRules: Schema.optional(IndexingRuleList), NextToken: Schema.optional(Schema.String)})
-export const GetIndexingRules = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/GetIndexingRules", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "GetIndexingRules" }, GetIndexingRulesRequest, GetIndexingRulesResult, Schema.Union(ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const GetSamplingTargetsResult = Schema.Struct({SamplingTargetDocuments: Schema.optional(SamplingTargetDocumentList), LastRuleModification: Schema.optional(Schema.Date), UnprocessedStatistics: Schema.optional(UnprocessedStatisticsList), UnprocessedBoostStatistics: Schema.optional(UnprocessedStatisticsList)})
-export const GetSamplingTargets = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/SamplingTargets", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "GetSamplingTargets" }, GetSamplingTargetsRequest, GetSamplingTargetsResult, Schema.Union(ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const GetServiceGraphResult = Schema.Struct({StartTime: Schema.optional(Schema.Date), EndTime: Schema.optional(Schema.Date), Services: Schema.optional(ServiceList), ContainsOldGroupVersions: Schema.optional(Schema.Boolean), NextToken: Schema.optional(Schema.String)})
-export const GetServiceGraph = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/ServiceGraph", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "GetServiceGraph" }, GetServiceGraphRequest, GetServiceGraphResult, Schema.Union(ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const PolicyCountLimitExceededException = Schema.Struct({Message: Schema.optional(Schema.String)})
-const AnnotationValue = Schema.Union(Schema.Number, Schema.Boolean, Schema.String)
-const ErrorRootCauseEntity = Schema.Struct({Name: Schema.optional(Schema.String), Exceptions: Schema.optional(RootCauseExceptions), Remote: Schema.optional(Schema.Boolean)})
-const ErrorRootCauseEntityPath = Schema.Array(ErrorRootCauseEntity)
-const ResponseTimeRootCauseEntity = Schema.Struct({Name: Schema.optional(Schema.String), Coverage: Schema.optional(Schema.Number), Remote: Schema.optional(Schema.Boolean)})
-const ResponseTimeRootCauseEntityPath = Schema.Array(ResponseTimeRootCauseEntity)
-const ValueWithServiceIds = Schema.Struct({AnnotationValue: Schema.optional(AnnotationValue), ServiceIds: Schema.optional(ServiceIds)})
-const ValuesWithServiceIds = Schema.Array(ValueWithServiceIds)
-const ErrorRootCauseService = Schema.Struct({Name: Schema.optional(Schema.String), Names: Schema.optional(ServiceNames), Type: Schema.optional(Schema.String), AccountId: Schema.optional(Schema.String), EntityPath: Schema.optional(ErrorRootCauseEntityPath), Inferred: Schema.optional(Schema.Boolean)})
-const ErrorRootCauseServices = Schema.Array(ErrorRootCauseService)
-const ResponseTimeRootCauseService = Schema.Struct({Name: Schema.optional(Schema.String), Names: Schema.optional(ServiceNames), Type: Schema.optional(Schema.String), AccountId: Schema.optional(Schema.String), EntityPath: Schema.optional(ResponseTimeRootCauseEntityPath), Inferred: Schema.optional(Schema.Boolean)})
-const ResponseTimeRootCauseServices = Schema.Array(ResponseTimeRootCauseService)
-const RootCauseException = Schema.Struct({Name: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)})
-const RootCauseExceptions = Schema.Array(RootCauseException)
-const PolicySizeLimitExceededException = Schema.Struct({Message: Schema.optional(Schema.String)})
-export const PutResourcePolicy = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/PutResourcePolicy", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "PutResourcePolicy" }, PutResourcePolicyRequest, PutResourcePolicyResult, Schema.Union(ErrorAnnotation("InvalidPolicyRevisionIdException", InvalidPolicyRevisionIdException), ErrorAnnotation("LockoutPreventionException", LockoutPreventionException), ErrorAnnotation("MalformedPolicyDocumentException", MalformedPolicyDocumentException), ErrorAnnotation("PolicyCountLimitExceededException", PolicyCountLimitExceededException), ErrorAnnotation("PolicySizeLimitExceededException", PolicySizeLimitExceededException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const Annotations = Schema.Record({key: Schema.String, value: ValuesWithServiceIds})
-const ErrorRootCause = Schema.Struct({Services: Schema.optional(ErrorRootCauseServices), ClientImpacting: Schema.optional(Schema.Boolean)})
-const ErrorRootCauses = Schema.Array(ErrorRootCause)
-const ResponseTimeRootCause = Schema.Struct({Services: Schema.optional(ResponseTimeRootCauseServices), ClientImpacting: Schema.optional(Schema.Boolean)})
-const ResponseTimeRootCauses = Schema.Array(ResponseTimeRootCause)
-const FaultRootCauseEntity = Schema.Struct({Name: Schema.optional(Schema.String), Exceptions: Schema.optional(RootCauseExceptions), Remote: Schema.optional(Schema.Boolean)})
-const FaultRootCauseEntityPath = Schema.Array(FaultRootCauseEntity)
-const FaultRootCauseService = Schema.Struct({Name: Schema.optional(Schema.String), Names: Schema.optional(ServiceNames), Type: Schema.optional(Schema.String), AccountId: Schema.optional(Schema.String), EntityPath: Schema.optional(FaultRootCauseEntityPath), Inferred: Schema.optional(Schema.Boolean)})
-const FaultRootCauseServices = Schema.Array(FaultRootCauseService)
-const FaultRootCause = Schema.Struct({Services: Schema.optional(FaultRootCauseServices), ClientImpacting: Schema.optional(Schema.Boolean)})
-const FaultRootCauses = Schema.Array(FaultRootCause)
-const TraceSummary = Schema.Struct({Id: Schema.optional(Schema.String), StartTime: Schema.optional(Schema.Date), Duration: Schema.optional(Schema.Number), ResponseTime: Schema.optional(Schema.Number), HasFault: Schema.optional(Schema.Boolean), HasError: Schema.optional(Schema.Boolean), HasThrottle: Schema.optional(Schema.Boolean), IsPartial: Schema.optional(Schema.Boolean), Http: Schema.optional(Http), Annotations: Schema.optional(Annotations), Users: Schema.optional(TraceUsers), ServiceIds: Schema.optional(ServiceIds), ResourceARNs: Schema.optional(TraceResourceARNs), InstanceIds: Schema.optional(TraceInstanceIds), AvailabilityZones: Schema.optional(TraceAvailabilityZones), EntryPoint: Schema.optional(ServiceId), FaultRootCauses: Schema.optional(FaultRootCauses), ErrorRootCauses: Schema.optional(ErrorRootCauses), ResponseTimeRootCauses: Schema.optional(ResponseTimeRootCauses), Revision: Schema.optional(Schema.Number), MatchedEventTime: Schema.optional(Schema.Date)})
-const TraceSummaryList = Schema.Array(TraceSummary)
-const GetTraceSummariesResult = Schema.Struct({TraceSummaries: Schema.optional(TraceSummaryList), ApproximateTime: Schema.optional(Schema.Date), TracesProcessedCount: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)})
-export const GetTraceSummaries = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/TraceSummaries", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "GetTraceSummaries" }, GetTraceSummariesRequest, GetTraceSummariesResult, Schema.Union(ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
+export const AliasNames = Schema.Array(Schema.String);
+export const SpanList = Schema.Array(Span);
+export const Span = Schema.Struct({Id: Schema.optional(Schema.String), Document: Schema.optional(Schema.String)});
+export const UnprocessedStatistics = Schema.Struct({RuleName: Schema.optional(Schema.String), ErrorCode: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)});
+export const ServiceIds = Schema.Array(ServiceId);
+export const Alias = Schema.Struct({Name: Schema.optional(Schema.String), Names: Schema.optional(AliasNames), Type: Schema.optional(Schema.String)});
+export const FaultStatistics = Schema.Struct({OtherCount: Schema.optional(Schema.Number), TotalCount: Schema.optional(Schema.Number)});
+export const ErrorStatistics = Schema.Struct({ThrottleCount: Schema.optional(Schema.Number), OtherCount: Schema.optional(Schema.Number), TotalCount: Schema.optional(Schema.Number)});
+export const CreateSamplingRuleResult = Schema.Struct({SamplingRuleRecord: Schema.optional(SamplingRuleRecord)});
+export const UnprocessedStatisticsList = Schema.Array(UnprocessedStatistics);
+export const AliasList = Schema.Array(Alias);
+export const RuleLimitExceededException = Schema.Struct({Message: Schema.optional(Schema.String)});
+export const ProbabilisticRuleValue = Schema.Struct({DesiredSamplingPercentage: Schema.Number, ActualSamplingPercentage: Schema.optional(Schema.Number)});
+export const ForecastStatistics = Schema.Struct({FaultCountHigh: Schema.optional(Schema.Number), FaultCountLow: Schema.optional(Schema.Number)});
+export const EdgeStatistics = Schema.Struct({OkCount: Schema.optional(Schema.Number), ErrorStatistics: Schema.optional(ErrorStatistics), FaultStatistics: Schema.optional(FaultStatistics), TotalCount: Schema.optional(Schema.Number), TotalResponseTime: Schema.optional(Schema.Number)});
+export const ResponseTimeRootCauseEntity = Schema.Struct({Name: Schema.optional(Schema.String), Coverage: Schema.optional(Schema.Number), Remote: Schema.optional(Schema.Boolean)});
+export const ErrorRootCauseEntity = Schema.Struct({Name: Schema.optional(Schema.String), Exceptions: Schema.optional(RootCauseExceptions), Remote: Schema.optional(Schema.Boolean)});
+export const ResponseTimeRootCauseEntityPath = Schema.Array(ResponseTimeRootCauseEntity);
+export const Histogram = Schema.Array(HistogramEntry);
+export const ErrorRootCauseEntityPath = Schema.Array(ErrorRootCauseEntity);
+export const HistogramEntry = Schema.Struct({Value: Schema.optional(Schema.Number), Count: Schema.optional(Schema.Number)});
+export const RootCauseException = Schema.Struct({Name: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)});
+export const PolicySizeLimitExceededException = Schema.Struct({Message: Schema.optional(Schema.String)});
+export const GraphLink = Schema.Struct({ReferenceType: Schema.optional(Schema.String), SourceTraceId: Schema.optional(Schema.String), DestinationTraceIds: Schema.optional(TraceIdList)});
+export const RootCauseExceptions = Schema.Array(RootCauseException);
+export const AnnotationValue = Schema.Union(Schema.Number, Schema.Boolean, Schema.String);
+export const PolicyCountLimitExceededException = Schema.Struct({Message: Schema.optional(Schema.String)});
+export const UpdateIndexingRuleResult = Schema.Struct({IndexingRule: Schema.optional(IndexingRule)});
+export const LinksList = Schema.Array(GraphLink);
+export const AvailabilityZoneDetail = Schema.Struct({Name: Schema.optional(Schema.String)});
+export const InstanceIdDetail = Schema.Struct({Id: Schema.optional(Schema.String)});
+export const TraceAvailabilityZones = Schema.Array(AvailabilityZoneDetail);
+export const ResourceARNDetail = Schema.Struct({ARN: Schema.optional(Schema.String)});
+export const ResponseTimeRootCauseService = Schema.Struct({Name: Schema.optional(Schema.String), Names: Schema.optional(ServiceNames), Type: Schema.optional(Schema.String), AccountId: Schema.optional(Schema.String), EntityPath: Schema.optional(ResponseTimeRootCauseEntityPath), Inferred: Schema.optional(Schema.Boolean)});
+export const ErrorRootCauseService = Schema.Struct({Name: Schema.optional(Schema.String), Names: Schema.optional(ServiceNames), Type: Schema.optional(Schema.String), AccountId: Schema.optional(Schema.String), EntityPath: Schema.optional(ErrorRootCauseEntityPath), Inferred: Schema.optional(Schema.Boolean)});
+export const ResponseTimeRootCauseServices = Schema.Array(ResponseTimeRootCauseService);
+export const FaultRootCauseEntity = Schema.Struct({Name: Schema.optional(Schema.String), Exceptions: Schema.optional(RootCauseExceptions), Remote: Schema.optional(Schema.Boolean)});
+export const TraceInstanceIds = Schema.Array(InstanceIdDetail);
+export const FaultRootCauseEntityPath = Schema.Array(FaultRootCauseEntity);
+export const ErrorRootCauseServices = Schema.Array(ErrorRootCauseService);
+export const SamplingBoost = Schema.Struct({BoostRate: Schema.Number, BoostRateTTL: Schema.Date});
+export const ValueWithServiceIds = Schema.Struct({AnnotationValue: Schema.optional(AnnotationValue), ServiceIds: Schema.optional(ServiceIds)});
+export const TraceResourceARNs = Schema.Array(ResourceARNDetail);
+export const ValuesWithServiceIds = Schema.Array(ValueWithServiceIds);
+export const TraceUser = Schema.Struct({UserName: Schema.optional(Schema.String), ServiceIds: Schema.optional(ServiceIds)});
+export const MalformedPolicyDocumentException = Schema.Struct({Message: Schema.optional(Schema.String)});
+export const TraceUsers = Schema.Array(TraceUser);
+export const FaultRootCauseService = Schema.Struct({Name: Schema.optional(Schema.String), Names: Schema.optional(ServiceNames), Type: Schema.optional(Schema.String), AccountId: Schema.optional(Schema.String), EntityPath: Schema.optional(FaultRootCauseEntityPath), Inferred: Schema.optional(Schema.Boolean)});
+export const InsightImpactGraphEdge = Schema.Struct({ReferenceId: Schema.optional(Schema.Number)});
+export const FaultRootCauseServices = Schema.Array(FaultRootCauseService);
+export const Http = Schema.Struct({HttpURL: Schema.optional(Schema.String), HttpStatus: Schema.optional(Schema.Number), HttpMethod: Schema.optional(Schema.String), UserAgent: Schema.optional(Schema.String), ClientIp: Schema.optional(Schema.String)});
+export const InsightImpactGraphEdgeList = Schema.Array(InsightImpactGraphEdge);
+export const ResponseTimeRootCause = Schema.Struct({Services: Schema.optional(ResponseTimeRootCauseServices), ClientImpacting: Schema.optional(Schema.Boolean)});
+export const ErrorRootCause = Schema.Struct({Services: Schema.optional(ErrorRootCauseServices), ClientImpacting: Schema.optional(Schema.Boolean)});
+export const ResponseTimeRootCauses = Schema.Array(ResponseTimeRootCause);
+export const AnomalousService = Schema.Struct({ServiceId: Schema.optional(ServiceId)});
+export const ErrorRootCauses = Schema.Array(ErrorRootCause);
+export const TooManyTagsException = Schema.Struct({Message: Schema.optional(Schema.String), ResourceName: Schema.optional(Schema.String)});
+export const FaultRootCause = Schema.Struct({Services: Schema.optional(FaultRootCauseServices), ClientImpacting: Schema.optional(Schema.Boolean)});
+export const AnomalousServiceList = Schema.Array(AnomalousService);
+export const FaultRootCauses = Schema.Array(FaultRootCause);
+export const RequestImpactStatistics = Schema.Struct({FaultCount: Schema.optional(Schema.Number), OkCount: Schema.optional(Schema.Number), TotalCount: Schema.optional(Schema.Number)});
+export const PutTelemetryRecordsResult = Schema.Struct({});
+export const ServiceId = Schema.Struct({Name: Schema.optional(Schema.String), Names: Schema.optional(ServiceNames), AccountId: Schema.optional(Schema.String), Type: Schema.optional(Schema.String)});
+export const Segment = Schema.Struct({Id: Schema.optional(Schema.String), Document: Schema.optional(Schema.String)});
+export const UpdateSamplingRuleResult = Schema.Struct({SamplingRuleRecord: Schema.optional(SamplingRuleRecord)});
+export const SegmentList = Schema.Array(Segment);
+export const LockoutPreventionException = Schema.Struct({Message: Schema.optional(Schema.String)});
+export const CreateGroupResult = Schema.Struct({Group: Schema.optional(Group)});
+export const UnprocessedTraceSegmentList = Schema.Array(UnprocessedTraceSegment);
+export const Annotations = Schema.Record({key: Schema.String, value: ValuesWithServiceIds});
+export const UnprocessedTraceSegment = Schema.Struct({Id: Schema.optional(Schema.String), ErrorCode: Schema.optional(Schema.String), Message: Schema.optional(Schema.String)});
+export const ResourcePolicyList = Schema.Array(ResourcePolicy);
+export const ResourcePolicy = Schema.Struct({PolicyName: Schema.optional(Schema.String), PolicyDocument: Schema.optional(Schema.String), PolicyRevisionId: Schema.optional(Schema.String), LastUpdatedTime: Schema.optional(Schema.Date)});
+export const SamplingStatisticSummaryList = Schema.Array(SamplingStatisticSummary);
+export const SamplingTargetDocument = Schema.Struct({RuleName: Schema.optional(Schema.String), FixedRate: Schema.optional(Schema.Number), ReservoirQuota: Schema.optional(Schema.Number), ReservoirQuotaTTL: Schema.optional(Schema.Date), Interval: Schema.optional(Schema.Number), SamplingBoost: Schema.optional(SamplingBoost)});
+export const SamplingStatisticSummary = Schema.Struct({RuleName: Schema.optional(Schema.String), Timestamp: Schema.optional(Schema.Date), RequestCount: Schema.optional(Schema.Number), BorrowCount: Schema.optional(Schema.Number), SampledCount: Schema.optional(Schema.Number)});
+export const SamplingTargetDocumentList = Schema.Array(SamplingTargetDocument);
+export const InsightSummaryList = Schema.Array(InsightSummary);
+export const InsightSummary = Schema.Struct({InsightId: Schema.optional(Schema.String), GroupARN: Schema.optional(Schema.String), GroupName: Schema.optional(Schema.String), RootCauseServiceId: Schema.optional(ServiceId), Categories: Schema.optional(InsightCategoryList), State: Schema.optional(Schema.String), StartTime: Schema.optional(Schema.Date), EndTime: Schema.optional(Schema.Date), Summary: Schema.optional(Schema.String), ClientRequestImpactStatistics: Schema.optional(RequestImpactStatistics), RootCauseServiceRequestImpactStatistics: Schema.optional(RequestImpactStatistics), TopAnomalousServices: Schema.optional(AnomalousServiceList), LastUpdateTime: Schema.optional(Schema.Date)});
+export const InsightEventList = Schema.Array(InsightEvent);
+export const Edge = Schema.Struct({ReferenceId: Schema.optional(Schema.Number), StartTime: Schema.optional(Schema.Date), EndTime: Schema.optional(Schema.Date), SummaryStatistics: Schema.optional(EdgeStatistics), ResponseTimeHistogram: Schema.optional(Histogram), Aliases: Schema.optional(AliasList), EdgeType: Schema.optional(Schema.String), ReceivedEventAgeHistogram: Schema.optional(Histogram)});
+export const ServiceStatistics = Schema.Struct({OkCount: Schema.optional(Schema.Number), ErrorStatistics: Schema.optional(ErrorStatistics), FaultStatistics: Schema.optional(FaultStatistics), TotalCount: Schema.optional(Schema.Number), TotalResponseTime: Schema.optional(Schema.Number)});
+export const TraceSummary = Schema.Struct({Id: Schema.optional(Schema.String), StartTime: Schema.optional(Schema.Date), Duration: Schema.optional(Schema.Number), ResponseTime: Schema.optional(Schema.Number), HasFault: Schema.optional(Schema.Boolean), HasError: Schema.optional(Schema.Boolean), HasThrottle: Schema.optional(Schema.Boolean), IsPartial: Schema.optional(Schema.Boolean), Http: Schema.optional(Http), Annotations: Schema.optional(Annotations), Users: Schema.optional(TraceUsers), ServiceIds: Schema.optional(ServiceIds), ResourceARNs: Schema.optional(TraceResourceARNs), InstanceIds: Schema.optional(TraceInstanceIds), AvailabilityZones: Schema.optional(TraceAvailabilityZones), EntryPoint: Schema.optional(ServiceId), FaultRootCauses: Schema.optional(FaultRootCauses), ErrorRootCauses: Schema.optional(ErrorRootCauses), ResponseTimeRootCauses: Schema.optional(ResponseTimeRootCauses), Revision: Schema.optional(Schema.Number), MatchedEventTime: Schema.optional(Schema.Date)});
+export const InsightEvent = Schema.Struct({Summary: Schema.optional(Schema.String), EventTime: Schema.optional(Schema.Date), ClientRequestImpactStatistics: Schema.optional(RequestImpactStatistics), RootCauseServiceRequestImpactStatistics: Schema.optional(RequestImpactStatistics), TopAnomalousServices: Schema.optional(AnomalousServiceList)});
+export const TraceSummaryList = Schema.Array(TraceSummary);
+export const EdgeList = Schema.Array(Edge);
+export const GroupSummaryList = Schema.Array(GroupSummary);
+export const GroupSummary = Schema.Struct({GroupName: Schema.optional(Schema.String), GroupARN: Schema.optional(Schema.String), FilterExpression: Schema.optional(Schema.String), InsightsConfiguration: Schema.optional(InsightsConfiguration)});
+export const Group = Schema.Struct({GroupName: Schema.optional(Schema.String), GroupARN: Schema.optional(Schema.String), FilterExpression: Schema.optional(Schema.String), InsightsConfiguration: Schema.optional(InsightsConfiguration)});
+export const SamplingRuleRecord = Schema.Struct({SamplingRule: Schema.optional(SamplingRule), CreatedAt: Schema.optional(Schema.Date), ModifiedAt: Schema.optional(Schema.Date)});
+export const ProbabilisticRuleValueUpdate = Schema.Struct({DesiredSamplingPercentage: Schema.Number});
+export const BackendConnectionErrors = Schema.Struct({TimeoutCount: Schema.optional(Schema.Number), ConnectionRefusedCount: Schema.optional(Schema.Number), HTTPCode4XXCount: Schema.optional(Schema.Number), HTTPCode5XXCount: Schema.optional(Schema.Number), UnknownHostCount: Schema.optional(Schema.Number), OtherCount: Schema.optional(Schema.Number)});
+export const RetrievedTrace = Schema.Struct({Id: Schema.optional(Schema.String), Duration: Schema.optional(Schema.Number), Spans: Schema.optional(SpanList)});
+export const ServiceNames = Schema.Array(Schema.String);
+export const TraceSpanList = Schema.Array(RetrievedTrace);
+export const InsightCategoryList = Schema.Array(Schema.String);
+export const IndexingRuleValue = Schema.Union(ProbabilisticRuleValue);
+export const TimeSeriesServiceStatistics = Schema.Struct({Timestamp: Schema.optional(Schema.Date), EdgeSummaryStatistics: Schema.optional(EdgeStatistics), ServiceSummaryStatistics: Schema.optional(ServiceStatistics), ServiceForecastStatistics: Schema.optional(ForecastStatistics), ResponseTimeHistogram: Schema.optional(Histogram)});
+export const SamplingRateBoost = Schema.Struct({MaxRate: Schema.Number, CooldownWindowMinutes: Schema.Number});
+export const TimeSeriesServiceStatisticsList = Schema.Array(TimeSeriesServiceStatistics);
+export const AttributeMap = Schema.Record({key: Schema.String, value: Schema.String});
+export const UpdateTraceSegmentDestinationResult = Schema.Struct({Destination: Schema.optional(Schema.String), Status: Schema.optional(Schema.String)});
+export const UpdateGroupResult = Schema.Struct({Group: Schema.optional(Group)});
+export const ResourceNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String), ResourceName: Schema.optional(Schema.String)});
+export const RetrievedService = Schema.Struct({Service: Schema.optional(Service), Links: Schema.optional(LinksList)});
+export const StartTraceRetrievalResult = Schema.Struct({RetrievalToken: Schema.optional(Schema.String)});
+export const RetrievedServicesList = Schema.Array(RetrievedService);
+export const PutResourcePolicyResult = Schema.Struct({ResourcePolicy: Schema.optional(ResourcePolicy)});
+export const InsightImpactGraphService = Schema.Struct({ReferenceId: Schema.optional(Schema.Number), Type: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Names: Schema.optional(ServiceNames), AccountId: Schema.optional(Schema.String), Edges: Schema.optional(InsightImpactGraphEdgeList)});
+export const PutEncryptionConfigResult = Schema.Struct({EncryptionConfig: Schema.optional(EncryptionConfig)});
+export const InsightImpactGraphServiceList = Schema.Array(InsightImpactGraphService);
+export const GetSamplingTargetsResult = Schema.Struct({SamplingTargetDocuments: Schema.optional(SamplingTargetDocumentList), LastRuleModification: Schema.optional(Schema.Date), UnprocessedStatistics: Schema.optional(UnprocessedStatisticsList), UnprocessedBoostStatistics: Schema.optional(UnprocessedStatisticsList)});
+export const ListTagsForResourceResponse = Schema.Struct({Tags: Schema.optional(TagList), NextToken: Schema.optional(Schema.String)});
+export const GetTraceGraphResult = Schema.Struct({Services: Schema.optional(ServiceList), NextToken: Schema.optional(Schema.String)});
+export const Insight = Schema.Struct({InsightId: Schema.optional(Schema.String), GroupARN: Schema.optional(Schema.String), GroupName: Schema.optional(Schema.String), RootCauseServiceId: Schema.optional(ServiceId), Categories: Schema.optional(InsightCategoryList), State: Schema.optional(Schema.String), StartTime: Schema.optional(Schema.Date), EndTime: Schema.optional(Schema.Date), Summary: Schema.optional(Schema.String), ClientRequestImpactStatistics: Schema.optional(RequestImpactStatistics), RootCauseServiceRequestImpactStatistics: Schema.optional(RequestImpactStatistics), TopAnomalousServices: Schema.optional(AnomalousServiceList)});
+export const GetTraceSummariesResult = Schema.Struct({TraceSummaries: Schema.optional(TraceSummaryList), ApproximateTime: Schema.optional(Schema.Date), TracesProcessedCount: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
+export const GetSamplingRulesResult = Schema.Struct({SamplingRuleRecords: Schema.optional(SamplingRuleRecordList), NextToken: Schema.optional(Schema.String)});
+export const InvalidPolicyRevisionIdException = Schema.Struct({Message: Schema.optional(Schema.String)});
+export const Service = Schema.Struct({ReferenceId: Schema.optional(Schema.Number), Name: Schema.optional(Schema.String), Names: Schema.optional(ServiceNames), Root: Schema.optional(Schema.Boolean), AccountId: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), State: Schema.optional(Schema.String), StartTime: Schema.optional(Schema.Date), EndTime: Schema.optional(Schema.Date), Edges: Schema.optional(EdgeList), SummaryStatistics: Schema.optional(ServiceStatistics), DurationHistogram: Schema.optional(Histogram), ResponseTimeHistogram: Schema.optional(Histogram)});
+export const ThrottledException = Schema.Struct({Message: Schema.optional(Schema.String)});
+export const ServiceList = Schema.Array(Service);
+export const InvalidRequestException = Schema.Struct({Message: Schema.optional(Schema.String)});
+export const SamplingRuleUpdate = Schema.Struct({RuleName: Schema.optional(Schema.String), RuleARN: Schema.optional(Schema.String), ResourceARN: Schema.optional(Schema.String), Priority: Schema.optional(Schema.Number), FixedRate: Schema.optional(Schema.Number), ReservoirSize: Schema.optional(Schema.Number), Host: Schema.optional(Schema.String), ServiceName: Schema.optional(Schema.String), ServiceType: Schema.optional(Schema.String), HTTPMethod: Schema.optional(Schema.String), URLPath: Schema.optional(Schema.String), Attributes: Schema.optional(AttributeMap), SamplingRateBoost: Schema.optional(SamplingRateBoost)});
+export const SamplingRuleRecordList = Schema.Array(SamplingRuleRecord);
+export const Trace = Schema.Struct({Id: Schema.optional(Schema.String), Duration: Schema.optional(Schema.Number), LimitExceeded: Schema.optional(Schema.Boolean), Segments: Schema.optional(SegmentList)});
+export const UnprocessedTraceIdList = Schema.Array(Schema.String);
+export const TraceList = Schema.Array(Trace);
+export const SamplingBoostStatisticsDocument = Schema.Struct({RuleName: Schema.String, ServiceName: Schema.String, Timestamp: Schema.Date, AnomalyCount: Schema.Number, TotalCount: Schema.Number, SampledAnomalyCount: Schema.Number});
+export const SamplingStrategy = Schema.Struct({Name: Schema.optional(Schema.String), Value: Schema.optional(Schema.Number)});
+export const SamplingStatisticsDocument = Schema.Struct({RuleName: Schema.String, ClientID: Schema.String, Timestamp: Schema.Date, RequestCount: Schema.Number, SampledCount: Schema.Number, BorrowCount: Schema.optional(Schema.Number)});
+export const SamplingBoostStatisticsDocumentList = Schema.Array(SamplingBoostStatisticsDocument);
+export const UntagResourceResponse = Schema.Struct({});
+export const IndexingRule = Schema.Struct({Name: Schema.optional(Schema.String), ModifiedAt: Schema.optional(Schema.Date), Rule: Schema.optional(IndexingRuleValue)});
+export const SamplingStatisticsDocumentList = Schema.Array(SamplingStatisticsDocument);
+export const IndexingRuleList = Schema.Array(IndexingRule);
+export const PutTraceSegmentsResult = Schema.Struct({UnprocessedTraceSegments: Schema.optional(UnprocessedTraceSegmentList)});
+export const TagResourceResponse = Schema.Struct({});
+export const ListResourcePoliciesResult = Schema.Struct({ResourcePolicies: Schema.optional(ResourcePolicyList), NextToken: Schema.optional(Schema.String)});
+export const EncryptionConfig = Schema.Struct({KeyId: Schema.optional(Schema.String), Status: Schema.optional(Schema.String), Type: Schema.optional(Schema.String)});
+export const Tag = Schema.Struct({Key: Schema.String, Value: Schema.String});
+export const GetSamplingStatisticSummariesResult = Schema.Struct({SamplingStatisticSummaries: Schema.optional(SamplingStatisticSummaryList), NextToken: Schema.optional(Schema.String)});
+export const DeleteSamplingRuleResult = Schema.Struct({SamplingRuleRecord: Schema.optional(SamplingRuleRecord)});
+export const GetInsightSummariesResult = Schema.Struct({InsightSummaries: Schema.optional(InsightSummaryList), NextToken: Schema.optional(Schema.String)});
+export const GetInsightEventsResult = Schema.Struct({InsightEvents: Schema.optional(InsightEventList), NextToken: Schema.optional(Schema.String)});
+export const GetGroupResult = Schema.Struct({Group: Schema.optional(Group)});
+export const GetGroupsResult = Schema.Struct({Groups: Schema.optional(GroupSummaryList), NextToken: Schema.optional(Schema.String)});
+export const DeleteResourcePolicyResult = Schema.Struct({});
+export const TagList = Schema.Array(Tag);
+export const InsightsConfiguration = Schema.Struct({InsightsEnabled: Schema.optional(Schema.Boolean), NotificationsEnabled: Schema.optional(Schema.Boolean)});
+export const DeleteGroupResult = Schema.Struct({});
+export const UpdateTraceSegmentDestinationRequest = Schema.Struct({Destination: Schema.optional(Schema.String)});
+export const CancelTraceRetrievalResult = Schema.Struct({});
+export const IndexingRuleValueUpdate = Schema.Union(ProbabilisticRuleValueUpdate);
+export const UntagResourceRequest = Schema.Struct({ResourceARN: Schema.String, TagKeys: TagKeyList});
+export const ListRetrievedTracesResult = Schema.Struct({RetrievalStatus: Schema.optional(Schema.String), TraceFormat: Schema.optional(Schema.String), Traces: Schema.optional(TraceSpanList), NextToken: Schema.optional(Schema.String)});
+export const UpdateGroupRequest = Schema.Struct({GroupName: Schema.optional(Schema.String), GroupARN: Schema.optional(Schema.String), FilterExpression: Schema.optional(Schema.String), InsightsConfiguration: Schema.optional(InsightsConfiguration)});
+export const GetTimeSeriesServiceStatisticsResult = Schema.Struct({TimeSeriesServiceStatistics: Schema.optional(TimeSeriesServiceStatisticsList), ContainsOldGroupVersions: Schema.optional(Schema.Boolean), NextToken: Schema.optional(Schema.String)});
+export const TelemetryRecord = Schema.Struct({Timestamp: Schema.Date, SegmentsReceivedCount: Schema.optional(Schema.Number), SegmentsSentCount: Schema.optional(Schema.Number), SegmentsSpilloverCount: Schema.optional(Schema.Number), SegmentsRejectedCount: Schema.optional(Schema.Number), BackendConnectionErrors: Schema.optional(BackendConnectionErrors)});
+export const TagResourceRequest = Schema.Struct({ResourceARN: Schema.String, Tags: TagList});
+export const GetRetrievedTracesGraphResult = Schema.Struct({RetrievalStatus: Schema.optional(Schema.String), Services: Schema.optional(RetrievedServicesList), NextToken: Schema.optional(Schema.String)});
+export const GetInsightImpactGraphResult = Schema.Struct({InsightId: Schema.optional(Schema.String), StartTime: Schema.optional(Schema.Date), EndTime: Schema.optional(Schema.Date), ServiceGraphStartTime: Schema.optional(Schema.Date), ServiceGraphEndTime: Schema.optional(Schema.Date), Services: Schema.optional(InsightImpactGraphServiceList), NextToken: Schema.optional(Schema.String)});
+export const GetInsightResult = Schema.Struct({Insight: Schema.optional(Insight)});
+export const TelemetryRecordList = Schema.Array(TelemetryRecord);
+export const StartTraceRetrievalRequest = Schema.Struct({TraceIds: TraceIdListForRetrieval, StartTime: Schema.Date, EndTime: Schema.Date});
+export const PutTraceSegmentsRequest = Schema.Struct({TraceSegmentDocuments: TraceSegmentDocumentList});
+export const GetServiceGraphResult = Schema.Struct({StartTime: Schema.optional(Schema.Date), EndTime: Schema.optional(Schema.Date), Services: Schema.optional(ServiceList), ContainsOldGroupVersions: Schema.optional(Schema.Boolean), NextToken: Schema.optional(Schema.String)});
+export const TagKeyList = Schema.Array(Schema.String);
+export const PutResourcePolicyRequest = Schema.Struct({PolicyName: Schema.String, PolicyDocument: Schema.String, PolicyRevisionId: Schema.optional(Schema.String), BypassPolicyLockoutCheck: Schema.optional(Schema.Boolean)});
+export const PutEncryptionConfigRequest = Schema.Struct({KeyId: Schema.optional(Schema.String), Type: Schema.String});
+export const ListTagsForResourceRequest = Schema.Struct({ResourceARN: Schema.String, NextToken: Schema.optional(Schema.String)});
+export const ListRetrievedTracesRequest = Schema.Struct({RetrievalToken: Schema.String, TraceFormat: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String)});
+export const GetIndexingRulesResult = Schema.Struct({IndexingRules: Schema.optional(IndexingRuleList), NextToken: Schema.optional(Schema.String)});
+export const SamplingRule = Schema.Struct({RuleName: Schema.optional(Schema.String), RuleARN: Schema.optional(Schema.String), ResourceARN: Schema.String, Priority: Schema.Number, FixedRate: Schema.Number, ReservoirSize: Schema.Number, ServiceName: Schema.String, ServiceType: Schema.String, Host: Schema.String, HTTPMethod: Schema.String, URLPath: Schema.String, Version: Schema.Number, Attributes: Schema.optional(AttributeMap), SamplingRateBoost: Schema.optional(SamplingRateBoost)});
+export const BatchGetTracesResult = Schema.Struct({Traces: Schema.optional(TraceList), UnprocessedTraceIds: Schema.optional(UnprocessedTraceIdList), NextToken: Schema.optional(Schema.String)});
+export const ListResourcePoliciesRequest = Schema.Struct({NextToken: Schema.optional(Schema.String)});
+export const GetTraceSegmentDestinationResult = Schema.Struct({Destination: Schema.optional(Schema.String), Status: Schema.optional(Schema.String)});
+export const TraceIdListForRetrieval = Schema.Array(Schema.String);
+export const GetTraceGraphRequest = Schema.Struct({TraceIds: TraceIdList, NextToken: Schema.optional(Schema.String)});
+export const UpdateSamplingRuleRequest = Schema.Struct({SamplingRuleUpdate: SamplingRuleUpdate});
+export const GetTimeSeriesServiceStatisticsRequest = Schema.Struct({StartTime: Schema.Date, EndTime: Schema.Date, GroupName: Schema.optional(Schema.String), GroupARN: Schema.optional(Schema.String), EntitySelectorExpression: Schema.optional(Schema.String), Period: Schema.optional(Schema.Number), ForecastStatistics: Schema.optional(Schema.Boolean), NextToken: Schema.optional(Schema.String)});
+export const GetServiceGraphRequest = Schema.Struct({StartTime: Schema.Date, EndTime: Schema.Date, GroupName: Schema.optional(Schema.String), GroupARN: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String)});
+export const TraceSegmentDocumentList = Schema.Array(Schema.String);
+export const GetSamplingStatisticSummariesRequest = Schema.Struct({NextToken: Schema.optional(Schema.String)});
+export const GetSamplingRulesRequest = Schema.Struct({NextToken: Schema.optional(Schema.String)});
+export const GetRetrievedTracesGraphRequest = Schema.Struct({RetrievalToken: Schema.String, NextToken: Schema.optional(Schema.String)});
+export const GetInsightSummariesRequest = Schema.Struct({States: Schema.optional(InsightStateList), GroupARN: Schema.optional(Schema.String), GroupName: Schema.optional(Schema.String), StartTime: Schema.Date, EndTime: Schema.Date, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
+export const GetInsightImpactGraphRequest = Schema.Struct({InsightId: Schema.String, StartTime: Schema.Date, EndTime: Schema.Date, NextToken: Schema.optional(Schema.String)});
+export const GetTraceSummariesRequest = Schema.Struct({StartTime: Schema.Date, EndTime: Schema.Date, TimeRangeType: Schema.optional(Schema.String), Sampling: Schema.optional(Schema.Boolean), SamplingStrategy: Schema.optional(SamplingStrategy), FilterExpression: Schema.optional(Schema.String), NextToken: Schema.optional(Schema.String)});
+export const GetInsightEventsRequest = Schema.Struct({InsightId: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
+export const GetInsightRequest = Schema.Struct({InsightId: Schema.String});
+export const GetIndexingRulesRequest = Schema.Struct({NextToken: Schema.optional(Schema.String)});
+export const GetGroupsRequest = Schema.Struct({NextToken: Schema.optional(Schema.String)});
+export const GetSamplingTargetsRequest = Schema.Struct({SamplingStatisticsDocuments: SamplingStatisticsDocumentList, SamplingBoostStatisticsDocuments: Schema.optional(SamplingBoostStatisticsDocumentList)});
+export const GetGroupRequest = Schema.Struct({GroupName: Schema.optional(Schema.String), GroupARN: Schema.optional(Schema.String)});
+export const UpdateIndexingRuleRequest = Schema.Struct({Name: Schema.String, Rule: IndexingRuleValueUpdate});
+export const InsightStateList = Schema.Array(Schema.String);
+export const TraceIdList = Schema.Array(Schema.String);
+export const PutTelemetryRecordsRequest = Schema.Struct({TelemetryRecords: TelemetryRecordList, EC2InstanceId: Schema.optional(Schema.String), Hostname: Schema.optional(Schema.String), ResourceARN: Schema.optional(Schema.String)});
+export const DeleteSamplingRuleRequest = Schema.Struct({RuleName: Schema.optional(Schema.String), RuleARN: Schema.optional(Schema.String)});
+export const DeleteResourcePolicyRequest = Schema.Struct({PolicyName: Schema.String, PolicyRevisionId: Schema.optional(Schema.String)});
+export const DeleteGroupRequest = Schema.Struct({GroupName: Schema.optional(Schema.String), GroupARN: Schema.optional(Schema.String)});
+export const GetTraceSegmentDestinationRequest = Schema.Struct({});
+export const GetEncryptionConfigRequest = Schema.Struct({});
+export const GetEncryptionConfigResult = Schema.Struct({EncryptionConfig: Schema.optional(EncryptionConfig)});
+export const CancelTraceRetrievalRequest = Schema.Struct({RetrievalToken: Schema.String});
+export const BatchGetTracesRequest = Schema.Struct({TraceIds: TraceIdList, NextToken: Schema.optional(Schema.String)});
+export const GetTraceSegmentDestination = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/GetTraceSegmentDestination", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.GetTraceSegmentDestination" }, GetTraceSegmentDestinationRequest, GetTraceSegmentDestinationResult, Schema.Union(ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const CreateGroupRequest = Schema.Struct({GroupName: Schema.String, FilterExpression: Schema.optional(Schema.String), InsightsConfiguration: Schema.optional(InsightsConfiguration), Tags: Schema.optional(TagList)});
+export const UntagResource = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/UntagResource", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.UntagResource" }, UntagResourceRequest, UntagResourceResponse, Schema.Union(ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const CancelTraceRetrieval = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/CancelTraceRetrieval", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.CancelTraceRetrieval" }, CancelTraceRetrievalRequest, CancelTraceRetrievalResult, Schema.Union(ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const DeleteGroup = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/DeleteGroup", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.DeleteGroup" }, DeleteGroupRequest, DeleteGroupResult, Schema.Union(ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const DeleteResourcePolicy = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/DeleteResourcePolicy", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.DeleteResourcePolicy" }, DeleteResourcePolicyRequest, DeleteResourcePolicyResult, Schema.Union(ErrorAnnotation("InvalidPolicyRevisionIdException", InvalidPolicyRevisionIdException), ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const GetEncryptionConfig = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/EncryptionConfig", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.GetEncryptionConfig" }, GetEncryptionConfigRequest, GetEncryptionConfigResult, Schema.Union(ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const GetSamplingRules = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/GetSamplingRules", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.GetSamplingRules" }, GetSamplingRulesRequest, GetSamplingRulesResult, Schema.Union(ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const GetTraceGraph = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/TraceGraph", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.GetTraceGraph" }, GetTraceGraphRequest, GetTraceGraphResult, Schema.Union(ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const ListTagsForResource = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/ListTagsForResource", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, Schema.Union(ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const PutEncryptionConfig = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/PutEncryptionConfig", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.PutEncryptionConfig" }, PutEncryptionConfigRequest, PutEncryptionConfigResult, Schema.Union(ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const StartTraceRetrieval = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/StartTraceRetrieval", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.StartTraceRetrieval" }, StartTraceRetrievalRequest, StartTraceRetrievalResult, Schema.Union(ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const CreateSamplingRuleRequest = Schema.Struct({SamplingRule: SamplingRule, Tags: Schema.optional(TagList)});
+export const UpdateGroup = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/UpdateGroup", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.UpdateGroup" }, UpdateGroupRequest, UpdateGroupResult, Schema.Union(ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const UpdateTraceSegmentDestination = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/UpdateTraceSegmentDestination", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.UpdateTraceSegmentDestination" }, UpdateTraceSegmentDestinationRequest, UpdateTraceSegmentDestinationResult, Schema.Union(ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const CreateGroup = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/CreateGroup", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.CreateGroup" }, CreateGroupRequest, CreateGroupResult, Schema.Union(ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const DeleteSamplingRule = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/DeleteSamplingRule", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.DeleteSamplingRule" }, DeleteSamplingRuleRequest, DeleteSamplingRuleResult, Schema.Union(ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const GetGroup = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/GetGroup", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.GetGroup" }, GetGroupRequest, GetGroupResult, Schema.Union(ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const GetGroups = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/Groups", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.GetGroups" }, GetGroupsRequest, GetGroupsResult, Schema.Union(ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const GetInsightEvents = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/InsightEvents", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.GetInsightEvents" }, GetInsightEventsRequest, GetInsightEventsResult, Schema.Union(ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const GetInsightSummaries = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/InsightSummaries", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.GetInsightSummaries" }, GetInsightSummariesRequest, GetInsightSummariesResult, Schema.Union(ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const GetSamplingStatisticSummaries = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/SamplingStatisticSummaries", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.GetSamplingStatisticSummaries" }, GetSamplingStatisticSummariesRequest, GetSamplingStatisticSummariesResult, Schema.Union(ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const ListResourcePolicies = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/ListResourcePolicies", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.ListResourcePolicies" }, ListResourcePoliciesRequest, ListResourcePoliciesResult, Schema.Union(ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const PutTelemetryRecords = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/TelemetryRecords", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.PutTelemetryRecords" }, PutTelemetryRecordsRequest, PutTelemetryRecordsResult, Schema.Union(ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const PutTraceSegments = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/TraceSegments", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.PutTraceSegments" }, PutTraceSegmentsRequest, PutTraceSegmentsResult, Schema.Union(ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const TagResource = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/TagResource", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.TagResource" }, TagResourceRequest, TagResourceResponse, Schema.Union(ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException), ErrorAnnotation("ThrottledException", ThrottledException), ErrorAnnotation("TooManyTagsException", TooManyTagsException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const UpdateSamplingRule = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/UpdateSamplingRule", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.UpdateSamplingRule" }, UpdateSamplingRuleRequest, UpdateSamplingRuleResult, Schema.Union(ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const BatchGetTraces = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/Traces", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.BatchGetTraces" }, BatchGetTracesRequest, BatchGetTracesResult, Schema.Union(ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const GetInsight = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/Insight", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.GetInsight" }, GetInsightRequest, GetInsightResult, Schema.Union(ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const GetInsightImpactGraph = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/InsightImpactGraph", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.GetInsightImpactGraph" }, GetInsightImpactGraphRequest, GetInsightImpactGraphResult, Schema.Union(ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const GetRetrievedTracesGraph = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/GetRetrievedTracesGraph", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.GetRetrievedTracesGraph" }, GetRetrievedTracesGraphRequest, GetRetrievedTracesGraphResult, Schema.Union(ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const GetTimeSeriesServiceStatistics = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/TimeSeriesServiceStatistics", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.GetTimeSeriesServiceStatistics" }, GetTimeSeriesServiceStatisticsRequest, GetTimeSeriesServiceStatisticsResult, Schema.Union(ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const ListRetrievedTraces = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/ListRetrievedTraces", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.ListRetrievedTraces" }, ListRetrievedTracesRequest, ListRetrievedTracesResult, Schema.Union(ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const UpdateIndexingRule = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/UpdateIndexingRule", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.UpdateIndexingRule" }, UpdateIndexingRuleRequest, UpdateIndexingRuleResult, Schema.Union(ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const CreateSamplingRule = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/CreateSamplingRule", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.CreateSamplingRule" }, CreateSamplingRuleRequest, CreateSamplingRuleResult, Schema.Union(ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("RuleLimitExceededException", RuleLimitExceededException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const GetIndexingRules = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/GetIndexingRules", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.GetIndexingRules" }, GetIndexingRulesRequest, GetIndexingRulesResult, Schema.Union(ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const GetSamplingTargets = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/SamplingTargets", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.GetSamplingTargets" }, GetSamplingTargetsRequest, GetSamplingTargetsResult, Schema.Union(ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const GetServiceGraph = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/ServiceGraph", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.GetServiceGraph" }, GetServiceGraphRequest, GetServiceGraphResult, Schema.Union(ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const PutResourcePolicy = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/PutResourcePolicy", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.PutResourcePolicy" }, PutResourcePolicyRequest, PutResourcePolicyResult, Schema.Union(ErrorAnnotation("InvalidPolicyRevisionIdException", InvalidPolicyRevisionIdException), ErrorAnnotation("LockoutPreventionException", LockoutPreventionException), ErrorAnnotation("MalformedPolicyDocumentException", MalformedPolicyDocumentException), ErrorAnnotation("PolicyCountLimitExceededException", PolicyCountLimitExceededException), ErrorAnnotation("PolicySizeLimitExceededException", PolicySizeLimitExceededException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const GetTraceSummaries = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/TraceSummaries", method: "POST", sdkId: "XRay", sigV4ServiceName: "xray", name: "AWSXRay.GetTraceSummaries" }, GetTraceSummariesRequest, GetTraceSummariesResult, Schema.Union(ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ThrottledException", ThrottledException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

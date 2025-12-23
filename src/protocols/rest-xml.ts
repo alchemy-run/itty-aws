@@ -146,7 +146,7 @@ export const restXmlProvider = Effect.fn(function* (metadata: ServiceMetadata) {
           `AWS Request - ${metadata.sdkId}:${endpointMetadata.name} - response code: ${response.status}`,
         );
 
-        //todo(pear): is this a good error distinguisher
+        //todo(pear): is this a good error distinguisher -- it is not
         if (response.status >= 200 && response.status < 300) {
           //convert to response type
           yield* Effect.logDebug(

@@ -1,83 +1,83 @@
 import { Schema} from "effect"
-import { FormatXMLRequest, FormatXMLResponse, makeOperation } from "../client";
+import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperation } from "../client";
 import { Operation, Path, Header, StreamBody, Body, ErrorAnnotation } from "../schema-helpers";
-const PolicyIdList = Schema.Array(Schema.String)
-const ResourceTypeValuesList = Schema.Array(Schema.String)
-const TargetTagsFilterList = Schema.Array(Schema.String)
-const TagsToAddFilterList = Schema.Array(Schema.String)
-const TagKeyList = Schema.Array(Schema.String)
-const DeleteLifecyclePolicyRequest = Schema.Struct({PolicyId: Schema.String})
-const DeleteLifecyclePolicyResponse = Schema.Struct({})
-const GetLifecyclePoliciesRequest = Schema.Struct({PolicyIds: Schema.optional(PolicyIdList), State: Schema.optional(Schema.String), ResourceTypes: Schema.optional(ResourceTypeValuesList), TargetTags: Schema.optional(TargetTagsFilterList), TagsToAdd: Schema.optional(TagsToAddFilterList), DefaultPolicyType: Schema.optional(Schema.String)})
-const GetLifecyclePolicyRequest = Schema.Struct({PolicyId: Schema.String})
-const ListTagsForResourceRequest = Schema.Struct({ResourceArn: Schema.String})
-const TagResourceRequest = Schema.Struct({ResourceArn: Schema.String, Tags: TagMap})
-const TagResourceResponse = Schema.Struct({})
-const UntagResourceRequest = Schema.Struct({ResourceArn: Schema.String, TagKeys: TagKeyList})
-const UntagResourceResponse = Schema.Struct({})
-const UpdateLifecyclePolicyRequest = Schema.Struct({PolicyId: Schema.String, ExecutionRoleArn: Schema.optional(Schema.String), State: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), PolicyDetails: Schema.optional(PolicyDetails), CreateInterval: Schema.optional(Schema.Number), RetainInterval: Schema.optional(Schema.Number), CopyTags: Schema.optional(Schema.Boolean), ExtendDeletion: Schema.optional(Schema.Boolean), CrossRegionCopyTargets: Schema.optional(CrossRegionCopyTargetList), Exclusions: Schema.optional(Exclusions)})
-const UpdateLifecyclePolicyResponse = Schema.Struct({})
-const ResourceLocationList = Schema.Array(Schema.String)
-const ExcludeVolumeTypesList = Schema.Array(Schema.String)
-const ExcludeTagsList = Schema.Array(Tag)
-const TagMap = Schema.Record({key: Schema.String, value: Schema.String})
-const CrossRegionCopyTarget = Schema.Struct({TargetRegion: Schema.optional(Schema.String)})
-const CrossRegionCopyTargetList = Schema.Array(CrossRegionCopyTarget)
-const Exclusions = Schema.Struct({ExcludeBootVolumes: Schema.optional(Schema.Boolean), ExcludeVolumeTypes: Schema.optional(ExcludeVolumeTypesList), ExcludeTags: Schema.optional(ExcludeTagsList)})
-const ParameterList = Schema.Array(Schema.String)
-const TagsToAddList = Schema.Array(Tag)
-const VariableTagsList = Schema.Array(Tag)
-const ExcludeDataVolumeTagList = Schema.Array(Tag)
-const InternalServerException = Schema.Struct({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String)})
-export const DeleteLifecyclePolicy = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/policies/{PolicyId}", method: "DELETE", sdkId: "DLM", sigV4ServiceName: "dlm", name: "DeleteLifecyclePolicy" }, DeleteLifecyclePolicyRequest, DeleteLifecyclePolicyResponse, Schema.Union(ErrorAnnotation("InternalServerException", InternalServerException), ErrorAnnotation("LimitExceededException", LimitExceededException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const ListTagsForResourceResponse = Schema.Struct({Tags: Schema.optional(TagMap)})
-export const ListTagsForResource = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/tags/{ResourceArn}", method: "GET", sdkId: "DLM", sigV4ServiceName: "dlm", name: "ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, Schema.Union(ErrorAnnotation("InternalServerException", InternalServerException), ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const InvalidRequestException = Schema.Struct({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String), RequiredParameters: Schema.optional(ParameterList), MutuallyExclusiveParameters: Schema.optional(ParameterList)})
-export const TagResource = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/tags/{ResourceArn}", method: "POST", sdkId: "DLM", sigV4ServiceName: "dlm", name: "TagResource" }, TagResourceRequest, TagResourceResponse, Schema.Union(ErrorAnnotation("InternalServerException", InternalServerException), ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const ResourceNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String), ResourceType: Schema.optional(Schema.String), ResourceIds: Schema.optional(PolicyIdList)})
-export const UntagResource = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/tags/{ResourceArn}", method: "DELETE", sdkId: "DLM", sigV4ServiceName: "dlm", name: "UntagResource" }, UntagResourceRequest, UntagResourceResponse, Schema.Union(ErrorAnnotation("InternalServerException", InternalServerException), ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const LimitExceededException = Schema.Struct({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String), ResourceType: Schema.optional(Schema.String)})
-export const UpdateLifecyclePolicy = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/policies/{PolicyId}", method: "PATCH", sdkId: "DLM", sigV4ServiceName: "dlm", name: "UpdateLifecyclePolicy" }, UpdateLifecyclePolicyRequest, UpdateLifecyclePolicyResponse, Schema.Union(ErrorAnnotation("InternalServerException", InternalServerException), ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("LimitExceededException", LimitExceededException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const Tag = Schema.Struct({Key: Schema.String, Value: Schema.String})
-const TargetTagList = Schema.Array(Tag)
-const Parameters = Schema.Struct({ExcludeBootVolume: Schema.optional(Schema.Boolean), NoReboot: Schema.optional(Schema.Boolean), ExcludeDataVolumeTags: Schema.optional(ExcludeDataVolumeTagList)})
-const TimesList = Schema.Array(Schema.String)
-const AvailabilityZoneList = Schema.Array(Schema.String)
-const ShareTargetAccountList = Schema.Array(Schema.String)
-const SnapshotOwnerList = Schema.Array(Schema.String)
-const LifecyclePolicySummary = Schema.Struct({PolicyId: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), State: Schema.optional(Schema.String), Tags: Schema.optional(TagMap), PolicyType: Schema.optional(Schema.String), DefaultPolicy: Schema.optional(Schema.Boolean)})
-const LifecyclePolicySummaryList = Schema.Array(LifecyclePolicySummary)
-const LifecyclePolicy = Schema.Struct({PolicyId: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), State: Schema.optional(Schema.String), StatusMessage: Schema.optional(Schema.String), ExecutionRoleArn: Schema.optional(Schema.String), DateCreated: Schema.optional(Schema.Date), DateModified: Schema.optional(Schema.Date), PolicyDetails: Schema.optional(PolicyDetails), Tags: Schema.optional(TagMap), PolicyArn: Schema.optional(Schema.String), DefaultPolicy: Schema.optional(Schema.Boolean)})
-const RetainRule = Schema.Struct({Count: Schema.optional(Schema.Number), Interval: Schema.optional(Schema.Number), IntervalUnit: Schema.optional(Schema.String)})
-const FastRestoreRule = Schema.Struct({Count: Schema.optional(Schema.Number), Interval: Schema.optional(Schema.Number), IntervalUnit: Schema.optional(Schema.String), AvailabilityZones: AvailabilityZoneList})
-const ShareRule = Schema.Struct({TargetAccounts: ShareTargetAccountList, UnshareInterval: Schema.optional(Schema.Number), UnshareIntervalUnit: Schema.optional(Schema.String)})
-const ShareRules = Schema.Array(ShareRule)
-const DeprecateRule = Schema.Struct({Count: Schema.optional(Schema.Number), Interval: Schema.optional(Schema.Number), IntervalUnit: Schema.optional(Schema.String)})
-const EventParameters = Schema.Struct({EventType: Schema.String, SnapshotOwner: SnapshotOwnerList, DescriptionRegex: Schema.String})
-const StagesList = Schema.Array(Schema.String)
-const GetLifecyclePoliciesResponse = Schema.Struct({Policies: Schema.optional(LifecyclePolicySummaryList)})
-export const GetLifecyclePolicies = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/policies", method: "GET", sdkId: "DLM", sigV4ServiceName: "dlm", name: "GetLifecyclePolicies" }, GetLifecyclePoliciesRequest, GetLifecyclePoliciesResponse, Schema.Union(ErrorAnnotation("InternalServerException", InternalServerException), ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("LimitExceededException", LimitExceededException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const GetLifecyclePolicyResponse = Schema.Struct({Policy: Schema.optional(LifecyclePolicy)})
-export const GetLifecyclePolicy = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/policies/{PolicyId}", method: "GET", sdkId: "DLM", sigV4ServiceName: "dlm", name: "GetLifecyclePolicy" }, GetLifecyclePolicyRequest, GetLifecyclePolicyResponse, Schema.Union(ErrorAnnotation("InternalServerException", InternalServerException), ErrorAnnotation("LimitExceededException", LimitExceededException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const EventSource = Schema.Struct({Type: Schema.String, Parameters: Schema.optional(EventParameters)})
-const Script = Schema.Struct({Stages: Schema.optional(StagesList), ExecutionHandlerService: Schema.optional(Schema.String), ExecutionHandler: Schema.String, ExecuteOperationOnScriptFailure: Schema.optional(Schema.Boolean), ExecutionTimeout: Schema.optional(Schema.Number), MaximumRetryCount: Schema.optional(Schema.Number)})
-const ScriptsList = Schema.Array(Script)
-const CrossRegionCopyRetainRule = Schema.Struct({Interval: Schema.optional(Schema.Number), IntervalUnit: Schema.optional(Schema.String)})
-const CrossRegionCopyDeprecateRule = Schema.Struct({Interval: Schema.optional(Schema.Number), IntervalUnit: Schema.optional(Schema.String)})
-const EncryptionConfiguration = Schema.Struct({Encrypted: Schema.Boolean, CmkArn: Schema.optional(Schema.String)})
-const CreateRule = Schema.Struct({Location: Schema.optional(Schema.String), Interval: Schema.optional(Schema.Number), IntervalUnit: Schema.optional(Schema.String), Times: Schema.optional(TimesList), CronExpression: Schema.optional(Schema.String), Scripts: Schema.optional(ScriptsList)})
-const CrossRegionCopyRule = Schema.Struct({TargetRegion: Schema.optional(Schema.String), Target: Schema.optional(Schema.String), Encrypted: Schema.Boolean, CmkArn: Schema.optional(Schema.String), CopyTags: Schema.optional(Schema.Boolean), RetainRule: Schema.optional(CrossRegionCopyRetainRule), DeprecateRule: Schema.optional(CrossRegionCopyDeprecateRule)})
-const CrossRegionCopyRules = Schema.Array(CrossRegionCopyRule)
-const CrossRegionCopyAction = Schema.Struct({Target: Schema.String, EncryptionConfiguration: EncryptionConfiguration, RetainRule: Schema.optional(CrossRegionCopyRetainRule)})
-const CrossRegionCopyActionList = Schema.Array(CrossRegionCopyAction)
-const RetentionArchiveTier = Schema.Struct({Count: Schema.optional(Schema.Number), Interval: Schema.optional(Schema.Number), IntervalUnit: Schema.optional(Schema.String)})
-const Action = Schema.Struct({Name: Schema.String, CrossRegionCopy: CrossRegionCopyActionList})
-const ActionList = Schema.Array(Action)
-const ArchiveRetainRule = Schema.Struct({RetentionArchiveTier: RetentionArchiveTier})
-const ArchiveRule = Schema.Struct({RetainRule: ArchiveRetainRule})
-const Schedule = Schema.Struct({Name: Schema.optional(Schema.String), CopyTags: Schema.optional(Schema.Boolean), TagsToAdd: Schema.optional(TagsToAddList), VariableTags: Schema.optional(VariableTagsList), CreateRule: Schema.optional(CreateRule), RetainRule: Schema.optional(RetainRule), FastRestoreRule: Schema.optional(FastRestoreRule), CrossRegionCopyRules: Schema.optional(CrossRegionCopyRules), ShareRules: Schema.optional(ShareRules), DeprecateRule: Schema.optional(DeprecateRule), ArchiveRule: Schema.optional(ArchiveRule)})
-const ScheduleList = Schema.Array(Schedule)
-const PolicyDetails = Schema.Struct({PolicyType: Schema.optional(Schema.String), ResourceTypes: Schema.optional(ResourceTypeValuesList), ResourceLocations: Schema.optional(ResourceLocationList), TargetTags: Schema.optional(TargetTagList), Schedules: Schema.optional(ScheduleList), Parameters: Schema.optional(Parameters), EventSource: Schema.optional(EventSource), Actions: Schema.optional(ActionList), PolicyLanguage: Schema.optional(Schema.String), ResourceType: Schema.optional(Schema.String), CreateInterval: Schema.optional(Schema.Number), RetainInterval: Schema.optional(Schema.Number), CopyTags: Schema.optional(Schema.Boolean), CrossRegionCopyTargets: Schema.optional(CrossRegionCopyTargetList), ExtendDeletion: Schema.optional(Schema.Boolean), Exclusions: Schema.optional(Exclusions)})
-const CreateLifecyclePolicyRequest = Schema.Struct({ExecutionRoleArn: Schema.String, Description: Schema.String, State: Schema.String, PolicyDetails: Schema.optional(PolicyDetails), Tags: Schema.optional(TagMap), DefaultPolicy: Schema.optional(Schema.String), CreateInterval: Schema.optional(Schema.Number), RetainInterval: Schema.optional(Schema.Number), CopyTags: Schema.optional(Schema.Boolean), ExtendDeletion: Schema.optional(Schema.Boolean), CrossRegionCopyTargets: Schema.optional(CrossRegionCopyTargetList), Exclusions: Schema.optional(Exclusions)})
-const CreateLifecyclePolicyResponse = Schema.Struct({PolicyId: Schema.optional(Schema.String)})
-export const CreateLifecyclePolicy = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/policies", method: "POST", sdkId: "DLM", sigV4ServiceName: "dlm", name: "CreateLifecyclePolicy" }, CreateLifecyclePolicyRequest, CreateLifecyclePolicyResponse, Schema.Union(ErrorAnnotation("InternalServerException", InternalServerException), ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("LimitExceededException", LimitExceededException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
+export const RetentionArchiveTier = Schema.Struct({Count: Schema.optional(Schema.Number), Interval: Schema.optional(Schema.Number), IntervalUnit: Schema.optional(Schema.String)});
+export const EncryptionConfiguration = Schema.Struct({Encrypted: Schema.Boolean, CmkArn: Schema.optional(Schema.String)});
+export const CrossRegionCopyDeprecateRule = Schema.Struct({Interval: Schema.optional(Schema.Number), IntervalUnit: Schema.optional(Schema.String)});
+export const CrossRegionCopyRetainRule = Schema.Struct({Interval: Schema.optional(Schema.Number), IntervalUnit: Schema.optional(Schema.String)});
+export const ScriptsList = Schema.Array(Script);
+export const Script = Schema.Struct({Stages: Schema.optional(StagesList), ExecutionHandlerService: Schema.optional(Schema.String), ExecutionHandler: Schema.String, ExecuteOperationOnScriptFailure: Schema.optional(Schema.Boolean), ExecutionTimeout: Schema.optional(Schema.Number), MaximumRetryCount: Schema.optional(Schema.Number)});
+export const ArchiveRetainRule = Schema.Struct({RetentionArchiveTier: RetentionArchiveTier});
+export const CreateLifecyclePolicyResponse = Schema.Struct({PolicyId: Schema.optional(Schema.String)});
+export const StagesList = Schema.Array(Schema.String);
+export const EventParameters = Schema.Struct({EventType: Schema.String, SnapshotOwner: SnapshotOwnerList, DescriptionRegex: Schema.String});
+export const DeprecateRule = Schema.Struct({Count: Schema.optional(Schema.Number), Interval: Schema.optional(Schema.Number), IntervalUnit: Schema.optional(Schema.String)});
+export const ShareRules = Schema.Array(ShareRule);
+export const CrossRegionCopyAction = Schema.Struct({Target: Schema.String, EncryptionConfiguration: EncryptionConfiguration, RetainRule: Schema.optional(CrossRegionCopyRetainRule)});
+export const ShareRule = Schema.Struct({TargetAccounts: ShareTargetAccountList, UnshareInterval: Schema.optional(Schema.Number), UnshareIntervalUnit: Schema.optional(Schema.String)});
+export const CrossRegionCopyActionList = Schema.Array(CrossRegionCopyAction);
+export const FastRestoreRule = Schema.Struct({Count: Schema.optional(Schema.Number), Interval: Schema.optional(Schema.Number), IntervalUnit: Schema.optional(Schema.String), AvailabilityZones: AvailabilityZoneList});
+export const RetainRule = Schema.Struct({Count: Schema.optional(Schema.Number), Interval: Schema.optional(Schema.Number), IntervalUnit: Schema.optional(Schema.String)});
+export const SnapshotOwnerList = Schema.Array(Schema.String);
+export const ShareTargetAccountList = Schema.Array(Schema.String);
+export const AvailabilityZoneList = Schema.Array(Schema.String);
+export const ArchiveRule = Schema.Struct({RetainRule: ArchiveRetainRule});
+export const CrossRegionCopyRule = Schema.Struct({TargetRegion: Schema.optional(Schema.String), Target: Schema.optional(Schema.String), Encrypted: Schema.Boolean, CmkArn: Schema.optional(Schema.String), CopyTags: Schema.optional(Schema.Boolean), RetainRule: Schema.optional(CrossRegionCopyRetainRule), DeprecateRule: Schema.optional(CrossRegionCopyDeprecateRule)});
+export const LifecyclePolicySummary = Schema.Struct({PolicyId: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), State: Schema.optional(Schema.String), Tags: Schema.optional(TagMap), PolicyType: Schema.optional(Schema.String), DefaultPolicy: Schema.optional(Schema.Boolean)});
+export const CrossRegionCopyRules = Schema.Array(CrossRegionCopyRule);
+export const LifecyclePolicy = Schema.Struct({PolicyId: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), State: Schema.optional(Schema.String), StatusMessage: Schema.optional(Schema.String), ExecutionRoleArn: Schema.optional(Schema.String), DateCreated: Schema.optional(Schema.Date), DateModified: Schema.optional(Schema.Date), PolicyDetails: Schema.optional(PolicyDetails), Tags: Schema.optional(TagMap), PolicyArn: Schema.optional(Schema.String), DefaultPolicy: Schema.optional(Schema.Boolean)});
+export const TimesList = Schema.Array(Schema.String);
+export const CreateRule = Schema.Struct({Location: Schema.optional(Schema.String), Interval: Schema.optional(Schema.Number), IntervalUnit: Schema.optional(Schema.String), Times: Schema.optional(TimesList), CronExpression: Schema.optional(Schema.String), Scripts: Schema.optional(ScriptsList)});
+export const LifecyclePolicySummaryList = Schema.Array(LifecyclePolicySummary);
+export const ExcludeDataVolumeTagList = Schema.Array(Tag);
+export const VariableTagsList = Schema.Array(Tag);
+export const TagsToAddList = Schema.Array(Tag);
+export const ParameterList = Schema.Array(Schema.String);
+export const ExcludeTagsList = Schema.Array(Tag);
+export const Parameters = Schema.Struct({ExcludeBootVolume: Schema.optional(Schema.Boolean), NoReboot: Schema.optional(Schema.Boolean), ExcludeDataVolumeTags: Schema.optional(ExcludeDataVolumeTagList)});
+export const ExcludeVolumeTypesList = Schema.Array(Schema.String);
+export const Tag = Schema.Struct({Key: Schema.String, Value: Schema.String});
+export const Action = Schema.Struct({Name: Schema.String, CrossRegionCopy: CrossRegionCopyActionList});
+export const ResourceLocationList = Schema.Array(Schema.String);
+export const ActionList = Schema.Array(Action);
+export const EventSource = Schema.Struct({Type: Schema.String, Parameters: Schema.optional(EventParameters)});
+export const TargetTagList = Schema.Array(Tag);
+export const LimitExceededException = Schema.Struct({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String), ResourceType: Schema.optional(Schema.String)});
+export const Schedule = Schema.Struct({Name: Schema.optional(Schema.String), CopyTags: Schema.optional(Schema.Boolean), TagsToAdd: Schema.optional(TagsToAddList), VariableTags: Schema.optional(VariableTagsList), CreateRule: Schema.optional(CreateRule), RetainRule: Schema.optional(RetainRule), FastRestoreRule: Schema.optional(FastRestoreRule), CrossRegionCopyRules: Schema.optional(CrossRegionCopyRules), ShareRules: Schema.optional(ShareRules), DeprecateRule: Schema.optional(DeprecateRule), ArchiveRule: Schema.optional(ArchiveRule)});
+export const ResourceNotFoundException = Schema.Struct({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String), ResourceType: Schema.optional(Schema.String), ResourceIds: Schema.optional(PolicyIdList)});
+export const ScheduleList = Schema.Array(Schedule);
+export const InvalidRequestException = Schema.Struct({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String), RequiredParameters: Schema.optional(ParameterList), MutuallyExclusiveParameters: Schema.optional(ParameterList)});
+export const ListTagsForResourceResponse = Schema.Struct({Tags: Schema.optional(TagMap)});
+export const UpdateLifecyclePolicyResponse = Schema.Struct({});
+export const InternalServerException = Schema.Struct({Message: Schema.optional(Schema.String), Code: Schema.optional(Schema.String)});
+export const UntagResourceResponse = Schema.Struct({});
+export const TagResourceResponse = Schema.Struct({});
+export const DeleteLifecyclePolicyResponse = Schema.Struct({});
+export const TagKeyList = Schema.Array(Schema.String);
+export const GetLifecyclePoliciesResponse = Schema.Struct({Policies: Schema.optional(LifecyclePolicySummaryList)});
+export const GetLifecyclePolicyResponse = Schema.Struct({Policy: Schema.optional(LifecyclePolicy)});
+export const TagsToAddFilterList = Schema.Array(Schema.String);
+export const CrossRegionCopyTarget = Schema.Struct({TargetRegion: Schema.optional(Schema.String)});
+export const Exclusions = Schema.Struct({ExcludeBootVolumes: Schema.optional(Schema.Boolean), ExcludeVolumeTypes: Schema.optional(ExcludeVolumeTypesList), ExcludeTags: Schema.optional(ExcludeTagsList)});
+export const TargetTagsFilterList = Schema.Array(Schema.String);
+export const CrossRegionCopyTargetList = Schema.Array(CrossRegionCopyTarget);
+export const TagMap = Schema.Record({key: Schema.String, value: Schema.String});
+export const ResourceTypeValuesList = Schema.Array(Schema.String);
+export const UpdateLifecyclePolicyRequest = Schema.Struct({PolicyId: Schema.String, ExecutionRoleArn: Schema.optional(Schema.String), State: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), PolicyDetails: Schema.optional(PolicyDetails), CreateInterval: Schema.optional(Schema.Number), RetainInterval: Schema.optional(Schema.Number), CopyTags: Schema.optional(Schema.Boolean), ExtendDeletion: Schema.optional(Schema.Boolean), CrossRegionCopyTargets: Schema.optional(CrossRegionCopyTargetList), Exclusions: Schema.optional(Exclusions)});
+export const UntagResourceRequest = Schema.Struct({ResourceArn: Schema.String, TagKeys: TagKeyList});
+export const TagResourceRequest = Schema.Struct({ResourceArn: Schema.String, Tags: TagMap});
+export const ListTagsForResourceRequest = Schema.Struct({ResourceArn: Schema.String});
+export const GetLifecyclePolicyRequest = Schema.Struct({PolicyId: Schema.String});
+export const GetLifecyclePoliciesRequest = Schema.Struct({PolicyIds: Schema.optional(PolicyIdList), State: Schema.optional(Schema.String), ResourceTypes: Schema.optional(ResourceTypeValuesList), TargetTags: Schema.optional(TargetTagsFilterList), TagsToAdd: Schema.optional(TagsToAddFilterList), DefaultPolicyType: Schema.optional(Schema.String)});
+export const DeleteLifecyclePolicyRequest = Schema.Struct({PolicyId: Schema.String});
+export const PolicyDetails = Schema.Struct({PolicyType: Schema.optional(Schema.String), ResourceTypes: Schema.optional(ResourceTypeValuesList), ResourceLocations: Schema.optional(ResourceLocationList), TargetTags: Schema.optional(TargetTagList), Schedules: Schema.optional(ScheduleList), Parameters: Schema.optional(Parameters), EventSource: Schema.optional(EventSource), Actions: Schema.optional(ActionList), PolicyLanguage: Schema.optional(Schema.String), ResourceType: Schema.optional(Schema.String), CreateInterval: Schema.optional(Schema.Number), RetainInterval: Schema.optional(Schema.Number), CopyTags: Schema.optional(Schema.Boolean), CrossRegionCopyTargets: Schema.optional(CrossRegionCopyTargetList), ExtendDeletion: Schema.optional(Schema.Boolean), Exclusions: Schema.optional(Exclusions)});
+export const PolicyIdList = Schema.Array(Schema.String);
+export const DeleteLifecyclePolicy = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/policies/{PolicyId}", method: "DELETE", sdkId: "DLM", sigV4ServiceName: "dlm", name: "dlm_20180112.DeleteLifecyclePolicy" }, DeleteLifecyclePolicyRequest, DeleteLifecyclePolicyResponse, Schema.Union(ErrorAnnotation("InternalServerException", InternalServerException), ErrorAnnotation("LimitExceededException", LimitExceededException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const ListTagsForResource = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/tags/{ResourceArn}", method: "GET", sdkId: "DLM", sigV4ServiceName: "dlm", name: "dlm_20180112.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, Schema.Union(ErrorAnnotation("InternalServerException", InternalServerException), ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const TagResource = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/tags/{ResourceArn}", method: "POST", sdkId: "DLM", sigV4ServiceName: "dlm", name: "dlm_20180112.TagResource" }, TagResourceRequest, TagResourceResponse, Schema.Union(ErrorAnnotation("InternalServerException", InternalServerException), ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const UntagResource = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/tags/{ResourceArn}", method: "DELETE", sdkId: "DLM", sigV4ServiceName: "dlm", name: "dlm_20180112.UntagResource" }, UntagResourceRequest, UntagResourceResponse, Schema.Union(ErrorAnnotation("InternalServerException", InternalServerException), ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const UpdateLifecyclePolicy = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/policies/{PolicyId}", method: "PATCH", sdkId: "DLM", sigV4ServiceName: "dlm", name: "dlm_20180112.UpdateLifecyclePolicy" }, UpdateLifecyclePolicyRequest, UpdateLifecyclePolicyResponse, Schema.Union(ErrorAnnotation("InternalServerException", InternalServerException), ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("LimitExceededException", LimitExceededException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const GetLifecyclePolicies = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/policies", method: "GET", sdkId: "DLM", sigV4ServiceName: "dlm", name: "dlm_20180112.GetLifecyclePolicies" }, GetLifecyclePoliciesRequest, GetLifecyclePoliciesResponse, Schema.Union(ErrorAnnotation("InternalServerException", InternalServerException), ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("LimitExceededException", LimitExceededException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const GetLifecyclePolicy = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/policies/{PolicyId}", method: "GET", sdkId: "DLM", sigV4ServiceName: "dlm", name: "dlm_20180112.GetLifecyclePolicy" }, GetLifecyclePolicyRequest, GetLifecyclePolicyResponse, Schema.Union(ErrorAnnotation("InternalServerException", InternalServerException), ErrorAnnotation("LimitExceededException", LimitExceededException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const CreateLifecyclePolicyRequest = Schema.Struct({ExecutionRoleArn: Schema.String, Description: Schema.String, State: Schema.String, PolicyDetails: Schema.optional(PolicyDetails), Tags: Schema.optional(TagMap), DefaultPolicy: Schema.optional(Schema.String), CreateInterval: Schema.optional(Schema.Number), RetainInterval: Schema.optional(Schema.Number), CopyTags: Schema.optional(Schema.Boolean), ExtendDeletion: Schema.optional(Schema.Boolean), CrossRegionCopyTargets: Schema.optional(CrossRegionCopyTargetList), Exclusions: Schema.optional(Exclusions)});
+export const CreateLifecyclePolicy = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/policies", method: "POST", sdkId: "DLM", sigV4ServiceName: "dlm", name: "dlm_20180112.CreateLifecyclePolicy" }, CreateLifecyclePolicyRequest, CreateLifecyclePolicyResponse, Schema.Union(ErrorAnnotation("InternalServerException", InternalServerException), ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("LimitExceededException", LimitExceededException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

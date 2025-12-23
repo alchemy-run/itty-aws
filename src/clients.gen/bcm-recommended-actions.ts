@@ -1,0 +1,20 @@
+import { Schema} from "effect"
+import { FormatAwsJSON10Request,FormatJSONResponse,FormatAwsRestJSONError, makeOperation } from "../client";
+import { Operation, Path, Header, StreamBody, Body, ErrorAnnotation } from "../schema-helpers";
+export const ValidationExceptionFieldList = Schema.Array(ValidationExceptionField);
+export const ValidationExceptionField = Schema.Struct({name: Schema.String, message: Schema.String});
+export const ValidationException = Schema.Struct({message: Schema.String, reason: Schema.String, fieldList: Schema.optional(ValidationExceptionFieldList)});
+export const ThrottlingException = Schema.Struct({message: Schema.String});
+export const InternalServerException = Schema.Struct({message: Schema.String});
+export const AccessDeniedException = Schema.Struct({message: Schema.String});
+export const RecommendedAction = Schema.Struct({id: Schema.optional(Schema.String), type: Schema.optional(Schema.String), accountId: Schema.optional(Schema.String), severity: Schema.optional(Schema.String), feature: Schema.optional(Schema.String), context: Schema.optional(Context), nextSteps: Schema.optional(NextSteps), lastUpdatedTimeStamp: Schema.optional(Schema.String)});
+export const Context = Schema.Record({key: Schema.String, value: Schema.String});
+export const RecommendedActions = Schema.Array(RecommendedAction);
+export const NextSteps = Schema.Array(Schema.String);
+export const ListRecommendedActionsResponse = Schema.Struct({recommendedActions: RecommendedActions, nextToken: Schema.optional(Schema.String)});
+export const ActionFilterList = Schema.Array(ActionFilter);
+export const ActionFilter = Schema.Struct({key: Schema.String, matchOption: Schema.String, values: FilterValues});
+export const RequestFilter = Schema.Struct({actions: Schema.optional(ActionFilterList)});
+export const FilterValues = Schema.Array(Schema.String);
+export const ListRecommendedActionsRequest = Schema.Struct({filter: Schema.optional(RequestFilter), maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
+export const ListRecommendedActions = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/", method: "POST", sdkId: "BCM Recommended Actions", sigV4ServiceName: "bcm-recommended-actions", name: "AWSBillingAndCostManagementRecommendedActions.ListRecommendedActions" }, ListRecommendedActionsRequest, ListRecommendedActionsResponse, Schema.Union(ErrorAnnotation("AccessDeniedException", AccessDeniedException), ErrorAnnotation("InternalServerException", InternalServerException), ErrorAnnotation("ThrottlingException", ThrottlingException), ErrorAnnotation("ValidationException", ValidationException))), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);

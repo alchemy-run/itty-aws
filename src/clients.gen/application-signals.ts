@@ -1,134 +1,134 @@
 import { Schema} from "effect"
-import { FormatXMLRequest, FormatXMLResponse, makeOperation } from "../client";
+import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperation } from "../client";
 import { Operation, Path, Header, StreamBody, Body, ErrorAnnotation } from "../schema-helpers";
-const DeleteGroupingConfigurationOutput = Schema.Struct({})
-const StartDiscoveryInput = Schema.Struct({})
-const StartDiscoveryOutput = Schema.Struct({})
-const ServiceLevelObjectiveIds = Schema.Array(Schema.String)
-const Auditors = Schema.Array(Schema.String)
-const TagKeyList = Schema.Array(Schema.String)
-const BatchGetServiceLevelObjectiveBudgetReportInput = Schema.Struct({Timestamp: Schema.Date, SloIds: ServiceLevelObjectiveIds})
-const AccessDeniedException = Schema.Struct({Message: Schema.optional(Schema.String)})
-const ListGroupingAttributeDefinitionsInput = Schema.Struct({NextToken: Schema.optional(Schema.String)})
-const ListServiceDependenciesInput = Schema.Struct({StartTime: Schema.Date, EndTime: Schema.Date, KeyAttributes: Attributes, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)})
-const ListServiceDependentsInput = Schema.Struct({StartTime: Schema.Date, EndTime: Schema.Date, KeyAttributes: Attributes, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)})
-const ListServiceLevelObjectiveExclusionWindowsInput = Schema.Struct({Id: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)})
-const ListServiceOperationsInput = Schema.Struct({StartTime: Schema.Date, EndTime: Schema.Date, KeyAttributes: Attributes, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)})
-const ListServicesInput = Schema.Struct({StartTime: Schema.Date, EndTime: Schema.Date, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), IncludeLinkedAccounts: Schema.optional(Schema.Boolean), AwsAccountId: Schema.optional(Schema.String)})
-const ListTagsForResourceRequest = Schema.Struct({ResourceArn: Schema.String})
-const ThrottlingException = Schema.Struct({Message: Schema.String})
-export const StartDiscovery = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/start-discovery", method: "POST", sdkId: "Application Signals", sigV4ServiceName: "application-signals", name: "StartDiscovery" }, StartDiscoveryInput, StartDiscoveryOutput, Schema.Union(ErrorAnnotation("AccessDeniedException", AccessDeniedException), ErrorAnnotation("ThrottlingException", ThrottlingException), ErrorAnnotation("ValidationException", ValidationException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const UntagResourceRequest = Schema.Struct({ResourceArn: Schema.String, TagKeys: TagKeyList})
-const UntagResourceResponse = Schema.Struct({})
-const AttributeFilterValues = Schema.Array(Schema.String)
-const GroupingSourceKeyStringList = Schema.Array(Schema.String)
-const Attributes = Schema.Record({key: Schema.String, value: Schema.String})
-const AttributeFilter = Schema.Struct({AttributeFilterName: Schema.String, AttributeFilterValues: AttributeFilterValues})
-const AttributeFilters = Schema.Array(AttributeFilter)
-const GroupingAttributeDefinition = Schema.Struct({GroupingName: Schema.String, GroupingSourceKeys: Schema.optional(GroupingSourceKeyStringList), DefaultGroupingValue: Schema.optional(Schema.String)})
-const GroupingAttributeDefinitions = Schema.Array(GroupingAttributeDefinition)
-const Tag = Schema.Struct({Key: Schema.String, Value: Schema.String})
-const TagList = Schema.Array(Tag)
-const ValidationException = Schema.Struct({message: Schema.optional(Schema.String)})
-export const DeleteGroupingConfiguration = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/grouping-configuration", method: "DELETE", sdkId: "Application Signals", sigV4ServiceName: "application-signals", name: "DeleteGroupingConfiguration" }, Schema.Struct({}), DeleteGroupingConfigurationOutput, Schema.Union(ErrorAnnotation("AccessDeniedException", AccessDeniedException), ErrorAnnotation("ThrottlingException", ThrottlingException), ErrorAnnotation("ValidationException", ValidationException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const GetServiceInput = Schema.Struct({StartTime: Schema.Date, EndTime: Schema.Date, KeyAttributes: Attributes})
-const ListGroupingAttributeDefinitionsOutput = Schema.Struct({GroupingAttributeDefinitions: GroupingAttributeDefinitions, UpdatedAt: Schema.optional(Schema.Date), NextToken: Schema.optional(Schema.String)})
-export const ListGroupingAttributeDefinitions = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/grouping-attribute-definitions", method: "POST", sdkId: "Application Signals", sigV4ServiceName: "application-signals", name: "ListGroupingAttributeDefinitions" }, ListGroupingAttributeDefinitionsInput, ListGroupingAttributeDefinitionsOutput, Schema.Union(ErrorAnnotation("AccessDeniedException", AccessDeniedException), ErrorAnnotation("ThrottlingException", ThrottlingException), ErrorAnnotation("ValidationException", ValidationException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const ListServiceLevelObjectiveExclusionWindowsOutput = Schema.Struct({ExclusionWindows: ExclusionWindows, NextToken: Schema.optional(Schema.String)})
-export const ListServiceLevelObjectiveExclusionWindows = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/slo/{Id}/exclusion-windows", method: "GET", sdkId: "Application Signals", sigV4ServiceName: "application-signals", name: "ListServiceLevelObjectiveExclusionWindows" }, ListServiceLevelObjectiveExclusionWindowsInput, ListServiceLevelObjectiveExclusionWindowsOutput, Schema.Union(ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException), ErrorAnnotation("ThrottlingException", ThrottlingException), ErrorAnnotation("ValidationException", ValidationException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const ListServiceStatesInput = Schema.Struct({StartTime: Schema.Date, EndTime: Schema.Date, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), IncludeLinkedAccounts: Schema.optional(Schema.Boolean), AwsAccountId: Schema.optional(Schema.String), AttributeFilters: Schema.optional(AttributeFilters)})
-const ListTagsForResourceResponse = Schema.Struct({Tags: Schema.optional(TagList)})
-export const ListTagsForResource = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/tags", method: "GET", sdkId: "Application Signals", sigV4ServiceName: "application-signals", name: "ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, Schema.Union(ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException), ErrorAnnotation("ThrottlingException", ThrottlingException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const PutGroupingConfigurationInput = Schema.Struct({GroupingAttributeDefinitions: GroupingAttributeDefinitions})
-const TagResourceRequest = Schema.Struct({ResourceArn: Schema.String, Tags: TagList})
-const TagResourceResponse = Schema.Struct({})
-const ResourceNotFoundException = Schema.Struct({ResourceType: Schema.String, ResourceId: Schema.String, Message: Schema.String})
-export const UntagResource = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/untag-resource", method: "POST", sdkId: "Application Signals", sigV4ServiceName: "application-signals", name: "UntagResource" }, UntagResourceRequest, UntagResourceResponse, Schema.Union(ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException), ErrorAnnotation("ThrottlingException", ThrottlingException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const Window = Schema.Struct({DurationUnit: Schema.String, Duration: Schema.Number})
-const RecurrenceRule = Schema.Struct({Expression: Schema.String})
-const ServiceLevelObjectiveBudgetReportError = Schema.Struct({Name: Schema.String, Arn: Schema.String, ErrorCode: Schema.String, ErrorMessage: Schema.String})
-const ServiceLevelObjectiveBudgetReportErrors = Schema.Array(ServiceLevelObjectiveBudgetReportError)
-const ExclusionWindow = Schema.Struct({Window: Window, StartTime: Schema.optional(Schema.Date), RecurrenceRule: Schema.optional(RecurrenceRule), Reason: Schema.optional(Schema.String)})
-const ExclusionWindows = Schema.Array(ExclusionWindow)
-const LogGroupReferences = Schema.Array(Attributes)
-const ServiceDependent = Schema.Struct({OperationName: Schema.optional(Schema.String), DependentKeyAttributes: Attributes, DependentOperationName: Schema.optional(Schema.String), MetricReferences: MetricReferences})
-const ServiceDependents = Schema.Array(ServiceDependent)
-const ServiceOperation = Schema.Struct({Name: Schema.String, MetricReferences: MetricReferences})
-const ServiceOperations = Schema.Array(ServiceOperation)
-const ServiceEntity = Schema.Struct({Type: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Environment: Schema.optional(Schema.String), AwsAccountId: Schema.optional(Schema.String)})
-const ServiceLevelObjectiveEntity = Schema.Struct({SloName: Schema.optional(Schema.String), SloArn: Schema.optional(Schema.String)})
-const ServiceOperationEntity = Schema.Struct({Service: Schema.optional(ServiceEntity), Operation: Schema.optional(Schema.String), MetricType: Schema.optional(Schema.String)})
-const CanaryEntity = Schema.Struct({CanaryName: Schema.String})
-const BatchUpdateExclusionWindowsInput = Schema.Struct({SloIds: ServiceLevelObjectiveIds, AddExclusionWindows: Schema.optional(ExclusionWindows), RemoveExclusionWindows: Schema.optional(ExclusionWindows)})
-const ListServiceDependentsOutput = Schema.Struct({StartTime: Schema.Date, EndTime: Schema.Date, ServiceDependents: ServiceDependents, NextToken: Schema.optional(Schema.String)})
-export const ListServiceDependents = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/service-dependents", method: "POST", sdkId: "Application Signals", sigV4ServiceName: "application-signals", name: "ListServiceDependents" }, ListServiceDependentsInput, ListServiceDependentsOutput, Schema.Union(ErrorAnnotation("ThrottlingException", ThrottlingException), ErrorAnnotation("ValidationException", ValidationException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const ListServiceOperationsOutput = Schema.Struct({StartTime: Schema.Date, EndTime: Schema.Date, ServiceOperations: ServiceOperations, NextToken: Schema.optional(Schema.String)})
-export const ListServiceOperations = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/service-operations", method: "POST", sdkId: "Application Signals", sigV4ServiceName: "application-signals", name: "ListServiceOperations" }, ListServiceOperationsInput, ListServiceOperationsOutput, Schema.Union(ErrorAnnotation("ThrottlingException", ThrottlingException), ErrorAnnotation("ValidationException", ValidationException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const ServiceQuotaExceededException = Schema.Struct({Message: Schema.String})
-export const TagResource = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/tag-resource", method: "POST", sdkId: "Application Signals", sigV4ServiceName: "application-signals", name: "TagResource" }, TagResourceRequest, TagResourceResponse, Schema.Union(ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException), ErrorAnnotation("ServiceQuotaExceededException", ServiceQuotaExceededException), ErrorAnnotation("ThrottlingException", ThrottlingException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const AuditTargetEntity = Schema.Union(ServiceEntity, ServiceLevelObjectiveEntity, ServiceOperationEntity, CanaryEntity)
-const AttributeMap = Schema.Record({key: Schema.String, value: Schema.String})
-const AttributeMaps = Schema.Array(AttributeMap)
-const ServiceGroup = Schema.Struct({GroupName: Schema.String, GroupValue: Schema.String, GroupSource: Schema.String, GroupIdentifier: Schema.String})
-const ServiceGroups = Schema.Array(ServiceGroup)
-const Service = Schema.Struct({KeyAttributes: Attributes, AttributeMaps: Schema.optional(AttributeMaps), ServiceGroups: Schema.optional(ServiceGroups), MetricReferences: MetricReferences, LogGroupReferences: Schema.optional(LogGroupReferences)})
-const AuditTarget = Schema.Struct({Type: Schema.String, Data: AuditTargetEntity})
-const AuditTargets = Schema.Array(AuditTarget)
-const ServiceSummary = Schema.Struct({KeyAttributes: Attributes, AttributeMaps: Schema.optional(AttributeMaps), MetricReferences: MetricReferences, ServiceGroups: Schema.optional(ServiceGroups)})
-const ServiceSummaries = Schema.Array(ServiceSummary)
-const GroupingConfiguration = Schema.Struct({GroupingAttributeDefinitions: GroupingAttributeDefinitions, UpdatedAt: Schema.Date})
-const Dimension = Schema.Struct({Name: Schema.String, Value: Schema.String})
-const Dimensions = Schema.Array(Dimension)
-const GetServiceOutput = Schema.Struct({Service: Service, StartTime: Schema.Date, EndTime: Schema.Date, LogGroupReferences: Schema.optional(LogGroupReferences)})
-export const GetService = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/service", method: "POST", sdkId: "Application Signals", sigV4ServiceName: "application-signals", name: "GetService" }, GetServiceInput, GetServiceOutput, Schema.Union(ErrorAnnotation("ThrottlingException", ThrottlingException), ErrorAnnotation("ValidationException", ValidationException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const ListAuditFindingsInput = Schema.Struct({StartTime: Schema.Date, EndTime: Schema.Date, Auditors: Schema.optional(Auditors), AuditTargets: AuditTargets, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)})
-const ListServicesOutput = Schema.Struct({StartTime: Schema.Date, EndTime: Schema.Date, ServiceSummaries: ServiceSummaries, NextToken: Schema.optional(Schema.String)})
-export const ListServices = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/services", method: "GET", sdkId: "Application Signals", sigV4ServiceName: "application-signals", name: "ListServices" }, ListServicesInput, ListServicesOutput, Schema.Union(ErrorAnnotation("ThrottlingException", ThrottlingException), ErrorAnnotation("ValidationException", ValidationException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const PutGroupingConfigurationOutput = Schema.Struct({GroupingConfiguration: GroupingConfiguration})
-export const PutGroupingConfiguration = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/grouping-configuration", method: "PUT", sdkId: "Application Signals", sigV4ServiceName: "application-signals", name: "PutGroupingConfiguration" }, PutGroupingConfigurationInput, PutGroupingConfigurationOutput, Schema.Union(ErrorAnnotation("AccessDeniedException", AccessDeniedException), ErrorAnnotation("ThrottlingException", ThrottlingException), ErrorAnnotation("ValidationException", ValidationException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const MetricReference = Schema.Struct({Namespace: Schema.String, MetricType: Schema.String, Dimensions: Schema.optional(Dimensions), MetricName: Schema.String, AccountId: Schema.optional(Schema.String)})
-const MetricReferences = Schema.Array(MetricReference)
-const ChangeEvent = Schema.Struct({Timestamp: Schema.Date, AccountId: Schema.String, Region: Schema.String, Entity: Attributes, ChangeEventType: Schema.String, EventId: Schema.String, UserName: Schema.optional(Schema.String), EventName: Schema.optional(Schema.String)})
-const LatestChangeEvents = Schema.Array(ChangeEvent)
-const DependencyConfig = Schema.Struct({DependencyKeyAttributes: Attributes, DependencyOperationName: Schema.String})
-const MonitoredRequestCountMetricDataQueries = Schema.Union(MetricDataQueries, MetricDataQueries)
-const RollingInterval = Schema.Struct({DurationUnit: Schema.String, Duration: Schema.Number})
-const CalendarInterval = Schema.Struct({StartTime: Schema.Date, DurationUnit: Schema.String, Duration: Schema.Number})
-const BatchUpdateExclusionWindowsError = Schema.Struct({SloId: Schema.String, ErrorCode: Schema.String, ErrorMessage: Schema.String})
-const BatchUpdateExclusionWindowsErrors = Schema.Array(BatchUpdateExclusionWindowsError)
-const ServiceDependency = Schema.Struct({OperationName: Schema.String, DependencyKeyAttributes: Attributes, DependencyOperationName: Schema.String, MetricReferences: MetricReferences})
-const ServiceDependencies = Schema.Array(ServiceDependency)
-const ServiceState = Schema.Struct({AttributeFilters: Schema.optional(AttributeFilters), Service: Attributes, LatestChangeEvents: LatestChangeEvents})
-const ServiceStates = Schema.Array(ServiceState)
-const RequestBasedServiceLevelIndicatorMetric = Schema.Struct({KeyAttributes: Schema.optional(Attributes), OperationName: Schema.optional(Schema.String), MetricType: Schema.optional(Schema.String), TotalRequestCountMetric: MetricDataQueries, MonitoredRequestCountMetric: MonitoredRequestCountMetricDataQueries, DependencyConfig: Schema.optional(DependencyConfig)})
-const Interval = Schema.Union(RollingInterval, CalendarInterval)
-const BatchUpdateExclusionWindowsOutput = Schema.Struct({SloIds: ServiceLevelObjectiveIds, Errors: BatchUpdateExclusionWindowsErrors})
-export const BatchUpdateExclusionWindows = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/exclusion-windows", method: "PATCH", sdkId: "Application Signals", sigV4ServiceName: "application-signals", name: "BatchUpdateExclusionWindows" }, BatchUpdateExclusionWindowsInput, BatchUpdateExclusionWindowsOutput, Schema.Union(ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException), ErrorAnnotation("ThrottlingException", ThrottlingException), ErrorAnnotation("ValidationException", ValidationException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const ListServiceDependenciesOutput = Schema.Struct({StartTime: Schema.Date, EndTime: Schema.Date, ServiceDependencies: ServiceDependencies, NextToken: Schema.optional(Schema.String)})
-export const ListServiceDependencies = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/service-dependencies", method: "POST", sdkId: "Application Signals", sigV4ServiceName: "application-signals", name: "ListServiceDependencies" }, ListServiceDependenciesInput, ListServiceDependenciesOutput, Schema.Union(ErrorAnnotation("ThrottlingException", ThrottlingException), ErrorAnnotation("ValidationException", ValidationException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const ListServiceStatesOutput = Schema.Struct({StartTime: Schema.Date, EndTime: Schema.Date, ServiceStates: ServiceStates, NextToken: Schema.optional(Schema.String)})
-export const ListServiceStates = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/service/states", method: "POST", sdkId: "Application Signals", sigV4ServiceName: "application-signals", name: "ListServiceStates" }, ListServiceStatesInput, ListServiceStatesOutput, Schema.Union(ErrorAnnotation("ThrottlingException", ThrottlingException), ErrorAnnotation("ValidationException", ValidationException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const RequestBasedServiceLevelIndicator = Schema.Struct({RequestBasedSliMetric: RequestBasedServiceLevelIndicatorMetric, MetricThreshold: Schema.optional(Schema.Number), ComparisonOperator: Schema.optional(Schema.String)})
-const Goal = Schema.Struct({Interval: Schema.optional(Interval), AttainmentGoal: Schema.optional(Schema.Number), WarningThreshold: Schema.optional(Schema.Number)})
-const Metric = Schema.Struct({Namespace: Schema.optional(Schema.String), MetricName: Schema.optional(Schema.String), Dimensions: Schema.optional(Dimensions)})
-const MetricStat = Schema.Struct({Metric: Metric, Period: Schema.Number, Stat: Schema.String, Unit: Schema.optional(Schema.String)})
-const AuditorResult = Schema.Struct({Auditor: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), Severity: Schema.optional(Schema.String)})
-const AuditorResults = Schema.Array(AuditorResult)
-const MetricGraph = Schema.Struct({MetricDataQueries: Schema.optional(MetricDataQueries), StartTime: Schema.optional(Schema.Date), EndTime: Schema.optional(Schema.Date)})
-const MetricDataQuery = Schema.Struct({Id: Schema.String, MetricStat: Schema.optional(MetricStat), Expression: Schema.optional(Schema.String), Label: Schema.optional(Schema.String), ReturnData: Schema.optional(Schema.Boolean), Period: Schema.optional(Schema.Number), AccountId: Schema.optional(Schema.String)})
-const MetricDataQueries = Schema.Array(MetricDataQuery)
-const ServiceLevelIndicatorMetric = Schema.Struct({KeyAttributes: Schema.optional(Attributes), OperationName: Schema.optional(Schema.String), MetricType: Schema.optional(Schema.String), MetricDataQueries: MetricDataQueries, DependencyConfig: Schema.optional(DependencyConfig)})
-const Node = Schema.Struct({KeyAttributes: Attributes, Name: Schema.String, NodeId: Schema.String, Operation: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), Duration: Schema.optional(Schema.Number), Status: Schema.optional(Schema.String)})
-const Nodes = Schema.Array(Node)
-const Edge = Schema.Struct({SourceNodeId: Schema.optional(Schema.String), DestinationNodeId: Schema.optional(Schema.String), Duration: Schema.optional(Schema.Number), ConnectionType: Schema.optional(Schema.String)})
-const Edges = Schema.Array(Edge)
-const ServiceLevelIndicator = Schema.Struct({SliMetric: ServiceLevelIndicatorMetric, MetricThreshold: Schema.Number, ComparisonOperator: Schema.String})
-const DependencyGraph = Schema.Struct({Nodes: Schema.optional(Nodes), Edges: Schema.optional(Edges)})
-const ServiceLevelObjectiveBudgetReport = Schema.Struct({Arn: Schema.String, Name: Schema.String, EvaluationType: Schema.optional(Schema.String), BudgetStatus: Schema.String, Attainment: Schema.optional(Schema.Number), TotalBudgetSeconds: Schema.optional(Schema.Number), BudgetSecondsRemaining: Schema.optional(Schema.Number), TotalBudgetRequests: Schema.optional(Schema.Number), BudgetRequestsRemaining: Schema.optional(Schema.Number), Sli: Schema.optional(ServiceLevelIndicator), RequestBasedSli: Schema.optional(RequestBasedServiceLevelIndicator), Goal: Schema.optional(Goal)})
-const ServiceLevelObjectiveBudgetReports = Schema.Array(ServiceLevelObjectiveBudgetReport)
-const AuditFinding = Schema.Struct({KeyAttributes: Attributes, AuditorResults: Schema.optional(AuditorResults), Operation: Schema.optional(Schema.String), MetricGraph: Schema.optional(MetricGraph), DependencyGraph: Schema.optional(DependencyGraph), Type: Schema.optional(Schema.String)})
-const AuditFindings = Schema.Array(AuditFinding)
-const BatchGetServiceLevelObjectiveBudgetReportOutput = Schema.Struct({Timestamp: Schema.Date, Reports: ServiceLevelObjectiveBudgetReports, Errors: ServiceLevelObjectiveBudgetReportErrors})
-export const BatchGetServiceLevelObjectiveBudgetReport = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/budget-report", method: "POST", sdkId: "Application Signals", sigV4ServiceName: "application-signals", name: "BatchGetServiceLevelObjectiveBudgetReport" }, BatchGetServiceLevelObjectiveBudgetReportInput, BatchGetServiceLevelObjectiveBudgetReportOutput, Schema.Union(ErrorAnnotation("ThrottlingException", ThrottlingException), ErrorAnnotation("ValidationException", ValidationException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const ListAuditFindingsOutput = Schema.Struct({AuditFindings: AuditFindings, NextToken: Schema.optional(Schema.String)})
-export const ListAuditFindings = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/auditFindings", method: "POST", sdkId: "Application Signals", sigV4ServiceName: "application-signals", name: "ListAuditFindings" }, ListAuditFindingsInput, ListAuditFindingsOutput, Schema.Union(ErrorAnnotation("ThrottlingException", ThrottlingException), ErrorAnnotation("ValidationException", ValidationException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
+export const BatchUpdateExclusionWindowsErrors = Schema.Array(BatchUpdateExclusionWindowsError);
+export const BatchUpdateExclusionWindowsError = Schema.Struct({SloId: Schema.String, ErrorCode: Schema.String, ErrorMessage: Schema.String});
+export const CalendarInterval = Schema.Struct({StartTime: Schema.Date, DurationUnit: Schema.String, Duration: Schema.Number});
+export const RollingInterval = Schema.Struct({DurationUnit: Schema.String, Duration: Schema.Number});
+export const AuditorResult = Schema.Struct({Auditor: Schema.optional(Schema.String), Description: Schema.optional(Schema.String), Severity: Schema.optional(Schema.String)});
+export const MetricGraph = Schema.Struct({MetricDataQueries: Schema.optional(MetricDataQueries), StartTime: Schema.optional(Schema.Date), EndTime: Schema.optional(Schema.Date)});
+export const Edge = Schema.Struct({SourceNodeId: Schema.optional(Schema.String), DestinationNodeId: Schema.optional(Schema.String), Duration: Schema.optional(Schema.Number), ConnectionType: Schema.optional(Schema.String)});
+export const Node = Schema.Struct({KeyAttributes: Attributes, Name: Schema.String, NodeId: Schema.String, Operation: Schema.optional(Schema.String), Type: Schema.optional(Schema.String), Duration: Schema.optional(Schema.Number), Status: Schema.optional(Schema.String)});
+export const Edges = Schema.Array(Edge);
+export const MonitoredRequestCountMetricDataQueries = Schema.Union(MetricDataQueries, MetricDataQueries);
+export const Nodes = Schema.Array(Node);
+export const AuditorResults = Schema.Array(AuditorResult);
+export const DependencyConfig = Schema.Struct({DependencyKeyAttributes: Attributes, DependencyOperationName: Schema.String});
+export const DependencyGraph = Schema.Struct({Nodes: Schema.optional(Nodes), Edges: Schema.optional(Edges)});
+export const Metric = Schema.Struct({Namespace: Schema.optional(Schema.String), MetricName: Schema.optional(Schema.String), Dimensions: Schema.optional(Dimensions)});
+export const LatestChangeEvents = Schema.Array(ChangeEvent);
+export const ChangeEvent = Schema.Struct({Timestamp: Schema.Date, AccountId: Schema.String, Region: Schema.String, Entity: Attributes, ChangeEventType: Schema.String, EventId: Schema.String, UserName: Schema.optional(Schema.String), EventName: Schema.optional(Schema.String)});
+export const MetricStat = Schema.Struct({Metric: Metric, Period: Schema.Number, Stat: Schema.String, Unit: Schema.optional(Schema.String)});
+export const Dimensions = Schema.Array(Dimension);
+export const Dimension = Schema.Struct({Name: Schema.String, Value: Schema.String});
+export const AuditFinding = Schema.Struct({KeyAttributes: Attributes, AuditorResults: Schema.optional(AuditorResults), Operation: Schema.optional(Schema.String), MetricGraph: Schema.optional(MetricGraph), DependencyGraph: Schema.optional(DependencyGraph), Type: Schema.optional(Schema.String)});
+export const GroupingConfiguration = Schema.Struct({GroupingAttributeDefinitions: GroupingAttributeDefinitions, UpdatedAt: Schema.Date});
+export const AuditFindings = Schema.Array(AuditFinding);
+export const BatchUpdateExclusionWindowsOutput = Schema.Struct({SloIds: ServiceLevelObjectiveIds, Errors: BatchUpdateExclusionWindowsErrors});
+export const Service = Schema.Struct({KeyAttributes: Attributes, AttributeMaps: Schema.optional(AttributeMaps), ServiceGroups: Schema.optional(ServiceGroups), MetricReferences: MetricReferences, LogGroupReferences: Schema.optional(LogGroupReferences)});
+export const ServiceGroups = Schema.Array(ServiceGroup);
+export const Interval = Schema.Union(RollingInterval, CalendarInterval);
+export const ListAuditFindingsOutput = Schema.Struct({AuditFindings: AuditFindings, NextToken: Schema.optional(Schema.String)});
+export const MetricDataQuery = Schema.Struct({Id: Schema.String, MetricStat: Schema.optional(MetricStat), Expression: Schema.optional(Schema.String), Label: Schema.optional(Schema.String), ReturnData: Schema.optional(Schema.Boolean), Period: Schema.optional(Schema.Number), AccountId: Schema.optional(Schema.String)});
+export const RequestBasedServiceLevelIndicatorMetric = Schema.Struct({KeyAttributes: Schema.optional(Attributes), OperationName: Schema.optional(Schema.String), MetricType: Schema.optional(Schema.String), TotalRequestCountMetric: MetricDataQueries, MonitoredRequestCountMetric: MonitoredRequestCountMetricDataQueries, DependencyConfig: Schema.optional(DependencyConfig)});
+export const MetricDataQueries = Schema.Array(MetricDataQuery);
+export const ServiceGroup = Schema.Struct({GroupName: Schema.String, GroupValue: Schema.String, GroupSource: Schema.String, GroupIdentifier: Schema.String});
+export const ServiceState = Schema.Struct({AttributeFilters: Schema.optional(AttributeFilters), Service: Attributes, LatestChangeEvents: LatestChangeEvents});
+export const AttributeMaps = Schema.Array(AttributeMap);
+export const ServiceStates = Schema.Array(ServiceState);
+export const AttributeMap = Schema.Record({key: Schema.String, value: Schema.String});
+export const ServiceQuotaExceededException = Schema.Struct({Message: Schema.String});
+export const CanaryEntity = Schema.Struct({CanaryName: Schema.String});
+export const MetricReference = Schema.Struct({Namespace: Schema.String, MetricType: Schema.String, Dimensions: Schema.optional(Dimensions), MetricName: Schema.String, AccountId: Schema.optional(Schema.String)});
+export const ServiceLevelIndicatorMetric = Schema.Struct({KeyAttributes: Schema.optional(Attributes), OperationName: Schema.optional(Schema.String), MetricType: Schema.optional(Schema.String), MetricDataQueries: MetricDataQueries, DependencyConfig: Schema.optional(DependencyConfig)});
+export const ServiceOperationEntity = Schema.Struct({Service: Schema.optional(ServiceEntity), Operation: Schema.optional(Schema.String), MetricType: Schema.optional(Schema.String)});
+export const MetricReferences = Schema.Array(MetricReference);
+export const ServiceLevelObjectiveEntity = Schema.Struct({SloName: Schema.optional(Schema.String), SloArn: Schema.optional(Schema.String)});
+export const GetServiceOutput = Schema.Struct({Service: Service, StartTime: Schema.Date, EndTime: Schema.Date, LogGroupReferences: Schema.optional(LogGroupReferences)});
+export const ServiceEntity = Schema.Struct({Type: Schema.optional(Schema.String), Name: Schema.optional(Schema.String), Environment: Schema.optional(Schema.String), AwsAccountId: Schema.optional(Schema.String)});
+export const ServiceOperations = Schema.Array(ServiceOperation);
+export const PutGroupingConfigurationOutput = Schema.Struct({GroupingConfiguration: GroupingConfiguration});
+export const ServiceOperation = Schema.Struct({Name: Schema.String, MetricReferences: MetricReferences});
+export const ServiceSummary = Schema.Struct({KeyAttributes: Attributes, AttributeMaps: Schema.optional(AttributeMaps), MetricReferences: MetricReferences, ServiceGroups: Schema.optional(ServiceGroups)});
+export const ServiceDependents = Schema.Array(ServiceDependent);
+export const ServiceSummaries = Schema.Array(ServiceSummary);
+export const Goal = Schema.Struct({Interval: Schema.optional(Interval), AttainmentGoal: Schema.optional(Schema.Number), WarningThreshold: Schema.optional(Schema.Number)});
+export const RequestBasedServiceLevelIndicator = Schema.Struct({RequestBasedSliMetric: RequestBasedServiceLevelIndicatorMetric, MetricThreshold: Schema.optional(Schema.Number), ComparisonOperator: Schema.optional(Schema.String)});
+export const ServiceDependent = Schema.Struct({OperationName: Schema.optional(Schema.String), DependentKeyAttributes: Attributes, DependentOperationName: Schema.optional(Schema.String), MetricReferences: MetricReferences});
+export const ServiceLevelIndicator = Schema.Struct({SliMetric: ServiceLevelIndicatorMetric, MetricThreshold: Schema.Number, ComparisonOperator: Schema.String});
+export const LogGroupReferences = Schema.Array(Attributes);
+export const ServiceLevelObjectiveBudgetReportErrors = Schema.Array(ServiceLevelObjectiveBudgetReportError);
+export const ListServiceStatesOutput = Schema.Struct({StartTime: Schema.Date, EndTime: Schema.Date, ServiceStates: ServiceStates, NextToken: Schema.optional(Schema.String)});
+export const ServiceLevelObjectiveBudgetReportError = Schema.Struct({Name: Schema.String, Arn: Schema.String, ErrorCode: Schema.String, ErrorMessage: Schema.String});
+export const RecurrenceRule = Schema.Struct({Expression: Schema.String});
+export const Window = Schema.Struct({DurationUnit: Schema.String, Duration: Schema.Number});
+export const ResourceNotFoundException = Schema.Struct({ResourceType: Schema.String, ResourceId: Schema.String, Message: Schema.String});
+export const TagResourceResponse = Schema.Struct({});
+export const ListTagsForResourceResponse = Schema.Struct({Tags: Schema.optional(TagList)});
+export const ListServiceLevelObjectiveExclusionWindowsOutput = Schema.Struct({ExclusionWindows: ExclusionWindows, NextToken: Schema.optional(Schema.String)});
+export const ServiceDependency = Schema.Struct({OperationName: Schema.String, DependencyKeyAttributes: Attributes, DependencyOperationName: Schema.String, MetricReferences: MetricReferences});
+export const AuditTargetEntity = Schema.Union(ServiceEntity, ServiceLevelObjectiveEntity, ServiceOperationEntity, CanaryEntity);
+export const ServiceDependencies = Schema.Array(ServiceDependency);
+export const ListGroupingAttributeDefinitionsOutput = Schema.Struct({GroupingAttributeDefinitions: GroupingAttributeDefinitions, UpdatedAt: Schema.optional(Schema.Date), NextToken: Schema.optional(Schema.String)});
+export const ValidationException = Schema.Struct({message: Schema.optional(Schema.String)});
+export const TagList = Schema.Array(Tag);
+export const Tag = Schema.Struct({Key: Schema.String, Value: Schema.String});
+export const ListServiceOperationsOutput = Schema.Struct({StartTime: Schema.Date, EndTime: Schema.Date, ServiceOperations: ServiceOperations, NextToken: Schema.optional(Schema.String)});
+export const ListServiceDependentsOutput = Schema.Struct({StartTime: Schema.Date, EndTime: Schema.Date, ServiceDependents: ServiceDependents, NextToken: Schema.optional(Schema.String)});
+export const GroupingAttributeDefinitions = Schema.Array(GroupingAttributeDefinition);
+export const ServiceLevelObjectiveBudgetReport = Schema.Struct({Arn: Schema.String, Name: Schema.String, EvaluationType: Schema.optional(Schema.String), BudgetStatus: Schema.String, Attainment: Schema.optional(Schema.Number), TotalBudgetSeconds: Schema.optional(Schema.Number), BudgetSecondsRemaining: Schema.optional(Schema.Number), TotalBudgetRequests: Schema.optional(Schema.Number), BudgetRequestsRemaining: Schema.optional(Schema.Number), Sli: Schema.optional(ServiceLevelIndicator), RequestBasedSli: Schema.optional(RequestBasedServiceLevelIndicator), Goal: Schema.optional(Goal)});
+export const GroupingAttributeDefinition = Schema.Struct({GroupingName: Schema.String, GroupingSourceKeys: Schema.optional(GroupingSourceKeyStringList), DefaultGroupingValue: Schema.optional(Schema.String)});
+export const ServiceLevelObjectiveBudgetReports = Schema.Array(ServiceLevelObjectiveBudgetReport);
+export const AttributeFilters = Schema.Array(AttributeFilter);
+export const AttributeFilter = Schema.Struct({AttributeFilterName: Schema.String, AttributeFilterValues: AttributeFilterValues});
+export const ListServicesOutput = Schema.Struct({StartTime: Schema.Date, EndTime: Schema.Date, ServiceSummaries: ServiceSummaries, NextToken: Schema.optional(Schema.String)});
+export const Attributes = Schema.Record({key: Schema.String, value: Schema.String});
+export const GroupingSourceKeyStringList = Schema.Array(Schema.String);
+export const AttributeFilterValues = Schema.Array(Schema.String);
+export const UntagResourceResponse = Schema.Struct({});
+export const UntagResourceRequest = Schema.Struct({ResourceArn: Schema.String, TagKeys: TagKeyList});
+export const ThrottlingException = Schema.Struct({Message: Schema.String});
+export const TagKeyList = Schema.Array(Schema.String);
+export const ListServiceDependenciesOutput = Schema.Struct({StartTime: Schema.Date, EndTime: Schema.Date, ServiceDependencies: ServiceDependencies, NextToken: Schema.optional(Schema.String)});
+export const ListTagsForResourceRequest = Schema.Struct({ResourceArn: Schema.String});
+export const Auditors = Schema.Array(Schema.String);
+export const ExclusionWindow = Schema.Struct({Window: Window, StartTime: Schema.optional(Schema.Date), RecurrenceRule: Schema.optional(RecurrenceRule), Reason: Schema.optional(Schema.String)});
+export const ListServicesInput = Schema.Struct({StartTime: Schema.Date, EndTime: Schema.Date, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), IncludeLinkedAccounts: Schema.optional(Schema.Boolean), AwsAccountId: Schema.optional(Schema.String)});
+export const AuditTarget = Schema.Struct({Type: Schema.String, Data: AuditTargetEntity});
+export const BatchGetServiceLevelObjectiveBudgetReportOutput = Schema.Struct({Timestamp: Schema.Date, Reports: ServiceLevelObjectiveBudgetReports, Errors: ServiceLevelObjectiveBudgetReportErrors});
+export const ExclusionWindows = Schema.Array(ExclusionWindow);
+export const AuditTargets = Schema.Array(AuditTarget);
+export const ListServiceOperationsInput = Schema.Struct({StartTime: Schema.Date, EndTime: Schema.Date, KeyAttributes: Attributes, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
+export const TagResourceRequest = Schema.Struct({ResourceArn: Schema.String, Tags: TagList});
+export const ListServiceLevelObjectiveExclusionWindowsInput = Schema.Struct({Id: Schema.String, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
+export const ListServiceDependentsInput = Schema.Struct({StartTime: Schema.Date, EndTime: Schema.Date, KeyAttributes: Attributes, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
+export const ListServiceDependenciesInput = Schema.Struct({StartTime: Schema.Date, EndTime: Schema.Date, KeyAttributes: Attributes, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String)});
+export const PutGroupingConfigurationInput = Schema.Struct({GroupingAttributeDefinitions: GroupingAttributeDefinitions});
+export const ListServiceStatesInput = Schema.Struct({StartTime: Schema.Date, EndTime: Schema.Date, MaxResults: Schema.optional(Schema.Number), NextToken: Schema.optional(Schema.String), IncludeLinkedAccounts: Schema.optional(Schema.Boolean), AwsAccountId: Schema.optional(Schema.String), AttributeFilters: Schema.optional(AttributeFilters)});
+export const ListGroupingAttributeDefinitionsInput = Schema.Struct({NextToken: Schema.optional(Schema.String)});
+export const ServiceLevelObjectiveIds = Schema.Array(Schema.String);
+export const StartDiscoveryOutput = Schema.Struct({});
+export const AccessDeniedException = Schema.Struct({Message: Schema.optional(Schema.String)});
+export const StartDiscoveryInput = Schema.Struct({});
+export const GetServiceInput = Schema.Struct({StartTime: Schema.Date, EndTime: Schema.Date, KeyAttributes: Attributes});
+export const DeleteGroupingConfigurationOutput = Schema.Struct({});
+export const BatchGetServiceLevelObjectiveBudgetReportInput = Schema.Struct({Timestamp: Schema.Date, SloIds: ServiceLevelObjectiveIds});
+export const StartDiscovery = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/start-discovery", method: "POST", sdkId: "Application Signals", sigV4ServiceName: "application-signals", name: "ApplicationSignals.StartDiscovery" }, StartDiscoveryInput, StartDiscoveryOutput, Schema.Union(ErrorAnnotation("AccessDeniedException", AccessDeniedException), ErrorAnnotation("ThrottlingException", ThrottlingException), ErrorAnnotation("ValidationException", ValidationException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const DeleteGroupingConfiguration = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/grouping-configuration", method: "DELETE", sdkId: "Application Signals", sigV4ServiceName: "application-signals", name: "ApplicationSignals.DeleteGroupingConfiguration" }, Schema.Struct({}), DeleteGroupingConfigurationOutput, Schema.Union(ErrorAnnotation("AccessDeniedException", AccessDeniedException), ErrorAnnotation("ThrottlingException", ThrottlingException), ErrorAnnotation("ValidationException", ValidationException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const ListGroupingAttributeDefinitions = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/grouping-attribute-definitions", method: "POST", sdkId: "Application Signals", sigV4ServiceName: "application-signals", name: "ApplicationSignals.ListGroupingAttributeDefinitions" }, ListGroupingAttributeDefinitionsInput, ListGroupingAttributeDefinitionsOutput, Schema.Union(ErrorAnnotation("AccessDeniedException", AccessDeniedException), ErrorAnnotation("ThrottlingException", ThrottlingException), ErrorAnnotation("ValidationException", ValidationException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const ListServiceLevelObjectiveExclusionWindows = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/slo/{Id}/exclusion-windows", method: "GET", sdkId: "Application Signals", sigV4ServiceName: "application-signals", name: "ApplicationSignals.ListServiceLevelObjectiveExclusionWindows" }, ListServiceLevelObjectiveExclusionWindowsInput, ListServiceLevelObjectiveExclusionWindowsOutput, Schema.Union(ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException), ErrorAnnotation("ThrottlingException", ThrottlingException), ErrorAnnotation("ValidationException", ValidationException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const ListTagsForResource = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/tags", method: "GET", sdkId: "Application Signals", sigV4ServiceName: "application-signals", name: "ApplicationSignals.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, Schema.Union(ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException), ErrorAnnotation("ThrottlingException", ThrottlingException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const BatchUpdateExclusionWindowsInput = Schema.Struct({SloIds: ServiceLevelObjectiveIds, AddExclusionWindows: Schema.optional(ExclusionWindows), RemoveExclusionWindows: Schema.optional(ExclusionWindows)});
+export const ListAuditFindingsInput = Schema.Struct({StartTime: Schema.Date, EndTime: Schema.Date, Auditors: Schema.optional(Auditors), AuditTargets: AuditTargets, NextToken: Schema.optional(Schema.String), MaxResults: Schema.optional(Schema.Number)});
+export const UntagResource = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/untag-resource", method: "POST", sdkId: "Application Signals", sigV4ServiceName: "application-signals", name: "ApplicationSignals.UntagResource" }, UntagResourceRequest, UntagResourceResponse, Schema.Union(ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException), ErrorAnnotation("ThrottlingException", ThrottlingException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const ListServiceDependents = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/service-dependents", method: "POST", sdkId: "Application Signals", sigV4ServiceName: "application-signals", name: "ApplicationSignals.ListServiceDependents" }, ListServiceDependentsInput, ListServiceDependentsOutput, Schema.Union(ErrorAnnotation("ThrottlingException", ThrottlingException), ErrorAnnotation("ValidationException", ValidationException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const ListServiceOperations = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/service-operations", method: "POST", sdkId: "Application Signals", sigV4ServiceName: "application-signals", name: "ApplicationSignals.ListServiceOperations" }, ListServiceOperationsInput, ListServiceOperationsOutput, Schema.Union(ErrorAnnotation("ThrottlingException", ThrottlingException), ErrorAnnotation("ValidationException", ValidationException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const TagResource = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/tag-resource", method: "POST", sdkId: "Application Signals", sigV4ServiceName: "application-signals", name: "ApplicationSignals.TagResource" }, TagResourceRequest, TagResourceResponse, Schema.Union(ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException), ErrorAnnotation("ServiceQuotaExceededException", ServiceQuotaExceededException), ErrorAnnotation("ThrottlingException", ThrottlingException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const GetService = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/service", method: "POST", sdkId: "Application Signals", sigV4ServiceName: "application-signals", name: "ApplicationSignals.GetService" }, GetServiceInput, GetServiceOutput, Schema.Union(ErrorAnnotation("ThrottlingException", ThrottlingException), ErrorAnnotation("ValidationException", ValidationException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const ListServices = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/services", method: "GET", sdkId: "Application Signals", sigV4ServiceName: "application-signals", name: "ApplicationSignals.ListServices" }, ListServicesInput, ListServicesOutput, Schema.Union(ErrorAnnotation("ThrottlingException", ThrottlingException), ErrorAnnotation("ValidationException", ValidationException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const PutGroupingConfiguration = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/grouping-configuration", method: "PUT", sdkId: "Application Signals", sigV4ServiceName: "application-signals", name: "ApplicationSignals.PutGroupingConfiguration" }, PutGroupingConfigurationInput, PutGroupingConfigurationOutput, Schema.Union(ErrorAnnotation("AccessDeniedException", AccessDeniedException), ErrorAnnotation("ThrottlingException", ThrottlingException), ErrorAnnotation("ValidationException", ValidationException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const BatchUpdateExclusionWindows = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/exclusion-windows", method: "PATCH", sdkId: "Application Signals", sigV4ServiceName: "application-signals", name: "ApplicationSignals.BatchUpdateExclusionWindows" }, BatchUpdateExclusionWindowsInput, BatchUpdateExclusionWindowsOutput, Schema.Union(ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException), ErrorAnnotation("ThrottlingException", ThrottlingException), ErrorAnnotation("ValidationException", ValidationException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const ListServiceDependencies = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/service-dependencies", method: "POST", sdkId: "Application Signals", sigV4ServiceName: "application-signals", name: "ApplicationSignals.ListServiceDependencies" }, ListServiceDependenciesInput, ListServiceDependenciesOutput, Schema.Union(ErrorAnnotation("ThrottlingException", ThrottlingException), ErrorAnnotation("ValidationException", ValidationException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const ListServiceStates = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/service/states", method: "POST", sdkId: "Application Signals", sigV4ServiceName: "application-signals", name: "ApplicationSignals.ListServiceStates" }, ListServiceStatesInput, ListServiceStatesOutput, Schema.Union(ErrorAnnotation("ThrottlingException", ThrottlingException), ErrorAnnotation("ValidationException", ValidationException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const BatchGetServiceLevelObjectiveBudgetReport = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/budget-report", method: "POST", sdkId: "Application Signals", sigV4ServiceName: "application-signals", name: "ApplicationSignals.BatchGetServiceLevelObjectiveBudgetReport" }, BatchGetServiceLevelObjectiveBudgetReportInput, BatchGetServiceLevelObjectiveBudgetReportOutput, Schema.Union(ErrorAnnotation("ThrottlingException", ThrottlingException), ErrorAnnotation("ValidationException", ValidationException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const ListAuditFindings = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/auditFindings", method: "POST", sdkId: "Application Signals", sigV4ServiceName: "application-signals", name: "ApplicationSignals.ListAuditFindings" }, ListAuditFindingsInput, ListAuditFindingsOutput, Schema.Union(ErrorAnnotation("ThrottlingException", ThrottlingException), ErrorAnnotation("ValidationException", ValidationException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

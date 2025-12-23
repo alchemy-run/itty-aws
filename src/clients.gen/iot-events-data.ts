@@ -1,97 +1,97 @@
 import { Schema} from "effect"
-import { FormatXMLRequest, FormatXMLResponse, makeOperation } from "../client";
+import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperation } from "../client";
 import { Operation, Path, Header, StreamBody, Body, ErrorAnnotation } from "../schema-helpers";
-const DescribeAlarmRequest = Schema.Struct({alarmModelName: Schema.String, keyValue: Schema.optional(Schema.String)})
-const DescribeDetectorRequest = Schema.Struct({detectorModelName: Schema.String, keyValue: Schema.optional(Schema.String)})
-const ListAlarmsRequest = Schema.Struct({alarmModelName: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)})
-const ListDetectorsRequest = Schema.Struct({detectorModelName: Schema.String, stateName: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)})
-const AcknowledgeAlarmActionRequest = Schema.Struct({requestId: Schema.String, alarmModelName: Schema.String, keyValue: Schema.optional(Schema.String), note: Schema.optional(Schema.String)})
-const AcknowledgeAlarmActionRequests = Schema.Array(AcknowledgeAlarmActionRequest)
-const DeleteDetectorRequest = Schema.Struct({messageId: Schema.String, detectorModelName: Schema.String, keyValue: Schema.optional(Schema.String)})
-const DeleteDetectorRequests = Schema.Array(DeleteDetectorRequest)
-const DisableAlarmActionRequest = Schema.Struct({requestId: Schema.String, alarmModelName: Schema.String, keyValue: Schema.optional(Schema.String), note: Schema.optional(Schema.String)})
-const DisableAlarmActionRequests = Schema.Array(DisableAlarmActionRequest)
-const EnableAlarmActionRequest = Schema.Struct({requestId: Schema.String, alarmModelName: Schema.String, keyValue: Schema.optional(Schema.String), note: Schema.optional(Schema.String)})
-const EnableAlarmActionRequests = Schema.Array(EnableAlarmActionRequest)
-const ResetAlarmActionRequest = Schema.Struct({requestId: Schema.String, alarmModelName: Schema.String, keyValue: Schema.optional(Schema.String), note: Schema.optional(Schema.String)})
-const ResetAlarmActionRequests = Schema.Array(ResetAlarmActionRequest)
-const SnoozeAlarmActionRequest = Schema.Struct({requestId: Schema.String, alarmModelName: Schema.String, keyValue: Schema.optional(Schema.String), note: Schema.optional(Schema.String), snoozeDuration: Schema.Number})
-const SnoozeAlarmActionRequests = Schema.Array(SnoozeAlarmActionRequest)
-const BatchAcknowledgeAlarmRequest = Schema.Struct({acknowledgeActionRequests: AcknowledgeAlarmActionRequests})
-const BatchDeleteDetectorRequest = Schema.Struct({detectors: DeleteDetectorRequests})
-const BatchDisableAlarmRequest = Schema.Struct({disableActionRequests: DisableAlarmActionRequests})
-const BatchEnableAlarmRequest = Schema.Struct({enableActionRequests: EnableAlarmActionRequests})
-const BatchResetAlarmRequest = Schema.Struct({resetActionRequests: ResetAlarmActionRequests})
-const BatchSnoozeAlarmRequest = Schema.Struct({snoozeActionRequests: SnoozeAlarmActionRequests})
-const TimestampValue = Schema.Struct({timeInMillis: Schema.optional(Schema.Number)})
-const Message = Schema.Struct({messageId: Schema.String, inputName: Schema.String, payload: StreamBody(), timestamp: Schema.optional(TimestampValue)})
-const Messages = Schema.Array(Message)
-const AlarmSummary = Schema.Struct({alarmModelName: Schema.optional(Schema.String), alarmModelVersion: Schema.optional(Schema.String), keyValue: Schema.optional(Schema.String), stateName: Schema.optional(Schema.String), creationTime: Schema.optional(Schema.Date), lastUpdateTime: Schema.optional(Schema.Date)})
-const AlarmSummaries = Schema.Array(AlarmSummary)
-const VariableDefinition = Schema.Struct({name: Schema.String, value: Schema.String})
-const VariableDefinitions = Schema.Array(VariableDefinition)
-const TimerDefinition = Schema.Struct({name: Schema.String, seconds: Schema.Number})
-const TimerDefinitions = Schema.Array(TimerDefinition)
-const BatchDisableAlarmResponse = Schema.Struct({errorEntries: Schema.optional(BatchAlarmActionErrorEntries)})
-const BatchEnableAlarmResponse = Schema.Struct({errorEntries: Schema.optional(BatchAlarmActionErrorEntries)})
-const BatchPutMessageRequest = Schema.Struct({messages: Messages})
-const BatchResetAlarmResponse = Schema.Struct({errorEntries: Schema.optional(BatchAlarmActionErrorEntries)})
-const BatchSnoozeAlarmResponse = Schema.Struct({errorEntries: Schema.optional(BatchAlarmActionErrorEntries)})
-const ListAlarmsResponse = Schema.Struct({alarmSummaries: Schema.optional(AlarmSummaries), nextToken: Schema.optional(Schema.String)})
-const DetectorStateDefinition = Schema.Struct({stateName: Schema.String, variables: VariableDefinitions, timers: TimerDefinitions})
-const DetectorStateSummary = Schema.Struct({stateName: Schema.optional(Schema.String)})
-const BatchAlarmActionErrorEntry = Schema.Struct({requestId: Schema.optional(Schema.String), errorCode: Schema.optional(Schema.String), errorMessage: Schema.optional(Schema.String)})
-const BatchAlarmActionErrorEntries = Schema.Array(BatchAlarmActionErrorEntry)
-const BatchDeleteDetectorErrorEntry = Schema.Struct({messageId: Schema.optional(Schema.String), errorCode: Schema.optional(Schema.String), errorMessage: Schema.optional(Schema.String)})
-const BatchDeleteDetectorErrorEntries = Schema.Array(BatchDeleteDetectorErrorEntry)
-const UpdateDetectorRequest = Schema.Struct({messageId: Schema.String, detectorModelName: Schema.String, keyValue: Schema.optional(Schema.String), state: DetectorStateDefinition})
-const UpdateDetectorRequests = Schema.Array(UpdateDetectorRequest)
-const DetectorSummary = Schema.Struct({detectorModelName: Schema.optional(Schema.String), keyValue: Schema.optional(Schema.String), detectorModelVersion: Schema.optional(Schema.String), state: Schema.optional(DetectorStateSummary), creationTime: Schema.optional(Schema.Date), lastUpdateTime: Schema.optional(Schema.Date)})
-const DetectorSummaries = Schema.Array(DetectorSummary)
-const Variable = Schema.Struct({name: Schema.String, value: Schema.String})
-const Variables = Schema.Array(Variable)
-const Timer = Schema.Struct({name: Schema.String, timestamp: Schema.Date})
-const Timers = Schema.Array(Timer)
-const BatchAcknowledgeAlarmResponse = Schema.Struct({errorEntries: Schema.optional(BatchAlarmActionErrorEntries)})
-export const BatchAcknowledgeAlarm = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/alarms/acknowledge", method: "POST", sdkId: "IoT Events Data", sigV4ServiceName: "ioteventsdata", name: "BatchAcknowledgeAlarm" }, BatchAcknowledgeAlarmRequest, BatchAcknowledgeAlarmResponse, Schema.Union(ErrorAnnotation("InternalFailureException", InternalFailureException), ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ServiceUnavailableException", ServiceUnavailableException), ErrorAnnotation("ThrottlingException", ThrottlingException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const BatchDeleteDetectorResponse = Schema.Struct({batchDeleteDetectorErrorEntries: Schema.optional(BatchDeleteDetectorErrorEntries)})
-export const BatchDeleteDetector = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/detectors/delete", method: "POST", sdkId: "IoT Events Data", sigV4ServiceName: "ioteventsdata", name: "BatchDeleteDetector" }, BatchDeleteDetectorRequest, BatchDeleteDetectorResponse, Schema.Union(ErrorAnnotation("InternalFailureException", InternalFailureException), ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ServiceUnavailableException", ServiceUnavailableException), ErrorAnnotation("ThrottlingException", ThrottlingException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const InternalFailureException = Schema.Struct({message: Schema.optional(Schema.String)})
-export const BatchDisableAlarm = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/alarms/disable", method: "POST", sdkId: "IoT Events Data", sigV4ServiceName: "ioteventsdata", name: "BatchDisableAlarm" }, BatchDisableAlarmRequest, BatchDisableAlarmResponse, Schema.Union(ErrorAnnotation("InternalFailureException", InternalFailureException), ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ServiceUnavailableException", ServiceUnavailableException), ErrorAnnotation("ThrottlingException", ThrottlingException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const InvalidRequestException = Schema.Struct({message: Schema.optional(Schema.String)})
-export const BatchEnableAlarm = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/alarms/enable", method: "POST", sdkId: "IoT Events Data", sigV4ServiceName: "ioteventsdata", name: "BatchEnableAlarm" }, BatchEnableAlarmRequest, BatchEnableAlarmResponse, Schema.Union(ErrorAnnotation("InternalFailureException", InternalFailureException), ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ServiceUnavailableException", ServiceUnavailableException), ErrorAnnotation("ThrottlingException", ThrottlingException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const ServiceUnavailableException = Schema.Struct({message: Schema.optional(Schema.String)})
-export const BatchResetAlarm = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/alarms/reset", method: "POST", sdkId: "IoT Events Data", sigV4ServiceName: "ioteventsdata", name: "BatchResetAlarm" }, BatchResetAlarmRequest, BatchResetAlarmResponse, Schema.Union(ErrorAnnotation("InternalFailureException", InternalFailureException), ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ServiceUnavailableException", ServiceUnavailableException), ErrorAnnotation("ThrottlingException", ThrottlingException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const ThrottlingException = Schema.Struct({message: Schema.optional(Schema.String)})
-export const BatchSnoozeAlarm = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/alarms/snooze", method: "POST", sdkId: "IoT Events Data", sigV4ServiceName: "ioteventsdata", name: "BatchSnoozeAlarm" }, BatchSnoozeAlarmRequest, BatchSnoozeAlarmResponse, Schema.Union(ErrorAnnotation("InternalFailureException", InternalFailureException), ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ServiceUnavailableException", ServiceUnavailableException), ErrorAnnotation("ThrottlingException", ThrottlingException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const BatchUpdateDetectorRequest = Schema.Struct({detectors: UpdateDetectorRequests})
-const ResourceNotFoundException = Schema.Struct({message: Schema.optional(Schema.String)})
-export const ListAlarms = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/alarms/{alarmModelName}", method: "GET", sdkId: "IoT Events Data", sigV4ServiceName: "ioteventsdata", name: "ListAlarms" }, ListAlarmsRequest, ListAlarmsResponse, Schema.Union(ErrorAnnotation("InternalFailureException", InternalFailureException), ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException), ErrorAnnotation("ServiceUnavailableException", ServiceUnavailableException), ErrorAnnotation("ThrottlingException", ThrottlingException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const ListDetectorsResponse = Schema.Struct({detectorSummaries: Schema.optional(DetectorSummaries), nextToken: Schema.optional(Schema.String)})
-export const ListDetectors = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/detectors/{detectorModelName}", method: "GET", sdkId: "IoT Events Data", sigV4ServiceName: "ioteventsdata", name: "ListDetectors" }, ListDetectorsRequest, ListDetectorsResponse, Schema.Union(ErrorAnnotation("InternalFailureException", InternalFailureException), ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException), ErrorAnnotation("ServiceUnavailableException", ServiceUnavailableException), ErrorAnnotation("ThrottlingException", ThrottlingException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const DetectorState = Schema.Struct({stateName: Schema.String, variables: Variables, timers: Timers})
-const SimpleRuleEvaluation = Schema.Struct({inputPropertyValue: Schema.optional(Schema.String), operator: Schema.optional(Schema.String), thresholdValue: Schema.optional(Schema.String)})
-const SnoozeActionConfiguration = Schema.Struct({snoozeDuration: Schema.optional(Schema.Number), note: Schema.optional(Schema.String)})
-const EnableActionConfiguration = Schema.Struct({note: Schema.optional(Schema.String)})
-const DisableActionConfiguration = Schema.Struct({note: Schema.optional(Schema.String)})
-const AcknowledgeActionConfiguration = Schema.Struct({note: Schema.optional(Schema.String)})
-const ResetActionConfiguration = Schema.Struct({note: Schema.optional(Schema.String)})
-const StateChangeConfiguration = Schema.Struct({triggerType: Schema.optional(Schema.String)})
-const BatchPutMessageErrorEntry = Schema.Struct({messageId: Schema.optional(Schema.String), errorCode: Schema.optional(Schema.String), errorMessage: Schema.optional(Schema.String)})
-const BatchPutMessageErrorEntries = Schema.Array(BatchPutMessageErrorEntry)
-const Detector = Schema.Struct({detectorModelName: Schema.optional(Schema.String), keyValue: Schema.optional(Schema.String), detectorModelVersion: Schema.optional(Schema.String), state: Schema.optional(DetectorState), creationTime: Schema.optional(Schema.Date), lastUpdateTime: Schema.optional(Schema.Date)})
-const RuleEvaluation = Schema.Struct({simpleRuleEvaluation: Schema.optional(SimpleRuleEvaluation)})
-const CustomerAction = Schema.Struct({actionName: Schema.optional(Schema.String), snoozeActionConfiguration: Schema.optional(SnoozeActionConfiguration), enableActionConfiguration: Schema.optional(EnableActionConfiguration), disableActionConfiguration: Schema.optional(DisableActionConfiguration), acknowledgeActionConfiguration: Schema.optional(AcknowledgeActionConfiguration), resetActionConfiguration: Schema.optional(ResetActionConfiguration)})
-const SystemEvent = Schema.Struct({eventType: Schema.optional(Schema.String), stateChangeConfiguration: Schema.optional(StateChangeConfiguration)})
-const BatchPutMessageResponse = Schema.Struct({BatchPutMessageErrorEntries: Schema.optional(BatchPutMessageErrorEntries)})
-export const BatchPutMessage = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/inputs/messages", method: "POST", sdkId: "IoT Events Data", sigV4ServiceName: "ioteventsdata", name: "BatchPutMessage" }, BatchPutMessageRequest, BatchPutMessageResponse, Schema.Union(ErrorAnnotation("InternalFailureException", InternalFailureException), ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ServiceUnavailableException", ServiceUnavailableException), ErrorAnnotation("ThrottlingException", ThrottlingException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const DescribeDetectorResponse = Schema.Struct({detector: Schema.optional(Detector)})
-export const DescribeDetector = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/detectors/{detectorModelName}/keyValues", method: "GET", sdkId: "IoT Events Data", sigV4ServiceName: "ioteventsdata", name: "DescribeDetector" }, DescribeDetectorRequest, DescribeDetectorResponse, Schema.Union(ErrorAnnotation("InternalFailureException", InternalFailureException), ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException), ErrorAnnotation("ServiceUnavailableException", ServiceUnavailableException), ErrorAnnotation("ThrottlingException", ThrottlingException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const AlarmState = Schema.Struct({stateName: Schema.optional(Schema.String), ruleEvaluation: Schema.optional(RuleEvaluation), customerAction: Schema.optional(CustomerAction), systemEvent: Schema.optional(SystemEvent)})
-const BatchUpdateDetectorErrorEntry = Schema.Struct({messageId: Schema.optional(Schema.String), errorCode: Schema.optional(Schema.String), errorMessage: Schema.optional(Schema.String)})
-const BatchUpdateDetectorErrorEntries = Schema.Array(BatchUpdateDetectorErrorEntry)
-const Alarm = Schema.Struct({alarmModelName: Schema.optional(Schema.String), alarmModelVersion: Schema.optional(Schema.String), keyValue: Schema.optional(Schema.String), alarmState: Schema.optional(AlarmState), severity: Schema.optional(Schema.Number), creationTime: Schema.optional(Schema.Date), lastUpdateTime: Schema.optional(Schema.Date)})
-const BatchUpdateDetectorResponse = Schema.Struct({batchUpdateDetectorErrorEntries: Schema.optional(BatchUpdateDetectorErrorEntries)})
-export const BatchUpdateDetector = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/detectors", method: "POST", sdkId: "IoT Events Data", sigV4ServiceName: "ioteventsdata", name: "BatchUpdateDetector" }, BatchUpdateDetectorRequest, BatchUpdateDetectorResponse, Schema.Union(ErrorAnnotation("InternalFailureException", InternalFailureException), ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ServiceUnavailableException", ServiceUnavailableException), ErrorAnnotation("ThrottlingException", ThrottlingException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const DescribeAlarmResponse = Schema.Struct({alarm: Schema.optional(Alarm)})
-export const DescribeAlarm = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/alarms/{alarmModelName}/keyValues", method: "GET", sdkId: "IoT Events Data", sigV4ServiceName: "ioteventsdata", name: "DescribeAlarm" }, DescribeAlarmRequest, DescribeAlarmResponse, Schema.Union(ErrorAnnotation("InternalFailureException", InternalFailureException), ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException), ErrorAnnotation("ServiceUnavailableException", ServiceUnavailableException), ErrorAnnotation("ThrottlingException", ThrottlingException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
+export const BatchPutMessageErrorEntries = Schema.Array(BatchPutMessageErrorEntry);
+export const BatchPutMessageErrorEntry = Schema.Struct({messageId: Schema.optional(Schema.String), errorCode: Schema.optional(Schema.String), errorMessage: Schema.optional(Schema.String)});
+export const StateChangeConfiguration = Schema.Struct({triggerType: Schema.optional(Schema.String)});
+export const ResetActionConfiguration = Schema.Struct({note: Schema.optional(Schema.String)});
+export const AcknowledgeActionConfiguration = Schema.Struct({note: Schema.optional(Schema.String)});
+export const DisableActionConfiguration = Schema.Struct({note: Schema.optional(Schema.String)});
+export const BatchUpdateDetectorErrorEntry = Schema.Struct({messageId: Schema.optional(Schema.String), errorCode: Schema.optional(Schema.String), errorMessage: Schema.optional(Schema.String)});
+export const EnableActionConfiguration = Schema.Struct({note: Schema.optional(Schema.String)});
+export const BatchUpdateDetectorErrorEntries = Schema.Array(BatchUpdateDetectorErrorEntry);
+export const SnoozeActionConfiguration = Schema.Struct({snoozeDuration: Schema.optional(Schema.Number), note: Schema.optional(Schema.String)});
+export const SimpleRuleEvaluation = Schema.Struct({inputPropertyValue: Schema.optional(Schema.String), operator: Schema.optional(Schema.String), thresholdValue: Schema.optional(Schema.String)});
+export const BatchUpdateDetectorResponse = Schema.Struct({batchUpdateDetectorErrorEntries: Schema.optional(BatchUpdateDetectorErrorEntries)});
+export const ResourceNotFoundException = Schema.Struct({message: Schema.optional(Schema.String)});
+export const ThrottlingException = Schema.Struct({message: Schema.optional(Schema.String)});
+export const ServiceUnavailableException = Schema.Struct({message: Schema.optional(Schema.String)});
+export const InvalidRequestException = Schema.Struct({message: Schema.optional(Schema.String)});
+export const InternalFailureException = Schema.Struct({message: Schema.optional(Schema.String)});
+export const Timers = Schema.Array(Timer);
+export const Timer = Schema.Struct({name: Schema.String, timestamp: Schema.Date});
+export const BatchPutMessageResponse = Schema.Struct({BatchPutMessageErrorEntries: Schema.optional(BatchPutMessageErrorEntries)});
+export const Variables = Schema.Array(Variable);
+export const Variable = Schema.Struct({name: Schema.String, value: Schema.String});
+export const BatchDeleteDetectorErrorEntries = Schema.Array(BatchDeleteDetectorErrorEntry);
+export const BatchDeleteDetectorErrorEntry = Schema.Struct({messageId: Schema.optional(Schema.String), errorCode: Schema.optional(Schema.String), errorMessage: Schema.optional(Schema.String)});
+export const BatchAlarmActionErrorEntries = Schema.Array(BatchAlarmActionErrorEntry);
+export const BatchAcknowledgeAlarmResponse = Schema.Struct({errorEntries: Schema.optional(BatchAlarmActionErrorEntries)});
+export const SystemEvent = Schema.Struct({eventType: Schema.optional(Schema.String), stateChangeConfiguration: Schema.optional(StateChangeConfiguration)});
+export const CustomerAction = Schema.Struct({actionName: Schema.optional(Schema.String), snoozeActionConfiguration: Schema.optional(SnoozeActionConfiguration), enableActionConfiguration: Schema.optional(EnableActionConfiguration), disableActionConfiguration: Schema.optional(DisableActionConfiguration), acknowledgeActionConfiguration: Schema.optional(AcknowledgeActionConfiguration), resetActionConfiguration: Schema.optional(ResetActionConfiguration)});
+export const RuleEvaluation = Schema.Struct({simpleRuleEvaluation: Schema.optional(SimpleRuleEvaluation)});
+export const BatchDeleteDetectorResponse = Schema.Struct({batchDeleteDetectorErrorEntries: Schema.optional(BatchDeleteDetectorErrorEntries)});
+export const BatchAlarmActionErrorEntry = Schema.Struct({requestId: Schema.optional(Schema.String), errorCode: Schema.optional(Schema.String), errorMessage: Schema.optional(Schema.String)});
+export const DetectorStateSummary = Schema.Struct({stateName: Schema.optional(Schema.String)});
+export const BatchSnoozeAlarmResponse = Schema.Struct({errorEntries: Schema.optional(BatchAlarmActionErrorEntries)});
+export const DetectorState = Schema.Struct({stateName: Schema.String, variables: Variables, timers: Timers});
+export const DetectorSummary = Schema.Struct({detectorModelName: Schema.optional(Schema.String), keyValue: Schema.optional(Schema.String), detectorModelVersion: Schema.optional(Schema.String), state: Schema.optional(DetectorStateSummary), creationTime: Schema.optional(Schema.Date), lastUpdateTime: Schema.optional(Schema.Date)});
+export const BatchResetAlarmResponse = Schema.Struct({errorEntries: Schema.optional(BatchAlarmActionErrorEntries)});
+export const DetectorSummaries = Schema.Array(DetectorSummary);
+export const BatchEnableAlarmResponse = Schema.Struct({errorEntries: Schema.optional(BatchAlarmActionErrorEntries)});
+export const BatchDisableAlarmResponse = Schema.Struct({errorEntries: Schema.optional(BatchAlarmActionErrorEntries)});
+export const AlarmState = Schema.Struct({stateName: Schema.optional(Schema.String), ruleEvaluation: Schema.optional(RuleEvaluation), customerAction: Schema.optional(CustomerAction), systemEvent: Schema.optional(SystemEvent)});
+export const DetectorStateDefinition = Schema.Struct({stateName: Schema.String, variables: VariableDefinitions, timers: TimerDefinitions});
+export const TimerDefinitions = Schema.Array(TimerDefinition);
+export const TimerDefinition = Schema.Struct({name: Schema.String, seconds: Schema.Number});
+export const ListAlarmsResponse = Schema.Struct({alarmSummaries: Schema.optional(AlarmSummaries), nextToken: Schema.optional(Schema.String)});
+export const VariableDefinitions = Schema.Array(VariableDefinition);
+export const VariableDefinition = Schema.Struct({name: Schema.String, value: Schema.String});
+export const AlarmSummaries = Schema.Array(AlarmSummary);
+export const UpdateDetectorRequest = Schema.Struct({messageId: Schema.String, detectorModelName: Schema.String, keyValue: Schema.optional(Schema.String), state: DetectorStateDefinition});
+export const AlarmSummary = Schema.Struct({alarmModelName: Schema.optional(Schema.String), alarmModelVersion: Schema.optional(Schema.String), keyValue: Schema.optional(Schema.String), stateName: Schema.optional(Schema.String), creationTime: Schema.optional(Schema.Date), lastUpdateTime: Schema.optional(Schema.Date)});
+export const UpdateDetectorRequests = Schema.Array(UpdateDetectorRequest);
+export const TimestampValue = Schema.Struct({timeInMillis: Schema.optional(Schema.Number)});
+export const Detector = Schema.Struct({detectorModelName: Schema.optional(Schema.String), keyValue: Schema.optional(Schema.String), detectorModelVersion: Schema.optional(Schema.String), state: Schema.optional(DetectorState), creationTime: Schema.optional(Schema.Date), lastUpdateTime: Schema.optional(Schema.Date)});
+export const SnoozeAlarmActionRequests = Schema.Array(SnoozeAlarmActionRequest);
+export const Message = Schema.Struct({messageId: Schema.String, inputName: Schema.String, payload: StreamBody(), timestamp: Schema.optional(TimestampValue)});
+export const ListDetectorsResponse = Schema.Struct({detectorSummaries: Schema.optional(DetectorSummaries), nextToken: Schema.optional(Schema.String)});
+export const SnoozeAlarmActionRequest = Schema.Struct({requestId: Schema.String, alarmModelName: Schema.String, keyValue: Schema.optional(Schema.String), note: Schema.optional(Schema.String), snoozeDuration: Schema.Number});
+export const Alarm = Schema.Struct({alarmModelName: Schema.optional(Schema.String), alarmModelVersion: Schema.optional(Schema.String), keyValue: Schema.optional(Schema.String), alarmState: Schema.optional(AlarmState), severity: Schema.optional(Schema.Number), creationTime: Schema.optional(Schema.Date), lastUpdateTime: Schema.optional(Schema.Date)});
+export const Messages = Schema.Array(Message);
+export const ResetAlarmActionRequests = Schema.Array(ResetAlarmActionRequest);
+export const ResetAlarmActionRequest = Schema.Struct({requestId: Schema.String, alarmModelName: Schema.String, keyValue: Schema.optional(Schema.String), note: Schema.optional(Schema.String)});
+export const DescribeDetectorResponse = Schema.Struct({detector: Schema.optional(Detector)});
+export const EnableAlarmActionRequests = Schema.Array(EnableAlarmActionRequest);
+export const EnableAlarmActionRequest = Schema.Struct({requestId: Schema.String, alarmModelName: Schema.String, keyValue: Schema.optional(Schema.String), note: Schema.optional(Schema.String)});
+export const DisableAlarmActionRequests = Schema.Array(DisableAlarmActionRequest);
+export const DescribeAlarmResponse = Schema.Struct({alarm: Schema.optional(Alarm)});
+export const DisableAlarmActionRequest = Schema.Struct({requestId: Schema.String, alarmModelName: Schema.String, keyValue: Schema.optional(Schema.String), note: Schema.optional(Schema.String)});
+export const DeleteDetectorRequests = Schema.Array(DeleteDetectorRequest);
+export const DeleteDetectorRequest = Schema.Struct({messageId: Schema.String, detectorModelName: Schema.String, keyValue: Schema.optional(Schema.String)});
+export const AcknowledgeAlarmActionRequests = Schema.Array(AcknowledgeAlarmActionRequest);
+export const AcknowledgeAlarmActionRequest = Schema.Struct({requestId: Schema.String, alarmModelName: Schema.String, keyValue: Schema.optional(Schema.String), note: Schema.optional(Schema.String)});
+export const ListDetectorsRequest = Schema.Struct({detectorModelName: Schema.String, stateName: Schema.optional(Schema.String), nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
+export const ListAlarmsRequest = Schema.Struct({alarmModelName: Schema.String, nextToken: Schema.optional(Schema.String), maxResults: Schema.optional(Schema.Number)});
+export const DescribeDetectorRequest = Schema.Struct({detectorModelName: Schema.String, keyValue: Schema.optional(Schema.String)});
+export const BatchSnoozeAlarmRequest = Schema.Struct({snoozeActionRequests: SnoozeAlarmActionRequests});
+export const BatchResetAlarmRequest = Schema.Struct({resetActionRequests: ResetAlarmActionRequests});
+export const DescribeAlarmRequest = Schema.Struct({alarmModelName: Schema.String, keyValue: Schema.optional(Schema.String)});
+export const BatchPutMessageRequest = Schema.Struct({messages: Messages});
+export const BatchEnableAlarmRequest = Schema.Struct({enableActionRequests: EnableAlarmActionRequests});
+export const BatchDisableAlarmRequest = Schema.Struct({disableActionRequests: DisableAlarmActionRequests});
+export const BatchDeleteDetectorRequest = Schema.Struct({detectors: DeleteDetectorRequests});
+export const BatchUpdateDetectorRequest = Schema.Struct({detectors: UpdateDetectorRequests});
+export const BatchAcknowledgeAlarmRequest = Schema.Struct({acknowledgeActionRequests: AcknowledgeAlarmActionRequests});
+export const BatchAcknowledgeAlarm = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/alarms/acknowledge", method: "POST", sdkId: "IoT Events Data", sigV4ServiceName: "ioteventsdata", name: "IotColumboDataService.BatchAcknowledgeAlarm" }, BatchAcknowledgeAlarmRequest, BatchAcknowledgeAlarmResponse, Schema.Union(ErrorAnnotation("InternalFailureException", InternalFailureException), ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ServiceUnavailableException", ServiceUnavailableException), ErrorAnnotation("ThrottlingException", ThrottlingException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const BatchDeleteDetector = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/detectors/delete", method: "POST", sdkId: "IoT Events Data", sigV4ServiceName: "ioteventsdata", name: "IotColumboDataService.BatchDeleteDetector" }, BatchDeleteDetectorRequest, BatchDeleteDetectorResponse, Schema.Union(ErrorAnnotation("InternalFailureException", InternalFailureException), ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ServiceUnavailableException", ServiceUnavailableException), ErrorAnnotation("ThrottlingException", ThrottlingException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const BatchDisableAlarm = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/alarms/disable", method: "POST", sdkId: "IoT Events Data", sigV4ServiceName: "ioteventsdata", name: "IotColumboDataService.BatchDisableAlarm" }, BatchDisableAlarmRequest, BatchDisableAlarmResponse, Schema.Union(ErrorAnnotation("InternalFailureException", InternalFailureException), ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ServiceUnavailableException", ServiceUnavailableException), ErrorAnnotation("ThrottlingException", ThrottlingException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const BatchEnableAlarm = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/alarms/enable", method: "POST", sdkId: "IoT Events Data", sigV4ServiceName: "ioteventsdata", name: "IotColumboDataService.BatchEnableAlarm" }, BatchEnableAlarmRequest, BatchEnableAlarmResponse, Schema.Union(ErrorAnnotation("InternalFailureException", InternalFailureException), ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ServiceUnavailableException", ServiceUnavailableException), ErrorAnnotation("ThrottlingException", ThrottlingException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const BatchResetAlarm = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/alarms/reset", method: "POST", sdkId: "IoT Events Data", sigV4ServiceName: "ioteventsdata", name: "IotColumboDataService.BatchResetAlarm" }, BatchResetAlarmRequest, BatchResetAlarmResponse, Schema.Union(ErrorAnnotation("InternalFailureException", InternalFailureException), ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ServiceUnavailableException", ServiceUnavailableException), ErrorAnnotation("ThrottlingException", ThrottlingException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const BatchSnoozeAlarm = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/alarms/snooze", method: "POST", sdkId: "IoT Events Data", sigV4ServiceName: "ioteventsdata", name: "IotColumboDataService.BatchSnoozeAlarm" }, BatchSnoozeAlarmRequest, BatchSnoozeAlarmResponse, Schema.Union(ErrorAnnotation("InternalFailureException", InternalFailureException), ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ServiceUnavailableException", ServiceUnavailableException), ErrorAnnotation("ThrottlingException", ThrottlingException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const ListAlarms = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/alarms/{alarmModelName}", method: "GET", sdkId: "IoT Events Data", sigV4ServiceName: "ioteventsdata", name: "IotColumboDataService.ListAlarms" }, ListAlarmsRequest, ListAlarmsResponse, Schema.Union(ErrorAnnotation("InternalFailureException", InternalFailureException), ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException), ErrorAnnotation("ServiceUnavailableException", ServiceUnavailableException), ErrorAnnotation("ThrottlingException", ThrottlingException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const ListDetectors = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/detectors/{detectorModelName}", method: "GET", sdkId: "IoT Events Data", sigV4ServiceName: "ioteventsdata", name: "IotColumboDataService.ListDetectors" }, ListDetectorsRequest, ListDetectorsResponse, Schema.Union(ErrorAnnotation("InternalFailureException", InternalFailureException), ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException), ErrorAnnotation("ServiceUnavailableException", ServiceUnavailableException), ErrorAnnotation("ThrottlingException", ThrottlingException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const BatchPutMessage = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/inputs/messages", method: "POST", sdkId: "IoT Events Data", sigV4ServiceName: "ioteventsdata", name: "IotColumboDataService.BatchPutMessage" }, BatchPutMessageRequest, BatchPutMessageResponse, Schema.Union(ErrorAnnotation("InternalFailureException", InternalFailureException), ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ServiceUnavailableException", ServiceUnavailableException), ErrorAnnotation("ThrottlingException", ThrottlingException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const DescribeDetector = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/detectors/{detectorModelName}/keyValues", method: "GET", sdkId: "IoT Events Data", sigV4ServiceName: "ioteventsdata", name: "IotColumboDataService.DescribeDetector" }, DescribeDetectorRequest, DescribeDetectorResponse, Schema.Union(ErrorAnnotation("InternalFailureException", InternalFailureException), ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException), ErrorAnnotation("ServiceUnavailableException", ServiceUnavailableException), ErrorAnnotation("ThrottlingException", ThrottlingException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const BatchUpdateDetector = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/detectors", method: "POST", sdkId: "IoT Events Data", sigV4ServiceName: "ioteventsdata", name: "IotColumboDataService.BatchUpdateDetector" }, BatchUpdateDetectorRequest, BatchUpdateDetectorResponse, Schema.Union(ErrorAnnotation("InternalFailureException", InternalFailureException), ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ServiceUnavailableException", ServiceUnavailableException), ErrorAnnotation("ThrottlingException", ThrottlingException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const DescribeAlarm = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/alarms/{alarmModelName}/keyValues", method: "GET", sdkId: "IoT Events Data", sigV4ServiceName: "ioteventsdata", name: "IotColumboDataService.DescribeAlarm" }, DescribeAlarmRequest, DescribeAlarmResponse, Schema.Union(ErrorAnnotation("InternalFailureException", InternalFailureException), ErrorAnnotation("InvalidRequestException", InvalidRequestException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException), ErrorAnnotation("ServiceUnavailableException", ServiceUnavailableException), ErrorAnnotation("ThrottlingException", ThrottlingException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

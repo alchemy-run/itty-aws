@@ -1,26 +1,26 @@
 import { Schema} from "effect"
-import { FormatXMLRequest, FormatXMLResponse, makeOperation } from "../client";
+import { FormatJSONRequest,FormatJSONResponse,FormatAwsRestJSONError, makeOperation } from "../client";
 import { Operation, Path, Header, StreamBody, Body, ErrorAnnotation } from "../schema-helpers";
-const TagKeyList = Schema.Array(Schema.String)
-const ListRequesterGatewaysRequest = Schema.Struct({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)})
-const ListResponderGatewaysRequest = Schema.Struct({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)})
-const ListTagsForResourceRequest = Schema.Struct({resourceArn: Schema.String})
-const UntagResourceRequest = Schema.Struct({resourceArn: Schema.String, tagKeys: TagKeyList})
-const UntagResourceResponse = Schema.Struct({})
-const GatewayIdList = Schema.Array(Schema.String)
-const TagsMap = Schema.Record({key: Schema.String, value: Schema.String})
-const ListRequesterGatewaysResponse = Schema.Struct({gatewayIds: Schema.optional(GatewayIdList), nextToken: Schema.optional(Schema.String)})
-const ListResponderGatewaysResponse = Schema.Struct({gatewayIds: Schema.optional(GatewayIdList), nextToken: Schema.optional(Schema.String)})
-const ListTagsForResourceResponse = Schema.Struct({tags: Schema.optional(TagsMap)})
-const TagResourceRequest = Schema.Struct({resourceArn: Schema.String, tags: TagsMap})
-const TagResourceResponse = Schema.Struct({})
-const AccessDeniedException = Schema.Struct({message: Schema.String})
-export const UntagResource = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/tags/{resourceArn}", method: "DELETE", sdkId: "RTBFabric", sigV4ServiceName: "rtbfabric", name: "UntagResource" }, UntagResourceRequest, UntagResourceResponse, Schema.Union(ErrorAnnotation("AccessDeniedException", AccessDeniedException), ErrorAnnotation("InternalServerException", InternalServerException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException), ErrorAnnotation("ThrottlingException", ThrottlingException), ErrorAnnotation("ValidationException", ValidationException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const InternalServerException = Schema.Struct({message: Schema.String})
-export const ListRequesterGateways = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/requester-gateways", method: "GET", sdkId: "RTBFabric", sigV4ServiceName: "rtbfabric", name: "ListRequesterGateways" }, ListRequesterGatewaysRequest, ListRequesterGatewaysResponse, Schema.Union(ErrorAnnotation("InternalServerException", InternalServerException), ErrorAnnotation("ValidationException", ValidationException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const ValidationException = Schema.Struct({message: Schema.String})
-export const ListResponderGateways = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/responder-gateways", method: "GET", sdkId: "RTBFabric", sigV4ServiceName: "rtbfabric", name: "ListResponderGateways" }, ListResponderGatewaysRequest, ListResponderGatewaysResponse, Schema.Union(ErrorAnnotation("InternalServerException", InternalServerException), ErrorAnnotation("ValidationException", ValidationException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const ResourceNotFoundException = Schema.Struct({message: Schema.String})
-export const ListTagsForResource = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/tags/{resourceArn}", method: "GET", sdkId: "RTBFabric", sigV4ServiceName: "rtbfabric", name: "ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, Schema.Union(ErrorAnnotation("AccessDeniedException", AccessDeniedException), ErrorAnnotation("InternalServerException", InternalServerException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException), ErrorAnnotation("ThrottlingException", ThrottlingException), ErrorAnnotation("ValidationException", ValidationException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
-const ThrottlingException = Schema.Struct({message: Schema.String})
-export const TagResource = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/tags/{resourceArn}", method: "POST", sdkId: "RTBFabric", sigV4ServiceName: "rtbfabric", name: "TagResource" }, TagResourceRequest, TagResourceResponse, Schema.Union(ErrorAnnotation("AccessDeniedException", AccessDeniedException), ErrorAnnotation("InternalServerException", InternalServerException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException), ErrorAnnotation("ThrottlingException", ThrottlingException), ErrorAnnotation("ValidationException", ValidationException))), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);
+export const TagResourceResponse = Schema.Struct({});
+export const GatewayIdList = Schema.Array(Schema.String);
+export const InternalServerException = Schema.Struct({message: Schema.String});
+export const ValidationException = Schema.Struct({message: Schema.String});
+export const ThrottlingException = Schema.Struct({message: Schema.String});
+export const ResourceNotFoundException = Schema.Struct({message: Schema.String});
+export const AccessDeniedException = Schema.Struct({message: Schema.String});
+export const ListTagsForResourceResponse = Schema.Struct({tags: Schema.optional(TagsMap)});
+export const ListResponderGatewaysResponse = Schema.Struct({gatewayIds: Schema.optional(GatewayIdList), nextToken: Schema.optional(Schema.String)});
+export const ListRequesterGatewaysResponse = Schema.Struct({gatewayIds: Schema.optional(GatewayIdList), nextToken: Schema.optional(Schema.String)});
+export const UntagResourceResponse = Schema.Struct({});
+export const TagsMap = Schema.Record({key: Schema.String, value: Schema.String});
+export const UntagResourceRequest = Schema.Struct({resourceArn: Schema.String, tagKeys: TagKeyList});
+export const TagKeyList = Schema.Array(Schema.String);
+export const TagResourceRequest = Schema.Struct({resourceArn: Schema.String, tags: TagsMap});
+export const ListTagsForResourceRequest = Schema.Struct({resourceArn: Schema.String});
+export const ListResponderGatewaysRequest = Schema.Struct({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
+export const ListRequesterGatewaysRequest = Schema.Struct({maxResults: Schema.optional(Schema.Number), nextToken: Schema.optional(Schema.String)});
+export const UntagResource = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/tags/{resourceArn}", method: "DELETE", sdkId: "RTBFabric", sigV4ServiceName: "rtbfabric", name: "RTBFabric.UntagResource" }, UntagResourceRequest, UntagResourceResponse, Schema.Union(ErrorAnnotation("AccessDeniedException", AccessDeniedException), ErrorAnnotation("InternalServerException", InternalServerException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException), ErrorAnnotation("ThrottlingException", ThrottlingException), ErrorAnnotation("ValidationException", ValidationException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const ListRequesterGateways = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/requester-gateways", method: "GET", sdkId: "RTBFabric", sigV4ServiceName: "rtbfabric", name: "RTBFabric.ListRequesterGateways" }, ListRequesterGatewaysRequest, ListRequesterGatewaysResponse, Schema.Union(ErrorAnnotation("InternalServerException", InternalServerException), ErrorAnnotation("ValidationException", ValidationException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const ListResponderGateways = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/responder-gateways", method: "GET", sdkId: "RTBFabric", sigV4ServiceName: "rtbfabric", name: "RTBFabric.ListResponderGateways" }, ListResponderGatewaysRequest, ListResponderGatewaysResponse, Schema.Union(ErrorAnnotation("InternalServerException", InternalServerException), ErrorAnnotation("ValidationException", ValidationException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const ListTagsForResource = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/tags/{resourceArn}", method: "GET", sdkId: "RTBFabric", sigV4ServiceName: "rtbfabric", name: "RTBFabric.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, Schema.Union(ErrorAnnotation("AccessDeniedException", AccessDeniedException), ErrorAnnotation("InternalServerException", InternalServerException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException), ErrorAnnotation("ThrottlingException", ThrottlingException), ErrorAnnotation("ValidationException", ValidationException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+export const TagResource = /*#__PURE__*/ makeOperation(() => Operation({ uri: "/tags/{resourceArn}", method: "POST", sdkId: "RTBFabric", sigV4ServiceName: "rtbfabric", name: "RTBFabric.TagResource" }, TagResourceRequest, TagResourceResponse, Schema.Union(ErrorAnnotation("AccessDeniedException", AccessDeniedException), ErrorAnnotation("InternalServerException", InternalServerException), ErrorAnnotation("ResourceNotFoundException", ResourceNotFoundException), ErrorAnnotation("ThrottlingException", ThrottlingException), ErrorAnnotation("ValidationException", ValidationException))), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

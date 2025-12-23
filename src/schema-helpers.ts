@@ -51,13 +51,21 @@ export type ErrorSchema = Schema.Schema.Any & {
   fields: { _tag: Schema.Schema.Any };
 };
 
-export type OperationMeta = {
-  uri: string;
-  method: "GET" | "POST" | "PUT" | "DELETE" | "PATCH" | "HEAD" | "OPTIONS";
-  sdkId: string;
-  sigV4ServiceName: string;
-  name: string;
-};
+export const OperationMeta = Schema.Struct({
+  uri: Schema.String,
+  method: Schema.Union(
+    Schema.Literal("GET"),
+    Schema.Literal("POST"),
+    Schema.Literal("PUT"),
+    Schema.Literal("DELETE"),
+    Schema.Literal("PATCH"),
+    Schema.Literal("HEAD"),
+    Schema.Literal("OPTIONS"),
+  ),
+  sdkId: Schema.String,
+  sigV4ServiceName: Schema.String,
+  name: Schema.String,
+});
 
 export const Operation = <
   Input extends Schema.Schema.AnyNoContext,
@@ -68,7 +76,7 @@ export const Operation = <
     | ErrorSchema
     | typeof Schema.Void,
 >(
-  meta: OperationMeta,
+  meta: Schema.Schema.Type<typeof OperationMeta>,
   inputSchema: Input,
   outputSchema: Output,
   errorSchema: Error,

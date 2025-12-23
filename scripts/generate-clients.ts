@@ -13,6 +13,8 @@ import {
   Option,
   MutableHashMap,
   Deferred,
+  MutableHashSet,
+  HashSet,
 } from "effect";
 import {
   SmithyModel,
@@ -30,6 +32,7 @@ class SdkFile extends Context.Tag("SdkFile")<
       Deferred.Deferred<string, never>
     >;
     contents: Ref.Ref<string>;
+    lineCount: Ref.Ref<number>;
   }
 >() {}
 
@@ -45,21 +48,21 @@ function getSdkFlag(): Option.Option<string> {
 
 //todo(pear): add this to a category
 //todo(pear): add details about the root error to this
-export class ShapeNotFound extends Data.TaggedError("ShapeNotFound")<{
+class ShapeNotFound extends Data.TaggedError("ShapeNotFound")<{
   message: string;
 }> {}
-export class ProtocolNotFound extends Data.TaggedError(
-  "ProtocolNotFound",
-)<{}> {}
+class ProtocolNotFound extends Data.TaggedError("ProtocolNotFound")<{}> {}
 
 //* todo(pear): better error here - most of these need to be handled
-export class UnableToTransformShapeToSchema extends Data.TaggedError(
+class UnableToTransformShapeToSchema extends Data.TaggedError(
   "UnableToTransformShapeToSchema",
 )<{
   message: string;
 }> {}
 
-export class UnableToGenerate extends Data.TaggedError("UnableToGenerate")<{
+class ProtocolNotImplemented extends Data.TaggedError(
+  "ProtocolNotImplemented",
+)<{
   message: string;
 }> {}
 
@@ -145,12 +148,16 @@ const convertShapeToSchema: (
     >,
   ) {
     const tsName = target.split("#")[1]!;
+    yield* Ref.update(sdkFile.lineCount, (n) => n + 1);
+    const lineCount = yield* Ref.get(sdkFile.lineCount);
     yield* Deferred.succeed(deferredValue, tsName);
     const value = yield* type;
-    yield* Ref.update(
-      sdkFile.contents,
-      (c) => c + `const ${tsName} = ${value}\n`,
-    );
+    yield* Ref.update(sdkFile.contents, (c) => {
+      const line = `export const ${tsName} = ${value};`;
+      const lines = c.split("\n");
+      lines.splice(-lineCount, 0, line);
+      return lines.join("\n");
+    });
     return tsName;
   });
 
@@ -166,7 +173,8 @@ const convertShapeToSchema: (
             s === "smithy.api#Integer" ||
             s === "smithy.api#Double" ||
             s === "smithy.api#Long" ||
-            s === "smithy.api#Float",
+            s === "smithy.api#Float" ||
+            s === "smithy.api#PrimitiveLong",
           () => Effect.succeed("Schema.Number"),
         ),
         Match.when(
@@ -373,13 +381,16 @@ const generateClient = Effect.fn(function* (
 ) {
   const fs = yield* FileSystem.FileSystem;
   const path = yield* Path.Path;
+  const clientImports = MutableHashSet.empty<string>();
 
   const model = yield* fs
     .readFileString(modelPath)
     .pipe(Effect.flatMap(Schema.decodeUnknown(Schema.parseJson(SmithyModel))));
 
   const client = Effect.gen(function* () {
-    const [_serviceShapeName, serviceShape] = yield* findServiceShape;
+    const [serviceShapeName, serviceShape] = yield* findServiceShape;
+
+    const serviceName = serviceShapeName.split("#")[1];
 
     const protocol = Object.keys(serviceShape.traits).find((key) =>
       key.startsWith("aws.protocols#"),
@@ -392,26 +403,16 @@ const generateClient = Effect.fn(function* (
     //todo(pear): resource based models don't work, only operation based models get clients right now
 
     const sdkFile = yield* SdkFile;
-    yield* sdkFile.contents.pipe(
-      Ref.update(
-        (c) =>
-          //todo(pear) import should be smarter but whatever for now
-          dedent`
-      import { Schema} from "effect"
-      import { FormatXMLRequest, FormatXMLResponse, makeOperation } from "../client";
-      import { Operation, Path, Header, StreamBody, Body, ErrorAnnotation } from "../schema-helpers";` +
-          "\n" +
-          c,
-      ),
-    );
 
-    const operations = yield* Effect.forEach(
+    yield* Effect.forEach(
       serviceShape.operations ?? [],
       Effect.fn(function* ({ target: operationId }: { target: string }) {
-        const [_id, operationShape] = yield* findShape(
+        const [operationShapeName, operationShape] = yield* findShape(
           operationId,
           "operation",
         );
+
+        const operationName = `${serviceName}.${operationShapeName.split("#")[1]}`;
 
         const input = yield* convertShapeToSchema(
           operationShape.input.target,
@@ -441,27 +442,94 @@ const generateClient = Effect.fn(function* (
                 ),
               );
 
-        const httpTrait = operationShape["traits"]["smithy.api#http"];
+        const httpTrait = operationShape["traits"]["smithy.api#http"] ?? {
+          method: "POST",
+          uri: "/",
+        };
 
-        if (httpTrait == null) {
-          return yield* Effect.fail(
-            new UnableToGenerate({
-              message: `${_id} is missing "smithy.api#http" trait`,
-            }),
-          );
-        }
+        const [responseParser, requestParser, errorParser] = yield* Match.value(
+          protocol,
+        ).pipe(
+          Match.when("aws.protocols#restXml", () =>
+            Effect.succeed([
+              "FormatXMLRequest",
+              "FormatXMLResponse",
+              "FormatAwsXMLError",
+            ]),
+          ),
+          Match.when("aws.protocols#restJson1", () =>
+            Effect.succeed([
+              "FormatJSONRequest",
+              "FormatJSONResponse",
+              "FormatAwsRestJSONError",
+            ]),
+          ),
+          Match.when("aws.protocols#awsJson1_0", () =>
+            Effect.succeed([
+              "FormatAwsJSON10Request",
+              "FormatJSONResponse",
+              "FormatAwsRestJSONError",
+            ]),
+          ),
+          Match.when("aws.protocols#awsJson1_1", () =>
+            Effect.succeed([
+              "FormatAwsJSON11Request",
+              "FormatJSONResponse",
+              "FormatAwsRestJSONError",
+            ]),
+          ),
+          Match.when("aws.protocols#awsQuery", () =>
+            Effect.succeed([
+              "???",
+              "FormatAwsQueryResponse",
+              "FormatAWSXMLError",
+            ]),
+          ),
+          Match.when("aws.protocols#ec2Query", () =>
+            Effect.succeed([
+              "???",
+              "FormatAwsEc2QueryResponse",
+              "FormatAWSXMLError",
+            ]),
+          ),
+          Match.orElse(() =>
+            Effect.fail(
+              new ProtocolNotImplemented({
+                message: `protocol \`${protocol}\` not implemented for  ${serviceShapeName}`,
+              }),
+            ),
+          ),
+        );
+
+        MutableHashSet.add(clientImports, responseParser);
+        MutableHashSet.add(clientImports, requestParser);
+        MutableHashSet.add(clientImports, errorParser);
 
         yield* sdkFile.contents.pipe(
           Ref.update(
             (c) =>
               c +
-              `export const ${formatName(_id)} = /*#__PURE__*/ makeOperation(() => Operation({ uri: "${httpTrait["uri"]}", method: "${httpTrait["method"]}", sdkId: "${serviceShape.traits["aws.api#service"].sdkId}", sigV4ServiceName: ${serviceShape.traits["aws.auth#sigv4"]?.name == null ? "null" : `"${serviceShape.traits["aws.auth#sigv4"]?.name}"`}, name: "${formatName(_id)}" }, ${input}, ${output}, ${errors}), FormatXMLRequest, FormatXMLResponse, FormatXMLResponse);\n`,
+              `export const ${formatName(operationShapeName)} = /*#__PURE__*/ makeOperation(() => Operation({ uri: "${httpTrait["uri"]}", method: "${httpTrait["method"]}", sdkId: "${serviceShape.traits["aws.api#service"].sdkId}", sigV4ServiceName: ${serviceShape.traits["aws.auth#sigv4"]?.name == null ? "null" : `"${serviceShape.traits["aws.auth#sigv4"]?.name}"`}, name: "${operationName}" }, ${input}, ${output}, ${errors}), ${responseParser}, ${requestParser}, ${errorParser});\n`,
           ),
         );
       }),
       {
         concurrency: "unbounded",
       },
+    );
+
+    //todo(pear): optimize imports
+    yield* sdkFile.contents.pipe(
+      Ref.update(
+        (c) =>
+          //todo(pear) import should be smarter but whatever for now
+          dedent`
+      import { Schema} from "effect"
+      import { ${Array.from(clientImports).join(",")}, makeOperation } from "../client";
+      import { Operation, Path, Header, StreamBody, Body, ErrorAnnotation } from "../schema-helpers";` +
+          "\n" +
+          c,
+      ),
     );
 
     yield* fs.writeFileString(
@@ -476,12 +544,11 @@ const generateClient = Effect.fn(function* (
   return yield* client.pipe(
     Effect.provideService(SdkFile, {
       contents: yield* Ref.make(""),
+      lineCount: yield* Ref.make(0),
       map: MutableHashMap.empty<string, Deferred.Deferred<string, never>>(),
     }),
     Effect.provideService(ModelService, model),
   );
-
-  // console.log({ schema, typeDetails, errorTypes });
 });
 
 const AWS_MODELS_PATH = "D:/code/OSS/aws/api-models-aws";
@@ -501,7 +568,7 @@ BunRuntime.runMain(
 
     const sdkFlag = Option.getOrNull(getSdkFlag());
 
-    const results = yield* Effect.forEach(
+    yield* Effect.forEach(
       folders.filter((service) => sdkFlag == null || sdkFlag === service),
       (service) =>
         Effect.gen(function* () {
@@ -513,29 +580,6 @@ BunRuntime.runMain(
             folder,
             `${service}-${folder}.json`,
           );
-          // if (service === "appsync" ||
-          //     service === "bcm-dashboards" ||
-          //     service === "budgets" ||
-          //     service === "connect" ||
-          //     service === "cost-explorer" ||
-          //     service === "deadline" ||
-          //     service === "dynamodb" ||
-          //     service === "emr" ||
-          //     service === "emr-containers" ||
-          //     service === "iotsitewise" ||
-          //     service === "keyspacesstreams" ||
-          //     service === "lex-models-v2" ||
-          //     service === "lex-runtime-v2" ||
-          //     service === "organizations" ||
-          //     service === "quicksight" ||
-          //     service === "rds-data"
-          // ) {
-          //   return yield* Effect.fail(
-          //     new UnableToGenerate({
-          //       message: "ignored because it takes too long (and maybe OOMs)",
-          //     }),
-          //   );
-          // }
           yield* generateClient(modelPath, RESULT_ROOT_PATH);
         }).pipe(
           Effect.andThen(() => Console.log(`✅ SUCCEEDED SERVICE: ${service}`)),
@@ -547,7 +591,6 @@ BunRuntime.runMain(
           ),
         ),
     );
-    // console.log(folders);
   }).pipe(
     Logger.withMinimumLogLevel(LogLevel.Error),
     Effect.provide(BunContext.layer),
