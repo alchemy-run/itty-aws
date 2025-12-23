@@ -1,6 +1,6 @@
 {
   "name": "itty-aws",
-  "version": "0.8.14",
+  "version": "0.8.15",
   "files": [
     "src",
     "dist"

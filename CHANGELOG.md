@@ -1,3 +1,13 @@
+## v0.8.15
+
+### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
+
+- **s3**: Add OperationAborted to CreateBucket &nbsp;-&nbsp; by **Sam Goodwin** [<samp>(60485)</samp>](https://github.com/sam-goodwin/itty-aws/commit/60485156)
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sam-goodwin/itty-aws/compare/v0.8.14...v0.8.15)
+
+---
+
 ## v0.8.14
 
 *No significant changes*
