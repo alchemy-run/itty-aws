@@ -1945,6 +1945,7 @@ export const servicePatches: Record<string, ServicePatches> = {
         "IllegalLocationConstraintException",
         "InvalidBucketName",
         "TooManyBuckets",
+        "OperationAborted",
       ],
     },
     DeleteBucket: {

@@ -43,6 +43,7 @@ export declare class S3 extends AWSServiceClient {
     | IllegalLocationConstraintException
     | InvalidBucketName
     | TooManyBuckets
+    | OperationAborted
     | CommonAwsError
   >;
   createBucketMetadataConfiguration(
@@ -3539,6 +3540,10 @@ export declare class TooManyBuckets extends EffectData.TaggedError(
   "TooManyBuckets",
 )<{}> {}
 
+export declare class OperationAborted extends EffectData.TaggedError(
+  "OperationAborted",
+)<{}> {}
+
 export declare class BucketNotEmpty extends EffectData.TaggedError(
   "BucketNotEmpty",
 )<{}> {}
@@ -3615,10 +3620,6 @@ export declare class ObjectLockConfigurationNotFoundError extends EffectData.Tag
   "ObjectLockConfigurationNotFoundError",
 )<{}> {}
 
-export declare class OperationAborted extends EffectData.TaggedError(
-  "OperationAborted",
-)<{}> {}
-
 export declare class MalformedPolicy extends EffectData.TaggedError(
   "MalformedPolicy",
 )<{}> {}
@@ -3671,6 +3672,7 @@ export declare namespace CreateBucket {
     | IllegalLocationConstraintException
     | InvalidBucketName
     | TooManyBuckets
+    | OperationAborted
     | CommonAwsError;
 }
 
@@ -4547,6 +4549,7 @@ export type S3Errors =
   | IllegalLocationConstraintException
   | InvalidBucketName
   | TooManyBuckets
+  | OperationAborted
   | BucketNotEmpty
   | NoSuchConfiguration
   | NoSuchCORSConfiguration
@@ -4566,7 +4569,6 @@ export type S3Errors =
   | NotImplemented
   | ObjectLockConfigurationNotFound
   | ObjectLockConfigurationNotFoundError
-  | OperationAborted
   | MalformedPolicy
   | EntityTooLarge
   | CommonAwsError;
