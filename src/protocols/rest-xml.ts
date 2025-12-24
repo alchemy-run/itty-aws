@@ -1,12 +1,11 @@
-import * as FastCheck from "effect/FastCheck";
+import * as Stream from "effect/Stream";
+import { XMLBuilder, XMLParser } from "fast-xml-parser";
 import type { ServiceMetadata } from "../client.ts";
 import type {
   ParsedError,
   ProtocolHandler,
   ProtocolRequest,
 } from "./interface.ts";
-import { XMLBuilder, XMLParser } from "fast-xml-parser";
-import * as Stream from "effect/Stream";
 
 type Writeable<T> = { -readonly [P in keyof T]: T[P] };
 
@@ -31,17 +30,23 @@ export class RestXmlHandler implements ProtocolHandler {
       string,
     ];
 
+    const hasBody = method !== "GET" && method !== "HEAD";
+
     const request: Writeable<ProtocolRequest> = {
       path: urlTemplate,
       method,
       headers: {
-        "Content-Type":
-          operationMeta?.inputTraits?.Body === "httpStreaming"
-            ? "application/octet-stream"
-            : this.contentType,
         "User-Agent": "itty-aws",
       },
     };
+
+    // Only set Content-Type for methods that have a body
+    if (hasBody) {
+      request.headers["Content-Type"] =
+        operationMeta?.inputTraits?.Body === "httpStreaming"
+          ? "application/octet-stream"
+          : this.contentType;
+    }
 
     let body: Record<string, unknown> = {};
     let streamingBody = false;
@@ -63,7 +68,8 @@ export class RestXmlHandler implements ProtocolHandler {
       }
     }
 
-    if (!streamingBody) {
+    // Only set body for methods that support it
+    if (!streamingBody && hasBody) {
       request.body = builder.build(body);
     }
 
