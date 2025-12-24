@@ -44,6 +44,9 @@ const metadata = {
       outputTraits: {
         RequestCharged: "x-amz-request-charged",
       },
+      errorStatusCodes: {
+        404: "NoSuchUpload",
+      },
     },
     CompleteMultipartUpload: {
       http: "POST /{Bucket}/{Key+}",
@@ -133,6 +136,9 @@ const metadata = {
         BucketKeyEnabled: "x-amz-server-side-encryption-bucket-key-enabled",
         RequestCharged: "x-amz-request-charged",
       },
+      errorStatusCodes: {
+        403: "ObjectNotInActiveTierError",
+      },
     },
     CreateBucket: {
       http: "PUT /{Bucket}",
@@ -150,6 +156,9 @@ const metadata = {
       outputTraits: {
         Location: "Location",
         BucketArn: "x-amz-bucket-arn",
+      },
+      errorStatusCodes: {
+        409: "BucketAlreadyOwnedByYou",
       },
     },
     CreateBucketMetadataConfiguration: {
@@ -230,6 +239,9 @@ const metadata = {
         SSEKMSKeyId: "x-amz-server-side-encryption-aws-kms-key-id",
         SSEKMSEncryptionContext: "x-amz-server-side-encryption-context",
         BucketKeyEnabled: "x-amz-server-side-encryption-bucket-key-enabled",
+      },
+      errorStatusCodes: {
+        404: "NoSuchBucket",
       },
     },
     DeleteBucket: {
@@ -595,6 +607,10 @@ const metadata = {
         ObjectLockRetainUntilDate: "x-amz-object-lock-retain-until-date",
         ObjectLockLegalHoldStatus: "x-amz-object-lock-legal-hold",
       },
+      errorStatusCodes: {
+        403: "InvalidObjectState",
+        404: "NoSuchKey",
+      },
     },
     GetObjectAcl: {
       http: "GET /{Bucket}/{Key+}?acl",
@@ -604,6 +620,9 @@ const metadata = {
       },
       outputTraits: {
         RequestCharged: "x-amz-request-charged",
+      },
+      errorStatusCodes: {
+        404: "NoSuchKey",
       },
     },
     GetObjectAttributes: {
@@ -623,6 +642,9 @@ const metadata = {
         LastModified: "Last-Modified",
         VersionId: "x-amz-version-id",
         RequestCharged: "x-amz-request-charged",
+      },
+      errorStatusCodes: {
+        404: "NoSuchKey",
       },
     },
     GetObjectLegalHold: {
@@ -802,6 +824,9 @@ const metadata = {
       outputTraits: {
         RequestCharged: "x-amz-request-charged",
       },
+      errorStatusCodes: {
+        404: "NoSuchBucket",
+      },
     },
     ListObjectsV2: {
       http: "GET /{Bucket}?list-type=2",
@@ -812,6 +837,9 @@ const metadata = {
       },
       outputTraits: {
         RequestCharged: "x-amz-request-charged",
+      },
+      errorStatusCodes: {
+        404: "NoSuchBucket",
       },
     },
     ListObjectVersions: {
@@ -1068,6 +1096,9 @@ const metadata = {
         Size: "x-amz-object-size",
         RequestCharged: "x-amz-request-charged",
       },
+      errorStatusCodes: {
+        400: "TooManyParts",
+      },
     },
     PutObjectAcl: {
       http: "PUT /{Bucket}/{Key+}?acl",
@@ -1086,6 +1117,9 @@ const metadata = {
       },
       outputTraits: {
         RequestCharged: "x-amz-request-charged",
+      },
+      errorStatusCodes: {
+        404: "NoSuchKey",
       },
     },
     PutObjectLegalHold: {
@@ -1165,6 +1199,9 @@ const metadata = {
         SourceIfUnmodifiedSince: "x-amz-rename-source-if-unmodified-since",
         ClientToken: "x-amz-client-token",
       },
+      errorStatusCodes: {
+        400: "IdempotencyParameterMismatch",
+      },
     },
     RestoreObject: {
       http: "POST /{Bucket}/{Key+}?restore",
@@ -1177,6 +1214,9 @@ const metadata = {
       outputTraits: {
         RequestCharged: "x-amz-request-charged",
         RestoreOutputPath: "x-amz-restore-output-path",
+      },
+      errorStatusCodes: {
+        403: "ObjectAlreadyInActiveTierError",
       },
     },
     SelectObjectContent: {

@@ -36,6 +36,11 @@ const metadata = {
   operations: {
     AssociateAlias: {
       http: "PUT /2020-05-31/distribution/{TargetDistributionId}/associate-alias",
+      errorStatusCodes: {
+        400: "TooManyDistributionCNAMEs",
+        403: "AccessDenied",
+        404: "NoSuchDistribution",
+      },
     },
     AssociateDistributionTenantWebACL: {
       http: "PUT /2020-05-31/distribution-tenant/{Id}/associate-web-acl",
@@ -45,6 +50,12 @@ const metadata = {
       outputTraits: {
         ETag: "ETag",
       },
+      errorStatusCodes: {
+        400: "InvalidIfMatchVersion",
+        403: "AccessDenied",
+        404: "EntityNotFound",
+        412: "PreconditionFailed",
+      },
     },
     AssociateDistributionWebACL: {
       http: "PUT /2020-05-31/distribution/{Id}/associate-web-acl",
@@ -53,6 +64,12 @@ const metadata = {
       },
       outputTraits: {
         ETag: "ETag",
+      },
+      errorStatusCodes: {
+        400: "InvalidIfMatchVersion",
+        403: "AccessDenied",
+        404: "EntityNotFound",
+        412: "PreconditionFailed",
       },
     },
     CopyDistribution: {
@@ -66,12 +83,25 @@ const metadata = {
         Location: "Location",
         ETag: "ETag",
       },
+      errorStatusCodes: {
+        400: "TrustedSignerDoesNotExist",
+        401: "RealtimeLogConfigOwnerMismatch",
+        403: "AccessDenied",
+        404: "NoSuchResponseHeadersPolicy",
+        409: "DistributionAlreadyExists",
+        412: "PreconditionFailed",
+      },
     },
     CreateAnycastIpList: {
       http: "POST /2020-05-31/anycast-ip-list",
       outputTraits: {
         AnycastIpList: "httpPayload",
         ETag: "ETag",
+      },
+      errorStatusCodes: {
+        400: "UnsupportedOperation",
+        403: "AccessDenied",
+        409: "EntityAlreadyExists",
       },
     },
     CreateCachePolicy: {
@@ -84,6 +114,11 @@ const metadata = {
         Location: "Location",
         ETag: "ETag",
       },
+      errorStatusCodes: {
+        400: "TooManyQueryStringsInCachePolicy",
+        403: "AccessDenied",
+        409: "CachePolicyAlreadyExists",
+      },
     },
     CreateCloudFrontOriginAccessIdentity: {
       http: "POST /2020-05-31/origin-access-identity/cloudfront",
@@ -95,12 +130,22 @@ const metadata = {
         Location: "Location",
         ETag: "ETag",
       },
+      errorStatusCodes: {
+        400: "TooManyCloudFrontOriginAccessIdentities",
+        409: "CloudFrontOriginAccessIdentityAlreadyExists",
+      },
     },
     CreateConnectionGroup: {
       http: "POST /2020-05-31/connection-group",
       outputTraits: {
         ConnectionGroup: "httpPayload",
         ETag: "ETag",
+      },
+      errorStatusCodes: {
+        400: "InvalidTagging",
+        403: "AccessDenied",
+        404: "EntityNotFound",
+        409: "EntityAlreadyExists",
       },
     },
     CreateContinuousDeploymentPolicy: {
@@ -113,6 +158,11 @@ const metadata = {
         Location: "Location",
         ETag: "ETag",
       },
+      errorStatusCodes: {
+        400: "TooManyContinuousDeploymentPolicies",
+        403: "AccessDenied",
+        409: "StagingDistributionInUse",
+      },
     },
     CreateDistribution: {
       http: "POST /2020-05-31/distribution",
@@ -124,12 +174,25 @@ const metadata = {
         Location: "Location",
         ETag: "ETag",
       },
+      errorStatusCodes: {
+        400: "TrustedSignerDoesNotExist",
+        401: "RealtimeLogConfigOwnerMismatch",
+        403: "AccessDenied",
+        404: "NoSuchResponseHeadersPolicy",
+        409: "DistributionAlreadyExists",
+      },
     },
     CreateDistributionTenant: {
       http: "POST /2020-05-31/distribution-tenant",
       outputTraits: {
         DistributionTenant: "httpPayload",
         ETag: "ETag",
+      },
+      errorStatusCodes: {
+        400: "InvalidTagging",
+        403: "AccessDenied",
+        404: "EntityNotFound",
+        409: "InvalidAssociation",
       },
     },
     CreateDistributionWithTags: {
@@ -142,6 +205,13 @@ const metadata = {
         Location: "Location",
         ETag: "ETag",
       },
+      errorStatusCodes: {
+        400: "TrustedSignerDoesNotExist",
+        401: "RealtimeLogConfigOwnerMismatch",
+        403: "AccessDenied",
+        404: "NoSuchResponseHeadersPolicy",
+        409: "DistributionAlreadyExists",
+      },
     },
     CreateFieldLevelEncryptionConfig: {
       http: "POST /2020-05-31/field-level-encryption",
@@ -152,6 +222,11 @@ const metadata = {
         FieldLevelEncryption: "httpPayload",
         Location: "Location",
         ETag: "ETag",
+      },
+      errorStatusCodes: {
+        400: "TooManyFieldLevelEncryptionQueryArgProfiles",
+        404: "NoSuchFieldLevelEncryptionProfile",
+        409: "FieldLevelEncryptionConfigAlreadyExists",
       },
     },
     CreateFieldLevelEncryptionProfile: {
@@ -164,6 +239,11 @@ const metadata = {
         Location: "Location",
         ETag: "ETag",
       },
+      errorStatusCodes: {
+        400: "TooManyFieldLevelEncryptionProfiles",
+        404: "NoSuchPublicKey",
+        409: "FieldLevelEncryptionProfileAlreadyExists",
+      },
     },
     CreateFunction: {
       http: "POST /2020-05-31/function",
@@ -171,6 +251,11 @@ const metadata = {
         FunctionSummary: "httpPayload",
         Location: "Location",
         ETag: "ETag",
+      },
+      errorStatusCodes: {
+        400: "UnsupportedOperation",
+        409: "FunctionAlreadyExists",
+        413: "FunctionSizeLimitExceeded",
       },
     },
     CreateInvalidation: {
@@ -182,6 +267,12 @@ const metadata = {
         Location: "Location",
         Invalidation: "httpPayload",
       },
+      errorStatusCodes: {
+        400: "TooManyInvalidationsInProgress",
+        403: "AccessDenied",
+        404: "NoSuchDistribution",
+        413: "BatchTooLarge",
+      },
     },
     CreateInvalidationForDistributionTenant: {
       http: "POST /2020-05-31/distribution-tenant/{Id}/invalidation",
@@ -191,6 +282,12 @@ const metadata = {
       outputTraits: {
         Location: "Location",
         Invalidation: "httpPayload",
+      },
+      errorStatusCodes: {
+        400: "TooManyInvalidationsInProgress",
+        403: "AccessDenied",
+        404: "EntityNotFound",
+        413: "BatchTooLarge",
       },
     },
     CreateKeyGroup: {
@@ -203,6 +300,10 @@ const metadata = {
         Location: "Location",
         ETag: "ETag",
       },
+      errorStatusCodes: {
+        400: "TooManyPublicKeysInKeyGroup",
+        409: "KeyGroupAlreadyExists",
+      },
     },
     CreateKeyValueStore: {
       http: "POST /2020-05-31/key-value-store",
@@ -210,6 +311,12 @@ const metadata = {
         KeyValueStore: "httpPayload",
         ETag: "ETag",
         Location: "Location",
+      },
+      errorStatusCodes: {
+        400: "UnsupportedOperation",
+        403: "AccessDenied",
+        409: "EntityAlreadyExists",
+        413: "EntitySizeLimitExceeded",
       },
     },
     CreateMonitoringSubscription: {
@@ -219,6 +326,12 @@ const metadata = {
       },
       outputTraits: {
         MonitoringSubscription: "httpPayload",
+      },
+      errorStatusCodes: {
+        400: "UnsupportedOperation",
+        403: "AccessDenied",
+        404: "NoSuchDistribution",
+        409: "MonitoringSubscriptionAlreadyExists",
       },
     },
     CreateOriginAccessControl: {
@@ -231,6 +344,10 @@ const metadata = {
         Location: "Location",
         ETag: "ETag",
       },
+      errorStatusCodes: {
+        400: "TooManyOriginAccessControls",
+        409: "OriginAccessControlAlreadyExists",
+      },
     },
     CreateOriginRequestPolicy: {
       http: "POST /2020-05-31/origin-request-policy",
@@ -241,6 +358,11 @@ const metadata = {
         OriginRequestPolicy: "httpPayload",
         Location: "Location",
         ETag: "ETag",
+      },
+      errorStatusCodes: {
+        400: "TooManyQueryStringsInOriginRequestPolicy",
+        403: "AccessDenied",
+        409: "OriginRequestPolicyAlreadyExists",
       },
     },
     CreatePublicKey: {
@@ -253,9 +375,18 @@ const metadata = {
         Location: "Location",
         ETag: "ETag",
       },
+      errorStatusCodes: {
+        400: "TooManyPublicKeys",
+        409: "PublicKeyAlreadyExists",
+      },
     },
     CreateRealtimeLogConfig: {
       http: "POST /2020-05-31/realtime-log-config",
+      errorStatusCodes: {
+        400: "TooManyRealtimeLogConfigs",
+        403: "AccessDenied",
+        409: "RealtimeLogConfigAlreadyExists",
+      },
     },
     CreateResponseHeadersPolicy: {
       http: "POST /2020-05-31/response-headers-policy",
@@ -266,6 +397,11 @@ const metadata = {
         ResponseHeadersPolicy: "httpPayload",
         Location: "Location",
         ETag: "ETag",
+      },
+      errorStatusCodes: {
+        400: "TooManyResponseHeadersPolicies",
+        403: "AccessDenied",
+        409: "ResponseHeadersPolicyAlreadyExists",
       },
     },
     CreateStreamingDistribution: {
@@ -278,6 +414,11 @@ const metadata = {
         Location: "Location",
         ETag: "ETag",
       },
+      errorStatusCodes: {
+        400: "TrustedSignerDoesNotExist",
+        403: "AccessDenied",
+        409: "StreamingDistributionAlreadyExists",
+      },
     },
     CreateStreamingDistributionWithTags: {
       http: "POST /2020-05-31/streaming-distribution?WithTags",
@@ -289,6 +430,11 @@ const metadata = {
         Location: "Location",
         ETag: "ETag",
       },
+      errorStatusCodes: {
+        400: "TrustedSignerDoesNotExist",
+        403: "AccessDenied",
+        409: "StreamingDistributionAlreadyExists",
+      },
     },
     CreateVpcOrigin: {
       http: "POST /2020-05-31/vpc-origin",
@@ -297,11 +443,23 @@ const metadata = {
         Location: "Location",
         ETag: "ETag",
       },
+      errorStatusCodes: {
+        400: "UnsupportedOperation",
+        403: "AccessDenied",
+        409: "EntityAlreadyExists",
+      },
     },
     DeleteAnycastIpList: {
       http: "DELETE /2020-05-31/anycast-ip-list/{Id}",
       inputTraits: {
         IfMatch: "If-Match",
+      },
+      errorStatusCodes: {
+        400: "UnsupportedOperation",
+        403: "AccessDenied",
+        404: "EntityNotFound",
+        409: "CannotDeleteEntityWhileInUse",
+        412: "PreconditionFailed",
       },
     },
     DeleteCachePolicy: {
@@ -309,11 +467,25 @@ const metadata = {
       inputTraits: {
         IfMatch: "If-Match",
       },
+      errorStatusCodes: {
+        400: "InvalidIfMatchVersion",
+        403: "AccessDenied",
+        404: "NoSuchCachePolicy",
+        409: "CachePolicyInUse",
+        412: "PreconditionFailed",
+      },
     },
     DeleteCloudFrontOriginAccessIdentity: {
       http: "DELETE /2020-05-31/origin-access-identity/cloudfront/{Id}",
       inputTraits: {
         IfMatch: "If-Match",
+      },
+      errorStatusCodes: {
+        400: "InvalidIfMatchVersion",
+        403: "AccessDenied",
+        404: "NoSuchCloudFrontOriginAccessIdentity",
+        409: "CloudFrontOriginAccessIdentityInUse",
+        412: "PreconditionFailed",
       },
     },
     DeleteConnectionGroup: {
@@ -321,11 +493,25 @@ const metadata = {
       inputTraits: {
         IfMatch: "If-Match",
       },
+      errorStatusCodes: {
+        400: "InvalidIfMatchVersion",
+        403: "AccessDenied",
+        404: "EntityNotFound",
+        409: "ResourceNotDisabled",
+        412: "PreconditionFailed",
+      },
     },
     DeleteContinuousDeploymentPolicy: {
       http: "DELETE /2020-05-31/continuous-deployment-policy/{Id}",
       inputTraits: {
         IfMatch: "If-Match",
+      },
+      errorStatusCodes: {
+        400: "InvalidIfMatchVersion",
+        403: "AccessDenied",
+        404: "NoSuchContinuousDeploymentPolicy",
+        409: "ContinuousDeploymentPolicyInUse",
+        412: "PreconditionFailed",
       },
     },
     DeleteDistribution: {
@@ -333,11 +519,25 @@ const metadata = {
       inputTraits: {
         IfMatch: "If-Match",
       },
+      errorStatusCodes: {
+        400: "InvalidIfMatchVersion",
+        403: "AccessDenied",
+        404: "NoSuchDistribution",
+        409: "ResourceInUse",
+        412: "PreconditionFailed",
+      },
     },
     DeleteDistributionTenant: {
       http: "DELETE /2020-05-31/distribution-tenant/{Id}",
       inputTraits: {
         IfMatch: "If-Match",
+      },
+      errorStatusCodes: {
+        400: "InvalidIfMatchVersion",
+        403: "AccessDenied",
+        404: "EntityNotFound",
+        409: "ResourceNotDisabled",
+        412: "PreconditionFailed",
       },
     },
     DeleteFieldLevelEncryptionConfig: {
@@ -345,11 +545,25 @@ const metadata = {
       inputTraits: {
         IfMatch: "If-Match",
       },
+      errorStatusCodes: {
+        400: "InvalidIfMatchVersion",
+        403: "AccessDenied",
+        404: "NoSuchFieldLevelEncryptionConfig",
+        409: "FieldLevelEncryptionConfigInUse",
+        412: "PreconditionFailed",
+      },
     },
     DeleteFieldLevelEncryptionProfile: {
       http: "DELETE /2020-05-31/field-level-encryption-profile/{Id}",
       inputTraits: {
         IfMatch: "If-Match",
+      },
+      errorStatusCodes: {
+        400: "InvalidIfMatchVersion",
+        403: "AccessDenied",
+        404: "NoSuchFieldLevelEncryptionProfile",
+        409: "FieldLevelEncryptionProfileInUse",
+        412: "PreconditionFailed",
       },
     },
     DeleteFunction: {
@@ -357,11 +571,23 @@ const metadata = {
       inputTraits: {
         IfMatch: "If-Match",
       },
+      errorStatusCodes: {
+        400: "UnsupportedOperation",
+        404: "NoSuchFunctionExists",
+        409: "FunctionInUse",
+        412: "PreconditionFailed",
+      },
     },
     DeleteKeyGroup: {
       http: "DELETE /2020-05-31/key-group/{Id}",
       inputTraits: {
         IfMatch: "If-Match",
+      },
+      errorStatusCodes: {
+        400: "InvalidIfMatchVersion",
+        404: "NoSuchResource",
+        409: "ResourceInUse",
+        412: "PreconditionFailed",
       },
     },
     DeleteKeyValueStore: {
@@ -369,14 +595,33 @@ const metadata = {
       inputTraits: {
         IfMatch: "If-Match",
       },
+      errorStatusCodes: {
+        400: "UnsupportedOperation",
+        403: "AccessDenied",
+        404: "EntityNotFound",
+        409: "CannotDeleteEntityWhileInUse",
+        412: "PreconditionFailed",
+      },
     },
     DeleteMonitoringSubscription: {
       http: "DELETE /2020-05-31/distributions/{DistributionId}/monitoring-subscription",
+      errorStatusCodes: {
+        400: "UnsupportedOperation",
+        403: "AccessDenied",
+        404: "NoSuchMonitoringSubscription",
+      },
     },
     DeleteOriginAccessControl: {
       http: "DELETE /2020-05-31/origin-access-control/{Id}",
       inputTraits: {
         IfMatch: "If-Match",
+      },
+      errorStatusCodes: {
+        400: "InvalidIfMatchVersion",
+        403: "AccessDenied",
+        404: "NoSuchOriginAccessControl",
+        409: "OriginAccessControlInUse",
+        412: "PreconditionFailed",
       },
     },
     DeleteOriginRequestPolicy: {
@@ -384,29 +629,68 @@ const metadata = {
       inputTraits: {
         IfMatch: "If-Match",
       },
+      errorStatusCodes: {
+        400: "InvalidIfMatchVersion",
+        403: "AccessDenied",
+        404: "NoSuchOriginRequestPolicy",
+        409: "OriginRequestPolicyInUse",
+        412: "PreconditionFailed",
+      },
     },
     DeletePublicKey: {
       http: "DELETE /2020-05-31/public-key/{Id}",
       inputTraits: {
         IfMatch: "If-Match",
       },
+      errorStatusCodes: {
+        400: "InvalidIfMatchVersion",
+        403: "AccessDenied",
+        404: "NoSuchPublicKey",
+        409: "PublicKeyInUse",
+        412: "PreconditionFailed",
+      },
     },
     DeleteRealtimeLogConfig: {
       http: "POST /2020-05-31/delete-realtime-log-config",
+      errorStatusCodes: {
+        400: "RealtimeLogConfigInUse",
+        403: "AccessDenied",
+        404: "NoSuchRealtimeLogConfig",
+      },
     },
     DeleteResourcePolicy: {
       http: "POST /2020-05-31/delete-resource-policy",
+      errorStatusCodes: {
+        400: "UnsupportedOperation",
+        403: "AccessDenied",
+        404: "EntityNotFound",
+        412: "PreconditionFailed",
+      },
     },
     DeleteResponseHeadersPolicy: {
       http: "DELETE /2020-05-31/response-headers-policy/{Id}",
       inputTraits: {
         IfMatch: "If-Match",
       },
+      errorStatusCodes: {
+        400: "InvalidIfMatchVersion",
+        403: "AccessDenied",
+        404: "NoSuchResponseHeadersPolicy",
+        409: "ResponseHeadersPolicyInUse",
+        412: "PreconditionFailed",
+      },
     },
     DeleteStreamingDistribution: {
       http: "DELETE /2020-05-31/streaming-distribution/{Id}",
       inputTraits: {
         IfMatch: "If-Match",
+      },
+      errorStatusCodes: {
+        400: "InvalidIfMatchVersion",
+        403: "AccessDenied",
+        404: "NoSuchStreamingDistribution",
+        409: "StreamingDistributionNotDisabled",
+        412: "PreconditionFailed",
       },
     },
     DeleteVpcOrigin: {
@@ -418,6 +702,13 @@ const metadata = {
         VpcOrigin: "httpPayload",
         ETag: "ETag",
       },
+      errorStatusCodes: {
+        400: "UnsupportedOperation",
+        403: "AccessDenied",
+        404: "EntityNotFound",
+        409: "CannotDeleteEntityWhileInUse",
+        412: "PreconditionFailed",
+      },
     },
     DescribeFunction: {
       http: "GET /2020-05-31/function/{Name}/describe",
@@ -425,12 +716,21 @@ const metadata = {
         FunctionSummary: "httpPayload",
         ETag: "ETag",
       },
+      errorStatusCodes: {
+        400: "UnsupportedOperation",
+        404: "NoSuchFunctionExists",
+      },
     },
     DescribeKeyValueStore: {
       http: "GET /2020-05-31/key-value-store/{Name}",
       outputTraits: {
         KeyValueStore: "httpPayload",
         ETag: "ETag",
+      },
+      errorStatusCodes: {
+        400: "UnsupportedOperation",
+        403: "AccessDenied",
+        404: "EntityNotFound",
       },
     },
     DisassociateDistributionTenantWebACL: {
@@ -441,6 +741,12 @@ const metadata = {
       outputTraits: {
         ETag: "ETag",
       },
+      errorStatusCodes: {
+        400: "InvalidIfMatchVersion",
+        403: "AccessDenied",
+        404: "EntityNotFound",
+        412: "PreconditionFailed",
+      },
     },
     DisassociateDistributionWebACL: {
       http: "PUT /2020-05-31/distribution/{Id}/disassociate-web-acl",
@@ -450,12 +756,23 @@ const metadata = {
       outputTraits: {
         ETag: "ETag",
       },
+      errorStatusCodes: {
+        400: "InvalidIfMatchVersion",
+        403: "AccessDenied",
+        404: "EntityNotFound",
+        412: "PreconditionFailed",
+      },
     },
     GetAnycastIpList: {
       http: "GET /2020-05-31/anycast-ip-list/{Id}",
       outputTraits: {
         AnycastIpList: "httpPayload",
         ETag: "ETag",
+      },
+      errorStatusCodes: {
+        400: "UnsupportedOperation",
+        403: "AccessDenied",
+        404: "EntityNotFound",
       },
     },
     GetCachePolicy: {
@@ -464,12 +781,20 @@ const metadata = {
         CachePolicy: "httpPayload",
         ETag: "ETag",
       },
+      errorStatusCodes: {
+        403: "AccessDenied",
+        404: "NoSuchCachePolicy",
+      },
     },
     GetCachePolicyConfig: {
       http: "GET /2020-05-31/cache-policy/{Id}/config",
       outputTraits: {
         CachePolicyConfig: "httpPayload",
         ETag: "ETag",
+      },
+      errorStatusCodes: {
+        403: "AccessDenied",
+        404: "NoSuchCachePolicy",
       },
     },
     GetCloudFrontOriginAccessIdentity: {
@@ -478,12 +803,20 @@ const metadata = {
         CloudFrontOriginAccessIdentity: "httpPayload",
         ETag: "ETag",
       },
+      errorStatusCodes: {
+        403: "AccessDenied",
+        404: "NoSuchCloudFrontOriginAccessIdentity",
+      },
     },
     GetCloudFrontOriginAccessIdentityConfig: {
       http: "GET /2020-05-31/origin-access-identity/cloudfront/{Id}/config",
       outputTraits: {
         CloudFrontOriginAccessIdentityConfig: "httpPayload",
         ETag: "ETag",
+      },
+      errorStatusCodes: {
+        403: "AccessDenied",
+        404: "NoSuchCloudFrontOriginAccessIdentity",
       },
     },
     GetConnectionGroup: {
@@ -492,12 +825,20 @@ const metadata = {
         ConnectionGroup: "httpPayload",
         ETag: "ETag",
       },
+      errorStatusCodes: {
+        403: "AccessDenied",
+        404: "EntityNotFound",
+      },
     },
     GetConnectionGroupByRoutingEndpoint: {
       http: "GET /2020-05-31/connection-group",
       outputTraits: {
         ConnectionGroup: "httpPayload",
         ETag: "ETag",
+      },
+      errorStatusCodes: {
+        403: "AccessDenied",
+        404: "EntityNotFound",
       },
     },
     GetContinuousDeploymentPolicy: {
@@ -506,12 +847,20 @@ const metadata = {
         ContinuousDeploymentPolicy: "httpPayload",
         ETag: "ETag",
       },
+      errorStatusCodes: {
+        403: "AccessDenied",
+        404: "NoSuchContinuousDeploymentPolicy",
+      },
     },
     GetContinuousDeploymentPolicyConfig: {
       http: "GET /2020-05-31/continuous-deployment-policy/{Id}/config",
       outputTraits: {
         ContinuousDeploymentPolicyConfig: "httpPayload",
         ETag: "ETag",
+      },
+      errorStatusCodes: {
+        403: "AccessDenied",
+        404: "NoSuchContinuousDeploymentPolicy",
       },
     },
     GetDistribution: {
@@ -520,12 +869,20 @@ const metadata = {
         Distribution: "httpPayload",
         ETag: "ETag",
       },
+      errorStatusCodes: {
+        403: "AccessDenied",
+        404: "NoSuchDistribution",
+      },
     },
     GetDistributionConfig: {
       http: "GET /2020-05-31/distribution/{Id}/config",
       outputTraits: {
         DistributionConfig: "httpPayload",
         ETag: "ETag",
+      },
+      errorStatusCodes: {
+        403: "AccessDenied",
+        404: "NoSuchDistribution",
       },
     },
     GetDistributionTenant: {
@@ -534,12 +891,20 @@ const metadata = {
         DistributionTenant: "httpPayload",
         ETag: "ETag",
       },
+      errorStatusCodes: {
+        403: "AccessDenied",
+        404: "EntityNotFound",
+      },
     },
     GetDistributionTenantByDomain: {
       http: "GET /2020-05-31/distribution-tenant",
       outputTraits: {
         DistributionTenant: "httpPayload",
         ETag: "ETag",
+      },
+      errorStatusCodes: {
+        403: "AccessDenied",
+        404: "EntityNotFound",
       },
     },
     GetFieldLevelEncryption: {
@@ -548,12 +913,20 @@ const metadata = {
         FieldLevelEncryption: "httpPayload",
         ETag: "ETag",
       },
+      errorStatusCodes: {
+        403: "AccessDenied",
+        404: "NoSuchFieldLevelEncryptionConfig",
+      },
     },
     GetFieldLevelEncryptionConfig: {
       http: "GET /2020-05-31/field-level-encryption/{Id}/config",
       outputTraits: {
         FieldLevelEncryptionConfig: "httpPayload",
         ETag: "ETag",
+      },
+      errorStatusCodes: {
+        403: "AccessDenied",
+        404: "NoSuchFieldLevelEncryptionConfig",
       },
     },
     GetFieldLevelEncryptionProfile: {
@@ -562,12 +935,20 @@ const metadata = {
         FieldLevelEncryptionProfile: "httpPayload",
         ETag: "ETag",
       },
+      errorStatusCodes: {
+        403: "AccessDenied",
+        404: "NoSuchFieldLevelEncryptionProfile",
+      },
     },
     GetFieldLevelEncryptionProfileConfig: {
       http: "GET /2020-05-31/field-level-encryption-profile/{Id}/config",
       outputTraits: {
         FieldLevelEncryptionProfileConfig: "httpPayload",
         ETag: "ETag",
+      },
+      errorStatusCodes: {
+        403: "AccessDenied",
+        404: "NoSuchFieldLevelEncryptionProfile",
       },
     },
     GetFunction: {
@@ -577,17 +958,29 @@ const metadata = {
         ETag: "ETag",
         ContentType: "Content-Type",
       },
+      errorStatusCodes: {
+        400: "UnsupportedOperation",
+        404: "NoSuchFunctionExists",
+      },
     },
     GetInvalidation: {
       http: "GET /2020-05-31/distribution/{DistributionId}/invalidation/{Id}",
       outputTraits: {
         Invalidation: "httpPayload",
       },
+      errorStatusCodes: {
+        403: "AccessDenied",
+        404: "NoSuchInvalidation",
+      },
     },
     GetInvalidationForDistributionTenant: {
       http: "GET /2020-05-31/distribution-tenant/{DistributionTenantId}/invalidation/{Id}",
       outputTraits: {
         Invalidation: "httpPayload",
+      },
+      errorStatusCodes: {
+        403: "AccessDenied",
+        404: "NoSuchInvalidation",
       },
     },
     GetKeyGroup: {
@@ -596,6 +989,9 @@ const metadata = {
         KeyGroup: "httpPayload",
         ETag: "ETag",
       },
+      errorStatusCodes: {
+        404: "NoSuchResource",
+      },
     },
     GetKeyGroupConfig: {
       http: "GET /2020-05-31/key-group/{Id}/config",
@@ -603,17 +999,29 @@ const metadata = {
         KeyGroupConfig: "httpPayload",
         ETag: "ETag",
       },
+      errorStatusCodes: {
+        404: "NoSuchResource",
+      },
     },
     GetManagedCertificateDetails: {
       http: "GET /2020-05-31/managed-certificate/{Identifier}",
       outputTraits: {
         ManagedCertificateDetails: "httpPayload",
       },
+      errorStatusCodes: {
+        403: "AccessDenied",
+        404: "EntityNotFound",
+      },
     },
     GetMonitoringSubscription: {
       http: "GET /2020-05-31/distributions/{DistributionId}/monitoring-subscription",
       outputTraits: {
         MonitoringSubscription: "httpPayload",
+      },
+      errorStatusCodes: {
+        400: "UnsupportedOperation",
+        403: "AccessDenied",
+        404: "NoSuchMonitoringSubscription",
       },
     },
     GetOriginAccessControl: {
@@ -622,12 +1030,20 @@ const metadata = {
         OriginAccessControl: "httpPayload",
         ETag: "ETag",
       },
+      errorStatusCodes: {
+        403: "AccessDenied",
+        404: "NoSuchOriginAccessControl",
+      },
     },
     GetOriginAccessControlConfig: {
       http: "GET /2020-05-31/origin-access-control/{Id}/config",
       outputTraits: {
         OriginAccessControlConfig: "httpPayload",
         ETag: "ETag",
+      },
+      errorStatusCodes: {
+        403: "AccessDenied",
+        404: "NoSuchOriginAccessControl",
       },
     },
     GetOriginRequestPolicy: {
@@ -636,12 +1052,20 @@ const metadata = {
         OriginRequestPolicy: "httpPayload",
         ETag: "ETag",
       },
+      errorStatusCodes: {
+        403: "AccessDenied",
+        404: "NoSuchOriginRequestPolicy",
+      },
     },
     GetOriginRequestPolicyConfig: {
       http: "GET /2020-05-31/origin-request-policy/{Id}/config",
       outputTraits: {
         OriginRequestPolicyConfig: "httpPayload",
         ETag: "ETag",
+      },
+      errorStatusCodes: {
+        403: "AccessDenied",
+        404: "NoSuchOriginRequestPolicy",
       },
     },
     GetPublicKey: {
@@ -650,6 +1074,10 @@ const metadata = {
         PublicKey: "httpPayload",
         ETag: "ETag",
       },
+      errorStatusCodes: {
+        403: "AccessDenied",
+        404: "NoSuchPublicKey",
+      },
     },
     GetPublicKeyConfig: {
       http: "GET /2020-05-31/public-key/{Id}/config",
@@ -657,18 +1085,36 @@ const metadata = {
         PublicKeyConfig: "httpPayload",
         ETag: "ETag",
       },
+      errorStatusCodes: {
+        403: "AccessDenied",
+        404: "NoSuchPublicKey",
+      },
     },
     GetRealtimeLogConfig: {
       http: "POST /2020-05-31/get-realtime-log-config",
+      errorStatusCodes: {
+        400: "InvalidArgument",
+        403: "AccessDenied",
+        404: "NoSuchRealtimeLogConfig",
+      },
     },
     GetResourcePolicy: {
       http: "POST /2020-05-31/get-resource-policy",
+      errorStatusCodes: {
+        400: "UnsupportedOperation",
+        403: "AccessDenied",
+        404: "EntityNotFound",
+      },
     },
     GetResponseHeadersPolicy: {
       http: "GET /2020-05-31/response-headers-policy/{Id}",
       outputTraits: {
         ResponseHeadersPolicy: "httpPayload",
         ETag: "ETag",
+      },
+      errorStatusCodes: {
+        403: "AccessDenied",
+        404: "NoSuchResponseHeadersPolicy",
       },
     },
     GetResponseHeadersPolicyConfig: {
@@ -677,12 +1123,20 @@ const metadata = {
         ResponseHeadersPolicyConfig: "httpPayload",
         ETag: "ETag",
       },
+      errorStatusCodes: {
+        403: "AccessDenied",
+        404: "NoSuchResponseHeadersPolicy",
+      },
     },
     GetStreamingDistribution: {
       http: "GET /2020-05-31/streaming-distribution/{Id}",
       outputTraits: {
         StreamingDistribution: "httpPayload",
         ETag: "ETag",
+      },
+      errorStatusCodes: {
+        403: "AccessDenied",
+        404: "NoSuchStreamingDistribution",
       },
     },
     GetStreamingDistributionConfig: {
@@ -691,6 +1145,10 @@ const metadata = {
         StreamingDistributionConfig: "httpPayload",
         ETag: "ETag",
       },
+      errorStatusCodes: {
+        403: "AccessDenied",
+        404: "NoSuchStreamingDistribution",
+      },
     },
     GetVpcOrigin: {
       http: "GET /2020-05-31/vpc-origin/{Id}",
@@ -698,11 +1156,21 @@ const metadata = {
         VpcOrigin: "httpPayload",
         ETag: "ETag",
       },
+      errorStatusCodes: {
+        400: "UnsupportedOperation",
+        403: "AccessDenied",
+        404: "EntityNotFound",
+      },
     },
     ListAnycastIpLists: {
       http: "GET /2020-05-31/anycast-ip-list",
       outputTraits: {
         AnycastIpLists: "httpPayload",
+      },
+      errorStatusCodes: {
+        400: "UnsupportedOperation",
+        403: "AccessDenied",
+        404: "EntityNotFound",
       },
     },
     ListCachePolicies: {
@@ -710,11 +1178,19 @@ const metadata = {
       outputTraits: {
         CachePolicyList: "httpPayload",
       },
+      errorStatusCodes: {
+        400: "InvalidArgument",
+        403: "AccessDenied",
+        404: "NoSuchCachePolicy",
+      },
     },
     ListCloudFrontOriginAccessIdentities: {
       http: "GET /2020-05-31/origin-access-identity/cloudfront",
       outputTraits: {
         CloudFrontOriginAccessIdentityList: "httpPayload",
+      },
+      errorStatusCodes: {
+        400: "InvalidArgument",
       },
     },
     ListConflictingAliases: {
@@ -722,14 +1198,28 @@ const metadata = {
       outputTraits: {
         ConflictingAliasesList: "httpPayload",
       },
+      errorStatusCodes: {
+        400: "InvalidArgument",
+        404: "NoSuchDistribution",
+      },
     },
     ListConnectionGroups: {
       http: "POST /2020-05-31/connection-groups",
+      errorStatusCodes: {
+        400: "InvalidArgument",
+        403: "AccessDenied",
+        404: "EntityNotFound",
+      },
     },
     ListContinuousDeploymentPolicies: {
       http: "GET /2020-05-31/continuous-deployment-policy",
       outputTraits: {
         ContinuousDeploymentPolicyList: "httpPayload",
+      },
+      errorStatusCodes: {
+        400: "InvalidArgument",
+        403: "AccessDenied",
+        404: "NoSuchContinuousDeploymentPolicy",
       },
     },
     ListDistributions: {
@@ -737,11 +1227,19 @@ const metadata = {
       outputTraits: {
         DistributionList: "httpPayload",
       },
+      errorStatusCodes: {
+        400: "InvalidArgument",
+      },
     },
     ListDistributionsByAnycastIpListId: {
       http: "GET /2020-05-31/distributionsByAnycastIpListId/{AnycastIpListId}",
       outputTraits: {
         DistributionList: "httpPayload",
+      },
+      errorStatusCodes: {
+        400: "UnsupportedOperation",
+        403: "AccessDenied",
+        404: "EntityNotFound",
       },
     },
     ListDistributionsByCachePolicyId: {
@@ -749,11 +1247,20 @@ const metadata = {
       outputTraits: {
         DistributionIdList: "httpPayload",
       },
+      errorStatusCodes: {
+        400: "InvalidArgument",
+        403: "AccessDenied",
+        404: "NoSuchCachePolicy",
+      },
     },
     ListDistributionsByConnectionMode: {
       http: "GET /2020-05-31/distributionsByConnectionMode/{ConnectionMode}",
       outputTraits: {
         DistributionList: "httpPayload",
+      },
+      errorStatusCodes: {
+        400: "InvalidArgument",
+        403: "AccessDenied",
       },
     },
     ListDistributionsByKeyGroup: {
@@ -761,11 +1268,20 @@ const metadata = {
       outputTraits: {
         DistributionIdList: "httpPayload",
       },
+      errorStatusCodes: {
+        400: "InvalidArgument",
+        404: "NoSuchResource",
+      },
     },
     ListDistributionsByOriginRequestPolicyId: {
       http: "GET /2020-05-31/distributionsByOriginRequestPolicyId/{OriginRequestPolicyId}",
       outputTraits: {
         DistributionIdList: "httpPayload",
+      },
+      errorStatusCodes: {
+        400: "InvalidArgument",
+        403: "AccessDenied",
+        404: "NoSuchOriginRequestPolicy",
       },
     },
     ListDistributionsByOwnedResource: {
@@ -773,11 +1289,19 @@ const metadata = {
       outputTraits: {
         DistributionList: "httpPayload",
       },
+      errorStatusCodes: {
+        400: "UnsupportedOperation",
+        403: "AccessDenied",
+        404: "EntityNotFound",
+      },
     },
     ListDistributionsByRealtimeLogConfig: {
       http: "POST /2020-05-31/distributionsByRealtimeLogConfig",
       outputTraits: {
         DistributionList: "httpPayload",
+      },
+      errorStatusCodes: {
+        400: "InvalidArgument",
       },
     },
     ListDistributionsByResponseHeadersPolicyId: {
@@ -785,11 +1309,21 @@ const metadata = {
       outputTraits: {
         DistributionIdList: "httpPayload",
       },
+      errorStatusCodes: {
+        400: "InvalidArgument",
+        403: "AccessDenied",
+        404: "NoSuchResponseHeadersPolicy",
+      },
     },
     ListDistributionsByVpcOriginId: {
       http: "GET /2020-05-31/distributionsByVpcOriginId/{VpcOriginId}",
       outputTraits: {
         DistributionIdList: "httpPayload",
+      },
+      errorStatusCodes: {
+        400: "UnsupportedOperation",
+        403: "AccessDenied",
+        404: "EntityNotFound",
       },
     },
     ListDistributionsByWebACLId: {
@@ -797,20 +1331,41 @@ const metadata = {
       outputTraits: {
         DistributionList: "httpPayload",
       },
+      errorStatusCodes: {
+        400: "InvalidWebACLId",
+      },
     },
     ListDistributionTenants: {
       http: "POST /2020-05-31/distribution-tenants",
+      errorStatusCodes: {
+        400: "InvalidArgument",
+        403: "AccessDenied",
+        404: "EntityNotFound",
+      },
     },
     ListDistributionTenantsByCustomization: {
       http: "POST /2020-05-31/distribution-tenants-by-customization",
+      errorStatusCodes: {
+        400: "InvalidArgument",
+        403: "AccessDenied",
+        404: "EntityNotFound",
+      },
     },
     ListDomainConflicts: {
       http: "POST /2020-05-31/domain-conflicts",
+      errorStatusCodes: {
+        400: "InvalidArgument",
+        403: "AccessDenied",
+        404: "EntityNotFound",
+      },
     },
     ListFieldLevelEncryptionConfigs: {
       http: "GET /2020-05-31/field-level-encryption",
       outputTraits: {
         FieldLevelEncryptionList: "httpPayload",
+      },
+      errorStatusCodes: {
+        400: "InvalidArgument",
       },
     },
     ListFieldLevelEncryptionProfiles: {
@@ -818,11 +1373,17 @@ const metadata = {
       outputTraits: {
         FieldLevelEncryptionProfileList: "httpPayload",
       },
+      errorStatusCodes: {
+        400: "InvalidArgument",
+      },
     },
     ListFunctions: {
       http: "GET /2020-05-31/function",
       outputTraits: {
         FunctionList: "httpPayload",
+      },
+      errorStatusCodes: {
+        400: "UnsupportedOperation",
       },
     },
     ListInvalidations: {
@@ -830,11 +1391,21 @@ const metadata = {
       outputTraits: {
         InvalidationList: "httpPayload",
       },
+      errorStatusCodes: {
+        400: "InvalidArgument",
+        403: "AccessDenied",
+        404: "NoSuchDistribution",
+      },
     },
     ListInvalidationsForDistributionTenant: {
       http: "GET /2020-05-31/distribution-tenant/{Id}/invalidation",
       outputTraits: {
         InvalidationList: "httpPayload",
+      },
+      errorStatusCodes: {
+        400: "InvalidArgument",
+        403: "AccessDenied",
+        404: "EntityNotFound",
       },
     },
     ListKeyGroups: {
@@ -842,11 +1413,18 @@ const metadata = {
       outputTraits: {
         KeyGroupList: "httpPayload",
       },
+      errorStatusCodes: {
+        400: "InvalidArgument",
+      },
     },
     ListKeyValueStores: {
       http: "GET /2020-05-31/key-value-store",
       outputTraits: {
         KeyValueStoreList: "httpPayload",
+      },
+      errorStatusCodes: {
+        400: "UnsupportedOperation",
+        403: "AccessDenied",
       },
     },
     ListOriginAccessControls: {
@@ -854,11 +1432,19 @@ const metadata = {
       outputTraits: {
         OriginAccessControlList: "httpPayload",
       },
+      errorStatusCodes: {
+        400: "InvalidArgument",
+      },
     },
     ListOriginRequestPolicies: {
       http: "GET /2020-05-31/origin-request-policy",
       outputTraits: {
         OriginRequestPolicyList: "httpPayload",
+      },
+      errorStatusCodes: {
+        400: "InvalidArgument",
+        403: "AccessDenied",
+        404: "NoSuchOriginRequestPolicy",
       },
     },
     ListPublicKeys: {
@@ -866,11 +1452,19 @@ const metadata = {
       outputTraits: {
         PublicKeyList: "httpPayload",
       },
+      errorStatusCodes: {
+        400: "InvalidArgument",
+      },
     },
     ListRealtimeLogConfigs: {
       http: "GET /2020-05-31/realtime-log-config",
       outputTraits: {
         RealtimeLogConfigs: "httpPayload",
+      },
+      errorStatusCodes: {
+        400: "InvalidArgument",
+        403: "AccessDenied",
+        404: "NoSuchRealtimeLogConfig",
       },
     },
     ListResponseHeadersPolicies: {
@@ -878,11 +1472,19 @@ const metadata = {
       outputTraits: {
         ResponseHeadersPolicyList: "httpPayload",
       },
+      errorStatusCodes: {
+        400: "InvalidArgument",
+        403: "AccessDenied",
+        404: "NoSuchResponseHeadersPolicy",
+      },
     },
     ListStreamingDistributions: {
       http: "GET /2020-05-31/streaming-distribution",
       outputTraits: {
         StreamingDistributionList: "httpPayload",
+      },
+      errorStatusCodes: {
+        400: "InvalidArgument",
       },
     },
     ListTagsForResource: {
@@ -890,11 +1492,21 @@ const metadata = {
       outputTraits: {
         Tags: "httpPayload",
       },
+      errorStatusCodes: {
+        400: "InvalidTagging",
+        403: "AccessDenied",
+        404: "NoSuchResource",
+      },
     },
     ListVpcOrigins: {
       http: "GET /2020-05-31/vpc-origin",
       outputTraits: {
         VpcOriginList: "httpPayload",
+      },
+      errorStatusCodes: {
+        400: "UnsupportedOperation",
+        403: "AccessDenied",
+        404: "EntityNotFound",
       },
     },
     PublishFunction: {
@@ -905,14 +1517,30 @@ const metadata = {
       outputTraits: {
         FunctionSummary: "httpPayload",
       },
+      errorStatusCodes: {
+        400: "UnsupportedOperation",
+        404: "NoSuchFunctionExists",
+        412: "PreconditionFailed",
+      },
     },
     PutResourcePolicy: {
       http: "POST /2020-05-31/put-resource-policy",
+      errorStatusCodes: {
+        400: "UnsupportedOperation",
+        403: "AccessDenied",
+        404: "EntityNotFound",
+        412: "PreconditionFailed",
+      },
     },
     TagResource: {
       http: "POST /2020-05-31/tagging?Operation=Tag",
       inputTraits: {
         Tags: "httpPayload",
+      },
+      errorStatusCodes: {
+        400: "InvalidTagging",
+        403: "AccessDenied",
+        404: "NoSuchResource",
       },
     },
     TestFunction: {
@@ -923,11 +1551,21 @@ const metadata = {
       outputTraits: {
         TestResult: "httpPayload",
       },
+      errorStatusCodes: {
+        400: "UnsupportedOperation",
+        404: "NoSuchFunctionExists",
+        500: "TestFunctionFailed",
+      },
     },
     UntagResource: {
       http: "POST /2020-05-31/tagging?Operation=Untag",
       inputTraits: {
         TagKeys: "httpPayload",
+      },
+      errorStatusCodes: {
+        400: "InvalidTagging",
+        403: "AccessDenied",
+        404: "NoSuchResource",
       },
     },
     UpdateAnycastIpList: {
@@ -938,6 +1576,12 @@ const metadata = {
       outputTraits: {
         AnycastIpList: "httpPayload",
         ETag: "ETag",
+      },
+      errorStatusCodes: {
+        400: "UnsupportedOperation",
+        403: "AccessDenied",
+        404: "EntityNotFound",
+        412: "PreconditionFailed",
       },
     },
     UpdateCachePolicy: {
@@ -950,6 +1594,13 @@ const metadata = {
         CachePolicy: "httpPayload",
         ETag: "ETag",
       },
+      errorStatusCodes: {
+        400: "TooManyQueryStringsInCachePolicy",
+        403: "AccessDenied",
+        404: "NoSuchCachePolicy",
+        409: "CachePolicyAlreadyExists",
+        412: "PreconditionFailed",
+      },
     },
     UpdateCloudFrontOriginAccessIdentity: {
       http: "PUT /2020-05-31/origin-access-identity/cloudfront/{Id}/config",
@@ -961,6 +1612,12 @@ const metadata = {
         CloudFrontOriginAccessIdentity: "httpPayload",
         ETag: "ETag",
       },
+      errorStatusCodes: {
+        400: "MissingBody",
+        403: "AccessDenied",
+        404: "NoSuchCloudFrontOriginAccessIdentity",
+        412: "PreconditionFailed",
+      },
     },
     UpdateConnectionGroup: {
       http: "PUT /2020-05-31/connection-group/{Id}",
@@ -970,6 +1627,13 @@ const metadata = {
       outputTraits: {
         ConnectionGroup: "httpPayload",
         ETag: "ETag",
+      },
+      errorStatusCodes: {
+        400: "InvalidIfMatchVersion",
+        403: "AccessDenied",
+        404: "EntityNotFound",
+        409: "ResourceInUse",
+        412: "PreconditionFailed",
       },
     },
     UpdateContinuousDeploymentPolicy: {
@@ -982,6 +1646,13 @@ const metadata = {
         ContinuousDeploymentPolicy: "httpPayload",
         ETag: "ETag",
       },
+      errorStatusCodes: {
+        400: "InvalidIfMatchVersion",
+        403: "AccessDenied",
+        404: "NoSuchContinuousDeploymentPolicy",
+        409: "StagingDistributionInUse",
+        412: "PreconditionFailed",
+      },
     },
     UpdateDistribution: {
       http: "PUT /2020-05-31/distribution/{Id}/config",
@@ -993,6 +1664,14 @@ const metadata = {
         Distribution: "httpPayload",
         ETag: "ETag",
       },
+      errorStatusCodes: {
+        400: "TrustedSignerDoesNotExist",
+        401: "RealtimeLogConfigOwnerMismatch",
+        403: "AccessDenied",
+        404: "NoSuchResponseHeadersPolicy",
+        409: "StagingDistributionInUse",
+        412: "PreconditionFailed",
+      },
     },
     UpdateDistributionTenant: {
       http: "PUT /2020-05-31/distribution-tenant/{Id}",
@@ -1002,6 +1681,13 @@ const metadata = {
       outputTraits: {
         DistributionTenant: "httpPayload",
         ETag: "ETag",
+      },
+      errorStatusCodes: {
+        400: "InvalidIfMatchVersion",
+        403: "AccessDenied",
+        404: "EntityNotFound",
+        409: "InvalidAssociation",
+        412: "PreconditionFailed",
       },
     },
     UpdateDistributionWithStagingConfig: {
@@ -1013,6 +1699,14 @@ const metadata = {
         Distribution: "httpPayload",
         ETag: "ETag",
       },
+      errorStatusCodes: {
+        400: "TrustedSignerDoesNotExist",
+        401: "RealtimeLogConfigOwnerMismatch",
+        403: "AccessDenied",
+        404: "NoSuchResponseHeadersPolicy",
+        409: "CNAMEAlreadyExists",
+        412: "PreconditionFailed",
+      },
     },
     UpdateDomainAssociation: {
       http: "POST /2020-05-31/domain-association",
@@ -1021,6 +1715,12 @@ const metadata = {
       },
       outputTraits: {
         ETag: "ETag",
+      },
+      errorStatusCodes: {
+        400: "InvalidIfMatchVersion",
+        403: "AccessDenied",
+        404: "EntityNotFound",
+        412: "PreconditionFailed",
       },
     },
     UpdateFieldLevelEncryptionConfig: {
@@ -1033,6 +1733,12 @@ const metadata = {
         FieldLevelEncryption: "httpPayload",
         ETag: "ETag",
       },
+      errorStatusCodes: {
+        400: "TooManyFieldLevelEncryptionQueryArgProfiles",
+        403: "AccessDenied",
+        404: "NoSuchFieldLevelEncryptionProfile",
+        412: "PreconditionFailed",
+      },
     },
     UpdateFieldLevelEncryptionProfile: {
       http: "PUT /2020-05-31/field-level-encryption-profile/{Id}/config",
@@ -1044,6 +1750,13 @@ const metadata = {
         FieldLevelEncryptionProfile: "httpPayload",
         ETag: "ETag",
       },
+      errorStatusCodes: {
+        400: "TooManyFieldLevelEncryptionFieldPatterns",
+        403: "AccessDenied",
+        404: "NoSuchPublicKey",
+        409: "FieldLevelEncryptionProfileAlreadyExists",
+        412: "PreconditionFailed",
+      },
     },
     UpdateFunction: {
       http: "PUT /2020-05-31/function/{Name}",
@@ -1053,6 +1766,12 @@ const metadata = {
       outputTraits: {
         FunctionSummary: "httpPayload",
         ETag: "ETtag",
+      },
+      errorStatusCodes: {
+        400: "UnsupportedOperation",
+        404: "NoSuchFunctionExists",
+        412: "PreconditionFailed",
+        413: "FunctionSizeLimitExceeded",
       },
     },
     UpdateKeyGroup: {
@@ -1065,6 +1784,12 @@ const metadata = {
         KeyGroup: "httpPayload",
         ETag: "ETag",
       },
+      errorStatusCodes: {
+        400: "TooManyPublicKeysInKeyGroup",
+        404: "NoSuchResource",
+        409: "KeyGroupAlreadyExists",
+        412: "PreconditionFailed",
+      },
     },
     UpdateKeyValueStore: {
       http: "PUT /2020-05-31/key-value-store/{Name}",
@@ -1074,6 +1799,12 @@ const metadata = {
       outputTraits: {
         KeyValueStore: "httpPayload",
         ETag: "ETag",
+      },
+      errorStatusCodes: {
+        400: "UnsupportedOperation",
+        403: "AccessDenied",
+        404: "EntityNotFound",
+        412: "PreconditionFailed",
       },
     },
     UpdateOriginAccessControl: {
@@ -1086,6 +1817,13 @@ const metadata = {
         OriginAccessControl: "httpPayload",
         ETag: "ETag",
       },
+      errorStatusCodes: {
+        400: "InvalidIfMatchVersion",
+        403: "AccessDenied",
+        404: "NoSuchOriginAccessControl",
+        409: "OriginAccessControlAlreadyExists",
+        412: "PreconditionFailed",
+      },
     },
     UpdateOriginRequestPolicy: {
       http: "PUT /2020-05-31/origin-request-policy/{Id}",
@@ -1096,6 +1834,13 @@ const metadata = {
       outputTraits: {
         OriginRequestPolicy: "httpPayload",
         ETag: "ETag",
+      },
+      errorStatusCodes: {
+        400: "TooManyQueryStringsInOriginRequestPolicy",
+        403: "AccessDenied",
+        404: "NoSuchOriginRequestPolicy",
+        409: "OriginRequestPolicyAlreadyExists",
+        412: "PreconditionFailed",
       },
     },
     UpdatePublicKey: {
@@ -1108,9 +1853,20 @@ const metadata = {
         PublicKey: "httpPayload",
         ETag: "ETag",
       },
+      errorStatusCodes: {
+        400: "InvalidIfMatchVersion",
+        403: "AccessDenied",
+        404: "NoSuchPublicKey",
+        412: "PreconditionFailed",
+      },
     },
     UpdateRealtimeLogConfig: {
       http: "PUT /2020-05-31/realtime-log-config",
+      errorStatusCodes: {
+        400: "InvalidArgument",
+        403: "AccessDenied",
+        404: "NoSuchRealtimeLogConfig",
+      },
     },
     UpdateResponseHeadersPolicy: {
       http: "PUT /2020-05-31/response-headers-policy/{Id}",
@@ -1121,6 +1877,13 @@ const metadata = {
       outputTraits: {
         ResponseHeadersPolicy: "httpPayload",
         ETag: "ETag",
+      },
+      errorStatusCodes: {
+        400: "TooManyRemoveHeadersInResponseHeadersPolicy",
+        403: "AccessDenied",
+        404: "NoSuchResponseHeadersPolicy",
+        409: "ResponseHeadersPolicyAlreadyExists",
+        412: "PreconditionFailed",
       },
     },
     UpdateStreamingDistribution: {
@@ -1133,6 +1896,13 @@ const metadata = {
         StreamingDistribution: "httpPayload",
         ETag: "ETag",
       },
+      errorStatusCodes: {
+        400: "TrustedSignerDoesNotExist",
+        403: "AccessDenied",
+        404: "NoSuchStreamingDistribution",
+        409: "CNAMEAlreadyExists",
+        412: "PreconditionFailed",
+      },
     },
     UpdateVpcOrigin: {
       http: "PUT /2020-05-31/vpc-origin/{Id}",
@@ -1144,9 +1914,21 @@ const metadata = {
         VpcOrigin: "httpPayload",
         ETag: "ETag",
       },
+      errorStatusCodes: {
+        400: "UnsupportedOperation",
+        403: "AccessDenied",
+        404: "EntityNotFound",
+        409: "EntityAlreadyExists",
+        412: "PreconditionFailed",
+      },
     },
     VerifyDnsConfiguration: {
       http: "POST /2020-05-31/verify-dns-configuration",
+      errorStatusCodes: {
+        400: "InvalidArgument",
+        403: "AccessDenied",
+        404: "EntityNotFound",
+      },
     },
   },
 } as const satisfies ServiceMetadata;

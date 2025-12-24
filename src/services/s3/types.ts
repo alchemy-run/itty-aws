@@ -65,7 +65,7 @@ export declare class S3 extends AWSServiceClient {
     input: DeleteBucketRequest,
   ): Effect.Effect<
     {},
-    NoSuchBucket | BucketNotEmpty | AccessDenied | CommonAwsError
+    NotFound | BucketNotEmpty | AccessDenied | CommonAwsError
   >;
   deleteBucketAnalyticsConfiguration(
     input: DeleteBucketAnalyticsConfigurationRequest,
@@ -405,16 +405,10 @@ export declare class S3 extends AWSServiceClient {
   >;
   headBucket(
     input: HeadBucketRequest,
-  ): Effect.Effect<
-    HeadBucketOutput,
-    NotFound | NoSuchBucket | AccessDenied | CommonAwsError
-  >;
+  ): Effect.Effect<HeadBucketOutput, NotFound | AccessDenied | CommonAwsError>;
   headObject(
     input: HeadObjectRequest,
-  ): Effect.Effect<
-    HeadObjectOutput,
-    NotFound | NoSuchKey | AccessDenied | CommonAwsError
-  >;
+  ): Effect.Effect<HeadObjectOutput, NotFound | AccessDenied | CommonAwsError>;
   listBucketAnalyticsConfigurations(
     input: ListBucketAnalyticsConfigurationsRequest,
   ): Effect.Effect<
@@ -3707,11 +3701,7 @@ export declare namespace CreateSession {
 export declare namespace DeleteBucket {
   export type Input = DeleteBucketRequest;
   export type Output = {};
-  export type Error =
-    | NoSuchBucket
-    | BucketNotEmpty
-    | AccessDenied
-    | CommonAwsError;
+  export type Error = NotFound | BucketNotEmpty | AccessDenied | CommonAwsError;
 }
 
 export declare namespace DeleteBucketAnalyticsConfiguration {
@@ -4144,13 +4134,13 @@ export declare namespace GetPublicAccessBlock {
 export declare namespace HeadBucket {
   export type Input = HeadBucketRequest;
   export type Output = HeadBucketOutput;
-  export type Error = NotFound | NoSuchBucket | AccessDenied | CommonAwsError;
+  export type Error = NotFound | AccessDenied | CommonAwsError;
 }
 
 export declare namespace HeadObject {
   export type Input = HeadObjectRequest;
   export type Output = HeadObjectOutput;
-  export type Error = NotFound | NoSuchKey | AccessDenied | CommonAwsError;
+  export type Error = NotFound | AccessDenied | CommonAwsError;
 }
 
 export declare namespace ListBucketAnalyticsConfigurations {

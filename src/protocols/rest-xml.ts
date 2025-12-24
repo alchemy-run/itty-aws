@@ -124,23 +124,36 @@ export class RestXmlHandler implements ProtocolHandler {
     statusCode: number,
     headers: Headers | undefined,
     operation: string,
+    metadata?: ServiceMetadata,
   ): Promise<ParsedError> {
     const responseText = await response.text();
     const parser = new XMLParser();
     const error = responseText != null ? parser.parse(responseText) : null;
-    const notFoundMappings: Record<string, string | undefined> = {
-      HeadBucket: "NoSuchBucket",
-      HeadObject: "NoSuchKey",
-    };
+
+    // Get the error status code mappings for this operation
+    const operationMeta = metadata?.operations?.[operation];
+    const errorStatusCodes =
+      typeof operationMeta === "object"
+        ? operationMeta.errorStatusCodes
+        : undefined;
+
+    // Try to determine error type from:
+    // 1. XML error code in response body
+    // 2. Status code mapping from metadata
+    // 3. Fallback to generic error
+    let errorType = error?.Error?.Code;
+    if (!errorType && errorStatusCodes) {
+      errorType = errorStatusCodes[statusCode];
+    }
+    if (!errorType) {
+      errorType = statusCode === 404 ? "NotFound" : "UnknownError";
+    }
+
     return {
-      errorType:
-        (error?.Error?.Code ?? statusCode === 404)
-          ? (notFoundMappings[operation] ?? "NotFound")
-          : "UnknownError",
+      errorType,
       message:
-        (error?.Error?.Message ?? statusCode === 404)
-          ? "Not Found"
-          : "Unknown error",
+        error?.Error?.Message ??
+        (statusCode === 404 ? "Not Found" : "Unknown error"),
       requestId:
         headers?.get("x-amzn-requestid") ||
         headers?.get("x-amz-request-id") ||

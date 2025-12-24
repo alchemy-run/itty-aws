@@ -401,6 +401,9 @@ const metadata = {
       outputTraits: {
         PublicAccessBlockConfiguration: "httpPayload",
       },
+      errorStatusCodes: {
+        404: "NoSuchPublicAccessBlockConfiguration",
+      },
     },
     GetStorageLensConfiguration: {
       http: "GET /v20180820/storagelens/{ConfigId}",

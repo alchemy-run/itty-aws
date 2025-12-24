@@ -39,5 +39,6 @@ export interface ProtocolHandler {
     statusCode: number,
     headers: Headers | undefined,
     operation: string,
+    metadata?: ServiceMetadata,
   ): Promise<ParsedError>;
 }

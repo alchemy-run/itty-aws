@@ -1009,6 +1009,15 @@ const generateServiceIndex = (
           );
           code += "      },\n";
         }
+        if ((opSpec as any).errorStatusCodes) {
+          code += "      errorStatusCodes: {\n";
+          Object.entries((opSpec as any).errorStatusCodes).forEach(
+            ([statusCode, errorName]) => {
+              code += `        ${statusCode}: "${errorName}",\n`;
+            },
+          );
+          code += "      },\n";
+        }
         code += "    },\n";
       }
     });
@@ -1782,6 +1791,20 @@ const generateServiceTypes = (serviceName: string, manifest: Manifest) =>
           ? extractHttpTraits(operation.shape.input.target)
           : {};
 
+        // Extract error status code mappings from operation errors
+        const errors = operation.shape.errors || [];
+        const errorStatusCodes: Record<number, string> = {};
+        for (const error of errors) {
+          const errorShape = manifest.shapes[error.target];
+          if (errorShape && errorShape.traits) {
+            const httpError = errorShape.traits["smithy.api#httpError"];
+            if (httpError) {
+              const errorName = extractShapeName(error.target);
+              errorStatusCodes[httpError as number] = errorName;
+            }
+          }
+        }
+
         operationMappings[operation.name] = {};
 
         if (Object.keys(inputTraits).length > 0) {
@@ -1794,6 +1817,10 @@ const generateServiceTypes = (serviceName: string, manifest: Manifest) =>
 
         if (httpMapping != null) {
           operationMappings[operation.name].http = httpMapping;
+        }
+
+        if (Object.keys(errorStatusCodes).length > 0) {
+          operationMappings[operation.name].errorStatusCodes = errorStatusCodes;
         }
       }
     } else {

@@ -44,6 +44,7 @@ export interface ServiceMetadata {
         readonly traits?: Record<string, string>;
         readonly inputTraits?: Record<string, string>;
         readonly outputTraits?: Record<string, string>;
+        readonly errorStatusCodes?: Record<number, string>;
       }
   >; // Operation mappings for restJson1 and trait mappings
 }
@@ -214,6 +215,7 @@ export function createServiceProxy<T>(
                   statusCode,
                   response.headers,
                   operation,
+                  metadata,
                 ),
               );
 
