@@ -213,6 +213,7 @@ export function createServiceProxy<T>(
                   response,
                   statusCode,
                   response.headers,
+                  operation,
                 ),
               );
 

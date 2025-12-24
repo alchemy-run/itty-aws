@@ -122,14 +122,25 @@ export class RestXmlHandler implements ProtocolHandler {
   async parseError(
     response: Response,
     statusCode: number,
-    headers?: Headers,
+    headers: Headers | undefined,
+    operation: string,
   ): Promise<ParsedError> {
     const responseText = await response.text();
     const parser = new XMLParser();
     const error = responseText != null ? parser.parse(responseText) : null;
+    const notFoundMappings: Record<string, string | undefined> = {
+      HeadBucket: "NoSuchBucket",
+      HeadObject: "NoSuchKey",
+    };
     return {
-      errorType: error?.Error?.Code ?? statusCode === 404 ? "NotFound" : "UnknownError",
-      message: error?.Error?.Message ?? statusCode === 404 ? "Not Found" : "Unknown error",
+      errorType:
+        (error?.Error?.Code ?? statusCode === 404)
+          ? (notFoundMappings[operation] ?? "NotFound")
+          : "UnknownError",
+      message:
+        (error?.Error?.Message ?? statusCode === 404)
+          ? "Not Found"
+          : "Unknown error",
       requestId:
         headers?.get("x-amzn-requestid") ||
         headers?.get("x-amz-request-id") ||

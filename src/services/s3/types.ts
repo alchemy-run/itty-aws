@@ -413,7 +413,7 @@ export declare class S3 extends AWSServiceClient {
     input: HeadObjectRequest,
   ): Effect.Effect<
     HeadObjectOutput,
-    NotFound | NoSuchKey | NoSuchBucket | AccessDenied | CommonAwsError
+    NotFound | NoSuchKey | AccessDenied | CommonAwsError
   >;
   listBucketAnalyticsConfigurations(
     input: ListBucketAnalyticsConfigurationsRequest,
@@ -4150,12 +4150,7 @@ export declare namespace HeadBucket {
 export declare namespace HeadObject {
   export type Input = HeadObjectRequest;
   export type Output = HeadObjectOutput;
-  export type Error =
-    | NotFound
-    | NoSuchKey
-    | NoSuchBucket
-    | AccessDenied
-    | CommonAwsError;
+  export type Error = NotFound | NoSuchKey | AccessDenied | CommonAwsError;
 }
 
 export declare namespace ListBucketAnalyticsConfigurations {

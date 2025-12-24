@@ -37,6 +37,7 @@ export interface ProtocolHandler {
   parseError(
     responseText: Response,
     statusCode: number,
-    headers?: Headers,
+    headers: Headers | undefined,
+    operation: string,
   ): Promise<ParsedError>;
 }
