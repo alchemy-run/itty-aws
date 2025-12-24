@@ -1,3 +1,13 @@
+## v0.8.19
+
+### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
+
+- **s3**: Include error metadata fallbacks in the S3 metadata &nbsp;-&nbsp; by **Sam Goodwin** [<samp>(5831b)</samp>](https://github.com/sam-goodwin/itty-aws/commit/5831b793)
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sam-goodwin/itty-aws/compare/v0.8.18...v0.8.19)
+
+---
+
 ## v0.8.18
 
 ### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
