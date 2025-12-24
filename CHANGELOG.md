@@ -1,3 +1,13 @@
+## v0.8.18
+
+### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
+
+- **s3**: Align HeadObject and HeadBucket errors with AWS docs &nbsp;-&nbsp; by **Sam Goodwin** [<samp>(6e028)</samp>](https://github.com/sam-goodwin/itty-aws/commit/6e0280a5)
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sam-goodwin/itty-aws/compare/v0.8.17...v0.8.18)
+
+---
+
 ## v0.8.17
 
 ### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
