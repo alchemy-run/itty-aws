@@ -1,3 +1,13 @@
+## v0.8.16
+
+### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
+
+- **s3**: Do not include body in GET or HEAD requests &nbsp;-&nbsp; by **Sam Goodwin** [<samp>(64937)</samp>](https://github.com/sam-goodwin/itty-aws/commit/64937a02)
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sam-goodwin/itty-aws/compare/v0.8.15...v0.8.16)
+
+---
+
 ## v0.8.15
 
 ### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
