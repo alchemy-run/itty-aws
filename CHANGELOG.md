@@ -1,3 +1,13 @@
+## v0.8.17
+
+### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
+
+- **s3**: Map 404 to NotFound &nbsp;-&nbsp; by **Sam Goodwin** [<samp>(d4ae0)</samp>](https://github.com/sam-goodwin/itty-aws/commit/d4ae0cce)
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sam-goodwin/itty-aws/compare/v0.8.16...v0.8.17)
+
+---
+
 ## v0.8.16
 
 ### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
