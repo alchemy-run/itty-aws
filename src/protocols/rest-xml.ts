@@ -128,8 +128,8 @@ export class RestXmlHandler implements ProtocolHandler {
     const parser = new XMLParser();
     const error = responseText != null ? parser.parse(responseText) : null;
     return {
-      errorType: error?.Error?.Code ?? "UnknownError",
-      message: error?.Error?.Message ?? "Unknown error",
+      errorType: error?.Error?.Code ?? statusCode === 404 ? "NotFound" : "UnknownError",
+      message: error?.Error?.Message ?? statusCode === 404 ? "Not Found" : "Unknown error",
       requestId:
         headers?.get("x-amzn-requestid") ||
         headers?.get("x-amz-request-id") ||
