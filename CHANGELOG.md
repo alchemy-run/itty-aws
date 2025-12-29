@@ -1,3 +1,13 @@
+## v0.8.20
+
+### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
+
+- **s3**: Map NotFound to NoSuchBucket &nbsp;-&nbsp; by **Sam Goodwin** [<samp>(ef3b6)</samp>](https://github.com/sam-goodwin/itty-aws/commit/ef3b6f82)
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/sam-goodwin/itty-aws/compare/v0.8.19...v0.8.20)
+
+---
+
 ## v0.8.19
 
 ### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
