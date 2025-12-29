@@ -14,7 +14,6 @@ import {
   MutableHashMap,
   Deferred,
   MutableHashSet,
-  HashSet,
 } from "effect";
 import {
   SmithyModel,
@@ -31,8 +30,8 @@ class SdkFile extends Context.Tag("SdkFile")<
       string,
       Deferred.Deferred<string, never>
     >;
-    contents: Ref.Ref<string>;
-    lineCount: Ref.Ref<number>;
+    schemas: Ref.Ref<Array<{ name: string; definition: string; deps: string[] }>>;
+    operations: Ref.Ref<string>;
   }
 >() {}
 
@@ -122,6 +121,37 @@ function formatName(shapeId: string, lowercase = false) {
   return name;
 }
 
+// Topological sort for schema definitions to ensure dependencies come before dependents
+function topologicalSort(
+  schemas: Array<{ name: string; definition: string; deps: string[] }>,
+): Array<{ name: string; definition: string; deps: string[] }> {
+  const schemaMap = new Map(schemas.map((s) => [s.name, s]));
+  const visited = new Set<string>();
+  const result: Array<{ name: string; definition: string; deps: string[] }> =
+    [];
+
+  function visit(name: string) {
+    if (visited.has(name)) return;
+    visited.add(name);
+
+    const schema = schemaMap.get(name);
+    if (schema) {
+      // Visit all dependencies first
+      for (const dep of schema.deps) {
+        visit(dep);
+      }
+      result.push(schema);
+    }
+  }
+
+  // Visit all schemas
+  for (const schema of schemas) {
+    visit(schema.name);
+  }
+
+  return result;
+}
+
 const convertShapeToSchema: (
   args_0: string,
 ) => Effect.Effect<
@@ -146,18 +176,15 @@ const convertShapeToSchema: (
       ShapeNotFound | UnableToTransformShapeToSchema,
       ModelService | SdkFile
     >,
+    deps: string[],
   ) {
     const tsName = target.split("#")[1]!;
-    yield* Ref.update(sdkFile.lineCount, (n) => n + 1);
-    const lineCount = yield* Ref.get(sdkFile.lineCount);
     yield* Deferred.succeed(deferredValue, tsName);
     const value = yield* type;
-    yield* Ref.update(sdkFile.contents, (c) => {
-      const line = `export const ${tsName} = ${value};`;
-      const lines = c.split("\n");
-      lines.splice(-lineCount, 0, line);
-      return lines.join("\n");
-    });
+    yield* Ref.update(sdkFile.schemas, (arr) => [
+      ...arr,
+      { name: tsName, definition: `export const ${tsName} = ${value};`, deps },
+    ]);
     return tsName;
   });
 
@@ -271,12 +298,16 @@ const convertShapeToSchema: (
                   Effect.flatMap(Deferred.await),
                   Effect.map((type) => `Schema.Array(${type})`),
                 ),
+                [formatName(s.member.target)],
               ),
           ),
           Match.when(
             (s) => s.type === "structure",
-            (s) =>
-              addAlias(
+            (s) => {
+              const memberTargets = Object.values(s.members).map((m) =>
+                formatName(m.target),
+              );
+              return addAlias(
                 Effect.all(
                   Object.entries(s.members).map(([memberName, member]) =>
                     convertShapeToSchema(member.target).pipe(
@@ -315,12 +346,17 @@ const convertShapeToSchema: (
                     (members) => `Schema.Struct({${members.join(", ")}})`,
                   ),
                 ),
-              ),
+                memberTargets,
+              );
+            },
           ),
           Match.when(
             (s) => s.type === "union",
-            (s) =>
-              addAlias(
+            (s) => {
+              const memberTargets = Object.values(s.members).map((m) =>
+                formatName(m.target),
+              );
+              return addAlias(
                 Effect.all(
                   Object.entries(s.members).map(([_memberName, member]) =>
                     convertShapeToSchema(member.target).pipe(
@@ -333,7 +369,9 @@ const convertShapeToSchema: (
                     (members) => `Schema.Union(${members.join(", ")})`,
                   ),
                 ),
-              ),
+                memberTargets,
+              );
+            },
           ),
           Match.when(
             (s) => s.type === "map",
@@ -355,6 +393,7 @@ const convertShapeToSchema: (
                       `Schema.Record({key: ${keySchema}, value: ${valueSchema}})`,
                   ),
                 ),
+                [formatName(s.key.target), formatName(s.value.target)],
               ),
           ),
           Match.orElse((s) =>
@@ -505,7 +544,7 @@ const generateClient = Effect.fn(function* (
         MutableHashSet.add(clientImports, requestParser);
         MutableHashSet.add(clientImports, errorParser);
 
-        yield* sdkFile.contents.pipe(
+        yield* sdkFile.operations.pipe(
           Ref.update(
             (c) =>
               c +
@@ -518,33 +557,38 @@ const generateClient = Effect.fn(function* (
       },
     );
 
+    // Get schemas and sort them topologically
+    const schemas = yield* Ref.get(sdkFile.schemas);
+    const sortedSchemas = topologicalSort(schemas);
+    const schemaDefinitions = sortedSchemas
+      .map((s) => s.definition)
+      .join("\n");
+
+    const operations = yield* Ref.get(sdkFile.operations);
+
     //todo(pear): optimize imports
-    yield* sdkFile.contents.pipe(
-      Ref.update(
-        (c) =>
-          //todo(pear) import should be smarter but whatever for now
-          dedent`
+    const imports = dedent`
       import { Schema} from "effect"
       import { ${Array.from(clientImports).join(",")}, makeOperation } from "../client";
-      import { Operation, Path, Header, StreamBody, Body, ErrorAnnotation } from "../schema-helpers";` +
-          "\n" +
-          c,
-      ),
-    );
+      import { Operation, Path, Header, StreamBody, Body, ErrorAnnotation } from "../schema-helpers";`;
+
+    const fileContents = `${imports}\n${schemaDefinitions}\n${operations}`;
 
     yield* fs.writeFileString(
       path.join(
         outputRootPath,
         `${serviceShape.traits["aws.api#service"].sdkId.toLowerCase().replaceAll(" ", "-")}.ts`,
       ),
-      yield* sdkFile.contents.get,
+      fileContents,
     );
   });
 
   return yield* client.pipe(
     Effect.provideService(SdkFile, {
-      contents: yield* Ref.make(""),
-      lineCount: yield* Ref.make(0),
+      schemas: yield* Ref.make<
+        Array<{ name: string; definition: string; deps: string[] }>
+      >([]),
+      operations: yield* Ref.make(""),
       map: MutableHashMap.empty<string, Deferred.Deferred<string, never>>(),
     }),
     Effect.provideService(ModelService, model),
