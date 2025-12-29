@@ -234,6 +234,38 @@ export const FormatXMLResponse = Schema.asSchema(
   }),
 );
 
+//todo(pear): this is vibe coded. maybe give it a 2nd look / move to effect match
+function serializeAwsQueryValue(
+  params: URLSearchParams,
+  key: string,
+  value: unknown,
+): void {
+  if (value === null || value === undefined) {
+    return;
+  }
+
+  if (typeof value === "string") {
+    params.append(key, value);
+  } else if (typeof value === "boolean") {
+    params.append(key, value ? "true" : "false");
+  } else if (typeof value === "number" || typeof value === "bigint") {
+    params.append(key, String(value));
+  } else if (value instanceof Uint8Array) {
+    const base64 = btoa(String.fromCharCode(...value));
+    params.append(key, base64);
+  } else if (value instanceof Date) {
+    params.append(key, value.toISOString());
+  } else if (Array.isArray(value)) {
+    for (let i = 0; i < value.length; i++) {
+      serializeAwsQueryValue(params, `${key}.${i + 1}`, value[i]);
+    }
+  } else if (typeof value === "object") {
+    for (const [memberName, memberValue] of Object.entries(value)) {
+      serializeAwsQueryValue(params, `${key}.${memberName}`, memberValue);
+    }
+  }
+}
+
 export const FormatAwsQueryRequest = Schema.asSchema(
   Schema.transformOrFail(rawRequest, unsignedRequest, {
     strict: true,
@@ -252,30 +284,27 @@ export const FormatAwsQueryRequest = Schema.asSchema(
         );
       }
 
+      const params = new URLSearchParams();
+      params.append("Action", value.meta.name);
+      params.append("Version", value.meta.version);
+
+      if (value.unsignedBody) {
+        for (const [key, propertyValue] of Object.entries(value.unsignedBody)) {
+          serializeAwsQueryValue(params, key, propertyValue);
+        }
+      }
+
+      const queryParams = `${value.unsignedUri}?${params.toString()}`;
+
       return {
-        ...value,
-        unsignedBody: JSON.stringify({
-          ...value.unsignedBody,
-          Action: value.meta.name,
-          Version: value.meta.version,
-        }),
+        unsignedUri: queryParams,
+        unsignedBody: undefined,
         unsignedHeaders: {
           ...value.unsignedHeaders,
           "Content-Type": "application/x-www-form-urlencoded",
         },
       };
     }),
-    // decode: (value) =>
-    //   Effect.succeed({
-    //     ...value,
-    //     unsignedHeaders: {
-    //       ...value.unsignedHeaders,
-    //       "Content-Type": "application/x-www-form-urlencoded",
-    //     },
-    //     unsignedBody: JSON.stringify({
-    //       ...(value.unsignedBody ?? {}),
-    //     }),
-    //   }),
   }),
 );
 

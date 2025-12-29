@@ -480,14 +480,14 @@ const generateClient = Effect.fn(function* (
           ),
           Match.when("aws.protocols#awsQuery", () =>
             Effect.succeed([
-              "???",
+              "FormatAwsQueryRequest",
               "FormatAwsQueryResponse",
               "FormatAWSXMLError",
             ]),
           ),
           Match.when("aws.protocols#ec2Query", () =>
             Effect.succeed([
-              "???",
+              "FormatAwsQueryRequest",
               "FormatAwsEc2QueryResponse",
               "FormatAWSXMLError",
             ]),
