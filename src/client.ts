@@ -234,6 +234,51 @@ export const FormatXMLResponse = Schema.asSchema(
   }),
 );
 
+export const FormatAwsQueryRequest = Schema.asSchema(
+  Schema.transformOrFail(rawRequest, unsignedRequest, {
+    strict: true,
+    encode: (actual, _, ast) =>
+      ParseResult.fail(
+        new ParseResult.Forbidden(ast, actual, "cannot encode aws query"),
+      ),
+    decode: Effect.fn(function* (value, _, ast) {
+      if (
+        typeof value.unsignedBody === "string" ||
+        value.unsignedBody instanceof Uint8Array ||
+        value.unsignedBody instanceof ReadableStream
+      ) {
+        return yield* Effect.fail(
+          new ParseResult.Forbidden(ast, value, "cannot encode aws query"),
+        );
+      }
+
+      return {
+        ...value,
+        unsignedBody: JSON.stringify({
+          ...value.unsignedBody,
+          Action: value.meta.name,
+          Version: value.meta.version,
+        }),
+        unsignedHeaders: {
+          ...value.unsignedHeaders,
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      };
+    }),
+    // decode: (value) =>
+    //   Effect.succeed({
+    //     ...value,
+    //     unsignedHeaders: {
+    //       ...value.unsignedHeaders,
+    //       "Content-Type": "application/x-www-form-urlencoded",
+    //     },
+    //     unsignedBody: JSON.stringify({
+    //       ...(value.unsignedBody ?? {}),
+    //     }),
+    //   }),
+  }),
+);
+
 export const FormatAwsQueryResponse = Schema.asSchema(
   Schema.transformOrFail(rawResponse, response, {
     strict: true,

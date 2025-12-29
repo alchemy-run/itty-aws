@@ -28,3 +28,11 @@
 - default sigV4service name to lowercase sdkId when it works
 - make name smaller
 - do we need to do both `/*#__PURE__*/` and `/*@__PURE__*/` for better support across bundlers
+- test coverage reporting
+
+
+## Specific handling of errors
+
+| Operation | Tag | Error | Handling behavior |
+|-----------|-----|-------|-------------------|
+| * | OperationAborted | 409 Conflict | Exponential backoff, base 1s, max 30s, unlimited retries until timeout |

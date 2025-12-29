@@ -65,6 +65,7 @@ export const OperationMeta = Schema.Struct({
   sdkId: Schema.String,
   sigV4ServiceName: Schema.String,
   name: Schema.String,
+  version: Schema.String,
 });
 
 export const Operation = <
