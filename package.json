@@ -10,6 +10,10 @@
     "@types/node": "^24.10.1",
     "dedent": "^1.7.0"
   },
+  "exports": {
+    "./service/*": "./src/clients.gen/*.ts",
+    "./credentials": "./src/credentials.ts"
+  },
   "peerDependencies": {
     "typescript": "^5"
   },
