@@ -149,6 +149,11 @@ export class RestXmlHandler implements ProtocolHandler {
       errorType = statusCode === 404 ? "NotFound" : "UnknownError";
     }
 
+    const mappings: any = metadata?.sigV4ServiceName
+      ? errorMappings[metadata.sigV4ServiceName as keyof typeof errorMappings]
+      : {};
+    errorType = mappings[operation]?.[errorType] ?? errorType;
+
     return {
       errorType,
       message:
@@ -161,3 +166,14 @@ export class RestXmlHandler implements ProtocolHandler {
     };
   }
 }
+
+const errorMappings = {
+  s3: {
+    HeadBucket: {
+      NotFound: "NoSuchBucket",
+    },
+    DeleteBucket: {
+      NotFound: "NoSuchBucket",
+    },
+  },
+};

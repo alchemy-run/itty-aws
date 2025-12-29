@@ -1949,10 +1949,10 @@ export const servicePatches: Record<string, ServicePatches> = {
       ],
     },
     DeleteBucket: {
-      errors: ["NotFound", "BucketNotEmpty", "AccessDenied"],
+      errors: ["NoSuchBucket", "BucketNotEmpty", "AccessDenied"],
     },
     HeadBucket: {
-      errors: ["NotFound", "AccessDenied"],
+      errors: ["NoSuchBucket", "AccessDenied"],
     },
     ListBuckets: {
       errors: ["AccessDenied"],

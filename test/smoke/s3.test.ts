@@ -16,44 +16,46 @@ describe.sequential("S3 Smoke Tests", () => {
   const inputFilePath = path.join(dirname, "input.jpg");
   const outputFilePath = path.join(dirname, "output.jpg");
 
-  it.live("perform file upload and download", () =>
-    Effect.gen(function* () {
-      const fs = yield* FileSystem.FileSystem;
+  it.live(
+    "perform file upload and download",
+    () =>
+      Effect.gen(function* () {
+        const fs = yield* FileSystem.FileSystem;
 
-      yield* Console.log(
-        `Starting DynamoDB smoke test with table: ${BUCKET_NAME}`,
-      );
+        yield* Console.log(
+          `Starting DynamoDB smoke test with table: ${BUCKET_NAME}`,
+        );
 
-      yield* Console.log("Step 1: Create bucket");
-      yield* client.createBucket({ Bucket: BUCKET_NAME });
+        yield* Console.log("Step 1: Create bucket");
+        yield* client.createBucket({ Bucket: BUCKET_NAME });
 
-      yield* Console.log("Step 2: Upload a file");
-      const rawInput = yield* fs.readFile(inputFilePath);
-      yield* client.putObject({
-        Bucket: BUCKET_NAME,
-        Key: FILE_KEY,
-        Body: rawInput,
-      });
+        yield* Console.log("Step 2: Upload a file");
+        const rawInput = yield* fs.readFile(inputFilePath);
+        yield* client.putObject({
+          Bucket: BUCKET_NAME,
+          Key: FILE_KEY,
+          Body: rawInput,
+        });
 
-      yield* Console.log("Step 3: Download the file");
-      const file = yield* client.getObject({
-        Bucket: BUCKET_NAME,
-        Key: FILE_KEY,
-      });
-      yield* file.Body!.pipe(Stream.run(fs.sink(outputFilePath)));
+        yield* Console.log("Step 3: Download the file");
+        const file = yield* client.getObject({
+          Bucket: BUCKET_NAME,
+          Key: FILE_KEY,
+        });
+        yield* file.Body!.pipe(Stream.run(fs.sink(outputFilePath)));
 
-      yield* Console.log("Step 4: compare the 2 files");
-      const rawOutput = yield* fs.readFile(outputFilePath);
-      expect(rawInput).toEqual(rawOutput);
+        yield* Console.log("Step 4: compare the 2 files");
+        const rawOutput = yield* fs.readFile(outputFilePath);
+        expect(rawInput).toEqual(rawOutput);
 
-      yield* Console.log("Step 5: clean up");
-      yield* client.deleteObject({
-        Bucket: BUCKET_NAME,
-        Key: FILE_KEY,
-      });
-      yield* client.deleteBucket({ Bucket: BUCKET_NAME });
-      yield* fs.remove(outputFilePath);
-    }).pipe(Effect.provide(NodeFileSystem.layer)),
+        yield* Console.log("Step 5: clean up");
+        yield* client.deleteObject({
+          Bucket: BUCKET_NAME,
+          Key: FILE_KEY,
+        });
+        yield* client.deleteBucket({ Bucket: BUCKET_NAME });
+        yield* fs.remove(outputFilePath);
+      }).pipe(Effect.provide(NodeFileSystem.layer)),
     { timeout: 600_000 },
   );
 
@@ -97,63 +99,66 @@ describe.sequential("S3 Smoke Tests", () => {
     { timeout: 1000000 },
   );
 
-  it.live("operations on non-existent bucket return NoSuchBucket", () =>
-    Effect.gen(function* () {
-      const NON_EXISTENT_BUCKET = "this-bucket-definitely-does-not-exist-xyz123";
+  it.live(
+    "operations on non-existent bucket return NoSuchBucket",
+    () =>
+      Effect.gen(function* () {
+        const NON_EXISTENT_BUCKET =
+          "this-bucket-definitely-does-not-exist-xyz123";
 
-      yield* Console.log("Test 1: headBucket on non-existent bucket");
-      const headBucketResult = yield* client
-        .headBucket({ Bucket: NON_EXISTENT_BUCKET })
-        .pipe(
-          Effect.flip,
-          Effect.tap((error) => Console.log("headBucket error:", error._tag)),
-        );
-      expect(headBucketResult._tag).toBe("NotFound");
+        yield* Console.log("Test 1: headBucket on non-existent bucket");
+        const headBucketResult = yield* client
+          .headBucket({ Bucket: NON_EXISTENT_BUCKET })
+          .pipe(
+            Effect.flip,
+            Effect.tap((error) => Console.log("headBucket error:", error._tag)),
+          );
+        expect(headBucketResult._tag).toBe("NotFound");
 
-      yield* Console.log("Test 2: getBucketLocation on non-existent bucket");
-      const getBucketLocationResult = yield* client
-        .getBucketLocation({ Bucket: NON_EXISTENT_BUCKET })
-        .pipe(
-          Effect.flip,
-          Effect.tap((error) =>
-            Console.log("getBucketLocation error:", error._tag),
-          ),
-        );
-      expect(getBucketLocationResult._tag).toBe("NoSuchBucket");
+        yield* Console.log("Test 2: getBucketLocation on non-existent bucket");
+        const getBucketLocationResult = yield* client
+          .getBucketLocation({ Bucket: NON_EXISTENT_BUCKET })
+          .pipe(
+            Effect.flip,
+            Effect.tap((error) =>
+              Console.log("getBucketLocation error:", error._tag),
+            ),
+          );
+        expect(getBucketLocationResult._tag).toBe("NoSuchBucket");
 
-      yield* Console.log("Test 3: listObjectsV2 on non-existent bucket");
-      const listObjectsResult = yield* client
-        .listObjectsV2({ Bucket: NON_EXISTENT_BUCKET })
-        .pipe(
-          Effect.flip,
-          Effect.tap((error) =>
-            Console.log("listObjectsV2 error:", error._tag),
-          ),
-        );
-      expect(listObjectsResult._tag).toBe("NoSuchBucket");
+        yield* Console.log("Test 3: listObjectsV2 on non-existent bucket");
+        const listObjectsResult = yield* client
+          .listObjectsV2({ Bucket: NON_EXISTENT_BUCKET })
+          .pipe(
+            Effect.flip,
+            Effect.tap((error) =>
+              Console.log("listObjectsV2 error:", error._tag),
+            ),
+          );
+        expect(listObjectsResult._tag).toBe("NoSuchBucket");
 
-      yield* Console.log("Test 4: putObject on non-existent bucket");
-      const putObjectResult = yield* client
-        .putObject({
-          Bucket: NON_EXISTENT_BUCKET,
-          Key: "test.txt",
-          Body: "test content",
-        })
-        .pipe(
-          Effect.flip,
-          Effect.tap((error) => Console.log("putObject error:", error._tag)),
-        );
-      expect(putObjectResult._tag).toBe("NoSuchBucket");
+        yield* Console.log("Test 4: putObject on non-existent bucket");
+        const putObjectResult = yield* client
+          .putObject({
+            Bucket: NON_EXISTENT_BUCKET,
+            Key: "test.txt",
+            Body: "test content",
+          })
+          .pipe(
+            Effect.flip,
+            Effect.tap((error) => Console.log("putObject error:", error._tag)),
+          );
+        expect(putObjectResult._tag).toBe("NoSuchBucket");
 
-      yield* Console.log("Test 5: getObject on non-existent bucket");
-      const getObjectResult = yield* client
-        .getObject({ Bucket: NON_EXISTENT_BUCKET, Key: "test.txt" })
-        .pipe(
-          Effect.flip,
-          Effect.tap((error) => Console.log("getObject error:", error._tag)),
-        );
-      expect(getObjectResult._tag).toBe("NoSuchBucket");
-    }),
+        yield* Console.log("Test 5: getObject on non-existent bucket");
+        const getObjectResult = yield* client
+          .getObject({ Bucket: NON_EXISTENT_BUCKET, Key: "test.txt" })
+          .pipe(
+            Effect.flip,
+            Effect.tap((error) => Console.log("getObject error:", error._tag)),
+          );
+        expect(getObjectResult._tag).toBe("NoSuchBucket");
+      }),
     { timeout: 600_000 },
   );
 
@@ -161,7 +166,8 @@ describe.sequential("S3 Smoke Tests", () => {
     "object operations on non-existent key return NoSuchKey",
     () =>
       Effect.gen(function* () {
-        const NON_EXISTENT_KEY = "this-key-definitely-does-not-exist-xyz123.txt";
+        const NON_EXISTENT_KEY =
+          "this-key-definitely-does-not-exist-xyz123.txt";
 
         yield* Console.log("Step 1: Create bucket");
         yield* client.createBucket({ Bucket: BUCKET_NAME });
@@ -172,7 +178,9 @@ describe.sequential("S3 Smoke Tests", () => {
             .getObject({ Bucket: BUCKET_NAME, Key: NON_EXISTENT_KEY })
             .pipe(
               Effect.flip,
-              Effect.tap((error) => Console.log("getObject error:", error._tag)),
+              Effect.tap((error) =>
+                Console.log("getObject error:", error._tag),
+              ),
             );
           expect(getObjectResult._tag).toBe("NoSuchKey");
 
@@ -303,7 +311,9 @@ describe.sequential("S3 Smoke Tests", () => {
             })
             .pipe(
               Effect.flip,
-              Effect.tap((error) => Console.log("putObject error:", error._tag)),
+              Effect.tap((error) =>
+                Console.log("putObject error:", error._tag),
+              ),
             );
           // AWS returns InvalidRequest when checksum is malformed/invalid
           expect(putResult._tag).toBe("InvalidRequest");
@@ -346,7 +356,9 @@ describe.sequential("S3 Smoke Tests", () => {
             })
             .pipe(
               Effect.flip,
-              Effect.tap((error) => Console.log("putObject error:", error._tag)),
+              Effect.tap((error) =>
+                Console.log("putObject error:", error._tag),
+              ),
             );
           // AWS returns 412 Precondition Failed
           expect(putResult._tag).toBe("PreconditionFailed");
@@ -401,6 +413,66 @@ describe.sequential("S3 Smoke Tests", () => {
           expect(listPartsResult._tag).toBe("NoSuchKey");
         } finally {
           yield* Console.log("Cleanup: delete bucket");
+          yield* client.deleteBucket({ Bucket: BUCKET_NAME });
+        }
+      }),
+    { timeout: 60_000 },
+  );
+
+  it.live(
+    "putObjectTagging and getObjectTagging",
+    () =>
+      Effect.gen(function* () {
+        yield* Console.log("Step 1: Create bucket");
+        yield* client.createBucket({ Bucket: BUCKET_NAME });
+
+        try {
+          yield* Console.log("Step 2: Upload an object");
+          yield* client.putObject({
+            Bucket: BUCKET_NAME,
+            Key: "tagged-object.txt",
+            Body: "test content for tagging",
+          });
+
+          yield* Console.log("Step 3: Put object tags");
+          yield* client.putObjectTagging({
+            Bucket: BUCKET_NAME,
+            Key: "tagged-object.txt",
+            Tagging: {
+              TagSet: [
+                { Key: "Environment", Value: "Test" },
+                { Key: "Project", Value: "itty-aws" },
+              ],
+            },
+          });
+
+          yield* Console.log("Step 4: Get object tags");
+          const taggingResult = yield* client.getObjectTagging({
+            Bucket: BUCKET_NAME,
+            Key: "tagged-object.txt",
+          });
+
+          yield* Console.log(
+            "Tagging result:",
+            JSON.stringify(taggingResult, null, 2),
+          );
+
+          expect(taggingResult.TagSet).toBeDefined();
+          expect(taggingResult.TagSet?.length).toBe(2);
+
+          const envTag = taggingResult.TagSet?.find(
+            (t) => t.Key === "Environment",
+          );
+          const projTag = taggingResult.TagSet?.find(
+            (t) => t.Key === "Project",
+          );
+          expect(envTag?.Value).toBe("Test");
+          expect(projTag?.Value).toBe("itty-aws");
+        } finally {
+          yield* Console.log("Cleanup: delete object and bucket");
+          yield* client
+            .deleteObject({ Bucket: BUCKET_NAME, Key: "tagged-object.txt" })
+            .pipe(Effect.ignore);
           yield* client.deleteBucket({ Bucket: BUCKET_NAME });
         }
       }),

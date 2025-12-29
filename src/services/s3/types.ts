@@ -65,7 +65,7 @@ export declare class S3 extends AWSServiceClient {
     input: DeleteBucketRequest,
   ): Effect.Effect<
     {},
-    NotFound | BucketNotEmpty | AccessDenied | CommonAwsError
+    NoSuchBucket | BucketNotEmpty | AccessDenied | CommonAwsError
   >;
   deleteBucketAnalyticsConfiguration(
     input: DeleteBucketAnalyticsConfigurationRequest,
@@ -405,7 +405,10 @@ export declare class S3 extends AWSServiceClient {
   >;
   headBucket(
     input: HeadBucketRequest,
-  ): Effect.Effect<HeadBucketOutput, NotFound | AccessDenied | CommonAwsError>;
+  ): Effect.Effect<
+    HeadBucketOutput,
+    NotFound | NoSuchBucket | AccessDenied | CommonAwsError
+  >;
   headObject(
     input: HeadObjectRequest,
   ): Effect.Effect<HeadObjectOutput, NotFound | AccessDenied | CommonAwsError>;
@@ -3701,7 +3704,11 @@ export declare namespace CreateSession {
 export declare namespace DeleteBucket {
   export type Input = DeleteBucketRequest;
   export type Output = {};
-  export type Error = NotFound | BucketNotEmpty | AccessDenied | CommonAwsError;
+  export type Error =
+    | NoSuchBucket
+    | BucketNotEmpty
+    | AccessDenied
+    | CommonAwsError;
 }
 
 export declare namespace DeleteBucketAnalyticsConfiguration {
@@ -4134,7 +4141,7 @@ export declare namespace GetPublicAccessBlock {
 export declare namespace HeadBucket {
   export type Input = HeadBucketRequest;
   export type Output = HeadBucketOutput;
-  export type Error = NotFound | AccessDenied | CommonAwsError;
+  export type Error = NotFound | NoSuchBucket | AccessDenied | CommonAwsError;
 }
 
 export declare namespace HeadObject {
