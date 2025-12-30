@@ -67,7 +67,7 @@ export class TagResourceInput extends S.Class<TagResourceInput>("TagResourceInpu
 export class UntagResourceInput extends S.Class<UntagResourceInput>("UntagResourceInput")({ResourceArn: S.String, TagKeys: TagKeyList}) {}
 export class UpdateContributorInsightsInput extends S.Class<UpdateContributorInsightsInput>("UpdateContributorInsightsInput")({TableName: S.String, IndexName: S.optional(S.String), ContributorInsightsAction: S.String, ContributorInsightsMode: S.optional(S.String)}) {}
 export type ListAttributeValue = AttributeValue[];
-export const ListAttributeValue = S.Array(S.suspend(() => AttributeValue)) as any as S.Schema<ListAttributeValue>;
+export const ListAttributeValue = S.Array(S.suspend(() => AttributeValue))
 export const PreparedStatementParameters = S.Array(S.suspend(() => AttributeValue));
 export class BatchStatementRequest extends S.Class<BatchStatementRequest>("BatchStatementRequest")({Statement: S.String, Parameters: S.optional(PreparedStatementParameters), ConsistentRead: S.optional(S.Boolean), ReturnValuesOnConditionCheckFailure: S.optional(S.String)}) {}
 export const PartiQLBatchRequest = S.Array(BatchStatementRequest);
