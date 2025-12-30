@@ -131,7 +131,7 @@ export class WaitAndContinueSpecification extends S.Class<WaitAndContinueSpecifi
 export class DialogAction extends S.Class<DialogAction>("DialogAction")({type: S.String, slotToElicit: S.optional(S.String), suppressNextMessage: S.optional(S.Boolean)}) {}
 export class SlotValue extends S.Class<SlotValue>("SlotValue")({interpretedValue: S.optional(S.String)}) {}
 export class SlotValueOverride extends S.Class<SlotValueOverride>("SlotValueOverride")({shape: S.optional(S.String), value: S.optional(SlotValue), values: S.optional(S.suspend(() => SlotValues))}) {}
-export const SlotValueOverrideMap = S.Record({key: S.String, value: SlotValueOverride});
+export const SlotValueOverrideMap = S.Record({key: S.String, value: S.suspend((): S.Schema<SlotValueOverride, any> => SlotValueOverride)});
 export class IntentOverride extends S.Class<IntentOverride>("IntentOverride")({name: S.optional(S.String), slots: S.optional(SlotValueOverrideMap)}) {}
 export const StringMap = S.Record({key: S.String, value: S.String});
 export class DialogState extends S.Class<DialogState>("DialogState")({dialogAction: S.optional(DialogAction), intent: S.optional(IntentOverride), sessionAttributes: S.optional(StringMap)}) {}
@@ -550,7 +550,8 @@ export const ConversationLevelIntentClassificationResults = S.Array(Conversation
 export class ConversationLevelSlotResolutionResultItem extends S.Class<ConversationLevelSlotResolutionResultItem>("ConversationLevelSlotResolutionResultItem")({intentName: S.String, slotName: S.String, matchResult: S.String}) {}
 export const ConversationLevelSlotResolutionResults = S.Array(ConversationLevelSlotResolutionResultItem);
 export class IntentClassificationTestResultItemCounts extends S.Class<IntentClassificationTestResultItemCounts>("IntentClassificationTestResultItemCounts")({totalResultCount: S.Number, speechTranscriptionResultCounts: S.optional(TestResultMatchStatusCountMap), intentMatchResultCounts: TestResultMatchStatusCountMap}) {}
-export const UserTurnSlotOutputMap = S.Record({key: S.String, value: UserTurnSlotOutput});
+export type UserTurnSlotOutputMap = { [key: string]: UserTurnSlotOutput };
+export const UserTurnSlotOutputMap = S.Record({key: S.String, value: S.suspend((): S.Schema<UserTurnSlotOutput, any> => UserTurnSlotOutput)}) as any as S.Schema<UserTurnSlotOutputMap>;
 export class OverallTestResultItem extends S.Class<OverallTestResultItem>("OverallTestResultItem")({multiTurnConversation: S.Boolean, totalResultCount: S.Number, speechTranscriptionResultCounts: S.optional(TestResultMatchStatusCountMap), endToEndResultCounts: TestResultMatchStatusCountMap}) {}
 export const OverallTestResultItemList = S.Array(OverallTestResultItem);
 export class ConversationLevelTestResultItem extends S.Class<ConversationLevelTestResultItem>("ConversationLevelTestResultItem")({conversationId: S.String, endToEndResult: S.String, speechTranscriptionResult: S.optional(S.String), intentClassificationResults: ConversationLevelIntentClassificationResults, slotResolutionResults: ConversationLevelSlotResolutionResults}) {}
@@ -573,8 +574,9 @@ export class IntentLevelSlotResolutionTestResultItem extends S.Class<IntentLevel
 export const IntentLevelSlotResolutionTestResultItemList = S.Array(IntentLevelSlotResolutionTestResultItem);
 export class CreateIntentResponse extends S.Class<CreateIntentResponse>("CreateIntentResponse")({intentId: S.optional(S.String), intentName: S.optional(S.String), intentDisplayName: S.optional(S.String), description: S.optional(S.String), parentIntentSignature: S.optional(S.String), sampleUtterances: S.optional(SampleUtterancesList), dialogCodeHook: S.optional(DialogCodeHookSettings), fulfillmentCodeHook: S.optional(FulfillmentCodeHookSettings), intentConfirmationSetting: S.optional(IntentConfirmationSetting), intentClosingSetting: S.optional(IntentClosingSetting), inputContexts: S.optional(InputContextsList), outputContexts: S.optional(OutputContextsList), kendraConfiguration: S.optional(KendraConfiguration), botId: S.optional(S.String), botVersion: S.optional(S.String), localeId: S.optional(S.String), creationDateTime: S.optional(S.Date), initialResponseSetting: S.optional(InitialResponseSetting), qnAIntentConfiguration: S.optional(QnAIntentConfiguration), qInConnectIntentConfiguration: S.optional(QInConnectIntentConfiguration)}) {}
 export class AgentTurnResult extends S.Class<AgentTurnResult>("AgentTurnResult")({expectedAgentPrompt: S.String, actualAgentPrompt: S.optional(S.String), errorDetails: S.optional(ExecutionErrorDetails), actualElicitedSlot: S.optional(S.String), actualIntent: S.optional(S.String)}) {}
-export const SlotHintsSlotMap = S.Record({key: S.String, value: RuntimeHintDetails});
-export const SlotHintsIntentMap = S.Record({key: S.String, value: SlotHintsSlotMap});
+export type SlotHintsSlotMap = { [key: string]: RuntimeHintDetails };
+export const SlotHintsSlotMap = S.Record({key: S.String, value: S.suspend((): S.Schema<RuntimeHintDetails, any> => RuntimeHintDetails)}) as any as S.Schema<SlotHintsSlotMap>;
+export const SlotHintsIntentMap = S.Record({key: S.String, value: S.suspend(() => SlotHintsSlotMap)});
 export class RuntimeHints extends S.Class<RuntimeHints>("RuntimeHints")({slotHints: S.optional(SlotHintsIntentMap)}) {}
 export class InputSessionStateSpecification extends S.Class<InputSessionStateSpecification>("InputSessionStateSpecification")({sessionAttributes: S.optional(StringMap), activeContexts: S.optional(ActiveContextList), runtimeHints: S.optional(RuntimeHints)}) {}
 export class UserTurnInputSpecification extends S.Class<UserTurnInputSpecification>("UserTurnInputSpecification")({utteranceInput: UtteranceInputSpecification, requestAttributes: S.optional(StringMap), sessionState: S.optional(InputSessionStateSpecification)}) {}

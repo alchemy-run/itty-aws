@@ -7,15 +7,17 @@ export class DeleteSessionRequest extends S.Class<DeleteSessionRequest>("DeleteS
 export class GetSessionRequest extends S.Class<GetSessionRequest>("GetSessionRequest")({botId: S.String, botAliasId: S.String, localeId: S.String, sessionId: S.String}) {}
 export class ElicitSubSlot extends S.Class<ElicitSubSlot>("ElicitSubSlot")({name: S.String, subSlotToElicit: S.optional(S.suspend((): S.Schema<ElicitSubSlot, any> => ElicitSubSlot))}) {}
 export class DialogAction extends S.Class<DialogAction>("DialogAction")({type: S.String, slotToElicit: S.optional(S.String), slotElicitationStyle: S.optional(S.String), subSlotToElicit: S.optional(ElicitSubSlot)}) {}
-export const Slots = S.Record({key: S.String, value: Slot});
+export type Slots = { [key: string]: Slot };
+export const Slots = S.Record({key: S.String, value: S.suspend((): S.Schema<Slot, any> => Slot)}) as any as S.Schema<Slots>;
 export class Intent extends S.Class<Intent>("Intent")({name: S.String, slots: S.optional(Slots), state: S.optional(S.String), confirmationState: S.optional(S.String)}) {}
 export class ActiveContextTimeToLive extends S.Class<ActiveContextTimeToLive>("ActiveContextTimeToLive")({timeToLiveInSeconds: S.Number, turnsToLive: S.Number}) {}
 export const ActiveContextParametersMap = S.Record({key: S.String, value: S.String});
 export class ActiveContext extends S.Class<ActiveContext>("ActiveContext")({name: S.String, timeToLive: ActiveContextTimeToLive, contextAttributes: ActiveContextParametersMap}) {}
 export const ActiveContextsList = S.Array(ActiveContext);
 export const StringMap = S.Record({key: S.String, value: S.String});
-export const SlotHintsSlotMap = S.Record({key: S.String, value: RuntimeHintDetails});
-export const SlotHintsIntentMap = S.Record({key: S.String, value: SlotHintsSlotMap});
+export type SlotHintsSlotMap = { [key: string]: RuntimeHintDetails };
+export const SlotHintsSlotMap = S.Record({key: S.String, value: S.suspend((): S.Schema<RuntimeHintDetails, any> => RuntimeHintDetails)}) as any as S.Schema<SlotHintsSlotMap>;
+export const SlotHintsIntentMap = S.Record({key: S.String, value: S.suspend(() => SlotHintsSlotMap)});
 export class RuntimeHints extends S.Class<RuntimeHints>("RuntimeHints")({slotHints: S.optional(SlotHintsIntentMap)}) {}
 export class SessionState extends S.Class<SessionState>("SessionState")({dialogAction: S.optional(DialogAction), intent: S.optional(Intent), activeContexts: S.optional(ActiveContextsList), sessionAttributes: S.optional(StringMap), originatingRequestId: S.optional(S.String), runtimeHints: S.optional(RuntimeHints)}) {}
 export class RecognizeTextRequest extends S.Class<RecognizeTextRequest>("RecognizeTextRequest")({botId: S.String, botAliasId: S.String, localeId: S.String, sessionId: S.String, text: S.String, sessionState: S.optional(SessionState), requestAttributes: S.optional(StringMap)}) {}

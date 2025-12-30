@@ -15,7 +15,7 @@ export class ListStreamsOutput extends S.Class<ListStreamsOutput>("ListStreamsOu
 export const ShardIdList = S.Array(S.String);
 export class KeyspacesMetadata extends S.Class<KeyspacesMetadata>("KeyspacesMetadata")({expirationTime: S.optional(S.String), writeTime: S.optional(S.String)}) {}
 export class KeyspacesCell extends S.Class<KeyspacesCell>("KeyspacesCell")({value: S.optional(S.suspend(() => KeyspacesCellValue)), metadata: S.optional(KeyspacesMetadata)}) {}
-export const KeyspacesCells = S.Record({key: S.String, value: KeyspacesCell});
+export const KeyspacesCells = S.Record({key: S.String, value: S.suspend((): S.Schema<KeyspacesCell, any> => KeyspacesCell)});
 export class KeyspacesRow extends S.Class<KeyspacesRow>("KeyspacesRow")({valueCells: S.optional(KeyspacesCells), staticCells: S.optional(KeyspacesCells), rowMetadata: S.optional(KeyspacesMetadata)}) {}
 export class SequenceNumberRange extends S.Class<SequenceNumberRange>("SequenceNumberRange")({startingSequenceNumber: S.optional(S.String), endingSequenceNumber: S.optional(S.String)}) {}
 export type KeyspacesCellList = KeyspacesCell[];
@@ -23,13 +23,14 @@ export const KeyspacesCellList = S.Array(S.suspend((): S.Schema<KeyspacesCell, a
 export class KeyspacesCellMapDefinition extends S.Class<KeyspacesCellMapDefinition>("KeyspacesCellMapDefinition")({key: S.optional(S.suspend(() => KeyspacesCellValue)), value: S.optional(S.suspend(() => KeyspacesCellValue)), metadata: S.optional(KeyspacesMetadata)}) {}
 export type KeyspacesCellMap = KeyspacesCellMapDefinition[];
 export const KeyspacesCellMap = S.Array(S.suspend((): S.Schema<KeyspacesCellMapDefinition, any> => KeyspacesCellMapDefinition)) as any as S.Schema<KeyspacesCellMap>;
-export const KeyspacesUdtMap = S.Record({key: S.String, value: KeyspacesCell});
+export type KeyspacesUdtMap = { [key: string]: KeyspacesCell };
+export const KeyspacesUdtMap = S.Record({key: S.String, value: S.suspend((): S.Schema<KeyspacesCell, any> => KeyspacesCell)}) as any as S.Schema<KeyspacesUdtMap>;
 export class Shard extends S.Class<Shard>("Shard")({shardId: S.optional(S.String), sequenceNumberRange: S.optional(SequenceNumberRange), parentShardIds: S.optional(ShardIdList)}) {}
 export const ShardDescriptionList = S.Array(Shard);
 export type KeyspacesCellValue = string | H.StreamBody | boolean | KeyspacesCellList | KeyspacesCellMap | KeyspacesUdtMap;
 export const KeyspacesCellValue = S.Union(S.String, S.String, H.StreamBody(), S.Boolean, S.String, S.String, S.String, S.String, S.String, S.String, S.String, S.suspend(() => KeyspacesCellList), S.suspend(() => KeyspacesCellMap), S.suspend(() => KeyspacesCellList), S.String, S.String, S.String, S.String, S.String, S.String, S.suspend(() => KeyspacesCellList), S.String, S.String, S.String, S.suspend(() => KeyspacesUdtMap)) as any as S.Schema<KeyspacesCellValue>;
 export class GetStreamOutput extends S.Class<GetStreamOutput>("GetStreamOutput")({streamArn: S.String, streamLabel: S.String, streamStatus: S.String, streamViewType: S.String, creationRequestDateTime: S.Date, keyspaceName: S.String, tableName: S.String, shards: S.optional(ShardDescriptionList), nextToken: S.optional(S.String)}) {}
-export const KeyspacesKeysMap = S.Record({key: S.String, value: KeyspacesCellValue});
+export const KeyspacesKeysMap = S.Record({key: S.String, value: S.suspend(() => KeyspacesCellValue)});
 export class Record extends S.Class<Record>("Record")({eventVersion: S.optional(S.String), createdAt: S.optional(S.Date), origin: S.optional(S.String), partitionKeys: S.optional(KeyspacesKeysMap), clusteringKeys: S.optional(KeyspacesKeysMap), newImage: S.optional(KeyspacesRow), oldImage: S.optional(KeyspacesRow), sequenceNumber: S.optional(S.String)}) {}
 export const RecordList = S.Array(Record);
 export class GetRecordsOutput extends S.Class<GetRecordsOutput>("GetRecordsOutput")({changeRecords: S.optional(RecordList), nextShardIterator: S.optional(S.String)}) {}

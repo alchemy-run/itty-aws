@@ -30,7 +30,7 @@ export const NumberSetAttributeValue = S.Array(S.String);
 export const BinarySetAttributeValue = S.Array(H.StreamBody());
 export type AttributeValue = string | H.StreamBody | typeof StringSetAttributeValue["Type"] | typeof NumberSetAttributeValue["Type"] | typeof BinarySetAttributeValue["Type"] | MapAttributeValue | ListAttributeValue | boolean;
 export const AttributeValue = S.Union(S.String, S.String, H.StreamBody(), StringSetAttributeValue, NumberSetAttributeValue, BinarySetAttributeValue, S.suspend(() => MapAttributeValue), S.suspend(() => ListAttributeValue), S.Boolean, S.Boolean) as any as S.Schema<AttributeValue>;
-export const Key = S.Record({key: S.String, value: AttributeValue});
+export const Key = S.Record({key: S.String, value: S.suspend(() => AttributeValue)});
 export const ExpressionAttributeNameMap = S.Record({key: S.String, value: S.String});
 export class GetItemInput extends S.Class<GetItemInput>("GetItemInput")({TableName: S.String, Key: Key, AttributesToGet: S.optional(AttributeNameList), ConsistentRead: S.optional(S.Boolean), ReturnConsumedCapacity: S.optional(S.String), ProjectionExpression: S.optional(S.String), ExpressionAttributeNames: S.optional(ExpressionAttributeNameMap)}) {}
 export class GetResourcePolicyInput extends S.Class<GetResourcePolicyInput>("GetResourcePolicyInput")({ResourceArn: S.String}) {}
@@ -59,7 +59,7 @@ export class RestoreTableToPointInTimeInput extends S.Class<RestoreTableToPointI
 export const AttributeValueList = S.Array(S.suspend(() => AttributeValue));
 export class Condition extends S.Class<Condition>("Condition")({AttributeValueList: S.optional(AttributeValueList), ComparisonOperator: S.String}) {}
 export const FilterConditionMap = S.Record({key: S.String, value: Condition});
-export const ExpressionAttributeValueMap = S.Record({key: S.String, value: AttributeValue});
+export const ExpressionAttributeValueMap = S.Record({key: S.String, value: S.suspend(() => AttributeValue)});
 export class ScanInput extends S.Class<ScanInput>("ScanInput")({TableName: S.String, IndexName: S.optional(S.String), AttributesToGet: S.optional(AttributeNameList), Limit: S.optional(S.Number), Select: S.optional(S.String), ScanFilter: S.optional(FilterConditionMap), ConditionalOperator: S.optional(S.String), ExclusiveStartKey: S.optional(Key), ReturnConsumedCapacity: S.optional(S.String), TotalSegments: S.optional(S.Number), Segment: S.optional(S.Number), ProjectionExpression: S.optional(S.String), FilterExpression: S.optional(S.String), ExpressionAttributeNames: S.optional(ExpressionAttributeNameMap), ExpressionAttributeValues: S.optional(ExpressionAttributeValueMap), ConsistentRead: S.optional(S.Boolean)}) {}
 export class Tag extends S.Class<Tag>("Tag")({Key: S.String, Value: S.String}) {}
 export const TagList = S.Array(Tag);
@@ -85,8 +85,8 @@ export class IncrementalExportSpecification extends S.Class<IncrementalExportSpe
 export class S3BucketSource extends S.Class<S3BucketSource>("S3BucketSource")({S3BucketOwner: S.optional(S.String), S3Bucket: S.String, S3KeyPrefix: S.optional(S.String)}) {}
 export class TableCreationParameters extends S.Class<TableCreationParameters>("TableCreationParameters")({TableName: S.String, AttributeDefinitions: AttributeDefinitions, KeySchema: KeySchema, BillingMode: S.optional(S.String), ProvisionedThroughput: S.optional(ProvisionedThroughput), OnDemandThroughput: S.optional(OnDemandThroughput), SSESpecification: S.optional(SSESpecification), GlobalSecondaryIndexes: S.optional(GlobalSecondaryIndexList)}) {}
 export const TableNameList = S.Array(S.String);
-export const PutItemInputAttributeMap = S.Record({key: S.String, value: AttributeValue});
-export const AttributeMap = S.Record({key: S.String, value: AttributeValue});
+export const PutItemInputAttributeMap = S.Record({key: S.String, value: S.suspend(() => AttributeValue)});
+export const AttributeMap = S.Record({key: S.String, value: S.suspend(() => AttributeValue)});
 export const ItemList = S.Array(AttributeMap);
 export class PointInTimeRecoverySpecification extends S.Class<PointInTimeRecoverySpecification>("PointInTimeRecoverySpecification")({PointInTimeRecoveryEnabled: S.Boolean, RecoveryPeriodInDays: S.optional(S.Number)}) {}
 export class AutoScalingTargetTrackingScalingPolicyConfigurationUpdate extends S.Class<AutoScalingTargetTrackingScalingPolicyConfigurationUpdate>("AutoScalingTargetTrackingScalingPolicyConfigurationUpdate")({DisableScaleIn: S.optional(S.Boolean), ScaleInCooldown: S.optional(S.Number), ScaleOutCooldown: S.optional(S.Number), TargetValue: S.Number}) {}
@@ -157,7 +157,8 @@ export class UpdateContributorInsightsOutput extends S.Class<UpdateContributorIn
 export class UpdateKinesisStreamingDestinationInput extends S.Class<UpdateKinesisStreamingDestinationInput>("UpdateKinesisStreamingDestinationInput")({TableName: S.String, StreamArn: S.String, UpdateKinesisStreamingConfiguration: S.optional(UpdateKinesisStreamingConfiguration)}) {}
 export class UpdateTimeToLiveInput extends S.Class<UpdateTimeToLiveInput>("UpdateTimeToLiveInput")({TableName: S.String, TimeToLiveSpecification: TimeToLiveSpecification}) {}
 export class KeysAndAttributes extends S.Class<KeysAndAttributes>("KeysAndAttributes")({Keys: KeyList, AttributesToGet: S.optional(AttributeNameList), ConsistentRead: S.optional(S.Boolean), ProjectionExpression: S.optional(S.String), ExpressionAttributeNames: S.optional(ExpressionAttributeNameMap)}) {}
-export const MapAttributeValue = S.Record({key: S.String, value: AttributeValue});
+export type MapAttributeValue = { [key: string]: AttributeValue };
+export const MapAttributeValue = S.Record({key: S.String, value: S.suspend(() => AttributeValue)}) as any as S.Schema<MapAttributeValue>;
 export class CsvOptions extends S.Class<CsvOptions>("CsvOptions")({Delimiter: S.optional(S.String), HeaderList: S.optional(CsvHeaderList)}) {}
 export class Get extends S.Class<Get>("Get")({Key: Key, TableName: S.String, ProjectionExpression: S.optional(S.String), ExpressionAttributeNames: S.optional(ExpressionAttributeNameMap)}) {}
 export class ConditionCheck extends S.Class<ConditionCheck>("ConditionCheck")({Key: Key, TableName: S.String, ConditionExpression: S.String, ExpressionAttributeNames: S.optional(ExpressionAttributeNameMap), ExpressionAttributeValues: S.optional(ExpressionAttributeValueMap), ReturnValuesOnConditionCheckFailure: S.optional(S.String)}) {}
@@ -268,7 +269,7 @@ export class ReplicaGlobalSecondaryIndexAutoScalingDescription extends S.Class<R
 export const ReplicaGlobalSecondaryIndexAutoScalingDescriptionList = S.Array(ReplicaGlobalSecondaryIndexAutoScalingDescription);
 export class BatchWriteItemInput extends S.Class<BatchWriteItemInput>("BatchWriteItemInput")({RequestItems: BatchWriteItemRequestMap, ReturnConsumedCapacity: S.optional(S.String), ReturnItemCollectionMetrics: S.optional(S.String)}) {}
 export class CreateTableOutput extends S.Class<CreateTableOutput>("CreateTableOutput")({TableDescription: S.optional(TableDescription)}) {}
-export const ItemCollectionKeyAttributeMap = S.Record({key: S.String, value: AttributeValue});
+export const ItemCollectionKeyAttributeMap = S.Record({key: S.String, value: S.suspend(() => AttributeValue)});
 export class ItemCollectionMetrics extends S.Class<ItemCollectionMetrics>("ItemCollectionMetrics")({ItemCollectionKey: S.optional(ItemCollectionKeyAttributeMap), SizeEstimateRangeGB: S.optional(ItemCollectionSizeEstimateRange)}) {}
 export class DeleteItemOutput extends S.Class<DeleteItemOutput>("DeleteItemOutput")({Attributes: S.optional(AttributeMap), ConsumedCapacity: S.optional(ConsumedCapacity), ItemCollectionMetrics: S.optional(ItemCollectionMetrics)}) {}
 export class DescribeContinuousBackupsOutput extends S.Class<DescribeContinuousBackupsOutput>("DescribeContinuousBackupsOutput")({ContinuousBackupsDescription: S.optional(ContinuousBackupsDescription)}) {}

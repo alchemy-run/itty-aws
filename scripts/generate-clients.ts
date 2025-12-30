@@ -674,6 +674,11 @@ const convertShapeToSchema: (
             (s) => s.type === "map",
             (s) => {
               const schemaName = getSchemaName();
+              const isCyclic = sdkFile.cyclicSchemas.has(schemaName);
+              const keyTargetName = formatName(s.key.target);
+              const valueTargetName = formatName(s.value.target);
+              const isKeyErrorShape = sdkFile.errorShapeIds.has(s.key.target);
+              const isValueErrorShape = sdkFile.errorShapeIds.has(s.value.target);
               return addAlias(
                 Effect.all(
                   [
@@ -686,12 +691,38 @@ const convertShapeToSchema: (
                   ],
                   { concurrency: "unbounded" },
                 ).pipe(
-                  Effect.map(
-                    ([keySchema, valueSchema]) =>
-                      `export const ${schemaName} = S.Record({key: ${keySchema}, value: ${valueSchema}});`,
-                  ),
+                  Effect.map(([keySchema, valueSchema]) => {
+                    // Wrap error shape or cyclic references in S.suspend
+                    let wrappedKey = keySchema;
+                    let wrappedValue = valueSchema;
+                    
+                    if (isKeyErrorShape) {
+                      wrappedKey = `S.suspend(() => ${keySchema})`;
+                    } else if (sdkFile.cyclicSchemas.has(keyTargetName)) {
+                      wrappedKey = sdkFile.cyclicClasses.has(keyTargetName)
+                        ? `S.suspend((): S.Schema<${keySchema}, any> => ${keySchema})`
+                        : `S.suspend(() => ${keySchema})`;
+                    }
+                    
+                    if (isValueErrorShape) {
+                      wrappedValue = `S.suspend(() => ${valueSchema})`;
+                    } else if (sdkFile.cyclicSchemas.has(valueTargetName)) {
+                      wrappedValue = sdkFile.cyclicClasses.has(valueTargetName)
+                        ? `S.suspend((): S.Schema<${valueSchema}, any> => ${valueSchema})`
+                        : `S.suspend(() => ${valueSchema})`;
+                    }
+                    
+                    if (isCyclic) {
+                      // For cyclic maps, generate explicit type alias to help TypeScript inference
+                      const keyTsType = schemaExprToTsType(keySchema, sdkFile.allStructNames, sdkFile.cyclicSchemas);
+                      const valueTsType = schemaExprToTsType(valueSchema, sdkFile.allStructNames, sdkFile.cyclicSchemas);
+                      return `export type ${schemaName} = { [key: ${keyTsType}]: ${valueTsType} };\nexport const ${schemaName} = S.Record({key: ${wrappedKey}, value: ${wrappedValue}}) as any as S.Schema<${schemaName}>;`;
+                    }
+                    
+                    return `export const ${schemaName} = S.Record({key: ${wrappedKey}, value: ${wrappedValue}});`;
+                  }),
                 ),
-                [formatName(s.key.target), formatName(s.value.target)],
+                [keyTargetName, valueTargetName],
               );
             },
           ),

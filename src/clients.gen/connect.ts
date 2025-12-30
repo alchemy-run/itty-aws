@@ -289,7 +289,7 @@ export class StartScreenSharingResponse extends S.Class<StartScreenSharingRespon
 export class Reference extends S.Class<Reference>("Reference")({Value: S.optional(S.String), Type: S.String, Status: S.optional(S.String), Arn: S.optional(S.String), StatusReason: S.optional(S.String)}) {}
 export const ContactReferences = S.Record({key: S.String, value: Reference});
 export class SegmentAttributeValue extends S.Class<SegmentAttributeValue>("SegmentAttributeValue")({ValueString: S.optional(S.String), ValueMap: S.optional(S.suspend(() => SegmentAttributeValueMap)), ValueInteger: S.optional(S.Number), ValueList: S.optional(S.suspend(() => SegmentAttributeValueList)), ValueArn: S.optional(S.String)}) {}
-export const SegmentAttributes = S.Record({key: S.String, value: SegmentAttributeValue});
+export const SegmentAttributes = S.Record({key: S.String, value: S.suspend((): S.Schema<SegmentAttributeValue, any> => SegmentAttributeValue)});
 export class StartTaskContactRequest extends S.Class<StartTaskContactRequest>("StartTaskContactRequest")({InstanceId: S.String, PreviousContactId: S.optional(S.String), ContactFlowId: S.optional(S.String), Attributes: S.optional(Attributes), Name: S.String, References: S.optional(ContactReferences), Description: S.optional(S.String), ClientToken: S.optional(S.String), ScheduledTime: S.optional(S.Date), TaskTemplateId: S.optional(S.String), QuickConnectId: S.optional(S.String), RelatedContactId: S.optional(S.String), SegmentAttributes: S.optional(SegmentAttributes)}) {}
 export class StopContactMediaProcessingRequest extends S.Class<StopContactMediaProcessingRequest>("StopContactMediaProcessingRequest")({InstanceId: S.optional(S.String), ContactId: S.optional(S.String)}) {}
 export class StopContactMediaProcessingResponse extends S.Class<StopContactMediaProcessingResponse>("StopContactMediaProcessingResponse")({}) {}
@@ -941,7 +941,8 @@ export const ServiceQuotaExceededExceptionReason = S.Union(S.String);
 export class ProblemDetail extends S.Class<ProblemDetail>("ProblemDetail")({message: S.optional(S.String)}) {}
 export const Problems = S.Array(ProblemDetail);
 export class HierarchyStructureUpdate extends S.Class<HierarchyStructureUpdate>("HierarchyStructureUpdate")({LevelOne: S.optional(HierarchyLevelUpdate), LevelTwo: S.optional(HierarchyLevelUpdate), LevelThree: S.optional(HierarchyLevelUpdate), LevelFour: S.optional(HierarchyLevelUpdate), LevelFive: S.optional(HierarchyLevelUpdate)}) {}
-export const SegmentAttributeValueMap = S.Record({key: S.String, value: SegmentAttributeValue});
+export type SegmentAttributeValueMap = { [key: string]: SegmentAttributeValue };
+export const SegmentAttributeValueMap = S.Record({key: S.String, value: S.suspend((): S.Schema<SegmentAttributeValue, any> => SegmentAttributeValue)}) as any as S.Schema<SegmentAttributeValueMap>;
 export class ContactFlowTypeCondition extends S.Class<ContactFlowTypeCondition>("ContactFlowTypeCondition")({ContactFlowType: S.optional(S.String)}) {}
 export class ContactFlowAttributeAndCondition extends S.Class<ContactFlowAttributeAndCondition>("ContactFlowAttributeAndCondition")({TagConditions: S.optional(TagAndConditionList), ContactFlowTypeCondition: S.optional(ContactFlowTypeCondition)}) {}
 export const ContactFlowAttributeOrConditionList = S.Array(ContactFlowAttributeAndCondition);

@@ -146,7 +146,8 @@ export const WorkspaceSummaries = S.Array(WorkspaceSummary);
 export const ComponentUpdatesMapRequest = S.Record({key: S.String, value: ComponentUpdateRequest});
 export const CompositeComponentUpdatesMapRequest = S.Record({key: S.String, value: CompositeComponentUpdateRequest});
 export const ExternalIdProperty = S.Record({key: S.String, value: S.String});
-export const DataValueMap = S.Record({key: S.String, value: DataValue});
+export type DataValueMap = { [key: string]: DataValue };
+export const DataValueMap = S.Record({key: S.String, value: S.suspend((): S.Schema<DataValue, any> => DataValue)}) as any as S.Schema<DataValueMap>;
 export class CreateSceneResponse extends S.Class<CreateSceneResponse>("CreateSceneResponse")({arn: S.String, creationDateTime: S.Date}) {}
 export class ExecuteQueryResponse extends S.Class<ExecuteQueryResponse>("ExecuteQueryResponse")({columnDescriptions: S.optional(ColumnDescriptions), rows: S.optional(Rows), nextToken: S.optional(S.String)}) {}
 export class GetPricingPlanResponse extends S.Class<GetPricingPlanResponse>("GetPricingPlanResponse")({currentPricingPlan: PricingPlan, pendingPricingPlan: S.optional(PricingPlan)}) {}
@@ -190,7 +191,7 @@ export class ComponentRequest extends S.Class<ComponentRequest>("ComponentReques
 export class SyncResourceStatus extends S.Class<SyncResourceStatus>("SyncResourceStatus")({state: S.optional(S.String), error: S.optional(ErrorDetails)}) {}
 export class PropertyResponse extends S.Class<PropertyResponse>("PropertyResponse")({definition: S.optional(PropertyDefinitionResponse), value: S.optional(DataValue), areAllPropertyValuesReturned: S.optional(S.Boolean)}) {}
 export const ComponentsMapRequest = S.Record({key: S.String, value: ComponentRequest});
-export const PropertyTableValue = S.Record({key: S.String, value: DataValue});
+export const PropertyTableValue = S.Record({key: S.String, value: S.suspend((): S.Schema<DataValue, any> => DataValue)});
 export const TabularPropertyValue = S.Array(PropertyTableValue);
 export const TabularPropertyValues = S.Array(TabularPropertyValue);
 export const ComponentSummaries = S.Array(ComponentSummary);
