@@ -63,7 +63,8 @@ export const UserAliases = S.Array(UserAlias);
 export class UpdateUserRequest extends S.Class<UpdateUserRequest>("UpdateUserRequest")({applicationId: S.String, userId: S.String, userAliasesToUpdate: S.optional(UserAliases), userAliasesToDelete: S.optional(UserAliases)}) {}
 export const PermissionConditionValues = S.Array(S.String);
 export class EndOfInputEvent extends S.Class<EndOfInputEvent>("EndOfInputEvent")({}) {}
-export const AttributeFilters = S.Array(S.suspend((): S.Schema<AttributeFilter> => AttributeFilter));
+export type AttributeFilters = AttributeFilter[];
+export const AttributeFilters = S.Array(S.suspend((): S.Schema<AttributeFilter> => AttributeFilter)) as any as S.Schema<AttributeFilters>;
 export const BlockedPhrases = S.Array(S.String);
 export const ExampleChatMessages = S.Array(S.String);
 export class PermissionCondition extends S.Class<PermissionCondition>("PermissionCondition")({conditionOperator: S.String, conditionKey: S.String, conditionValues: PermissionConditionValues}) {}

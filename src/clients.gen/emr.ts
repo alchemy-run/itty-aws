@@ -53,7 +53,8 @@ export class ListSupportedInstanceTypesInput extends S.Class<ListSupportedInstan
 export class ModifyClusterInput extends S.Class<ModifyClusterInput>("ModifyClusterInput")({ClusterId: S.String, StepConcurrencyLevel: S.optional(S.Number), ExtendedSupport: S.optional(S.Boolean)}) {}
 export class PortRange extends S.Class<PortRange>("PortRange")({MinRange: S.Number, MaxRange: S.optional(S.Number)}) {}
 export const PortRanges = S.Array(PortRange);
-export const ConfigurationList = S.Array(S.suspend((): S.Schema<Configuration> => Configuration));
+export type ConfigurationList = Configuration[];
+export const ConfigurationList = S.Array(S.suspend((): S.Schema<Configuration> => Configuration)) as any as S.Schema<ConfigurationList>;
 export const StringMap = S.Record({key: S.String, value: S.String});
 export class BlockPublicAccessConfiguration extends S.Class<BlockPublicAccessConfiguration>("BlockPublicAccessConfiguration")({BlockPublicSecurityGroupRules: S.Boolean, PermittedPublicSecurityGroupRuleRanges: S.optional(PortRanges), Classification: S.optional(S.String), Configurations: S.optional(ConfigurationList), Properties: S.optional(StringMap)}) {}
 export class PutBlockPublicAccessConfigurationInput extends S.Class<PutBlockPublicAccessConfigurationInput>("PutBlockPublicAccessConfigurationInput")({BlockPublicAccessConfiguration: BlockPublicAccessConfiguration}) {}

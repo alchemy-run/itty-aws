@@ -40,6 +40,8 @@ class SdkFile extends Context.Tag("SdkFile")<
     cyclicSchemas: Set<string>;
     // Set of schema names that are cyclic AND are structs (will become classes)
     cyclicClasses: Set<string>;
+    // Set of ALL struct names (classes can be used directly as types)
+    allStructNames: Set<string>;
   }
 >() {}
 
@@ -135,6 +137,34 @@ function formatName(shapeId: string, lowercase = false) {
   return name;
 }
 
+// Helper to convert schema expression to TypeScript type for type aliases
+// - allStructNames: set of all struct (class) names that can be used directly as types
+// - cyclicSchemas: set of cyclic schemas that have explicit type aliases
+function schemaExprToTsType(
+  schemaExpr: string,
+  allStructNames: Set<string>,
+  cyclicSchemas: Set<string>,
+): string {
+  switch (schemaExpr) {
+    case "S.String": return "string";
+    case "S.Boolean": return "boolean";
+    case "S.Number": return "number";
+    case "S.Date": return "Date";
+    case "S.Any": return "any";
+    case "H.StreamBody()": return "H.StreamBody";
+    case "S.Struct({})": return "Record<string, never>";
+    default:
+      // Named schemas:
+      // - Structs (classes) can be used directly as types
+      // - Cyclic arrays/unions have explicit type aliases, so can be used directly
+      // - Non-cyclic arrays/unions/maps are just const, so need typeof extraction
+      if (allStructNames.has(schemaExpr) || cyclicSchemas.has(schemaExpr)) {
+        return schemaExpr;
+      }
+      return `typeof ${schemaExpr}["Type"]`;
+  }
+}
+
 // Topological sort for schema definitions to ensure dependencies come before dependents
 // Handles cycles by treating cyclic schemas specially (they will use S.Class and S.suspend)
 function topologicalSortWithCycles(
@@ -216,7 +246,7 @@ function collectShapeDependencies(
 // Find all schemas that are part of a cycle using the pre-collected dependencies
 function findCyclicSchemasFromDeps(
   shapeDeps: Map<string, { deps: string[]; type: string }>,
-): { cyclicSchemas: Set<string>; cyclicClasses: Set<string> } {
+): { cyclicSchemas: Set<string>; cyclicClasses: Set<string>; allStructNames: Set<string> } {
   const cyclicSchemas = new Set<string>();
 
   let index = 0;
@@ -281,14 +311,18 @@ function findCyclicSchemasFromDeps(
 
   // Determine which cyclic schemas will become classes (structs only)
   const cyclicClasses = new Set<string>();
-  for (const name of cyclicSchemas) {
-    const info = shapeDeps.get(name);
-    if (info && info.type === "structure") {
-      cyclicClasses.add(name);
+  // Collect ALL struct names (classes can be used directly as types)
+  const allStructNames = new Set<string>();
+  for (const [name, info] of shapeDeps) {
+    if (info.type === "structure") {
+      allStructNames.add(name);
+      if (cyclicSchemas.has(name)) {
+        cyclicClasses.add(name);
+      }
     }
   }
 
-  return { cyclicSchemas, cyclicClasses };
+  return { cyclicSchemas, cyclicClasses, allStructNames };
 }
 
 const convertShapeToSchema: (
@@ -440,6 +474,7 @@ const convertShapeToSchema: (
             (s) => {
               const memberName = formatName(s.member.target);
               const schemaName = getSchemaName();
+              const isCyclic = sdkFile.cyclicSchemas.has(schemaName);
               return addAlias(
                 convertShapeToSchema(s.member.target).pipe(
                   Effect.flatMap(Deferred.await),
@@ -451,6 +486,13 @@ const convertShapeToSchema: (
                         ? `S.suspend((): S.Schema<${type}> => ${type})`
                         : `S.suspend(() => ${type})`;
                     }
+                    
+                    if (isCyclic) {
+                      // For cyclic arrays, generate explicit type alias to help TypeScript inference
+                      const memberTsType = schemaExprToTsType(type, sdkFile.allStructNames, sdkFile.cyclicSchemas);
+                      return `export type ${schemaName} = ${memberTsType}[];\nexport const ${schemaName} = S.Array(${innerType}) as any as S.Schema<${schemaName}>;`;
+                    }
+                    
                     return `export const ${schemaName} = S.Array(${innerType});`;
                   }),
                 ),
@@ -538,23 +580,35 @@ const convertShapeToSchema: (
                     return convertShapeToSchema(member.target).pipe(
                       Effect.flatMap(Deferred.await),
                       Effect.map((schema) => {
+                        // Track both raw schema (for type alias) and wrapped schema (for schema definition)
+                        let wrappedSchema = schema;
                         // Wrap cyclic references in S.suspend
                         if (isCurrentCyclic && sdkFile.cyclicSchemas.has(memberTargetName)) {
                           if (sdkFile.cyclicClasses.has(memberTargetName)) {
-                            return `S.suspend((): S.Schema<${schema}> => ${schema})`;
+                            wrappedSchema = `S.suspend((): S.Schema<${schema}> => ${schema})`;
                           } else {
-                            return `S.suspend(() => ${schema})`;
+                            wrappedSchema = `S.suspend(() => ${schema})`;
                           }
                         }
-                        return schema;
+                        return { raw: schema, wrapped: wrappedSchema };
                       }),
                     );
                   }),
                   { concurrency: "unbounded" },
                 ).pipe(
-                  Effect.map(
-                    (members) => `export const ${schemaName} = S.Union(${members.join(", ")});`,
-                  ),
+                  Effect.map((members) => {
+                    const wrappedMembers = members.map(m => m.wrapped);
+                    
+                    if (isCurrentCyclic) {
+                      // For cyclic unions, generate explicit type alias to help TypeScript inference
+                      // Deduplicate the TypeScript types for cleaner output
+                      const memberTsTypes = [...new Set(members.map(m => schemaExprToTsType(m.raw, sdkFile.allStructNames, sdkFile.cyclicSchemas)))];
+                      const typeAlias = `export type ${schemaName} = ${memberTsTypes.join(" | ")};`;
+                      return `${typeAlias}\nexport const ${schemaName} = S.Union(${wrappedMembers.join(", ")}) as any as S.Schema<${schemaName}>;`;
+                    }
+                    
+                    return `export const ${schemaName} = S.Union(${wrappedMembers.join(", ")});`;
+                  }),
                 ),
                 memberTargets,
               );
@@ -788,7 +842,7 @@ const generateClient = Effect.fn(function* (
 
   // Pre-compute cyclic schemas from the model before generation
   const shapeDeps = collectShapeDependencies(model);
-  const { cyclicSchemas, cyclicClasses } = findCyclicSchemasFromDeps(shapeDeps);
+  const { cyclicSchemas, cyclicClasses, allStructNames } = findCyclicSchemasFromDeps(shapeDeps);
 
   return yield* client.pipe(
     Effect.provideService(SdkFile, {
@@ -800,6 +854,7 @@ const generateClient = Effect.fn(function* (
       map: MutableHashMap.empty<string, Deferred.Deferred<string, never>>(),
       cyclicSchemas,
       cyclicClasses,
+      allStructNames,
     }),
     Effect.provideService(ModelService, model),
   );

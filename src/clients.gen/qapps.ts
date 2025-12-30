@@ -95,7 +95,8 @@ export class UserAppItem extends S.Class<UserAppItem>("UserAppItem")({appId: S.S
 export const UserAppsList = S.Array(UserAppItem);
 export const PredictQAppInputOptions = S.Union(MessageList, S.String);
 export class CreatePresignedUrlOutput extends S.Class<CreatePresignedUrlOutput>("CreatePresignedUrlOutput")({fileId: S.String, presignedUrl: S.String, presignedUrlFields: PresignedUrlFields, presignedUrlExpiration: S.Date}) {}
-export const AttributeFilters = S.Array(S.suspend((): S.Schema<AttributeFilter> => AttributeFilter));
+export type AttributeFilters = AttributeFilter[];
+export const AttributeFilters = S.Array(S.suspend((): S.Schema<AttributeFilter> => AttributeFilter)) as any as S.Schema<AttributeFilters>;
 export class GetLibraryItemOutput extends S.Class<GetLibraryItemOutput>("GetLibraryItemOutput")({libraryItemId: S.String, appId: S.String, appVersion: S.Number, categories: CategoryList, status: S.String, createdAt: S.Date, createdBy: S.String, updatedAt: S.optional(S.Date), updatedBy: S.optional(S.String), ratingCount: S.Number, isRatedByUser: S.optional(S.Boolean), userCount: S.optional(S.Number), isVerified: S.optional(S.Boolean)}) {}
 export class ContentTooLargeException extends S.Class<ContentTooLargeException>("ContentTooLargeException")({message: S.String, resourceId: S.String, resourceType: S.String}) {}
 export class ListLibraryItemsOutput extends S.Class<ListLibraryItemsOutput>("ListLibraryItemsOutput")({libraryItems: S.optional(LibraryItemList), nextToken: S.optional(S.String)}) {}

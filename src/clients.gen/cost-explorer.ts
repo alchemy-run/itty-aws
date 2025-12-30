@@ -75,7 +75,8 @@ export const CostCategorySplitChargeRuleParametersList = S.Array(CostCategorySpl
 export class CostCategorySplitChargeRule extends S.Class<CostCategorySplitChargeRule>("CostCategorySplitChargeRule")({Source: S.String, Targets: CostCategorySplitChargeRuleTargetsList, Method: S.String, Parameters: S.optional(CostCategorySplitChargeRuleParametersList)}) {}
 export const CostCategorySplitChargeRulesList = S.Array(CostCategorySplitChargeRule);
 export class UpdateCostCategoryDefinitionRequest extends S.Class<UpdateCostCategoryDefinitionRequest>("UpdateCostCategoryDefinitionRequest")({CostCategoryArn: S.String, EffectiveStart: S.optional(S.String), RuleVersion: S.String, Rules: CostCategoryRulesList, DefaultValue: S.optional(S.String), SplitChargeRules: S.optional(CostCategorySplitChargeRulesList)}) {}
-export const Expressions = S.Array(S.suspend((): S.Schema<Expression> => Expression));
+export type Expressions = Expression[];
+export const Expressions = S.Array(S.suspend((): S.Schema<Expression> => Expression)) as any as S.Schema<Expressions>;
 export class AnomalyMonitor extends S.Class<AnomalyMonitor>("AnomalyMonitor")({MonitorArn: S.optional(S.String), MonitorName: S.String, CreationDate: S.optional(S.String), LastUpdatedDate: S.optional(S.String), LastEvaluatedDate: S.optional(S.String), MonitorType: S.String, MonitorDimension: S.optional(S.String), MonitorSpecification: S.optional(Expression), DimensionalValueCount: S.optional(S.Number)}) {}
 export class Subscriber extends S.Class<Subscriber>("Subscriber")({Address: S.optional(S.String), Type: S.optional(S.String), Status: S.optional(S.String)}) {}
 export const Subscribers = S.Array(Subscriber);

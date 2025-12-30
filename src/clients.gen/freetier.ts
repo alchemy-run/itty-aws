@@ -8,7 +8,8 @@ export const FilterActivityStatuses = S.Array(S.String);
 export class GetAccountActivityRequest extends S.Class<GetAccountActivityRequest>("GetAccountActivityRequest")({activityId: S.String, languageCode: S.optional(S.String)}) {}
 export class ListAccountActivitiesRequest extends S.Class<ListAccountActivitiesRequest>("ListAccountActivitiesRequest")({filterActivityStatuses: S.optional(FilterActivityStatuses), nextToken: S.optional(S.String), maxResults: S.optional(S.Number), languageCode: S.optional(S.String)}) {}
 export class UpgradeAccountPlanRequest extends S.Class<UpgradeAccountPlanRequest>("UpgradeAccountPlanRequest")({accountPlanType: S.String}) {}
-export const Expressions = S.Array(S.suspend((): S.Schema<Expression> => Expression));
+export type Expressions = Expression[];
+export const Expressions = S.Array(S.suspend((): S.Schema<Expression> => Expression)) as any as S.Schema<Expressions>;
 export class MonetaryAmount extends S.Class<MonetaryAmount>("MonetaryAmount")({amount: S.Number, unit: S.String}) {}
 export const Values = S.Array(S.String);
 export const MatchOptions = S.Array(S.String);

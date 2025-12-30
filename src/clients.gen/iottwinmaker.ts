@@ -69,7 +69,8 @@ export const ListMetadataTransferJobsFilters = S.Array(ListMetadataTransferJobsF
 export const SyncResourceFilter = S.Union(S.String, S.String, S.String, S.String);
 export const SyncResourceFilters = S.Array(SyncResourceFilter);
 export class ParentEntityUpdateRequest extends S.Class<ParentEntityUpdateRequest>("ParentEntityUpdateRequest")({updateType: S.String, parentEntityId: S.optional(S.String)}) {}
-export const DataValueList = S.Array(S.suspend((): S.Schema<DataValue> => DataValue));
+export type DataValueList = DataValue[];
+export const DataValueList = S.Array(S.suspend((): S.Schema<DataValue> => DataValue)) as any as S.Schema<DataValueList>;
 export class CreateSceneRequest extends S.Class<CreateSceneRequest>("CreateSceneRequest")({workspaceId: S.String, sceneId: S.String, contentLocation: S.String, description: S.optional(S.String), capabilities: S.optional(SceneCapabilities), tags: S.optional(TagMap), sceneMetadata: S.optional(SceneMetadataMap)}) {}
 export class CreateSyncJobResponse extends S.Class<CreateSyncJobResponse>("CreateSyncJobResponse")({arn: S.String, creationDateTime: S.Date, state: S.String}) {}
 export class CreateWorkspaceResponse extends S.Class<CreateWorkspaceResponse>("CreateWorkspaceResponse")({arn: S.String, creationDateTime: S.Date}) {}

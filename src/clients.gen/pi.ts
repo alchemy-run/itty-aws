@@ -77,7 +77,8 @@ export class PerformanceInsightsMetric extends S.Class<PerformanceInsightsMetric
 export class Data extends S.Class<Data>("Data")({PerformanceInsightsMetric: S.optional(PerformanceInsightsMetric)}) {}
 export const DataList = S.Array(Data);
 export class Insight extends S.Class<Insight>("Insight")({InsightId: S.String, InsightType: S.optional(S.String), Context: S.optional(S.String), StartTime: S.optional(S.Date), EndTime: S.optional(S.Date), Severity: S.optional(S.String), SupportingInsights: S.optional(S.suspend(() => InsightList)), Description: S.optional(S.String), Recommendations: S.optional(RecommendationList), InsightData: S.optional(DataList), BaselineData: S.optional(DataList)}) {}
-export const InsightList = S.Array(S.suspend((): S.Schema<Insight> => Insight));
+export type InsightList = Insight[];
+export const InsightList = S.Array(S.suspend((): S.Schema<Insight> => Insight)) as any as S.Schema<InsightList>;
 export class AnalysisReport extends S.Class<AnalysisReport>("AnalysisReport")({AnalysisReportId: S.String, Identifier: S.optional(S.String), ServiceType: S.optional(S.String), CreateTime: S.optional(S.Date), StartTime: S.optional(S.Date), EndTime: S.optional(S.Date), Status: S.optional(S.String), Insights: S.optional(InsightList)}) {}
 export class GetPerformanceAnalysisReportResponse extends S.Class<GetPerformanceAnalysisReportResponse>("GetPerformanceAnalysisReportResponse")({AnalysisReport: S.optional(AnalysisReport)}) {}
 

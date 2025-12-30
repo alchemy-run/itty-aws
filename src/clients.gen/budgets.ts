@@ -74,7 +74,8 @@ export class Action extends S.Class<Action>("Action")({ActionId: S.String, Budge
 export const Actions = S.Array(Action);
 export const Budgets = S.Array(Budget);
 export const Notifications = S.Array(Notification);
-export const Expressions = S.Array(S.suspend((): S.Schema<Expression> => Expression));
+export type Expressions = Expression[];
+export const Expressions = S.Array(S.suspend((): S.Schema<Expression> => Expression)) as any as S.Schema<Expressions>;
 export class CreateNotificationRequest extends S.Class<CreateNotificationRequest>("CreateNotificationRequest")({AccountId: S.String, BudgetName: S.String, Notification: Notification, Subscribers: Subscribers}) {}
 export class CreateNotificationResponse extends S.Class<CreateNotificationResponse>("CreateNotificationResponse")({}) {}
 export class AccessDeniedException extends S.Class<AccessDeniedException>("AccessDeniedException")({Message: S.optional(S.String)}) {}

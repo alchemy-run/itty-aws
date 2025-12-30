@@ -205,7 +205,8 @@ export const SessionsList = S.Array(SessionSummary);
 export class WorkGroupSummary extends S.Class<WorkGroupSummary>("WorkGroupSummary")({Name: S.optional(S.String), State: S.optional(S.String), Description: S.optional(S.String), CreationTime: S.optional(S.Date), EngineVersion: S.optional(EngineVersion), IdentityCenterApplicationArn: S.optional(S.String)}) {}
 export const WorkGroupsList = S.Array(WorkGroupSummary);
 export class WorkGroupConfigurationUpdates extends S.Class<WorkGroupConfigurationUpdates>("WorkGroupConfigurationUpdates")({EnforceWorkGroupConfiguration: S.optional(S.Boolean), ResultConfigurationUpdates: S.optional(ResultConfigurationUpdates), ManagedQueryResultsConfigurationUpdates: S.optional(ManagedQueryResultsConfigurationUpdates), PublishCloudWatchMetricsEnabled: S.optional(S.Boolean), BytesScannedCutoffPerQuery: S.optional(S.Number), RemoveBytesScannedCutoffPerQuery: S.optional(S.Boolean), RequesterPaysEnabled: S.optional(S.Boolean), EngineVersion: S.optional(EngineVersion), RemoveCustomerContentEncryptionConfiguration: S.optional(S.Boolean), AdditionalConfiguration: S.optional(S.String), ExecutionRole: S.optional(S.String), CustomerContentEncryptionConfiguration: S.optional(CustomerContentEncryptionConfiguration), EnableMinimumEncryptionConfiguration: S.optional(S.Boolean), QueryResultsS3AccessGrantsConfiguration: S.optional(QueryResultsS3AccessGrantsConfiguration), MonitoringConfiguration: S.optional(MonitoringConfiguration), EngineConfiguration: S.optional(EngineConfiguration)}) {}
-export const QueryStages = S.Array(S.suspend((): S.Schema<QueryStage> => QueryStage));
+export type QueryStages = QueryStage[];
+export const QueryStages = S.Array(S.suspend((): S.Schema<QueryStage> => QueryStage)) as any as S.Schema<QueryStages>;
 export class BatchGetNamedQueryOutput extends S.Class<BatchGetNamedQueryOutput>("BatchGetNamedQueryOutput")({NamedQueries: S.optional(NamedQueryList), UnprocessedNamedQueryIds: S.optional(UnprocessedNamedQueryIdList)}) {}
 export class BatchGetPreparedStatementOutput extends S.Class<BatchGetPreparedStatementOutput>("BatchGetPreparedStatementOutput")({PreparedStatements: S.optional(PreparedStatementDetailsList), UnprocessedPreparedStatementNames: S.optional(UnprocessedPreparedStatementNameList)}) {}
 export class CreateDataCatalogOutput extends S.Class<CreateDataCatalogOutput>("CreateDataCatalogOutput")({DataCatalog: S.optional(DataCatalog)}) {}
@@ -232,7 +233,8 @@ export class UpdateWorkGroupInput extends S.Class<UpdateWorkGroupInput>("UpdateW
 export class UpdateWorkGroupOutput extends S.Class<UpdateWorkGroupOutput>("UpdateWorkGroupOutput")({}) {}
 export class QueryRuntimeStatisticsTimeline extends S.Class<QueryRuntimeStatisticsTimeline>("QueryRuntimeStatisticsTimeline")({QueryQueueTimeInMillis: S.optional(S.Number), ServicePreProcessingTimeInMillis: S.optional(S.Number), QueryPlanningTimeInMillis: S.optional(S.Number), EngineExecutionTimeInMillis: S.optional(S.Number), ServiceProcessingTimeInMillis: S.optional(S.Number), TotalExecutionTimeInMillis: S.optional(S.Number)}) {}
 export class QueryRuntimeStatisticsRows extends S.Class<QueryRuntimeStatisticsRows>("QueryRuntimeStatisticsRows")({InputRows: S.optional(S.Number), InputBytes: S.optional(S.Number), OutputBytes: S.optional(S.Number), OutputRows: S.optional(S.Number)}) {}
-export const QueryStagePlanNodes = S.Array(S.suspend((): S.Schema<QueryStagePlanNode> => QueryStagePlanNode));
+export type QueryStagePlanNodes = QueryStagePlanNode[];
+export const QueryStagePlanNodes = S.Array(S.suspend((): S.Schema<QueryStagePlanNode> => QueryStagePlanNode)) as any as S.Schema<QueryStagePlanNodes>;
 export const StringList = S.Array(S.String);
 export class Datum extends S.Class<Datum>("Datum")({VarCharValue: S.optional(S.String)}) {}
 export const datumList = S.Array(Datum);

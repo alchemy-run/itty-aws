@@ -54,7 +54,8 @@ export class AccessDeniedException extends S.Class<AccessDeniedException>("Acces
 export class ThrottlingException extends S.Class<ThrottlingException>("ThrottlingException")({message: S.String}) {}
 export class ValidationException extends S.Class<ValidationException>("ValidationException")({message: S.String}) {}
 export class ListDashboardsResponse extends S.Class<ListDashboardsResponse>("ListDashboardsResponse")({dashboards: DashboardReferenceList, nextToken: S.optional(S.String)}) {}
-export const Expressions = S.Array(S.suspend((): S.Schema<Expression> => Expression));
+export type Expressions = Expression[];
+export const Expressions = S.Array(S.suspend((): S.Schema<Expression> => Expression)) as any as S.Schema<Expressions>;
 export class CreateDashboardRequest extends S.Class<CreateDashboardRequest>("CreateDashboardRequest")({name: S.String, description: S.optional(S.String), widgets: WidgetList, resourceTags: S.optional(ResourceTagList)}) {}
 export class CreateDashboardResponse extends S.Class<CreateDashboardResponse>("CreateDashboardResponse")({arn: S.String}) {}
 export class ServiceQuotaExceededException extends S.Class<ServiceQuotaExceededException>("ServiceQuotaExceededException")({message: S.String}) {}

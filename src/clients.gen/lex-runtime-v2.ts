@@ -36,7 +36,8 @@ export class DisconnectionEvent extends S.Class<DisconnectionEvent>("Disconnecti
 export class RecognizedBotMember extends S.Class<RecognizedBotMember>("RecognizedBotMember")({botId: S.String, botName: S.optional(S.String)}) {}
 export const StartConversationRequestEventStream = S.Union(ConfigurationEvent, AudioInputEvent, DTMFInputEvent, TextInputEvent, PlaybackCompletionEvent, DisconnectionEvent);
 export class AccessDeniedException extends S.Class<AccessDeniedException>("AccessDeniedException")({message: S.String}) {}
-export const Values = S.Array(S.suspend((): S.Schema<Slot> => Slot));
+export type Values = Slot[];
+export const Values = S.Array(S.suspend((): S.Schema<Slot> => Slot)) as any as S.Schema<Values>;
 export class ConfidenceScore extends S.Class<ConfidenceScore>("ConfidenceScore")({score: S.optional(S.Number)}) {}
 export class SentimentScore extends S.Class<SentimentScore>("SentimentScore")({positive: S.optional(S.Number), negative: S.optional(S.Number), neutral: S.optional(S.Number), mixed: S.optional(S.Number)}) {}
 export class SentimentResponse extends S.Class<SentimentResponse>("SentimentResponse")({sentiment: S.optional(S.String), sentimentScore: S.optional(SentimentScore)}) {}

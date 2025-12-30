@@ -28,7 +28,8 @@ export class KinesisStreamingDestinationOutput extends S.Class<KinesisStreamingD
 export const StringSetAttributeValue = S.Array(S.String);
 export const NumberSetAttributeValue = S.Array(S.String);
 export const BinarySetAttributeValue = S.Array(H.StreamBody());
-export const AttributeValue = S.Union(S.String, S.String, H.StreamBody(), StringSetAttributeValue, NumberSetAttributeValue, BinarySetAttributeValue, S.suspend(() => MapAttributeValue), S.suspend(() => ListAttributeValue), S.Boolean, S.Boolean);
+export type AttributeValue = string | H.StreamBody | typeof StringSetAttributeValue["Type"] | typeof NumberSetAttributeValue["Type"] | typeof BinarySetAttributeValue["Type"] | MapAttributeValue | ListAttributeValue | boolean;
+export const AttributeValue = S.Union(S.String, S.String, H.StreamBody(), StringSetAttributeValue, NumberSetAttributeValue, BinarySetAttributeValue, S.suspend(() => MapAttributeValue), S.suspend(() => ListAttributeValue), S.Boolean, S.Boolean) as any as S.Schema<AttributeValue>;
 export const Key = S.Record({key: S.String, value: AttributeValue});
 export const ExpressionAttributeNameMap = S.Record({key: S.String, value: S.String});
 export class GetItemInput extends S.Class<GetItemInput>("GetItemInput")({TableName: S.String, Key: Key, AttributesToGet: S.optional(AttributeNameList), ConsistentRead: S.optional(S.Boolean), ReturnConsumedCapacity: S.optional(S.String), ProjectionExpression: S.optional(S.String), ExpressionAttributeNames: S.optional(ExpressionAttributeNameMap)}) {}
@@ -65,7 +66,8 @@ export const TagList = S.Array(Tag);
 export class TagResourceInput extends S.Class<TagResourceInput>("TagResourceInput")({ResourceArn: S.String, Tags: TagList}) {}
 export class UntagResourceInput extends S.Class<UntagResourceInput>("UntagResourceInput")({ResourceArn: S.String, TagKeys: TagKeyList}) {}
 export class UpdateContributorInsightsInput extends S.Class<UpdateContributorInsightsInput>("UpdateContributorInsightsInput")({TableName: S.String, IndexName: S.optional(S.String), ContributorInsightsAction: S.String, ContributorInsightsMode: S.optional(S.String)}) {}
-export const ListAttributeValue = S.Array(S.suspend(() => AttributeValue));
+export type ListAttributeValue = AttributeValue[];
+export const ListAttributeValue = S.Array(S.suspend(() => AttributeValue)) as any as S.Schema<ListAttributeValue>;
 export const PreparedStatementParameters = S.Array(S.suspend(() => AttributeValue));
 export class BatchStatementRequest extends S.Class<BatchStatementRequest>("BatchStatementRequest")({Statement: S.String, Parameters: S.optional(PreparedStatementParameters), ConsistentRead: S.optional(S.Boolean), ReturnValuesOnConditionCheckFailure: S.optional(S.String)}) {}
 export const PartiQLBatchRequest = S.Array(BatchStatementRequest);

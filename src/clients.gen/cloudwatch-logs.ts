@@ -357,7 +357,8 @@ export const ConfigurationTemplates = S.Array(ConfigurationTemplate);
 export class ExportTask extends S.Class<ExportTask>("ExportTask")({taskId: S.optional(S.String), taskName: S.optional(S.String), logGroupName: S.optional(S.String), from: S.optional(S.Number), to: S.optional(S.Number), destination: S.optional(S.String), destinationPrefix: S.optional(S.String), status: S.optional(ExportTaskStatus), executionInfo: S.optional(ExportTaskExecutionInfo)}) {}
 export const ExportTasks = S.Array(ExportTask);
 export class LogFieldsListItem extends S.Class<LogFieldsListItem>("LogFieldsListItem")({logFieldName: S.optional(S.String), logFieldType: S.optional(S.suspend((): S.Schema<LogFieldType> => LogFieldType))}) {}
-export const LogFieldsList = S.Array(S.suspend((): S.Schema<LogFieldsListItem> => LogFieldsListItem));
+export type LogFieldsList = LogFieldsListItem[];
+export const LogFieldsList = S.Array(S.suspend((): S.Schema<LogFieldsListItem> => LogFieldsListItem)) as any as S.Schema<LogFieldsList>;
 export const GetLogObjectResponseStream = S.Union(FieldsData, InternalStreamingException);
 export class TriggerHistoryRecord extends S.Class<TriggerHistoryRecord>("TriggerHistoryRecord")({queryId: S.optional(S.String), executionStatus: S.optional(S.String), triggeredTimestamp: S.optional(S.Number), errorMessage: S.optional(S.String), destinations: S.optional(ScheduledQueryDestinationList)}) {}
 export const TriggerHistoryRecordList = S.Array(TriggerHistoryRecord);

@@ -72,7 +72,8 @@ export class Account extends S.Class<Account>("Account")({Id: S.optional(S.Strin
 export const Accounts = S.Array(Account);
 export class CreateAccountStatus extends S.Class<CreateAccountStatus>("CreateAccountStatus")({Id: S.optional(S.String), AccountName: S.optional(S.String), State: S.optional(S.String), RequestedTimestamp: S.optional(S.Date), CompletedTimestamp: S.optional(S.Date), AccountId: S.optional(S.String), GovCloudAccountId: S.optional(S.String), FailureReason: S.optional(S.String)}) {}
 export const CreateAccountStatuses = S.Array(CreateAccountStatus);
-export const HandshakeResources = S.Array(S.suspend((): S.Schema<HandshakeResource> => HandshakeResource));
+export type HandshakeResources = HandshakeResource[];
+export const HandshakeResources = S.Array(S.suspend((): S.Schema<HandshakeResource> => HandshakeResource)) as any as S.Schema<HandshakeResources>;
 export class Handshake extends S.Class<Handshake>("Handshake")({Id: S.optional(S.String), Arn: S.optional(S.String), Parties: S.optional(HandshakeParties), State: S.optional(S.String), RequestedTimestamp: S.optional(S.Date), ExpirationTimestamp: S.optional(S.Date), Action: S.optional(S.String), Resources: S.optional(HandshakeResources)}) {}
 export const Handshakes = S.Array(Handshake);
 export class TransferParticipant extends S.Class<TransferParticipant>("TransferParticipant")({ManagementAccountId: S.optional(S.String), ManagementAccountEmail: S.optional(S.String)}) {}

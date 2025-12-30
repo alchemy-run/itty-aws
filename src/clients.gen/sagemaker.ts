@@ -617,7 +617,8 @@ export const TrainingContainerEntrypoint = S.Array(S.String);
 export const TrainingContainerArguments = S.Array(S.String);
 export const QueryTypes = S.Array(S.String);
 export const QueryLineageTypes = S.Array(S.String);
-export const SearchExpressionList = S.Array(S.suspend((): S.Schema<SearchExpression> => SearchExpression));
+export type SearchExpressionList = SearchExpression[];
+export const SearchExpressionList = S.Array(S.suspend((): S.Schema<SearchExpression> => SearchExpression)) as any as S.Schema<SearchExpressionList>;
 export class AddClusterNodeSpecification extends S.Class<AddClusterNodeSpecification>("AddClusterNodeSpecification")({InstanceGroupName: S.String, IncrementTargetCountBy: S.Number}) {}
 export const AddClusterNodeSpecificationList = S.Array(AddClusterNodeSpecification);
 export class ActionSource extends S.Class<ActionSource>("ActionSource")({SourceUri: S.String, SourceType: S.optional(S.String), SourceId: S.optional(S.String)}) {}

@@ -228,7 +228,8 @@ export class UpdateRegexPatternSetResponse extends S.Class<UpdateRegexPatternSet
 export class UpdateRuleGroupResponse extends S.Class<UpdateRuleGroupResponse>("UpdateRuleGroupResponse")({NextLockToken: S.optional(S.String)}) {}
 export class UpdateWebACLResponse extends S.Class<UpdateWebACLResponse>("UpdateWebACLResponse")({NextLockToken: S.optional(S.String)}) {}
 export class VersionToPublish extends S.Class<VersionToPublish>("VersionToPublish")({AssociatedRuleGroupArn: S.optional(S.String), ForecastedLifetime: S.optional(S.Number)}) {}
-export const Statements = S.Array(S.suspend((): S.Schema<Statement> => Statement));
+export type Statements = Statement[];
+export const Statements = S.Array(S.suspend((): S.Schema<Statement> => Statement)) as any as S.Schema<Statements>;
 export class DisallowedFeature extends S.Class<DisallowedFeature>("DisallowedFeature")({Feature: S.optional(S.String), RequiredPricingPlan: S.optional(S.String)}) {}
 export const DisallowedFeatures = S.Array(DisallowedFeature);
 export class RuleSummary extends S.Class<RuleSummary>("RuleSummary")({Name: S.optional(S.String), Action: S.optional(RuleAction)}) {}

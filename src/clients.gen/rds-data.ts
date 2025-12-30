@@ -14,13 +14,15 @@ export const BooleanArray = S.Array(S.Boolean);
 export const LongArray = S.Array(S.Number);
 export const DoubleArray = S.Array(S.Number);
 export const StringArray = S.Array(S.String);
-export const ArrayValue = S.Union(BooleanArray, LongArray, DoubleArray, StringArray, S.suspend(() => ArrayOfArray));
+export type ArrayValue = typeof BooleanArray["Type"] | typeof LongArray["Type"] | typeof DoubleArray["Type"] | typeof StringArray["Type"] | ArrayOfArray;
+export const ArrayValue = S.Union(BooleanArray, LongArray, DoubleArray, StringArray, S.suspend(() => ArrayOfArray)) as any as S.Schema<ArrayValue>;
 export const Field = S.Union(S.Boolean, S.Boolean, S.Number, S.Number, S.String, H.StreamBody(), ArrayValue);
 export class SqlParameter extends S.Class<SqlParameter>("SqlParameter")({name: S.optional(S.String), value: S.optional(Field), typeHint: S.optional(S.String)}) {}
 export const SqlParametersList = S.Array(SqlParameter);
 export class ExecuteStatementRequest extends S.Class<ExecuteStatementRequest>("ExecuteStatementRequest")({resourceArn: S.String, secretArn: S.String, sql: S.String, database: S.optional(S.String), schema: S.optional(S.String), parameters: S.optional(SqlParametersList), transactionId: S.optional(S.String), includeResultMetadata: S.optional(S.Boolean), continueAfterTimeout: S.optional(S.Boolean), resultSetOptions: S.optional(ResultSetOptions), formatRecordsAs: S.optional(S.String)}) {}
 export class RollbackTransactionResponse extends S.Class<RollbackTransactionResponse>("RollbackTransactionResponse")({transactionStatus: S.optional(S.String)}) {}
-export const ArrayOfArray = S.Array(S.suspend(() => ArrayValue));
+export type ArrayOfArray = ArrayValue[];
+export const ArrayOfArray = S.Array(S.suspend(() => ArrayValue)) as any as S.Schema<ArrayOfArray>;
 export const FieldList = S.Array(Field);
 export const SqlRecords = S.Array(FieldList);
 export class AccessDeniedException extends S.Class<AccessDeniedException>("AccessDeniedException")({message: S.optional(S.String)}) {}
@@ -35,7 +37,8 @@ export class BatchExecuteStatementRequest extends S.Class<BatchExecuteStatementR
 export class DatabaseNotFoundException extends S.Class<DatabaseNotFoundException>("DatabaseNotFoundException")({message: S.optional(S.String)}) {}
 export class ForbiddenException extends S.Class<ForbiddenException>("ForbiddenException")({message: S.optional(S.String)}) {}
 export class InternalServerErrorException extends S.Class<InternalServerErrorException>("InternalServerErrorException")({}) {}
-export const ArrayValueList = S.Array(S.suspend(() => Value));
+export type ArrayValueList = Value[];
+export const ArrayValueList = S.Array(S.suspend(() => Value)) as any as S.Schema<ArrayValueList>;
 export class ExecuteStatementResponse extends S.Class<ExecuteStatementResponse>("ExecuteStatementResponse")({records: S.optional(SqlRecords), columnMetadata: S.optional(Metadata), numberOfRecordsUpdated: S.optional(S.Number), generatedFields: S.optional(FieldList), formattedRecords: S.optional(S.String)}) {}
 export class HttpEndpointNotEnabledException extends S.Class<HttpEndpointNotEnabledException>("HttpEndpointNotEnabledException")({message: S.optional(S.String)}) {}
 export class DatabaseResumingException extends S.Class<DatabaseResumingException>("DatabaseResumingException")({message: S.optional(S.String)}) {}
@@ -44,7 +47,8 @@ export class ServiceUnavailableError extends S.Class<ServiceUnavailableError>("S
 export class StructValue extends S.Class<StructValue>("StructValue")({attributes: S.optional(S.suspend(() => ArrayValueList))}) {}
 export class InvalidSecretException extends S.Class<InvalidSecretException>("InvalidSecretException")({message: S.optional(S.String)}) {}
 export class NotFoundException extends S.Class<NotFoundException>("NotFoundException")({message: S.optional(S.String)}) {}
-export const Value = S.Union(S.Boolean, S.Boolean, S.Number, S.Number, S.Number, S.Number, S.String, H.StreamBody(), S.suspend(() => ArrayValueList), S.suspend((): S.Schema<StructValue> => StructValue));
+export type Value = boolean | number | string | H.StreamBody | ArrayValueList | StructValue;
+export const Value = S.Union(S.Boolean, S.Boolean, S.Number, S.Number, S.Number, S.Number, S.String, H.StreamBody(), S.suspend(() => ArrayValueList), S.suspend((): S.Schema<StructValue> => StructValue)) as any as S.Schema<Value>;
 export const Row = S.Array(S.suspend(() => Value));
 export class UpdateResult extends S.Class<UpdateResult>("UpdateResult")({generatedFields: S.optional(FieldList)}) {}
 export const UpdateResults = S.Array(UpdateResult);

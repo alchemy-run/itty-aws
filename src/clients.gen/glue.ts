@@ -590,7 +590,8 @@ export class S3CatalogTarget extends S.Class<S3CatalogTarget>("S3CatalogTarget")
 export class DirectSchemaChangePolicy extends S.Class<DirectSchemaChangePolicy>("DirectSchemaChangePolicy")({EnableUpdateCatalog: S.optional(S.Boolean), UpdateBehavior: S.optional(S.String), Table: S.optional(S.String), Database: S.optional(S.String)}) {}
 export class S3GlueParquetTarget extends S.Class<S3GlueParquetTarget>("S3GlueParquetTarget")({Name: S.String, Inputs: OneInput, PartitionKeys: S.optional(GlueStudioPathList), Path: S.String, Compression: S.optional(S.String), NumberTargetPartitions: S.optional(S.String), SchemaChangePolicy: S.optional(DirectSchemaChangePolicy), AutoDataQuality: S.optional(AutoDataQuality)}) {}
 export class S3DirectTarget extends S.Class<S3DirectTarget>("S3DirectTarget")({Name: S.String, Inputs: OneInput, PartitionKeys: S.optional(GlueStudioPathList), Path: S.String, Compression: S.optional(S.String), NumberTargetPartitions: S.optional(S.String), Format: S.String, SchemaChangePolicy: S.optional(DirectSchemaChangePolicy), AutoDataQuality: S.optional(AutoDataQuality), OutputSchemas: S.optional(GlueSchemas)}) {}
-export const Mappings = S.Array(S.suspend((): S.Schema<Mapping> => Mapping));
+export type Mappings = Mapping[];
+export const Mappings = S.Array(S.suspend((): S.Schema<Mapping> => Mapping)) as any as S.Schema<Mappings>;
 export class ApplyMapping extends S.Class<ApplyMapping>("ApplyMapping")({Name: S.String, Inputs: OneInput, Mapping: Mappings}) {}
 export class SelectFields extends S.Class<SelectFields>("SelectFields")({Name: S.String, Inputs: OneInput, Paths: GlueStudioPathList}) {}
 export class DropFields extends S.Class<DropFields>("DropFields")({Name: S.String, Inputs: OneInput, Paths: GlueStudioPathList}) {}

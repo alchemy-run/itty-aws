@@ -119,7 +119,8 @@ export class SearchGroupProfilesInput extends S.Class<SearchGroupProfilesInput>(
 export class SearchInItem extends S.Class<SearchInItem>("SearchInItem")({attribute: S.String}) {}
 export const SearchInList = S.Array(SearchInItem);
 export class Filter extends S.Class<Filter>("Filter")({attribute: S.String, value: S.String}) {}
-export const FilterClause = S.Union(Filter, S.suspend(() => FilterList), S.suspend(() => FilterList));
+export type FilterClause = Filter | FilterList;
+export const FilterClause = S.Union(Filter, S.suspend(() => FilterList), S.suspend(() => FilterList)) as any as S.Schema<FilterClause>;
 export class SearchSort extends S.Class<SearchSort>("SearchSort")({attribute: S.String, order: S.optional(S.String)}) {}
 export class SearchTypesInput extends S.Class<SearchTypesInput>("SearchTypesInput")({domainIdentifier: S.String, maxResults: S.optional(S.Number), nextToken: S.optional(S.String), searchScope: S.String, searchText: S.optional(S.String), searchIn: S.optional(SearchInList), filters: S.optional(FilterClause), sort: S.optional(SearchSort), managed: S.Boolean}) {}
 export class SearchUserProfilesInput extends S.Class<SearchUserProfilesInput>("SearchUserProfilesInput")({domainIdentifier: S.String, userType: S.String, searchText: S.optional(S.String), maxResults: S.optional(S.Number), nextToken: S.optional(S.String)}) {}
@@ -150,7 +151,8 @@ export class NotInExpression extends S.Class<NotInExpression>("NotInExpression")
 export class LikeExpression extends S.Class<LikeExpression>("LikeExpression")({columnName: S.String, value: S.String}) {}
 export class NotLikeExpression extends S.Class<NotLikeExpression>("NotLikeExpression")({columnName: S.String, value: S.String}) {}
 export const RowFilterExpression = S.Union(EqualToExpression, NotEqualToExpression, GreaterThanExpression, LessThanExpression, GreaterThanOrEqualToExpression, LessThanOrEqualToExpression, IsNullExpression, IsNotNullExpression, InExpression, NotInExpression, LikeExpression, NotLikeExpression);
-export const RowFilter = S.Union(RowFilterExpression, S.suspend(() => RowFilterList), S.suspend(() => RowFilterList));
+export type RowFilter = typeof RowFilterExpression["Type"] | RowFilterList;
+export const RowFilter = S.Union(RowFilterExpression, S.suspend(() => RowFilterList), S.suspend(() => RowFilterList)) as any as S.Schema<RowFilter>;
 export class RowFilterConfiguration extends S.Class<RowFilterConfiguration>("RowFilterConfiguration")({rowFilter: RowFilter, sensitive: S.optional(S.Boolean)}) {}
 export const AssetFilterConfiguration = S.Union(ColumnFilterConfiguration, RowFilterConfiguration);
 export class UpdateAssetFilterInput extends S.Class<UpdateAssetFilterInput>("UpdateAssetFilterInput")({domainIdentifier: S.String, assetIdentifier: S.String, identifier: S.String, name: S.optional(S.String), description: S.optional(S.String), configuration: S.optional(AssetFilterConfiguration)}) {}
@@ -188,7 +190,8 @@ export class Unit extends S.Class<Unit>("Unit")({}) {}
 export class FormInput extends S.Class<FormInput>("FormInput")({formName: S.String, typeIdentifier: S.optional(S.String), typeRevision: S.optional(S.String), content: S.optional(S.String)}) {}
 export const FormInputList = S.Array(FormInput);
 export const PredictionChoices = S.Array(S.Number);
-export const FilterList = S.Array(S.suspend(() => FilterClause));
+export type FilterList = FilterClause[];
+export const FilterList = S.Array(S.suspend(() => FilterClause)) as any as S.Schema<FilterList>;
 export class AcceptRule extends S.Class<AcceptRule>("AcceptRule")({rule: S.optional(S.String), threshold: S.optional(S.Number)}) {}
 export class AcceptChoice extends S.Class<AcceptChoice>("AcceptChoice")({predictionTarget: S.String, predictionChoice: S.optional(S.Number), editedValue: S.optional(S.String)}) {}
 export const AcceptChoices = S.Array(AcceptChoice);
@@ -338,7 +341,8 @@ export class SparkEmrPropertiesPatch extends S.Class<SparkEmrPropertiesPatch>("S
 export class S3PropertiesPatch extends S.Class<S3PropertiesPatch>("S3PropertiesPatch")({s3Uri: S.String, s3AccessGrantLocationId: S.optional(S.String)}) {}
 export class AmazonQPropertiesPatch extends S.Class<AmazonQPropertiesPatch>("AmazonQPropertiesPatch")({isEnabled: S.Boolean, profileArn: S.optional(S.String), authMode: S.optional(S.String)}) {}
 export class MlflowPropertiesPatch extends S.Class<MlflowPropertiesPatch>("MlflowPropertiesPatch")({trackingServerArn: S.optional(S.String)}) {}
-export const RowFilterList = S.Array(S.suspend(() => RowFilter));
+export type RowFilterList = RowFilter[];
+export const RowFilterList = S.Array(S.suspend(() => RowFilter)) as any as S.Schema<RowFilterList>;
 export const ComputeEnvironmentsList = S.Array(S.String);
 export class AssetPermission extends S.Class<AssetPermission>("AssetPermission")({assetId: S.String, permissions: Permissions}) {}
 export const AssetPermissions = S.Array(AssetPermission);

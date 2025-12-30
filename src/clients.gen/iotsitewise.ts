@@ -180,7 +180,8 @@ export class AssetModelCompositeModel extends S.Class<AssetModelCompositeModel>(
 export const AssetModelCompositeModels = S.Array(AssetModelCompositeModel);
 export class Image extends S.Class<Image>("Image")({id: S.optional(S.String), file: S.optional(ImageFile)}) {}
 export class Parquet extends S.Class<Parquet>("Parquet")({}) {}
-export const BindingValueList = S.Array(S.suspend((): S.Schema<ComputationModelDataBindingValue> => ComputationModelDataBindingValue));
+export type BindingValueList = ComputationModelDataBindingValue[];
+export const BindingValueList = S.Array(S.suspend((): S.Schema<ComputationModelDataBindingValue> => ComputationModelDataBindingValue)) as any as S.Schema<BindingValueList>;
 export const PortalTools = S.Array(S.String);
 export class ConflictingOperationException extends S.Class<ConflictingOperationException>("ConflictingOperationException")({message: S.String, resourceId: S.String, resourceArn: S.String}) {}
 export class InternalFailureException extends S.Class<InternalFailureException>("InternalFailureException")({message: S.String}) {}
@@ -372,7 +373,8 @@ export class CompositionRelationshipItem extends S.Class<CompositionRelationship
 export const CompositionRelationship = S.Array(CompositionRelationshipItem);
 export class ColumnType extends S.Class<ColumnType>("ColumnType")({scalarType: S.optional(S.String)}) {}
 export class Datum extends S.Class<Datum>("Datum")({scalarValue: S.optional(S.String), arrayValue: S.optional(S.suspend(() => DatumList)), rowValue: S.optional(S.suspend((): S.Schema<Row> => Row)), nullValue: S.optional(S.Boolean)}) {}
-export const DatumList = S.Array(S.suspend((): S.Schema<Datum> => Datum));
+export type DatumList = Datum[];
+export const DatumList = S.Array(S.suspend((): S.Schema<Datum> => Datum)) as any as S.Schema<DatumList>;
 export class Aggregates extends S.Class<Aggregates>("Aggregates")({average: S.optional(S.Number), count: S.optional(S.Number), maximum: S.optional(S.Number), minimum: S.optional(S.Number), sum: S.optional(S.Number), standardDeviation: S.optional(S.Number)}) {}
 export class Trace extends S.Class<Trace>("Trace")({text: S.optional(S.String)}) {}
 export class AccessDeniedException extends S.Class<AccessDeniedException>("AccessDeniedException")({message: S.optional(S.String)}) {}

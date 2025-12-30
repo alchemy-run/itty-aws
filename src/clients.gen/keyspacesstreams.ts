@@ -21,13 +21,16 @@ export class InternalServerException extends S.Class<InternalServerException>("I
 export class ResourceNotFoundException extends S.Class<ResourceNotFoundException>("ResourceNotFoundException")({message: S.optional(S.String)}) {}
 export class KeyspacesRow extends S.Class<KeyspacesRow>("KeyspacesRow")({valueCells: S.optional(KeyspacesCells), staticCells: S.optional(KeyspacesCells), rowMetadata: S.optional(KeyspacesMetadata)}) {}
 export class SequenceNumberRange extends S.Class<SequenceNumberRange>("SequenceNumberRange")({startingSequenceNumber: S.optional(S.String), endingSequenceNumber: S.optional(S.String)}) {}
-export const KeyspacesCellList = S.Array(S.suspend((): S.Schema<KeyspacesCell> => KeyspacesCell));
+export type KeyspacesCellList = KeyspacesCell[];
+export const KeyspacesCellList = S.Array(S.suspend((): S.Schema<KeyspacesCell> => KeyspacesCell)) as any as S.Schema<KeyspacesCellList>;
 export class KeyspacesCellMapDefinition extends S.Class<KeyspacesCellMapDefinition>("KeyspacesCellMapDefinition")({key: S.optional(S.suspend(() => KeyspacesCellValue)), value: S.optional(S.suspend(() => KeyspacesCellValue)), metadata: S.optional(KeyspacesMetadata)}) {}
-export const KeyspacesCellMap = S.Array(S.suspend((): S.Schema<KeyspacesCellMapDefinition> => KeyspacesCellMapDefinition));
+export type KeyspacesCellMap = KeyspacesCellMapDefinition[];
+export const KeyspacesCellMap = S.Array(S.suspend((): S.Schema<KeyspacesCellMapDefinition> => KeyspacesCellMapDefinition)) as any as S.Schema<KeyspacesCellMap>;
 export const KeyspacesUdtMap = S.Record({key: S.String, value: KeyspacesCell});
 export class Shard extends S.Class<Shard>("Shard")({shardId: S.optional(S.String), sequenceNumberRange: S.optional(SequenceNumberRange), parentShardIds: S.optional(ShardIdList)}) {}
 export const ShardDescriptionList = S.Array(Shard);
-export const KeyspacesCellValue = S.Union(S.String, S.String, H.StreamBody(), S.Boolean, S.String, S.String, S.String, S.String, S.String, S.String, S.String, S.suspend(() => KeyspacesCellList), S.suspend(() => KeyspacesCellMap), S.suspend(() => KeyspacesCellList), S.String, S.String, S.String, S.String, S.String, S.String, S.suspend(() => KeyspacesCellList), S.String, S.String, S.String, S.suspend(() => KeyspacesUdtMap));
+export type KeyspacesCellValue = string | H.StreamBody | boolean | KeyspacesCellList | KeyspacesCellMap | KeyspacesUdtMap;
+export const KeyspacesCellValue = S.Union(S.String, S.String, H.StreamBody(), S.Boolean, S.String, S.String, S.String, S.String, S.String, S.String, S.String, S.suspend(() => KeyspacesCellList), S.suspend(() => KeyspacesCellMap), S.suspend(() => KeyspacesCellList), S.String, S.String, S.String, S.String, S.String, S.String, S.suspend(() => KeyspacesCellList), S.String, S.String, S.String, S.suspend(() => KeyspacesUdtMap)) as any as S.Schema<KeyspacesCellValue>;
 export class ThrottlingException extends S.Class<ThrottlingException>("ThrottlingException")({message: S.optional(S.String)}) {}
 export class GetStreamOutput extends S.Class<GetStreamOutput>("GetStreamOutput")({streamArn: S.String, streamLabel: S.String, streamStatus: S.String, streamViewType: S.String, creationRequestDateTime: S.Date, keyspaceName: S.String, tableName: S.String, shards: S.optional(ShardDescriptionList), nextToken: S.optional(S.String)}) {}
 export class ValidationException extends S.Class<ValidationException>("ValidationException")({message: S.optional(S.String), errorCode: S.optional(S.String)}) {}

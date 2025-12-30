@@ -185,7 +185,8 @@ export const FeaturedDocumentList = S.Array(FeaturedDocument);
 export class UpdateFeaturedResultsSetRequest extends S.Class<UpdateFeaturedResultsSetRequest>("UpdateFeaturedResultsSetRequest")({IndexId: S.String, FeaturedResultsSetId: S.String, FeaturedResultsSetName: S.optional(S.String), Description: S.optional(S.String), Status: S.optional(S.String), QueryTexts: S.optional(QueryTextList), FeaturedDocuments: S.optional(FeaturedDocumentList)}) {}
 export class UpdateQuerySuggestionsBlockListRequest extends S.Class<UpdateQuerySuggestionsBlockListRequest>("UpdateQuerySuggestionsBlockListRequest")({IndexId: S.String, Id: S.String, Name: S.optional(S.String), Description: S.optional(S.String), SourceS3Path: S.optional(S3Path), RoleArn: S.optional(S.String)}) {}
 export class UpdateThesaurusRequest extends S.Class<UpdateThesaurusRequest>("UpdateThesaurusRequest")({Id: S.String, Name: S.optional(S.String), IndexId: S.String, Description: S.optional(S.String), RoleArn: S.optional(S.String), SourceS3Path: S.optional(S3Path)}) {}
-export const AttributeFilterList = S.Array(S.suspend((): S.Schema<AttributeFilter> => AttributeFilter));
+export type AttributeFilterList = AttributeFilter[];
+export const AttributeFilterList = S.Array(S.suspend((): S.Schema<AttributeFilter> => AttributeFilter)) as any as S.Schema<AttributeFilterList>;
 export const AssociateEntityList = S.Array(EntityConfiguration);
 export class EntityPersonaConfiguration extends S.Class<EntityPersonaConfiguration>("EntityPersonaConfiguration")({EntityId: S.String, Persona: S.String}) {}
 export const EntityPersonaConfigurationList = S.Array(EntityPersonaConfiguration);
@@ -201,7 +202,8 @@ export const SnapshotsDataRecord = S.Array(S.String);
 export const SnapshotsDataRecords = S.Array(SnapshotsDataRecord);
 export class TimeRange extends S.Class<TimeRange>("TimeRange")({StartTime: S.optional(S.Date), EndTime: S.optional(S.Date)}) {}
 export class Facet extends S.Class<Facet>("Facet")({DocumentAttributeKey: S.optional(S.String), Facets: S.optional(S.suspend(() => FacetList)), MaxResults: S.optional(S.Number)}) {}
-export const FacetList = S.Array(S.suspend((): S.Schema<Facet> => Facet));
+export type FacetList = Facet[];
+export const FacetList = S.Array(S.suspend((): S.Schema<Facet> => Facet)) as any as S.Schema<FacetList>;
 export class SpellCorrectionConfiguration extends S.Class<SpellCorrectionConfiguration>("SpellCorrectionConfiguration")({IncludeQuerySpellCheckSuggestions: S.Boolean}) {}
 export class ClickFeedback extends S.Class<ClickFeedback>("ClickFeedback")({ResultId: S.String, ClickTime: S.Date}) {}
 export const ClickFeedbackList = S.Array(ClickFeedback);
@@ -374,13 +376,15 @@ export class BatchPutDocumentResponse extends S.Class<BatchPutDocumentResponse>(
 export class CreateDataSourceResponse extends S.Class<CreateDataSourceResponse>("CreateDataSourceResponse")({Id: S.String}) {}
 export class SuggestionValue extends S.Class<SuggestionValue>("SuggestionValue")({Text: S.optional(SuggestionTextWithHighlights)}) {}
 export class DocumentAttributeValueCountPair extends S.Class<DocumentAttributeValueCountPair>("DocumentAttributeValueCountPair")({DocumentAttributeValue: S.optional(DocumentAttributeValue), Count: S.optional(S.Number), FacetResults: S.optional(S.suspend(() => FacetResultList))}) {}
-export const DocumentAttributeValueCountPairList = S.Array(S.suspend((): S.Schema<DocumentAttributeValueCountPair> => DocumentAttributeValueCountPair));
+export type DocumentAttributeValueCountPairList = DocumentAttributeValueCountPair[];
+export const DocumentAttributeValueCountPairList = S.Array(S.suspend((): S.Schema<DocumentAttributeValueCountPair> => DocumentAttributeValueCountPair)) as any as S.Schema<DocumentAttributeValueCountPairList>;
 export class Correction extends S.Class<Correction>("Correction")({BeginOffset: S.optional(S.Number), EndOffset: S.optional(S.Number), Term: S.optional(S.String), CorrectedTerm: S.optional(S.String)}) {}
 export const CorrectionList = S.Array(Correction);
 export class Suggestion extends S.Class<Suggestion>("Suggestion")({Id: S.optional(S.String), Value: S.optional(SuggestionValue), SourceDocuments: S.optional(SourceDocuments)}) {}
 export const SuggestionList = S.Array(Suggestion);
 export class FacetResult extends S.Class<FacetResult>("FacetResult")({DocumentAttributeKey: S.optional(S.String), DocumentAttributeValueType: S.optional(S.String), DocumentAttributeValueCountPairs: S.optional(S.suspend(() => DocumentAttributeValueCountPairList))}) {}
-export const FacetResultList = S.Array(S.suspend((): S.Schema<FacetResult> => FacetResult));
+export type FacetResultList = FacetResult[];
+export const FacetResultList = S.Array(S.suspend((): S.Schema<FacetResult> => FacetResult)) as any as S.Schema<FacetResultList>;
 export class SpellCorrectedQuery extends S.Class<SpellCorrectedQuery>("SpellCorrectedQuery")({SuggestedQueryText: S.optional(S.String), Corrections: S.optional(CorrectionList)}) {}
 export const SpellCorrectedQueryList = S.Array(SpellCorrectedQuery);
 export class ExpandedResultItem extends S.Class<ExpandedResultItem>("ExpandedResultItem")({Id: S.optional(S.String), DocumentId: S.optional(S.String), DocumentTitle: S.optional(TextWithHighlights), DocumentExcerpt: S.optional(TextWithHighlights), DocumentURI: S.optional(S.String), DocumentAttributes: S.optional(DocumentAttributeList)}) {}

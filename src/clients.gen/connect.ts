@@ -336,7 +336,8 @@ export class Validation extends S.Class<Validation>("Validation")({MinLength: S.
 export class UpdateDataTableAttributeRequest extends S.Class<UpdateDataTableAttributeRequest>("UpdateDataTableAttributeRequest")({InstanceId: S.String, DataTableId: S.String, AttributeName: S.String, Name: S.String, ValueType: S.String, Description: S.optional(S.String), Primary: S.optional(S.Boolean), Validation: S.optional(Validation)}) {}
 export class UpdateDataTableMetadataRequest extends S.Class<UpdateDataTableMetadataRequest>("UpdateDataTableMetadataRequest")({InstanceId: S.String, DataTableId: S.String, Name: S.String, Description: S.optional(S.String), ValueLockLevel: S.String, TimeZone: S.String}) {}
 export class UpdateEmailAddressMetadataRequest extends S.Class<UpdateEmailAddressMetadataRequest>("UpdateEmailAddressMetadataRequest")({InstanceId: S.String, EmailAddressId: S.String, Description: S.optional(S.String), DisplayName: S.optional(S.String), ClientToken: S.optional(S.String)}) {}
-export const EvaluationFormItemsList = S.Array(S.suspend(() => EvaluationFormItem));
+export type EvaluationFormItemsList = EvaluationFormItem[];
+export const EvaluationFormItemsList = S.Array(S.suspend(() => EvaluationFormItem)) as any as S.Schema<EvaluationFormItemsList>;
 export class EvaluationFormScoringStrategy extends S.Class<EvaluationFormScoringStrategy>("EvaluationFormScoringStrategy")({Mode: S.String, Status: S.String}) {}
 export class EvaluationFormAutoEvaluationConfiguration extends S.Class<EvaluationFormAutoEvaluationConfiguration>("EvaluationFormAutoEvaluationConfiguration")({Enabled: S.Boolean}) {}
 export class EvaluationFormTargetConfiguration extends S.Class<EvaluationFormTargetConfiguration>("EvaluationFormTargetConfiguration")({ContactInteractionType: S.String}) {}
@@ -488,30 +489,50 @@ export const ValidationTestTypes = S.Array(S.String);
 export const AgentsMinOneMaxHundred = S.Array(S.String);
 export const UserDataHierarchyGroups = S.Array(S.String);
 export const FilterValueList = S.Array(S.String);
-export const AgentStatusSearchConditionList = S.Array(S.suspend((): S.Schema<AgentStatusSearchCriteria> => AgentStatusSearchCriteria));
-export const EvaluationSearchConditionList = S.Array(S.suspend((): S.Schema<EvaluationSearchCriteria> => EvaluationSearchCriteria));
-export const ContactFlowModuleSearchConditionList = S.Array(S.suspend((): S.Schema<ContactFlowModuleSearchCriteria> => ContactFlowModuleSearchCriteria));
-export const ContactFlowSearchConditionList = S.Array(S.suspend((): S.Schema<ContactFlowSearchCriteria> => ContactFlowSearchCriteria));
+export type AgentStatusSearchConditionList = AgentStatusSearchCriteria[];
+export const AgentStatusSearchConditionList = S.Array(S.suspend((): S.Schema<AgentStatusSearchCriteria> => AgentStatusSearchCriteria)) as any as S.Schema<AgentStatusSearchConditionList>;
+export type EvaluationSearchConditionList = EvaluationSearchCriteria[];
+export const EvaluationSearchConditionList = S.Array(S.suspend((): S.Schema<EvaluationSearchCriteria> => EvaluationSearchCriteria)) as any as S.Schema<EvaluationSearchConditionList>;
+export type ContactFlowModuleSearchConditionList = ContactFlowModuleSearchCriteria[];
+export const ContactFlowModuleSearchConditionList = S.Array(S.suspend((): S.Schema<ContactFlowModuleSearchCriteria> => ContactFlowModuleSearchCriteria)) as any as S.Schema<ContactFlowModuleSearchConditionList>;
+export type ContactFlowSearchConditionList = ContactFlowSearchCriteria[];
+export const ContactFlowSearchConditionList = S.Array(S.suspend((): S.Schema<ContactFlowSearchCriteria> => ContactFlowSearchCriteria)) as any as S.Schema<ContactFlowSearchConditionList>;
 export const AgentResourceIdList = S.Array(S.String);
 export const ChannelList = S.Array(S.String);
 export const InitiationMethodList = S.Array(S.String);
 export const QueueIdList = S.Array(S.String);
-export const DataTableSearchConditionList = S.Array(S.suspend((): S.Schema<DataTableSearchCriteria> => DataTableSearchCriteria));
-export const EmailAddressSearchConditionList = S.Array(S.suspend((): S.Schema<EmailAddressSearchCriteria> => EmailAddressSearchCriteria));
-export const EvaluationFormSearchConditionList = S.Array(S.suspend((): S.Schema<EvaluationFormSearchCriteria> => EvaluationFormSearchCriteria));
-export const HoursOfOperationOverrideSearchConditionList = S.Array(S.suspend((): S.Schema<HoursOfOperationOverrideSearchCriteria> => HoursOfOperationOverrideSearchCriteria));
-export const HoursOfOperationSearchConditionList = S.Array(S.suspend((): S.Schema<HoursOfOperationSearchCriteria> => HoursOfOperationSearchCriteria));
-export const PredefinedAttributeSearchConditionList = S.Array(S.suspend((): S.Schema<PredefinedAttributeSearchCriteria> => PredefinedAttributeSearchCriteria));
-export const PromptSearchConditionList = S.Array(S.suspend((): S.Schema<PromptSearchCriteria> => PromptSearchCriteria));
-export const QueueSearchConditionList = S.Array(S.suspend((): S.Schema<QueueSearchCriteria> => QueueSearchCriteria));
-export const QuickConnectSearchConditionList = S.Array(S.suspend((): S.Schema<QuickConnectSearchCriteria> => QuickConnectSearchCriteria));
-export const RoutingProfileSearchConditionList = S.Array(S.suspend((): S.Schema<RoutingProfileSearchCriteria> => RoutingProfileSearchCriteria));
-export const SecurityProfileSearchConditionList = S.Array(S.suspend((): S.Schema<SecurityProfileSearchCriteria> => SecurityProfileSearchCriteria));
-export const UserHierarchyGroupSearchConditionList = S.Array(S.suspend((): S.Schema<UserHierarchyGroupSearchCriteria> => UserHierarchyGroupSearchCriteria));
-export const UserSearchConditionList = S.Array(S.suspend((): S.Schema<UserSearchCriteria> => UserSearchCriteria));
-export const ViewSearchConditionList = S.Array(S.suspend((): S.Schema<ViewSearchCriteria> => ViewSearchCriteria));
-export const WorkspaceAssociationSearchConditionList = S.Array(S.suspend((): S.Schema<WorkspaceAssociationSearchCriteria> => WorkspaceAssociationSearchCriteria));
-export const WorkspaceSearchConditionList = S.Array(S.suspend((): S.Schema<WorkspaceSearchCriteria> => WorkspaceSearchCriteria));
+export type DataTableSearchConditionList = DataTableSearchCriteria[];
+export const DataTableSearchConditionList = S.Array(S.suspend((): S.Schema<DataTableSearchCriteria> => DataTableSearchCriteria)) as any as S.Schema<DataTableSearchConditionList>;
+export type EmailAddressSearchConditionList = EmailAddressSearchCriteria[];
+export const EmailAddressSearchConditionList = S.Array(S.suspend((): S.Schema<EmailAddressSearchCriteria> => EmailAddressSearchCriteria)) as any as S.Schema<EmailAddressSearchConditionList>;
+export type EvaluationFormSearchConditionList = EvaluationFormSearchCriteria[];
+export const EvaluationFormSearchConditionList = S.Array(S.suspend((): S.Schema<EvaluationFormSearchCriteria> => EvaluationFormSearchCriteria)) as any as S.Schema<EvaluationFormSearchConditionList>;
+export type HoursOfOperationOverrideSearchConditionList = HoursOfOperationOverrideSearchCriteria[];
+export const HoursOfOperationOverrideSearchConditionList = S.Array(S.suspend((): S.Schema<HoursOfOperationOverrideSearchCriteria> => HoursOfOperationOverrideSearchCriteria)) as any as S.Schema<HoursOfOperationOverrideSearchConditionList>;
+export type HoursOfOperationSearchConditionList = HoursOfOperationSearchCriteria[];
+export const HoursOfOperationSearchConditionList = S.Array(S.suspend((): S.Schema<HoursOfOperationSearchCriteria> => HoursOfOperationSearchCriteria)) as any as S.Schema<HoursOfOperationSearchConditionList>;
+export type PredefinedAttributeSearchConditionList = PredefinedAttributeSearchCriteria[];
+export const PredefinedAttributeSearchConditionList = S.Array(S.suspend((): S.Schema<PredefinedAttributeSearchCriteria> => PredefinedAttributeSearchCriteria)) as any as S.Schema<PredefinedAttributeSearchConditionList>;
+export type PromptSearchConditionList = PromptSearchCriteria[];
+export const PromptSearchConditionList = S.Array(S.suspend((): S.Schema<PromptSearchCriteria> => PromptSearchCriteria)) as any as S.Schema<PromptSearchConditionList>;
+export type QueueSearchConditionList = QueueSearchCriteria[];
+export const QueueSearchConditionList = S.Array(S.suspend((): S.Schema<QueueSearchCriteria> => QueueSearchCriteria)) as any as S.Schema<QueueSearchConditionList>;
+export type QuickConnectSearchConditionList = QuickConnectSearchCriteria[];
+export const QuickConnectSearchConditionList = S.Array(S.suspend((): S.Schema<QuickConnectSearchCriteria> => QuickConnectSearchCriteria)) as any as S.Schema<QuickConnectSearchConditionList>;
+export type RoutingProfileSearchConditionList = RoutingProfileSearchCriteria[];
+export const RoutingProfileSearchConditionList = S.Array(S.suspend((): S.Schema<RoutingProfileSearchCriteria> => RoutingProfileSearchCriteria)) as any as S.Schema<RoutingProfileSearchConditionList>;
+export type SecurityProfileSearchConditionList = SecurityProfileSearchCriteria[];
+export const SecurityProfileSearchConditionList = S.Array(S.suspend((): S.Schema<SecurityProfileSearchCriteria> => SecurityProfileSearchCriteria)) as any as S.Schema<SecurityProfileSearchConditionList>;
+export type UserHierarchyGroupSearchConditionList = UserHierarchyGroupSearchCriteria[];
+export const UserHierarchyGroupSearchConditionList = S.Array(S.suspend((): S.Schema<UserHierarchyGroupSearchCriteria> => UserHierarchyGroupSearchCriteria)) as any as S.Schema<UserHierarchyGroupSearchConditionList>;
+export type UserSearchConditionList = UserSearchCriteria[];
+export const UserSearchConditionList = S.Array(S.suspend((): S.Schema<UserSearchCriteria> => UserSearchCriteria)) as any as S.Schema<UserSearchConditionList>;
+export type ViewSearchConditionList = ViewSearchCriteria[];
+export const ViewSearchConditionList = S.Array(S.suspend((): S.Schema<ViewSearchCriteria> => ViewSearchCriteria)) as any as S.Schema<ViewSearchConditionList>;
+export type WorkspaceAssociationSearchConditionList = WorkspaceAssociationSearchCriteria[];
+export const WorkspaceAssociationSearchConditionList = S.Array(S.suspend((): S.Schema<WorkspaceAssociationSearchCriteria> => WorkspaceAssociationSearchCriteria)) as any as S.Schema<WorkspaceAssociationSearchConditionList>;
+export type WorkspaceSearchConditionList = WorkspaceSearchCriteria[];
+export const WorkspaceSearchConditionList = S.Array(S.suspend((): S.Schema<WorkspaceSearchCriteria> => WorkspaceSearchCriteria)) as any as S.Schema<WorkspaceSearchConditionList>;
 export class RoutingProfileManualAssignmentQueueConfig extends S.Class<RoutingProfileManualAssignmentQueueConfig>("RoutingProfileManualAssignmentQueueConfig")({QueueReference: RoutingProfileQueueReference}) {}
 export const RoutingProfileManualAssignmentQueueConfigList = S.Array(RoutingProfileManualAssignmentQueueConfig);
 export class DataTableDeleteValueIdentifier extends S.Class<DataTableDeleteValueIdentifier>("DataTableDeleteValueIdentifier")({PrimaryValues: S.optional(PrimaryValuesSet), AttributeName: S.String, LockVersion: DataTableLockVersion}) {}
@@ -614,7 +635,8 @@ export class QueueInfoInput extends S.Class<QueueInfoInput>("QueueInfoInput")({I
 export class Distribution extends S.Class<Distribution>("Distribution")({Region: S.String, Percentage: S.Number}) {}
 export const DistributionList = S.Array(Distribution);
 export class AgentConfig extends S.Class<AgentConfig>("AgentConfig")({Distributions: DistributionList}) {}
-export const SegmentAttributeValueList = S.Array(S.suspend((): S.Schema<SegmentAttributeValue> => SegmentAttributeValue));
+export type SegmentAttributeValueList = SegmentAttributeValue[];
+export const SegmentAttributeValueList = S.Array(S.suspend((): S.Schema<SegmentAttributeValue> => SegmentAttributeValue)) as any as S.Schema<SegmentAttributeValueList>;
 export const ContactStates = S.Array(S.String);
 export const MetricFilterValueList = S.Array(S.String);
 export const SearchTextList = S.Array(S.String);
@@ -786,7 +808,8 @@ export class HierarchyGroupCondition extends S.Class<HierarchyGroupCondition>("H
 export class HierarchyLevelUpdate extends S.Class<HierarchyLevelUpdate>("HierarchyLevelUpdate")({Name: S.String}) {}
 export const SearchableContactAttributeValueList = S.Array(S.String);
 export const SearchableSegmentAttributeValueList = S.Array(S.String);
-export const Expressions = S.Array(S.suspend((): S.Schema<Expression> => Expression));
+export type Expressions = Expression[];
+export const Expressions = S.Array(S.suspend((): S.Schema<Expression> => Expression)) as any as S.Schema<Expressions>;
 export const InvalidRequestExceptionReason = S.Union(S.String);
 export class AttachedFile extends S.Class<AttachedFile>("AttachedFile")({CreationTime: S.String, FileArn: S.String, FileId: S.String, FileName: S.String, FileSizeInBytes: S.Number, FileStatus: S.String, CreatedBy: S.optional(CreatedByInfo), FileUseCaseType: S.optional(S.String), AssociatedResourceArn: S.optional(S.String), Tags: S.optional(TagMap)}) {}
 export const AttachedFilesList = S.Array(AttachedFile);
@@ -1352,8 +1375,10 @@ export class HierarchyGroupSummaryReference extends S.Class<HierarchyGroupSummar
 export class MeetingFeaturesConfiguration extends S.Class<MeetingFeaturesConfiguration>("MeetingFeaturesConfiguration")({Audio: S.optional(AudioFeatures)}) {}
 export class EvaluationFormSingleSelectQuestionAutomation extends S.Class<EvaluationFormSingleSelectQuestionAutomation>("EvaluationFormSingleSelectQuestionAutomation")({Options: S.optional(EvaluationFormSingleSelectQuestionAutomationOptionList), DefaultOptionRefId: S.optional(S.String), AnswerSource: S.optional(EvaluationFormQuestionAutomationAnswerSource)}) {}
 export class EvaluationFormMultiSelectQuestionAutomation extends S.Class<EvaluationFormMultiSelectQuestionAutomation>("EvaluationFormMultiSelectQuestionAutomation")({Options: S.optional(EvaluationFormMultiSelectQuestionAutomationOptionList), DefaultOptionRefIds: S.optional(ReferenceIdList), AnswerSource: S.optional(EvaluationFormQuestionAutomationAnswerSource)}) {}
-export const EvaluationFormItemEnablementConditionOperand = S.Union(EvaluationFormItemEnablementExpression, S.suspend((): S.Schema<EvaluationFormItemEnablementCondition> => EvaluationFormItemEnablementCondition));
-export const EvaluationFormItemEnablementConditionOperandList = S.Array(S.suspend(() => EvaluationFormItemEnablementConditionOperand));
+export type EvaluationFormItemEnablementConditionOperand = EvaluationFormItemEnablementExpression | EvaluationFormItemEnablementCondition;
+export const EvaluationFormItemEnablementConditionOperand = S.Union(EvaluationFormItemEnablementExpression, S.suspend((): S.Schema<EvaluationFormItemEnablementCondition> => EvaluationFormItemEnablementCondition)) as any as S.Schema<EvaluationFormItemEnablementConditionOperand>;
+export type EvaluationFormItemEnablementConditionOperandList = EvaluationFormItemEnablementConditionOperand[];
+export const EvaluationFormItemEnablementConditionOperandList = S.Array(S.suspend(() => EvaluationFormItemEnablementConditionOperand)) as any as S.Schema<EvaluationFormItemEnablementConditionOperandList>;
 export class CreateRuleResponse extends S.Class<CreateRuleResponse>("CreateRuleResponse")({RuleArn: S.String, RuleId: S.String}) {}
 export class CreateSecurityProfileResponse extends S.Class<CreateSecurityProfileResponse>("CreateSecurityProfileResponse")({SecurityProfileId: S.optional(S.String), SecurityProfileArn: S.optional(S.String)}) {}
 export class CreateWorkspaceResponse extends S.Class<CreateWorkspaceResponse>("CreateWorkspaceResponse")({WorkspaceId: S.String, WorkspaceArn: S.String}) {}
@@ -1400,7 +1425,8 @@ export class EvaluationFormQuestion extends S.Class<EvaluationFormQuestion>("Eva
 export class RealTimeContactAnalysisSegmentCategories extends S.Class<RealTimeContactAnalysisSegmentCategories>("RealTimeContactAnalysisSegmentCategories")({MatchedDetails: RealTimeContactAnalysisMatchedDetails}) {}
 export class ContactSearchSummaryQueueInfo extends S.Class<ContactSearchSummaryQueueInfo>("ContactSearchSummaryQueueInfo")({Id: S.optional(S.String), EnqueueTimestamp: S.optional(S.Date)}) {}
 export class ContactSearchSummaryAgentInfo extends S.Class<ContactSearchSummaryAgentInfo>("ContactSearchSummaryAgentInfo")({Id: S.optional(S.String), ConnectedToAgentTimestamp: S.optional(S.Date)}) {}
-export const EvaluationFormItem = S.Union(S.suspend((): S.Schema<EvaluationFormSection> => EvaluationFormSection), EvaluationFormQuestion);
+export type EvaluationFormItem = EvaluationFormSection | EvaluationFormQuestion;
+export const EvaluationFormItem = S.Union(S.suspend((): S.Schema<EvaluationFormSection> => EvaluationFormSection), EvaluationFormQuestion) as any as S.Schema<EvaluationFormItem>;
 export class EvaluationGenAIAnswerAnalysisDetails extends S.Class<EvaluationGenAIAnswerAnalysisDetails>("EvaluationGenAIAnswerAnalysisDetails")({Justification: S.optional(S.String), PointsOfInterest: S.optional(EvaluationTranscriptPointsOfInterest)}) {}
 export const RealtimeContactAnalysisSegment = S.Union(RealTimeContactAnalysisSegmentTranscript, RealTimeContactAnalysisSegmentCategories, RealTimeContactAnalysisSegmentIssues, RealTimeContactAnalysisSegmentEvent, RealTimeContactAnalysisSegmentAttachments, RealTimeContactAnalysisSegmentPostContactSummary);
 export const RealtimeContactAnalysisSegments = S.Array(RealtimeContactAnalysisSegment);

@@ -166,7 +166,8 @@ export class DetachAndDeleteS3AccessPointResponse extends S.Class<DetachAndDelet
 export class DisassociateFileSystemAliasesResponse extends S.Class<DisassociateFileSystemAliasesResponse>("DisassociateFileSystemAliasesResponse")({Aliases: S.optional(Aliases)}) {}
 export class ListTagsForResourceResponse extends S.Class<ListTagsForResourceResponse>("ListTagsForResourceResponse")({Tags: S.optional(Tags), NextToken: S.optional(S.String)}) {}
 export class ReleaseFileSystemNfsV3LocksResponse extends S.Class<ReleaseFileSystemNfsV3LocksResponse>("ReleaseFileSystemNfsV3LocksResponse")({FileSystem: S.optional(FileSystem)}) {}
-export const AdministrativeActions = S.Array(S.suspend((): S.Schema<AdministrativeAction> => AdministrativeAction));
+export type AdministrativeActions = AdministrativeAction[];
+export const AdministrativeActions = S.Array(S.suspend((): S.Schema<AdministrativeAction> => AdministrativeAction)) as any as S.Schema<AdministrativeActions>;
 export class RestoreVolumeFromSnapshotResponse extends S.Class<RestoreVolumeFromSnapshotResponse>("RestoreVolumeFromSnapshotResponse")({VolumeId: S.optional(S.String), Lifecycle: S.optional(S.String), AdministrativeActions: S.optional(AdministrativeActions)}) {}
 export class StartMisconfiguredStateRecoveryResponse extends S.Class<StartMisconfiguredStateRecoveryResponse>("StartMisconfiguredStateRecoveryResponse")({FileSystem: S.optional(FileSystem)}) {}
 export class InternalServerError extends S.Class<InternalServerError>("InternalServerError")({Message: S.optional(S.String)}) {}
