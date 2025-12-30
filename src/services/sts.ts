@@ -65,7 +65,7 @@ export class SessionDurationEscalationException extends S.TaggedError<SessionDur
  * Permissions are not required because the same information is returned when access is
  * denied. To view an example response, see I Am Not Authorized to Perform: iam:DeleteVirtualMFADevice in the
  * *IAM User Guide*.
- */export const getCallerIdentity = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-06-15", uri: "/", method: "POST", sdkId: "STS", sigV4ServiceName: "sts", name: "AWSSecurityTokenServiceV20110615.GetCallerIdentity" }, GetCallerIdentityRequest, GetCallerIdentityResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const getCallerIdentity = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-06-15", sdkId: "STS", sigV4ServiceName: "sts", name: "AWSSecurityTokenServiceV20110615.GetCallerIdentity" }, GetCallerIdentityRequest, GetCallerIdentityResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns the account identifier for the specified access key ID.
  * 
@@ -90,7 +90,7 @@ export class SessionDurationEscalationException extends S.TaggedError<SessionDur
  * This operation does not indicate the state of the access key. The key might be active,
  * inactive, or deleted. Active keys might not have permissions to perform an operation.
  * Providing a deleted access key might return an error that the key doesn't exist.
- */export const getAccessKeyInfo = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-06-15", uri: "/", method: "POST", sdkId: "STS", sigV4ServiceName: "sts", name: "AWSSecurityTokenServiceV20110615.GetAccessKeyInfo" }, GetAccessKeyInfoRequest, GetAccessKeyInfoResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const getAccessKeyInfo = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-06-15", sdkId: "STS", sigV4ServiceName: "sts", name: "AWSSecurityTokenServiceV20110615.GetAccessKeyInfo" }, GetAccessKeyInfoRequest, GetAccessKeyInfoResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns a set of temporary credentials for an Amazon Web Services account or IAM user.
  * The credentials consist of an access key ID, a secret access key, and a security token.
@@ -176,7 +176,7 @@ export class SessionDurationEscalationException extends S.TaggedError<SessionDur
  * credentials, see Temporary
  * Credentials for Users in Untrusted Environments in the
  * *IAM User Guide*.
- */export const getSessionToken = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-06-15", uri: "/", method: "POST", sdkId: "STS", sigV4ServiceName: "sts", name: "AWSSecurityTokenServiceV20110615.GetSessionToken" }, GetSessionTokenRequest, GetSessionTokenResponse, [RegionDisabledException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const getSessionToken = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-06-15", sdkId: "STS", sigV4ServiceName: "sts", name: "AWSSecurityTokenServiceV20110615.GetSessionToken" }, GetSessionTokenRequest, GetSessionTokenResponse, [RegionDisabledException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns a set of short term credentials you can use to perform privileged tasks on a
  * member account in your organization. You must use credentials from an Organizations management
@@ -207,7 +207,7 @@ export class SessionDurationEscalationException extends S.TaggedError<SessionDur
  * IAM. In addition, you can use service control
  * policies (SCPs) to manage and limit permissions in your organization. See General examples in the Organizations User
  * Guide for more information on SCPs.
- */export const assumeRoot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-06-15", uri: "/", method: "POST", sdkId: "STS", sigV4ServiceName: "sts", name: "AWSSecurityTokenServiceV20110615.AssumeRoot" }, AssumeRootRequest, AssumeRootResponse, [ExpiredTokenException, RegionDisabledException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const assumeRoot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-06-15", sdkId: "STS", sigV4ServiceName: "sts", name: "AWSSecurityTokenServiceV20110615.AssumeRoot" }, AssumeRootRequest, AssumeRootResponse, [ExpiredTokenException, RegionDisabledException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Decodes additional information about the authorization status of a request from an
  * encoded message returned in response to an Amazon Web Services request.
@@ -258,7 +258,7 @@ export class SessionDurationEscalationException extends S.TaggedError<SessionDur
  * 
  * 
  * - The values of condition keys in the context of the user's request.
- */export const decodeAuthorizationMessage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-06-15", uri: "/", method: "POST", sdkId: "STS", sigV4ServiceName: "sts", name: "AWSSecurityTokenServiceV20110615.DecodeAuthorizationMessage" }, DecodeAuthorizationMessageRequest, DecodeAuthorizationMessageResponse, [InvalidAuthorizationMessageException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const decodeAuthorizationMessage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-06-15", sdkId: "STS", sigV4ServiceName: "sts", name: "AWSSecurityTokenServiceV20110615.DecodeAuthorizationMessage" }, DecodeAuthorizationMessageRequest, DecodeAuthorizationMessageResponse, [InvalidAuthorizationMessageException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns a set of temporary security credentials (consisting of an access key ID, a
  * secret access key, and a security token) for a user. A typical use is in a proxy
@@ -388,7 +388,7 @@ export class SessionDurationEscalationException extends S.TaggedError<SessionDur
  * `department`=`engineering` session tag. `Department`
  * and `department` are not saved as separate tags, and the session tag passed in
  * the request takes precedence over the user tag.
- */export const getFederationToken = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-06-15", uri: "/", method: "POST", sdkId: "STS", sigV4ServiceName: "sts", name: "AWSSecurityTokenServiceV20110615.GetFederationToken" }, GetFederationTokenRequest, GetFederationTokenResponse, [MalformedPolicyDocumentException, PackedPolicyTooLargeException, RegionDisabledException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const getFederationToken = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-06-15", sdkId: "STS", sigV4ServiceName: "sts", name: "AWSSecurityTokenServiceV20110615.GetFederationToken" }, GetFederationTokenRequest, GetFederationTokenResponse, [MalformedPolicyDocumentException, PackedPolicyTooLargeException, RegionDisabledException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns a set of temporary security credentials that you can use to access Amazon Web Services
  * resources. These temporary credentials consist of an access key ID, a secret access key,
@@ -515,7 +515,7 @@ export class SessionDurationEscalationException extends S.TaggedError<SessionDur
  * `SerialNumber` value identifies the user's hardware or virtual MFA device.
  * The `TokenCode` is the time-based one-time password (TOTP) that the MFA device
  * produces.
- */export const assumeRole = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-06-15", uri: "/", method: "POST", sdkId: "STS", sigV4ServiceName: "sts", name: "AWSSecurityTokenServiceV20110615.AssumeRole" }, AssumeRoleRequest, AssumeRoleResponse, [ExpiredTokenException, MalformedPolicyDocumentException, PackedPolicyTooLargeException, RegionDisabledException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const assumeRole = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-06-15", sdkId: "STS", sigV4ServiceName: "sts", name: "AWSSecurityTokenServiceV20110615.AssumeRole" }, AssumeRoleRequest, AssumeRoleResponse, [ExpiredTokenException, MalformedPolicyDocumentException, PackedPolicyTooLargeException, RegionDisabledException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns a set of temporary security credentials for users who have been authenticated in
  * a mobile or web application with a web identity provider. Example providers include the
@@ -679,13 +679,13 @@ export class SessionDurationEscalationException extends S.TaggedError<SessionDur
  * contain sample apps that show how to invoke the identity providers. The toolkits then
  * show how to use the information from these providers to get and use temporary
  * security credentials.
- */export const assumeRoleWithWebIdentity = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-06-15", uri: "/", method: "POST", sdkId: "STS", sigV4ServiceName: "sts", name: "AWSSecurityTokenServiceV20110615.AssumeRoleWithWebIdentity" }, AssumeRoleWithWebIdentityRequest, AssumeRoleWithWebIdentityResponse, [ExpiredTokenException, IDPCommunicationErrorException, IDPRejectedClaimException, InvalidIdentityTokenException, MalformedPolicyDocumentException, PackedPolicyTooLargeException, RegionDisabledException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const assumeRoleWithWebIdentity = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-06-15", sdkId: "STS", sigV4ServiceName: "sts", name: "AWSSecurityTokenServiceV20110615.AssumeRoleWithWebIdentity" }, AssumeRoleWithWebIdentityRequest, AssumeRoleWithWebIdentityResponse, [ExpiredTokenException, IDPCommunicationErrorException, IDPRejectedClaimException, InvalidIdentityTokenException, MalformedPolicyDocumentException, PackedPolicyTooLargeException, RegionDisabledException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Exchanges a trade-in token for temporary Amazon Web Services credentials with the permissions
  * associated with the assumed principal. This operation allows you to obtain credentials for
  * a specific principal based on a trade-in token, enabling delegation of access to Amazon Web Services
  * resources.
- */export const getDelegatedAccessToken = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-06-15", uri: "/", method: "POST", sdkId: "STS", sigV4ServiceName: "sts", name: "AWSSecurityTokenServiceV20110615.GetDelegatedAccessToken" }, GetDelegatedAccessTokenRequest, GetDelegatedAccessTokenResponse, [ExpiredTradeInTokenException, PackedPolicyTooLargeException, RegionDisabledException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const getDelegatedAccessToken = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-06-15", sdkId: "STS", sigV4ServiceName: "sts", name: "AWSSecurityTokenServiceV20110615.GetDelegatedAccessToken" }, GetDelegatedAccessTokenRequest, GetDelegatedAccessTokenResponse, [ExpiredTradeInTokenException, PackedPolicyTooLargeException, RegionDisabledException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns a set of temporary security credentials for users who have been authenticated
  * via a SAML authentication response. This operation provides a mechanism for tying an
@@ -866,9 +866,9 @@ export class SessionDurationEscalationException extends S.TaggedError<SessionDur
  * 
  * - Creating a Role for SAML 2.0 Federation in the
  * *IAM User Guide*.
- */export const assumeRoleWithSAML = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-06-15", uri: "/", method: "POST", sdkId: "STS", sigV4ServiceName: "sts", name: "AWSSecurityTokenServiceV20110615.AssumeRoleWithSAML" }, AssumeRoleWithSAMLRequest, AssumeRoleWithSAMLResponse, [ExpiredTokenException, IDPRejectedClaimException, InvalidIdentityTokenException, MalformedPolicyDocumentException, PackedPolicyTooLargeException, RegionDisabledException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const assumeRoleWithSAML = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-06-15", sdkId: "STS", sigV4ServiceName: "sts", name: "AWSSecurityTokenServiceV20110615.AssumeRoleWithSAML" }, AssumeRoleWithSAMLRequest, AssumeRoleWithSAMLResponse, [ExpiredTokenException, IDPRejectedClaimException, InvalidIdentityTokenException, MalformedPolicyDocumentException, PackedPolicyTooLargeException, RegionDisabledException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns a signed JSON Web Token (JWT) that represents the calling Amazon Web Services identity.
  * The returned JWT can be used to authenticate with external services that support OIDC discovery.
  * The token is signed by Amazon Web Services STS and can be publicly verified using the verification keys published at the issuer's JWKS endpoint.
- */export const getWebIdentityToken = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-06-15", uri: "/", method: "POST", sdkId: "STS", sigV4ServiceName: "sts", name: "AWSSecurityTokenServiceV20110615.GetWebIdentityToken" }, GetWebIdentityTokenRequest, GetWebIdentityTokenResponse, [JWTPayloadSizeExceededException, OutboundWebIdentityFederationDisabledException, SessionDurationEscalationException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const getWebIdentityToken = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-06-15", sdkId: "STS", sigV4ServiceName: "sts", name: "AWSSecurityTokenServiceV20110615.GetWebIdentityToken" }, GetWebIdentityTokenRequest, GetWebIdentityTokenResponse, [JWTPayloadSizeExceededException, OutboundWebIdentityFederationDisabledException, SessionDurationEscalationException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);

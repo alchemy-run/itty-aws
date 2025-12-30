@@ -1773,140 +1773,140 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
 //# Operations
 /**
  * Disables using Service Catalog in SageMaker. Service Catalog is used to create SageMaker projects.
- */export const disableSagemakerServicecatalogPortfolio = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DisableSagemakerServicecatalogPortfolio" }, DisableSagemakerServicecatalogPortfolioInput, DisableSagemakerServicecatalogPortfolioOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const disableSagemakerServicecatalogPortfolio = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DisableSagemakerServicecatalogPortfolio" }, DisableSagemakerServicecatalogPortfolioInput, DisableSagemakerServicecatalogPortfolioOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Enables using Service Catalog in SageMaker. Service Catalog is used to create SageMaker projects.
- */export const enableSagemakerServicecatalogPortfolio = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.EnableSagemakerServicecatalogPortfolio" }, EnableSagemakerServicecatalogPortfolioInput, EnableSagemakerServicecatalogPortfolioOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const enableSagemakerServicecatalogPortfolio = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.EnableSagemakerServicecatalogPortfolio" }, EnableSagemakerServicecatalogPortfolioInput, EnableSagemakerServicecatalogPortfolioOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts a SageMaker Edge Manager model packaging job. Edge Manager will use the model artifacts from the Amazon Simple Storage Service bucket that you specify. After the model has been packaged, Amazon SageMaker saves the resulting artifacts to an S3 bucket that you specify.
- */export const createEdgePackagingJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateEdgePackagingJob" }, CreateEdgePackagingJobRequest, S.Struct({}), [ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createEdgePackagingJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateEdgePackagingJob" }, CreateEdgePackagingJobRequest, S.Struct({}), [ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the cluster policy of the cluster.
- */export const deleteClusterSchedulerConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteClusterSchedulerConfig" }, DeleteClusterSchedulerConfigRequest, S.Struct({}), [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteClusterSchedulerConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteClusterSchedulerConfig" }, DeleteClusterSchedulerConfigRequest, S.Struct({}), [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified Git repository from your account.
- */export const deleteCodeRepository = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteCodeRepository" }, DeleteCodeRepositoryInput, S.Struct({}), []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteCodeRepository = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteCodeRepository" }, DeleteCodeRepositoryInput, S.Struct({}), []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified compilation job. This action deletes only the compilation job resource in Amazon SageMaker AI. It doesn't delete other resources that are related to that job, such as the model artifacts that the job creates, the compilation logs in CloudWatch, the compiled model, or the IAM role.
  * 
  * You can delete a compilation job only if its current status is `COMPLETED`, `FAILED`, or `STOPPED`. If the job status is `STARTING` or `INPROGRESS`, stop the job, and then delete it after its status becomes `STOPPED`.
- */export const deleteCompilationJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteCompilationJob" }, DeleteCompilationJobRequest, S.Struct({}), [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteCompilationJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteCompilationJob" }, DeleteCompilationJobRequest, S.Struct({}), [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the compute allocation from the cluster.
- */export const deleteComputeQuota = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteComputeQuota" }, DeleteComputeQuotaRequest, S.Struct({}), [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteComputeQuota = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteComputeQuota" }, DeleteComputeQuotaRequest, S.Struct({}), [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a data quality monitoring job definition.
- */export const deleteDataQualityJobDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteDataQualityJobDefinition" }, DeleteDataQualityJobDefinitionRequest, S.Struct({}), [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteDataQualityJobDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteDataQualityJobDefinition" }, DeleteDataQualityJobDefinitionRequest, S.Struct({}), [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a fleet.
- */export const deleteDeviceFleet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteDeviceFleet" }, DeleteDeviceFleetRequest, S.Struct({}), [ResourceInUse]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteDeviceFleet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteDeviceFleet" }, DeleteDeviceFleetRequest, S.Struct({}), [ResourceInUse]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an edge deployment plan if (and only if) all the stages in the plan are inactive or there are no stages in the plan.
- */export const deleteEdgeDeploymentPlan = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteEdgeDeploymentPlan" }, DeleteEdgeDeploymentPlanRequest, S.Struct({}), [ResourceInUse]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteEdgeDeploymentPlan = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteEdgeDeploymentPlan" }, DeleteEdgeDeploymentPlanRequest, S.Struct({}), [ResourceInUse]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Delete a stage in an edge deployment plan if (and only if) the stage is inactive.
- */export const deleteEdgeDeploymentStage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteEdgeDeploymentStage" }, DeleteEdgeDeploymentStageRequest, S.Struct({}), [ResourceInUse]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteEdgeDeploymentStage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteEdgeDeploymentStage" }, DeleteEdgeDeploymentStageRequest, S.Struct({}), [ResourceInUse]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an endpoint. SageMaker frees up all of the resources that were deployed when the endpoint was created.
  * 
  * SageMaker retires any custom KMS key grants associated with the endpoint, meaning you don't need to use the RevokeGrant API call.
  * 
  * When you delete your endpoint, SageMaker asynchronously deletes associated endpoint resources such as KMS key grants. You might still see these resources in your account for a few minutes after deleting your endpoint. Do not delete or revoke the permissions for your ` ExecutionRoleArn `, otherwise SageMaker cannot delete these resources.
- */export const deleteEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteEndpoint" }, DeleteEndpointInput, S.Struct({}), []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteEndpoint" }, DeleteEndpointInput, S.Struct({}), []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an endpoint configuration. The `DeleteEndpointConfig` API deletes only the specified configuration. It does not delete endpoints created using the configuration.
  * 
  * You must not delete an `EndpointConfig` in use by an endpoint that is live or while the `UpdateEndpoint` or `CreateEndpoint` operations are being performed on the endpoint. If you delete the `EndpointConfig` of an endpoint that is active or being created or updated you may lose visibility into the instance type the endpoint is using. The endpoint must be deleted in order to stop incurring charges.
- */export const deleteEndpointConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteEndpointConfig" }, DeleteEndpointConfigInput, S.Struct({}), []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteEndpointConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteEndpointConfig" }, DeleteEndpointConfigInput, S.Struct({}), []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Delete the `FeatureGroup` and any data that was written to the `OnlineStore` of the `FeatureGroup`. Data cannot be accessed from the `OnlineStore` immediately after `DeleteFeatureGroup` is called.
  * 
  * Data written into the `OfflineStore` will not be deleted. The Amazon Web Services Glue database and tables that are automatically created for your `OfflineStore` are not deleted.
  * 
  * Note that it can take approximately 10-15 minutes to delete an `OnlineStore` `FeatureGroup` with the `InMemory` `StorageType`.
- */export const deleteFeatureGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteFeatureGroup" }, DeleteFeatureGroupRequest, S.Struct({}), [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteFeatureGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteFeatureGroup" }, DeleteFeatureGroupRequest, S.Struct({}), [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified flow definition.
- */export const deleteFlowDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteFlowDefinition" }, DeleteFlowDefinitionRequest, DeleteFlowDefinitionResponse, [ResourceInUse, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteFlowDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteFlowDefinition" }, DeleteFlowDefinitionRequest, DeleteFlowDefinitionResponse, [ResourceInUse, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Delete a hub.
- */export const deleteHub = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteHub" }, DeleteHubRequest, S.Struct({}), [ResourceInUse, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteHub = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteHub" }, DeleteHubRequest, S.Struct({}), [ResourceInUse, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Delete the contents of a hub.
- */export const deleteHubContent = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteHubContent" }, DeleteHubContentRequest, S.Struct({}), [ResourceInUse, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteHubContent = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteHubContent" }, DeleteHubContentRequest, S.Struct({}), [ResourceInUse, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Delete a hub content reference in order to remove a model from a private hub.
- */export const deleteHubContentReference = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteHubContentReference" }, DeleteHubContentReferenceRequest, S.Struct({}), [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteHubContentReference = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteHubContentReference" }, DeleteHubContentReferenceRequest, S.Struct({}), [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Use this operation to delete a human task user interface (worker task template).
  * 
  * To see a list of human task user interfaces (work task templates) in your account, use ListHumanTaskUis. When you delete a worker task template, it no longer appears when you call `ListHumanTaskUis`.
- */export const deleteHumanTaskUi = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteHumanTaskUi" }, DeleteHumanTaskUiRequest, DeleteHumanTaskUiResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteHumanTaskUi = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteHumanTaskUi" }, DeleteHumanTaskUiRequest, DeleteHumanTaskUiResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a hyperparameter tuning job. The `DeleteHyperParameterTuningJob` API deletes only the tuning job entry that was created in SageMaker when you called the `CreateHyperParameterTuningJob` API. It does not delete training jobs, artifacts, or the IAM role that you specified when creating the model.
- */export const deleteHyperParameterTuningJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteHyperParameterTuningJob" }, DeleteHyperParameterTuningJobRequest, S.Struct({}), []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteHyperParameterTuningJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteHyperParameterTuningJob" }, DeleteHyperParameterTuningJobRequest, S.Struct({}), []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a SageMaker AI image and all versions of the image. The container images aren't deleted.
- */export const deleteImage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteImage" }, DeleteImageRequest, DeleteImageResponse, [ResourceInUse, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteImage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteImage" }, DeleteImageRequest, DeleteImageResponse, [ResourceInUse, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a version of a SageMaker AI image. The container image the version represents isn't deleted.
- */export const deleteImageVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteImageVersion" }, DeleteImageVersionRequest, DeleteImageVersionResponse, [ResourceInUse, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteImageVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteImageVersion" }, DeleteImageVersionRequest, DeleteImageVersionResponse, [ResourceInUse, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an inference component.
- */export const deleteInferenceComponent = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteInferenceComponent" }, DeleteInferenceComponentInput, S.Struct({}), []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteInferenceComponent = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteInferenceComponent" }, DeleteInferenceComponentInput, S.Struct({}), []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a model. The `DeleteModel` API deletes only the model entry that was created in SageMaker when you called the `CreateModel` API. It does not delete model artifacts, inference code, or the IAM role that you specified when creating the model.
- */export const deleteModel = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteModel" }, DeleteModelInput, S.Struct({}), []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteModel = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteModel" }, DeleteModelInput, S.Struct({}), []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an Amazon SageMaker AI model bias job definition.
- */export const deleteModelBiasJobDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteModelBiasJobDefinition" }, DeleteModelBiasJobDefinitionRequest, S.Struct({}), [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteModelBiasJobDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteModelBiasJobDefinition" }, DeleteModelBiasJobDefinitionRequest, S.Struct({}), [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an Amazon SageMaker Model Card.
- */export const deleteModelCard = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteModelCard" }, DeleteModelCardRequest, S.Struct({}), [ConflictException, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteModelCard = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteModelCard" }, DeleteModelCardRequest, S.Struct({}), [ConflictException, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an Amazon SageMaker AI model explainability job definition.
- */export const deleteModelExplainabilityJobDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteModelExplainabilityJobDefinition" }, DeleteModelExplainabilityJobDefinitionRequest, S.Struct({}), [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteModelExplainabilityJobDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteModelExplainabilityJobDefinition" }, DeleteModelExplainabilityJobDefinitionRequest, S.Struct({}), [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a model package.
  * 
  * A model package is used to create SageMaker models or list on Amazon Web Services Marketplace. Buyers can subscribe to model packages listed on Amazon Web Services Marketplace to create models in SageMaker.
- */export const deleteModelPackage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteModelPackage" }, DeleteModelPackageInput, S.Struct({}), [ConflictException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteModelPackage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteModelPackage" }, DeleteModelPackageInput, S.Struct({}), [ConflictException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified model group.
- */export const deleteModelPackageGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteModelPackageGroup" }, DeleteModelPackageGroupInput, S.Struct({}), [ConflictException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteModelPackageGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteModelPackageGroup" }, DeleteModelPackageGroupInput, S.Struct({}), [ConflictException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a model group resource policy.
- */export const deleteModelPackageGroupPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteModelPackageGroupPolicy" }, DeleteModelPackageGroupPolicyInput, S.Struct({}), []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteModelPackageGroupPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteModelPackageGroupPolicy" }, DeleteModelPackageGroupPolicyInput, S.Struct({}), []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the secified model quality monitoring job definition.
- */export const deleteModelQualityJobDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteModelQualityJobDefinition" }, DeleteModelQualityJobDefinitionRequest, S.Struct({}), [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteModelQualityJobDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteModelQualityJobDefinition" }, DeleteModelQualityJobDefinitionRequest, S.Struct({}), [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a monitoring schedule. Also stops the schedule had not already been stopped. This does not delete the job execution history of the monitoring schedule.
- */export const deleteMonitoringSchedule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteMonitoringSchedule" }, DeleteMonitoringScheduleRequest, S.Struct({}), [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteMonitoringSchedule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteMonitoringSchedule" }, DeleteMonitoringScheduleRequest, S.Struct({}), [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an SageMaker AI notebook instance. Before you can delete a notebook instance, you must call the `StopNotebookInstance` API.
  * 
  * 
  * When you delete a notebook instance, you lose all of your data. SageMaker AI removes the ML compute instance, and deletes the ML storage volume and the network interface associated with the notebook instance.
- */export const deleteNotebookInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteNotebookInstance" }, DeleteNotebookInstanceInput, S.Struct({}), []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteNotebookInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteNotebookInstance" }, DeleteNotebookInstanceInput, S.Struct({}), []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a notebook instance lifecycle configuration.
- */export const deleteNotebookInstanceLifecycleConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteNotebookInstanceLifecycleConfig" }, DeleteNotebookInstanceLifecycleConfigInput, S.Struct({}), []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteNotebookInstanceLifecycleConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteNotebookInstanceLifecycleConfig" }, DeleteNotebookInstanceLifecycleConfigInput, S.Struct({}), []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an optimization job.
- */export const deleteOptimizationJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteOptimizationJob" }, DeleteOptimizationJobRequest, S.Struct({}), [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteOptimizationJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteOptimizationJob" }, DeleteOptimizationJobRequest, S.Struct({}), [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a processing job. After Amazon SageMaker deletes a processing job, all of the metadata for the processing job is lost. You can delete only processing jobs that are in a terminal state (`Stopped`, `Failed`, or `Completed`). You cannot delete a job that is in the `InProgress` or `Stopping` state. After deleting the job, you can reuse its name to create another processing job.
- */export const deleteProcessingJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteProcessingJob" }, DeleteProcessingJobRequest, S.Struct({}), [ResourceInUse, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteProcessingJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteProcessingJob" }, DeleteProcessingJobRequest, S.Struct({}), [ResourceInUse, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Delete the specified project.
- */export const deleteProject = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteProject" }, DeleteProjectInput, S.Struct({}), [ConflictException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteProject = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteProject" }, DeleteProjectInput, S.Struct({}), [ConflictException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Used to delete a space.
- */export const deleteSpace = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteSpace" }, DeleteSpaceRequest, S.Struct({}), [ResourceInUse, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteSpace = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteSpace" }, DeleteSpaceRequest, S.Struct({}), [ResourceInUse, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the Amazon SageMaker AI Studio Lifecycle Configuration. In order to delete the Lifecycle Configuration, there must be no running apps using the Lifecycle Configuration. You must also remove the Lifecycle Configuration from UserSettings in all Domains and UserProfiles.
- */export const deleteStudioLifecycleConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteStudioLifecycleConfig" }, DeleteStudioLifecycleConfigRequest, S.Struct({}), [ResourceInUse, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteStudioLifecycleConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteStudioLifecycleConfig" }, DeleteStudioLifecycleConfigRequest, S.Struct({}), [ResourceInUse, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified tags from an SageMaker resource.
  * 
@@ -1918,13 +1918,13 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * 
  * When you call this API to delete tags from a SageMaker Domain or User Profile, the deleted tags are not removed from Apps that the SageMaker Domain or User Profile launched before you called this API.
- */export const deleteTags = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteTags" }, DeleteTagsInput, DeleteTagsOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteTags = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteTags" }, DeleteTagsInput, DeleteTagsOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a training job. After SageMaker deletes a training job, all of the metadata for the training job is lost. You can delete only training jobs that are in a terminal state (`Stopped`, `Failed`, or `Completed`) and don't retain an `Available` managed warm pool. You cannot delete a job that is in the `InProgress` or `Stopping` state. After deleting the job, you can reuse its name to create another training job.
- */export const deleteTrainingJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteTrainingJob" }, DeleteTrainingJobRequest, S.Struct({}), [ResourceInUse, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteTrainingJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteTrainingJob" }, DeleteTrainingJobRequest, S.Struct({}), [ResourceInUse, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a user profile. When a user profile is deleted, the user loses access to their EFS volume, including data, notebooks, and other artifacts.
- */export const deleteUserProfile = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteUserProfile" }, DeleteUserProfileRequest, S.Struct({}), [ResourceInUse, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteUserProfile = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteUserProfile" }, DeleteUserProfileRequest, S.Struct({}), [ResourceInUse, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Use this operation to delete a workforce.
  * 
@@ -1932,105 +1932,105 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * 
  * If a private workforce contains one or more work teams, you must use the DeleteWorkteam operation to delete all work teams before you delete the workforce. If you try to delete a workforce that contains one or more work teams, you will receive a `ResourceInUse` error.
- */export const deleteWorkforce = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteWorkforce" }, DeleteWorkforceRequest, DeleteWorkforceResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteWorkforce = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteWorkforce" }, DeleteWorkforceRequest, DeleteWorkforceResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deregisters the specified devices. After you deregister a device, you will need to re-register the devices.
- */export const deregisterDevices = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeregisterDevices" }, DeregisterDevicesRequest, S.Struct({}), []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deregisterDevices = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeregisterDevices" }, DeregisterDevicesRequest, S.Struct({}), []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets the status of Service Catalog in SageMaker. Service Catalog is used to create SageMaker projects.
- */export const getSagemakerServicecatalogPortfolioStatus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.GetSagemakerServicecatalogPortfolioStatus" }, GetSagemakerServicecatalogPortfolioStatusInput, GetSagemakerServicecatalogPortfolioStatusOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getSagemakerServicecatalogPortfolioStatus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.GetSagemakerServicecatalogPortfolioStatus" }, GetSagemakerServicecatalogPortfolioStatusInput, GetSagemakerServicecatalogPortfolioStatusOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts a stage in an edge deployment plan.
- */export const startEdgeDeploymentStage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.StartEdgeDeploymentStage" }, StartEdgeDeploymentStageRequest, S.Struct({}), []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startEdgeDeploymentStage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.StartEdgeDeploymentStage" }, StartEdgeDeploymentStageRequest, S.Struct({}), []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts a previously stopped monitoring schedule.
  * 
  * 
  * By default, when you successfully create a new schedule, the status of a monitoring schedule is `scheduled`.
- */export const startMonitoringSchedule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.StartMonitoringSchedule" }, StartMonitoringScheduleRequest, S.Struct({}), [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startMonitoringSchedule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.StartMonitoringSchedule" }, StartMonitoringScheduleRequest, S.Struct({}), [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Launches an ML compute instance with the latest version of the libraries and attaches your ML storage volume. After configuring the notebook instance, SageMaker AI sets the notebook instance status to `InService`. A notebook instance's status must be `InService` before you can connect to your Jupyter notebook.
- */export const startNotebookInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.StartNotebookInstance" }, StartNotebookInstanceInput, S.Struct({}), [ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startNotebookInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.StartNotebookInstance" }, StartNotebookInstanceInput, S.Struct({}), [ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * A method for forcing a running job to shut down.
- */export const stopAutoMLJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.StopAutoMLJob" }, StopAutoMLJobRequest, S.Struct({}), [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const stopAutoMLJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.StopAutoMLJob" }, StopAutoMLJobRequest, S.Struct({}), [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Stops a model compilation job.
  * 
  * To stop a job, Amazon SageMaker AI sends the algorithm the SIGTERM signal. This gracefully shuts the job down. If the job hasn't stopped, it sends the SIGKILL signal.
  * 
  * When it receives a `StopCompilationJob` request, Amazon SageMaker AI changes the `CompilationJobStatus` of the job to `Stopping`. After Amazon SageMaker stops the job, it sets the `CompilationJobStatus` to `Stopped`.
- */export const stopCompilationJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.StopCompilationJob" }, StopCompilationJobRequest, S.Struct({}), [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const stopCompilationJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.StopCompilationJob" }, StopCompilationJobRequest, S.Struct({}), [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Stops a stage in an edge deployment plan.
- */export const stopEdgeDeploymentStage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.StopEdgeDeploymentStage" }, StopEdgeDeploymentStageRequest, S.Struct({}), []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const stopEdgeDeploymentStage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.StopEdgeDeploymentStage" }, StopEdgeDeploymentStageRequest, S.Struct({}), []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Request to stop an edge packaging job.
- */export const stopEdgePackagingJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.StopEdgePackagingJob" }, StopEdgePackagingJobRequest, S.Struct({}), []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const stopEdgePackagingJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.StopEdgePackagingJob" }, StopEdgePackagingJobRequest, S.Struct({}), []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Stops a running hyperparameter tuning job and all running training jobs that the tuning job launched.
  * 
  * All model artifacts output from the training jobs are stored in Amazon Simple Storage Service (Amazon S3). All data that the training jobs write to Amazon CloudWatch Logs are still available in CloudWatch. After the tuning job moves to the `Stopped` state, it releases all reserved resources for the tuning job.
- */export const stopHyperParameterTuningJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.StopHyperParameterTuningJob" }, StopHyperParameterTuningJobRequest, S.Struct({}), [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const stopHyperParameterTuningJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.StopHyperParameterTuningJob" }, StopHyperParameterTuningJobRequest, S.Struct({}), [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Stops an Inference Recommender job.
- */export const stopInferenceRecommendationsJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.StopInferenceRecommendationsJob" }, StopInferenceRecommendationsJobRequest, S.Struct({}), [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const stopInferenceRecommendationsJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.StopInferenceRecommendationsJob" }, StopInferenceRecommendationsJobRequest, S.Struct({}), [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Stops a running labeling job. A job that is stopped cannot be restarted. Any results obtained before the job is stopped are placed in the Amazon S3 output bucket.
- */export const stopLabelingJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.StopLabelingJob" }, StopLabelingJobRequest, S.Struct({}), [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const stopLabelingJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.StopLabelingJob" }, StopLabelingJobRequest, S.Struct({}), [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Stops a previously started monitoring schedule.
- */export const stopMonitoringSchedule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.StopMonitoringSchedule" }, StopMonitoringScheduleRequest, S.Struct({}), [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const stopMonitoringSchedule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.StopMonitoringSchedule" }, StopMonitoringScheduleRequest, S.Struct({}), [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Terminates the ML compute instance. Before terminating the instance, SageMaker AI disconnects the ML storage volume from it. SageMaker AI preserves the ML storage volume. SageMaker AI stops charging you for the ML compute instance when you call `StopNotebookInstance`.
  * 
  * To access data on the ML storage volume for a notebook instance that has been terminated, call the `StartNotebookInstance` API. `StartNotebookInstance` launches another ML compute instance, configures it, and attaches the preserved ML storage volume so you can continue your work.
- */export const stopNotebookInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.StopNotebookInstance" }, StopNotebookInstanceInput, S.Struct({}), []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const stopNotebookInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.StopNotebookInstance" }, StopNotebookInstanceInput, S.Struct({}), []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Ends a running inference optimization job.
- */export const stopOptimizationJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.StopOptimizationJob" }, StopOptimizationJobRequest, S.Struct({}), [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const stopOptimizationJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.StopOptimizationJob" }, StopOptimizationJobRequest, S.Struct({}), [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Stops a processing job.
- */export const stopProcessingJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.StopProcessingJob" }, StopProcessingJobRequest, S.Struct({}), [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const stopProcessingJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.StopProcessingJob" }, StopProcessingJobRequest, S.Struct({}), [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Stops a training job. To stop a job, SageMaker sends the algorithm the `SIGTERM` signal, which delays job termination for 120 seconds. Algorithms might use this 120-second window to save the model artifacts, so the results of the training is not lost.
  * 
  * When it receives a `StopTrainingJob` request, SageMaker changes the status of the job to `Stopping`. After SageMaker stops the job, it sets the status to `Stopped`.
- */export const stopTrainingJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.StopTrainingJob" }, StopTrainingJobRequest, S.Struct({}), [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const stopTrainingJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.StopTrainingJob" }, StopTrainingJobRequest, S.Struct({}), [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Stops a batch transform job.
  * 
  * When Amazon SageMaker receives a `StopTransformJob` request, the status of the job changes to `Stopping`. After Amazon SageMaker stops the job, the status is set to `Stopped`. When you stop a batch transform job before it is completed, Amazon SageMaker doesn't store the job's output in Amazon S3.
- */export const stopTransformJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.StopTransformJob" }, StopTransformJobRequest, S.Struct({}), [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const stopTransformJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.StopTransformJob" }, StopTransformJobRequest, S.Struct({}), [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates a fleet of devices.
- */export const updateDeviceFleet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateDeviceFleet" }, UpdateDeviceFleetRequest, S.Struct({}), [ResourceInUse]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateDeviceFleet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateDeviceFleet" }, UpdateDeviceFleetRequest, S.Struct({}), [ResourceInUse]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates one or more devices in a fleet.
- */export const updateDevices = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateDevices" }, UpdateDevicesRequest, S.Struct({}), []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateDevices = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateDevices" }, UpdateDevicesRequest, S.Struct({}), []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates a notebook instance. NotebookInstance updates include upgrading or downgrading the ML compute instance used for your notebook instance to accommodate changes in your workload requirements.
- */export const updateNotebookInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateNotebookInstance" }, UpdateNotebookInstanceInput, UpdateNotebookInstanceOutput, [ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateNotebookInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateNotebookInstance" }, UpdateNotebookInstanceInput, UpdateNotebookInstanceOutput, [ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates a notebook instance lifecycle configuration created with the CreateNotebookInstanceLifecycleConfig API.
- */export const updateNotebookInstanceLifecycleConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateNotebookInstanceLifecycleConfig" }, UpdateNotebookInstanceLifecycleConfigInput, UpdateNotebookInstanceLifecycleConfigOutput, [ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateNotebookInstanceLifecycleConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateNotebookInstanceLifecycleConfig" }, UpdateNotebookInstanceLifecycleConfigInput, UpdateNotebookInstanceLifecycleConfigOutput, [ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an *association* between the source and the destination. A source can be associated with multiple destinations, and a destination can be associated with multiple sources. An association is a lineage tracking entity. For more information, see Amazon SageMaker ML Lineage Tracking.
- */export const addAssociation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.AddAssociation" }, AddAssociationRequest, AddAssociationResponse, [ResourceLimitExceeded, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const addAssociation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.AddAssociation" }, AddAssociationRequest, AddAssociationResponse, [ResourceLimitExceeded, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Associates a trial component with a trial. A trial component can be associated with multiple trials. To disassociate a trial component from a trial, call the DisassociateTrialComponent API.
- */export const associateTrialComponent = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.AssociateTrialComponent" }, AssociateTrialComponentRequest, AssociateTrialComponentResponse, [ResourceLimitExceeded, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const associateTrialComponent = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.AssociateTrialComponent" }, AssociateTrialComponentRequest, AssociateTrialComponentResponse, [ResourceLimitExceeded, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Attaches your Amazon Elastic Block Store (Amazon EBS) volume to a node in your EKS orchestrated HyperPod cluster.
  * 
  * This API works with the Amazon Elastic Block Store (Amazon EBS) Container Storage Interface (CSI) driver to manage the lifecycle of persistent storage in your HyperPod EKS clusters.
- */export const attachClusterNodeVolume = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.AttachClusterNodeVolume" }, AttachClusterNodeVolumeRequest, AttachClusterNodeVolumeResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const attachClusterNodeVolume = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.AttachClusterNodeVolume" }, AttachClusterNodeVolumeRequest, AttachClusterNodeVolumeResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a device fleet.
- */export const createDeviceFleet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateDeviceFleet" }, CreateDeviceFleetRequest, S.Struct({}), [ResourceInUse, ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createDeviceFleet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateDeviceFleet" }, CreateDeviceFleetRequest, S.Struct({}), [ResourceInUse, ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new stage in an existing edge deployment plan.
- */export const createEdgeDeploymentStage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateEdgeDeploymentStage" }, CreateEdgeDeploymentStageRequest, S.Struct({}), [ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createEdgeDeploymentStage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateEdgeDeploymentStage" }, CreateEdgeDeploymentStageRequest, S.Struct({}), [ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a SageMaker *experiment*. An experiment is a collection of *trials* that are observed, compared and evaluated as a group. A trial is a set of steps, called *trial components*, that produce a machine learning model.
  * 
@@ -2047,28 +2047,28 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * To add a description to an experiment, specify the optional `Description` parameter. To add a description later, or to change the description, call the UpdateExperiment API.
  * 
  * To get a list of all your experiments, call the ListExperiments API. To view an experiment's properties, call the DescribeExperiment API. To get a list of all the trials associated with an experiment, call the ListTrials API. To create a trial call the CreateTrial API.
- */export const createExperiment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateExperiment" }, CreateExperimentRequest, CreateExperimentResponse, [ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createExperiment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateExperiment" }, CreateExperimentRequest, CreateExperimentResponse, [ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Create a hub content reference in order to add a model in the JumpStart public hub to a private hub.
- */export const createHubContentReference = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateHubContentReference" }, CreateHubContentReferenceRequest, CreateHubContentReferenceResponse, [ResourceInUse, ResourceLimitExceeded, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createHubContentReference = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateHubContentReference" }, CreateHubContentReferenceRequest, CreateHubContentReferenceResponse, [ResourceInUse, ResourceLimitExceeded, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a custom SageMaker AI image. A SageMaker AI image is a set of image versions. Each image version represents a container image stored in Amazon ECR. For more information, see Bring your own SageMaker AI image.
- */export const createImage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateImage" }, CreateImageRequest, CreateImageResponse, [ResourceInUse, ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createImage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateImage" }, CreateImageRequest, CreateImageResponse, [ResourceInUse, ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a version of the SageMaker AI image specified by `ImageName`. The version represents the Amazon ECR container image specified by `BaseImage`.
- */export const createImageVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateImageVersion" }, CreateImageVersionRequest, CreateImageVersionResponse, [ResourceInUse, ResourceLimitExceeded, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createImageVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateImageVersion" }, CreateImageVersionRequest, CreateImageVersionResponse, [ResourceInUse, ResourceLimitExceeded, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an MLflow Tracking Server using a general purpose Amazon S3 bucket as the artifact store.
- */export const createMlflowApp = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateMlflowApp" }, CreateMlflowAppRequest, CreateMlflowAppResponse, [ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createMlflowApp = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateMlflowApp" }, CreateMlflowAppRequest, CreateMlflowAppResponse, [ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an MLflow Tracking Server using a general purpose Amazon S3 bucket as the artifact store. For more information, see Create an MLflow Tracking Server.
- */export const createMlflowTrackingServer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateMlflowTrackingServer" }, CreateMlflowTrackingServerRequest, CreateMlflowTrackingServerResponse, [ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createMlflowTrackingServer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateMlflowTrackingServer" }, CreateMlflowTrackingServerRequest, CreateMlflowTrackingServerResponse, [ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a model group. A model group contains a group of model versions.
- */export const createModelPackageGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateModelPackageGroup" }, CreateModelPackageGroupInput, CreateModelPackageGroupOutput, [ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createModelPackageGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateModelPackageGroup" }, CreateModelPackageGroupInput, CreateModelPackageGroupOutput, [ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a presigned URL to access an Amazon SageMaker Partner AI App.
- */export const createPartnerAppPresignedUrl = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreatePartnerAppPresignedUrl" }, CreatePartnerAppPresignedUrlRequest, CreatePartnerAppPresignedUrlResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createPartnerAppPresignedUrl = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreatePartnerAppPresignedUrl" }, CreatePartnerAppPresignedUrlRequest, CreatePartnerAppPresignedUrlResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a URL for a specified UserProfile in a Domain. When accessed in a web browser, the user will be automatically signed in to the domain, and granted access to all of the Apps and files associated with the Domain's Amazon Elastic File System volume. This operation can only be called when the authentication mode equals IAM.
  * 
@@ -2080,13 +2080,13 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * - The URL that you get from a call to `CreatePresignedDomainUrl` has a default timeout of 5 minutes. You can configure this value using `ExpiresInSeconds`. If you try to use the URL after the timeout limit expires, you are directed to the Amazon Web Services console sign-in page.
  * 
  * - The JupyterLab session default expiration time is 12 hours. You can configure this value using SessionExpirationDurationInSeconds.
- */export const createPresignedDomainUrl = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreatePresignedDomainUrl" }, CreatePresignedDomainUrlRequest, CreatePresignedDomainUrlResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createPresignedDomainUrl = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreatePresignedDomainUrl" }, CreatePresignedDomainUrlRequest, CreatePresignedDomainUrlResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a presigned URL that you can use to connect to the MLflow UI attached to your MLflow App. For more information, see Launch the MLflow UI using a presigned URL.
- */export const createPresignedMlflowAppUrl = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreatePresignedMlflowAppUrl" }, CreatePresignedMlflowAppUrlRequest, CreatePresignedMlflowAppUrlResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createPresignedMlflowAppUrl = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreatePresignedMlflowAppUrl" }, CreatePresignedMlflowAppUrlRequest, CreatePresignedMlflowAppUrlResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a presigned URL that you can use to connect to the MLflow UI attached to your tracking server. For more information, see Launch the MLflow UI using a presigned URL.
- */export const createPresignedMlflowTrackingServerUrl = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreatePresignedMlflowTrackingServerUrl" }, CreatePresignedMlflowTrackingServerUrlRequest, CreatePresignedMlflowTrackingServerUrlResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createPresignedMlflowTrackingServerUrl = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreatePresignedMlflowTrackingServerUrl" }, CreatePresignedMlflowTrackingServerUrlRequest, CreatePresignedMlflowTrackingServerUrlResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a URL that you can use to connect to the Jupyter server from a notebook instance. In the SageMaker AI console, when you choose `Open` next to a notebook instance, SageMaker AI opens a new tab showing the Jupyter server home page from the notebook instance. The console uses this API to get the URL and show the page.
  * 
@@ -2096,10 +2096,10 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * 
  * The URL that you get from a call to CreatePresignedNotebookInstanceUrl is valid only for 5 minutes. If you try to use the URL after the 5-minute limit expires, you are directed to the Amazon Web Services console sign-in page.
- */export const createPresignedNotebookInstanceUrl = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreatePresignedNotebookInstanceUrl" }, CreatePresignedNotebookInstanceUrlInput, CreatePresignedNotebookInstanceUrlOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createPresignedNotebookInstanceUrl = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreatePresignedNotebookInstanceUrl" }, CreatePresignedNotebookInstanceUrlInput, CreatePresignedNotebookInstanceUrlOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new Amazon SageMaker AI Studio Lifecycle Configuration.
- */export const createStudioLifecycleConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateStudioLifecycleConfig" }, CreateStudioLifecycleConfigRequest, CreateStudioLifecycleConfigResponse, [ResourceInUse]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createStudioLifecycleConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateStudioLifecycleConfig" }, CreateStudioLifecycleConfigRequest, CreateStudioLifecycleConfigResponse, [ResourceInUse]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new training plan in SageMaker to reserve compute capacity.
  * 
@@ -2135,7 +2135,7 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * **Plan composition**
  * 
  * A plan can consist of one or more Reserved Capacities, each defined by a specific instance type, quantity, Availability Zone, duration, and start and end times. For more information about Reserved Capacity, see ` ReservedCapacitySummary `.
- */export const createTrainingPlan = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateTrainingPlan" }, CreateTrainingPlanRequest, CreateTrainingPlanResponse, [ResourceInUse, ResourceLimitExceeded, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createTrainingPlan = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateTrainingPlan" }, CreateTrainingPlanRequest, CreateTrainingPlanResponse, [ResourceInUse, ResourceLimitExceeded, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an SageMaker *trial*. A trial is a set of steps called *trial components* that produce a machine learning model. A trial is part of a single SageMaker *experiment*.
  * 
@@ -2144,250 +2144,250 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * You can add tags to a trial and then use the Search API to search for the tags.
  * 
  * To get a list of all your trials, call the ListTrials API. To view a trial's properties, call the DescribeTrial API. To create a trial component, call the CreateTrialComponent API.
- */export const createTrial = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateTrial" }, CreateTrialRequest, CreateTrialResponse, [ResourceLimitExceeded, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createTrial = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateTrial" }, CreateTrialRequest, CreateTrialResponse, [ResourceLimitExceeded, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a user profile. A user profile represents a single user within a domain, and is the main way to reference a "person" for the purposes of sharing, reporting, and other user-oriented features. This entity is created when a user onboards to a domain. If an administrator invites a person by email or imports them from IAM Identity Center, a user profile is automatically created. A user profile is the primary holder of settings for an individual user and has a reference to the user's private Amazon Elastic File System home directory.
- */export const createUserProfile = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateUserProfile" }, CreateUserProfileRequest, CreateUserProfileResponse, [ResourceInUse, ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createUserProfile = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateUserProfile" }, CreateUserProfileRequest, CreateUserProfileResponse, [ResourceInUse, ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an action.
- */export const deleteAction = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteAction" }, DeleteActionRequest, DeleteActionResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteAction = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteAction" }, DeleteActionRequest, DeleteActionResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes the specified algorithm from your account.
- */export const deleteAlgorithm = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteAlgorithm" }, DeleteAlgorithmInput, S.Struct({}), [ConflictException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteAlgorithm = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteAlgorithm" }, DeleteAlgorithmInput, S.Struct({}), [ConflictException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Used to stop and delete an app.
- */export const deleteApp = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteApp" }, DeleteAppRequest, S.Struct({}), [ResourceInUse, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteApp = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteApp" }, DeleteAppRequest, S.Struct({}), [ResourceInUse, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an AppImageConfig.
- */export const deleteAppImageConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteAppImageConfig" }, DeleteAppImageConfigRequest, S.Struct({}), [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteAppImageConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteAppImageConfig" }, DeleteAppImageConfigRequest, S.Struct({}), [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an artifact. Either `ArtifactArn` or `Source` must be specified.
- */export const deleteArtifact = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteArtifact" }, DeleteArtifactRequest, DeleteArtifactResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteArtifact = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteArtifact" }, DeleteArtifactRequest, DeleteArtifactResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an association.
- */export const deleteAssociation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteAssociation" }, DeleteAssociationRequest, DeleteAssociationResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteAssociation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteAssociation" }, DeleteAssociationRequest, DeleteAssociationResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Delete a SageMaker HyperPod cluster.
- */export const deleteCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteCluster" }, DeleteClusterRequest, DeleteClusterResponse, [ConflictException, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteCluster" }, DeleteClusterRequest, DeleteClusterResponse, [ConflictException, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an context.
- */export const deleteContext = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteContext" }, DeleteContextRequest, DeleteContextResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteContext = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteContext" }, DeleteContextRequest, DeleteContextResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Used to delete a domain. If you onboarded with IAM mode, you will need to delete your domain to onboard again using IAM Identity Center. Use with caution. All of the members of the domain will lose access to their EFS volume, including data, notebooks, and other artifacts.
- */export const deleteDomain = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteDomain" }, DeleteDomainRequest, S.Struct({}), [ResourceInUse, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteDomain = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteDomain" }, DeleteDomainRequest, S.Struct({}), [ResourceInUse, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an SageMaker experiment. All trials associated with the experiment must be deleted first. Use the ListTrials API to get a list of the trials associated with the experiment.
- */export const deleteExperiment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteExperiment" }, DeleteExperimentRequest, DeleteExperimentResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteExperiment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteExperiment" }, DeleteExperimentRequest, DeleteExperimentResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an inference experiment.
  * 
  * 
  * This operation does not delete your endpoint, variants, or any underlying resources. This operation only deletes the metadata of your experiment.
- */export const deleteInferenceExperiment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteInferenceExperiment" }, DeleteInferenceExperimentRequest, DeleteInferenceExperimentResponse, [ConflictException, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteInferenceExperiment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteInferenceExperiment" }, DeleteInferenceExperimentRequest, DeleteInferenceExperimentResponse, [ConflictException, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an MLflow App.
- */export const deleteMlflowApp = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteMlflowApp" }, DeleteMlflowAppRequest, DeleteMlflowAppResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteMlflowApp = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteMlflowApp" }, DeleteMlflowAppRequest, DeleteMlflowAppResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an MLflow Tracking Server. For more information, see Clean up MLflow resources.
- */export const deleteMlflowTrackingServer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteMlflowTrackingServer" }, DeleteMlflowTrackingServerRequest, DeleteMlflowTrackingServerResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteMlflowTrackingServer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteMlflowTrackingServer" }, DeleteMlflowTrackingServerRequest, DeleteMlflowTrackingServerResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a SageMaker Partner AI App.
- */export const deletePartnerApp = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeletePartnerApp" }, DeletePartnerAppRequest, DeletePartnerAppResponse, [ConflictException, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deletePartnerApp = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeletePartnerApp" }, DeletePartnerAppRequest, DeletePartnerAppResponse, [ConflictException, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a pipeline if there are no running instances of the pipeline. To delete a pipeline, you must stop all running instances of the pipeline using the `StopPipelineExecution` API. When you delete a pipeline, all instances of the pipeline are deleted.
- */export const deletePipeline = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeletePipeline" }, DeletePipelineRequest, DeletePipelineResponse, [ConflictException, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deletePipeline = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeletePipeline" }, DeletePipelineRequest, DeletePipelineResponse, [ConflictException, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified trial. All trial components that make up the trial must be deleted first. Use the DescribeTrialComponent API to get the list of trial components.
- */export const deleteTrial = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteTrial" }, DeleteTrialRequest, DeleteTrialResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteTrial = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteTrial" }, DeleteTrialRequest, DeleteTrialResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified trial component. A trial component must be disassociated from all trials before the trial component can be deleted. To disassociate a trial component from a trial, call the DisassociateTrialComponent API.
- */export const deleteTrialComponent = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteTrialComponent" }, DeleteTrialComponentRequest, DeleteTrialComponentResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteTrialComponent = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteTrialComponent" }, DeleteTrialComponentRequest, DeleteTrialComponentResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an existing work team. This operation can't be undone.
- */export const deleteWorkteam = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteWorkteam" }, DeleteWorkteamRequest, DeleteWorkteamResponse, [ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteWorkteam = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DeleteWorkteam" }, DeleteWorkteamRequest, DeleteWorkteamResponse, [ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes the app.
- */export const describeApp = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeApp" }, DescribeAppRequest, DescribeAppResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeApp = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeApp" }, DescribeAppRequest, DescribeAppResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes an AppImageConfig.
- */export const describeAppImageConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeAppImageConfig" }, DescribeAppImageConfigRequest, DescribeAppImageConfigResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeAppImageConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeAppImageConfig" }, DescribeAppImageConfigRequest, DescribeAppImageConfigResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes an artifact.
- */export const describeArtifact = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeArtifact" }, DescribeArtifactRequest, DescribeArtifactResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeArtifact = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeArtifact" }, DescribeArtifactRequest, DescribeArtifactResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Description of the cluster policy. This policy is used for task prioritization and fair-share allocation. This helps prioritize critical workloads and distributes idle compute across entities.
- */export const describeClusterSchedulerConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeClusterSchedulerConfig" }, DescribeClusterSchedulerConfigRequest, DescribeClusterSchedulerConfigResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeClusterSchedulerConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeClusterSchedulerConfig" }, DescribeClusterSchedulerConfigRequest, DescribeClusterSchedulerConfigResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets details about the specified Git repository.
- */export const describeCodeRepository = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeCodeRepository" }, DescribeCodeRepositoryInput, DescribeCodeRepositoryOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeCodeRepository = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeCodeRepository" }, DescribeCodeRepositoryInput, DescribeCodeRepositoryOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Description of the compute allocation definition.
- */export const describeComputeQuota = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeComputeQuota" }, DescribeComputeQuotaRequest, DescribeComputeQuotaResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeComputeQuota = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeComputeQuota" }, DescribeComputeQuotaRequest, DescribeComputeQuotaResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes a context.
- */export const describeContext = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeContext" }, DescribeContextRequest, DescribeContextResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeContext = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeContext" }, DescribeContextRequest, DescribeContextResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets the details of a data quality monitoring job definition.
- */export const describeDataQualityJobDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeDataQualityJobDefinition" }, DescribeDataQualityJobDefinitionRequest, DescribeDataQualityJobDefinitionResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeDataQualityJobDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeDataQualityJobDefinition" }, DescribeDataQualityJobDefinitionRequest, DescribeDataQualityJobDefinitionResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * A description of the fleet the device belongs to.
- */export const describeDeviceFleet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeDeviceFleet" }, DescribeDeviceFleetRequest, DescribeDeviceFleetResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeDeviceFleet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeDeviceFleet" }, DescribeDeviceFleetRequest, DescribeDeviceFleetResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The description of the domain.
- */export const describeDomain = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeDomain" }, DescribeDomainRequest, DescribeDomainResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeDomain = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeDomain" }, DescribeDomainRequest, DescribeDomainResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the description of an endpoint configuration created using the `CreateEndpointConfig` API.
- */export const describeEndpointConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeEndpointConfig" }, DescribeEndpointConfigInput, DescribeEndpointConfigOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeEndpointConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeEndpointConfig" }, DescribeEndpointConfigInput, DescribeEndpointConfigOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Shows the metadata for a feature within a feature group.
- */export const describeFeatureMetadata = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeFeatureMetadata" }, DescribeFeatureMetadataRequest, DescribeFeatureMetadataResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeFeatureMetadata = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeFeatureMetadata" }, DescribeFeatureMetadataRequest, DescribeFeatureMetadataResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about the specified flow definition.
- */export const describeFlowDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeFlowDefinition" }, DescribeFlowDefinitionRequest, DescribeFlowDefinitionResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeFlowDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeFlowDefinition" }, DescribeFlowDefinitionRequest, DescribeFlowDefinitionResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes a hub.
- */export const describeHub = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeHub" }, DescribeHubRequest, DescribeHubResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeHub = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeHub" }, DescribeHubRequest, DescribeHubResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes a SageMaker AI image.
- */export const describeImage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeImage" }, DescribeImageRequest, DescribeImageResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeImage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeImage" }, DescribeImageRequest, DescribeImageResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes a version of a SageMaker AI image.
- */export const describeImageVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeImageVersion" }, DescribeImageVersionRequest, DescribeImageVersionResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeImageVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeImageVersion" }, DescribeImageVersionRequest, DescribeImageVersionResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides a list of properties for the requested lineage group. For more information, see Cross-Account Lineage Tracking in the *Amazon SageMaker Developer Guide*.
- */export const describeLineageGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeLineageGroup" }, DescribeLineageGroupRequest, DescribeLineageGroupResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeLineageGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeLineageGroup" }, DescribeLineageGroupRequest, DescribeLineageGroupResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about an MLflow App.
- */export const describeMlflowApp = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeMlflowApp" }, DescribeMlflowAppRequest, DescribeMlflowAppResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeMlflowApp = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeMlflowApp" }, DescribeMlflowAppRequest, DescribeMlflowAppResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about an MLflow Tracking Server.
- */export const describeMlflowTrackingServer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeMlflowTrackingServer" }, DescribeMlflowTrackingServerRequest, DescribeMlflowTrackingServerResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeMlflowTrackingServer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeMlflowTrackingServer" }, DescribeMlflowTrackingServerRequest, DescribeMlflowTrackingServerResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a description of a model bias job definition.
- */export const describeModelBiasJobDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeModelBiasJobDefinition" }, DescribeModelBiasJobDefinitionRequest, DescribeModelBiasJobDefinitionResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeModelBiasJobDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeModelBiasJobDefinition" }, DescribeModelBiasJobDefinitionRequest, DescribeModelBiasJobDefinitionResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes the content, creation time, and security configuration of an Amazon SageMaker Model Card.
- */export const describeModelCard = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeModelCard" }, DescribeModelCardRequest, DescribeModelCardResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeModelCard = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeModelCard" }, DescribeModelCardRequest, DescribeModelCardResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a description of a model explainability job definition.
- */export const describeModelExplainabilityJobDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeModelExplainabilityJobDefinition" }, DescribeModelExplainabilityJobDefinitionRequest, DescribeModelExplainabilityJobDefinitionResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeModelExplainabilityJobDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeModelExplainabilityJobDefinition" }, DescribeModelExplainabilityJobDefinitionRequest, DescribeModelExplainabilityJobDefinitionResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets a description for the specified model group.
- */export const describeModelPackageGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeModelPackageGroup" }, DescribeModelPackageGroupInput, DescribeModelPackageGroupOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeModelPackageGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeModelPackageGroup" }, DescribeModelPackageGroupInput, DescribeModelPackageGroupOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a description of a model quality job definition.
- */export const describeModelQualityJobDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeModelQualityJobDefinition" }, DescribeModelQualityJobDefinitionRequest, DescribeModelQualityJobDefinitionResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeModelQualityJobDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeModelQualityJobDefinition" }, DescribeModelQualityJobDefinitionRequest, DescribeModelQualityJobDefinitionResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about a notebook instance.
- */export const describeNotebookInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeNotebookInstance" }, DescribeNotebookInstanceInput, DescribeNotebookInstanceOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeNotebookInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeNotebookInstance" }, DescribeNotebookInstanceInput, DescribeNotebookInstanceOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a description of a notebook instance lifecycle configuration.
  * 
  * For information about notebook instance lifestyle configurations, see Step 2.1: (Optional) Customize a Notebook Instance.
- */export const describeNotebookInstanceLifecycleConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeNotebookInstanceLifecycleConfig" }, DescribeNotebookInstanceLifecycleConfigInput, DescribeNotebookInstanceLifecycleConfigOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeNotebookInstanceLifecycleConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeNotebookInstanceLifecycleConfig" }, DescribeNotebookInstanceLifecycleConfigInput, DescribeNotebookInstanceLifecycleConfigOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes the details of a pipeline.
- */export const describePipeline = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribePipeline" }, DescribePipelineRequest, DescribePipelineResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describePipeline = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribePipeline" }, DescribePipelineRequest, DescribePipelineResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes the details of an execution's pipeline definition.
- */export const describePipelineDefinitionForExecution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribePipelineDefinitionForExecution" }, DescribePipelineDefinitionForExecutionRequest, DescribePipelineDefinitionForExecutionResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describePipelineDefinitionForExecution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribePipelineDefinitionForExecution" }, DescribePipelineDefinitionForExecutionRequest, DescribePipelineDefinitionForExecutionResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a description of a processing job.
- */export const describeProcessingJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeProcessingJob" }, DescribeProcessingJobRequest, DescribeProcessingJobResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeProcessingJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeProcessingJob" }, DescribeProcessingJobRequest, DescribeProcessingJobResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes the space.
- */export const describeSpace = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeSpace" }, DescribeSpaceRequest, DescribeSpaceResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeSpace = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeSpace" }, DescribeSpaceRequest, DescribeSpaceResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes the Amazon SageMaker AI Studio Lifecycle Configuration.
- */export const describeStudioLifecycleConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeStudioLifecycleConfig" }, DescribeStudioLifecycleConfigRequest, DescribeStudioLifecycleConfigResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeStudioLifecycleConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeStudioLifecycleConfig" }, DescribeStudioLifecycleConfigRequest, DescribeStudioLifecycleConfigResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about a transform job.
- */export const describeTransformJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeTransformJob" }, DescribeTransformJobRequest, DescribeTransformJobResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeTransformJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeTransformJob" }, DescribeTransformJobRequest, DescribeTransformJobResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes a user profile. For more information, see `CreateUserProfile`.
- */export const describeUserProfile = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeUserProfile" }, DescribeUserProfileRequest, DescribeUserProfileResponse, [ResourceLimitExceeded, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeUserProfile = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeUserProfile" }, DescribeUserProfileRequest, DescribeUserProfileResponse, [ResourceLimitExceeded, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Detaches your Amazon Elastic Block Store (Amazon EBS) volume from a node in your EKS orchestrated SageMaker HyperPod cluster.
  * 
  * This API works with the Amazon Elastic Block Store (Amazon EBS) Container Storage Interface (CSI) driver to manage the lifecycle of persistent storage in your HyperPod EKS clusters.
- */export const detachClusterNodeVolume = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DetachClusterNodeVolume" }, DetachClusterNodeVolumeRequest, DetachClusterNodeVolumeResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const detachClusterNodeVolume = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DetachClusterNodeVolume" }, DetachClusterNodeVolumeRequest, DetachClusterNodeVolumeResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Disassociates a trial component from a trial. This doesn't effect other trials the component is associated with. Before you can delete a component, you must disassociate the component from all trials it is associated with. To associate a trial component with a trial, call the AssociateTrialComponent API.
  * 
  * To get a list of the trials a component is associated with, use the Search API. Specify `ExperimentTrialComponent` for the `Resource` parameter. The list appears in the response under `Results.TrialComponent.Parents`.
- */export const disassociateTrialComponent = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DisassociateTrialComponent" }, DisassociateTrialComponentRequest, DisassociateTrialComponentResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const disassociateTrialComponent = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DisassociateTrialComponent" }, DisassociateTrialComponentRequest, DisassociateTrialComponentResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The resource policy for the lineage group.
- */export const getLineageGroupPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.GetLineageGroupPolicy" }, GetLineageGroupPolicyRequest, GetLineageGroupPolicyResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getLineageGroupPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.GetLineageGroupPolicy" }, GetLineageGroupPolicyRequest, GetLineageGroupPolicyResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets a resource policy that manages access for a model group. For information about resource policies, see Identity-based policies and resource-based policies in the *Amazon Web Services Identity and Access Management User Guide.*.
- */export const getModelPackageGroupPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.GetModelPackageGroupPolicy" }, GetModelPackageGroupPolicyInput, GetModelPackageGroupPolicyOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getModelPackageGroupPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.GetModelPackageGroupPolicy" }, GetModelPackageGroupPolicyInput, GetModelPackageGroupPolicyOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Import hub content.
- */export const importHubContent = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ImportHubContent" }, ImportHubContentRequest, ImportHubContentResponse, [ResourceInUse, ResourceLimitExceeded, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const importHubContent = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ImportHubContent" }, ImportHubContentRequest, ImportHubContentResponse, [ResourceInUse, ResourceLimitExceeded, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the aliases of a specified image or image version.
- */export const listAliases = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListAliases" }, ListAliasesRequest, ListAliasesResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listAliases = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListAliases" }, ListAliasesRequest, ListAliasesResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * List the candidates created for the job.
- */export const listCandidatesForAutoMLJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListCandidatesForAutoMLJob" }, ListCandidatesForAutoMLJobRequest, ListCandidatesForAutoMLJobResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listCandidatesForAutoMLJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListCandidatesForAutoMLJob" }, ListCandidatesForAutoMLJobRequest, ListCandidatesForAutoMLJobResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * List hub content versions.
- */export const listHubContentVersions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListHubContentVersions" }, ListHubContentVersionsRequest, ListHubContentVersionsResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listHubContentVersions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListHubContentVersions" }, ListHubContentVersionsRequest, ListHubContentVersionsResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists model bias jobs definitions that satisfy various filters.
- */export const listModelBiasJobDefinitions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListModelBiasJobDefinitions" }, ListModelBiasJobDefinitionsRequest, ListModelBiasJobDefinitionsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listModelBiasJobDefinitions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListModelBiasJobDefinitions" }, ListModelBiasJobDefinitionsRequest, ListModelBiasJobDefinitionsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists model explainability job definitions that satisfy various filters.
- */export const listModelExplainabilityJobDefinitions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListModelExplainabilityJobDefinitions" }, ListModelExplainabilityJobDefinitionsRequest, ListModelExplainabilityJobDefinitionsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listModelExplainabilityJobDefinitions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListModelExplainabilityJobDefinitions" }, ListModelExplainabilityJobDefinitionsRequest, ListModelExplainabilityJobDefinitionsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets a list of model quality monitoring job definitions in your account.
- */export const listModelQualityJobDefinitions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListModelQualityJobDefinitions" }, ListModelQualityJobDefinitionsRequest, ListModelQualityJobDefinitionsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listModelQualityJobDefinitions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListModelQualityJobDefinitions" }, ListModelQualityJobDefinitionsRequest, ListModelQualityJobDefinitionsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns list of all monitoring job executions.
- */export const listMonitoringExecutions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListMonitoringExecutions" }, ListMonitoringExecutionsRequest, ListMonitoringExecutionsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listMonitoringExecutions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListMonitoringExecutions" }, ListMonitoringExecutionsRequest, ListMonitoringExecutionsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets a list of parameters for a pipeline execution.
- */export const listPipelineParametersForExecution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListPipelineParametersForExecution" }, ListPipelineParametersForExecutionRequest, ListPipelineParametersForExecutionResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listPipelineParametersForExecution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListPipelineParametersForExecution" }, ListPipelineParametersForExecutionRequest, ListPipelineParametersForExecutionResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets a list of the work teams that you are subscribed to in the Amazon Web Services Marketplace. The list may be empty if no work team satisfies the filter specified in the `NameContains` parameter.
- */export const listSubscribedWorkteams = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListSubscribedWorkteams" }, ListSubscribedWorkteamsRequest, ListSubscribedWorkteamsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listSubscribedWorkteams = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListSubscribedWorkteams" }, ListSubscribedWorkteamsRequest, ListSubscribedWorkteamsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the tags for the specified SageMaker resource.
- */export const listTags = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListTags" }, ListTagsInput, ListTagsOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTags = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListTags" }, ListTagsInput, ListTagsOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets a list of TrainingJobSummary objects that describe the training jobs that a hyperparameter tuning job launched.
- */export const listTrainingJobsForHyperParameterTuningJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListTrainingJobsForHyperParameterTuningJob" }, ListTrainingJobsForHyperParameterTuningJobRequest, ListTrainingJobsForHyperParameterTuningJobResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTrainingJobsForHyperParameterTuningJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListTrainingJobsForHyperParameterTuningJob" }, ListTrainingJobsForHyperParameterTuningJobRequest, ListTrainingJobsForHyperParameterTuningJobResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Use this operation to list all private and vendor workforces in an Amazon Web Services Region. Note that you can only have one private workforce per Amazon Web Services Region.
- */export const listWorkforces = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListWorkforces" }, ListWorkforcesRequest, ListWorkforcesResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listWorkforces = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListWorkforces" }, ListWorkforcesRequest, ListWorkforcesResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets a list of private work teams that you have defined in a region. The list may be empty if no work team satisfies the filter specified in the `NameContains` parameter.
- */export const listWorkteams = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListWorkteams" }, ListWorkteamsRequest, ListWorkteamsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listWorkteams = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListWorkteams" }, ListWorkteamsRequest, ListWorkteamsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds a resouce policy to control access to a model group. For information about resoure policies, see Identity-based policies and resource-based policies in the *Amazon Web Services Identity and Access Management User Guide.*.
- */export const putModelPackageGroupPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.PutModelPackageGroupPolicy" }, PutModelPackageGroupPolicyInput, PutModelPackageGroupPolicyOutput, [ConflictException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putModelPackageGroupPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.PutModelPackageGroupPolicy" }, PutModelPackageGroupPolicyInput, PutModelPackageGroupPolicyOutput, [ConflictException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Register devices.
- */export const registerDevices = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.RegisterDevices" }, RegisterDevicesRequest, S.Struct({}), [ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const registerDevices = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.RegisterDevices" }, RegisterDevicesRequest, S.Struct({}), [ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retry the execution of the pipeline.
- */export const retryPipelineExecution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.RetryPipelineExecution" }, RetryPipelineExecutionRequest, RetryPipelineExecutionResponse, [ConflictException, ResourceLimitExceeded, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const retryPipelineExecution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.RetryPipelineExecution" }, RetryPipelineExecutionRequest, RetryPipelineExecutionResponse, [ConflictException, ResourceLimitExceeded, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Notifies the pipeline that the execution of a callback step failed, along with a message describing why. When a callback step is run, the pipeline generates a callback token and includes the token in a message sent to Amazon Simple Queue Service (Amazon SQS).
- */export const sendPipelineExecutionStepFailure = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.SendPipelineExecutionStepFailure" }, SendPipelineExecutionStepFailureRequest, SendPipelineExecutionStepFailureResponse, [ConflictException, ResourceLimitExceeded, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const sendPipelineExecutionStepFailure = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.SendPipelineExecutionStepFailure" }, SendPipelineExecutionStepFailureRequest, SendPipelineExecutionStepFailureResponse, [ConflictException, ResourceLimitExceeded, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts an inference experiment.
- */export const startInferenceExperiment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.StartInferenceExperiment" }, StartInferenceExperimentRequest, StartInferenceExperimentResponse, [ConflictException, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startInferenceExperiment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.StartInferenceExperiment" }, StartInferenceExperimentRequest, StartInferenceExperimentResponse, [ConflictException, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Programmatically start an MLflow Tracking Server.
- */export const startMlflowTrackingServer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.StartMlflowTrackingServer" }, StartMlflowTrackingServerRequest, StartMlflowTrackingServerResponse, [ConflictException, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startMlflowTrackingServer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.StartMlflowTrackingServer" }, StartMlflowTrackingServerRequest, StartMlflowTrackingServerResponse, [ConflictException, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Initiates a remote connection session between a local integrated development environments (IDEs) and a remote SageMaker space.
- */export const startSession = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.StartSession" }, StartSessionRequest, StartSessionResponse, [ResourceLimitExceeded, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startSession = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.StartSession" }, StartSessionRequest, StartSessionResponse, [ResourceLimitExceeded, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Programmatically stop an MLflow Tracking Server.
- */export const stopMlflowTrackingServer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.StopMlflowTrackingServer" }, StopMlflowTrackingServerRequest, StopMlflowTrackingServerResponse, [ConflictException, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const stopMlflowTrackingServer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.StopMlflowTrackingServer" }, StopMlflowTrackingServerRequest, StopMlflowTrackingServerResponse, [ConflictException, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Stops a pipeline execution.
  * 
@@ -2402,37 +2402,37 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * **Lambda Step**
  * 
  * A pipeline execution can't be stopped while a lambda step is running because the Lambda function invoked by the lambda step can't be stopped. If you attempt to stop the execution while the Lambda function is running, the pipeline waits for the Lambda function to finish or until the timeout is hit, whichever occurs first, and then stops. If the Lambda function finishes, the pipeline execution status is `Stopped`. If the timeout is hit the pipeline execution status is `Failed`.
- */export const stopPipelineExecution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.StopPipelineExecution" }, StopPipelineExecutionRequest, StopPipelineExecutionResponse, [ConflictException, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const stopPipelineExecution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.StopPipelineExecution" }, StopPipelineExecutionRequest, StopPipelineExecutionResponse, [ConflictException, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates an action.
- */export const updateAction = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateAction" }, UpdateActionRequest, UpdateActionResponse, [ConflictException, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateAction = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateAction" }, UpdateActionRequest, UpdateActionResponse, [ConflictException, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the properties of an AppImageConfig.
- */export const updateAppImageConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateAppImageConfig" }, UpdateAppImageConfigRequest, UpdateAppImageConfigResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateAppImageConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateAppImageConfig" }, UpdateAppImageConfigRequest, UpdateAppImageConfigResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates an artifact.
- */export const updateArtifact = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateArtifact" }, UpdateArtifactRequest, UpdateArtifactResponse, [ConflictException, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateArtifact = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateArtifact" }, UpdateArtifactRequest, UpdateArtifactResponse, [ConflictException, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates a SageMaker HyperPod cluster.
- */export const updateCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateCluster" }, UpdateClusterRequest, UpdateClusterResponse, [ConflictException, ResourceLimitExceeded, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateCluster" }, UpdateClusterRequest, UpdateClusterResponse, [ConflictException, ResourceLimitExceeded, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Update the cluster policy configuration.
- */export const updateClusterSchedulerConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateClusterSchedulerConfig" }, UpdateClusterSchedulerConfigRequest, UpdateClusterSchedulerConfigResponse, [ConflictException, ResourceLimitExceeded, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateClusterSchedulerConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateClusterSchedulerConfig" }, UpdateClusterSchedulerConfigRequest, UpdateClusterSchedulerConfigResponse, [ConflictException, ResourceLimitExceeded, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Update the compute allocation definition.
- */export const updateComputeQuota = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateComputeQuota" }, UpdateComputeQuotaRequest, UpdateComputeQuotaResponse, [ConflictException, ResourceLimitExceeded, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateComputeQuota = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateComputeQuota" }, UpdateComputeQuotaRequest, UpdateComputeQuotaResponse, [ConflictException, ResourceLimitExceeded, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates a context.
- */export const updateContext = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateContext" }, UpdateContextRequest, UpdateContextResponse, [ConflictException, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateContext = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateContext" }, UpdateContextRequest, UpdateContextResponse, [ConflictException, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds, updates, or removes the description of an experiment. Updates the display name of an experiment.
- */export const updateExperiment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateExperiment" }, UpdateExperimentRequest, UpdateExperimentResponse, [ConflictException, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateExperiment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateExperiment" }, UpdateExperimentRequest, UpdateExperimentResponse, [ConflictException, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the description and parameters of the feature group.
- */export const updateFeatureMetadata = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateFeatureMetadata" }, UpdateFeatureMetadataRequest, S.Struct({}), [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateFeatureMetadata = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateFeatureMetadata" }, UpdateFeatureMetadataRequest, S.Struct({}), [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Update a hub.
- */export const updateHub = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateHub" }, UpdateHubRequest, UpdateHubResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateHub = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateHub" }, UpdateHubRequest, UpdateHubResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates SageMaker hub content (either a `Model` or `Notebook` resource).
  * 
@@ -2453,7 +2453,7 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * 
  * If you want to update a `ModelReference` resource in your hub, use the `UpdateHubContentResource` API instead.
- */export const updateHubContent = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateHubContent" }, UpdateHubContentRequest, UpdateHubContentResponse, [ResourceInUse, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateHubContent = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateHubContent" }, UpdateHubContentRequest, UpdateHubContentResponse, [ResourceInUse, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the contents of a SageMaker hub for a `ModelReference` resource. A `ModelReference` allows you to access public SageMaker JumpStart models from within your private hub.
  * 
@@ -2464,67 +2464,67 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * 
  * For more information about adding model references to your hub, see Add models to a private hub.
- */export const updateHubContentReference = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateHubContentReference" }, UpdateHubContentReferenceRequest, UpdateHubContentReferenceResponse, [ResourceInUse, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateHubContentReference = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateHubContentReference" }, UpdateHubContentReferenceRequest, UpdateHubContentReferenceResponse, [ResourceInUse, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the properties of a SageMaker AI image. To change the image's tags, use the AddTags and DeleteTags APIs.
- */export const updateImage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateImage" }, UpdateImageRequest, UpdateImageResponse, [ResourceInUse, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateImage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateImage" }, UpdateImageRequest, UpdateImageResponse, [ResourceInUse, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the properties of a SageMaker AI image version.
- */export const updateImageVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateImageVersion" }, UpdateImageVersionRequest, UpdateImageVersionResponse, [ResourceInUse, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateImageVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateImageVersion" }, UpdateImageVersionRequest, UpdateImageVersionResponse, [ResourceInUse, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Runtime settings for a model that is deployed with an inference component.
- */export const updateInferenceComponentRuntimeConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateInferenceComponentRuntimeConfig" }, UpdateInferenceComponentRuntimeConfigInput, UpdateInferenceComponentRuntimeConfigOutput, [ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateInferenceComponentRuntimeConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateInferenceComponentRuntimeConfig" }, UpdateInferenceComponentRuntimeConfigInput, UpdateInferenceComponentRuntimeConfigOutput, [ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates an inference experiment that you created. The status of the inference experiment has to be either `Created`, `Running`. For more information on the status of an inference experiment, see DescribeInferenceExperiment.
- */export const updateInferenceExperiment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateInferenceExperiment" }, UpdateInferenceExperimentRequest, UpdateInferenceExperimentResponse, [ConflictException, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateInferenceExperiment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateInferenceExperiment" }, UpdateInferenceExperimentRequest, UpdateInferenceExperimentResponse, [ConflictException, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates an MLflow App.
- */export const updateMlflowApp = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateMlflowApp" }, UpdateMlflowAppRequest, UpdateMlflowAppResponse, [ConflictException, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateMlflowApp = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateMlflowApp" }, UpdateMlflowAppRequest, UpdateMlflowAppResponse, [ConflictException, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates properties of an existing MLflow Tracking Server.
- */export const updateMlflowTrackingServer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateMlflowTrackingServer" }, UpdateMlflowTrackingServerRequest, UpdateMlflowTrackingServerResponse, [ConflictException, ResourceLimitExceeded, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateMlflowTrackingServer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateMlflowTrackingServer" }, UpdateMlflowTrackingServerRequest, UpdateMlflowTrackingServerResponse, [ConflictException, ResourceLimitExceeded, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Update an Amazon SageMaker Model Card.
  * 
  * 
  * You cannot update both model card content and model card status in a single call.
- */export const updateModelCard = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateModelCard" }, UpdateModelCardRequest, UpdateModelCardResponse, [ConflictException, ResourceLimitExceeded, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateModelCard = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateModelCard" }, UpdateModelCardRequest, UpdateModelCardResponse, [ConflictException, ResourceLimitExceeded, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates a versioned model.
- */export const updateModelPackage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateModelPackage" }, UpdateModelPackageInput, UpdateModelPackageOutput, [ConflictException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateModelPackage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateModelPackage" }, UpdateModelPackageInput, UpdateModelPackageOutput, [ConflictException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Update the parameters of a model monitor alert.
- */export const updateMonitoringAlert = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateMonitoringAlert" }, UpdateMonitoringAlertRequest, UpdateMonitoringAlertResponse, [ResourceLimitExceeded, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateMonitoringAlert = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateMonitoringAlert" }, UpdateMonitoringAlertRequest, UpdateMonitoringAlertResponse, [ResourceLimitExceeded, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates a previously created schedule.
- */export const updateMonitoringSchedule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateMonitoringSchedule" }, UpdateMonitoringScheduleRequest, UpdateMonitoringScheduleResponse, [ResourceLimitExceeded, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateMonitoringSchedule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateMonitoringSchedule" }, UpdateMonitoringScheduleRequest, UpdateMonitoringScheduleResponse, [ResourceLimitExceeded, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates all of the SageMaker Partner AI Apps in an account.
- */export const updatePartnerApp = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdatePartnerApp" }, UpdatePartnerAppRequest, UpdatePartnerAppResponse, [ConflictException, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updatePartnerApp = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdatePartnerApp" }, UpdatePartnerAppRequest, UpdatePartnerAppResponse, [ConflictException, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates a pipeline.
- */export const updatePipeline = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdatePipeline" }, UpdatePipelineRequest, UpdatePipelineResponse, [ConflictException, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updatePipeline = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdatePipeline" }, UpdatePipelineRequest, UpdatePipelineResponse, [ConflictException, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates a pipeline execution.
- */export const updatePipelineExecution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdatePipelineExecution" }, UpdatePipelineExecutionRequest, UpdatePipelineExecutionResponse, [ConflictException, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updatePipelineExecution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdatePipelineExecution" }, UpdatePipelineExecutionRequest, UpdatePipelineExecutionResponse, [ConflictException, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates a pipeline version.
- */export const updatePipelineVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdatePipelineVersion" }, UpdatePipelineVersionRequest, UpdatePipelineVersionResponse, [ConflictException, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updatePipelineVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdatePipelineVersion" }, UpdatePipelineVersionRequest, UpdatePipelineVersionResponse, [ConflictException, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the settings of a space.
  * 
  * 
  * You can't edit the app type of a space in the `SpaceSettings`.
- */export const updateSpace = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateSpace" }, UpdateSpaceRequest, UpdateSpaceResponse, [ResourceInUse, ResourceLimitExceeded, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateSpace = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateSpace" }, UpdateSpaceRequest, UpdateSpaceResponse, [ResourceInUse, ResourceLimitExceeded, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the display name of a trial.
- */export const updateTrial = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateTrial" }, UpdateTrialRequest, UpdateTrialResponse, [ConflictException, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateTrial = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateTrial" }, UpdateTrialRequest, UpdateTrialResponse, [ConflictException, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates one or more properties of a trial component.
- */export const updateTrialComponent = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateTrialComponent" }, UpdateTrialComponentRequest, UpdateTrialComponentResponse, [ConflictException, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateTrialComponent = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateTrialComponent" }, UpdateTrialComponentRequest, UpdateTrialComponentResponse, [ConflictException, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates a user profile.
- */export const updateUserProfile = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateUserProfile" }, UpdateUserProfileRequest, UpdateUserProfileResponse, [ResourceInUse, ResourceLimitExceeded, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateUserProfile = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateUserProfile" }, UpdateUserProfileRequest, UpdateUserProfileResponse, [ResourceInUse, ResourceLimitExceeded, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Use this operation to update your workforce. You can use this operation to require that workers use specific IP addresses to work on tasks and to update your OpenID Connect (OIDC) Identity Provider (IdP) workforce configuration.
  * 
@@ -2548,10 +2548,10 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * 
  * This operation only applies to private workforces.
- */export const updateWorkforce = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateWorkforce" }, UpdateWorkforceRequest, UpdateWorkforceResponse, [ConflictException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateWorkforce = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateWorkforce" }, UpdateWorkforceRequest, UpdateWorkforceResponse, [ConflictException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates an existing work team with new member definitions or description.
- */export const updateWorkteam = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateWorkteam" }, UpdateWorkteamRequest, UpdateWorkteamResponse, [ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateWorkteam = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateWorkteam" }, UpdateWorkteamRequest, UpdateWorkteamResponse, [ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds or overwrites one or more tags for the specified SageMaker resource. You can add tags to notebook instances, training jobs, hyperparameter tuning jobs, batch transform jobs, models, labeling jobs, work teams, endpoint configurations, and endpoints.
  * 
@@ -2563,7 +2563,7 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * 
  * Tags that you add to a SageMaker Domain or User Profile by calling this API are also added to any Apps that the Domain or User Profile launches after you call this API, but not to Apps that the Domain or User Profile launched before you called this API. To make sure that the tags associated with a Domain or User Profile are also added to all Apps that the Domain or User Profile launches, add the tags when you first create the Domain or User Profile by specifying them in the `Tags` parameter of CreateDomain or CreateUserProfile.
- */export const addTags = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.AddTags" }, AddTagsInput, AddTagsOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const addTags = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.AddTags" }, AddTagsInput, AddTagsOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes specific nodes within a SageMaker HyperPod cluster. `BatchDeleteClusterNodes` accepts a cluster name and a list of node IDs.
  * 
@@ -2571,7 +2571,7 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * - To safeguard your work, back up your data to Amazon S3 or an FSx for Lustre file system before invoking the API on a worker node group. This will help prevent any potential data loss from the instance root volume. For more information about backup, see Use the backup script provided by SageMaker HyperPod.
  * 
  * - If you want to invoke this API on an existing cluster, you'll first need to patch the cluster by running the UpdateClusterSoftware API. For more information about patching a cluster, see Update the SageMaker HyperPod platform software of a cluster.
- */export const batchDeleteClusterNodes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.BatchDeleteClusterNodes" }, BatchDeleteClusterNodesRequest, BatchDeleteClusterNodesResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const batchDeleteClusterNodes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.BatchDeleteClusterNodes" }, BatchDeleteClusterNodesRequest, BatchDeleteClusterNodesResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Reboots specific nodes within a SageMaker HyperPod cluster using a soft recovery mechanism. `BatchRebootClusterNodes` performs a graceful reboot of the specified nodes by calling the Amazon Elastic Compute Cloud `RebootInstances` API, which attempts to cleanly shut down the operating system before restarting the instance.
  * 
@@ -2583,7 +2583,7 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * - You can reboot up to 25 nodes in a single request.
  * 
  * - For SageMaker HyperPod clusters using the Slurm workload manager, ensure rebooting nodes will not disrupt critical cluster operations.
- */export const batchRebootClusterNodes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.BatchRebootClusterNodes" }, BatchRebootClusterNodesRequest, BatchRebootClusterNodesResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const batchRebootClusterNodes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.BatchRebootClusterNodes" }, BatchRebootClusterNodesRequest, BatchRebootClusterNodesResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Replaces specific nodes within a SageMaker HyperPod cluster with new hardware. `BatchReplaceClusterNodes` terminates the specified instances and provisions new replacement instances with the same configuration but fresh hardware. The Amazon Machine Image (AMI) and instance configuration remain the same.
  * 
@@ -2597,41 +2597,41 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * - If you want to invoke this API on an existing cluster, you'll first need to patch the cluster by running the UpdateClusterSoftware API. For more information about patching a cluster, see Update the SageMaker HyperPod platform software of a cluster.
  * 
  * - You can replace up to 25 nodes in a single request.
- */export const batchReplaceClusterNodes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.BatchReplaceClusterNodes" }, BatchReplaceClusterNodesRequest, BatchReplaceClusterNodesResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const batchReplaceClusterNodes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.BatchReplaceClusterNodes" }, BatchReplaceClusterNodesRequest, BatchReplaceClusterNodesResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an *action*. An action is a lineage tracking entity that represents an action or activity. For example, a model deployment or an HPO job. Generally, an action involves at least one input or output artifact. For more information, see Amazon SageMaker ML Lineage Tracking.
- */export const createAction = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateAction" }, CreateActionRequest, CreateActionResponse, [ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createAction = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateAction" }, CreateActionRequest, CreateActionResponse, [ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a running app for the specified UserProfile. This operation is automatically invoked by Amazon SageMaker AI upon access to the associated Domain, and when new kernel configurations are selected by the user. A user may have multiple Apps active simultaneously.
- */export const createApp = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateApp" }, CreateAppRequest, CreateAppResponse, [ResourceInUse, ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createApp = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateApp" }, CreateAppRequest, CreateAppResponse, [ResourceInUse, ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a Git repository as a resource in your SageMaker AI account. You can associate the repository with notebook instances so that you can use Git source control for the notebooks you create. The Git repository is a resource in your SageMaker AI account, so it can be associated with more than one notebook instance, and it persists independently from the lifecycle of any notebook instances it is associated with.
  * 
  * The repository can be hosted either in Amazon Web Services CodeCommit or in any other Git repository.
- */export const createCodeRepository = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateCodeRepository" }, CreateCodeRepositoryInput, CreateCodeRepositoryOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createCodeRepository = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateCodeRepository" }, CreateCodeRepositoryInput, CreateCodeRepositoryOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a *context*. A context is a lineage tracking entity that represents a logical grouping of other tracking or experiment entities. Some examples are an endpoint and a model package. For more information, see Amazon SageMaker ML Lineage Tracking.
- */export const createContext = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateContext" }, CreateContextRequest, CreateContextResponse, [ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createContext = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateContext" }, CreateContextRequest, CreateContextResponse, [ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Create a hub.
- */export const createHub = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateHub" }, CreateHubRequest, CreateHubResponse, [ResourceInUse, ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createHub = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateHub" }, CreateHubRequest, CreateHubResponse, [ResourceInUse, ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Defines the settings you will use for the human review workflow user interface. Reviewers will see a three-panel interface with an instruction area, the item to review, and an input area.
- */export const createHumanTaskUi = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateHumanTaskUi" }, CreateHumanTaskUiRequest, CreateHumanTaskUiResponse, [ResourceInUse, ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createHumanTaskUi = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateHumanTaskUi" }, CreateHumanTaskUiRequest, CreateHumanTaskUiResponse, [ResourceInUse, ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an Amazon SageMaker Model Card.
  * 
  * For information about how to use model cards, see Amazon SageMaker Model Card.
- */export const createModelCard = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateModelCard" }, CreateModelCardRequest, CreateModelCardResponse, [ConflictException, ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createModelCard = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateModelCard" }, CreateModelCardRequest, CreateModelCardResponse, [ConflictException, ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an Amazon SageMaker Model Card export job.
- */export const createModelCardExportJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateModelCardExportJob" }, CreateModelCardExportJobRequest, CreateModelCardExportJobResponse, [ConflictException, ResourceLimitExceeded, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createModelCardExportJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateModelCardExportJob" }, CreateModelCardExportJobRequest, CreateModelCardExportJobResponse, [ConflictException, ResourceLimitExceeded, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates the definition for a model explainability job.
- */export const createModelExplainabilityJobDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateModelExplainabilityJobDefinition" }, CreateModelExplainabilityJobDefinitionRequest, CreateModelExplainabilityJobDefinitionResponse, [ResourceInUse, ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createModelExplainabilityJobDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateModelExplainabilityJobDefinition" }, CreateModelExplainabilityJobDefinitionRequest, CreateModelExplainabilityJobDefinitionResponse, [ResourceInUse, ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a definition for a job that monitors model quality and drift. For information about model monitor, see Amazon SageMaker AI Model Monitor.
- */export const createModelQualityJobDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateModelQualityJobDefinition" }, CreateModelQualityJobDefinitionRequest, CreateModelQualityJobDefinitionResponse, [ResourceInUse, ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createModelQualityJobDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateModelQualityJobDefinition" }, CreateModelQualityJobDefinitionRequest, CreateModelQualityJobDefinitionResponse, [ResourceInUse, ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an SageMaker AI notebook instance. A notebook instance is a machine learning (ML) compute instance running on a Jupyter notebook.
  * 
@@ -2652,7 +2652,7 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * After SageMaker AI creates the notebook instance, you can connect to the Jupyter server and work in Jupyter notebooks. For example, you can write code to explore a dataset that you can use for model training, train a model, host models by creating SageMaker AI endpoints, and validate hosted models.
  * 
  * For more information, see How It Works.
- */export const createNotebookInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateNotebookInstance" }, CreateNotebookInstanceInput, CreateNotebookInstanceOutput, [ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createNotebookInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateNotebookInstance" }, CreateNotebookInstanceInput, CreateNotebookInstanceOutput, [ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a lifecycle configuration that you can associate with a notebook instance. A *lifecycle configuration* is a collection of shell scripts that run when you create or start a notebook instance.
  * 
@@ -2665,256 +2665,256 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * Lifecycle configuration scripts cannot run for longer than 5 minutes. If a script runs for longer than 5 minutes, it fails and the notebook instance is not created or started.
  * 
  * For information about notebook instance lifestyle configurations, see Step 2.1: (Optional) Customize a Notebook Instance.
- */export const createNotebookInstanceLifecycleConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateNotebookInstanceLifecycleConfig" }, CreateNotebookInstanceLifecycleConfigInput, CreateNotebookInstanceLifecycleConfigOutput, [ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createNotebookInstanceLifecycleConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateNotebookInstanceLifecycleConfig" }, CreateNotebookInstanceLifecycleConfigInput, CreateNotebookInstanceLifecycleConfigOutput, [ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a pipeline using a JSON pipeline definition.
- */export const createPipeline = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreatePipeline" }, CreatePipelineRequest, CreatePipelineResponse, [ConflictException, ResourceLimitExceeded, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createPipeline = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreatePipeline" }, CreatePipelineRequest, CreatePipelineResponse, [ConflictException, ResourceLimitExceeded, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about a model compilation job.
  * 
  * To create a model compilation job, use CreateCompilationJob. To get information about multiple model compilation jobs, use ListCompilationJobs.
- */export const describeCompilationJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeCompilationJob" }, DescribeCompilationJobRequest, DescribeCompilationJobResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeCompilationJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeCompilationJob" }, DescribeCompilationJobRequest, DescribeCompilationJobResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes the device.
- */export const describeDevice = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeDevice" }, DescribeDeviceRequest, DescribeDeviceResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeDevice = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeDevice" }, DescribeDeviceRequest, DescribeDeviceResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * A description of edge packaging jobs.
- */export const describeEdgePackagingJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeEdgePackagingJob" }, DescribeEdgePackagingJobRequest, DescribeEdgePackagingJobResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeEdgePackagingJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeEdgePackagingJob" }, DescribeEdgePackagingJobRequest, DescribeEdgePackagingJobResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides a list of an experiment's properties.
- */export const describeExperiment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeExperiment" }, DescribeExperimentRequest, DescribeExperimentResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeExperiment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeExperiment" }, DescribeExperimentRequest, DescribeExperimentResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Use this operation to describe a `FeatureGroup`. The response includes information on the creation time, `FeatureGroup` name, the unique identifier for each `FeatureGroup`, and more.
- */export const describeFeatureGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeFeatureGroup" }, DescribeFeatureGroupRequest, DescribeFeatureGroupResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeFeatureGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeFeatureGroup" }, DescribeFeatureGroupRequest, DescribeFeatureGroupResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describe the content of a hub.
- */export const describeHubContent = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeHubContent" }, DescribeHubContentRequest, DescribeHubContentResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeHubContent = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeHubContent" }, DescribeHubContentRequest, DescribeHubContentResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about the requested human task user interface (worker task template).
- */export const describeHumanTaskUi = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeHumanTaskUi" }, DescribeHumanTaskUiRequest, DescribeHumanTaskUiResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeHumanTaskUi = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeHumanTaskUi" }, DescribeHumanTaskUiRequest, DescribeHumanTaskUiResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns details about an inference experiment.
- */export const describeInferenceExperiment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeInferenceExperiment" }, DescribeInferenceExperimentRequest, DescribeInferenceExperimentResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeInferenceExperiment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeInferenceExperiment" }, DescribeInferenceExperimentRequest, DescribeInferenceExperimentResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets information about a labeling job.
- */export const describeLabelingJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeLabelingJob" }, DescribeLabelingJobRequest, DescribeLabelingJobResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeLabelingJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeLabelingJob" }, DescribeLabelingJobRequest, DescribeLabelingJobResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes an Amazon SageMaker Model Card export job.
- */export const describeModelCardExportJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeModelCardExportJob" }, DescribeModelCardExportJobRequest, DescribeModelCardExportJobResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeModelCardExportJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeModelCardExportJob" }, DescribeModelCardExportJobRequest, DescribeModelCardExportJobResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes the schedule for a monitoring job.
- */export const describeMonitoringSchedule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeMonitoringSchedule" }, DescribeMonitoringScheduleRequest, DescribeMonitoringScheduleResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeMonitoringSchedule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeMonitoringSchedule" }, DescribeMonitoringScheduleRequest, DescribeMonitoringScheduleResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides the properties of the specified optimization job.
- */export const describeOptimizationJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeOptimizationJob" }, DescribeOptimizationJobRequest, DescribeOptimizationJobResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeOptimizationJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeOptimizationJob" }, DescribeOptimizationJobRequest, DescribeOptimizationJobResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets information about a SageMaker Partner AI App.
- */export const describePartnerApp = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribePartnerApp" }, DescribePartnerAppRequest, DescribePartnerAppResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describePartnerApp = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribePartnerApp" }, DescribePartnerAppRequest, DescribePartnerAppResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes the details of a pipeline execution.
- */export const describePipelineExecution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribePipelineExecution" }, DescribePipelineExecutionRequest, DescribePipelineExecutionResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describePipelineExecution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribePipelineExecution" }, DescribePipelineExecutionRequest, DescribePipelineExecutionResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves details about a reserved capacity.
- */export const describeReservedCapacity = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeReservedCapacity" }, DescribeReservedCapacityRequest, DescribeReservedCapacityResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeReservedCapacity = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeReservedCapacity" }, DescribeReservedCapacityRequest, DescribeReservedCapacityResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets information about a work team provided by a vendor. It returns details about the subscription with a vendor in the Amazon Web Services Marketplace.
- */export const describeSubscribedWorkteam = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeSubscribedWorkteam" }, DescribeSubscribedWorkteamRequest, DescribeSubscribedWorkteamResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeSubscribedWorkteam = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeSubscribedWorkteam" }, DescribeSubscribedWorkteamRequest, DescribeSubscribedWorkteamResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about a training job.
  * 
  * Some of the attributes below only appear if the training job successfully starts. If the training job fails, `TrainingJobStatus` is `Failed` and, depending on the `FailureReason`, attributes like `TrainingStartTime`, `TrainingTimeInSeconds`, `TrainingEndTime`, and `BillableTimeInSeconds` may not be present in the response.
- */export const describeTrainingJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeTrainingJob" }, DescribeTrainingJobRequest, DescribeTrainingJobResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeTrainingJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeTrainingJob" }, DescribeTrainingJobRequest, DescribeTrainingJobResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves detailed information about a specific training plan.
- */export const describeTrainingPlan = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeTrainingPlan" }, DescribeTrainingPlanRequest, DescribeTrainingPlanResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeTrainingPlan = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeTrainingPlan" }, DescribeTrainingPlanRequest, DescribeTrainingPlanResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides a list of a trial's properties.
- */export const describeTrial = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeTrial" }, DescribeTrialRequest, DescribeTrialResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeTrial = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeTrial" }, DescribeTrialRequest, DescribeTrialResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides a list of a trials component's properties.
- */export const describeTrialComponent = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeTrialComponent" }, DescribeTrialComponentRequest, DescribeTrialComponentResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeTrialComponent = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeTrialComponent" }, DescribeTrialComponentRequest, DescribeTrialComponentResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets information about a specific work team. You can see information such as the creation date, the last updated date, membership information, and the work team's Amazon Resource Name (ARN).
- */export const describeWorkteam = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeWorkteam" }, DescribeWorkteamRequest, DescribeWorkteamResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeWorkteam = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeWorkteam" }, DescribeWorkteamRequest, DescribeWorkteamResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes a fleet.
- */export const getDeviceFleetReport = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.GetDeviceFleetReport" }, GetDeviceFleetReportRequest, GetDeviceFleetReportResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getDeviceFleetReport = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.GetDeviceFleetReport" }, GetDeviceFleetReportRequest, GetDeviceFleetReportResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the actions in your account and their properties.
- */export const listActions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListActions" }, ListActionsRequest, ListActionsResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listActions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListActions" }, ListActionsRequest, ListActionsResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the machine learning algorithms that have been created.
- */export const listAlgorithms = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListAlgorithms" }, ListAlgorithmsInput, ListAlgorithmsOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listAlgorithms = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListAlgorithms" }, ListAlgorithmsInput, ListAlgorithmsOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the AppImageConfigs in your account and their properties. The list can be filtered by creation time or modified time, and whether the AppImageConfig name contains a specified string.
- */export const listAppImageConfigs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListAppImageConfigs" }, ListAppImageConfigsRequest, ListAppImageConfigsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listAppImageConfigs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListAppImageConfigs" }, ListAppImageConfigsRequest, ListAppImageConfigsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists apps.
- */export const listApps = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListApps" }, ListAppsRequest, ListAppsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listApps = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListApps" }, ListAppsRequest, ListAppsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the artifacts in your account and their properties.
- */export const listArtifacts = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListArtifacts" }, ListArtifactsRequest, ListArtifactsResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listArtifacts = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListArtifacts" }, ListArtifactsRequest, ListArtifactsResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the associations in your account and their properties.
- */export const listAssociations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListAssociations" }, ListAssociationsRequest, ListAssociationsResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listAssociations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListAssociations" }, ListAssociationsRequest, ListAssociationsResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Request a list of jobs.
- */export const listAutoMLJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListAutoMLJobs" }, ListAutoMLJobsRequest, ListAutoMLJobsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listAutoMLJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListAutoMLJobs" }, ListAutoMLJobsRequest, ListAutoMLJobsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves a list of event summaries for a specified HyperPod cluster. The operation supports filtering, sorting, and pagination of results. This functionality is only supported when the `NodeProvisioningMode` is set to `Continuous`.
- */export const listClusterEvents = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListClusterEvents" }, ListClusterEventsRequest, ListClusterEventsResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listClusterEvents = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListClusterEvents" }, ListClusterEventsRequest, ListClusterEventsResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the list of instances (also called *nodes* interchangeably) in a SageMaker HyperPod cluster.
- */export const listClusterNodes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListClusterNodes" }, ListClusterNodesRequest, ListClusterNodesResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listClusterNodes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListClusterNodes" }, ListClusterNodesRequest, ListClusterNodesResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the list of SageMaker HyperPod clusters.
- */export const listClusters = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListClusters" }, ListClustersRequest, ListClustersResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listClusters = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListClusters" }, ListClustersRequest, ListClustersResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * List the cluster policy configurations.
- */export const listClusterSchedulerConfigs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListClusterSchedulerConfigs" }, ListClusterSchedulerConfigsRequest, ListClusterSchedulerConfigsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listClusterSchedulerConfigs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListClusterSchedulerConfigs" }, ListClusterSchedulerConfigsRequest, ListClusterSchedulerConfigsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets a list of the Git repositories in your account.
- */export const listCodeRepositories = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListCodeRepositories" }, ListCodeRepositoriesInput, ListCodeRepositoriesOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listCodeRepositories = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListCodeRepositories" }, ListCodeRepositoriesInput, ListCodeRepositoriesOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists model compilation jobs that satisfy various filters.
  * 
  * To create a model compilation job, use CreateCompilationJob. To get information about a particular model compilation job you have created, use DescribeCompilationJob.
- */export const listCompilationJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListCompilationJobs" }, ListCompilationJobsRequest, ListCompilationJobsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listCompilationJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListCompilationJobs" }, ListCompilationJobsRequest, ListCompilationJobsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * List the resource allocation definitions.
- */export const listComputeQuotas = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListComputeQuotas" }, ListComputeQuotasRequest, ListComputeQuotasResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listComputeQuotas = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListComputeQuotas" }, ListComputeQuotasRequest, ListComputeQuotasResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the contexts in your account and their properties.
- */export const listContexts = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListContexts" }, ListContextsRequest, ListContextsResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listContexts = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListContexts" }, ListContextsRequest, ListContextsResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the data quality job definitions in your account.
- */export const listDataQualityJobDefinitions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListDataQualityJobDefinitions" }, ListDataQualityJobDefinitionsRequest, ListDataQualityJobDefinitionsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listDataQualityJobDefinitions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListDataQualityJobDefinitions" }, ListDataQualityJobDefinitionsRequest, ListDataQualityJobDefinitionsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of devices in the fleet.
- */export const listDeviceFleets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListDeviceFleets" }, ListDeviceFleetsRequest, ListDeviceFleetsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listDeviceFleets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListDeviceFleets" }, ListDeviceFleetsRequest, ListDeviceFleetsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the domains.
- */export const listDomains = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListDomains" }, ListDomainsRequest, ListDomainsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listDomains = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListDomains" }, ListDomainsRequest, ListDomainsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists all edge deployment plans.
- */export const listEdgeDeploymentPlans = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListEdgeDeploymentPlans" }, ListEdgeDeploymentPlansRequest, ListEdgeDeploymentPlansResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listEdgeDeploymentPlans = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListEdgeDeploymentPlans" }, ListEdgeDeploymentPlansRequest, ListEdgeDeploymentPlansResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of edge packaging jobs.
- */export const listEdgePackagingJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListEdgePackagingJobs" }, ListEdgePackagingJobsRequest, ListEdgePackagingJobsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listEdgePackagingJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListEdgePackagingJobs" }, ListEdgePackagingJobsRequest, ListEdgePackagingJobsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists endpoint configurations.
- */export const listEndpointConfigs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListEndpointConfigs" }, ListEndpointConfigsInput, ListEndpointConfigsOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listEndpointConfigs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListEndpointConfigs" }, ListEndpointConfigsInput, ListEndpointConfigsOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists endpoints.
- */export const listEndpoints = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListEndpoints" }, ListEndpointsInput, ListEndpointsOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listEndpoints = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListEndpoints" }, ListEndpointsInput, ListEndpointsOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists all the experiments in your account. The list can be filtered to show only experiments that were created in a specific time range. The list can be sorted by experiment name or creation time.
- */export const listExperiments = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListExperiments" }, ListExperimentsRequest, ListExperimentsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listExperiments = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListExperiments" }, ListExperimentsRequest, ListExperimentsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * List `FeatureGroup`s based on given filter and order.
- */export const listFeatureGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListFeatureGroups" }, ListFeatureGroupsRequest, ListFeatureGroupsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listFeatureGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListFeatureGroups" }, ListFeatureGroupsRequest, ListFeatureGroupsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about the flow definitions in your account.
- */export const listFlowDefinitions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListFlowDefinitions" }, ListFlowDefinitionsRequest, ListFlowDefinitionsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listFlowDefinitions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListFlowDefinitions" }, ListFlowDefinitionsRequest, ListFlowDefinitionsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * List the contents of a hub.
- */export const listHubContents = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListHubContents" }, ListHubContentsRequest, ListHubContentsResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listHubContents = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListHubContents" }, ListHubContentsRequest, ListHubContentsResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * List all existing hubs.
- */export const listHubs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListHubs" }, ListHubsRequest, ListHubsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listHubs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListHubs" }, ListHubsRequest, ListHubsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about the human task user interfaces in your account.
- */export const listHumanTaskUis = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListHumanTaskUis" }, ListHumanTaskUisRequest, ListHumanTaskUisResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listHumanTaskUis = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListHumanTaskUis" }, ListHumanTaskUisRequest, ListHumanTaskUisResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets a list of HyperParameterTuningJobSummary objects that describe the hyperparameter tuning jobs launched in your account.
- */export const listHyperParameterTuningJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListHyperParameterTuningJobs" }, ListHyperParameterTuningJobsRequest, ListHyperParameterTuningJobsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listHyperParameterTuningJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListHyperParameterTuningJobs" }, ListHyperParameterTuningJobsRequest, ListHyperParameterTuningJobsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the images in your account and their properties. The list can be filtered by creation time or modified time, and whether the image name contains a specified string.
- */export const listImages = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListImages" }, ListImagesRequest, ListImagesResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listImages = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListImages" }, ListImagesRequest, ListImagesResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the versions of a specified image and their properties. The list can be filtered by creation time or modified time.
- */export const listImageVersions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListImageVersions" }, ListImageVersionsRequest, ListImageVersionsResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listImageVersions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListImageVersions" }, ListImageVersionsRequest, ListImageVersionsResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the inference components in your account and their properties.
- */export const listInferenceComponents = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListInferenceComponents" }, ListInferenceComponentsInput, ListInferenceComponentsOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listInferenceComponents = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListInferenceComponents" }, ListInferenceComponentsInput, ListInferenceComponentsOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the list of all inference experiments.
- */export const listInferenceExperiments = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListInferenceExperiments" }, ListInferenceExperimentsRequest, ListInferenceExperimentsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listInferenceExperiments = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListInferenceExperiments" }, ListInferenceExperimentsRequest, ListInferenceExperimentsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists recommendation jobs that satisfy various filters.
- */export const listInferenceRecommendationsJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListInferenceRecommendationsJobs" }, ListInferenceRecommendationsJobsRequest, ListInferenceRecommendationsJobsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listInferenceRecommendationsJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListInferenceRecommendationsJobs" }, ListInferenceRecommendationsJobsRequest, ListInferenceRecommendationsJobsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets a list of labeling jobs.
- */export const listLabelingJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListLabelingJobs" }, ListLabelingJobsRequest, ListLabelingJobsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listLabelingJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListLabelingJobs" }, ListLabelingJobsRequest, ListLabelingJobsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * A list of lineage groups shared with your Amazon Web Services account. For more information, see Cross-Account Lineage Tracking in the *Amazon SageMaker Developer Guide*.
- */export const listLineageGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListLineageGroups" }, ListLineageGroupsRequest, ListLineageGroupsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listLineageGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListLineageGroups" }, ListLineageGroupsRequest, ListLineageGroupsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists all MLflow Apps
- */export const listMlflowApps = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListMlflowApps" }, ListMlflowAppsRequest, ListMlflowAppsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listMlflowApps = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListMlflowApps" }, ListMlflowAppsRequest, ListMlflowAppsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists all MLflow Tracking Servers.
- */export const listMlflowTrackingServers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListMlflowTrackingServers" }, ListMlflowTrackingServersRequest, ListMlflowTrackingServersResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listMlflowTrackingServers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListMlflowTrackingServers" }, ListMlflowTrackingServersRequest, ListMlflowTrackingServersResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * List the export jobs for the Amazon SageMaker Model Card.
- */export const listModelCardExportJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListModelCardExportJobs" }, ListModelCardExportJobsRequest, ListModelCardExportJobsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listModelCardExportJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListModelCardExportJobs" }, ListModelCardExportJobsRequest, ListModelCardExportJobsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * List existing model cards.
- */export const listModelCards = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListModelCards" }, ListModelCardsRequest, ListModelCardsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listModelCards = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListModelCards" }, ListModelCardsRequest, ListModelCardsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * List existing versions of an Amazon SageMaker Model Card.
- */export const listModelCardVersions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListModelCardVersions" }, ListModelCardVersionsRequest, ListModelCardVersionsResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listModelCardVersions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListModelCardVersions" }, ListModelCardVersionsRequest, ListModelCardVersionsResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets a list of the model groups in your Amazon Web Services account.
- */export const listModelPackageGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListModelPackageGroups" }, ListModelPackageGroupsInput, ListModelPackageGroupsOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listModelPackageGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListModelPackageGroups" }, ListModelPackageGroupsInput, ListModelPackageGroupsOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the model packages that have been created.
- */export const listModelPackages = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListModelPackages" }, ListModelPackagesInput, ListModelPackagesOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listModelPackages = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListModelPackages" }, ListModelPackagesInput, ListModelPackagesOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists models created with the `CreateModel` API.
- */export const listModels = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListModels" }, ListModelsInput, ListModelsOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listModels = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListModels" }, ListModelsInput, ListModelsOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets a list of past alerts in a model monitoring schedule.
- */export const listMonitoringAlertHistory = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListMonitoringAlertHistory" }, ListMonitoringAlertHistoryRequest, ListMonitoringAlertHistoryResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listMonitoringAlertHistory = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListMonitoringAlertHistory" }, ListMonitoringAlertHistoryRequest, ListMonitoringAlertHistoryResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns list of all monitoring schedules.
- */export const listMonitoringSchedules = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListMonitoringSchedules" }, ListMonitoringSchedulesRequest, ListMonitoringSchedulesResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listMonitoringSchedules = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListMonitoringSchedules" }, ListMonitoringSchedulesRequest, ListMonitoringSchedulesResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists notebook instance lifestyle configurations created with the CreateNotebookInstanceLifecycleConfig API.
- */export const listNotebookInstanceLifecycleConfigs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListNotebookInstanceLifecycleConfigs" }, ListNotebookInstanceLifecycleConfigsInput, ListNotebookInstanceLifecycleConfigsOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listNotebookInstanceLifecycleConfigs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListNotebookInstanceLifecycleConfigs" }, ListNotebookInstanceLifecycleConfigsInput, ListNotebookInstanceLifecycleConfigsOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of the SageMaker AI notebook instances in the requester's account in an Amazon Web Services Region.
- */export const listNotebookInstances = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListNotebookInstances" }, ListNotebookInstancesInput, ListNotebookInstancesOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listNotebookInstances = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListNotebookInstances" }, ListNotebookInstancesInput, ListNotebookInstancesOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the optimization jobs in your account and their properties.
- */export const listOptimizationJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListOptimizationJobs" }, ListOptimizationJobsRequest, ListOptimizationJobsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listOptimizationJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListOptimizationJobs" }, ListOptimizationJobsRequest, ListOptimizationJobsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists all of the SageMaker Partner AI Apps in an account.
- */export const listPartnerApps = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListPartnerApps" }, ListPartnerAppsRequest, ListPartnerAppsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listPartnerApps = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListPartnerApps" }, ListPartnerAppsRequest, ListPartnerAppsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets a list of the pipeline executions.
- */export const listPipelineExecutions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListPipelineExecutions" }, ListPipelineExecutionsRequest, ListPipelineExecutionsResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listPipelineExecutions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListPipelineExecutions" }, ListPipelineExecutionsRequest, ListPipelineExecutionsResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets a list of pipelines.
- */export const listPipelines = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListPipelines" }, ListPipelinesRequest, ListPipelinesResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listPipelines = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListPipelines" }, ListPipelinesRequest, ListPipelinesResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets a list of all versions of the pipeline.
- */export const listPipelineVersions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListPipelineVersions" }, ListPipelineVersionsRequest, ListPipelineVersionsResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listPipelineVersions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListPipelineVersions" }, ListPipelineVersionsRequest, ListPipelineVersionsResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists processing jobs that satisfy various filters.
- */export const listProcessingJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListProcessingJobs" }, ListProcessingJobsRequest, ListProcessingJobsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listProcessingJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListProcessingJobs" }, ListProcessingJobsRequest, ListProcessingJobsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets a list of the projects in an Amazon Web Services account.
- */export const listProjects = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListProjects" }, ListProjectsInput, ListProjectsOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listProjects = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListProjects" }, ListProjectsInput, ListProjectsOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists Amazon SageMaker Catalogs based on given filters and orders. The maximum number of `ResourceCatalog`s viewable is 1000.
- */export const listResourceCatalogs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListResourceCatalogs" }, ListResourceCatalogsRequest, ListResourceCatalogsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listResourceCatalogs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListResourceCatalogs" }, ListResourceCatalogsRequest, ListResourceCatalogsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists devices allocated to the stage, containing detailed device information and deployment status.
- */export const listStageDevices = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListStageDevices" }, ListStageDevicesRequest, ListStageDevicesResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listStageDevices = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListStageDevices" }, ListStageDevicesRequest, ListStageDevicesResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the Amazon SageMaker AI Studio Lifecycle Configurations in your Amazon Web Services Account.
- */export const listStudioLifecycleConfigs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListStudioLifecycleConfigs" }, ListStudioLifecycleConfigsRequest, ListStudioLifecycleConfigsResponse, [ResourceInUse]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listStudioLifecycleConfigs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListStudioLifecycleConfigs" }, ListStudioLifecycleConfigsRequest, ListStudioLifecycleConfigsResponse, [ResourceInUse]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists training jobs.
  * 
@@ -2930,10 +2930,10 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * You can quickly test the API using the following Amazon Web Services CLI code.
  * 
  * `aws sagemaker list-training-jobs --max-results 100 --status-equals InProgress`
- */export const listTrainingJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListTrainingJobs" }, ListTrainingJobsRequest, ListTrainingJobsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTrainingJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListTrainingJobs" }, ListTrainingJobsRequest, ListTrainingJobsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists transform jobs.
- */export const listTransformJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListTransformJobs" }, ListTransformJobsRequest, ListTransformJobsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTransformJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListTransformJobs" }, ListTransformJobsRequest, ListTransformJobsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the trial components in your account. You can sort the list by trial component name or creation time. You can filter the list to show only components that were created in a specific time range. You can also filter on one of the following:
  * 
@@ -2942,25 +2942,25 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * - `SourceArn`
  * 
  * - `TrialName`
- */export const listTrialComponents = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListTrialComponents" }, ListTrialComponentsRequest, ListTrialComponentsResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTrialComponents = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListTrialComponents" }, ListTrialComponentsRequest, ListTrialComponentsResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the trials in your account. Specify an experiment name to limit the list to the trials that are part of that experiment. Specify a trial component name to limit the list to the trials that associated with that trial component. The list can be filtered to show only trials that were created in a specific time range. The list can be sorted by trial name or creation time.
- */export const listTrials = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListTrials" }, ListTrialsRequest, ListTrialsResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTrials = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListTrials" }, ListTrialsRequest, ListTrialsResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists all UltraServers that are part of a specified reserved capacity.
- */export const listUltraServersByReservedCapacity = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListUltraServersByReservedCapacity" }, ListUltraServersByReservedCapacityRequest, ListUltraServersByReservedCapacityResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listUltraServersByReservedCapacity = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListUltraServersByReservedCapacity" }, ListUltraServersByReservedCapacityRequest, ListUltraServersByReservedCapacityResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists user profiles.
- */export const listUserProfiles = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListUserProfiles" }, ListUserProfilesRequest, ListUserProfilesResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listUserProfiles = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListUserProfiles" }, ListUserProfilesRequest, ListUserProfilesResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Notifies the pipeline that the execution of a callback step succeeded and provides a list of the step's output parameters. When a callback step is run, the pipeline generates a callback token and includes the token in a message sent to Amazon Simple Queue Service (Amazon SQS).
- */export const sendPipelineExecutionStepSuccess = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.SendPipelineExecutionStepSuccess" }, SendPipelineExecutionStepSuccessRequest, SendPipelineExecutionStepSuccessResponse, [ConflictException, ResourceLimitExceeded, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const sendPipelineExecutionStepSuccess = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.SendPipelineExecutionStepSuccess" }, SendPipelineExecutionStepSuccessRequest, SendPipelineExecutionStepSuccessResponse, [ConflictException, ResourceLimitExceeded, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Stops an inference experiment.
- */export const stopInferenceExperiment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.StopInferenceExperiment" }, StopInferenceExperimentRequest, StopInferenceExperimentResponse, [ConflictException, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const stopInferenceExperiment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.StopInferenceExperiment" }, StopInferenceExperimentRequest, StopInferenceExperimentResponse, [ConflictException, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the specified Git repository with the specified values.
- */export const updateCodeRepository = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateCodeRepository" }, UpdateCodeRepositoryInput, UpdateCodeRepositoryOutput, [ConflictException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateCodeRepository = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateCodeRepository" }, UpdateCodeRepositoryInput, UpdateCodeRepositoryOutput, [ConflictException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deploys the `EndpointConfig` specified in the request to a new fleet of instances. SageMaker shifts endpoint traffic to the new instances with the updated endpoint configuration and then deletes the old instances using the previous `EndpointConfig` (there is no availability loss). For more information about how to control the update and traffic shifting process, see Update models in production.
  * 
@@ -2970,32 +2970,32 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * You must not delete an `EndpointConfig` in use by an endpoint that is live or while the `UpdateEndpoint` or `CreateEndpoint` operations are being performed on the endpoint. To update an endpoint, you must create a new `EndpointConfig`.
  * 
  * If you delete the `EndpointConfig` of an endpoint that is active or being created or updated you may lose visibility into the instance type the endpoint is using. The endpoint must be deleted in order to stop incurring charges.
- */export const updateEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateEndpoint" }, UpdateEndpointInput, UpdateEndpointOutput, [ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateEndpoint" }, UpdateEndpointInput, UpdateEndpointOutput, [ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the feature group by either adding features or updating the online store configuration. Use one of the following request parameters at a time while using the `UpdateFeatureGroup` API.
  * 
  * You can add features for your feature group using the `FeatureAdditions` request parameter. Features cannot be removed from a feature group.
  * 
  * You can update the online store configuration by using the `OnlineStoreConfig` request parameter. If a `TtlDuration` is specified, the default `TtlDuration` applies for all records added to the feature group *after the feature group is updated*. If a record level `TtlDuration` exists from using the `PutRecord` API, the record level `TtlDuration` applies to that record instead of the default `TtlDuration`. To remove the default `TtlDuration` from an existing feature group, use the `UpdateFeatureGroup` API and set the `TtlDuration` `Unit` and `Value` to `null`.
- */export const updateFeatureGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateFeatureGroup" }, UpdateFeatureGroupRequest, UpdateFeatureGroupResponse, [ResourceLimitExceeded, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateFeatureGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateFeatureGroup" }, UpdateFeatureGroupRequest, UpdateFeatureGroupResponse, [ResourceLimitExceeded, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Update a model training job to request a new Debugger profiling configuration or to change warm pool retention length.
- */export const updateTrainingJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateTrainingJob" }, UpdateTrainingJobRequest, UpdateTrainingJobResponse, [ResourceLimitExceeded, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateTrainingJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateTrainingJob" }, UpdateTrainingJobRequest, UpdateTrainingJobResponse, [ResourceLimitExceeded, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds nodes to a HyperPod cluster by incrementing the target count for one or more instance groups. This operation returns a unique `NodeLogicalId` for each node being added, which can be used to track the provisioning status of the node. This API provides a safer alternative to `UpdateCluster` for scaling operations by avoiding unintended configuration changes.
  * 
  * 
  * This API is only supported for clusters using `Continuous` as the `NodeProvisioningMode`.
- */export const batchAddClusterNodes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.BatchAddClusterNodes" }, BatchAddClusterNodesRequest, BatchAddClusterNodesResponse, [ResourceLimitExceeded, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const batchAddClusterNodes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.BatchAddClusterNodes" }, BatchAddClusterNodesRequest, BatchAddClusterNodesResponse, [ResourceLimitExceeded, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This action batch describes a list of versioned model packages
- */export const batchDescribeModelPackage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.BatchDescribeModelPackage" }, BatchDescribeModelPackageInput, BatchDescribeModelPackageOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const batchDescribeModelPackage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.BatchDescribeModelPackage" }, BatchDescribeModelPackageInput, BatchDescribeModelPackageOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an *artifact*. An artifact is a lineage tracking entity that represents a URI addressable object or data. Some examples are the S3 URI of a dataset and the ECR registry path of an image. For more information, see Amazon SageMaker ML Lineage Tracking.
- */export const createArtifact = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateArtifact" }, CreateArtifactRequest, CreateArtifactResponse, [ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createArtifact = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateArtifact" }, CreateArtifactRequest, CreateArtifactResponse, [ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Create cluster policy configuration. This policy is used for task prioritization and fair-share allocation of idle compute. This helps prioritize critical workloads and distributes idle compute across entities.
- */export const createClusterSchedulerConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateClusterSchedulerConfig" }, CreateClusterSchedulerConfigRequest, CreateClusterSchedulerConfigResponse, [ConflictException, ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createClusterSchedulerConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateClusterSchedulerConfig" }, CreateClusterSchedulerConfigRequest, CreateClusterSchedulerConfigResponse, [ConflictException, ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts a model compilation job. After the model has been compiled, Amazon SageMaker AI saves the resulting model artifacts to an Amazon Simple Storage Service (Amazon S3) bucket that you specify.
  * 
@@ -3015,22 +3015,22 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * You can also provide a `Tag` to track the model compilation job's resource use and costs. The response body contains the `CompilationJobArn` for the compiled job.
  * 
  * To stop a model compilation job, use StopCompilationJob. To get information about a particular model compilation job, use DescribeCompilationJob. To get information about multiple model compilation jobs, use ListCompilationJobs.
- */export const createCompilationJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateCompilationJob" }, CreateCompilationJobRequest, CreateCompilationJobResponse, [ResourceInUse, ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createCompilationJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateCompilationJob" }, CreateCompilationJobRequest, CreateCompilationJobResponse, [ResourceInUse, ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an edge deployment plan, consisting of multiple stages. Each stage may have a different deployment configuration and devices.
- */export const createEdgeDeploymentPlan = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateEdgeDeploymentPlan" }, CreateEdgeDeploymentPlanRequest, CreateEdgeDeploymentPlanResponse, [ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createEdgeDeploymentPlan = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateEdgeDeploymentPlan" }, CreateEdgeDeploymentPlanRequest, CreateEdgeDeploymentPlanResponse, [ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates presigned URLs for accessing hub content artifacts. This operation generates time-limited, secure URLs that allow direct download of model artifacts and associated files from Amazon SageMaker hub content, including gated models that require end-user license agreement acceptance.
- */export const createHubContentPresignedUrls = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateHubContentPresignedUrls" }, CreateHubContentPresignedUrlsRequest, CreateHubContentPresignedUrlsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createHubContentPresignedUrls = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateHubContentPresignedUrls" }, CreateHubContentPresignedUrlsRequest, CreateHubContentPresignedUrlsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an inference component, which is a SageMaker AI hosting object that you can use to deploy a model to an endpoint. In the inference component settings, you specify the model, the endpoint, and how the model utilizes the resources that the endpoint hosts. You can optimize resource utilization by tailoring how the required CPU cores, accelerators, and memory are allocated. You can deploy multiple inference components to an endpoint, where each inference component contains one model and the resource utilization needs for that individual model. After you deploy an inference component, you can directly invoke the associated model when you use the InvokeEndpoint API action.
- */export const createInferenceComponent = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateInferenceComponent" }, CreateInferenceComponentInput, CreateInferenceComponentOutput, [ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createInferenceComponent = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateInferenceComponent" }, CreateInferenceComponentInput, CreateInferenceComponentOutput, [ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates the definition for a model bias job.
- */export const createModelBiasJobDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateModelBiasJobDefinition" }, CreateModelBiasJobDefinitionRequest, CreateModelBiasJobDefinitionResponse, [ResourceInUse, ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createModelBiasJobDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateModelBiasJobDefinition" }, CreateModelBiasJobDefinitionRequest, CreateModelBiasJobDefinitionResponse, [ResourceInUse, ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an Amazon SageMaker Partner AI App.
- */export const createPartnerApp = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreatePartnerApp" }, CreatePartnerAppRequest, CreatePartnerAppResponse, [ConflictException, ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createPartnerApp = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreatePartnerApp" }, CreatePartnerAppRequest, CreatePartnerAppResponse, [ConflictException, ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a *trial component*, which is a stage of a machine learning *trial*. A trial is composed of one or more trial components. A trial component can be used in multiple trials.
  * 
@@ -3039,7 +3039,7 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * When you use SageMaker Studio or the SageMaker Python SDK, all experiments, trials, and trial components are automatically tracked, logged, and indexed. When you use the Amazon Web Services SDK for Python (Boto), you must use the logging APIs provided by the SDK.
  * 
  * You can add tags to a trial component and then use the Search API to search for the tags.
- */export const createTrialComponent = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateTrialComponent" }, CreateTrialComponentRequest, CreateTrialComponentResponse, [ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createTrialComponent = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateTrialComponent" }, CreateTrialComponentRequest, CreateTrialComponentResponse, [ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Use this operation to create a workforce. This operation will return an error if a workforce already exists in the Amazon Web Services Region that you specify. You can only create one workforce in each Amazon Web Services Region per Amazon Web Services account.
  * 
@@ -3048,31 +3048,31 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * To create a private workforce using Amazon Cognito, you must specify a Cognito user pool in `CognitoConfig`. You can also create an Amazon Cognito workforce using the Amazon SageMaker console. For more information, see Create a Private Workforce (Amazon Cognito).
  * 
  * To create a private workforce using your own OIDC Identity Provider (IdP), specify your IdP configuration in `OidcConfig`. Your OIDC IdP must support *groups* because groups are used by Ground Truth and Amazon A2I to create work teams. For more information, see Create a Private Workforce (OIDC IdP).
- */export const createWorkforce = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateWorkforce" }, CreateWorkforceRequest, CreateWorkforceResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createWorkforce = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateWorkforce" }, CreateWorkforceRequest, CreateWorkforceResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes an action.
- */export const describeAction = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeAction" }, DescribeActionRequest, DescribeActionResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeAction = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeAction" }, DescribeActionRequest, DescribeActionResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a description of the specified algorithm that is in your account.
- */export const describeAlgorithm = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeAlgorithm" }, DescribeAlgorithmInput, DescribeAlgorithmOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeAlgorithm = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeAlgorithm" }, DescribeAlgorithmInput, DescribeAlgorithmOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves information of a SageMaker HyperPod cluster.
- */export const describeCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeCluster" }, DescribeClusterRequest, DescribeClusterResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeCluster" }, DescribeClusterRequest, DescribeClusterResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves information of a node (also called a *instance* interchangeably) of a SageMaker HyperPod cluster.
- */export const describeClusterNode = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeClusterNode" }, DescribeClusterNodeRequest, DescribeClusterNodeResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeClusterNode = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeClusterNode" }, DescribeClusterNodeRequest, DescribeClusterNodeResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes an edge deployment plan with deployment status per stage.
- */export const describeEdgeDeploymentPlan = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeEdgeDeploymentPlan" }, DescribeEdgeDeploymentPlanRequest, DescribeEdgeDeploymentPlanResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeEdgeDeploymentPlan = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeEdgeDeploymentPlan" }, DescribeEdgeDeploymentPlanRequest, DescribeEdgeDeploymentPlanResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a description of a hyperparameter tuning job, depending on the fields selected. These fields can include the name, Amazon Resource Name (ARN), job status of your tuning job and more.
- */export const describeHyperParameterTuningJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeHyperParameterTuningJob" }, DescribeHyperParameterTuningJobRequest, DescribeHyperParameterTuningJobResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeHyperParameterTuningJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeHyperParameterTuningJob" }, DescribeHyperParameterTuningJobRequest, DescribeHyperParameterTuningJobResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about an inference component.
- */export const describeInferenceComponent = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeInferenceComponent" }, DescribeInferenceComponentInput, DescribeInferenceComponentOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeInferenceComponent = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeInferenceComponent" }, DescribeInferenceComponentInput, DescribeInferenceComponentOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes a model that you created using the `CreateModel` API.
- */export const describeModel = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeModel" }, DescribeModelInput, DescribeModelOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeModel = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeModel" }, DescribeModelInput, DescribeModelOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a description of the specified model package, which is used to create SageMaker models or list them on Amazon Web Services Marketplace.
  * 
@@ -3081,33 +3081,33 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * 
  * To create models in SageMaker, buyers can subscribe to model packages listed on Amazon Web Services Marketplace.
- */export const describeModelPackage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeModelPackage" }, DescribeModelPackageInput, DescribeModelPackageOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeModelPackage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeModelPackage" }, DescribeModelPackageInput, DescribeModelPackageOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists private workforce information, including workforce name, Amazon Resource Name (ARN), and, if applicable, allowed IP address ranges (CIDRs). Allowable IP address ranges are the IP addresses that workers can use to access tasks.
  * 
  * 
  * This operation applies only to private workforces.
- */export const describeWorkforce = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeWorkforce" }, DescribeWorkforceRequest, DescribeWorkforceResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeWorkforce = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeWorkforce" }, DescribeWorkforceRequest, DescribeWorkforceResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * A list of devices.
- */export const listDevices = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListDevices" }, ListDevicesRequest, ListDevicesResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listDevices = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListDevices" }, ListDevicesRequest, ListDevicesResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of the subtasks for an Inference Recommender job.
  * 
  * The supported subtasks are benchmarks, which evaluate the performance of your model on different instance types.
- */export const listInferenceRecommendationsJobSteps = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListInferenceRecommendationsJobSteps" }, ListInferenceRecommendationsJobStepsRequest, ListInferenceRecommendationsJobStepsResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listInferenceRecommendationsJobSteps = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListInferenceRecommendationsJobSteps" }, ListInferenceRecommendationsJobStepsRequest, ListInferenceRecommendationsJobStepsResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets a list of labeling jobs assigned to a specified work team.
- */export const listLabelingJobsForWorkteam = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListLabelingJobsForWorkteam" }, ListLabelingJobsForWorkteamRequest, ListLabelingJobsForWorkteamResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listLabelingJobsForWorkteam = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListLabelingJobsForWorkteam" }, ListLabelingJobsForWorkteamRequest, ListLabelingJobsForWorkteamResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists spaces.
- */export const listSpaces = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListSpaces" }, ListSpacesRequest, ListSpacesResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listSpaces = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListSpaces" }, ListSpacesRequest, ListSpacesResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves a list of training plans for the current account.
- */export const listTrainingPlans = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListTrainingPlans" }, ListTrainingPlansRequest, ListTrainingPlansResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTrainingPlans = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListTrainingPlans" }, ListTrainingPlansRequest, ListTrainingPlansResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Renders the UI template so that you can preview the worker's experience.
- */export const renderUiTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.RenderUiTemplate" }, RenderUiTemplateRequest, RenderUiTemplateResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const renderUiTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.RenderUiTemplate" }, RenderUiTemplateRequest, RenderUiTemplateResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Searches for available training plan offerings based on specified criteria.
  * 
@@ -3117,19 +3117,19 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * 
  * For more information about how to reserve GPU capacity for your SageMaker training jobs or SageMaker HyperPod clusters using Amazon SageMaker Training Plan , see ` CreateTrainingPlan `.
- */export const searchTrainingPlanOfferings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.SearchTrainingPlanOfferings" }, SearchTrainingPlanOfferingsRequest, SearchTrainingPlanOfferingsResponse, [ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const searchTrainingPlanOfferings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.SearchTrainingPlanOfferings" }, SearchTrainingPlanOfferingsRequest, SearchTrainingPlanOfferingsResponse, [ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts a pipeline execution.
- */export const startPipelineExecution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.StartPipelineExecution" }, StartPipelineExecutionRequest, StartPipelineExecutionResponse, [ConflictException, ResourceLimitExceeded, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startPipelineExecution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.StartPipelineExecution" }, StartPipelineExecutionRequest, StartPipelineExecutionResponse, [ConflictException, ResourceLimitExceeded, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the default settings for new user profiles in the domain.
- */export const updateDomain = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateDomain" }, UpdateDomainRequest, UpdateDomainResponse, [ResourceInUse, ResourceLimitExceeded, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateDomain = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateDomain" }, UpdateDomainRequest, UpdateDomainResponse, [ResourceInUse, ResourceLimitExceeded, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates variant weight of one or more variants associated with an existing endpoint, or capacity of one variant associated with an existing endpoint. When it receives the request, SageMaker sets the endpoint status to `Updating`. After updating the endpoint, it sets the status to `InService`. To check the status of an endpoint, use the DescribeEndpoint API.
- */export const updateEndpointWeightsAndCapacities = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateEndpointWeightsAndCapacities" }, UpdateEndpointWeightsAndCapacitiesInput, UpdateEndpointWeightsAndCapacitiesOutput, [ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateEndpointWeightsAndCapacities = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateEndpointWeightsAndCapacities" }, UpdateEndpointWeightsAndCapacitiesInput, UpdateEndpointWeightsAndCapacitiesOutput, [ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a configuration for running a SageMaker AI image as a KernelGateway app. The configuration specifies the Amazon Elastic File System storage volume on the image, and a list of the kernels in the image.
- */export const createAppImageConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateAppImageConfig" }, CreateAppImageConfigRequest, CreateAppImageConfigResponse, [ResourceInUse]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createAppImageConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateAppImageConfig" }, CreateAppImageConfigRequest, CreateAppImageConfigResponse, [ResourceInUse]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an Autopilot job also referred to as Autopilot experiment or AutoML job.
  * 
@@ -3146,13 +3146,13 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * 
  * You can find the best-performing model after you run an AutoML job by calling DescribeAutoMLJobV2 (recommended) or DescribeAutoMLJob.
- */export const createAutoMLJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateAutoMLJob" }, CreateAutoMLJobRequest, CreateAutoMLJobResponse, [ResourceInUse, ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createAutoMLJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateAutoMLJob" }, CreateAutoMLJobRequest, CreateAutoMLJobResponse, [ResourceInUse, ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an Amazon SageMaker HyperPod cluster. SageMaker HyperPod is a capability of SageMaker for creating and managing persistent clusters for developing large machine learning models, such as large language models (LLMs) and diffusion models. To learn more, see Amazon SageMaker HyperPod in the *Amazon SageMaker Developer Guide*.
- */export const createCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateCluster" }, CreateClusterRequest, CreateClusterResponse, [ResourceInUse, ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateCluster" }, CreateClusterRequest, CreateClusterResponse, [ResourceInUse, ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Create compute allocation definition. This defines how compute is allocated, shared, and borrowed for specified entities. Specifically, how to lend and borrow idle compute and assign a fair-share weight to the specified entities.
- */export const createComputeQuota = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateComputeQuota" }, CreateComputeQuotaRequest, CreateComputeQuotaResponse, [ConflictException, ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createComputeQuota = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateComputeQuota" }, CreateComputeQuotaRequest, CreateComputeQuotaResponse, [ConflictException, ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an endpoint using the endpoint configuration specified in the request. SageMaker uses the endpoint to provision resources and deploy models. You create the endpoint configuration with the CreateEndpointConfig API.
  * 
@@ -3192,7 +3192,7 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * `]`
  * 
  * For more information, see SageMaker API Permissions: Actions, Permissions, and Resources Reference.
- */export const createEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateEndpoint" }, CreateEndpointInput, CreateEndpointOutput, [ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateEndpoint" }, CreateEndpointInput, CreateEndpointOutput, [ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Create a new `FeatureGroup`. A `FeatureGroup` is a group of `Features` defined in the `FeatureStore` to describe a `Record`.
  * 
@@ -3202,10 +3202,10 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * 
  * You must include at least one of `OnlineStoreConfig` and `OfflineStoreConfig` to create a `FeatureGroup`.
- */export const createFeatureGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateFeatureGroup" }, CreateFeatureGroupRequest, CreateFeatureGroupResponse, [ResourceInUse, ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createFeatureGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateFeatureGroup" }, CreateFeatureGroupRequest, CreateFeatureGroupResponse, [ResourceInUse, ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a flow definition.
- */export const createFlowDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateFlowDefinition" }, CreateFlowDefinitionRequest, CreateFlowDefinitionResponse, [ResourceInUse, ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createFlowDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateFlowDefinition" }, CreateFlowDefinitionRequest, CreateFlowDefinitionResponse, [ResourceInUse, ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts a hyperparameter tuning job. A hyperparameter tuning job finds the best version of a model by running many training jobs on your dataset using the algorithm you choose and values for hyperparameters within ranges that you specify. It then chooses the hyperparameter values that result in a model that performs the best, as measured by an objective metric that you choose.
  * 
@@ -3213,7 +3213,7 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * 
  * Do not include any security-sensitive information including account access IDs, secrets, or tokens in any hyperparameter fields. As part of the shared responsibility model, you are responsible for any potential exposure, unauthorized access, or compromise of your sensitive data if caused by any security-sensitive information included in the request hyperparameter variable or plain text fields..
- */export const createHyperParameterTuningJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateHyperParameterTuningJob" }, CreateHyperParameterTuningJobRequest, CreateHyperParameterTuningJobResponse, [ResourceInUse, ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createHyperParameterTuningJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateHyperParameterTuningJob" }, CreateHyperParameterTuningJobRequest, CreateHyperParameterTuningJobResponse, [ResourceInUse, ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an inference experiment using the configurations specified in the request.
  * 
@@ -3222,7 +3222,7 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * Amazon SageMaker begins your experiment at the scheduled time and routes traffic to your endpoint's model variants based on your specified configuration.
  * 
  * While the experiment is in progress or after it has concluded, you can view metrics that compare your model variants. For more information, see View, monitor, and edit shadow tests.
- */export const createInferenceExperiment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateInferenceExperiment" }, CreateInferenceExperimentRequest, CreateInferenceExperimentResponse, [ResourceInUse, ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createInferenceExperiment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateInferenceExperiment" }, CreateInferenceExperimentRequest, CreateInferenceExperimentResponse, [ResourceInUse, ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a job that uses workers to label the data objects in your input dataset. You can use the labeled data to train machine learning models.
  * 
@@ -3242,7 +3242,7 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * The output can be used as the manifest file for another labeling job or as training data for your machine learning models.
  * 
  * You can use this operation to create a static labeling job or a streaming labeling job. A static labeling job stops if all data objects in the input manifest file identified in `ManifestS3Uri` have been labeled. A streaming labeling job runs perpetually until it is manually stopped, or remains idle for 10 days. You can send new data objects to an active (`InProgress`) streaming labeling job in real time. To learn how to create a static labeling job, see Create a Labeling Job (API) in the Amazon SageMaker Developer Guide. To learn how to create a streaming labeling job, see Create a Streaming Labeling Job.
- */export const createLabelingJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateLabelingJob" }, CreateLabelingJobRequest, CreateLabelingJobResponse, [ResourceInUse, ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createLabelingJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateLabelingJob" }, CreateLabelingJobRequest, CreateLabelingJobResponse, [ResourceInUse, ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a model package that you can use to create SageMaker models or list on Amazon Web Services Marketplace, or a versioned model that is part of a model group. Buyers can subscribe to model packages listed on Amazon Web Services Marketplace to create models in SageMaker.
  * 
@@ -3254,21 +3254,21 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * - Versioned - a model that is part of a model group in the model registry.
  * 
  * - Unversioned - a model package that is not part of a model group.
- */export const createModelPackage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateModelPackage" }, CreateModelPackageInput, CreateModelPackageOutput, [ConflictException, ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createModelPackage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateModelPackage" }, CreateModelPackageInput, CreateModelPackageOutput, [ConflictException, ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a schedule that regularly starts Amazon SageMaker AI Processing Jobs to monitor the data captured for an Amazon SageMaker AI Endpoint.
- */export const createMonitoringSchedule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateMonitoringSchedule" }, CreateMonitoringScheduleRequest, CreateMonitoringScheduleResponse, [ResourceInUse, ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createMonitoringSchedule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateMonitoringSchedule" }, CreateMonitoringScheduleRequest, CreateMonitoringScheduleResponse, [ResourceInUse, ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a job that optimizes a model for inference performance. To create the job, you provide the location of a source model, and you provide the settings for the optimization techniques that you want the job to apply. When the job completes successfully, SageMaker uploads the new optimized model to the output destination that you specify.
  * 
  * For more information about how to use this action, and about the supported optimization techniques, see Optimize model inference with Amazon SageMaker.
- */export const createOptimizationJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateOptimizationJob" }, CreateOptimizationJobRequest, CreateOptimizationJobResponse, [ResourceInUse, ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createOptimizationJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateOptimizationJob" }, CreateOptimizationJobRequest, CreateOptimizationJobResponse, [ResourceInUse, ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a processing job.
- */export const createProcessingJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateProcessingJob" }, CreateProcessingJobRequest, CreateProcessingJobResponse, [ResourceInUse, ResourceLimitExceeded, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createProcessingJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateProcessingJob" }, CreateProcessingJobRequest, CreateProcessingJobResponse, [ResourceInUse, ResourceLimitExceeded, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a machine learning (ML) project that can contain one or more templates that set up an ML pipeline from training to deploying an approved model.
- */export const createProject = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateProject" }, CreateProjectInput, CreateProjectOutput, [ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createProject = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateProject" }, CreateProjectInput, CreateProjectOutput, [ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts a transform job. A transform job uses a trained model to get inferences on a dataset and saves these results to an Amazon S3 location that you specify.
  * 
@@ -3288,63 +3288,63 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * 
  * For more information about how batch transformation works, see Batch Transform.
- */export const createTransformJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateTransformJob" }, CreateTransformJobRequest, CreateTransformJobResponse, [ResourceInUse, ResourceLimitExceeded, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createTransformJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateTransformJob" }, CreateTransformJobRequest, CreateTransformJobResponse, [ResourceInUse, ResourceLimitExceeded, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new work team for labeling your data. A work team is defined by one or more Amazon Cognito user pools. You must first create the user pools before you can create a work team.
  * 
  * You cannot create more than 25 work teams in an account and region.
- */export const createWorkteam = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateWorkteam" }, CreateWorkteamRequest, CreateWorkteamResponse, [ResourceInUse, ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createWorkteam = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateWorkteam" }, CreateWorkteamRequest, CreateWorkteamResponse, [ResourceInUse, ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about an AutoML job created by calling CreateAutoMLJob.
  * 
  * 
  * AutoML jobs created by calling CreateAutoMLJobV2 cannot be described by `DescribeAutoMLJob`.
- */export const describeAutoMLJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeAutoMLJob" }, DescribeAutoMLJobRequest, DescribeAutoMLJobResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeAutoMLJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeAutoMLJob" }, DescribeAutoMLJobRequest, DescribeAutoMLJobResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about an AutoML job created by calling CreateAutoMLJobV2 or CreateAutoMLJob.
- */export const describeAutoMLJobV2 = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeAutoMLJobV2" }, DescribeAutoMLJobV2Request, DescribeAutoMLJobV2Response, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeAutoMLJobV2 = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeAutoMLJobV2" }, DescribeAutoMLJobV2Request, DescribeAutoMLJobV2Response, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the description of an endpoint.
- */export const describeEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeEndpoint" }, DescribeEndpointInput, DescribeEndpointOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeEndpoint" }, DescribeEndpointInput, DescribeEndpointOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides the results of the Inference Recommender job. One or more recommendation jobs are returned.
- */export const describeInferenceRecommendationsJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeInferenceRecommendationsJob" }, DescribeInferenceRecommendationsJobRequest, DescribeInferenceRecommendationsJobResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeInferenceRecommendationsJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeInferenceRecommendationsJob" }, DescribeInferenceRecommendationsJobRequest, DescribeInferenceRecommendationsJobResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes the details of a project.
- */export const describeProject = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeProject" }, DescribeProjectInput, DescribeProjectOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeProject = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeProject" }, DescribeProjectInput, DescribeProjectOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * An auto-complete API for the search functionality in the SageMaker console. It returns suggestions of possible matches for the property name to use in `Search` queries. Provides suggestions for `HyperParameters`, `Tags`, and `Metrics`.
- */export const getSearchSuggestions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.GetSearchSuggestions" }, GetSearchSuggestionsRequest, GetSearchSuggestionsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getSearchSuggestions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.GetSearchSuggestions" }, GetSearchSuggestionsRequest, GetSearchSuggestionsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the domain, framework, task, and model name of standard machine learning models found in common model zoos.
- */export const listModelMetadata = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListModelMetadata" }, ListModelMetadataRequest, ListModelMetadataResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listModelMetadata = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListModelMetadata" }, ListModelMetadataRequest, ListModelMetadataResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets the alerts for a single monitoring schedule.
- */export const listMonitoringAlerts = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListMonitoringAlerts" }, ListMonitoringAlertsRequest, ListMonitoringAlertsResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listMonitoringAlerts = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListMonitoringAlerts" }, ListMonitoringAlertsRequest, ListMonitoringAlertsResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Use this action to inspect your lineage and discover relationships between entities. For more information, see Querying Lineage Entities in the *Amazon SageMaker Developer Guide*.
- */export const queryLineage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.QueryLineage" }, QueryLineageRequest, QueryLineageResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const queryLineage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.QueryLineage" }, QueryLineageRequest, QueryLineageResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the platform software of a SageMaker HyperPod cluster for security patching. To learn how to use this API, see Update the SageMaker HyperPod platform software of a cluster.
  * 
  * 
  * The `UpgradeClusterSoftware` API call may impact your SageMaker HyperPod cluster uptime and availability. Plan accordingly to mitigate potential disruptions to your workloads.
- */export const updateClusterSoftware = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateClusterSoftware" }, UpdateClusterSoftwareRequest, UpdateClusterSoftwareResponse, [ConflictException, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateClusterSoftware = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateClusterSoftware" }, UpdateClusterSoftwareRequest, UpdateClusterSoftwareResponse, [ConflictException, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates an inference component.
- */export const updateInferenceComponent = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateInferenceComponent" }, UpdateInferenceComponentInput, UpdateInferenceComponentOutput, [ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateInferenceComponent = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateInferenceComponent" }, UpdateInferenceComponentInput, UpdateInferenceComponentOutput, [ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates a machine learning (ML) project that is created from a template that sets up an ML pipeline from training to deploying an approved model.
  * 
  * 
  * You must not update a project that is in use. If you update the `ServiceCatalogProvisioningUpdateDetails` of a project that is active or being created, or updated, you may lose resources already created by the project.
- */export const updateProject = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateProject" }, UpdateProjectInput, UpdateProjectOutput, [ConflictException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateProject = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.UpdateProject" }, UpdateProjectInput, UpdateProjectOutput, [ConflictException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Create a machine learning algorithm that you can use in SageMaker and list in the Amazon Web Services Marketplace.
- */export const createAlgorithm = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateAlgorithm" }, CreateAlgorithmInput, CreateAlgorithmOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createAlgorithm = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateAlgorithm" }, CreateAlgorithmInput, CreateAlgorithmOutput, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a definition for a job that monitors data quality and drift. For information about model monitor, see Amazon SageMaker AI Model Monitor.
- */export const createDataQualityJobDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateDataQualityJobDefinition" }, CreateDataQualityJobDefinitionRequest, CreateDataQualityJobDefinitionResponse, [ResourceInUse, ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createDataQualityJobDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateDataQualityJobDefinition" }, CreateDataQualityJobDefinitionRequest, CreateDataQualityJobDefinitionResponse, [ResourceInUse, ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a `Domain`. A domain consists of an associated Amazon Elastic File System volume, a list of authorized users, and a variety of security, application, policy, and Amazon Virtual Private Cloud (VPC) configurations. Users within a domain can share notebook files and other artifacts with each other.
  * 
@@ -3370,7 +3370,7 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * 
  * For more information, see Connect Amazon SageMaker AI Studio Notebooks to Resources in a VPC.
- */export const createDomain = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateDomain" }, CreateDomainRequest, CreateDomainResponse, [ResourceInUse, ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createDomain = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateDomain" }, CreateDomainRequest, CreateDomainResponse, [ResourceInUse, ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an endpoint configuration that SageMaker hosting services uses to deploy models. In the configuration, you identify one or more models, created using the `CreateModel` API, to deploy and the resources that you want SageMaker to provision. Then you call the CreateEndpoint API.
  * 
@@ -3384,10 +3384,10 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * 
  * When you call CreateEndpoint, a load call is made to DynamoDB to verify that your endpoint configuration exists. When you read data from a DynamoDB table supporting `Eventually Consistent Reads` , the response might not reflect the results of a recently completed write operation. The response might include some stale data. If the dependent entities are not yet in DynamoDB, this causes a validation error. If you repeat your read request after a short time, the response should return the latest data. So retry logic is recommended to handle these possible issues. We also recommend that customers call DescribeEndpointConfig before calling CreateEndpoint to minimize the potential impact of a DynamoDB eventually consistent read.
- */export const createEndpointConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateEndpointConfig" }, CreateEndpointConfigInput, CreateEndpointConfigOutput, [ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createEndpointConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateEndpointConfig" }, CreateEndpointConfigInput, CreateEndpointConfigOutput, [ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts a recommendation job. You can create either an instance recommendation or load test job.
- */export const createInferenceRecommendationsJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateInferenceRecommendationsJob" }, CreateInferenceRecommendationsJobRequest, CreateInferenceRecommendationsJobResponse, [ResourceInUse, ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createInferenceRecommendationsJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateInferenceRecommendationsJob" }, CreateInferenceRecommendationsJobRequest, CreateInferenceRecommendationsJobResponse, [ResourceInUse, ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a model in SageMaker. In the request, you name the model and describe a primary container. For the primary container, you specify the Docker image that contains inference code, artifacts (from prior training), and a custom environment map that the inference code uses when you deploy the model for predictions.
  * 
@@ -3398,10 +3398,10 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * To run a batch transform using your model, you start a job with the `CreateTransformJob` API. SageMaker uses your model and your dataset to get inferences which are then saved to a specified S3 location.
  * 
  * In the request, you also provide an IAM role that SageMaker can assume to access model artifacts and docker image for deployment on ML compute hosting instances or for batch transform jobs. In addition, you also use the IAM role to manage permissions the inference code needs. For example, if the inference code access any other Amazon Web Services resources, you grant necessary permissions via this role.
- */export const createModel = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateModel" }, CreateModelInput, CreateModelOutput, [ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createModel = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateModel" }, CreateModelInput, CreateModelOutput, [ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a private space or a space used for real time collaboration in a domain.
- */export const createSpace = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateSpace" }, CreateSpaceRequest, CreateSpaceResponse, [ResourceInUse, ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createSpace = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateSpace" }, CreateSpaceRequest, CreateSpaceResponse, [ResourceInUse, ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts a model training job. After training completes, SageMaker saves the resulting model artifacts to an Amazon S3 location that you specify.
  * 
@@ -3439,10 +3439,10 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * 
  * For more information about SageMaker, see How It Works.
- */export const createTrainingJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateTrainingJob" }, CreateTrainingJobRequest, CreateTrainingJobResponse, [ResourceInUse, ResourceLimitExceeded, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createTrainingJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateTrainingJob" }, CreateTrainingJobRequest, CreateTrainingJobResponse, [ResourceInUse, ResourceLimitExceeded, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets a list of `PipeLineExecutionStep` objects.
- */export const listPipelineExecutionSteps = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListPipelineExecutionSteps" }, ListPipelineExecutionStepsRequest, ListPipelineExecutionStepsResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listPipelineExecutionSteps = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.ListPipelineExecutionSteps" }, ListPipelineExecutionStepsRequest, ListPipelineExecutionStepsResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an Autopilot job also referred to as Autopilot experiment or AutoML job V2.
  * 
@@ -3463,13 +3463,13 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * For the list of available problem types supported by `CreateAutoMLJobV2`, see AutoMLProblemTypeConfig.
  * 
  * You can find the best-performing model after you run an AutoML job V2 by calling DescribeAutoMLJobV2.
- */export const createAutoMLJobV2 = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateAutoMLJobV2" }, CreateAutoMLJobV2Request, CreateAutoMLJobV2Response, [ResourceInUse, ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createAutoMLJobV2 = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.CreateAutoMLJobV2" }, CreateAutoMLJobV2Request, CreateAutoMLJobV2Response, [ResourceInUse, ResourceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves detailed information about a specific event for a given HyperPod cluster. This functionality is only supported when the `NodeProvisioningMode` is set to `Continuous`.
- */export const describeClusterEvent = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeClusterEvent" }, DescribeClusterEventRequest, DescribeClusterEventResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeClusterEvent = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.DescribeClusterEvent" }, DescribeClusterEventRequest, DescribeClusterEventResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts an Amazon SageMaker Inference Recommender autoscaling recommendation job. Returns recommendations for autoscaling policies that you can apply to your SageMaker endpoint.
- */export const getScalingConfigurationRecommendation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.GetScalingConfigurationRecommendation" }, GetScalingConfigurationRecommendationRequest, GetScalingConfigurationRecommendationResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getScalingConfigurationRecommendation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.GetScalingConfigurationRecommendation" }, GetScalingConfigurationRecommendationRequest, GetScalingConfigurationRecommendationResponse, [ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Finds SageMaker resources that match a search query. Matching resources are returned as a list of `SearchRecord` objects in the response. You can sort the search results by any resource property in a ascending or descending order.
  * 
@@ -3477,4 +3477,4 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * 
  * The Search API may provide access to otherwise restricted data. See Amazon SageMaker API Permissions: Actions, Permissions, and Resources Reference for more information.
- */export const search = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", uri: "/", method: "POST", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.Search" }, SearchRequest, SearchResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const search = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-07-24", sdkId: "SageMaker", sigV4ServiceName: "sagemaker", name: "SageMaker.Search" }, SearchRequest, SearchResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

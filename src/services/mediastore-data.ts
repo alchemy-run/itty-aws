@@ -38,4 +38,4 @@ export class RequestedRangeNotSatisfiableException extends S.TaggedError<Request
 /**
  * Provides a list of metadata entries about folders and objects in the specified
  * folder.
- */export const listItems = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-01", uri: "/", method: "GET", sdkId: "MediaStore Data", sigV4ServiceName: "mediastore", name: "MediaStoreObject_20170901.ListItems" }, ListItemsRequest, ListItemsResponse, [ContainerNotFoundException, InternalServerError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listItems = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-01", method: "GET", sdkId: "MediaStore Data", sigV4ServiceName: "mediastore", name: "MediaStoreObject_20170901.ListItems" }, ListItemsRequest, ListItemsResponse, [ContainerNotFoundException, InternalServerError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

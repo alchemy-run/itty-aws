@@ -47,12 +47,12 @@ export class TooManyTagsException extends S.TaggedError<TooManyTagsException>()(
  * Attaches tags to a resource.
  * 
  * **Required permissions: ** `rolesanywhere:TagResource`.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/TagResource", method: "POST", sdkId: "RolesAnywhere", sigV4ServiceName: "rolesanywhere", name: "RolesAnywhere.TagResource" }, TagResourceRequest, TagResourceResponse, [AccessDeniedException, ResourceNotFoundException, TooManyTagsException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/TagResource", sdkId: "RolesAnywhere", sigV4ServiceName: "rolesanywhere", name: "RolesAnywhere.TagResource" }, TagResourceRequest, TagResourceResponse, [AccessDeniedException, ResourceNotFoundException, TooManyTagsException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes tags from the resource.
  * 
  * **Required permissions: ** `rolesanywhere:UntagResource`.
- */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/UntagResource", method: "POST", sdkId: "RolesAnywhere", sigV4ServiceName: "rolesanywhere", name: "RolesAnywhere.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [AccessDeniedException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/UntagResource", sdkId: "RolesAnywhere", sigV4ServiceName: "rolesanywhere", name: "RolesAnywhere.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [AccessDeniedException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Attaches a list of *notification settings* to a trust anchor.
  * 

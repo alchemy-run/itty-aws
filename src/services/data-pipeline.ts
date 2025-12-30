@@ -112,10 +112,10 @@ export class TaskNotFoundException extends S.TaggedError<TaskNotFoundException>(
  * Date: Mon, 12 Nov 2012 17:50:53 GMT
  * 
  * {}
- */export const activatePipeline = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-10-29", uri: "/", method: "POST", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.ActivatePipeline" }, ActivatePipelineInput, ActivatePipelineOutput, [InternalServiceError, InvalidRequestException, PipelineDeletedException, PipelineNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const activatePipeline = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-10-29", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.ActivatePipeline" }, ActivatePipelineInput, ActivatePipelineOutput, [InternalServiceError, InvalidRequestException, PipelineDeletedException, PipelineNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds or modifies tags for the specified pipeline.
- */export const addTags = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-10-29", uri: "/", method: "POST", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.AddTags" }, AddTagsInput, AddTagsOutput, [InternalServiceError, InvalidRequestException, PipelineDeletedException, PipelineNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const addTags = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-10-29", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.AddTags" }, AddTagsInput, AddTagsOutput, [InternalServiceError, InvalidRequestException, PipelineDeletedException, PipelineNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new, empty pipeline. Use PutPipelineDefinition to populate the pipeline.
  * 
@@ -146,7 +146,7 @@ export class TaskNotFoundException extends S.TaggedError<TaskNotFoundException>(
  * Date: Mon, 12 Nov 2012 17:50:53 GMT
  * 
  * {"pipelineId": "df-06372391ZG65EXAMPLE"}
- */export const createPipeline = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-10-29", uri: "/", method: "POST", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.CreatePipeline" }, CreatePipelineInput, CreatePipelineOutput, [InternalServiceError, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createPipeline = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-10-29", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.CreatePipeline" }, CreatePipelineInput, CreatePipelineOutput, [InternalServiceError, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deactivates the specified running pipeline. The pipeline is set to the `DEACTIVATING`
  * state until the deactivation process completes.
@@ -154,7 +154,7 @@ export class TaskNotFoundException extends S.TaggedError<TaskNotFoundException>(
  * 
  * To resume a deactivated pipeline, use ActivatePipeline. By default, the pipeline resumes from the last completed execution.
  * Optionally, you can specify the date and time to resume the pipeline.
- */export const deactivatePipeline = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-10-29", uri: "/", method: "POST", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.DeactivatePipeline" }, DeactivatePipelineInput, DeactivatePipelineOutput, [InternalServiceError, InvalidRequestException, PipelineDeletedException, PipelineNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deactivatePipeline = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-10-29", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.DeactivatePipeline" }, DeactivatePipelineInput, DeactivatePipelineOutput, [InternalServiceError, InvalidRequestException, PipelineDeletedException, PipelineNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a pipeline, its pipeline definition, and its run history.
  * AWS Data Pipeline attempts to cancel instances associated with the pipeline that are currently being processed by task runners.
@@ -187,7 +187,7 @@ export class TaskNotFoundException extends S.TaggedError<TaskNotFoundException>(
  * Date: Mon, 12 Nov 2012 17:50:53 GMT
  * 
  * Unexpected response: 200, OK, undefined
- */export const deletePipeline = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-10-29", uri: "/", method: "POST", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.DeletePipeline" }, DeletePipelineInput, S.Struct({}), [InternalServiceError, InvalidRequestException, PipelineNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deletePipeline = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-10-29", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.DeletePipeline" }, DeletePipelineInput, S.Struct({}), [InternalServiceError, InvalidRequestException, PipelineNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets the object definitions for a set of objects associated with the pipeline. Object definitions are composed of
  * a set of fields that define the properties of the object.
@@ -246,7 +246,7 @@ export class TaskNotFoundException extends S.TaggedError<TaskNotFoundException>(
  * "name": "Schedule"}
  * ]
  * }
- */export const describeObjects = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-10-29", uri: "/", method: "POST", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.DescribeObjects" }, DescribeObjectsInput, DescribeObjectsOutput, [InternalServiceError, InvalidRequestException, PipelineDeletedException, PipelineNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeObjects = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-10-29", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.DescribeObjects" }, DescribeObjectsInput, DescribeObjectsOutput, [InternalServiceError, InvalidRequestException, PipelineDeletedException, PipelineNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Task runners call `EvaluateExpression` to evaluate a string in the context of the specified object.
  * For example, a task runner can evaluate SQL queries stored in Amazon S3.
@@ -278,7 +278,7 @@ export class TaskNotFoundException extends S.TaggedError<TaskNotFoundException>(
  * Date: Mon, 12 Nov 2012 17:50:53 GMT
  * 
  * {"evaluatedExpression": "Transform started at 2012-12-12T00:00:00 and finished at 2012-12-21T18:00:00"}
- */export const evaluateExpression = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-10-29", uri: "/", method: "POST", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.EvaluateExpression" }, EvaluateExpressionInput, EvaluateExpressionOutput, [InternalServiceError, InvalidRequestException, PipelineDeletedException, PipelineNotFoundException, TaskNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const evaluateExpression = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-10-29", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.EvaluateExpression" }, EvaluateExpressionInput, EvaluateExpressionOutput, [InternalServiceError, InvalidRequestException, PipelineDeletedException, PipelineNotFoundException, TaskNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets the definition of the specified pipeline. You can call `GetPipelineDefinition` to retrieve
  * the pipeline definition that you provided using PutPipelineDefinition.
@@ -341,10 +341,10 @@ export class TaskNotFoundException extends S.TaggedError<TaskNotFoundException>(
  * "name": "SayHello"}
  * ]
  * }
- */export const getPipelineDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-10-29", uri: "/", method: "POST", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.GetPipelineDefinition" }, GetPipelineDefinitionInput, GetPipelineDefinitionOutput, [InternalServiceError, InvalidRequestException, PipelineDeletedException, PipelineNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getPipelineDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-10-29", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.GetPipelineDefinition" }, GetPipelineDefinitionInput, GetPipelineDefinitionOutput, [InternalServiceError, InvalidRequestException, PipelineDeletedException, PipelineNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes existing tags from the specified pipeline.
- */export const removeTags = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-10-29", uri: "/", method: "POST", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.RemoveTags" }, RemoveTagsInput, RemoveTagsOutput, [InternalServiceError, InvalidRequestException, PipelineDeletedException, PipelineNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const removeTags = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-10-29", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.RemoveTags" }, RemoveTagsInput, RemoveTagsOutput, [InternalServiceError, InvalidRequestException, PipelineDeletedException, PipelineNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Task runners call `ReportTaskRunnerHeartbeat` every 15 minutes to indicate that they are operational.
  * If the AWS Data Pipeline Task Runner is launched on a resource managed by AWS Data Pipeline, the web service can use
@@ -377,7 +377,7 @@ export class TaskNotFoundException extends S.TaggedError<TaskNotFoundException>(
  * Date: Mon, 12 Nov 2012 17:50:53 GMT
  * 
  * {"terminate": false}
- */export const reportTaskRunnerHeartbeat = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-10-29", uri: "/", method: "POST", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.ReportTaskRunnerHeartbeat" }, ReportTaskRunnerHeartbeatInput, ReportTaskRunnerHeartbeatOutput, [InternalServiceError, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const reportTaskRunnerHeartbeat = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-10-29", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.ReportTaskRunnerHeartbeat" }, ReportTaskRunnerHeartbeatInput, ReportTaskRunnerHeartbeatOutput, [InternalServiceError, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Requests that the status of the specified physical or logical pipeline objects be updated in the specified pipeline.
  * This update might not occur immediately, but is eventually consistent. The status that can be set depends on the type of object (for example, DataNode or Activity).
@@ -410,7 +410,7 @@ export class TaskNotFoundException extends S.TaggedError<TaskNotFoundException>(
  * Date: Mon, 12 Nov 2012 17:50:53 GMT
  * 
  * Unexpected response: 200, OK, undefined
- */export const setStatus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-10-29", uri: "/", method: "POST", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.SetStatus" }, SetStatusInput, S.Struct({}), [InternalServiceError, InvalidRequestException, PipelineDeletedException, PipelineNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const setStatus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-10-29", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.SetStatus" }, SetStatusInput, S.Struct({}), [InternalServiceError, InvalidRequestException, PipelineDeletedException, PipelineNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Task runners call `SetTaskStatus` to notify AWS Data Pipeline that a task is completed and provide information about the final status.
  * A task runner makes this call regardless of whether the task was sucessful. A task runner does not need to call `SetTaskStatus` for
@@ -441,7 +441,7 @@ export class TaskNotFoundException extends S.TaggedError<TaskNotFoundException>(
  * Date: Mon, 12 Nov 2012 17:50:53 GMT
  * 
  * {}
- */export const setTaskStatus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-10-29", uri: "/", method: "POST", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.SetTaskStatus" }, SetTaskStatusInput, SetTaskStatusOutput, [InternalServiceError, InvalidRequestException, PipelineDeletedException, PipelineNotFoundException, TaskNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const setTaskStatus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-10-29", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.SetTaskStatus" }, SetTaskStatusInput, SetTaskStatusOutput, [InternalServiceError, InvalidRequestException, PipelineDeletedException, PipelineNotFoundException, TaskNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves metadata about one or more pipelines. The information retrieved includes the name of the pipeline, the pipeline identifier,
  * its current state, and the user account that owns the pipeline. Using account credentials, you can retrieve metadata about pipelines
@@ -505,7 +505,7 @@ export class TaskNotFoundException extends S.TaggedError<TaskNotFoundException>(
  * "pipelineId": "df-0937003356ZJEXAMPLE"}
  * ]
  * }
- */export const describePipelines = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-10-29", uri: "/", method: "POST", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.DescribePipelines" }, DescribePipelinesInput, DescribePipelinesOutput, [InternalServiceError, InvalidRequestException, PipelineDeletedException, PipelineNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describePipelines = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-10-29", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.DescribePipelines" }, DescribePipelinesInput, DescribePipelinesOutput, [InternalServiceError, InvalidRequestException, PipelineDeletedException, PipelineNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the pipeline identifiers for all active pipelines that you have permission to access.
  * 
@@ -539,7 +539,7 @@ export class TaskNotFoundException extends S.TaggedError<TaskNotFoundException>(
  * "name": "MySecondPipeline"}
  * ]
  * }
- */export const listPipelines = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-10-29", uri: "/", method: "POST", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.ListPipelines" }, ListPipelinesInput, ListPipelinesOutput, [InternalServiceError, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listPipelines = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-10-29", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.ListPipelines" }, ListPipelinesInput, ListPipelinesOutput, [InternalServiceError, InvalidRequestException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Task runners call `ReportTaskProgress` when assigned a task to acknowledge that it has the task. If the web service does not
  * receive this acknowledgement within 2 minutes, it assigns the task in a subsequent PollForTask call. After this initial acknowledgement,
@@ -579,7 +579,7 @@ export class TaskNotFoundException extends S.TaggedError<TaskNotFoundException>(
  * Date: Mon, 12 Nov 2012 17:50:53 GMT
  * 
  * {"canceled": false}
- */export const reportTaskProgress = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-10-29", uri: "/", method: "POST", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.ReportTaskProgress" }, ReportTaskProgressInput, ReportTaskProgressOutput, [InternalServiceError, InvalidRequestException, PipelineDeletedException, PipelineNotFoundException, TaskNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const reportTaskProgress = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-10-29", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.ReportTaskProgress" }, ReportTaskProgressInput, ReportTaskProgressOutput, [InternalServiceError, InvalidRequestException, PipelineDeletedException, PipelineNotFoundException, TaskNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Validates the specified pipeline definition to ensure that it is well formed and can be run without error.
  * 
@@ -729,7 +729,7 @@ export class TaskNotFoundException extends S.TaggedError<TaskNotFoundException>(
  * "id": "Schedule"}
  * ]
  * }
- */export const validatePipelineDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-10-29", uri: "/", method: "POST", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.ValidatePipelineDefinition" }, ValidatePipelineDefinitionInput, ValidatePipelineDefinitionOutput, [InternalServiceError, InvalidRequestException, PipelineDeletedException, PipelineNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const validatePipelineDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-10-29", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.ValidatePipelineDefinition" }, ValidatePipelineDefinitionInput, ValidatePipelineDefinitionOutput, [InternalServiceError, InvalidRequestException, PipelineDeletedException, PipelineNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds tasks, schedules, and preconditions to the specified pipeline. You can use `PutPipelineDefinition` to populate a new pipeline.
  * 
@@ -895,7 +895,7 @@ export class TaskNotFoundException extends S.TaggedError<TaskNotFoundException>(
  * 
  * {"__type": "com.amazon.setl.webservice#InvalidRequestException",
  * "message": "Pipeline definition has errors: Could not save the pipeline definition due to FATAL errors: [com.amazon.setl.webservice.ValidationError@108d7ea9] Please call Validate to validate your pipeline"}
- */export const putPipelineDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-10-29", uri: "/", method: "POST", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.PutPipelineDefinition" }, PutPipelineDefinitionInput, PutPipelineDefinitionOutput, [InternalServiceError, InvalidRequestException, PipelineDeletedException, PipelineNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putPipelineDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-10-29", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.PutPipelineDefinition" }, PutPipelineDefinitionInput, PutPipelineDefinitionOutput, [InternalServiceError, InvalidRequestException, PipelineDeletedException, PipelineNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Task runners call `PollForTask` to receive a task to perform from AWS Data Pipeline. The task runner specifies which tasks it can perform
  * by setting a value for the `workerGroup` parameter. The task returned can come from any of the pipelines that
@@ -975,7 +975,7 @@ export class TaskNotFoundException extends S.TaggedError<TaskNotFoundException>(
  * "pipelineId": "df-0937003356ZJEXAMPLE",
  * "taskId": "2xaM4wRs5zOsIH+g9U3oVHfAgAlbSqU6XduncB0HhZ3xMnmvfePZPn4dIbYXHyWyRK+cU15MqDHwdrvftx/4wv+sNS4w34vJfv7QA9aOoOazW28l1GYSb2ZRR0N0paiQp+d1MhSKo10hOTWOsVK5S5Lnx9Qm6omFgXHyIvZRIvTlrQMpr1xuUrflyGOfbFOGpOLpvPE172MYdqpZKnbSS4TcuqgQKSWV2833fEubI57DPOP7ghWa2TcYeSIv4pdLYG53fTuwfbnbdc98g2LNUQzSVhSnt7BoqyNwht2aQ6b/UHg9A80+KVpuXuqmz3m1MXwHFgxjdmuesXNOrrlGpeLCcRWD+aGo0RN1NqhQRzNAig8V4GlaPTQzMsRCljKqvrIyAoP3Tt2XEGsHkkQo12rEX8Z90957XX2qKRwhruwYzqGkSLWjINoLdAxUJdpRXRc5DJTrBd3D5mdzn7kY1l7NEh4kFHJDt3Cx4Z3Mk8MYCACyCk/CEyy9DwuPi66cLz0NBcgbCM5LKjTBOwo1m+am+pvM1kSposE9FPP1+RFGb8k6jQBTJx3TRz1yKilnGXQTZ5xvdOFpJrklIT0OXP1MG3+auM9FlJA+1dX90QoNJE5z7axmK//MOGXUdkqFe2kiDkorqjxwDvc0Js9pVKfKvAmW8YqUbmI9l0ERpWCXXnLVHNmPWz3jaPY+OBAmuJWDmxB/Z8p94aEDg4BVXQ7LvsKQ3DLYhaB7yJ390CJT+i0mm+EBqY60V6YikPSWDFrYQ/NPi2b1DgE19mX8zHqw8qprIl4yh1Ckx2Iige4En/N5ktOoIxnASxAw/TzcE2skxdw5KlHDF+UTj71m16CR/dIaKlXijlfNlNzUBo/bNSadCQn3G5NoO501wPKI:XO50TgDNyo8EXAMPLE/g==:1"}
  * }
- */export const pollForTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-10-29", uri: "/", method: "POST", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.PollForTask" }, PollForTaskInput, PollForTaskOutput, [InternalServiceError, InvalidRequestException, TaskNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const pollForTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-10-29", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.PollForTask" }, PollForTaskInput, PollForTaskOutput, [InternalServiceError, InvalidRequestException, TaskNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Queries the specified pipeline for the names of objects that match the specified set of conditions.
  * 
@@ -1015,4 +1015,4 @@ export class TaskNotFoundException extends S.TaggedError<TaskNotFoundException>(
  * "ids":
  * ["@SayHello_1_2012-09-25T17:00:00"]
  * }
- */export const queryObjects = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-10-29", uri: "/", method: "POST", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.QueryObjects" }, QueryObjectsInput, QueryObjectsOutput, [InternalServiceError, InvalidRequestException, PipelineDeletedException, PipelineNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const queryObjects = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-10-29", sdkId: "Data Pipeline", sigV4ServiceName: "datapipeline", name: "DataPipeline.QueryObjects" }, QueryObjectsInput, QueryObjectsOutput, [InternalServiceError, InvalidRequestException, PipelineDeletedException, PipelineNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

@@ -65,7 +65,7 @@ export class PlatformNotSupportedException extends S.TaggedError<PlatformNotSupp
  * 
  * 
  * For Amazon Web Services Regions that support `ResolveCustomer`, see ResolveCustomer Region support.
- */export const resolveCustomer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-14", uri: "/", method: "POST", sdkId: "Marketplace Metering", sigV4ServiceName: "aws-marketplace", name: "AWSMPMeteringService.ResolveCustomer" }, ResolveCustomerRequest, ResolveCustomerResult, [DisabledApiException, ExpiredTokenException, InternalServiceErrorException, InvalidTokenException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const resolveCustomer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-14", sdkId: "Marketplace Metering", sigV4ServiceName: "aws-marketplace", name: "AWSMPMeteringService.ResolveCustomer" }, ResolveCustomerRequest, ResolveCustomerResult, [DisabledApiException, ExpiredTokenException, InternalServiceErrorException, InvalidTokenException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The `CustomerIdentifier` parameter is scheduled for deprecation on March 31, 2026. Use `CustomerAWSAccountID` instead.
  * 
@@ -113,7 +113,7 @@ export class PlatformNotSupportedException extends S.TaggedError<PlatformNotSupp
  * 
  * For an example of `BatchMeterUsage`, see BatchMeterUsage code example in the Amazon Web Services Marketplace Seller
  * Guide.
- */export const batchMeterUsage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-14", uri: "/", method: "POST", sdkId: "Marketplace Metering", sigV4ServiceName: "aws-marketplace", name: "AWSMPMeteringService.BatchMeterUsage" }, BatchMeterUsageRequest, BatchMeterUsageResult, [DisabledApiException, InternalServiceErrorException, InvalidCustomerIdentifierException, InvalidProductCodeException, InvalidTagException, InvalidUsageAllocationsException, InvalidUsageDimensionException, ThrottlingException, TimestampOutOfBoundsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const batchMeterUsage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-14", sdkId: "Marketplace Metering", sigV4ServiceName: "aws-marketplace", name: "AWSMPMeteringService.BatchMeterUsage" }, BatchMeterUsageRequest, BatchMeterUsageResult, [DisabledApiException, InternalServiceErrorException, InvalidCustomerIdentifierException, InvalidProductCodeException, InvalidTagException, InvalidUsageAllocationsException, InvalidUsageDimensionException, ThrottlingException, TimestampOutOfBoundsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * API to emit metering records. For identical requests, the API is
  * idempotent and returns the metering record ID. This is used for metering
@@ -142,7 +142,7 @@ export class PlatformNotSupportedException extends S.TaggedError<PlatformNotSupp
  * 
  * 
  * For Amazon Web Services Regions that support `MeterUsage`, see MeterUsage Region support for Amazon EC2 and MeterUsage Region support for Amazon ECS and Amazon EKS.
- */export const meterUsage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-14", uri: "/", method: "POST", sdkId: "Marketplace Metering", sigV4ServiceName: "aws-marketplace", name: "AWSMPMeteringService.MeterUsage" }, MeterUsageRequest, MeterUsageResult, [CustomerNotEntitledException, DuplicateRequestException, IdempotencyConflictException, InternalServiceErrorException, InvalidEndpointRegionException, InvalidProductCodeException, InvalidTagException, InvalidUsageAllocationsException, InvalidUsageDimensionException, ThrottlingException, TimestampOutOfBoundsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const meterUsage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-14", sdkId: "Marketplace Metering", sigV4ServiceName: "aws-marketplace", name: "AWSMPMeteringService.MeterUsage" }, MeterUsageRequest, MeterUsageResult, [CustomerNotEntitledException, DuplicateRequestException, IdempotencyConflictException, InternalServiceErrorException, InvalidEndpointRegionException, InvalidProductCodeException, InvalidTagException, InvalidUsageAllocationsException, InvalidUsageDimensionException, ThrottlingException, TimestampOutOfBoundsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Paid container software products sold through Amazon Web Services Marketplace must integrate with the Amazon Web Services Marketplace
  * Metering Service and call the `RegisterUsage` operation for software
@@ -188,4 +188,4 @@ export class PlatformNotSupportedException extends S.TaggedError<PlatformNotSupp
  * 
  * 
  * For Amazon Web Services Regions that support `RegisterUsage`, see RegisterUsage Region support.
- */export const registerUsage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-14", uri: "/", method: "POST", sdkId: "Marketplace Metering", sigV4ServiceName: "aws-marketplace", name: "AWSMPMeteringService.RegisterUsage" }, RegisterUsageRequest, RegisterUsageResult, [CustomerNotEntitledException, DisabledApiException, InternalServiceErrorException, InvalidProductCodeException, InvalidPublicKeyVersionException, InvalidRegionException, PlatformNotSupportedException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const registerUsage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-01-14", sdkId: "Marketplace Metering", sigV4ServiceName: "aws-marketplace", name: "AWSMPMeteringService.RegisterUsage" }, RegisterUsageRequest, RegisterUsageResult, [CustomerNotEntitledException, DisabledApiException, InternalServiceErrorException, InvalidProductCodeException, InvalidPublicKeyVersionException, InvalidRegionException, PlatformNotSupportedException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

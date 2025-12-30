@@ -75,17 +75,17 @@ export class BatchExecuteStatementException extends S.TaggedError<BatchExecuteSt
  * 
  * 
  * For more information about the Amazon Redshift Data API and CLI usage examples, see Using the Amazon Redshift Data API in the *Amazon Redshift Management Guide*.
- */export const describeTable = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-20", uri: "/", method: "POST", sdkId: "Redshift Data", sigV4ServiceName: "redshift-data", name: "RedshiftData.DescribeTable" }, DescribeTableRequest, DescribeTableResponse, [DatabaseConnectionException, InternalServerException, QueryTimeoutException, ResourceNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeTable = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-20", sdkId: "Redshift Data", sigV4ServiceName: "redshift-data", name: "RedshiftData.DescribeTable" }, DescribeTableRequest, DescribeTableResponse, [DatabaseConnectionException, InternalServerException, QueryTimeoutException, ResourceNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Fetches the temporarily cached result of an SQL statement in JSON format. The `ExecuteStatement` or `BatchExecuteStatement` operation that ran the SQL statement must have specified `ResultFormat` as `JSON` , or let the format default to JSON. A token is returned to page through the statement results.
  * 
  * For more information about the Amazon Redshift Data API and CLI usage examples, see Using the Amazon Redshift Data API in the *Amazon Redshift Management Guide*.
- */export const getStatementResult = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-20", uri: "/", method: "POST", sdkId: "Redshift Data", sigV4ServiceName: "redshift-data", name: "RedshiftData.GetStatementResult" }, GetStatementResultRequest, GetStatementResultResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getStatementResult = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-20", sdkId: "Redshift Data", sigV4ServiceName: "redshift-data", name: "RedshiftData.GetStatementResult" }, GetStatementResultRequest, GetStatementResultResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Fetches the temporarily cached result of an SQL statement in CSV format. The `ExecuteStatement` or `BatchExecuteStatement` operation that ran the SQL statement must have specified `ResultFormat` as `CSV`. A token is returned to page through the statement results.
  * 
  * For more information about the Amazon Redshift Data API and CLI usage examples, see Using the Amazon Redshift Data API in the *Amazon Redshift Management Guide*.
- */export const getStatementResultV2 = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-20", uri: "/", method: "POST", sdkId: "Redshift Data", sigV4ServiceName: "redshift-data", name: "RedshiftData.GetStatementResultV2" }, GetStatementResultV2Request, GetStatementResultV2Response, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getStatementResultV2 = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-20", sdkId: "Redshift Data", sigV4ServiceName: "redshift-data", name: "RedshiftData.GetStatementResultV2" }, GetStatementResultV2Request, GetStatementResultV2Response, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * List the databases in a cluster. A token is returned to page through the database list. Depending on the authorization method, use one of the following combinations of request parameters:
  * 
@@ -102,7 +102,7 @@ export class BatchExecuteStatementException extends S.TaggedError<BatchExecuteSt
  * 
  * 
  * For more information about the Amazon Redshift Data API and CLI usage examples, see Using the Amazon Redshift Data API in the *Amazon Redshift Management Guide*.
- */export const listDatabases = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-20", uri: "/", method: "POST", sdkId: "Redshift Data", sigV4ServiceName: "redshift-data", name: "RedshiftData.ListDatabases" }, ListDatabasesRequest, ListDatabasesResponse, [DatabaseConnectionException, InternalServerException, QueryTimeoutException, ResourceNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listDatabases = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-20", sdkId: "Redshift Data", sigV4ServiceName: "redshift-data", name: "RedshiftData.ListDatabases" }, ListDatabasesRequest, ListDatabasesResponse, [DatabaseConnectionException, InternalServerException, QueryTimeoutException, ResourceNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the schemas in a database. A token is returned to page through the schema list. Depending on the authorization method, use one of the following combinations of request parameters:
  * 
@@ -119,14 +119,14 @@ export class BatchExecuteStatementException extends S.TaggedError<BatchExecuteSt
  * 
  * 
  * For more information about the Amazon Redshift Data API and CLI usage examples, see Using the Amazon Redshift Data API in the *Amazon Redshift Management Guide*.
- */export const listSchemas = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-20", uri: "/", method: "POST", sdkId: "Redshift Data", sigV4ServiceName: "redshift-data", name: "RedshiftData.ListSchemas" }, ListSchemasRequest, ListSchemasResponse, [DatabaseConnectionException, InternalServerException, QueryTimeoutException, ResourceNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listSchemas = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-20", sdkId: "Redshift Data", sigV4ServiceName: "redshift-data", name: "RedshiftData.ListSchemas" }, ListSchemasRequest, ListSchemasResponse, [DatabaseConnectionException, InternalServerException, QueryTimeoutException, ResourceNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * List of SQL statements. By default, only finished statements are shown. A token is returned to page through the statement list.
  * 
  * When you use identity-enhanced role sessions to list statements, you must provide either the `cluster-identifier` or `workgroup-name` parameter. This ensures that the IdC user can only access the Amazon Redshift IdC applications they are assigned. For more information, see Trusted identity propagation overview.
  * 
  * For more information about the Amazon Redshift Data API and CLI usage examples, see Using the Amazon Redshift Data API in the *Amazon Redshift Management Guide*.
- */export const listStatements = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-20", uri: "/", method: "POST", sdkId: "Redshift Data", sigV4ServiceName: "redshift-data", name: "RedshiftData.ListStatements" }, ListStatementsRequest, ListStatementsResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listStatements = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-20", sdkId: "Redshift Data", sigV4ServiceName: "redshift-data", name: "RedshiftData.ListStatements" }, ListStatementsRequest, ListStatementsResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * List the tables in a database. If neither `SchemaPattern` nor `TablePattern` are specified, then all tables in the database are returned. A token is returned to page through the table list. Depending on the authorization method, use one of the following combinations of request parameters:
  * 
@@ -143,17 +143,17 @@ export class BatchExecuteStatementException extends S.TaggedError<BatchExecuteSt
  * 
  * 
  * For more information about the Amazon Redshift Data API and CLI usage examples, see Using the Amazon Redshift Data API in the *Amazon Redshift Management Guide*.
- */export const listTables = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-20", uri: "/", method: "POST", sdkId: "Redshift Data", sigV4ServiceName: "redshift-data", name: "RedshiftData.ListTables" }, ListTablesRequest, ListTablesResponse, [DatabaseConnectionException, InternalServerException, QueryTimeoutException, ResourceNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTables = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-20", sdkId: "Redshift Data", sigV4ServiceName: "redshift-data", name: "RedshiftData.ListTables" }, ListTablesRequest, ListTablesResponse, [DatabaseConnectionException, InternalServerException, QueryTimeoutException, ResourceNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Cancels a running query. To be canceled, a query must be running.
  * 
  * For more information about the Amazon Redshift Data API and CLI usage examples, see Using the Amazon Redshift Data API in the *Amazon Redshift Management Guide*.
- */export const cancelStatement = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-20", uri: "/", method: "POST", sdkId: "Redshift Data", sigV4ServiceName: "redshift-data", name: "RedshiftData.CancelStatement" }, CancelStatementRequest, CancelStatementResponse, [DatabaseConnectionException, InternalServerException, QueryTimeoutException, ResourceNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const cancelStatement = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-20", sdkId: "Redshift Data", sigV4ServiceName: "redshift-data", name: "RedshiftData.CancelStatement" }, CancelStatementRequest, CancelStatementResponse, [DatabaseConnectionException, InternalServerException, QueryTimeoutException, ResourceNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes the details about a specific instance when a query was run by the Amazon Redshift Data API. The information includes when the query started, when it finished, the query status, the number of rows returned, and the SQL statement.
  * 
  * For more information about the Amazon Redshift Data API and CLI usage examples, see Using the Amazon Redshift Data API in the *Amazon Redshift Management Guide*.
- */export const describeStatement = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-20", uri: "/", method: "POST", sdkId: "Redshift Data", sigV4ServiceName: "redshift-data", name: "RedshiftData.DescribeStatement" }, DescribeStatementRequest, DescribeStatementResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeStatement = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-20", sdkId: "Redshift Data", sigV4ServiceName: "redshift-data", name: "RedshiftData.DescribeStatement" }, DescribeStatementRequest, DescribeStatementResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Runs an SQL statement, which can be data manipulation language (DML) or data definition language (DDL). This statement must be a single SQL statement. Depending on the authorization method, use one of the following combinations of request parameters:
  * 
@@ -170,7 +170,7 @@ export class BatchExecuteStatementException extends S.TaggedError<BatchExecuteSt
  * 
  * 
  * For more information about the Amazon Redshift Data API and CLI usage examples, see Using the Amazon Redshift Data API in the *Amazon Redshift Management Guide*.
- */export const executeStatement = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-20", uri: "/", method: "POST", sdkId: "Redshift Data", sigV4ServiceName: "redshift-data", name: "RedshiftData.ExecuteStatement" }, ExecuteStatementInput, ExecuteStatementOutput, [ActiveSessionsExceededException, ActiveStatementsExceededException, ExecuteStatementException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const executeStatement = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-20", sdkId: "Redshift Data", sigV4ServiceName: "redshift-data", name: "RedshiftData.ExecuteStatement" }, ExecuteStatementInput, ExecuteStatementOutput, [ActiveSessionsExceededException, ActiveStatementsExceededException, ExecuteStatementException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Runs one or more SQL statements, which can be data manipulation language (DML) or data definition language (DDL). Depending on the authorization method, use one of the following combinations of request parameters:
  * 
@@ -187,4 +187,4 @@ export class BatchExecuteStatementException extends S.TaggedError<BatchExecuteSt
  * 
  * 
  * For more information about the Amazon Redshift Data API and CLI usage examples, see Using the Amazon Redshift Data API in the *Amazon Redshift Management Guide*.
- */export const batchExecuteStatement = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-20", uri: "/", method: "POST", sdkId: "Redshift Data", sigV4ServiceName: "redshift-data", name: "RedshiftData.BatchExecuteStatement" }, BatchExecuteStatementInput, BatchExecuteStatementOutput, [ActiveSessionsExceededException, ActiveStatementsExceededException, BatchExecuteStatementException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const batchExecuteStatement = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-12-20", sdkId: "Redshift Data", sigV4ServiceName: "redshift-data", name: "RedshiftData.BatchExecuteStatement" }, BatchExecuteStatementInput, BatchExecuteStatementOutput, [ActiveSessionsExceededException, ActiveStatementsExceededException, BatchExecuteStatementException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

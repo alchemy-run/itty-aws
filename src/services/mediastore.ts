@@ -79,35 +79,35 @@ export class LimitExceededException extends S.TaggedError<LimitExceededException
  * For this release of the REST API, you can create only one policy for a container. If
  * you enter `PutContainerPolicy` twice, the second command modifies the existing
  * policy.
- */export const putContainerPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-01", uri: "/", method: "POST", sdkId: "MediaStore", sigV4ServiceName: "mediastore", name: "MediaStore_20170901.PutContainerPolicy" }, PutContainerPolicyInput, PutContainerPolicyOutput, [ContainerInUseException, ContainerNotFoundException, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putContainerPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-01", sdkId: "MediaStore", sigV4ServiceName: "mediastore", name: "MediaStore_20170901.PutContainerPolicy" }, PutContainerPolicyInput, PutContainerPolicyOutput, [ContainerInUseException, ContainerNotFoundException, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Writes an object lifecycle policy to a container. If the container already has an object lifecycle policy, the service replaces the existing policy with the new policy. It takes up to 20 minutes for the change to take effect.
  * 
  * 
  * For information about how to construct an object lifecycle policy, see Components of an Object Lifecycle Policy.
- */export const putLifecyclePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-01", uri: "/", method: "POST", sdkId: "MediaStore", sigV4ServiceName: "mediastore", name: "MediaStore_20170901.PutLifecyclePolicy" }, PutLifecyclePolicyInput, PutLifecyclePolicyOutput, [ContainerInUseException, ContainerNotFoundException, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putLifecyclePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-01", sdkId: "MediaStore", sigV4ServiceName: "mediastore", name: "MediaStore_20170901.PutLifecyclePolicy" }, PutLifecyclePolicyInput, PutLifecyclePolicyOutput, [ContainerInUseException, ContainerNotFoundException, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts access logging on the specified container. When you enable access logging on a container, MediaStore delivers access logs for objects stored in that container to Amazon CloudWatch Logs.
- */export const startAccessLogging = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-01", uri: "/", method: "POST", sdkId: "MediaStore", sigV4ServiceName: "mediastore", name: "MediaStore_20170901.StartAccessLogging" }, StartAccessLoggingInput, StartAccessLoggingOutput, [ContainerInUseException, ContainerNotFoundException, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startAccessLogging = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-01", sdkId: "MediaStore", sigV4ServiceName: "mediastore", name: "MediaStore_20170901.StartAccessLogging" }, StartAccessLoggingInput, StartAccessLoggingOutput, [ContainerInUseException, ContainerNotFoundException, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Stops access logging on the specified container. When you stop access logging on a container, MediaStore stops sending access logs to Amazon CloudWatch Logs. These access logs are not saved and are not retrievable.
- */export const stopAccessLogging = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-01", uri: "/", method: "POST", sdkId: "MediaStore", sigV4ServiceName: "mediastore", name: "MediaStore_20170901.StopAccessLogging" }, StopAccessLoggingInput, StopAccessLoggingOutput, [ContainerInUseException, ContainerNotFoundException, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const stopAccessLogging = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-01", sdkId: "MediaStore", sigV4ServiceName: "mediastore", name: "MediaStore_20170901.StopAccessLogging" }, StopAccessLoggingInput, StopAccessLoggingOutput, [ContainerInUseException, ContainerNotFoundException, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds tags to the specified AWS Elemental MediaStore container. Tags are key:value pairs that you can associate with AWS resources. For example, the
  * tag key might be "customer" and the tag value might be "companyA." You can specify one or more tags to add to each container. You can add up to 50
  * tags to each container. For more information about tagging, including naming and usage conventions, see Tagging Resources in MediaStore.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-01", uri: "/", method: "POST", sdkId: "MediaStore", sigV4ServiceName: "mediastore", name: "MediaStore_20170901.TagResource" }, TagResourceInput, TagResourceOutput, [ContainerInUseException, ContainerNotFoundException, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-01", sdkId: "MediaStore", sigV4ServiceName: "mediastore", name: "MediaStore_20170901.TagResource" }, TagResourceInput, TagResourceOutput, [ContainerInUseException, ContainerNotFoundException, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes tags from the specified container. You can specify one or more tags to remove.
- */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-01", uri: "/", method: "POST", sdkId: "MediaStore", sigV4ServiceName: "mediastore", name: "MediaStore_20170901.UntagResource" }, UntagResourceInput, UntagResourceOutput, [ContainerInUseException, ContainerNotFoundException, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-01", sdkId: "MediaStore", sigV4ServiceName: "mediastore", name: "MediaStore_20170901.UntagResource" }, UntagResourceInput, UntagResourceOutput, [ContainerInUseException, ContainerNotFoundException, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified container. Before you make a `DeleteContainer`
  * request, delete any objects in the container or in any folders in the container. You can
  * delete only empty containers.
- */export const deleteContainer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-01", uri: "/", method: "POST", sdkId: "MediaStore", sigV4ServiceName: "mediastore", name: "MediaStore_20170901.DeleteContainer" }, DeleteContainerInput, DeleteContainerOutput, [ContainerInUseException, ContainerNotFoundException, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteContainer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-01", sdkId: "MediaStore", sigV4ServiceName: "mediastore", name: "MediaStore_20170901.DeleteContainer" }, DeleteContainerInput, DeleteContainerOutput, [ContainerInUseException, ContainerNotFoundException, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the access policy that is associated with the specified container.
- */export const deleteContainerPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-01", uri: "/", method: "POST", sdkId: "MediaStore", sigV4ServiceName: "mediastore", name: "MediaStore_20170901.DeleteContainerPolicy" }, DeleteContainerPolicyInput, DeleteContainerPolicyOutput, [ContainerInUseException, ContainerNotFoundException, InternalServerError, PolicyNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteContainerPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-01", sdkId: "MediaStore", sigV4ServiceName: "mediastore", name: "MediaStore_20170901.DeleteContainerPolicy" }, DeleteContainerPolicyInput, DeleteContainerPolicyOutput, [ContainerInUseException, ContainerNotFoundException, InternalServerError, PolicyNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the cross-origin resource sharing (CORS) configuration information that is
  * set for the container.
@@ -116,18 +116,18 @@ export class LimitExceededException extends S.TaggedError<LimitExceededException
  * To use this operation, you must have permission to perform the
  * `MediaStore:DeleteCorsPolicy` action. The container owner has this permission
  * by default and can grant this permission to others.
- */export const deleteCorsPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-01", uri: "/", method: "POST", sdkId: "MediaStore", sigV4ServiceName: "mediastore", name: "MediaStore_20170901.DeleteCorsPolicy" }, DeleteCorsPolicyInput, DeleteCorsPolicyOutput, [ContainerInUseException, ContainerNotFoundException, CorsPolicyNotFoundException, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteCorsPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-01", sdkId: "MediaStore", sigV4ServiceName: "mediastore", name: "MediaStore_20170901.DeleteCorsPolicy" }, DeleteCorsPolicyInput, DeleteCorsPolicyOutput, [ContainerInUseException, ContainerNotFoundException, CorsPolicyNotFoundException, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes an object lifecycle policy from a container. It takes up to 20 minutes for the change to take effect.
- */export const deleteLifecyclePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-01", uri: "/", method: "POST", sdkId: "MediaStore", sigV4ServiceName: "mediastore", name: "MediaStore_20170901.DeleteLifecyclePolicy" }, DeleteLifecyclePolicyInput, DeleteLifecyclePolicyOutput, [ContainerInUseException, ContainerNotFoundException, InternalServerError, PolicyNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteLifecyclePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-01", sdkId: "MediaStore", sigV4ServiceName: "mediastore", name: "MediaStore_20170901.DeleteLifecyclePolicy" }, DeleteLifecyclePolicyInput, DeleteLifecyclePolicyOutput, [ContainerInUseException, ContainerNotFoundException, InternalServerError, PolicyNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the metric policy that is associated with the specified container. If there is no metric policy associated with the container, MediaStore doesn't send metrics to CloudWatch.
- */export const deleteMetricPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-01", uri: "/", method: "POST", sdkId: "MediaStore", sigV4ServiceName: "mediastore", name: "MediaStore_20170901.DeleteMetricPolicy" }, DeleteMetricPolicyInput, DeleteMetricPolicyOutput, [ContainerInUseException, ContainerNotFoundException, InternalServerError, PolicyNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteMetricPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-01", sdkId: "MediaStore", sigV4ServiceName: "mediastore", name: "MediaStore_20170901.DeleteMetricPolicy" }, DeleteMetricPolicyInput, DeleteMetricPolicyOutput, [ContainerInUseException, ContainerNotFoundException, InternalServerError, PolicyNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the access policy for the specified container. For information about the
  * data that is included in an access policy, see the AWS Identity and Access Management User
  * Guide.
- */export const getContainerPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-01", uri: "/", method: "POST", sdkId: "MediaStore", sigV4ServiceName: "mediastore", name: "MediaStore_20170901.GetContainerPolicy" }, GetContainerPolicyInput, GetContainerPolicyOutput, [ContainerInUseException, ContainerNotFoundException, InternalServerError, PolicyNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getContainerPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-01", sdkId: "MediaStore", sigV4ServiceName: "mediastore", name: "MediaStore_20170901.GetContainerPolicy" }, GetContainerPolicyInput, GetContainerPolicyOutput, [ContainerInUseException, ContainerNotFoundException, InternalServerError, PolicyNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the cross-origin resource sharing (CORS) configuration information that is
  * set for the container.
@@ -136,13 +136,13 @@ export class LimitExceededException extends S.TaggedError<LimitExceededException
  * To use this operation, you must have permission to perform the
  * `MediaStore:GetCorsPolicy` action. By default, the container owner has this
  * permission and can grant it to others.
- */export const getCorsPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-01", uri: "/", method: "POST", sdkId: "MediaStore", sigV4ServiceName: "mediastore", name: "MediaStore_20170901.GetCorsPolicy" }, GetCorsPolicyInput, GetCorsPolicyOutput, [ContainerInUseException, ContainerNotFoundException, CorsPolicyNotFoundException, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getCorsPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-01", sdkId: "MediaStore", sigV4ServiceName: "mediastore", name: "MediaStore_20170901.GetCorsPolicy" }, GetCorsPolicyInput, GetCorsPolicyOutput, [ContainerInUseException, ContainerNotFoundException, CorsPolicyNotFoundException, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the object lifecycle policy that is assigned to a container.
- */export const getLifecyclePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-01", uri: "/", method: "POST", sdkId: "MediaStore", sigV4ServiceName: "mediastore", name: "MediaStore_20170901.GetLifecyclePolicy" }, GetLifecyclePolicyInput, GetLifecyclePolicyOutput, [ContainerInUseException, ContainerNotFoundException, InternalServerError, PolicyNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getLifecyclePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-01", sdkId: "MediaStore", sigV4ServiceName: "mediastore", name: "MediaStore_20170901.GetLifecyclePolicy" }, GetLifecyclePolicyInput, GetLifecyclePolicyOutput, [ContainerInUseException, ContainerNotFoundException, InternalServerError, PolicyNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the metric policy for the specified container.
- */export const getMetricPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-01", uri: "/", method: "POST", sdkId: "MediaStore", sigV4ServiceName: "mediastore", name: "MediaStore_20170901.GetMetricPolicy" }, GetMetricPolicyInput, GetMetricPolicyOutput, [ContainerInUseException, ContainerNotFoundException, InternalServerError, PolicyNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getMetricPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-01", sdkId: "MediaStore", sigV4ServiceName: "mediastore", name: "MediaStore_20170901.GetMetricPolicy" }, GetMetricPolicyInput, GetMetricPolicyOutput, [ContainerInUseException, ContainerNotFoundException, InternalServerError, PolicyNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the properties of all containers in AWS Elemental MediaStore.
  * 
@@ -157,10 +157,10 @@ export class LimitExceededException extends S.TaggedError<LimitExceededException
  * 
  * See also DescribeContainer, which gets the properties of one
  * container.
- */export const listContainers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-01", uri: "/", method: "POST", sdkId: "MediaStore", sigV4ServiceName: "mediastore", name: "MediaStore_20170901.ListContainers" }, ListContainersInput, ListContainersOutput, [InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listContainers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-01", sdkId: "MediaStore", sigV4ServiceName: "mediastore", name: "MediaStore_20170901.ListContainers" }, ListContainersInput, ListContainersOutput, [InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of the tags assigned to the specified container.
- */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-01", uri: "/", method: "POST", sdkId: "MediaStore", sigV4ServiceName: "mediastore", name: "MediaStore_20170901.ListTagsForResource" }, ListTagsForResourceInput, ListTagsForResourceOutput, [ContainerInUseException, ContainerNotFoundException, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-01", sdkId: "MediaStore", sigV4ServiceName: "mediastore", name: "MediaStore_20170901.ListTagsForResource" }, ListTagsForResourceInput, ListTagsForResourceOutput, [ContainerInUseException, ContainerNotFoundException, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Sets the cross-origin resource sharing (CORS) configuration on a container so that
  * the container can service cross-origin requests. For example, you might want to enable a
@@ -177,7 +177,7 @@ export class LimitExceededException extends S.TaggedError<LimitExceededException
  * 
  * 
  * To learn more about CORS, see Cross-Origin Resource Sharing (CORS) in AWS Elemental MediaStore.
- */export const putCorsPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-01", uri: "/", method: "POST", sdkId: "MediaStore", sigV4ServiceName: "mediastore", name: "MediaStore_20170901.PutCorsPolicy" }, PutCorsPolicyInput, PutCorsPolicyOutput, [ContainerInUseException, ContainerNotFoundException, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putCorsPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-01", sdkId: "MediaStore", sigV4ServiceName: "mediastore", name: "MediaStore_20170901.PutCorsPolicy" }, PutCorsPolicyInput, PutCorsPolicyOutput, [ContainerInUseException, ContainerNotFoundException, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the properties of the requested container. This request is commonly used to
  * retrieve the endpoint of a container. An endpoint is a value assigned by the service when a
@@ -186,11 +186,11 @@ export class LimitExceededException extends S.TaggedError<LimitExceededException
  * `Container` object based on `ContainerName`. To return all
  * `Container` objects that are associated with a specified AWS account, use
  * ListContainers.
- */export const describeContainer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-01", uri: "/", method: "POST", sdkId: "MediaStore", sigV4ServiceName: "mediastore", name: "MediaStore_20170901.DescribeContainer" }, DescribeContainerInput, DescribeContainerOutput, [ContainerNotFoundException, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeContainer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-01", sdkId: "MediaStore", sigV4ServiceName: "mediastore", name: "MediaStore_20170901.DescribeContainer" }, DescribeContainerInput, DescribeContainerOutput, [ContainerNotFoundException, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The metric policy that you want to add to the container. A metric policy allows AWS Elemental MediaStore to send metrics to Amazon CloudWatch. It takes up to 20 minutes for the new policy to take effect.
- */export const putMetricPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-01", uri: "/", method: "POST", sdkId: "MediaStore", sigV4ServiceName: "mediastore", name: "MediaStore_20170901.PutMetricPolicy" }, PutMetricPolicyInput, PutMetricPolicyOutput, [ContainerInUseException, ContainerNotFoundException, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putMetricPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-01", sdkId: "MediaStore", sigV4ServiceName: "mediastore", name: "MediaStore_20170901.PutMetricPolicy" }, PutMetricPolicyInput, PutMetricPolicyOutput, [ContainerInUseException, ContainerNotFoundException, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a storage container to hold objects. A container is similar to a bucket in
  * the Amazon S3 service.
- */export const createContainer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-01", uri: "/", method: "POST", sdkId: "MediaStore", sigV4ServiceName: "mediastore", name: "MediaStore_20170901.CreateContainer" }, CreateContainerInput, CreateContainerOutput, [ContainerInUseException, InternalServerError, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createContainer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-01", sdkId: "MediaStore", sigV4ServiceName: "mediastore", name: "MediaStore_20170901.CreateContainer" }, CreateContainerInput, CreateContainerOutput, [ContainerInUseException, InternalServerError, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

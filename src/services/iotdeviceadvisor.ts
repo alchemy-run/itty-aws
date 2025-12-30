@@ -95,13 +95,13 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * 
  * Requires permission to access the StopSuiteRun action.
- */export const stopSuiteRun = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-09-18", uri: "/suiteDefinitions/{suiteDefinitionId}/suiteRuns/{suiteRunId}/stop", method: "POST", sdkId: "IotDeviceAdvisor", sigV4ServiceName: "iotdeviceadvisor", name: "IotSenateService.StopSuiteRun" }, StopSuiteRunRequest, StopSuiteRunResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const stopSuiteRun = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-09-18", uri: "/suiteDefinitions/{suiteDefinitionId}/suiteRuns/{suiteRunId}/stop", sdkId: "IotDeviceAdvisor", sigV4ServiceName: "iotdeviceadvisor", name: "IotSenateService.StopSuiteRun" }, StopSuiteRunRequest, StopSuiteRunResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds to and modifies existing tags of an IoT Device Advisor resource.
  * 
  * 
  * Requires permission to access the TagResource action.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-09-18", uri: "/tags/{resourceArn}", method: "POST", sdkId: "IotDeviceAdvisor", sigV4ServiceName: "iotdeviceadvisor", name: "IotSenateService.TagResource" }, TagResourceRequest, TagResourceResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-09-18", uri: "/tags/{resourceArn}", sdkId: "IotDeviceAdvisor", sigV4ServiceName: "iotdeviceadvisor", name: "IotSenateService.TagResource" }, TagResourceRequest, TagResourceResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates a Device Advisor test suite.
  * 
@@ -126,13 +126,13 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * 
  * Requires permission to access the CreateSuiteDefinition action.
- */export const createSuiteDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-09-18", uri: "/suiteDefinitions", method: "POST", sdkId: "IotDeviceAdvisor", sigV4ServiceName: "iotdeviceadvisor", name: "IotSenateService.CreateSuiteDefinition" }, CreateSuiteDefinitionRequest, CreateSuiteDefinitionResponse, [InternalServerException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createSuiteDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-09-18", uri: "/suiteDefinitions", sdkId: "IotDeviceAdvisor", sigV4ServiceName: "iotdeviceadvisor", name: "IotSenateService.CreateSuiteDefinition" }, CreateSuiteDefinitionRequest, CreateSuiteDefinitionResponse, [InternalServerException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts a Device Advisor test suite run.
  * 
  * 
  * Requires permission to access the StartSuiteRun action.
- */export const startSuiteRun = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-09-18", uri: "/suiteDefinitions/{suiteDefinitionId}/suiteRuns", method: "POST", sdkId: "IotDeviceAdvisor", sigV4ServiceName: "iotdeviceadvisor", name: "IotSenateService.StartSuiteRun" }, StartSuiteRunRequest, StartSuiteRunResponse, [ConflictException, InternalServerException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startSuiteRun = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-09-18", uri: "/suiteDefinitions/{suiteDefinitionId}/suiteRuns", sdkId: "IotDeviceAdvisor", sigV4ServiceName: "iotdeviceadvisor", name: "IotSenateService.StartSuiteRun" }, StartSuiteRunRequest, StartSuiteRunResponse, [ConflictException, InternalServerException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets information about a Device Advisor test suite run.
  * 

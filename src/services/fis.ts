@@ -180,7 +180,7 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 //# Operations
 /**
  * Applies the specified tags to the specified resource.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/tags/{resourceArn}", method: "POST", sdkId: "fis", sigV4ServiceName: "fis", name: "FaultInjectionSimulator.TagResource" }, TagResourceRequest, TagResourceResponse, []), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/tags/{resourceArn}", sdkId: "fis", sigV4ServiceName: "fis", name: "FaultInjectionSimulator.TagResource" }, TagResourceRequest, TagResourceResponse, []), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes the specified tags from the specified resource.
  */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/tags/{resourceArn}", method: "DELETE", sdkId: "fis", sigV4ServiceName: "fis", name: "FaultInjectionSimulator.UntagResource" }, UntagResourceRequest, UntagResourceResponse, []), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -231,7 +231,7 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * is required when `accountTargeting` of `experimentOptions` is set to `multi-account`.
  * For more information, see experiment options
  * in the *Fault Injection Service User Guide*.
- */export const createTargetAccountConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/experimentTemplates/{experimentTemplateId}/targetAccountConfigurations/{accountId}", method: "POST", sdkId: "fis", sigV4ServiceName: "fis", name: "FaultInjectionSimulator.CreateTargetAccountConfiguration" }, CreateTargetAccountConfigurationRequest, CreateTargetAccountConfigurationResponse, [ConflictException, ResourceNotFoundException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createTargetAccountConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/experimentTemplates/{experimentTemplateId}/targetAccountConfigurations/{accountId}", sdkId: "fis", sigV4ServiceName: "fis", name: "FaultInjectionSimulator.CreateTargetAccountConfiguration" }, CreateTargetAccountConfigurationRequest, CreateTargetAccountConfigurationResponse, [ConflictException, ResourceNotFoundException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets information about the specified safety lever.
  */export const getSafetyLever = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/safetyLevers/{id}", method: "GET", sdkId: "fis", sigV4ServiceName: "fis", name: "FaultInjectionSimulator.GetSafetyLever" }, GetSafetyLeverRequest, GetSafetyLeverResponse, [ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -240,7 +240,7 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  */export const listExperimentResolvedTargets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/experiments/{experimentId}/resolvedTargets", method: "GET", sdkId: "fis", sigV4ServiceName: "fis", name: "FaultInjectionSimulator.ListExperimentResolvedTargets" }, ListExperimentResolvedTargetsRequest, ListExperimentResolvedTargetsResponse, [ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts running an experiment from the specified experiment template.
- */export const startExperiment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/experiments", method: "POST", sdkId: "fis", sigV4ServiceName: "fis", name: "FaultInjectionSimulator.StartExperiment" }, StartExperimentRequest, StartExperimentResponse, [ConflictException, ResourceNotFoundException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startExperiment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/experiments", sdkId: "fis", sigV4ServiceName: "fis", name: "FaultInjectionSimulator.StartExperiment" }, StartExperimentRequest, StartExperimentResponse, [ConflictException, ResourceNotFoundException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the specified experiment template.
  */export const updateExperimentTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/experimentTemplates/{id}", method: "PATCH", sdkId: "fis", sigV4ServiceName: "fis", name: "FaultInjectionSimulator.UpdateExperimentTemplate" }, UpdateExperimentTemplateRequest, UpdateExperimentTemplateResponse, [ResourceNotFoundException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -273,7 +273,7 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * 
  * For more information, see experiment templates
  * in the *Fault Injection Service User Guide*.
- */export const createExperimentTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/experimentTemplates", method: "POST", sdkId: "fis", sigV4ServiceName: "fis", name: "FaultInjectionSimulator.CreateExperimentTemplate" }, CreateExperimentTemplateRequest, CreateExperimentTemplateResponse, [ConflictException, ResourceNotFoundException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createExperimentTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/experimentTemplates", sdkId: "fis", sigV4ServiceName: "fis", name: "FaultInjectionSimulator.CreateExperimentTemplate" }, CreateExperimentTemplateRequest, CreateExperimentTemplateResponse, [ConflictException, ResourceNotFoundException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets information about the specified FIS action.
  */export const getAction = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-12-01", uri: "/actions/{id}", method: "GET", sdkId: "fis", sigV4ServiceName: "fis", name: "FaultInjectionSimulator.GetAction" }, GetActionRequest, GetActionResponse, [ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

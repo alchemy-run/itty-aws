@@ -52,7 +52,7 @@ export class LimitExceededException extends S.TaggedError<LimitExceededException
  * 
  * 
  * You can call `ListStreams` at a maximum rate of 5 times per second.
- */export const listStreams = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB Streams", sigV4ServiceName: "dynamodb", name: "DynamoDBStreams_20120810.ListStreams" }, ListStreamsInput, ListStreamsOutput, [InternalServerError, ResourceNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listStreams = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", sdkId: "DynamoDB Streams", sigV4ServiceName: "dynamodb", name: "DynamoDBStreams_20120810.ListStreams" }, ListStreamsInput, ListStreamsOutput, [InternalServerError, ResourceNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a shard iterator. A shard iterator provides information
  * about how to retrieve the stream records from within a shard. Use
@@ -64,7 +64,7 @@ export class LimitExceededException extends S.TaggedError<LimitExceededException
  * 
  * 
  * A shard iterator expires 15 minutes after it is returned to the requester.
- */export const getShardIterator = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB Streams", sigV4ServiceName: "dynamodb", name: "DynamoDBStreams_20120810.GetShardIterator" }, GetShardIteratorInput, GetShardIteratorOutput, [InternalServerError, ResourceNotFoundException, TrimmedDataAccessException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getShardIterator = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", sdkId: "DynamoDB Streams", sigV4ServiceName: "dynamodb", name: "DynamoDBStreams_20120810.GetShardIterator" }, GetShardIteratorInput, GetShardIteratorOutput, [InternalServerError, ResourceNotFoundException, TrimmedDataAccessException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about a stream, including the current status of the stream, its Amazon Resource Name (ARN), the composition of its shards, and its corresponding DynamoDB table.
  * 
@@ -81,7 +81,7 @@ export class LimitExceededException extends S.TaggedError<LimitExceededException
  * `EndingSequenceNumber`, then the shard is still open (able to receive more stream
  * records). If both `StartingSequenceNumber` and `EndingSequenceNumber`
  * are present, then that shard is closed and can no longer receive more data.
- */export const describeStream = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB Streams", sigV4ServiceName: "dynamodb", name: "DynamoDBStreams_20120810.DescribeStream" }, DescribeStreamInput, DescribeStreamOutput, [InternalServerError, ResourceNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeStream = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", sdkId: "DynamoDB Streams", sigV4ServiceName: "dynamodb", name: "DynamoDBStreams_20120810.DescribeStream" }, DescribeStreamInput, DescribeStreamOutput, [InternalServerError, ResourceNotFoundException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the stream records from a given shard.
  * 
@@ -98,4 +98,4 @@ export class LimitExceededException extends S.TaggedError<LimitExceededException
  * 
  * `GetRecords` can retrieve a maximum of 1 MB of data or 1000 stream records,
  * whichever comes first.
- */export const getRecords = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", uri: "/", method: "POST", sdkId: "DynamoDB Streams", sigV4ServiceName: "dynamodb", name: "DynamoDBStreams_20120810.GetRecords" }, GetRecordsInput, GetRecordsOutput, [ExpiredIteratorException, InternalServerError, LimitExceededException, ResourceNotFoundException, TrimmedDataAccessException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getRecords = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-08-10", sdkId: "DynamoDB Streams", sigV4ServiceName: "dynamodb", name: "DynamoDBStreams_20120810.GetRecords" }, GetRecordsInput, GetRecordsOutput, [ExpiredIteratorException, InternalServerError, LimitExceededException, ResourceNotFoundException, TrimmedDataAccessException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);

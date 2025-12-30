@@ -20,7 +20,7 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
 //# Operations
 /**
  * Adds tags to a resource.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-10-03", uri: "/tags/{arn}", method: "POST", sdkId: "ConnectCases", sigV4ServiceName: "cases", name: "AmazonConnectCases.TagResource" }, TagResourceRequest, S.Struct({}), [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-10-03", uri: "/tags/{arn}", sdkId: "ConnectCases", sigV4ServiceName: "cases", name: "AmazonConnectCases.TagResource" }, TagResourceRequest, S.Struct({}), [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Untags a resource.
  */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-10-03", uri: "/tags/{arn}", method: "DELETE", sdkId: "ConnectCases", sigV4ServiceName: "cases", name: "AmazonConnectCases.UntagResource" }, UntagResourceRequest, S.Struct({}), [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

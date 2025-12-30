@@ -68,7 +68,7 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * For more information about components, see
  * Proton components in the
  * *Proton User Guide*.
- */export const cancelComponentDeployment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-07-20", uri: "/", method: "POST", sdkId: "Proton", sigV4ServiceName: "proton", name: "AwsProton20200720.CancelComponentDeployment" }, CancelComponentDeploymentInput, CancelComponentDeploymentOutput, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const cancelComponentDeployment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-07-20", sdkId: "Proton", sigV4ServiceName: "proton", name: "AwsProton20200720.CancelComponentDeployment" }, CancelComponentDeploymentInput, CancelComponentDeploymentOutput, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Attempts to cancel a service instance deployment on an UpdateServiceInstance action, if the deployment is `IN_PROGRESS`. For
  * more information, see Update a service instance
@@ -92,7 +92,7 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * - If the current UpdateServiceInstance action succeeds before the
  * cancellation attempt starts, the resulting deployment state is `SUCCEEDED` and
  * the cancellation attempt has no effect.
- */export const cancelServiceInstanceDeployment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-07-20", uri: "/", method: "POST", sdkId: "Proton", sigV4ServiceName: "proton", name: "AwsProton20200720.CancelServiceInstanceDeployment" }, CancelServiceInstanceDeploymentInput, CancelServiceInstanceDeploymentOutput, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const cancelServiceInstanceDeployment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-07-20", sdkId: "Proton", sigV4ServiceName: "proton", name: "AwsProton20200720.CancelServiceInstanceDeployment" }, CancelServiceInstanceDeploymentInput, CancelServiceInstanceDeploymentOutput, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Attempts to cancel a service pipeline deployment on an UpdateServicePipeline action, if the deployment is `IN_PROGRESS`. For
  * more information, see Update a service pipeline
@@ -116,7 +116,7 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * - If the current UpdateServicePipeline action succeeds before the
  * cancellation attempt starts, the resulting deployment state is `SUCCEEDED` and
  * the cancellation attempt has no effect.
- */export const cancelServicePipelineDeployment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-07-20", uri: "/", method: "POST", sdkId: "Proton", sigV4ServiceName: "proton", name: "AwsProton20200720.CancelServicePipelineDeployment" }, CancelServicePipelineDeploymentInput, CancelServicePipelineDeploymentOutput, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const cancelServicePipelineDeployment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-07-20", sdkId: "Proton", sigV4ServiceName: "proton", name: "AwsProton20200720.CancelServicePipelineDeployment" }, CancelServicePipelineDeploymentInput, CancelServicePipelineDeploymentOutput, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Get counts of Proton resources.
  * 
@@ -136,31 +136,31 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * 
  * For more information, see Proton dashboard in the
  * *Proton User Guide*.
- */export const getResourcesSummary = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-07-20", uri: "/", method: "POST", sdkId: "Proton", sigV4ServiceName: "proton", name: "AwsProton20200720.GetResourcesSummary" }, GetResourcesSummaryInput, GetResourcesSummaryOutput, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getResourcesSummary = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-07-20", sdkId: "Proton", sigV4ServiceName: "proton", name: "AwsProton20200720.GetResourcesSummary" }, GetResourcesSummaryInput, GetResourcesSummaryOutput, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Get the status of a template sync.
- */export const getTemplateSyncStatus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-07-20", uri: "/", method: "POST", sdkId: "Proton", sigV4ServiceName: "proton", name: "AwsProton20200720.GetTemplateSyncStatus" }, GetTemplateSyncStatusInput, GetTemplateSyncStatusOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getTemplateSyncStatus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-07-20", sdkId: "Proton", sigV4ServiceName: "proton", name: "AwsProton20200720.GetTemplateSyncStatus" }, GetTemplateSyncStatusInput, GetTemplateSyncStatusOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * List repository sync definitions with detail data.
- */export const listRepositorySyncDefinitions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-07-20", uri: "/", method: "POST", sdkId: "Proton", sigV4ServiceName: "proton", name: "AwsProton20200720.ListRepositorySyncDefinitions" }, ListRepositorySyncDefinitionsInput, ListRepositorySyncDefinitionsOutput, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listRepositorySyncDefinitions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-07-20", sdkId: "Proton", sigV4ServiceName: "proton", name: "AwsProton20200720.ListRepositorySyncDefinitions" }, ListRepositorySyncDefinitionsInput, ListRepositorySyncDefinitionsOutput, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * List tags for a resource. For more information, see Proton
  * resources and tagging in the *Proton User Guide*.
- */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-07-20", uri: "/", method: "POST", sdkId: "Proton", sigV4ServiceName: "proton", name: "AwsProton20200720.ListTagsForResource" }, ListTagsForResourceInput, ListTagsForResourceOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-07-20", sdkId: "Proton", sigV4ServiceName: "proton", name: "AwsProton20200720.ListTagsForResource" }, ListTagsForResourceInput, ListTagsForResourceOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Tag a resource. A tag is a key-value pair of metadata that you associate with an Proton resource.
  * 
  * 
  * For more information, see Proton resources and tagging in
  * the *Proton User Guide*.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-07-20", uri: "/", method: "POST", sdkId: "Proton", sigV4ServiceName: "proton", name: "AwsProton20200720.TagResource" }, TagResourceInput, TagResourceOutput, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-07-20", sdkId: "Proton", sigV4ServiceName: "proton", name: "AwsProton20200720.TagResource" }, TagResourceInput, TagResourceOutput, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Remove a customer tag from a resource. A tag is a key-value pair of metadata associated with an Proton resource.
  * 
  * 
  * For more information, see Proton resources and tagging in
  * the *Proton User Guide*.
- */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-07-20", uri: "/", method: "POST", sdkId: "Proton", sigV4ServiceName: "proton", name: "AwsProton20200720.UntagResource" }, UntagResourceInput, UntagResourceOutput, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-07-20", sdkId: "Proton", sigV4ServiceName: "proton", name: "AwsProton20200720.UntagResource" }, UntagResourceInput, UntagResourceOutput, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Attempts to cancel an environment deployment on an UpdateEnvironment action, if the deployment is `IN_PROGRESS`. For more
  * information, see Update an environment in the Proton
@@ -181,7 +181,7 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * 
  * - If the current UpdateEnvironment action succeeds before the cancellation attempt starts, the resulting deployment state is
  * `SUCCEEDED` and the cancellation attempt has no effect.
- */export const cancelEnvironmentDeployment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-07-20", uri: "/", method: "POST", sdkId: "Proton", sigV4ServiceName: "proton", name: "AwsProton20200720.CancelEnvironmentDeployment" }, CancelEnvironmentDeploymentInput, CancelEnvironmentDeploymentOutput, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const cancelEnvironmentDeployment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-07-20", sdkId: "Proton", sigV4ServiceName: "proton", name: "AwsProton20200720.CancelEnvironmentDeployment" }, CancelEnvironmentDeploymentInput, CancelEnvironmentDeploymentOutput, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Get the sync status of a repository used for Proton template sync. For more information about template sync, see .
  * 
@@ -195,13 +195,13 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * 
  * For more information about ABAC, see ABAC in the Proton User
  * Guide.
- */export const getRepositorySyncStatus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-07-20", uri: "/", method: "POST", sdkId: "Proton", sigV4ServiceName: "proton", name: "AwsProton20200720.GetRepositorySyncStatus" }, GetRepositorySyncStatusInput, GetRepositorySyncStatusOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getRepositorySyncStatus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-07-20", sdkId: "Proton", sigV4ServiceName: "proton", name: "AwsProton20200720.GetRepositorySyncStatus" }, GetRepositorySyncStatusInput, GetRepositorySyncStatusOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Get the status of the synced service instance.
- */export const getServiceInstanceSyncStatus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-07-20", uri: "/", method: "POST", sdkId: "Proton", sigV4ServiceName: "proton", name: "AwsProton20200720.GetServiceInstanceSyncStatus" }, GetServiceInstanceSyncStatusInput, GetServiceInstanceSyncStatusOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getServiceInstanceSyncStatus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-07-20", sdkId: "Proton", sigV4ServiceName: "proton", name: "AwsProton20200720.GetServiceInstanceSyncStatus" }, GetServiceInstanceSyncStatusInput, GetServiceInstanceSyncStatusOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Notify Proton of status changes to a provisioned resource when you use self-managed provisioning.
  * 
  * 
  * For more information, see Self-managed provisioning in the *Proton User Guide*.
- */export const notifyResourceDeploymentStatusChange = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-07-20", uri: "/", method: "POST", sdkId: "Proton", sigV4ServiceName: "proton", name: "AwsProton20200720.NotifyResourceDeploymentStatusChange" }, NotifyResourceDeploymentStatusChangeInput, NotifyResourceDeploymentStatusChangeOutput, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const notifyResourceDeploymentStatusChange = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-07-20", sdkId: "Proton", sigV4ServiceName: "proton", name: "AwsProton20200720.NotifyResourceDeploymentStatusChange" }, NotifyResourceDeploymentStatusChangeInput, NotifyResourceDeploymentStatusChangeOutput, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);

@@ -386,7 +386,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * You must also have the following permissions: `sso:CreateApplication`, `sso:PutApplicationGrant`, and `sso:PutApplicationAuthenticationMethod`.
- */export const associateAccessGrantsIdentityCenter = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accessgrantsinstance/identitycenter", method: "POST", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.AssociateAccessGrantsIdentityCenter" }, AssociateAccessGrantsIdentityCenterRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const associateAccessGrantsIdentityCenter = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accessgrantsinstance/identitycenter", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.AssociateAccessGrantsIdentityCenter" }, AssociateAccessGrantsIdentityCenterRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Deletes the access grant from the S3 Access Grants instance. You cannot undo an access grant deletion and the grantee will no longer have access to the S3 data.
  * 
@@ -1076,7 +1076,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * For information about S3 Tagging errors, see List of Amazon S3 Tagging error codes.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/tags/{ResourceArn+}", method: "POST", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.TagResource" }, TagResourceRequest, TagResourceResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/tags/{ResourceArn+}", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.TagResource" }, TagResourceRequest, TagResourceResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * This operation removes the specified user-defined tags from an S3 resource. You can pass one or more tag keys.
  * 
@@ -1184,7 +1184,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * To associate an IAM Identity Center instance with your S3 Access Grants instance, you must also have the `sso:DescribeInstance`, `sso:CreateApplication`, `sso:PutApplicationGrant`, and `sso:PutApplicationAuthenticationMethod` permissions.
- */export const createAccessGrantsInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accessgrantsinstance", method: "POST", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.CreateAccessGrantsInstance" }, CreateAccessGrantsInstanceRequest, CreateAccessGrantsInstanceResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const createAccessGrantsInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accessgrantsinstance", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.CreateAccessGrantsInstance" }, CreateAccessGrantsInstanceRequest, CreateAccessGrantsInstanceResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * The S3 data location that you would like to register in your S3 Access Grants instance. Your S3 data must be in the same Region as your S3 Access Grants instance. The location can be one of the following:
  * 
@@ -1225,7 +1225,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * You must also have the following permission for the specified IAM role: `iam:PassRole`
- */export const createAccessGrantsLocation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accessgrantsinstance/location", method: "POST", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.CreateAccessGrantsLocation" }, CreateAccessGrantsLocationRequest, CreateAccessGrantsLocationResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const createAccessGrantsLocation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accessgrantsinstance/location", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.CreateAccessGrantsLocation" }, CreateAccessGrantsLocationRequest, CreateAccessGrantsLocationResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Get the details of an access grant from your S3 Access Grants instance.
  * 
@@ -2250,7 +2250,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * For directory groups - `identitystore:DescribeGroup`
- */export const createAccessGrant = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accessgrantsinstance/grant", method: "POST", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.CreateAccessGrant" }, CreateAccessGrantRequest, CreateAccessGrantResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const createAccessGrant = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/accessgrantsinstance/grant", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.CreateAccessGrant" }, CreateAccessGrantRequest, CreateAccessGrantResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Creates an access point and associates it to a specified bucket. For more information, see
  * Managing
@@ -2447,7 +2447,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * - ListMultiRegionAccessPoints
- */export const deleteMultiRegionAccessPoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/async-requests/mrap/delete", method: "POST", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.DeleteMultiRegionAccessPoint" }, DeleteMultiRegionAccessPointRequest, DeleteMultiRegionAccessPointResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const deleteMultiRegionAccessPoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/async-requests/mrap/delete", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.DeleteMultiRegionAccessPoint" }, DeleteMultiRegionAccessPointRequest, DeleteMultiRegionAccessPointResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Returns configuration information about the specified access point.
  * 
@@ -2821,7 +2821,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * - GetMultiRegionAccessPointPolicyStatus
- */export const putMultiRegionAccessPointPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/async-requests/mrap/put-policy", method: "POST", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.PutMultiRegionAccessPointPolicy" }, PutMultiRegionAccessPointPolicyRequest, PutMultiRegionAccessPointPolicyResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const putMultiRegionAccessPointPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/async-requests/mrap/put-policy", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.PutMultiRegionAccessPointPolicy" }, PutMultiRegionAccessPointPolicyRequest, PutMultiRegionAccessPointPolicyResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Updates an existing S3 Batch Operations job's priority. For more information, see S3 Batch Operations in the *Amazon S3 User Guide*.
  * 
@@ -2859,7 +2859,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * - UpdateJobStatus
- */export const updateJobPriority = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/jobs/{JobId}/priority", method: "POST", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.UpdateJobPriority" }, UpdateJobPriorityRequest, UpdateJobPriorityResult, [BadRequestException, InternalServiceException, NotFoundException, TooManyRequestsException]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const updateJobPriority = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/jobs/{JobId}/priority", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.UpdateJobPriority" }, UpdateJobPriorityRequest, UpdateJobPriorityResult, [BadRequestException, InternalServiceException, NotFoundException, TooManyRequestsException]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Updates the status for the specified job. Use this operation to confirm that you want to
  * run a job or to cancel an existing job. For more information, see S3 Batch Operations in the *Amazon S3 User Guide*.
@@ -2898,7 +2898,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * - UpdateJobStatus
- */export const updateJobStatus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/jobs/{JobId}/status", method: "POST", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.UpdateJobStatus" }, UpdateJobStatusRequest, UpdateJobStatusResult, [BadRequestException, InternalServiceException, JobStatusException, NotFoundException, TooManyRequestsException]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const updateJobStatus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/jobs/{JobId}/status", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.UpdateJobStatus" }, UpdateJobStatusRequest, UpdateJobStatusResult, [BadRequestException, InternalServiceException, JobStatusException, NotFoundException, TooManyRequestsException]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * This operation is not supported by directory buckets.
  * 
@@ -2940,7 +2940,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * - ListMultiRegionAccessPoints
- */export const createMultiRegionAccessPoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/async-requests/mrap/create", method: "POST", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.CreateMultiRegionAccessPoint" }, CreateMultiRegionAccessPointRequest, CreateMultiRegionAccessPointResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const createMultiRegionAccessPoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/async-requests/mrap/create", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.CreateMultiRegionAccessPoint" }, CreateMultiRegionAccessPointRequest, CreateMultiRegionAccessPointResult, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Creates a new S3 Storage Lens group and associates it with the specified Amazon Web Services account ID. An
  * S3 Storage Lens group is a custom grouping of objects based on prefix, suffix, object tags,
@@ -2959,7 +2959,7 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * For information about Storage Lens groups errors, see List of Amazon S3 Storage
  * Lens error codes.
- */export const createStorageLensGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/storagelensgroup", method: "POST", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.CreateStorageLensGroup" }, CreateStorageLensGroupRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const createStorageLensGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/storagelensgroup", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.CreateStorageLensGroup" }, CreateStorageLensGroupRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * This operation is not supported by directory buckets.
  * 
@@ -3369,4 +3369,4 @@ export class IdempotencyException extends S.TaggedError<IdempotencyException>()(
  * 
  * 
  * - JobOperation
- */export const createJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/jobs", method: "POST", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.CreateJob" }, CreateJobRequest, CreateJobResult, [BadRequestException, IdempotencyException, InternalServiceException, TooManyRequestsException]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const createJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-08-20", uri: "/v20180820/jobs", sdkId: "S3 Control", sigV4ServiceName: "s3", name: "AWSS3ControlServiceV20180820.CreateJob" }, CreateJobRequest, CreateJobResult, [BadRequestException, IdempotencyException, InternalServiceException, TooManyRequestsException]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);

@@ -38,7 +38,7 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
  * 
  * 
  * Amplify uses this action to exchange an access code for a token.
- */export const exchangeCodeForToken = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-08-11", uri: "/tokens/{provider}", method: "POST", sdkId: "AmplifyUIBuilder", sigV4ServiceName: "amplifyuibuilder", name: "AmplifyUIBuilder.ExchangeCodeForToken" }, ExchangeCodeForTokenRequest, ExchangeCodeForTokenResponse, [InvalidParameterException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const exchangeCodeForToken = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-08-11", uri: "/tokens/{provider}", sdkId: "AmplifyUIBuilder", sigV4ServiceName: "amplifyuibuilder", name: "AmplifyUIBuilder.ExchangeCodeForToken" }, ExchangeCodeForTokenRequest, ExchangeCodeForTokenResponse, [InvalidParameterException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns existing metadata for an Amplify app.
  */export const getMetadata = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-08-11", uri: "/app/{appId}/environment/{environmentName}/metadata", method: "GET", sdkId: "AmplifyUIBuilder", sigV4ServiceName: "amplifyuibuilder", name: "AmplifyUIBuilder.GetMetadata" }, GetMetadataRequest, GetMetadataResponse, [InvalidParameterException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -55,10 +55,10 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
  * 
  * 
  * Amplify uses this action to refresh a previously issued access token that might have expired.
- */export const refreshToken = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-08-11", uri: "/tokens/{provider}/refresh", method: "POST", sdkId: "AmplifyUIBuilder", sigV4ServiceName: "amplifyuibuilder", name: "AmplifyUIBuilder.RefreshToken" }, RefreshTokenRequest, RefreshTokenResponse, [InvalidParameterException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const refreshToken = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-08-11", uri: "/tokens/{provider}/refresh", sdkId: "AmplifyUIBuilder", sigV4ServiceName: "amplifyuibuilder", name: "AmplifyUIBuilder.RefreshToken" }, RefreshTokenRequest, RefreshTokenResponse, [InvalidParameterException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Tags the resource with a tag key and value.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-08-11", uri: "/tags/{resourceArn}", method: "POST", sdkId: "AmplifyUIBuilder", sigV4ServiceName: "amplifyuibuilder", name: "AmplifyUIBuilder.TagResource" }, TagResourceRequest, TagResourceResponse, [InternalServerException, InvalidParameterException, ResourceNotFoundException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-08-11", uri: "/tags/{resourceArn}", sdkId: "AmplifyUIBuilder", sigV4ServiceName: "amplifyuibuilder", name: "AmplifyUIBuilder.TagResource" }, TagResourceRequest, TagResourceResponse, [InternalServerException, InvalidParameterException, ResourceNotFoundException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Untags a resource with a specified Amazon Resource Name (ARN).
  */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-08-11", uri: "/tags/{resourceArn}", method: "DELETE", sdkId: "AmplifyUIBuilder", sigV4ServiceName: "amplifyuibuilder", name: "AmplifyUIBuilder.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [InternalServerException, InvalidParameterException, ResourceNotFoundException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

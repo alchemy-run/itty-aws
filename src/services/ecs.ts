@@ -438,14 +438,14 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * 
  * For CLI
  * examples, see describe-clusters.rst on GitHub.
- */export const describeClusters = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", uri: "/", method: "POST", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.DescribeClusters" }, DescribeClustersRequest, DescribeClustersResponse, [ClientException, InvalidParameterException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeClusters = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.DescribeClusters" }, DescribeClustersRequest, DescribeClustersResponse, [ClientException, InvalidParameterException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes one or more container instances. Returns metadata about each container
  * instance requested.
- */export const describeContainerInstances = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", uri: "/", method: "POST", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.DescribeContainerInstances" }, DescribeContainerInstancesRequest, DescribeContainerInstancesResponse, [ClientException, ClusterNotFoundException, InvalidParameterException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeContainerInstances = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.DescribeContainerInstances" }, DescribeContainerInstancesRequest, DescribeContainerInstancesResponse, [ClientException, ClusterNotFoundException, InvalidParameterException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes the specified services running in your cluster.
- */export const describeServices = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", uri: "/", method: "POST", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.DescribeServices" }, DescribeServicesRequest, DescribeServicesResponse, [ClientException, ClusterNotFoundException, InvalidParameterException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeServices = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.DescribeServices" }, DescribeServicesRequest, DescribeServicesResponse, [ClientException, ClusterNotFoundException, InvalidParameterException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes a task definition. You can specify a `family` and
  * `revision` to find information about a specific task definition, or you
@@ -457,7 +457,7 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * 
  * You can only describe `INACTIVE` task definitions while an active task
  * or service references them.
- */export const describeTaskDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", uri: "/", method: "POST", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.DescribeTaskDefinition" }, DescribeTaskDefinitionRequest, DescribeTaskDefinitionResponse, [ClientException, InvalidParameterException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeTaskDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.DescribeTaskDefinition" }, DescribeTaskDefinitionRequest, DescribeTaskDefinitionResponse, [ClientException, InvalidParameterException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This action is only used by the Amazon ECS agent, and it is not intended for use
  * outside of the agent.
@@ -466,10 +466,10 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * 
  * 
  * Returns an endpoint for the Amazon ECS agent to poll for updates.
- */export const discoverPollEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", uri: "/", method: "POST", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.DiscoverPollEndpoint" }, DiscoverPollEndpointRequest, DiscoverPollEndpointResponse, [ClientException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const discoverPollEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.DiscoverPollEndpoint" }, DiscoverPollEndpointRequest, DiscoverPollEndpointResponse, [ClientException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the account settings for a specified principal.
- */export const listAccountSettings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", uri: "/", method: "POST", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.ListAccountSettings" }, ListAccountSettingsRequest, ListAccountSettingsResponse, [ClientException, InvalidParameterException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listAccountSettings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.ListAccountSettings" }, ListAccountSettingsRequest, ListAccountSettingsResponse, [ClientException, InvalidParameterException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the attributes for Amazon ECS resources within a specified target type and
  * cluster. When you specify a target type and cluster, `ListAttributes` returns
@@ -478,23 +478,23 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * You can also filter the results by attribute name and value. You can do this, for
  * example, to see which container instances in a cluster are running a Linux AMI
  * (`ecs.os-type=linux`).
- */export const listAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", uri: "/", method: "POST", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.ListAttributes" }, ListAttributesRequest, ListAttributesResponse, [ClusterNotFoundException, InvalidParameterException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.ListAttributes" }, ListAttributesRequest, ListAttributesResponse, [ClusterNotFoundException, InvalidParameterException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of existing clusters.
- */export const listClusters = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", uri: "/", method: "POST", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.ListClusters" }, ListClustersRequest, ListClustersResponse, [ClientException, InvalidParameterException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listClusters = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.ListClusters" }, ListClustersRequest, ListClustersResponse, [ClientException, InvalidParameterException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of container instances in a specified cluster. You can filter the
  * results of a `ListContainerInstances` operation with cluster query language
  * statements inside the `filter` parameter. For more information, see Cluster Query Language in the Amazon Elastic
  * Container Service Developer Guide.
- */export const listContainerInstances = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", uri: "/", method: "POST", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.ListContainerInstances" }, ListContainerInstancesRequest, ListContainerInstancesResponse, [ClientException, ClusterNotFoundException, InvalidParameterException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listContainerInstances = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.ListContainerInstances" }, ListContainerInstancesRequest, ListContainerInstancesResponse, [ClientException, ClusterNotFoundException, InvalidParameterException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of services. You can filter the results by cluster, launch type, and
  * scheduling strategy.
- */export const listServices = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", uri: "/", method: "POST", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.ListServices" }, ListServicesRequest, ListServicesResponse, [ClientException, ClusterNotFoundException, InvalidParameterException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listServices = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.ListServices" }, ListServicesRequest, ListServicesResponse, [ClientException, ClusterNotFoundException, InvalidParameterException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * List the tags for an Amazon ECS resource.
- */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", uri: "/", method: "POST", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [ClientException, ClusterNotFoundException, InvalidParameterException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [ClientException, ClusterNotFoundException, InvalidParameterException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of task definition families that are registered to your account. This
  * list includes task definition families that no longer have any `ACTIVE` task
@@ -505,12 +505,12 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * task definition revisions by setting the `status` parameter to
  * `ACTIVE`. You can also filter the results with the
  * `familyPrefix` parameter.
- */export const listTaskDefinitionFamilies = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", uri: "/", method: "POST", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.ListTaskDefinitionFamilies" }, ListTaskDefinitionFamiliesRequest, ListTaskDefinitionFamiliesResponse, [ClientException, InvalidParameterException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTaskDefinitionFamilies = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.ListTaskDefinitionFamilies" }, ListTaskDefinitionFamiliesRequest, ListTaskDefinitionFamiliesResponse, [ClientException, InvalidParameterException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of task definitions that are registered to your account. You can filter
  * the results by family name with the `familyPrefix` parameter or by status
  * with the `status` parameter.
- */export const listTaskDefinitions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", uri: "/", method: "POST", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.ListTaskDefinitions" }, ListTaskDefinitionsRequest, ListTaskDefinitionsResponse, [ClientException, InvalidParameterException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTaskDefinitions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.ListTaskDefinitions" }, ListTaskDefinitionsRequest, ListTaskDefinitionsResponse, [ClientException, InvalidParameterException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Modifies an account setting. Account settings are set on a per-Region basis.
  * 
@@ -520,11 +520,11 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * see Account
  * Settings in the Amazon Elastic Container Service Developer
  * Guide.
- */export const putAccountSetting = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", uri: "/", method: "POST", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.PutAccountSetting" }, PutAccountSettingRequest, PutAccountSettingResponse, [ClientException, InvalidParameterException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putAccountSetting = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.PutAccountSetting" }, PutAccountSettingRequest, PutAccountSettingResponse, [ClientException, InvalidParameterException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Modifies an account setting for all users on an account for whom no individual account
  * setting has been specified. Account settings are set on a per-Region basis.
- */export const putAccountSettingDefault = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", uri: "/", method: "POST", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.PutAccountSettingDefault" }, PutAccountSettingDefaultRequest, PutAccountSettingDefaultResponse, [ClientException, InvalidParameterException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putAccountSettingDefault = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.PutAccountSettingDefault" }, PutAccountSettingDefaultRequest, PutAccountSettingDefaultResponse, [ClientException, InvalidParameterException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Stops a running task. Any tags associated with the task will be deleted.
  * 
@@ -550,16 +550,16 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * with the `ECS_CONTAINER_STOP_TIMEOUT` variable. For more information, see
  * Amazon ECS Container Agent Configuration in the
  * *Amazon Elastic Container Service Developer Guide*.
- */export const stopTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", uri: "/", method: "POST", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.StopTask" }, StopTaskRequest, StopTaskResponse, [ClientException, ClusterNotFoundException, InvalidParameterException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const stopTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.StopTask" }, StopTaskRequest, StopTaskResponse, [ClientException, ClusterNotFoundException, InvalidParameterException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes specified tags from a resource.
- */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", uri: "/", method: "POST", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [ClientException, ClusterNotFoundException, InvalidParameterException, ResourceNotFoundException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [ClientException, ClusterNotFoundException, InvalidParameterException, ResourceNotFoundException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the cluster.
- */export const updateCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", uri: "/", method: "POST", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.UpdateCluster" }, UpdateClusterRequest, UpdateClusterResponse, [ClientException, ClusterNotFoundException, InvalidParameterException, NamespaceNotFoundException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.UpdateCluster" }, UpdateClusterRequest, UpdateClusterResponse, [ClientException, ClusterNotFoundException, InvalidParameterException, NamespaceNotFoundException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Modifies the settings to use for a cluster.
- */export const updateClusterSettings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", uri: "/", method: "POST", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.UpdateClusterSettings" }, UpdateClusterSettingsRequest, UpdateClusterSettingsResponse, [ClientException, ClusterNotFoundException, InvalidParameterException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateClusterSettings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.UpdateClusterSettings" }, UpdateClusterSettingsRequest, UpdateClusterSettingsResponse, [ClientException, ClusterNotFoundException, InvalidParameterException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Modifies the status of an Amazon ECS container instance.
  * 
@@ -629,7 +629,7 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * When a container instance has been drained, you can set a container instance to
  * `ACTIVE` status and once it has reached that status the Amazon ECS
  * scheduler can begin scheduling tasks on the instance again.
- */export const updateContainerInstancesState = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", uri: "/", method: "POST", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.UpdateContainerInstancesState" }, UpdateContainerInstancesStateRequest, UpdateContainerInstancesStateResponse, [ClientException, ClusterNotFoundException, InvalidParameterException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateContainerInstancesState = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.UpdateContainerInstancesState" }, UpdateContainerInstancesStateRequest, UpdateContainerInstancesStateResponse, [ClientException, ClusterNotFoundException, InvalidParameterException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the protection status of a task. You can set `protectionEnabled` to
  * `true` to protect your task from termination during scale-in events from
@@ -671,17 +671,17 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * 
  * If you prefer to set task protection from within the container, we recommend using
  * the Task scale-in protection endpoint.
- */export const updateTaskProtection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", uri: "/", method: "POST", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.UpdateTaskProtection" }, UpdateTaskProtectionRequest, UpdateTaskProtectionResponse, [AccessDeniedException, ClientException, ClusterNotFoundException, InvalidParameterException, ResourceNotFoundException, ServerException, UnsupportedFeatureException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateTaskProtection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.UpdateTaskProtection" }, UpdateTaskProtectionRequest, UpdateTaskProtectionResponse, [AccessDeniedException, ClientException, ClusterNotFoundException, InvalidParameterException, ResourceNotFoundException, ServerException, UnsupportedFeatureException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Modifies a task set. This is used when a service uses the `EXTERNAL`
  * deployment controller type. For more information, see Amazon ECS Deployment
  * Types in the Amazon Elastic Container Service Developer
  * Guide.
- */export const updateTaskSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", uri: "/", method: "POST", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.UpdateTaskSet" }, UpdateTaskSetRequest, UpdateTaskSetResponse, [AccessDeniedException, ClientException, ClusterNotFoundException, InvalidParameterException, ServerException, ServiceNotActiveException, ServiceNotFoundException, TaskSetNotFoundException, UnsupportedFeatureException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateTaskSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.UpdateTaskSet" }, UpdateTaskSetRequest, UpdateTaskSetResponse, [AccessDeniedException, ClientException, ClusterNotFoundException, InvalidParameterException, ServerException, ServiceNotActiveException, ServiceNotFoundException, TaskSetNotFoundException, UnsupportedFeatureException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Disables an account setting for a specified user, role, or the root user for an
  * account.
- */export const deleteAccountSetting = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", uri: "/", method: "POST", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.DeleteAccountSetting" }, DeleteAccountSettingRequest, DeleteAccountSettingResponse, [ClientException, InvalidParameterException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteAccountSetting = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.DeleteAccountSetting" }, DeleteAccountSettingRequest, DeleteAccountSettingResponse, [ClientException, InvalidParameterException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes one or more task definitions.
  * 
@@ -713,7 +713,7 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * definition name is displayed in the console and returned in the API. The task definition
  * name is retained by Amazon ECS and the revision is incremented the next time you create
  * a task definition with that name.
- */export const deleteTaskDefinitions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", uri: "/", method: "POST", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.DeleteTaskDefinitions" }, DeleteTaskDefinitionsRequest, DeleteTaskDefinitionsResponse, [AccessDeniedException, ClientException, InvalidParameterException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteTaskDefinitions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.DeleteTaskDefinitions" }, DeleteTaskDefinitionsRequest, DeleteTaskDefinitionsResponse, [AccessDeniedException, ClientException, InvalidParameterException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deregisters the specified task definition by family and revision. Upon deregistration,
  * the task definition is marked as `INACTIVE`. Existing tasks and services that
@@ -741,10 +741,10 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * 
  * You must deregister a task definition revision before you delete it. For more
  * information, see DeleteTaskDefinitions.
- */export const deregisterTaskDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", uri: "/", method: "POST", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.DeregisterTaskDefinition" }, DeregisterTaskDefinitionRequest, DeregisterTaskDefinitionResponse, [ClientException, InvalidParameterException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deregisterTaskDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.DeregisterTaskDefinition" }, DeregisterTaskDefinitionRequest, DeregisterTaskDefinitionResponse, [ClientException, InvalidParameterException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes one or more of your capacity providers.
- */export const describeCapacityProviders = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", uri: "/", method: "POST", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.DescribeCapacityProviders" }, DescribeCapacityProvidersRequest, DescribeCapacityProvidersResponse, [ClientException, ClusterNotFoundException, InvalidParameterException, ServerException, UnsupportedFeatureException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeCapacityProviders = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.DescribeCapacityProviders" }, DescribeCapacityProvidersRequest, DescribeCapacityProvidersResponse, [ClientException, ClusterNotFoundException, InvalidParameterException, ServerException, UnsupportedFeatureException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves detailed information about an Express service, including current status,
  * configuration, managed infrastructure, and service revisions.
@@ -757,17 +757,17 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * 
  * Use the `include` parameter to retrieve additional information such as
  * resource tags.
- */export const describeExpressGatewayService = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", uri: "/", method: "POST", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.DescribeExpressGatewayService" }, DescribeExpressGatewayServiceRequest, DescribeExpressGatewayServiceResponse, [AccessDeniedException, ClientException, ClusterNotFoundException, InvalidParameterException, ResourceNotFoundException, ServerException, UnsupportedFeatureException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeExpressGatewayService = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.DescribeExpressGatewayService" }, DescribeExpressGatewayServiceRequest, DescribeExpressGatewayServiceResponse, [AccessDeniedException, ClientException, ClusterNotFoundException, InvalidParameterException, ResourceNotFoundException, ServerException, UnsupportedFeatureException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes the task sets in the specified cluster and service. This is used when a
  * service uses the `EXTERNAL` deployment controller type. For more information,
  * see Amazon ECS Deployment
  * Types in the Amazon Elastic Container Service Developer
  * Guide.
- */export const describeTaskSets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", uri: "/", method: "POST", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.DescribeTaskSets" }, DescribeTaskSetsRequest, DescribeTaskSetsResponse, [AccessDeniedException, ClientException, ClusterNotFoundException, InvalidParameterException, ServerException, ServiceNotActiveException, ServiceNotFoundException, UnsupportedFeatureException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeTaskSets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.DescribeTaskSets" }, DescribeTaskSetsRequest, DescribeTaskSetsResponse, [AccessDeniedException, ClientException, ClusterNotFoundException, InvalidParameterException, ServerException, ServiceNotActiveException, ServiceNotFoundException, UnsupportedFeatureException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the protection status of tasks in an Amazon ECS service.
- */export const getTaskProtection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", uri: "/", method: "POST", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.GetTaskProtection" }, GetTaskProtectionRequest, GetTaskProtectionResponse, [AccessDeniedException, ClientException, ClusterNotFoundException, InvalidParameterException, ResourceNotFoundException, ServerException, UnsupportedFeatureException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getTaskProtection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.GetTaskProtection" }, GetTaskProtectionRequest, GetTaskProtectionResponse, [AccessDeniedException, ClientException, ClusterNotFoundException, InvalidParameterException, ResourceNotFoundException, ServerException, UnsupportedFeatureException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This operation lists all of the services that are associated with a Cloud Map namespace.
  * This list might include services in different clusters. In contrast,
@@ -775,7 +775,7 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * need to filter the list of services in a single cluster by various parameters, use
  * `ListServices`. For more information, see Service Connect
  * in the *Amazon Elastic Container Service Developer Guide*.
- */export const listServicesByNamespace = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", uri: "/", method: "POST", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.ListServicesByNamespace" }, ListServicesByNamespaceRequest, ListServicesByNamespaceResponse, [ClientException, InvalidParameterException, NamespaceNotFoundException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listServicesByNamespace = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.ListServicesByNamespace" }, ListServicesByNamespaceRequest, ListServicesByNamespaceResponse, [ClientException, InvalidParameterException, NamespaceNotFoundException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of tasks. You can filter the results by cluster, task definition
  * family, container instance, launch type, what IAM principal started the task, or by the
@@ -783,13 +783,13 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * 
  * 
  * Recently stopped tasks might appear in the returned results.
- */export const listTasks = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", uri: "/", method: "POST", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.ListTasks" }, ListTasksRequest, ListTasksResponse, [ClientException, ClusterNotFoundException, InvalidParameterException, ServerException, ServiceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTasks = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.ListTasks" }, ListTasksRequest, ListTasksResponse, [ClientException, ClusterNotFoundException, InvalidParameterException, ServerException, ServiceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Create or update an attribute on an Amazon ECS resource. If the attribute doesn't
  * exist, it's created. If the attribute exists, its value is replaced with the specified
  * value. To delete an attribute, use DeleteAttributes. For more information, see Attributes in the Amazon Elastic Container
  * Service Developer Guide.
- */export const putAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", uri: "/", method: "POST", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.PutAttributes" }, PutAttributesRequest, PutAttributesResponse, [AttributeLimitExceededException, ClusterNotFoundException, InvalidParameterException, TargetNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.PutAttributes" }, PutAttributesRequest, PutAttributesResponse, [AttributeLimitExceededException, ClusterNotFoundException, InvalidParameterException, TargetNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This action is only used by the Amazon ECS agent, and it is not intended for use
  * outside of the agent.
@@ -799,7 +799,7 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * 
  * Registers an EC2 instance into the specified cluster. This instance becomes available
  * to place containers on.
- */export const registerContainerInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", uri: "/", method: "POST", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.RegisterContainerInstance" }, RegisterContainerInstanceRequest, RegisterContainerInstanceResponse, [ClientException, InvalidParameterException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const registerContainerInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.RegisterContainerInstance" }, RegisterContainerInstanceRequest, RegisterContainerInstanceResponse, [ClientException, InvalidParameterException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts a new task from the specified task definition on the specified container
  * instance or instances.
@@ -829,7 +829,7 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * You can attach Amazon EBS volumes to Amazon ECS tasks by configuring the volume when
  * creating or updating a service. For more information, see Amazon EBS volumes in the Amazon Elastic
  * Container Service Developer Guide.
- */export const startTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", uri: "/", method: "POST", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.StartTask" }, StartTaskRequest, StartTaskResponse, [ClientException, ClusterNotFoundException, InvalidParameterException, ServerException, UnsupportedFeatureException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.StartTask" }, StartTaskRequest, StartTaskResponse, [ClientException, ClusterNotFoundException, InvalidParameterException, ServerException, UnsupportedFeatureException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This action is only used by the Amazon ECS agent, and it is not intended for use
  * outside of the agent.
@@ -838,7 +838,7 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * 
  * 
  * Sent to acknowledge that an attachment changed states.
- */export const submitAttachmentStateChanges = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", uri: "/", method: "POST", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.SubmitAttachmentStateChanges" }, SubmitAttachmentStateChangesRequest, SubmitAttachmentStateChangesResponse, [AccessDeniedException, ClientException, InvalidParameterException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const submitAttachmentStateChanges = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.SubmitAttachmentStateChanges" }, SubmitAttachmentStateChangesRequest, SubmitAttachmentStateChangesResponse, [AccessDeniedException, ClientException, InvalidParameterException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This action is only used by the Amazon ECS agent, and it is not intended for use
  * outside of the agent.
@@ -847,7 +847,7 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * 
  * 
  * Sent to acknowledge that a container changed states.
- */export const submitContainerStateChange = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", uri: "/", method: "POST", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.SubmitContainerStateChange" }, SubmitContainerStateChangeRequest, SubmitContainerStateChangeResponse, [AccessDeniedException, ClientException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const submitContainerStateChange = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.SubmitContainerStateChange" }, SubmitContainerStateChangeRequest, SubmitContainerStateChangeResponse, [AccessDeniedException, ClientException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This action is only used by the Amazon ECS agent, and it is not intended for use
  * outside of the agent.
@@ -856,13 +856,13 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * 
  * 
  * Sent to acknowledge that a task changed states.
- */export const submitTaskStateChange = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", uri: "/", method: "POST", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.SubmitTaskStateChange" }, SubmitTaskStateChangeRequest, SubmitTaskStateChangeResponse, [AccessDeniedException, ClientException, InvalidParameterException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const submitTaskStateChange = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.SubmitTaskStateChange" }, SubmitTaskStateChangeRequest, SubmitTaskStateChangeResponse, [AccessDeniedException, ClientException, InvalidParameterException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Associates the specified tags to a resource with the specified
  * `resourceArn`. If existing tags on a resource aren't specified in the
  * request parameters, they aren't changed. When a resource is deleted, the tags that are
  * associated with that resource are deleted as well.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", uri: "/", method: "POST", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.TagResource" }, TagResourceRequest, TagResourceResponse, [ClientException, ClusterNotFoundException, InvalidParameterException, ResourceNotFoundException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.TagResource" }, TagResourceRequest, TagResourceResponse, [ClientException, ClusterNotFoundException, InvalidParameterException, ResourceNotFoundException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates an existing Express service configuration. Modifies container settings, resource
  * allocation, auto-scaling configuration, and other service parameters without recreating the
@@ -876,7 +876,7 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * 
  * Some parameters like the infrastructure role cannot be modified after service creation
  * and require creating a new service.
- */export const updateExpressGatewayService = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", uri: "/", method: "POST", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.UpdateExpressGatewayService" }, UpdateExpressGatewayServiceRequest, UpdateExpressGatewayServiceResponse, [AccessDeniedException, ClientException, ClusterNotFoundException, InvalidParameterException, ServerException, ServiceNotActiveException, ServiceNotFoundException, UnsupportedFeatureException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateExpressGatewayService = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.UpdateExpressGatewayService" }, UpdateExpressGatewayServiceRequest, UpdateExpressGatewayServiceResponse, [AccessDeniedException, ClientException, ClusterNotFoundException, InvalidParameterException, ServerException, ServiceNotActiveException, ServiceNotFoundException, UnsupportedFeatureException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Modifies the parameters of a service.
  * 
@@ -1042,7 +1042,7 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * - Stop the task on a container instance in an optimal Availability Zone (based
  * on the previous steps), favoring container instances with the largest number of
  * running tasks for this service.
- */export const updateService = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", uri: "/", method: "POST", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.UpdateService" }, UpdateServiceRequest, UpdateServiceResponse, [AccessDeniedException, ClientException, ClusterNotFoundException, InvalidParameterException, NamespaceNotFoundException, PlatformTaskDefinitionIncompatibilityException, PlatformUnknownException, ServerException, ServiceNotActiveException, ServiceNotFoundException, UnsupportedFeatureException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateService = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.UpdateService" }, UpdateServiceRequest, UpdateServiceResponse, [AccessDeniedException, ClientException, ClusterNotFoundException, InvalidParameterException, NamespaceNotFoundException, PlatformTaskDefinitionIncompatibilityException, PlatformUnknownException, ServerException, ServiceNotActiveException, ServiceNotFoundException, UnsupportedFeatureException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Modifies which task set in a service is the primary task set. Any parameters that are
  * updated on the primary task set in a service will transition to the service. This is
@@ -1050,7 +1050,7 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * information, see Amazon ECS Deployment
  * Types in the Amazon Elastic Container Service Developer
  * Guide.
- */export const updateServicePrimaryTaskSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", uri: "/", method: "POST", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.UpdateServicePrimaryTaskSet" }, UpdateServicePrimaryTaskSetRequest, UpdateServicePrimaryTaskSetResponse, [AccessDeniedException, ClientException, ClusterNotFoundException, InvalidParameterException, ServerException, ServiceNotActiveException, ServiceNotFoundException, TaskSetNotFoundException, UnsupportedFeatureException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateServicePrimaryTaskSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.UpdateServicePrimaryTaskSet" }, UpdateServicePrimaryTaskSetRequest, UpdateServicePrimaryTaskSetResponse, [AccessDeniedException, ClientException, ClusterNotFoundException, InvalidParameterException, ServerException, ServiceNotActiveException, ServiceNotFoundException, TaskSetNotFoundException, UnsupportedFeatureException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an Express service that simplifies deploying containerized web applications on
  * Amazon ECS with managed Amazon Web Services infrastructure. This operation provisions and configures
@@ -1065,7 +1065,7 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * 
  * Provide an execution role for task operations and an infrastructure role for managing
  * Amazon Web Services resources on your behalf.
- */export const createExpressGatewayService = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", uri: "/", method: "POST", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.CreateExpressGatewayService" }, CreateExpressGatewayServiceRequest, CreateExpressGatewayServiceResponse, [AccessDeniedException, ClientException, ClusterNotFoundException, InvalidParameterException, PlatformTaskDefinitionIncompatibilityException, PlatformUnknownException, ServerException, UnsupportedFeatureException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createExpressGatewayService = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.CreateExpressGatewayService" }, CreateExpressGatewayServiceRequest, CreateExpressGatewayServiceResponse, [AccessDeniedException, ClientException, ClusterNotFoundException, InvalidParameterException, PlatformTaskDefinitionIncompatibilityException, PlatformUnknownException, ServerException, UnsupportedFeatureException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Create a task set in the specified cluster and service. This is used when a service
  * uses the `EXTERNAL` deployment controller type. For more information, see
@@ -1085,10 +1085,10 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * 
  * For information about the maximum number of task sets and other quotas, see Amazon ECS service quotas in the Amazon Elastic Container Service
  * Developer Guide.
- */export const createTaskSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", uri: "/", method: "POST", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.CreateTaskSet" }, CreateTaskSetRequest, CreateTaskSetResponse, [AccessDeniedException, ClientException, ClusterNotFoundException, InvalidParameterException, NamespaceNotFoundException, PlatformTaskDefinitionIncompatibilityException, PlatformUnknownException, ServerException, ServiceNotActiveException, ServiceNotFoundException, UnsupportedFeatureException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createTaskSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.CreateTaskSet" }, CreateTaskSetRequest, CreateTaskSetResponse, [AccessDeniedException, ClientException, ClusterNotFoundException, InvalidParameterException, NamespaceNotFoundException, PlatformTaskDefinitionIncompatibilityException, PlatformUnknownException, ServerException, ServiceNotActiveException, ServiceNotFoundException, UnsupportedFeatureException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes one or more custom attributes from an Amazon ECS resource.
- */export const deleteAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", uri: "/", method: "POST", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.DeleteAttributes" }, DeleteAttributesRequest, DeleteAttributesResponse, [ClusterNotFoundException, InvalidParameterException, TargetNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.DeleteAttributes" }, DeleteAttributesRequest, DeleteAttributesResponse, [ClusterNotFoundException, InvalidParameterException, TargetNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified capacity provider.
  * 
@@ -1110,12 +1110,12 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * provider are transitioned to use the capacity from the remaining capacity providers.
  * Only capacity providers that aren't associated with a cluster can be deleted. To remove
  * a capacity provider from a cluster, you can either use PutClusterCapacityProviders or delete the cluster.
- */export const deleteCapacityProvider = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", uri: "/", method: "POST", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.DeleteCapacityProvider" }, DeleteCapacityProviderRequest, DeleteCapacityProviderResponse, [ClientException, ClusterNotFoundException, InvalidParameterException, ServerException, UnsupportedFeatureException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteCapacityProvider = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.DeleteCapacityProvider" }, DeleteCapacityProviderRequest, DeleteCapacityProviderResponse, [ClientException, ClusterNotFoundException, InvalidParameterException, ServerException, UnsupportedFeatureException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a specified task set within a service. This is used when a service uses the
  * `EXTERNAL` deployment controller type. For more information, see Amazon ECS deployment types in the Amazon Elastic Container
  * Service Developer Guide.
- */export const deleteTaskSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", uri: "/", method: "POST", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.DeleteTaskSet" }, DeleteTaskSetRequest, DeleteTaskSetResponse, [AccessDeniedException, ClientException, ClusterNotFoundException, InvalidParameterException, ServerException, ServiceNotActiveException, ServiceNotFoundException, TaskSetNotFoundException, UnsupportedFeatureException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteTaskSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.DeleteTaskSet" }, DeleteTaskSetRequest, DeleteTaskSetResponse, [AccessDeniedException, ClientException, ClusterNotFoundException, InvalidParameterException, ServerException, ServiceNotActiveException, ServiceNotFoundException, TaskSetNotFoundException, UnsupportedFeatureException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes one or more of your service deployments.
  * 
@@ -1123,7 +1123,7 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * A service deployment happens when you release a software update for the service. For
  * more information, see View service history
  * using Amazon ECS service deployments.
- */export const describeServiceDeployments = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", uri: "/", method: "POST", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.DescribeServiceDeployments" }, DescribeServiceDeploymentsRequest, DescribeServiceDeploymentsResponse, [AccessDeniedException, ClientException, ClusterNotFoundException, InvalidParameterException, ServerException, ServiceNotFoundException, UnsupportedFeatureException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeServiceDeployments = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.DescribeServiceDeployments" }, DescribeServiceDeploymentsRequest, DescribeServiceDeploymentsResponse, [AccessDeniedException, ClientException, ClusterNotFoundException, InvalidParameterException, ServerException, ServiceNotFoundException, UnsupportedFeatureException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Runs a command remotely on a container within a task.
  * 
@@ -1137,7 +1137,7 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * For information about required permissions and considerations, see Using
  * Amazon ECS Exec for debugging in the Amazon ECS Developer
  * Guide.
- */export const executeCommand = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", uri: "/", method: "POST", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.ExecuteCommand" }, ExecuteCommandRequest, ExecuteCommandResponse, [AccessDeniedException, ClientException, ClusterNotFoundException, InvalidParameterException, ServerException, TargetNotConnectedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const executeCommand = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.ExecuteCommand" }, ExecuteCommandRequest, ExecuteCommandResponse, [AccessDeniedException, ClientException, ClusterNotFoundException, InvalidParameterException, ServerException, TargetNotConnectedException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This operation lists all the service deployments that meet the specified filter
  * criteria.
@@ -1149,7 +1149,7 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * 
  * 
  * This API returns the values that you use for the request parameters in DescribeServiceRevisions.
- */export const listServiceDeployments = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", uri: "/", method: "POST", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.ListServiceDeployments" }, ListServiceDeploymentsRequest, ListServiceDeploymentsResponse, [AccessDeniedException, ClientException, InvalidParameterException, ServerException, ServiceNotFoundException, UnsupportedFeatureException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listServiceDeployments = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.ListServiceDeployments" }, ListServiceDeploymentsRequest, ListServiceDeploymentsResponse, [AccessDeniedException, ClientException, InvalidParameterException, ServerException, ServiceNotFoundException, UnsupportedFeatureException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Modifies the available capacity providers and the default capacity provider strategy
  * for a cluster.
@@ -1174,7 +1174,7 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * Amazon ECS Managed Instances doesn't support this, because when you create a capacity
  * provider with Amazon ECS Managed Instances, it becomes available only within the
  * specified cluster.
- */export const putClusterCapacityProviders = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", uri: "/", method: "POST", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.PutClusterCapacityProviders" }, PutClusterCapacityProvidersRequest, PutClusterCapacityProvidersResponse, [ClientException, ClusterNotFoundException, InvalidParameterException, ResourceInUseException, ServerException, UpdateInProgressException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putClusterCapacityProviders = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.PutClusterCapacityProviders" }, PutClusterCapacityProvidersRequest, PutClusterCapacityProvidersResponse, [ClientException, ClusterNotFoundException, InvalidParameterException, ResourceInUseException, ServerException, UpdateInProgressException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Stops an ongoing service deployment.
  * 
@@ -1197,14 +1197,14 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * For more information, see Stopping Amazon
  * ECS service deployments in the Amazon Elastic Container Service
  * Developer Guide.
- */export const stopServiceDeployment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", uri: "/", method: "POST", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.StopServiceDeployment" }, StopServiceDeploymentRequest, StopServiceDeploymentResponse, [AccessDeniedException, ClientException, ConflictException, InvalidParameterException, ServerException, ServiceDeploymentNotFoundException, UnsupportedFeatureException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const stopServiceDeployment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.StopServiceDeployment" }, StopServiceDeploymentRequest, StopServiceDeploymentResponse, [AccessDeniedException, ClientException, ConflictException, InvalidParameterException, ServerException, ServiceDeploymentNotFoundException, UnsupportedFeatureException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Modifies the parameters for a capacity provider.
  * 
  * 
  * These changes only apply to new Amazon ECS Managed Instances, or EC2 instances, not
  * existing ones.
- */export const updateCapacityProvider = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", uri: "/", method: "POST", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.UpdateCapacityProvider" }, UpdateCapacityProviderRequest, UpdateCapacityProviderResponse, [ClientException, ClusterNotFoundException, InvalidParameterException, ServerException, UnsupportedFeatureException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateCapacityProvider = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.UpdateCapacityProvider" }, UpdateCapacityProviderRequest, UpdateCapacityProviderResponse, [ClientException, ClusterNotFoundException, InvalidParameterException, ServerException, UnsupportedFeatureException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the Amazon ECS container agent on a specified container instance. Updating the
  * Amazon ECS container agent doesn't interrupt running tasks or services on the container
@@ -1238,7 +1238,7 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * Amazon Linux AMI with the `ecs-init` service installed and running. For help
  * updating the Amazon ECS container agent on other operating systems, see Manually updating the Amazon ECS container agent in the Amazon
  * Elastic Container Service Developer Guide.
- */export const updateContainerAgent = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", uri: "/", method: "POST", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.UpdateContainerAgent" }, UpdateContainerAgentRequest, UpdateContainerAgentResponse, [ClientException, ClusterNotFoundException, InvalidParameterException, MissingVersionException, NoUpdateAvailableException, ServerException, UpdateInProgressException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateContainerAgent = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.UpdateContainerAgent" }, UpdateContainerAgentRequest, UpdateContainerAgentResponse, [ClientException, ClusterNotFoundException, InvalidParameterException, MissingVersionException, NoUpdateAvailableException, ServerException, UpdateInProgressException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new Amazon ECS cluster. By default, your account receives a
  * `default` cluster when you launch your first container instance. However,
@@ -1255,7 +1255,7 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * For more information, see Using
  * service-linked roles for Amazon ECS in the Amazon Elastic
  * Container Service Developer Guide.
- */export const createCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", uri: "/", method: "POST", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.CreateCluster" }, CreateClusterRequest, CreateClusterResponse, [ClientException, InvalidParameterException, NamespaceNotFoundException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.CreateCluster" }, CreateClusterRequest, CreateClusterResponse, [ClientException, InvalidParameterException, NamespaceNotFoundException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an Express service and removes all associated Amazon Web Services resources. This operation
  * stops service tasks, removes the Application Load Balancer, target groups, security groups,
@@ -1269,7 +1269,7 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * 
  * This operation cannot be reversed. Back up important data and verify the service is no
  * longer needed before deletion.
- */export const deleteExpressGatewayService = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", uri: "/", method: "POST", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.DeleteExpressGatewayService" }, DeleteExpressGatewayServiceRequest, DeleteExpressGatewayServiceResponse, [AccessDeniedException, ClientException, ClusterNotFoundException, InvalidParameterException, ServerException, ServiceNotActiveException, ServiceNotFoundException, UnsupportedFeatureException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteExpressGatewayService = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.DeleteExpressGatewayService" }, DeleteExpressGatewayServiceRequest, DeleteExpressGatewayServiceResponse, [AccessDeniedException, ClientException, ClusterNotFoundException, InvalidParameterException, ServerException, ServiceNotActiveException, ServiceNotFoundException, UnsupportedFeatureException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a specified service within a cluster. You can delete a service if you have no
  * running tasks in it and the desired task count is zero. If the service is actively
@@ -1298,7 +1298,7 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * If you attempt to create a new service with the same name as an existing service
  * in either `ACTIVE` or `DRAINING` status, you receive an
  * error.
- */export const deleteService = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", uri: "/", method: "POST", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.DeleteService" }, DeleteServiceRequest, DeleteServiceResponse, [ClientException, ClusterNotFoundException, InvalidParameterException, ServerException, ServiceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteService = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.DeleteService" }, DeleteServiceRequest, DeleteServiceResponse, [ClientException, ClusterNotFoundException, InvalidParameterException, ServerException, ServiceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deregisters an Amazon ECS container instance from the specified cluster. This instance
  * is no longer available to run tasks.
@@ -1320,7 +1320,7 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * If you terminate a running container instance, Amazon ECS automatically
  * deregisters the instance from your cluster (stopped container instances or instances
  * with disconnected agents aren't automatically deregistered when terminated).
- */export const deregisterContainerInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", uri: "/", method: "POST", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.DeregisterContainerInstance" }, DeregisterContainerInstanceRequest, DeregisterContainerInstanceResponse, [ClientException, ClusterNotFoundException, InvalidParameterException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deregisterContainerInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.DeregisterContainerInstance" }, DeregisterContainerInstanceRequest, DeregisterContainerInstanceResponse, [ClientException, ClusterNotFoundException, InvalidParameterException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes a specified task or tasks.
  * 
@@ -1331,7 +1331,7 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * If you have tasks with tags, and then delete the cluster, the tagged tasks are
  * returned in the response. If you create a new cluster with the same name as the deleted
  * cluster, the tagged tasks are not included in the response.
- */export const describeTasks = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", uri: "/", method: "POST", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.DescribeTasks" }, DescribeTasksRequest, DescribeTasksResponse, [ClientException, ClusterNotFoundException, InvalidParameterException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeTasks = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.DescribeTasks" }, DescribeTasksRequest, DescribeTasksResponse, [ClientException, ClusterNotFoundException, InvalidParameterException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Registers a new task definition from the supplied `family` and
  * `containerDefinitions`. Optionally, you can add data volumes to your
@@ -1356,7 +1356,7 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * NetworkConfiguration when you create a service or run a task with the task
  * definition. For more information, see Task Networking
  * in the *Amazon Elastic Container Service Developer Guide*.
- */export const registerTaskDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", uri: "/", method: "POST", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.RegisterTaskDefinition" }, RegisterTaskDefinitionRequest, RegisterTaskDefinitionResponse, [ClientException, InvalidParameterException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const registerTaskDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.RegisterTaskDefinition" }, RegisterTaskDefinitionRequest, RegisterTaskDefinitionResponse, [ClientException, InvalidParameterException, ServerException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes one or more service revisions.
  * 
@@ -1367,7 +1367,7 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * 
  * 
  * You can't describe a service revision that was created before October 25, 2024.
- */export const describeServiceRevisions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", uri: "/", method: "POST", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.DescribeServiceRevisions" }, DescribeServiceRevisionsRequest, DescribeServiceRevisionsResponse, [AccessDeniedException, ClientException, ClusterNotFoundException, InvalidParameterException, ServerException, ServiceNotFoundException, UnsupportedFeatureException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeServiceRevisions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.DescribeServiceRevisions" }, DescribeServiceRevisionsRequest, DescribeServiceRevisionsResponse, [AccessDeniedException, ClientException, ClusterNotFoundException, InvalidParameterException, ServerException, ServiceNotFoundException, UnsupportedFeatureException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts a new task using the specified task definition.
  * 
@@ -1459,13 +1459,13 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * quota of tasks in the `PROVISIONING` per cluster has been reached. For
  * information about the service quotas, see Amazon ECS service
  * quotas.
- */export const runTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", uri: "/", method: "POST", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.RunTask" }, RunTaskRequest, RunTaskResponse, [AccessDeniedException, BlockedException, ClientException, ClusterNotFoundException, ConflictException, InvalidParameterException, PlatformTaskDefinitionIncompatibilityException, PlatformUnknownException, ServerException, UnsupportedFeatureException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const runTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.RunTask" }, RunTaskRequest, RunTaskResponse, [AccessDeniedException, BlockedException, ClientException, ClusterNotFoundException, ConflictException, InvalidParameterException, PlatformTaskDefinitionIncompatibilityException, PlatformUnknownException, ServerException, UnsupportedFeatureException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a capacity provider. Capacity providers are associated with a cluster and are
  * used in capacity provider strategies to facilitate cluster auto scaling. You can create
  * capacity providers for Amazon ECS Managed Instances and EC2 instances. Fargate has the
  * predefined `FARGATE` and `FARGATE_SPOT` capacity providers.
- */export const createCapacityProvider = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", uri: "/", method: "POST", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.CreateCapacityProvider" }, CreateCapacityProviderRequest, CreateCapacityProviderResponse, [ClientException, ClusterNotFoundException, InvalidParameterException, LimitExceededException, ServerException, UnsupportedFeatureException, UpdateInProgressException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createCapacityProvider = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.CreateCapacityProvider" }, CreateCapacityProviderRequest, CreateCapacityProviderResponse, [ClientException, ClusterNotFoundException, InvalidParameterException, LimitExceededException, ServerException, UnsupportedFeatureException, UpdateInProgressException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Runs and maintains your desired number of tasks from a specified task definition. If
  * the number of tasks running in a service drops below the `desiredCount`,
@@ -1761,7 +1761,7 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * When the service scheduler launches new tasks, it determines task placement. For
  * information about task placement and task placement strategies, see Amazon ECS task placement in the Amazon Elastic Container Service
  * Developer Guide
- */export const createService = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", uri: "/", method: "POST", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.CreateService" }, CreateServiceRequest, CreateServiceResponse, [AccessDeniedException, ClientException, ClusterNotFoundException, InvalidParameterException, NamespaceNotFoundException, PlatformTaskDefinitionIncompatibilityException, PlatformUnknownException, ServerException, UnsupportedFeatureException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createService = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.CreateService" }, CreateServiceRequest, CreateServiceResponse, [AccessDeniedException, ClientException, ClusterNotFoundException, InvalidParameterException, NamespaceNotFoundException, PlatformTaskDefinitionIncompatibilityException, PlatformUnknownException, ServerException, UnsupportedFeatureException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified cluster. The cluster transitions to the `INACTIVE`
  * state. Clusters with an `INACTIVE` status might remain discoverable in your
@@ -1771,4 +1771,4 @@ export class ClusterContainsTasksException extends S.TaggedError<ClusterContains
  * 
  * You must deregister all container instances from this cluster before you may delete
  * it. You can list the container instances in a cluster with ListContainerInstances and deregister them with DeregisterContainerInstance.
- */export const deleteCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", uri: "/", method: "POST", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.DeleteCluster" }, DeleteClusterRequest, DeleteClusterResponse, [ClientException, ClusterContainsCapacityProviderException, ClusterContainsContainerInstancesException, ClusterContainsServicesException, ClusterContainsTasksException, ClusterNotFoundException, InvalidParameterException, ServerException, UpdateInProgressException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-13", sdkId: "ECS", sigV4ServiceName: "ecs", name: "AmazonEC2ContainerServiceV20141113.DeleteCluster" }, DeleteClusterRequest, DeleteClusterResponse, [ClientException, ClusterContainsCapacityProviderException, ClusterContainsContainerInstancesException, ClusterContainsServicesException, ClusterContainsTasksException, ClusterNotFoundException, InvalidParameterException, ServerException, UpdateInProgressException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

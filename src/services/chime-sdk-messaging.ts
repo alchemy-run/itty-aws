@@ -173,7 +173,7 @@ export class ResourceLimitExceededException extends S.TaggedError<ResourceLimitE
  */export const deleteMessagingStreamingConfigurations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/app-instances/{AppInstanceArn}/streaming-configurations", method: "DELETE", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.DeleteMessagingStreamingConfigurations" }, DeleteMessagingStreamingConfigurationsRequest, S.Struct({}), [BadRequestException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes the specified tags from the specified Amazon Chime SDK messaging resource.
- */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/tags?operation=untag-resource", method: "POST", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.UntagResource" }, UntagResourceRequest, S.Struct({}), [BadRequestException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/tags?operation=untag-resource", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.UntagResource" }, UntagResourceRequest, S.Struct({}), [BadRequestException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Associates a channel flow with a channel. Once associated, all messages to that channel go through channel flow processors. To stop processing, use the
  * `DisassociateChannelFlow` API.
@@ -234,7 +234,7 @@ export class ResourceLimitExceededException extends S.TaggedError<ResourceLimitE
  * The `x-amz-chime-bearer` request header is mandatory. Use the
  * ARN of the `AppInstanceUserArn` or `AppInstanceBot` that makes the API call
  * as the value in the header.
- */export const createChannelMembership = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}/memberships", method: "POST", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.CreateChannelMembership" }, CreateChannelMembershipRequest, CreateChannelMembershipResponse, [BadRequestException, ConflictException, ForbiddenException, NotFoundException, ResourceLimitExceededException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createChannelMembership = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}/memberships", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.CreateChannelMembership" }, CreateChannelMembershipRequest, CreateChannelMembershipResponse, [BadRequestException, ConflictException, ForbiddenException, NotFoundException, ResourceLimitExceededException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new `ChannelModerator`. A channel moderator can:
  * 
@@ -267,7 +267,7 @@ export class ResourceLimitExceededException extends S.TaggedError<ResourceLimitE
  * The `x-amz-chime-bearer` request header is mandatory. Use the
  * ARN of the `AppInstanceUser` or `AppInstanceBot`of the user that makes the API call as the value in
  * the header.
- */export const createChannelModerator = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}/moderators", method: "POST", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.CreateChannelModerator" }, CreateChannelModeratorRequest, CreateChannelModeratorResponse, [BadRequestException, ConflictException, ForbiddenException, ResourceLimitExceededException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createChannelModerator = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}/moderators", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.CreateChannelModerator" }, CreateChannelModeratorRequest, CreateChannelModeratorResponse, [BadRequestException, ConflictException, ForbiddenException, ResourceLimitExceededException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Immediately makes a channel and its memberships inaccessible and marks them for
  * deletion. This is an irreversible process.
@@ -417,10 +417,10 @@ export class ResourceLimitExceededException extends S.TaggedError<ResourceLimitE
  * The `x-amz-chime-bearer` request header is mandatory. Use the
  * ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the value in
  * the header.
- */export const redactChannelMessage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}/messages/{MessageId}?operation=redact", method: "POST", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.RedactChannelMessage" }, RedactChannelMessageRequest, RedactChannelMessageResponse, [BadRequestException, ConflictException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const redactChannelMessage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}/messages/{MessageId}?operation=redact", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.RedactChannelMessage" }, RedactChannelMessageRequest, RedactChannelMessageResponse, [BadRequestException, ConflictException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Applies the specified tags to the specified Amazon Chime SDK messaging resource.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/tags?operation=tag-resource", method: "POST", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.TagResource" }, TagResourceRequest, S.Struct({}), [BadRequestException, ForbiddenException, ResourceLimitExceededException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/tags?operation=tag-resource", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.TagResource" }, TagResourceRequest, S.Struct({}), [BadRequestException, ForbiddenException, ResourceLimitExceededException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Update a channel's attributes.
  * 
@@ -460,7 +460,7 @@ export class ResourceLimitExceededException extends S.TaggedError<ResourceLimitE
  */export const updateChannelReadMarker = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}/readMarker", method: "PUT", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.UpdateChannelReadMarker" }, UpdateChannelReadMarkerRequest, UpdateChannelReadMarkerResponse, [BadRequestException, ConflictException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds a specified number of users and bots to a channel.
- */export const batchCreateChannelMembership = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}/memberships?operation=batch-create", method: "POST", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.BatchCreateChannelMembership" }, BatchCreateChannelMembershipRequest, BatchCreateChannelMembershipResponse, [BadRequestException, ForbiddenException, NotFoundException, ResourceLimitExceededException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const batchCreateChannelMembership = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}/memberships?operation=batch-create", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.BatchCreateChannelMembership" }, BatchCreateChannelMembershipRequest, BatchCreateChannelMembershipResponse, [BadRequestException, ForbiddenException, NotFoundException, ResourceLimitExceededException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Calls back Amazon Chime SDK messaging with a processing response message. This should be invoked from the processor Lambda. This is a developer API.
  * 
@@ -478,7 +478,7 @@ export class ResourceLimitExceededException extends S.TaggedError<ResourceLimitE
  * 
  * 
  * - Make no changes to the message
- */export const channelFlowCallback = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}?operation=channel-flow-callback", method: "POST", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.ChannelFlowCallback" }, ChannelFlowCallbackRequest, ChannelFlowCallbackResponse, [BadRequestException, ConflictException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const channelFlowCallback = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}?operation=channel-flow-callback", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.ChannelFlowCallback" }, ChannelFlowCallbackRequest, ChannelFlowCallbackResponse, [BadRequestException, ConflictException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a channel to which you can add users and send messages.
  * 
@@ -493,7 +493,7 @@ export class ResourceLimitExceededException extends S.TaggedError<ResourceLimitE
  * The `x-amz-chime-bearer` request header is mandatory. Use the
  * ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the value in
  * the header.
- */export const createChannel = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels", method: "POST", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.CreateChannel" }, CreateChannelRequest, CreateChannelResponse, [BadRequestException, ConflictException, ForbiddenException, ResourceLimitExceededException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createChannel = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.CreateChannel" }, CreateChannelRequest, CreateChannelResponse, [BadRequestException, ConflictException, ForbiddenException, ResourceLimitExceededException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Permanently bans a member from a channel. Moderators can't add banned members to a
  * channel. To undo a ban, you first have to `DeleteChannelBan`, and then
@@ -510,7 +510,7 @@ export class ResourceLimitExceededException extends S.TaggedError<ResourceLimitE
  * The `x-amz-chime-bearer` request header is mandatory. Use the
  * ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the value in
  * the header.
- */export const createChannelBan = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}/bans", method: "POST", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.CreateChannelBan" }, CreateChannelBanRequest, CreateChannelBanResponse, [BadRequestException, ConflictException, ForbiddenException, ResourceLimitExceededException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createChannelBan = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}/bans", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.CreateChannelBan" }, CreateChannelBanRequest, CreateChannelBanResponse, [BadRequestException, ConflictException, ForbiddenException, ResourceLimitExceededException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the full details of a channel in an Amazon Chime
  * `AppInstance`.
@@ -748,7 +748,7 @@ export class ResourceLimitExceededException extends S.TaggedError<ResourceLimitE
  * 
  * 
  * This operation isn't supported for `AppInstanceUsers` with a large number of memberships.
- */export const searchChannels = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels?operation=search", method: "POST", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.SearchChannels" }, SearchChannelsRequest, SearchChannelsResponse, [BadRequestException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const searchChannels = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels?operation=search", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.SearchChannels" }, SearchChannelsRequest, SearchChannelsResponse, [BadRequestException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the details of a channel based on the membership of the specified
  * `AppInstanceUser` or `AppInstanceBot`.
@@ -791,7 +791,7 @@ export class ResourceLimitExceededException extends S.TaggedError<ResourceLimitE
  * 
  * 
  * `CONTROL` messages are limited to 30 bytes and do not contain metadata.
- */export const sendChannelMessage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}/messages", method: "POST", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.SendChannelMessage" }, SendChannelMessageRequest, SendChannelMessageResponse, [BadRequestException, ConflictException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const sendChannelMessage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channels/{ChannelArn}/messages", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.SendChannelMessage" }, SendChannelMessageRequest, SendChannelMessageResponse, [BadRequestException, ConflictException, ForbiddenException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a channel flow, a container for processors. Processors are AWS Lambda functions
  * that perform actions on chat messages, such as stripping out profanity. You can associate
@@ -820,4 +820,4 @@ export class ResourceLimitExceededException extends S.TaggedError<ResourceLimitE
  * 
  * Channel flows don't process Control or System messages. For more information about the message types provided by Chime SDK messaging, refer to
  * Message types in the *Amazon Chime developer guide*.
- */export const createChannelFlow = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channel-flows", method: "POST", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.CreateChannelFlow" }, CreateChannelFlowRequest, CreateChannelFlowResponse, [BadRequestException, ConflictException, ForbiddenException, ResourceLimitExceededException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createChannelFlow = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-05-15", uri: "/channel-flows", sdkId: "Chime SDK Messaging", sigV4ServiceName: "chime", name: "ChimeMessagingService.CreateChannelFlow" }, CreateChannelFlowRequest, CreateChannelFlowResponse, [BadRequestException, ConflictException, ForbiddenException, ResourceLimitExceededException, ServiceFailureException, ServiceUnavailableException, ThrottledClientException, UnauthorizedClientException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

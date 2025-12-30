@@ -126,31 +126,31 @@ export class RejectedRecordsException extends S.TaggedError<RejectedRecordsExcep
  * For detailed information on how and when to use and implement DescribeEndpoints, see
  * The
  * Endpoint Discovery Pattern.
- */export const describeEndpoints = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", uri: "/", method: "POST", sdkId: "Timestream Write", sigV4ServiceName: "timestream", name: "Timestream_20181101.DescribeEndpoints" }, DescribeEndpointsRequest, DescribeEndpointsResponse, [InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeEndpoints = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", sdkId: "Timestream Write", sigV4ServiceName: "timestream", name: "Timestream_20181101.DescribeEndpoints" }, DescribeEndpointsRequest, DescribeEndpointsResponse, [InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of your Timestream databases. Service quotas apply. See
  * code sample for
  * details.
- */export const listDatabases = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", uri: "/", method: "POST", sdkId: "Timestream Write", sigV4ServiceName: "timestream", name: "Timestream_20181101.ListDatabases" }, ListDatabasesRequest, ListDatabasesResponse, [AccessDeniedException, InternalServerException, InvalidEndpointException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listDatabases = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", sdkId: "Timestream Write", sigV4ServiceName: "timestream", name: "Timestream_20181101.ListDatabases" }, ListDatabasesRequest, ListDatabasesResponse, [AccessDeniedException, InternalServerException, InvalidEndpointException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides a list of tables, along with the name, status, and retention properties of each
  * table. See code sample
  * for details.
- */export const listTables = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", uri: "/", method: "POST", sdkId: "Timestream Write", sigV4ServiceName: "timestream", name: "Timestream_20181101.ListTables" }, ListTablesRequest, ListTablesResponse, [AccessDeniedException, InternalServerException, InvalidEndpointException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTables = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", sdkId: "Timestream Write", sigV4ServiceName: "timestream", name: "Timestream_20181101.ListTables" }, ListTablesRequest, ListTablesResponse, [AccessDeniedException, InternalServerException, InvalidEndpointException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists all tags on a Timestream resource.
- */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", uri: "/", method: "POST", sdkId: "Timestream Write", sigV4ServiceName: "timestream", name: "Timestream_20181101.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [InvalidEndpointException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", sdkId: "Timestream Write", sigV4ServiceName: "timestream", name: "Timestream_20181101.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [InvalidEndpointException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * 
- */export const resumeBatchLoadTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", uri: "/", method: "POST", sdkId: "Timestream Write", sigV4ServiceName: "timestream", name: "Timestream_20181101.ResumeBatchLoadTask" }, ResumeBatchLoadTaskRequest, ResumeBatchLoadTaskResponse, [AccessDeniedException, InternalServerException, InvalidEndpointException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const resumeBatchLoadTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", sdkId: "Timestream Write", sigV4ServiceName: "timestream", name: "Timestream_20181101.ResumeBatchLoadTask" }, ResumeBatchLoadTaskRequest, ResumeBatchLoadTaskResponse, [AccessDeniedException, InternalServerException, InvalidEndpointException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Associates a set of tags with a Timestream resource. You can then activate
  * these user-defined tags so that they appear on the Billing and Cost Management console for
  * cost allocation tracking.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", uri: "/", method: "POST", sdkId: "Timestream Write", sigV4ServiceName: "timestream", name: "Timestream_20181101.TagResource" }, TagResourceRequest, TagResourceResponse, [InvalidEndpointException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", sdkId: "Timestream Write", sigV4ServiceName: "timestream", name: "Timestream_20181101.TagResource" }, TagResourceRequest, TagResourceResponse, [InvalidEndpointException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes the association of tags from a Timestream resource.
- */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", uri: "/", method: "POST", sdkId: "Timestream Write", sigV4ServiceName: "timestream", name: "Timestream_20181101.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [InvalidEndpointException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", sdkId: "Timestream Write", sigV4ServiceName: "timestream", name: "Timestream_20181101.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [InvalidEndpointException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Modifies the KMS key for an existing database. While updating the
  * database, you must specify the database name and the identifier of the new KMS key to be used (`KmsKeyId`). If there are any concurrent
@@ -159,7 +159,7 @@ export class RejectedRecordsException extends S.TaggedError<RejectedRecordsExcep
  * 
  * See code sample
  * for details.
- */export const updateDatabase = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", uri: "/", method: "POST", sdkId: "Timestream Write", sigV4ServiceName: "timestream", name: "Timestream_20181101.UpdateDatabase" }, UpdateDatabaseRequest, UpdateDatabaseResponse, [AccessDeniedException, InternalServerException, InvalidEndpointException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateDatabase = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", sdkId: "Timestream Write", sigV4ServiceName: "timestream", name: "Timestream_20181101.UpdateDatabase" }, UpdateDatabaseRequest, UpdateDatabaseResponse, [AccessDeniedException, InternalServerException, InvalidEndpointException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Modifies the retention duration of the memory store and magnetic store for your Timestream table. Note that the change in retention duration takes effect immediately.
  * For example, if the retention period of the memory store was initially set to 2 hours and
@@ -169,7 +169,7 @@ export class RejectedRecordsException extends S.TaggedError<RejectedRecordsExcep
  * 
  * See code
  * sample for details.
- */export const updateTable = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", uri: "/", method: "POST", sdkId: "Timestream Write", sigV4ServiceName: "timestream", name: "Timestream_20181101.UpdateTable" }, UpdateTableRequest, UpdateTableResponse, [AccessDeniedException, InternalServerException, InvalidEndpointException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateTable = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", sdkId: "Timestream Write", sigV4ServiceName: "timestream", name: "Timestream_20181101.UpdateTable" }, UpdateTableRequest, UpdateTableResponse, [AccessDeniedException, InternalServerException, InvalidEndpointException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a given Timestream database. This is an irreversible
  * operation. After a database is deleted, the time-series data from its tables cannot be
@@ -191,7 +191,7 @@ export class RejectedRecordsException extends S.TaggedError<RejectedRecordsExcep
  * 
  * See code sample
  * for details.
- */export const deleteDatabase = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", uri: "/", method: "POST", sdkId: "Timestream Write", sigV4ServiceName: "timestream", name: "Timestream_20181101.DeleteDatabase" }, DeleteDatabaseRequest, S.Struct({}), [AccessDeniedException, InternalServerException, InvalidEndpointException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteDatabase = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", sdkId: "Timestream Write", sigV4ServiceName: "timestream", name: "Timestream_20181101.DeleteDatabase" }, DeleteDatabaseRequest, S.Struct({}), [AccessDeniedException, InternalServerException, InvalidEndpointException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a given Timestream table. This is an irreversible operation. After a
  * Timestream database table is deleted, the time-series data stored in the table
@@ -208,35 +208,35 @@ export class RejectedRecordsException extends S.TaggedError<RejectedRecordsExcep
  * 
  * See code
  * sample for details.
- */export const deleteTable = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", uri: "/", method: "POST", sdkId: "Timestream Write", sigV4ServiceName: "timestream", name: "Timestream_20181101.DeleteTable" }, DeleteTableRequest, S.Struct({}), [AccessDeniedException, InternalServerException, InvalidEndpointException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteTable = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", sdkId: "Timestream Write", sigV4ServiceName: "timestream", name: "Timestream_20181101.DeleteTable" }, DeleteTableRequest, S.Struct({}), [AccessDeniedException, InternalServerException, InvalidEndpointException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about the database, including the database name, time that the
  * database was created, and the total number of tables found within the database. Service
  * quotas apply. See code sample
  * for details.
- */export const describeDatabase = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", uri: "/", method: "POST", sdkId: "Timestream Write", sigV4ServiceName: "timestream", name: "Timestream_20181101.DescribeDatabase" }, DescribeDatabaseRequest, DescribeDatabaseResponse, [AccessDeniedException, InternalServerException, InvalidEndpointException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeDatabase = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", sdkId: "Timestream Write", sigV4ServiceName: "timestream", name: "Timestream_20181101.DescribeDatabase" }, DescribeDatabaseRequest, DescribeDatabaseResponse, [AccessDeniedException, InternalServerException, InvalidEndpointException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about the table, including the table name, database name, retention
  * duration of the memory store and the magnetic store. Service quotas apply. See
  * code
  * sample for details.
- */export const describeTable = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", uri: "/", method: "POST", sdkId: "Timestream Write", sigV4ServiceName: "timestream", name: "Timestream_20181101.DescribeTable" }, DescribeTableRequest, DescribeTableResponse, [AccessDeniedException, InternalServerException, InvalidEndpointException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeTable = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", sdkId: "Timestream Write", sigV4ServiceName: "timestream", name: "Timestream_20181101.DescribeTable" }, DescribeTableRequest, DescribeTableResponse, [AccessDeniedException, InternalServerException, InvalidEndpointException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides a list of batch load tasks, along with the name, status, when the task is
  * resumable until, and other details. See code
  * sample for details.
- */export const listBatchLoadTasks = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", uri: "/", method: "POST", sdkId: "Timestream Write", sigV4ServiceName: "timestream", name: "Timestream_20181101.ListBatchLoadTasks" }, ListBatchLoadTasksRequest, ListBatchLoadTasksResponse, [AccessDeniedException, InternalServerException, InvalidEndpointException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listBatchLoadTasks = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", sdkId: "Timestream Write", sigV4ServiceName: "timestream", name: "Timestream_20181101.ListBatchLoadTasks" }, ListBatchLoadTasksRequest, ListBatchLoadTasksResponse, [AccessDeniedException, InternalServerException, InvalidEndpointException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new Timestream database. If the KMS key is not
  * specified, the database will be encrypted with a Timestream managed KMS key located in your account. For more information, see Amazon Web Services managed keys. Service quotas apply. For
  * details, see code sample.
- */export const createDatabase = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", uri: "/", method: "POST", sdkId: "Timestream Write", sigV4ServiceName: "timestream", name: "Timestream_20181101.CreateDatabase" }, CreateDatabaseRequest, CreateDatabaseResponse, [AccessDeniedException, ConflictException, InternalServerException, InvalidEndpointException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createDatabase = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", sdkId: "Timestream Write", sigV4ServiceName: "timestream", name: "Timestream_20181101.CreateDatabase" }, CreateDatabaseRequest, CreateDatabaseResponse, [AccessDeniedException, ConflictException, InternalServerException, InvalidEndpointException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about the batch load task, including configurations, mappings,
  * progress, and other details. Service quotas apply. See
  * code
  * sample for details.
- */export const describeBatchLoadTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", uri: "/", method: "POST", sdkId: "Timestream Write", sigV4ServiceName: "timestream", name: "Timestream_20181101.DescribeBatchLoadTask" }, DescribeBatchLoadTaskRequest, DescribeBatchLoadTaskResponse, [AccessDeniedException, InternalServerException, InvalidEndpointException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeBatchLoadTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", sdkId: "Timestream Write", sigV4ServiceName: "timestream", name: "Timestream_20181101.DescribeBatchLoadTask" }, DescribeBatchLoadTaskRequest, DescribeBatchLoadTaskResponse, [AccessDeniedException, InternalServerException, InvalidEndpointException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds a new table to an existing database in your account. In an Amazon Web Services account, table names must be at least unique within each Region if they are in the same
  * database. You might have identical table names in the same Region if the tables are in
@@ -244,7 +244,7 @@ export class RejectedRecordsException extends S.TaggedError<RejectedRecordsExcep
  * name, and the retention properties. Service quotas apply. See
  * code
  * sample for details.
- */export const createTable = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", uri: "/", method: "POST", sdkId: "Timestream Write", sigV4ServiceName: "timestream", name: "Timestream_20181101.CreateTable" }, CreateTableRequest, CreateTableResponse, [AccessDeniedException, ConflictException, InternalServerException, InvalidEndpointException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createTable = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", sdkId: "Timestream Write", sigV4ServiceName: "timestream", name: "Timestream_20181101.CreateTable" }, CreateTableRequest, CreateTableResponse, [AccessDeniedException, ConflictException, InternalServerException, InvalidEndpointException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new Timestream batch load task. A batch load task processes data from
  * a CSV source in an S3 location and writes to a Timestream table. A mapping from
@@ -255,7 +255,7 @@ export class RejectedRecordsException extends S.TaggedError<RejectedRecordsExcep
  * keys. Service quotas apply. For
  * details, see code
  * sample.
- */export const createBatchLoadTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", uri: "/", method: "POST", sdkId: "Timestream Write", sigV4ServiceName: "timestream", name: "Timestream_20181101.CreateBatchLoadTask" }, CreateBatchLoadTaskRequest, CreateBatchLoadTaskResponse, [AccessDeniedException, ConflictException, InternalServerException, InvalidEndpointException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createBatchLoadTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", sdkId: "Timestream Write", sigV4ServiceName: "timestream", name: "Timestream_20181101.CreateBatchLoadTask" }, CreateBatchLoadTaskRequest, CreateBatchLoadTaskResponse, [AccessDeniedException, ConflictException, InternalServerException, InvalidEndpointException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Enables you to write your time-series data into Timestream. You can specify a
  * single data point or a batch of data points to be inserted into the system. Timestream offers you a flexible schema that auto detects the column names and data
@@ -308,4 +308,4 @@ export class RejectedRecordsException extends S.TaggedError<RejectedRecordsExcep
  * would only update `Version` to `3`. Any further updates would need to
  * send a version number greater than `3`, or the update requests would receive a
  * `RejectedRecordsException`.
- */export const writeRecords = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", uri: "/", method: "POST", sdkId: "Timestream Write", sigV4ServiceName: "timestream", name: "Timestream_20181101.WriteRecords" }, WriteRecordsRequest, WriteRecordsResponse, [AccessDeniedException, InternalServerException, InvalidEndpointException, RejectedRecordsException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const writeRecords = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", sdkId: "Timestream Write", sigV4ServiceName: "timestream", name: "Timestream_20181101.WriteRecords" }, WriteRecordsRequest, WriteRecordsResponse, [AccessDeniedException, InternalServerException, InvalidEndpointException, RejectedRecordsException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);

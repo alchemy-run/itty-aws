@@ -143,7 +143,7 @@ export class KmsThrottled extends S.TaggedError<KmsThrottled>()("KmsThrottled", 
  * Cross-account permissions don't apply to this action. For more information,
  * see Grant
  * cross-account permissions to a role and a username in the *Amazon SQS Developer Guide*.
- */export const tagQueue = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-11-05", uri: "/", method: "POST", sdkId: "SQS", sigV4ServiceName: "sqs", name: "AmazonSQS.TagQueue" }, TagQueueRequest, S.Struct({}), [InvalidAddress, InvalidSecurity, QueueDoesNotExist, RequestThrottled, UnsupportedOperation]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagQueue = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-11-05", sdkId: "SQS", sigV4ServiceName: "sqs", name: "AmazonSQS.TagQueue" }, TagQueueRequest, S.Struct({}), [InvalidAddress, InvalidSecurity, QueueDoesNotExist, RequestThrottled, UnsupportedOperation]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Remove cost allocation tags from the specified Amazon SQS queue. For an overview, see Tagging
  * Your Amazon SQS Queues in the *Amazon SQS Developer Guide*.
@@ -154,7 +154,7 @@ export class KmsThrottled extends S.TaggedError<KmsThrottled>()("KmsThrottled", 
  * Cross-account permissions don't apply to this action. For more information,
  * see Grant
  * cross-account permissions to a role and a username in the *Amazon SQS Developer Guide*.
- */export const untagQueue = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-11-05", uri: "/", method: "POST", sdkId: "SQS", sigV4ServiceName: "sqs", name: "AmazonSQS.UntagQueue" }, UntagQueueRequest, S.Struct({}), [InvalidAddress, InvalidSecurity, QueueDoesNotExist, RequestThrottled, UnsupportedOperation]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const untagQueue = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-11-05", sdkId: "SQS", sigV4ServiceName: "sqs", name: "AmazonSQS.UntagQueue" }, UntagQueueRequest, S.Struct({}), [InvalidAddress, InvalidSecurity, QueueDoesNotExist, RequestThrottled, UnsupportedOperation]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified message from the specified queue. To select the message to
  * delete, use the `ReceiptHandle` of the message (*not* the
@@ -181,7 +181,7 @@ export class KmsThrottled extends S.TaggedError<KmsThrottled>()("KmsThrottled", 
  * The copy remains on the server and might be returned to you during a subsequent
  * receive request. You should ensure that your application is idempotent, so that
  * receiving a message more than once does not cause issues.
- */export const deleteMessage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-11-05", uri: "/", method: "POST", sdkId: "SQS", sigV4ServiceName: "sqs", name: "AmazonSQS.DeleteMessage" }, DeleteMessageRequest, S.Struct({}), [InvalidAddress, InvalidIdFormat, InvalidSecurity, QueueDoesNotExist, ReceiptHandleIsInvalid, RequestThrottled, UnsupportedOperation]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteMessage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-11-05", sdkId: "SQS", sigV4ServiceName: "sqs", name: "AmazonSQS.DeleteMessage" }, DeleteMessageRequest, S.Struct({}), [InvalidAddress, InvalidIdFormat, InvalidSecurity, QueueDoesNotExist, ReceiptHandleIsInvalid, RequestThrottled, UnsupportedOperation]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the queue specified by the `QueueUrl`, regardless of the queue's
  * contents.
@@ -215,7 +215,7 @@ export class KmsThrottled extends S.TaggedError<KmsThrottled>()("KmsThrottled", 
  * 
  * 
  * The delete operation uses the HTTP `GET` verb.
- */export const deleteQueue = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-11-05", uri: "/", method: "POST", sdkId: "SQS", sigV4ServiceName: "sqs", name: "AmazonSQS.DeleteQueue" }, DeleteQueueRequest, S.Struct({}), [InvalidAddress, InvalidSecurity, QueueDoesNotExist, RequestThrottled, UnsupportedOperation]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteQueue = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-11-05", sdkId: "SQS", sigV4ServiceName: "sqs", name: "AmazonSQS.DeleteQueue" }, DeleteQueueRequest, S.Struct({}), [InvalidAddress, InvalidSecurity, QueueDoesNotExist, RequestThrottled, UnsupportedOperation]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets attributes for the specified queue.
  * 
@@ -223,7 +223,7 @@ export class KmsThrottled extends S.TaggedError<KmsThrottled>()("KmsThrottled", 
  * 
  * 
  * To determine whether a queue is FIFO, you can check whether `QueueName` ends with the `.fifo` suffix.
- */export const getQueueAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-11-05", uri: "/", method: "POST", sdkId: "SQS", sigV4ServiceName: "sqs", name: "AmazonSQS.GetQueueAttributes" }, GetQueueAttributesRequest, GetQueueAttributesResult, [InvalidAddress, InvalidAttributeName, InvalidSecurity, QueueDoesNotExist, RequestThrottled, UnsupportedOperation]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getQueueAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-11-05", sdkId: "SQS", sigV4ServiceName: "sqs", name: "AmazonSQS.GetQueueAttributes" }, GetQueueAttributesRequest, GetQueueAttributesResult, [InvalidAddress, InvalidAttributeName, InvalidSecurity, QueueDoesNotExist, RequestThrottled, UnsupportedOperation]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The `GetQueueUrl` API returns the URL of an existing Amazon SQS queue. This is
  * useful when you know the queue's name but need to retrieve its URL for further
@@ -238,7 +238,7 @@ export class KmsThrottled extends S.TaggedError<KmsThrottled>()("KmsThrottled", 
  * AddPermission
  * API or Allow developers to write messages to a shared queue in the Amazon SQS
  * Developer Guide.
- */export const getQueueUrl = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-11-05", uri: "/", method: "POST", sdkId: "SQS", sigV4ServiceName: "sqs", name: "AmazonSQS.GetQueueUrl" }, GetQueueUrlRequest, GetQueueUrlResult, [InvalidAddress, InvalidSecurity, QueueDoesNotExist, RequestThrottled, UnsupportedOperation]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getQueueUrl = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-11-05", sdkId: "SQS", sigV4ServiceName: "sqs", name: "AmazonSQS.GetQueueUrl" }, GetQueueUrlRequest, GetQueueUrlResult, [InvalidAddress, InvalidSecurity, QueueDoesNotExist, RequestThrottled, UnsupportedOperation]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of your queues that have the `RedrivePolicy` queue attribute
  * configured with a dead-letter queue.
@@ -255,7 +255,7 @@ export class KmsThrottled extends S.TaggedError<KmsThrottled>()("KmsThrottled", 
  * 
  * For more information about using dead-letter queues, see Using Amazon SQS Dead-Letter Queues in the Amazon SQS Developer
  * Guide.
- */export const listDeadLetterSourceQueues = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-11-05", uri: "/", method: "POST", sdkId: "SQS", sigV4ServiceName: "sqs", name: "AmazonSQS.ListDeadLetterSourceQueues" }, ListDeadLetterSourceQueuesRequest, ListDeadLetterSourceQueuesResult, [InvalidAddress, InvalidSecurity, QueueDoesNotExist, RequestThrottled, UnsupportedOperation]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listDeadLetterSourceQueues = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-11-05", sdkId: "SQS", sigV4ServiceName: "sqs", name: "AmazonSQS.ListDeadLetterSourceQueues" }, ListDeadLetterSourceQueuesRequest, ListDeadLetterSourceQueuesResult, [InvalidAddress, InvalidSecurity, QueueDoesNotExist, RequestThrottled, UnsupportedOperation]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of your queues in the current region. The response includes a maximum
  * of 1,000 results. If you specify a value for the optional `QueueNamePrefix`
@@ -277,7 +277,7 @@ export class KmsThrottled extends S.TaggedError<KmsThrottled>()("KmsThrottled", 
  * Cross-account permissions don't apply to this action. For more information,
  * see Grant
  * cross-account permissions to a role and a username in the *Amazon SQS Developer Guide*.
- */export const listQueues = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-11-05", uri: "/", method: "POST", sdkId: "SQS", sigV4ServiceName: "sqs", name: "AmazonSQS.ListQueues" }, ListQueuesRequest, ListQueuesResult, [InvalidAddress, InvalidSecurity, RequestThrottled, UnsupportedOperation]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listQueues = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-11-05", sdkId: "SQS", sigV4ServiceName: "sqs", name: "AmazonSQS.ListQueues" }, ListQueuesRequest, ListQueuesResult, [InvalidAddress, InvalidSecurity, RequestThrottled, UnsupportedOperation]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * List all cost allocation tags added to the specified Amazon SQS queue.
  * For an overview, see Tagging
@@ -289,7 +289,7 @@ export class KmsThrottled extends S.TaggedError<KmsThrottled>()("KmsThrottled", 
  * Cross-account permissions don't apply to this action. For more information,
  * see Grant
  * cross-account permissions to a role and a username in the *Amazon SQS Developer Guide*.
- */export const listQueueTags = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-11-05", uri: "/", method: "POST", sdkId: "SQS", sigV4ServiceName: "sqs", name: "AmazonSQS.ListQueueTags" }, ListQueueTagsRequest, ListQueueTagsResult, [InvalidAddress, InvalidSecurity, QueueDoesNotExist, RequestThrottled, UnsupportedOperation]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listQueueTags = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-11-05", sdkId: "SQS", sigV4ServiceName: "sqs", name: "AmazonSQS.ListQueueTags" }, ListQueueTagsRequest, ListQueueTagsResult, [InvalidAddress, InvalidSecurity, QueueDoesNotExist, RequestThrottled, UnsupportedOperation]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes available messages in a queue (including in-flight messages) specified by the
  * `QueueURL` parameter.
@@ -314,7 +314,7 @@ export class KmsThrottled extends S.TaggedError<KmsThrottled>()("KmsThrottled", 
  * 
  * Messages sent to the queue *after* you call `PurgeQueue`
  * might be deleted while the queue is being purged.
- */export const purgeQueue = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-11-05", uri: "/", method: "POST", sdkId: "SQS", sigV4ServiceName: "sqs", name: "AmazonSQS.PurgeQueue" }, PurgeQueueRequest, S.Struct({}), [InvalidAddress, InvalidSecurity, PurgeQueueInProgress, QueueDoesNotExist, RequestThrottled, UnsupportedOperation]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const purgeQueue = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-11-05", sdkId: "SQS", sigV4ServiceName: "sqs", name: "AmazonSQS.PurgeQueue" }, PurgeQueueRequest, S.Struct({}), [InvalidAddress, InvalidSecurity, PurgeQueueInProgress, QueueDoesNotExist, RequestThrottled, UnsupportedOperation]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Revokes any permissions in the queue policy that matches the specified
  * `Label` parameter.
@@ -334,7 +334,7 @@ export class KmsThrottled extends S.TaggedError<KmsThrottled>()("KmsThrottled", 
  * 
  * 
  * - To remove the ability to change queue permissions, you must deny permission to the `AddPermission`, `RemovePermission`, and `SetQueueAttributes` actions in your IAM policy.
- */export const removePermission = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-11-05", uri: "/", method: "POST", sdkId: "SQS", sigV4ServiceName: "sqs", name: "AmazonSQS.RemovePermission" }, RemovePermissionRequest, S.Struct({}), [InvalidAddress, InvalidSecurity, QueueDoesNotExist, RequestThrottled, UnsupportedOperation]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const removePermission = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-11-05", sdkId: "SQS", sigV4ServiceName: "sqs", name: "AmazonSQS.RemovePermission" }, RemovePermissionRequest, S.Struct({}), [InvalidAddress, InvalidSecurity, QueueDoesNotExist, RequestThrottled, UnsupportedOperation]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts an asynchronous task to move messages from a specified source queue to a
  * specified destination queue.
@@ -359,7 +359,7 @@ export class KmsThrottled extends S.TaggedError<KmsThrottled>()("KmsThrottled", 
  * 
  * - Only one active message movement task is supported per queue at any given
  * time.
- */export const startMessageMoveTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-11-05", uri: "/", method: "POST", sdkId: "SQS", sigV4ServiceName: "sqs", name: "AmazonSQS.StartMessageMoveTask" }, StartMessageMoveTaskRequest, StartMessageMoveTaskResult, [InvalidAddress, InvalidSecurity, RequestThrottled, ResourceNotFoundException, UnsupportedOperation]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startMessageMoveTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-11-05", sdkId: "SQS", sigV4ServiceName: "sqs", name: "AmazonSQS.StartMessageMoveTask" }, StartMessageMoveTaskRequest, StartMessageMoveTaskResult, [InvalidAddress, InvalidSecurity, RequestThrottled, ResourceNotFoundException, UnsupportedOperation]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds a permission to a queue for a specific principal. This allows sharing
  * access to the queue.
@@ -405,7 +405,7 @@ export class KmsThrottled extends S.TaggedError<KmsThrottled>()("KmsThrottled", 
  * Cross-account permissions don't apply to this action. For more information,
  * see Grant
  * cross-account permissions to a role and a username in the *Amazon SQS Developer Guide*.
- */export const addPermission = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-11-05", uri: "/", method: "POST", sdkId: "SQS", sigV4ServiceName: "sqs", name: "AmazonSQS.AddPermission" }, AddPermissionRequest, S.Struct({}), [InvalidAddress, InvalidSecurity, OverLimit, QueueDoesNotExist, RequestThrottled, UnsupportedOperation]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const addPermission = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-11-05", sdkId: "SQS", sigV4ServiceName: "sqs", name: "AmazonSQS.AddPermission" }, AddPermissionRequest, S.Struct({}), [InvalidAddress, InvalidSecurity, OverLimit, QueueDoesNotExist, RequestThrottled, UnsupportedOperation]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Cancels a specified message movement task. A message movement can only be cancelled
  * when the current status is RUNNING. Cancelling a message movement task does not revert
@@ -425,7 +425,7 @@ export class KmsThrottled extends S.TaggedError<KmsThrottled>()("KmsThrottled", 
  * 
  * - Only one active message movement task is supported per queue at any given
  * time.
- */export const cancelMessageMoveTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-11-05", uri: "/", method: "POST", sdkId: "SQS", sigV4ServiceName: "sqs", name: "AmazonSQS.CancelMessageMoveTask" }, CancelMessageMoveTaskRequest, CancelMessageMoveTaskResult, [InvalidAddress, InvalidSecurity, RequestThrottled, ResourceNotFoundException, UnsupportedOperation]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const cancelMessageMoveTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-11-05", sdkId: "SQS", sigV4ServiceName: "sqs", name: "AmazonSQS.CancelMessageMoveTask" }, CancelMessageMoveTaskRequest, CancelMessageMoveTaskResult, [InvalidAddress, InvalidSecurity, RequestThrottled, ResourceNotFoundException, UnsupportedOperation]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Changes the visibility timeout of a specified message in a queue to a new value. The
  * default visibility timeout for a message is 30 seconds. The minimum is 0 seconds. The
@@ -488,7 +488,7 @@ export class KmsThrottled extends S.TaggedError<KmsThrottled>()("KmsThrottled", 
  * message reverts to the original timeout value (not to the value you set using the
  * `ChangeMessageVisibility` action) the next time the message is
  * received.
- */export const changeMessageVisibility = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-11-05", uri: "/", method: "POST", sdkId: "SQS", sigV4ServiceName: "sqs", name: "AmazonSQS.ChangeMessageVisibility" }, ChangeMessageVisibilityRequest, S.Struct({}), [InvalidAddress, InvalidSecurity, MessageNotInflight, QueueDoesNotExist, ReceiptHandleIsInvalid, RequestThrottled, UnsupportedOperation]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const changeMessageVisibility = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-11-05", sdkId: "SQS", sigV4ServiceName: "sqs", name: "AmazonSQS.ChangeMessageVisibility" }, ChangeMessageVisibilityRequest, S.Struct({}), [InvalidAddress, InvalidSecurity, MessageNotInflight, QueueDoesNotExist, ReceiptHandleIsInvalid, RequestThrottled, UnsupportedOperation]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets the most recent message movement tasks (up to 10) under a specific source
  * queue.
@@ -506,7 +506,7 @@ export class KmsThrottled extends S.TaggedError<KmsThrottled>()("KmsThrottled", 
  * 
  * - Only one active message movement task is supported per queue at any given
  * time.
- */export const listMessageMoveTasks = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-11-05", uri: "/", method: "POST", sdkId: "SQS", sigV4ServiceName: "sqs", name: "AmazonSQS.ListMessageMoveTasks" }, ListMessageMoveTasksRequest, ListMessageMoveTasksResult, [InvalidAddress, InvalidSecurity, RequestThrottled, ResourceNotFoundException, UnsupportedOperation]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listMessageMoveTasks = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-11-05", sdkId: "SQS", sigV4ServiceName: "sqs", name: "AmazonSQS.ListMessageMoveTasks" }, ListMessageMoveTasksRequest, ListMessageMoveTasksResult, [InvalidAddress, InvalidSecurity, RequestThrottled, ResourceNotFoundException, UnsupportedOperation]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Sets the value of one or more queue attributes, like a policy. When you change a
  * queue's attributes, the change can take up to 60 seconds for most of the attributes to
@@ -531,7 +531,7 @@ export class KmsThrottled extends S.TaggedError<KmsThrottled>()("KmsThrottled", 
  * 
  * 
  * - To remove the ability to change queue permissions, you must deny permission to the `AddPermission`, `RemovePermission`, and `SetQueueAttributes` actions in your IAM policy.
- */export const setQueueAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-11-05", uri: "/", method: "POST", sdkId: "SQS", sigV4ServiceName: "sqs", name: "AmazonSQS.SetQueueAttributes" }, SetQueueAttributesRequest, S.Struct({}), [InvalidAddress, InvalidAttributeName, InvalidAttributeValue, InvalidSecurity, OverLimit, QueueDoesNotExist, RequestThrottled, UnsupportedOperation]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const setQueueAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-11-05", sdkId: "SQS", sigV4ServiceName: "sqs", name: "AmazonSQS.SetQueueAttributes" }, SetQueueAttributesRequest, S.Struct({}), [InvalidAddress, InvalidAttributeName, InvalidAttributeValue, InvalidSecurity, OverLimit, QueueDoesNotExist, RequestThrottled, UnsupportedOperation]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new standard or FIFO queue. You can pass one or more attributes in
  * the request. Keep the following in mind:
@@ -611,7 +611,7 @@ export class KmsThrottled extends S.TaggedError<KmsThrottled>()("KmsThrottled", 
  * Cross-account permissions don't apply to this action. For more information,
  * see Grant
  * cross-account permissions to a role and a username in the *Amazon SQS Developer Guide*.
- */export const createQueue = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-11-05", uri: "/", method: "POST", sdkId: "SQS", sigV4ServiceName: "sqs", name: "AmazonSQS.CreateQueue" }, CreateQueueRequest, CreateQueueResult, [InvalidAddress, InvalidAttributeName, InvalidAttributeValue, InvalidSecurity, QueueDeletedRecently, QueueNameExists, RequestThrottled, UnsupportedOperation]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createQueue = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-11-05", sdkId: "SQS", sigV4ServiceName: "sqs", name: "AmazonSQS.CreateQueue" }, CreateQueueRequest, CreateQueueResult, [InvalidAddress, InvalidAttributeName, InvalidAttributeValue, InvalidSecurity, QueueDeletedRecently, QueueNameExists, RequestThrottled, UnsupportedOperation]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Changes the visibility timeout of multiple messages. This is a batch version of
  * 
@@ -626,7 +626,7 @@ export class KmsThrottled extends S.TaggedError<KmsThrottled>()("KmsThrottled", 
  * 
  * 
  * Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of `200`.
- */export const changeMessageVisibilityBatch = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-11-05", uri: "/", method: "POST", sdkId: "SQS", sigV4ServiceName: "sqs", name: "AmazonSQS.ChangeMessageVisibilityBatch" }, ChangeMessageVisibilityBatchRequest, ChangeMessageVisibilityBatchResult, [BatchEntryIdsNotDistinct, EmptyBatchRequest, InvalidAddress, InvalidBatchEntryId, InvalidSecurity, QueueDoesNotExist, RequestThrottled, TooManyEntriesInBatchRequest, UnsupportedOperation]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const changeMessageVisibilityBatch = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-11-05", sdkId: "SQS", sigV4ServiceName: "sqs", name: "AmazonSQS.ChangeMessageVisibilityBatch" }, ChangeMessageVisibilityBatchRequest, ChangeMessageVisibilityBatchResult, [BatchEntryIdsNotDistinct, EmptyBatchRequest, InvalidAddress, InvalidBatchEntryId, InvalidSecurity, QueueDoesNotExist, RequestThrottled, TooManyEntriesInBatchRequest, UnsupportedOperation]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes up to ten messages from the specified queue. This is a batch version of
  * 
@@ -637,7 +637,7 @@ export class KmsThrottled extends S.TaggedError<KmsThrottled>()("KmsThrottled", 
  * 
  * 
  * Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of `200`.
- */export const deleteMessageBatch = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-11-05", uri: "/", method: "POST", sdkId: "SQS", sigV4ServiceName: "sqs", name: "AmazonSQS.DeleteMessageBatch" }, DeleteMessageBatchRequest, DeleteMessageBatchResult, [BatchEntryIdsNotDistinct, EmptyBatchRequest, InvalidAddress, InvalidBatchEntryId, InvalidSecurity, QueueDoesNotExist, RequestThrottled, TooManyEntriesInBatchRequest, UnsupportedOperation]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteMessageBatch = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-11-05", sdkId: "SQS", sigV4ServiceName: "sqs", name: "AmazonSQS.DeleteMessageBatch" }, DeleteMessageBatchRequest, DeleteMessageBatchResult, [BatchEntryIdsNotDistinct, EmptyBatchRequest, InvalidAddress, InvalidBatchEntryId, InvalidSecurity, QueueDoesNotExist, RequestThrottled, TooManyEntriesInBatchRequest, UnsupportedOperation]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves one or more messages (up to 10), from the specified queue. Using the
  * `WaitTimeSeconds` parameter enables long-poll support. For more
@@ -699,7 +699,7 @@ export class KmsThrottled extends S.TaggedError<KmsThrottled>()("KmsThrottled", 
  * 
  * 
  * In the future, new attributes might be added. If you write code that calls this action, we recommend that you structure your code so that it can handle new attributes gracefully.
- */export const receiveMessage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-11-05", uri: "/", method: "POST", sdkId: "SQS", sigV4ServiceName: "sqs", name: "AmazonSQS.ReceiveMessage" }, ReceiveMessageRequest, ReceiveMessageResult, [InvalidAddress, InvalidSecurity, KmsAccessDenied, KmsDisabled, KmsInvalidKeyUsage, KmsInvalidState, KmsNotFound, KmsOptInRequired, KmsThrottled, OverLimit, QueueDoesNotExist, RequestThrottled, UnsupportedOperation]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const receiveMessage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-11-05", sdkId: "SQS", sigV4ServiceName: "sqs", name: "AmazonSQS.ReceiveMessage" }, ReceiveMessageRequest, ReceiveMessageResult, [InvalidAddress, InvalidSecurity, KmsAccessDenied, KmsDisabled, KmsInvalidKeyUsage, KmsInvalidState, KmsNotFound, KmsOptInRequired, KmsThrottled, OverLimit, QueueDoesNotExist, RequestThrottled, UnsupportedOperation]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Delivers a message to the specified queue.
  * 
@@ -715,7 +715,7 @@ export class KmsThrottled extends S.TaggedError<KmsThrottled>()("KmsThrottled", 
  * 
  * 
  * If a message contains characters outside the allowed set, Amazon SQS rejects the message and returns an InvalidMessageContents error. Ensure that your message body includes only valid characters to avoid this exception.
- */export const sendMessage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-11-05", uri: "/", method: "POST", sdkId: "SQS", sigV4ServiceName: "sqs", name: "AmazonSQS.SendMessage" }, SendMessageRequest, SendMessageResult, [InvalidAddress, InvalidMessageContents, InvalidSecurity, KmsAccessDenied, KmsDisabled, KmsInvalidKeyUsage, KmsInvalidState, KmsNotFound, KmsOptInRequired, KmsThrottled, QueueDoesNotExist, RequestThrottled, UnsupportedOperation]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const sendMessage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-11-05", sdkId: "SQS", sigV4ServiceName: "sqs", name: "AmazonSQS.SendMessage" }, SendMessageRequest, SendMessageResult, [InvalidAddress, InvalidMessageContents, InvalidSecurity, KmsAccessDenied, KmsDisabled, KmsInvalidKeyUsage, KmsInvalidState, KmsNotFound, KmsOptInRequired, KmsThrottled, QueueDoesNotExist, RequestThrottled, UnsupportedOperation]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * You can use `SendMessageBatch` to send up to 10 messages to the specified
  * queue by assigning either identical or different values to each message (or by not
@@ -750,4 +750,4 @@ export class KmsThrottled extends S.TaggedError<KmsThrottled>()("KmsThrottled", 
  * 
  * If you don't specify the `DelaySeconds` parameter for an entry, Amazon SQS uses
  * the default value for the queue.
- */export const sendMessageBatch = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-11-05", uri: "/", method: "POST", sdkId: "SQS", sigV4ServiceName: "sqs", name: "AmazonSQS.SendMessageBatch" }, SendMessageBatchRequest, SendMessageBatchResult, [BatchEntryIdsNotDistinct, BatchRequestTooLong, EmptyBatchRequest, InvalidAddress, InvalidBatchEntryId, InvalidSecurity, KmsAccessDenied, KmsDisabled, KmsInvalidKeyUsage, KmsInvalidState, KmsNotFound, KmsOptInRequired, KmsThrottled, QueueDoesNotExist, RequestThrottled, TooManyEntriesInBatchRequest, UnsupportedOperation]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const sendMessageBatch = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-11-05", sdkId: "SQS", sigV4ServiceName: "sqs", name: "AmazonSQS.SendMessageBatch" }, SendMessageBatchRequest, SendMessageBatchResult, [BatchEntryIdsNotDistinct, BatchRequestTooLong, EmptyBatchRequest, InvalidAddress, InvalidBatchEntryId, InvalidSecurity, KmsAccessDenied, KmsDisabled, KmsInvalidKeyUsage, KmsInvalidState, KmsNotFound, KmsOptInRequired, KmsThrottled, QueueDoesNotExist, RequestThrottled, TooManyEntriesInBatchRequest, UnsupportedOperation]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);

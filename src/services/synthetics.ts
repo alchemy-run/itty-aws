@@ -119,7 +119,7 @@ export class RequestEntityTooLargeException extends S.TaggedError<RequestEntityT
  * Use this operation to run a canary that has already been created.
  * The frequency of the canary runs is determined by the value of the canary's `Schedule`. To see a canary's schedule,
  * use GetCanary.
- */export const startCanary = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-11", uri: "/canary/{Name}/start", method: "POST", sdkId: "synthetics", sigV4ServiceName: "synthetics", name: "Synthetics.StartCanary" }, StartCanaryRequest, StartCanaryResponse, [ConflictException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startCanary = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-11", uri: "/canary/{Name}/start", sdkId: "synthetics", sigV4ServiceName: "synthetics", name: "Synthetics.StartCanary" }, StartCanaryRequest, StartCanaryResponse, [ConflictException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Stops the canary to prevent all future runs. If the canary is currently running,the
  * run that is in progress completes on its own, publishes metrics, and uploads artifacts, but
@@ -128,7 +128,7 @@ export class RequestEntityTooLargeException extends S.TaggedError<RequestEntityT
  * 
  * You can use `StartCanary` to start it running again
  * with the canary’s current schedule at any point in the future.
- */export const stopCanary = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-11", uri: "/canary/{Name}/stop", method: "POST", sdkId: "synthetics", sigV4ServiceName: "synthetics", name: "Synthetics.StopCanary" }, StopCanaryRequest, StopCanaryResponse, [ConflictException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const stopCanary = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-11", uri: "/canary/{Name}/stop", sdkId: "synthetics", sigV4ServiceName: "synthetics", name: "Synthetics.StopCanary" }, StopCanaryRequest, StopCanaryResponse, [ConflictException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Permanently deletes the specified canary.
  * 
@@ -200,11 +200,11 @@ export class RequestEntityTooLargeException extends S.TaggedError<RequestEntityT
  */export const getGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-11", uri: "/group/{GroupIdentifier}", method: "GET", sdkId: "synthetics", sigV4ServiceName: "synthetics", name: "Synthetics.GetGroup" }, GetGroupRequest, GetGroupResponse, [ConflictException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This operation returns a list of the ARNs of the canaries that are associated with the specified group.
- */export const listGroupResources = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-11", uri: "/group/{GroupIdentifier}/resources", method: "POST", sdkId: "synthetics", sigV4ServiceName: "synthetics", name: "Synthetics.ListGroupResources" }, ListGroupResourcesRequest, ListGroupResourcesResponse, [ConflictException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listGroupResources = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-11", uri: "/group/{GroupIdentifier}/resources", sdkId: "synthetics", sigV4ServiceName: "synthetics", name: "Synthetics.ListGroupResources" }, ListGroupResourcesRequest, ListGroupResourcesResponse, [ConflictException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of all groups in the account, displaying their names, unique IDs, and ARNs. The groups
  * from all Regions are returned.
- */export const listGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-11", uri: "/groups", method: "POST", sdkId: "synthetics", sigV4ServiceName: "synthetics", name: "Synthetics.ListGroups" }, ListGroupsRequest, ListGroupsResponse, [InternalServerException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-11", uri: "/groups", sdkId: "synthetics", sigV4ServiceName: "synthetics", name: "Synthetics.ListGroups" }, ListGroupsRequest, ListGroupsResponse, [InternalServerException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes one or more tags from the specified resource.
  */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-11", uri: "/tags/{ResourceArn}", method: "DELETE", sdkId: "synthetics", sigV4ServiceName: "synthetics", name: "Synthetics.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [BadRequestException, ConflictException, InternalFailureException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -236,7 +236,7 @@ export class RequestEntityTooLargeException extends S.TaggedError<RequestEntityT
  * 
  * Each group can contain as many as 10 canaries. You can have as many as 20 groups in your account. Any single canary
  * can be a member of up to 10 groups.
- */export const createGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-11", uri: "/group", method: "POST", sdkId: "synthetics", sigV4ServiceName: "synthetics", name: "Synthetics.CreateGroup" }, CreateGroupRequest, CreateGroupResponse, [ConflictException, InternalServerException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-11", uri: "/group", sdkId: "synthetics", sigV4ServiceName: "synthetics", name: "Synthetics.CreateGroup" }, CreateGroupRequest, CreateGroupResponse, [ConflictException, InternalServerException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Use this operation to see information from the most recent run of each canary that you have created.
  * 
@@ -251,16 +251,16 @@ export class RequestEntityTooLargeException extends S.TaggedError<RequestEntityT
  * IAM policy that restricts which canaries that you are allowed to view. For more information,
  * see
  * Limiting a user to viewing specific canaries.
- */export const describeCanariesLastRun = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-11", uri: "/canaries/last-run", method: "POST", sdkId: "synthetics", sigV4ServiceName: "synthetics", name: "Synthetics.DescribeCanariesLastRun" }, DescribeCanariesLastRunRequest, DescribeCanariesLastRunResponse, [InternalServerException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeCanariesLastRun = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-11", uri: "/canaries/last-run", sdkId: "synthetics", sigV4ServiceName: "synthetics", name: "Synthetics.DescribeCanariesLastRun" }, DescribeCanariesLastRunRequest, DescribeCanariesLastRunResponse, [InternalServerException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of Synthetics canary runtime versions. For more information,
  * see
  * Canary Runtime Versions.
- */export const describeRuntimeVersions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-11", uri: "/runtime-versions", method: "POST", sdkId: "synthetics", sigV4ServiceName: "synthetics", name: "Synthetics.DescribeRuntimeVersions" }, DescribeRuntimeVersionsRequest, DescribeRuntimeVersionsResponse, [InternalServerException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeRuntimeVersions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-11", uri: "/runtime-versions", sdkId: "synthetics", sigV4ServiceName: "synthetics", name: "Synthetics.DescribeRuntimeVersions" }, DescribeRuntimeVersionsRequest, DescribeRuntimeVersionsResponse, [InternalServerException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of the groups that the specified canary is associated with. The canary
  * that you specify must be in the current Region.
- */export const listAssociatedGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-11", uri: "/resource/{ResourceArn}/groups", method: "POST", sdkId: "synthetics", sigV4ServiceName: "synthetics", name: "Synthetics.ListAssociatedGroups" }, ListAssociatedGroupsRequest, ListAssociatedGroupsResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listAssociatedGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-11", uri: "/resource/{ResourceArn}/groups", sdkId: "synthetics", sigV4ServiceName: "synthetics", name: "Synthetics.ListAssociatedGroups" }, ListAssociatedGroupsRequest, ListAssociatedGroupsResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Displays the tags associated with a canary or group.
  */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-11", uri: "/tags/{ResourceArn}", method: "GET", sdkId: "synthetics", sigV4ServiceName: "synthetics", name: "Synthetics.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [BadRequestException, ConflictException, InternalFailureException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -285,7 +285,7 @@ export class RequestEntityTooLargeException extends S.TaggedError<RequestEntityT
  * 
  * 
  * You can associate as many as 50 tags with a canary or group.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-11", uri: "/tags/{ResourceArn}", method: "POST", sdkId: "synthetics", sigV4ServiceName: "synthetics", name: "Synthetics.TagResource" }, TagResourceRequest, TagResourceResponse, [BadRequestException, ConflictException, InternalFailureException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-11", uri: "/tags/{ResourceArn}", sdkId: "synthetics", sigV4ServiceName: "synthetics", name: "Synthetics.TagResource" }, TagResourceRequest, TagResourceResponse, [BadRequestException, ConflictException, InternalFailureException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the configuration of a canary that has already been created.
  * 
@@ -333,13 +333,13 @@ export class RequestEntityTooLargeException extends S.TaggedError<RequestEntityT
  * makes up part of the Amazon Resource Name (ARN) for the canary, and the ARN is included in
  * outbound calls over the internet. For more information, see Security
  * Considerations for Synthetics Canaries.
- */export const createCanary = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-11", uri: "/canary", method: "POST", sdkId: "synthetics", sigV4ServiceName: "synthetics", name: "Synthetics.CreateCanary" }, CreateCanaryRequest, CreateCanaryResponse, [InternalServerException, RequestEntityTooLargeException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createCanary = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-11", uri: "/canary", sdkId: "synthetics", sigV4ServiceName: "synthetics", name: "Synthetics.CreateCanary" }, CreateCanaryRequest, CreateCanaryResponse, [InternalServerException, RequestEntityTooLargeException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves a list of runs for a specified canary.
- */export const getCanaryRuns = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-11", uri: "/canary/{Name}/runs", method: "POST", sdkId: "synthetics", sigV4ServiceName: "synthetics", name: "Synthetics.GetCanaryRuns" }, GetCanaryRunsRequest, GetCanaryRunsResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getCanaryRuns = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-11", uri: "/canary/{Name}/runs", sdkId: "synthetics", sigV4ServiceName: "synthetics", name: "Synthetics.GetCanaryRuns" }, GetCanaryRunsRequest, GetCanaryRunsResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Use this operation to start a dry run for a canary that has already been created
- */export const startCanaryDryRun = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-11", uri: "/canary/{Name}/dry-run/start", method: "POST", sdkId: "synthetics", sigV4ServiceName: "synthetics", name: "Synthetics.StartCanaryDryRun" }, StartCanaryDryRunRequest, StartCanaryDryRunResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startCanaryDryRun = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-11", uri: "/canary/{Name}/dry-run/start", sdkId: "synthetics", sigV4ServiceName: "synthetics", name: "Synthetics.StartCanaryDryRun" }, StartCanaryDryRunRequest, StartCanaryDryRunResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This operation returns a list of the canaries in your account, along with full details
  * about each canary.
@@ -355,4 +355,4 @@ export class RequestEntityTooLargeException extends S.TaggedError<RequestEntityT
  * IAM policy that restricts which canaries that you are allowed to view. For more information,
  * see
  * Limiting a user to viewing specific canaries.
- */export const describeCanaries = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-11", uri: "/canaries", method: "POST", sdkId: "synthetics", sigV4ServiceName: "synthetics", name: "Synthetics.DescribeCanaries" }, DescribeCanariesRequest, DescribeCanariesResponse, [InternalServerException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeCanaries = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-11", uri: "/canaries", sdkId: "synthetics", sigV4ServiceName: "synthetics", name: "Synthetics.DescribeCanaries" }, DescribeCanariesRequest, DescribeCanariesResponse, [InternalServerException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

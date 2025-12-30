@@ -133,7 +133,7 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * 
  * 
  * A network operation is any operation that is done to your network, such as network instance instantiation or termination.
- */export const cancelSolNetworkOperation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2008-10-21", uri: "/sol/nslcm/v1/ns_lcm_op_occs/{nsLcmOpOccId}/cancel", method: "POST", sdkId: "tnb", sigV4ServiceName: "tnb", name: "TNB.CancelSolNetworkOperation" }, CancelSolNetworkOperationInput, S.Struct({}), [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const cancelSolNetworkOperation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2008-10-21", uri: "/sol/nslcm/v1/ns_lcm_op_occs/{nsLcmOpOccId}/cancel", sdkId: "tnb", sigV4ServiceName: "tnb", name: "TNB.CancelSolNetworkOperation" }, CancelSolNetworkOperationInput, S.Struct({}), [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a network package.
  * 
@@ -150,7 +150,7 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * 
  * This request creates an empty network package container with an ID. Once you create a
  * network package, you can upload the network package content using PutSolNetworkPackageContent.
- */export const createSolNetworkPackage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2008-10-21", uri: "/sol/nsd/v1/ns_descriptors", method: "POST", sdkId: "tnb", sigV4ServiceName: "tnb", name: "TNB.CreateSolNetworkPackage" }, CreateSolNetworkPackageInput, CreateSolNetworkPackageOutput, [AccessDeniedException, InternalServerException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createSolNetworkPackage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2008-10-21", uri: "/sol/nsd/v1/ns_descriptors", sdkId: "tnb", sigV4ServiceName: "tnb", name: "TNB.CreateSolNetworkPackage" }, CreateSolNetworkPackageInput, CreateSolNetworkPackageOutput, [AccessDeniedException, InternalServerException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a function package.
  * 
@@ -217,7 +217,7 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * 
  * Before you can instantiate a network instance, you have to create a network instance.
  * For more information, see CreateSolNetworkInstance.
- */export const instantiateSolNetworkInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2008-10-21", uri: "/sol/nslcm/v1/ns_instances/{nsInstanceId}/instantiate", method: "POST", sdkId: "tnb", sigV4ServiceName: "tnb", name: "TNB.InstantiateSolNetworkInstance" }, InstantiateSolNetworkInstanceInput, InstantiateSolNetworkInstanceOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const instantiateSolNetworkInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2008-10-21", uri: "/sol/nslcm/v1/ns_instances/{nsInstanceId}/instantiate", sdkId: "tnb", sigV4ServiceName: "tnb", name: "TNB.InstantiateSolNetworkInstance" }, InstantiateSolNetworkInstanceInput, InstantiateSolNetworkInstanceOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists tags for AWS TNB resources.
  */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2008-10-21", uri: "/tags/{resourceArn}", method: "GET", sdkId: "tnb", sigV4ServiceName: "tnb", name: "TNB.ListTagsForResource" }, ListTagsForResourceInput, ListTagsForResourceOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -226,7 +226,7 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * 
  * 
  * A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key and an optional value. You can use tags to search and filter your resources or track your Amazon Web Services costs.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2008-10-21", uri: "/tags/{resourceArn}", method: "POST", sdkId: "tnb", sigV4ServiceName: "tnb", name: "TNB.TagResource" }, TagResourceInput, TagResourceOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2008-10-21", uri: "/tags/{resourceArn}", sdkId: "tnb", sigV4ServiceName: "tnb", name: "TNB.TagResource" }, TagResourceInput, TagResourceOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Terminates a network instance.
  * 
@@ -235,7 +235,7 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * 
  * 
  * You must terminate a network instance before you can delete it.
- */export const terminateSolNetworkInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2008-10-21", uri: "/sol/nslcm/v1/ns_instances/{nsInstanceId}/terminate", method: "POST", sdkId: "tnb", sigV4ServiceName: "tnb", name: "TNB.TerminateSolNetworkInstance" }, TerminateSolNetworkInstanceInput, TerminateSolNetworkInstanceOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const terminateSolNetworkInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2008-10-21", uri: "/sol/nslcm/v1/ns_instances/{nsInstanceId}/terminate", sdkId: "tnb", sigV4ServiceName: "tnb", name: "TNB.TerminateSolNetworkInstance" }, TerminateSolNetworkInstanceInput, TerminateSolNetworkInstanceOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the operational state of function package.
  * 
@@ -262,7 +262,7 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * Creating a function package is the first step for creating a network in AWS TNB. This
  * request creates an empty container with an ID. The next step is to upload the actual CSAR
  * zip file into that empty container. To upload function package content, see PutSolFunctionPackageContent.
- */export const createSolFunctionPackage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2008-10-21", uri: "/sol/vnfpkgm/v1/vnf_packages", method: "POST", sdkId: "tnb", sigV4ServiceName: "tnb", name: "TNB.CreateSolFunctionPackage" }, CreateSolFunctionPackageInput, CreateSolFunctionPackageOutput, [AccessDeniedException, InternalServerException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createSolFunctionPackage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2008-10-21", uri: "/sol/vnfpkgm/v1/vnf_packages", sdkId: "tnb", sigV4ServiceName: "tnb", name: "TNB.CreateSolFunctionPackage" }, CreateSolFunctionPackageInput, CreateSolFunctionPackageOutput, [AccessDeniedException, InternalServerException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a network instance.
  * 
@@ -274,7 +274,7 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * 
  * Once you create a network instance, you can instantiate it. To instantiate a network,
  * see InstantiateSolNetworkInstance.
- */export const createSolNetworkInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2008-10-21", uri: "/sol/nslcm/v1/ns_instances", method: "POST", sdkId: "tnb", sigV4ServiceName: "tnb", name: "TNB.CreateSolNetworkInstance" }, CreateSolNetworkInstanceInput, CreateSolNetworkInstanceOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createSolNetworkInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2008-10-21", uri: "/sol/nslcm/v1/ns_instances", sdkId: "tnb", sigV4ServiceName: "tnb", name: "TNB.CreateSolNetworkInstance" }, CreateSolNetworkInstanceInput, CreateSolNetworkInstanceOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets the details of the network instance.
  * 
@@ -301,7 +301,7 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * 
  * 
  * Choose the *updateType* parameter to target the necessary update of the network instance.
- */export const updateSolNetworkInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2008-10-21", uri: "/sol/nslcm/v1/ns_instances/{nsInstanceId}/update", method: "POST", sdkId: "tnb", sigV4ServiceName: "tnb", name: "TNB.UpdateSolNetworkInstance" }, UpdateSolNetworkInstanceInput, UpdateSolNetworkInstanceOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateSolNetworkInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2008-10-21", uri: "/sol/nslcm/v1/ns_instances/{nsInstanceId}/update", sdkId: "tnb", sigV4ServiceName: "tnb", name: "TNB.UpdateSolNetworkInstance" }, UpdateSolNetworkInstanceInput, UpdateSolNetworkInstanceOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Validates function package content. This can be used as a dry run before uploading
  * function package content with PutSolFunctionPackageContent.

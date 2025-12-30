@@ -50,4 +50,4 @@ export class ServiceUnavailableException extends S.TaggedError<ServiceUnavailabl
  * ### Permissions
  * 
  * For vector buckets and vector indexes, you must have the `s3vectors:TagResource` permission to use this operation.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2025-07-15", uri: "/tags/{resourceArn}", method: "POST", sdkId: "S3Vectors", sigV4ServiceName: "s3vectors", name: "S3Vectors.TagResource" }, TagResourceInput, TagResourceOutput, [ConflictException, NotFoundException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2025-07-15", uri: "/tags/{resourceArn}", sdkId: "S3Vectors", sigV4ServiceName: "s3vectors", name: "S3Vectors.TagResource" }, TagResourceInput, TagResourceOutput, [ConflictException, NotFoundException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

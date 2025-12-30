@@ -110,7 +110,7 @@ export class PredictorNotMountedException extends S.TaggedError<PredictorNotMoun
  * 
  * 
  * **Caution:** The results of the `DeleteEvaluation` operation are irreversible.
- */export const deleteEvaluation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-12-12", uri: "/", method: "POST", sdkId: "Machine Learning", sigV4ServiceName: "machinelearning", name: "AmazonML_20141212.DeleteEvaluation" }, DeleteEvaluationInput, DeleteEvaluationOutput, [InternalServerException, InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteEvaluation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-12-12", sdkId: "Machine Learning", sigV4ServiceName: "machinelearning", name: "AmazonML_20141212.DeleteEvaluation" }, DeleteEvaluationInput, DeleteEvaluationOutput, [InternalServerException, InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Assigns the `DELETED` status to an `MLModel`, rendering it unusable.
  * 
@@ -122,48 +122,48 @@ export class PredictorNotMountedException extends S.TaggedError<PredictorNotMoun
  * 
  * 
  * **Caution:** The result of the `DeleteMLModel` operation is irreversible.
- */export const deleteMLModel = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-12-12", uri: "/", method: "POST", sdkId: "Machine Learning", sigV4ServiceName: "machinelearning", name: "AmazonML_20141212.DeleteMLModel" }, DeleteMLModelInput, DeleteMLModelOutput, [InternalServerException, InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteMLModel = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-12-12", sdkId: "Machine Learning", sigV4ServiceName: "machinelearning", name: "AmazonML_20141212.DeleteMLModel" }, DeleteMLModelInput, DeleteMLModelOutput, [InternalServerException, InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a real time endpoint of an `MLModel`.
- */export const deleteRealtimeEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-12-12", uri: "/", method: "POST", sdkId: "Machine Learning", sigV4ServiceName: "machinelearning", name: "AmazonML_20141212.DeleteRealtimeEndpoint" }, DeleteRealtimeEndpointInput, DeleteRealtimeEndpointOutput, [InternalServerException, InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteRealtimeEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-12-12", sdkId: "Machine Learning", sigV4ServiceName: "machinelearning", name: "AmazonML_20141212.DeleteRealtimeEndpoint" }, DeleteRealtimeEndpointInput, DeleteRealtimeEndpointOutput, [InternalServerException, InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes one or more of the tags for your Amazon ML object.
- */export const describeTags = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-12-12", uri: "/", method: "POST", sdkId: "Machine Learning", sigV4ServiceName: "machinelearning", name: "AmazonML_20141212.DescribeTags" }, DescribeTagsInput, DescribeTagsOutput, [InternalServerException, InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeTags = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-12-12", sdkId: "Machine Learning", sigV4ServiceName: "machinelearning", name: "AmazonML_20141212.DescribeTags" }, DescribeTagsInput, DescribeTagsOutput, [InternalServerException, InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a `BatchPrediction` that includes detailed metadata, status, and data file information for a
  * `Batch Prediction` request.
- */export const getBatchPrediction = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-12-12", uri: "/", method: "POST", sdkId: "Machine Learning", sigV4ServiceName: "machinelearning", name: "AmazonML_20141212.GetBatchPrediction" }, GetBatchPredictionInput, GetBatchPredictionOutput, [InternalServerException, InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getBatchPrediction = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-12-12", sdkId: "Machine Learning", sigV4ServiceName: "machinelearning", name: "AmazonML_20141212.GetBatchPrediction" }, GetBatchPredictionInput, GetBatchPredictionOutput, [InternalServerException, InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns an `MLModel` that includes detailed metadata, data source information, and the current status of the `MLModel`.
  * 
  * 
  * 
  * `GetMLModel` provides results in normal or verbose format.
- */export const getMLModel = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-12-12", uri: "/", method: "POST", sdkId: "Machine Learning", sigV4ServiceName: "machinelearning", name: "AmazonML_20141212.GetMLModel" }, GetMLModelInput, GetMLModelOutput, [InternalServerException, InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getMLModel = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-12-12", sdkId: "Machine Learning", sigV4ServiceName: "machinelearning", name: "AmazonML_20141212.GetMLModel" }, GetMLModelInput, GetMLModelOutput, [InternalServerException, InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the `BatchPredictionName` of a `BatchPrediction`.
  * 
  * 
  * You can use the `GetBatchPrediction` operation to view the contents of the updated data element.
- */export const updateBatchPrediction = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-12-12", uri: "/", method: "POST", sdkId: "Machine Learning", sigV4ServiceName: "machinelearning", name: "AmazonML_20141212.UpdateBatchPrediction" }, UpdateBatchPredictionInput, UpdateBatchPredictionOutput, [InternalServerException, InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateBatchPrediction = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-12-12", sdkId: "Machine Learning", sigV4ServiceName: "machinelearning", name: "AmazonML_20141212.UpdateBatchPrediction" }, UpdateBatchPredictionInput, UpdateBatchPredictionOutput, [InternalServerException, InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the `DataSourceName` of a `DataSource`.
  * 
  * 
  * You can use the `GetDataSource` operation to view the contents of the updated data element.
- */export const updateDataSource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-12-12", uri: "/", method: "POST", sdkId: "Machine Learning", sigV4ServiceName: "machinelearning", name: "AmazonML_20141212.UpdateDataSource" }, UpdateDataSourceInput, UpdateDataSourceOutput, [InternalServerException, InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateDataSource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-12-12", sdkId: "Machine Learning", sigV4ServiceName: "machinelearning", name: "AmazonML_20141212.UpdateDataSource" }, UpdateDataSourceInput, UpdateDataSourceOutput, [InternalServerException, InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the `EvaluationName` of an `Evaluation`.
  * 
  * 
  * You can use the `GetEvaluation` operation to view the contents of the updated data element.
- */export const updateEvaluation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-12-12", uri: "/", method: "POST", sdkId: "Machine Learning", sigV4ServiceName: "machinelearning", name: "AmazonML_20141212.UpdateEvaluation" }, UpdateEvaluationInput, UpdateEvaluationOutput, [InternalServerException, InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateEvaluation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-12-12", sdkId: "Machine Learning", sigV4ServiceName: "machinelearning", name: "AmazonML_20141212.UpdateEvaluation" }, UpdateEvaluationInput, UpdateEvaluationOutput, [InternalServerException, InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the `MLModelName` and the `ScoreThreshold` of an `MLModel`.
  * 
  * 
  * You can use the `GetMLModel` operation to view the contents of the updated data element.
- */export const updateMLModel = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-12-12", uri: "/", method: "POST", sdkId: "Machine Learning", sigV4ServiceName: "machinelearning", name: "AmazonML_20141212.UpdateMLModel" }, UpdateMLModelInput, UpdateMLModelOutput, [InternalServerException, InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateMLModel = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-12-12", sdkId: "Machine Learning", sigV4ServiceName: "machinelearning", name: "AmazonML_20141212.UpdateMLModel" }, UpdateMLModelInput, UpdateMLModelOutput, [InternalServerException, InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Generates predictions for a group of observations. The observations to process exist in one or more data files referenced
  * by a `DataSource`. This operation creates a new `BatchPrediction`, and uses an `MLModel` and the data
@@ -181,7 +181,7 @@ export class PredictorNotMountedException extends S.TaggedError<PredictorNotMoun
  * 
  * You can poll for status updates by using the GetBatchPrediction operation and checking the `Status` parameter of the result. After the `COMPLETED` status appears,
  * the results are available in the location specified by the `OutputUri` parameter.
- */export const createBatchPrediction = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-12-12", uri: "/", method: "POST", sdkId: "Machine Learning", sigV4ServiceName: "machinelearning", name: "AmazonML_20141212.CreateBatchPrediction" }, CreateBatchPredictionInput, CreateBatchPredictionOutput, [IdempotentParameterMismatchException, InternalServerException, InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createBatchPrediction = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-12-12", sdkId: "Machine Learning", sigV4ServiceName: "machinelearning", name: "AmazonML_20141212.CreateBatchPrediction" }, CreateBatchPredictionInput, CreateBatchPredictionOutput, [IdempotentParameterMismatchException, InternalServerException, InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a `DataSource` object. A `DataSource` references data that
  * can be used to perform `CreateMLModel`, `CreateEvaluation`, or
@@ -221,7 +221,7 @@ export class PredictorNotMountedException extends S.TaggedError<PredictorNotMoun
  * the variable be included or excluded from training? Will the variable be manipulated;
  * for example, will it be combined with another variable or will it be split apart into
  * word combinations? The recipe provides answers to these questions.
- */export const createDataSourceFromS3 = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-12-12", uri: "/", method: "POST", sdkId: "Machine Learning", sigV4ServiceName: "machinelearning", name: "AmazonML_20141212.CreateDataSourceFromS3" }, CreateDataSourceFromS3Input, CreateDataSourceFromS3Output, [IdempotentParameterMismatchException, InternalServerException, InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createDataSourceFromS3 = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-12-12", sdkId: "Machine Learning", sigV4ServiceName: "machinelearning", name: "AmazonML_20141212.CreateDataSourceFromS3" }, CreateDataSourceFromS3Input, CreateDataSourceFromS3Output, [IdempotentParameterMismatchException, InternalServerException, InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new `Evaluation` of an `MLModel`. An `MLModel` is evaluated on a set of observations associated to a `DataSource`. Like a `DataSource`
  * for an `MLModel`, the `DataSource` for an `Evaluation` contains values for the `Target Variable`. The `Evaluation` compares the predicted result for each observation to the actual outcome and provides a
@@ -239,7 +239,7 @@ export class PredictorNotMountedException extends S.TaggedError<PredictorNotMoun
  * 
  * 
  * You can use the `GetEvaluation` operation to check progress of the evaluation during the creation operation.
- */export const createEvaluation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-12-12", uri: "/", method: "POST", sdkId: "Machine Learning", sigV4ServiceName: "machinelearning", name: "AmazonML_20141212.CreateEvaluation" }, CreateEvaluationInput, CreateEvaluationOutput, [IdempotentParameterMismatchException, InternalServerException, InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createEvaluation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-12-12", sdkId: "Machine Learning", sigV4ServiceName: "machinelearning", name: "AmazonML_20141212.CreateEvaluation" }, CreateEvaluationInput, CreateEvaluationOutput, [IdempotentParameterMismatchException, InternalServerException, InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new `MLModel` using the `DataSource` and the recipe as
  * information sources.
@@ -267,10 +267,10 @@ export class PredictorNotMountedException extends S.TaggedError<PredictorNotMoun
  * which can be created by setting `ComputeStatistics` to `true` in
  * `CreateDataSourceFromRDS`, `CreateDataSourceFromS3`, or
  * `CreateDataSourceFromRedshift` operations.
- */export const createMLModel = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-12-12", uri: "/", method: "POST", sdkId: "Machine Learning", sigV4ServiceName: "machinelearning", name: "AmazonML_20141212.CreateMLModel" }, CreateMLModelInput, CreateMLModelOutput, [IdempotentParameterMismatchException, InternalServerException, InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createMLModel = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-12-12", sdkId: "Machine Learning", sigV4ServiceName: "machinelearning", name: "AmazonML_20141212.CreateMLModel" }, CreateMLModelInput, CreateMLModelOutput, [IdempotentParameterMismatchException, InternalServerException, InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a real-time endpoint for the `MLModel`. The endpoint contains the URI of the `MLModel`; that is, the location to send real-time prediction requests for the specified `MLModel`.
- */export const createRealtimeEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-12-12", uri: "/", method: "POST", sdkId: "Machine Learning", sigV4ServiceName: "machinelearning", name: "AmazonML_20141212.CreateRealtimeEndpoint" }, CreateRealtimeEndpointInput, CreateRealtimeEndpointOutput, [InternalServerException, InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createRealtimeEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-12-12", sdkId: "Machine Learning", sigV4ServiceName: "machinelearning", name: "AmazonML_20141212.CreateRealtimeEndpoint" }, CreateRealtimeEndpointInput, CreateRealtimeEndpointOutput, [InternalServerException, InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Assigns the DELETED status to a `BatchPrediction`, rendering it unusable.
  * 
@@ -282,7 +282,7 @@ export class PredictorNotMountedException extends S.TaggedError<PredictorNotMoun
  * 
  * 
  * **Caution:** The result of the `DeleteBatchPrediction` operation is irreversible.
- */export const deleteBatchPrediction = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-12-12", uri: "/", method: "POST", sdkId: "Machine Learning", sigV4ServiceName: "machinelearning", name: "AmazonML_20141212.DeleteBatchPrediction" }, DeleteBatchPredictionInput, DeleteBatchPredictionOutput, [InternalServerException, InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteBatchPrediction = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-12-12", sdkId: "Machine Learning", sigV4ServiceName: "machinelearning", name: "AmazonML_20141212.DeleteBatchPrediction" }, DeleteBatchPredictionInput, DeleteBatchPredictionOutput, [InternalServerException, InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Assigns the DELETED status to a `DataSource`, rendering it unusable.
  * 
@@ -292,25 +292,25 @@ export class PredictorNotMountedException extends S.TaggedError<PredictorNotMoun
  * 
  * 
  * **Caution:** The results of the `DeleteDataSource` operation are irreversible.
- */export const deleteDataSource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-12-12", uri: "/", method: "POST", sdkId: "Machine Learning", sigV4ServiceName: "machinelearning", name: "AmazonML_20141212.DeleteDataSource" }, DeleteDataSourceInput, DeleteDataSourceOutput, [InternalServerException, InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteDataSource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-12-12", sdkId: "Machine Learning", sigV4ServiceName: "machinelearning", name: "AmazonML_20141212.DeleteDataSource" }, DeleteDataSourceInput, DeleteDataSourceOutput, [InternalServerException, InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified tags associated with an ML object. After this operation is complete, you can't recover deleted tags.
  * 
  * 
  * If you specify a tag that doesn't exist, Amazon ML ignores it.
- */export const deleteTags = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-12-12", uri: "/", method: "POST", sdkId: "Machine Learning", sigV4ServiceName: "machinelearning", name: "AmazonML_20141212.DeleteTags" }, DeleteTagsInput, DeleteTagsOutput, [InternalServerException, InvalidInputException, InvalidTagException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteTags = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-12-12", sdkId: "Machine Learning", sigV4ServiceName: "machinelearning", name: "AmazonML_20141212.DeleteTags" }, DeleteTagsInput, DeleteTagsOutput, [InternalServerException, InvalidInputException, InvalidTagException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of `BatchPrediction` operations that match the search criteria in the request.
- */export const describeBatchPredictions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-12-12", uri: "/", method: "POST", sdkId: "Machine Learning", sigV4ServiceName: "machinelearning", name: "AmazonML_20141212.DescribeBatchPredictions" }, DescribeBatchPredictionsInput, DescribeBatchPredictionsOutput, [InternalServerException, InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeBatchPredictions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-12-12", sdkId: "Machine Learning", sigV4ServiceName: "machinelearning", name: "AmazonML_20141212.DescribeBatchPredictions" }, DescribeBatchPredictionsInput, DescribeBatchPredictionsOutput, [InternalServerException, InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of `DataSource` that match the search criteria in the request.
- */export const describeDataSources = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-12-12", uri: "/", method: "POST", sdkId: "Machine Learning", sigV4ServiceName: "machinelearning", name: "AmazonML_20141212.DescribeDataSources" }, DescribeDataSourcesInput, DescribeDataSourcesOutput, [InternalServerException, InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeDataSources = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-12-12", sdkId: "Machine Learning", sigV4ServiceName: "machinelearning", name: "AmazonML_20141212.DescribeDataSources" }, DescribeDataSourcesInput, DescribeDataSourcesOutput, [InternalServerException, InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of `DescribeEvaluations` that match the search criteria in the request.
- */export const describeEvaluations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-12-12", uri: "/", method: "POST", sdkId: "Machine Learning", sigV4ServiceName: "machinelearning", name: "AmazonML_20141212.DescribeEvaluations" }, DescribeEvaluationsInput, DescribeEvaluationsOutput, [InternalServerException, InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeEvaluations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-12-12", sdkId: "Machine Learning", sigV4ServiceName: "machinelearning", name: "AmazonML_20141212.DescribeEvaluations" }, DescribeEvaluationsInput, DescribeEvaluationsOutput, [InternalServerException, InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of `MLModel` that match the search criteria in the request.
- */export const describeMLModels = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-12-12", uri: "/", method: "POST", sdkId: "Machine Learning", sigV4ServiceName: "machinelearning", name: "AmazonML_20141212.DescribeMLModels" }, DescribeMLModelsInput, DescribeMLModelsOutput, [InternalServerException, InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeMLModels = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-12-12", sdkId: "Machine Learning", sigV4ServiceName: "machinelearning", name: "AmazonML_20141212.DescribeMLModels" }, DescribeMLModelsInput, DescribeMLModelsOutput, [InternalServerException, InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a `DataSource` that includes metadata and data file information, as well as the current status of the `DataSource`.
  * 
@@ -318,12 +318,12 @@ export class PredictorNotMountedException extends S.TaggedError<PredictorNotMoun
  * 
  * `GetDataSource` provides results in normal or verbose format. The verbose format
  * adds the schema description and the list of files pointed to by the DataSource to the normal format.
- */export const getDataSource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-12-12", uri: "/", method: "POST", sdkId: "Machine Learning", sigV4ServiceName: "machinelearning", name: "AmazonML_20141212.GetDataSource" }, GetDataSourceInput, GetDataSourceOutput, [InternalServerException, InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getDataSource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-12-12", sdkId: "Machine Learning", sigV4ServiceName: "machinelearning", name: "AmazonML_20141212.GetDataSource" }, GetDataSourceInput, GetDataSourceOutput, [InternalServerException, InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds one or more tags to an object, up to a limit of 10. Each tag consists of a key
  * and an optional value. If you add a tag using a key that is already associated with the ML object,
  * `AddTags` updates the tag's value.
- */export const addTags = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-12-12", uri: "/", method: "POST", sdkId: "Machine Learning", sigV4ServiceName: "machinelearning", name: "AmazonML_20141212.AddTags" }, AddTagsInput, AddTagsOutput, [InternalServerException, InvalidInputException, InvalidTagException, ResourceNotFoundException, TagLimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const addTags = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-12-12", sdkId: "Machine Learning", sigV4ServiceName: "machinelearning", name: "AmazonML_20141212.AddTags" }, AddTagsInput, AddTagsOutput, [InternalServerException, InvalidInputException, InvalidTagException, ResourceNotFoundException, TagLimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a `DataSource` object from an Amazon Relational Database Service (Amazon RDS). A `DataSource` references data that can be used to perform `CreateMLModel`, `CreateEvaluation`, or `CreateBatchPrediction` operations.
  * 
@@ -340,7 +340,7 @@ export class PredictorNotMountedException extends S.TaggedError<PredictorNotMoun
  * 
  * 
  * If Amazon ML cannot accept the input source, it sets the `Status` parameter to `FAILED` and includes an error message in the `Message` attribute of the `GetDataSource` operation response.
- */export const createDataSourceFromRDS = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-12-12", uri: "/", method: "POST", sdkId: "Machine Learning", sigV4ServiceName: "machinelearning", name: "AmazonML_20141212.CreateDataSourceFromRDS" }, CreateDataSourceFromRDSInput, CreateDataSourceFromRDSOutput, [IdempotentParameterMismatchException, InternalServerException, InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createDataSourceFromRDS = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-12-12", sdkId: "Machine Learning", sigV4ServiceName: "machinelearning", name: "AmazonML_20141212.CreateDataSourceFromRDS" }, CreateDataSourceFromRDSInput, CreateDataSourceFromRDSOutput, [IdempotentParameterMismatchException, InternalServerException, InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a `DataSource` from a database hosted on an Amazon Redshift cluster. A
  * `DataSource` references data that can be used to perform either `CreateMLModel`, `CreateEvaluation`, or `CreateBatchPrediction`
@@ -383,10 +383,10 @@ export class PredictorNotMountedException extends S.TaggedError<PredictorNotMoun
  * `GetDataSource` for an existing datasource and copy the values to a
  * `CreateDataSource` call. Change the settings that you want to change and
  * make sure that all required fields have the appropriate values.
- */export const createDataSourceFromRedshift = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-12-12", uri: "/", method: "POST", sdkId: "Machine Learning", sigV4ServiceName: "machinelearning", name: "AmazonML_20141212.CreateDataSourceFromRedshift" }, CreateDataSourceFromRedshiftInput, CreateDataSourceFromRedshiftOutput, [IdempotentParameterMismatchException, InternalServerException, InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createDataSourceFromRedshift = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-12-12", sdkId: "Machine Learning", sigV4ServiceName: "machinelearning", name: "AmazonML_20141212.CreateDataSourceFromRedshift" }, CreateDataSourceFromRedshiftInput, CreateDataSourceFromRedshiftOutput, [IdempotentParameterMismatchException, InternalServerException, InvalidInputException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns an `Evaluation` that includes metadata as well as the current status of the `Evaluation`.
- */export const getEvaluation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-12-12", uri: "/", method: "POST", sdkId: "Machine Learning", sigV4ServiceName: "machinelearning", name: "AmazonML_20141212.GetEvaluation" }, GetEvaluationInput, GetEvaluationOutput, [InternalServerException, InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getEvaluation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-12-12", sdkId: "Machine Learning", sigV4ServiceName: "machinelearning", name: "AmazonML_20141212.GetEvaluation" }, GetEvaluationInput, GetEvaluationOutput, [InternalServerException, InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Generates a prediction for the observation using the specified `ML Model`.
  * 
@@ -394,4 +394,4 @@ export class PredictorNotMountedException extends S.TaggedError<PredictorNotMoun
  * 
  * **Note:** Not all response parameters will be populated. Whether a
  * response parameter is populated depends on the type of model requested.
- */export const predict = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-12-12", uri: "/", method: "POST", sdkId: "Machine Learning", sigV4ServiceName: "machinelearning", name: "AmazonML_20141212.Predict" }, PredictInput, PredictOutput, [InternalServerException, InvalidInputException, LimitExceededException, PredictorNotMountedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const predict = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-12-12", sdkId: "Machine Learning", sigV4ServiceName: "machinelearning", name: "AmazonML_20141212.Predict" }, PredictInput, PredictOutput, [InternalServerException, InvalidInputException, LimitExceededException, PredictorNotMountedException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

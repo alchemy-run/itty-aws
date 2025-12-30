@@ -237,18 +237,18 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
 //# Operations
 /**
  * Deletes the specified archive.
- */export const deleteArchive = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", uri: "/", method: "POST", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.DeleteArchive" }, DeleteArchiveRequest, DeleteArchiveResponse, [ConcurrentModificationException, InternalException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteArchive = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.DeleteArchive" }, DeleteArchiveRequest, DeleteArchiveResponse, [ConcurrentModificationException, InternalException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Delete an existing global endpoint. For more information about global endpoints, see
  * Making applications Regional-fault tolerant with global endpoints and event
  * replication in the
  * *Amazon EventBridge User Guide*
  * .
- */export const deleteEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", uri: "/", method: "POST", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.DeleteEndpoint" }, DeleteEndpointRequest, DeleteEndpointResponse, [ConcurrentModificationException, InternalException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.DeleteEndpoint" }, DeleteEndpointRequest, DeleteEndpointResponse, [ConcurrentModificationException, InternalException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified custom event bus or partner event bus. All rules associated with
  * this event bus need to be deleted. You can't delete your account's default event bus.
- */export const deleteEventBus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", uri: "/", method: "POST", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.DeleteEventBus" }, DeleteEventBusRequest, S.Struct({}), [ConcurrentModificationException, InternalException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteEventBus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.DeleteEventBus" }, DeleteEventBusRequest, S.Struct({}), [ConcurrentModificationException, InternalException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Disables the specified rule. A disabled rule won't match any events, and won't
  * self-trigger if it has a schedule expression.
@@ -256,20 +256,20 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
  * 
  * When you disable a rule, incoming events might continue to match to the disabled rule.
  * Allow a short period of time for changes to take effect.
- */export const disableRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", uri: "/", method: "POST", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.DisableRule" }, DisableRuleRequest, S.Struct({}), [ConcurrentModificationException, InternalException, ManagedRuleException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const disableRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.DisableRule" }, DisableRuleRequest, S.Struct({}), [ConcurrentModificationException, InternalException, ManagedRuleException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Enables the specified rule. If the rule does not exist, the operation fails.
  * 
  * 
  * When you enable a rule, incoming events might not immediately start matching to a newly
  * enabled rule. Allow a short period of time for changes to take effect.
- */export const enableRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", uri: "/", method: "POST", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.EnableRule" }, EnableRuleRequest, S.Struct({}), [ConcurrentModificationException, InternalException, ManagedRuleException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const enableRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.EnableRule" }, EnableRuleRequest, S.Struct({}), [ConcurrentModificationException, InternalException, ManagedRuleException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Revokes the permission of another Amazon Web Services account to be able to put events to
  * the specified event bus. Specify the account to revoke by the `StatementId` value
  * that you associated with the account when you granted it permission with
  * `PutPermission`. You can find the `StatementId` by using DescribeEventBus.
- */export const removePermission = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", uri: "/", method: "POST", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.RemovePermission" }, RemovePermissionRequest, S.Struct({}), [ConcurrentModificationException, InternalException, OperationDisabledException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const removePermission = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.RemovePermission" }, RemovePermissionRequest, S.Struct({}), [ConcurrentModificationException, InternalException, OperationDisabledException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Assigns one or more tags (key-value pairs) to the specified EventBridge resource. Tags can
  * help you organize and categorize your resources. You can also use them to scope user
@@ -288,10 +288,10 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
  * 
  * 
  * You can associate as many as 50 tags with a resource.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", uri: "/", method: "POST", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.TagResource" }, TagResourceRequest, TagResourceResponse, [ConcurrentModificationException, InternalException, ManagedRuleException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.TagResource" }, TagResourceRequest, TagResourceResponse, [ConcurrentModificationException, InternalException, ManagedRuleException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes one or more tags from the specified EventBridge resource. In Amazon EventBridge, rules and event buses can be tagged.
- */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", uri: "/", method: "POST", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [ConcurrentModificationException, InternalException, ManagedRuleException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [ConcurrentModificationException, InternalException, ManagedRuleException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * You can use this operation to temporarily stop receiving events from the specified partner
  * event source. The matching event bus is not deleted.
@@ -302,17 +302,17 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
  * 
  * 
  * To activate a deactivated partner event source, use ActivateEventSource.
- */export const deactivateEventSource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", uri: "/", method: "POST", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.DeactivateEventSource" }, DeactivateEventSourceRequest, S.Struct({}), [ConcurrentModificationException, InternalException, InvalidStateException, OperationDisabledException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deactivateEventSource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.DeactivateEventSource" }, DeactivateEventSourceRequest, S.Struct({}), [ConcurrentModificationException, InternalException, InvalidStateException, OperationDisabledException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes all authorization parameters from the connection. This lets you remove the secret
  * from the connection so you can reuse it without having to create a new connection.
- */export const deauthorizeConnection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", uri: "/", method: "POST", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.DeauthorizeConnection" }, DeauthorizeConnectionRequest, DeauthorizeConnectionResponse, [ConcurrentModificationException, InternalException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deauthorizeConnection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.DeauthorizeConnection" }, DeauthorizeConnectionRequest, DeauthorizeConnectionResponse, [ConcurrentModificationException, InternalException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified API destination.
- */export const deleteApiDestination = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", uri: "/", method: "POST", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.DeleteApiDestination" }, DeleteApiDestinationRequest, DeleteApiDestinationResponse, [ConcurrentModificationException, InternalException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteApiDestination = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.DeleteApiDestination" }, DeleteApiDestinationRequest, DeleteApiDestinationResponse, [ConcurrentModificationException, InternalException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a connection.
- */export const deleteConnection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", uri: "/", method: "POST", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.DeleteConnection" }, DeleteConnectionRequest, DeleteConnectionResponse, [ConcurrentModificationException, InternalException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteConnection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.DeleteConnection" }, DeleteConnectionRequest, DeleteConnectionResponse, [ConcurrentModificationException, InternalException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This operation is used by SaaS partners to delete a partner event source. This operation
  * is not used by Amazon Web Services customers.
@@ -320,7 +320,7 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
  * 
  * When you delete an event source, the status of the corresponding partner event bus in the
  * Amazon Web Services customer account becomes DELETED.
- */export const deletePartnerEventSource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", uri: "/", method: "POST", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.DeletePartnerEventSource" }, DeletePartnerEventSourceRequest, S.Struct({}), [ConcurrentModificationException, InternalException, OperationDisabledException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deletePartnerEventSource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.DeletePartnerEventSource" }, DeletePartnerEventSourceRequest, S.Struct({}), [ConcurrentModificationException, InternalException, OperationDisabledException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified rule.
  * 
@@ -342,13 +342,13 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
  * functionality in those services. You can delete these rules using the `Force`
  * option, but you should do so only if you are sure the other service is not still using that
  * rule.
- */export const deleteRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", uri: "/", method: "POST", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.DeleteRule" }, DeleteRuleRequest, S.Struct({}), [ConcurrentModificationException, InternalException, ManagedRuleException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.DeleteRule" }, DeleteRuleRequest, S.Struct({}), [ConcurrentModificationException, InternalException, ManagedRuleException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves details about an API destination.
- */export const describeApiDestination = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", uri: "/", method: "POST", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.DescribeApiDestination" }, DescribeApiDestinationRequest, DescribeApiDestinationResponse, [InternalException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeApiDestination = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.DescribeApiDestination" }, DescribeApiDestinationRequest, DescribeApiDestinationResponse, [InternalException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves details about an archive.
- */export const describeArchive = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", uri: "/", method: "POST", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.DescribeArchive" }, DescribeArchiveRequest, DescribeArchiveResponse, [InternalException, ResourceAlreadyExistsException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeArchive = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.DescribeArchive" }, DescribeArchiveRequest, DescribeArchiveResponse, [InternalException, ResourceAlreadyExistsException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Get the information about an existing global endpoint. For more information about global
  * endpoints, see Making applications
@@ -356,7 +356,7 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
  * 
  * *Amazon EventBridge User Guide*
  * .
- */export const describeEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", uri: "/", method: "POST", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.DescribeEndpoint" }, DescribeEndpointRequest, DescribeEndpointResponse, [InternalException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.DescribeEndpoint" }, DescribeEndpointRequest, DescribeEndpointResponse, [InternalException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Displays details about an event bus in your account. This can include the external Amazon Web Services accounts that are permitted to write events to your default event bus, and the
  * associated policy. For custom event buses and partner event buses, it displays the name, ARN,
@@ -368,16 +368,16 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
  * 
  * 
  * For more information about partner event buses, see CreateEventBus.
- */export const describeEventBus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", uri: "/", method: "POST", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.DescribeEventBus" }, DescribeEventBusRequest, DescribeEventBusResponse, [InternalException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeEventBus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.DescribeEventBus" }, DescribeEventBusRequest, DescribeEventBusResponse, [InternalException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This operation lists details about a partner event source that is shared with your
  * account.
- */export const describeEventSource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", uri: "/", method: "POST", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.DescribeEventSource" }, DescribeEventSourceRequest, DescribeEventSourceResponse, [InternalException, OperationDisabledException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeEventSource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.DescribeEventSource" }, DescribeEventSourceRequest, DescribeEventSourceResponse, [InternalException, OperationDisabledException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * An SaaS partner can use this operation to list details about a partner event source that
  * they have created. Amazon Web Services customers do not use this operation. Instead, Amazon Web Services customers can use DescribeEventSource to see details about a partner event source that is shared with
  * them.
- */export const describePartnerEventSource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", uri: "/", method: "POST", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.DescribePartnerEventSource" }, DescribePartnerEventSourceRequest, DescribePartnerEventSourceResponse, [InternalException, OperationDisabledException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describePartnerEventSource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.DescribePartnerEventSource" }, DescribePartnerEventSourceRequest, DescribePartnerEventSourceResponse, [InternalException, OperationDisabledException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves details about a replay. Use `DescribeReplay` to determine the
  * progress of a running replay. A replay processes events to replay based on the time in the
@@ -388,31 +388,31 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
  * `DescribeReplay` to determine the progress of a replay. The value returned for
  * `EventLastReplayedTime` indicates the time within the specified time range
  * associated with the last event replayed.
- */export const describeReplay = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", uri: "/", method: "POST", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.DescribeReplay" }, DescribeReplayRequest, DescribeReplayResponse, [InternalException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeReplay = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.DescribeReplay" }, DescribeReplayRequest, DescribeReplayResponse, [InternalException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes the specified rule.
  * 
  * 
  * DescribeRule does not list the targets of a rule. To see the targets associated with a
  * rule, use ListTargetsByRule.
- */export const describeRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", uri: "/", method: "POST", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.DescribeRule" }, DescribeRuleRequest, DescribeRuleResponse, [InternalException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.DescribeRule" }, DescribeRuleRequest, DescribeRuleResponse, [InternalException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the rules for the specified target. You can see which of the rules in Amazon
  * EventBridge can invoke a specific target in your account.
  * 
  * 
  * The maximum number of results per page for requests is 100.
- */export const listRuleNamesByTarget = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", uri: "/", method: "POST", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.ListRuleNamesByTarget" }, ListRuleNamesByTargetRequest, ListRuleNamesByTargetResponse, [InternalException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listRuleNamesByTarget = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.ListRuleNamesByTarget" }, ListRuleNamesByTargetRequest, ListRuleNamesByTargetResponse, [InternalException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Displays the tags associated with an EventBridge resource. In EventBridge, rules and event
  * buses can be tagged.
- */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", uri: "/", method: "POST", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [InternalException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [InternalException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the targets assigned to the specified rule.
  * 
  * 
  * The maximum number of results per page for requests is 100.
- */export const listTargetsByRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", uri: "/", method: "POST", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.ListTargetsByRule" }, ListTargetsByRuleRequest, ListTargetsByRuleResponse, [InternalException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTargetsByRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.ListTargetsByRule" }, ListTargetsByRuleRequest, ListTargetsByRuleResponse, [InternalException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates or updates the specified rule. Rules are enabled by default, or based on value of
  * the state. You can disable a rule using DisableRule.
@@ -478,7 +478,7 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
  * To create a rule that filters for management events from Amazon Web Services services, see
  * Receiving read-only management events from Amazon Web Services services in the
  * *EventBridge User Guide*.
- */export const putRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", uri: "/", method: "POST", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.PutRule" }, PutRuleRequest, PutRuleResponse, [ConcurrentModificationException, InternalException, InvalidEventPatternException, LimitExceededException, ManagedRuleException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.PutRule" }, PutRuleRequest, PutRuleResponse, [ConcurrentModificationException, InternalException, InvalidEventPatternException, LimitExceededException, ManagedRuleException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Tests whether the specified event pattern matches the provided event.
  * 
@@ -487,30 +487,30 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
  * Names (ARNs). However, EventBridge uses an exact match in event patterns and rules. Be
  * sure to use the correct ARN characters when creating event patterns so that they match the ARN
  * syntax in the event you want to match.
- */export const testEventPattern = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", uri: "/", method: "POST", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.TestEventPattern" }, TestEventPatternRequest, TestEventPatternResponse, [InternalException, InvalidEventPatternException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const testEventPattern = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.TestEventPattern" }, TestEventPatternRequest, TestEventPatternResponse, [InternalException, InvalidEventPatternException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates an API destination.
- */export const updateApiDestination = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", uri: "/", method: "POST", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.UpdateApiDestination" }, UpdateApiDestinationRequest, UpdateApiDestinationResponse, [ConcurrentModificationException, InternalException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateApiDestination = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.UpdateApiDestination" }, UpdateApiDestinationRequest, UpdateApiDestinationResponse, [ConcurrentModificationException, InternalException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the specified archive.
- */export const updateArchive = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", uri: "/", method: "POST", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.UpdateArchive" }, UpdateArchiveRequest, UpdateArchiveResponse, [ConcurrentModificationException, InternalException, InvalidEventPatternException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateArchive = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.UpdateArchive" }, UpdateArchiveRequest, UpdateArchiveResponse, [ConcurrentModificationException, InternalException, InvalidEventPatternException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Update an existing endpoint. For more information about global endpoints, see Making
  * applications Regional-fault tolerant with global endpoints and event replication in
  * the
  * *Amazon EventBridge User Guide*
  * .
- */export const updateEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", uri: "/", method: "POST", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.UpdateEndpoint" }, UpdateEndpointRequest, UpdateEndpointResponse, [ConcurrentModificationException, InternalException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.UpdateEndpoint" }, UpdateEndpointRequest, UpdateEndpointResponse, [ConcurrentModificationException, InternalException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the specified event bus.
- */export const updateEventBus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", uri: "/", method: "POST", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.UpdateEventBus" }, UpdateEventBusRequest, UpdateEventBusResponse, [ConcurrentModificationException, InternalException, OperationDisabledException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateEventBus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.UpdateEventBus" }, UpdateEventBusRequest, UpdateEventBusResponse, [ConcurrentModificationException, InternalException, OperationDisabledException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Activates a partner event source that has been deactivated. Once activated, your matching
  * event bus will start receiving events from the event source.
- */export const activateEventSource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", uri: "/", method: "POST", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.ActivateEventSource" }, ActivateEventSourceRequest, S.Struct({}), [ConcurrentModificationException, InternalException, InvalidStateException, OperationDisabledException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const activateEventSource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.ActivateEventSource" }, ActivateEventSourceRequest, S.Struct({}), [ConcurrentModificationException, InternalException, InvalidStateException, OperationDisabledException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Cancels the specified replay.
- */export const cancelReplay = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", uri: "/", method: "POST", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.CancelReplay" }, CancelReplayRequest, CancelReplayResponse, [ConcurrentModificationException, IllegalStatusException, InternalException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const cancelReplay = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.CancelReplay" }, CancelReplayRequest, CancelReplayResponse, [ConcurrentModificationException, IllegalStatusException, InternalException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an API destination, which is an HTTP invocation endpoint configured as a target
  * for events.
@@ -522,7 +522,7 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
  * 
  * For more information, see API destinations in the
  * *EventBridge User Guide*.
- */export const createApiDestination = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", uri: "/", method: "POST", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.CreateApiDestination" }, CreateApiDestinationRequest, CreateApiDestinationResponse, [InternalException, LimitExceededException, ResourceAlreadyExistsException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createApiDestination = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.CreateApiDestination" }, CreateApiDestinationRequest, CreateApiDestinationResponse, [InternalException, LimitExceededException, ResourceAlreadyExistsException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an archive of events with the specified settings. When you create an archive,
  * incoming events might not immediately start being sent to the archive. Allow a short period of
@@ -538,12 +538,12 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
  * 
  * 
  * For more information, see Encrypting archives in the *Amazon EventBridge User Guide*.
- */export const createArchive = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", uri: "/", method: "POST", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.CreateArchive" }, CreateArchiveRequest, CreateArchiveResponse, [ConcurrentModificationException, InternalException, InvalidEventPatternException, LimitExceededException, ResourceAlreadyExistsException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createArchive = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.CreateArchive" }, CreateArchiveRequest, CreateArchiveResponse, [ConcurrentModificationException, InternalException, InvalidEventPatternException, LimitExceededException, ResourceAlreadyExistsException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new event bus within your account. This can be a custom event bus which you can
  * use to receive events from your custom applications and services, or it can be a partner event
  * bus which can be matched to a partner event source.
- */export const createEventBus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", uri: "/", method: "POST", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.CreateEventBus" }, CreateEventBusRequest, CreateEventBusResponse, [ConcurrentModificationException, InternalException, InvalidStateException, LimitExceededException, OperationDisabledException, ResourceAlreadyExistsException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createEventBus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.CreateEventBus" }, CreateEventBusRequest, CreateEventBusResponse, [ConcurrentModificationException, InternalException, InvalidStateException, LimitExceededException, OperationDisabledException, ResourceAlreadyExistsException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Called by an SaaS partner to create a partner event source. This operation is not used by
  * Amazon Web Services customers.
@@ -600,17 +600,17 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
  * The combination of *event_namespace* and
  * *event_name* should help Amazon Web Services customers decide whether to
  * create an event bus to receive these events.
- */export const createPartnerEventSource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", uri: "/", method: "POST", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.CreatePartnerEventSource" }, CreatePartnerEventSourceRequest, CreatePartnerEventSourceResponse, [ConcurrentModificationException, InternalException, LimitExceededException, OperationDisabledException, ResourceAlreadyExistsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createPartnerEventSource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.CreatePartnerEventSource" }, CreatePartnerEventSourceRequest, CreatePartnerEventSourceResponse, [ConcurrentModificationException, InternalException, LimitExceededException, OperationDisabledException, ResourceAlreadyExistsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves a list of API destination in the account in the current Region.
- */export const listApiDestinations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", uri: "/", method: "POST", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.ListApiDestinations" }, ListApiDestinationsRequest, ListApiDestinationsResponse, [InternalException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listApiDestinations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.ListApiDestinations" }, ListApiDestinationsRequest, ListApiDestinationsResponse, [InternalException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists your archives. You can either list all the archives or you can provide a prefix to
  * match to the archive names. Filter parameters are exclusive.
- */export const listArchives = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", uri: "/", method: "POST", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.ListArchives" }, ListArchivesRequest, ListArchivesResponse, [InternalException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listArchives = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.ListArchives" }, ListArchivesRequest, ListArchivesResponse, [InternalException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves a list of connections from the account.
- */export const listConnections = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", uri: "/", method: "POST", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.ListConnections" }, ListConnectionsRequest, ListConnectionsResponse, [InternalException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listConnections = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.ListConnections" }, ListConnectionsRequest, ListConnectionsResponse, [InternalException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * List the global endpoints associated with this account. For more information about global
  * endpoints, see Making applications
@@ -618,27 +618,27 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
  * 
  * *Amazon EventBridge User Guide*
  * .
- */export const listEndpoints = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", uri: "/", method: "POST", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.ListEndpoints" }, ListEndpointsRequest, ListEndpointsResponse, [InternalException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listEndpoints = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.ListEndpoints" }, ListEndpointsRequest, ListEndpointsResponse, [InternalException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists all the event buses in your account, including the default event bus, custom event
  * buses, and partner event buses.
- */export const listEventBuses = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", uri: "/", method: "POST", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.ListEventBuses" }, ListEventBusesRequest, ListEventBusesResponse, [InternalException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listEventBuses = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.ListEventBuses" }, ListEventBusesRequest, ListEventBusesResponse, [InternalException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * You can use this to see all the partner event sources that have been shared with your
  * Amazon Web Services account. For more information about partner event sources, see CreateEventBus.
- */export const listEventSources = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", uri: "/", method: "POST", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.ListEventSources" }, ListEventSourcesRequest, ListEventSourcesResponse, [InternalException, OperationDisabledException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listEventSources = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.ListEventSources" }, ListEventSourcesRequest, ListEventSourcesResponse, [InternalException, OperationDisabledException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * An SaaS partner can use this operation to display the Amazon Web Services account ID that a
  * particular partner event source name is associated with. This operation is not used by Amazon Web Services customers.
- */export const listPartnerEventSourceAccounts = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", uri: "/", method: "POST", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.ListPartnerEventSourceAccounts" }, ListPartnerEventSourceAccountsRequest, ListPartnerEventSourceAccountsResponse, [InternalException, OperationDisabledException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listPartnerEventSourceAccounts = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.ListPartnerEventSourceAccounts" }, ListPartnerEventSourceAccountsRequest, ListPartnerEventSourceAccountsResponse, [InternalException, OperationDisabledException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * An SaaS partner can use this operation to list all the partner event source names that
  * they have created. This operation is not used by Amazon Web Services customers.
- */export const listPartnerEventSources = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", uri: "/", method: "POST", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.ListPartnerEventSources" }, ListPartnerEventSourcesRequest, ListPartnerEventSourcesResponse, [InternalException, OperationDisabledException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listPartnerEventSources = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.ListPartnerEventSources" }, ListPartnerEventSourcesRequest, ListPartnerEventSourcesResponse, [InternalException, OperationDisabledException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists your replays. You can either list all the replays or you can provide a prefix to
  * match to the replay names. Filter parameters are exclusive.
- */export const listReplays = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", uri: "/", method: "POST", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.ListReplays" }, ListReplaysRequest, ListReplaysResponse, [InternalException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listReplays = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.ListReplays" }, ListReplaysRequest, ListReplaysResponse, [InternalException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists your Amazon EventBridge rules. You can either list all the rules or you can
  * provide a prefix to match to the rule names.
@@ -649,7 +649,7 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
  * 
  * ListRules does not list the targets of a rule. To see the targets associated with a rule,
  * use ListTargetsByRule.
- */export const listRules = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", uri: "/", method: "POST", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.ListRules" }, ListRulesRequest, ListRulesResponse, [InternalException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listRules = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.ListRules" }, ListRulesRequest, ListRulesResponse, [InternalException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Running `PutPermission` permits the specified Amazon Web Services account or Amazon Web Services organization
  * to put events to the specified *event bus*. Amazon EventBridge rules in your account are triggered by these events arriving to an event bus in your
@@ -675,7 +675,7 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
  * 
  * 
  * The permission policy on the event bus cannot exceed 10 KB in size.
- */export const putPermission = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", uri: "/", method: "POST", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.PutPermission" }, PutPermissionRequest, S.Struct({}), [ConcurrentModificationException, InternalException, OperationDisabledException, PolicyLengthExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putPermission = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.PutPermission" }, PutPermissionRequest, S.Struct({}), [ConcurrentModificationException, InternalException, OperationDisabledException, PolicyLengthExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes the specified targets from the specified rule. When the rule is triggered, those
  * targets are no longer be invoked.
@@ -699,7 +699,7 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
  * 
  * 
  * The maximum number of entries per request is 10.
- */export const removeTargets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", uri: "/", method: "POST", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.RemoveTargets" }, RemoveTargetsRequest, RemoveTargetsResponse, [ConcurrentModificationException, InternalException, ManagedRuleException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const removeTargets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.RemoveTargets" }, RemoveTargetsRequest, RemoveTargetsResponse, [ConcurrentModificationException, InternalException, ManagedRuleException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts the specified replay. Events are not necessarily replayed in the exact same order
  * that they were added to the archive. A replay processes events to replay based on the time in
@@ -710,7 +710,7 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
  * determine the progress of a replay. The value returned for `EventLastReplayedTime`
  * indicates the time within the specified time range associated with the last event
  * replayed.
- */export const startReplay = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", uri: "/", method: "POST", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.StartReplay" }, StartReplayRequest, StartReplayResponse, [InternalException, InvalidEventPatternException, LimitExceededException, ResourceAlreadyExistsException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startReplay = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.StartReplay" }, StartReplayRequest, StartReplayResponse, [InternalException, InvalidEventPatternException, LimitExceededException, ResourceAlreadyExistsException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Sends custom events to Amazon EventBridge so that they can be matched to rules.
  * 
@@ -731,14 +731,14 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
  * 
  * 
  * PutEvents will only process nested JSON up to 1000 levels deep.
- */export const putEvents = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", uri: "/", method: "POST", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.PutEvents" }, PutEventsRequest, PutEventsResponse, [InternalException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putEvents = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.PutEvents" }, PutEventsRequest, PutEventsResponse, [InternalException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This is used by SaaS partners to write events to a customer's partner event bus. Amazon Web Services customers do not use this operation.
  * 
  * 
  * For information on calculating event batch size, see Calculating EventBridge PutEvents event
  * entry size in the *EventBridge User Guide*.
- */export const putPartnerEvents = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", uri: "/", method: "POST", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.PutPartnerEvents" }, PutPartnerEventsRequest, PutPartnerEventsResponse, [InternalException, OperationDisabledException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putPartnerEvents = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.PutPartnerEvents" }, PutPartnerEventsRequest, PutPartnerEventsResponse, [InternalException, OperationDisabledException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a global endpoint. Global endpoints improve your application's availability by
  * making it regional-fault tolerant. To do this, you define a primary and secondary Region with
@@ -746,20 +746,20 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
  * tell EventBridge to route events to the secondary Region when an "unhealthy" state is
  * encountered and events will be routed back to the primary Region when the health check reports
  * a "healthy" state.
- */export const createEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", uri: "/", method: "POST", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.CreateEndpoint" }, CreateEndpointRequest, CreateEndpointResponse, [InternalException, LimitExceededException, ResourceAlreadyExistsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.CreateEndpoint" }, CreateEndpointRequest, CreateEndpointResponse, [InternalException, LimitExceededException, ResourceAlreadyExistsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves details about a connection.
- */export const describeConnection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", uri: "/", method: "POST", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.DescribeConnection" }, DescribeConnectionRequest, DescribeConnectionResponse, [InternalException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeConnection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.DescribeConnection" }, DescribeConnectionRequest, DescribeConnectionResponse, [InternalException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a connection. A connection defines the authorization type and credentials to use
  * for authorization with an API destination HTTP endpoint.
  * 
  * 
  * For more information, see Connections for endpoint targets in the *Amazon EventBridge User Guide*.
- */export const createConnection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", uri: "/", method: "POST", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.CreateConnection" }, CreateConnectionRequest, CreateConnectionResponse, [AccessDeniedException, InternalException, LimitExceededException, ResourceAlreadyExistsException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createConnection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.CreateConnection" }, CreateConnectionRequest, CreateConnectionResponse, [AccessDeniedException, InternalException, LimitExceededException, ResourceAlreadyExistsException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates settings for a connection.
- */export const updateConnection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", uri: "/", method: "POST", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.UpdateConnection" }, UpdateConnectionRequest, UpdateConnectionResponse, [AccessDeniedException, ConcurrentModificationException, InternalException, LimitExceededException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateConnection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.UpdateConnection" }, UpdateConnectionRequest, UpdateConnectionResponse, [AccessDeniedException, ConcurrentModificationException, InternalException, LimitExceededException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds the specified targets to the specified rule, or updates the targets if they are
  * already associated with the rule.
@@ -923,4 +923,4 @@ export class ThrottlingException extends S.TaggedError<ThrottlingException>()("T
  * This action can partially fail if too many requests are made at the same time. If that
  * happens, `FailedEntryCount` is non-zero in the response and each entry in
  * `FailedEntries` provides the ID of the failed target and the error code.
- */export const putTargets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", uri: "/", method: "POST", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.PutTargets" }, PutTargetsRequest, PutTargetsResponse, [ConcurrentModificationException, InternalException, LimitExceededException, ManagedRuleException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putTargets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-10-07", sdkId: "EventBridge", sigV4ServiceName: "events", name: "AWSEvents.PutTargets" }, PutTargetsRequest, PutTargetsResponse, [ConcurrentModificationException, InternalException, LimitExceededException, ManagedRuleException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

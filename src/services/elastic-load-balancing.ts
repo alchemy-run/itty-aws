@@ -148,10 +148,10 @@ export class TooManyAccessPointsException extends S.TaggedError<TooManyAccessPoi
  * 
  * If the load balancer does not exist or has already been deleted, the call to
  * `DeleteLoadBalancer` still succeeds.
- */export const deleteLoadBalancer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v7.DeleteLoadBalancer" }, DeleteAccessPointInput, DeleteAccessPointOutput, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteLoadBalancer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", sdkId: "Elastic Load Balancing", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v7.DeleteLoadBalancer" }, DeleteAccessPointInput, DeleteAccessPointOutput, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes the specified listeners from the specified load balancer.
- */export const deleteLoadBalancerListeners = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v7.DeleteLoadBalancerListeners" }, DeleteLoadBalancerListenerInput, DeleteLoadBalancerListenerOutput, [AccessPointNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteLoadBalancerListeners = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", sdkId: "Elastic Load Balancing", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v7.DeleteLoadBalancerListeners" }, DeleteLoadBalancerListenerInput, DeleteLoadBalancerListenerOutput, [AccessPointNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Replaces the current set of policies for the specified load balancer port with the specified set of policies.
  * 
@@ -164,7 +164,7 @@ export class TooManyAccessPointsException extends S.TaggedError<TooManyAccessPoi
  * Duration-Based Session Stickiness, and
  * Application-Controlled Session Stickiness
  * in the *Classic Load Balancers Guide*.
- */export const setLoadBalancerPoliciesOfListener = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v7.SetLoadBalancerPoliciesOfListener" }, SetLoadBalancerPoliciesOfListenerInput, SetLoadBalancerPoliciesOfListenerOutput, [AccessPointNotFoundException, InvalidConfigurationRequestException, ListenerNotFoundException, PolicyNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const setLoadBalancerPoliciesOfListener = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", sdkId: "Elastic Load Balancing", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v7.SetLoadBalancerPoliciesOfListener" }, SetLoadBalancerPoliciesOfListenerInput, SetLoadBalancerPoliciesOfListenerOutput, [AccessPointNotFoundException, InvalidConfigurationRequestException, ListenerNotFoundException, PolicyNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Generates a stickiness policy with sticky session lifetimes controlled by the lifetime of the browser (user-agent) or a specified expiration period. This policy can be associated only with HTTP/HTTPS listeners.
  * 
@@ -179,10 +179,10 @@ export class TooManyAccessPointsException extends S.TaggedError<TooManyAccessPoi
  * 
  * For more information, see Duration-Based Session Stickiness
  * in the *Classic Load Balancers Guide*.
- */export const createLBCookieStickinessPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v7.CreateLBCookieStickinessPolicy" }, CreateLBCookieStickinessPolicyInput, CreateLBCookieStickinessPolicyOutput, [AccessPointNotFoundException, DuplicatePolicyNameException, InvalidConfigurationRequestException, TooManyPoliciesException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const createLBCookieStickinessPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", sdkId: "Elastic Load Balancing", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v7.CreateLBCookieStickinessPolicy" }, CreateLBCookieStickinessPolicyInput, CreateLBCookieStickinessPolicyOutput, [AccessPointNotFoundException, DuplicatePolicyNameException, InvalidConfigurationRequestException, TooManyPoliciesException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes the specified policy from the specified load balancer. This policy must not be enabled for any listeners.
- */export const deleteLoadBalancerPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v7.DeleteLoadBalancerPolicy" }, DeleteLoadBalancerPolicyInput, DeleteLoadBalancerPolicyOutput, [AccessPointNotFoundException, InvalidConfigurationRequestException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteLoadBalancerPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", sdkId: "Elastic Load Balancing", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v7.DeleteLoadBalancerPolicy" }, DeleteLoadBalancerPolicyInput, DeleteLoadBalancerPolicyOutput, [AccessPointNotFoundException, InvalidConfigurationRequestException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Removes the specified subnets from the set of configured subnets for the load balancer.
  * 
@@ -190,7 +190,7 @@ export class TooManyAccessPointsException extends S.TaggedError<TooManyAccessPoi
  * After a subnet is removed, all EC2 instances registered with the load balancer
  * in the removed subnet go into the `OutOfService` state. Then,
  * the load balancer balances the traffic among the remaining routable subnets.
- */export const detachLoadBalancerFromSubnets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v7.DetachLoadBalancerFromSubnets" }, DetachLoadBalancerFromSubnetsInput, DetachLoadBalancerFromSubnetsOutput, [AccessPointNotFoundException, InvalidConfigurationRequestException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const detachLoadBalancerFromSubnets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", sdkId: "Elastic Load Balancing", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v7.DetachLoadBalancerFromSubnets" }, DetachLoadBalancerFromSubnetsInput, DetachLoadBalancerFromSubnetsOutput, [AccessPointNotFoundException, InvalidConfigurationRequestException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Removes the specified Availability Zones from the set of Availability Zones for the specified load balancer
  * in EC2-Classic or a default VPC.
@@ -207,7 +207,7 @@ export class TooManyAccessPointsException extends S.TaggedError<TooManyAccessPoi
  * 
  * For more information, see Add or Remove Availability Zones
  * in the *Classic Load Balancers Guide*.
- */export const disableAvailabilityZonesForLoadBalancer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v7.DisableAvailabilityZonesForLoadBalancer" }, RemoveAvailabilityZonesInput, RemoveAvailabilityZonesOutput, [AccessPointNotFoundException, InvalidConfigurationRequestException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const disableAvailabilityZonesForLoadBalancer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", sdkId: "Elastic Load Balancing", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v7.DisableAvailabilityZonesForLoadBalancer" }, RemoveAvailabilityZonesInput, RemoveAvailabilityZonesOutput, [AccessPointNotFoundException, InvalidConfigurationRequestException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Adds the specified Availability Zones to the set of Availability Zones for the specified load balancer
  * in EC2-Classic or a default VPC.
@@ -219,10 +219,10 @@ export class TooManyAccessPointsException extends S.TaggedError<TooManyAccessPoi
  * The load balancer evenly distributes requests across all its registered Availability Zones
  * that contain instances. For more information, see Add or Remove Availability Zones
  * in the *Classic Load Balancers Guide*.
- */export const enableAvailabilityZonesForLoadBalancer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v7.EnableAvailabilityZonesForLoadBalancer" }, AddAvailabilityZonesInput, AddAvailabilityZonesOutput, [AccessPointNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const enableAvailabilityZonesForLoadBalancer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", sdkId: "Elastic Load Balancing", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v7.EnableAvailabilityZonesForLoadBalancer" }, AddAvailabilityZonesInput, AddAvailabilityZonesOutput, [AccessPointNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Removes one or more tags from the specified load balancer.
- */export const removeTags = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v7.RemoveTags" }, RemoveTagsInput, RemoveTagsOutput, [AccessPointNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const removeTags = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", sdkId: "Elastic Load Balancing", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v7.RemoveTags" }, RemoveTagsInput, RemoveTagsOutput, [AccessPointNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Replaces the set of policies associated with the specified port on which the EC2 instance is listening with a new set of policies.
  * At this time, only the back-end server authentication policy type can be applied to the instance ports; this policy type is composed of multiple public key policies.
@@ -241,21 +241,21 @@ export class TooManyAccessPointsException extends S.TaggedError<TooManyAccessPoi
  * in the *Classic Load Balancers Guide*. For more information about Proxy Protocol, see
  * Configure Proxy Protocol Support
  * in the *Classic Load Balancers Guide*.
- */export const setLoadBalancerPoliciesForBackendServer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v7.SetLoadBalancerPoliciesForBackendServer" }, SetLoadBalancerPoliciesForBackendServerInput, SetLoadBalancerPoliciesForBackendServerOutput, [AccessPointNotFoundException, InvalidConfigurationRequestException, PolicyNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const setLoadBalancerPoliciesForBackendServer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", sdkId: "Elastic Load Balancing", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v7.SetLoadBalancerPoliciesForBackendServer" }, SetLoadBalancerPoliciesForBackendServerInput, SetLoadBalancerPoliciesForBackendServerOutput, [AccessPointNotFoundException, InvalidConfigurationRequestException, PolicyNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Associates one or more security groups with your load balancer in a virtual private cloud (VPC). The specified security groups override the previously associated security groups.
  * 
  * 
  * For more information, see Security Groups for Load Balancers in a VPC
  * in the *Classic Load Balancers Guide*.
- */export const applySecurityGroupsToLoadBalancer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v7.ApplySecurityGroupsToLoadBalancer" }, ApplySecurityGroupsToLoadBalancerInput, ApplySecurityGroupsToLoadBalancerOutput, [AccessPointNotFoundException, InvalidConfigurationRequestException, InvalidSecurityGroupException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const applySecurityGroupsToLoadBalancer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", sdkId: "Elastic Load Balancing", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v7.ApplySecurityGroupsToLoadBalancer" }, ApplySecurityGroupsToLoadBalancerInput, ApplySecurityGroupsToLoadBalancerOutput, [AccessPointNotFoundException, InvalidConfigurationRequestException, InvalidSecurityGroupException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Specifies the health check settings to use when evaluating the health state of your EC2 instances.
  * 
  * 
  * For more information, see Configure Health Checks for Your Load Balancer
  * in the *Classic Load Balancers Guide*.
- */export const configureHealthCheck = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v7.ConfigureHealthCheck" }, ConfigureHealthCheckInput, ConfigureHealthCheckOutput, [AccessPointNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const configureHealthCheck = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", sdkId: "Elastic Load Balancing", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v7.ConfigureHealthCheck" }, ConfigureHealthCheckInput, ConfigureHealthCheckOutput, [AccessPointNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Generates a stickiness policy with sticky session lifetimes that follow that of an application-generated cookie. This policy can be associated only with HTTP/HTTPS listeners.
  * 
@@ -272,20 +272,20 @@ export class TooManyAccessPointsException extends S.TaggedError<TooManyAccessPoi
  * 
  * For more information, see Application-Controlled Session Stickiness
  * in the *Classic Load Balancers Guide*.
- */export const createAppCookieStickinessPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v7.CreateAppCookieStickinessPolicy" }, CreateAppCookieStickinessPolicyInput, CreateAppCookieStickinessPolicyOutput, [AccessPointNotFoundException, DuplicatePolicyNameException, InvalidConfigurationRequestException, TooManyPoliciesException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const createAppCookieStickinessPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", sdkId: "Elastic Load Balancing", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v7.CreateAppCookieStickinessPolicy" }, CreateAppCookieStickinessPolicyInput, CreateAppCookieStickinessPolicyOutput, [AccessPointNotFoundException, DuplicatePolicyNameException, InvalidConfigurationRequestException, TooManyPoliciesException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates one or more listeners for the specified load balancer. If a listener with the specified port does not already exist, it is created; otherwise, the properties of the new listener must match the properties of the existing listener.
  * 
  * 
  * For more information, see Listeners for Your Classic Load Balancer
  * in the *Classic Load Balancers Guide*.
- */export const createLoadBalancerListeners = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v7.CreateLoadBalancerListeners" }, CreateLoadBalancerListenerInput, CreateLoadBalancerListenerOutput, [AccessPointNotFoundException, CertificateNotFoundException, DuplicateListenerException, InvalidConfigurationRequestException, UnsupportedProtocolException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const createLoadBalancerListeners = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", sdkId: "Elastic Load Balancing", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v7.CreateLoadBalancerListeners" }, CreateLoadBalancerListenerInput, CreateLoadBalancerListenerOutput, [AccessPointNotFoundException, CertificateNotFoundException, DuplicateListenerException, InvalidConfigurationRequestException, UnsupportedProtocolException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates a policy with the specified attributes for the specified load balancer.
  * 
  * 
  * Policies are settings that are saved for your load balancer and that can be applied to the listener or the application server, depending on the policy type.
- */export const createLoadBalancerPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v7.CreateLoadBalancerPolicy" }, CreateLoadBalancerPolicyInput, CreateLoadBalancerPolicyOutput, [AccessPointNotFoundException, DuplicatePolicyNameException, InvalidConfigurationRequestException, PolicyTypeNotFoundException, TooManyPoliciesException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const createLoadBalancerPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", sdkId: "Elastic Load Balancing", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v7.CreateLoadBalancerPolicy" }, CreateLoadBalancerPolicyInput, CreateLoadBalancerPolicyOutput, [AccessPointNotFoundException, DuplicatePolicyNameException, InvalidConfigurationRequestException, PolicyTypeNotFoundException, TooManyPoliciesException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deregisters the specified instances from the specified load balancer. After the instance is deregistered, it no longer receives traffic from the load balancer.
  * 
@@ -297,23 +297,23 @@ export class TooManyAccessPointsException extends S.TaggedError<TooManyAccessPoi
  * 
  * For more information, see Register or De-Register EC2 Instances
  * in the *Classic Load Balancers Guide*.
- */export const deregisterInstancesFromLoadBalancer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v7.DeregisterInstancesFromLoadBalancer" }, DeregisterEndPointsInput, DeregisterEndPointsOutput, [AccessPointNotFoundException, InvalidEndPointException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deregisterInstancesFromLoadBalancer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", sdkId: "Elastic Load Balancing", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v7.DeregisterInstancesFromLoadBalancer" }, DeregisterEndPointsInput, DeregisterEndPointsOutput, [AccessPointNotFoundException, InvalidEndPointException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Describes the current Elastic Load Balancing resource limits for your AWS account.
  * 
  * 
  * For more information, see Limits for Your Classic Load Balancer
  * in the *Classic Load Balancers Guide*.
- */export const describeAccountLimits = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v7.DescribeAccountLimits" }, DescribeAccountLimitsInput, DescribeAccountLimitsOutput, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeAccountLimits = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", sdkId: "Elastic Load Balancing", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v7.DescribeAccountLimits" }, DescribeAccountLimitsInput, DescribeAccountLimitsOutput, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Describes the state of the specified instances with respect to the specified load balancer. If no instances are specified, the call describes the state of all instances that are currently registered with the load balancer. If instances are specified, their state is returned even if they are no longer registered with the load balancer. The state of terminated instances is not returned.
- */export const describeInstanceHealth = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v7.DescribeInstanceHealth" }, DescribeEndPointStateInput, DescribeEndPointStateOutput, [AccessPointNotFoundException, InvalidEndPointException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeInstanceHealth = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", sdkId: "Elastic Load Balancing", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v7.DescribeInstanceHealth" }, DescribeEndPointStateInput, DescribeEndPointStateOutput, [AccessPointNotFoundException, InvalidEndPointException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Describes the attributes for the specified load balancer.
- */export const describeLoadBalancerAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v7.DescribeLoadBalancerAttributes" }, DescribeLoadBalancerAttributesInput, DescribeLoadBalancerAttributesOutput, [AccessPointNotFoundException, LoadBalancerAttributeNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeLoadBalancerAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", sdkId: "Elastic Load Balancing", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v7.DescribeLoadBalancerAttributes" }, DescribeLoadBalancerAttributesInput, DescribeLoadBalancerAttributesOutput, [AccessPointNotFoundException, LoadBalancerAttributeNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Describes the tags associated with the specified load balancers.
- */export const describeTags = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v7.DescribeTags" }, DescribeTagsInput, DescribeTagsOutput, [AccessPointNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeTags = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", sdkId: "Elastic Load Balancing", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v7.DescribeTags" }, DescribeTagsInput, DescribeTagsOutput, [AccessPointNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Adds the specified instances to the specified load balancer.
  * 
@@ -341,7 +341,7 @@ export class TooManyAccessPointsException extends S.TaggedError<TooManyAccessPoi
  * 
  * For more information, see Register or De-Register EC2 Instances
  * in the *Classic Load Balancers Guide*.
- */export const registerInstancesWithLoadBalancer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v7.RegisterInstancesWithLoadBalancer" }, RegisterEndPointsInput, RegisterEndPointsOutput, [AccessPointNotFoundException, InvalidEndPointException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const registerInstancesWithLoadBalancer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", sdkId: "Elastic Load Balancing", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v7.RegisterInstancesWithLoadBalancer" }, RegisterEndPointsInput, RegisterEndPointsOutput, [AccessPointNotFoundException, InvalidEndPointException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Sets the certificate that terminates the specified listener's SSL connections. The specified certificate replaces any prior certificate that was used on the same load balancer and port.
  * 
@@ -350,7 +350,7 @@ export class TooManyAccessPointsException extends S.TaggedError<TooManyAccessPoi
  * For more information about updating your SSL certificate, see
  * Replace the SSL Certificate for Your Load Balancer
  * in the *Classic Load Balancers Guide*.
- */export const setLoadBalancerListenerSSLCertificate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v7.SetLoadBalancerListenerSSLCertificate" }, SetLoadBalancerListenerSSLCertificateInput, SetLoadBalancerListenerSSLCertificateOutput, [AccessPointNotFoundException, CertificateNotFoundException, InvalidConfigurationRequestException, ListenerNotFoundException, UnsupportedProtocolException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const setLoadBalancerListenerSSLCertificate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", sdkId: "Elastic Load Balancing", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v7.SetLoadBalancerListenerSSLCertificate" }, SetLoadBalancerListenerSSLCertificateInput, SetLoadBalancerListenerSSLCertificateOutput, [AccessPointNotFoundException, CertificateNotFoundException, InvalidConfigurationRequestException, ListenerNotFoundException, UnsupportedProtocolException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Adds the specified tags to the specified load balancer. Each load balancer can have a maximum of 10 tags.
  * 
@@ -363,7 +363,7 @@ export class TooManyAccessPointsException extends S.TaggedError<TooManyAccessPoi
  * 
  * For more information, see Tag Your Classic Load Balancer
  * in the *Classic Load Balancers Guide*.
- */export const addTags = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v7.AddTags" }, AddTagsInput, AddTagsOutput, [AccessPointNotFoundException, DuplicateTagKeysException, TooManyTagsException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const addTags = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", sdkId: "Elastic Load Balancing", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v7.AddTags" }, AddTagsInput, AddTagsOutput, [AccessPointNotFoundException, DuplicateTagKeysException, TooManyTagsException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Adds one or more subnets to the set of configured subnets for the specified load balancer.
  * 
@@ -371,7 +371,7 @@ export class TooManyAccessPointsException extends S.TaggedError<TooManyAccessPoi
  * The load balancer evenly distributes requests across all registered subnets.
  * For more information, see Add or Remove Subnets for Your Load Balancer in a VPC
  * in the *Classic Load Balancers Guide*.
- */export const attachLoadBalancerToSubnets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v7.AttachLoadBalancerToSubnets" }, AttachLoadBalancerToSubnetsInput, AttachLoadBalancerToSubnetsOutput, [AccessPointNotFoundException, InvalidConfigurationRequestException, InvalidSubnetException, SubnetNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const attachLoadBalancerToSubnets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", sdkId: "Elastic Load Balancing", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v7.AttachLoadBalancerToSubnets" }, AttachLoadBalancerToSubnetsInput, AttachLoadBalancerToSubnetsOutput, [AccessPointNotFoundException, InvalidConfigurationRequestException, InvalidSubnetException, SubnetNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Describes the specified policies.
  * 
@@ -380,7 +380,7 @@ export class TooManyAccessPointsException extends S.TaggedError<TooManyAccessPoi
  * If you specify a policy name associated with your load balancer, the action returns the description of that policy.
  * If you don't specify a load balancer name, the action returns descriptions of the specified sample policies, or descriptions of all sample policies.
  * The names of the sample policies have the `ELBSample-` prefix.
- */export const describeLoadBalancerPolicies = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v7.DescribeLoadBalancerPolicies" }, DescribeLoadBalancerPoliciesInput, DescribeLoadBalancerPoliciesOutput, [AccessPointNotFoundException, PolicyNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeLoadBalancerPolicies = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", sdkId: "Elastic Load Balancing", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v7.DescribeLoadBalancerPolicies" }, DescribeLoadBalancerPoliciesInput, DescribeLoadBalancerPoliciesOutput, [AccessPointNotFoundException, PolicyNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Describes the specified load balancer policy types or all load balancer policy types.
  * 
@@ -394,7 +394,7 @@ export class TooManyAccessPointsException extends S.TaggedError<TooManyAccessPoi
  * You can use CreateLoadBalancerPolicy to create a policy configuration for any of these policy types.
  * Then, depending on the policy type, use either SetLoadBalancerPoliciesOfListener or
  * SetLoadBalancerPoliciesForBackendServer to set the policy.
- */export const describeLoadBalancerPolicyTypes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v7.DescribeLoadBalancerPolicyTypes" }, DescribeLoadBalancerPolicyTypesInput, DescribeLoadBalancerPolicyTypesOutput, [PolicyTypeNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeLoadBalancerPolicyTypes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", sdkId: "Elastic Load Balancing", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v7.DescribeLoadBalancerPolicyTypes" }, DescribeLoadBalancerPolicyTypesInput, DescribeLoadBalancerPolicyTypesOutput, [PolicyTypeNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Modifies the attributes of the specified load balancer.
  * 
@@ -424,10 +424,10 @@ export class TooManyAccessPointsException extends S.TaggedError<TooManyAccessPoi
  * 
  * 
  * - Idle Connection Timeout
- */export const modifyLoadBalancerAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v7.ModifyLoadBalancerAttributes" }, ModifyLoadBalancerAttributesInput, ModifyLoadBalancerAttributesOutput, [AccessPointNotFoundException, InvalidConfigurationRequestException, LoadBalancerAttributeNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const modifyLoadBalancerAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", sdkId: "Elastic Load Balancing", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v7.ModifyLoadBalancerAttributes" }, ModifyLoadBalancerAttributesInput, ModifyLoadBalancerAttributesOutput, [AccessPointNotFoundException, InvalidConfigurationRequestException, LoadBalancerAttributeNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Describes the specified the load balancers. If no load balancers are specified, the call describes all of your load balancers.
- */export const describeLoadBalancers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v7.DescribeLoadBalancers" }, DescribeAccessPointsInput, DescribeAccessPointsOutput, [AccessPointNotFoundException, DependencyThrottleException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeLoadBalancers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", sdkId: "Elastic Load Balancing", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v7.DescribeLoadBalancers" }, DescribeAccessPointsInput, DescribeAccessPointsOutput, [AccessPointNotFoundException, DependencyThrottleException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates a Classic Load Balancer.
  * 
@@ -448,4 +448,4 @@ export class TooManyAccessPointsException extends S.TaggedError<TooManyAccessPoi
  * You can request an increase for the number of load balancers for your account.
  * For more information, see Limits for Your Classic Load Balancer
  * in the *Classic Load Balancers Guide*.
- */export const createLoadBalancer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", uri: "/", method: "POST", sdkId: "Elastic Load Balancing", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v7.CreateLoadBalancer" }, CreateAccessPointInput, CreateAccessPointOutput, [CertificateNotFoundException, DuplicateAccessPointNameException, DuplicateTagKeysException, InvalidConfigurationRequestException, InvalidSchemeException, InvalidSecurityGroupException, InvalidSubnetException, OperationNotPermittedException, SubnetNotFoundException, TooManyAccessPointsException, TooManyTagsException, UnsupportedProtocolException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const createLoadBalancer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", sdkId: "Elastic Load Balancing", sigV4ServiceName: "elasticloadbalancing", name: "ElasticLoadBalancing_v7.CreateLoadBalancer" }, CreateAccessPointInput, CreateAccessPointOutput, [CertificateNotFoundException, DuplicateAccessPointNameException, DuplicateTagKeysException, InvalidConfigurationRequestException, InvalidSchemeException, InvalidSecurityGroupException, InvalidSubnetException, OperationNotPermittedException, SubnetNotFoundException, TooManyAccessPointsException, TooManyTagsException, UnsupportedProtocolException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);

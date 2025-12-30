@@ -1586,7 +1586,7 @@ export class ObjectAlreadyInActiveTierError extends S.TaggedError<ObjectAlreadyI
  * 
  * 
  * You must URL encode any signed header values that contain spaces. For example, if your header value is `my file.txt`, containing two spaces after `my`, you must URL encode this value to `my%20%20file.txt`.
- */export const writeGetObjectResponse = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/WriteGetObjectResponse", method: "POST", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.WriteGetObjectResponse" }, WriteGetObjectResponseRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const writeGetObjectResponse = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/WriteGetObjectResponse", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.WriteGetObjectResponse" }, WriteGetObjectResponseRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * This operation aborts a multipart upload. After a multipart upload is aborted, no additional parts
  * can be uploaded using that upload ID. The storage consumed by any previously uploaded parts will be
@@ -2005,7 +2005,7 @@ export class ObjectAlreadyInActiveTierError extends S.TaggedError<ObjectAlreadyI
  * 
  * 
  * You must URL encode any signed header values that contain spaces. For example, if your header value is `my file.txt`, containing two spaces after `my`, you must URL encode this value to `my%20%20file.txt`.
- */export const createMultipartUpload = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/{Bucket}/{Key+}?uploads", method: "POST", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.CreateMultipartUpload" }, CreateMultipartUploadRequest, CreateMultipartUploadOutput, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const createMultipartUpload = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/{Bucket}/{Key+}?uploads", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.CreateMultipartUpload" }, CreateMultipartUploadRequest, CreateMultipartUploadOutput, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Removes an object from a bucket. The behavior depends on the bucket's versioning state:
  * 
@@ -5477,7 +5477,7 @@ export class ObjectAlreadyInActiveTierError extends S.TaggedError<ObjectAlreadyI
  * 
  * 
  * You must URL encode any signed header values that contain spaces. For example, if your header value is `my file.txt`, containing two spaces after `my`, you must URL encode this value to `my%20%20file.txt`.
- */export const createBucketMetadataConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/{Bucket}?metadataConfiguration", method: "POST", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.CreateBucketMetadataConfiguration" }, CreateBucketMetadataConfigurationRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const createBucketMetadataConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/{Bucket}?metadataConfiguration", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.CreateBucketMetadataConfiguration" }, CreateBucketMetadataConfigurationRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * We recommend that you create your S3 Metadata configurations by using the V2
  * CreateBucketMetadataConfiguration API operation. We no longer recommend using the V1
@@ -5570,7 +5570,7 @@ export class ObjectAlreadyInActiveTierError extends S.TaggedError<ObjectAlreadyI
  * 
  * 
  * You must URL encode any signed header values that contain spaces. For example, if your header value is `my file.txt`, containing two spaces after `my`, you must URL encode this value to `my%20%20file.txt`.
- */export const createBucketMetadataTableConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/{Bucket}?metadataTable", method: "POST", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.CreateBucketMetadataTableConfiguration" }, CreateBucketMetadataTableConfigurationRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const createBucketMetadataTableConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/{Bucket}?metadataTable", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.CreateBucketMetadataTableConfiguration" }, CreateBucketMetadataTableConfigurationRequest, S.Struct({}), []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Creates a session that establishes temporary security credentials to support fast authentication and
  * authorization for the Zonal endpoint API operations on directory buckets. For more information about Zonal endpoint API operations that
@@ -7174,7 +7174,7 @@ export class ObjectAlreadyInActiveTierError extends S.TaggedError<ObjectAlreadyI
  * 
  * 
  * You must URL encode any signed header values that contain spaces. For example, if your header value is `my file.txt`, containing two spaces after `my`, you must URL encode this value to `my%20%20file.txt`.
- */export const completeMultipartUpload = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/{Bucket}/{Key+}", method: "POST", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.CompleteMultipartUpload" }, CompleteMultipartUploadRequest, CompleteMultipartUploadOutput, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const completeMultipartUpload = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/{Bucket}/{Key+}", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.CompleteMultipartUpload" }, CompleteMultipartUploadRequest, CompleteMultipartUploadOutput, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Creates a copy of an object that is already stored in Amazon S3.
  * 
@@ -8915,7 +8915,7 @@ export class ObjectAlreadyInActiveTierError extends S.TaggedError<ObjectAlreadyI
  * 
  * 
  * You must URL encode any signed header values that contain spaces. For example, if your header value is `my file.txt`, containing two spaces after `my`, you must URL encode this value to `my%20%20file.txt`.
- */export const deleteObjects = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/{Bucket}?delete", method: "POST", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.DeleteObjects" }, DeleteObjectsRequest, DeleteObjectsOutput, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const deleteObjects = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/{Bucket}?delete", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.DeleteObjects" }, DeleteObjectsRequest, DeleteObjectsOutput, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Retrieves the S3 Metadata configuration for a general purpose bucket. For more information, see
  * Accelerating
@@ -10110,7 +10110,7 @@ export class ObjectAlreadyInActiveTierError extends S.TaggedError<ObjectAlreadyI
  * 
  * 
  * You must URL encode any signed header values that contain spaces. For example, if your header value is `my file.txt`, containing two spaces after `my`, you must URL encode this value to `my%20%20file.txt`.
- */export const restoreObject = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/{Bucket}/{Key+}?restore", method: "POST", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.RestoreObject" }, RestoreObjectRequest, RestoreObjectOutput, [ObjectAlreadyInActiveTierError]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const restoreObject = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/{Bucket}/{Key+}?restore", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.RestoreObject" }, RestoreObjectRequest, RestoreObjectOutput, [ObjectAlreadyInActiveTierError]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * This operation is not supported for directory buckets.
  * 
@@ -10272,4 +10272,4 @@ export class ObjectAlreadyInActiveTierError extends S.TaggedError<ObjectAlreadyI
  * 
  * 
  * You must URL encode any signed header values that contain spaces. For example, if your header value is `my file.txt`, containing two spaces after `my`, you must URL encode this value to `my%20%20file.txt`.
- */export const selectObjectContent = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/{Bucket}/{Key+}?select&select-type=2", method: "POST", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.SelectObjectContent" }, SelectObjectContentRequest, SelectObjectContentOutput, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const selectObjectContent = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2006-03-01", uri: "/{Bucket}/{Key+}?select&select-type=2", sdkId: "S3", sigV4ServiceName: "s3", name: "AmazonS3.SelectObjectContent" }, SelectObjectContentRequest, SelectObjectContentOutput, []), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);

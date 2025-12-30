@@ -254,12 +254,12 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
 /**
  * Adds tags to an IoT Greengrass resource. If a tag already exists for the resource, this operation
  * updates the tag's value.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-30", uri: "/tags/{resourceArn}", method: "POST", sdkId: "GreengrassV2", sigV4ServiceName: "greengrass", name: "GreengrassV2.TagResource" }, TagResourceRequest, TagResourceResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-30", uri: "/tags/{resourceArn}", sdkId: "GreengrassV2", sigV4ServiceName: "greengrass", name: "GreengrassV2.TagResource" }, TagResourceRequest, TagResourceResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Cancels a deployment. This operation cancels the deployment for devices that haven't yet
  * received it. If a device already received the deployment, this operation doesn't change
  * anything for that device.
- */export const cancelDeployment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-30", uri: "/greengrass/v2/deployments/{deploymentId}/cancel", method: "POST", sdkId: "GreengrassV2", sigV4ServiceName: "greengrass", name: "GreengrassV2.CancelDeployment" }, CancelDeploymentRequest, CancelDeploymentResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const cancelDeployment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-30", uri: "/greengrass/v2/deployments/{deploymentId}/cancel", sdkId: "GreengrassV2", sigV4ServiceName: "greengrass", name: "GreengrassV2.CancelDeployment" }, CancelDeploymentRequest, CancelDeploymentResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves a paginated list of client devices that are associated with a core
  * device.
@@ -383,12 +383,12 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * data to Amazon Web Services IoT Core and interact with client devices in Greengrass components. For more information,
  * see Interact with
  * local IoT devices in the *IoT Greengrass V2 Developer Guide*.
- */export const batchAssociateClientDeviceWithCoreDevice = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-30", uri: "/greengrass/v2/coreDevices/{coreDeviceThingName}/associateClientDevices", method: "POST", sdkId: "GreengrassV2", sigV4ServiceName: "greengrass", name: "GreengrassV2.BatchAssociateClientDeviceWithCoreDevice" }, BatchAssociateClientDeviceWithCoreDeviceRequest, BatchAssociateClientDeviceWithCoreDeviceResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const batchAssociateClientDeviceWithCoreDevice = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-30", uri: "/greengrass/v2/coreDevices/{coreDeviceThingName}/associateClientDevices", sdkId: "GreengrassV2", sigV4ServiceName: "greengrass", name: "GreengrassV2.BatchAssociateClientDeviceWithCoreDevice" }, BatchAssociateClientDeviceWithCoreDeviceRequest, BatchAssociateClientDeviceWithCoreDeviceResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Disassociates a list of client devices from a core device. After you disassociate a client
  * device from a core device, the client device won't be able to use cloud discovery to retrieve
  * the core device's connectivity information and certificates.
- */export const batchDisassociateClientDeviceFromCoreDevice = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-30", uri: "/greengrass/v2/coreDevices/{coreDeviceThingName}/disassociateClientDevices", method: "POST", sdkId: "GreengrassV2", sigV4ServiceName: "greengrass", name: "GreengrassV2.BatchDisassociateClientDeviceFromCoreDevice" }, BatchDisassociateClientDeviceFromCoreDeviceRequest, BatchDisassociateClientDeviceFromCoreDeviceResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const batchDisassociateClientDeviceFromCoreDevice = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-30", uri: "/greengrass/v2/coreDevices/{coreDeviceThingName}/disassociateClientDevices", sdkId: "GreengrassV2", sigV4ServiceName: "greengrass", name: "GreengrassV2.BatchDisassociateClientDeviceFromCoreDevice" }, BatchDisassociateClientDeviceFromCoreDeviceRequest, BatchDisassociateClientDeviceFromCoreDeviceResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves metadata for a version of a component.
  */export const describeComponent = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-30", uri: "/greengrass/v2/components/{arn}/metadata", method: "GET", sdkId: "GreengrassV2", sigV4ServiceName: "greengrass", name: "GreengrassV2.DescribeComponent" }, DescribeComponentRequest, DescribeComponentResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -421,7 +421,7 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * 
  * To use this operation, you must use the data plane API endpoint and authenticate with an
  * IoT device certificate. For more information, see IoT Greengrass endpoints and quotas.
- */export const resolveComponentCandidates = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-30", uri: "/greengrass/v2/resolveComponentCandidates", method: "POST", sdkId: "GreengrassV2", sigV4ServiceName: "greengrass", name: "GreengrassV2.ResolveComponentCandidates" }, ResolveComponentCandidatesRequest, ResolveComponentCandidatesResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const resolveComponentCandidates = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-30", uri: "/greengrass/v2/resolveComponentCandidates", sdkId: "GreengrassV2", sigV4ServiceName: "greengrass", name: "GreengrassV2.ResolveComponentCandidates" }, ResolveComponentCandidatesRequest, ResolveComponentCandidatesResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a continuous deployment for a target, which is a Greengrass core device or group of core
  * devices. When you add a new core device to a group of core devices that has a deployment, IoT Greengrass
@@ -440,7 +440,7 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * 
  * For more information, see the Create deployments in the
  * *IoT Greengrass V2 Developer Guide*.
- */export const createDeployment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-30", uri: "/greengrass/v2/deployments", method: "POST", sdkId: "GreengrassV2", sigV4ServiceName: "greengrass", name: "GreengrassV2.CreateDeployment" }, CreateDeploymentRequest, CreateDeploymentResponse, [AccessDeniedException, ConflictException, InternalServerException, RequestAlreadyInProgressException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createDeployment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-30", uri: "/greengrass/v2/deployments", sdkId: "GreengrassV2", sigV4ServiceName: "greengrass", name: "GreengrassV2.CreateDeployment" }, CreateDeploymentRequest, CreateDeploymentResponse, [AccessDeniedException, ConflictException, InternalServerException, RequestAlreadyInProgressException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a component. Components are software that run on Greengrass core devices. After you
  * develop and test a component on your core device, you can use this operation to upload your
@@ -487,4 +487,4 @@ export class ServiceQuotaExceededException extends S.TaggedError<ServiceQuotaExc
  * 
  * 
  * IoT Greengrass currently supports Lambda functions on only Linux core devices.
- */export const createComponentVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-30", uri: "/greengrass/v2/createComponentVersion", method: "POST", sdkId: "GreengrassV2", sigV4ServiceName: "greengrass", name: "GreengrassV2.CreateComponentVersion" }, CreateComponentVersionRequest, CreateComponentVersionResponse, [AccessDeniedException, ConflictException, InternalServerException, RequestAlreadyInProgressException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createComponentVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-11-30", uri: "/greengrass/v2/createComponentVersion", sdkId: "GreengrassV2", sigV4ServiceName: "greengrass", name: "GreengrassV2.CreateComponentVersion" }, CreateComponentVersionRequest, CreateComponentVersionResponse, [AccessDeniedException, ConflictException, InternalServerException, RequestAlreadyInProgressException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

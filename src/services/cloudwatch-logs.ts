@@ -419,7 +419,7 @@ export class UnrecognizedClientException extends S.TaggedError<UnrecognizedClien
  * Deletes the specified destination, and eventually disables all the subscription filters
  * that publish to it. This operation does not delete the physical resource encapsulated by the
  * destination.
- */export const deleteDestination = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DeleteDestination" }, DeleteDestinationRequest, S.Struct({}), [InvalidParameterException, OperationAbortedException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteDestination = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DeleteDestination" }, DeleteDestinationRequest, S.Struct({}), [InvalidParameterException, OperationAbortedException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a log-group level field index policy that was applied to a single log group. The
  * indexing of the log events that happened before you delete the policy will still be used for
@@ -439,35 +439,35 @@ export class UnrecognizedClientException extends S.TaggedError<UnrecognizedClien
  * new incoming log events. This operation only affects log group-level policies, including any
  * facet configurations, and preserves any data source-based account policies that may apply to
  * the log group.
- */export const deleteIndexPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DeleteIndexPolicy" }, DeleteIndexPolicyRequest, DeleteIndexPolicyResponse, [InvalidParameterException, LimitExceededException, OperationAbortedException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteIndexPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DeleteIndexPolicy" }, DeleteIndexPolicyRequest, DeleteIndexPolicyResponse, [InvalidParameterException, LimitExceededException, OperationAbortedException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified CloudWatch Logs anomaly detector.
- */export const deleteLogAnomalyDetector = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DeleteLogAnomalyDetector" }, DeleteLogAnomalyDetectorRequest, S.Struct({}), [InvalidParameterException, OperationAbortedException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteLogAnomalyDetector = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DeleteLogAnomalyDetector" }, DeleteLogAnomalyDetectorRequest, S.Struct({}), [InvalidParameterException, OperationAbortedException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified log group and permanently deletes all the archived log events
  * associated with the log group.
- */export const deleteLogGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DeleteLogGroup" }, DeleteLogGroupRequest, S.Struct({}), [InvalidParameterException, OperationAbortedException, ResourceNotFoundException, ServiceUnavailableException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteLogGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DeleteLogGroup" }, DeleteLogGroupRequest, S.Struct({}), [InvalidParameterException, OperationAbortedException, ResourceNotFoundException, ServiceUnavailableException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified log stream and permanently deletes all the archived log events
  * associated with the log stream.
- */export const deleteLogStream = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DeleteLogStream" }, DeleteLogStreamRequest, S.Struct({}), [InvalidParameterException, OperationAbortedException, ResourceNotFoundException, ServiceUnavailableException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteLogStream = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DeleteLogStream" }, DeleteLogStreamRequest, S.Struct({}), [InvalidParameterException, OperationAbortedException, ResourceNotFoundException, ServiceUnavailableException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified metric filter.
- */export const deleteMetricFilter = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DeleteMetricFilter" }, DeleteMetricFilterRequest, S.Struct({}), [InvalidParameterException, OperationAbortedException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteMetricFilter = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DeleteMetricFilter" }, DeleteMetricFilterRequest, S.Struct({}), [InvalidParameterException, OperationAbortedException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a resource policy from this account. This revokes the access of the identities
  * in that policy to put log events to this account.
- */export const deleteResourcePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DeleteResourcePolicy" }, DeleteResourcePolicyRequest, S.Struct({}), [InvalidParameterException, OperationAbortedException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteResourcePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DeleteResourcePolicy" }, DeleteResourcePolicyRequest, S.Struct({}), [InvalidParameterException, OperationAbortedException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified retention policy.
  * 
  * 
  * Log events do not expire if they belong to log groups without a retention
  * policy.
- */export const deleteRetentionPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DeleteRetentionPolicy" }, DeleteRetentionPolicyRequest, S.Struct({}), [InvalidParameterException, OperationAbortedException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteRetentionPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DeleteRetentionPolicy" }, DeleteRetentionPolicyRequest, S.Struct({}), [InvalidParameterException, OperationAbortedException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified subscription filter.
- */export const deleteSubscriptionFilter = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DeleteSubscriptionFilter" }, DeleteSubscriptionFilterRequest, S.Struct({}), [InvalidParameterException, OperationAbortedException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteSubscriptionFilter = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DeleteSubscriptionFilter" }, DeleteSubscriptionFilterRequest, S.Struct({}), [InvalidParameterException, OperationAbortedException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the log transformer for the specified log group. As soon as you do this, the
  * transformation of incoming log events according to that transformer stops. If this account has
@@ -477,7 +477,7 @@ export class UnrecognizedClientException extends S.TaggedError<UnrecognizedClien
  * 
  * After you delete a transformer, be sure to edit any metric filters or subscription filters
  * that relied on the transformed versions of the log events.
- */export const deleteTransformer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DeleteTransformer" }, DeleteTransformerRequest, S.Struct({}), [InvalidOperationException, InvalidParameterException, OperationAbortedException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteTransformer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DeleteTransformer" }, DeleteTransformerRequest, S.Struct({}), [InvalidOperationException, InvalidParameterException, OperationAbortedException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Disassociates the specified KMS key from the specified log group or
  * from all CloudWatch Logs Insights query results in the account.
@@ -509,13 +509,13 @@ export class UnrecognizedClientException extends S.TaggedError<UnrecognizedClien
  * 
  * 
  * It can take up to 5 minutes for this operation to take effect.
- */export const disassociateKmsKey = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DisassociateKmsKey" }, DisassociateKmsKeyRequest, S.Struct({}), [InvalidParameterException, OperationAbortedException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const disassociateKmsKey = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DisassociateKmsKey" }, DisassociateKmsKeyRequest, S.Struct({}), [InvalidParameterException, OperationAbortedException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates or updates an access policy associated with an existing destination. An access
  * policy is an IAM
  * policy document that is used to authorize claims to register a subscription filter
  * against a given destination.
- */export const putDestinationPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.PutDestinationPolicy" }, PutDestinationPolicyRequest, S.Struct({}), [InvalidParameterException, OperationAbortedException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putDestinationPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.PutDestinationPolicy" }, PutDestinationPolicyRequest, S.Struct({}), [InvalidParameterException, OperationAbortedException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Enables or disables deletion protection for the specified log group. When enabled on a
  * log group, deletion protection blocks all deletion operations until it is explicitly
@@ -523,7 +523,7 @@ export class UnrecognizedClientException extends S.TaggedError<UnrecognizedClien
  * 
  * 
  * For information about the parameters that are common to all actions, see Common Parameters.
- */export const putLogGroupDeletionProtection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.PutLogGroupDeletionProtection" }, PutLogGroupDeletionProtectionRequest, S.Struct({}), [AccessDeniedException, InvalidOperationException, InvalidParameterException, OperationAbortedException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putLogGroupDeletionProtection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.PutLogGroupDeletionProtection" }, PutLogGroupDeletionProtectionRequest, S.Struct({}), [AccessDeniedException, InvalidOperationException, InvalidParameterException, OperationAbortedException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Sets the retention of the specified log group. With a retention policy, you can
  * configure the number of days for which to retain log events in the specified log
@@ -551,7 +551,7 @@ export class UnrecognizedClientException extends S.TaggedError<UnrecognizedClien
  * they are not actually deleted until later. These log events marked for deletion are also not
  * included when you use an API to retrieve the `storedBytes` value to see how many
  * bytes a log group is storing.
- */export const putRetentionPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.PutRetentionPolicy" }, PutRetentionPolicyRequest, S.Struct({}), [InvalidParameterException, OperationAbortedException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putRetentionPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.PutRetentionPolicy" }, PutRetentionPolicyRequest, S.Struct({}), [InvalidParameterException, OperationAbortedException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates or updates a subscription filter and associates it with the specified log
  * group. With subscription filters, you can subscribe to a real-time stream of log events
@@ -601,7 +601,7 @@ export class UnrecognizedClientException extends S.TaggedError<UnrecognizedClien
  * To perform a `PutSubscriptionFilter` operation for any destination except a
  * Lambda function, you must also have the `iam:PassRole`
  * permission.
- */export const putSubscriptionFilter = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.PutSubscriptionFilter" }, PutSubscriptionFilterRequest, S.Struct({}), [InvalidOperationException, InvalidParameterException, LimitExceededException, OperationAbortedException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putSubscriptionFilter = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.PutSubscriptionFilter" }, PutSubscriptionFilterRequest, S.Struct({}), [InvalidOperationException, InvalidParameterException, LimitExceededException, OperationAbortedException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The TagLogGroup operation is on the path to deprecation. We recommend that you use
  * TagResource
@@ -625,7 +625,7 @@ export class UnrecognizedClientException extends S.TaggedError<UnrecognizedClien
  * or
  * `aws:TagKeys` condition keys. For more information about using tags to control
  * access, see Controlling access to Amazon Web Services resources using tags.
- */export const tagLogGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.TagLogGroup" }, TagLogGroupRequest, S.Struct({}), [InvalidParameterException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagLogGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.TagLogGroup" }, TagLogGroupRequest, S.Struct({}), [InvalidParameterException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The UntagLogGroup operation is on the path to deprecation. We recommend that you use
  * UntagResource instead.
@@ -642,18 +642,18 @@ export class UnrecognizedClientException extends S.TaggedError<UnrecognizedClien
  * When using IAM policies to control tag management for CloudWatch Logs log groups, the
  * condition keys `aws:Resource/key-name` and `aws:TagKeys` cannot be used
  * to restrict which tags users can assign.
- */export const untagLogGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.UntagLogGroup" }, UntagLogGroupRequest, S.Struct({}), [ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const untagLogGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.UntagLogGroup" }, UntagLogGroupRequest, S.Struct({}), [ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes one or more tags from the specified resource.
- */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.UntagResource" }, UntagResourceRequest, S.Struct({}), [InvalidParameterException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.UntagResource" }, UntagResourceRequest, S.Struct({}), [InvalidParameterException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Use this operation to update the configuration of a delivery to change
  * either the S3 path pattern or the format of the delivered logs. You can't use this operation
  * to change the source or destination of the delivery.
- */export const updateDeliveryConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.UpdateDeliveryConfiguration" }, UpdateDeliveryConfigurationRequest, UpdateDeliveryConfigurationResponse, [AccessDeniedException, ConflictException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateDeliveryConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.UpdateDeliveryConfiguration" }, UpdateDeliveryConfigurationRequest, UpdateDeliveryConfigurationResponse, [AccessDeniedException, ConflictException, ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates an existing log anomaly detector.
- */export const updateLogAnomalyDetector = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.UpdateLogAnomalyDetector" }, UpdateLogAnomalyDetectorRequest, S.Struct({}), [InvalidParameterException, OperationAbortedException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateLogAnomalyDetector = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.UpdateLogAnomalyDetector" }, UpdateLogAnomalyDetectorRequest, S.Struct({}), [InvalidParameterException, OperationAbortedException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Associates the specified KMS key with either one log group in the
  * account, or with all stored CloudWatch Logs query insights results in the
@@ -725,13 +725,13 @@ export class UnrecognizedClientException extends S.TaggedError<UnrecognizedClien
  * 
  * If you attempt to associate a KMS key with a log group but the KMS key does not exist or the KMS key is disabled, you receive an
  * `InvalidParameterException` error.
- */export const associateKmsKey = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.AssociateKmsKey" }, AssociateKmsKeyRequest, S.Struct({}), [InvalidParameterException, OperationAbortedException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const associateKmsKey = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.AssociateKmsKey" }, AssociateKmsKeyRequest, S.Struct({}), [InvalidParameterException, OperationAbortedException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Cancels the specified export task.
  * 
  * 
  * The task must be in the `PENDING` or `RUNNING` state.
- */export const cancelExportTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.CancelExportTask" }, CancelExportTaskRequest, S.Struct({}), [InvalidOperationException, InvalidParameterException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const cancelExportTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.CancelExportTask" }, CancelExportTaskRequest, S.Struct({}), [InvalidOperationException, InvalidParameterException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an export task so that you can efficiently export data from a log group to an
  * Amazon S3 bucket. When you perform a `CreateExportTask` operation, you must use
@@ -773,7 +773,7 @@ export class UnrecognizedClientException extends S.TaggedError<UnrecognizedClien
  * 
  * Time-based sorting on chunks of log data inside an exported file is not guaranteed. You
  * can sort the exported log field data by using Linux utilities.
- */export const createExportTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.CreateExportTask" }, CreateExportTaskRequest, CreateExportTaskResponse, [InvalidParameterException, LimitExceededException, OperationAbortedException, ResourceAlreadyExistsException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createExportTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.CreateExportTask" }, CreateExportTaskRequest, CreateExportTaskResponse, [InvalidParameterException, LimitExceededException, OperationAbortedException, ResourceAlreadyExistsException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an *anomaly detector* that regularly scans one or more log
  * groups and look for patterns and anomalies in the logs.
@@ -815,7 +815,7 @@ export class UnrecognizedClientException extends S.TaggedError<UnrecognizedClien
  * Any parts of log events that are masked as sensitive data are not scanned for anomalies.
  * For more information about masking sensitive data, see Help protect sensitive log
  * data with masking.
- */export const createLogAnomalyDetector = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.CreateLogAnomalyDetector" }, CreateLogAnomalyDetectorRequest, CreateLogAnomalyDetectorResponse, [InvalidParameterException, LimitExceededException, OperationAbortedException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createLogAnomalyDetector = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.CreateLogAnomalyDetector" }, CreateLogAnomalyDetectorRequest, CreateLogAnomalyDetectorResponse, [InvalidParameterException, LimitExceededException, OperationAbortedException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a log group with the specified name. You can create up to 1,000,000 log groups
  * per Region per account.
@@ -867,7 +867,7 @@ export class UnrecognizedClientException extends S.TaggedError<UnrecognizedClien
  * CloudWatch Logs supports only symmetric KMS keys. Do not associate an
  * asymmetric KMS key with your log group. For more information, see Using
  * Symmetric and Asymmetric Keys.
- */export const createLogGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.CreateLogGroup" }, CreateLogGroupRequest, S.Struct({}), [InvalidParameterException, LimitExceededException, OperationAbortedException, ResourceAlreadyExistsException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createLogGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.CreateLogGroup" }, CreateLogGroupRequest, S.Struct({}), [InvalidParameterException, LimitExceededException, OperationAbortedException, ResourceAlreadyExistsException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a log stream for the specified log group. A log stream is a sequence of log
  * events that originate from a single source, such as an application instance or a resource that
@@ -892,7 +892,7 @@ export class UnrecognizedClientException extends S.TaggedError<UnrecognizedClien
  * 
  * 
  * - Don't use ':' (colon) or '*' (asterisk) characters.
- */export const createLogStream = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.CreateLogStream" }, CreateLogStreamRequest, S.Struct({}), [InvalidParameterException, ResourceAlreadyExistsException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createLogStream = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.CreateLogStream" }, CreateLogStreamRequest, S.Struct({}), [InvalidParameterException, ResourceAlreadyExistsException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a CloudWatch Logs account policy. This stops the account-wide policy from
  * applying to log groups or data sources in the account. If you delete a data protection policy
@@ -938,20 +938,20 @@ export class UnrecognizedClientException extends S.TaggedError<UnrecognizedClien
  * If you delete a field index policy, the indexing of the log events that happened before
  * you deleted the policy will still be used for up to 30 days to improve CloudWatch Logs
  * Insights queries.
- */export const deleteAccountPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DeleteAccountPolicy" }, DeleteAccountPolicyRequest, S.Struct({}), [InvalidParameterException, OperationAbortedException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteAccountPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DeleteAccountPolicy" }, DeleteAccountPolicyRequest, S.Struct({}), [InvalidParameterException, OperationAbortedException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the data protection policy from the specified log group.
  * 
  * 
  * For more information about data protection policies, see PutDataProtectionPolicy.
- */export const deleteDataProtectionPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DeleteDataProtectionPolicy" }, DeleteDataProtectionPolicyRequest, S.Struct({}), [InvalidParameterException, OperationAbortedException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteDataProtectionPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DeleteDataProtectionPolicy" }, DeleteDataProtectionPolicyRequest, S.Struct({}), [InvalidParameterException, OperationAbortedException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a *delivery*. A delivery is a connection between a logical
  * *delivery source* and a logical delivery
  * destination. Deleting a delivery only deletes the connection between the delivery
  * source and delivery destination. It does not delete the delivery destination or the delivery
  * source.
- */export const deleteDelivery = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DeleteDelivery" }, DeleteDeliveryRequest, S.Struct({}), [ConflictException, ResourceNotFoundException, ServiceQuotaExceededException, ServiceUnavailableException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteDelivery = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DeleteDelivery" }, DeleteDeliveryRequest, S.Struct({}), [ConflictException, ResourceNotFoundException, ServiceQuotaExceededException, ServiceUnavailableException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a *delivery destination*. A delivery is a connection between a
  * logical *delivery source* and a logical delivery
@@ -961,11 +961,11 @@ export class UnrecognizedClientException extends S.TaggedError<UnrecognizedClien
  * You can't delete a delivery destination if any current deliveries are associated with it.
  * To find whether any deliveries are associated with this delivery destination, use the DescribeDeliveries operation and check the `deliveryDestinationArn`
  * field in the results.
- */export const deleteDeliveryDestination = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DeleteDeliveryDestination" }, DeleteDeliveryDestinationRequest, S.Struct({}), [ConflictException, ResourceNotFoundException, ServiceQuotaExceededException, ServiceUnavailableException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteDeliveryDestination = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DeleteDeliveryDestination" }, DeleteDeliveryDestinationRequest, S.Struct({}), [ConflictException, ResourceNotFoundException, ServiceQuotaExceededException, ServiceUnavailableException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a delivery destination policy. For more information about these policies, see
  * PutDeliveryDestinationPolicy.
- */export const deleteDeliveryDestinationPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DeleteDeliveryDestinationPolicy" }, DeleteDeliveryDestinationPolicyRequest, S.Struct({}), [ConflictException, ResourceNotFoundException, ServiceUnavailableException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteDeliveryDestinationPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DeleteDeliveryDestinationPolicy" }, DeleteDeliveryDestinationPolicyRequest, S.Struct({}), [ConflictException, ResourceNotFoundException, ServiceUnavailableException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a *delivery source*. A delivery is a connection between a
  * logical *delivery source* and a logical delivery
@@ -975,7 +975,7 @@ export class UnrecognizedClientException extends S.TaggedError<UnrecognizedClien
  * You can't delete a delivery source if any current deliveries are associated with it. To
  * find whether any deliveries are associated with this delivery source, use the DescribeDeliveries operation and check the `deliverySourceName` field in
  * the results.
- */export const deleteDeliverySource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DeleteDeliverySource" }, DeleteDeliverySourceRequest, S.Struct({}), [ConflictException, ResourceNotFoundException, ServiceQuotaExceededException, ServiceUnavailableException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteDeliverySource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DeleteDeliverySource" }, DeleteDeliverySourceRequest, S.Struct({}), [ConflictException, ResourceNotFoundException, ServiceQuotaExceededException, ServiceUnavailableException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the integration between CloudWatch Logs and OpenSearch Service. If your
  * integration has active vended logs dashboards, you must specify `true` for the
@@ -983,7 +983,7 @@ export class UnrecognizedClientException extends S.TaggedError<UnrecognizedClien
  * integration by setting `force` to `true`, all your vended logs
  * dashboards powered by OpenSearch Service will be deleted and the data that was on them will no
  * longer be accessible.
- */export const deleteIntegration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DeleteIntegration" }, DeleteIntegrationRequest, DeleteIntegrationResponse, [InvalidParameterException, ResourceNotFoundException, ServiceUnavailableException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteIntegration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DeleteIntegration" }, DeleteIntegrationRequest, DeleteIntegrationResponse, [InvalidParameterException, ResourceNotFoundException, ServiceUnavailableException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a saved CloudWatch Logs Insights query definition. A query definition contains
  * details about a saved CloudWatch Logs Insights query.
@@ -994,14 +994,14 @@ export class UnrecognizedClientException extends S.TaggedError<UnrecognizedClien
  * 
  * You must have the `logs:DeleteQueryDefinition` permission to be able to perform
  * this operation.
- */export const deleteQueryDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DeleteQueryDefinition" }, DeleteQueryDefinitionRequest, DeleteQueryDefinitionResponse, [InvalidParameterException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteQueryDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DeleteQueryDefinition" }, DeleteQueryDefinitionRequest, DeleteQueryDefinitionResponse, [InvalidParameterException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Disassociates a data source from an S3 Table Integration, removing query access and
  * deleting all associated data from the integration.
- */export const disassociateSourceFromS3TableIntegration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DisassociateSourceFromS3TableIntegration" }, DisassociateSourceFromS3TableIntegrationRequest, DisassociateSourceFromS3TableIntegrationResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const disassociateSourceFromS3TableIntegration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DisassociateSourceFromS3TableIntegration" }, DisassociateSourceFromS3TableIntegrationRequest, DisassociateSourceFromS3TableIntegrationResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about a log group data protection policy.
- */export const getDataProtectionPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.GetDataProtectionPolicy" }, GetDataProtectionPolicyRequest, GetDataProtectionPolicyResponse, [InvalidParameterException, OperationAbortedException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getDataProtectionPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.GetDataProtectionPolicy" }, GetDataProtectionPolicyRequest, GetDataProtectionPolicyResponse, [InvalidParameterException, OperationAbortedException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns complete information about one logical *delivery*. A delivery
  * is a connection between a
@@ -1021,27 +1021,27 @@ export class UnrecognizedClientException extends S.TaggedError<UnrecognizedClien
  * 
  * You need to specify the delivery `id` in this operation. You can find the IDs
  * of the deliveries in your account with the DescribeDeliveries operation.
- */export const getDelivery = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.GetDelivery" }, GetDeliveryRequest, GetDeliveryResponse, [ResourceNotFoundException, ServiceQuotaExceededException, ServiceUnavailableException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getDelivery = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.GetDelivery" }, GetDeliveryRequest, GetDeliveryResponse, [ResourceNotFoundException, ServiceQuotaExceededException, ServiceUnavailableException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves complete information about one delivery destination.
- */export const getDeliveryDestination = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.GetDeliveryDestination" }, GetDeliveryDestinationRequest, GetDeliveryDestinationResponse, [ResourceNotFoundException, ServiceQuotaExceededException, ServiceUnavailableException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getDeliveryDestination = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.GetDeliveryDestination" }, GetDeliveryDestinationRequest, GetDeliveryDestinationResponse, [ResourceNotFoundException, ServiceQuotaExceededException, ServiceUnavailableException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves complete information about one delivery source.
- */export const getDeliverySource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.GetDeliverySource" }, GetDeliverySourceRequest, GetDeliverySourceResponse, [ResourceNotFoundException, ServiceQuotaExceededException, ServiceUnavailableException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getDeliverySource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.GetDeliverySource" }, GetDeliverySourceRequest, GetDeliverySourceResponse, [ResourceNotFoundException, ServiceQuotaExceededException, ServiceUnavailableException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves information about the log anomaly detector that you specify. The KMS key ARN detected is valid.
- */export const getLogAnomalyDetector = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.GetLogAnomalyDetector" }, GetLogAnomalyDetectorRequest, GetLogAnomalyDetectorResponse, [InvalidParameterException, OperationAbortedException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getLogAnomalyDetector = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.GetLogAnomalyDetector" }, GetLogAnomalyDetectorRequest, GetLogAnomalyDetectorResponse, [InvalidParameterException, OperationAbortedException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves details about a specific scheduled query, including its configuration, execution
  * status, and metadata.
- */export const getScheduledQuery = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.GetScheduledQuery" }, GetScheduledQueryRequest, GetScheduledQueryResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getScheduledQuery = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.GetScheduledQuery" }, GetScheduledQueryRequest, GetScheduledQueryResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the information about the log transformer associated with this log group.
  * 
  * 
  * This operation returns data only for transformers created at the log group level. To get
  * information for an account-level transformer, use DescribeAccountPolicies.
- */export const getTransformer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.GetTransformer" }, GetTransformerRequest, GetTransformerResponse, [InvalidOperationException, InvalidParameterException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getTransformer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.GetTransformer" }, GetTransformerRequest, GetTransformerResponse, [InvalidOperationException, InvalidParameterException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of the log groups that were analyzed during a single CloudWatch Logs
  * Insights query. This can be useful for queries that use log group name prefixes or the
@@ -1051,11 +1051,11 @@ export class UnrecognizedClientException extends S.TaggedError<UnrecognizedClien
  * 
  * For more information about field indexes, see Create field indexes
  * to improve query performance and reduce costs.
- */export const listLogGroupsForQuery = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.ListLogGroupsForQuery" }, ListLogGroupsForQueryRequest, ListLogGroupsForQueryResponse, [AccessDeniedException, InvalidParameterException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listLogGroupsForQuery = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.ListLogGroupsForQuery" }, ListLogGroupsForQueryRequest, ListLogGroupsForQueryResponse, [AccessDeniedException, InvalidParameterException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Displays the tags associated with a CloudWatch Logs resource. Currently, log groups and
  * destinations support tagging.
- */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [InvalidParameterException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [InvalidParameterException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The ListTagsLogGroup operation is on the path to deprecation. We recommend that you use
  * ListTagsForResource instead.
@@ -1064,7 +1064,7 @@ export class UnrecognizedClientException extends S.TaggedError<UnrecognizedClien
  * 
  * 
  * Lists the tags for the specified log group.
- */export const listTagsLogGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.ListTagsLogGroup" }, ListTagsLogGroupRequest, ListTagsLogGroupResponse, [ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTagsLogGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.ListTagsLogGroup" }, ListTagsLogGroupRequest, ListTagsLogGroupResponse, [ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an account-level data protection policy, subscription filter policy, field index
  * policy, transformer policy, or metric extraction policy that applies to all log groups, a
@@ -1595,7 +1595,7 @@ export class UnrecognizedClientException extends S.TaggedError<UnrecognizedClien
  * cannot create an `IN` policy for prefix `"/aws"` because the set of
  * log groups matching `"/aws"` is not a subset of the log groups matching
  * `"/aws/lambda"`.
- */export const putAccountPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.PutAccountPolicy" }, PutAccountPolicyRequest, PutAccountPolicyResponse, [InvalidParameterException, LimitExceededException, OperationAbortedException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putAccountPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.PutAccountPolicy" }, PutAccountPolicyRequest, PutAccountPolicyResponse, [InvalidParameterException, LimitExceededException, OperationAbortedException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a data protection policy for the specified log group. A data protection policy can
  * help safeguard sensitive data that's ingested by the log group by auditing and masking the
@@ -1629,7 +1629,7 @@ export class UnrecognizedClientException extends S.TaggedError<UnrecognizedClien
  * created level. If a log group has its own data protection policy and the account also has an
  * account-level data protection policy, then the two policies are cumulative. Any sensitive term
  * specified in either policy is masked.
- */export const putDataProtectionPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.PutDataProtectionPolicy" }, PutDataProtectionPolicyRequest, PutDataProtectionPolicyResponse, [InvalidParameterException, LimitExceededException, OperationAbortedException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putDataProtectionPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.PutDataProtectionPolicy" }, PutDataProtectionPolicyRequest, PutDataProtectionPolicyResponse, [InvalidParameterException, LimitExceededException, OperationAbortedException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates and assigns an IAM policy that grants permissions to CloudWatch Logs to deliver logs cross-account to a specified destination in this account. To
  * configure the delivery of logs from an Amazon Web Services service in another account to a logs
@@ -1669,7 +1669,7 @@ export class UnrecognizedClientException extends S.TaggedError<UnrecognizedClien
  * The contents of the policy must include two statements. One statement enables general logs
  * delivery, and the other allows delivery to the chosen destination. See the examples for the
  * needed policies.
- */export const putDeliveryDestinationPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.PutDeliveryDestinationPolicy" }, PutDeliveryDestinationPolicyRequest, PutDeliveryDestinationPolicyResponse, [ConflictException, ResourceNotFoundException, ServiceUnavailableException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putDeliveryDestinationPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.PutDeliveryDestinationPolicy" }, PutDeliveryDestinationPolicyRequest, PutDeliveryDestinationPolicyResponse, [ConflictException, ResourceNotFoundException, ServiceUnavailableException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates or updates a logical *delivery source*. A delivery source
  * represents an Amazon Web Services resource that sends logs to an logs delivery destination. The
@@ -1718,7 +1718,7 @@ export class UnrecognizedClientException extends S.TaggedError<UnrecognizedClien
  * 
  * If you use this operation to update an existing delivery source, all the current delivery
  * source parameters are overwritten with the new parameter values that you specify.
- */export const putDeliverySource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.PutDeliverySource" }, PutDeliverySourceRequest, PutDeliverySourceResponse, [ConflictException, ResourceNotFoundException, ServiceQuotaExceededException, ServiceUnavailableException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putDeliverySource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.PutDeliverySource" }, PutDeliverySourceRequest, PutDeliverySourceResponse, [ConflictException, ResourceNotFoundException, ServiceQuotaExceededException, ServiceUnavailableException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates or updates a destination. This operation is used only to create destinations
  * for cross-account subscriptions.
@@ -1737,7 +1737,7 @@ export class UnrecognizedClientException extends S.TaggedError<UnrecognizedClien
  * 
  * To perform a `PutDestination` operation, you must also have the
  * `iam:PassRole` permission.
- */export const putDestination = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.PutDestination" }, PutDestinationRequest, PutDestinationResponse, [InvalidParameterException, OperationAbortedException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putDestination = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.PutDestination" }, PutDestinationRequest, PutDestinationResponse, [InvalidParameterException, OperationAbortedException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates or updates a *field index policy* for the specified log group.
  * Only log groups in the Standard log class support field index policies. For more information
@@ -1834,7 +1834,7 @@ export class UnrecognizedClientException extends S.TaggedError<UnrecognizedClien
  * group-level indexing, including any facet configurations. The log group ignores any
  * account-wide field index policy that applies to log groups, but data source-based account
  * policies may still apply.
- */export const putIndexPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.PutIndexPolicy" }, PutIndexPolicyRequest, PutIndexPolicyResponse, [InvalidParameterException, LimitExceededException, OperationAbortedException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putIndexPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.PutIndexPolicy" }, PutIndexPolicyRequest, PutIndexPolicyResponse, [InvalidParameterException, LimitExceededException, OperationAbortedException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates or updates a query definition for CloudWatch Logs Insights. For more information,
  * see Analyzing Log Data with CloudWatch Logs Insights.
@@ -1851,7 +1851,7 @@ export class UnrecognizedClientException extends S.TaggedError<UnrecognizedClien
  * 
  * You must have the `logs:PutQueryDefinition` permission to be able to perform
  * this operation.
- */export const putQueryDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.PutQueryDefinition" }, PutQueryDefinitionRequest, PutQueryDefinitionResponse, [InvalidParameterException, LimitExceededException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putQueryDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.PutQueryDefinition" }, PutQueryDefinitionRequest, PutQueryDefinitionResponse, [InvalidParameterException, LimitExceededException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates or updates a resource policy allowing other Amazon Web Services services to put
  * log events to this account, such as Amazon Route 53. This API has the following
@@ -1883,7 +1883,7 @@ export class UnrecognizedClientException extends S.TaggedError<UnrecognizedClien
  * (such as IAM users, roles, or other Amazon Web Services accounts) will not be
  * enforced. For access control involving these principals, use the IAM
  * policies.
- */export const putResourcePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.PutResourcePolicy" }, PutResourcePolicyRequest, PutResourcePolicyResponse, [InvalidParameterException, LimitExceededException, OperationAbortedException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putResourcePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.PutResourcePolicy" }, PutResourcePolicyRequest, PutResourcePolicyResponse, [InvalidParameterException, LimitExceededException, OperationAbortedException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Stops a CloudWatch Logs Insights query that is in progress. If the query has already
  * ended, the operation returns an error indicating that the specified query is not
@@ -1894,7 +1894,7 @@ export class UnrecognizedClientException extends S.TaggedError<UnrecognizedClien
  * query executions. When used with scheduled queries, `StopQuery` cancels only the
  * specific execution identified by the query ID, not the scheduled query configuration
  * itself.
- */export const stopQuery = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.StopQuery" }, StopQueryRequest, StopQueryResponse, [InvalidParameterException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const stopQuery = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.StopQuery" }, StopQueryRequest, StopQueryResponse, [InvalidParameterException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Assigns one or more tags (key-value pairs) to the specified CloudWatch Logs resource.
  * Currently, the only CloudWatch Logs resources that can be tagged are log groups and
@@ -1917,7 +1917,7 @@ export class UnrecognizedClientException extends S.TaggedError<UnrecognizedClien
  * 
  * 
  * You can associate as many as 50 tags with a CloudWatch Logs resource.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.TagResource" }, TagResourceRequest, S.Struct({}), [InvalidParameterException, ResourceNotFoundException, ServiceUnavailableException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.TagResource" }, TagResourceRequest, S.Struct({}), [InvalidParameterException, ResourceNotFoundException, ServiceUnavailableException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Use this operation to *suppress* anomaly detection for a specified
  * anomaly or pattern. If you suppress an anomaly, CloudWatch Logs won't report new
@@ -1933,19 +1933,19 @@ export class UnrecognizedClientException extends S.TaggedError<UnrecognizedClien
  * you can use it again to cause CloudWatch Logs to end the suppression. To do this, use this
  * operation and specify the anomaly or pattern to stop suppressing, and omit the
  * `suppressionType` and `suppressionPeriod` parameters.
- */export const updateAnomaly = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.UpdateAnomaly" }, UpdateAnomalyRequest, S.Struct({}), [InvalidParameterException, OperationAbortedException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateAnomaly = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.UpdateAnomaly" }, UpdateAnomalyRequest, S.Struct({}), [InvalidParameterException, OperationAbortedException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates an existing scheduled query with new configuration. This operation uses PUT
  * semantics, allowing modification of query parameters, schedule, and destinations.
- */export const updateScheduledQuery = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.UpdateScheduledQuery" }, UpdateScheduledQueryRequest, UpdateScheduledQueryResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateScheduledQuery = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.UpdateScheduledQuery" }, UpdateScheduledQueryRequest, UpdateScheduledQueryResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Associates a data source with an S3 Table Integration for query access in the 'logs'
  * namespace. This enables querying log data using analytics engines that support Iceberg such as
  * Amazon Athena, Amazon Redshift, and Apache Spark.
- */export const associateSourceToS3TableIntegration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.AssociateSourceToS3TableIntegration" }, AssociateSourceToS3TableIntegrationRequest, AssociateSourceToS3TableIntegrationResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const associateSourceToS3TableIntegration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.AssociateSourceToS3TableIntegration" }, AssociateSourceToS3TableIntegrationRequest, AssociateSourceToS3TableIntegrationResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Cancels an active import task and stops importing data from the CloudTrail Lake Event Data Store.
- */export const cancelImportTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.CancelImportTask" }, CancelImportTaskRequest, CancelImportTaskResponse, [AccessDeniedException, InvalidOperationException, InvalidParameterException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const cancelImportTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.CancelImportTask" }, CancelImportTaskRequest, CancelImportTaskResponse, [AccessDeniedException, InvalidOperationException, InvalidParameterException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a *delivery*. A delivery is a connection between a logical
  * *delivery source* and a logical *delivery destination*
@@ -1995,7 +1995,7 @@ export class UnrecognizedClientException extends S.TaggedError<UnrecognizedClien
  * 
  * 
  * To update an existing delivery configuration, use UpdateDeliveryConfiguration.
- */export const createDelivery = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.CreateDelivery" }, CreateDeliveryRequest, CreateDeliveryResponse, [AccessDeniedException, ConflictException, ResourceNotFoundException, ServiceQuotaExceededException, ServiceUnavailableException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createDelivery = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.CreateDelivery" }, CreateDeliveryRequest, CreateDeliveryResponse, [AccessDeniedException, ConflictException, ResourceNotFoundException, ServiceQuotaExceededException, ServiceUnavailableException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts an import from a data source to CloudWatch Log and creates a managed log group as the destination for the imported data.
  * Currently, CloudTrail Event Data Store is the only supported data source.
@@ -2066,11 +2066,11 @@ export class UnrecognizedClientException extends S.TaggedError<UnrecognizedClien
  * 
  * 
  * - The data being imported must be within the specified source's retention period.
- */export const createImportTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.CreateImportTask" }, CreateImportTaskRequest, CreateImportTaskResponse, [AccessDeniedException, ConflictException, InvalidOperationException, InvalidParameterException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createImportTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.CreateImportTask" }, CreateImportTaskRequest, CreateImportTaskResponse, [AccessDeniedException, ConflictException, InvalidOperationException, InvalidParameterException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a scheduled query and stops all future executions. This operation also removes any
  * configured actions and associated resources.
- */export const deleteScheduledQuery = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DeleteScheduledQuery" }, DeleteScheduledQueryRequest, DeleteScheduledQueryResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteScheduledQuery = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DeleteScheduledQuery" }, DeleteScheduledQueryRequest, DeleteScheduledQueryResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of all CloudWatch Logs account policies in the account.
  * 
@@ -2099,7 +2099,7 @@ export class UnrecognizedClientException extends S.TaggedError<UnrecognizedClien
  * 
  * - To see field index policies, you must have the `logs:DescribeIndexPolicies`
  * and `logs:DescribeAccountPolicies` permissions.
- */export const describeAccountPolicies = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DescribeAccountPolicies" }, DescribeAccountPoliciesRequest, DescribeAccountPoliciesResponse, [InvalidParameterException, OperationAbortedException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeAccountPolicies = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DescribeAccountPolicies" }, DescribeAccountPoliciesRequest, DescribeAccountPoliciesResponse, [InvalidParameterException, OperationAbortedException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves a list of the deliveries that have been created in the account.
  * 
@@ -2116,29 +2116,29 @@ export class UnrecognizedClientException extends S.TaggedError<UnrecognizedClien
  * delivery destination. The destination can be CloudWatch Logs, Amazon S3, Firehose or X-Ray. Only some Amazon Web Services services support being
  * configured as a delivery source. These services are listed in Enable logging from
  * Amazon Web Services services.
- */export const describeDeliveries = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DescribeDeliveries" }, DescribeDeliveriesRequest, DescribeDeliveriesResponse, [ServiceQuotaExceededException, ServiceUnavailableException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeDeliveries = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DescribeDeliveries" }, DescribeDeliveriesRequest, DescribeDeliveriesResponse, [ServiceQuotaExceededException, ServiceUnavailableException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves a list of the delivery destinations that have been created in the
  * account.
- */export const describeDeliveryDestinations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DescribeDeliveryDestinations" }, DescribeDeliveryDestinationsRequest, DescribeDeliveryDestinationsResponse, [ServiceQuotaExceededException, ServiceUnavailableException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeDeliveryDestinations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DescribeDeliveryDestinations" }, DescribeDeliveryDestinationsRequest, DescribeDeliveryDestinationsResponse, [ServiceQuotaExceededException, ServiceUnavailableException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves a list of the delivery sources that have been created in the account.
- */export const describeDeliverySources = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DescribeDeliverySources" }, DescribeDeliverySourcesRequest, DescribeDeliverySourcesResponse, [ServiceQuotaExceededException, ServiceUnavailableException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeDeliverySources = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DescribeDeliverySources" }, DescribeDeliverySourcesRequest, DescribeDeliverySourcesResponse, [ServiceQuotaExceededException, ServiceUnavailableException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists all your destinations. The results are ASCII-sorted by destination
  * name.
- */export const describeDestinations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DescribeDestinations" }, DescribeDestinationsRequest, DescribeDestinationsResponse, [InvalidParameterException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeDestinations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DescribeDestinations" }, DescribeDestinationsRequest, DescribeDestinationsResponse, [InvalidParameterException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of custom and default field indexes which are discovered in log data. For
  * more information about field index policies, see PutIndexPolicy.
- */export const describeFieldIndexes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DescribeFieldIndexes" }, DescribeFieldIndexesRequest, DescribeFieldIndexesResponse, [InvalidParameterException, LimitExceededException, OperationAbortedException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeFieldIndexes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DescribeFieldIndexes" }, DescribeFieldIndexesRequest, DescribeFieldIndexesResponse, [InvalidParameterException, LimitExceededException, OperationAbortedException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets detailed information about the individual batches within an import task, including their status and any error messages.
  * For CloudTrail Event Data Store sources, a batch refers to a subset of stored events grouped by their eventTime.
- */export const describeImportTaskBatches = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DescribeImportTaskBatches" }, DescribeImportTaskBatchesRequest, DescribeImportTaskBatchesResponse, [AccessDeniedException, InvalidOperationException, InvalidParameterException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeImportTaskBatches = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DescribeImportTaskBatches" }, DescribeImportTaskBatchesRequest, DescribeImportTaskBatchesResponse, [AccessDeniedException, InvalidOperationException, InvalidParameterException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists and describes import tasks, with optional filtering by import status and source ARN.
- */export const describeImportTasks = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DescribeImportTasks" }, DescribeImportTasksRequest, DescribeImportTasksResponse, [AccessDeniedException, InvalidOperationException, InvalidParameterException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeImportTasks = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DescribeImportTasks" }, DescribeImportTasksRequest, DescribeImportTasksResponse, [AccessDeniedException, InvalidOperationException, InvalidParameterException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the field index policies of the specified log group. For more information about
  * field index policies, see PutIndexPolicy.
@@ -2153,7 +2153,7 @@ export class UnrecognizedClientException extends S.TaggedError<UnrecognizedClien
  * 
  * 
  * To find information about only account-level policies, use DescribeAccountPolicies instead.
- */export const describeIndexPolicies = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DescribeIndexPolicies" }, DescribeIndexPoliciesRequest, DescribeIndexPoliciesResponse, [InvalidParameterException, LimitExceededException, OperationAbortedException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeIndexPolicies = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DescribeIndexPolicies" }, DescribeIndexPoliciesRequest, DescribeIndexPoliciesResponse, [InvalidParameterException, LimitExceededException, OperationAbortedException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about log groups, including data sources that ingest into each log
  * group. You can return all your log groups or filter the results by prefix. The results are
@@ -2174,7 +2174,7 @@ export class UnrecognizedClientException extends S.TaggedError<UnrecognizedClien
  * If you are using CloudWatch cross-account observability, you can use this operation
  * in a monitoring account and view data from the linked source accounts. For more information,
  * see CloudWatch cross-account observability.
- */export const describeLogGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DescribeLogGroups" }, DescribeLogGroupsRequest, DescribeLogGroupsResponse, [InvalidParameterException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeLogGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DescribeLogGroups" }, DescribeLogGroupsRequest, DescribeLogGroupsResponse, [InvalidParameterException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the log streams for the specified log group. You can list all the log streams or
  * filter the results by prefix. You can also control how the results are ordered.
@@ -2192,12 +2192,12 @@ export class UnrecognizedClientException extends S.TaggedError<UnrecognizedClien
  * If you are using CloudWatch cross-account observability, you can use this operation
  * in a monitoring account and view data from the linked source accounts. For more information,
  * see CloudWatch cross-account observability.
- */export const describeLogStreams = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DescribeLogStreams" }, DescribeLogStreamsRequest, DescribeLogStreamsResponse, [InvalidParameterException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeLogStreams = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DescribeLogStreams" }, DescribeLogStreamsRequest, DescribeLogStreamsResponse, [InvalidParameterException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the specified metric filters. You can list all of the metric filters or filter
  * the results by log name, prefix, metric name, or metric namespace. The results are
  * ASCII-sorted by filter name.
- */export const describeMetricFilters = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DescribeMetricFilters" }, DescribeMetricFiltersRequest, DescribeMetricFiltersResponse, [InvalidParameterException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeMetricFilters = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DescribeMetricFilters" }, DescribeMetricFiltersRequest, DescribeMetricFiltersResponse, [InvalidParameterException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of CloudWatch Logs Insights queries that are scheduled, running, or have
  * been run recently in this account. You can request all queries or limit it to queries of a
@@ -2208,7 +2208,7 @@ export class UnrecognizedClientException extends S.TaggedError<UnrecognizedClien
  * queries executed by scheduled query configurations. Scheduled query executions appear in the
  * results alongside manually initiated queries, providing visibility into all query activity in
  * your account.
- */export const describeQueries = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DescribeQueries" }, DescribeQueriesRequest, DescribeQueriesResponse, [InvalidParameterException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeQueries = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DescribeQueries" }, DescribeQueriesRequest, DescribeQueriesResponse, [InvalidParameterException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This operation returns a paginated list of your saved CloudWatch Logs Insights query
  * definitions. You can retrieve query definitions from the current account or from a source
@@ -2217,15 +2217,15 @@ export class UnrecognizedClientException extends S.TaggedError<UnrecognizedClien
  * 
  * You can use the `queryDefinitionNamePrefix` parameter to limit the results to
  * only the query definitions that have names that start with a certain string.
- */export const describeQueryDefinitions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DescribeQueryDefinitions" }, DescribeQueryDefinitionsRequest, DescribeQueryDefinitionsResponse, [InvalidParameterException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeQueryDefinitions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DescribeQueryDefinitions" }, DescribeQueryDefinitionsRequest, DescribeQueryDefinitionsResponse, [InvalidParameterException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the resource policies in this account.
- */export const describeResourcePolicies = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DescribeResourcePolicies" }, DescribeResourcePoliciesRequest, DescribeResourcePoliciesResponse, [InvalidParameterException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeResourcePolicies = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DescribeResourcePolicies" }, DescribeResourcePoliciesRequest, DescribeResourcePoliciesResponse, [InvalidParameterException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the subscription filters for the specified log group. You can list all the
  * subscription filters or filter the results by prefix. The results are ASCII-sorted by filter
  * name.
- */export const describeSubscriptionFilters = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DescribeSubscriptionFilters" }, DescribeSubscriptionFiltersRequest, DescribeSubscriptionFiltersResponse, [InvalidParameterException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeSubscriptionFilters = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DescribeSubscriptionFilters" }, DescribeSubscriptionFiltersRequest, DescribeSubscriptionFiltersResponse, [InvalidParameterException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists log events from the specified log group. You can list all the log events or
  * filter the results using one or more of the following:
@@ -2291,11 +2291,11 @@ export class UnrecognizedClientException extends S.TaggedError<UnrecognizedClien
  * original versions of log events, before they were transformed. To view the transformed
  * versions, you must use a CloudWatch Logs
  * query.
- */export const filterLogEvents = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.FilterLogEvents" }, FilterLogEventsRequest, FilterLogEventsResponse, [InvalidParameterException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const filterLogEvents = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.FilterLogEvents" }, FilterLogEventsRequest, FilterLogEventsResponse, [InvalidParameterException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the delivery destination policy assigned to the delivery destination that you
  * specify. For more information about delivery destinations and their policies, see PutDeliveryDestinationPolicy.
- */export const getDeliveryDestinationPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.GetDeliveryDestinationPolicy" }, GetDeliveryDestinationPolicyRequest, GetDeliveryDestinationPolicyResponse, [ResourceNotFoundException, ServiceUnavailableException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getDeliveryDestinationPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.GetDeliveryDestinationPolicy" }, GetDeliveryDestinationPolicyRequest, GetDeliveryDestinationPolicyResponse, [ResourceNotFoundException, ServiceUnavailableException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists log events from the specified log stream. You can list all of the log events or
  * filter using a time range.
@@ -2343,7 +2343,7 @@ export class UnrecognizedClientException extends S.TaggedError<UnrecognizedClien
  * versions of log events, before they were transformed. To view the transformed versions, you
  * must use a CloudWatch Logs
  * query.
- */export const getLogEvents = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.GetLogEvents" }, GetLogEventsRequest, GetLogEventsResponse, [InvalidParameterException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getLogEvents = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.GetLogEvents" }, GetLogEventsRequest, GetLogEventsResponse, [InvalidParameterException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of the fields that are included in log events in the specified log group.
  * Includes the percentage of log events that contain each field. The search is limited to a time
@@ -2372,7 +2372,7 @@ export class UnrecognizedClientException extends S.TaggedError<UnrecognizedClien
  * If you are using CloudWatch cross-account observability, you can use this operation
  * in a monitoring account and view data from the linked source accounts. For more information,
  * see CloudWatch cross-account observability.
- */export const getLogGroupFields = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.GetLogGroupFields" }, GetLogGroupFieldsRequest, GetLogGroupFieldsResponse, [InvalidParameterException, LimitExceededException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getLogGroupFields = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.GetLogGroupFields" }, GetLogGroupFieldsRequest, GetLogGroupFieldsResponse, [InvalidParameterException, LimitExceededException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves all of the fields and values of a single log event. All fields are retrieved,
  * even if the original query that produced the `logRecordPointer` retrieved only a
@@ -2380,7 +2380,7 @@ export class UnrecognizedClientException extends S.TaggedError<UnrecognizedClien
  * 
  * 
  * The full unparsed log event is returned within `@message`.
- */export const getLogRecord = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.GetLogRecord" }, GetLogRecordRequest, GetLogRecordResponse, [InvalidParameterException, LimitExceededException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getLogRecord = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.GetLogRecord" }, GetLogRecordRequest, GetLogRecordResponse, [InvalidParameterException, LimitExceededException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the results from the specified query.
  * 
@@ -2412,15 +2412,15 @@ export class UnrecognizedClientException extends S.TaggedError<UnrecognizedClien
  * If you are using CloudWatch cross-account observability, you can use this operation
  * in a monitoring account to start queries in linked source accounts. For more information, see
  * CloudWatch cross-account observability.
- */export const getQueryResults = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.GetQueryResults" }, GetQueryResultsRequest, GetQueryResultsResponse, [InvalidParameterException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getQueryResults = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.GetQueryResults" }, GetQueryResultsRequest, GetQueryResultsResponse, [InvalidParameterException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of integrations between CloudWatch Logs and other services in this
  * account. Currently, only one integration can be created in an account, and this integration
  * must be with OpenSearch Service.
- */export const listIntegrations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.ListIntegrations" }, ListIntegrationsRequest, ListIntegrationsResponse, [InvalidParameterException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listIntegrations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.ListIntegrations" }, ListIntegrationsRequest, ListIntegrationsResponse, [InvalidParameterException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves a list of the log anomaly detectors in the account.
- */export const listLogAnomalyDetectors = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.ListLogAnomalyDetectors" }, ListLogAnomalyDetectorsRequest, ListLogAnomalyDetectorsResponse, [InvalidParameterException, OperationAbortedException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listLogAnomalyDetectors = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.ListLogAnomalyDetectors" }, ListLogAnomalyDetectorsRequest, ListLogAnomalyDetectorsResponse, [InvalidParameterException, OperationAbortedException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of log groups in the Region in your account. If you are performing this
  * action in a monitoring account, you can choose to also return log groups from source accounts
@@ -2438,15 +2438,15 @@ export class UnrecognizedClientException extends S.TaggedError<UnrecognizedClien
  * 
  * This operation is paginated. By default, your first use of this operation returns 50
  * results, and includes a token to use in a subsequent operation to return more results.
- */export const listLogGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.ListLogGroups" }, ListLogGroupsRequest, ListLogGroupsResponse, [InvalidParameterException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listLogGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.ListLogGroups" }, ListLogGroupsRequest, ListLogGroupsResponse, [InvalidParameterException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists all scheduled queries in your account and region. You can filter results by state to
  * show only enabled or disabled queries.
- */export const listScheduledQueries = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.ListScheduledQueries" }, ListScheduledQueriesRequest, ListScheduledQueriesResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listScheduledQueries = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.ListScheduledQueries" }, ListScheduledQueriesRequest, ListScheduledQueriesResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of data source associations for a specified S3 Table Integration, showing
  * which data sources are currently associated for query access.
- */export const listSourcesForS3TableIntegration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.ListSourcesForS3TableIntegration" }, ListSourcesForS3TableIntegrationRequest, ListSourcesForS3TableIntegrationResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listSourcesForS3TableIntegration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.ListSourcesForS3TableIntegration" }, ListSourcesForS3TableIntegrationRequest, ListSourcesForS3TableIntegrationResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates or updates a logical *delivery destination*. A delivery
  * destination is an Amazon Web Services resource that represents an Amazon Web Services service
@@ -2499,7 +2499,7 @@ export class UnrecognizedClientException extends S.TaggedError<UnrecognizedClien
  * If you use this operation to update an existing delivery destination, all the current
  * delivery destination parameters are overwritten with the new parameter values that you
  * specify.
- */export const putDeliveryDestination = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.PutDeliveryDestination" }, PutDeliveryDestinationRequest, PutDeliveryDestinationResponse, [ConflictException, ResourceNotFoundException, ServiceQuotaExceededException, ServiceUnavailableException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putDeliveryDestination = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.PutDeliveryDestination" }, PutDeliveryDestinationRequest, PutDeliveryDestinationResponse, [ConflictException, ResourceNotFoundException, ServiceQuotaExceededException, ServiceUnavailableException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates or updates a metric filter and associates it with the specified log group. With
  * metric filters, you can configure rules to extract metric data from log events ingested
@@ -2536,31 +2536,31 @@ export class UnrecognizedClientException extends S.TaggedError<UnrecognizedClien
  * You can also set up a billing alarm to alert you if your charges are higher than
  * expected. For more information, see
  * Creating a Billing Alarm to Monitor Your Estimated Amazon Web Services Charges.
- */export const putMetricFilter = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.PutMetricFilter" }, PutMetricFilterRequest, S.Struct({}), [InvalidOperationException, InvalidParameterException, LimitExceededException, OperationAbortedException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putMetricFilter = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.PutMetricFilter" }, PutMetricFilterRequest, S.Struct({}), [InvalidOperationException, InvalidParameterException, LimitExceededException, OperationAbortedException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Use this operation to test a log transformer. You enter the transformer configuration and
  * a set of log events to test with. The operation responds with an array that includes the
  * original log events and the transformed versions.
- */export const testTransformer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.TestTransformer" }, TestTransformerRequest, TestTransformerResponse, [InvalidOperationException, InvalidParameterException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const testTransformer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.TestTransformer" }, TestTransformerRequest, TestTransformerResponse, [InvalidOperationException, InvalidParameterException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a scheduled query that runs CloudWatch Logs Insights queries at regular intervals.
  * Scheduled queries enable proactive monitoring by automatically executing queries to detect
  * patterns and anomalies in your log data. Query results can be delivered to Amazon S3 for analysis
  * or further processing.
- */export const createScheduledQuery = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.CreateScheduledQuery" }, CreateScheduledQueryRequest, CreateScheduledQueryResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createScheduledQuery = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.CreateScheduledQuery" }, CreateScheduledQueryRequest, CreateScheduledQueryResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Use this operation to return the valid and default values that are used when creating
  * delivery sources, delivery destinations, and deliveries. For more information about
  * deliveries, see CreateDelivery.
- */export const describeConfigurationTemplates = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DescribeConfigurationTemplates" }, DescribeConfigurationTemplatesRequest, DescribeConfigurationTemplatesResponse, [ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeConfigurationTemplates = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DescribeConfigurationTemplates" }, DescribeConfigurationTemplatesRequest, DescribeConfigurationTemplatesResponse, [ResourceNotFoundException, ServiceUnavailableException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the specified export tasks. You can list all your export tasks or filter the
  * results based on task ID or task status.
- */export const describeExportTasks = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DescribeExportTasks" }, DescribeExportTasksRequest, DescribeExportTasksResponse, [InvalidParameterException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeExportTasks = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.DescribeExportTasks" }, DescribeExportTasksRequest, DescribeExportTasksResponse, [InvalidParameterException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Discovers available fields for a specific data source and type. The response includes any
  * field modifications introduced through pipelines, such as new fields or changed field types.
- */export const getLogFields = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.GetLogFields" }, GetLogFieldsRequest, GetLogFieldsResponse, [InvalidParameterException, OperationAbortedException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getLogFields = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.GetLogFields" }, GetLogFieldsRequest, GetLogFieldsResponse, [InvalidParameterException, OperationAbortedException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves a large logging object (LLO) and streams it back. This API is used to fetch the
  * content of large portions of log events that have been ingested through the
@@ -2573,11 +2573,11 @@ export class UnrecognizedClientException extends S.TaggedError<UnrecognizedClien
  * original JSON structure where the large field was located. For example, this could be
  * `@ptr.$['input']['message']`, `@ptr.$['AAA']['BBB']['CCC']['DDD']`,
  * `@ptr.$['AAA']`, or any other path matching your log structure.
- */export const getLogObject = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.GetLogObject" }, GetLogObjectRequest, GetLogObjectResponse, [AccessDeniedException, InvalidOperationException, InvalidParameterException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getLogObject = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.GetLogObject" }, GetLogObjectRequest, GetLogObjectResponse, [AccessDeniedException, InvalidOperationException, InvalidParameterException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the execution history of a scheduled query within a specified time range,
  * including query results and destination processing status.
- */export const getScheduledQueryHistory = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.GetScheduledQueryHistory" }, GetScheduledQueryHistoryRequest, GetScheduledQueryHistoryResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getScheduledQueryHistory = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.GetScheduledQueryHistory" }, GetScheduledQueryHistoryRequest, GetScheduledQueryHistoryResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an integration between CloudWatch Logs and another service in this account.
  * Currently, only integrations with OpenSearch Service are supported, and currently you can have
@@ -2591,7 +2591,7 @@ export class UnrecognizedClientException extends S.TaggedError<UnrecognizedClien
  * 
  * You can use this operation only to create a new integration. You can't modify an existing
  * integration.
- */export const putIntegration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.PutIntegration" }, PutIntegrationRequest, PutIntegrationResponse, [InvalidParameterException, LimitExceededException, ServiceUnavailableException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putIntegration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.PutIntegration" }, PutIntegrationRequest, PutIntegrationResponse, [InvalidParameterException, LimitExceededException, ServiceUnavailableException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates or updates a *log transformer* for a single log group. You use
  * log transformers to transform log events into a different format, making them easier for you
@@ -2630,11 +2630,11 @@ export class UnrecognizedClientException extends S.TaggedError<UnrecognizedClien
  * `PutTransformer` and an account-level transformer that could apply to the same
  * log group, the log group uses only the log-group level transformer. It ignores the
  * account-level transformer.
- */export const putTransformer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.PutTransformer" }, PutTransformerRequest, S.Struct({}), [InvalidOperationException, InvalidParameterException, LimitExceededException, OperationAbortedException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putTransformer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.PutTransformer" }, PutTransformerRequest, S.Struct({}), [InvalidOperationException, InvalidParameterException, LimitExceededException, OperationAbortedException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Tests the filter pattern of a metric filter against a sample of log event messages. You
  * can use this operation to validate the correctness of a metric filter pattern.
- */export const testMetricFilter = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.TestMetricFilter" }, TestMetricFilterRequest, TestMetricFilterResponse, [InvalidParameterException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const testMetricFilter = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.TestMetricFilter" }, TestMetricFilterRequest, TestMetricFilterResponse, [InvalidParameterException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns an aggregate summary of all log groups in the Region grouped by specified data
  * source characteristics. Supports optional filtering by log group class, name patterns, and
@@ -2649,12 +2649,12 @@ export class UnrecognizedClientException extends S.TaggedError<UnrecognizedClien
  * providing counts of log groups that share these characteristics. The operation paginates
  * results. By default, it returns up to 50 results and includes a token to retrieve more
  * results.
- */export const listAggregateLogGroupSummaries = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.ListAggregateLogGroupSummaries" }, ListAggregateLogGroupSummariesRequest, ListAggregateLogGroupSummariesResponse, [InvalidParameterException, ServiceUnavailableException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listAggregateLogGroupSummaries = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.ListAggregateLogGroupSummaries" }, ListAggregateLogGroupSummariesRequest, ListAggregateLogGroupSummariesResponse, [InvalidParameterException, ServiceUnavailableException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of anomalies that log anomaly detectors have found. For details about the
  * structure format of each anomaly object that is returned, see the example in this
  * section.
- */export const listAnomalies = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.ListAnomalies" }, ListAnomaliesRequest, ListAnomaliesResponse, [InvalidParameterException, OperationAbortedException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listAnomalies = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.ListAnomalies" }, ListAnomaliesRequest, ListAnomaliesResponse, [InvalidParameterException, OperationAbortedException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts a Live Tail streaming session for one or more log groups. A Live Tail session
  * returns a stream of log events that have been recently ingested in the log groups. For more
@@ -2725,7 +2725,7 @@ export class UnrecognizedClientException extends S.TaggedError<UnrecognizedClien
  * 
  * For examples of using an SDK to start a Live Tail session, see Start
  * a Live Tail session using an Amazon Web Services SDK.
- */export const startLiveTail = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.StartLiveTail" }, StartLiveTailRequest, StartLiveTailResponse, [AccessDeniedException, InvalidOperationException, InvalidParameterException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startLiveTail = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.StartLiveTail" }, StartLiveTailRequest, StartLiveTailResponse, [AccessDeniedException, InvalidOperationException, InvalidParameterException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts a query of one or more log groups or data sources using CloudWatch Logs
  * Insights. You specify the log groups or data sources and time range to query and the query
@@ -2794,10 +2794,10 @@ export class UnrecognizedClientException extends S.TaggedError<UnrecognizedClien
  * 
  * You can have up to 30 concurrent CloudWatch Logs insights queries, including queries
  * that have been added to dashboards.
- */export const startQuery = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.StartQuery" }, StartQueryRequest, StartQueryResponse, [InvalidParameterException, LimitExceededException, MalformedQueryException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startQuery = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.StartQuery" }, StartQueryRequest, StartQueryResponse, [InvalidParameterException, LimitExceededException, MalformedQueryException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about one integration between CloudWatch Logs and OpenSearch Service.
- */export const getIntegration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.GetIntegration" }, GetIntegrationRequest, GetIntegrationResponse, [InvalidParameterException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getIntegration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.GetIntegration" }, GetIntegrationRequest, GetIntegrationResponse, [InvalidParameterException, ResourceNotFoundException, ServiceUnavailableException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Uploads a batch of log events to the specified log stream.
  * 
@@ -2872,4 +2872,4 @@ export class UnrecognizedClientException extends S.TaggedError<UnrecognizedClien
  * 
  * If a call to `PutLogEvents` returns "UnrecognizedClientException" the most
  * likely cause is a non-valid Amazon Web Services access key ID or secret key.
- */export const putLogEvents = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", uri: "/", method: "POST", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.PutLogEvents" }, PutLogEventsRequest, PutLogEventsResponse, [DataAlreadyAcceptedException, InvalidParameterException, InvalidSequenceTokenException, ResourceNotFoundException, ServiceUnavailableException, UnrecognizedClientException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putLogEvents = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-03-28", sdkId: "CloudWatch Logs", sigV4ServiceName: "logs", name: "Logs_20140328.PutLogEvents" }, PutLogEventsRequest, PutLogEventsResponse, [DataAlreadyAcceptedException, InvalidParameterException, InvalidSequenceTokenException, ResourceNotFoundException, ServiceUnavailableException, UnrecognizedClientException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

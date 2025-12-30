@@ -45,7 +45,7 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  * tags associated with the resource. If you specify a tag key that is already associated
  * with the resource, the new tag value that you specify replaces the previous value for
  * that tag.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-18", uri: "/tags/{resourceArn}", method: "POST", sdkId: "grafana", sigV4ServiceName: "grafana", name: "AWSGrafanaControlPlane.TagResource" }, TagResourceRequest, TagResourceResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-08-18", uri: "/tags/{resourceArn}", sdkId: "grafana", sigV4ServiceName: "grafana", name: "AWSGrafanaControlPlane.TagResource" }, TagResourceRequest, TagResourceResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The `UntagResource` operation removes the association of the tag with the
  * Amazon Managed Grafana resource.

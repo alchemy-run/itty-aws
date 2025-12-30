@@ -21,7 +21,6 @@
 - get more errors for aws terraform provider
   - see: https://github.com/hashicorp/terraform-provider-aws/blob/main/internal/service/s3/errors.go
   - see: https://github.com/hashicorp/terraform-provider-aws/blob/main/internal/service/ec2/errors.go
-- make POST / the default behavior if not defined in operation meta so we can omit them for awsJson sdks
 - default sigV4service name to lowercase sdkId when it works
 - make name smaller
 - test coverage reporting

@@ -134,22 +134,22 @@ export class QueryExecutionException extends S.TaggedError<QueryExecutionExcepti
  * 
  * For detailed information on how and when to use and implement DescribeEndpoints, see
  * The Endpoint Discovery Pattern.
- */export const describeEndpoints = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", uri: "/", method: "POST", sdkId: "Timestream Query", sigV4ServiceName: "timestream", name: "Timestream_20181101.DescribeEndpoints" }, DescribeEndpointsRequest, DescribeEndpointsResponse, [InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeEndpoints = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", sdkId: "Timestream Query", sigV4ServiceName: "timestream", name: "Timestream_20181101.DescribeEndpoints" }, DescribeEndpointsRequest, DescribeEndpointsResponse, [InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * You can use this API to run a scheduled query manually.
  * 
  * 
  * If you enabled `QueryInsights`, this API also returns insights and metrics related to the query that you executed as part of an Amazon SNS notification. `QueryInsights` helps with performance tuning of your query. For more information about `QueryInsights`, see Using query insights to optimize queries in Amazon Timestream.
- */export const executeScheduledQuery = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", uri: "/", method: "POST", sdkId: "Timestream Query", sigV4ServiceName: "timestream", name: "Timestream_20181101.ExecuteScheduledQuery" }, ExecuteScheduledQueryRequest, S.Struct({}), [AccessDeniedException, InternalServerException, InvalidEndpointException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const executeScheduledQuery = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", sdkId: "Timestream Query", sigV4ServiceName: "timestream", name: "Timestream_20181101.ExecuteScheduledQuery" }, ExecuteScheduledQueryRequest, S.Struct({}), [AccessDeniedException, InternalServerException, InvalidEndpointException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * List all tags on a Timestream query resource.
- */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", uri: "/", method: "POST", sdkId: "Timestream Query", sigV4ServiceName: "timestream", name: "Timestream_20181101.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [InvalidEndpointException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", sdkId: "Timestream Query", sigV4ServiceName: "timestream", name: "Timestream_20181101.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [InvalidEndpointException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes the association of tags from a Timestream query resource.
- */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", uri: "/", method: "POST", sdkId: "Timestream Query", sigV4ServiceName: "timestream", name: "Timestream_20181101.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [InvalidEndpointException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", sdkId: "Timestream Query", sigV4ServiceName: "timestream", name: "Timestream_20181101.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [InvalidEndpointException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Update a scheduled query.
- */export const updateScheduledQuery = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", uri: "/", method: "POST", sdkId: "Timestream Query", sigV4ServiceName: "timestream", name: "Timestream_20181101.UpdateScheduledQuery" }, UpdateScheduledQueryRequest, S.Struct({}), [AccessDeniedException, InternalServerException, InvalidEndpointException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateScheduledQuery = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", sdkId: "Timestream Query", sigV4ServiceName: "timestream", name: "Timestream_20181101.UpdateScheduledQuery" }, UpdateScheduledQueryRequest, S.Struct({}), [AccessDeniedException, InternalServerException, InvalidEndpointException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Cancels a query that has been issued. Cancellation is provided only if the query has
  * not completed running before the cancellation request was issued. Because cancellation
@@ -157,26 +157,26 @@ export class QueryExecutionException extends S.TaggedError<QueryExecutionExcepti
  * `CancellationMessage`, indicating that the query has already been
  * canceled. See code
  * sample for details.
- */export const cancelQuery = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", uri: "/", method: "POST", sdkId: "Timestream Query", sigV4ServiceName: "timestream", name: "Timestream_20181101.CancelQuery" }, CancelQueryRequest, CancelQueryResponse, [AccessDeniedException, InternalServerException, InvalidEndpointException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const cancelQuery = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", sdkId: "Timestream Query", sigV4ServiceName: "timestream", name: "Timestream_20181101.CancelQuery" }, CancelQueryRequest, CancelQueryResponse, [AccessDeniedException, InternalServerException, InvalidEndpointException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a given scheduled query. This is an irreversible operation.
- */export const deleteScheduledQuery = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", uri: "/", method: "POST", sdkId: "Timestream Query", sigV4ServiceName: "timestream", name: "Timestream_20181101.DeleteScheduledQuery" }, DeleteScheduledQueryRequest, S.Struct({}), [AccessDeniedException, InternalServerException, InvalidEndpointException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteScheduledQuery = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", sdkId: "Timestream Query", sigV4ServiceName: "timestream", name: "Timestream_20181101.DeleteScheduledQuery" }, DeleteScheduledQueryRequest, S.Struct({}), [AccessDeniedException, InternalServerException, InvalidEndpointException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Associate a set of tags with a Timestream resource. You can then activate these
  * user-defined tags so that they appear on the Billing and Cost Management console for
  * cost allocation tracking.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", uri: "/", method: "POST", sdkId: "Timestream Query", sigV4ServiceName: "timestream", name: "Timestream_20181101.TagResource" }, TagResourceRequest, TagResourceResponse, [InvalidEndpointException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", sdkId: "Timestream Query", sigV4ServiceName: "timestream", name: "Timestream_20181101.TagResource" }, TagResourceRequest, TagResourceResponse, [InvalidEndpointException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes the settings for your account that include the query pricing model and the configured maximum TCUs the service can use for your query workload.
  * 
  * 
  * You're charged only for the duration of compute units used for your workloads.
- */export const describeAccountSettings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", uri: "/", method: "POST", sdkId: "Timestream Query", sigV4ServiceName: "timestream", name: "Timestream_20181101.DescribeAccountSettings" }, DescribeAccountSettingsRequest, DescribeAccountSettingsResponse, [AccessDeniedException, InternalServerException, InvalidEndpointException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeAccountSettings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", sdkId: "Timestream Query", sigV4ServiceName: "timestream", name: "Timestream_20181101.DescribeAccountSettings" }, DescribeAccountSettingsRequest, DescribeAccountSettingsResponse, [AccessDeniedException, InternalServerException, InvalidEndpointException, ThrottlingException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * A synchronous operation that allows you to submit a query with parameters to be stored
  * by Timestream for later running. Timestream only supports using this operation with
  * `ValidateOnly` set to `true`.
- */export const prepareQuery = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", uri: "/", method: "POST", sdkId: "Timestream Query", sigV4ServiceName: "timestream", name: "Timestream_20181101.PrepareQuery" }, PrepareQueryRequest, PrepareQueryResponse, [AccessDeniedException, InternalServerException, InvalidEndpointException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const prepareQuery = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", sdkId: "Timestream Query", sigV4ServiceName: "timestream", name: "Timestream_20181101.PrepareQuery" }, PrepareQueryRequest, PrepareQueryResponse, [AccessDeniedException, InternalServerException, InvalidEndpointException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Transitions your account to use TCUs for query pricing and modifies the maximum query compute units that you've configured. If you reduce the value of `MaxQueryTCU` to a desired configuration, the new value can take up to 24 hours to be effective.
  * 
@@ -184,21 +184,21 @@ export class QueryExecutionException extends S.TaggedError<QueryExecutionExcepti
  * 
  * 
  * After you've transitioned your account to use TCUs for query pricing, you can't transition to using bytes scanned for query pricing.
- */export const updateAccountSettings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", uri: "/", method: "POST", sdkId: "Timestream Query", sigV4ServiceName: "timestream", name: "Timestream_20181101.UpdateAccountSettings" }, UpdateAccountSettingsRequest, UpdateAccountSettingsResponse, [AccessDeniedException, InternalServerException, InvalidEndpointException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateAccountSettings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", sdkId: "Timestream Query", sigV4ServiceName: "timestream", name: "Timestream_20181101.UpdateAccountSettings" }, UpdateAccountSettingsRequest, UpdateAccountSettingsResponse, [AccessDeniedException, InternalServerException, InvalidEndpointException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets a list of all scheduled queries in the caller's Amazon account and Region.
  * `ListScheduledQueries` is eventually consistent.
- */export const listScheduledQueries = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", uri: "/", method: "POST", sdkId: "Timestream Query", sigV4ServiceName: "timestream", name: "Timestream_20181101.ListScheduledQueries" }, ListScheduledQueriesRequest, ListScheduledQueriesResponse, [AccessDeniedException, InternalServerException, InvalidEndpointException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listScheduledQueries = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", sdkId: "Timestream Query", sigV4ServiceName: "timestream", name: "Timestream_20181101.ListScheduledQueries" }, ListScheduledQueriesRequest, ListScheduledQueriesResponse, [AccessDeniedException, InternalServerException, InvalidEndpointException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides detailed information about a scheduled query.
- */export const describeScheduledQuery = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", uri: "/", method: "POST", sdkId: "Timestream Query", sigV4ServiceName: "timestream", name: "Timestream_20181101.DescribeScheduledQuery" }, DescribeScheduledQueryRequest, DescribeScheduledQueryResponse, [AccessDeniedException, InternalServerException, InvalidEndpointException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeScheduledQuery = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", sdkId: "Timestream Query", sigV4ServiceName: "timestream", name: "Timestream_20181101.DescribeScheduledQuery" }, DescribeScheduledQueryRequest, DescribeScheduledQueryResponse, [AccessDeniedException, InternalServerException, InvalidEndpointException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Create a scheduled query that will be run on your behalf at the configured schedule.
  * Timestream assumes the execution role provided as part of the
  * `ScheduledQueryExecutionRoleArn` parameter to run the query. You can use
  * the `NotificationConfiguration` parameter to configure notification for your
  * scheduled query operations.
- */export const createScheduledQuery = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", uri: "/", method: "POST", sdkId: "Timestream Query", sigV4ServiceName: "timestream", name: "Timestream_20181101.CreateScheduledQuery" }, CreateScheduledQueryRequest, CreateScheduledQueryResponse, [AccessDeniedException, ConflictException, InternalServerException, InvalidEndpointException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createScheduledQuery = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", sdkId: "Timestream Query", sigV4ServiceName: "timestream", name: "Timestream_20181101.CreateScheduledQuery" }, CreateScheduledQueryRequest, CreateScheduledQueryResponse, [AccessDeniedException, ConflictException, InternalServerException, InvalidEndpointException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * `Query` is a synchronous operation that enables you to run a query against
  * your Amazon Timestream data.
@@ -250,4 +250,4 @@ export class QueryExecutionException extends S.TaggedError<QueryExecutionExcepti
  * same and/or the query initiator and the result reader do not have the same query
  * string in the query requests, the query will fail with an Invalid
  * pagination token error.
- */export const query = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", uri: "/", method: "POST", sdkId: "Timestream Query", sigV4ServiceName: "timestream", name: "Timestream_20181101.Query" }, QueryRequest, QueryResponse, [AccessDeniedException, ConflictException, InternalServerException, InvalidEndpointException, QueryExecutionException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const query = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-11-01", sdkId: "Timestream Query", sigV4ServiceName: "timestream", name: "Timestream_20181101.Query" }, QueryRequest, QueryResponse, [AccessDeniedException, ConflictException, InternalServerException, InvalidEndpointException, QueryExecutionException, ThrottlingException, ValidationException]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);

@@ -112,7 +112,7 @@ export class TooManyTagsException extends S.TaggedError<TooManyTagsException>()(
  * 
  * 
  * `ChimeSDKMeetings:DeleteTags`
- */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-07-15", uri: "/tags?operation=untag-resource", method: "POST", sdkId: "Chime SDK Meetings", sigV4ServiceName: "chime", name: "ChimeMeetingsSDKService.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [BadRequestException, ForbiddenException, LimitExceededException, ResourceNotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-07-15", uri: "/tags?operation=untag-resource", sdkId: "Chime SDK Meetings", sigV4ServiceName: "chime", name: "ChimeMeetingsSDKService.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [BadRequestException, ForbiddenException, LimitExceededException, ResourceNotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The capabilities that you want to update.
  * 
@@ -166,7 +166,7 @@ export class TooManyTagsException extends S.TaggedError<TooManyTagsException>()(
 /**
  * Creates up to 100 attendees for an active Amazon Chime SDK meeting. For more information about the Amazon Chime SDK, see
  * Using the Amazon Chime SDK in the *Amazon Chime Developer Guide*.
- */export const batchCreateAttendee = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-07-15", uri: "/meetings/{MeetingId}/attendees?operation=batch-create", method: "POST", sdkId: "Chime SDK Meetings", sigV4ServiceName: "chime", name: "ChimeMeetingsSDKService.BatchCreateAttendee" }, BatchCreateAttendeeRequest, BatchCreateAttendeeResponse, [BadRequestException, ForbiddenException, LimitExceededException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottlingException, UnauthorizedException, UnprocessableEntityException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const batchCreateAttendee = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-07-15", uri: "/meetings/{MeetingId}/attendees?operation=batch-create", sdkId: "Chime SDK Meetings", sigV4ServiceName: "chime", name: "ChimeMeetingsSDKService.BatchCreateAttendee" }, BatchCreateAttendeeRequest, BatchCreateAttendeeResponse, [BadRequestException, ForbiddenException, LimitExceededException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottlingException, UnauthorizedException, UnprocessableEntityException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates `AttendeeCapabilities` except the capabilities listed in an `ExcludedAttendeeIds` table.
  * 
@@ -222,7 +222,7 @@ export class TooManyTagsException extends S.TaggedError<TooManyTagsException>()(
  * Using the Amazon Chime SDK
  * in the
  * *Amazon Chime Developer Guide*.
- */export const createAttendee = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-07-15", uri: "/meetings/{MeetingId}/attendees", method: "POST", sdkId: "Chime SDK Meetings", sigV4ServiceName: "chime", name: "ChimeMeetingsSDKService.CreateAttendee" }, CreateAttendeeRequest, CreateAttendeeResponse, [BadRequestException, ForbiddenException, LimitExceededException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottlingException, UnauthorizedException, UnprocessableEntityException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createAttendee = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-07-15", uri: "/meetings/{MeetingId}/attendees", sdkId: "Chime SDK Meetings", sigV4ServiceName: "chime", name: "ChimeMeetingsSDKService.CreateAttendee" }, CreateAttendeeRequest, CreateAttendeeResponse, [BadRequestException, ForbiddenException, LimitExceededException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottlingException, UnauthorizedException, UnprocessableEntityException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an attendee from the specified Amazon Chime SDK meeting and deletes their
  * `JoinToken`. Attendees are automatically deleted when a Amazon Chime SDK meeting is deleted. For more information about the Amazon Chime SDK, see
@@ -265,7 +265,7 @@ export class TooManyTagsException extends S.TaggedError<TooManyTagsException>()(
  * responsibility to comply with all applicable laws regarding the recording, including properly notifying all participants in a recorded session or communication
  * that the session or communication is being recorded, and obtaining all necessary consents. You can opt out from Amazon Web Services using audio content to develop and
  * improve AWS AI/ML services by configuring an AI services opt out policy using Amazon Web Services Organizations.
- */export const startMeetingTranscription = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-07-15", uri: "/meetings/{MeetingId}/transcription?operation=start", method: "POST", sdkId: "Chime SDK Meetings", sigV4ServiceName: "chime", name: "ChimeMeetingsSDKService.StartMeetingTranscription" }, StartMeetingTranscriptionRequest, S.Struct({}), [BadRequestException, ForbiddenException, LimitExceededException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottlingException, UnauthorizedException, UnprocessableEntityException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startMeetingTranscription = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-07-15", uri: "/meetings/{MeetingId}/transcription?operation=start", sdkId: "Chime SDK Meetings", sigV4ServiceName: "chime", name: "ChimeMeetingsSDKService.StartMeetingTranscription" }, StartMeetingTranscriptionRequest, S.Struct({}), [BadRequestException, ForbiddenException, LimitExceededException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottlingException, UnauthorizedException, UnprocessableEntityException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Stops transcription for the specified `meetingId`. For more information, refer to
  * Using Amazon Chime SDK live transcription
@@ -280,10 +280,10 @@ export class TooManyTagsException extends S.TaggedError<TooManyTagsException>()(
  * responsibility to comply with all applicable laws regarding the recording, including properly notifying all participants in a recorded session or communication
  * that the session or communication is being recorded, and obtaining all necessary consents. You can opt out from Amazon Web Services using audio content to develop and
  * improve Amazon Web Services AI/ML services by configuring an AI services opt out policy using Amazon Web Services Organizations.
- */export const stopMeetingTranscription = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-07-15", uri: "/meetings/{MeetingId}/transcription?operation=stop", method: "POST", sdkId: "Chime SDK Meetings", sigV4ServiceName: "chime", name: "ChimeMeetingsSDKService.StopMeetingTranscription" }, StopMeetingTranscriptionRequest, S.Struct({}), [BadRequestException, ForbiddenException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottlingException, UnauthorizedException, UnprocessableEntityException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const stopMeetingTranscription = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-07-15", uri: "/meetings/{MeetingId}/transcription?operation=stop", sdkId: "Chime SDK Meetings", sigV4ServiceName: "chime", name: "ChimeMeetingsSDKService.StopMeetingTranscription" }, StopMeetingTranscriptionRequest, S.Struct({}), [BadRequestException, ForbiddenException, NotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottlingException, UnauthorizedException, UnprocessableEntityException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The resource that supports tags.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-07-15", uri: "/tags?operation=tag-resource", method: "POST", sdkId: "Chime SDK Meetings", sigV4ServiceName: "chime", name: "ChimeMeetingsSDKService.TagResource" }, TagResourceRequest, TagResourceResponse, [BadRequestException, ForbiddenException, LimitExceededException, ResourceNotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottlingException, TooManyTagsException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-07-15", uri: "/tags?operation=tag-resource", sdkId: "Chime SDK Meetings", sigV4ServiceName: "chime", name: "ChimeMeetingsSDKService.TagResource" }, TagResourceRequest, TagResourceResponse, [BadRequestException, ForbiddenException, LimitExceededException, ResourceNotFoundException, ServiceFailureException, ServiceUnavailableException, ThrottlingException, TooManyTagsException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new Amazon Chime SDK meeting in the specified media Region with no initial attendees. For more information about specifying media Regions, see
  * Available Regions and
@@ -307,7 +307,7 @@ export class TooManyTagsException extends S.TaggedError<TooManyTagsException>()(
  * 
  * 
  * - Video.MaxResolution: HD
- */export const createMeeting = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-07-15", uri: "/meetings", method: "POST", sdkId: "Chime SDK Meetings", sigV4ServiceName: "chime", name: "ChimeMeetingsSDKService.CreateMeeting" }, CreateMeetingRequest, CreateMeetingResponse, [BadRequestException, ConflictException, ForbiddenException, LimitExceededException, ServiceFailureException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createMeeting = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-07-15", uri: "/meetings", sdkId: "Chime SDK Meetings", sigV4ServiceName: "chime", name: "ChimeMeetingsSDKService.CreateMeeting" }, CreateMeetingRequest, CreateMeetingResponse, [BadRequestException, ConflictException, ForbiddenException, LimitExceededException, ServiceFailureException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new Amazon Chime SDK meeting in the specified media Region, with attendees. For more information about specifying media Regions, see
  * Available Regions and
@@ -331,4 +331,4 @@ export class TooManyTagsException extends S.TaggedError<TooManyTagsException>()(
  * 
  * 
  * - Video.MaxResolution: HD
- */export const createMeetingWithAttendees = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-07-15", uri: "/meetings?operation=create-attendees", method: "POST", sdkId: "Chime SDK Meetings", sigV4ServiceName: "chime", name: "ChimeMeetingsSDKService.CreateMeetingWithAttendees" }, CreateMeetingWithAttendeesRequest, CreateMeetingWithAttendeesResponse, [BadRequestException, ConflictException, ForbiddenException, LimitExceededException, ServiceFailureException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createMeetingWithAttendees = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-07-15", uri: "/meetings?operation=create-attendees", sdkId: "Chime SDK Meetings", sigV4ServiceName: "chime", name: "ChimeMeetingsSDKService.CreateMeetingWithAttendees" }, CreateMeetingWithAttendeesRequest, CreateMeetingWithAttendeesResponse, [BadRequestException, ConflictException, ForbiddenException, LimitExceededException, ServiceFailureException, ServiceUnavailableException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

@@ -370,7 +370,7 @@ export class ResourcePropagationDelayException extends S.TaggedError<ResourcePro
  */export const listUpdates = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-01", uri: "/clusters/{name}/updates", method: "GET", sdkId: "EKS", sigV4ServiceName: "eks", name: "AWSWesleyFrontend.ListUpdates" }, ListUpdatesRequest, ListUpdatesResponse, [ClientException, InvalidParameterException, ResourceNotFoundException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Initiates an on-demand refresh operation for cluster insights, getting the latest analysis outside of the standard refresh schedule.
- */export const startInsightsRefresh = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-01", uri: "/clusters/{clusterName}/insights-refresh", method: "POST", sdkId: "EKS", sigV4ServiceName: "eks", name: "AWSWesleyFrontend.StartInsightsRefresh" }, StartInsightsRefreshRequest, StartInsightsRefreshResponse, [InvalidParameterException, InvalidRequestException, ResourceNotFoundException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startInsightsRefresh = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-01", uri: "/clusters/{clusterName}/insights-refresh", sdkId: "EKS", sigV4ServiceName: "eks", name: "AWSWesleyFrontend.StartInsightsRefresh" }, StartInsightsRefreshRequest, StartInsightsRefreshResponse, [InvalidParameterException, InvalidRequestException, ResourceNotFoundException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Associates the specified tags to an Amazon EKS resource with the specified
  * `resourceArn`. If existing tags on a resource are not specified in the
@@ -379,20 +379,20 @@ export class ResourcePropagationDelayException extends S.TaggedError<ResourcePro
  * propagate to any other resources associated with the cluster. For example, if you tag a
  * cluster with this operation, that tag doesn't automatically propagate to the subnets and
  * nodes associated with the cluster.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-01", uri: "/tags/{resourceArn}", method: "POST", sdkId: "EKS", sigV4ServiceName: "eks", name: "AWSWesleyFrontend.TagResource" }, TagResourceRequest, TagResourceResponse, [BadRequestException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-01", uri: "/tags/{resourceArn}", sdkId: "EKS", sigV4ServiceName: "eks", name: "AWSWesleyFrontend.TagResource" }, TagResourceRequest, TagResourceResponse, [BadRequestException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes specified tags from an Amazon EKS resource.
  */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-01", uri: "/tags/{resourceArn}", method: "DELETE", sdkId: "EKS", sigV4ServiceName: "eks", name: "AWSWesleyFrontend.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [BadRequestException, NotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates an access entry.
- */export const updateAccessEntry = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-01", uri: "/clusters/{clusterName}/access-entries/{principalArn}", method: "POST", sdkId: "EKS", sigV4ServiceName: "eks", name: "AWSWesleyFrontend.UpdateAccessEntry" }, UpdateAccessEntryRequest, UpdateAccessEntryResponse, [InvalidParameterException, InvalidRequestException, ResourceNotFoundException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateAccessEntry = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-01", uri: "/clusters/{clusterName}/access-entries/{principalArn}", sdkId: "EKS", sigV4ServiceName: "eks", name: "AWSWesleyFrontend.UpdateAccessEntry" }, UpdateAccessEntryRequest, UpdateAccessEntryResponse, [InvalidParameterException, InvalidRequestException, ResourceNotFoundException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates an Amazon EKS add-on.
- */export const updateAddon = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-01", uri: "/clusters/{clusterName}/addons/{addonName}/update", method: "POST", sdkId: "EKS", sigV4ServiceName: "eks", name: "AWSWesleyFrontend.UpdateAddon" }, UpdateAddonRequest, UpdateAddonResponse, [ClientException, InvalidParameterException, InvalidRequestException, ResourceInUseException, ResourceNotFoundException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateAddon = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-01", uri: "/clusters/{clusterName}/addons/{addonName}/update", sdkId: "EKS", sigV4ServiceName: "eks", name: "AWSWesleyFrontend.UpdateAddon" }, UpdateAddonRequest, UpdateAddonResponse, [ClientException, InvalidParameterException, InvalidRequestException, ResourceInUseException, ResourceNotFoundException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Update an EKS Anywhere Subscription. Only auto renewal and tags can be updated after
  * subscription creation.
- */export const updateEksAnywhereSubscription = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-01", uri: "/eks-anywhere-subscriptions/{id}", method: "POST", sdkId: "EKS", sigV4ServiceName: "eks", name: "AWSWesleyFrontend.UpdateEksAnywhereSubscription" }, UpdateEksAnywhereSubscriptionRequest, UpdateEksAnywhereSubscriptionResponse, [ClientException, InvalidParameterException, InvalidRequestException, ResourceNotFoundException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateEksAnywhereSubscription = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-01", uri: "/eks-anywhere-subscriptions/{id}", sdkId: "EKS", sigV4ServiceName: "eks", name: "AWSWesleyFrontend.UpdateEksAnywhereSubscription" }, UpdateEksAnywhereSubscriptionRequest, UpdateEksAnywhereSubscriptionResponse, [ClientException, InvalidParameterException, InvalidRequestException, ResourceNotFoundException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the Kubernetes version or AMI version of an Amazon EKS managed node group.
  * 
@@ -426,7 +426,7 @@ export class ResourcePropagationDelayException extends S.TaggedError<ResourcePro
  * gracefully and will fail if it is unable to do so. You can `force` the update
  * if Amazon EKS is unable to drain the nodes as a result of a `Pod` disruption
  * budget issue.
- */export const updateNodegroupVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-01", uri: "/clusters/{clusterName}/node-groups/{nodegroupName}/update-version", method: "POST", sdkId: "EKS", sigV4ServiceName: "eks", name: "AWSWesleyFrontend.UpdateNodegroupVersion" }, UpdateNodegroupVersionRequest, UpdateNodegroupVersionResponse, [ClientException, InvalidParameterException, InvalidRequestException, ResourceInUseException, ResourceNotFoundException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateNodegroupVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-01", uri: "/clusters/{clusterName}/node-groups/{nodegroupName}/update-version", sdkId: "EKS", sigV4ServiceName: "eks", name: "AWSWesleyFrontend.UpdateNodegroupVersion" }, UpdateNodegroupVersionRequest, UpdateNodegroupVersionResponse, [ClientException, InvalidParameterException, InvalidRequestException, ResourceInUseException, ResourceNotFoundException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates a EKS Pod Identity association. In an update, you can change the IAM role, the target IAM role, or `disableSessionTags`.
  * You must change at least one of these in an update. An association can't be moved
@@ -449,12 +449,12 @@ export class ResourcePropagationDelayException extends S.TaggedError<ResourcePro
  * account, then using those credentials to assume the target IAM role. This process
  * provides your Pod with temporary credentials that have the permissions defined in the
  * target role, allowing secure access to resources in another Amazon Web Services account.
- */export const updatePodIdentityAssociation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-01", uri: "/clusters/{clusterName}/pod-identity-associations/{associationId}", method: "POST", sdkId: "EKS", sigV4ServiceName: "eks", name: "AWSWesleyFrontend.UpdatePodIdentityAssociation" }, UpdatePodIdentityAssociationRequest, UpdatePodIdentityAssociationResponse, [InvalidParameterException, InvalidRequestException, ResourceNotFoundException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updatePodIdentityAssociation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-01", uri: "/clusters/{clusterName}/pod-identity-associations/{associationId}", sdkId: "EKS", sigV4ServiceName: "eks", name: "AWSWesleyFrontend.UpdatePodIdentityAssociation" }, UpdatePodIdentityAssociationRequest, UpdatePodIdentityAssociationResponse, [InvalidParameterException, InvalidRequestException, ResourceNotFoundException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Associates an access policy and its scope to an access entry. For more information
  * about associating access policies, see Associating and disassociating
  * access policies to and from access entries in the *Amazon EKS User Guide*.
- */export const associateAccessPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-01", uri: "/clusters/{clusterName}/access-entries/{principalArn}/access-policies", method: "POST", sdkId: "EKS", sigV4ServiceName: "eks", name: "AWSWesleyFrontend.AssociateAccessPolicy" }, AssociateAccessPolicyRequest, AssociateAccessPolicyResponse, [InvalidParameterException, InvalidRequestException, ResourceNotFoundException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const associateAccessPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-01", uri: "/clusters/{clusterName}/access-entries/{principalArn}/access-policies", sdkId: "EKS", sigV4ServiceName: "eks", name: "AWSWesleyFrontend.AssociateAccessPolicy" }, AssociateAccessPolicyRequest, AssociateAccessPolicyResponse, [InvalidParameterException, InvalidRequestException, ResourceNotFoundException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an Amazon EKS add-on.
  * 
@@ -462,13 +462,13 @@ export class ResourcePropagationDelayException extends S.TaggedError<ResourcePro
  * Amazon EKS add-ons help to automate the provisioning and lifecycle management of common
  * operational software for Amazon EKS clusters. For more information, see Amazon EKS
  * add-ons in the *Amazon EKS User Guide*.
- */export const createAddon = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-01", uri: "/clusters/{clusterName}/addons", method: "POST", sdkId: "EKS", sigV4ServiceName: "eks", name: "AWSWesleyFrontend.CreateAddon" }, CreateAddonRequest, CreateAddonResponse, [ClientException, InvalidParameterException, InvalidRequestException, ResourceInUseException, ResourceNotFoundException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createAddon = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-01", uri: "/clusters/{clusterName}/addons", sdkId: "EKS", sigV4ServiceName: "eks", name: "AWSWesleyFrontend.CreateAddon" }, CreateAddonRequest, CreateAddonResponse, [ClientException, InvalidParameterException, InvalidRequestException, ResourceInUseException, ResourceNotFoundException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an EKS Anywhere subscription. When a subscription is created, it is a contract
  * agreement for the length of the term specified in the request. Licenses that are used to
  * validate support are provisioned in Amazon Web Services License Manager and the caller account is
  * granted access to EKS Anywhere Curated Packages.
- */export const createEksAnywhereSubscription = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-01", uri: "/eks-anywhere-subscriptions", method: "POST", sdkId: "EKS", sigV4ServiceName: "eks", name: "AWSWesleyFrontend.CreateEksAnywhereSubscription" }, CreateEksAnywhereSubscriptionRequest, CreateEksAnywhereSubscriptionResponse, [ClientException, InvalidParameterException, ResourceLimitExceededException, ServerException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createEksAnywhereSubscription = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-01", uri: "/eks-anywhere-subscriptions", sdkId: "EKS", sigV4ServiceName: "eks", name: "AWSWesleyFrontend.CreateEksAnywhereSubscription" }, CreateEksAnywhereSubscriptionRequest, CreateEksAnywhereSubscriptionResponse, [ClientException, InvalidParameterException, ResourceLimitExceededException, ServerException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an EKS Pod Identity association between a service account in an Amazon EKS cluster and an IAM role
  * with *EKS Pod Identity*. Use EKS Pod Identity to give temporary IAM credentials to
@@ -503,7 +503,7 @@ export class ResourcePropagationDelayException extends S.TaggedError<ResourcePro
  * account, then using those credentials to assume the target IAM role. This process
  * provides your Pod with temporary credentials that have the permissions defined in the
  * target role, allowing secure access to resources in another Amazon Web Services account.
- */export const createPodIdentityAssociation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-01", uri: "/clusters/{clusterName}/pod-identity-associations", method: "POST", sdkId: "EKS", sigV4ServiceName: "eks", name: "AWSWesleyFrontend.CreatePodIdentityAssociation" }, CreatePodIdentityAssociationRequest, CreatePodIdentityAssociationResponse, [InvalidParameterException, InvalidRequestException, ResourceInUseException, ResourceLimitExceededException, ResourceNotFoundException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createPodIdentityAssociation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-01", uri: "/clusters/{clusterName}/pod-identity-associations", sdkId: "EKS", sigV4ServiceName: "eks", name: "AWSWesleyFrontend.CreatePodIdentityAssociation" }, CreatePodIdentityAssociationRequest, CreatePodIdentityAssociationResponse, [InvalidParameterException, InvalidRequestException, ResourceInUseException, ResourceLimitExceededException, ResourceNotFoundException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an access entry.
  * 
@@ -630,7 +630,7 @@ export class ResourcePropagationDelayException extends S.TaggedError<ResourcePro
  * an update, the cluster status moves to `UPDATING` (this status transition is
  * eventually consistent). When the update is complete (either `Failed` or
  * `Successful`), the cluster status moves to `Active`.
- */export const updateClusterConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-01", uri: "/clusters/{name}/update-config", method: "POST", sdkId: "EKS", sigV4ServiceName: "eks", name: "AWSWesleyFrontend.UpdateClusterConfig" }, UpdateClusterConfigRequest, UpdateClusterConfigResponse, [ClientException, InvalidParameterException, InvalidRequestException, ResourceInUseException, ResourceNotFoundException, ServerException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateClusterConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-01", uri: "/clusters/{name}/update-config", sdkId: "EKS", sigV4ServiceName: "eks", name: "AWSWesleyFrontend.UpdateClusterConfig" }, UpdateClusterConfigRequest, UpdateClusterConfigResponse, [ClientException, InvalidParameterException, InvalidRequestException, ResourceInUseException, ResourceNotFoundException, ServerException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates an Amazon EKS cluster to the specified Kubernetes version. Your cluster continues to
  * function during the update. The response output includes an update ID that you can use
@@ -648,7 +648,7 @@ export class ResourcePropagationDelayException extends S.TaggedError<ResourcePro
  * If your cluster has managed node groups attached to it, all of your node groups' Kubernetes
  * versions must match the cluster's Kubernetes version in order to update the cluster to a new
  * Kubernetes version.
- */export const updateClusterVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-01", uri: "/clusters/{name}/updates", method: "POST", sdkId: "EKS", sigV4ServiceName: "eks", name: "AWSWesleyFrontend.UpdateClusterVersion" }, UpdateClusterVersionRequest, UpdateClusterVersionResponse, [ClientException, InvalidParameterException, InvalidRequestException, InvalidStateException, ResourceInUseException, ResourceNotFoundException, ServerException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateClusterVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-01", uri: "/clusters/{name}/updates", sdkId: "EKS", sigV4ServiceName: "eks", name: "AWSWesleyFrontend.UpdateClusterVersion" }, UpdateClusterVersionRequest, UpdateClusterVersionResponse, [ClientException, InvalidParameterException, InvalidRequestException, InvalidStateException, ResourceInUseException, ResourceNotFoundException, ServerException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates an Amazon EKS managed node group configuration. Your node group continues to
  * function during the update. The response output includes an update ID that you can use
@@ -656,7 +656,7 @@ export class ResourcePropagationDelayException extends S.TaggedError<ResourcePro
  * `DescribeUpdate`
  * API operation. You can update the Kubernetes labels
  * and taints for a node group and the scaling and version update configuration.
- */export const updateNodegroupConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-01", uri: "/clusters/{clusterName}/node-groups/{nodegroupName}/update-config", method: "POST", sdkId: "EKS", sigV4ServiceName: "eks", name: "AWSWesleyFrontend.UpdateNodegroupConfig" }, UpdateNodegroupConfigRequest, UpdateNodegroupConfigResponse, [ClientException, InvalidParameterException, InvalidRequestException, ResourceInUseException, ResourceNotFoundException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateNodegroupConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-01", uri: "/clusters/{clusterName}/node-groups/{nodegroupName}/update-config", sdkId: "EKS", sigV4ServiceName: "eks", name: "AWSWesleyFrontend.UpdateNodegroupConfig" }, UpdateNodegroupConfigRequest, UpdateNodegroupConfigResponse, [ClientException, InvalidParameterException, InvalidRequestException, ResourceInUseException, ResourceNotFoundException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Associates an encryption configuration to an existing cluster.
  * 
@@ -664,7 +664,7 @@ export class ResourcePropagationDelayException extends S.TaggedError<ResourcePro
  * Use this API to enable encryption on existing clusters that don't already have
  * encryption enabled. This allows you to implement a defense-in-depth security strategy
  * without migrating applications to new Amazon EKS clusters.
- */export const associateEncryptionConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-01", uri: "/clusters/{clusterName}/encryption-config/associate", method: "POST", sdkId: "EKS", sigV4ServiceName: "eks", name: "AWSWesleyFrontend.AssociateEncryptionConfig" }, AssociateEncryptionConfigRequest, AssociateEncryptionConfigResponse, [ClientException, InvalidParameterException, InvalidRequestException, ResourceInUseException, ResourceNotFoundException, ServerException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const associateEncryptionConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-01", uri: "/clusters/{clusterName}/encryption-config/associate", sdkId: "EKS", sigV4ServiceName: "eks", name: "AWSWesleyFrontend.AssociateEncryptionConfig" }, AssociateEncryptionConfigRequest, AssociateEncryptionConfigResponse, [ClientException, InvalidParameterException, InvalidRequestException, ResourceInUseException, ResourceNotFoundException, ServerException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Associates an identity provider configuration to a cluster.
  * 
@@ -676,7 +676,7 @@ export class ResourcePropagationDelayException extends S.TaggedError<ResourcePro
  * the identities using Kubernetes `RoleBinding` and `ClusterRoleBinding`
  * objects. For more information see Using RBAC
  * Authorization in the Kubernetes documentation.
- */export const associateIdentityProviderConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-01", uri: "/clusters/{clusterName}/identity-provider-configs/associate", method: "POST", sdkId: "EKS", sigV4ServiceName: "eks", name: "AWSWesleyFrontend.AssociateIdentityProviderConfig" }, AssociateIdentityProviderConfigRequest, AssociateIdentityProviderConfigResponse, [ClientException, InvalidParameterException, InvalidRequestException, ResourceInUseException, ResourceNotFoundException, ServerException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const associateIdentityProviderConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-01", uri: "/clusters/{clusterName}/identity-provider-configs/associate", sdkId: "EKS", sigV4ServiceName: "eks", name: "AWSWesleyFrontend.AssociateIdentityProviderConfig" }, AssociateIdentityProviderConfigRequest, AssociateIdentityProviderConfigResponse, [ClientException, InvalidParameterException, InvalidRequestException, ResourceInUseException, ResourceNotFoundException, ServerException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an access entry.
  * 
@@ -695,7 +695,7 @@ export class ResourcePropagationDelayException extends S.TaggedError<ResourcePro
  * 
  * For more information about access entries, see Access entries in the
  * *Amazon EKS User Guide*.
- */export const createAccessEntry = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-01", uri: "/clusters/{clusterName}/access-entries", method: "POST", sdkId: "EKS", sigV4ServiceName: "eks", name: "AWSWesleyFrontend.CreateAccessEntry" }, CreateAccessEntryRequest, CreateAccessEntryResponse, [InvalidParameterException, InvalidRequestException, ResourceInUseException, ResourceLimitExceededException, ResourceNotFoundException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createAccessEntry = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-01", uri: "/clusters/{clusterName}/access-entries", sdkId: "EKS", sigV4ServiceName: "eks", name: "AWSWesleyFrontend.CreateAccessEntry" }, CreateAccessEntryRequest, CreateAccessEntryResponse, [InvalidParameterException, InvalidRequestException, ResourceInUseException, ResourceLimitExceededException, ResourceNotFoundException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an Fargate profile for your Amazon EKS cluster. You must have at least one
  * Fargate profile in a cluster to be able to run pods on Fargate.
@@ -732,7 +732,7 @@ export class ResourcePropagationDelayException extends S.TaggedError<ResourcePro
  * 
  * 
  * For more information, see Fargate profile in the *Amazon EKS User Guide*.
- */export const createFargateProfile = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-01", uri: "/clusters/{clusterName}/fargate-profiles", method: "POST", sdkId: "EKS", sigV4ServiceName: "eks", name: "AWSWesleyFrontend.CreateFargateProfile" }, CreateFargateProfileRequest, CreateFargateProfileResponse, [ClientException, InvalidParameterException, InvalidRequestException, ResourceLimitExceededException, ServerException, UnsupportedAvailabilityZoneException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createFargateProfile = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-01", uri: "/clusters/{clusterName}/fargate-profiles", sdkId: "EKS", sigV4ServiceName: "eks", name: "AWSWesleyFrontend.CreateFargateProfile" }, CreateFargateProfileRequest, CreateFargateProfileResponse, [ClientException, InvalidParameterException, InvalidRequestException, ResourceLimitExceededException, ServerException, UnsupportedAvailabilityZoneException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a managed node group for an Amazon EKS cluster.
  * 
@@ -760,7 +760,7 @@ export class ResourcePropagationDelayException extends S.TaggedError<ResourcePro
  * 
  * Windows AMI types are only supported for commercial Amazon Web Services Regions that support
  * Windows on Amazon EKS.
- */export const createNodegroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-01", uri: "/clusters/{clusterName}/node-groups", method: "POST", sdkId: "EKS", sigV4ServiceName: "eks", name: "AWSWesleyFrontend.CreateNodegroup" }, CreateNodegroupRequest, CreateNodegroupResponse, [ClientException, InvalidParameterException, InvalidRequestException, ResourceInUseException, ResourceLimitExceededException, ServerException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createNodegroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-01", uri: "/clusters/{clusterName}/node-groups", sdkId: "EKS", sigV4ServiceName: "eks", name: "AWSWesleyFrontend.CreateNodegroup" }, CreateNodegroupRequest, CreateNodegroupResponse, [ClientException, InvalidParameterException, InvalidRequestException, ResourceInUseException, ResourceLimitExceededException, ServerException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an expired or inactive subscription. Deleting inactive subscriptions removes
  * them from the Amazon Web Services Management Console view and from list/describe API responses. Subscriptions can
@@ -782,7 +782,7 @@ export class ResourcePropagationDelayException extends S.TaggedError<ResourcePro
  * If you disassociate an identity provider from your cluster, users included in the
  * provider can no longer access the cluster. However, you can still access the cluster
  * with IAM principals.
- */export const disassociateIdentityProviderConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-01", uri: "/clusters/{clusterName}/identity-provider-configs/disassociate", method: "POST", sdkId: "EKS", sigV4ServiceName: "eks", name: "AWSWesleyFrontend.DisassociateIdentityProviderConfig" }, DisassociateIdentityProviderConfigRequest, DisassociateIdentityProviderConfigResponse, [ClientException, InvalidParameterException, InvalidRequestException, ResourceInUseException, ResourceNotFoundException, ServerException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const disassociateIdentityProviderConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-01", uri: "/clusters/{clusterName}/identity-provider-configs/disassociate", sdkId: "EKS", sigV4ServiceName: "eks", name: "AWSWesleyFrontend.DisassociateIdentityProviderConfig" }, DisassociateIdentityProviderConfigRequest, DisassociateIdentityProviderConfigResponse, [ClientException, InvalidParameterException, InvalidRequestException, ResourceInUseException, ResourceNotFoundException, ServerException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of all insights checked for against the specified cluster. You can
  * filter which insights are returned by category, associated Kubernetes version, and
@@ -801,7 +801,7 @@ export class ResourcePropagationDelayException extends S.TaggedError<ResourcePro
  * - `MISCONFIGURATION`: Amazon EKS identifies misconfiguration in your EKS
  * Hybrid Nodes setup that could impair functionality of your cluster or
  * workloads. These are called configuration insights.
- */export const listInsights = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-01", uri: "/clusters/{clusterName}/insights", method: "POST", sdkId: "EKS", sigV4ServiceName: "eks", name: "AWSWesleyFrontend.ListInsights" }, ListInsightsRequest, ListInsightsResponse, [InvalidParameterException, InvalidRequestException, ResourceNotFoundException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listInsights = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-01", uri: "/clusters/{clusterName}/insights", sdkId: "EKS", sigV4ServiceName: "eks", name: "AWSWesleyFrontend.ListInsights" }, ListInsightsRequest, ListInsightsResponse, [InvalidParameterException, InvalidRequestException, ResourceNotFoundException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Connects a Kubernetes cluster to the Amazon EKS control plane.
  * 
@@ -825,7 +825,7 @@ export class ResourcePropagationDelayException extends S.TaggedError<ResourcePro
  * Amazon EKS control plane. If the manifest isn't applied within three days, the connected
  * cluster will no longer be visible and must be deregistered using
  * `DeregisterCluster`.
- */export const registerCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-01", uri: "/cluster-registrations", method: "POST", sdkId: "EKS", sigV4ServiceName: "eks", name: "AWSWesleyFrontend.RegisterCluster" }, RegisterClusterRequest, RegisterClusterResponse, [AccessDeniedException, ClientException, InvalidParameterException, ResourceInUseException, ResourceLimitExceededException, ResourcePropagationDelayException, ServerException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const registerCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-01", uri: "/cluster-registrations", sdkId: "EKS", sigV4ServiceName: "eks", name: "AWSWesleyFrontend.RegisterCluster" }, RegisterClusterRequest, RegisterClusterResponse, [AccessDeniedException, ClientException, InvalidParameterException, ResourceInUseException, ResourceLimitExceededException, ResourcePropagationDelayException, ServerException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an Amazon EKS control plane.
  * 
@@ -882,7 +882,7 @@ export class ResourcePropagationDelayException extends S.TaggedError<ResourcePro
  * launch nodes into your cluster. For more information, see Allowing users to
  * access your cluster and Launching Amazon EKS
  * nodes in the *Amazon EKS User Guide*.
- */export const createCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-01", uri: "/clusters", method: "POST", sdkId: "EKS", sigV4ServiceName: "eks", name: "AWSWesleyFrontend.CreateCluster" }, CreateClusterRequest, CreateClusterResponse, [ClientException, InvalidParameterException, ResourceInUseException, ResourceLimitExceededException, ServerException, ServiceUnavailableException, UnsupportedAvailabilityZoneException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-01", uri: "/clusters", sdkId: "EKS", sigV4ServiceName: "eks", name: "AWSWesleyFrontend.CreateCluster" }, CreateClusterRequest, CreateClusterResponse, [ClientException, InvalidParameterException, ResourceInUseException, ResourceLimitExceededException, ServerException, ServiceUnavailableException, UnsupportedAvailabilityZoneException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an Amazon EKS add-on.
  * 
@@ -933,13 +933,13 @@ export class ResourcePropagationDelayException extends S.TaggedError<ResourcePro
  */export const describeAddonVersions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-01", uri: "/addons/supported-versions", method: "GET", sdkId: "EKS", sigV4ServiceName: "eks", name: "AWSWesleyFrontend.DescribeAddonVersions" }, DescribeAddonVersionsRequest, DescribeAddonVersionsResponse, [InvalidParameterException, ResourceNotFoundException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes an identity provider configuration.
- */export const describeIdentityProviderConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-01", uri: "/clusters/{clusterName}/identity-provider-configs/describe", method: "POST", sdkId: "EKS", sigV4ServiceName: "eks", name: "AWSWesleyFrontend.DescribeIdentityProviderConfig" }, DescribeIdentityProviderConfigRequest, DescribeIdentityProviderConfigResponse, [ClientException, InvalidParameterException, ResourceNotFoundException, ServerException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeIdentityProviderConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-01", uri: "/clusters/{clusterName}/identity-provider-configs/describe", sdkId: "EKS", sigV4ServiceName: "eks", name: "AWSWesleyFrontend.DescribeIdentityProviderConfig" }, DescribeIdentityProviderConfigRequest, DescribeIdentityProviderConfigResponse, [ClientException, InvalidParameterException, ResourceNotFoundException, ServerException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the configuration of a managed capability in your Amazon EKS cluster. You can update the IAM role, configuration settings, and delete propagation policy for a capability.
  * 
  * 
  * When you update a capability, Amazon EKS applies the changes and may restart capability components as needed. The capability remains available during the update process, but some operations may be temporarily unavailable.
- */export const updateCapability = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-01", uri: "/clusters/{clusterName}/capabilities/{capabilityName}", method: "POST", sdkId: "EKS", sigV4ServiceName: "eks", name: "AWSWesleyFrontend.UpdateCapability" }, UpdateCapabilityRequest, UpdateCapabilityResponse, [AccessDeniedException, InvalidParameterException, ResourceInUseException, ResourceNotFoundException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateCapability = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-01", uri: "/clusters/{clusterName}/capabilities/{capabilityName}", sdkId: "EKS", sigV4ServiceName: "eks", name: "AWSWesleyFrontend.UpdateCapability" }, UpdateCapabilityRequest, UpdateCapabilityResponse, [AccessDeniedException, InvalidParameterException, ResourceInUseException, ResourceNotFoundException, ServerException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a managed capability resource for an Amazon EKS cluster.
  * 
@@ -951,7 +951,7 @@ export class ResourcePropagationDelayException extends S.TaggedError<ResourcePro
  * 
  * 
  * For more information, see EKS Capabilities in the *Amazon EKS User Guide*.
- */export const createCapability = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-01", uri: "/clusters/{clusterName}/capabilities", method: "POST", sdkId: "EKS", sigV4ServiceName: "eks", name: "AWSWesleyFrontend.CreateCapability" }, CreateCapabilityRequest, CreateCapabilityResponse, [AccessDeniedException, InvalidParameterException, InvalidRequestException, ResourceInUseException, ResourceLimitExceededException, ServerException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createCapability = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-11-01", uri: "/clusters/{clusterName}/capabilities", sdkId: "EKS", sigV4ServiceName: "eks", name: "AWSWesleyFrontend.CreateCapability" }, CreateCapabilityRequest, CreateCapabilityResponse, [AccessDeniedException, InvalidParameterException, InvalidRequestException, ResourceInUseException, ResourceLimitExceededException, ServerException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a managed capability from your Amazon EKS cluster. When you delete a capability, Amazon EKS removes the capability infrastructure but retains all resources that were managed by the capability.
  * 

@@ -103,7 +103,7 @@ export class RequestEntityTooLargeException extends S.TaggedError<RequestEntityT
  * 
  * For more information about messaging costs, see Amazon Web Services IoT Core
  * pricing - Messaging.
- */export const publish = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/topics/{topic}", method: "POST", sdkId: "IoT Data Plane", sigV4ServiceName: "iotdata", name: "IotMoonrakerService.Publish" }, PublishRequest, S.Struct({}), [InternalFailureException, InvalidRequestException, MethodNotAllowedException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const publish = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/topics/{topic}", sdkId: "IoT Data Plane", sigV4ServiceName: "iotdata", name: "IotMoonrakerService.Publish" }, PublishRequest, S.Struct({}), [InternalFailureException, InvalidRequestException, MethodNotAllowedException, ThrottlingException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the shadow for the specified thing.
  * 
@@ -122,4 +122,4 @@ export class RequestEntityTooLargeException extends S.TaggedError<RequestEntityT
  * 
  * For more information, see UpdateThingShadow in the
  * IoT Developer Guide.
- */export const updateThingShadow = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/things/{thingName}/shadow", method: "POST", sdkId: "IoT Data Plane", sigV4ServiceName: "iotdata", name: "IotMoonrakerService.UpdateThingShadow" }, UpdateThingShadowRequest, UpdateThingShadowResponse, [ConflictException, InternalFailureException, InvalidRequestException, MethodNotAllowedException, RequestEntityTooLargeException, ServiceUnavailableException, ThrottlingException, UnauthorizedException, UnsupportedDocumentEncodingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateThingShadow = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-05-28", uri: "/things/{thingName}/shadow", sdkId: "IoT Data Plane", sigV4ServiceName: "iotdata", name: "IotMoonrakerService.UpdateThingShadow" }, UpdateThingShadowRequest, UpdateThingShadowResponse, [ConflictException, InternalFailureException, InvalidRequestException, MethodNotAllowedException, RequestEntityTooLargeException, ServiceUnavailableException, ThrottlingException, UnauthorizedException, UnsupportedDocumentEncodingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

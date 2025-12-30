@@ -252,7 +252,7 @@ export class ConflictException extends S.TaggedError<ConflictException>()("Confl
  * 
  * For more information, see Vocabulary
  * filtering.
- */export const createVocabularyFilter = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/vocabularyFilters/{VocabularyFilterName}", method: "POST", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.CreateVocabularyFilter" }, CreateVocabularyFilterRequest, CreateVocabularyFilterResponse, [BadRequestException, ConflictException, InternalFailureException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createVocabularyFilter = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/vocabularyFilters/{VocabularyFilterName}", sdkId: "Transcribe", sigV4ServiceName: "transcribe", name: "Transcribe.CreateVocabularyFilter" }, CreateVocabularyFilterRequest, CreateVocabularyFilterResponse, [BadRequestException, ConflictException, InternalFailureException, LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a Call Analytics category. To use this operation, specify the name of the
  * category you want to delete using `CategoryName`. Category names are case

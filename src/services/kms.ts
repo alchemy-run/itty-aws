@@ -267,7 +267,7 @@ export class XksProxyVpcEndpointServiceNotFoundException extends S.TaggedError<X
  * 
  * **Eventual consistency**: The KMS API follows an eventual consistency model.
  * For more information, see KMS eventual consistency.
- */export const updateAlias = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", uri: "/", method: "POST", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.UpdateAlias" }, UpdateAliasRequest, S.Struct({}), [DependencyTimeoutException, KMSInternalException, KMSInvalidStateException, LimitExceededException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateAlias = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.UpdateAlias" }, UpdateAliasRequest, S.Struct({}), [DependencyTimeoutException, KMSInternalException, KMSInvalidStateException, LimitExceededException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the description of a KMS key. To see the description of a KMS key, use DescribeKey.
  * 
@@ -305,7 +305,7 @@ export class XksProxyVpcEndpointServiceNotFoundException extends S.TaggedError<X
  * 
  * **Eventual consistency**: The KMS API follows an eventual consistency model.
  * For more information, see KMS eventual consistency.
- */export const updateKeyDescription = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", uri: "/", method: "POST", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.UpdateKeyDescription" }, UpdateKeyDescriptionRequest, S.Struct({}), [DependencyTimeoutException, InvalidArnException, KMSInternalException, KMSInvalidStateException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateKeyDescription = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.UpdateKeyDescription" }, UpdateKeyDescriptionRequest, S.Struct({}), [DependencyTimeoutException, InvalidArnException, KMSInternalException, KMSInvalidStateException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Cancels the deletion of a KMS key. When this operation succeeds, the key state of the KMS
  * key is `Disabled`. To enable the KMS key, use EnableKey.
@@ -335,7 +335,7 @@ export class XksProxyVpcEndpointServiceNotFoundException extends S.TaggedError<X
  * 
  * **Eventual consistency**: The KMS API follows an eventual consistency model.
  * For more information, see KMS eventual consistency.
- */export const cancelKeyDeletion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", uri: "/", method: "POST", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.CancelKeyDeletion" }, CancelKeyDeletionRequest, CancelKeyDeletionResponse, [DependencyTimeoutException, InvalidArnException, KMSInternalException, KMSInvalidStateException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const cancelKeyDeletion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.CancelKeyDeletion" }, CancelKeyDeletionRequest, CancelKeyDeletionResponse, [DependencyTimeoutException, InvalidArnException, KMSInternalException, KMSInvalidStateException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified alias.
  * 
@@ -408,7 +408,7 @@ export class XksProxyVpcEndpointServiceNotFoundException extends S.TaggedError<X
  * 
  * **Eventual consistency**: The KMS API follows an eventual consistency model.
  * For more information, see KMS eventual consistency.
- */export const deleteAlias = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", uri: "/", method: "POST", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.DeleteAlias" }, DeleteAliasRequest, S.Struct({}), [DependencyTimeoutException, KMSInternalException, KMSInvalidStateException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteAlias = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.DeleteAlias" }, DeleteAliasRequest, S.Struct({}), [DependencyTimeoutException, KMSInternalException, KMSInvalidStateException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a custom key store. This operation does not affect any backing elements of the
  * custom key store. It does not delete the CloudHSM cluster that is associated with an CloudHSM key
@@ -491,7 +491,7 @@ export class XksProxyVpcEndpointServiceNotFoundException extends S.TaggedError<X
  * 
  * **Eventual consistency**: The KMS API follows an eventual consistency model.
  * For more information, see KMS eventual consistency.
- */export const deleteCustomKeyStore = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", uri: "/", method: "POST", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.DeleteCustomKeyStore" }, DeleteCustomKeyStoreRequest, DeleteCustomKeyStoreResponse, [CustomKeyStoreHasCMKsException, CustomKeyStoreInvalidStateException, CustomKeyStoreNotFoundException, KMSInternalException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteCustomKeyStore = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.DeleteCustomKeyStore" }, DeleteCustomKeyStoreRequest, DeleteCustomKeyStoreResponse, [CustomKeyStoreHasCMKsException, CustomKeyStoreInvalidStateException, CustomKeyStoreNotFoundException, KMSInternalException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes key material that was previously imported. This operation makes the specified KMS
  * key temporarily unusable. To restore the usability of the KMS key, reimport the same key
@@ -560,7 +560,7 @@ export class XksProxyVpcEndpointServiceNotFoundException extends S.TaggedError<X
  * 
  * **Eventual consistency**: The KMS API follows an eventual consistency model.
  * For more information, see KMS eventual consistency.
- */export const deleteImportedKeyMaterial = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", uri: "/", method: "POST", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.DeleteImportedKeyMaterial" }, DeleteImportedKeyMaterialRequest, DeleteImportedKeyMaterialResponse, [DependencyTimeoutException, InvalidArnException, KMSInternalException, KMSInvalidStateException, NotFoundException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteImportedKeyMaterial = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.DeleteImportedKeyMaterial" }, DeleteImportedKeyMaterialRequest, DeleteImportedKeyMaterialResponse, [DependencyTimeoutException, InvalidArnException, KMSInternalException, KMSInvalidStateException, NotFoundException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Sets the state of a KMS key to disabled. This change temporarily prevents use of the KMS
  * key for cryptographic operations.
@@ -589,7 +589,7 @@ export class XksProxyVpcEndpointServiceNotFoundException extends S.TaggedError<X
  * 
  * **Eventual consistency**: The KMS API follows an eventual consistency model.
  * For more information, see KMS eventual consistency.
- */export const disableKey = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", uri: "/", method: "POST", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.DisableKey" }, DisableKeyRequest, S.Struct({}), [DependencyTimeoutException, InvalidArnException, KMSInternalException, KMSInvalidStateException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const disableKey = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.DisableKey" }, DisableKeyRequest, S.Struct({}), [DependencyTimeoutException, InvalidArnException, KMSInternalException, KMSInvalidStateException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Disables automatic rotation of the key material of the specified symmetric encryption KMS
  * key.
@@ -656,7 +656,7 @@ export class XksProxyVpcEndpointServiceNotFoundException extends S.TaggedError<X
  * 
  * **Eventual consistency**: The KMS API follows an eventual consistency model.
  * For more information, see KMS eventual consistency.
- */export const disableKeyRotation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", uri: "/", method: "POST", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.DisableKeyRotation" }, DisableKeyRotationRequest, S.Struct({}), [DependencyTimeoutException, DisabledException, InvalidArnException, KMSInternalException, KMSInvalidStateException, NotFoundException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const disableKeyRotation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.DisableKeyRotation" }, DisableKeyRotationRequest, S.Struct({}), [DependencyTimeoutException, DisabledException, InvalidArnException, KMSInternalException, KMSInvalidStateException, NotFoundException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Disconnects the custom key store from its backing key store. This operation disconnects an
  * CloudHSM key store from its associated CloudHSM cluster or disconnects an external key store from
@@ -734,7 +734,7 @@ export class XksProxyVpcEndpointServiceNotFoundException extends S.TaggedError<X
  * 
  * **Eventual consistency**: The KMS API follows an eventual consistency model.
  * For more information, see KMS eventual consistency.
- */export const disconnectCustomKeyStore = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", uri: "/", method: "POST", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.DisconnectCustomKeyStore" }, DisconnectCustomKeyStoreRequest, DisconnectCustomKeyStoreResponse, [CustomKeyStoreInvalidStateException, CustomKeyStoreNotFoundException, KMSInternalException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const disconnectCustomKeyStore = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.DisconnectCustomKeyStore" }, DisconnectCustomKeyStoreRequest, DisconnectCustomKeyStoreResponse, [CustomKeyStoreInvalidStateException, CustomKeyStoreNotFoundException, KMSInternalException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Sets the key state of a KMS key to enabled. This allows you to use the KMS key for
  * cryptographic operations.
@@ -760,7 +760,7 @@ export class XksProxyVpcEndpointServiceNotFoundException extends S.TaggedError<X
  * 
  * **Eventual consistency**: The KMS API follows an eventual consistency model.
  * For more information, see KMS eventual consistency.
- */export const enableKey = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", uri: "/", method: "POST", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.EnableKey" }, EnableKeyRequest, S.Struct({}), [DependencyTimeoutException, InvalidArnException, KMSInternalException, KMSInvalidStateException, LimitExceededException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const enableKey = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.EnableKey" }, EnableKeyRequest, S.Struct({}), [DependencyTimeoutException, InvalidArnException, KMSInternalException, KMSInvalidStateException, LimitExceededException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Enables automatic rotation of the key material of the specified symmetric encryption KMS
  * key.
@@ -856,7 +856,7 @@ export class XksProxyVpcEndpointServiceNotFoundException extends S.TaggedError<X
  * 
  * **Eventual consistency**: The KMS API follows an eventual consistency model.
  * For more information, see KMS eventual consistency.
- */export const enableKeyRotation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", uri: "/", method: "POST", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.EnableKeyRotation" }, EnableKeyRotationRequest, S.Struct({}), [DependencyTimeoutException, DisabledException, InvalidArnException, KMSInternalException, KMSInvalidStateException, NotFoundException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const enableKeyRotation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.EnableKeyRotation" }, EnableKeyRotationRequest, S.Struct({}), [DependencyTimeoutException, DisabledException, InvalidArnException, KMSInternalException, KMSInvalidStateException, NotFoundException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a unique asymmetric data key pair for use outside of KMS. This operation returns
  * a plaintext public key, a plaintext private key, and a copy of the private key that is
@@ -968,7 +968,7 @@ export class XksProxyVpcEndpointServiceNotFoundException extends S.TaggedError<X
  * 
  * **Eventual consistency**: The KMS API follows an eventual consistency model.
  * For more information, see KMS eventual consistency.
- */export const generateDataKeyPair = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", uri: "/", method: "POST", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.GenerateDataKeyPair" }, GenerateDataKeyPairRequest, GenerateDataKeyPairResponse, [DependencyTimeoutException, DisabledException, DryRunOperationException, InvalidGrantTokenException, InvalidKeyUsageException, KeyUnavailableException, KMSInternalException, KMSInvalidStateException, NotFoundException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const generateDataKeyPair = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.GenerateDataKeyPair" }, GenerateDataKeyPairRequest, GenerateDataKeyPairResponse, [DependencyTimeoutException, DisabledException, DryRunOperationException, InvalidGrantTokenException, InvalidKeyUsageException, KeyUnavailableException, KMSInternalException, KMSInvalidStateException, NotFoundException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a unique asymmetric data key pair for use outside of KMS. This operation returns
  * a plaintext public key and a copy of the private key that is encrypted under the symmetric
@@ -1058,7 +1058,7 @@ export class XksProxyVpcEndpointServiceNotFoundException extends S.TaggedError<X
  * 
  * **Eventual consistency**: The KMS API follows an eventual consistency model.
  * For more information, see KMS eventual consistency.
- */export const generateDataKeyPairWithoutPlaintext = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", uri: "/", method: "POST", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.GenerateDataKeyPairWithoutPlaintext" }, GenerateDataKeyPairWithoutPlaintextRequest, GenerateDataKeyPairWithoutPlaintextResponse, [DependencyTimeoutException, DisabledException, DryRunOperationException, InvalidGrantTokenException, InvalidKeyUsageException, KeyUnavailableException, KMSInternalException, KMSInvalidStateException, NotFoundException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const generateDataKeyPairWithoutPlaintext = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.GenerateDataKeyPairWithoutPlaintext" }, GenerateDataKeyPairWithoutPlaintextRequest, GenerateDataKeyPairWithoutPlaintextResponse, [DependencyTimeoutException, DisabledException, DryRunOperationException, InvalidGrantTokenException, InvalidKeyUsageException, KeyUnavailableException, KMSInternalException, KMSInvalidStateException, NotFoundException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a unique symmetric data key for use outside of KMS. This operation returns a
  * data key that is encrypted under a symmetric encryption KMS key that you specify. The bytes in
@@ -1165,7 +1165,7 @@ export class XksProxyVpcEndpointServiceNotFoundException extends S.TaggedError<X
  * 
  * **Eventual consistency**: The KMS API follows an eventual consistency model.
  * For more information, see KMS eventual consistency.
- */export const generateDataKeyWithoutPlaintext = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", uri: "/", method: "POST", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.GenerateDataKeyWithoutPlaintext" }, GenerateDataKeyWithoutPlaintextRequest, GenerateDataKeyWithoutPlaintextResponse, [DependencyTimeoutException, DisabledException, DryRunOperationException, InvalidGrantTokenException, InvalidKeyUsageException, KeyUnavailableException, KMSInternalException, KMSInvalidStateException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const generateDataKeyWithoutPlaintext = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.GenerateDataKeyWithoutPlaintext" }, GenerateDataKeyWithoutPlaintextRequest, GenerateDataKeyWithoutPlaintextResponse, [DependencyTimeoutException, DisabledException, DryRunOperationException, InvalidGrantTokenException, InvalidKeyUsageException, KeyUnavailableException, KMSInternalException, KMSInvalidStateException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Generates a hash-based message authentication code (HMAC) for a message using an HMAC KMS
  * key and a MAC algorithm that the key supports. HMAC KMS keys and the HMAC algorithms that
@@ -1215,7 +1215,7 @@ export class XksProxyVpcEndpointServiceNotFoundException extends S.TaggedError<X
  * 
  * **Eventual consistency**: The KMS API follows an eventual consistency model.
  * For more information, see KMS eventual consistency.
- */export const generateMac = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", uri: "/", method: "POST", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.GenerateMac" }, GenerateMacRequest, GenerateMacResponse, [DisabledException, DryRunOperationException, InvalidGrantTokenException, InvalidKeyUsageException, KeyUnavailableException, KMSInternalException, KMSInvalidStateException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const generateMac = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.GenerateMac" }, GenerateMacRequest, GenerateMacResponse, [DisabledException, DryRunOperationException, InvalidGrantTokenException, InvalidKeyUsageException, KeyUnavailableException, KMSInternalException, KMSInvalidStateException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a random byte string that is cryptographically secure.
  * 
@@ -1254,7 +1254,7 @@ export class XksProxyVpcEndpointServiceNotFoundException extends S.TaggedError<X
  * 
  * **Eventual consistency**: The KMS API follows an eventual consistency model.
  * For more information, see KMS eventual consistency.
- */export const generateRandom = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", uri: "/", method: "POST", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.GenerateRandom" }, GenerateRandomRequest, GenerateRandomResponse, [CustomKeyStoreInvalidStateException, CustomKeyStoreNotFoundException, DependencyTimeoutException, KMSInternalException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const generateRandom = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.GenerateRandom" }, GenerateRandomRequest, GenerateRandomResponse, [CustomKeyStoreInvalidStateException, CustomKeyStoreNotFoundException, DependencyTimeoutException, KMSInternalException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets a key policy attached to the specified KMS key.
  * 
@@ -1275,7 +1275,7 @@ export class XksProxyVpcEndpointServiceNotFoundException extends S.TaggedError<X
  * 
  * **Eventual consistency**: The KMS API follows an eventual consistency model.
  * For more information, see KMS eventual consistency.
- */export const getKeyPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", uri: "/", method: "POST", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.GetKeyPolicy" }, GetKeyPolicyRequest, GetKeyPolicyResponse, [DependencyTimeoutException, InvalidArnException, KMSInternalException, KMSInvalidStateException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getKeyPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.GetKeyPolicy" }, GetKeyPolicyRequest, GetKeyPolicyResponse, [DependencyTimeoutException, InvalidArnException, KMSInternalException, KMSInvalidStateException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides detailed information about the rotation status for a KMS key, including whether
  * automatic
@@ -1370,7 +1370,7 @@ export class XksProxyVpcEndpointServiceNotFoundException extends S.TaggedError<X
  * 
  * **Eventual consistency**: The KMS API follows an eventual consistency model.
  * For more information, see KMS eventual consistency.
- */export const getKeyRotationStatus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", uri: "/", method: "POST", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.GetKeyRotationStatus" }, GetKeyRotationStatusRequest, GetKeyRotationStatusResponse, [DependencyTimeoutException, InvalidArnException, KMSInternalException, KMSInvalidStateException, NotFoundException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getKeyRotationStatus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.GetKeyRotationStatus" }, GetKeyRotationStatusRequest, GetKeyRotationStatusResponse, [DependencyTimeoutException, InvalidArnException, KMSInternalException, KMSInvalidStateException, NotFoundException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the public key and an import token you need to import or reimport key material for
  * a KMS key.
@@ -1481,7 +1481,7 @@ export class XksProxyVpcEndpointServiceNotFoundException extends S.TaggedError<X
  * 
  * **Eventual consistency**: The KMS API follows an eventual consistency model.
  * For more information, see KMS eventual consistency.
- */export const getParametersForImport = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", uri: "/", method: "POST", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.GetParametersForImport" }, GetParametersForImportRequest, GetParametersForImportResponse, [DependencyTimeoutException, InvalidArnException, KMSInternalException, KMSInvalidStateException, NotFoundException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getParametersForImport = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.GetParametersForImport" }, GetParametersForImportRequest, GetParametersForImportResponse, [DependencyTimeoutException, InvalidArnException, KMSInternalException, KMSInvalidStateException, NotFoundException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the public key of an asymmetric KMS key. Unlike the private key of a asymmetric
  * KMS key, which never leaves KMS unencrypted, callers with `kms:GetPublicKey`
@@ -1554,7 +1554,7 @@ export class XksProxyVpcEndpointServiceNotFoundException extends S.TaggedError<X
  * 
  * **Eventual consistency**: The KMS API follows an eventual consistency model.
  * For more information, see KMS eventual consistency.
- */export const getPublicKey = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", uri: "/", method: "POST", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.GetPublicKey" }, GetPublicKeyRequest, GetPublicKeyResponse, [DependencyTimeoutException, DisabledException, InvalidArnException, InvalidGrantTokenException, InvalidKeyUsageException, KeyUnavailableException, KMSInternalException, KMSInvalidStateException, NotFoundException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getPublicKey = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.GetPublicKey" }, GetPublicKeyRequest, GetPublicKeyResponse, [DependencyTimeoutException, DisabledException, InvalidArnException, InvalidGrantTokenException, InvalidKeyUsageException, KeyUnavailableException, KMSInternalException, KMSInvalidStateException, NotFoundException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets the names of the key policies that are attached to a KMS key. This operation is
  * designed to get policy names that you can use in a GetKeyPolicy operation.
@@ -1590,7 +1590,7 @@ export class XksProxyVpcEndpointServiceNotFoundException extends S.TaggedError<X
  * 
  * **Eventual consistency**: The KMS API follows an eventual consistency model.
  * For more information, see KMS eventual consistency.
- */export const listKeyPolicies = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", uri: "/", method: "POST", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.ListKeyPolicies" }, ListKeyPoliciesRequest, ListKeyPoliciesResponse, [DependencyTimeoutException, InvalidArnException, KMSInternalException, KMSInvalidStateException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listKeyPolicies = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.ListKeyPolicies" }, ListKeyPoliciesRequest, ListKeyPoliciesResponse, [DependencyTimeoutException, InvalidArnException, KMSInternalException, KMSInvalidStateException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns all tags on the specified KMS key.
  * 
@@ -1640,7 +1640,7 @@ export class XksProxyVpcEndpointServiceNotFoundException extends S.TaggedError<X
  * 
  * **Eventual consistency**: The KMS API follows an eventual consistency model.
  * For more information, see KMS eventual consistency.
- */export const listResourceTags = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", uri: "/", method: "POST", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.ListResourceTags" }, ListResourceTagsRequest, ListResourceTagsResponse, [InvalidArnException, InvalidMarkerException, KMSInternalException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listResourceTags = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.ListResourceTags" }, ListResourceTagsRequest, ListResourceTagsResponse, [InvalidArnException, InvalidMarkerException, KMSInternalException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about all grants in the Amazon Web Services account and Region that have the
  * specified retiring principal.
@@ -1714,7 +1714,7 @@ export class XksProxyVpcEndpointServiceNotFoundException extends S.TaggedError<X
  * 
  * **Eventual consistency**: The KMS API follows an eventual consistency model.
  * For more information, see KMS eventual consistency.
- */export const listRetirableGrants = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", uri: "/", method: "POST", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.ListRetirableGrants" }, ListRetirableGrantsRequest, ListGrantsResponse, [DependencyTimeoutException, InvalidArnException, InvalidMarkerException, KMSInternalException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listRetirableGrants = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.ListRetirableGrants" }, ListRetirableGrantsRequest, ListGrantsResponse, [DependencyTimeoutException, InvalidArnException, InvalidMarkerException, KMSInternalException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Replicates a multi-Region key into the specified Region. This operation creates a
  * multi-Region replica key based on a multi-Region primary key in a different Region of the same
@@ -1827,7 +1827,7 @@ export class XksProxyVpcEndpointServiceNotFoundException extends S.TaggedError<X
  * 
  * **Eventual consistency**: The KMS API follows an eventual consistency model.
  * For more information, see KMS eventual consistency.
- */export const replicateKey = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", uri: "/", method: "POST", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.ReplicateKey" }, ReplicateKeyRequest, ReplicateKeyResponse, [AlreadyExistsException, DisabledException, InvalidArnException, KMSInternalException, KMSInvalidStateException, LimitExceededException, MalformedPolicyDocumentException, NotFoundException, TagException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const replicateKey = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.ReplicateKey" }, ReplicateKeyRequest, ReplicateKeyResponse, [AlreadyExistsException, DisabledException, InvalidArnException, KMSInternalException, KMSInvalidStateException, LimitExceededException, MalformedPolicyDocumentException, NotFoundException, TagException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a grant. Typically, you retire a grant when you no longer need its permissions. To
  * identify the grant to retire, use a grant token, or both the grant ID and a
@@ -1890,7 +1890,7 @@ export class XksProxyVpcEndpointServiceNotFoundException extends S.TaggedError<X
  * 
  * **Eventual consistency**: The KMS API follows an eventual consistency model.
  * For more information, see KMS eventual consistency.
- */export const retireGrant = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", uri: "/", method: "POST", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.RetireGrant" }, RetireGrantRequest, S.Struct({}), [DependencyTimeoutException, DryRunOperationException, InvalidArnException, InvalidGrantIdException, InvalidGrantTokenException, KMSInternalException, KMSInvalidStateException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const retireGrant = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.RetireGrant" }, RetireGrantRequest, S.Struct({}), [DependencyTimeoutException, DryRunOperationException, InvalidArnException, InvalidGrantIdException, InvalidGrantTokenException, KMSInternalException, KMSInvalidStateException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified grant. You revoke a grant to terminate the permissions that the
  * grant allows. For more information, see Retiring and revoking grants in the
@@ -1952,7 +1952,7 @@ export class XksProxyVpcEndpointServiceNotFoundException extends S.TaggedError<X
  * 
  * **Eventual consistency**: The KMS API follows an eventual consistency model.
  * For more information, see KMS eventual consistency.
- */export const revokeGrant = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", uri: "/", method: "POST", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.RevokeGrant" }, RevokeGrantRequest, S.Struct({}), [DependencyTimeoutException, DryRunOperationException, InvalidArnException, InvalidGrantIdException, KMSInternalException, KMSInvalidStateException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const revokeGrant = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.RevokeGrant" }, RevokeGrantRequest, S.Struct({}), [DependencyTimeoutException, DryRunOperationException, InvalidArnException, InvalidGrantIdException, KMSInternalException, KMSInvalidStateException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Schedules the deletion of a KMS key. By default, KMS applies a waiting period of 30
  * days, but you can specify a waiting period of 7-30 days. When this operation is successful,
@@ -2035,7 +2035,7 @@ export class XksProxyVpcEndpointServiceNotFoundException extends S.TaggedError<X
  * 
  * **Eventual consistency**: The KMS API follows an eventual consistency model.
  * For more information, see KMS eventual consistency.
- */export const scheduleKeyDeletion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", uri: "/", method: "POST", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.ScheduleKeyDeletion" }, ScheduleKeyDeletionRequest, ScheduleKeyDeletionResponse, [DependencyTimeoutException, InvalidArnException, KMSInternalException, KMSInvalidStateException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const scheduleKeyDeletion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.ScheduleKeyDeletion" }, ScheduleKeyDeletionRequest, ScheduleKeyDeletionResponse, [DependencyTimeoutException, InvalidArnException, KMSInternalException, KMSInvalidStateException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a digital
  * signature for a message or message digest by using the private key in an asymmetric
@@ -2120,7 +2120,7 @@ export class XksProxyVpcEndpointServiceNotFoundException extends S.TaggedError<X
  * 
  * **Eventual consistency**: The KMS API follows an eventual consistency model.
  * For more information, see KMS eventual consistency.
- */export const sign = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", uri: "/", method: "POST", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.Sign" }, SignRequest, SignResponse, [DependencyTimeoutException, DisabledException, DryRunOperationException, InvalidGrantTokenException, InvalidKeyUsageException, KeyUnavailableException, KMSInternalException, KMSInvalidStateException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const sign = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.Sign" }, SignRequest, SignResponse, [DependencyTimeoutException, DisabledException, DryRunOperationException, InvalidGrantTokenException, InvalidKeyUsageException, KeyUnavailableException, KMSInternalException, KMSInvalidStateException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds or edits tags on a customer managed key.
  * 
@@ -2194,7 +2194,7 @@ export class XksProxyVpcEndpointServiceNotFoundException extends S.TaggedError<X
  * 
  * **Eventual consistency**: The KMS API follows an eventual consistency model.
  * For more information, see KMS eventual consistency.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", uri: "/", method: "POST", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.TagResource" }, TagResourceRequest, S.Struct({}), [InvalidArnException, KMSInternalException, KMSInvalidStateException, LimitExceededException, NotFoundException, TagException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.TagResource" }, TagResourceRequest, S.Struct({}), [InvalidArnException, KMSInternalException, KMSInvalidStateException, LimitExceededException, NotFoundException, TagException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes tags from a customer managed key. To delete a
  * tag, specify the tag key and the KMS key.
@@ -2260,7 +2260,7 @@ export class XksProxyVpcEndpointServiceNotFoundException extends S.TaggedError<X
  * 
  * **Eventual consistency**: The KMS API follows an eventual consistency model.
  * For more information, see KMS eventual consistency.
- */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", uri: "/", method: "POST", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.UntagResource" }, UntagResourceRequest, S.Struct({}), [InvalidArnException, KMSInternalException, KMSInvalidStateException, NotFoundException, TagException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.UntagResource" }, UntagResourceRequest, S.Struct({}), [InvalidArnException, KMSInternalException, KMSInvalidStateException, NotFoundException, TagException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Changes the primary key of a multi-Region key.
  * 
@@ -2355,7 +2355,7 @@ export class XksProxyVpcEndpointServiceNotFoundException extends S.TaggedError<X
  * 
  * **Eventual consistency**: The KMS API follows an eventual consistency model.
  * For more information, see KMS eventual consistency.
- */export const updatePrimaryRegion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", uri: "/", method: "POST", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.UpdatePrimaryRegion" }, UpdatePrimaryRegionRequest, S.Struct({}), [DisabledException, InvalidArnException, KMSInternalException, KMSInvalidStateException, NotFoundException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updatePrimaryRegion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.UpdatePrimaryRegion" }, UpdatePrimaryRegionRequest, S.Struct({}), [DisabledException, InvalidArnException, KMSInternalException, KMSInvalidStateException, NotFoundException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Connects or reconnects a custom key store to its backing key store. For an CloudHSM key
  * store, `ConnectCustomKeyStore` connects the key store to its associated CloudHSM
@@ -2484,7 +2484,7 @@ export class XksProxyVpcEndpointServiceNotFoundException extends S.TaggedError<X
  * 
  * **Eventual consistency**: The KMS API follows an eventual consistency model.
  * For more information, see KMS eventual consistency.
- */export const connectCustomKeyStore = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", uri: "/", method: "POST", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.ConnectCustomKeyStore" }, ConnectCustomKeyStoreRequest, ConnectCustomKeyStoreResponse, [CloudHsmClusterInvalidConfigurationException, CloudHsmClusterNotActiveException, CustomKeyStoreInvalidStateException, CustomKeyStoreNotFoundException, KMSInternalException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const connectCustomKeyStore = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.ConnectCustomKeyStore" }, ConnectCustomKeyStoreRequest, ConnectCustomKeyStoreResponse, [CloudHsmClusterInvalidConfigurationException, CloudHsmClusterNotActiveException, CustomKeyStoreInvalidStateException, CustomKeyStoreNotFoundException, KMSInternalException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a friendly name for a KMS key.
  * 
@@ -2571,7 +2571,7 @@ export class XksProxyVpcEndpointServiceNotFoundException extends S.TaggedError<X
  * 
  * **Eventual consistency**: The KMS API follows an eventual consistency model.
  * For more information, see KMS eventual consistency.
- */export const createAlias = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", uri: "/", method: "POST", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.CreateAlias" }, CreateAliasRequest, S.Struct({}), [AlreadyExistsException, DependencyTimeoutException, InvalidAliasNameException, KMSInternalException, KMSInvalidStateException, LimitExceededException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createAlias = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.CreateAlias" }, CreateAliasRequest, S.Struct({}), [AlreadyExistsException, DependencyTimeoutException, InvalidAliasNameException, KMSInternalException, KMSInvalidStateException, LimitExceededException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds a grant to a KMS key.
  * 
@@ -2660,7 +2660,7 @@ export class XksProxyVpcEndpointServiceNotFoundException extends S.TaggedError<X
  * 
  * **Eventual consistency**: The KMS API follows an eventual consistency model.
  * For more information, see KMS eventual consistency.
- */export const createGrant = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", uri: "/", method: "POST", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.CreateGrant" }, CreateGrantRequest, CreateGrantResponse, [DependencyTimeoutException, DisabledException, DryRunOperationException, InvalidArnException, InvalidGrantTokenException, KMSInternalException, KMSInvalidStateException, LimitExceededException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createGrant = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.CreateGrant" }, CreateGrantRequest, CreateGrantResponse, [DependencyTimeoutException, DisabledException, DryRunOperationException, InvalidArnException, InvalidGrantTokenException, KMSInternalException, KMSInvalidStateException, LimitExceededException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Derives a shared secret using a key agreement algorithm.
  * 
@@ -2787,7 +2787,7 @@ export class XksProxyVpcEndpointServiceNotFoundException extends S.TaggedError<X
  * 
  * **Eventual consistency**: The KMS API follows an eventual consistency model.
  * For more information, see KMS eventual consistency.
- */export const deriveSharedSecret = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", uri: "/", method: "POST", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.DeriveSharedSecret" }, DeriveSharedSecretRequest, DeriveSharedSecretResponse, [DependencyTimeoutException, DisabledException, DryRunOperationException, InvalidGrantTokenException, InvalidKeyUsageException, KeyUnavailableException, KMSInternalException, KMSInvalidStateException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deriveSharedSecret = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.DeriveSharedSecret" }, DeriveSharedSecretRequest, DeriveSharedSecretResponse, [DependencyTimeoutException, DisabledException, DryRunOperationException, InvalidGrantTokenException, InvalidKeyUsageException, KeyUnavailableException, KMSInternalException, KMSInvalidStateException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Encrypts plaintext of up to 4,096 bytes using a KMS key. You can use a symmetric or
  * asymmetric KMS key with a `KeyUsage` of `ENCRYPT_DECRYPT`.
@@ -2932,7 +2932,7 @@ export class XksProxyVpcEndpointServiceNotFoundException extends S.TaggedError<X
  * 
  * **Eventual consistency**: The KMS API follows an eventual consistency model.
  * For more information, see KMS eventual consistency.
- */export const encrypt = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", uri: "/", method: "POST", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.Encrypt" }, EncryptRequest, EncryptResponse, [DependencyTimeoutException, DisabledException, DryRunOperationException, InvalidGrantTokenException, InvalidKeyUsageException, KeyUnavailableException, KMSInternalException, KMSInvalidStateException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const encrypt = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.Encrypt" }, EncryptRequest, EncryptResponse, [DependencyTimeoutException, DisabledException, DryRunOperationException, InvalidGrantTokenException, InvalidKeyUsageException, KeyUnavailableException, KMSInternalException, KMSInvalidStateException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a unique symmetric data key for use outside of KMS. This operation returns a
  * plaintext copy of the data key and a copy that is encrypted under a symmetric encryption KMS
@@ -3076,7 +3076,7 @@ export class XksProxyVpcEndpointServiceNotFoundException extends S.TaggedError<X
  * 
  * **Eventual consistency**: The KMS API follows an eventual consistency model.
  * For more information, see KMS eventual consistency.
- */export const generateDataKey = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", uri: "/", method: "POST", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.GenerateDataKey" }, GenerateDataKeyRequest, GenerateDataKeyResponse, [DependencyTimeoutException, DisabledException, DryRunOperationException, InvalidGrantTokenException, InvalidKeyUsageException, KeyUnavailableException, KMSInternalException, KMSInvalidStateException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const generateDataKey = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.GenerateDataKey" }, GenerateDataKeyRequest, GenerateDataKeyResponse, [DependencyTimeoutException, DisabledException, DryRunOperationException, InvalidGrantTokenException, InvalidKeyUsageException, KeyUnavailableException, KMSInternalException, KMSInvalidStateException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets a list of aliases in the caller's Amazon Web Services account and region. For more information
  * about aliases, see CreateAlias.
@@ -3138,7 +3138,7 @@ export class XksProxyVpcEndpointServiceNotFoundException extends S.TaggedError<X
  * 
  * **Eventual consistency**: The KMS API follows an eventual consistency model.
  * For more information, see KMS eventual consistency.
- */export const listAliases = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", uri: "/", method: "POST", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.ListAliases" }, ListAliasesRequest, ListAliasesResponse, [DependencyTimeoutException, InvalidArnException, InvalidMarkerException, KMSInternalException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listAliases = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.ListAliases" }, ListAliasesRequest, ListAliasesResponse, [DependencyTimeoutException, InvalidArnException, InvalidMarkerException, KMSInternalException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets a list of all grants for the specified KMS key.
  * 
@@ -3205,7 +3205,7 @@ export class XksProxyVpcEndpointServiceNotFoundException extends S.TaggedError<X
  * 
  * **Eventual consistency**: The KMS API follows an eventual consistency model.
  * For more information, see KMS eventual consistency.
- */export const listGrants = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", uri: "/", method: "POST", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.ListGrants" }, ListGrantsRequest, ListGrantsResponse, [DependencyTimeoutException, InvalidArnException, InvalidGrantIdException, InvalidMarkerException, KMSInternalException, KMSInvalidStateException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listGrants = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.ListGrants" }, ListGrantsRequest, ListGrantsResponse, [DependencyTimeoutException, InvalidArnException, InvalidGrantIdException, InvalidMarkerException, KMSInternalException, KMSInvalidStateException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about the key materials associated with the specified KMS key. You can
  * use the optional `IncludeKeyMaterial` parameter to control which key materials are
@@ -3269,7 +3269,7 @@ export class XksProxyVpcEndpointServiceNotFoundException extends S.TaggedError<X
  * 
  * **Eventual consistency**: The KMS API follows an eventual consistency model.
  * For more information, see KMS eventual consistency.
- */export const listKeyRotations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", uri: "/", method: "POST", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.ListKeyRotations" }, ListKeyRotationsRequest, ListKeyRotationsResponse, [InvalidArnException, InvalidMarkerException, KMSInternalException, KMSInvalidStateException, NotFoundException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listKeyRotations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.ListKeyRotations" }, ListKeyRotationsRequest, ListKeyRotationsResponse, [InvalidArnException, InvalidMarkerException, KMSInternalException, KMSInvalidStateException, NotFoundException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets a list of all KMS keys in the caller's Amazon Web Services account and Region.
  * 
@@ -3313,7 +3313,7 @@ export class XksProxyVpcEndpointServiceNotFoundException extends S.TaggedError<X
  * 
  * **Eventual consistency**: The KMS API follows an eventual consistency model.
  * For more information, see KMS eventual consistency.
- */export const listKeys = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", uri: "/", method: "POST", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.ListKeys" }, ListKeysRequest, ListKeysResponse, [DependencyTimeoutException, InvalidMarkerException, KMSInternalException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listKeys = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.ListKeys" }, ListKeysRequest, ListKeysResponse, [DependencyTimeoutException, InvalidMarkerException, KMSInternalException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Attaches a key policy to the specified KMS key.
  * 
@@ -3342,7 +3342,7 @@ export class XksProxyVpcEndpointServiceNotFoundException extends S.TaggedError<X
  * 
  * **Eventual consistency**: The KMS API follows an eventual consistency model.
  * For more information, see KMS eventual consistency.
- */export const putKeyPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", uri: "/", method: "POST", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.PutKeyPolicy" }, PutKeyPolicyRequest, S.Struct({}), [DependencyTimeoutException, InvalidArnException, KMSInternalException, KMSInvalidStateException, LimitExceededException, MalformedPolicyDocumentException, NotFoundException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putKeyPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.PutKeyPolicy" }, PutKeyPolicyRequest, S.Struct({}), [DependencyTimeoutException, InvalidArnException, KMSInternalException, KMSInvalidStateException, LimitExceededException, MalformedPolicyDocumentException, NotFoundException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Decrypts ciphertext and then reencrypts it entirely within KMS. You can use this
  * operation to change the KMS key under which data is encrypted, such as when you manually rotate a
@@ -3467,7 +3467,7 @@ export class XksProxyVpcEndpointServiceNotFoundException extends S.TaggedError<X
  * 
  * **Eventual consistency**: The KMS API follows an eventual consistency model.
  * For more information, see KMS eventual consistency.
- */export const reEncrypt = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", uri: "/", method: "POST", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.ReEncrypt" }, ReEncryptRequest, ReEncryptResponse, [DependencyTimeoutException, DisabledException, DryRunOperationException, IncorrectKeyException, InvalidCiphertextException, InvalidGrantTokenException, InvalidKeyUsageException, KeyUnavailableException, KMSInternalException, KMSInvalidStateException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const reEncrypt = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.ReEncrypt" }, ReEncryptRequest, ReEncryptResponse, [DependencyTimeoutException, DisabledException, DryRunOperationException, IncorrectKeyException, InvalidCiphertextException, InvalidGrantTokenException, InvalidKeyUsageException, KeyUnavailableException, KMSInternalException, KMSInvalidStateException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Immediately initiates rotation of the key material of the specified symmetric encryption
  * KMS key.
@@ -3561,7 +3561,7 @@ export class XksProxyVpcEndpointServiceNotFoundException extends S.TaggedError<X
  * 
  * **Eventual consistency**: The KMS API follows an eventual consistency model.
  * For more information, see KMS eventual consistency.
- */export const rotateKeyOnDemand = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", uri: "/", method: "POST", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.RotateKeyOnDemand" }, RotateKeyOnDemandRequest, RotateKeyOnDemandResponse, [ConflictException, DependencyTimeoutException, DisabledException, InvalidArnException, KMSInternalException, KMSInvalidStateException, LimitExceededException, NotFoundException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const rotateKeyOnDemand = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.RotateKeyOnDemand" }, RotateKeyOnDemandRequest, RotateKeyOnDemandResponse, [ConflictException, DependencyTimeoutException, DisabledException, InvalidArnException, KMSInternalException, KMSInvalidStateException, LimitExceededException, NotFoundException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Verifies a digital signature that was generated by the Sign operation.
  * 
@@ -3622,7 +3622,7 @@ export class XksProxyVpcEndpointServiceNotFoundException extends S.TaggedError<X
  * 
  * **Eventual consistency**: The KMS API follows an eventual consistency model.
  * For more information, see KMS eventual consistency.
- */export const verify = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", uri: "/", method: "POST", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.Verify" }, VerifyRequest, VerifyResponse, [DependencyTimeoutException, DisabledException, DryRunOperationException, InvalidGrantTokenException, InvalidKeyUsageException, KeyUnavailableException, KMSInternalException, KMSInvalidSignatureException, KMSInvalidStateException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const verify = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.Verify" }, VerifyRequest, VerifyResponse, [DependencyTimeoutException, DisabledException, DryRunOperationException, InvalidGrantTokenException, InvalidKeyUsageException, KeyUnavailableException, KMSInternalException, KMSInvalidSignatureException, KMSInvalidStateException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Verifies the hash-based message authentication code (HMAC) for a specified message, HMAC
  * KMS key, and MAC algorithm. To verify the HMAC, `VerifyMac` computes an HMAC using
@@ -3662,7 +3662,7 @@ export class XksProxyVpcEndpointServiceNotFoundException extends S.TaggedError<X
  * 
  * **Eventual consistency**: The KMS API follows an eventual consistency model.
  * For more information, see KMS eventual consistency.
- */export const verifyMac = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", uri: "/", method: "POST", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.VerifyMac" }, VerifyMacRequest, VerifyMacResponse, [DisabledException, DryRunOperationException, InvalidGrantTokenException, InvalidKeyUsageException, KeyUnavailableException, KMSInternalException, KMSInvalidMacException, KMSInvalidStateException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const verifyMac = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.VerifyMac" }, VerifyMacRequest, VerifyMacResponse, [DisabledException, DryRunOperationException, InvalidGrantTokenException, InvalidKeyUsageException, KeyUnavailableException, KMSInternalException, KMSInvalidMacException, KMSInvalidStateException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Decrypts ciphertext that was encrypted by a KMS key using any of the following
  * operations:
@@ -3783,7 +3783,7 @@ export class XksProxyVpcEndpointServiceNotFoundException extends S.TaggedError<X
  * 
  * **Eventual consistency**: The KMS API follows an eventual consistency model.
  * For more information, see KMS eventual consistency.
- */export const decrypt = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", uri: "/", method: "POST", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.Decrypt" }, DecryptRequest, DecryptResponse, [DependencyTimeoutException, DisabledException, DryRunOperationException, IncorrectKeyException, InvalidCiphertextException, InvalidGrantTokenException, InvalidKeyUsageException, KeyUnavailableException, KMSInternalException, KMSInvalidStateException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const decrypt = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.Decrypt" }, DecryptRequest, DecryptResponse, [DependencyTimeoutException, DisabledException, DryRunOperationException, IncorrectKeyException, InvalidCiphertextException, InvalidGrantTokenException, InvalidKeyUsageException, KeyUnavailableException, KMSInternalException, KMSInvalidStateException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets information about custom key stores in the account and Region.
  * 
@@ -3866,7 +3866,7 @@ export class XksProxyVpcEndpointServiceNotFoundException extends S.TaggedError<X
  * 
  * **Eventual consistency**: The KMS API follows an eventual consistency model.
  * For more information, see KMS eventual consistency.
- */export const describeCustomKeyStores = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", uri: "/", method: "POST", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.DescribeCustomKeyStores" }, DescribeCustomKeyStoresRequest, DescribeCustomKeyStoresResponse, [CustomKeyStoreNotFoundException, InvalidMarkerException, KMSInternalException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeCustomKeyStores = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.DescribeCustomKeyStores" }, DescribeCustomKeyStoresRequest, DescribeCustomKeyStoresResponse, [CustomKeyStoreNotFoundException, InvalidMarkerException, KMSInternalException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides detailed information about a KMS key. You can run `DescribeKey` on a
  * customer
@@ -3974,7 +3974,7 @@ export class XksProxyVpcEndpointServiceNotFoundException extends S.TaggedError<X
  * 
  * **Eventual consistency**: The KMS API follows an eventual consistency model.
  * For more information, see KMS eventual consistency.
- */export const describeKey = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", uri: "/", method: "POST", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.DescribeKey" }, DescribeKeyRequest, DescribeKeyResponse, [DependencyTimeoutException, InvalidArnException, KMSInternalException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeKey = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.DescribeKey" }, DescribeKeyRequest, DescribeKeyResponse, [DependencyTimeoutException, InvalidArnException, KMSInternalException, NotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Imports or reimports key material into an existing KMS key that was created without key
  * material. You can also use this operation to set or update the expiration model and expiration
@@ -4153,7 +4153,7 @@ export class XksProxyVpcEndpointServiceNotFoundException extends S.TaggedError<X
  * 
  * **Eventual consistency**: The KMS API follows an eventual consistency model.
  * For more information, see KMS eventual consistency.
- */export const importKeyMaterial = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", uri: "/", method: "POST", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.ImportKeyMaterial" }, ImportKeyMaterialRequest, ImportKeyMaterialResponse, [DependencyTimeoutException, ExpiredImportTokenException, IncorrectKeyMaterialException, InvalidArnException, InvalidCiphertextException, InvalidImportTokenException, KMSInternalException, KMSInvalidStateException, NotFoundException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const importKeyMaterial = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.ImportKeyMaterial" }, ImportKeyMaterialRequest, ImportKeyMaterialResponse, [DependencyTimeoutException, ExpiredImportTokenException, IncorrectKeyMaterialException, InvalidArnException, InvalidCiphertextException, InvalidImportTokenException, KMSInternalException, KMSInvalidStateException, NotFoundException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a unique customer managed KMS key in your Amazon Web Services account and Region.
  * You can use a KMS key in cryptographic operations, such as encryption and signing. Some Amazon Web Services
@@ -4419,7 +4419,7 @@ export class XksProxyVpcEndpointServiceNotFoundException extends S.TaggedError<X
  * 
  * **Eventual consistency**: The KMS API follows an eventual consistency model.
  * For more information, see KMS eventual consistency.
- */export const createKey = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", uri: "/", method: "POST", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.CreateKey" }, CreateKeyRequest, CreateKeyResponse, [CloudHsmClusterInvalidConfigurationException, CustomKeyStoreInvalidStateException, CustomKeyStoreNotFoundException, DependencyTimeoutException, InvalidArnException, KMSInternalException, LimitExceededException, MalformedPolicyDocumentException, TagException, UnsupportedOperationException, XksKeyAlreadyInUseException, XksKeyInvalidConfigurationException, XksKeyNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createKey = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.CreateKey" }, CreateKeyRequest, CreateKeyResponse, [CloudHsmClusterInvalidConfigurationException, CustomKeyStoreInvalidStateException, CustomKeyStoreNotFoundException, DependencyTimeoutException, InvalidArnException, KMSInternalException, LimitExceededException, MalformedPolicyDocumentException, TagException, UnsupportedOperationException, XksKeyAlreadyInUseException, XksKeyInvalidConfigurationException, XksKeyNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Changes the properties of a custom key store. You can use this operation to change the
  * properties of an CloudHSM key store or an external key store.
@@ -4554,7 +4554,7 @@ export class XksProxyVpcEndpointServiceNotFoundException extends S.TaggedError<X
  * 
  * **Eventual consistency**: The KMS API follows an eventual consistency model.
  * For more information, see KMS eventual consistency.
- */export const updateCustomKeyStore = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", uri: "/", method: "POST", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.UpdateCustomKeyStore" }, UpdateCustomKeyStoreRequest, UpdateCustomKeyStoreResponse, [CloudHsmClusterInvalidConfigurationException, CloudHsmClusterNotActiveException, CloudHsmClusterNotFoundException, CloudHsmClusterNotRelatedException, CustomKeyStoreInvalidStateException, CustomKeyStoreNameInUseException, CustomKeyStoreNotFoundException, KMSInternalException, XksProxyIncorrectAuthenticationCredentialException, XksProxyInvalidConfigurationException, XksProxyInvalidResponseException, XksProxyUriEndpointInUseException, XksProxyUriInUseException, XksProxyUriUnreachableException, XksProxyVpcEndpointServiceInUseException, XksProxyVpcEndpointServiceInvalidConfigurationException, XksProxyVpcEndpointServiceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateCustomKeyStore = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.UpdateCustomKeyStore" }, UpdateCustomKeyStoreRequest, UpdateCustomKeyStoreResponse, [CloudHsmClusterInvalidConfigurationException, CloudHsmClusterNotActiveException, CloudHsmClusterNotFoundException, CloudHsmClusterNotRelatedException, CustomKeyStoreInvalidStateException, CustomKeyStoreNameInUseException, CustomKeyStoreNotFoundException, KMSInternalException, XksProxyIncorrectAuthenticationCredentialException, XksProxyInvalidConfigurationException, XksProxyInvalidResponseException, XksProxyUriEndpointInUseException, XksProxyUriInUseException, XksProxyUriUnreachableException, XksProxyVpcEndpointServiceInUseException, XksProxyVpcEndpointServiceInvalidConfigurationException, XksProxyVpcEndpointServiceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a custom key store backed by a key store that you own and manage. When you use a
  * KMS key in a custom key store for a cryptographic operation, the cryptographic operation is
@@ -4674,4 +4674,4 @@ export class XksProxyVpcEndpointServiceNotFoundException extends S.TaggedError<X
  * 
  * **Eventual consistency**: The KMS API follows an eventual consistency model.
  * For more information, see KMS eventual consistency.
- */export const createCustomKeyStore = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", uri: "/", method: "POST", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.CreateCustomKeyStore" }, CreateCustomKeyStoreRequest, CreateCustomKeyStoreResponse, [CloudHsmClusterInUseException, CloudHsmClusterInvalidConfigurationException, CloudHsmClusterNotActiveException, CloudHsmClusterNotFoundException, CustomKeyStoreNameInUseException, IncorrectTrustAnchorException, KMSInternalException, LimitExceededException, XksProxyIncorrectAuthenticationCredentialException, XksProxyInvalidConfigurationException, XksProxyInvalidResponseException, XksProxyUriEndpointInUseException, XksProxyUriInUseException, XksProxyUriUnreachableException, XksProxyVpcEndpointServiceInUseException, XksProxyVpcEndpointServiceInvalidConfigurationException, XksProxyVpcEndpointServiceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createCustomKeyStore = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-11-01", sdkId: "KMS", sigV4ServiceName: "kms", name: "TrentService.CreateCustomKeyStore" }, CreateCustomKeyStoreRequest, CreateCustomKeyStoreResponse, [CloudHsmClusterInUseException, CloudHsmClusterInvalidConfigurationException, CloudHsmClusterNotActiveException, CloudHsmClusterNotFoundException, CustomKeyStoreNameInUseException, IncorrectTrustAnchorException, KMSInternalException, LimitExceededException, XksProxyIncorrectAuthenticationCredentialException, XksProxyInvalidConfigurationException, XksProxyInvalidResponseException, XksProxyUriEndpointInUseException, XksProxyUriInUseException, XksProxyUriUnreachableException, XksProxyVpcEndpointServiceInUseException, XksProxyVpcEndpointServiceInvalidConfigurationException, XksProxyVpcEndpointServiceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

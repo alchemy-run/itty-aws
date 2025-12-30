@@ -88,7 +88,7 @@ export class InvalidIdentityPoolConfigurationException extends S.TaggedError<Inv
  * 
  * You must use Amazon Web Services developer credentials to call this
  * operation.
- */export const describeIdentity = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", uri: "/", method: "POST", sdkId: "Cognito Identity", sigV4ServiceName: "cognito-identity", name: "AWSCognitoIdentityService.DescribeIdentity" }, DescribeIdentityInput, IdentityDescription, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeIdentity = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", sdkId: "Cognito Identity", sigV4ServiceName: "cognito-identity", name: "AWSCognitoIdentityService.DescribeIdentity" }, DescribeIdentityInput, IdentityDescription, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets details about a particular identity pool, including the pool name, ID
  * description, creation date, and current number of users.
@@ -96,21 +96,21 @@ export class InvalidIdentityPoolConfigurationException extends S.TaggedError<Inv
  * 
  * You must use Amazon Web Services developer credentials to call this
  * operation.
- */export const describeIdentityPool = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", uri: "/", method: "POST", sdkId: "Cognito Identity", sigV4ServiceName: "cognito-identity", name: "AWSCognitoIdentityService.DescribeIdentityPool" }, DescribeIdentityPoolInput, IdentityPool, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeIdentityPool = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", sdkId: "Cognito Identity", sigV4ServiceName: "cognito-identity", name: "AWSCognitoIdentityService.DescribeIdentityPool" }, DescribeIdentityPoolInput, IdentityPool, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Generates (or retrieves) IdentityID. Supplying multiple logins will create an
  * implicit linked account.
  * 
  * 
  * This is a public API. You do not need any credentials to call this API.
- */export const getId = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", uri: "/", method: "POST", sdkId: "Cognito Identity", sigV4ServiceName: "cognito-identity", name: "AWSCognitoIdentityService.GetId" }, GetIdInput, GetIdResponse, [ExternalServiceException, InternalErrorException, InvalidParameterException, LimitExceededException, NotAuthorizedException, ResourceConflictException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getId = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", sdkId: "Cognito Identity", sigV4ServiceName: "cognito-identity", name: "AWSCognitoIdentityService.GetId" }, GetIdInput, GetIdResponse, [ExternalServiceException, InternalErrorException, InvalidParameterException, LimitExceededException, NotAuthorizedException, ResourceConflictException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets the roles for an identity pool.
  * 
  * 
  * You must use Amazon Web Services developer credentials to call this
  * operation.
- */export const getIdentityPoolRoles = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", uri: "/", method: "POST", sdkId: "Cognito Identity", sigV4ServiceName: "cognito-identity", name: "AWSCognitoIdentityService.GetIdentityPoolRoles" }, GetIdentityPoolRolesInput, GetIdentityPoolRolesResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceConflictException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getIdentityPoolRoles = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", sdkId: "Cognito Identity", sigV4ServiceName: "cognito-identity", name: "AWSCognitoIdentityService.GetIdentityPoolRoles" }, GetIdentityPoolRolesInput, GetIdentityPoolRolesResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceConflictException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets an OpenID token, using a known Cognito ID. This known Cognito ID is returned by
  * GetId. You can optionally add additional logins for the identity.
@@ -121,18 +121,18 @@ export class InvalidIdentityPoolConfigurationException extends S.TaggedError<Inv
  * 
  * 
  * This is a public API. You do not need any credentials to call this API.
- */export const getOpenIdToken = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", uri: "/", method: "POST", sdkId: "Cognito Identity", sigV4ServiceName: "cognito-identity", name: "AWSCognitoIdentityService.GetOpenIdToken" }, GetOpenIdTokenInput, GetOpenIdTokenResponse, [ExternalServiceException, InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceConflictException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getOpenIdToken = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", sdkId: "Cognito Identity", sigV4ServiceName: "cognito-identity", name: "AWSCognitoIdentityService.GetOpenIdToken" }, GetOpenIdTokenInput, GetOpenIdTokenResponse, [ExternalServiceException, InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceConflictException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Use `GetPrincipalTagAttributeMap` to list all mappings between
  * `PrincipalTags` and user attributes.
- */export const getPrincipalTagAttributeMap = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", uri: "/", method: "POST", sdkId: "Cognito Identity", sigV4ServiceName: "cognito-identity", name: "AWSCognitoIdentityService.GetPrincipalTagAttributeMap" }, GetPrincipalTagAttributeMapInput, GetPrincipalTagAttributeMapResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getPrincipalTagAttributeMap = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", sdkId: "Cognito Identity", sigV4ServiceName: "cognito-identity", name: "AWSCognitoIdentityService.GetPrincipalTagAttributeMap" }, GetPrincipalTagAttributeMapInput, GetPrincipalTagAttributeMapResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the identities in an identity pool.
  * 
  * 
  * You must use Amazon Web Services developer credentials to call this
  * operation.
- */export const listIdentities = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", uri: "/", method: "POST", sdkId: "Cognito Identity", sigV4ServiceName: "cognito-identity", name: "AWSCognitoIdentityService.ListIdentities" }, ListIdentitiesInput, ListIdentitiesResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listIdentities = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", sdkId: "Cognito Identity", sigV4ServiceName: "cognito-identity", name: "AWSCognitoIdentityService.ListIdentities" }, ListIdentitiesInput, ListIdentitiesResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the tags that are assigned to an Amazon Cognito identity pool.
  * 
@@ -142,7 +142,7 @@ export class InvalidIdentityPoolConfigurationException extends S.TaggedError<Inv
  * 
  * 
  * You can use this action up to 10 times per second, per account.
- */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", uri: "/", method: "POST", sdkId: "Cognito Identity", sigV4ServiceName: "cognito-identity", name: "AWSCognitoIdentityService.ListTagsForResource" }, ListTagsForResourceInput, ListTagsForResourceResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", sdkId: "Cognito Identity", sigV4ServiceName: "cognito-identity", name: "AWSCognitoIdentityService.ListTagsForResource" }, ListTagsForResourceInput, ListTagsForResourceResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the `IdentityID` associated with a
  * `DeveloperUserIdentifier` or the list of `DeveloperUserIdentifier`
@@ -166,7 +166,7 @@ export class InvalidIdentityPoolConfigurationException extends S.TaggedError<Inv
  * 
  * You must use Amazon Web Services developer credentials to call this
  * operation.
- */export const lookupDeveloperIdentity = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", uri: "/", method: "POST", sdkId: "Cognito Identity", sigV4ServiceName: "cognito-identity", name: "AWSCognitoIdentityService.LookupDeveloperIdentity" }, LookupDeveloperIdentityInput, LookupDeveloperIdentityResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceConflictException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const lookupDeveloperIdentity = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", sdkId: "Cognito Identity", sigV4ServiceName: "cognito-identity", name: "AWSCognitoIdentityService.LookupDeveloperIdentity" }, LookupDeveloperIdentityInput, LookupDeveloperIdentityResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceConflictException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Merges two users having different `IdentityId`s, existing in the same
  * identity pool, and identified by the same developer provider. You can use this action to
@@ -186,11 +186,11 @@ export class InvalidIdentityPoolConfigurationException extends S.TaggedError<Inv
  * 
  * You must use Amazon Web Services developer credentials to call this
  * operation.
- */export const mergeDeveloperIdentities = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", uri: "/", method: "POST", sdkId: "Cognito Identity", sigV4ServiceName: "cognito-identity", name: "AWSCognitoIdentityService.MergeDeveloperIdentities" }, MergeDeveloperIdentitiesInput, MergeDeveloperIdentitiesResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceConflictException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const mergeDeveloperIdentities = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", sdkId: "Cognito Identity", sigV4ServiceName: "cognito-identity", name: "AWSCognitoIdentityService.MergeDeveloperIdentities" }, MergeDeveloperIdentitiesInput, MergeDeveloperIdentitiesResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceConflictException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * You can use this operation to use default (username and clientID) attribute or custom
  * attribute mappings.
- */export const setPrincipalTagAttributeMap = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", uri: "/", method: "POST", sdkId: "Cognito Identity", sigV4ServiceName: "cognito-identity", name: "AWSCognitoIdentityService.SetPrincipalTagAttributeMap" }, SetPrincipalTagAttributeMapInput, SetPrincipalTagAttributeMapResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const setPrincipalTagAttributeMap = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", sdkId: "Cognito Identity", sigV4ServiceName: "cognito-identity", name: "AWSCognitoIdentityService.SetPrincipalTagAttributeMap" }, SetPrincipalTagAttributeMapInput, SetPrincipalTagAttributeMapResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Assigns a set of tags to the specified Amazon Cognito identity pool. A tag is a label
  * that you can use to categorize and manage identity pools in different ways, such as by
@@ -213,7 +213,7 @@ export class InvalidIdentityPoolConfigurationException extends S.TaggedError<Inv
  * 
  * You can use this action up to 5 times per second, per account. An identity pool can have
  * as many as 50 tags.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", uri: "/", method: "POST", sdkId: "Cognito Identity", sigV4ServiceName: "cognito-identity", name: "AWSCognitoIdentityService.TagResource" }, TagResourceInput, TagResourceResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", sdkId: "Cognito Identity", sigV4ServiceName: "cognito-identity", name: "AWSCognitoIdentityService.TagResource" }, TagResourceInput, TagResourceResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Unlinks a `DeveloperUserIdentifier` from an existing identity. Unlinked
  * developer users will be considered new identities next time they are seen. If, for a given
@@ -223,7 +223,7 @@ export class InvalidIdentityPoolConfigurationException extends S.TaggedError<Inv
  * 
  * You must use Amazon Web Services developer credentials to call this
  * operation.
- */export const unlinkDeveloperIdentity = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", uri: "/", method: "POST", sdkId: "Cognito Identity", sigV4ServiceName: "cognito-identity", name: "AWSCognitoIdentityService.UnlinkDeveloperIdentity" }, UnlinkDeveloperIdentityInput, S.Struct({}), [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceConflictException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const unlinkDeveloperIdentity = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", sdkId: "Cognito Identity", sigV4ServiceName: "cognito-identity", name: "AWSCognitoIdentityService.UnlinkDeveloperIdentity" }, UnlinkDeveloperIdentityInput, S.Struct({}), [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceConflictException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Unlinks a federated identity from an existing account. Unlinked logins will be
  * considered new identities next time they are seen. Removing the last linked login will make
@@ -231,11 +231,11 @@ export class InvalidIdentityPoolConfigurationException extends S.TaggedError<Inv
  * 
  * 
  * This is a public API. You do not need any credentials to call this API.
- */export const unlinkIdentity = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", uri: "/", method: "POST", sdkId: "Cognito Identity", sigV4ServiceName: "cognito-identity", name: "AWSCognitoIdentityService.UnlinkIdentity" }, UnlinkIdentityInput, S.Struct({}), [ExternalServiceException, InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceConflictException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const unlinkIdentity = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", sdkId: "Cognito Identity", sigV4ServiceName: "cognito-identity", name: "AWSCognitoIdentityService.UnlinkIdentity" }, UnlinkIdentityInput, S.Struct({}), [ExternalServiceException, InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceConflictException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes the specified tags from the specified Amazon Cognito identity pool. You can use
  * this action up to 5 times per second, per account
- */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", uri: "/", method: "POST", sdkId: "Cognito Identity", sigV4ServiceName: "cognito-identity", name: "AWSCognitoIdentityService.UntagResource" }, UntagResourceInput, UntagResourceResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", sdkId: "Cognito Identity", sigV4ServiceName: "cognito-identity", name: "AWSCognitoIdentityService.UntagResource" }, UntagResourceInput, UntagResourceResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the configuration of an identity pool.
  * 
@@ -250,7 +250,7 @@ export class InvalidIdentityPoolConfigurationException extends S.TaggedError<Inv
  * 
  * You must use Amazon Web Services developer credentials to call this
  * operation.
- */export const updateIdentityPool = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", uri: "/", method: "POST", sdkId: "Cognito Identity", sigV4ServiceName: "cognito-identity", name: "AWSCognitoIdentityService.UpdateIdentityPool" }, IdentityPool, IdentityPool, [ConcurrentModificationException, InternalErrorException, InvalidParameterException, LimitExceededException, NotAuthorizedException, ResourceConflictException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateIdentityPool = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", sdkId: "Cognito Identity", sigV4ServiceName: "cognito-identity", name: "AWSCognitoIdentityService.UpdateIdentityPool" }, IdentityPool, IdentityPool, [ConcurrentModificationException, InternalErrorException, InvalidParameterException, LimitExceededException, NotAuthorizedException, ResourceConflictException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new identity pool. The identity pool is a store of user identity
  * information that is specific to your Amazon Web Services account. The keys for
@@ -300,7 +300,7 @@ export class InvalidIdentityPoolConfigurationException extends S.TaggedError<Inv
  * 
  * You must use Amazon Web Services developer credentials to call this
  * operation.
- */export const createIdentityPool = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", uri: "/", method: "POST", sdkId: "Cognito Identity", sigV4ServiceName: "cognito-identity", name: "AWSCognitoIdentityService.CreateIdentityPool" }, CreateIdentityPoolInput, IdentityPool, [InternalErrorException, InvalidParameterException, LimitExceededException, NotAuthorizedException, ResourceConflictException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createIdentityPool = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", sdkId: "Cognito Identity", sigV4ServiceName: "cognito-identity", name: "AWSCognitoIdentityService.CreateIdentityPool" }, CreateIdentityPoolInput, IdentityPool, [InternalErrorException, InvalidParameterException, LimitExceededException, NotAuthorizedException, ResourceConflictException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes identities from an identity pool. You can specify a list of 1-60 identities
  * that you want to delete.
@@ -308,7 +308,7 @@ export class InvalidIdentityPoolConfigurationException extends S.TaggedError<Inv
  * 
  * You must use Amazon Web Services developer credentials to call this
  * operation.
- */export const deleteIdentities = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", uri: "/", method: "POST", sdkId: "Cognito Identity", sigV4ServiceName: "cognito-identity", name: "AWSCognitoIdentityService.DeleteIdentities" }, DeleteIdentitiesInput, DeleteIdentitiesResponse, [InternalErrorException, InvalidParameterException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteIdentities = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", sdkId: "Cognito Identity", sigV4ServiceName: "cognito-identity", name: "AWSCognitoIdentityService.DeleteIdentities" }, DeleteIdentitiesInput, DeleteIdentitiesResponse, [InternalErrorException, InvalidParameterException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an identity pool. Once a pool is deleted, users will not be able to
  * authenticate with the pool.
@@ -316,14 +316,14 @@ export class InvalidIdentityPoolConfigurationException extends S.TaggedError<Inv
  * 
  * You must use Amazon Web Services developer credentials to call this
  * operation.
- */export const deleteIdentityPool = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", uri: "/", method: "POST", sdkId: "Cognito Identity", sigV4ServiceName: "cognito-identity", name: "AWSCognitoIdentityService.DeleteIdentityPool" }, DeleteIdentityPoolInput, S.Struct({}), [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteIdentityPool = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", sdkId: "Cognito Identity", sigV4ServiceName: "cognito-identity", name: "AWSCognitoIdentityService.DeleteIdentityPool" }, DeleteIdentityPoolInput, S.Struct({}), [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists all of the Cognito identity pools registered for your account.
  * 
  * 
  * You must use Amazon Web Services developer credentials to call this
  * operation.
- */export const listIdentityPools = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", uri: "/", method: "POST", sdkId: "Cognito Identity", sigV4ServiceName: "cognito-identity", name: "AWSCognitoIdentityService.ListIdentityPools" }, ListIdentityPoolsInput, ListIdentityPoolsResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listIdentityPools = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", sdkId: "Cognito Identity", sigV4ServiceName: "cognito-identity", name: "AWSCognitoIdentityService.ListIdentityPools" }, ListIdentityPoolsInput, ListIdentityPoolsResponse, [InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Registers (or retrieves) a Cognito `IdentityId` and an OpenID Connect
  * token for a user authenticated by your backend authentication process. Supplying multiple
@@ -343,7 +343,7 @@ export class InvalidIdentityPoolConfigurationException extends S.TaggedError<Inv
  * 
  * You must use Amazon Web Services developer credentials to call this
  * operation.
- */export const getOpenIdTokenForDeveloperIdentity = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", uri: "/", method: "POST", sdkId: "Cognito Identity", sigV4ServiceName: "cognito-identity", name: "AWSCognitoIdentityService.GetOpenIdTokenForDeveloperIdentity" }, GetOpenIdTokenForDeveloperIdentityInput, GetOpenIdTokenForDeveloperIdentityResponse, [DeveloperUserAlreadyRegisteredException, InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceConflictException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getOpenIdTokenForDeveloperIdentity = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", sdkId: "Cognito Identity", sigV4ServiceName: "cognito-identity", name: "AWSCognitoIdentityService.GetOpenIdTokenForDeveloperIdentity" }, GetOpenIdTokenForDeveloperIdentityInput, GetOpenIdTokenForDeveloperIdentityResponse, [DeveloperUserAlreadyRegisteredException, InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceConflictException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns credentials for the provided identity ID. Any provided logins will be
  * validated against supported login providers. If the token is for
@@ -351,11 +351,11 @@ export class InvalidIdentityPoolConfigurationException extends S.TaggedError<Inv
  * 
  * 
  * This is a public API. You do not need any credentials to call this API.
- */export const getCredentialsForIdentity = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", uri: "/", method: "POST", sdkId: "Cognito Identity", sigV4ServiceName: "cognito-identity", name: "AWSCognitoIdentityService.GetCredentialsForIdentity" }, GetCredentialsForIdentityInput, GetCredentialsForIdentityResponse, [ExternalServiceException, InternalErrorException, InvalidIdentityPoolConfigurationException, InvalidParameterException, NotAuthorizedException, ResourceConflictException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getCredentialsForIdentity = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", sdkId: "Cognito Identity", sigV4ServiceName: "cognito-identity", name: "AWSCognitoIdentityService.GetCredentialsForIdentity" }, GetCredentialsForIdentityInput, GetCredentialsForIdentityResponse, [ExternalServiceException, InternalErrorException, InvalidIdentityPoolConfigurationException, InvalidParameterException, NotAuthorizedException, ResourceConflictException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Sets the roles for an identity pool. These roles are used when making calls to GetCredentialsForIdentity action.
  * 
  * 
  * You must use Amazon Web Services developer credentials to call this
  * operation.
- */export const setIdentityPoolRoles = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", uri: "/", method: "POST", sdkId: "Cognito Identity", sigV4ServiceName: "cognito-identity", name: "AWSCognitoIdentityService.SetIdentityPoolRoles" }, SetIdentityPoolRolesInput, S.Struct({}), [ConcurrentModificationException, InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceConflictException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const setIdentityPoolRoles = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-06-30", sdkId: "Cognito Identity", sigV4ServiceName: "cognito-identity", name: "AWSCognitoIdentityService.SetIdentityPoolRoles" }, SetIdentityPoolRolesInput, S.Struct({}), [ConcurrentModificationException, InternalErrorException, InvalidParameterException, NotAuthorizedException, ResourceConflictException, ResourceNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

@@ -138,7 +138,7 @@ export class VerificationFailedException extends S.TaggedError<VerificationFaile
  * - ImportKey
  * 
  * - ReEncryptData
- */export const encryptData = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-02-03", uri: "/keys/{KeyIdentifier}/encrypt", method: "POST", sdkId: "Payment Cryptography Data", sigV4ServiceName: "payment-cryptography", name: "PaymentCryptographyDataPlane.EncryptData" }, EncryptDataInput, EncryptDataOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const encryptData = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-02-03", uri: "/keys/{KeyIdentifier}/encrypt", sdkId: "Payment Cryptography Data", sigV4ServiceName: "payment-cryptography", name: "PaymentCryptographyDataPlane.EncryptData" }, EncryptDataInput, EncryptDataOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Establishes node-to-node initialization between payment processing nodes such as an acquirer, issuer or payment network using Australian Standard 2805 (AS2805).
  * 
@@ -149,7 +149,7 @@ export class VerificationFailedException extends S.TaggedError<VerificationFaile
  * For information about valid keys for this operation, see Understanding key attributes and Key types for specific data operations in the *Amazon Web Services Payment Cryptography User Guide*.
  * 
  * **Cross-account use**: This operation can't be used across different Amazon Web Services accounts.
- */export const generateAs2805KekValidation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-02-03", uri: "/as2805kekvalidation/generate", method: "POST", sdkId: "Payment Cryptography Data", sigV4ServiceName: "payment-cryptography", name: "PaymentCryptographyDataPlane.GenerateAs2805KekValidation" }, GenerateAs2805KekValidationInput, GenerateAs2805KekValidationOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const generateAs2805KekValidation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-02-03", uri: "/as2805kekvalidation/generate", sdkId: "Payment Cryptography Data", sigV4ServiceName: "payment-cryptography", name: "PaymentCryptographyDataPlane.GenerateAs2805KekValidation" }, GenerateAs2805KekValidationInput, GenerateAs2805KekValidationOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Generates card-related validation data using algorithms such as Card Verification Values (CVV/CVV2), Dynamic Card Verification Values (dCVV/dCVV2), or Card Security Codes (CSC). For more information, see Generate card data in the *Amazon Web Services Payment Cryptography User Guide*.
  * 
@@ -164,7 +164,7 @@ export class VerificationFailedException extends S.TaggedError<VerificationFaile
  * - ImportKey
  * 
  * - VerifyCardValidationData
- */export const generateCardValidationData = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-02-03", uri: "/cardvalidationdata/generate", method: "POST", sdkId: "Payment Cryptography Data", sigV4ServiceName: "payment-cryptography", name: "PaymentCryptographyDataPlane.GenerateCardValidationData" }, GenerateCardValidationDataInput, GenerateCardValidationDataOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const generateCardValidationData = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-02-03", uri: "/cardvalidationdata/generate", sdkId: "Payment Cryptography Data", sigV4ServiceName: "payment-cryptography", name: "PaymentCryptographyDataPlane.GenerateCardValidationData" }, GenerateCardValidationDataInput, GenerateCardValidationDataOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Re-encrypt ciphertext using DUKPT or Symmetric data encryption keys.
  * 
@@ -187,7 +187,7 @@ export class VerificationFailedException extends S.TaggedError<VerificationFaile
  * - GetPublicCertificate
  * 
  * - ImportKey
- */export const reEncryptData = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-02-03", uri: "/keys/{IncomingKeyIdentifier}/reencrypt", method: "POST", sdkId: "Payment Cryptography Data", sigV4ServiceName: "payment-cryptography", name: "PaymentCryptographyDataPlane.ReEncryptData" }, ReEncryptDataInput, ReEncryptDataOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const reEncryptData = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-02-03", uri: "/keys/{IncomingKeyIdentifier}/reencrypt", sdkId: "Payment Cryptography Data", sigV4ServiceName: "payment-cryptography", name: "PaymentCryptographyDataPlane.ReEncryptData" }, ReEncryptDataInput, ReEncryptDataOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Translates encrypted PIN block from and to ISO 9564 formats 0,1,3,4. For more information, see Translate PIN data in the *Amazon Web Services Payment Cryptography User Guide*.
  * 
@@ -214,7 +214,7 @@ export class VerificationFailedException extends S.TaggedError<VerificationFaile
  * - GeneratePinData
  * 
  * - VerifyPinData
- */export const translatePinData = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-02-03", uri: "/pindata/translate", method: "POST", sdkId: "Payment Cryptography Data", sigV4ServiceName: "payment-cryptography", name: "PaymentCryptographyDataPlane.TranslatePinData" }, TranslatePinDataInput, TranslatePinDataOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const translatePinData = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-02-03", uri: "/pindata/translate", sdkId: "Payment Cryptography Data", sigV4ServiceName: "payment-cryptography", name: "PaymentCryptographyDataPlane.TranslatePinData" }, TranslatePinDataInput, TranslatePinDataOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Verifies card-related validation data using algorithms such as Card Verification Values (CVV/CVV2), Dynamic Card Verification Values (dCVV/dCVV2) and Card Security Codes (CSC). For more information, see Verify card data in the *Amazon Web Services Payment Cryptography User Guide*.
  * 
@@ -231,7 +231,7 @@ export class VerificationFailedException extends S.TaggedError<VerificationFaile
  * - VerifyAuthRequestCryptogram
  * 
  * - VerifyPinData
- */export const verifyCardValidationData = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-02-03", uri: "/cardvalidationdata/verify", method: "POST", sdkId: "Payment Cryptography Data", sigV4ServiceName: "payment-cryptography", name: "PaymentCryptographyDataPlane.VerifyCardValidationData" }, VerifyCardValidationDataInput, VerifyCardValidationDataOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException, VerificationFailedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const verifyCardValidationData = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-02-03", uri: "/cardvalidationdata/verify", sdkId: "Payment Cryptography Data", sigV4ServiceName: "payment-cryptography", name: "PaymentCryptographyDataPlane.VerifyCardValidationData" }, VerifyCardValidationDataInput, VerifyCardValidationDataOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException, VerificationFailedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Verifies pin-related data such as PIN and PIN Offset using algorithms including VISA PVV and IBM3624. For more information, see Verify PIN data in the *Amazon Web Services Payment Cryptography User Guide*.
  * 
@@ -246,7 +246,7 @@ export class VerificationFailedException extends S.TaggedError<VerificationFaile
  * - GeneratePinData
  * 
  * - TranslatePinData
- */export const verifyPinData = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-02-03", uri: "/pindata/verify", method: "POST", sdkId: "Payment Cryptography Data", sigV4ServiceName: "payment-cryptography", name: "PaymentCryptographyDataPlane.VerifyPinData" }, VerifyPinDataInput, VerifyPinDataOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException, VerificationFailedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const verifyPinData = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-02-03", uri: "/pindata/verify", sdkId: "Payment Cryptography Data", sigV4ServiceName: "payment-cryptography", name: "PaymentCryptographyDataPlane.VerifyPinData" }, VerifyPinDataInput, VerifyPinDataOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException, VerificationFailedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Decrypts ciphertext data to plaintext using a symmetric (TDES, AES), asymmetric (RSA), or derived (DUKPT or EMV) encryption key scheme. For more information, see Decrypt data in the *Amazon Web Services Payment Cryptography User Guide*.
  * 
@@ -269,7 +269,7 @@ export class VerificationFailedException extends S.TaggedError<VerificationFaile
  * - GetPublicCertificate
  * 
  * - ImportKey
- */export const decryptData = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-02-03", uri: "/keys/{KeyIdentifier}/decrypt", method: "POST", sdkId: "Payment Cryptography Data", sigV4ServiceName: "payment-cryptography", name: "PaymentCryptographyDataPlane.DecryptData" }, DecryptDataInput, DecryptDataOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const decryptData = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-02-03", uri: "/keys/{KeyIdentifier}/decrypt", sdkId: "Payment Cryptography Data", sigV4ServiceName: "payment-cryptography", name: "PaymentCryptographyDataPlane.DecryptData" }, DecryptDataInput, DecryptDataOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Generates a Message Authentication Code (MAC) cryptogram within Amazon Web Services Payment Cryptography.
  * 
@@ -284,7 +284,7 @@ export class VerificationFailedException extends S.TaggedError<VerificationFaile
  * **Related operations:**
  * 
  * - VerifyMac
- */export const generateMac = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-02-03", uri: "/mac/generate", method: "POST", sdkId: "Payment Cryptography Data", sigV4ServiceName: "payment-cryptography", name: "PaymentCryptographyDataPlane.GenerateMac" }, GenerateMacInput, GenerateMacOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const generateMac = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-02-03", uri: "/mac/generate", sdkId: "Payment Cryptography Data", sigV4ServiceName: "payment-cryptography", name: "PaymentCryptographyDataPlane.GenerateMac" }, GenerateMacInput, GenerateMacOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Generates pin-related data such as PIN, PIN Verification Value (PVV), PIN Block, and PIN Offset during new card issuance or reissuance. For more information, see Generate PIN data in the *Amazon Web Services Payment Cryptography User Guide*.
  * 
@@ -303,7 +303,7 @@ export class VerificationFailedException extends S.TaggedError<VerificationFaile
  * - TranslatePinData
  * 
  * - VerifyPinData
- */export const generatePinData = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-02-03", uri: "/pindata/generate", method: "POST", sdkId: "Payment Cryptography Data", sigV4ServiceName: "payment-cryptography", name: "PaymentCryptographyDataPlane.GeneratePinData" }, GeneratePinDataInput, GeneratePinDataOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const generatePinData = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-02-03", uri: "/pindata/generate", sdkId: "Payment Cryptography Data", sigV4ServiceName: "payment-cryptography", name: "PaymentCryptographyDataPlane.GeneratePinData" }, GeneratePinDataInput, GeneratePinDataOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Verifies Authorization Request Cryptogram (ARQC) for a EMV chip payment card authorization. For more information, see Verify auth request cryptogram in the *Amazon Web Services Payment Cryptography User Guide*.
  * 
@@ -318,7 +318,7 @@ export class VerificationFailedException extends S.TaggedError<VerificationFaile
  * - VerifyCardValidationData
  * 
  * - VerifyPinData
- */export const verifyAuthRequestCryptogram = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-02-03", uri: "/cryptogram/verify", method: "POST", sdkId: "Payment Cryptography Data", sigV4ServiceName: "payment-cryptography", name: "PaymentCryptographyDataPlane.VerifyAuthRequestCryptogram" }, VerifyAuthRequestCryptogramInput, VerifyAuthRequestCryptogramOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException, VerificationFailedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const verifyAuthRequestCryptogram = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-02-03", uri: "/cryptogram/verify", sdkId: "Payment Cryptography Data", sigV4ServiceName: "payment-cryptography", name: "PaymentCryptographyDataPlane.VerifyAuthRequestCryptogram" }, VerifyAuthRequestCryptogramInput, VerifyAuthRequestCryptogramOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException, VerificationFailedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Verifies a Message Authentication Code (MAC).
  * 
@@ -331,7 +331,7 @@ export class VerificationFailedException extends S.TaggedError<VerificationFaile
  * **Related operations:**
  * 
  * - GenerateMac
- */export const verifyMac = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-02-03", uri: "/mac/verify", method: "POST", sdkId: "Payment Cryptography Data", sigV4ServiceName: "payment-cryptography", name: "PaymentCryptographyDataPlane.VerifyMac" }, VerifyMacInput, VerifyMacOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException, VerificationFailedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const verifyMac = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-02-03", uri: "/mac/verify", sdkId: "Payment Cryptography Data", sigV4ServiceName: "payment-cryptography", name: "PaymentCryptographyDataPlane.VerifyMac" }, VerifyMacInput, VerifyMacOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException, VerificationFailedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Generates an issuer script mac for EMV payment cards that use offline PINs as the cardholder verification method (CVM).
  * 
@@ -354,7 +354,7 @@ export class VerificationFailedException extends S.TaggedError<VerificationFaile
  * - EncryptData
  * 
  * - GenerateMac
- */export const generateMacEmvPinChange = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-02-03", uri: "/macemvpinchange/generate", method: "POST", sdkId: "Payment Cryptography Data", sigV4ServiceName: "payment-cryptography", name: "PaymentCryptographyDataPlane.GenerateMacEmvPinChange" }, GenerateMacEmvPinChangeInput, GenerateMacEmvPinChangeOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const generateMacEmvPinChange = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-02-03", uri: "/macemvpinchange/generate", sdkId: "Payment Cryptography Data", sigV4ServiceName: "payment-cryptography", name: "PaymentCryptographyDataPlane.GenerateMacEmvPinChange" }, GenerateMacEmvPinChangeInput, GenerateMacEmvPinChangeOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Translates an cryptographic key between different wrapping keys without importing the key into Amazon Web Services Payment Cryptography.
  * 
@@ -373,4 +373,4 @@ export class VerificationFailedException extends S.TaggedError<VerificationFaile
  * - GetPublicCertificate
  * 
  * - ImportKey
- */export const translateKeyMaterial = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-02-03", uri: "/keymaterial/translate", method: "POST", sdkId: "Payment Cryptography Data", sigV4ServiceName: "payment-cryptography", name: "PaymentCryptographyDataPlane.TranslateKeyMaterial" }, TranslateKeyMaterialInput, TranslateKeyMaterialOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const translateKeyMaterial = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2022-02-03", uri: "/keymaterial/translate", sdkId: "Payment Cryptography Data", sigV4ServiceName: "payment-cryptography", name: "PaymentCryptographyDataPlane.TranslateKeyMaterial" }, TranslateKeyMaterialInput, TranslateKeyMaterialOutput, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

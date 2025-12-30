@@ -124,7 +124,7 @@ export class InvalidResourcePolicyException extends S.TaggedError<InvalidResourc
  * 
  * Amazon Web Services Migration Hub Refactor Spaces does not propagate tags to orchestrated resources, such as an
  * environment’s transit gateway.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-10-26", uri: "/tags/{ResourceArn}", method: "POST", sdkId: "Migration Hub Refactor Spaces", sigV4ServiceName: "refactor-spaces", name: "RefactorSpaces.TagResource" }, TagResourceRequest, TagResourceResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-10-26", uri: "/tags/{ResourceArn}", sdkId: "Migration Hub Refactor Spaces", sigV4ServiceName: "refactor-spaces", name: "RefactorSpaces.TagResource" }, TagResourceRequest, TagResourceResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds to or modifies the tags of the given resource. Tags are metadata which can be used to
  * manage a resource. To untag a resource, the caller account must be the same as the resource’s
@@ -146,7 +146,7 @@ export class InvalidResourcePolicyException extends S.TaggedError<InvalidResourc
  * accounts. If CreateEnvironment:NetworkFabricType is `NONE`, Refactor Spaces does not create
  * a transit gateway and you must use your network infrastructure to route traffic to services
  * with private URL endpoints.
- */export const createEnvironment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-10-26", uri: "/environments", method: "POST", sdkId: "Migration Hub Refactor Spaces", sigV4ServiceName: "refactor-spaces", name: "RefactorSpaces.CreateEnvironment" }, CreateEnvironmentRequest, CreateEnvironmentResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createEnvironment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-10-26", uri: "/environments", sdkId: "Migration Hub Refactor Spaces", sigV4ServiceName: "refactor-spaces", name: "RefactorSpaces.CreateEnvironment" }, CreateEnvironmentRequest, CreateEnvironmentResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an Amazon Web Services Migration Hub Refactor Spaces route. The account owner of the service resource is always the
  * environment owner, regardless of which account creates the route. Routes target a service in
@@ -244,7 +244,7 @@ export class InvalidResourcePolicyException extends S.TaggedError<InvalidResourc
  * creation from the application proxy to service endpoints will fail if your network is not
  * configured to connect to the application proxy VPC. For more information, see Create
  * a route in the *Refactor Spaces User Guide*.
- */export const createRoute = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-10-26", uri: "/environments/{EnvironmentIdentifier}/applications/{ApplicationIdentifier}/routes", method: "POST", sdkId: "Migration Hub Refactor Spaces", sigV4ServiceName: "refactor-spaces", name: "RefactorSpaces.CreateRoute" }, CreateRouteRequest, CreateRouteResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createRoute = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-10-26", uri: "/environments/{EnvironmentIdentifier}/applications/{ApplicationIdentifier}/routes", sdkId: "Migration Hub Refactor Spaces", sigV4ServiceName: "refactor-spaces", name: "RefactorSpaces.CreateRoute" }, CreateRouteRequest, CreateRouteResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an Amazon Web Services Migration Hub Refactor Spaces service. The account owner of the service is always the
  * environment owner, regardless of which account in the environment creates the service.
@@ -258,7 +258,7 @@ export class InvalidResourcePolicyException extends S.TaggedError<InvalidResourc
  * accessible to all of an environment’s services with VPCs and routes, apply the
  * `RefactorSpacesSecurityGroup` to the resource. Alternatively, to add more
  * cross-account constraints, apply your own security group.
- */export const createService = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-10-26", uri: "/environments/{EnvironmentIdentifier}/applications/{ApplicationIdentifier}/services", method: "POST", sdkId: "Migration Hub Refactor Spaces", sigV4ServiceName: "refactor-spaces", name: "RefactorSpaces.CreateService" }, CreateServiceRequest, CreateServiceResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createService = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-10-26", uri: "/environments/{EnvironmentIdentifier}/applications/{ApplicationIdentifier}/services", sdkId: "Migration Hub Refactor Spaces", sigV4ServiceName: "refactor-spaces", name: "RefactorSpaces.CreateService" }, CreateServiceRequest, CreateServiceResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an Amazon Web Services Migration Hub Refactor Spaces application. Before you can delete an application, you must first
  * delete any services or routes within the application.
@@ -298,7 +298,7 @@ export class InvalidResourcePolicyException extends S.TaggedError<InvalidResourc
  * route traffic through the application proxy to a service with a private URL endpoint. For more
  * information, see
  * Create an application in the *Refactor Spaces User Guide*.
- */export const createApplication = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-10-26", uri: "/environments/{EnvironmentIdentifier}/applications", method: "POST", sdkId: "Migration Hub Refactor Spaces", sigV4ServiceName: "refactor-spaces", name: "RefactorSpaces.CreateApplication" }, CreateApplicationRequest, CreateApplicationResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createApplication = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-10-26", uri: "/environments/{EnvironmentIdentifier}/applications", sdkId: "Migration Hub Refactor Spaces", sigV4ServiceName: "refactor-spaces", name: "RefactorSpaces.CreateApplication" }, CreateApplicationRequest, CreateApplicationResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets an Amazon Web Services Migration Hub Refactor Spaces application.
  */export const getApplication = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-10-26", uri: "/environments/{EnvironmentIdentifier}/applications/{ApplicationIdentifier}", method: "GET", sdkId: "Migration Hub Refactor Spaces", sigV4ServiceName: "refactor-spaces", name: "RefactorSpaces.GetApplication" }, GetApplicationRequest, GetApplicationResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

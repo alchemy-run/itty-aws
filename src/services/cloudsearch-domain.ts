@@ -44,7 +44,7 @@ export class SearchException extends S.TaggedError<SearchException>()("SearchExc
  * 
  * For more information about formatting your data for Amazon CloudSearch, see Preparing Your Data in the *Amazon CloudSearch Developer Guide*.
  * For more information about uploading data for indexing, see Uploading Data in the *Amazon CloudSearch Developer Guide*.
- */export const uploadDocuments = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-01-01", uri: "/2013-01-01/documents/batch?format=sdk", method: "POST", sdkId: "CloudSearch Domain", sigV4ServiceName: "cloudsearch", name: "AmazonCloudSearch2013.UploadDocuments" }, UploadDocumentsRequest, UploadDocumentsResponse, [DocumentServiceException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const uploadDocuments = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-01-01", uri: "/2013-01-01/documents/batch?format=sdk", sdkId: "CloudSearch Domain", sigV4ServiceName: "cloudsearch", name: "AmazonCloudSearch2013.UploadDocuments" }, UploadDocumentsRequest, UploadDocumentsResponse, [DocumentServiceException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves a list of documents that match the specified search criteria. How you specify the search criteria depends on which query parser you use. Amazon CloudSearch supports four query parsers:
  * 

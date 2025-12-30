@@ -171,7 +171,7 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  * 
  * 
  * Specifically, the resource’s AppRegistry system tags sync with its associated application. We remove the resource's AppRegistry system tags if it does not associate with the application. The caller must have permissions to read and update the resource.
- */export const syncResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-06-24", uri: "/sync/{resourceType}/{resource}", method: "POST", sdkId: "Service Catalog AppRegistry", sigV4ServiceName: "servicecatalog", name: "AWS242AppRegistry.SyncResource" }, SyncResourceRequest, SyncResourceResponse, [ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const syncResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-06-24", uri: "/sync/{resourceType}/{resource}", sdkId: "Service Catalog AppRegistry", sigV4ServiceName: "servicecatalog", name: "AWS242AppRegistry.SyncResource" }, SyncResourceRequest, SyncResourceResponse, [ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Assigns one or more tags (key-value pairs) to the specified resource.
  * 
@@ -180,7 +180,7 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  * 
  * 
  * This operation returns an empty response if the call was successful.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-06-24", uri: "/tags/{resourceArn}", method: "POST", sdkId: "Service Catalog AppRegistry", sigV4ServiceName: "servicecatalog", name: "AWS242AppRegistry.TagResource" }, TagResourceRequest, TagResourceResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-06-24", uri: "/tags/{resourceArn}", sdkId: "Service Catalog AppRegistry", sigV4ServiceName: "servicecatalog", name: "AWS242AppRegistry.TagResource" }, TagResourceRequest, TagResourceResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes tags from a resource.
  * 
@@ -257,13 +257,13 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  */export const associateResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-06-24", uri: "/applications/{application}/resources/{resourceType}/{resource}", method: "PUT", sdkId: "Service Catalog AppRegistry", sigV4ServiceName: "servicecatalog", name: "AWS242AppRegistry.AssociateResource" }, AssociateResourceRequest, AssociateResourceResponse, [ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new application that is the top-level node in a hierarchy of related cloud resource abstractions.
- */export const createApplication = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-06-24", uri: "/applications", method: "POST", sdkId: "Service Catalog AppRegistry", sigV4ServiceName: "servicecatalog", name: "AWS242AppRegistry.CreateApplication" }, CreateApplicationRequest, CreateApplicationResponse, [ConflictException, InternalServerException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createApplication = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-06-24", uri: "/applications", sdkId: "Service Catalog AppRegistry", sigV4ServiceName: "servicecatalog", name: "AWS242AppRegistry.CreateApplication" }, CreateApplicationRequest, CreateApplicationResponse, [ConflictException, InternalServerException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new attribute group as a container for user-defined attributes. This feature
  * enables users to have full control over their cloud application's metadata in a rich
  * machine-readable format to facilitate integration with automated workflows and third-party
  * tools.
- */export const createAttributeGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-06-24", uri: "/attribute-groups", method: "POST", sdkId: "Service Catalog AppRegistry", sigV4ServiceName: "servicecatalog", name: "AWS242AppRegistry.CreateAttributeGroup" }, CreateAttributeGroupRequest, CreateAttributeGroupResponse, [ConflictException, InternalServerException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createAttributeGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-06-24", uri: "/attribute-groups", sdkId: "Service Catalog AppRegistry", sigV4ServiceName: "servicecatalog", name: "AWS242AppRegistry.CreateAttributeGroup" }, CreateAttributeGroupRequest, CreateAttributeGroupResponse, [ConflictException, InternalServerException, ServiceQuotaExceededException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an application that is specified either by its application ID, name, or ARN. All associated attribute groups and resources must be disassociated from it before deleting an application.
  */export const deleteApplication = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2020-06-24", uri: "/applications/{application}", method: "DELETE", sdkId: "Service Catalog AppRegistry", sigV4ServiceName: "servicecatalog", name: "AWS242AppRegistry.DeleteApplication" }, DeleteApplicationRequest, DeleteApplicationResponse, [InternalServerException, ResourceNotFoundException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

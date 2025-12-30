@@ -23,7 +23,7 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
 //# Operations
 /**
  * Assigns one or more tags (key-value pairs) to the specified EventBridge Scheduler resource. You can only assign tags to schedule groups.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-06-30", uri: "/tags/{ResourceArn}", method: "POST", sdkId: "Scheduler", sigV4ServiceName: "scheduler", name: "AWSChronosService.TagResource" }, TagResourceInput, TagResourceOutput, [ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-06-30", uri: "/tags/{ResourceArn}", sdkId: "Scheduler", sigV4ServiceName: "scheduler", name: "AWSChronosService.TagResource" }, TagResourceInput, TagResourceOutput, [ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes one or more tags from the specified EventBridge Scheduler schedule group.
  */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2021-06-30", uri: "/tags/{ResourceArn}", method: "DELETE", sdkId: "Scheduler", sigV4ServiceName: "scheduler", name: "AWSChronosService.UntagResource" }, UntagResourceInput, UntagResourceOutput, [ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

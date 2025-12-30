@@ -264,22 +264,22 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * Deletes the event tracker. Does not delete the dataset from
  * the dataset group. For more
  * information on event trackers, see CreateEventTracker.
- */export const deleteEventTracker = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/", method: "POST", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.DeleteEventTracker" }, DeleteEventTrackerRequest, S.Struct({}), [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteEventTracker = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.DeleteEventTracker" }, DeleteEventTrackerRequest, S.Struct({}), [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a filter.
- */export const deleteFilter = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/", method: "POST", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.DeleteFilter" }, DeleteFilterRequest, S.Struct({}), [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteFilter = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.DeleteFilter" }, DeleteFilterRequest, S.Struct({}), [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a metric attribution.
- */export const deleteMetricAttribution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/", method: "POST", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.DeleteMetricAttribution" }, DeleteMetricAttributionRequest, S.Struct({}), [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteMetricAttribution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.DeleteMetricAttribution" }, DeleteMetricAttributionRequest, S.Struct({}), [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deactivates and removes a recommender. A deleted recommender can no longer be specified in a GetRecommendations
  * request.
- */export const deleteRecommender = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/", method: "POST", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.DeleteRecommender" }, DeleteRecommenderRequest, S.Struct({}), [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteRecommender = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.DeleteRecommender" }, DeleteRecommenderRequest, S.Struct({}), [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a schema. Before deleting a schema, you must delete all
  * datasets referencing the schema. For more information on schemas, see
  * CreateSchema.
- */export const deleteSchema = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/", method: "POST", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.DeleteSchema" }, DeleteSchemaRequest, S.Struct({}), [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteSchema = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.DeleteSchema" }, DeleteSchemaRequest, S.Struct({}), [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes all versions of a solution and the `Solution` object itself.
  * Before deleting a solution, you must delete all campaigns based on
@@ -288,7 +288,7 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * You can't delete a solution if an associated `SolutionVersion` is in the
  * CREATE PENDING or IN PROGRESS state.
  * For more information on solutions, see CreateSolution.
- */export const deleteSolution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/", method: "POST", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.DeleteSolution" }, DeleteSolutionRequest, S.Struct({}), [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteSolution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.DeleteSolution" }, DeleteSolutionRequest, S.Struct({}), [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Stops creating a solution version that is in a state of CREATE_PENDING or CREATE IN_PROGRESS.
  * 
@@ -313,7 +313,7 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * 
  * You are billed for all of the training completed up
  * until you stop the solution version creation. You cannot resume creating a solution version once it has been stopped.
- */export const stopSolutionVersionCreation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/", method: "POST", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.StopSolutionVersionCreation" }, StopSolutionVersionCreationRequest, S.Struct({}), [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const stopSolutionVersionCreation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.StopSolutionVersionCreation" }, StopSolutionVersionCreationRequest, S.Struct({}), [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a job that imports training data from your data source (an
  * Amazon S3 bucket) to an Amazon Personalize dataset. To allow Amazon Personalize to import the
@@ -381,7 +381,7 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * 
  * 
  * - DescribeDatasetImportJob
- */export const createDatasetImportJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/", method: "POST", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.CreateDatasetImportJob" }, CreateDatasetImportJobRequest, CreateDatasetImportJobResponse, [InvalidInputException, LimitExceededException, ResourceAlreadyExistsException, ResourceInUseException, ResourceNotFoundException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createDatasetImportJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.CreateDatasetImportJob" }, CreateDatasetImportJobRequest, CreateDatasetImportJobResponse, [InvalidInputException, LimitExceededException, ResourceAlreadyExistsException, ResourceInUseException, ResourceNotFoundException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an event tracker that you use when adding event data to a specified dataset
  * group using the
@@ -444,10 +444,10 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * 
  * 
  * - DeleteEventTracker
- */export const createEventTracker = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/", method: "POST", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.CreateEventTracker" }, CreateEventTrackerRequest, CreateEventTrackerResponse, [InvalidInputException, LimitExceededException, ResourceAlreadyExistsException, ResourceInUseException, ResourceNotFoundException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createEventTracker = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.CreateEventTracker" }, CreateEventTrackerRequest, CreateEventTrackerResponse, [InvalidInputException, LimitExceededException, ResourceAlreadyExistsException, ResourceInUseException, ResourceNotFoundException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a recommendation filter. For more information, see Filtering recommendations and user segments.
- */export const createFilter = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/", method: "POST", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.CreateFilter" }, CreateFilterRequest, CreateFilterResponse, [InvalidInputException, LimitExceededException, ResourceAlreadyExistsException, ResourceNotFoundException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createFilter = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.CreateFilter" }, CreateFilterRequest, CreateFilterResponse, [InvalidInputException, LimitExceededException, ResourceAlreadyExistsException, ResourceNotFoundException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an Amazon Personalize schema from the specified schema string. The schema you create
  * must be in Avro JSON format.
@@ -475,7 +475,7 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * 
  * 
  * - DeleteSchema
- */export const createSchema = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/", method: "POST", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.CreateSchema" }, CreateSchemaRequest, CreateSchemaResponse, [InvalidInputException, LimitExceededException, ResourceAlreadyExistsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createSchema = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.CreateSchema" }, CreateSchemaRequest, CreateSchemaResponse, [InvalidInputException, LimitExceededException, ResourceAlreadyExistsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Trains or retrains an active solution in a Custom dataset group. A solution is created using the CreateSolution
  * operation and must be in the ACTIVE state before calling
@@ -557,7 +557,7 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * 
  * 
  * - DeleteSolution
- */export const createSolutionVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/", method: "POST", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.CreateSolutionVersion" }, CreateSolutionVersionRequest, CreateSolutionVersionResponse, [InvalidInputException, LimitExceededException, ResourceAlreadyExistsException, ResourceInUseException, ResourceNotFoundException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createSolutionVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.CreateSolutionVersion" }, CreateSolutionVersionRequest, CreateSolutionVersionResponse, [InvalidInputException, LimitExceededException, ResourceAlreadyExistsException, ResourceInUseException, ResourceNotFoundException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes a campaign by deleting the solution deployment. The solution that
  * the campaign is based on is not deleted and can be redeployed when needed. A deleted campaign can no
@@ -565,13 +565,13 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * GetRecommendations
  * request.
  * For information on creating campaigns, see CreateCampaign.
- */export const deleteCampaign = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/", method: "POST", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.DeleteCampaign" }, DeleteCampaignRequest, S.Struct({}), [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteCampaign = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.DeleteCampaign" }, DeleteCampaignRequest, S.Struct({}), [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a dataset. You can't delete a dataset if an associated
  * `DatasetImportJob` or `SolutionVersion` is in the
  * CREATE PENDING or IN PROGRESS state. For more information about deleting datasets,
  * see Deleting a dataset.
- */export const deleteDataset = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/", method: "POST", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.DeleteDataset" }, DeleteDatasetRequest, S.Struct({}), [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteDataset = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.DeleteDataset" }, DeleteDatasetRequest, S.Struct({}), [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a dataset group. Before you delete a dataset group, you must
  * delete the following:
@@ -587,23 +587,23 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * 
  * 
  * - All datasets in the dataset group.
- */export const deleteDatasetGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/", method: "POST", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.DeleteDatasetGroup" }, DeleteDatasetGroupRequest, S.Struct({}), [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteDatasetGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.DeleteDatasetGroup" }, DeleteDatasetGroupRequest, S.Struct({}), [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Get a list of tags attached to a resource.
- */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/", method: "POST", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts a recommender that is INACTIVE. Starting a recommender does not
  * create any new models, but resumes billing and automatic retraining for the recommender.
- */export const startRecommender = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/", method: "POST", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.StartRecommender" }, StartRecommenderRequest, StartRecommenderResponse, [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startRecommender = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.StartRecommender" }, StartRecommenderRequest, StartRecommenderResponse, [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Stops a recommender that is ACTIVE. Stopping a recommender halts billing and automatic retraining for the recommender.
- */export const stopRecommender = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/", method: "POST", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.StopRecommender" }, StopRecommenderRequest, StopRecommenderResponse, [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const stopRecommender = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.StopRecommender" }, StopRecommenderRequest, StopRecommenderResponse, [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Add a list of tags to a resource.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/", method: "POST", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.TagResource" }, TagResourceRequest, TagResourceResponse, [InvalidInputException, LimitExceededException, ResourceInUseException, ResourceNotFoundException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.TagResource" }, TagResourceRequest, TagResourceResponse, [InvalidInputException, LimitExceededException, ResourceInUseException, ResourceNotFoundException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes the specified tags that are attached to a resource. For more information, see Removing tags from Amazon Personalize resources.
- */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/", method: "POST", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [InvalidInputException, ResourceInUseException, ResourceNotFoundException, TooManyTagKeysException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [InvalidInputException, ResourceInUseException, ResourceNotFoundException, TooManyTagKeysException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates a campaign to deploy a retrained solution version with an existing campaign, change your campaign's `minProvisionedTPS`,
  * or modify your campaign's configuration. For example, you can set `enableMetadataWithRecommendations` to true for an existing campaign.
@@ -641,13 +641,13 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * 
  * For more information about updating a campaign, including code samples, see Updating a campaign.
  * For more information about campaigns, see Creating a campaign.
- */export const updateCampaign = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/", method: "POST", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.UpdateCampaign" }, UpdateCampaignRequest, UpdateCampaignResponse, [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateCampaign = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.UpdateCampaign" }, UpdateCampaignRequest, UpdateCampaignResponse, [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Update a dataset to replace its schema with a new or existing one. For more information, see Replacing a dataset's schema.
- */export const updateDataset = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/", method: "POST", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.UpdateDataset" }, UpdateDatasetRequest, UpdateDatasetResponse, [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateDataset = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.UpdateDataset" }, UpdateDatasetRequest, UpdateDatasetResponse, [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates a metric attribution.
- */export const updateMetricAttribution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/", method: "POST", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.UpdateMetricAttribution" }, UpdateMetricAttributionRequest, UpdateMetricAttributionResponse, [InvalidInputException, ResourceAlreadyExistsException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateMetricAttribution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.UpdateMetricAttribution" }, UpdateMetricAttributionRequest, UpdateMetricAttributionResponse, [InvalidInputException, ResourceAlreadyExistsException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the recommender to modify the recommender configuration.
  * If you update the recommender to modify the columns used in training, Amazon Personalize automatically starts a full retraining of
@@ -656,12 +656,12 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * To track the status of this update,
  * use the `latestRecommenderUpdate` returned in the DescribeRecommender
  * operation.
- */export const updateRecommender = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/", method: "POST", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.UpdateRecommender" }, UpdateRecommenderRequest, UpdateRecommenderResponse, [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateRecommender = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.UpdateRecommender" }, UpdateRecommenderRequest, UpdateRecommenderResponse, [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a batch segment job. The operation can handle up to 50 million records and the
  * input file must be in JSON format. For more information, see
  * Getting batch recommendations and user segments.
- */export const createBatchSegmentJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/", method: "POST", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.CreateBatchSegmentJob" }, CreateBatchSegmentJobRequest, CreateBatchSegmentJobResponse, [InvalidInputException, LimitExceededException, ResourceAlreadyExistsException, ResourceInUseException, ResourceNotFoundException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createBatchSegmentJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.CreateBatchSegmentJob" }, CreateBatchSegmentJobRequest, CreateBatchSegmentJobResponse, [InvalidInputException, LimitExceededException, ResourceAlreadyExistsException, ResourceInUseException, ResourceNotFoundException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * You incur campaign costs while it is active. To avoid unnecessary costs, make sure to delete the campaign when you are finished. For information about campaign
  * costs, see Amazon Personalize pricing.
@@ -765,7 +765,7 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * 
  * 
  * - DeleteCampaign
- */export const createCampaign = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/", method: "POST", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.CreateCampaign" }, CreateCampaignRequest, CreateCampaignResponse, [InvalidInputException, LimitExceededException, ResourceAlreadyExistsException, ResourceInUseException, ResourceNotFoundException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createCampaign = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.CreateCampaign" }, CreateCampaignRequest, CreateCampaignResponse, [InvalidInputException, LimitExceededException, ResourceAlreadyExistsException, ResourceInUseException, ResourceNotFoundException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a batch job that deletes all
  * references to specific users from an Amazon Personalize dataset group in batches. You specify the users to delete in a CSV file of userIds in
@@ -829,7 +829,7 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * 
  * 
  * - DescribeDataDeletionJob
- */export const createDataDeletionJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/", method: "POST", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.CreateDataDeletionJob" }, CreateDataDeletionJobRequest, CreateDataDeletionJobResponse, [InvalidInputException, LimitExceededException, ResourceAlreadyExistsException, ResourceInUseException, ResourceNotFoundException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createDataDeletionJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.CreateDataDeletionJob" }, CreateDataDeletionJobRequest, CreateDataDeletionJobResponse, [InvalidInputException, LimitExceededException, ResourceAlreadyExistsException, ResourceInUseException, ResourceNotFoundException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an empty dataset and adds it to the specified dataset group.
  * Use CreateDatasetImportJob to import your training data to a
@@ -906,7 +906,7 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * 
  * 
  * - DeleteDataset
- */export const createDataset = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/", method: "POST", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.CreateDataset" }, CreateDatasetRequest, CreateDatasetResponse, [InvalidInputException, LimitExceededException, ResourceAlreadyExistsException, ResourceInUseException, ResourceNotFoundException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createDataset = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.CreateDataset" }, CreateDatasetRequest, CreateDatasetResponse, [InvalidInputException, LimitExceededException, ResourceAlreadyExistsException, ResourceInUseException, ResourceNotFoundException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a job that exports data from your dataset to an Amazon S3 bucket.
  * To allow Amazon Personalize to export the training data, you must specify an
@@ -935,7 +935,7 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * status shows as ACTIVE. If the status shows as CREATE FAILED, the response
  * includes a `failureReason` key, which describes why the job
  * failed.
- */export const createDatasetExportJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/", method: "POST", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.CreateDatasetExportJob" }, CreateDatasetExportJobRequest, CreateDatasetExportJobResponse, [InvalidInputException, LimitExceededException, ResourceAlreadyExistsException, ResourceInUseException, ResourceNotFoundException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createDatasetExportJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.CreateDatasetExportJob" }, CreateDatasetExportJobRequest, CreateDatasetExportJobResponse, [InvalidInputException, LimitExceededException, ResourceAlreadyExistsException, ResourceInUseException, ResourceNotFoundException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an empty dataset group. A dataset group is a container for
  * Amazon Personalize resources. A dataset group can contain at most three datasets, one
@@ -1045,46 +1045,46 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * 
  * 
  * - DeleteDatasetGroup
- */export const createDatasetGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/", method: "POST", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.CreateDatasetGroup" }, CreateDatasetGroupRequest, CreateDatasetGroupResponse, [InvalidInputException, LimitExceededException, ResourceAlreadyExistsException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createDatasetGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.CreateDatasetGroup" }, CreateDatasetGroupRequest, CreateDatasetGroupResponse, [InvalidInputException, LimitExceededException, ResourceAlreadyExistsException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a metric attribution.
  * A metric attribution creates reports on the data that you import into Amazon Personalize. Depending on how you imported the data, you can view reports in Amazon CloudWatch or Amazon S3.
  * For more information, see Measuring impact of recommendations.
- */export const createMetricAttribution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/", method: "POST", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.CreateMetricAttribution" }, CreateMetricAttributionRequest, CreateMetricAttributionResponse, [InvalidInputException, LimitExceededException, ResourceAlreadyExistsException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createMetricAttribution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.CreateMetricAttribution" }, CreateMetricAttributionRequest, CreateMetricAttributionResponse, [InvalidInputException, LimitExceededException, ResourceAlreadyExistsException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets the properties of a batch inference job including name, Amazon Resource Name (ARN),
  * status, input and output configurations, and the ARN of the solution version used to generate
  * the recommendations.
- */export const describeBatchInferenceJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/", method: "POST", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.DescribeBatchInferenceJob" }, DescribeBatchInferenceJobRequest, DescribeBatchInferenceJobResponse, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeBatchInferenceJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.DescribeBatchInferenceJob" }, DescribeBatchInferenceJobRequest, DescribeBatchInferenceJobResponse, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets the properties of a batch segment job including name, Amazon Resource Name (ARN),
  * status, input and output configurations, and the ARN of the solution version used to generate
  * segments.
- */export const describeBatchSegmentJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/", method: "POST", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.DescribeBatchSegmentJob" }, DescribeBatchSegmentJobRequest, DescribeBatchSegmentJobResponse, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeBatchSegmentJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.DescribeBatchSegmentJob" }, DescribeBatchSegmentJobRequest, DescribeBatchSegmentJobResponse, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes the data deletion job created by CreateDataDeletionJob, including the job status.
- */export const describeDataDeletionJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/", method: "POST", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.DescribeDataDeletionJob" }, DescribeDataDeletionJobRequest, DescribeDataDeletionJobResponse, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeDataDeletionJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.DescribeDataDeletionJob" }, DescribeDataDeletionJobRequest, DescribeDataDeletionJobResponse, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes the dataset export job created by CreateDatasetExportJob, including the export job status.
- */export const describeDatasetExportJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/", method: "POST", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.DescribeDatasetExportJob" }, DescribeDatasetExportJobRequest, DescribeDatasetExportJobResponse, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeDatasetExportJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.DescribeDatasetExportJob" }, DescribeDatasetExportJobRequest, DescribeDatasetExportJobResponse, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes the given dataset group. For more information on dataset
  * groups, see CreateDatasetGroup.
- */export const describeDatasetGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/", method: "POST", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.DescribeDatasetGroup" }, DescribeDatasetGroupRequest, DescribeDatasetGroupResponse, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeDatasetGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.DescribeDatasetGroup" }, DescribeDatasetGroupRequest, DescribeDatasetGroupResponse, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes the dataset import job created by CreateDatasetImportJob, including the import job status.
- */export const describeDatasetImportJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/", method: "POST", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.DescribeDatasetImportJob" }, DescribeDatasetImportJobRequest, DescribeDatasetImportJobResponse, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeDatasetImportJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.DescribeDatasetImportJob" }, DescribeDatasetImportJobRequest, DescribeDatasetImportJobResponse, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes an event tracker. The response includes the `trackingId` and
  * `status` of the event tracker.
  * For more information on event trackers, see CreateEventTracker.
- */export const describeEventTracker = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/", method: "POST", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.DescribeEventTracker" }, DescribeEventTrackerRequest, DescribeEventTrackerResponse, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeEventTracker = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.DescribeEventTracker" }, DescribeEventTrackerRequest, DescribeEventTrackerResponse, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes a filter's properties.
- */export const describeFilter = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/", method: "POST", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.DescribeFilter" }, DescribeFilterRequest, DescribeFilterResponse, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeFilter = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.DescribeFilter" }, DescribeFilterRequest, DescribeFilterResponse, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes a metric attribution.
- */export const describeMetricAttribution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/", method: "POST", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.DescribeMetricAttribution" }, DescribeMetricAttributionRequest, DescribeMetricAttributionResponse, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeMetricAttribution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.DescribeMetricAttribution" }, DescribeMetricAttributionRequest, DescribeMetricAttributionResponse, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes a recipe.
  * 
@@ -1113,28 +1113,28 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * in the specified recipe and a training dataset. The solution, when deployed as a campaign,
  * can provide recommendations using the
  * GetRecommendations API.
- */export const describeRecipe = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/", method: "POST", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.DescribeRecipe" }, DescribeRecipeRequest, DescribeRecipeResponse, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeRecipe = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.DescribeRecipe" }, DescribeRecipeRequest, DescribeRecipeResponse, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes a schema. For more information on schemas, see
  * CreateSchema.
- */export const describeSchema = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/", method: "POST", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.DescribeSchema" }, DescribeSchemaRequest, DescribeSchemaResponse, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeSchema = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.DescribeSchema" }, DescribeSchemaRequest, DescribeSchemaResponse, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets the metrics for the specified solution version.
- */export const getSolutionMetrics = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/", method: "POST", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.GetSolutionMetrics" }, GetSolutionMetricsRequest, GetSolutionMetricsResponse, [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getSolutionMetrics = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.GetSolutionMetrics" }, GetSolutionMetricsRequest, GetSolutionMetricsResponse, [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets a list of the batch inference jobs that have been performed off of a solution
  * version.
- */export const listBatchInferenceJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/", method: "POST", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.ListBatchInferenceJobs" }, ListBatchInferenceJobsRequest, ListBatchInferenceJobsResponse, [InvalidInputException, InvalidNextTokenException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listBatchInferenceJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.ListBatchInferenceJobs" }, ListBatchInferenceJobsRequest, ListBatchInferenceJobsResponse, [InvalidInputException, InvalidNextTokenException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets a list of the batch segment jobs that have been performed off of a solution
  * version that you specify.
- */export const listBatchSegmentJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/", method: "POST", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.ListBatchSegmentJobs" }, ListBatchSegmentJobsRequest, ListBatchSegmentJobsResponse, [InvalidInputException, InvalidNextTokenException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listBatchSegmentJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.ListBatchSegmentJobs" }, ListBatchSegmentJobsRequest, ListBatchSegmentJobsResponse, [InvalidInputException, InvalidNextTokenException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of campaigns that use the given solution.
  * When a solution is not specified, all the campaigns associated with the account are listed.
  * The response provides the properties for each campaign, including the Amazon Resource Name (ARN).
  * For more information on campaigns, see CreateCampaign.
- */export const listCampaigns = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/", method: "POST", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.ListCampaigns" }, ListCampaignsRequest, ListCampaignsResponse, [InvalidInputException, InvalidNextTokenException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listCampaigns = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.ListCampaigns" }, ListCampaignsRequest, ListCampaignsResponse, [InvalidInputException, InvalidNextTokenException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of data deletion jobs for a dataset group ordered by creation time,
  * with the most recent first.
@@ -1143,7 +1143,7 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * the account are listed. The response provides the properties for each
  * job, including the Amazon Resource Name (ARN). For more
  * information on data deletion jobs, see Deleting users.
- */export const listDataDeletionJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/", method: "POST", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.ListDataDeletionJobs" }, ListDataDeletionJobsRequest, ListDataDeletionJobsResponse, [InvalidInputException, InvalidNextTokenException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listDataDeletionJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.ListDataDeletionJobs" }, ListDataDeletionJobsRequest, ListDataDeletionJobsResponse, [InvalidInputException, InvalidNextTokenException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of dataset export jobs that use the given dataset. When
  * a dataset is not specified, all the dataset export jobs associated with
@@ -1151,12 +1151,12 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * dataset export job, including the Amazon Resource Name (ARN). For more
  * information on dataset export jobs, see CreateDatasetExportJob. For more information on datasets, see
  * CreateDataset.
- */export const listDatasetExportJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/", method: "POST", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.ListDatasetExportJobs" }, ListDatasetExportJobsRequest, ListDatasetExportJobsResponse, [InvalidInputException, InvalidNextTokenException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listDatasetExportJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.ListDatasetExportJobs" }, ListDatasetExportJobsRequest, ListDatasetExportJobsResponse, [InvalidInputException, InvalidNextTokenException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of dataset groups. The response provides the properties
  * for each dataset group, including the Amazon Resource Name (ARN). For more
  * information on dataset groups, see CreateDatasetGroup.
- */export const listDatasetGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/", method: "POST", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.ListDatasetGroups" }, ListDatasetGroupsRequest, ListDatasetGroupsResponse, [InvalidNextTokenException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listDatasetGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.ListDatasetGroups" }, ListDatasetGroupsRequest, ListDatasetGroupsResponse, [InvalidNextTokenException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of dataset import jobs that use the given dataset. When
  * a dataset is not specified, all the dataset import jobs associated with
@@ -1164,53 +1164,53 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * dataset import job, including the Amazon Resource Name (ARN). For more
  * information on dataset import jobs, see CreateDatasetImportJob. For more information on datasets, see
  * CreateDataset.
- */export const listDatasetImportJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/", method: "POST", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.ListDatasetImportJobs" }, ListDatasetImportJobsRequest, ListDatasetImportJobsResponse, [InvalidInputException, InvalidNextTokenException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listDatasetImportJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.ListDatasetImportJobs" }, ListDatasetImportJobsRequest, ListDatasetImportJobsResponse, [InvalidInputException, InvalidNextTokenException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the list of datasets contained in the given dataset group. The
  * response provides the properties for each dataset, including the Amazon
  * Resource Name (ARN). For more information on datasets, see CreateDataset.
- */export const listDatasets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/", method: "POST", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.ListDatasets" }, ListDatasetsRequest, ListDatasetsResponse, [InvalidInputException, InvalidNextTokenException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listDatasets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.ListDatasets" }, ListDatasetsRequest, ListDatasetsResponse, [InvalidInputException, InvalidNextTokenException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the list of event trackers associated with the account.
  * The response provides the properties for each event tracker, including the Amazon Resource
  * Name (ARN) and tracking ID. For more
  * information on event trackers, see CreateEventTracker.
- */export const listEventTrackers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/", method: "POST", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.ListEventTrackers" }, ListEventTrackersRequest, ListEventTrackersResponse, [InvalidInputException, InvalidNextTokenException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listEventTrackers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.ListEventTrackers" }, ListEventTrackersRequest, ListEventTrackersResponse, [InvalidInputException, InvalidNextTokenException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists all filters that belong to a given dataset group.
- */export const listFilters = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/", method: "POST", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.ListFilters" }, ListFiltersRequest, ListFiltersResponse, [InvalidInputException, InvalidNextTokenException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listFilters = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.ListFilters" }, ListFiltersRequest, ListFiltersResponse, [InvalidInputException, InvalidNextTokenException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the metrics for the metric attribution.
- */export const listMetricAttributionMetrics = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/", method: "POST", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.ListMetricAttributionMetrics" }, ListMetricAttributionMetricsRequest, ListMetricAttributionMetricsResponse, [InvalidInputException, InvalidNextTokenException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listMetricAttributionMetrics = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.ListMetricAttributionMetrics" }, ListMetricAttributionMetricsRequest, ListMetricAttributionMetricsResponse, [InvalidInputException, InvalidNextTokenException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists metric attributions.
- */export const listMetricAttributions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/", method: "POST", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.ListMetricAttributions" }, ListMetricAttributionsRequest, ListMetricAttributionsResponse, [InvalidInputException, InvalidNextTokenException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listMetricAttributions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.ListMetricAttributions" }, ListMetricAttributionsRequest, ListMetricAttributionsResponse, [InvalidInputException, InvalidNextTokenException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of available recipes. The response provides the properties
  * for each recipe, including the recipe's Amazon Resource Name (ARN).
- */export const listRecipes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/", method: "POST", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.ListRecipes" }, ListRecipesRequest, ListRecipesResponse, [InvalidInputException, InvalidNextTokenException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listRecipes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.ListRecipes" }, ListRecipesRequest, ListRecipesResponse, [InvalidInputException, InvalidNextTokenException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of recommenders in a given Domain dataset group.
  * When a Domain dataset group is not specified, all the recommenders associated with the account are listed.
  * The response provides the properties for each recommender, including the Amazon Resource Name (ARN).
  * For more information on recommenders, see CreateRecommender.
- */export const listRecommenders = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/", method: "POST", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.ListRecommenders" }, ListRecommendersRequest, ListRecommendersResponse, [InvalidInputException, InvalidNextTokenException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listRecommenders = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.ListRecommenders" }, ListRecommendersRequest, ListRecommendersResponse, [InvalidInputException, InvalidNextTokenException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the list of schemas associated with the account. The response provides the
  * properties for each schema, including the Amazon Resource Name (ARN).
  * For more information on schemas, see CreateSchema.
- */export const listSchemas = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/", method: "POST", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.ListSchemas" }, ListSchemasRequest, ListSchemasResponse, [InvalidNextTokenException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listSchemas = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.ListSchemas" }, ListSchemasRequest, ListSchemasResponse, [InvalidNextTokenException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of solutions in a given dataset group.
  * When a dataset group is not specified, all the solutions associated with the account are listed.
  * The response provides the properties for each solution, including the Amazon Resource Name (ARN).
  * For more information on solutions, see CreateSolution.
- */export const listSolutions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/", method: "POST", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.ListSolutions" }, ListSolutionsRequest, ListSolutionsResponse, [InvalidInputException, InvalidNextTokenException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listSolutions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.ListSolutions" }, ListSolutionsRequest, ListSolutionsResponse, [InvalidInputException, InvalidNextTokenException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of solution versions for the given solution. When a solution is not
  * specified, all the solution versions associated with the account are listed. The response
  * provides the properties for each solution version, including the Amazon Resource Name (ARN).
- */export const listSolutionVersions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/", method: "POST", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.ListSolutionVersions" }, ListSolutionVersionsRequest, ListSolutionVersionsResponse, [InvalidInputException, InvalidNextTokenException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listSolutionVersions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.ListSolutionVersions" }, ListSolutionVersionsRequest, ListSolutionVersionsResponse, [InvalidInputException, InvalidNextTokenException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates an Amazon Personalize solution to use a different automatic training configuration. When you update a solution,
  * you can change whether the solution uses
@@ -1228,7 +1228,7 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * To get the status of a solution update, call the
  * DescribeSolution API operation and find the status
  * in the `latestSolutionUpdate`.
- */export const updateSolution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/", method: "POST", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.UpdateSolution" }, UpdateSolutionRequest, UpdateSolutionResponse, [InvalidInputException, LimitExceededException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateSolution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.UpdateSolution" }, UpdateSolutionRequest, UpdateSolutionResponse, [InvalidInputException, LimitExceededException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Generates batch recommendations based on a list of items or users stored in Amazon S3
  * and exports the recommendations to an Amazon S3 bucket.
@@ -1258,7 +1258,7 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * 
  * 
  * You can't get batch recommendations with the Trending-Now or Next-Best-Action recipes.
- */export const createBatchInferenceJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/", method: "POST", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.CreateBatchInferenceJob" }, CreateBatchInferenceJobRequest, CreateBatchInferenceJobResponse, [InvalidInputException, LimitExceededException, ResourceAlreadyExistsException, ResourceInUseException, ResourceNotFoundException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createBatchInferenceJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.CreateBatchInferenceJob" }, CreateBatchInferenceJobRequest, CreateBatchInferenceJobResponse, [InvalidInputException, LimitExceededException, ResourceAlreadyExistsException, ResourceInUseException, ResourceNotFoundException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes the given campaign, including its status.
  * 
@@ -1282,14 +1282,14 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * 
  * 
  * For more information on campaigns, see CreateCampaign.
- */export const describeCampaign = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/", method: "POST", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.DescribeCampaign" }, DescribeCampaignRequest, DescribeCampaignResponse, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeCampaign = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.DescribeCampaign" }, DescribeCampaignRequest, DescribeCampaignResponse, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes the given dataset. For more information on datasets, see
  * CreateDataset.
- */export const describeDataset = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/", method: "POST", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.DescribeDataset" }, DescribeDatasetRequest, DescribeDatasetResponse, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeDataset = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.DescribeDataset" }, DescribeDatasetRequest, DescribeDatasetResponse, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes the given feature transformation.
- */export const describeFeatureTransformation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/", method: "POST", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.DescribeFeatureTransformation" }, DescribeFeatureTransformationRequest, DescribeFeatureTransformationResponse, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeFeatureTransformation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.DescribeFeatureTransformation" }, DescribeFeatureTransformationRequest, DescribeFeatureTransformationResponse, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes the given recommender, including its status.
  * 
@@ -1321,14 +1321,14 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * 
  * 
  * For more information on recommenders, see CreateRecommender.
- */export const describeRecommender = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/", method: "POST", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.DescribeRecommender" }, DescribeRecommenderRequest, DescribeRecommenderResponse, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeRecommender = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.DescribeRecommender" }, DescribeRecommenderRequest, DescribeRecommenderResponse, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes a solution.
  * For more information on solutions, see CreateSolution.
- */export const describeSolution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/", method: "POST", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.DescribeSolution" }, DescribeSolutionRequest, DescribeSolutionResponse, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeSolution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.DescribeSolution" }, DescribeSolutionRequest, DescribeSolutionResponse, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes a specific version of a solution. For more information on solutions, see CreateSolution
- */export const describeSolutionVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/", method: "POST", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.DescribeSolutionVersion" }, DescribeSolutionVersionRequest, DescribeSolutionVersionResponse, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeSolutionVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.DescribeSolutionVersion" }, DescribeSolutionVersionRequest, DescribeSolutionVersionResponse, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a recommender with the recipe (a Domain dataset group use case) you specify.
  * You create recommenders for a Domain dataset group and specify the recommender's Amazon Resource Name (ARN) when you make a
@@ -1432,10 +1432,10 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * 
  * 
  * - DeleteRecommender
- */export const createRecommender = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/", method: "POST", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.CreateRecommender" }, CreateRecommenderRequest, CreateRecommenderResponse, [InvalidInputException, LimitExceededException, ResourceAlreadyExistsException, ResourceInUseException, ResourceNotFoundException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createRecommender = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.CreateRecommender" }, CreateRecommenderRequest, CreateRecommenderResponse, [InvalidInputException, LimitExceededException, ResourceAlreadyExistsException, ResourceInUseException, ResourceNotFoundException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes the given algorithm.
- */export const describeAlgorithm = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/", method: "POST", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.DescribeAlgorithm" }, DescribeAlgorithmRequest, DescribeAlgorithmResponse, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeAlgorithm = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.DescribeAlgorithm" }, DescribeAlgorithmRequest, DescribeAlgorithmResponse, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * By default, all new solutions use automatic training. With automatic training, you incur training costs while
  * your solution is active. To avoid unnecessary costs, when you are finished you can
@@ -1547,4 +1547,4 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * 
  * 
  * - DescribeSolutionVersion
- */export const createSolution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", uri: "/", method: "POST", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.CreateSolution" }, CreateSolutionRequest, CreateSolutionResponse, [InvalidInputException, LimitExceededException, ResourceAlreadyExistsException, ResourceInUseException, ResourceNotFoundException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createSolution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-22", sdkId: "Personalize", sigV4ServiceName: "personalize", name: "AmazonPersonalize.CreateSolution" }, CreateSolutionRequest, CreateSolutionResponse, [InvalidInputException, LimitExceededException, ResourceAlreadyExistsException, ResourceInUseException, ResourceNotFoundException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

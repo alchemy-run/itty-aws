@@ -423,7 +423,7 @@ export class FeaturedResultsConflictException extends S.TaggedError<FeaturedResu
  * 
  * 
  * `DeletePrincipalMapping` is currently not supported in the Amazon Web Services GovCloud (US-West) region.
- */export const deletePrincipalMapping = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", uri: "/", method: "POST", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.DeletePrincipalMapping" }, DeletePrincipalMappingRequest, S.Struct({}), [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deletePrincipalMapping = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.DeletePrincipalMapping" }, DeletePrincipalMappingRequest, S.Struct({}), [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a block list used for query suggestions for an index.
  * 
@@ -436,25 +436,25 @@ export class FeaturedResultsConflictException extends S.TaggedError<FeaturedResu
  * 
  * `DeleteQuerySuggestionsBlockList` is currently not supported in the
  * Amazon Web Services GovCloud (US-West) region.
- */export const deleteQuerySuggestionsBlockList = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", uri: "/", method: "POST", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.DeleteQuerySuggestionsBlockList" }, DeleteQuerySuggestionsBlockListRequest, S.Struct({}), [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteQuerySuggestionsBlockList = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.DeleteQuerySuggestionsBlockList" }, DeleteQuerySuggestionsBlockListRequest, S.Struct({}), [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an Amazon Kendra thesaurus.
- */export const deleteThesaurus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", uri: "/", method: "POST", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.DeleteThesaurus" }, DeleteThesaurusRequest, S.Struct({}), [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteThesaurus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.DeleteThesaurus" }, DeleteThesaurusRequest, S.Struct({}), [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Stops a synchronization job that is currently running. You can't stop a scheduled
  * synchronization job.
- */export const stopDataSourceSyncJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", uri: "/", method: "POST", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.StopDataSourceSyncJob" }, StopDataSourceSyncJobRequest, S.Struct({}), [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const stopDataSourceSyncJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.StopDataSourceSyncJob" }, StopDataSourceSyncJobRequest, S.Struct({}), [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes a tag from an index, FAQ, data source, or other resource.
- */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", uri: "/", method: "POST", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [AccessDeniedException, InternalServerException, ResourceUnavailableException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [AccessDeniedException, InternalServerException, ResourceUnavailableException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates an Amazon Kendra data source connector.
- */export const updateDataSource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", uri: "/", method: "POST", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.UpdateDataSource" }, UpdateDataSourceRequest, S.Struct({}), [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateDataSource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.UpdateDataSource" }, UpdateDataSourceRequest, S.Struct({}), [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates your Amazon Kendra experience such as a search application. For more information on
  * creating a search application experience, see Building a
  * search experience with no code.
- */export const updateExperience = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", uri: "/", method: "POST", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.UpdateExperience" }, UpdateExperienceRequest, S.Struct({}), [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateExperience = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.UpdateExperience" }, UpdateExperienceRequest, S.Struct({}), [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates a block list used for query suggestions for an index.
  * 
@@ -475,10 +475,10 @@ export class FeaturedResultsConflictException extends S.TaggedError<FeaturedResu
  * 
  * `UpdateQuerySuggestionsBlockList` is currently not supported in the
  * Amazon Web Services GovCloud (US-West) region.
- */export const updateQuerySuggestionsBlockList = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", uri: "/", method: "POST", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.UpdateQuerySuggestionsBlockList" }, UpdateQuerySuggestionsBlockListRequest, S.Struct({}), [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateQuerySuggestionsBlockList = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.UpdateQuerySuggestionsBlockList" }, UpdateQuerySuggestionsBlockListRequest, S.Struct({}), [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates a thesaurus for an index.
- */export const updateThesaurus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", uri: "/", method: "POST", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.UpdateThesaurus" }, UpdateThesaurusRequest, S.Struct({}), [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateThesaurus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.UpdateThesaurus" }, UpdateThesaurusRequest, S.Struct({}), [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Clears existing query suggestions from an index.
  * 
@@ -494,7 +494,7 @@ export class FeaturedResultsConflictException extends S.TaggedError<FeaturedResu
  * 
  * `ClearQuerySuggestions` is currently not supported in the
  * Amazon Web Services GovCloud (US-West) region.
- */export const clearQuerySuggestions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", uri: "/", method: "POST", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.ClearQuerySuggestions" }, ClearQuerySuggestionsRequest, S.Struct({}), [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const clearQuerySuggestions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.ClearQuerySuggestions" }, ClearQuerySuggestionsRequest, S.Struct({}), [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a block list to exlcude certain queries from suggestions.
  * 
@@ -521,7 +521,7 @@ export class FeaturedResultsConflictException extends S.TaggedError<FeaturedResu
  * For an example of creating a block list for query suggestions using the
  * Python SDK, see Query
  * suggestions block list.
- */export const createQuerySuggestionsBlockList = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", uri: "/", method: "POST", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.CreateQuerySuggestionsBlockList" }, CreateQuerySuggestionsBlockListRequest, CreateQuerySuggestionsBlockListResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createQuerySuggestionsBlockList = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.CreateQuerySuggestionsBlockList" }, CreateQuerySuggestionsBlockListRequest, CreateQuerySuggestionsBlockListResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a thesaurus for an index. The thesaurus
  * contains a list of synonyms in Solr format.
@@ -530,13 +530,13 @@ export class FeaturedResultsConflictException extends S.TaggedError<FeaturedResu
  * For an example of adding a thesaurus file to an index, see
  * Adding
  * custom synonyms to an index.
- */export const createThesaurus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", uri: "/", method: "POST", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.CreateThesaurus" }, CreateThesaurusRequest, CreateThesaurusResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createThesaurus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.CreateThesaurus" }, CreateThesaurusRequest, CreateThesaurusResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an access control configuration that you created for your documents in an
  * index. This includes user and group access information for your documents. This is
  * useful for user context filtering, where search results are filtered based on the user
  * or their group access to documents.
- */export const deleteAccessControlConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", uri: "/", method: "POST", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.DeleteAccessControlConfiguration" }, DeleteAccessControlConfigurationRequest, DeleteAccessControlConfigurationResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteAccessControlConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.DeleteAccessControlConfiguration" }, DeleteAccessControlConfigurationRequest, DeleteAccessControlConfigurationResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an Amazon Kendra data source connector. An exception is not thrown if the
  * data source is already being deleted. While the data source is being deleted, the
@@ -547,32 +547,32 @@ export class FeaturedResultsConflictException extends S.TaggedError<FeaturedResu
  * Deleting an entire data source or re-syncing your index after deleting specific documents
  * from a data source could take up to an hour or more, depending on the number of documents you
  * want to delete.
- */export const deleteDataSource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", uri: "/", method: "POST", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.DeleteDataSource" }, DeleteDataSourceRequest, S.Struct({}), [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteDataSource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.DeleteDataSource" }, DeleteDataSourceRequest, S.Struct({}), [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes your Amazon Kendra experience such as a search application. For more information on
  * creating a search application experience, see Building a search
  * experience with no code.
- */export const deleteExperience = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", uri: "/", method: "POST", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.DeleteExperience" }, DeleteExperienceRequest, DeleteExperienceResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteExperience = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.DeleteExperience" }, DeleteExperienceRequest, DeleteExperienceResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes a FAQ from an index.
- */export const deleteFaq = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", uri: "/", method: "POST", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.DeleteFaq" }, DeleteFaqRequest, S.Struct({}), [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteFaq = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.DeleteFaq" }, DeleteFaqRequest, S.Struct({}), [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an Amazon Kendra index. An exception is not thrown if the index is already
  * being deleted. While the index is being deleted, the `Status` field returned by a
  * call to the `DescribeIndex` API is set to `DELETING`.
- */export const deleteIndex = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", uri: "/", method: "POST", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.DeleteIndex" }, DeleteIndexRequest, S.Struct({}), [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteIndex = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.DeleteIndex" }, DeleteIndexRequest, S.Struct({}), [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets information about an access control configuration that you created for your
  * documents in an index. This includes user and group access information for your
  * documents. This is useful for user context filtering, where search results are filtered
  * based on the user or their group access to documents.
- */export const describeAccessControlConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", uri: "/", method: "POST", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.DescribeAccessControlConfiguration" }, DescribeAccessControlConfigurationRequest, DescribeAccessControlConfigurationResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeAccessControlConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.DescribeAccessControlConfiguration" }, DescribeAccessControlConfigurationRequest, DescribeAccessControlConfigurationResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets information about an Amazon Kendra data source connector.
- */export const describeDataSource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", uri: "/", method: "POST", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.DescribeDataSource" }, DescribeDataSourceRequest, DescribeDataSourceResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeDataSource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.DescribeDataSource" }, DescribeDataSourceRequest, DescribeDataSourceResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets information about a FAQ.
- */export const describeFaq = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", uri: "/", method: "POST", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.DescribeFaq" }, DescribeFaqRequest, DescribeFaqResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeFaq = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.DescribeFaq" }, DescribeFaqRequest, DescribeFaqResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets information about a block list used for query suggestions for
  * an index.
@@ -585,21 +585,21 @@ export class FeaturedResultsConflictException extends S.TaggedError<FeaturedResu
  * 
  * `DescribeQuerySuggestionsBlockList` is currently not supported in the
  * Amazon Web Services GovCloud (US-West) region.
- */export const describeQuerySuggestionsBlockList = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", uri: "/", method: "POST", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.DescribeQuerySuggestionsBlockList" }, DescribeQuerySuggestionsBlockListRequest, DescribeQuerySuggestionsBlockListResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeQuerySuggestionsBlockList = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.DescribeQuerySuggestionsBlockList" }, DescribeQuerySuggestionsBlockListRequest, DescribeQuerySuggestionsBlockListResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets information about an Amazon Kendra thesaurus.
- */export const describeThesaurus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", uri: "/", method: "POST", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.DescribeThesaurus" }, DescribeThesaurusRequest, DescribeThesaurusResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeThesaurus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.DescribeThesaurus" }, DescribeThesaurusRequest, DescribeThesaurusResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes the specific permissions of users or groups in your IAM Identity Center
  * identity source with access to your Amazon Kendra experience. You can create an Amazon Kendra
  * experience such as a search application. For more information on creating a
  * search application experience, see Building a
  * search experience with no code.
- */export const disassociatePersonasFromEntities = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", uri: "/", method: "POST", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.DisassociatePersonasFromEntities" }, DisassociatePersonasFromEntitiesRequest, DisassociatePersonasFromEntitiesResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const disassociatePersonasFromEntities = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.DisassociatePersonasFromEntities" }, DisassociatePersonasFromEntitiesRequest, DisassociatePersonasFromEntitiesResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets a list of tags associated with a resource. Indexes, FAQs, data sources, and
  * other resources can have tags associated with them.
- */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", uri: "/", method: "POST", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [AccessDeniedException, InternalServerException, ResourceUnavailableException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [AccessDeniedException, InternalServerException, ResourceUnavailableException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Enables you to provide feedback to Amazon Kendra to improve the
  * performance of your index.
@@ -608,11 +608,11 @@ export class FeaturedResultsConflictException extends S.TaggedError<FeaturedResu
  * 
  * `SubmitFeedback` is currently not supported in the
  * Amazon Web Services GovCloud (US-West) region.
- */export const submitFeedback = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", uri: "/", method: "POST", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.SubmitFeedback" }, SubmitFeedbackRequest, S.Struct({}), [AccessDeniedException, InternalServerException, ResourceNotFoundException, ResourceUnavailableException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const submitFeedback = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.SubmitFeedback" }, SubmitFeedbackRequest, S.Struct({}), [AccessDeniedException, InternalServerException, ResourceNotFoundException, ResourceUnavailableException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds the specified tag to the specified index, FAQ, data source, or other resource. If
  * the tag already exists, the existing value is replaced with the new value.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", uri: "/", method: "POST", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.TagResource" }, TagResourceRequest, TagResourceResponse, [AccessDeniedException, InternalServerException, ResourceUnavailableException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.TagResource" }, TagResourceRequest, TagResourceResponse, [AccessDeniedException, InternalServerException, ResourceUnavailableException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates an access control configuration for your documents in an index. This includes
  * user and group access information for your documents. This is useful for user context
@@ -645,19 +645,19 @@ export class FeaturedResultsConflictException extends S.TaggedError<FeaturedResu
  * `CreateAccessControlConfiguration` for an Amazon Kendra Gen AI Enterprise
  * Edition index. Amazon Kendra will return a `ValidationException` error for a
  * `Gen_AI_ENTERPRISE_EDITION` index.
- */export const updateAccessControlConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", uri: "/", method: "POST", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.UpdateAccessControlConfiguration" }, UpdateAccessControlConfigurationRequest, UpdateAccessControlConfigurationResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateAccessControlConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.UpdateAccessControlConfiguration" }, UpdateAccessControlConfigurationRequest, UpdateAccessControlConfigurationResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Defines the specific permissions of users or groups in your IAM Identity Center
  * identity source with access to your Amazon Kendra experience. You can create an Amazon Kendra
  * experience such as a search application. For more information on creating a
  * search application experience, see Building
  * a search experience with no code.
- */export const associatePersonasToEntities = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", uri: "/", method: "POST", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.AssociatePersonasToEntities" }, AssociatePersonasToEntitiesRequest, AssociatePersonasToEntitiesResponse, [AccessDeniedException, InternalServerException, ResourceAlreadyExistException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const associatePersonasToEntities = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.AssociatePersonasToEntities" }, AssociatePersonasToEntitiesRequest, AssociatePersonasToEntitiesResponse, [AccessDeniedException, InternalServerException, ResourceAlreadyExistException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes one or more sets of featured results. Features results are placed
  * above all other results for certain queries. If there's an exact match of a
  * query, then one or more specific documents are featured in the search results.
- */export const batchDeleteFeaturedResultsSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", uri: "/", method: "POST", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.BatchDeleteFeaturedResultsSet" }, BatchDeleteFeaturedResultsSetRequest, BatchDeleteFeaturedResultsSetResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const batchDeleteFeaturedResultsSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.BatchDeleteFeaturedResultsSet" }, BatchDeleteFeaturedResultsSetRequest, BatchDeleteFeaturedResultsSetResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an access configuration for your documents. This includes user and group
  * access information for your documents. This is useful for user context filtering, where
@@ -690,7 +690,7 @@ export class FeaturedResultsConflictException extends S.TaggedError<FeaturedResu
  * `CreateAccessControlConfiguration` for an Amazon Kendra Gen AI Enterprise
  * Edition index. Amazon Kendra will return a `ValidationException` error for a
  * `Gen_AI_ENTERPRISE_EDITION` index.
- */export const createAccessControlConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", uri: "/", method: "POST", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.CreateAccessControlConfiguration" }, CreateAccessControlConfigurationRequest, CreateAccessControlConfigurationResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createAccessControlConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.CreateAccessControlConfiguration" }, CreateAccessControlConfigurationRequest, CreateAccessControlConfigurationResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a set of frequently ask questions (FAQs) using a specified FAQ file stored
  * in an Amazon S3 bucket.
@@ -700,18 +700,18 @@ export class FeaturedResultsConflictException extends S.TaggedError<FeaturedResu
  * 
  * 
  * For an example of adding an FAQ to an index using Python and Java SDKs, see Using your FAQ file.
- */export const createFaq = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", uri: "/", method: "POST", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.CreateFaq" }, CreateFaqRequest, CreateFaqResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createFaq = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.CreateFaq" }, CreateFaqRequest, CreateFaqResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets information about your Amazon Kendra experience such as a search application.
  * For more information on creating a search application experience,
  * see Building
  * a search experience with no code.
- */export const describeExperience = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", uri: "/", method: "POST", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.DescribeExperience" }, DescribeExperienceRequest, DescribeExperienceResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeExperience = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.DescribeExperience" }, DescribeExperienceRequest, DescribeExperienceResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets information about a set of featured results. Features results are placed
  * above all other results for certain queries. If there's an exact match of a query,
  * then one or more specific documents are featured in the search results.
- */export const describeFeaturedResultsSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", uri: "/", method: "POST", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.DescribeFeaturedResultsSet" }, DescribeFeaturedResultsSetRequest, DescribeFeaturedResultsSetResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeFeaturedResultsSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.DescribeFeaturedResultsSet" }, DescribeFeaturedResultsSetRequest, DescribeFeaturedResultsSetResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes the processing of `PUT` and `DELETE` actions for
  * mapping users to their groups. This includes information on the status of actions
@@ -723,7 +723,7 @@ export class FeaturedResultsConflictException extends S.TaggedError<FeaturedResu
  * 
  * 
  * `DescribePrincipalMapping` is currently not supported in the Amazon Web Services GovCloud (US-West) region.
- */export const describePrincipalMapping = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", uri: "/", method: "POST", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.DescribePrincipalMapping" }, DescribePrincipalMappingRequest, DescribePrincipalMappingResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describePrincipalMapping = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.DescribePrincipalMapping" }, DescribePrincipalMappingRequest, DescribePrincipalMappingResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets information on the settings of query suggestions for an index.
  * 
@@ -735,45 +735,45 @@ export class FeaturedResultsConflictException extends S.TaggedError<FeaturedResu
  * 
  * `DescribeQuerySuggestionsConfig` is currently not supported in the
  * Amazon Web Services GovCloud (US-West) region.
- */export const describeQuerySuggestionsConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", uri: "/", method: "POST", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.DescribeQuerySuggestionsConfig" }, DescribeQuerySuggestionsConfigRequest, DescribeQuerySuggestionsConfigResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeQuerySuggestionsConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.DescribeQuerySuggestionsConfig" }, DescribeQuerySuggestionsConfigRequest, DescribeQuerySuggestionsConfigResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Prevents users or groups in your IAM Identity Center identity source
  * from accessing your Amazon Kendra experience. You can create an Amazon Kendra experience
  * such as a search application. For more information on creating a search
  * application experience, see Building
  * a search experience with no code.
- */export const disassociateEntitiesFromExperience = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", uri: "/", method: "POST", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.DisassociateEntitiesFromExperience" }, DisassociateEntitiesFromExperienceRequest, DisassociateEntitiesFromExperienceResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const disassociateEntitiesFromExperience = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.DisassociateEntitiesFromExperience" }, DisassociateEntitiesFromExperienceRequest, DisassociateEntitiesFromExperienceResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves search metrics data. The data provides a snapshot of how your users interact
  * with your search application and how effective the application is.
- */export const getSnapshots = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", uri: "/", method: "POST", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.GetSnapshots" }, GetSnapshotsRequest, GetSnapshotsResponse, [AccessDeniedException, InternalServerException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getSnapshots = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.GetSnapshots" }, GetSnapshotsRequest, GetSnapshotsResponse, [AccessDeniedException, InternalServerException, InvalidRequestException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists one or more access control configurations for an index. This includes user and
  * group access information for your documents. This is useful for user context filtering,
  * where search results are filtered based on the user or their group access to
  * documents.
- */export const listAccessControlConfigurations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", uri: "/", method: "POST", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.ListAccessControlConfigurations" }, ListAccessControlConfigurationsRequest, ListAccessControlConfigurationsResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listAccessControlConfigurations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.ListAccessControlConfigurations" }, ListAccessControlConfigurationsRequest, ListAccessControlConfigurationsResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the data source connectors that you have created.
- */export const listDataSources = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", uri: "/", method: "POST", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.ListDataSources" }, ListDataSourcesRequest, ListDataSourcesResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listDataSources = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.ListDataSources" }, ListDataSourcesRequest, ListDataSourcesResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists specific permissions of users and groups with access to your
  * Amazon Kendra experience.
- */export const listEntityPersonas = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", uri: "/", method: "POST", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.ListEntityPersonas" }, ListEntityPersonasRequest, ListEntityPersonasResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listEntityPersonas = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.ListEntityPersonas" }, ListEntityPersonasRequest, ListEntityPersonasResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists one or more Amazon Kendra experiences. You can create an Amazon Kendra experience such
  * as a search application. For more information on creating a search application
  * experience, see Building a
  * search experience with no code.
- */export const listExperiences = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", uri: "/", method: "POST", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.ListExperiences" }, ListExperiencesRequest, ListExperiencesResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listExperiences = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.ListExperiences" }, ListExperiencesRequest, ListExperiencesResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets a list of FAQs associated with an index.
- */export const listFaqs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", uri: "/", method: "POST", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.ListFaqs" }, ListFaqsRequest, ListFaqsResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listFaqs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.ListFaqs" }, ListFaqsRequest, ListFaqsResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists all your sets of featured results for a given index. Features results
  * are placed above all other results for certain queries. If there's an exact match
  * of a query, then one or more specific documents are featured in the search results.
- */export const listFeaturedResultsSets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", uri: "/", method: "POST", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.ListFeaturedResultsSets" }, ListFeaturedResultsSetsRequest, ListFeaturedResultsSetsResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listFeaturedResultsSets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.ListFeaturedResultsSets" }, ListFeaturedResultsSetsRequest, ListFeaturedResultsSetsResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides a list of groups that are mapped to users before a given ordering or
  * timestamp identifier.
@@ -781,10 +781,10 @@ export class FeaturedResultsConflictException extends S.TaggedError<FeaturedResu
  * 
  * 
  * `ListGroupsOlderThanOrderingId` is currently not supported in the Amazon Web Services GovCloud (US-West) region.
- */export const listGroupsOlderThanOrderingId = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", uri: "/", method: "POST", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.ListGroupsOlderThanOrderingId" }, ListGroupsOlderThanOrderingIdRequest, ListGroupsOlderThanOrderingIdResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listGroupsOlderThanOrderingId = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.ListGroupsOlderThanOrderingId" }, ListGroupsOlderThanOrderingIdRequest, ListGroupsOlderThanOrderingIdResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the Amazon Kendra indexes that you created.
- */export const listIndices = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", uri: "/", method: "POST", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.ListIndices" }, ListIndicesRequest, ListIndicesResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listIndices = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.ListIndices" }, ListIndicesRequest, ListIndicesResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the block lists used for query suggestions for an index.
  * 
@@ -797,10 +797,10 @@ export class FeaturedResultsConflictException extends S.TaggedError<FeaturedResu
  * 
  * `ListQuerySuggestionsBlockLists` is currently not supported in the
  * Amazon Web Services GovCloud (US-West) region.
- */export const listQuerySuggestionsBlockLists = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", uri: "/", method: "POST", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.ListQuerySuggestionsBlockLists" }, ListQuerySuggestionsBlockListsRequest, ListQuerySuggestionsBlockListsResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listQuerySuggestionsBlockLists = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.ListQuerySuggestionsBlockLists" }, ListQuerySuggestionsBlockListsRequest, ListQuerySuggestionsBlockListsResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the thesauri for an index.
- */export const listThesauri = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", uri: "/", method: "POST", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.ListThesauri" }, ListThesauriRequest, ListThesauriResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listThesauri = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.ListThesauri" }, ListThesauriRequest, ListThesauriResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Maps users to their groups so that you only need to provide the user ID when you issue
  * the query.
@@ -820,7 +820,7 @@ export class FeaturedResultsConflictException extends S.TaggedError<FeaturedResu
  * 
  * If more than five `PUT` actions for a group are currently processing, a
  * validation exception is thrown.
- */export const putPrincipalMapping = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", uri: "/", method: "POST", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.PutPrincipalMapping" }, PutPrincipalMappingRequest, S.Struct({}), [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putPrincipalMapping = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.PutPrincipalMapping" }, PutPrincipalMappingRequest, S.Struct({}), [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts a synchronization job for a data source connector. If a synchronization job is
  * already in progress, Amazon Kendra returns a `ResourceInUseException`
@@ -830,17 +830,17 @@ export class FeaturedResultsConflictException extends S.TaggedError<FeaturedResu
  * Re-syncing your data source with your index after modifying, adding, or deleting
  * documents from your data source respository could take up to an hour or more, depending on
  * the number of documents to sync.
- */export const startDataSourceSyncJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", uri: "/", method: "POST", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.StartDataSourceSyncJob" }, StartDataSourceSyncJobRequest, StartDataSourceSyncJobResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceInUseException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startDataSourceSyncJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.StartDataSourceSyncJob" }, StartDataSourceSyncJobRequest, StartDataSourceSyncJobResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceInUseException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates a set of featured results. Features results are placed
  * above
  * all other results for certain queries. You map specific queries to specific documents
  * for featuring in the results. If a query contains an exact match of a query, then one
  * or more specific documents are featured in the search results.
- */export const updateFeaturedResultsSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", uri: "/", method: "POST", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.UpdateFeaturedResultsSet" }, UpdateFeaturedResultsSetRequest, UpdateFeaturedResultsSetResponse, [AccessDeniedException, FeaturedResultsConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateFeaturedResultsSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.UpdateFeaturedResultsSet" }, UpdateFeaturedResultsSetRequest, UpdateFeaturedResultsSetResponse, [AccessDeniedException, FeaturedResultsConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates an Amazon Kendra index.
- */export const updateIndex = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", uri: "/", method: "POST", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.UpdateIndex" }, UpdateIndexRequest, S.Struct({}), [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateIndex = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.UpdateIndex" }, UpdateIndexRequest, S.Struct({}), [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the settings of query suggestions for an index.
  * 
@@ -864,14 +864,14 @@ export class FeaturedResultsConflictException extends S.TaggedError<FeaturedResu
  * 
  * `UpdateQuerySuggestionsConfig` is currently not supported in the
  * Amazon Web Services GovCloud (US-West) region.
- */export const updateQuerySuggestionsConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", uri: "/", method: "POST", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.UpdateQuerySuggestionsConfig" }, UpdateQuerySuggestionsConfigRequest, S.Struct({}), [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateQuerySuggestionsConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.UpdateQuerySuggestionsConfig" }, UpdateQuerySuggestionsConfigRequest, S.Struct({}), [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Grants users or groups in your IAM Identity Center identity source access
  * to your Amazon Kendra experience. You can create an Amazon Kendra experience such as a
  * search application. For more information on creating a search application
  * experience, see Building
  * a search experience with no code.
- */export const associateEntitiesToExperience = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", uri: "/", method: "POST", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.AssociateEntitiesToExperience" }, AssociateEntitiesToExperienceRequest, AssociateEntitiesToExperienceResponse, [AccessDeniedException, InternalServerException, ResourceAlreadyExistException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const associateEntitiesToExperience = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.AssociateEntitiesToExperience" }, AssociateEntitiesToExperienceRequest, AssociateEntitiesToExperienceResponse, [AccessDeniedException, InternalServerException, ResourceAlreadyExistException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes one or more documents from an index. The documents must have been added with
  * the `BatchPutDocument` API.
@@ -887,13 +887,13 @@ export class FeaturedResultsConflictException extends S.TaggedError<FeaturedResu
  * 
  * Deleting documents from an index using `BatchDeleteDocument` could take up
  * to an hour or more, depending on the number of documents you want to delete.
- */export const batchDeleteDocument = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", uri: "/", method: "POST", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.BatchDeleteDocument" }, BatchDeleteDocumentRequest, BatchDeleteDocumentResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const batchDeleteDocument = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.BatchDeleteDocument" }, BatchDeleteDocumentRequest, BatchDeleteDocumentResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an Amazon Kendra experience such as a search application. For more information
  * on creating a search application experience, including using the Python and Java SDKs,
  * see Building a
  * search experience with no code.
- */export const createExperience = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", uri: "/", method: "POST", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.CreateExperience" }, CreateExperienceRequest, CreateExperienceResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createExperience = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.CreateExperience" }, CreateExperienceRequest, CreateExperienceResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an Amazon Kendra index. Index creation is an asynchronous API. To determine
  * if index creation has completed, check the `Status` field returned from a call to
@@ -909,17 +909,17 @@ export class FeaturedResultsConflictException extends S.TaggedError<FeaturedResu
  * SDK. For an example of creating an index and data source using the Java SDK, see
  * Getting started with Java
  * SDK.
- */export const createIndex = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", uri: "/", method: "POST", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.CreateIndex" }, CreateIndexRequest, CreateIndexResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceAlreadyExistException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createIndex = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.CreateIndex" }, CreateIndexRequest, CreateIndexResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceAlreadyExistException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets information about an Amazon Kendra index.
- */export const describeIndex = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", uri: "/", method: "POST", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.DescribeIndex" }, DescribeIndexRequest, DescribeIndexResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeIndex = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.DescribeIndex" }, DescribeIndexRequest, DescribeIndexResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists users or groups in your IAM Identity Center identity source that are
  * granted access to your Amazon Kendra experience. You can create an Amazon Kendra experience
  * such as a search application. For more information on creating a search
  * application experience, see Building
  * a search experience with no code.
- */export const listExperienceEntities = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", uri: "/", method: "POST", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.ListExperienceEntities" }, ListExperienceEntitiesRequest, ListExperienceEntitiesResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listExperienceEntities = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.ListExperienceEntities" }, ListExperienceEntitiesRequest, ListExperienceEntitiesResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves relevant passages or text excerpts given an input query.
  * 
@@ -983,7 +983,7 @@ export class FeaturedResultsConflictException extends S.TaggedError<FeaturedResu
  * you're using an Amazon Kendra Gen AI Enterprise Edition index and you try to use
  * `USER_TOKEN` to configure user context policy, Amazon Kendra returns a
  * `ValidationException` error.
- */export const retrieve = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", uri: "/", method: "POST", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.Retrieve" }, RetrieveRequest, RetrieveResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const retrieve = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.Retrieve" }, RetrieveRequest, RetrieveResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a set of featured results to display at the top of the search results page.
  * Featured results are placed above all other results for certain queries. You map
@@ -994,10 +994,10 @@ export class FeaturedResultsConflictException extends S.TaggedError<FeaturedResu
  * 
  * You can create up to 50 sets of featured results per index. You can request to
  * increase this limit by contacting Support.
- */export const createFeaturedResultsSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", uri: "/", method: "POST", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.CreateFeaturedResultsSet" }, CreateFeaturedResultsSetRequest, CreateFeaturedResultsSetResponse, [AccessDeniedException, ConflictException, FeaturedResultsConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createFeaturedResultsSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.CreateFeaturedResultsSet" }, CreateFeaturedResultsSetRequest, CreateFeaturedResultsSetResponse, [AccessDeniedException, ConflictException, FeaturedResultsConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets statistics about synchronizing a data source connector.
- */export const listDataSourceSyncJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", uri: "/", method: "POST", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.ListDataSourceSyncJobs" }, ListDataSourceSyncJobsRequest, ListDataSourceSyncJobsResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listDataSourceSyncJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.ListDataSourceSyncJobs" }, ListDataSourceSyncJobsRequest, ListDataSourceSyncJobsResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the indexing status for one or more documents submitted with the
  * BatchPutDocument API.
@@ -1012,7 +1012,7 @@ export class FeaturedResultsConflictException extends S.TaggedError<FeaturedResu
  * You can also use the `BatchGetDocumentStatus` API to check the status of
  * the
  * BatchDeleteDocument API. When a document is deleted from the index, Amazon Kendra returns `NOT_FOUND` as the status.
- */export const batchGetDocumentStatus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", uri: "/", method: "POST", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.BatchGetDocumentStatus" }, BatchGetDocumentStatusRequest, BatchGetDocumentStatusResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const batchGetDocumentStatus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.BatchGetDocumentStatus" }, BatchGetDocumentStatusRequest, BatchGetDocumentStatusResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds one or more documents to an index.
  * 
@@ -1033,7 +1033,7 @@ export class FeaturedResultsConflictException extends S.TaggedError<FeaturedResu
  * 
  * For an example of ingesting inline documents using Python and Java SDKs, see Adding files
  * directly to an index.
- */export const batchPutDocument = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", uri: "/", method: "POST", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.BatchPutDocument" }, BatchPutDocumentRequest, BatchPutDocumentResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const batchPutDocument = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.BatchPutDocument" }, BatchPutDocumentRequest, BatchPutDocumentResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a data source connector that you want to use with an Amazon Kendra
  * index.
@@ -1052,7 +1052,7 @@ export class FeaturedResultsConflictException extends S.TaggedError<FeaturedResu
  * SDK. For an example of creating an index and data source using the Java SDK, see
  * Getting started with Java
  * SDK.
- */export const createDataSource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", uri: "/", method: "POST", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.CreateDataSource" }, CreateDataSourceRequest, CreateDataSourceResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceAlreadyExistException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createDataSource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.CreateDataSource" }, CreateDataSourceRequest, CreateDataSourceResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceAlreadyExistException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Fetches the queries that are suggested to your users.
  * 
@@ -1060,7 +1060,7 @@ export class FeaturedResultsConflictException extends S.TaggedError<FeaturedResu
  * 
  * `GetQuerySuggestions` is currently not supported in the
  * Amazon Web Services GovCloud (US-West) region.
- */export const getQuerySuggestions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", uri: "/", method: "POST", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.GetQuerySuggestions" }, GetQuerySuggestionsRequest, GetQuerySuggestionsResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getQuerySuggestions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.GetQuerySuggestions" }, GetQuerySuggestionsRequest, GetQuerySuggestionsResponse, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Searches an index given an input query.
  * 
@@ -1115,4 +1115,4 @@ export class FeaturedResultsConflictException extends S.TaggedError<FeaturedResu
  * using an Amazon Kendra Gen AI Enterprise Edition index and you try to use
  * `USER_TOKEN` to configure user context policy, Amazon Kendra returns a
  * `ValidationException` error.
- */export const query = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", uri: "/", method: "POST", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.Query" }, QueryRequest, QueryResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const query = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-02-03", sdkId: "kendra", sigV4ServiceName: "kendra", name: "AWSKendraFrontendService.Query" }, QueryRequest, QueryResult, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

@@ -355,11 +355,11 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
  * - The order of file systems returned in the response of one
  * `DescribeFileSystems` call and the order of file systems returned
  * across the responses of a multicall iteration is unspecified.
- */export const describeFileSystems = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", uri: "/", method: "POST", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.DescribeFileSystems" }, DescribeFileSystemsRequest, DescribeFileSystemsResponse, [BadRequest, FileSystemNotFound, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeFileSystems = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.DescribeFileSystems" }, DescribeFileSystemsRequest, DescribeFileSystemsResponse, [BadRequest, FileSystemNotFound, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Indicates whether participant accounts in your organization can create Amazon FSx for NetApp ONTAP Multi-AZ file systems in subnets that are shared by a virtual
  * private cloud (VPC) owner. For more information, see Creating FSx for ONTAP file systems in shared subnets.
- */export const describeSharedVpcConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", uri: "/", method: "POST", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.DescribeSharedVpcConfiguration" }, DescribeSharedVpcConfigurationRequest, DescribeSharedVpcConfigurationResponse, [BadRequest, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeSharedVpcConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.DescribeSharedVpcConfiguration" }, DescribeSharedVpcConfigurationRequest, DescribeSharedVpcConfigurationResponse, [BadRequest, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Use this action to disassociate, or remove, one or more Domain Name Service (DNS) aliases
  * from an Amazon FSx for Windows File Server file system. If you attempt to disassociate a DNS alias that is not
@@ -372,20 +372,20 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
  * Use the API
  * operation to monitor the status of the aliases Amazon FSx is
  * disassociating with the file system.
- */export const disassociateFileSystemAliases = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", uri: "/", method: "POST", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.DisassociateFileSystemAliases" }, DisassociateFileSystemAliasesRequest, DisassociateFileSystemAliasesResponse, [BadRequest, FileSystemNotFound, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const disassociateFileSystemAliases = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.DisassociateFileSystemAliases" }, DisassociateFileSystemAliasesRequest, DisassociateFileSystemAliasesResponse, [BadRequest, FileSystemNotFound, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * After performing steps to repair the Active Directory configuration of an FSx for Windows File Server file system, use this action to
  * initiate the process of Amazon FSx attempting to reconnect to the file system.
- */export const startMisconfiguredStateRecovery = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", uri: "/", method: "POST", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.StartMisconfiguredStateRecovery" }, StartMisconfiguredStateRecoveryRequest, StartMisconfiguredStateRecoveryResponse, [BadRequest, FileSystemNotFound, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startMisconfiguredStateRecovery = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.StartMisconfiguredStateRecovery" }, StartMisconfiguredStateRecoveryRequest, StartMisconfiguredStateRecoveryResponse, [BadRequest, FileSystemNotFound, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This action removes a tag from an Amazon FSx resource.
- */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", uri: "/", method: "POST", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [BadRequest, InternalServerError, NotServiceResourceError, ResourceDoesNotSupportTagging, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [BadRequest, InternalServerError, NotServiceResourceError, ResourceDoesNotSupportTagging, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the configuration of an existing data repository association
  * on an Amazon FSx for Lustre file system. Data repository associations
  * are supported on all FSx for Lustre 2.12 and 2.15 file systems,
  * excluding `scratch_1` deployment type.
- */export const updateDataRepositoryAssociation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", uri: "/", method: "POST", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.UpdateDataRepositoryAssociation" }, UpdateDataRepositoryAssociationRequest, UpdateDataRepositoryAssociationResponse, [BadRequest, DataRepositoryAssociationNotFound, IncompatibleParameterError, InternalServerError, ServiceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateDataRepositoryAssociation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.UpdateDataRepositoryAssociation" }, UpdateDataRepositoryAssociationRequest, UpdateDataRepositoryAssociationResponse, [BadRequest, DataRepositoryAssociationNotFound, IncompatibleParameterError, InternalServerError, ServiceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Configures whether participant accounts in your organization can create Amazon FSx for NetApp ONTAP Multi-AZ file systems in subnets that are shared by a virtual
  * private cloud (VPC) owner. For more information, see the Amazon FSx for NetApp ONTAP User
@@ -399,10 +399,10 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
  * file systems will enter a `MISCONFIGURED` state and behave like Single-AZ
  * file systems. For more information, see Important considerations before disabling shared VPC support for Multi-AZ file
  * systems.
- */export const updateSharedVpcConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", uri: "/", method: "POST", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.UpdateSharedVpcConfiguration" }, UpdateSharedVpcConfigurationRequest, UpdateSharedVpcConfigurationResponse, [BadRequest, IncompatibleParameterError, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateSharedVpcConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.UpdateSharedVpcConfiguration" }, UpdateSharedVpcConfigurationRequest, UpdateSharedVpcConfigurationResponse, [BadRequest, IncompatibleParameterError, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the name of an Amazon FSx for OpenZFS snapshot.
- */export const updateSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", uri: "/", method: "POST", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.UpdateSnapshot" }, UpdateSnapshotRequest, UpdateSnapshotResponse, [BadRequest, InternalServerError, SnapshotNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.UpdateSnapshot" }, UpdateSnapshotRequest, UpdateSnapshotResponse, [BadRequest, InternalServerError, SnapshotNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Use this action to associate one or more Domain Name Server (DNS) aliases with an existing Amazon FSx for Windows File Server file system.
  * A file system can have a maximum of 50 DNS aliases associated with it at any one time. If you try to
@@ -417,7 +417,7 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
  * Use the API
  * operation to monitor the status of the aliases Amazon FSx is
  * associating with the file system.
- */export const associateFileSystemAliases = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", uri: "/", method: "POST", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.AssociateFileSystemAliases" }, AssociateFileSystemAliasesRequest, AssociateFileSystemAliasesResponse, [BadRequest, FileSystemNotFound, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const associateFileSystemAliases = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.AssociateFileSystemAliases" }, AssociateFileSystemAliasesRequest, AssociateFileSystemAliasesResponse, [BadRequest, FileSystemNotFound, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a data repository association on an Amazon FSx for Lustre
  * file system. Deleting the data repository association unlinks the
@@ -426,7 +426,7 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
  * that corresponds to the data repository association. Data repository
  * associations are supported on all FSx for Lustre 2.12 and 2.15 file
  * systems, excluding `scratch_1` deployment type.
- */export const deleteDataRepositoryAssociation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", uri: "/", method: "POST", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.DeleteDataRepositoryAssociation" }, DeleteDataRepositoryAssociationRequest, DeleteDataRepositoryAssociationResponse, [BadRequest, DataRepositoryAssociationNotFound, IncompatibleParameterError, InternalServerError, ServiceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteDataRepositoryAssociation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.DeleteDataRepositoryAssociation" }, DeleteDataRepositoryAssociationRequest, DeleteDataRepositoryAssociationResponse, [BadRequest, DataRepositoryAssociationNotFound, IncompatibleParameterError, InternalServerError, ServiceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an Amazon File Cache resource. After deletion, the cache no longer exists, and its data
  * is gone.
@@ -444,7 +444,7 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
  * 
  * The data in a deleted cache is also deleted and can't be recovered by
  * any means.
- */export const deleteFileCache = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", uri: "/", method: "POST", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.DeleteFileCache" }, DeleteFileCacheRequest, DeleteFileCacheResponse, [BadRequest, FileCacheNotFound, IncompatibleParameterError, InternalServerError, ServiceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteFileCache = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.DeleteFileCache" }, DeleteFileCacheRequest, DeleteFileCacheResponse, [BadRequest, FileCacheNotFound, IncompatibleParameterError, InternalServerError, ServiceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an Amazon FSx for OpenZFS snapshot. After deletion, the snapshot no longer
  * exists, and its data is gone. Deleting a snapshot doesn't affect snapshots stored in a
@@ -453,7 +453,7 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
  * 
  * The `DeleteSnapshot` operation returns instantly. The snapshot appears with
  * the lifecycle status of `DELETING` until the deletion is complete.
- */export const deleteSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", uri: "/", method: "POST", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.DeleteSnapshot" }, DeleteSnapshotRequest, DeleteSnapshotResponse, [BadRequest, InternalServerError, SnapshotNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.DeleteSnapshot" }, DeleteSnapshotRequest, DeleteSnapshotResponse, [BadRequest, InternalServerError, SnapshotNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the description of a specific Amazon FSx backup, if a
  * `BackupIds` value is provided for that backup. Otherwise, it returns all
@@ -487,12 +487,12 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
  * - The order of the backups returned in the response of one
  * `DescribeBackups` call and the order of the backups returned
  * across the responses of a multi-call iteration is unspecified.
- */export const describeBackups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", uri: "/", method: "POST", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.DescribeBackups" }, DescribeBackupsRequest, DescribeBackupsResponse, [BackupNotFound, BadRequest, FileSystemNotFound, InternalServerError, VolumeNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeBackups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.DescribeBackups" }, DescribeBackupsRequest, DescribeBackupsResponse, [BackupNotFound, BadRequest, FileSystemNotFound, InternalServerError, VolumeNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the DNS aliases that are associated with the specified Amazon FSx for Windows File Server file system. A history of
  * all DNS aliases that have been associated with and disassociated from the file system is available in the list of AdministrativeAction
  * provided in the DescribeFileSystems operation response.
- */export const describeFileSystemAliases = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", uri: "/", method: "POST", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.DescribeFileSystemAliases" }, DescribeFileSystemAliasesRequest, DescribeFileSystemAliasesResponse, [BadRequest, FileSystemNotFound, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeFileSystemAliases = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.DescribeFileSystemAliases" }, DescribeFileSystemAliasesRequest, DescribeFileSystemAliasesResponse, [BadRequest, FileSystemNotFound, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the description of specific Amazon FSx for OpenZFS snapshots, if a
  * `SnapshotIds` value is provided. Otherwise, this operation returns all
@@ -527,14 +527,14 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
  * - The order of snapshots returned in the response of one
  * `DescribeSnapshots` call and the order of backups returned across
  * the responses of a multi-call iteration is unspecified.
- */export const describeSnapshots = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", uri: "/", method: "POST", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.DescribeSnapshots" }, DescribeSnapshotsRequest, DescribeSnapshotsResponse, [BadRequest, InternalServerError, SnapshotNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeSnapshots = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.DescribeSnapshots" }, DescribeSnapshotsRequest, DescribeSnapshotsResponse, [BadRequest, InternalServerError, SnapshotNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes one or more Amazon FSx for NetApp ONTAP storage virtual machines (SVMs).
- */export const describeStorageVirtualMachines = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", uri: "/", method: "POST", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.DescribeStorageVirtualMachines" }, DescribeStorageVirtualMachinesRequest, DescribeStorageVirtualMachinesResponse, [BadRequest, InternalServerError, StorageVirtualMachineNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeStorageVirtualMachines = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.DescribeStorageVirtualMachines" }, DescribeStorageVirtualMachinesRequest, DescribeStorageVirtualMachinesResponse, [BadRequest, InternalServerError, StorageVirtualMachineNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes one or more Amazon FSx for NetApp ONTAP or Amazon FSx for
  * OpenZFS volumes.
- */export const describeVolumes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", uri: "/", method: "POST", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.DescribeVolumes" }, DescribeVolumesRequest, DescribeVolumesResponse, [BadRequest, InternalServerError, VolumeNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeVolumes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.DescribeVolumes" }, DescribeVolumesRequest, DescribeVolumesResponse, [BadRequest, InternalServerError, VolumeNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists tags for Amazon FSx resources.
  * 
@@ -566,21 +566,21 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
  * - The order of tags returned in the response of one
  * `ListTagsForResource` call and the order of tags returned across
  * the responses of a multi-call iteration is unspecified.
- */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", uri: "/", method: "POST", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [BadRequest, InternalServerError, NotServiceResourceError, ResourceDoesNotSupportTagging, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [BadRequest, InternalServerError, NotServiceResourceError, ResourceDoesNotSupportTagging, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Releases the file system lock from an Amazon FSx for OpenZFS file
  * system.
- */export const releaseFileSystemNfsV3Locks = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", uri: "/", method: "POST", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.ReleaseFileSystemNfsV3Locks" }, ReleaseFileSystemNfsV3LocksRequest, ReleaseFileSystemNfsV3LocksResponse, [BadRequest, FileSystemNotFound, IncompatibleParameterError, InternalServerError, ServiceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const releaseFileSystemNfsV3Locks = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.ReleaseFileSystemNfsV3Locks" }, ReleaseFileSystemNfsV3LocksRequest, ReleaseFileSystemNfsV3LocksResponse, [BadRequest, FileSystemNotFound, IncompatibleParameterError, InternalServerError, ServiceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns an Amazon FSx for OpenZFS volume to the state saved by the specified
  * snapshot.
- */export const restoreVolumeFromSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", uri: "/", method: "POST", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.RestoreVolumeFromSnapshot" }, RestoreVolumeFromSnapshotRequest, RestoreVolumeFromSnapshotResponse, [BadRequest, InternalServerError, VolumeNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const restoreVolumeFromSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.RestoreVolumeFromSnapshot" }, RestoreVolumeFromSnapshotRequest, RestoreVolumeFromSnapshotResponse, [BadRequest, InternalServerError, VolumeNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Tags an Amazon FSx resource.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", uri: "/", method: "POST", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.TagResource" }, TagResourceRequest, TagResourceResponse, [BadRequest, InternalServerError, NotServiceResourceError, ResourceDoesNotSupportTagging, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.TagResource" }, TagResourceRequest, TagResourceResponse, [BadRequest, InternalServerError, NotServiceResourceError, ResourceDoesNotSupportTagging, ResourceNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates an FSx for ONTAP storage virtual machine (SVM).
- */export const updateStorageVirtualMachine = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", uri: "/", method: "POST", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.UpdateStorageVirtualMachine" }, UpdateStorageVirtualMachineRequest, UpdateStorageVirtualMachineResponse, [BadRequest, IncompatibleParameterError, InternalServerError, StorageVirtualMachineNotFound, UnsupportedOperation]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateStorageVirtualMachine = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.UpdateStorageVirtualMachine" }, UpdateStorageVirtualMachineRequest, UpdateStorageVirtualMachineResponse, [BadRequest, IncompatibleParameterError, InternalServerError, StorageVirtualMachineNotFound, UnsupportedOperation]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Cancels an existing Amazon FSx for Lustre data repository task if that task is in either the
  * `PENDING` or `EXECUTING` state. When you cancel an export task, Amazon FSx
@@ -604,11 +604,11 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
  * 
  * For a release task, Amazon FSx will stop releasing files upon cancellation. Any files that
  * have already been released will remain in the released state.
- */export const cancelDataRepositoryTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", uri: "/", method: "POST", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.CancelDataRepositoryTask" }, CancelDataRepositoryTaskRequest, CancelDataRepositoryTaskResponse, [BadRequest, DataRepositoryTaskEnded, DataRepositoryTaskNotFound, InternalServerError, UnsupportedOperation]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const cancelDataRepositoryTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.CancelDataRepositoryTask" }, CancelDataRepositoryTaskRequest, CancelDataRepositoryTaskResponse, [BadRequest, DataRepositoryTaskEnded, DataRepositoryTaskNotFound, InternalServerError, UnsupportedOperation]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates an existing volume by using a snapshot from another Amazon FSx for OpenZFS file system. For more information, see on-demand data replication in the Amazon FSx for OpenZFS User
  * Guide.
- */export const copySnapshotAndUpdateVolume = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", uri: "/", method: "POST", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.CopySnapshotAndUpdateVolume" }, CopySnapshotAndUpdateVolumeRequest, CopySnapshotAndUpdateVolumeResponse, [BadRequest, IncompatibleParameterError, InternalServerError, ServiceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const copySnapshotAndUpdateVolume = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.CopySnapshotAndUpdateVolume" }, CopySnapshotAndUpdateVolumeRequest, CopySnapshotAndUpdateVolumeResponse, [BadRequest, IncompatibleParameterError, InternalServerError, ServiceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a backup of an existing Amazon FSx for Windows File Server file
  * system, Amazon FSx for Lustre file system, Amazon FSx for NetApp ONTAP
@@ -687,7 +687,7 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
  * still `CREATING`. You can check the backup creation status by calling the
  * DescribeBackups operation, which returns the backup state along with other
  * information.
- */export const createBackup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", uri: "/", method: "POST", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.CreateBackup" }, CreateBackupRequest, CreateBackupResponse, [BackupInProgress, BadRequest, FileSystemNotFound, IncompatibleParameterError, InternalServerError, ServiceLimitExceeded, UnsupportedOperation, VolumeNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createBackup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.CreateBackup" }, CreateBackupRequest, CreateBackupResponse, [BackupInProgress, BadRequest, FileSystemNotFound, IncompatibleParameterError, InternalServerError, ServiceLimitExceeded, UnsupportedOperation, VolumeNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an Amazon FSx for Lustre data repository association (DRA). A data
  * repository association is a link between a directory on the file system and
@@ -711,7 +711,7 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
  * `CreateDataRepositoryAssociation` isn't supported
  * on Amazon File Cache resources. To create a DRA on Amazon File Cache,
  * use the `CreateFileCache` operation.
- */export const createDataRepositoryAssociation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", uri: "/", method: "POST", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.CreateDataRepositoryAssociation" }, CreateDataRepositoryAssociationRequest, CreateDataRepositoryAssociationResponse, [BadRequest, FileSystemNotFound, IncompatibleParameterError, InternalServerError, ServiceLimitExceeded, UnsupportedOperation]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createDataRepositoryAssociation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.CreateDataRepositoryAssociation" }, CreateDataRepositoryAssociationRequest, CreateDataRepositoryAssociationResponse, [BadRequest, FileSystemNotFound, IncompatibleParameterError, InternalServerError, ServiceLimitExceeded, UnsupportedOperation]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a snapshot of an existing Amazon FSx for OpenZFS volume. With
  * snapshots, you can easily undo file changes and compare file versions by restoring the
@@ -750,7 +750,7 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
  * is still `CREATING`. You can check the snapshot creation status by calling
  * the DescribeSnapshots operation, which returns the snapshot state along with
  * other information.
- */export const createSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", uri: "/", method: "POST", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.CreateSnapshot" }, CreateSnapshotRequest, CreateSnapshotResponse, [BadRequest, InternalServerError, ServiceLimitExceeded, VolumeNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.CreateSnapshot" }, CreateSnapshotRequest, CreateSnapshotResponse, [BadRequest, InternalServerError, ServiceLimitExceeded, VolumeNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a file system. After deletion, the file system no longer exists, and its data
  * is gone. Any existing automatic backups and snapshots are also deleted.
@@ -811,15 +811,15 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
  * 
  * The data in a deleted file system is also deleted and can't be recovered by
  * any means.
- */export const deleteFileSystem = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", uri: "/", method: "POST", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.DeleteFileSystem" }, DeleteFileSystemRequest, DeleteFileSystemResponse, [BadRequest, FileSystemNotFound, IncompatibleParameterError, InternalServerError, ServiceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteFileSystem = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.DeleteFileSystem" }, DeleteFileSystemRequest, DeleteFileSystemResponse, [BadRequest, FileSystemNotFound, IncompatibleParameterError, InternalServerError, ServiceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an existing Amazon FSx for ONTAP storage virtual machine (SVM). Prior
  * to deleting an SVM, you must delete all non-root volumes in the SVM, otherwise the operation will fail.
- */export const deleteStorageVirtualMachine = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", uri: "/", method: "POST", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.DeleteStorageVirtualMachine" }, DeleteStorageVirtualMachineRequest, DeleteStorageVirtualMachineResponse, [BadRequest, IncompatibleParameterError, InternalServerError, StorageVirtualMachineNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteStorageVirtualMachine = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.DeleteStorageVirtualMachine" }, DeleteStorageVirtualMachineRequest, DeleteStorageVirtualMachineResponse, [BadRequest, IncompatibleParameterError, InternalServerError, StorageVirtualMachineNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an Amazon FSx for NetApp ONTAP or Amazon FSx for OpenZFS
  * volume.
- */export const deleteVolume = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", uri: "/", method: "POST", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.DeleteVolume" }, DeleteVolumeRequest, DeleteVolumeResponse, [BadRequest, IncompatibleParameterError, InternalServerError, ServiceLimitExceeded, VolumeNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteVolume = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.DeleteVolume" }, DeleteVolumeRequest, DeleteVolumeResponse, [BadRequest, IncompatibleParameterError, InternalServerError, ServiceLimitExceeded, VolumeNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the description of a specific Amazon File Cache resource, if a
  * `FileCacheIds` value is provided for that cache. Otherwise, it
@@ -855,7 +855,7 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
  * - The order of caches returned in the response of one
  * `DescribeFileCaches` call and the order of caches returned
  * across the responses of a multicall iteration is unspecified.
- */export const describeFileCaches = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", uri: "/", method: "POST", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.DescribeFileCaches" }, DescribeFileCachesRequest, DescribeFileCachesResponse, [BadRequest, FileCacheNotFound, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeFileCaches = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.DescribeFileCaches" }, DescribeFileCachesRequest, DescribeFileCachesResponse, [BadRequest, FileCacheNotFound, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Detaches an S3 access point from an Amazon FSx volume and deletes the S3 access point.
  * 
@@ -870,11 +870,11 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
  * 
  * 
  * - `s3:DeleteAccessPoint`
- */export const detachAndDeleteS3AccessPoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", uri: "/", method: "POST", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.DetachAndDeleteS3AccessPoint" }, DetachAndDeleteS3AccessPointRequest, DetachAndDeleteS3AccessPointResponse, [BadRequest, IncompatibleParameterError, InternalServerError, S3AccessPointAttachmentNotFound, UnsupportedOperation]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const detachAndDeleteS3AccessPoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.DetachAndDeleteS3AccessPoint" }, DetachAndDeleteS3AccessPointRequest, DetachAndDeleteS3AccessPointResponse, [BadRequest, IncompatibleParameterError, InternalServerError, S3AccessPointAttachmentNotFound, UnsupportedOperation]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the configuration of an existing Amazon File Cache resource.
  * You can update multiple properties in a single request.
- */export const updateFileCache = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", uri: "/", method: "POST", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.UpdateFileCache" }, UpdateFileCacheRequest, UpdateFileCacheResponse, [BadRequest, FileCacheNotFound, IncompatibleParameterError, InternalServerError, MissingFileCacheConfiguration, ServiceLimitExceeded, UnsupportedOperation]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateFileCache = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.UpdateFileCache" }, UpdateFileCacheRequest, UpdateFileCacheResponse, [BadRequest, FileCacheNotFound, IncompatibleParameterError, InternalServerError, MissingFileCacheConfiguration, ServiceLimitExceeded, UnsupportedOperation]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an Amazon FSx for Lustre data repository task.
  * A `CreateDataRepositoryTask` operation will fail if a data
@@ -897,11 +897,11 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
  * Data Repository Tasks.
  * To learn more about linking a data repository to your file system, see
  * Linking your file system to an S3 bucket.
- */export const createDataRepositoryTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", uri: "/", method: "POST", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.CreateDataRepositoryTask" }, CreateDataRepositoryTaskRequest, CreateDataRepositoryTaskResponse, [BadRequest, DataRepositoryTaskExecuting, FileSystemNotFound, IncompatibleParameterError, InternalServerError, ServiceLimitExceeded, UnsupportedOperation]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createDataRepositoryTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.CreateDataRepositoryTask" }, CreateDataRepositoryTaskRequest, CreateDataRepositoryTaskResponse, [BadRequest, DataRepositoryTaskExecuting, FileSystemNotFound, IncompatibleParameterError, InternalServerError, ServiceLimitExceeded, UnsupportedOperation]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new Amazon FSx for NetApp ONTAP volume from an
  * existing Amazon FSx volume backup.
- */export const createVolumeFromBackup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", uri: "/", method: "POST", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.CreateVolumeFromBackup" }, CreateVolumeFromBackupRequest, CreateVolumeFromBackupResponse, [BackupNotFound, BadRequest, FileSystemNotFound, IncompatibleParameterError, InternalServerError, MissingVolumeConfiguration, ServiceLimitExceeded, StorageVirtualMachineNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createVolumeFromBackup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.CreateVolumeFromBackup" }, CreateVolumeFromBackupRequest, CreateVolumeFromBackupResponse, [BackupNotFound, BadRequest, FileSystemNotFound, IncompatibleParameterError, InternalServerError, MissingVolumeConfiguration, ServiceLimitExceeded, StorageVirtualMachineNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an Amazon FSx backup. After deletion, the backup no longer exists, and
  * its data is gone.
@@ -915,7 +915,7 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
  * 
  * The data in a deleted backup is also deleted and can't be recovered by any
  * means.
- */export const deleteBackup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", uri: "/", method: "POST", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.DeleteBackup" }, DeleteBackupRequest, DeleteBackupResponse, [BackupBeingCopied, BackupInProgress, BackupNotFound, BackupRestoring, BadRequest, IncompatibleParameterError, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteBackup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.DeleteBackup" }, DeleteBackupRequest, DeleteBackupResponse, [BackupBeingCopied, BackupInProgress, BackupNotFound, BackupRestoring, BadRequest, IncompatibleParameterError, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the description of specific Amazon FSx for Lustre or Amazon File Cache
  * data repository associations, if one or more `AssociationIds` values
@@ -940,7 +940,7 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
  * `NextToken` value is returned in the response. In this case, send a later
  * request with the `NextToken` request parameter set to the value of
  * `NextToken` from the last response.
- */export const describeDataRepositoryAssociations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", uri: "/", method: "POST", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.DescribeDataRepositoryAssociations" }, DescribeDataRepositoryAssociationsRequest, DescribeDataRepositoryAssociationsResponse, [BadRequest, DataRepositoryAssociationNotFound, FileSystemNotFound, InternalServerError, InvalidDataRepositoryType]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeDataRepositoryAssociations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.DescribeDataRepositoryAssociations" }, DescribeDataRepositoryAssociationsRequest, DescribeDataRepositoryAssociationsResponse, [BadRequest, DataRepositoryAssociationNotFound, FileSystemNotFound, InternalServerError, InvalidDataRepositoryType]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the description of specific Amazon FSx for Lustre or Amazon File Cache data repository tasks, if
  * one or more `TaskIds` values are provided in the request, or if filters are used in the request.
@@ -954,7 +954,7 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
  * a `NextToken` value is returned in the response. In this case, send a later
  * request with the `NextToken` request parameter set to the value of
  * `NextToken` from the last response.
- */export const describeDataRepositoryTasks = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", uri: "/", method: "POST", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.DescribeDataRepositoryTasks" }, DescribeDataRepositoryTasksRequest, DescribeDataRepositoryTasksResponse, [BadRequest, DataRepositoryTaskNotFound, FileSystemNotFound, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeDataRepositoryTasks = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.DescribeDataRepositoryTasks" }, DescribeDataRepositoryTasksRequest, DescribeDataRepositoryTasksResponse, [BadRequest, DataRepositoryTaskNotFound, FileSystemNotFound, InternalServerError]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes one or more S3 access points attached to Amazon FSx volumes.
  * 
@@ -964,10 +964,10 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
  * 
  * 
  * - `fsx:DescribeS3AccessPointAttachments`
- */export const describeS3AccessPointAttachments = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", uri: "/", method: "POST", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.DescribeS3AccessPointAttachments" }, DescribeS3AccessPointAttachmentsRequest, DescribeS3AccessPointAttachmentsResponse, [BadRequest, InternalServerError, S3AccessPointAttachmentNotFound, UnsupportedOperation]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeS3AccessPointAttachments = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.DescribeS3AccessPointAttachments" }, DescribeS3AccessPointAttachmentsRequest, DescribeS3AccessPointAttachmentsResponse, [BadRequest, InternalServerError, S3AccessPointAttachmentNotFound, UnsupportedOperation]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the configuration of an Amazon FSx for NetApp ONTAP or Amazon FSx for OpenZFS volume.
- */export const updateVolume = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", uri: "/", method: "POST", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.UpdateVolume" }, UpdateVolumeRequest, UpdateVolumeResponse, [BadRequest, IncompatibleParameterError, InternalServerError, MissingVolumeConfiguration, VolumeNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateVolume = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.UpdateVolume" }, UpdateVolumeRequest, UpdateVolumeResponse, [BadRequest, IncompatibleParameterError, InternalServerError, MissingVolumeConfiguration, VolumeNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new Amazon File Cache resource.
  * 
@@ -1000,7 +1000,7 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
  * state is still `CREATING`. You can check the cache creation status
  * by calling the DescribeFileCaches operation, which returns the cache state
  * along with other information.
- */export const createFileCache = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", uri: "/", method: "POST", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.CreateFileCache" }, CreateFileCacheRequest, CreateFileCacheResponse, [BadRequest, IncompatibleParameterError, InternalServerError, InvalidNetworkSettings, InvalidPerUnitStorageThroughput, MissingFileCacheConfiguration, ServiceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createFileCache = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.CreateFileCache" }, CreateFileCacheRequest, CreateFileCacheResponse, [BadRequest, IncompatibleParameterError, InternalServerError, InvalidNetworkSettings, InvalidPerUnitStorageThroughput, MissingFileCacheConfiguration, ServiceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new Amazon FSx for Lustre, Amazon FSx for Windows File
  * Server, or Amazon FSx for OpenZFS file system from an existing Amazon FSx backup.
@@ -1046,13 +1046,13 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
  * creation status by calling the
  * DescribeFileSystems operation, which returns the file system state along
  * with other information.
- */export const createFileSystemFromBackup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", uri: "/", method: "POST", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.CreateFileSystemFromBackup" }, CreateFileSystemFromBackupRequest, CreateFileSystemFromBackupResponse, [ActiveDirectoryError, BackupNotFound, BadRequest, IncompatibleParameterError, InternalServerError, InvalidNetworkSettings, InvalidPerUnitStorageThroughput, MissingFileSystemConfiguration, ServiceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createFileSystemFromBackup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.CreateFileSystemFromBackup" }, CreateFileSystemFromBackupRequest, CreateFileSystemFromBackupResponse, [ActiveDirectoryError, BackupNotFound, BadRequest, IncompatibleParameterError, InternalServerError, InvalidNetworkSettings, InvalidPerUnitStorageThroughput, MissingFileSystemConfiguration, ServiceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a storage virtual machine (SVM) for an Amazon FSx for ONTAP file system.
- */export const createStorageVirtualMachine = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", uri: "/", method: "POST", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.CreateStorageVirtualMachine" }, CreateStorageVirtualMachineRequest, CreateStorageVirtualMachineResponse, [ActiveDirectoryError, BadRequest, FileSystemNotFound, IncompatibleParameterError, InternalServerError, ServiceLimitExceeded, UnsupportedOperation]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createStorageVirtualMachine = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.CreateStorageVirtualMachine" }, CreateStorageVirtualMachineRequest, CreateStorageVirtualMachineResponse, [ActiveDirectoryError, BadRequest, FileSystemNotFound, IncompatibleParameterError, InternalServerError, ServiceLimitExceeded, UnsupportedOperation]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an FSx for ONTAP or Amazon FSx for OpenZFS storage volume.
- */export const createVolume = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", uri: "/", method: "POST", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.CreateVolume" }, CreateVolumeRequest, CreateVolumeResponse, [BadRequest, FileSystemNotFound, IncompatibleParameterError, InternalServerError, MissingVolumeConfiguration, ServiceLimitExceeded, StorageVirtualMachineNotFound, UnsupportedOperation]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createVolume = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.CreateVolume" }, CreateVolumeRequest, CreateVolumeResponse, [BadRequest, FileSystemNotFound, IncompatibleParameterError, InternalServerError, MissingVolumeConfiguration, ServiceLimitExceeded, StorageVirtualMachineNotFound, UnsupportedOperation]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Use this operation to update the configuration of an existing Amazon FSx file
  * system. You can update multiple properties in a single request.
@@ -1310,7 +1310,7 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
  * 
  * 
  * - `WeeklyMaintenanceStartTime`
- */export const updateFileSystem = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", uri: "/", method: "POST", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.UpdateFileSystem" }, UpdateFileSystemRequest, UpdateFileSystemResponse, [BadRequest, FileSystemNotFound, IncompatibleParameterError, InternalServerError, InvalidNetworkSettings, MissingFileSystemConfiguration, ServiceLimitExceeded, UnsupportedOperation]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateFileSystem = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.UpdateFileSystem" }, UpdateFileSystemRequest, UpdateFileSystemResponse, [BadRequest, FileSystemNotFound, IncompatibleParameterError, InternalServerError, InvalidNetworkSettings, MissingFileSystemConfiguration, ServiceLimitExceeded, UnsupportedOperation]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new, empty Amazon FSx file system. You can create the following supported
  * Amazon FSx file systems using the `CreateFileSystem` API operation:
@@ -1372,7 +1372,7 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
  * state is still `CREATING`. You can check the file-system creation status
  * by calling the DescribeFileSystems operation, which returns the file system state
  * along with other information.
- */export const createFileSystem = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", uri: "/", method: "POST", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.CreateFileSystem" }, CreateFileSystemRequest, CreateFileSystemResponse, [ActiveDirectoryError, BadRequest, IncompatibleParameterError, InternalServerError, InvalidExportPath, InvalidImportPath, InvalidNetworkSettings, InvalidPerUnitStorageThroughput, MissingFileSystemConfiguration, ServiceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createFileSystem = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.CreateFileSystem" }, CreateFileSystemRequest, CreateFileSystemResponse, [ActiveDirectoryError, BadRequest, IncompatibleParameterError, InternalServerError, InvalidExportPath, InvalidImportPath, InvalidNetworkSettings, InvalidPerUnitStorageThroughput, MissingFileSystemConfiguration, ServiceLimitExceeded]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Copies an existing backup within the same Amazon Web Services account to another Amazon Web Services Region
  * (cross-Region copy) or within the same Amazon Web Services Region (in-Region copy). You can have up to five
@@ -1403,7 +1403,7 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
  * in the *Amazon FSx for Windows User Guide*, Copying backups in the Amazon FSx for Lustre User
  * Guide, and Copying backups in the Amazon FSx for OpenZFS User
  * Guide.
- */export const copyBackup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", uri: "/", method: "POST", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.CopyBackup" }, CopyBackupRequest, CopyBackupResponse, [BackupNotFound, BadRequest, IncompatibleParameterError, IncompatibleRegionForMultiAZ, InternalServerError, InvalidDestinationKmsKey, InvalidRegion, InvalidSourceKmsKey, ServiceLimitExceeded, SourceBackupUnavailable, UnsupportedOperation]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const copyBackup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.CopyBackup" }, CopyBackupRequest, CopyBackupResponse, [BackupNotFound, BadRequest, IncompatibleParameterError, IncompatibleRegionForMultiAZ, InternalServerError, InvalidDestinationKmsKey, InvalidRegion, InvalidSourceKmsKey, ServiceLimitExceeded, SourceBackupUnavailable, UnsupportedOperation]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an S3 access point and attaches it to an Amazon FSx volume. For FSx for OpenZFS file systems, the
  * volume must be hosted on a high-availability file system, either Single-AZ or Multi-AZ. For more information,
@@ -1453,4 +1453,4 @@ export class TooManyAccessPoints extends S.TaggedError<TooManyAccessPoints>()("T
  * 
  * 
  * - DetachAndDeleteS3AccessPoint
- */export const createAndAttachS3AccessPoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", uri: "/", method: "POST", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.CreateAndAttachS3AccessPoint" }, CreateAndAttachS3AccessPointRequest, CreateAndAttachS3AccessPointResponse, [AccessPointAlreadyOwnedByYou, BadRequest, IncompatibleParameterError, InternalServerError, InvalidAccessPoint, InvalidRequest, TooManyAccessPoints, UnsupportedOperation, VolumeNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createAndAttachS3AccessPoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-03-01", sdkId: "FSx", sigV4ServiceName: "fsx", name: "AWSSimbaAPIService_v20180301.CreateAndAttachS3AccessPoint" }, CreateAndAttachS3AccessPointRequest, CreateAndAttachS3AccessPointResponse, [AccessPointAlreadyOwnedByYou, BadRequest, IncompatibleParameterError, InternalServerError, InvalidAccessPoint, InvalidRequest, TooManyAccessPoints, UnsupportedOperation, VolumeNotFound]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

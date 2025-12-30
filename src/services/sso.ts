@@ -47,7 +47,7 @@ export class UnauthorizedException extends S.TaggedError<UnauthorizedException>(
  * For more information, see User
  * authentications in the IAM Identity Center User
  * Guide.
- */export const logout = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-06-10", uri: "/logout", method: "POST", sdkId: "SSO", sigV4ServiceName: "awsssoportal", name: "SWBPortalService.Logout" }, LogoutRequest, S.Struct({}), [InvalidRequestException, TooManyRequestsException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const logout = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-06-10", uri: "/logout", sdkId: "SSO", sigV4ServiceName: "awsssoportal", name: "SWBPortalService.Logout" }, LogoutRequest, S.Struct({}), [InvalidRequestException, TooManyRequestsException, UnauthorizedException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the STS short-term credentials for a given role name that is assigned to the
  * user.

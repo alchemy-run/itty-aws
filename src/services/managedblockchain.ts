@@ -131,7 +131,7 @@ export class TooManyTagsException extends S.TaggedError<TooManyTagsException>()(
  * 
  * 
  * Applies only to Hyperledger Fabric.
- */export const voteOnProposal = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-24", uri: "/networks/{NetworkId}/proposals/{ProposalId}/votes", method: "POST", sdkId: "ManagedBlockchain", sigV4ServiceName: "managedblockchain", name: "TaigaWebService.VoteOnProposal" }, VoteOnProposalInput, VoteOnProposalOutput, [AccessDeniedException, IllegalActionException, InternalServiceErrorException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const voteOnProposal = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-24", uri: "/networks/{NetworkId}/proposals/{ProposalId}/votes", sdkId: "ManagedBlockchain", sigV4ServiceName: "managedblockchain", name: "TaigaWebService.VoteOnProposal" }, VoteOnProposalInput, VoteOnProposalOutput, [AccessDeniedException, IllegalActionException, InternalServiceErrorException, InvalidRequestException, ResourceNotFoundException, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an accessor that your Amazon Web Services account owns. An accessor object is a container that has the
  * information required for token based access to your Ethereum nodes including, the
@@ -226,7 +226,7 @@ export class TooManyTagsException extends S.TaggedError<TooManyTagsException>()(
  * 
  * 
  * For more information about tags, see Tagging Resources in the *Amazon Managed Blockchain Ethereum Developer Guide*, or Tagging Resources in the *Amazon Managed Blockchain Hyperledger Fabric Developer Guide*.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-24", uri: "/tags/{ResourceArn}", method: "POST", sdkId: "ManagedBlockchain", sigV4ServiceName: "managedblockchain", name: "TaigaWebService.TagResource" }, TagResourceRequest, TagResourceResponse, [InternalServiceErrorException, InvalidRequestException, ResourceNotFoundException, ResourceNotReadyException, TooManyTagsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-24", uri: "/tags/{ResourceArn}", sdkId: "ManagedBlockchain", sigV4ServiceName: "managedblockchain", name: "TaigaWebService.TagResource" }, TagResourceRequest, TagResourceResponse, [InternalServiceErrorException, InvalidRequestException, ResourceNotFoundException, ResourceNotReadyException, TooManyTagsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates a node configuration with new parameters.
  * 
@@ -236,31 +236,31 @@ export class TooManyTagsException extends S.TaggedError<TooManyTagsException>()(
 /**
  * Creates a new accessor for use with Amazon Managed Blockchain service that supports token based access.
  * The accessor contains information required for token based access.
- */export const createAccessor = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-24", uri: "/accessors", method: "POST", sdkId: "ManagedBlockchain", sigV4ServiceName: "managedblockchain", name: "TaigaWebService.CreateAccessor" }, CreateAccessorInput, CreateAccessorOutput, [AccessDeniedException, InternalServiceErrorException, InvalidRequestException, ResourceAlreadyExistsException, ResourceLimitExceededException, ThrottlingException, TooManyTagsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createAccessor = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-24", uri: "/accessors", sdkId: "ManagedBlockchain", sigV4ServiceName: "managedblockchain", name: "TaigaWebService.CreateAccessor" }, CreateAccessorInput, CreateAccessorOutput, [AccessDeniedException, InternalServiceErrorException, InvalidRequestException, ResourceAlreadyExistsException, ResourceLimitExceededException, ThrottlingException, TooManyTagsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new blockchain network using Amazon Managed Blockchain.
  * 
  * 
  * Applies only to Hyperledger Fabric.
- */export const createNetwork = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-24", uri: "/networks", method: "POST", sdkId: "ManagedBlockchain", sigV4ServiceName: "managedblockchain", name: "TaigaWebService.CreateNetwork" }, CreateNetworkInput, CreateNetworkOutput, [AccessDeniedException, InternalServiceErrorException, InvalidRequestException, ResourceAlreadyExistsException, ResourceLimitExceededException, ThrottlingException, TooManyTagsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createNetwork = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-24", uri: "/networks", sdkId: "ManagedBlockchain", sigV4ServiceName: "managedblockchain", name: "TaigaWebService.CreateNetwork" }, CreateNetworkInput, CreateNetworkOutput, [AccessDeniedException, InternalServiceErrorException, InvalidRequestException, ResourceAlreadyExistsException, ResourceLimitExceededException, ThrottlingException, TooManyTagsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a node on the specified blockchain network.
  * 
  * 
  * Applies to Hyperledger Fabric and Ethereum.
- */export const createNode = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-24", uri: "/networks/{NetworkId}/nodes", method: "POST", sdkId: "ManagedBlockchain", sigV4ServiceName: "managedblockchain", name: "TaigaWebService.CreateNode" }, CreateNodeInput, CreateNodeOutput, [AccessDeniedException, InternalServiceErrorException, InvalidRequestException, ResourceAlreadyExistsException, ResourceLimitExceededException, ResourceNotFoundException, ResourceNotReadyException, ThrottlingException, TooManyTagsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createNode = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-24", uri: "/networks/{NetworkId}/nodes", sdkId: "ManagedBlockchain", sigV4ServiceName: "managedblockchain", name: "TaigaWebService.CreateNode" }, CreateNodeInput, CreateNodeOutput, [AccessDeniedException, InternalServiceErrorException, InvalidRequestException, ResourceAlreadyExistsException, ResourceLimitExceededException, ResourceNotFoundException, ResourceNotReadyException, ThrottlingException, TooManyTagsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a proposal for a change to the network that other members of the network can vote on, for example, a proposal to add a new member to the network. Any member can create a proposal.
  * 
  * 
  * Applies only to Hyperledger Fabric.
- */export const createProposal = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-24", uri: "/networks/{NetworkId}/proposals", method: "POST", sdkId: "ManagedBlockchain", sigV4ServiceName: "managedblockchain", name: "TaigaWebService.CreateProposal" }, CreateProposalInput, CreateProposalOutput, [AccessDeniedException, InternalServiceErrorException, InvalidRequestException, ResourceNotFoundException, ResourceNotReadyException, ThrottlingException, TooManyTagsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createProposal = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-24", uri: "/networks/{NetworkId}/proposals", sdkId: "ManagedBlockchain", sigV4ServiceName: "managedblockchain", name: "TaigaWebService.CreateProposal" }, CreateProposalInput, CreateProposalOutput, [AccessDeniedException, InternalServiceErrorException, InvalidRequestException, ResourceNotFoundException, ResourceNotReadyException, ThrottlingException, TooManyTagsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a member within a Managed Blockchain network.
  * 
  * 
  * Applies only to Hyperledger Fabric.
- */export const createMember = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-24", uri: "/networks/{NetworkId}/members", method: "POST", sdkId: "ManagedBlockchain", sigV4ServiceName: "managedblockchain", name: "TaigaWebService.CreateMember" }, CreateMemberInput, CreateMemberOutput, [AccessDeniedException, InternalServiceErrorException, InvalidRequestException, ResourceAlreadyExistsException, ResourceLimitExceededException, ResourceNotFoundException, ResourceNotReadyException, ThrottlingException, TooManyTagsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createMember = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-24", uri: "/networks/{NetworkId}/members", sdkId: "ManagedBlockchain", sigV4ServiceName: "managedblockchain", name: "TaigaWebService.CreateMember" }, CreateMemberInput, CreateMemberOutput, [AccessDeniedException, InternalServiceErrorException, InvalidRequestException, ResourceAlreadyExistsException, ResourceLimitExceededException, ResourceNotFoundException, ResourceNotReadyException, ThrottlingException, TooManyTagsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns detailed information about a member.
  * 

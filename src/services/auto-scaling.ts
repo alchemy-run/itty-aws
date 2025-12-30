@@ -329,7 +329,7 @@ export class IdempotentParameterMismatchError extends S.TaggedError<IdempotentPa
  * For more information, see Use Elastic Load Balancing to
  * distribute traffic across the instances in your Auto Scaling group in the
  * *Amazon EC2 Auto Scaling User Guide*.
- */export const attachLoadBalancerTargetGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", uri: "/", method: "POST", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.AttachLoadBalancerTargetGroups" }, AttachLoadBalancerTargetGroupsType, AttachLoadBalancerTargetGroupsResultType, [InstanceRefreshInProgressFault, ResourceContentionFault, ServiceLinkedRoleFailure]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const attachLoadBalancerTargetGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.AttachLoadBalancerTargetGroups" }, AttachLoadBalancerTargetGroupsType, AttachLoadBalancerTargetGroupsResultType, [InstanceRefreshInProgressFault, ResourceContentionFault, ServiceLinkedRoleFailure]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Completes the lifecycle action for the specified token or instance with the specified
  * result.
@@ -378,14 +378,14 @@ export class IdempotentParameterMismatchError extends S.TaggedError<IdempotentPa
  * 
  * For more information, see Complete a lifecycle
  * action in the *Amazon EC2 Auto Scaling User Guide*.
- */export const completeLifecycleAction = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", uri: "/", method: "POST", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.CompleteLifecycleAction" }, CompleteLifecycleActionType, CompleteLifecycleActionAnswer, [ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const completeLifecycleAction = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.CompleteLifecycleAction" }, CompleteLifecycleActionType, CompleteLifecycleActionAnswer, [ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes the specified launch configuration.
  * 
  * 
  * The launch configuration must not be attached to an Auto Scaling group. When this call
  * completes, the launch configuration is no longer available for use.
- */export const deleteLaunchConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", uri: "/", method: "POST", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.DeleteLaunchConfiguration" }, LaunchConfigurationNameType, S.Struct({}), [ResourceContentionFault, ResourceInUseFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteLaunchConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.DeleteLaunchConfiguration" }, LaunchConfigurationNameType, S.Struct({}), [ResourceContentionFault, ResourceInUseFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes the specified lifecycle hook.
  * 
@@ -393,10 +393,10 @@ export class IdempotentParameterMismatchError extends S.TaggedError<IdempotentPa
  * If there are any outstanding lifecycle actions, they are completed first
  * (`ABANDON` for launching instances, `CONTINUE` for terminating
  * instances).
- */export const deleteLifecycleHook = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", uri: "/", method: "POST", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.DeleteLifecycleHook" }, DeleteLifecycleHookType, DeleteLifecycleHookAnswer, [ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteLifecycleHook = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.DeleteLifecycleHook" }, DeleteLifecycleHookType, DeleteLifecycleHookAnswer, [ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes the specified notification.
- */export const deleteNotificationConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", uri: "/", method: "POST", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.DeleteNotificationConfiguration" }, DeleteNotificationConfigurationType, S.Struct({}), [ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteNotificationConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.DeleteNotificationConfiguration" }, DeleteNotificationConfigurationType, S.Struct({}), [ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes the specified scaling policy.
  * 
@@ -408,13 +408,13 @@ export class IdempotentParameterMismatchError extends S.TaggedError<IdempotentPa
  * 
  * For more information, see Delete a scaling
  * policy in the *Amazon EC2 Auto Scaling User Guide*.
- */export const deletePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", uri: "/", method: "POST", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.DeletePolicy" }, DeletePolicyType, S.Struct({}), [ResourceContentionFault, ServiceLinkedRoleFailure]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deletePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.DeletePolicy" }, DeletePolicyType, S.Struct({}), [ResourceContentionFault, ServiceLinkedRoleFailure]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes the specified scheduled action.
- */export const deleteScheduledAction = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", uri: "/", method: "POST", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.DeleteScheduledAction" }, DeleteScheduledActionType, S.Struct({}), [ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteScheduledAction = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.DeleteScheduledAction" }, DeleteScheduledActionType, S.Struct({}), [ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes the specified tags.
- */export const deleteTags = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", uri: "/", method: "POST", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.DeleteTags" }, DeleteTagsType, S.Struct({}), [ResourceContentionFault, ResourceInUseFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteTags = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.DeleteTags" }, DeleteTagsType, S.Struct({}), [ResourceContentionFault, ResourceInUseFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Describes the current Amazon EC2 Auto Scaling resource quotas for your account.
  * 
@@ -423,10 +423,10 @@ export class IdempotentParameterMismatchError extends S.TaggedError<IdempotentPa
  * number of Auto Scaling groups and launch configurations that you can create in a given Region.
  * For more information, see Quotas for
  * Amazon EC2 Auto Scaling in the *Amazon EC2 Auto Scaling User Guide*.
- */export const describeAccountLimits = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", uri: "/", method: "POST", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.DescribeAccountLimits" }, S.Struct({}), DescribeAccountLimitsAnswer, [ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeAccountLimits = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.DescribeAccountLimits" }, S.Struct({}), DescribeAccountLimitsAnswer, [ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Describes the notification types that are supported by Amazon EC2 Auto Scaling.
- */export const describeAutoScalingNotificationTypes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", uri: "/", method: "POST", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.DescribeAutoScalingNotificationTypes" }, S.Struct({}), DescribeAutoScalingNotificationTypesAnswer, [ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeAutoScalingNotificationTypes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.DescribeAutoScalingNotificationTypes" }, S.Struct({}), DescribeAutoScalingNotificationTypesAnswer, [ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Describes the available types of lifecycle hooks.
  * 
@@ -441,7 +441,7 @@ export class IdempotentParameterMismatchError extends S.TaggedError<IdempotentPa
  * 
  * 
  * - `autoscaling:EC2_INSTANCE_TERMINATING`
- */export const describeLifecycleHookTypes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", uri: "/", method: "POST", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.DescribeLifecycleHookTypes" }, S.Struct({}), DescribeLifecycleHookTypesAnswer, [ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeLifecycleHookTypes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.DescribeLifecycleHookTypes" }, S.Struct({}), DescribeLifecycleHookTypesAnswer, [ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Describes the termination policies supported by Amazon EC2 Auto Scaling.
  * 
@@ -449,7 +449,7 @@ export class IdempotentParameterMismatchError extends S.TaggedError<IdempotentPa
  * For more information, see Configure
  * termination policies for Amazon EC2 Auto Scaling in the
  * *Amazon EC2 Auto Scaling User Guide*.
- */export const describeTerminationPolicyTypes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", uri: "/", method: "POST", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.DescribeTerminationPolicyTypes" }, S.Struct({}), DescribeTerminationPolicyTypesAnswer, [ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeTerminationPolicyTypes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.DescribeTerminationPolicyTypes" }, S.Struct({}), DescribeTerminationPolicyTypesAnswer, [ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * This API operation is superseded by DetachTrafficSources, which
  * can detach multiple traffic sources types. We recommend using
@@ -472,7 +472,7 @@ export class IdempotentParameterMismatchError extends S.TaggedError<IdempotentPa
  * deregistering the instances in the group. When all instances are deregistered, then you
  * can no longer describe the load balancer using the DescribeLoadBalancers
  * API call. The instances remain running.
- */export const detachLoadBalancers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", uri: "/", method: "POST", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.DetachLoadBalancers" }, DetachLoadBalancersType, DetachLoadBalancersResultType, [ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const detachLoadBalancers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.DetachLoadBalancers" }, DetachLoadBalancersType, DetachLoadBalancersResultType, [ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * This API operation is superseded by DetachTrafficSources, which
  * can detach multiple traffic sources types. We recommend using
@@ -499,7 +499,7 @@ export class IdempotentParameterMismatchError extends S.TaggedError<IdempotentPa
  * You can use this operation to detach target groups that were attached by using
  * AttachLoadBalancerTargetGroups, but not for target groups that
  * were attached by using AttachTrafficSources.
- */export const detachLoadBalancerTargetGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", uri: "/", method: "POST", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.DetachLoadBalancerTargetGroups" }, DetachLoadBalancerTargetGroupsType, DetachLoadBalancerTargetGroupsResultType, [ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const detachLoadBalancerTargetGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.DetachLoadBalancerTargetGroups" }, DetachLoadBalancerTargetGroupsType, DetachLoadBalancerTargetGroupsResultType, [ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Detaches one or more traffic sources from the specified Auto Scaling group.
  * 
@@ -509,10 +509,10 @@ export class IdempotentParameterMismatchError extends S.TaggedError<IdempotentPa
  * can no longer describe the traffic source using the
  * DescribeTrafficSources
  * API call. The instances continue to run.
- */export const detachTrafficSources = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", uri: "/", method: "POST", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.DetachTrafficSources" }, DetachTrafficSourcesType, DetachTrafficSourcesResultType, [ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const detachTrafficSources = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.DetachTrafficSources" }, DetachTrafficSourcesType, DetachTrafficSourcesResultType, [ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Disables group metrics collection for the specified Auto Scaling group.
- */export const disableMetricsCollection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", uri: "/", method: "POST", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.DisableMetricsCollection" }, DisableMetricsCollectionQuery, S.Struct({}), [ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const disableMetricsCollection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.DisableMetricsCollection" }, DisableMetricsCollectionQuery, S.Struct({}), [ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Enables group metrics collection for the specified Auto Scaling group.
  * 
@@ -522,7 +522,7 @@ export class IdempotentParameterMismatchError extends S.TaggedError<IdempotentPa
  * console. For more information, see Monitor
  * CloudWatch metrics for your Auto Scaling groups and instances in the
  * *Amazon EC2 Auto Scaling User Guide*.
- */export const enableMetricsCollection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", uri: "/", method: "POST", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.EnableMetricsCollection" }, EnableMetricsCollectionQuery, S.Struct({}), [ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const enableMetricsCollection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.EnableMetricsCollection" }, EnableMetricsCollectionQuery, S.Struct({}), [ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates or updates a lifecycle hook for the specified Auto Scaling group.
  * 
@@ -583,7 +583,7 @@ export class IdempotentParameterMismatchError extends S.TaggedError<IdempotentPa
  * You can view the lifecycle hooks for an Auto Scaling group using the
  * DescribeLifecycleHooks API call. If you are no longer using a lifecycle
  * hook, you can delete it by calling the DeleteLifecycleHook API.
- */export const putLifecycleHook = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", uri: "/", method: "POST", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.PutLifecycleHook" }, PutLifecycleHookType, PutLifecycleHookAnswer, [LimitExceededFault, ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const putLifecycleHook = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.PutLifecycleHook" }, PutLifecycleHookType, PutLifecycleHookAnswer, [LimitExceededFault, ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Configures an Auto Scaling group to send notifications when specified events take place.
  * Subscribers to the specified topic can have messages delivered to an endpoint such as a
@@ -600,7 +600,7 @@ export class IdempotentParameterMismatchError extends S.TaggedError<IdempotentPa
  * 
  * If you exceed your maximum limit of SNS topics, which is 10 per Auto Scaling group, the call
  * fails.
- */export const putNotificationConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", uri: "/", method: "POST", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.PutNotificationConfiguration" }, PutNotificationConfigurationType, S.Struct({}), [LimitExceededFault, ResourceContentionFault, ServiceLinkedRoleFailure]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const putNotificationConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.PutNotificationConfiguration" }, PutNotificationConfigurationType, S.Struct({}), [LimitExceededFault, ResourceContentionFault, ServiceLinkedRoleFailure]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates or updates a scheduled scaling action for an Auto Scaling group.
  * 
@@ -617,7 +617,7 @@ export class IdempotentParameterMismatchError extends S.TaggedError<IdempotentPa
  * 
  * If you try to schedule your action in the past, Amazon EC2 Auto Scaling returns an error
  * message.
- */export const putScheduledUpdateGroupAction = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", uri: "/", method: "POST", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.PutScheduledUpdateGroupAction" }, PutScheduledUpdateGroupActionType, S.Struct({}), [AlreadyExistsFault, LimitExceededFault, ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const putScheduledUpdateGroupAction = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.PutScheduledUpdateGroupAction" }, PutScheduledUpdateGroupActionType, S.Struct({}), [AlreadyExistsFault, LimitExceededFault, ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Records a heartbeat for the lifecycle action associated with the specified token or
  * instance. This extends the timeout by the length of time defined using the
@@ -666,7 +666,7 @@ export class IdempotentParameterMismatchError extends S.TaggedError<IdempotentPa
  * 
  * For more information, see Amazon EC2 Auto Scaling lifecycle
  * hooks in the *Amazon EC2 Auto Scaling User Guide*.
- */export const recordLifecycleActionHeartbeat = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", uri: "/", method: "POST", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.RecordLifecycleActionHeartbeat" }, RecordLifecycleActionHeartbeatType, RecordLifecycleActionHeartbeatAnswer, [ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const recordLifecycleActionHeartbeat = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.RecordLifecycleActionHeartbeat" }, RecordLifecycleActionHeartbeatType, RecordLifecycleActionHeartbeatAnswer, [ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Resumes the specified suspended auto scaling processes, or all suspended process, for
  * the specified Auto Scaling group.
@@ -674,7 +674,7 @@ export class IdempotentParameterMismatchError extends S.TaggedError<IdempotentPa
  * 
  * For more information, see Suspend and resume
  * Amazon EC2 Auto Scaling processes in the *Amazon EC2 Auto Scaling User Guide*.
- */export const resumeProcesses = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", uri: "/", method: "POST", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.ResumeProcesses" }, ScalingProcessQuery, S.Struct({}), [ResourceContentionFault, ResourceInUseFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const resumeProcesses = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.ResumeProcesses" }, ScalingProcessQuery, S.Struct({}), [ResourceContentionFault, ResourceInUseFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Sets the size of the specified Auto Scaling group.
  * 
@@ -686,7 +686,7 @@ export class IdempotentParameterMismatchError extends S.TaggedError<IdempotentPa
  * 
  * For more information, see Manual
  * scaling in the *Amazon EC2 Auto Scaling User Guide*.
- */export const setDesiredCapacity = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", uri: "/", method: "POST", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.SetDesiredCapacity" }, SetDesiredCapacityType, S.Struct({}), [ResourceContentionFault, ScalingActivityInProgressFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const setDesiredCapacity = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.SetDesiredCapacity" }, SetDesiredCapacityType, S.Struct({}), [ResourceContentionFault, ScalingActivityInProgressFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Sets the health status of the specified instance.
  * 
@@ -694,7 +694,7 @@ export class IdempotentParameterMismatchError extends S.TaggedError<IdempotentPa
  * For more information, see Set up a custom
  * health check for your Auto Scaling group in the
  * *Amazon EC2 Auto Scaling User Guide*.
- */export const setInstanceHealth = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", uri: "/", method: "POST", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.SetInstanceHealth" }, SetInstanceHealthQuery, S.Struct({}), [ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const setInstanceHealth = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.SetInstanceHealth" }, SetInstanceHealthQuery, S.Struct({}), [ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Updates the instance protection settings of the specified instances. This operation
  * cannot be called on instances in a warm pool.
@@ -707,7 +707,7 @@ export class IdempotentParameterMismatchError extends S.TaggedError<IdempotentPa
  * 
  * If you exceed your maximum limit of instance IDs, which is 50 per Auto Scaling group, the call
  * fails.
- */export const setInstanceProtection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", uri: "/", method: "POST", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.SetInstanceProtection" }, SetInstanceProtectionQuery, SetInstanceProtectionAnswer, [LimitExceededFault, ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const setInstanceProtection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.SetInstanceProtection" }, SetInstanceProtectionQuery, SetInstanceProtectionAnswer, [LimitExceededFault, ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Suspends the specified auto scaling processes, or all processes, for the specified
  * Auto Scaling group.
@@ -720,7 +720,7 @@ export class IdempotentParameterMismatchError extends S.TaggedError<IdempotentPa
  * 
  * 
  * To resume processes that have been suspended, call the ResumeProcesses API.
- */export const suspendProcesses = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", uri: "/", method: "POST", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.SuspendProcesses" }, ScalingProcessQuery, S.Struct({}), [ResourceContentionFault, ResourceInUseFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const suspendProcesses = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.SuspendProcesses" }, ScalingProcessQuery, S.Struct({}), [ResourceContentionFault, ResourceInUseFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * **We strongly recommend that all Auto Scaling groups use launch templates to ensure full functionality for Amazon EC2 Auto Scaling and Amazon EC2.**
  * 
@@ -779,7 +779,7 @@ export class IdempotentParameterMismatchError extends S.TaggedError<IdempotentPa
  * To view the scaling policies for an Auto Scaling
  * group, call the DescribePolicies API. If the group has scaling
  * policies, you can update them by calling the PutScalingPolicy API.
- */export const updateAutoScalingGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", uri: "/", method: "POST", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.UpdateAutoScalingGroup" }, UpdateAutoScalingGroupType, S.Struct({}), [ResourceContentionFault, ScalingActivityInProgressFault, ServiceLinkedRoleFailure]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const updateAutoScalingGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.UpdateAutoScalingGroup" }, UpdateAutoScalingGroupType, S.Struct({}), [ResourceContentionFault, ScalingActivityInProgressFault, ServiceLinkedRoleFailure]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Attaches one or more EC2 instances to the specified Auto Scaling group.
  * 
@@ -797,7 +797,7 @@ export class IdempotentParameterMismatchError extends S.TaggedError<IdempotentPa
  * 
  * For more information, see Detach
  * or attach instances in the *Amazon EC2 Auto Scaling User Guide*.
- */export const attachInstances = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", uri: "/", method: "POST", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.AttachInstances" }, AttachInstancesQuery, S.Struct({}), [ResourceContentionFault, ServiceLinkedRoleFailure]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const attachInstances = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.AttachInstances" }, AttachInstancesQuery, S.Struct({}), [ResourceContentionFault, ServiceLinkedRoleFailure]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * This API operation is superseded by https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_AttachTrafficSources.html, which
  * can attach multiple traffic sources types. We recommend using
@@ -825,7 +825,7 @@ export class IdempotentParameterMismatchError extends S.TaggedError<IdempotentPa
  * For more information, see Use Elastic Load Balancing to
  * distribute traffic across the instances in your Auto Scaling group in the
  * *Amazon EC2 Auto Scaling User Guide*.
- */export const attachLoadBalancers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", uri: "/", method: "POST", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.AttachLoadBalancers" }, AttachLoadBalancersType, AttachLoadBalancersResultType, [InstanceRefreshInProgressFault, ResourceContentionFault, ServiceLinkedRoleFailure]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const attachLoadBalancers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.AttachLoadBalancers" }, AttachLoadBalancersType, AttachLoadBalancersResultType, [InstanceRefreshInProgressFault, ResourceContentionFault, ServiceLinkedRoleFailure]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Attaches one or more traffic sources to the specified Auto Scaling group.
  * 
@@ -864,7 +864,7 @@ export class IdempotentParameterMismatchError extends S.TaggedError<IdempotentPa
  * return details about the state of the attachments between traffic sources and your Auto Scaling
  * group. To detach a traffic source from the Auto Scaling group, call the
  * DetachTrafficSources API.
- */export const attachTrafficSources = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", uri: "/", method: "POST", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.AttachTrafficSources" }, AttachTrafficSourcesType, AttachTrafficSourcesResultType, [InstanceRefreshInProgressFault, ResourceContentionFault, ServiceLinkedRoleFailure]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const attachTrafficSources = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.AttachTrafficSources" }, AttachTrafficSourcesType, AttachTrafficSourcesResultType, [InstanceRefreshInProgressFault, ResourceContentionFault, ServiceLinkedRoleFailure]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates or updates tags for the specified Auto Scaling group.
  * 
@@ -875,7 +875,7 @@ export class IdempotentParameterMismatchError extends S.TaggedError<IdempotentPa
  * 
  * For more information, see Tag Auto Scaling groups and
  * instances in the *Amazon EC2 Auto Scaling User Guide*.
- */export const createOrUpdateTags = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", uri: "/", method: "POST", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.CreateOrUpdateTags" }, CreateOrUpdateTagsType, S.Struct({}), [AlreadyExistsFault, LimitExceededFault, ResourceContentionFault, ResourceInUseFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const createOrUpdateTags = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.CreateOrUpdateTags" }, CreateOrUpdateTagsType, S.Struct({}), [AlreadyExistsFault, LimitExceededFault, ResourceContentionFault, ResourceInUseFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes the specified Auto Scaling group.
  * 
@@ -904,14 +904,14 @@ export class IdempotentParameterMismatchError extends S.TaggedError<IdempotentPa
  * 
  * For more information, see Delete your Auto Scaling
  * infrastructure in the *Amazon EC2 Auto Scaling User Guide*.
- */export const deleteAutoScalingGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", uri: "/", method: "POST", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.DeleteAutoScalingGroup" }, DeleteAutoScalingGroupType, S.Struct({}), [ResourceContentionFault, ResourceInUseFault, ScalingActivityInProgressFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteAutoScalingGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.DeleteAutoScalingGroup" }, DeleteAutoScalingGroupType, S.Struct({}), [ResourceContentionFault, ResourceInUseFault, ScalingActivityInProgressFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes the warm pool for the specified Auto Scaling group.
  * 
  * 
  * For more information, see Warm pools for
  * Amazon EC2 Auto Scaling in the *Amazon EC2 Auto Scaling User Guide*.
- */export const deleteWarmPool = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", uri: "/", method: "POST", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.DeleteWarmPool" }, DeleteWarmPoolType, DeleteWarmPoolAnswer, [LimitExceededFault, ResourceContentionFault, ResourceInUseFault, ScalingActivityInProgressFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteWarmPool = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.DeleteWarmPool" }, DeleteWarmPoolType, DeleteWarmPoolAnswer, [LimitExceededFault, ResourceContentionFault, ResourceInUseFault, ScalingActivityInProgressFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Describes the available adjustment types for step scaling and simple scaling
  * policies.
@@ -932,14 +932,14 @@ export class IdempotentParameterMismatchError extends S.TaggedError<IdempotentPa
  * 
  * 
  * - `PercentChangeInCapacity`
- */export const describeAdjustmentTypes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", uri: "/", method: "POST", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.DescribeAdjustmentTypes" }, S.Struct({}), DescribeAdjustmentTypesAnswer, [ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeAdjustmentTypes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.DescribeAdjustmentTypes" }, S.Struct({}), DescribeAdjustmentTypesAnswer, [ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Describes the available CloudWatch metrics for Amazon EC2 Auto Scaling.
- */export const describeMetricCollectionTypes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", uri: "/", method: "POST", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.DescribeMetricCollectionTypes" }, S.Struct({}), DescribeMetricCollectionTypesAnswer, [ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeMetricCollectionTypes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.DescribeMetricCollectionTypes" }, S.Struct({}), DescribeMetricCollectionTypesAnswer, [ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Describes the scaling process types for use with the ResumeProcesses
  * and SuspendProcesses APIs.
- */export const describeScalingProcessTypes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", uri: "/", method: "POST", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.DescribeScalingProcessTypes" }, S.Struct({}), ProcessesType, [ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeScalingProcessTypes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.DescribeScalingProcessTypes" }, S.Struct({}), ProcessesType, [ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Removes one or more instances from the specified Auto Scaling group.
  * 
@@ -959,7 +959,7 @@ export class IdempotentParameterMismatchError extends S.TaggedError<IdempotentPa
  * 
  * For more information, see Detach
  * or attach instances in the *Amazon EC2 Auto Scaling User Guide*.
- */export const detachInstances = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", uri: "/", method: "POST", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.DetachInstances" }, DetachInstancesQuery, DetachInstancesAnswer, [ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const detachInstances = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.DetachInstances" }, DetachInstancesQuery, DetachInstancesAnswer, [ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Moves the specified instances into the standby state.
  * 
@@ -977,11 +977,11 @@ export class IdempotentParameterMismatchError extends S.TaggedError<IdempotentPa
  * For more information, see Temporarily removing
  * instances from your Auto Scaling group in the
  * *Amazon EC2 Auto Scaling User Guide*.
- */export const enterStandby = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", uri: "/", method: "POST", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.EnterStandby" }, EnterStandbyQuery, EnterStandbyAnswer, [ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const enterStandby = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.EnterStandby" }, EnterStandbyQuery, EnterStandbyAnswer, [ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Executes the specified policy. This can be useful for testing the design of your
  * scaling policy.
- */export const executePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", uri: "/", method: "POST", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.ExecutePolicy" }, ExecutePolicyType, S.Struct({}), [ResourceContentionFault, ScalingActivityInProgressFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const executePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.ExecutePolicy" }, ExecutePolicyType, S.Struct({}), [ResourceContentionFault, ScalingActivityInProgressFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Moves the specified instances out of the standby state.
  * 
@@ -993,7 +993,7 @@ export class IdempotentParameterMismatchError extends S.TaggedError<IdempotentPa
  * For more information, see Temporarily removing
  * instances from your Auto Scaling group in the
  * *Amazon EC2 Auto Scaling User Guide*.
- */export const exitStandby = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", uri: "/", method: "POST", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.ExitStandby" }, ExitStandbyQuery, ExitStandbyAnswer, [ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const exitStandby = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.ExitStandby" }, ExitStandbyQuery, ExitStandbyAnswer, [ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates or updates a warm pool for the specified Auto Scaling group. A warm pool is a pool of
  * pre-initialized EC2 instances that sits alongside the Auto Scaling group. Whenever your
@@ -1011,7 +1011,7 @@ export class IdempotentParameterMismatchError extends S.TaggedError<IdempotentPa
  * 
  * For more information, see Warm pools for
  * Amazon EC2 Auto Scaling in the *Amazon EC2 Auto Scaling User Guide*.
- */export const putWarmPool = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", uri: "/", method: "POST", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.PutWarmPool" }, PutWarmPoolType, PutWarmPoolAnswer, [InstanceRefreshInProgressFault, LimitExceededFault, ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const putWarmPool = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.PutWarmPool" }, PutWarmPoolType, PutWarmPoolAnswer, [InstanceRefreshInProgressFault, LimitExceededFault, ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Terminates the specified instance and optionally adjusts the desired group size. This
  * operation cannot be called on instances in a warm pool.
@@ -1032,13 +1032,13 @@ export class IdempotentParameterMismatchError extends S.TaggedError<IdempotentPa
  * Availability Zones. Amazon EC2 Auto Scaling tries to rebalance the group, and rebalancing might
  * terminate instances in other zones. For more information, see Manual
  * scaling in the *Amazon EC2 Auto Scaling User Guide*.
- */export const terminateInstanceInAutoScalingGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", uri: "/", method: "POST", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.TerminateInstanceInAutoScalingGroup" }, TerminateInstanceInAutoScalingGroupType, ActivityType, [ResourceContentionFault, ScalingActivityInProgressFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const terminateInstanceInAutoScalingGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.TerminateInstanceInAutoScalingGroup" }, TerminateInstanceInAutoScalingGroupType, ActivityType, [ResourceContentionFault, ScalingActivityInProgressFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes one or more scheduled actions for the specified Auto Scaling group.
- */export const batchDeleteScheduledAction = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", uri: "/", method: "POST", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.BatchDeleteScheduledAction" }, BatchDeleteScheduledActionType, BatchDeleteScheduledActionAnswer, [ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const batchDeleteScheduledAction = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.BatchDeleteScheduledAction" }, BatchDeleteScheduledActionType, BatchDeleteScheduledActionAnswer, [ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates or updates one or more scheduled scaling actions for an Auto Scaling group.
- */export const batchPutScheduledUpdateGroupAction = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", uri: "/", method: "POST", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.BatchPutScheduledUpdateGroupAction" }, BatchPutScheduledUpdateGroupActionType, BatchPutScheduledUpdateGroupActionAnswer, [AlreadyExistsFault, LimitExceededFault, ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const batchPutScheduledUpdateGroupAction = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.BatchPutScheduledUpdateGroupAction" }, BatchPutScheduledUpdateGroupActionType, BatchPutScheduledUpdateGroupActionAnswer, [AlreadyExistsFault, LimitExceededFault, ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Cancels an instance refresh or rollback that is in progress. If an instance refresh or
  * rollback is not in progress, an `ActiveInstanceRefreshNotFound` error
@@ -1052,7 +1052,7 @@ export class IdempotentParameterMismatchError extends S.TaggedError<IdempotentPa
  * 
  * When you cancel an instance refresh, this does not roll back any changes that it made.
  * Use the RollbackInstanceRefresh API to roll back instead.
- */export const cancelInstanceRefresh = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", uri: "/", method: "POST", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.CancelInstanceRefresh" }, CancelInstanceRefreshType, CancelInstanceRefreshAnswer, [ActiveInstanceRefreshNotFoundFault, LimitExceededFault, ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const cancelInstanceRefresh = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.CancelInstanceRefresh" }, CancelInstanceRefreshType, CancelInstanceRefreshAnswer, [ActiveInstanceRefreshNotFoundFault, LimitExceededFault, ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates a launch configuration.
  * 
@@ -1073,13 +1073,13 @@ export class IdempotentParameterMismatchError extends S.TaggedError<IdempotentPa
  * launch template or a launch configuration. We strongly recommend that you do not use
  * launch configurations. They do not provide full functionality for Amazon EC2 Auto Scaling or Amazon EC2.
  * For information about using launch templates, see Launch templates in the *Amazon EC2 Auto Scaling User Guide*.
- */export const createLaunchConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", uri: "/", method: "POST", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.CreateLaunchConfiguration" }, CreateLaunchConfigurationType, S.Struct({}), [AlreadyExistsFault, LimitExceededFault, ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const createLaunchConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.CreateLaunchConfiguration" }, CreateLaunchConfigurationType, S.Struct({}), [AlreadyExistsFault, LimitExceededFault, ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Gets information about the launch configurations in the account and Region.
- */export const describeLaunchConfigurations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", uri: "/", method: "POST", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.DescribeLaunchConfigurations" }, LaunchConfigurationNamesType, LaunchConfigurationsType, [InvalidNextToken, ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeLaunchConfigurations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.DescribeLaunchConfigurations" }, LaunchConfigurationNamesType, LaunchConfigurationsType, [InvalidNextToken, ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Gets information about the lifecycle hooks for the specified Auto Scaling group.
- */export const describeLifecycleHooks = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", uri: "/", method: "POST", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.DescribeLifecycleHooks" }, DescribeLifecycleHooksType, DescribeLifecycleHooksAnswer, [ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeLifecycleHooks = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.DescribeLifecycleHooks" }, DescribeLifecycleHooksType, DescribeLifecycleHooksAnswer, [ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * This API operation is superseded by DescribeTrafficSources,
  * which can describe multiple traffic sources types. We recommend using
@@ -1122,7 +1122,7 @@ export class IdempotentParameterMismatchError extends S.TaggedError<IdempotentPa
  * information, see Use Elastic Load Balancing to
  * distribute traffic across the instances in your Auto Scaling group in the
  * *Amazon EC2 Auto Scaling User Guide*.
- */export const describeLoadBalancers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", uri: "/", method: "POST", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.DescribeLoadBalancers" }, DescribeLoadBalancersRequest, DescribeLoadBalancersResponse, [InvalidNextToken, ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeLoadBalancers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.DescribeLoadBalancers" }, DescribeLoadBalancersRequest, DescribeLoadBalancersResponse, [InvalidNextToken, ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * This API operation is superseded by DescribeTrafficSources,
  * which can describe multiple traffic sources types. We recommend using
@@ -1167,11 +1167,11 @@ export class IdempotentParameterMismatchError extends S.TaggedError<IdempotentPa
  * You can use this operation to describe target groups that were attached by using
  * AttachLoadBalancerTargetGroups, but not for target groups that
  * were attached by using AttachTrafficSources.
- */export const describeLoadBalancerTargetGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", uri: "/", method: "POST", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.DescribeLoadBalancerTargetGroups" }, DescribeLoadBalancerTargetGroupsRequest, DescribeLoadBalancerTargetGroupsResponse, [InvalidNextToken, ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeLoadBalancerTargetGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.DescribeLoadBalancerTargetGroups" }, DescribeLoadBalancerTargetGroupsRequest, DescribeLoadBalancerTargetGroupsResponse, [InvalidNextToken, ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Gets information about the Amazon SNS notifications that are configured for one or more
  * Auto Scaling groups.
- */export const describeNotificationConfigurations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", uri: "/", method: "POST", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.DescribeNotificationConfigurations" }, DescribeNotificationConfigurationsType, DescribeNotificationConfigurationsAnswer, [InvalidNextToken, ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeNotificationConfigurations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.DescribeNotificationConfigurations" }, DescribeNotificationConfigurationsType, DescribeNotificationConfigurationsAnswer, [InvalidNextToken, ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Gets information about the scaling activities in the account and Region.
  * 
@@ -1186,7 +1186,7 @@ export class IdempotentParameterMismatchError extends S.TaggedError<IdempotentPa
  * `StatusCode` value is `Failed` or `Cancelled` and
  * the `StatusMessage` element in the response indicates the cause of the
  * failure. For help interpreting the `StatusMessage`, see Troubleshooting Amazon EC2 Auto Scaling in the *Amazon EC2 Auto Scaling User Guide*.
- */export const describeScalingActivities = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", uri: "/", method: "POST", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.DescribeScalingActivities" }, DescribeScalingActivitiesType, ActivitiesType, [InvalidNextToken, ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeScalingActivities = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.DescribeScalingActivities" }, DescribeScalingActivitiesType, ActivitiesType, [InvalidNextToken, ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Gets information about the scheduled actions that haven't run or that have not reached
  * their end time.
@@ -1194,7 +1194,7 @@ export class IdempotentParameterMismatchError extends S.TaggedError<IdempotentPa
  * 
  * To describe the scaling activities for scheduled actions that have already run, call
  * the DescribeScalingActivities API.
- */export const describeScheduledActions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", uri: "/", method: "POST", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.DescribeScheduledActions" }, DescribeScheduledActionsType, ScheduledActionsType, [InvalidNextToken, ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeScheduledActions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.DescribeScheduledActions" }, DescribeScheduledActionsType, ScheduledActionsType, [InvalidNextToken, ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Describes the specified tags.
  * 
@@ -1211,7 +1211,7 @@ export class IdempotentParameterMismatchError extends S.TaggedError<IdempotentPa
  * 
  * For more information, see Tag Auto Scaling groups and
  * instances in the *Amazon EC2 Auto Scaling User Guide*.
- */export const describeTags = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", uri: "/", method: "POST", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.DescribeTags" }, DescribeTagsType, TagsType, [InvalidNextToken, ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeTags = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.DescribeTags" }, DescribeTagsType, TagsType, [InvalidNextToken, ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Gets information about the traffic sources for the specified Auto Scaling group.
  * 
@@ -1222,14 +1222,14 @@ export class IdempotentParameterMismatchError extends S.TaggedError<IdempotentPa
  * 
  * If you do not provide a traffic source type, then the results include all the traffic
  * sources for the specified Auto Scaling group.
- */export const describeTrafficSources = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", uri: "/", method: "POST", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.DescribeTrafficSources" }, DescribeTrafficSourcesRequest, DescribeTrafficSourcesResponse, [InvalidNextToken, ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeTrafficSources = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.DescribeTrafficSources" }, DescribeTrafficSourcesRequest, DescribeTrafficSourcesResponse, [InvalidNextToken, ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Gets information about a warm pool and its instances.
  * 
  * 
  * For more information, see Warm pools for
  * Amazon EC2 Auto Scaling in the *Amazon EC2 Auto Scaling User Guide*.
- */export const describeWarmPool = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", uri: "/", method: "POST", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.DescribeWarmPool" }, DescribeWarmPoolType, DescribeWarmPoolAnswer, [InvalidNextToken, LimitExceededFault, ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeWarmPool = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.DescribeWarmPool" }, DescribeWarmPoolType, DescribeWarmPoolAnswer, [InvalidNextToken, LimitExceededFault, ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Retrieves the forecast data for a predictive scaling policy.
  * 
@@ -1246,7 +1246,7 @@ export class IdempotentParameterMismatchError extends S.TaggedError<IdempotentPa
  * 
  * For more information, see Predictive
  * scaling for Amazon EC2 Auto Scaling in the *Amazon EC2 Auto Scaling User Guide*.
- */export const getPredictiveScalingForecast = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", uri: "/", method: "POST", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.GetPredictiveScalingForecast" }, GetPredictiveScalingForecastType, GetPredictiveScalingForecastAnswer, [ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const getPredictiveScalingForecast = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.GetPredictiveScalingForecast" }, GetPredictiveScalingForecastType, GetPredictiveScalingForecastAnswer, [ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Cancels an instance refresh that is in progress and rolls back any changes that it
  * made. Amazon EC2 Auto Scaling replaces any instances that were replaced during the instance refresh.
@@ -1282,17 +1282,17 @@ export class IdempotentParameterMismatchError extends S.TaggedError<IdempotentPa
  * When you receive a successful response from this operation, Amazon EC2 Auto Scaling immediately
  * begins replacing instances. You can check the status of this operation through the
  * DescribeInstanceRefreshes API operation.
- */export const rollbackInstanceRefresh = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", uri: "/", method: "POST", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.RollbackInstanceRefresh" }, RollbackInstanceRefreshType, RollbackInstanceRefreshAnswer, [ActiveInstanceRefreshNotFoundFault, IrreversibleInstanceRefreshFault, LimitExceededFault, ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const rollbackInstanceRefresh = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.RollbackInstanceRefresh" }, RollbackInstanceRefreshType, RollbackInstanceRefreshAnswer, [ActiveInstanceRefreshNotFoundFault, IrreversibleInstanceRefreshFault, LimitExceededFault, ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Gets information about the Auto Scaling instances in the account and Region.
- */export const describeAutoScalingInstances = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", uri: "/", method: "POST", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.DescribeAutoScalingInstances" }, DescribeAutoScalingInstancesType, AutoScalingInstancesType, [InvalidNextToken, ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeAutoScalingInstances = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.DescribeAutoScalingInstances" }, DescribeAutoScalingInstancesType, AutoScalingInstancesType, [InvalidNextToken, ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Gets information about the scaling policies in the account and Region.
- */export const describePolicies = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", uri: "/", method: "POST", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.DescribePolicies" }, DescribePoliciesType, PoliciesType, [InvalidNextToken, ResourceContentionFault, ServiceLinkedRoleFailure]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describePolicies = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.DescribePolicies" }, DescribePoliciesType, PoliciesType, [InvalidNextToken, ResourceContentionFault, ServiceLinkedRoleFailure]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Launches a specified number of instances in an Auto Scaling group. Returns instance IDs and
  * other details if launch is successful or error details if launch is unsuccessful.
- */export const launchInstances = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", uri: "/", method: "POST", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.LaunchInstances" }, LaunchInstancesRequest, LaunchInstancesResult, [IdempotentParameterMismatchError, ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const launchInstances = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.LaunchInstances" }, LaunchInstancesRequest, LaunchInstancesResult, [IdempotentParameterMismatchError, ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Starts an instance refresh.
  * 
@@ -1325,7 +1325,7 @@ export class IdempotentParameterMismatchError extends S.TaggedError<IdempotentPa
  * refresh by specifying the `AutoRollback` property in the instance refresh
  * preferences. Otherwise, to roll back an instance refresh before it finishes, use the
  * RollbackInstanceRefresh API.
- */export const startInstanceRefresh = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", uri: "/", method: "POST", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.StartInstanceRefresh" }, StartInstanceRefreshType, StartInstanceRefreshAnswer, [InstanceRefreshInProgressFault, LimitExceededFault, ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const startInstanceRefresh = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.StartInstanceRefresh" }, StartInstanceRefreshType, StartInstanceRefreshAnswer, [InstanceRefreshInProgressFault, LimitExceededFault, ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Gets information about the Auto Scaling groups in the account and Region.
  * 
@@ -1339,7 +1339,7 @@ export class IdempotentParameterMismatchError extends S.TaggedError<IdempotentPa
  * This operation also returns information about instances in Auto Scaling groups. To retrieve
  * information about the instances in a warm pool, you must call the
  * DescribeWarmPool API.
- */export const describeAutoScalingGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", uri: "/", method: "POST", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.DescribeAutoScalingGroups" }, AutoScalingGroupNamesType, AutoScalingGroupsType, [InvalidNextToken, ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeAutoScalingGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.DescribeAutoScalingGroups" }, AutoScalingGroupNamesType, AutoScalingGroupsType, [InvalidNextToken, ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Gets information about the instance refreshes for the specified Auto Scaling group from the
  * previous six weeks.
@@ -1356,7 +1356,7 @@ export class IdempotentParameterMismatchError extends S.TaggedError<IdempotentPa
  * of instances remaining to update before the instance refresh is complete. If a rollback
  * is initiated while an instance refresh is in progress, Amazon EC2 Auto Scaling also returns information
  * about the rollback of the instance refresh.
- */export const describeInstanceRefreshes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", uri: "/", method: "POST", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.DescribeInstanceRefreshes" }, DescribeInstanceRefreshesType, DescribeInstanceRefreshesAnswer, [InvalidNextToken, ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeInstanceRefreshes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.DescribeInstanceRefreshes" }, DescribeInstanceRefreshesType, DescribeInstanceRefreshesAnswer, [InvalidNextToken, ResourceContentionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates or updates a scaling policy for an Auto Scaling group. Scaling policies are used to
  * scale an Auto Scaling group based on configurable metrics. If no policies are defined, the
@@ -1375,7 +1375,7 @@ export class IdempotentParameterMismatchError extends S.TaggedError<IdempotentPa
  * You can view the scaling policies for an Auto Scaling group using the
  * DescribePolicies API call. If you are no longer using a scaling policy,
  * you can delete it by calling the DeletePolicy API.
- */export const putScalingPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", uri: "/", method: "POST", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.PutScalingPolicy" }, PutScalingPolicyType, PolicyARNType, [LimitExceededFault, ResourceContentionFault, ServiceLinkedRoleFailure]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const putScalingPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.PutScalingPolicy" }, PutScalingPolicyType, PolicyARNType, [LimitExceededFault, ResourceContentionFault, ServiceLinkedRoleFailure]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * **We strongly recommend using a launch template when calling this operation to ensure full functionality for Amazon EC2 Auto Scaling and Amazon EC2.**
  * 
@@ -1399,4 +1399,4 @@ export class IdempotentParameterMismatchError extends S.TaggedError<IdempotentPa
  * on a specific number of instances. However, if you configure a mixed instances policy
  * that defines weights for the instance types, you must specify these sizes with the same
  * units that you use for weighting instances.
- */export const createAutoScalingGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", uri: "/", method: "POST", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.CreateAutoScalingGroup" }, CreateAutoScalingGroupType, S.Struct({}), [AlreadyExistsFault, LimitExceededFault, ResourceContentionFault, ServiceLinkedRoleFailure]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const createAutoScalingGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2011-01-01", sdkId: "Auto Scaling", sigV4ServiceName: "autoscaling", name: "AutoScaling_2011_01_01.CreateAutoScalingGroup" }, CreateAutoScalingGroupType, S.Struct({}), [AlreadyExistsFault, LimitExceededFault, ResourceContentionFault, ServiceLinkedRoleFailure]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);

@@ -89,7 +89,7 @@ export class ResourceNotFoundException extends S.TaggedError<ResourceNotFoundExc
  * 
  * The Amazon Connect Participant Service APIs do not use Signature Version 4
  * authentication.
- */export const getAttachment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-07", uri: "/participant/attachment", method: "POST", sdkId: "ConnectParticipant", sigV4ServiceName: "execute-api", name: "AmazonConnectParticipantServiceLambda.GetAttachment" }, GetAttachmentRequest, GetAttachmentResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getAttachment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-07", uri: "/participant/attachment", sdkId: "ConnectParticipant", sigV4ServiceName: "execute-api", name: "AmazonConnectParticipantServiceLambda.GetAttachment" }, GetAttachmentRequest, GetAttachmentResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the AuthenticationUrl for the current authentication session for the
  * AuthenticateCustomer flow block.
@@ -126,7 +126,7 @@ export class ResourceNotFoundException extends S.TaggedError<ResourceNotFoundExc
  * 
  * The Amazon Connect Participant Service APIs do not use Signature Version 4
  * authentication.
- */export const getAuthenticationUrl = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-07", uri: "/participant/authentication-url", method: "POST", sdkId: "ConnectParticipant", sigV4ServiceName: "execute-api", name: "AmazonConnectParticipantServiceLambda.GetAuthenticationUrl" }, GetAuthenticationUrlRequest, GetAuthenticationUrlResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getAuthenticationUrl = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-07", uri: "/participant/authentication-url", sdkId: "ConnectParticipant", sigV4ServiceName: "execute-api", name: "AmazonConnectParticipantServiceLambda.GetAuthenticationUrl" }, GetAuthenticationUrlRequest, GetAuthenticationUrlResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The `application/vnd.amazonaws.connect.event.connection.acknowledged`
  * ContentType is no longer maintained since December 31, 2024. This event has been
@@ -155,7 +155,7 @@ export class ResourceNotFoundException extends S.TaggedError<ResourceNotFoundExc
  * 
  * The Amazon Connect Participant Service APIs do not use Signature Version 4
  * authentication.
- */export const sendEvent = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-07", uri: "/participant/event", method: "POST", sdkId: "ConnectParticipant", sigV4ServiceName: "execute-api", name: "AmazonConnectParticipantServiceLambda.SendEvent" }, SendEventRequest, SendEventResponse, [AccessDeniedException, ConflictException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const sendEvent = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-07", uri: "/participant/event", sdkId: "ConnectParticipant", sigV4ServiceName: "execute-api", name: "AmazonConnectParticipantServiceLambda.SendEvent" }, SendEventRequest, SendEventResponse, [AccessDeniedException, ConflictException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Cancels the authentication session. The opted out branch of the Authenticate Customer
  * flow block will be taken.
@@ -180,7 +180,7 @@ export class ResourceNotFoundException extends S.TaggedError<ResourceNotFoundExc
  * 
  * The Amazon Connect Participant Service APIs do not use Signature Version 4
  * authentication.
- */export const cancelParticipantAuthentication = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-07", uri: "/participant/cancel-authentication", method: "POST", sdkId: "ConnectParticipant", sigV4ServiceName: "execute-api", name: "AmazonConnectParticipantServiceLambda.CancelParticipantAuthentication" }, CancelParticipantAuthenticationRequest, CancelParticipantAuthenticationResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const cancelParticipantAuthentication = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-07", uri: "/participant/cancel-authentication", sdkId: "ConnectParticipant", sigV4ServiceName: "execute-api", name: "AmazonConnectParticipantServiceLambda.CancelParticipantAuthentication" }, CancelParticipantAuthenticationRequest, CancelParticipantAuthenticationResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Allows you to confirm that the attachment has been uploaded using the pre-signed URL
  * provided in StartAttachmentUpload API. A conflict exception is thrown when an attachment
@@ -201,7 +201,7 @@ export class ResourceNotFoundException extends S.TaggedError<ResourceNotFoundExc
  * 
  * The Amazon Connect Participant Service APIs do not use Signature Version 4
  * authentication.
- */export const completeAttachmentUpload = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-07", uri: "/participant/complete-attachment-upload", method: "POST", sdkId: "ConnectParticipant", sigV4ServiceName: "execute-api", name: "AmazonConnectParticipantServiceLambda.CompleteAttachmentUpload" }, CompleteAttachmentUploadRequest, CompleteAttachmentUploadResponse, [AccessDeniedException, ConflictException, InternalServerException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const completeAttachmentUpload = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-07", uri: "/participant/complete-attachment-upload", sdkId: "ConnectParticipant", sigV4ServiceName: "execute-api", name: "AmazonConnectParticipantServiceLambda.CompleteAttachmentUpload" }, CompleteAttachmentUploadRequest, CompleteAttachmentUploadResponse, [AccessDeniedException, ConflictException, InternalServerException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Disconnects a participant.
  * 
@@ -220,7 +220,7 @@ export class ResourceNotFoundException extends S.TaggedError<ResourceNotFoundExc
  * 
  * The Amazon Connect Participant Service APIs do not use Signature Version 4
  * authentication.
- */export const disconnectParticipant = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-07", uri: "/participant/disconnect", method: "POST", sdkId: "ConnectParticipant", sigV4ServiceName: "execute-api", name: "AmazonConnectParticipantServiceLambda.DisconnectParticipant" }, DisconnectParticipantRequest, DisconnectParticipantResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const disconnectParticipant = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-07", uri: "/participant/disconnect", sdkId: "ConnectParticipant", sigV4ServiceName: "execute-api", name: "AmazonConnectParticipantServiceLambda.DisconnectParticipant" }, DisconnectParticipantRequest, DisconnectParticipantResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Sends a message.
  * 
@@ -239,7 +239,7 @@ export class ResourceNotFoundException extends S.TaggedError<ResourceNotFoundExc
  * 
  * The Amazon Connect Participant Service APIs do not use Signature Version 4
  * authentication.
- */export const sendMessage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-07", uri: "/participant/message", method: "POST", sdkId: "ConnectParticipant", sigV4ServiceName: "execute-api", name: "AmazonConnectParticipantServiceLambda.SendMessage" }, SendMessageRequest, SendMessageResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const sendMessage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-07", uri: "/participant/message", sdkId: "ConnectParticipant", sigV4ServiceName: "execute-api", name: "AmazonConnectParticipantServiceLambda.SendMessage" }, SendMessageRequest, SendMessageResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides a pre-signed Amazon S3 URL in response for uploading the file directly to
  * S3.
@@ -259,7 +259,7 @@ export class ResourceNotFoundException extends S.TaggedError<ResourceNotFoundExc
  * 
  * The Amazon Connect Participant Service APIs do not use Signature Version 4
  * authentication.
- */export const startAttachmentUpload = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-07", uri: "/participant/start-attachment-upload", method: "POST", sdkId: "ConnectParticipant", sigV4ServiceName: "execute-api", name: "AmazonConnectParticipantServiceLambda.StartAttachmentUpload" }, StartAttachmentUploadRequest, StartAttachmentUploadResponse, [AccessDeniedException, InternalServerException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startAttachmentUpload = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-07", uri: "/participant/start-attachment-upload", sdkId: "ConnectParticipant", sigV4ServiceName: "execute-api", name: "AmazonConnectParticipantServiceLambda.StartAttachmentUpload" }, StartAttachmentUploadRequest, StartAttachmentUploadResponse, [AccessDeniedException, InternalServerException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the view for the specified view token.
  * 
@@ -363,7 +363,7 @@ export class ResourceNotFoundException extends S.TaggedError<ResourceNotFoundExc
  * 
  * The Amazon Connect Participant Service APIs do not use Signature Version 4
  * authentication.
- */export const createParticipantConnection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-07", uri: "/participant/connection", method: "POST", sdkId: "ConnectParticipant", sigV4ServiceName: "execute-api", name: "AmazonConnectParticipantServiceLambda.CreateParticipantConnection" }, CreateParticipantConnectionRequest, CreateParticipantConnectionResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createParticipantConnection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-07", uri: "/participant/connection", sdkId: "ConnectParticipant", sigV4ServiceName: "execute-api", name: "AmazonConnectParticipantServiceLambda.CreateParticipantConnection" }, CreateParticipantConnectionRequest, CreateParticipantConnectionResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves a transcript of the session, including details about any attachments. For
  * information about accessing past chat contact transcripts for a persistent chat, see
@@ -422,4 +422,4 @@ export class ResourceNotFoundException extends S.TaggedError<ResourceNotFoundExc
  * 
  * The Amazon Connect Participant Service APIs do not use Signature Version 4
  * authentication.
- */export const getTranscript = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-07", uri: "/participant/transcript", method: "POST", sdkId: "ConnectParticipant", sigV4ServiceName: "execute-api", name: "AmazonConnectParticipantServiceLambda.GetTranscript" }, GetTranscriptRequest, GetTranscriptResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getTranscript = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-09-07", uri: "/participant/transcript", sdkId: "ConnectParticipant", sigV4ServiceName: "execute-api", name: "AmazonConnectParticipantServiceLambda.GetTranscript" }, GetTranscriptRequest, GetTranscriptResponse, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

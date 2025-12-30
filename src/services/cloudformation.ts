@@ -386,7 +386,7 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * Activate trusted access with Organizations. With trusted access between StackSets
  * and Organizations activated, the management account has permissions to create
  * and manage StackSets for your organization.
- */export const activateOrganizationsAccess = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.ActivateOrganizationsAccess" }, ActivateOrganizationsAccessInput, ActivateOrganizationsAccessOutput, [InvalidOperationException, OperationNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const activateOrganizationsAccess = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.ActivateOrganizationsAccess" }, ActivateOrganizationsAccessInput, ActivateOrganizationsAccessOutput, [InvalidOperationException, OperationNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Continues rolling back a stack from `UPDATE_ROLLBACK_FAILED` to
  * `UPDATE_ROLLBACK_COMPLETE` state. Depending on the cause of the failure, you can
@@ -404,12 +404,12 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * 
  * For more information, see Continue rolling back an update in the *CloudFormation User Guide*. For
  * information for troubleshooting a failed update rollback, see Update rollback failed.
- */export const continueUpdateRollback = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.ContinueUpdateRollback" }, ContinueUpdateRollbackInput, ContinueUpdateRollbackOutput, [TokenAlreadyExistsException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const continueUpdateRollback = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.ContinueUpdateRollback" }, ContinueUpdateRollbackInput, ContinueUpdateRollbackOutput, [TokenAlreadyExistsException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deactivates trusted access with Organizations. If trusted access is deactivated,
  * the management account does not have permissions to create and manage
  * service-managed StackSets for your organization.
- */export const deactivateOrganizationsAccess = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.DeactivateOrganizationsAccess" }, DeactivateOrganizationsAccessInput, DeactivateOrganizationsAccessOutput, [InvalidOperationException, OperationNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deactivateOrganizationsAccess = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.DeactivateOrganizationsAccess" }, DeactivateOrganizationsAccessInput, DeactivateOrganizationsAccessOutput, [InvalidOperationException, OperationNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes a specified stack. Once the call completes successfully, stack deletion starts.
  * Deleted stacks don't show up in the DescribeStacks operation if the deletion
@@ -418,17 +418,17 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * 
  * For more information about deleting a stack, see Delete a stack from
  * the CloudFormation console in the *CloudFormation User Guide*.
- */export const deleteStack = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.DeleteStack" }, DeleteStackInput, S.Struct({}), [TokenAlreadyExistsException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteStack = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.DeleteStack" }, DeleteStackInput, S.Struct({}), [TokenAlreadyExistsException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Executes the stack refactor operation.
- */export const executeStackRefactor = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.ExecuteStackRefactor" }, ExecuteStackRefactorInput, S.Struct({}), []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const executeStackRefactor = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.ExecuteStackRefactor" }, ExecuteStackRefactorInput, S.Struct({}), []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Sets a stack policy for a specified stack.
- */export const setStackPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.SetStackPolicy" }, SetStackPolicyInput, S.Struct({}), []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const setStackPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.SetStackPolicy" }, SetStackPolicyInput, S.Struct({}), []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Specify the default version of an extension. The default version of an extension will be
  * used in CloudFormation operations.
- */export const setTypeDefaultVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.SetTypeDefaultVersion" }, SetTypeDefaultVersionInput, SetTypeDefaultVersionOutput, [CFNRegistryException, TypeNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const setTypeDefaultVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.SetTypeDefaultVersion" }, SetTypeDefaultVersionInput, SetTypeDefaultVersionOutput, [CFNRegistryException, TypeNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Sends a signal to the specified resource with a success or failure status. You can use the
  * `SignalResource` operation in conjunction with a creation policy or update
@@ -436,7 +436,7 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * required number of signals or the timeout period is exceeded. The `SignalResource`
  * operation is useful in cases where you want to send signals from anywhere other than an Amazon EC2
  * instance.
- */export const signalResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.SignalResource" }, SignalResourceInput, S.Struct({}), []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const signalResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.SignalResource" }, SignalResourceInput, S.Struct({}), []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Cancels an update on the specified stack. If the call completes successfully, the stack
  * rolls back the update and reverts to the previous stack configuration.
@@ -445,7 +445,7 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * 
  * 
  * You can cancel only stacks that are in the `UPDATE_IN_PROGRESS` state.
- */export const cancelUpdateStack = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.CancelUpdateStack" }, CancelUpdateStackInput, S.Struct({}), [TokenAlreadyExistsException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const cancelUpdateStack = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.CancelUpdateStack" }, CancelUpdateStackInput, S.Struct({}), [TokenAlreadyExistsException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deactivates a public third-party extension, such as a resource or module, or a CloudFormation
  * Hook when you no longer use it.
@@ -462,7 +462,7 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * 
  * 
  * To see which extensions are currently activated, use ListTypes.
- */export const deactivateType = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.DeactivateType" }, DeactivateTypeInput, DeactivateTypeOutput, [CFNRegistryException, TypeNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deactivateType = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.DeactivateType" }, DeactivateTypeInput, DeactivateTypeOutput, [CFNRegistryException, TypeNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes the specified change set. Deleting change sets ensures that no one executes the
  * wrong change set.
@@ -475,7 +475,7 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * nested change set, then `DeleteChangeSet` will delete all change sets that belong
  * to the stacks hierarchy and will also delete all change sets for nested stacks with the status
  * of `REVIEW_IN_PROGRESS`.
- */export const deleteChangeSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.DeleteChangeSet" }, DeleteChangeSetInput, DeleteChangeSetOutput, [InvalidChangeSetStatusException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteChangeSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.DeleteChangeSet" }, DeleteChangeSetInput, DeleteChangeSetOutput, [InvalidChangeSetStatusException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Marks an extension or extension version as `DEPRECATED` in the CloudFormation
  * registry, removing it from active use. Deprecated extensions or extension versions cannot be
@@ -499,13 +499,13 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * For more information, see Remove
  * third-party private extensions from your account in the
  * *CloudFormation User Guide*.
- */export const deregisterType = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.DeregisterType" }, DeregisterTypeInput, DeregisterTypeOutput, [CFNRegistryException, TypeNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deregisterType = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.DeregisterType" }, DeregisterTypeInput, DeregisterTypeOutput, [CFNRegistryException, TypeNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Retrieves information about the account's `OrganizationAccess` status. This API
  * can be called either by the management account or the delegated administrator by using the
  * `CallAs` parameter. This API can also be called without the `CallAs`
  * parameter by the management account.
- */export const describeOrganizationsAccess = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.DescribeOrganizationsAccess" }, DescribeOrganizationsAccessInput, DescribeOrganizationsAccessOutput, [InvalidOperationException, OperationNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeOrganizationsAccess = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.DescribeOrganizationsAccess" }, DescribeOrganizationsAccessInput, DescribeOrganizationsAccessOutput, [InvalidOperationException, OperationNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns information about a CloudFormation extension publisher.
  * 
@@ -527,7 +527,7 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * - Publishing extensions
  * to make them available for public use in the
  * *CloudFormation Command Line Interface (CLI) User Guide*
- */export const describePublisher = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.DescribePublisher" }, DescribePublisherInput, DescribePublisherOutput, [CFNRegistryException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describePublisher = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.DescribePublisher" }, DescribePublisherInput, DescribePublisherOutput, [CFNRegistryException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns information about a stack drift detection operation. A stack drift detection
  * operation detects whether a stack's actual configuration differs, or has
@@ -543,7 +543,7 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * monitor the progress of the operation using `DescribeStackDriftDetectionStatus`.
  * Once the drift detection operation has completed, use DescribeStackResourceDrifts to return drift information about the stack and its
  * resources.
- */export const describeStackDriftDetectionStatus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.DescribeStackDriftDetectionStatus" }, DescribeStackDriftDetectionStatusInput, DescribeStackDriftDetectionStatusOutput, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeStackDriftDetectionStatus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.DescribeStackDriftDetectionStatus" }, DescribeStackDriftDetectionStatusInput, DescribeStackDriftDetectionStatusOutput, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns information about an extension's registration, including its current status and
  * type and version identifiers.
@@ -556,7 +556,7 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * 
  * Once the registration request has completed, use DescribeType to return
  * detailed information about an extension.
- */export const describeTypeRegistration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.DescribeTypeRegistration" }, DescribeTypeRegistrationInput, DescribeTypeRegistrationOutput, [CFNRegistryException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeTypeRegistration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.DescribeTypeRegistration" }, DescribeTypeRegistrationInput, DescribeTypeRegistrationOutput, [CFNRegistryException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Detects whether a stack's actual configuration differs, or has
  * *drifted*, from its expected configuration, as defined in the stack
@@ -588,7 +588,7 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * When detecting drift on a stack, CloudFormation doesn't detect drift on any nested stacks
  * belonging to that stack. Perform `DetectStackDrift` directly on the nested stack
  * itself.
- */export const detectStackDrift = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.DetectStackDrift" }, DetectStackDriftInput, DetectStackDriftOutput, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const detectStackDrift = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.DetectStackDrift" }, DetectStackDriftInput, DetectStackDriftOutput, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns information about whether a resource's actual configuration differs, or has
  * *drifted*, from its expected configuration, as defined in the stack
@@ -607,7 +607,7 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * Resources that don't currently support drift detection can't be checked. For a list of
  * resources that support drift detection, see Resource
  * type support for imports and drift detection.
- */export const detectStackResourceDrift = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.DetectStackResourceDrift" }, DetectStackResourceDriftInput, DetectStackResourceDriftOutput, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const detectStackResourceDrift = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.DetectStackResourceDrift" }, DetectStackResourceDriftInput, DetectStackResourceDriftOutput, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Detect drift on a StackSet. When CloudFormation performs drift detection on a StackSet, it
  * performs drift detection on the stack associated with each stack instance in the StackSet. For
@@ -653,22 +653,22 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * 
  * 
  * To stop a drift detection StackSet operation, use StopStackSetOperation.
- */export const detectStackSetDrift = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.DetectStackSetDrift" }, DetectStackSetDriftInput, DetectStackSetDriftOutput, [InvalidOperationException, OperationInProgressException, StackSetNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const detectStackSetDrift = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.DetectStackSetDrift" }, DetectStackSetDriftInput, DetectStackSetDriftOutput, [InvalidOperationException, OperationInProgressException, StackSetNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns the estimated monthly cost of a template. The return value is an Amazon Web Services Simple
  * Monthly Calculator URL with a query string that describes the resources required to run the
  * template.
- */export const estimateTemplateCost = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.EstimateTemplateCost" }, EstimateTemplateCostInput, EstimateTemplateCostOutput, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const estimateTemplateCost = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.EstimateTemplateCost" }, EstimateTemplateCostInput, EstimateTemplateCostOutput, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Retrieves a generated template. If the template is in an `InProgress` or
  * `Pending` status then the template returned will be the template when the
  * template was last in a `Complete` status. If the template has not yet been in a
  * `Complete` status then an empty template will be returned.
- */export const getGeneratedTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.GetGeneratedTemplate" }, GetGeneratedTemplateInput, GetGeneratedTemplateOutput, [GeneratedTemplateNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const getGeneratedTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.GetGeneratedTemplate" }, GetGeneratedTemplateInput, GetGeneratedTemplateOutput, [GeneratedTemplateNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns the stack policy for a specified stack. If a stack doesn't have a policy, a null
  * value is returned.
- */export const getStackPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.GetStackPolicy" }, GetStackPolicyInput, GetStackPolicyOutput, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const getStackPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.GetStackPolicy" }, GetStackPolicyInput, GetStackPolicyOutput, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns the template body for a specified stack. You can get the template for running or
  * deleted stacks.
@@ -681,7 +681,7 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * 
  * 
  * If the template doesn't exist, a `ValidationError` is returned.
- */export const getTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.GetTemplate" }, GetTemplateInput, GetTemplateOutput, [ChangeSetNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const getTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.GetTemplate" }, GetTemplateInput, GetTemplateOutput, [ChangeSetNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Lists all stacks that are importing an exported output value. To modify or remove an
  * exported output value, first use this action to see which stacks are using it. To see the
@@ -689,10 +689,10 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * 
  * 
  * For more information about importing an exported output value, see the Fn::ImportValue function.
- */export const listImports = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.ListImports" }, ListImportsInput, ListImportsOutput, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listImports = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.ListImports" }, ListImportsInput, ListImportsOutput, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns a list of registration tokens for the specified extension(s).
- */export const listTypeRegistrations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.ListTypeRegistrations" }, ListTypeRegistrationsInput, ListTypeRegistrationsOutput, [CFNRegistryException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listTypeRegistrations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.ListTypeRegistrations" }, ListTypeRegistrationsInput, ListTypeRegistrationsOutput, [CFNRegistryException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Publishes the specified extension to the CloudFormation registry as a public extension in this
  * Region. Public extensions are available for use by all CloudFormation users. For more information
@@ -703,7 +703,7 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * 
  * To publish an extension, you must be registered as a publisher with CloudFormation. For more
  * information, see RegisterPublisher.
- */export const publishType = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.PublishType" }, PublishTypeInput, PublishTypeOutput, [CFNRegistryException, TypeNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const publishType = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.PublishType" }, PublishTypeInput, PublishTypeOutput, [CFNRegistryException, TypeNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Registers your account as a publisher of public extensions in the CloudFormation registry.
  * Public extensions are available for use by all CloudFormation users. This publisher ID applies to
@@ -713,7 +713,7 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * For information about requirements for registering as a public extension publisher, see
  * Prerequisite: Registering your account to publish CloudFormation extensions in the
  * *CloudFormation Command Line Interface (CLI) User Guide*.
- */export const registerPublisher = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.RegisterPublisher" }, RegisterPublisherInput, RegisterPublisherOutput, [CFNRegistryException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const registerPublisher = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.RegisterPublisher" }, RegisterPublisherInput, RegisterPublisherOutput, [CFNRegistryException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Registers an extension with the CloudFormation service. Registering an extension makes it
  * available for use in CloudFormation templates in your Amazon Web Services account, and includes:
@@ -753,7 +753,7 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * more information, see Edit configuration
  * data for extensions in your account in the
  * *CloudFormation User Guide*.
- */export const registerType = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.RegisterType" }, RegisterTypeInput, RegisterTypeOutput, [CFNRegistryException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const registerType = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.RegisterType" }, RegisterTypeInput, RegisterTypeOutput, [CFNRegistryException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * When specifying `RollbackStack`, you preserve the state of previously
  * provisioned resources when an operation fails. You can check the status of the stack through
@@ -791,7 +791,7 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * 
  * 
  * - `IMPORT_ROLLBACK_COMPLETE`
- */export const rollbackStack = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.RollbackStack" }, RollbackStackInput, RollbackStackOutput, [TokenAlreadyExistsException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const rollbackStack = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.RollbackStack" }, RollbackStackInput, RollbackStackOutput, [TokenAlreadyExistsException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Specifies the configuration data for a CloudFormation extension, such as a resource or Hook,
  * in the given account and Region.
@@ -818,12 +818,12 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * For more information about setting the configuration data for resource types, see Defining the account-level configuration of an extension in the
  * *CloudFormation Command Line Interface (CLI) User Guide*. For more information about setting the configuration
  * data for Hooks, see the CloudFormation Hooks User Guide.
- */export const setTypeConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.SetTypeConfiguration" }, SetTypeConfigurationInput, SetTypeConfigurationOutput, [CFNRegistryException, TypeNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const setTypeConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.SetTypeConfiguration" }, SetTypeConfigurationInput, SetTypeConfigurationOutput, [CFNRegistryException, TypeNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Stops an in-progress operation on a StackSet and its associated stack instances. StackSets
  * will cancel all the unstarted stack instance deployments and wait for those are in-progress to
  * complete.
- */export const stopStackSetOperation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.StopStackSetOperation" }, StopStackSetOperationInput, StopStackSetOperationOutput, [InvalidOperationException, OperationNotFoundException, StackSetNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const stopStackSetOperation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.StopStackSetOperation" }, StopStackSetOperationInput, StopStackSetOperationOutput, [InvalidOperationException, OperationNotFoundException, StackSetNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Tests a registered extension to make sure it meets all necessary requirements for being
  * published in the CloudFormation registry.
@@ -863,13 +863,13 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * For more information, see Publishing extensions
  * to make them available for public use in the
  * *CloudFormation Command Line Interface (CLI) User Guide*.
- */export const testType = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.TestType" }, TestTypeInput, TestTypeOutput, [CFNRegistryException, TypeNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const testType = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.TestType" }, TestTypeInput, TestTypeOutput, [CFNRegistryException, TypeNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Updates a generated template. This can be used to change the name, add and remove
  * resources, refresh resources, and change the `DeletionPolicy` and
  * `UpdateReplacePolicy` settings. You can check the status of the update to the
  * generated template using the `DescribeGeneratedTemplate` API action.
- */export const updateGeneratedTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.UpdateGeneratedTemplate" }, UpdateGeneratedTemplateInput, UpdateGeneratedTemplateOutput, [AlreadyExistsException, GeneratedTemplateNotFoundException, LimitExceededException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const updateGeneratedTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.UpdateGeneratedTemplate" }, UpdateGeneratedTemplateInput, UpdateGeneratedTemplateOutput, [AlreadyExistsException, GeneratedTemplateNotFoundException, LimitExceededException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Updates a stack as specified in the template. After the call completes successfully, the
  * stack update starts. You can check the status of the stack through the DescribeStacks action.
@@ -882,7 +882,7 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * Managing
  * Amazon Web Services resources as a single unit with CloudFormation stacks in the
  * *CloudFormation User Guide*.
- */export const updateStack = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.UpdateStack" }, UpdateStackInput, UpdateStackOutput, [InsufficientCapabilitiesException, TokenAlreadyExistsException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const updateStack = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.UpdateStack" }, UpdateStackInput, UpdateStackOutput, [InsufficientCapabilitiesException, TokenAlreadyExistsException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Updates termination protection for the specified stack. If a user attempts to delete a
  * stack with termination protection enabled, the operation fails and the stack remains
@@ -893,7 +893,7 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * For nested stacks,
  * termination protection is set on the root stack and can't be changed directly on the nested
  * stack.
- */export const updateTerminationProtection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.UpdateTerminationProtection" }, UpdateTerminationProtectionInput, UpdateTerminationProtectionOutput, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const updateTerminationProtection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.UpdateTerminationProtection" }, UpdateTerminationProtectionInput, UpdateTerminationProtectionOutput, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Activates a public third-party extension, such as a resource or module, to make it
  * available for use in stack templates in your current account and Region. It can also create
@@ -912,12 +912,12 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * third-party public extension in your account in the
  * *CloudFormation User Guide*. For information about creating Hooks, see the
  * CloudFormation Hooks User Guide.
- */export const activateType = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.ActivateType" }, ActivateTypeInput, ActivateTypeOutput, [CFNRegistryException, TypeNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const activateType = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.ActivateType" }, ActivateTypeInput, ActivateTypeOutput, [CFNRegistryException, TypeNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates a template from existing resources that are not already managed with CloudFormation.
  * You can check the status of the template generation using the
  * `DescribeGeneratedTemplate` API action.
- */export const createGeneratedTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.CreateGeneratedTemplate" }, CreateGeneratedTemplateInput, CreateGeneratedTemplateOutput, [AlreadyExistsException, ConcurrentResourcesLimitExceededException, LimitExceededException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const createGeneratedTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.CreateGeneratedTemplate" }, CreateGeneratedTemplateInput, CreateGeneratedTemplateOutput, [AlreadyExistsException, ConcurrentResourcesLimitExceededException, LimitExceededException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates a stack as specified in the template. After the call completes successfully, the
  * stack creation starts. You can check the status of the stack through the DescribeStacks operation.
@@ -926,7 +926,7 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * For more information about creating a stack and monitoring stack progress, see Managing Amazon Web Services
  * resources as a single unit with CloudFormation stacks in the
  * *CloudFormation User Guide*.
- */export const createStack = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.CreateStack" }, CreateStackInput, CreateStackOutput, [AlreadyExistsException, InsufficientCapabilitiesException, LimitExceededException, TokenAlreadyExistsException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const createStack = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.CreateStack" }, CreateStackInput, CreateStackOutput, [AlreadyExistsException, InsufficientCapabilitiesException, LimitExceededException, TokenAlreadyExistsException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates stack instances for the specified accounts, within the specified Amazon Web Services Regions. A
  * stack instance refers to a stack in a specific account and Region. You must specify at least
@@ -952,10 +952,10 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * 
  * - *Parent OU strategy:* If you don't mind exposing the OU
  * hierarchy, target a parent OU that contains all desired child OUs.
- */export const createStackInstances = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.CreateStackInstances" }, CreateStackInstancesInput, CreateStackInstancesOutput, [InvalidOperationException, LimitExceededException, OperationIdAlreadyExistsException, OperationInProgressException, StackSetNotFoundException, StaleRequestException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const createStackInstances = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.CreateStackInstances" }, CreateStackInstancesInput, CreateStackInstancesOutput, [InvalidOperationException, LimitExceededException, OperationIdAlreadyExistsException, OperationInProgressException, StackSetNotFoundException, StaleRequestException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deleted a generated template.
- */export const deleteGeneratedTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.DeleteGeneratedTemplate" }, DeleteGeneratedTemplateInput, S.Struct({}), [ConcurrentResourcesLimitExceededException, GeneratedTemplateNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteGeneratedTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.DeleteGeneratedTemplate" }, DeleteGeneratedTemplateInput, S.Struct({}), [ConcurrentResourcesLimitExceededException, GeneratedTemplateNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes stack instances for the specified accounts, in the specified Amazon Web Services Regions.
  * 
@@ -978,18 +978,18 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * 
  * - *Parent OU strategy:* If you don't mind exposing the OU
  * hierarchy, target a parent OU that contains all desired child OUs.
- */export const deleteStackInstances = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.DeleteStackInstances" }, DeleteStackInstancesInput, DeleteStackInstancesOutput, [InvalidOperationException, OperationIdAlreadyExistsException, OperationInProgressException, StackSetNotFoundException, StaleRequestException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteStackInstances = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.DeleteStackInstances" }, DeleteStackInstancesInput, DeleteStackInstancesOutput, [InvalidOperationException, OperationIdAlreadyExistsException, OperationInProgressException, StackSetNotFoundException, StaleRequestException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes a StackSet. Before you can delete a StackSet, all its member stack instances must
  * be deleted. For more information about how to complete this, see DeleteStackInstances.
- */export const deleteStackSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.DeleteStackSet" }, DeleteStackSetInput, DeleteStackSetOutput, [OperationInProgressException, StackSetNotEmptyException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteStackSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.DeleteStackSet" }, DeleteStackSetInput, DeleteStackSetOutput, [OperationInProgressException, StackSetNotEmptyException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Retrieves your account's CloudFormation limits, such as the maximum number of stacks that you
  * can create in your account. For more information about account limits, see Understand CloudFormation quotas in the *CloudFormation User Guide*.
- */export const describeAccountLimits = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.DescribeAccountLimits" }, DescribeAccountLimitsInput, DescribeAccountLimitsOutput, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeAccountLimits = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.DescribeAccountLimits" }, DescribeAccountLimitsInput, DescribeAccountLimitsOutput, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Describes details of a resource scan.
- */export const describeResourceScan = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.DescribeResourceScan" }, DescribeResourceScanInput, DescribeResourceScanOutput, [ResourceScanNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeResourceScan = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.DescribeResourceScan" }, DescribeResourceScanInput, DescribeResourceScanOutput, [ResourceScanNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns all stack related events for a specified stack in reverse chronological order. For
  * more information about a stack's event history, see Understand CloudFormation stack creation events in the
@@ -1000,10 +1000,10 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * 
  * You can list events for stacks that have failed to create or have been deleted by
  * specifying the unique stack identifier (stack ID).
- */export const describeStackEvents = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.DescribeStackEvents" }, DescribeStackEventsInput, DescribeStackEventsOutput, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeStackEvents = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.DescribeStackEvents" }, DescribeStackEventsInput, DescribeStackEventsOutput, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Describes the stack refactor status.
- */export const describeStackRefactor = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.DescribeStackRefactor" }, DescribeStackRefactorInput, DescribeStackRefactorOutput, [StackRefactorNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeStackRefactor = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.DescribeStackRefactor" }, DescribeStackRefactorInput, DescribeStackRefactorOutput, [StackRefactorNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns Amazon Web Services resource descriptions for running and deleted stacks. If
  * `StackName` is specified, all the associated resources that are part of the stack
@@ -1033,7 +1033,7 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * 
  * A `ValidationError` is returned if you specify both `StackName`
  * and `PhysicalResourceId` in the same request.
- */export const describeStackResources = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.DescribeStackResources" }, DescribeStackResourcesInput, DescribeStackResourcesOutput, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeStackResources = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.DescribeStackResources" }, DescribeStackResourcesInput, DescribeStackResourcesOutput, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns detailed information about an extension from the CloudFormation registry in your
  * current account and Region.
@@ -1047,7 +1047,7 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * For more information, see Edit configuration
  * data for extensions in your account in the
  * *CloudFormation User Guide*.
- */export const describeType = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.DescribeType" }, DescribeTypeInput, DescribeTypeOutput, [CFNRegistryException, TypeNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeType = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.DescribeType" }, DescribeTypeInput, DescribeTypeOutput, [CFNRegistryException, TypeNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Updates a stack using the input information that was provided when the specified change
  * set was created. After the call successfully completes, CloudFormation starts updating the stack.
@@ -1064,12 +1064,12 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * 
  * To create a change set for the entire stack hierarchy, `IncludeNestedStacks`
  * must have been set to `True`.
- */export const executeChangeSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.ExecuteChangeSet" }, ExecuteChangeSetInput, ExecuteChangeSetOutput, [ChangeSetNotFoundException, InsufficientCapabilitiesException, InvalidChangeSetStatusException, TokenAlreadyExistsException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const executeChangeSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.ExecuteChangeSet" }, ExecuteChangeSetInput, ExecuteChangeSetOutput, [ChangeSetNotFoundException, InsufficientCapabilitiesException, InvalidChangeSetStatusException, TokenAlreadyExistsException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns the ID and status of each active change set for a stack. For example, CloudFormation
  * lists change sets that are in the `CREATE_IN_PROGRESS` or
  * `CREATE_PENDING` state.
- */export const listChangeSets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.ListChangeSets" }, ListChangeSetsInput, ListChangeSetsOutput, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listChangeSets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.ListChangeSets" }, ListChangeSetsInput, ListChangeSetsOutput, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Lists all exported output values in the account and Region in which you call this action.
  * Use this action to see the exported output values that you can import into other stacks. To
@@ -1078,10 +1078,10 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * 
  * For more information, see Get exported outputs
  * from a deployed CloudFormation stack.
- */export const listExports = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.ListExports" }, ListExportsInput, ListExportsOutput, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listExports = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.ListExports" }, ListExportsInput, ListExportsOutput, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Lists your generated templates in this Region.
- */export const listGeneratedTemplates = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.ListGeneratedTemplates" }, ListGeneratedTemplatesInput, ListGeneratedTemplatesOutput, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listGeneratedTemplates = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.ListGeneratedTemplates" }, ListGeneratedTemplatesInput, ListGeneratedTemplatesOutput, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns summaries of invoked Hooks. For more information, see View invocation
  * summaries for CloudFormation Hooks in the *CloudFormation Hooks User Guide*.
@@ -1106,11 +1106,11 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * 
  * - `TargetId` and `TargetType`: Returns summaries for a specific
  * Hook invocation target.
- */export const listHookResults = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.ListHookResults" }, ListHookResultsInput, ListHookResultsOutput, [HookResultNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listHookResults = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.ListHookResults" }, ListHookResultsInput, ListHookResultsOutput, [HookResultNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * List the resource scans from newest to oldest. By default it will return up to 10 resource
  * scans.
- */export const listResourceScans = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.ListResourceScans" }, ListResourceScansInput, ListResourceScansOutput, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listResourceScans = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.ListResourceScans" }, ListResourceScansInput, ListResourceScansOutput, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns drift information for resources in a stack instance.
  * 
@@ -1121,16 +1121,16 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * `ListStackInstanceResourceDrifts` returns drift information for the most
  * recent drift detection operation. If an operation is in progress, it may only return partial
  * results.
- */export const listStackInstanceResourceDrifts = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.ListStackInstanceResourceDrifts" }, ListStackInstanceResourceDriftsInput, ListStackInstanceResourceDriftsOutput, [OperationNotFoundException, StackInstanceNotFoundException, StackSetNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listStackInstanceResourceDrifts = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.ListStackInstanceResourceDrifts" }, ListStackInstanceResourceDriftsInput, ListStackInstanceResourceDriftsOutput, [OperationNotFoundException, StackInstanceNotFoundException, StackSetNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Lists the stack refactor actions that will be taken after calling the ExecuteStackRefactor action.
- */export const listStackRefactorActions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.ListStackRefactorActions" }, ListStackRefactorActionsInput, ListStackRefactorActionsOutput, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listStackRefactorActions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.ListStackRefactorActions" }, ListStackRefactorActionsInput, ListStackRefactorActionsOutput, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Lists all account stack refactor operations and their statuses.
- */export const listStackRefactors = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.ListStackRefactors" }, ListStackRefactorsInput, ListStackRefactorsOutput, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listStackRefactors = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.ListStackRefactors" }, ListStackRefactorsInput, ListStackRefactorsOutput, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns summary information about deployment targets for a StackSet.
- */export const listStackSetAutoDeploymentTargets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.ListStackSetAutoDeploymentTargets" }, ListStackSetAutoDeploymentTargetsInput, ListStackSetAutoDeploymentTargetsOutput, [StackSetNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listStackSetAutoDeploymentTargets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.ListStackSetAutoDeploymentTargets" }, ListStackSetAutoDeploymentTargetsInput, ListStackSetAutoDeploymentTargetsOutput, [StackSetNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns summary information about operations performed on a StackSet.
  * 
@@ -1139,7 +1139,7 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * 
  * This API provides *eventually consistent* reads meaning it may take
  * some time but will eventually return the most up-to-date data.
- */export const listStackSetOperations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.ListStackSetOperations" }, ListStackSetOperationsInput, ListStackSetOperationsOutput, [StackSetNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listStackSetOperations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.ListStackSetOperations" }, ListStackSetOperationsInput, ListStackSetOperationsOutput, [StackSetNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns summary information about StackSets that are associated with the user.
  * 
@@ -1169,17 +1169,17 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * `DELEGATED_ADMIN` while signed in to your member account,
  * `ListStackSets` returns all StackSets with service-managed permissions in the
  * management account.
- */export const listStackSets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.ListStackSets" }, ListStackSetsInput, ListStackSetsOutput, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listStackSets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.ListStackSets" }, ListStackSetsInput, ListStackSetsOutput, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns summary information about the versions of an extension.
- */export const listTypeVersions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.ListTypeVersions" }, ListTypeVersionsInput, ListTypeVersionsOutput, [CFNRegistryException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listTypeVersions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.ListTypeVersions" }, ListTypeVersionsInput, ListTypeVersionsOutput, [CFNRegistryException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Reports progress of a resource handler to CloudFormation.
  * 
  * 
  * Reserved for use by the CloudFormation
  * CLI. Don't use this API in your code.
- */export const recordHandlerProgress = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.RecordHandlerProgress" }, RecordHandlerProgressInput, RecordHandlerProgressOutput, [InvalidStateTransitionException, OperationStatusCheckFailedException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const recordHandlerProgress = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.RecordHandlerProgress" }, RecordHandlerProgressInput, RecordHandlerProgressOutput, [InvalidStateTransitionException, OperationStatusCheckFailedException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Updates the parameter values for stack instances for the specified accounts, within the
  * specified Amazon Web Services Regions. A stack instance refers to a stack in a specific account and
@@ -1221,7 +1221,7 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * 
  * - *Parent OU strategy:* If you don't mind exposing the OU
  * hierarchy, target a parent OU that contains all desired child OUs.
- */export const updateStackInstances = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.UpdateStackInstances" }, UpdateStackInstancesInput, UpdateStackInstancesOutput, [InvalidOperationException, OperationIdAlreadyExistsException, OperationInProgressException, StackInstanceNotFoundException, StackSetNotFoundException, StaleRequestException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const updateStackInstances = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.UpdateStackInstances" }, UpdateStackInstancesInput, UpdateStackInstancesOutput, [InvalidOperationException, OperationIdAlreadyExistsException, OperationInProgressException, StackInstanceNotFoundException, StackSetNotFoundException, StaleRequestException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Updates the StackSet and associated stack instances in the specified accounts and
  * Amazon Web Services Regions.
@@ -1251,12 +1251,12 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * 
  * - *Parent OU strategy:* If you don't mind exposing the OU
  * hierarchy, target a parent OU that contains all desired child OUs.
- */export const updateStackSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.UpdateStackSet" }, UpdateStackSetInput, UpdateStackSetOutput, [InvalidOperationException, OperationIdAlreadyExistsException, OperationInProgressException, StackInstanceNotFoundException, StackSetNotFoundException, StaleRequestException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const updateStackSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.UpdateStackSet" }, UpdateStackSetInput, UpdateStackSetOutput, [InvalidOperationException, OperationIdAlreadyExistsException, OperationInProgressException, StackInstanceNotFoundException, StackSetNotFoundException, StaleRequestException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Validates a specified template. CloudFormation first checks if the template is valid JSON. If
  * it isn't, CloudFormation checks if the template is valid YAML. If both these checks fail,
  * CloudFormation returns a template validation error.
- */export const validateTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.ValidateTemplate" }, ValidateTemplateInput, ValidateTemplateOutput, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const validateTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.ValidateTemplate" }, ValidateTemplateInput, ValidateTemplateOutput, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates a list of changes that will be applied to a stack so that you can review the
  * changes before executing them. You can create a change set for a stack that doesn't exist or
@@ -1283,11 +1283,11 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * 
  * To create a change set for the entire stack hierarchy, set
  * `IncludeNestedStacks` to `True`.
- */export const createChangeSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.CreateChangeSet" }, CreateChangeSetInput, CreateChangeSetOutput, [AlreadyExistsException, InsufficientCapabilitiesException, LimitExceededException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const createChangeSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.CreateChangeSet" }, CreateChangeSetInput, CreateChangeSetOutput, [AlreadyExistsException, InsufficientCapabilitiesException, LimitExceededException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates a refactor across multiple stacks, with the list of stacks and resources that are
  * affected.
- */export const createStackRefactor = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.CreateStackRefactor" }, CreateStackRefactorInput, CreateStackRefactorOutput, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const createStackRefactor = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.CreateStackRefactor" }, CreateStackRefactorInput, CreateStackRefactorOutput, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns CloudFormation events based on flexible query criteria. Groups events by operation ID,
  * enabling you to focus on individual stack operations during deployment.
@@ -1329,21 +1329,21 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * 
  * One of `ChangeSetName`, `OperationId` or `StackName`
  * must be specified as input.
- */export const describeEvents = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.DescribeEvents" }, DescribeEventsInput, DescribeEventsOutput, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeEvents = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.DescribeEvents" }, DescribeEventsInput, DescribeEventsOutput, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns the stack instance that's associated with the specified StackSet, Amazon Web Services account,
  * and Amazon Web Services Region.
  * 
  * 
  * For a list of stack instances that are associated with a specific StackSet, use ListStackInstances.
- */export const describeStackInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.DescribeStackInstance" }, DescribeStackInstanceInput, DescribeStackInstanceOutput, [StackInstanceNotFoundException, StackSetNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeStackInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.DescribeStackInstance" }, DescribeStackInstanceInput, DescribeStackInstanceOutput, [StackInstanceNotFoundException, StackSetNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns a description of the specified resource in the specified stack.
  * 
  * 
  * For deleted stacks, DescribeStackResource returns resource information for up to 90 days
  * after the stack has been deleted.
- */export const describeStackResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.DescribeStackResource" }, DescribeStackResourceInput, DescribeStackResourceOutput, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeStackResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.DescribeStackResource" }, DescribeStackResourceInput, DescribeStackResourceOutput, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns drift information for the resources that have been checked for drift in the
  * specified stack. This includes actual and expected configuration values for resources where
@@ -1360,7 +1360,7 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * Use DetectStackResourceDrift to detect drift on individual resources, or
  * DetectStackDrift to detect drift on all supported resources for a given
  * stack.
- */export const describeStackResourceDrifts = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.DescribeStackResourceDrifts" }, DescribeStackResourceDriftsInput, DescribeStackResourceDriftsOutput, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeStackResourceDrifts = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.DescribeStackResourceDrifts" }, DescribeStackResourceDriftsInput, DescribeStackResourceDriftsOutput, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns the description for the specified stack; if no stack name was specified, then it
  * returns the description for all the stacks created. For more information about a stack's event
@@ -1371,7 +1371,7 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * 
  * 
  * If the stack doesn't exist, a `ValidationError` is returned.
- */export const describeStacks = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.DescribeStacks" }, DescribeStacksInput, DescribeStacksOutput, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeStacks = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.DescribeStacks" }, DescribeStacksInput, DescribeStacksOutput, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns the description of the specified StackSet.
  * 
@@ -1380,7 +1380,7 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * 
  * This API provides *strongly consistent* reads meaning it will always
  * return the most up-to-date data.
- */export const describeStackSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.DescribeStackSet" }, DescribeStackSetInput, DescribeStackSetOutput, [StackSetNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeStackSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.DescribeStackSet" }, DescribeStackSetInput, DescribeStackSetOutput, [StackSetNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns the description of the specified StackSet operation.
  * 
@@ -1389,7 +1389,7 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * 
  * This API provides *strongly consistent* reads meaning it will always
  * return the most up-to-date data.
- */export const describeStackSetOperation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.DescribeStackSetOperation" }, DescribeStackSetOperationInput, DescribeStackSetOperationOutput, [OperationNotFoundException, StackSetNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeStackSetOperation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.DescribeStackSetOperation" }, DescribeStackSetOperationInput, DescribeStackSetOperationOutput, [OperationNotFoundException, StackSetNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Retrieves detailed information and remediation guidance for a Hook invocation
  * result.
@@ -1400,51 +1400,51 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * more information, see KMS key policy
  * and permissions for encrypting CloudFormation Hooks results at rest in the
  * *CloudFormation Hooks User Guide*.
- */export const getHookResult = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.GetHookResult" }, GetHookResultInput, GetHookResultOutput, [HookResultNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const getHookResult = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.GetHookResult" }, GetHookResultInput, GetHookResultOutput, [HookResultNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Import existing stacks into a new StackSets. Use the stack import operation to import up
  * to 10 stacks into a new StackSet in the same account as the source stack or in a different
  * administrator account and Region, by specifying the stack ID of the stack you intend to
  * import.
- */export const importStacksToStackSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.ImportStacksToStackSet" }, ImportStacksToStackSetInput, ImportStacksToStackSetOutput, [InvalidOperationException, LimitExceededException, OperationIdAlreadyExistsException, OperationInProgressException, StackNotFoundException, StackSetNotFoundException, StaleRequestException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const importStacksToStackSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.ImportStacksToStackSet" }, ImportStacksToStackSetInput, ImportStacksToStackSetOutput, [InvalidOperationException, LimitExceededException, OperationIdAlreadyExistsException, OperationInProgressException, StackNotFoundException, StackSetNotFoundException, StaleRequestException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Lists the related resources for a list of resources from a resource scan. The response
  * indicates whether each returned resource is already managed by CloudFormation.
- */export const listResourceScanRelatedResources = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.ListResourceScanRelatedResources" }, ListResourceScanRelatedResourcesInput, ListResourceScanRelatedResourcesOutput, [ResourceScanInProgressException, ResourceScanNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listResourceScanRelatedResources = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.ListResourceScanRelatedResources" }, ListResourceScanRelatedResourcesInput, ListResourceScanRelatedResourcesOutput, [ResourceScanInProgressException, ResourceScanNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Lists the resources from a resource scan. The results can be filtered by resource
  * identifier, resource type prefix, tag key, and tag value. Only resources that match all
  * specified filters are returned. The response indicates whether each returned resource is
  * already managed by CloudFormation.
- */export const listResourceScanResources = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.ListResourceScanResources" }, ListResourceScanResourcesInput, ListResourceScanResourcesOutput, [ResourceScanInProgressException, ResourceScanNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listResourceScanResources = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.ListResourceScanResources" }, ListResourceScanResourcesInput, ListResourceScanResourcesOutput, [ResourceScanInProgressException, ResourceScanNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns summary information about stack instances that are associated with the specified
  * StackSet. You can filter for stack instances that are associated with a specific Amazon Web Services account
  * name or Region, or that have a specific status.
- */export const listStackInstances = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.ListStackInstances" }, ListStackInstancesInput, ListStackInstancesOutput, [StackSetNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listStackInstances = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.ListStackInstances" }, ListStackInstancesInput, ListStackInstancesOutput, [StackSetNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns descriptions of all resources of the specified stack.
  * 
  * 
  * For deleted stacks, ListStackResources returns resource information for up to 90 days
  * after the stack has been deleted.
- */export const listStackResources = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.ListStackResources" }, ListStackResourcesInput, ListStackResourcesOutput, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listStackResources = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.ListStackResources" }, ListStackResourcesInput, ListStackResourcesOutput, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns the summary information for stacks whose status matches the specified
  * `StackStatusFilter`. Summary information for stacks that have been deleted is
  * kept for 90 days after the stack is deleted. If no `StackStatusFilter` is
  * specified, summary information for all stacks is returned (including existing stacks and
  * stacks that have been deleted).
- */export const listStacks = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.ListStacks" }, ListStacksInput, ListStacksOutput, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listStacks = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.ListStacks" }, ListStacksInput, ListStacksOutput, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns summary information about all extensions, including your private resource types,
  * modules, and Hooks as well as all public extensions from Amazon Web Services and third-party
  * publishers.
- */export const listTypes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.ListTypes" }, ListTypesInput, ListTypesOutput, [CFNRegistryException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listTypes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.ListTypes" }, ListTypesInput, ListTypesOutput, [CFNRegistryException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Starts a scan of the resources in this account in this Region. You can the status of a
  * scan using the `ListResourceScans` API action.
- */export const startResourceScan = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.StartResourceScan" }, StartResourceScanInput, StartResourceScanOutput, [ResourceScanInProgressException, ResourceScanLimitExceededException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const startResourceScan = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.StartResourceScan" }, StartResourceScanInput, StartResourceScanOutput, [ResourceScanInProgressException, ResourceScanLimitExceededException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns configuration data for the specified CloudFormation extensions, from the CloudFormation
  * registry in your current account and Region.
@@ -1453,20 +1453,20 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * For more information, see Edit configuration
  * data for extensions in your account in the
  * *CloudFormation User Guide*.
- */export const batchDescribeTypeConfigurations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.BatchDescribeTypeConfigurations" }, BatchDescribeTypeConfigurationsInput, BatchDescribeTypeConfigurationsOutput, [CFNRegistryException, TypeConfigurationNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const batchDescribeTypeConfigurations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.BatchDescribeTypeConfigurations" }, BatchDescribeTypeConfigurationsInput, BatchDescribeTypeConfigurationsOutput, [CFNRegistryException, TypeConfigurationNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates a StackSet.
- */export const createStackSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.CreateStackSet" }, CreateStackSetInput, CreateStackSetOutput, [CreatedButModifiedException, LimitExceededException, NameAlreadyExistsException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const createStackSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.CreateStackSet" }, CreateStackSetInput, CreateStackSetOutput, [CreatedButModifiedException, LimitExceededException, NameAlreadyExistsException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns Hook-related information for the change set and a list of changes that
  * CloudFormation makes when you run the change set.
- */export const describeChangeSetHooks = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.DescribeChangeSetHooks" }, DescribeChangeSetHooksInput, DescribeChangeSetHooksOutput, [ChangeSetNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeChangeSetHooks = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.DescribeChangeSetHooks" }, DescribeChangeSetHooksInput, DescribeChangeSetHooksOutput, [ChangeSetNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Describes a generated template. The output includes details about the progress of the
  * creation of a generated template started by a `CreateGeneratedTemplate` API action
  * or the update of a generated template started with an `UpdateGeneratedTemplate` API
  * action.
- */export const describeGeneratedTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.DescribeGeneratedTemplate" }, DescribeGeneratedTemplateInput, DescribeGeneratedTemplateOutput, [GeneratedTemplateNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeGeneratedTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.DescribeGeneratedTemplate" }, DescribeGeneratedTemplateInput, DescribeGeneratedTemplateOutput, [GeneratedTemplateNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns information about a new or existing template. The `GetTemplateSummary`
  * action is useful for viewing parameter information, such as default parameter values and
@@ -1480,7 +1480,7 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * For deleted stacks, `GetTemplateSummary` returns the template information for
  * up to 90 days after the stack has been deleted. If the template doesn't exist, a
  * `ValidationError` is returned.
- */export const getTemplateSummary = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.GetTemplateSummary" }, GetTemplateSummaryInput, GetTemplateSummaryOutput, [StackSetNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const getTemplateSummary = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.GetTemplateSummary" }, GetTemplateSummaryInput, GetTemplateSummaryOutput, [StackSetNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns summary information about the results of a StackSet operation.
  * 
@@ -1489,10 +1489,10 @@ export class NameAlreadyExistsException extends S.TaggedError<NameAlreadyExistsE
  * 
  * This API provides *eventually consistent* reads meaning it may take
  * some time but will eventually return the most up-to-date data.
- */export const listStackSetOperationResults = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.ListStackSetOperationResults" }, ListStackSetOperationResultsInput, ListStackSetOperationResultsOutput, [OperationNotFoundException, StackSetNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listStackSetOperationResults = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.ListStackSetOperationResults" }, ListStackSetOperationResultsInput, ListStackSetOperationResultsOutput, [OperationNotFoundException, StackSetNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns the inputs for the change set and a list of changes that CloudFormation will make if
  * you execute the change set. For more information, see Update
  * CloudFormation stacks using change sets in the
  * *CloudFormation User Guide*.
- */export const describeChangeSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", uri: "/", method: "POST", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.DescribeChangeSet" }, DescribeChangeSetInput, DescribeChangeSetOutput, [ChangeSetNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeChangeSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2010-05-15", sdkId: "CloudFormation", sigV4ServiceName: "cloudformation", name: "CloudFormation.DescribeChangeSet" }, DescribeChangeSetInput, DescribeChangeSetOutput, [ChangeSetNotFoundException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);

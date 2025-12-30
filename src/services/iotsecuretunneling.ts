@@ -37,10 +37,10 @@ export class LimitExceededException extends S.TaggedError<LimitExceededException
 //# Operations
 /**
  * A resource tag.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-05", uri: "/tags", method: "POST", sdkId: "IoTSecureTunneling", sigV4ServiceName: "IoTSecuredTunneling", name: "IoTSecuredTunneling.TagResource" }, TagResourceRequest, TagResourceResponse, [ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-05", uri: "/tags", sdkId: "IoTSecureTunneling", sigV4ServiceName: "IoTSecuredTunneling", name: "IoTSecuredTunneling.TagResource" }, TagResourceRequest, TagResourceResponse, [ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes a tag from a resource.
- */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-05", uri: "/untag", method: "POST", sdkId: "IoTSecureTunneling", sigV4ServiceName: "IoTSecuredTunneling", name: "IoTSecuredTunneling.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-05", uri: "/untag", sdkId: "IoTSecureTunneling", sigV4ServiceName: "IoTSecuredTunneling", name: "IoTSecuredTunneling.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Closes a tunnel identified by the unique tunnel id. When a `CloseTunnel`
  * request is received, we close the WebSocket connections between the client and proxy
@@ -66,7 +66,7 @@ export class LimitExceededException extends S.TaggedError<LimitExceededException
  * duration is 12 hours and the tunnel has already been open for 4 hours. When you
  * rotate the access tokens, the new tokens that are generated can only be used for the
  * remaining 8 hours.
- */export const rotateTunnelAccessToken = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-05", uri: "/tunnel/{tunnelId}/rotate", method: "POST", sdkId: "IoTSecureTunneling", sigV4ServiceName: "IoTSecuredTunneling", name: "IoTSecuredTunneling.RotateTunnelAccessToken" }, RotateTunnelAccessTokenRequest, RotateTunnelAccessTokenResponse, [ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const rotateTunnelAccessToken = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-05", uri: "/tunnel/{tunnelId}/rotate", sdkId: "IoTSecureTunneling", sigV4ServiceName: "IoTSecuredTunneling", name: "IoTSecuredTunneling.RotateTunnelAccessToken" }, RotateTunnelAccessTokenRequest, RotateTunnelAccessTokenResponse, [ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * List all tunnels for an Amazon Web Services account. Tunnels are listed by creation time in
  * descending order, newer tunnels will be listed before older tunnels.
@@ -86,4 +86,4 @@ export class LimitExceededException extends S.TaggedError<LimitExceededException
  * 
  * 
  * Requires permission to access the OpenTunnel action.
- */export const openTunnel = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-05", uri: "/tunnels", method: "POST", sdkId: "IoTSecureTunneling", sigV4ServiceName: "IoTSecuredTunneling", name: "IoTSecuredTunneling.OpenTunnel" }, OpenTunnelRequest, OpenTunnelResponse, [LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const openTunnel = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-05", uri: "/tunnels", sdkId: "IoTSecureTunneling", sigV4ServiceName: "IoTSecuredTunneling", name: "IoTSecuredTunneling.OpenTunnel" }, OpenTunnelRequest, OpenTunnelResponse, [LimitExceededException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

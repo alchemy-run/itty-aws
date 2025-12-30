@@ -1310,7 +1310,7 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
 /**
  * Disables a Security Hub administrator account. Can only be called by the organization
  * management account.
- */export const disableOrganizationAdminAccount = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/organization/admin/disable", method: "POST", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.DisableOrganizationAdminAccount" }, DisableOrganizationAdminAccountRequest, DisableOrganizationAdminAccountResponse, [AccessDeniedException, InternalException, InvalidAccessException, InvalidInputException, LimitExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const disableOrganizationAdminAccount = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/organization/admin/disable", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.DisableOrganizationAdminAccount" }, DisableOrganizationAdminAccountRequest, DisableOrganizationAdminAccountResponse, [AccessDeniedException, InternalException, InvalidAccessException, InvalidInputException, LimitExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Disables Security Hub in your account only in the current Amazon Web Services Region. To disable Security Hub in all
  * Regions, you must submit one request per Region where you have enabled Security Hub.
@@ -1338,7 +1338,7 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
  * This operation is only used by accounts that are not part of an organization. For
  * organization accounts, only the administrator account can
  * disassociate a member account.
- */export const disassociateFromAdministratorAccount = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/administrator/disassociate", method: "POST", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.DisassociateFromAdministratorAccount" }, DisassociateFromAdministratorAccountRequest, DisassociateFromAdministratorAccountResponse, [InternalException, InvalidAccessException, InvalidInputException, LimitExceededException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const disassociateFromAdministratorAccount = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/administrator/disassociate", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.DisassociateFromAdministratorAccount" }, DisassociateFromAdministratorAccountRequest, DisassociateFromAdministratorAccountResponse, [InternalException, InvalidAccessException, InvalidInputException, LimitExceededException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This method is deprecated. Instead, use `DisassociateFromAdministratorAccount`.
  * 
@@ -1353,14 +1353,14 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
  * This operation is only used by accounts that are not part of an organization. For
  * organization accounts, only the administrator account can
  * disassociate a member account.
- */export const disassociateFromMasterAccount = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/master/disassociate", method: "POST", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.DisassociateFromMasterAccount" }, DisassociateFromMasterAccountRequest, DisassociateFromMasterAccountResponse, [InternalException, InvalidAccessException, InvalidInputException, LimitExceededException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const disassociateFromMasterAccount = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/master/disassociate", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.DisassociateFromMasterAccount" }, DisassociateFromMasterAccountRequest, DisassociateFromMasterAccountResponse, [InternalException, InvalidAccessException, InvalidInputException, LimitExceededException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Disassociates the specified member accounts from the associated administrator account.
  * 
  * 
  * Can be used to disassociate both accounts that are managed using Organizations and accounts that
  * were invited manually.
- */export const disassociateMembers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/members/disassociate", method: "POST", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.DisassociateMembers" }, DisassociateMembersRequest, DisassociateMembersResponse, [AccessDeniedException, InternalException, InvalidAccessException, InvalidInputException, LimitExceededException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const disassociateMembers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/members/disassociate", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.DisassociateMembers" }, DisassociateMembersRequest, DisassociateMembersResponse, [AccessDeniedException, InternalException, InvalidAccessException, InvalidInputException, LimitExceededException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Enables Security Hub for your account in the current Region or the Region you specify in the
  * request.
@@ -1397,7 +1397,7 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
  * 
  * 
  * To learn more, see the setup information in the *Security Hub User Guide*.
- */export const enableSecurityHub = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/accounts", method: "POST", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.EnableSecurityHub" }, EnableSecurityHubRequest, EnableSecurityHubResponse, [AccessDeniedException, InternalException, InvalidAccessException, LimitExceededException, ResourceConflictException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const enableSecurityHub = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/accounts", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.EnableSecurityHub" }, EnableSecurityHubRequest, EnableSecurityHubResponse, [AccessDeniedException, InternalException, InvalidAccessException, LimitExceededException, ResourceConflictException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * We recommend using Organizations instead of Security Hub invitations to manage your member accounts.
  * For information, see Managing Security Hub administrator and member accounts with Organizations
@@ -1428,10 +1428,10 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
  * configuration to inherit, the target retains its settings but becomes a self-managed account. A target can be disassociated from
  * a configuration policy or self-managed behavior. Only the Security Hub delegated administrator can invoke this
  * operation from the home Region.
- */export const startConfigurationPolicyDisassociation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/configurationPolicyAssociation/disassociate", method: "POST", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.StartConfigurationPolicyDisassociation" }, StartConfigurationPolicyDisassociationRequest, StartConfigurationPolicyDisassociationResponse, [AccessDeniedException, InternalException, InvalidAccessException, InvalidInputException, LimitExceededException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startConfigurationPolicyDisassociation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/configurationPolicyAssociation/disassociate", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.StartConfigurationPolicyDisassociation" }, StartConfigurationPolicyDisassociationRequest, StartConfigurationPolicyDisassociationResponse, [AccessDeniedException, InternalException, InvalidAccessException, InvalidInputException, LimitExceededException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds one or more tags to a resource.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/tags/{ResourceArn}", method: "POST", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.TagResource" }, TagResourceRequest, TagResourceResponse, [InternalException, InvalidInputException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/tags/{ResourceArn}", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.TagResource" }, TagResourceRequest, TagResourceResponse, [InternalException, InvalidInputException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes one or more tags from a resource.
  */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/tags/{ResourceArn}", method: "DELETE", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [InternalException, InvalidInputException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1461,7 +1461,7 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
 /**
  * Updates the configuration of your organization in Security Hub. Only the
  * Security Hub administrator account can invoke this operation.
- */export const updateOrganizationConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/organization/configuration", method: "POST", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.UpdateOrganizationConfiguration" }, UpdateOrganizationConfigurationRequest, UpdateOrganizationConfigurationResponse, [AccessDeniedException, InternalException, InvalidAccessException, InvalidInputException, LimitExceededException, ResourceConflictException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateOrganizationConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/organization/configuration", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.UpdateOrganizationConfiguration" }, UpdateOrganizationConfigurationRequest, UpdateOrganizationConfigurationResponse, [AccessDeniedException, InternalException, InvalidAccessException, InvalidInputException, LimitExceededException, ResourceConflictException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates configuration options for Security Hub.
  */export const updateSecurityHubConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/accounts", method: "PATCH", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.UpdateSecurityHubConfiguration" }, UpdateSecurityHubConfigurationRequest, UpdateSecurityHubConfigurationResponse, [AccessDeniedException, InternalException, InvalidAccessException, InvalidInputException, LimitExceededException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1490,7 +1490,7 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
  * 
  * When the member account accepts the invitation, permission is granted to the administrator
  * account to view findings generated in the member account.
- */export const acceptAdministratorInvitation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/administrator", method: "POST", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.AcceptAdministratorInvitation" }, AcceptAdministratorInvitationRequest, AcceptAdministratorInvitationResponse, [InternalException, InvalidAccessException, InvalidInputException, LimitExceededException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const acceptAdministratorInvitation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/administrator", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.AcceptAdministratorInvitation" }, AcceptAdministratorInvitationRequest, AcceptAdministratorInvitationResponse, [InternalException, InvalidAccessException, InvalidInputException, LimitExceededException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This method is deprecated. Instead, use `AcceptAdministratorInvitation`.
  * 
@@ -1508,14 +1508,14 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
  * 
  * When the member account accepts the invitation, permission is granted to the administrator
  * account to view findings generated in the member account.
- */export const acceptInvitation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/master", method: "POST", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.AcceptInvitation" }, AcceptInvitationRequest, AcceptInvitationResponse, [InternalException, InvalidAccessException, InvalidInputException, LimitExceededException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const acceptInvitation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/master", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.AcceptInvitation" }, AcceptInvitationRequest, AcceptInvitationResponse, [InternalException, InvalidAccessException, InvalidInputException, LimitExceededException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a custom action target in Security Hub.
  * 
  * 
  * You can use custom actions on findings and insights in Security Hub to trigger target actions
  * in Amazon CloudWatch Events.
- */export const createActionTarget = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/actionTargets", method: "POST", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.CreateActionTarget" }, CreateActionTargetRequest, CreateActionTargetResponse, [InternalException, InvalidAccessException, InvalidInputException, LimitExceededException, ResourceConflictException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createActionTarget = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/actionTargets", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.CreateActionTarget" }, CreateActionTargetRequest, CreateActionTargetResponse, [InternalException, InvalidAccessException, InvalidInputException, LimitExceededException, ResourceConflictException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The *aggregation Region* is now called the *home Region*.
  * 
@@ -1526,10 +1526,10 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
  * 
  * 
  * For information about how cross-Region aggregation works, see Understanding cross-Region aggregation in Security Hub in the *Security Hub User Guide*.
- */export const createFindingAggregator = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/findingAggregator/create", method: "POST", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.CreateFindingAggregator" }, CreateFindingAggregatorRequest, CreateFindingAggregatorResponse, [AccessDeniedException, InternalException, InvalidAccessException, InvalidInputException, LimitExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createFindingAggregator = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/findingAggregator/create", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.CreateFindingAggregator" }, CreateFindingAggregatorRequest, CreateFindingAggregatorResponse, [AccessDeniedException, InternalException, InvalidAccessException, InvalidInputException, LimitExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Grants permission to create a ticket in the chosen ITSM based on finding information for the provided finding metadata UID.
- */export const createTicketV2 = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/ticketsv2", method: "POST", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.CreateTicketV2" }, CreateTicketV2Request, CreateTicketV2Response, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createTicketV2 = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/ticketsv2", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.CreateTicketV2" }, CreateTicketV2Request, CreateTicketV2Response, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a custom action target from Security Hub.
  * 
@@ -1570,14 +1570,14 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
  * 
  * This operation is only used to delete invitations that are sent to prospective member accounts that aren't part of an Amazon Web Services organization.
  * Organization accounts don't receive invitations.
- */export const deleteInvitations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/invitations/delete", method: "POST", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.DeleteInvitations" }, DeleteInvitationsRequest, DeleteInvitationsResponse, [InternalException, InvalidAccessException, InvalidInputException, LimitExceededException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteInvitations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/invitations/delete", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.DeleteInvitations" }, DeleteInvitationsRequest, DeleteInvitationsResponse, [InternalException, InvalidAccessException, InvalidInputException, LimitExceededException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified member accounts from Security Hub.
  * 
  * 
  * You can invoke this API only to delete accounts that became members through invitation. You can't invoke this
  * API to delete accounts that belong to an Organizations organization.
- */export const deleteMembers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/members/delete", method: "POST", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.DeleteMembers" }, DeleteMembersRequest, DeleteMembersResponse, [InternalException, InvalidAccessException, InvalidInputException, LimitExceededException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteMembers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/members/delete", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.DeleteMembers" }, DeleteMembersRequest, DeleteMembersResponse, [InternalException, InvalidAccessException, InvalidInputException, LimitExceededException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns details about the Hub resource in your account, including the
  * `HubArn` and the time when you enabled Security Hub.
@@ -1596,14 +1596,14 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
  * 
  * When you enable a product integration, a permissions policy that grants permission for
  * the product to send findings to Security Hub is applied.
- */export const enableImportFindingsForProduct = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/productSubscriptions", method: "POST", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.EnableImportFindingsForProduct" }, EnableImportFindingsForProductRequest, EnableImportFindingsForProductResponse, [InternalException, InvalidAccessException, InvalidInputException, LimitExceededException, ResourceConflictException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const enableImportFindingsForProduct = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/productSubscriptions", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.EnableImportFindingsForProduct" }, EnableImportFindingsForProductRequest, EnableImportFindingsForProductResponse, [InternalException, InvalidAccessException, InvalidInputException, LimitExceededException, ResourceConflictException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Designates the Security Hub administrator account for an organization. Can only be called by
  * the organization management account.
- */export const enableOrganizationAdminAccount = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/organization/admin/enable", method: "POST", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.EnableOrganizationAdminAccount" }, EnableOrganizationAdminAccountRequest, EnableOrganizationAdminAccountResponse, [AccessDeniedException, InternalException, InvalidAccessException, InvalidInputException, LimitExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const enableOrganizationAdminAccount = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/organization/admin/enable", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.EnableOrganizationAdminAccount" }, EnableOrganizationAdminAccountRequest, EnableOrganizationAdminAccountResponse, [AccessDeniedException, InternalException, InvalidAccessException, InvalidInputException, LimitExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Enables the service in account for the current Amazon Web Services Region or specified Amazon Web Services Region.
- */export const enableSecurityHubV2 = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/hubv2", method: "POST", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.EnableSecurityHubV2" }, EnableSecurityHubV2Request, EnableSecurityHubV2Response, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const enableSecurityHubV2 = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/hubv2", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.EnableSecurityHubV2" }, EnableSecurityHubV2Request, EnableSecurityHubV2Response, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides the details for the Security Hub administrator account for the current member account.
  * 
@@ -1623,7 +1623,7 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
  */export const getConfigurationPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/configurationPolicy/get/{Identifier}", method: "GET", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.GetConfigurationPolicy" }, GetConfigurationPolicyRequest, GetConfigurationPolicyResponse, [AccessDeniedException, InternalException, InvalidAccessException, InvalidInputException, LimitExceededException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of the standards that are currently enabled.
- */export const getEnabledStandards = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/standards/get", method: "POST", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.GetEnabledStandards" }, GetEnabledStandardsRequest, GetEnabledStandardsResponse, [InternalException, InvalidAccessException, InvalidInputException, LimitExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getEnabledStandards = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/standards/get", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.GetEnabledStandards" }, GetEnabledStandardsRequest, GetEnabledStandardsResponse, [InternalException, InvalidAccessException, InvalidInputException, LimitExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * The *aggregation Region* is now called the *home Region*.
  * 
@@ -1654,7 +1654,7 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
  * 
  * When the account owner enables Security Hub and accepts the invitation to become a member
  * account, the administrator account can view the findings generated in the member account.
- */export const inviteMembers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/members/invite", method: "POST", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.InviteMembers" }, InviteMembersRequest, InviteMembersResponse, [InternalException, InvalidAccessException, InvalidInputException, LimitExceededException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const inviteMembers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/members/invite", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.InviteMembers" }, InviteMembersRequest, InviteMembersResponse, [InternalException, InvalidAccessException, InvalidInputException, LimitExceededException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists all findings-generating solutions (products) that you are subscribed to receive
  * findings from in Security Hub.
@@ -1689,12 +1689,12 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
  */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/tags/{ResourceArn}", method: "GET", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [InternalException, InvalidInputException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Grants permission to complete the authorization based on input parameters.
- */export const registerConnectorV2 = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/connectorsv2/register", method: "POST", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.RegisterConnectorV2" }, RegisterConnectorV2Request, RegisterConnectorV2Response, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const registerConnectorV2 = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/connectorsv2/register", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.RegisterConnectorV2" }, RegisterConnectorV2Request, RegisterConnectorV2Response, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Associates a target account, organizational unit, or the root with a specified configuration. The target can be
  * associated with a configuration policy or self-managed behavior. Only the Security Hub delegated administrator can
  * invoke this operation from the home Region.
- */export const startConfigurationPolicyAssociation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/configurationPolicyAssociation/associate", method: "POST", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.StartConfigurationPolicyAssociation" }, StartConfigurationPolicyAssociationRequest, StartConfigurationPolicyAssociationResponse, [AccessDeniedException, InternalException, InvalidAccessException, InvalidInputException, LimitExceededException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startConfigurationPolicyAssociation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/configurationPolicyAssociation/associate", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.StartConfigurationPolicyAssociation" }, StartConfigurationPolicyAssociationRequest, StartConfigurationPolicyAssociationResponse, [AccessDeniedException, InternalException, InvalidAccessException, InvalidInputException, LimitExceededException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Udpates the configuration for the Aggregator V2.
  */export const updateAggregatorV2 = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/aggregatorv2/update/{AggregatorV2Arn+}", method: "PATCH", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.UpdateAggregatorV2" }, UpdateAggregatorV2Request, UpdateAggregatorV2Response, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1716,14 +1716,14 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
  */export const updateFindingAggregator = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/findingAggregator/update", method: "PATCH", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.UpdateFindingAggregator" }, UpdateFindingAggregatorRequest, UpdateFindingAggregatorResponse, [AccessDeniedException, InternalException, InvalidAccessException, InvalidInputException, LimitExceededException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes one or more automation rules.
- */export const batchDeleteAutomationRules = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/automationrules/delete", method: "POST", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.BatchDeleteAutomationRules" }, BatchDeleteAutomationRulesRequest, BatchDeleteAutomationRulesResponse, [InternalException, InvalidAccessException, InvalidInputException, LimitExceededException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const batchDeleteAutomationRules = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/automationrules/delete", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.BatchDeleteAutomationRules" }, BatchDeleteAutomationRulesRequest, BatchDeleteAutomationRulesResponse, [InternalException, InvalidAccessException, InvalidInputException, LimitExceededException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves a list of details for automation rules based on rule Amazon Resource Names
  * (ARNs).
- */export const batchGetAutomationRules = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/automationrules/get", method: "POST", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.BatchGetAutomationRules" }, BatchGetAutomationRulesRequest, BatchGetAutomationRulesResponse, [AccessDeniedException, InternalException, InvalidAccessException, InvalidInputException, LimitExceededException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const batchGetAutomationRules = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/automationrules/get", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.BatchGetAutomationRules" }, BatchGetAutomationRulesRequest, BatchGetAutomationRulesResponse, [AccessDeniedException, InternalException, InvalidAccessException, InvalidInputException, LimitExceededException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides details about a batch of security controls for the current Amazon Web Services account and Amazon Web Services Region.
- */export const batchGetSecurityControls = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/securityControls/batchGet", method: "POST", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.BatchGetSecurityControls" }, BatchGetSecurityControlsRequest, BatchGetSecurityControlsResponse, [InternalException, InvalidAccessException, InvalidInputException, LimitExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const batchGetSecurityControls = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/securityControls/batchGet", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.BatchGetSecurityControls" }, BatchGetSecurityControlsRequest, BatchGetSecurityControlsResponse, [InternalException, InvalidAccessException, InvalidInputException, LimitExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates one or more automation rules based on rule Amazon Resource Names (ARNs)
  * and input parameters.
@@ -1784,7 +1784,7 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
  * 
  * 
  * To remove the association between the administrator and member accounts, use the `DisassociateFromMasterAccount` or `DisassociateMembers` operation.
- */export const createMembers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/members", method: "POST", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.CreateMembers" }, CreateMembersRequest, CreateMembersResponse, [AccessDeniedException, InternalException, InvalidAccessException, InvalidInputException, LimitExceededException, ResourceConflictException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createMembers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/members", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.CreateMembers" }, CreateMembersRequest, CreateMembersResponse, [AccessDeniedException, InternalException, InvalidAccessException, InvalidInputException, LimitExceededException, ResourceConflictException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * We recommend using Organizations instead of Security Hub invitations to manage your member accounts.
  * For information, see Managing Security Hub administrator and member accounts with Organizations
@@ -1801,10 +1801,10 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
  * 
  * Only member accounts that aren't part of an Amazon Web Services organization should use this operation.
  * Organization accounts don't receive invitations.
- */export const declineInvitations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/invitations/decline", method: "POST", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.DeclineInvitations" }, DeclineInvitationsRequest, DeclineInvitationsResponse, [InternalException, InvalidAccessException, InvalidInputException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const declineInvitations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/invitations/decline", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.DeclineInvitations" }, DeclineInvitationsRequest, DeclineInvitationsResponse, [InternalException, InvalidAccessException, InvalidInputException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of the custom action targets in Security Hub in your account.
- */export const describeActionTargets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/actionTargets/get", method: "POST", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.DescribeActionTargets" }, DescribeActionTargetsRequest, DescribeActionTargetsResponse, [InternalException, InvalidAccessException, InvalidInputException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeActionTargets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/actionTargets/get", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.DescribeActionTargets" }, DescribeActionTargetsRequest, DescribeActionTargetsResponse, [InternalException, InvalidAccessException, InvalidInputException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about product integrations in Security Hub.
  * 
@@ -1833,16 +1833,16 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
  * Returns the association between a configuration and a target account, organizational unit, or the root. The
  * configuration can be a configuration policy or self-managed behavior. Only the Security Hub delegated administrator can
  * invoke this operation from the home Region.
- */export const getConfigurationPolicyAssociation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/configurationPolicyAssociation/get", method: "POST", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.GetConfigurationPolicyAssociation" }, GetConfigurationPolicyAssociationRequest, GetConfigurationPolicyAssociationResponse, [AccessDeniedException, InternalException, InvalidAccessException, InvalidInputException, LimitExceededException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getConfigurationPolicyAssociation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/configurationPolicyAssociation/get", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.GetConfigurationPolicyAssociation" }, GetConfigurationPolicyAssociationRequest, GetConfigurationPolicyAssociationResponse, [AccessDeniedException, InternalException, InvalidAccessException, InvalidInputException, LimitExceededException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of findings that match the specified criteria.
  * 
  * 
  * If cross-Region aggregation is enabled, then when you call `GetFindings` from the home Region, the results include all of the matching findings from both the home Region and linked Regions.
- */export const getFindings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/findings", method: "POST", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.GetFindings" }, GetFindingsRequest, GetFindingsResponse, [InternalException, InvalidAccessException, InvalidInputException, LimitExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getFindings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/findings", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.GetFindings" }, GetFindingsRequest, GetFindingsResponse, [InternalException, InvalidAccessException, InvalidInputException, LimitExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists and describes insights for the specified insight ARNs.
- */export const getInsights = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/insights/get", method: "POST", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.GetInsights" }, GetInsightsRequest, GetInsightsResponse, [InternalException, InvalidAccessException, InvalidInputException, LimitExceededException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getInsights = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/insights/get", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.GetInsights" }, GetInsightsRequest, GetInsightsResponse, [InternalException, InvalidAccessException, InvalidInputException, LimitExceededException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the details for the Security Hub member accounts for the specified account IDs.
  * 
@@ -1853,10 +1853,10 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
  * 
  * The results include both member accounts that are managed using Organizations and accounts that
  * were invited manually.
- */export const getMembers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/members/get", method: "POST", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.GetMembers" }, GetMembersRequest, GetMembersResponse, [InternalException, InvalidAccessException, InvalidInputException, LimitExceededException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getMembers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/members/get", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.GetMembers" }, GetMembersRequest, GetMembersResponse, [InternalException, InvalidAccessException, InvalidInputException, LimitExceededException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves statistical information about Amazon Web Services resources and their associated security findings.
- */export const getResourcesStatisticsV2 = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/resourcesv2/statistics", method: "POST", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.GetResourcesStatisticsV2" }, GetResourcesStatisticsV2Request, GetResourcesStatisticsV2Response, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getResourcesStatisticsV2 = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/resourcesv2/statistics", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.GetResourcesStatisticsV2" }, GetResourcesStatisticsV2Request, GetResourcesStatisticsV2Response, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves a list of V2 aggregators.
  */export const listAggregatorsV2 = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/aggregatorv2/list", method: "GET", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.ListAggregatorsV2" }, ListAggregatorsV2Request, ListAggregatorsV2Response, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1870,7 +1870,7 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
 /**
  * Provides information about the associations for your configuration policies and self-managed behavior. Only the
  * Security Hub delegated administrator can invoke this operation from the home Region.
- */export const listConfigurationPolicyAssociations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/configurationPolicyAssociation/list", method: "POST", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.ListConfigurationPolicyAssociations" }, ListConfigurationPolicyAssociationsRequest, ListConfigurationPolicyAssociationsResponse, [AccessDeniedException, InternalException, InvalidAccessException, InvalidInputException, LimitExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listConfigurationPolicyAssociations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/configurationPolicyAssociation/list", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.ListConfigurationPolicyAssociations" }, ListConfigurationPolicyAssociationsRequest, ListConfigurationPolicyAssociationsResponse, [AccessDeniedException, InternalException, InvalidAccessException, InvalidInputException, LimitExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * If cross-Region aggregation is enabled, then `ListFindingAggregators` returns the Amazon Resource Name (ARN)
  * of the finding aggregator. You can run this operation from any Amazon Web Services Region.
@@ -1896,7 +1896,7 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
  * 
  * For more information, see Security Standards section of the Security Hub User
  * Guide.
- */export const batchDisableStandards = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/standards/deregister", method: "POST", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.BatchDisableStandards" }, BatchDisableStandardsRequest, BatchDisableStandardsResponse, [AccessDeniedException, InternalException, InvalidAccessException, InvalidInputException, LimitExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const batchDisableStandards = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/standards/deregister", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.BatchDisableStandards" }, BatchDisableStandardsRequest, BatchDisableStandardsResponse, [AccessDeniedException, InternalException, InvalidAccessException, InvalidInputException, LimitExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Enables the standards specified by the provided `StandardsArn`. To obtain the
  * ARN for a standard, use the `DescribeStandards`
@@ -1905,12 +1905,12 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
  * 
  * For more information, see the Security Standards
  * section of the *Security Hub User Guide*.
- */export const batchEnableStandards = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/standards/register", method: "POST", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.BatchEnableStandards" }, BatchEnableStandardsRequest, BatchEnableStandardsResponse, [AccessDeniedException, InternalException, InvalidAccessException, InvalidInputException, LimitExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const batchEnableStandards = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/standards/register", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.BatchEnableStandards" }, BatchEnableStandardsRequest, BatchEnableStandardsResponse, [AccessDeniedException, InternalException, InvalidAccessException, InvalidInputException, LimitExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns associations between an Security Hub configuration and a batch of target accounts, organizational units, or the root.
  * Only the Security Hub delegated administrator can invoke this operation from the home Region. A configuration
  * can refer to a configuration policy or to a self-managed configuration.
- */export const batchGetConfigurationPolicyAssociations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/configurationPolicyAssociation/batchget", method: "POST", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.BatchGetConfigurationPolicyAssociations" }, BatchGetConfigurationPolicyAssociationsRequest, BatchGetConfigurationPolicyAssociationsResponse, [AccessDeniedException, InternalException, InvalidAccessException, InvalidInputException, LimitExceededException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const batchGetConfigurationPolicyAssociations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/configurationPolicyAssociation/batchget", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.BatchGetConfigurationPolicyAssociations" }, BatchGetConfigurationPolicyAssociationsRequest, BatchGetConfigurationPolicyAssociationsResponse, [AccessDeniedException, InternalException, InvalidAccessException, InvalidInputException, LimitExceededException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * For a batch of security controls and standards, identifies whether each control is currently enabled or disabled in a standard.
  * 
@@ -1918,7 +1918,7 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
  * 
  * 
  * Calls to this operation return a `RESOURCE_NOT_FOUND_EXCEPTION` error when the standard subscription for the association has a `NOT_READY_FOR_UPDATES` value for `StandardsControlsUpdatable`.
- */export const batchGetStandardsControlAssociations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/associations/batchGet", method: "POST", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.BatchGetStandardsControlAssociations" }, BatchGetStandardsControlAssociationsRequest, BatchGetStandardsControlAssociationsResponse, [InternalException, InvalidAccessException, InvalidInputException, LimitExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const batchGetStandardsControlAssociations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/associations/batchGet", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.BatchGetStandardsControlAssociations" }, BatchGetStandardsControlAssociationsRequest, BatchGetStandardsControlAssociationsResponse, [InternalException, InvalidAccessException, InvalidInputException, LimitExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Used by Security Hub customers to update information about their investigation into one or more findings.
  * Requested by administrator accounts or member accounts.
@@ -2000,13 +2000,13 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
  */export const batchUpdateStandardsControlAssociations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/associations", method: "PATCH", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.BatchUpdateStandardsControlAssociations" }, BatchUpdateStandardsControlAssociationsRequest, BatchUpdateStandardsControlAssociationsResponse, [AccessDeniedException, InternalException, InvalidAccessException, InvalidInputException, LimitExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Enables aggregation across Amazon Web Services Regions.
- */export const createAggregatorV2 = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/aggregatorv2/create", method: "POST", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.CreateAggregatorV2" }, CreateAggregatorV2Request, CreateAggregatorV2Response, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createAggregatorV2 = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/aggregatorv2/create", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.CreateAggregatorV2" }, CreateAggregatorV2Request, CreateAggregatorV2Response, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a V2 automation rule.
- */export const createAutomationRuleV2 = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/automationrulesv2/create", method: "POST", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.CreateAutomationRuleV2" }, CreateAutomationRuleV2Request, CreateAutomationRuleV2Response, [AccessDeniedException, ConflictException, InternalServerException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createAutomationRuleV2 = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/automationrulesv2/create", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.CreateAutomationRuleV2" }, CreateAutomationRuleV2Request, CreateAutomationRuleV2Response, [AccessDeniedException, ConflictException, InternalServerException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Grants permission to create a connectorV2 based on input parameters.
- */export const createConnectorV2 = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/connectorsv2", method: "POST", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.CreateConnectorV2" }, CreateConnectorV2Request, CreateConnectorV2Response, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createConnectorV2 = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/connectorsv2", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.CreateConnectorV2" }, CreateConnectorV2Request, CreateConnectorV2Response, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a custom insight in Security Hub. An insight is a consolidation of findings that relate
  * to a security issue that requires attention or remediation.
@@ -2014,7 +2014,7 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
  * 
  * To group the related findings in the insight, use the
  * `GroupByAttribute`.
- */export const createInsight = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/insights", method: "POST", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.CreateInsight" }, CreateInsightRequest, CreateInsightResponse, [InternalException, InvalidAccessException, InvalidInputException, LimitExceededException, ResourceConflictException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createInsight = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/insights", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.CreateInsight" }, CreateInsightRequest, CreateInsightResponse, [InternalException, InvalidAccessException, InvalidInputException, LimitExceededException, ResourceConflictException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of the available standards in Security Hub.
  * 
@@ -2036,7 +2036,7 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
  * the next set of results in the response. The presence of a `NextToken` value in a response doesn't necessarily indicate
  * that the results are incomplete. However, you should continue to specify a `NextToken` value until you receive a
  * response that doesn't include this value.
- */export const getFindingHistory = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/findingHistory/get", method: "POST", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.GetFindingHistory" }, GetFindingHistoryRequest, GetFindingHistoryResponse, [InternalException, InvalidAccessException, InvalidInputException, LimitExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getFindingHistory = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/findingHistory/get", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.GetFindingHistory" }, GetFindingHistoryRequest, GetFindingHistoryResponse, [InternalException, InvalidAccessException, InvalidInputException, LimitExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the results of the Security Hub insight specified by the insight ARN.
  */export const getInsightResults = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/insights/results/{InsightArn+}", method: "GET", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.GetInsightResults" }, GetInsightResultsRequest, GetInsightResultsResponse, [InternalException, InvalidAccessException, InvalidInputException, LimitExceededException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -2048,36 +2048,36 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
  */export const listConnectorsV2 = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/connectorsv2", method: "GET", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.ListConnectorsV2" }, ListConnectorsV2Request, ListConnectorsV2Response, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an automation rule based on input parameters.
- */export const createAutomationRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/automationrules/create", method: "POST", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.CreateAutomationRule" }, CreateAutomationRuleRequest, CreateAutomationRuleResponse, [AccessDeniedException, InternalException, InvalidAccessException, InvalidInputException, LimitExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createAutomationRule = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/automationrules/create", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.CreateAutomationRule" }, CreateAutomationRuleRequest, CreateAutomationRuleResponse, [AccessDeniedException, InternalException, InvalidAccessException, InvalidInputException, LimitExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns aggregated statistical data about findings.
  * `GetFindingStatisticsV2` use `securityhub:GetAdhocInsightResults` in the `Action` element of an IAM policy statement.
  * You must have permission to perform the `s` action.
- */export const getFindingStatisticsV2 = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/findingsv2/statistics", method: "POST", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.GetFindingStatisticsV2" }, GetFindingStatisticsV2Request, GetFindingStatisticsV2Response, [AccessDeniedException, ConflictException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getFindingStatisticsV2 = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/findingsv2/statistics", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.GetFindingStatisticsV2" }, GetFindingStatisticsV2Request, GetFindingStatisticsV2Response, [AccessDeniedException, ConflictException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Return a list of findings that match the specified criteria.
  * `GetFindings` and `GetFindingsV2` both use `securityhub:GetFindings` in the `Action` element of an IAM policy statement.
  * You must have permission to perform the `securityhub:GetFindings` action.
- */export const getFindingsV2 = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/findingsv2", method: "POST", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.GetFindingsV2" }, GetFindingsV2Request, GetFindingsV2Response, [AccessDeniedException, ConflictException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getFindingsV2 = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/findingsv2", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.GetFindingsV2" }, GetFindingsV2Request, GetFindingsV2Response, [AccessDeniedException, ConflictException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates the properties of a security control.
  */export const updateSecurityControl = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/securityControl/update", method: "PATCH", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.UpdateSecurityControl" }, UpdateSecurityControlRequest, UpdateSecurityControlResponse, [AccessDeniedException, InternalException, InvalidAccessException, InvalidInputException, LimitExceededException, ResourceInUseException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a configuration policy with the defined configuration. Only the Security Hub delegated administrator
  * can invoke this operation from the home Region.
- */export const createConfigurationPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/configurationPolicy/create", method: "POST", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.CreateConfigurationPolicy" }, CreateConfigurationPolicyRequest, CreateConfigurationPolicyResponse, [AccessDeniedException, InternalException, InvalidAccessException, InvalidInputException, LimitExceededException, ResourceConflictException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createConfigurationPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/configurationPolicy/create", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.CreateConfigurationPolicy" }, CreateConfigurationPolicyRequest, CreateConfigurationPolicyResponse, [AccessDeniedException, InternalException, InvalidAccessException, InvalidInputException, LimitExceededException, ResourceConflictException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the definition of a security control. The definition includes the control title, description, Region availability, parameter definitions, and other details.
  */export const getSecurityControlDefinition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/securityControl/definition", method: "GET", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.GetSecurityControlDefinition" }, GetSecurityControlDefinitionRequest, GetSecurityControlDefinitionResponse, [InternalException, InvalidAccessException, InvalidInputException, LimitExceededException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns findings trend data based on the specified criteria. This operation helps you analyze patterns and changes in findings over time.
- */export const getFindingsTrendsV2 = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/findingsTrendsv2", method: "POST", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.GetFindingsTrendsV2" }, GetFindingsTrendsV2Request, GetFindingsTrendsV2Response, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getFindingsTrendsV2 = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/findingsTrendsv2", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.GetFindingsTrendsV2" }, GetFindingsTrendsV2Request, GetFindingsTrendsV2Response, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns resource trend data based on the specified criteria. This operation helps you analyze patterns and changes in resource compliance over time.
- */export const getResourcesTrendsV2 = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/resourcesTrendsv2", method: "POST", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.GetResourcesTrendsV2" }, GetResourcesTrendsV2Request, GetResourcesTrendsV2Response, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getResourcesTrendsV2 = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/resourcesTrendsv2", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.GetResourcesTrendsV2" }, GetResourcesTrendsV2Request, GetResourcesTrendsV2Response, [AccessDeniedException, InternalServerException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of resources.
- */export const getResourcesV2 = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/resourcesv2", method: "POST", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.GetResourcesV2" }, GetResourcesV2Request, GetResourcesV2Response, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getResourcesV2 = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/resourcesv2", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.GetResourcesV2" }, GetResourcesV2Request, GetResourcesV2Response, [AccessDeniedException, ConflictException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Imports security findings generated by a finding provider into Security Hub.
  * This action is requested by the finding provider to import its findings into
@@ -2169,4 +2169,4 @@ export class ResourceInUseException extends S.TaggedError<ResourceInUseException
  * 
  * 
  * Instead, finding providers use `FindingProviderFields` to provide values for these attributes.
- */export const batchImportFindings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/findings/import", method: "POST", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.BatchImportFindings" }, BatchImportFindingsRequest, BatchImportFindingsResponse, [InternalException, InvalidAccessException, InvalidInputException, LimitExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const batchImportFindings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-10-26", uri: "/findings/import", sdkId: "SecurityHub", sigV4ServiceName: "securityhub", name: "SecurityHubAPIService.BatchImportFindings" }, BatchImportFindingsRequest, BatchImportFindingsResponse, [InternalException, InvalidAccessException, InvalidInputException, LimitExceededException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

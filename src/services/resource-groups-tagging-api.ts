@@ -64,7 +64,7 @@ export class PaginationTokenExpiredException extends S.TaggedError<PaginationTok
  * 
  * You can call this operation only from the organization's
  * management account and from the us-east-1 Region.
- */export const describeReportCreation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-26", uri: "/DescribeReportCreation", method: "POST", sdkId: "Resource Groups Tagging API", sigV4ServiceName: "tagging", name: "ResourceGroupsTaggingAPI_20170126.DescribeReportCreation" }, DescribeReportCreationInput, DescribeReportCreationOutput, [ConstraintViolationException, InternalServiceException, InvalidParameterException, ThrottledException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeReportCreation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-26", uri: "/DescribeReportCreation", sdkId: "Resource Groups Tagging API", sigV4ServiceName: "tagging", name: "ResourceGroupsTaggingAPI_20170126.DescribeReportCreation" }, DescribeReportCreationInput, DescribeReportCreationOutput, [ConstraintViolationException, InternalServiceException, InvalidParameterException, ThrottledException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a table that shows counts of resources that are noncompliant with their tag
  * policies.
@@ -85,7 +85,7 @@ export class PaginationTokenExpiredException extends S.TaggedError<PaginationTok
  * `PaginationToken` response parameter value as an input to the next request until you
  * recieve a `null` value. A null value for `PaginationToken` indicates that
  * there are no more results waiting to be returned.
- */export const getComplianceSummary = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-26", uri: "/GetComplianceSummary", method: "POST", sdkId: "Resource Groups Tagging API", sigV4ServiceName: "tagging", name: "ResourceGroupsTaggingAPI_20170126.GetComplianceSummary" }, GetComplianceSummaryInput, GetComplianceSummaryOutput, [ConstraintViolationException, InternalServiceException, InvalidParameterException, ThrottledException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getComplianceSummary = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-26", uri: "/GetComplianceSummary", sdkId: "Resource Groups Tagging API", sigV4ServiceName: "tagging", name: "ResourceGroupsTaggingAPI_20170126.GetComplianceSummary" }, GetComplianceSummaryInput, GetComplianceSummaryOutput, [ConstraintViolationException, InternalServiceException, InvalidParameterException, ThrottledException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns all tag keys currently in use in the specified Amazon Web Services Region for the calling
  * account.
@@ -97,7 +97,7 @@ export class PaginationTokenExpiredException extends S.TaggedError<PaginationTok
  * `PaginationToken` response parameter value as an input to the next request until you
  * recieve a `null` value. A null value for `PaginationToken` indicates that
  * there are no more results waiting to be returned.
- */export const getTagKeys = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-26", uri: "/GetTagKeys", method: "POST", sdkId: "Resource Groups Tagging API", sigV4ServiceName: "tagging", name: "ResourceGroupsTaggingAPI_20170126.GetTagKeys" }, GetTagKeysInput, GetTagKeysOutput, [InternalServiceException, InvalidParameterException, PaginationTokenExpiredException, ThrottledException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getTagKeys = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-26", uri: "/GetTagKeys", sdkId: "Resource Groups Tagging API", sigV4ServiceName: "tagging", name: "ResourceGroupsTaggingAPI_20170126.GetTagKeys" }, GetTagKeysInput, GetTagKeysOutput, [InternalServiceException, InvalidParameterException, PaginationTokenExpiredException, ThrottledException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns all tag values for the specified key that are used in the specified Amazon Web Services
  * Region for the calling account.
@@ -109,10 +109,10 @@ export class PaginationTokenExpiredException extends S.TaggedError<PaginationTok
  * `PaginationToken` response parameter value as an input to the next request until you
  * recieve a `null` value. A null value for `PaginationToken` indicates that
  * there are no more results waiting to be returned.
- */export const getTagValues = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-26", uri: "/GetTagValues", method: "POST", sdkId: "Resource Groups Tagging API", sigV4ServiceName: "tagging", name: "ResourceGroupsTaggingAPI_20170126.GetTagValues" }, GetTagValuesInput, GetTagValuesOutput, [InternalServiceException, InvalidParameterException, PaginationTokenExpiredException, ThrottledException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getTagValues = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-26", uri: "/GetTagValues", sdkId: "Resource Groups Tagging API", sigV4ServiceName: "tagging", name: "ResourceGroupsTaggingAPI_20170126.GetTagValues" }, GetTagValuesInput, GetTagValuesOutput, [InternalServiceException, InvalidParameterException, PaginationTokenExpiredException, ThrottledException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the required tags for supported resource types in an Amazon Web Services account.
- */export const listRequiredTags = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-26", uri: "/ListRequiredTags", method: "POST", sdkId: "Resource Groups Tagging API", sigV4ServiceName: "tagging", name: "ResourceGroupsTaggingAPI_20170126.ListRequiredTags" }, ListRequiredTagsInput, ListRequiredTagsOutput, [InternalServiceException, InvalidParameterException, PaginationTokenExpiredException, ThrottledException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listRequiredTags = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-26", uri: "/ListRequiredTags", sdkId: "Resource Groups Tagging API", sigV4ServiceName: "tagging", name: "ResourceGroupsTaggingAPI_20170126.ListRequiredTags" }, ListRequiredTagsInput, ListRequiredTagsOutput, [InternalServiceException, InvalidParameterException, PaginationTokenExpiredException, ThrottledException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Generates a report that lists all tagged resources in the accounts across your
  * organization and tells whether each resource is compliant with the effective tag policy.
@@ -142,7 +142,7 @@ export class PaginationTokenExpiredException extends S.TaggedError<PaginationTok
  * information, review Amazon S3 bucket
  * policy for report storage in the Tagging Amazon Web Services Resources and Tag
  * Editor user guide.
- */export const startReportCreation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-26", uri: "/StartReportCreation", method: "POST", sdkId: "Resource Groups Tagging API", sigV4ServiceName: "tagging", name: "ResourceGroupsTaggingAPI_20170126.StartReportCreation" }, StartReportCreationInput, StartReportCreationOutput, [ConcurrentModificationException, ConstraintViolationException, InternalServiceException, InvalidParameterException, ThrottledException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startReportCreation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-26", uri: "/StartReportCreation", sdkId: "Resource Groups Tagging API", sigV4ServiceName: "tagging", name: "ResourceGroupsTaggingAPI_20170126.StartReportCreation" }, StartReportCreationInput, StartReportCreationOutput, [ConcurrentModificationException, ConstraintViolationException, InternalServiceException, InvalidParameterException, ThrottledException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Applies one or more tags to the specified resources. Note the following:
  * 
@@ -229,7 +229,7 @@ export class PaginationTokenExpiredException extends S.TaggedError<PaginationTok
  * `s3:GetBucketTagging` permission. If the expected minimum permissions
  * don't work, check the documentation for that service's tagging APIs for more
  * information.
- */export const tagResources = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-26", uri: "/TagResources", method: "POST", sdkId: "Resource Groups Tagging API", sigV4ServiceName: "tagging", name: "ResourceGroupsTaggingAPI_20170126.TagResources" }, TagResourcesInput, TagResourcesOutput, [InternalServiceException, InvalidParameterException, ThrottledException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResources = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-26", uri: "/TagResources", sdkId: "Resource Groups Tagging API", sigV4ServiceName: "tagging", name: "ResourceGroupsTaggingAPI_20170126.TagResources" }, TagResourcesInput, TagResourcesOutput, [InternalServiceException, InvalidParameterException, ThrottledException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes the specified tags from the specified resources. When you specify a tag key,
  * the action removes both that key and its associated value. The operation succeeds even
@@ -284,7 +284,7 @@ export class PaginationTokenExpiredException extends S.TaggedError<PaginationTok
  * `glue:GetConnection` permission. If the expected minimum permissions
  * don't work, check the documentation for that service's tagging APIs for more
  * information.
- */export const untagResources = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-26", uri: "/UntagResources", method: "POST", sdkId: "Resource Groups Tagging API", sigV4ServiceName: "tagging", name: "ResourceGroupsTaggingAPI_20170126.UntagResources" }, UntagResourcesInput, UntagResourcesOutput, [InternalServiceException, InvalidParameterException, ThrottledException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const untagResources = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-26", uri: "/UntagResources", sdkId: "Resource Groups Tagging API", sigV4ServiceName: "tagging", name: "ResourceGroupsTaggingAPI_20170126.UntagResources" }, UntagResourcesInput, UntagResourcesOutput, [InternalServiceException, InvalidParameterException, ThrottledException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns all the tagged or previously tagged resources that are located in the
  * specified Amazon Web Services Region for the account.
@@ -326,4 +326,4 @@ export class PaginationTokenExpiredException extends S.TaggedError<PaginationTok
  * 
  * To find untagged resources in your account, use Amazon Web Services Resource Explorer with a
  * query that uses `tag:none`. For more information, see Search query syntax reference for Resource Explorer.
- */export const getResources = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-26", uri: "/GetResources", method: "POST", sdkId: "Resource Groups Tagging API", sigV4ServiceName: "tagging", name: "ResourceGroupsTaggingAPI_20170126.GetResources" }, GetResourcesInput, GetResourcesOutput, [InternalServiceException, InvalidParameterException, PaginationTokenExpiredException, ThrottledException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getResources = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-01-26", uri: "/GetResources", sdkId: "Resource Groups Tagging API", sigV4ServiceName: "tagging", name: "ResourceGroupsTaggingAPI_20170126.GetResources" }, GetResourcesInput, GetResourcesOutput, [InternalServiceException, InvalidParameterException, PaginationTokenExpiredException, ThrottledException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

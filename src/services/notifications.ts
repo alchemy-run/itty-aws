@@ -48,7 +48,7 @@ export class ValidationException extends S.TaggedError<ValidationException>()("V
  * 
  * 
  * This is only supported for `NotificationConfigurations`.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/tags/{arn}", method: "POST", sdkId: "Notifications", sigV4ServiceName: "notifications", name: "Notifications.TagResource" }, TagResourceRequest, TagResourceResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/tags/{arn}", sdkId: "Notifications", sigV4ServiceName: "notifications", name: "Notifications.TagResource" }, TagResourceRequest, TagResourceResponse, [AccessDeniedException, InternalServerException, ResourceNotFoundException, ThrottlingException, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Untags a resource with a specified Amazon Resource Name (ARN).
  * 

@@ -279,11 +279,11 @@ export class InvalidMediaFrameException extends S.TaggedError<InvalidMediaFrameE
  * 
  * For more information, see the **Errors** section at
  * the bottom of this topic, as well as Common Errors.
- */export const getHLSStreamingSessionURL = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-30", uri: "/getHLSStreamingSessionURL", method: "POST", sdkId: "Kinesis Video Archived Media", sigV4ServiceName: "kinesisvideo", name: "AWSAcuityReader.GetHLSStreamingSessionURL" }, GetHLSStreamingSessionURLInput, GetHLSStreamingSessionURLOutput, [ClientLimitExceededException, InvalidArgumentException, InvalidCodecPrivateDataException, MissingCodecPrivateDataException, NoDataRetentionException, NotAuthorizedException, ResourceNotFoundException, UnsupportedStreamMediaTypeException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getHLSStreamingSessionURL = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-30", uri: "/getHLSStreamingSessionURL", sdkId: "Kinesis Video Archived Media", sigV4ServiceName: "kinesisvideo", name: "AWSAcuityReader.GetHLSStreamingSessionURL" }, GetHLSStreamingSessionURLInput, GetHLSStreamingSessionURLOutput, [ClientLimitExceededException, InvalidArgumentException, InvalidCodecPrivateDataException, MissingCodecPrivateDataException, NoDataRetentionException, NotAuthorizedException, ResourceNotFoundException, UnsupportedStreamMediaTypeException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves a list of images corresponding to each timestamp for a given time range,
  * sampling interval, and image format configuration.
- */export const getImages = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-30", uri: "/getImages", method: "POST", sdkId: "Kinesis Video Archived Media", sigV4ServiceName: "kinesisvideo", name: "AWSAcuityReader.GetImages" }, GetImagesInput, GetImagesOutput, [ClientLimitExceededException, InvalidArgumentException, NoDataRetentionException, NotAuthorizedException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getImages = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-30", uri: "/getImages", sdkId: "Kinesis Video Archived Media", sigV4ServiceName: "kinesisvideo", name: "AWSAcuityReader.GetImages" }, GetImagesInput, GetImagesOutput, [ClientLimitExceededException, InvalidArgumentException, NoDataRetentionException, NotAuthorizedException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets media for a list of fragments (specified by fragment number) from the archived
  * data in an Amazon Kinesis video stream.
@@ -331,7 +331,7 @@ export class InvalidMediaFrameException extends S.TaggedError<InvalidMediaFrameE
  * 
  * For more information, see the **Errors** section at
  * the bottom of this topic, as well as Common Errors.
- */export const getMediaForFragmentList = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-30", uri: "/getMediaForFragmentList", method: "POST", sdkId: "Kinesis Video Archived Media", sigV4ServiceName: "kinesisvideo", name: "AWSAcuityReader.GetMediaForFragmentList" }, GetMediaForFragmentListInput, GetMediaForFragmentListOutput, [ClientLimitExceededException, InvalidArgumentException, NotAuthorizedException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getMediaForFragmentList = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-30", uri: "/getMediaForFragmentList", sdkId: "Kinesis Video Archived Media", sigV4ServiceName: "kinesisvideo", name: "AWSAcuityReader.GetMediaForFragmentList" }, GetMediaForFragmentListInput, GetMediaForFragmentListOutput, [ClientLimitExceededException, InvalidArgumentException, NotAuthorizedException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of Fragment objects from the specified stream and
  * timestamp range within the archived data.
@@ -381,7 +381,7 @@ export class InvalidMediaFrameException extends S.TaggedError<InvalidMediaFrameE
  * 
  * For more information, see the **Errors** section at
  * the bottom of this topic, as well as Common Errors.
- */export const listFragments = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-30", uri: "/listFragments", method: "POST", sdkId: "Kinesis Video Archived Media", sigV4ServiceName: "kinesisvideo", name: "AWSAcuityReader.ListFragments" }, ListFragmentsInput, ListFragmentsOutput, [ClientLimitExceededException, InvalidArgumentException, NotAuthorizedException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listFragments = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-30", uri: "/listFragments", sdkId: "Kinesis Video Archived Media", sigV4ServiceName: "kinesisvideo", name: "AWSAcuityReader.ListFragments" }, ListFragmentsInput, ListFragmentsOutput, [ClientLimitExceededException, InvalidArgumentException, NotAuthorizedException, ResourceNotFoundException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Downloads an MP4 file (clip) containing the archived, on-demand media from the
  * specified video stream over the specified time range.
@@ -435,7 +435,7 @@ export class InvalidMediaFrameException extends S.TaggedError<InvalidMediaFrameE
  * using CloudWatch to monitor Kinesis Video Streams, see Monitoring Kinesis Video Streams. For pricing information, see Amazon Kinesis Video
  * Streams Pricing and Amazon Web Services
  * Pricing. Charges for outgoing Amazon Web Services data apply.
- */export const getClip = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-30", uri: "/getClip", method: "POST", sdkId: "Kinesis Video Archived Media", sigV4ServiceName: "kinesisvideo", name: "AWSAcuityReader.GetClip" }, GetClipInput, GetClipOutput, [ClientLimitExceededException, InvalidArgumentException, InvalidCodecPrivateDataException, InvalidMediaFrameException, MissingCodecPrivateDataException, NoDataRetentionException, NotAuthorizedException, ResourceNotFoundException, UnsupportedStreamMediaTypeException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getClip = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-30", uri: "/getClip", sdkId: "Kinesis Video Archived Media", sigV4ServiceName: "kinesisvideo", name: "AWSAcuityReader.GetClip" }, GetClipInput, GetClipOutput, [ClientLimitExceededException, InvalidArgumentException, InvalidCodecPrivateDataException, InvalidMediaFrameException, MissingCodecPrivateDataException, NoDataRetentionException, NotAuthorizedException, ResourceNotFoundException, UnsupportedStreamMediaTypeException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves an MPEG Dynamic Adaptive Streaming over HTTP (DASH) URL for the stream. You
  * can then open the URL in a media player to view the stream contents.
@@ -625,4 +625,4 @@ export class InvalidMediaFrameException extends S.TaggedError<InvalidMediaFrameE
  * 
  * For more information, see the **Errors** section at
  * the bottom of this topic, as well as Common Errors.
- */export const getDASHStreamingSessionURL = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-30", uri: "/getDASHStreamingSessionURL", method: "POST", sdkId: "Kinesis Video Archived Media", sigV4ServiceName: "kinesisvideo", name: "AWSAcuityReader.GetDASHStreamingSessionURL" }, GetDASHStreamingSessionURLInput, GetDASHStreamingSessionURLOutput, [ClientLimitExceededException, InvalidArgumentException, InvalidCodecPrivateDataException, MissingCodecPrivateDataException, NoDataRetentionException, NotAuthorizedException, ResourceNotFoundException, UnsupportedStreamMediaTypeException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getDASHStreamingSessionURL = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-09-30", uri: "/getDASHStreamingSessionURL", sdkId: "Kinesis Video Archived Media", sigV4ServiceName: "kinesisvideo", name: "AWSAcuityReader.GetDASHStreamingSessionURL" }, GetDASHStreamingSessionURLInput, GetDASHStreamingSessionURLOutput, [ClientLimitExceededException, InvalidArgumentException, InvalidCodecPrivateDataException, MissingCodecPrivateDataException, NoDataRetentionException, NotAuthorizedException, ResourceNotFoundException, UnsupportedStreamMediaTypeException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

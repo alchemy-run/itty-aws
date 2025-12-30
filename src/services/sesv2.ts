@@ -491,7 +491,7 @@ export class InternalServiceErrorException extends S.TaggedError<InternalService
  * 
  * When you delete a tenant, its associations with resources
  * are removed, but the resources themselves are not deleted.
- */export const deleteTenant = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/tenants/delete", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.DeleteTenant" }, DeleteTenantRequest, DeleteTenantResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteTenant = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/tenants/delete", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.DeleteTenant" }, DeleteTenantRequest, DeleteTenantResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Delete an association between a tenant and a resource.
  * 
@@ -499,7 +499,7 @@ export class InternalServiceErrorException extends S.TaggedError<InternalService
  * When you delete a tenant-resource association, the resource itself is not deleted,
  * only its association with the specific tenant is removed. After removal, the resource
  * will no longer be available for use with that tenant's email sending operations.
- */export const deleteTenantResourceAssociation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/tenants/resources/delete", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.DeleteTenantResourceAssociation" }, DeleteTenantResourceAssociationRequest, DeleteTenantResourceAssociationResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteTenantResourceAssociation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/tenants/resources/delete", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.DeleteTenantResourceAssociation" }, DeleteTenantResourceAssociationRequest, DeleteTenantResourceAssociationResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Enable or disable the automatic warm-up feature for dedicated IP addresses.
  */export const putAccountDedicatedIpWarmupAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/account/dedicated-ips/warmup", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.PutAccountDedicatedIpWarmupAttributes" }, PutAccountDedicatedIpWarmupAttributesRequest, PutAccountDedicatedIpWarmupAttributesResponse, [BadRequestException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -617,7 +617,7 @@ export class InternalServiceErrorException extends S.TaggedError<InternalService
  * associated *tag value*, both of which you define. A tag key is a
  * general label that acts as a category for more specific tag values. A tag value acts as
  * a descriptor within a tag key.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/tags", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.TagResource" }, TagResourceRequest, TagResourceResponse, [BadRequestException, ConcurrentModificationException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/tags", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.TagResource" }, TagResourceRequest, TagResourceResponse, [BadRequestException, ConcurrentModificationException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Remove one or more tags (keys and values) from a specified resource.
  */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/tags", method: "DELETE", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [BadRequestException, ConcurrentModificationException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -713,10 +713,10 @@ export class InternalServiceErrorException extends S.TaggedError<InternalService
 /**
  * Creates a contact, which is an end-user who is receiving the email, and adds them to a
  * contact list.
- */export const createContact = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/contact-lists/{ContactListName}/contacts", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.CreateContact" }, CreateContactRequest, CreateContactResponse, [AlreadyExistsException, BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createContact = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/contact-lists/{ContactListName}/contacts", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.CreateContact" }, CreateContactRequest, CreateContactResponse, [AlreadyExistsException, BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a contact list.
- */export const createContactList = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/contact-lists", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.CreateContactList" }, CreateContactListRequest, CreateContactListResponse, [AlreadyExistsException, BadRequestException, LimitExceededException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createContactList = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/contact-lists", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.CreateContactList" }, CreateContactListRequest, CreateContactListResponse, [AlreadyExistsException, BadRequestException, LimitExceededException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new custom verification email template.
  * 
@@ -727,13 +727,13 @@ export class InternalServiceErrorException extends S.TaggedError<InternalService
  * 
  * 
  * You can execute this operation no more than once per second.
- */export const createCustomVerificationEmailTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/custom-verification-email-templates", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.CreateCustomVerificationEmailTemplate" }, CreateCustomVerificationEmailTemplateRequest, CreateCustomVerificationEmailTemplateResponse, [AlreadyExistsException, BadRequestException, LimitExceededException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createCustomVerificationEmailTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/custom-verification-email-templates", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.CreateCustomVerificationEmailTemplate" }, CreateCustomVerificationEmailTemplateRequest, CreateCustomVerificationEmailTemplateResponse, [AlreadyExistsException, BadRequestException, LimitExceededException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Create a new pool of dedicated IP addresses. A pool can include one or more dedicated
  * IP addresses that are associated with your Amazon Web Services account. You can associate a pool with
  * a configuration set. When you send an email that uses that configuration set, the
  * message is sent from one of the addresses in the associated pool.
- */export const createDedicatedIpPool = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/dedicated-ip-pools", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.CreateDedicatedIpPool" }, CreateDedicatedIpPoolRequest, CreateDedicatedIpPoolResponse, [AlreadyExistsException, BadRequestException, ConcurrentModificationException, LimitExceededException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createDedicatedIpPool = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/dedicated-ip-pools", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.CreateDedicatedIpPool" }, CreateDedicatedIpPoolRequest, CreateDedicatedIpPoolResponse, [AlreadyExistsException, BadRequestException, ConcurrentModificationException, LimitExceededException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates the specified sending authorization policy for the given identity (an email
  * address or a domain).
@@ -754,7 +754,7 @@ export class InternalServiceErrorException extends S.TaggedError<InternalService
  * 
  * 
  * You can execute this operation no more than once per second.
- */export const createEmailIdentityPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/identities/{EmailIdentity}/policies/{PolicyName}", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.CreateEmailIdentityPolicy" }, CreateEmailIdentityPolicyRequest, CreateEmailIdentityPolicyResponse, [AlreadyExistsException, BadRequestException, LimitExceededException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createEmailIdentityPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/identities/{EmailIdentity}/policies/{PolicyName}", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.CreateEmailIdentityPolicy" }, CreateEmailIdentityPolicyRequest, CreateEmailIdentityPolicyResponse, [AlreadyExistsException, BadRequestException, LimitExceededException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an email template. Email templates enable you to send personalized email to
  * one or more destinations in a single API operation. For more information, see the Amazon SES Developer
@@ -762,7 +762,7 @@ export class InternalServiceErrorException extends S.TaggedError<InternalService
  * 
  * 
  * You can execute this operation no more than once per second.
- */export const createEmailTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/templates", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.CreateEmailTemplate" }, CreateEmailTemplateRequest, CreateEmailTemplateResponse, [AlreadyExistsException, BadRequestException, LimitExceededException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createEmailTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/templates", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.CreateEmailTemplate" }, CreateEmailTemplateRequest, CreateEmailTemplateResponse, [AlreadyExistsException, BadRequestException, LimitExceededException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Create a tenant.
  * 
@@ -772,7 +772,7 @@ export class InternalServiceErrorException extends S.TaggedError<InternalService
  * Each tenant can have its own set of resources like email identities, configuration sets,
  * and templates, along with reputation metrics and sending status. This helps isolate and manage
  * email sending for different customers or business units within your Amazon SES API v2 account.
- */export const createTenant = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/tenants", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.CreateTenant" }, CreateTenantRequest, CreateTenantResponse, [AlreadyExistsException, BadRequestException, LimitExceededException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createTenant = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/tenants", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.CreateTenant" }, CreateTenantRequest, CreateTenantResponse, [AlreadyExistsException, BadRequestException, LimitExceededException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Associate a resource with a tenant.
  * 
@@ -785,7 +785,7 @@ export class InternalServiceErrorException extends S.TaggedError<InternalService
  * 
  * A single resource can be associated with multiple tenants, allowing for resource sharing
  * across different tenants while maintaining isolation in email sending operations.
- */export const createTenantResourceAssociation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/tenants/resources", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.CreateTenantResourceAssociation" }, CreateTenantResourceAssociationRequest, CreateTenantResourceAssociationResponse, [AlreadyExistsException, BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createTenantResourceAssociation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/tenants/resources", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.CreateTenantResourceAssociation" }, CreateTenantResourceAssociationRequest, CreateTenantResourceAssociationResponse, [AlreadyExistsException, BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Delete an existing configuration set.
  * 
@@ -905,7 +905,7 @@ export class InternalServiceErrorException extends S.TaggedError<InternalService
  */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/tags", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Update your Amazon SES account details.
- */export const putAccountDetails = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/account/details", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.PutAccountDetails" }, PutAccountDetailsRequest, PutAccountDetailsResponse, [BadRequestException, ConflictException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putAccountDetails = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/account/details", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.PutAccountDetails" }, PutAccountDetailsRequest, PutAccountDetailsResponse, [BadRequestException, ConflictException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Specify the account suppression list preferences for a configuration set.
  */export const putConfigurationSetSuppressionOptions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/configuration-sets/{ConfigurationSetName}/suppression-options", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.PutConfigurationSetSuppressionOptions" }, PutConfigurationSetSuppressionOptionsRequest, PutConfigurationSetSuppressionOptionsResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -944,14 +944,14 @@ export class InternalServiceErrorException extends S.TaggedError<InternalService
  * 
  * 
  * You can execute this operation no more than once per second.
- */export const testRenderEmailTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/templates/{TemplateName}/render", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.TestRenderEmailTemplate" }, TestRenderEmailTemplateRequest, TestRenderEmailTemplateResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const testRenderEmailTemplate = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/templates/{TemplateName}/render", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.TestRenderEmailTemplate" }, TestRenderEmailTemplateRequest, TestRenderEmailTemplateResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Create a configuration set. *Configuration sets* are groups of
  * rules that you can apply to the emails that you send. You apply a configuration set to
  * an email by specifying the name of the configuration set when you call the Amazon SES API v2. When
  * you apply a configuration set to an email, all of the rules in that configuration set
  * are applied to the email.
- */export const createConfigurationSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/configuration-sets", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.CreateConfigurationSet" }, CreateConfigurationSetRequest, CreateConfigurationSetResponse, [AlreadyExistsException, BadRequestException, ConcurrentModificationException, LimitExceededException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createConfigurationSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/configuration-sets", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.CreateConfigurationSet" }, CreateConfigurationSetRequest, CreateConfigurationSetResponse, [AlreadyExistsException, BadRequestException, ConcurrentModificationException, LimitExceededException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts the process of verifying an email identity. An *identity* is
  * an email address or domain that you use when you send email. Before you can use an
@@ -989,7 +989,7 @@ export class InternalServiceErrorException extends S.TaggedError<InternalService
  * 
  * 
  * Additionally, you can associate an existing configuration set with the email identity that you're verifying.
- */export const createEmailIdentity = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/identities", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.CreateEmailIdentity" }, CreateEmailIdentityRequest, CreateEmailIdentityResponse, [AlreadyExistsException, BadRequestException, ConcurrentModificationException, LimitExceededException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createEmailIdentity = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/identities", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.CreateEmailIdentity" }, CreateEmailIdentityRequest, CreateEmailIdentityResponse, [AlreadyExistsException, BadRequestException, ConcurrentModificationException, LimitExceededException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Obtain information about the email-sending status and capabilities of your Amazon SES
  * account in the current Amazon Web Services Region.
@@ -1045,7 +1045,7 @@ export class InternalServiceErrorException extends S.TaggedError<InternalService
 /**
  * Get information about a specific tenant, including the tenant's name, ID, ARN,
  * creation timestamp, tags, and sending status.
- */export const getTenant = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/tenants/get", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.GetTenant" }, GetTenantRequest, GetTenantResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getTenant = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/tenants/get", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.GetTenant" }, GetTenantRequest, GetTenantResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists all of the contact lists available.
  * 
@@ -1080,10 +1080,10 @@ export class InternalServiceErrorException extends S.TaggedError<InternalService
  */export const listEmailTemplates = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/templates", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.ListEmailTemplates" }, ListEmailTemplatesRequest, ListEmailTemplatesResponse, [BadRequestException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists all of the export jobs.
- */export const listExportJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/list-export-jobs", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.ListExportJobs" }, ListExportJobsRequest, ListExportJobsResponse, [BadRequestException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listExportJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/list-export-jobs", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.ListExportJobs" }, ListExportJobsRequest, ListExportJobsResponse, [BadRequestException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists all of the import jobs.
- */export const listImportJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/import-jobs/list", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.ListImportJobs" }, ListImportJobsRequest, ListImportJobsResponse, [BadRequestException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listImportJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/import-jobs/list", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.ListImportJobs" }, ListImportJobsRequest, ListImportJobsResponse, [BadRequestException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * List the multi-region endpoints (global-endpoints).
  * 
@@ -1101,7 +1101,7 @@ export class InternalServiceErrorException extends S.TaggedError<InternalService
  * *Reputation entities* represent resources in your account that have reputation
  * tracking and management capabilities. Use this operation to get an overview of
  * all entities and their current reputation status.
- */export const listReputationEntities = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/reputation/entities", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.ListReputationEntities" }, ListReputationEntitiesRequest, ListReputationEntitiesResponse, [BadRequestException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listReputationEntities = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/reputation/entities", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.ListReputationEntities" }, ListReputationEntitiesRequest, ListReputationEntitiesResponse, [BadRequestException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * List all tenants associated with a specific resource.
  * 
@@ -1109,14 +1109,14 @@ export class InternalServiceErrorException extends S.TaggedError<InternalService
  * This operation returns a list of tenants that are associated with the specified
  * resource. This is useful for understanding which tenants are currently using a particular
  * resource such as an email identity, configuration set, or email template.
- */export const listResourceTenants = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/resources/tenants/list", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.ListResourceTenants" }, ListResourceTenantsRequest, ListResourceTenantsResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listResourceTenants = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/resources/tenants/list", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.ListResourceTenants" }, ListResourceTenantsRequest, ListResourceTenantsResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * List all tenants associated with your account in the current Amazon Web Services Region.
  * 
  * 
  * This operation returns basic information about each tenant,
  * such as tenant name, ID, ARN, and creation timestamp.
- */export const listTenants = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/tenants/list", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.ListTenants" }, ListTenantsRequest, ListTenantsResponse, [BadRequestException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTenants = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/tenants/list", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.ListTenants" }, ListTenantsRequest, ListTenantsResponse, [BadRequestException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Create an event destination. *Events* include message sends,
  * deliveries, opens, clicks, bounces, and complaints. Event
@@ -1126,10 +1126,10 @@ export class InternalServiceErrorException extends S.TaggedError<InternalService
  * 
  * 
  * A single configuration set can include more than one event destination.
- */export const createConfigurationSetEventDestination = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/configuration-sets/{ConfigurationSetName}/event-destinations", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.CreateConfigurationSetEventDestination" }, CreateConfigurationSetEventDestinationRequest, CreateConfigurationSetEventDestinationResponse, [AlreadyExistsException, BadRequestException, LimitExceededException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createConfigurationSetEventDestination = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/configuration-sets/{ConfigurationSetName}/event-destinations", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.CreateConfigurationSetEventDestination" }, CreateConfigurationSetEventDestinationRequest, CreateConfigurationSetEventDestinationResponse, [AlreadyExistsException, BadRequestException, LimitExceededException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an import job for a data destination.
- */export const createImportJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/import-jobs", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.CreateImportJob" }, CreateImportJobRequest, CreateImportJobResponse, [BadRequestException, LimitExceededException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createImportJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/import-jobs", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.CreateImportJob" }, CreateImportJobRequest, CreateImportJobResponse, [BadRequestException, LimitExceededException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a multi-region endpoint (global-endpoint).
  * 
@@ -1139,7 +1139,7 @@ export class InternalServiceErrorException extends S.TaggedError<InternalService
  * From the data flow standpoint there is no difference between primary
  * and secondary regions - sending traffic will be split equally between the two.
  * The primary region is the region where the resource has been created and where it can be managed.
- */export const createMultiRegionEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/multi-region-endpoints", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.CreateMultiRegionEndpoint" }, CreateMultiRegionEndpointRequest, CreateMultiRegionEndpointResponse, [AlreadyExistsException, BadRequestException, LimitExceededException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createMultiRegionEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/multi-region-endpoints", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.CreateMultiRegionEndpoint" }, CreateMultiRegionEndpointRequest, CreateMultiRegionEndpointResponse, [AlreadyExistsException, BadRequestException, LimitExceededException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieve a list of the blacklists that your dedicated IP addresses appear on.
  */export const getBlacklistReports = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/deliverability-dashboard/blacklist-report", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.GetBlacklistReports" }, GetBlacklistReportsRequest, GetBlacklistReportsResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1149,7 +1149,7 @@ export class InternalServiceErrorException extends S.TaggedError<InternalService
  */export const getDomainStatisticsReport = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/deliverability-dashboard/statistics-report/{Domain}", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.GetDomainStatisticsReport" }, GetDomainStatisticsReportRequest, GetDomainStatisticsReportResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides validation insights about a specific email address, including syntax validation, DNS record checks, mailbox existence, and other deliverability factors.
- */export const getEmailAddressInsights = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/email-address-insights", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.GetEmailAddressInsights" }, GetEmailAddressInsightsRequest, GetEmailAddressInsightsResponse, [BadRequestException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getEmailAddressInsights = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/email-address-insights", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.GetEmailAddressInsights" }, GetEmailAddressInsightsRequest, GetEmailAddressInsightsResponse, [BadRequestException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides information about a specific identity, including the identity's verification
  * status, sending authorization policies, its DKIM authentication status, and its custom
@@ -1176,7 +1176,7 @@ export class InternalServiceErrorException extends S.TaggedError<InternalService
  * 
  * 
  * You can execute this operation no more than once per second.
- */export const listRecommendations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/vdm/recommendations", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.ListRecommendations" }, ListRecommendationsRequest, ListRecommendationsResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listRecommendations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/vdm/recommendations", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.ListRecommendations" }, ListRecommendationsRequest, ListRecommendationsResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves a list of email addresses that are on the suppression list for your
  * account.
@@ -1188,7 +1188,7 @@ export class InternalServiceErrorException extends S.TaggedError<InternalService
  * This operation returns a list of resources (email identities, configuration sets,
  * or email templates) that are associated with the specified tenant. You can optionally
  * filter the results by resource type.
- */export const listTenantResources = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/tenants/resources/list", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.ListTenantResources" }, ListTenantResourcesRequest, ListTenantResourcesResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTenantResources = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/tenants/resources/list", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.ListTenantResources" }, ListTenantResourcesRequest, ListTenantResourcesResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Change the settings for the account-level suppression list.
  */export const putAccountSuppressionAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/account/suppression", method: "PUT", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.PutAccountSuppressionAttributes" }, PutAccountSuppressionAttributesRequest, PutAccountSuppressionAttributesResponse, [BadRequestException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
@@ -1215,7 +1215,7 @@ export class InternalServiceErrorException extends S.TaggedError<InternalService
  * - **Templated** – A message that contains
  * personalization tags. When you send this type of email, Amazon SES API v2 automatically
  * replaces the tags with values that you specify.
- */export const sendEmail = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/outbound-emails", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.SendEmail" }, SendEmailRequest, SendEmailResponse, [AccountSuspendedException, BadRequestException, LimitExceededException, MailFromDomainNotVerifiedException, MessageRejected, NotFoundException, SendingPausedException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const sendEmail = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/outbound-emails", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.SendEmail" }, SendEmailRequest, SendEmailResponse, [AccountSuspendedException, BadRequestException, LimitExceededException, MailFromDomainNotVerifiedException, MessageRejected, NotFoundException, SendingPausedException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Create a new predictive inbox placement test. Predictive inbox placement tests can help you predict how your messages will be handled
  * by various email providers around the world. When you perform a predictive inbox placement test, you provide a
@@ -1224,16 +1224,16 @@ export class InternalServiceErrorException extends S.TaggedError<InternalService
  * providers. After about 24 hours, the test is complete, and you can use the
  * `GetDeliverabilityTestReport` operation to view the results of the
  * test.
- */export const createDeliverabilityTestReport = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/deliverability-dashboard/test", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.CreateDeliverabilityTestReport" }, CreateDeliverabilityTestReportRequest, CreateDeliverabilityTestReportResponse, [AccountSuspendedException, BadRequestException, ConcurrentModificationException, LimitExceededException, MailFromDomainNotVerifiedException, MessageRejected, NotFoundException, SendingPausedException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createDeliverabilityTestReport = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/deliverability-dashboard/test", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.CreateDeliverabilityTestReport" }, CreateDeliverabilityTestReportRequest, CreateDeliverabilityTestReportResponse, [AccountSuspendedException, BadRequestException, ConcurrentModificationException, LimitExceededException, MailFromDomainNotVerifiedException, MessageRejected, NotFoundException, SendingPausedException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an export job for a data source and destination.
  * 
  * 
  * You can execute this operation no more than once per second.
- */export const createExportJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/export-jobs", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.CreateExportJob" }, CreateExportJobRequest, CreateExportJobResponse, [BadRequestException, LimitExceededException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createExportJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/export-jobs", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.CreateExportJob" }, CreateExportJobRequest, CreateExportJobResponse, [BadRequestException, LimitExceededException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the contacts present in a specific contact list.
- */export const listContacts = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/contact-lists/{ContactListName}/contacts/list", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.ListContacts" }, ListContactsRequest, ListContactsResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listContacts = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/contact-lists/{ContactListName}/contacts/list", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.ListContacts" }, ListContactsRequest, ListContactsResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds an email address to the list of identities for your Amazon SES account in the current
  * Amazon Web Services Region and attempts to verify it. As a result of executing this
@@ -1248,14 +1248,14 @@ export class InternalServiceErrorException extends S.TaggedError<InternalService
  * 
  * 
  * You can execute this operation no more than once per second.
- */export const sendCustomVerificationEmail = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/outbound-custom-verification-emails", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.SendCustomVerificationEmail" }, SendCustomVerificationEmailRequest, SendCustomVerificationEmailResponse, [BadRequestException, LimitExceededException, MailFromDomainNotVerifiedException, MessageRejected, NotFoundException, SendingPausedException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const sendCustomVerificationEmail = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/outbound-custom-verification-emails", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.SendCustomVerificationEmail" }, SendCustomVerificationEmailRequest, SendCustomVerificationEmailResponse, [BadRequestException, LimitExceededException, MailFromDomainNotVerifiedException, MessageRejected, NotFoundException, SendingPausedException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves batches of metric data collected based on your sending activity.
  * 
  * 
  * You can execute this operation no more than 16 times per second,
  * and with at most 160 queries from the batches per second (cumulative).
- */export const batchGetMetricData = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/metrics/batch", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.BatchGetMetricData" }, BatchGetMetricDataRequest, BatchGetMetricDataResponse, [BadRequestException, InternalServiceErrorException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const batchGetMetricData = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/metrics/batch", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.BatchGetMetricData" }, BatchGetMetricDataRequest, BatchGetMetricDataResponse, [BadRequestException, InternalServiceErrorException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides information about a specific message, including the from address, the
  * subject, the recipient address, email tags, as well as events associated with the message.
@@ -1265,4 +1265,4 @@ export class InternalServiceErrorException extends S.TaggedError<InternalService
  */export const getMessageInsights = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/insights/{MessageId}", method: "GET", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.GetMessageInsights" }, GetMessageInsightsRequest, GetMessageInsightsResponse, [BadRequestException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Composes an email message to multiple destinations.
- */export const sendBulkEmail = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/outbound-bulk-emails", method: "POST", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.SendBulkEmail" }, SendBulkEmailRequest, SendBulkEmailResponse, [AccountSuspendedException, BadRequestException, LimitExceededException, MailFromDomainNotVerifiedException, MessageRejected, NotFoundException, SendingPausedException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const sendBulkEmail = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2019-09-27", uri: "/v2/email/outbound-bulk-emails", sdkId: "SESv2", sigV4ServiceName: "ses", name: "SimpleEmailService_v2.SendBulkEmail" }, SendBulkEmailRequest, SendBulkEmailResponse, [AccountSuspendedException, BadRequestException, LimitExceededException, MailFromDomainNotVerifiedException, MessageRejected, NotFoundException, SendingPausedException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

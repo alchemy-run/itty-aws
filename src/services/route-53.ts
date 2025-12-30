@@ -508,23 +508,23 @@ export class TooManyKeySigningKeys extends S.TaggedError<TooManyKeySigningKeys>(
  */export const testDNSAnswer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-01", uri: "/2013-04-01/testdnsanswer", method: "GET", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.TestDNSAnswer" }, TestDNSAnswerRequest, TestDNSAnswerResponse, [InvalidInput, NoSuchHostedZone]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Updates the comment for a specified hosted zone.
- */export const updateHostedZoneComment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-01", uri: "/2013-04-01/hostedzone/{Id}", method: "POST", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.UpdateHostedZoneComment" }, UpdateHostedZoneCommentRequest, UpdateHostedZoneCommentResponse, [InvalidInput, NoSuchHostedZone, PriorRequestNotComplete]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const updateHostedZoneComment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-01", uri: "/2013-04-01/hostedzone/{Id}", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.UpdateHostedZoneComment" }, UpdateHostedZoneCommentRequest, UpdateHostedZoneCommentResponse, [InvalidInput, NoSuchHostedZone, PriorRequestNotComplete]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Updates the features configuration for a hosted zone. This operation allows you to enable or disable specific features for your hosted zone, such as accelerated recovery.
  * 
  * 
  * Accelerated recovery enables you to update DNS records in your public hosted zone even when the us-east-1 region is unavailable.
- */export const updateHostedZoneFeatures = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-01", uri: "/2013-04-01/hostedzone/{HostedZoneId}/features", method: "POST", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.UpdateHostedZoneFeatures" }, UpdateHostedZoneFeaturesRequest, UpdateHostedZoneFeaturesResponse, [InvalidInput, LimitsExceeded, NoSuchHostedZone, PriorRequestNotComplete]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const updateHostedZoneFeatures = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-01", uri: "/2013-04-01/hostedzone/{HostedZoneId}/features", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.UpdateHostedZoneFeatures" }, UpdateHostedZoneFeaturesRequest, UpdateHostedZoneFeaturesResponse, [InvalidInput, LimitsExceeded, NoSuchHostedZone, PriorRequestNotComplete]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Updates the comment for a specified traffic policy version.
- */export const updateTrafficPolicyComment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-01", uri: "/2013-04-01/trafficpolicy/{Id}/{Version}", method: "POST", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.UpdateTrafficPolicyComment" }, UpdateTrafficPolicyCommentRequest, UpdateTrafficPolicyCommentResponse, [ConcurrentModification, InvalidInput, NoSuchTrafficPolicy]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const updateTrafficPolicyComment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-01", uri: "/2013-04-01/trafficpolicy/{Id}/{Version}", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.UpdateTrafficPolicyComment" }, UpdateTrafficPolicyCommentRequest, UpdateTrafficPolicyCommentResponse, [ConcurrentModification, InvalidInput, NoSuchTrafficPolicy]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Adds, edits, or deletes tags for a health check or a hosted zone.
  * 
  * 
  * For information about using tags for cost allocation, see Using Cost Allocation
  * Tags in the *Billing and Cost Management User Guide*.
- */export const changeTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-01", uri: "/2013-04-01/tags/{ResourceType}/{ResourceId}", method: "POST", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.ChangeTagsForResource" }, ChangeTagsForResourceRequest, ChangeTagsForResourceResponse, [InvalidInput, NoSuchHealthCheck, NoSuchHostedZone, PriorRequestNotComplete, ThrottlingException]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const changeTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-01", uri: "/2013-04-01/tags/{ResourceType}/{ResourceId}", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.ChangeTagsForResource" }, ChangeTagsForResourceRequest, ChangeTagsForResourceResponse, [InvalidInput, NoSuchHealthCheck, NoSuchHostedZone, PriorRequestNotComplete, ThrottlingException]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Deletes a CIDR collection in the current Amazon Web Services account. The collection
  * must be empty before it can be deleted.
@@ -636,11 +636,11 @@ export class TooManyKeySigningKeys extends S.TaggedError<TooManyKeySigningKeys>(
  * `DeleteVPCAssociationAuthorization` won't disassociate the VPC from
  * the hosted zone. If you want to delete an existing association, use
  * `DisassociateVPCFromHostedZone`.
- */export const deleteVPCAssociationAuthorization = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-01", uri: "/2013-04-01/hostedzone/{HostedZoneId}/deauthorizevpcassociation", method: "POST", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.DeleteVPCAssociationAuthorization" }, DeleteVPCAssociationAuthorizationRequest, DeleteVPCAssociationAuthorizationResponse, [ConcurrentModification, InvalidInput, InvalidVPCId, NoSuchHostedZone, VPCAssociationAuthorizationNotFound]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const deleteVPCAssociationAuthorization = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-01", uri: "/2013-04-01/hostedzone/{HostedZoneId}/deauthorizevpcassociation", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.DeleteVPCAssociationAuthorization" }, DeleteVPCAssociationAuthorizationRequest, DeleteVPCAssociationAuthorizationResponse, [ConcurrentModification, InvalidInput, InvalidVPCId, NoSuchHostedZone, VPCAssociationAuthorizationNotFound]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Disables DNSSEC signing in a specific hosted zone. This action does not deactivate any
  * key-signing keys (KSKs) that are active in the hosted zone.
- */export const disableHostedZoneDNSSEC = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-01", uri: "/2013-04-01/hostedzone/{HostedZoneId}/disable-dnssec", method: "POST", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.DisableHostedZoneDNSSEC" }, DisableHostedZoneDNSSECRequest, DisableHostedZoneDNSSECResponse, [ConcurrentModification, DNSSECNotFound, InvalidArgument, InvalidInput, InvalidKeySigningKeyStatus, InvalidKMSArn, KeySigningKeyInParentDSRecord, NoSuchHostedZone]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const disableHostedZoneDNSSEC = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-01", uri: "/2013-04-01/hostedzone/{HostedZoneId}/disable-dnssec", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.DisableHostedZoneDNSSEC" }, DisableHostedZoneDNSSECRequest, DisableHostedZoneDNSSECResponse, [ConcurrentModification, DNSSECNotFound, InvalidArgument, InvalidInput, InvalidKeySigningKeyStatus, InvalidKMSArn, KeySigningKeyInParentDSRecord, NoSuchHostedZone]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Gets the specified limit for the current account, for example, the maximum number of
  * health checks that you can create using the account.
@@ -798,7 +798,7 @@ export class TooManyKeySigningKeys extends S.TaggedError<TooManyKeySigningKeys>(
  * 
  * For information about using tags for cost allocation, see Using Cost Allocation
  * Tags in the *Billing and Cost Management User Guide*.
- */export const listTagsForResources = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-01", uri: "/2013-04-01/tags/{ResourceType}", method: "POST", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.ListTagsForResources" }, ListTagsForResourcesRequest, ListTagsForResourcesResponse, [InvalidInput, NoSuchHealthCheck, NoSuchHostedZone, PriorRequestNotComplete, ThrottlingException]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const listTagsForResources = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-01", uri: "/2013-04-01/tags/{ResourceType}", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.ListTagsForResources" }, ListTagsForResourcesRequest, ListTagsForResourcesResponse, [InvalidInput, NoSuchHealthCheck, NoSuchHostedZone, PriorRequestNotComplete, ThrottlingException]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Gets information about the latest version for every traffic policy that is associated
  * with the current Amazon Web Services account. Policies are listed in the order that they
@@ -843,14 +843,14 @@ export class TooManyKeySigningKeys extends S.TaggedError<TooManyKeySigningKeys>(
  * 
  * - Route 53 deletes the old group of resource record sets that are associated
  * with the root resource record set name.
- */export const updateTrafficPolicyInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-01", uri: "/2013-04-01/trafficpolicyinstance/{Id}", method: "POST", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.UpdateTrafficPolicyInstance" }, UpdateTrafficPolicyInstanceRequest, UpdateTrafficPolicyInstanceResponse, [ConflictingTypes, InvalidInput, NoSuchTrafficPolicy, NoSuchTrafficPolicyInstance, PriorRequestNotComplete]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const updateTrafficPolicyInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-01", uri: "/2013-04-01/trafficpolicyinstance/{Id}", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.UpdateTrafficPolicyInstance" }, UpdateTrafficPolicyInstanceRequest, UpdateTrafficPolicyInstanceResponse, [ConflictingTypes, InvalidInput, NoSuchTrafficPolicy, NoSuchTrafficPolicyInstance, PriorRequestNotComplete]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Activates a key-signing key (KSK) so that it can be used for signing by DNSSEC. This
  * operation changes the KSK status to `ACTIVE`.
- */export const activateKeySigningKey = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-01", uri: "/2013-04-01/keysigningkey/{HostedZoneId}/{Name}/activate", method: "POST", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.ActivateKeySigningKey" }, ActivateKeySigningKeyRequest, ActivateKeySigningKeyResponse, [ConcurrentModification, InvalidInput, InvalidKeySigningKeyStatus, InvalidKMSArn, InvalidSigningStatus, NoSuchKeySigningKey]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const activateKeySigningKey = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-01", uri: "/2013-04-01/keysigningkey/{HostedZoneId}/{Name}/activate", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.ActivateKeySigningKey" }, ActivateKeySigningKeyRequest, ActivateKeySigningKeyResponse, [ConcurrentModification, InvalidInput, InvalidKeySigningKeyStatus, InvalidKMSArn, InvalidSigningStatus, NoSuchKeySigningKey]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Creates a CIDR collection in the current Amazon Web Services account.
- */export const createCidrCollection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-01", uri: "/2013-04-01/cidrcollection", method: "POST", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.CreateCidrCollection" }, CreateCidrCollectionRequest, CreateCidrCollectionResponse, [CidrCollectionAlreadyExistsException, ConcurrentModification, InvalidInput, LimitsExceeded]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const createCidrCollection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-01", uri: "/2013-04-01/cidrcollection", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.CreateCidrCollection" }, CreateCidrCollectionRequest, CreateCidrCollectionResponse, [CidrCollectionAlreadyExistsException, ConcurrentModification, InvalidInput, LimitsExceeded]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Creates a new version of an existing traffic policy. When you create a new version of
  * a traffic policy, you specify the ID of the traffic policy that you want to update and a
@@ -859,7 +859,7 @@ export class TooManyKeySigningKeys extends S.TaggedError<TooManyKeySigningKeys>(
  * one subdomain name (such as www.example.com). You can create a maximum of 1000 versions
  * of a traffic policy. If you reach the limit and need to create another version, you'll
  * need to start a new traffic policy.
- */export const createTrafficPolicyVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-01", uri: "/2013-04-01/trafficpolicy/{Id}", method: "POST", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.CreateTrafficPolicyVersion" }, CreateTrafficPolicyVersionRequest, CreateTrafficPolicyVersionResponse, [ConcurrentModification, InvalidInput, InvalidTrafficPolicyDocument, NoSuchTrafficPolicy, TooManyTrafficPolicyVersionsForCurrentPolicy]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const createTrafficPolicyVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-01", uri: "/2013-04-01/trafficpolicy/{Id}", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.CreateTrafficPolicyVersion" }, CreateTrafficPolicyVersionRequest, CreateTrafficPolicyVersionResponse, [ConcurrentModification, InvalidInput, InvalidTrafficPolicyDocument, NoSuchTrafficPolicy, TooManyTrafficPolicyVersionsForCurrentPolicy]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Authorizes the Amazon Web Services account that created a specified VPC to submit an
  * `AssociateVPCWithHostedZone` request to associate the VPC with a
@@ -874,7 +874,7 @@ export class TooManyKeySigningKeys extends S.TaggedError<TooManyKeySigningKeys>(
  * If you want to associate multiple VPCs that you created by using one account with
  * a hosted zone that you created by using a different account, you must submit one
  * authorization request for each VPC.
- */export const createVPCAssociationAuthorization = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-01", uri: "/2013-04-01/hostedzone/{HostedZoneId}/authorizevpcassociation", method: "POST", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.CreateVPCAssociationAuthorization" }, CreateVPCAssociationAuthorizationRequest, CreateVPCAssociationAuthorizationResponse, [ConcurrentModification, InvalidInput, InvalidVPCId, NoSuchHostedZone, TooManyVPCAssociationAuthorizations]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const createVPCAssociationAuthorization = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-01", uri: "/2013-04-01/hostedzone/{HostedZoneId}/authorizevpcassociation", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.CreateVPCAssociationAuthorization" }, CreateVPCAssociationAuthorizationRequest, CreateVPCAssociationAuthorizationResponse, [ConcurrentModification, InvalidInput, InvalidVPCId, NoSuchHostedZone, TooManyVPCAssociationAuthorizations]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Deletes a key-signing key (KSK). Before you can delete a KSK, you must deactivate it.
  * The KSK must be deactivated before you can delete it regardless of whether the hosted
@@ -972,10 +972,10 @@ export class TooManyKeySigningKeys extends S.TaggedError<TooManyKeySigningKeys>(
  * 
  * For more information, see Access Management
  * in the *Amazon Web Services General Reference*.
- */export const disassociateVPCFromHostedZone = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-01", uri: "/2013-04-01/hostedzone/{HostedZoneId}/disassociatevpc", method: "POST", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.DisassociateVPCFromHostedZone" }, DisassociateVPCFromHostedZoneRequest, DisassociateVPCFromHostedZoneResponse, [InvalidInput, InvalidVPCId, LastVPCAssociation, NoSuchHostedZone, VPCAssociationNotFound]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const disassociateVPCFromHostedZone = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-01", uri: "/2013-04-01/hostedzone/{HostedZoneId}/disassociatevpc", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.DisassociateVPCFromHostedZone" }, DisassociateVPCFromHostedZoneRequest, DisassociateVPCFromHostedZoneResponse, [InvalidInput, InvalidVPCId, LastVPCAssociation, NoSuchHostedZone, VPCAssociationNotFound]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Enables DNSSEC signing in a specific hosted zone.
- */export const enableHostedZoneDNSSEC = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-01", uri: "/2013-04-01/hostedzone/{HostedZoneId}/enable-dnssec", method: "POST", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.EnableHostedZoneDNSSEC" }, EnableHostedZoneDNSSECRequest, EnableHostedZoneDNSSECResponse, [ConcurrentModification, DNSSECNotFound, HostedZonePartiallyDelegated, InvalidArgument, InvalidInput, InvalidKeySigningKeyStatus, InvalidKMSArn, KeySigningKeyWithActiveStatusNotFound, NoSuchHostedZone]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const enableHostedZoneDNSSEC = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-01", uri: "/2013-04-01/hostedzone/{HostedZoneId}/enable-dnssec", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.EnableHostedZoneDNSSEC" }, EnableHostedZoneDNSSECRequest, EnableHostedZoneDNSSECResponse, [ConcurrentModification, DNSSECNotFound, HostedZonePartiallyDelegated, InvalidArgument, InvalidInput, InvalidKeySigningKeyStatus, InvalidKMSArn, KeySigningKeyWithActiveStatusNotFound, NoSuchHostedZone]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Gets information about whether a specified geographic location is supported for Amazon
  * Route 53 geolocation resource record sets.
@@ -1095,7 +1095,7 @@ export class TooManyKeySigningKeys extends S.TaggedError<TooManyKeySigningKeys>(
  * For more information about updating health checks, see Creating,
  * Updating, and Deleting Health Checks in the Amazon Route 53
  * Developer Guide.
- */export const updateHealthCheck = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-01", uri: "/2013-04-01/healthcheck/{HealthCheckId}", method: "POST", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.UpdateHealthCheck" }, UpdateHealthCheckRequest, UpdateHealthCheckResponse, [HealthCheckVersionMismatch, InvalidInput, NoSuchHealthCheck]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const updateHealthCheck = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-01", uri: "/2013-04-01/healthcheck/{HealthCheckId}", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.UpdateHealthCheck" }, UpdateHealthCheckRequest, UpdateHealthCheckResponse, [HealthCheckVersionMismatch, InvalidInput, NoSuchHealthCheck]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Creates, changes, or deletes CIDR blocks within a collection. Contains authoritative
  * IP information mapping blocks to one or multiple locations.
@@ -1130,7 +1130,7 @@ export class TooManyKeySigningKeys extends S.TaggedError<TooManyKeySigningKeys>(
  * 
  * - ` DELETE_IF_EXISTS`: Delete an existing CIDR block from the
  * collection.
- */export const changeCidrCollection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-01", uri: "/2013-04-01/cidrcollection/{Id}", method: "POST", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.ChangeCidrCollection" }, ChangeCidrCollectionRequest, ChangeCidrCollectionResponse, [CidrBlockInUseException, CidrCollectionVersionMismatchException, ConcurrentModification, InvalidInput, LimitsExceeded, NoSuchCidrCollectionException]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const changeCidrCollection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-01", uri: "/2013-04-01/cidrcollection/{Id}", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.ChangeCidrCollection" }, ChangeCidrCollectionRequest, ChangeCidrCollectionResponse, [CidrBlockInUseException, CidrCollectionVersionMismatchException, ConcurrentModification, InvalidInput, LimitsExceeded, NoSuchCidrCollectionException]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Creates, changes, or deletes a resource record set, which contains authoritative DNS
  * information for a specified domain name or subdomain name. For example, you can use
@@ -1261,7 +1261,7 @@ export class TooManyKeySigningKeys extends S.TaggedError<TooManyKeySigningKeys>(
  * 
  * For information about the limits on a `ChangeResourceRecordSets` request,
  * see Limits in the *Amazon Route 53 Developer Guide*.
- */export const changeResourceRecordSets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-01", uri: "/2013-04-01/hostedzone/{HostedZoneId}/rrset", method: "POST", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.ChangeResourceRecordSets" }, ChangeResourceRecordSetsRequest, ChangeResourceRecordSetsResponse, [InvalidChangeBatch, InvalidInput, NoSuchHealthCheck, NoSuchHostedZone, PriorRequestNotComplete]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const changeResourceRecordSets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-01", uri: "/2013-04-01/hostedzone/{HostedZoneId}/rrset", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.ChangeResourceRecordSets" }, ChangeResourceRecordSetsRequest, ChangeResourceRecordSetsResponse, [InvalidChangeBatch, InvalidInput, NoSuchHealthCheck, NoSuchHostedZone, PriorRequestNotComplete]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Creates a new health check.
  * 
@@ -1309,12 +1309,12 @@ export class TooManyKeySigningKeys extends S.TaggedError<TooManyKeySigningKeys>(
  * about creating CloudWatch metrics and alarms by using the CloudWatch console,
  * see the Amazon
  * CloudWatch User Guide.
- */export const createHealthCheck = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-01", uri: "/2013-04-01/healthcheck", method: "POST", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.CreateHealthCheck" }, CreateHealthCheckRequest, CreateHealthCheckResponse, [HealthCheckAlreadyExists, InvalidInput, TooManyHealthChecks]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const createHealthCheck = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-01", uri: "/2013-04-01/healthcheck", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.CreateHealthCheck" }, CreateHealthCheckRequest, CreateHealthCheckResponse, [HealthCheckAlreadyExists, InvalidInput, TooManyHealthChecks]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Creates a traffic policy, which you use to create multiple DNS resource record sets
  * for one domain name (such as example.com) or one subdomain name (such as
  * www.example.com).
- */export const createTrafficPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-01", uri: "/2013-04-01/trafficpolicy", method: "POST", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.CreateTrafficPolicy" }, CreateTrafficPolicyRequest, CreateTrafficPolicyResponse, [InvalidInput, InvalidTrafficPolicyDocument, TooManyTrafficPolicies, TrafficPolicyAlreadyExists]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const createTrafficPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-01", uri: "/2013-04-01/trafficpolicy", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.CreateTrafficPolicy" }, CreateTrafficPolicyRequest, CreateTrafficPolicyResponse, [InvalidInput, InvalidTrafficPolicyDocument, TooManyTrafficPolicies, TrafficPolicyAlreadyExists]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Creates resource record sets in a specified hosted zone based on the settings in a
  * specified traffic policy version. In addition, `CreateTrafficPolicyInstance`
@@ -1332,11 +1332,11 @@ export class TooManyKeySigningKeys extends S.TaggedError<TooManyKeySigningKeys>(
  * Use `GetTrafficPolicyInstance` with the `id` of new traffic policy instance to confirm that the `CreateTrafficPolicyInstance`
  * request completed successfully. For more information, see the
  * `State` response element.
- */export const createTrafficPolicyInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-01", uri: "/2013-04-01/trafficpolicyinstance", method: "POST", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.CreateTrafficPolicyInstance" }, CreateTrafficPolicyInstanceRequest, CreateTrafficPolicyInstanceResponse, [InvalidInput, NoSuchHostedZone, NoSuchTrafficPolicy, TooManyTrafficPolicyInstances, TrafficPolicyInstanceAlreadyExists]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const createTrafficPolicyInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-01", uri: "/2013-04-01/trafficpolicyinstance", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.CreateTrafficPolicyInstance" }, CreateTrafficPolicyInstanceRequest, CreateTrafficPolicyInstanceResponse, [InvalidInput, NoSuchHostedZone, NoSuchTrafficPolicy, TooManyTrafficPolicyInstances, TrafficPolicyInstanceAlreadyExists]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Deactivates a key-signing key (KSK) so that it will not be used for signing by DNSSEC.
  * This operation changes the KSK status to `INACTIVE`.
- */export const deactivateKeySigningKey = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-01", uri: "/2013-04-01/keysigningkey/{HostedZoneId}/{Name}/deactivate", method: "POST", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.DeactivateKeySigningKey" }, DeactivateKeySigningKeyRequest, DeactivateKeySigningKeyResponse, [ConcurrentModification, InvalidInput, InvalidKeySigningKeyStatus, InvalidSigningStatus, KeySigningKeyInParentDSRecord, KeySigningKeyInUse, NoSuchKeySigningKey]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const deactivateKeySigningKey = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-01", uri: "/2013-04-01/keysigningkey/{HostedZoneId}/{Name}/deactivate", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.DeactivateKeySigningKey" }, DeactivateKeySigningKeyRequest, DeactivateKeySigningKeyResponse, [ConcurrentModification, InvalidInput, InvalidKeySigningKeyStatus, InvalidSigningStatus, KeySigningKeyInParentDSRecord, KeySigningKeyInUse, NoSuchKeySigningKey]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Gets information about a specified health check.
  */export const getHealthCheck = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-01", uri: "/2013-04-01/healthcheck/{HealthCheckId}", method: "GET", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.GetHealthCheck" }, GetHealthCheckRequest, GetHealthCheckResponse, [IncompatibleVersion, InvalidInput, NoSuchHealthCheck]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
@@ -1527,7 +1527,7 @@ export class TooManyKeySigningKeys extends S.TaggedError<TooManyKeySigningKeys>(
  * 
  * For more information, see Access Management
  * in the *Amazon Web Services General Reference*.
- */export const associateVPCWithHostedZone = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-01", uri: "/2013-04-01/hostedzone/{HostedZoneId}/associatevpc", method: "POST", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.AssociateVPCWithHostedZone" }, AssociateVPCWithHostedZoneRequest, AssociateVPCWithHostedZoneResponse, [ConflictingDomainExists, InvalidInput, InvalidVPCId, LimitsExceeded, NoSuchHostedZone, NotAuthorizedException, PriorRequestNotComplete, PublicZoneVPCAssociation]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const associateVPCWithHostedZone = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-01", uri: "/2013-04-01/hostedzone/{HostedZoneId}/associatevpc", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.AssociateVPCWithHostedZone" }, AssociateVPCWithHostedZoneRequest, AssociateVPCWithHostedZoneResponse, [ConflictingDomainExists, InvalidInput, InvalidVPCId, LimitsExceeded, NoSuchHostedZone, NotAuthorizedException, PriorRequestNotComplete, PublicZoneVPCAssociation]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Creates a new public or private hosted zone. You create records in a public hosted
  * zone to define how you want to route traffic on the internet for a domain, such as
@@ -1617,7 +1617,7 @@ export class TooManyKeySigningKeys extends S.TaggedError<TooManyKeySigningKeys>(
  * 
  * For more information, see Access Management
  * in the *Amazon Web Services General Reference*.
- */export const createHostedZone = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-01", uri: "/2013-04-01/hostedzone", method: "POST", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.CreateHostedZone" }, CreateHostedZoneRequest, CreateHostedZoneResponse, [ConflictingDomainExists, DelegationSetNotAvailable, DelegationSetNotReusable, HostedZoneAlreadyExists, InvalidDomainName, InvalidInput, InvalidVPCId, NoSuchDelegationSet, TooManyHostedZones]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const createHostedZone = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-01", uri: "/2013-04-01/hostedzone", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.CreateHostedZone" }, CreateHostedZoneRequest, CreateHostedZoneResponse, [ConflictingDomainExists, DelegationSetNotAvailable, DelegationSetNotReusable, HostedZoneAlreadyExists, InvalidDomainName, InvalidInput, InvalidVPCId, NoSuchDelegationSet, TooManyHostedZones]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Creates a configuration for DNS query logging. After you create a query logging
  * configuration, Amazon Route 53 begins to publish log data to an Amazon CloudWatch Logs
@@ -1858,7 +1858,7 @@ export class TooManyKeySigningKeys extends S.TaggedError<TooManyKeySigningKeys>(
  * 
  * If you want Route 53 to stop sending query logs to CloudWatch Logs, delete
  * the query logging configuration. For more information, see DeleteQueryLoggingConfig.
- */export const createQueryLoggingConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-01", uri: "/2013-04-01/queryloggingconfig", method: "POST", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.CreateQueryLoggingConfig" }, CreateQueryLoggingConfigRequest, CreateQueryLoggingConfigResponse, [ConcurrentModification, InsufficientCloudWatchLogsResourcePolicy, InvalidInput, NoSuchCloudWatchLogsLogGroup, NoSuchHostedZone, QueryLoggingConfigAlreadyExists]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const createQueryLoggingConfig = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-01", uri: "/2013-04-01/queryloggingconfig", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.CreateQueryLoggingConfig" }, CreateQueryLoggingConfigRequest, CreateQueryLoggingConfigResponse, [ConcurrentModification, InsufficientCloudWatchLogsResourcePolicy, InvalidInput, NoSuchCloudWatchLogsLogGroup, NoSuchHostedZone, QueryLoggingConfigAlreadyExists]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Creates a delegation set (a group of four name servers) that can be reused by multiple
  * hosted zones that were created by the same Amazon Web Services account.
@@ -1937,8 +1937,8 @@ export class TooManyKeySigningKeys extends S.TaggedError<TooManyKeySigningKeys>(
  * have overlapping name servers to hosted zones that don't have overlapping name
  * servers, then migrate the hosted zones again to use the reusable delegation
  * set.
- */export const createReusableDelegationSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-01", uri: "/2013-04-01/delegationset", method: "POST", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.CreateReusableDelegationSet" }, CreateReusableDelegationSetRequest, CreateReusableDelegationSetResponse, [DelegationSetAlreadyCreated, DelegationSetAlreadyReusable, DelegationSetNotAvailable, HostedZoneNotFound, InvalidArgument, InvalidInput, LimitsExceeded]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const createReusableDelegationSet = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-01", uri: "/2013-04-01/delegationset", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.CreateReusableDelegationSet" }, CreateReusableDelegationSetRequest, CreateReusableDelegationSetResponse, [DelegationSetAlreadyCreated, DelegationSetAlreadyReusable, DelegationSetNotAvailable, HostedZoneNotFound, InvalidArgument, InvalidInput, LimitsExceeded]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
 /**
  * Creates a new key-signing key (KSK) associated with a hosted zone. You can only have
  * two KSKs per hosted zone.
- */export const createKeySigningKey = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-01", uri: "/2013-04-01/keysigningkey", method: "POST", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.CreateKeySigningKey" }, CreateKeySigningKeyRequest, CreateKeySigningKeyResponse, [ConcurrentModification, InvalidArgument, InvalidInput, InvalidKeySigningKeyName, InvalidKeySigningKeyStatus, InvalidKMSArn, InvalidSigningStatus, KeySigningKeyAlreadyExists, NoSuchHostedZone, TooManyKeySigningKeys]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);
+ */export const createKeySigningKey = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2013-04-01", uri: "/2013-04-01/keysigningkey", sdkId: "Route 53", sigV4ServiceName: "route53", name: "AWSDnsV20130401.CreateKeySigningKey" }, CreateKeySigningKeyRequest, CreateKeySigningKeyResponse, [ConcurrentModification, InvalidArgument, InvalidInput, InvalidKeySigningKeyName, InvalidKeySigningKeyStatus, InvalidKMSArn, InvalidSigningStatus, KeySigningKeyAlreadyExists, NoSuchHostedZone, TooManyKeySigningKeys]), FormatXMLRequest, FormatXMLResponse, FormatAwsXMLError);

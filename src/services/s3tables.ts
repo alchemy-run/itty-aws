@@ -53,4 +53,4 @@ export class TooManyRequestsException extends S.TaggedError<TooManyRequestsExcep
  * ### Permissions
  * 
  * For tables and table buckets, you must have the `s3tables:TagResource` permission to use this operation.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/tag/{resourceArn}", method: "POST", sdkId: "S3Tables", sigV4ServiceName: "s3tables", name: "S3TableBuckets.TagResource" }, TagResourceRequest, TagResourceResponse, [BadRequestException, ConflictException, ForbiddenException, InternalServerErrorException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-05-10", uri: "/tag/{resourceArn}", sdkId: "S3Tables", sigV4ServiceName: "s3tables", name: "S3TableBuckets.TagResource" }, TagResourceRequest, TagResourceResponse, [BadRequestException, ConflictException, ForbiddenException, InternalServerErrorException, NotFoundException, TooManyRequestsException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

@@ -239,10 +239,10 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * 
  * You can delete only predictor that have a status of `ACTIVE` or
  * `CREATE_FAILED`. To get the status, use the DescribeExplainability operation.
- */export const deleteExplainability = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", uri: "/", method: "POST", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.DeleteExplainability" }, DeleteExplainabilityRequest, S.Struct({}), [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteExplainability = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.DeleteExplainability" }, DeleteExplainabilityRequest, S.Struct({}), [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an Explainability export.
- */export const deleteExplainabilityExport = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", uri: "/", method: "POST", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.DeleteExplainabilityExport" }, DeleteExplainabilityExportRequest, S.Struct({}), [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteExplainabilityExport = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.DeleteExplainabilityExport" }, DeleteExplainabilityExportRequest, S.Struct({}), [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a forecast created using the CreateForecast operation. You can
  * delete only forecasts that have a status of `ACTIVE` or `CREATE_FAILED`.
@@ -251,22 +251,22 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * 
  * You can't delete a forecast while it is being exported. After a forecast is deleted, you
  * can no longer query the forecast.
- */export const deleteForecast = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", uri: "/", method: "POST", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.DeleteForecast" }, DeleteForecastRequest, S.Struct({}), [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteForecast = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.DeleteForecast" }, DeleteForecastRequest, S.Struct({}), [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a forecast export job created using the CreateForecastExportJob
  * operation. You can delete only export jobs that have a status of `ACTIVE` or
  * `CREATE_FAILED`. To get the status, use the DescribeForecastExportJob operation.
- */export const deleteForecastExportJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", uri: "/", method: "POST", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.DeleteForecastExportJob" }, DeleteForecastExportJobRequest, S.Struct({}), [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteForecastExportJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.DeleteForecastExportJob" }, DeleteForecastExportJobRequest, S.Struct({}), [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a monitor resource. You can only delete a monitor resource with a status of `ACTIVE`, `ACTIVE_STOPPED`, `CREATE_FAILED`, or `CREATE_STOPPED`.
- */export const deleteMonitor = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", uri: "/", method: "POST", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.DeleteMonitor" }, DeleteMonitorRequest, S.Struct({}), [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteMonitor = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.DeleteMonitor" }, DeleteMonitorRequest, S.Struct({}), [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a predictor created using the DescribePredictor or CreatePredictor operations. You can delete only predictor that have a status of
  * `ACTIVE` or `CREATE_FAILED`. To get the status, use the DescribePredictor operation.
- */export const deletePredictor = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", uri: "/", method: "POST", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.DeletePredictor" }, DeletePredictorRequest, S.Struct({}), [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deletePredictor = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.DeletePredictor" }, DeletePredictorRequest, S.Struct({}), [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a predictor backtest export job.
- */export const deletePredictorBacktestExportJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", uri: "/", method: "POST", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.DeletePredictorBacktestExportJob" }, DeletePredictorBacktestExportJobRequest, S.Struct({}), [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deletePredictorBacktestExportJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.DeletePredictorBacktestExportJob" }, DeletePredictorBacktestExportJobRequest, S.Struct({}), [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an entire resource tree. This operation will delete the parent resource and
  * its child resources.
@@ -306,25 +306,25 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * 
  * `DeleteResourceTree` will only delete Amazon Forecast resources, and will not
  * delete datasets or exported files stored in Amazon S3.
- */export const deleteResourceTree = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", uri: "/", method: "POST", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.DeleteResourceTree" }, DeleteResourceTreeRequest, S.Struct({}), [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteResourceTree = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.DeleteResourceTree" }, DeleteResourceTreeRequest, S.Struct({}), [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a what-if analysis created using the CreateWhatIfAnalysis
  * operation. You can delete only what-if analyses that have a status of `ACTIVE` or `CREATE_FAILED`. To get the status, use the DescribeWhatIfAnalysis operation.
  * 
  * 
  * You can't delete a what-if analysis while any of its forecasts are being exported.
- */export const deleteWhatIfAnalysis = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", uri: "/", method: "POST", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.DeleteWhatIfAnalysis" }, DeleteWhatIfAnalysisRequest, S.Struct({}), [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteWhatIfAnalysis = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.DeleteWhatIfAnalysis" }, DeleteWhatIfAnalysisRequest, S.Struct({}), [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a what-if forecast created using the CreateWhatIfForecast
  * operation. You can delete only what-if forecasts that have a status of `ACTIVE` or `CREATE_FAILED`. To get the status, use the DescribeWhatIfForecast operation.
  * 
  * 
  * You can't delete a what-if forecast while it is being exported. After a what-if forecast is deleted, you can no longer query the what-if analysis.
- */export const deleteWhatIfForecast = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", uri: "/", method: "POST", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.DeleteWhatIfForecast" }, DeleteWhatIfForecastRequest, S.Struct({}), [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteWhatIfForecast = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.DeleteWhatIfForecast" }, DeleteWhatIfForecastRequest, S.Struct({}), [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a what-if forecast export created using the CreateWhatIfForecastExport
  * operation. You can delete only what-if forecast exports that have a status of `ACTIVE` or `CREATE_FAILED`. To get the status, use the DescribeWhatIfForecastExport operation.
- */export const deleteWhatIfForecastExport = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", uri: "/", method: "POST", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.DeleteWhatIfForecastExport" }, DeleteWhatIfForecastExportRequest, S.Struct({}), [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteWhatIfForecastExport = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.DeleteWhatIfForecastExport" }, DeleteWhatIfForecastExportRequest, S.Struct({}), [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Stops a resource.
  * 
@@ -364,16 +364,16 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * 
  * 
  * - Explainability Export Job
- */export const stopResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", uri: "/", method: "POST", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.StopResource" }, StopResourceRequest, S.Struct({}), [InvalidInputException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const stopResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.StopResource" }, StopResourceRequest, S.Struct({}), [InvalidInputException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Associates the specified tags to a resource with the specified `resourceArn`.
  * If existing tags on a resource are not specified in the request parameters, they are not
  * changed. When a resource is deleted, the tags associated with that resource are also
  * deleted.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", uri: "/", method: "POST", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.TagResource" }, TagResourceRequest, TagResourceResponse, [InvalidInputException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.TagResource" }, TagResourceRequest, TagResourceResponse, [InvalidInputException, LimitExceededException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified tags from a resource.
- */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", uri: "/", method: "POST", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Replaces the datasets in a dataset group with the specified datasets.
  * 
@@ -383,7 +383,7 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * The `Status` of the dataset group must be `ACTIVE` before you can
  * use the dataset group to create a predictor. Use the DescribeDatasetGroup
  * operation to get the status.
- */export const updateDatasetGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", uri: "/", method: "POST", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.UpdateDatasetGroup" }, UpdateDatasetGroupRequest, UpdateDatasetGroupResponse, [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateDatasetGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.UpdateDatasetGroup" }, UpdateDatasetGroupRequest, UpdateDatasetGroupResponse, [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Exports a forecast created by the CreateForecast operation to your
  * Amazon Simple Storage Service (Amazon S3) bucket. The forecast file name will match the following conventions:
@@ -411,11 +411,11 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * 
  * The `Status` of the forecast export job must be `ACTIVE` before
  * you can access the forecast in your Amazon S3 bucket. To get the status, use the DescribeForecastExportJob operation.
- */export const createForecastExportJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", uri: "/", method: "POST", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.CreateForecastExportJob" }, CreateForecastExportJobRequest, CreateForecastExportJobResponse, [InvalidInputException, LimitExceededException, ResourceAlreadyExistsException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createForecastExportJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.CreateForecastExportJob" }, CreateForecastExportJobRequest, CreateForecastExportJobResponse, [InvalidInputException, LimitExceededException, ResourceAlreadyExistsException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a predictor monitor resource for an existing auto predictor. Predictor monitoring allows you to see how your predictor's performance changes over time.
  * For more information, see Predictor Monitoring.
- */export const createMonitor = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", uri: "/", method: "POST", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.CreateMonitor" }, CreateMonitorRequest, CreateMonitorResponse, [InvalidInputException, LimitExceededException, ResourceAlreadyExistsException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createMonitor = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.CreateMonitor" }, CreateMonitorRequest, CreateMonitorResponse, [InvalidInputException, LimitExceededException, ResourceAlreadyExistsException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Exports backtest forecasts and accuracy metrics generated by the CreateAutoPredictor or CreatePredictor operations. Two
  * folders containing CSV or Parquet files are exported to your specified S3 bucket.
@@ -442,7 +442,7 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * 
  * The `Status` of the export job must be `ACTIVE` before you
  * can access the export in your Amazon S3 bucket. To get the status, use the DescribePredictorBacktestExportJob operation.
- */export const createPredictorBacktestExportJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", uri: "/", method: "POST", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.CreatePredictorBacktestExportJob" }, CreatePredictorBacktestExportJobRequest, CreatePredictorBacktestExportJobResponse, [InvalidInputException, LimitExceededException, ResourceAlreadyExistsException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createPredictorBacktestExportJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.CreatePredictorBacktestExportJob" }, CreatePredictorBacktestExportJobRequest, CreatePredictorBacktestExportJobResponse, [InvalidInputException, LimitExceededException, ResourceAlreadyExistsException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * What-if analysis is a scenario modeling technique where you make a hypothetical change to a time series and
  * compare the forecasts generated by these changes against the baseline, unchanged time series. It is important to
@@ -465,7 +465,7 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * 
  * 
  * The TimeSeriesSelector object defines the items that you want in the what-if analysis.
- */export const createWhatIfAnalysis = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", uri: "/", method: "POST", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.CreateWhatIfAnalysis" }, CreateWhatIfAnalysisRequest, CreateWhatIfAnalysisResponse, [InvalidInputException, LimitExceededException, ResourceAlreadyExistsException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createWhatIfAnalysis = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.CreateWhatIfAnalysis" }, CreateWhatIfAnalysisRequest, CreateWhatIfAnalysisResponse, [InvalidInputException, LimitExceededException, ResourceAlreadyExistsException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Exports a forecast created by the CreateWhatIfForecast operation to your
  * Amazon Simple Storage Service (Amazon S3) bucket. The forecast file name will match the following conventions:
@@ -496,7 +496,7 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * 
  * The `Status` of the forecast export job must be `ACTIVE` before
  * you can access the forecast in your Amazon S3 bucket. To get the status, use the DescribeWhatIfForecastExport operation.
- */export const createWhatIfForecastExport = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", uri: "/", method: "POST", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.CreateWhatIfForecastExport" }, CreateWhatIfForecastExportRequest, CreateWhatIfForecastExportResponse, [InvalidInputException, LimitExceededException, ResourceAlreadyExistsException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createWhatIfForecastExport = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.CreateWhatIfForecastExport" }, CreateWhatIfForecastExportRequest, CreateWhatIfForecastExportResponse, [InvalidInputException, LimitExceededException, ResourceAlreadyExistsException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an Amazon Forecast dataset that was created using the CreateDataset operation. You can
  * only delete datasets that have a status of `ACTIVE` or `CREATE_FAILED`.
@@ -508,7 +508,7 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * Forecast does not automatically update any dataset groups that contain the deleted dataset.
  * In order to update the dataset group, use the UpdateDatasetGroup operation,
  * omitting the deleted dataset's ARN.
- */export const deleteDataset = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", uri: "/", method: "POST", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.DeleteDataset" }, DeleteDatasetRequest, S.Struct({}), [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteDataset = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.DeleteDataset" }, DeleteDatasetRequest, S.Struct({}), [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a dataset group created using the CreateDatasetGroup operation.
  * You can only delete dataset groups that have a status of `ACTIVE`,
@@ -516,13 +516,13 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * 
  * 
  * This operation deletes only the dataset group, not the datasets in the group.
- */export const deleteDatasetGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", uri: "/", method: "POST", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.DeleteDatasetGroup" }, DeleteDatasetGroupRequest, S.Struct({}), [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteDatasetGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.DeleteDatasetGroup" }, DeleteDatasetGroupRequest, S.Struct({}), [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a dataset import job created using the CreateDatasetImportJob
  * operation. You can delete only dataset import jobs that have a status of `ACTIVE`
  * or `CREATE_FAILED`. To get the status, use the DescribeDatasetImportJob
  * operation.
- */export const deleteDatasetImportJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", uri: "/", method: "POST", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.DeleteDatasetImportJob" }, DeleteDatasetImportJobRequest, S.Struct({}), [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteDatasetImportJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.DeleteDatasetImportJob" }, DeleteDatasetImportJobRequest, S.Struct({}), [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes an Amazon Forecast dataset created using the CreateDataset operation.
  * 
@@ -543,7 +543,7 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * 
  * 
  * - `Status`
- */export const describeDataset = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", uri: "/", method: "POST", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.DescribeDataset" }, DescribeDatasetRequest, DescribeDatasetResponse, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeDataset = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.DescribeDataset" }, DescribeDatasetRequest, DescribeDatasetResponse, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes a dataset group created using the CreateDatasetGroup
  * operation.
@@ -569,13 +569,13 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * 
  * 
  * - `Status`
- */export const describeDatasetGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", uri: "/", method: "POST", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.DescribeDatasetGroup" }, DescribeDatasetGroupRequest, DescribeDatasetGroupResponse, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeDatasetGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.DescribeDatasetGroup" }, DescribeDatasetGroupRequest, DescribeDatasetGroupResponse, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes an Explainability resource created using the CreateExplainability operation.
- */export const describeExplainability = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", uri: "/", method: "POST", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.DescribeExplainability" }, DescribeExplainabilityRequest, DescribeExplainabilityResponse, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeExplainability = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.DescribeExplainability" }, DescribeExplainabilityRequest, DescribeExplainabilityResponse, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes an Explainability export created using the CreateExplainabilityExport operation.
- */export const describeExplainabilityExport = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", uri: "/", method: "POST", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.DescribeExplainabilityExport" }, DescribeExplainabilityExportRequest, DescribeExplainabilityExportResponse, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeExplainabilityExport = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.DescribeExplainabilityExport" }, DescribeExplainabilityExportRequest, DescribeExplainabilityExportResponse, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes a forecast created using the CreateForecast operation.
  * 
@@ -606,7 +606,7 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * 
  * 
  * - `Message` - If an error occurred, information about the error.
- */export const describeForecast = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", uri: "/", method: "POST", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.DescribeForecast" }, DescribeForecastRequest, DescribeForecastResponse, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeForecast = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.DescribeForecast" }, DescribeForecastRequest, DescribeForecastResponse, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes a forecast export job created using the CreateForecastExportJob operation.
  * 
@@ -633,7 +633,7 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * 
  * 
  * - `Message` - If an error occurred, information about the error.
- */export const describeForecastExportJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", uri: "/", method: "POST", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.DescribeForecastExportJob" }, DescribeForecastExportJobRequest, DescribeForecastExportJobResponse, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeForecastExportJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.DescribeForecastExportJob" }, DescribeForecastExportJobRequest, DescribeForecastExportJobResponse, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes a predictor backtest export job created using the CreatePredictorBacktestExportJob operation.
  * 
@@ -660,7 +660,7 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * 
  * 
  * - `Message` (if an error occurred)
- */export const describePredictorBacktestExportJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", uri: "/", method: "POST", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.DescribePredictorBacktestExportJob" }, DescribePredictorBacktestExportJobRequest, DescribePredictorBacktestExportJobResponse, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describePredictorBacktestExportJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.DescribePredictorBacktestExportJob" }, DescribePredictorBacktestExportJobRequest, DescribePredictorBacktestExportJobResponse, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes the what-if analysis created using the CreateWhatIfAnalysis operation.
  * 
@@ -684,7 +684,7 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * 
  * 
  * - `Status`
- */export const describeWhatIfAnalysis = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", uri: "/", method: "POST", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.DescribeWhatIfAnalysis" }, DescribeWhatIfAnalysisRequest, DescribeWhatIfAnalysisResponse, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeWhatIfAnalysis = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.DescribeWhatIfAnalysis" }, DescribeWhatIfAnalysisRequest, DescribeWhatIfAnalysisResponse, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes the what-if forecast created using the CreateWhatIfForecast operation.
  * 
@@ -708,7 +708,7 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * 
  * 
  * - `Status`
- */export const describeWhatIfForecast = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", uri: "/", method: "POST", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.DescribeWhatIfForecast" }, DescribeWhatIfForecastRequest, DescribeWhatIfForecastResponse, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeWhatIfForecast = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.DescribeWhatIfForecast" }, DescribeWhatIfForecastRequest, DescribeWhatIfForecastResponse, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes the what-if forecast export created using the CreateWhatIfForecastExport operation.
  * 
@@ -732,13 +732,13 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * 
  * 
  * - `Status`
- */export const describeWhatIfForecastExport = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", uri: "/", method: "POST", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.DescribeWhatIfForecastExport" }, DescribeWhatIfForecastExportRequest, DescribeWhatIfForecastExportResponse, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeWhatIfForecastExport = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.DescribeWhatIfForecastExport" }, DescribeWhatIfForecastExportRequest, DescribeWhatIfForecastExportResponse, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the tags for an Amazon Forecast resource.
- */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", uri: "/", method: "POST", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Resumes a stopped monitor resource.
- */export const resumeResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", uri: "/", method: "POST", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.ResumeResource" }, ResumeResourceRequest, S.Struct({}), [InvalidInputException, LimitExceededException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const resumeResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.ResumeResource" }, ResumeResourceRequest, S.Struct({}), [InvalidInputException, LimitExceededException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a dataset group, which holds a collection of related datasets. You can add
  * datasets to the dataset group when you create the dataset group, or later by using the UpdateDatasetGroup operation.
@@ -756,7 +756,7 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * 
  * The `Status` of a dataset group must be `ACTIVE` before you can
  * use the dataset group to create a predictor. To get the status, use the DescribeDatasetGroup operation.
- */export const createDatasetGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", uri: "/", method: "POST", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.CreateDatasetGroup" }, CreateDatasetGroupRequest, CreateDatasetGroupResponse, [InvalidInputException, LimitExceededException, ResourceAlreadyExistsException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createDatasetGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.CreateDatasetGroup" }, CreateDatasetGroupRequest, CreateDatasetGroupResponse, [InvalidInputException, LimitExceededException, ResourceAlreadyExistsException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Explainability is only available for Forecasts and Predictors generated from an
  * AutoPredictor (CreateAutoPredictor)
@@ -909,7 +909,7 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * 
  * - `EndDateTime` - The last timestamp in the range of time
  * points.
- */export const createExplainability = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", uri: "/", method: "POST", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.CreateExplainability" }, CreateExplainabilityRequest, CreateExplainabilityResponse, [InvalidInputException, LimitExceededException, ResourceAlreadyExistsException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createExplainability = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.CreateExplainability" }, CreateExplainabilityRequest, CreateExplainabilityResponse, [InvalidInputException, LimitExceededException, ResourceAlreadyExistsException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Exports an Explainability resource created by the CreateExplainability operation. Exported files are exported to an Amazon Simple Storage Service (Amazon
  * S3) bucket.
@@ -924,15 +924,15 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * 
  * The `Status` of the export job must be `ACTIVE` before you
  * can access the export in your Amazon S3 bucket. To get the status, use the DescribeExplainabilityExport operation.
- */export const createExplainabilityExport = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", uri: "/", method: "POST", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.CreateExplainabilityExport" }, CreateExplainabilityExportRequest, CreateExplainabilityExportResponse, [InvalidInputException, LimitExceededException, ResourceAlreadyExistsException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createExplainabilityExport = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.CreateExplainabilityExport" }, CreateExplainabilityExportRequest, CreateExplainabilityExportResponse, [InvalidInputException, LimitExceededException, ResourceAlreadyExistsException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes a predictor created using the CreateAutoPredictor operation.
- */export const describeAutoPredictor = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", uri: "/", method: "POST", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.DescribeAutoPredictor" }, DescribeAutoPredictorRequest, DescribeAutoPredictorResponse, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeAutoPredictor = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.DescribeAutoPredictor" }, DescribeAutoPredictorRequest, DescribeAutoPredictorResponse, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of datasets created using the CreateDataset operation. For each
  * dataset, a summary of its properties, including its Amazon Resource Name (ARN), is returned.
  * To retrieve the complete set of properties, use the ARN with the DescribeDataset operation.
- */export const listDatasets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", uri: "/", method: "POST", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.ListDatasets" }, ListDatasetsRequest, ListDatasetsResponse, [InvalidNextTokenException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listDatasets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.ListDatasets" }, ListDatasetsRequest, ListDatasetsResponse, [InvalidNextTokenException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of Explainability resources created using the CreateExplainability operation. This operation returns a summary for
  * each Explainability. You can filter the list using an array of Filter
@@ -941,7 +941,7 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * 
  * To retrieve the complete set of properties for a particular Explainability resource,
  * use the ARN with the DescribeExplainability operation.
- */export const listExplainabilities = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", uri: "/", method: "POST", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.ListExplainabilities" }, ListExplainabilitiesRequest, ListExplainabilitiesResponse, [InvalidInputException, InvalidNextTokenException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listExplainabilities = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.ListExplainabilities" }, ListExplainabilitiesRequest, ListExplainabilitiesResponse, [InvalidInputException, InvalidNextTokenException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of Explainability exports created using the CreateExplainabilityExport operation. This operation returns a summary
  * for each Explainability export. You can filter the list using an array of Filter objects.
@@ -949,24 +949,24 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * 
  * To retrieve the complete set of properties for a particular Explainability export, use
  * the ARN with the DescribeExplainability operation.
- */export const listExplainabilityExports = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", uri: "/", method: "POST", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.ListExplainabilityExports" }, ListExplainabilityExportsRequest, ListExplainabilityExportsResponse, [InvalidInputException, InvalidNextTokenException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listExplainabilityExports = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.ListExplainabilityExports" }, ListExplainabilityExportsRequest, ListExplainabilityExportsResponse, [InvalidInputException, InvalidNextTokenException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of forecast export jobs created using the CreateForecastExportJob operation. For each forecast export job, this operation
  * returns a summary of its properties, including its Amazon Resource Name (ARN). To retrieve the
  * complete set of properties, use the ARN with the DescribeForecastExportJob
  * operation. You can filter the list using an array of Filter objects.
- */export const listForecastExportJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", uri: "/", method: "POST", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.ListForecastExportJobs" }, ListForecastExportJobsRequest, ListForecastExportJobsResponse, [InvalidInputException, InvalidNextTokenException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listForecastExportJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.ListForecastExportJobs" }, ListForecastExportJobsRequest, ListForecastExportJobsResponse, [InvalidInputException, InvalidNextTokenException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of forecasts created using the CreateForecast operation.
  * For each forecast, this operation returns a summary of its properties, including its Amazon
  * Resource Name (ARN). To retrieve the complete set of properties, specify the ARN with the
  * DescribeForecast operation. You can filter the list using an array of
  * Filter objects.
- */export const listForecasts = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", uri: "/", method: "POST", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.ListForecasts" }, ListForecastsRequest, ListForecastsResponse, [InvalidInputException, InvalidNextTokenException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listForecasts = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.ListForecasts" }, ListForecastsRequest, ListForecastsResponse, [InvalidInputException, InvalidNextTokenException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of monitors created with the CreateMonitor operation and CreateAutoPredictor operation. For each monitor resource, this operation returns of a summary of its properties, including its Amazon Resource Name (ARN). You
  * can retrieve a complete set of properties of a monitor resource by specify the monitor's ARN in the DescribeMonitor operation.
- */export const listMonitors = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", uri: "/", method: "POST", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.ListMonitors" }, ListMonitorsRequest, ListMonitorsResponse, [InvalidInputException, InvalidNextTokenException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listMonitors = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.ListMonitors" }, ListMonitorsRequest, ListMonitorsResponse, [InvalidInputException, InvalidNextTokenException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of predictor backtest export jobs created using the CreatePredictorBacktestExportJob operation. This operation returns a
  * summary for each backtest export job. You can filter the list using an array of Filter objects.
@@ -974,7 +974,7 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * 
  * To retrieve the complete set of properties for a particular backtest export job, use
  * the ARN with the DescribePredictorBacktestExportJob operation.
- */export const listPredictorBacktestExportJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", uri: "/", method: "POST", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.ListPredictorBacktestExportJobs" }, ListPredictorBacktestExportJobsRequest, ListPredictorBacktestExportJobsResponse, [InvalidInputException, InvalidNextTokenException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listPredictorBacktestExportJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.ListPredictorBacktestExportJobs" }, ListPredictorBacktestExportJobsRequest, ListPredictorBacktestExportJobsResponse, [InvalidInputException, InvalidNextTokenException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of predictors created using the CreateAutoPredictor or
  * CreatePredictor operations. For each predictor, this operation returns a
@@ -983,16 +983,16 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * 
  * You can retrieve the complete set of properties by using the ARN with the DescribeAutoPredictor and DescribePredictor operations. You
  * can filter the list using an array of Filter objects.
- */export const listPredictors = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", uri: "/", method: "POST", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.ListPredictors" }, ListPredictorsRequest, ListPredictorsResponse, [InvalidInputException, InvalidNextTokenException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listPredictors = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.ListPredictors" }, ListPredictorsRequest, ListPredictorsResponse, [InvalidInputException, InvalidNextTokenException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of what-if analyses created using the CreateWhatIfAnalysis operation. For each what-if analysis, this operation returns a summary of its properties, including its Amazon Resource Name (ARN). You can retrieve the complete set of properties by using the what-if analysis ARN with the DescribeWhatIfAnalysis operation.
- */export const listWhatIfAnalyses = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", uri: "/", method: "POST", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.ListWhatIfAnalyses" }, ListWhatIfAnalysesRequest, ListWhatIfAnalysesResponse, [InvalidInputException, InvalidNextTokenException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listWhatIfAnalyses = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.ListWhatIfAnalyses" }, ListWhatIfAnalysesRequest, ListWhatIfAnalysesResponse, [InvalidInputException, InvalidNextTokenException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of what-if forecast exports created using the CreateWhatIfForecastExport operation. For each what-if forecast export, this operation returns a summary of its properties, including its Amazon Resource Name (ARN). You can retrieve the complete set of properties by using the what-if forecast export ARN with the DescribeWhatIfForecastExport operation.
- */export const listWhatIfForecastExports = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", uri: "/", method: "POST", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.ListWhatIfForecastExports" }, ListWhatIfForecastExportsRequest, ListWhatIfForecastExportsResponse, [InvalidInputException, InvalidNextTokenException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listWhatIfForecastExports = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.ListWhatIfForecastExports" }, ListWhatIfForecastExportsRequest, ListWhatIfForecastExportsResponse, [InvalidInputException, InvalidNextTokenException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of what-if forecasts created using the CreateWhatIfForecast operation. For each what-if forecast, this operation returns a summary of its properties, including its Amazon Resource Name (ARN). You can retrieve the complete set of properties by using the what-if forecast ARN with the DescribeWhatIfForecast operation.
- */export const listWhatIfForecasts = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", uri: "/", method: "POST", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.ListWhatIfForecasts" }, ListWhatIfForecastsRequest, ListWhatIfForecastsResponse, [InvalidInputException, InvalidNextTokenException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listWhatIfForecasts = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.ListWhatIfForecasts" }, ListWhatIfForecastsRequest, ListWhatIfForecastsResponse, [InvalidInputException, InvalidNextTokenException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an Amazon Forecast dataset. The information about the dataset that you provide helps
  * Forecast understand how to consume the data for model training. This includes the
@@ -1045,7 +1045,7 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * The `Status` of a dataset must be `ACTIVE` before you can import
  * training data. Use the DescribeDataset operation to get
  * the status.
- */export const createDataset = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", uri: "/", method: "POST", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.CreateDataset" }, CreateDatasetRequest, CreateDatasetResponse, [InvalidInputException, LimitExceededException, ResourceAlreadyExistsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createDataset = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.CreateDataset" }, CreateDatasetRequest, CreateDatasetResponse, [InvalidInputException, LimitExceededException, ResourceAlreadyExistsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Imports your training data to an Amazon Forecast dataset. You provide the location of your
  * training data in an Amazon Simple Storage Service (Amazon S3) bucket and the Amazon Resource Name (ARN) of the dataset
@@ -1074,7 +1074,7 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * 
  * To get a list of all your dataset import jobs, filtered by specified criteria, use the
  * ListDatasetImportJobs operation.
- */export const createDatasetImportJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", uri: "/", method: "POST", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.CreateDatasetImportJob" }, CreateDatasetImportJobRequest, CreateDatasetImportJobResponse, [InvalidInputException, LimitExceededException, ResourceAlreadyExistsException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createDatasetImportJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.CreateDatasetImportJob" }, CreateDatasetImportJobRequest, CreateDatasetImportJobResponse, [InvalidInputException, LimitExceededException, ResourceAlreadyExistsException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a forecast for each item in the `TARGET_TIME_SERIES` dataset that was
  * used to train the predictor. This is known as inference. To retrieve the forecast for a single
@@ -1113,11 +1113,11 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * 
  * By default, a forecast includes predictions for every item (`item_id`) in the dataset group that was used to train the predictor.
  * However, you can use the `TimeSeriesSelector` object to generate a forecast on a subset of time series. Forecast creation is skipped for any time series that you specify that are not in the input dataset. The forecast export file will not contain these time series or their forecasted values.
- */export const createForecast = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", uri: "/", method: "POST", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.CreateForecast" }, CreateForecastRequest, CreateForecastResponse, [InvalidInputException, LimitExceededException, ResourceAlreadyExistsException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createForecast = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.CreateForecast" }, CreateForecastRequest, CreateForecastResponse, [InvalidInputException, LimitExceededException, ResourceAlreadyExistsException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * A what-if forecast is a forecast that is created from a modified version of the baseline forecast. Each
  * what-if forecast incorporates either a replacement dataset or a set of transformations to the original dataset.
- */export const createWhatIfForecast = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", uri: "/", method: "POST", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.CreateWhatIfForecast" }, CreateWhatIfForecastRequest, CreateWhatIfForecastResponse, [InvalidInputException, LimitExceededException, ResourceAlreadyExistsException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createWhatIfForecast = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.CreateWhatIfForecast" }, CreateWhatIfForecastRequest, CreateWhatIfForecastResponse, [InvalidInputException, LimitExceededException, ResourceAlreadyExistsException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes a dataset import job created using the CreateDatasetImportJob
  * operation.
@@ -1154,21 +1154,21 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * 
  * 
  * - `Message` - If an error occurred, information about the error.
- */export const describeDatasetImportJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", uri: "/", method: "POST", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.DescribeDatasetImportJob" }, DescribeDatasetImportJobRequest, DescribeDatasetImportJobResponse, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeDatasetImportJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.DescribeDatasetImportJob" }, DescribeDatasetImportJobRequest, DescribeDatasetImportJobResponse, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of dataset groups created using the CreateDatasetGroup operation.
  * For each dataset group, this operation returns a summary of its properties, including its
  * Amazon Resource Name (ARN). You can retrieve the complete set of properties by using the
  * dataset group ARN with the DescribeDatasetGroup
  * operation.
- */export const listDatasetGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", uri: "/", method: "POST", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.ListDatasetGroups" }, ListDatasetGroupsRequest, ListDatasetGroupsResponse, [InvalidNextTokenException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listDatasetGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.ListDatasetGroups" }, ListDatasetGroupsRequest, ListDatasetGroupsResponse, [InvalidNextTokenException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of dataset import jobs created using the CreateDatasetImportJob
  * operation. For each import job, this operation returns a summary of its properties, including
  * its Amazon Resource Name (ARN). You can retrieve the complete set of properties by using the
  * ARN with the DescribeDatasetImportJob
  * operation. You can filter the list by providing an array of Filter objects.
- */export const listDatasetImportJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", uri: "/", method: "POST", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.ListDatasetImportJobs" }, ListDatasetImportJobsRequest, ListDatasetImportJobsResponse, [InvalidInputException, InvalidNextTokenException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listDatasetImportJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.ListDatasetImportJobs" }, ListDatasetImportJobsRequest, ListDatasetImportJobsResponse, [InvalidInputException, InvalidNextTokenException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of the monitoring evaluation results and predictor events collected by
  * the monitor resource during different windows of time.
@@ -1176,7 +1176,7 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * 
  * For information about monitoring see predictor-monitoring. For
  * more information about retrieving monitoring results see Viewing Monitoring Results.
- */export const listMonitorEvaluations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", uri: "/", method: "POST", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.ListMonitorEvaluations" }, ListMonitorEvaluationsRequest, ListMonitorEvaluationsResponse, [InvalidInputException, InvalidNextTokenException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listMonitorEvaluations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.ListMonitorEvaluations" }, ListMonitorEvaluationsRequest, ListMonitorEvaluationsResponse, [InvalidInputException, InvalidNextTokenException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an Amazon Forecast predictor.
  * 
@@ -1243,7 +1243,7 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * 
  * When upgrading or retraining a predictor, only specify values for the
  * `ReferencePredictorArn` and `PredictorName`.
- */export const createAutoPredictor = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", uri: "/", method: "POST", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.CreateAutoPredictor" }, CreateAutoPredictorRequest, CreateAutoPredictorResponse, [InvalidInputException, LimitExceededException, ResourceAlreadyExistsException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createAutoPredictor = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.CreateAutoPredictor" }, CreateAutoPredictorRequest, CreateAutoPredictorResponse, [InvalidInputException, LimitExceededException, ResourceAlreadyExistsException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes a monitor resource. In addition to listing the properties provided in the CreateMonitor request, this operation lists the following properties:
  * 
@@ -1280,7 +1280,7 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * 
  * 
  * - `Status`
- */export const describeMonitor = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", uri: "/", method: "POST", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.DescribeMonitor" }, DescribeMonitorRequest, DescribeMonitorResponse, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeMonitor = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.DescribeMonitor" }, DescribeMonitorRequest, DescribeMonitorResponse, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This operation is only valid for legacy predictors created with CreatePredictor. If you
  * are not using a legacy predictor, use DescribeAutoPredictor.
@@ -1323,7 +1323,7 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * 
  * 
  * - `Message` - If an error occurred, information about the error.
- */export const describePredictor = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", uri: "/", method: "POST", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.DescribePredictor" }, DescribePredictorRequest, DescribePredictorResponse, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describePredictor = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.DescribePredictor" }, DescribePredictorRequest, DescribePredictorResponse, [InvalidInputException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This operation creates a legacy predictor that does not include all the predictor
  * functionalities provided by Amazon Forecast. To create a predictor that is compatible with all
@@ -1410,7 +1410,7 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * Before you can use the predictor to create a forecast, the `Status` of the
  * predictor must be `ACTIVE`, signifying that training has completed. To get the
  * status, use the DescribePredictor operation.
- */export const createPredictor = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", uri: "/", method: "POST", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.CreatePredictor" }, CreatePredictorRequest, CreatePredictorResponse, [InvalidInputException, LimitExceededException, ResourceAlreadyExistsException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createPredictor = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.CreatePredictor" }, CreatePredictorRequest, CreatePredictorResponse, [InvalidInputException, LimitExceededException, ResourceAlreadyExistsException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides metrics on the accuracy of the models that were trained by the CreatePredictor operation. Use metrics to see how well the model performed and
  * to decide whether to use the predictor to generate a forecast. For more information, see
@@ -1435,4 +1435,4 @@ export class InvalidNextTokenException extends S.TaggedError<InvalidNextTokenExc
  * Before you can get accuracy metrics, the `Status` of the predictor must be
  * `ACTIVE`, signifying that training has completed. To get the status, use the
  * DescribePredictor operation.
- */export const getAccuracyMetrics = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", uri: "/", method: "POST", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.GetAccuracyMetrics" }, GetAccuracyMetricsRequest, GetAccuracyMetricsResponse, [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getAccuracyMetrics = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2018-06-26", sdkId: "forecast", sigV4ServiceName: "forecast", name: "AmazonForecast.GetAccuracyMetrics" }, GetAccuracyMetricsRequest, GetAccuracyMetricsResponse, [InvalidInputException, ResourceInUseException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

@@ -124,14 +124,14 @@ export class SubnetNotFound extends S.TaggedError<SubnetNotFound>()("SubnetNotFo
  * 
  * This operation requires permissions for the `elasticfilesystem:DeleteTags`
  * action.
- */export const deleteTags = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/delete-tags/{FileSystemId}", method: "POST", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.DeleteTags" }, DeleteTagsRequest, S.Struct({}), [BadRequest, FileSystemNotFound, InternalServerError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteTags = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/delete-tags/{FileSystemId}", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.DeleteTags" }, DeleteTagsRequest, S.Struct({}), [BadRequest, FileSystemNotFound, InternalServerError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a tag for an EFS resource. You can create tags for EFS file
  * systems and access points using this API operation.
  * 
  * 
  * This operation requires permissions for the `elasticfilesystem:TagResource` action.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/resource-tags/{ResourceId}", method: "POST", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.TagResource" }, TagResourceRequest, S.Struct({}), [AccessPointNotFound, BadRequest, FileSystemNotFound, InternalServerError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/resource-tags/{ResourceId}", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.TagResource" }, TagResourceRequest, S.Struct({}), [AccessPointNotFound, BadRequest, FileSystemNotFound, InternalServerError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes tags from an EFS resource. You can remove tags from EFS file
  * systems and access points using this API operation.
@@ -154,7 +154,7 @@ export class SubnetNotFound extends S.TaggedError<SubnetNotFound>()("SubnetNotFo
  * 
  * This operation requires permission for the `elasticfilesystem:CreateTags`
  * action.
- */export const createTags = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/create-tags/{FileSystemId}", method: "POST", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.CreateTags" }, CreateTagsRequest, S.Struct({}), [BadRequest, FileSystemNotFound, InternalServerError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createTags = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/create-tags/{FileSystemId}", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.CreateTags" }, CreateTagsRequest, S.Struct({}), [BadRequest, FileSystemNotFound, InternalServerError]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified access point. After deletion is complete, new clients can no
  * longer connect to the access points. Clients connected to the access point at the time of
@@ -544,7 +544,7 @@ export class SubnetNotFound extends S.TaggedError<SubnetNotFound>()("SubnetNotFo
  * For more information, see Required permissions for replication
  * in the Amazon EFS User
  * Guide.
- */export const createReplicationConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/file-systems/{SourceFileSystemId}/replication-configuration", method: "POST", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.CreateReplicationConfiguration" }, CreateReplicationConfigurationRequest, ReplicationConfigurationDescription, [BadRequest, ConflictException, FileSystemLimitExceeded, FileSystemNotFound, IncorrectFileSystemLifeCycleState, InsufficientThroughputCapacity, InternalServerError, ReplicationNotFound, ThroughputLimitExceeded, UnsupportedAvailabilityZone, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createReplicationConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/file-systems/{SourceFileSystemId}/replication-configuration", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.CreateReplicationConfiguration" }, CreateReplicationConfigurationRequest, ReplicationConfigurationDescription, [BadRequest, ConflictException, FileSystemLimitExceeded, FileSystemNotFound, IncorrectFileSystemLifeCycleState, InsufficientThroughputCapacity, InternalServerError, ReplicationNotFound, ThroughputLimitExceeded, UnsupportedAvailabilityZone, ValidationException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the replication configuration for a specific file system. If a file system is
  * not specified, all of the replication configurations for the Amazon Web Services account in an
@@ -666,7 +666,7 @@ export class SubnetNotFound extends S.TaggedError<SubnetNotFound>()("SubnetNotFo
  * verify if users have permissions to create tags. Therefore, you must grant explicit
  * permissions to use the `elasticfilesystem:TagResource` action. For more
  * information, see Granting permissions to tag resources during creation.
- */export const createFileSystem = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/file-systems", method: "POST", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.CreateFileSystem" }, CreateFileSystemRequest, FileSystemDescription, [BadRequest, FileSystemAlreadyExists, FileSystemLimitExceeded, InsufficientThroughputCapacity, InternalServerError, ThroughputLimitExceeded, UnsupportedAvailabilityZone]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createFileSystem = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/file-systems", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.CreateFileSystem" }, CreateFileSystemRequest, FileSystemDescription, [BadRequest, FileSystemAlreadyExists, FileSystemLimitExceeded, InsufficientThroughputCapacity, InternalServerError, ThroughputLimitExceeded, UnsupportedAvailabilityZone]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an EFS access point. An access point is an application-specific view
  * into an EFS file system that applies an operating system user and group, and a file
@@ -698,7 +698,7 @@ export class SubnetNotFound extends S.TaggedError<SubnetNotFound>()("SubnetNotFo
  * permissions to use the `elasticfilesystem:TagResource` action. For more
  * information, see Granting
  * permissions to tag resources during creation.
- */export const createAccessPoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/access-points", method: "POST", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.CreateAccessPoint" }, CreateAccessPointRequest, AccessPointDescription, [AccessPointAlreadyExists, AccessPointLimitExceeded, BadRequest, FileSystemNotFound, IncorrectFileSystemLifeCycleState, InternalServerError, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createAccessPoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/access-points", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.CreateAccessPoint" }, CreateAccessPointRequest, AccessPointDescription, [AccessPointAlreadyExists, AccessPointLimitExceeded, BadRequest, FileSystemNotFound, IncorrectFileSystemLifeCycleState, InternalServerError, ThrottlingException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a mount target for a file system. You can then mount the file system on EC2
  * instances by using the mount target.
@@ -884,4 +884,4 @@ export class SubnetNotFound extends S.TaggedError<SubnetNotFound>()("SubnetNotFo
  * 
  * 
  * - `ec2:CreateNetworkInterface`
- */export const createMountTarget = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/mount-targets", method: "POST", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.CreateMountTarget" }, CreateMountTargetRequest, MountTargetDescription, [AvailabilityZonesMismatch, BadRequest, FileSystemNotFound, IncorrectFileSystemLifeCycleState, InternalServerError, IpAddressInUse, MountTargetConflict, NetworkInterfaceLimitExceeded, NoFreeAddressesInSubnet, SecurityGroupLimitExceeded, SecurityGroupNotFound, SubnetNotFound, UnsupportedAvailabilityZone]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createMountTarget = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-02-01", uri: "/2015-02-01/mount-targets", sdkId: "EFS", sigV4ServiceName: "elasticfilesystem", name: "MagnolioAPIService_v20150201.CreateMountTarget" }, CreateMountTargetRequest, MountTargetDescription, [AvailabilityZonesMismatch, BadRequest, FileSystemNotFound, IncorrectFileSystemLifeCycleState, InternalServerError, IpAddressInUse, MountTargetConflict, NetworkInterfaceLimitExceeded, NoFreeAddressesInSubnet, SecurityGroupLimitExceeded, SecurityGroupNotFound, SubnetNotFound, UnsupportedAvailabilityZone]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

@@ -246,7 +246,7 @@ export class ResponsibilityTransferAlreadyInStatusException extends S.TaggedErro
  * - After the account leaves the organization, all tags that were attached to
  * the account object in the organization are deleted. Amazon Web Services accounts outside
  * of an organization do not support tags.
- */export const removeAccountFromOrganization = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.RemoveAccountFromOrganization" }, RemoveAccountFromOrganizationRequest, S.Struct({}), [AccessDeniedException, AccountNotFoundException, AWSOrganizationsNotInUseException, ConcurrentModificationException, ConstraintViolationException, InvalidInputException, MasterCannotLeaveOrganizationException, ServiceException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const removeAccountFromOrganization = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.RemoveAccountFromOrganization" }, RemoveAccountFromOrganizationRequest, S.Struct({}), [AccessDeniedException, AccountNotFoundException, AWSOrganizationsNotInUseException, ConcurrentModificationException, ConstraintViolationException, InvalidInputException, MasterCannotLeaveOrganizationException, ServiceException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes any tags with the specified keys from the specified resource.
  * 
@@ -274,7 +274,7 @@ export class ResponsibilityTransferAlreadyInStatusException extends S.TaggedErro
  * 
  * 
  * You can only call this operation from the management account or a member account that is a delegated administrator.
- */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.UntagResource" }, UntagResourceRequest, S.Struct({}), [AccessDeniedException, AWSOrganizationsNotInUseException, ConcurrentModificationException, ConstraintViolationException, InvalidInputException, ServiceException, TargetNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.UntagResource" }, UntagResourceRequest, S.Struct({}), [AccessDeniedException, AWSOrganizationsNotInUseException, ConcurrentModificationException, ConstraintViolationException, InvalidInputException, ServiceException, TargetNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes the specified member Amazon Web Services account as a delegated administrator for the
  * specified Amazon Web Services service.
@@ -298,7 +298,7 @@ export class ResponsibilityTransferAlreadyInStatusException extends S.TaggedErro
  * 
  * 
  * You can only call this operation from the management account.
- */export const deregisterDelegatedAdministrator = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.DeregisterDelegatedAdministrator" }, DeregisterDelegatedAdministratorRequest, S.Struct({}), [AccessDeniedException, AccountNotFoundException, AccountNotRegisteredException, AWSOrganizationsNotInUseException, ConcurrentModificationException, ConstraintViolationException, InvalidInputException, ServiceException, TooManyRequestsException, UnsupportedAPIEndpointException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deregisterDelegatedAdministrator = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.DeregisterDelegatedAdministrator" }, DeregisterDelegatedAdministratorRequest, S.Struct({}), [AccessDeniedException, AccountNotFoundException, AccountNotRegisteredException, AWSOrganizationsNotInUseException, ConcurrentModificationException, ConstraintViolationException, InvalidInputException, ServiceException, TooManyRequestsException, UnsupportedAPIEndpointException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns details for a handshake. A handshake is the secure exchange of information
  * between two Amazon Web Services accounts: a sender and a recipient.
@@ -309,13 +309,13 @@ export class ResponsibilityTransferAlreadyInStatusException extends S.TaggedErro
  * 
  * 
  * You can call this operation from any account in a organization.
- */export const describeHandshake = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.DescribeHandshake" }, DescribeHandshakeRequest, DescribeHandshakeResponse, [AccessDeniedException, ConcurrentModificationException, HandshakeNotFoundException, InvalidInputException, ServiceException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeHandshake = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.DescribeHandshake" }, DescribeHandshakeRequest, DescribeHandshakeResponse, [AccessDeniedException, ConcurrentModificationException, HandshakeNotFoundException, InvalidInputException, ServiceException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves information about a policy.
  * 
  * 
  * You can only call this operation from the management account or a member account that is a delegated administrator.
- */export const describePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.DescribePolicy" }, DescribePolicyRequest, DescribePolicyResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, InvalidInputException, PolicyNotFoundException, ServiceException, TooManyRequestsException, UnsupportedAPIEndpointException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.DescribePolicy" }, DescribePolicyRequest, DescribePolicyResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, InvalidInputException, PolicyNotFoundException, ServiceException, TooManyRequestsException, UnsupportedAPIEndpointException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Disables the integration of an Amazon Web Services service (the service that is specified by
  * `ServicePrincipal`) with Organizations. When you disable integration, the
@@ -392,7 +392,7 @@ export class ResponsibilityTransferAlreadyInStatusException extends S.TaggedErro
  * 
  * 
  * You can only call this operation from the management account.
- */export const disableAWSServiceAccess = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.DisableAWSServiceAccess" }, DisableAWSServiceAccessRequest, S.Struct({}), [AccessDeniedException, AWSOrganizationsNotInUseException, ConcurrentModificationException, ConstraintViolationException, InvalidInputException, ServiceException, TooManyRequestsException, UnsupportedAPIEndpointException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const disableAWSServiceAccess = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.DisableAWSServiceAccess" }, DisableAWSServiceAccessRequest, S.Struct({}), [AccessDeniedException, AWSOrganizationsNotInUseException, ConcurrentModificationException, ConstraintViolationException, InvalidInputException, ServiceException, TooManyRequestsException, UnsupportedAPIEndpointException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides an Amazon Web Services service (the service that is specified by
  * `ServicePrincipal`) with permissions to view the structure of an
@@ -420,7 +420,7 @@ export class ResponsibilityTransferAlreadyInStatusException extends S.TaggedErro
  * 
  * 
  * You can only call this operation from the management account.
- */export const enableAWSServiceAccess = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.EnableAWSServiceAccess" }, EnableAWSServiceAccessRequest, S.Struct({}), [AccessDeniedException, AWSOrganizationsNotInUseException, ConcurrentModificationException, ConstraintViolationException, InvalidInputException, ServiceException, TooManyRequestsException, UnsupportedAPIEndpointException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const enableAWSServiceAccess = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.EnableAWSServiceAccess" }, EnableAWSServiceAccessRequest, S.Struct({}), [AccessDeniedException, AWSOrganizationsNotInUseException, ConcurrentModificationException, ConstraintViolationException, InvalidInputException, ServiceException, TooManyRequestsException, UnsupportedAPIEndpointException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes a member account from its parent organization. This version of the operation
  * is performed by the account that wants to leave. To remove a member account as a user in
@@ -496,7 +496,7 @@ export class ResponsibilityTransferAlreadyInStatusException extends S.TaggedErro
  * - If you are using an organization principal to call
  * `LeaveOrganization` across multiple accounts, you can only do
  * this up to 5 accounts per second in a single organization.
- */export const leaveOrganization = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.LeaveOrganization" }, S.Struct({}), S.Struct({}), [AccessDeniedException, AccountNotFoundException, AWSOrganizationsNotInUseException, ConcurrentModificationException, ConstraintViolationException, InvalidInputException, MasterCannotLeaveOrganizationException, ServiceException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const leaveOrganization = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.LeaveOrganization" }, S.Struct({}), S.Struct({}), [AccessDeniedException, AccountNotFoundException, AWSOrganizationsNotInUseException, ConcurrentModificationException, ConstraintViolationException, InvalidInputException, MasterCannotLeaveOrganizationException, ServiceException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists all the accounts in the organization. To request only the accounts in a
  * specified root or organizational unit (OU), use the ListAccountsForParent operation instead.
@@ -512,7 +512,7 @@ export class ResponsibilityTransferAlreadyInStatusException extends S.TaggedErro
  * 
  * 
  * You can only call this operation from the management account or a member account that is a delegated administrator.
- */export const listAccounts = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.ListAccounts" }, ListAccountsRequest, ListAccountsResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, InvalidInputException, ServiceException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listAccounts = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.ListAccounts" }, ListAccountsRequest, ListAccountsResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, InvalidInputException, ServiceException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the account creation requests that match the specified status that is currently
  * being tracked for the organization.
@@ -528,7 +528,7 @@ export class ResponsibilityTransferAlreadyInStatusException extends S.TaggedErro
  * 
  * 
  * You can only call this operation from the management account or a member account that is a delegated administrator.
- */export const listCreateAccountStatus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.ListCreateAccountStatus" }, ListCreateAccountStatusRequest, ListCreateAccountStatusResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, InvalidInputException, ServiceException, TooManyRequestsException, UnsupportedAPIEndpointException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listCreateAccountStatus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.ListCreateAccountStatus" }, ListCreateAccountStatusRequest, ListCreateAccountStatusResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, InvalidInputException, ServiceException, TooManyRequestsException, UnsupportedAPIEndpointException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the recent handshakes that you have sent.
  * 
@@ -546,7 +546,7 @@ export class ResponsibilityTransferAlreadyInStatusException extends S.TaggedErro
  * When calling List* operations, always check the `NextToken` response parameter value, even if you receive an empty result set.
  * These operations can occasionally return an empty set of results even when more results are available.
  * Continue making requests until `NextToken` returns null. A null `NextToken` value indicates that you have retrieved all available results.
- */export const listHandshakesForOrganization = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.ListHandshakesForOrganization" }, ListHandshakesForOrganizationRequest, ListHandshakesForOrganizationResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, ConcurrentModificationException, InvalidInputException, ServiceException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listHandshakesForOrganization = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.ListHandshakesForOrganization" }, ListHandshakesForOrganizationRequest, ListHandshakesForOrganizationResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, ConcurrentModificationException, InvalidInputException, ServiceException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the organizational units (OUs) in a parent organizational unit or root.
  * 
@@ -561,7 +561,7 @@ export class ResponsibilityTransferAlreadyInStatusException extends S.TaggedErro
  * 
  * 
  * You can only call this operation from the management account or a member account that is a delegated administrator.
- */export const listOrganizationalUnitsForParent = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.ListOrganizationalUnitsForParent" }, ListOrganizationalUnitsForParentRequest, ListOrganizationalUnitsForParentResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, InvalidInputException, ParentNotFoundException, ServiceException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listOrganizationalUnitsForParent = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.ListOrganizationalUnitsForParent" }, ListOrganizationalUnitsForParentRequest, ListOrganizationalUnitsForParentResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, InvalidInputException, ParentNotFoundException, ServiceException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists transfers that allow an account outside your organization to manage the
  * specified responsibilities for your organization. This operation returns both transfer
@@ -573,7 +573,7 @@ export class ResponsibilityTransferAlreadyInStatusException extends S.TaggedErro
  * When calling List* operations, always check the `NextToken` response parameter value, even if you receive an empty result set.
  * These operations can occasionally return an empty set of results even when more results are available.
  * Continue making requests until `NextToken` returns null. A null `NextToken` value indicates that you have retrieved all available results.
- */export const listOutboundResponsibilityTransfers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.ListOutboundResponsibilityTransfers" }, ListOutboundResponsibilityTransfersRequest, ListOutboundResponsibilityTransfersResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, ConstraintViolationException, InvalidInputException, ServiceException, TooManyRequestsException, UnsupportedAPIEndpointException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listOutboundResponsibilityTransfers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.ListOutboundResponsibilityTransfers" }, ListOutboundResponsibilityTransfersRequest, ListOutboundResponsibilityTransfersResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, ConstraintViolationException, InvalidInputException, ServiceException, TooManyRequestsException, UnsupportedAPIEndpointException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the policies that are directly attached to the specified target root,
  * organizational unit (OU), or account. You must specify the policy type that you want
@@ -590,7 +590,7 @@ export class ResponsibilityTransferAlreadyInStatusException extends S.TaggedErro
  * 
  * 
  * You can only call this operation from the management account or a member account that is a delegated administrator.
- */export const listPoliciesForTarget = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.ListPoliciesForTarget" }, ListPoliciesForTargetRequest, ListPoliciesForTargetResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, InvalidInputException, ServiceException, TargetNotFoundException, TooManyRequestsException, UnsupportedAPIEndpointException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listPoliciesForTarget = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.ListPoliciesForTarget" }, ListPoliciesForTargetRequest, ListPoliciesForTargetResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, InvalidInputException, ServiceException, TargetNotFoundException, TooManyRequestsException, UnsupportedAPIEndpointException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the roots that are defined in the current organization.
  * 
@@ -614,7 +614,7 @@ export class ResponsibilityTransferAlreadyInStatusException extends S.TaggedErro
  * types available for use in that organization. Individual policy types can then be
  * enabled and disabled in a root. To see the availability of a policy type in an
  * organization, use DescribeOrganization.
- */export const listRoots = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.ListRoots" }, ListRootsRequest, ListRootsResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, InvalidInputException, ServiceException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listRoots = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.ListRoots" }, ListRootsRequest, ListRootsResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, InvalidInputException, ServiceException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists tags that are attached to the specified resource.
  * 
@@ -642,13 +642,13 @@ export class ResponsibilityTransferAlreadyInStatusException extends S.TaggedErro
  * 
  * 
  * You can only call this operation from the management account or a member account that is a delegated administrator.
- */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, InvalidInputException, ServiceException, TargetNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, InvalidInputException, ServiceException, TargetNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates or updates a resource policy.
  * 
  * 
  * You can only call this operation from the management account..
- */export const putResourcePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.PutResourcePolicy" }, PutResourcePolicyRequest, PutResourcePolicyResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, ConcurrentModificationException, ConstraintViolationException, InvalidInputException, ServiceException, TooManyRequestsException, UnsupportedAPIEndpointException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putResourcePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.PutResourcePolicy" }, PutResourcePolicyRequest, PutResourcePolicyResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, ConcurrentModificationException, ConstraintViolationException, InvalidInputException, ServiceException, TooManyRequestsException, UnsupportedAPIEndpointException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Enables the specified member account to administer the Organizations features of the specified
  * Amazon Web Services service. It grants read-only access to Organizations service data. The account still
@@ -663,7 +663,7 @@ export class ResponsibilityTransferAlreadyInStatusException extends S.TaggedErro
  * 
  * 
  * You can only call this operation from the management account.
- */export const registerDelegatedAdministrator = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.RegisterDelegatedAdministrator" }, RegisterDelegatedAdministratorRequest, S.Struct({}), [AccessDeniedException, AccountAlreadyRegisteredException, AccountNotFoundException, AWSOrganizationsNotInUseException, ConcurrentModificationException, ConstraintViolationException, InvalidInputException, ServiceException, TooManyRequestsException, UnsupportedAPIEndpointException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const registerDelegatedAdministrator = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.RegisterDelegatedAdministrator" }, RegisterDelegatedAdministratorRequest, S.Struct({}), [AccessDeniedException, AccountAlreadyRegisteredException, AccountNotFoundException, AWSOrganizationsNotInUseException, ConcurrentModificationException, ConstraintViolationException, InvalidInputException, ServiceException, TooManyRequestsException, UnsupportedAPIEndpointException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds one or more tags to the specified resource.
  * 
@@ -691,7 +691,7 @@ export class ResponsibilityTransferAlreadyInStatusException extends S.TaggedErro
  * 
  * 
  * You can only call this operation from the management account or a member account that is a delegated administrator.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.TagResource" }, TagResourceRequest, S.Struct({}), [AccessDeniedException, AWSOrganizationsNotInUseException, ConcurrentModificationException, ConstraintViolationException, InvalidInputException, ServiceException, TargetNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.TagResource" }, TagResourceRequest, S.Struct({}), [AccessDeniedException, AWSOrganizationsNotInUseException, ConcurrentModificationException, ConstraintViolationException, InvalidInputException, ServiceException, TargetNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates a transfer. A *transfer* is the arrangement between two
  * management accounts where one account designates the other with specified
@@ -699,7 +699,7 @@ export class ResponsibilityTransferAlreadyInStatusException extends S.TaggedErro
  * 
  * 
  * You can update the name assigned to a transfer.
- */export const updateResponsibilityTransfer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.UpdateResponsibilityTransfer" }, UpdateResponsibilityTransferRequest, UpdateResponsibilityTransferResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, ConstraintViolationException, InvalidInputException, ResponsibilityTransferNotFoundException, ServiceException, TooManyRequestsException, UnsupportedAPIEndpointException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateResponsibilityTransfer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.UpdateResponsibilityTransfer" }, UpdateResponsibilityTransferRequest, UpdateResponsibilityTransferResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, ConstraintViolationException, InvalidInputException, ResponsibilityTransferNotFoundException, ServiceException, TooManyRequestsException, UnsupportedAPIEndpointException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Closes an Amazon Web Services member account within an organization. You can close an account when
  * all
@@ -754,7 +754,7 @@ export class ResponsibilityTransferAlreadyInStatusException extends S.TaggedErro
  * accounts. To learn important pre-closure details, see
  * Closing an Amazon Web Services GovCloud (US) account in the
  * Amazon Web Services GovCloud User Guide.
- */export const closeAccount = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.CloseAccount" }, CloseAccountRequest, S.Struct({}), [AccessDeniedException, AccountAlreadyClosedException, AccountNotFoundException, AWSOrganizationsNotInUseException, ConcurrentModificationException, ConflictException, ConstraintViolationException, InvalidInputException, ServiceException, TooManyRequestsException, UnsupportedAPIEndpointException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const closeAccount = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.CloseAccount" }, CloseAccountRequest, S.Struct({}), [AccessDeniedException, AccountAlreadyClosedException, AccountNotFoundException, AWSOrganizationsNotInUseException, ConcurrentModificationException, ConflictException, ConstraintViolationException, InvalidInputException, ServiceException, TooManyRequestsException, UnsupportedAPIEndpointException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This action is available if all of the following are true:
  * 
@@ -921,7 +921,7 @@ export class ResponsibilityTransferAlreadyInStatusException extends S.TaggedErro
  * information. For information about how to disable this switch for an account, see
  * Granting
  * access to your billing information and tools.
- */export const createGovCloudAccount = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.CreateGovCloudAccount" }, CreateGovCloudAccountRequest, CreateGovCloudAccountResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, ConcurrentModificationException, ConstraintViolationException, FinalizingOrganizationException, InvalidInputException, ServiceException, TooManyRequestsException, UnsupportedAPIEndpointException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createGovCloudAccount = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.CreateGovCloudAccount" }, CreateGovCloudAccountRequest, CreateGovCloudAccountResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, ConcurrentModificationException, ConstraintViolationException, FinalizingOrganizationException, InvalidInputException, ServiceException, TooManyRequestsException, UnsupportedAPIEndpointException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an Amazon Web Services organization. The account whose user is calling the
  * `CreateOrganization` operation automatically becomes the management account of the new organization.
@@ -938,7 +938,7 @@ export class ResponsibilityTransferAlreadyInStatusException extends S.TaggedErro
  * supporting only the consolidated billing features by setting the `FeatureSet`
  * parameter to `CONSOLIDATED_BILLING`, no policy types are enabled by default
  * and you can't use organization policies.
- */export const createOrganization = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.CreateOrganization" }, CreateOrganizationRequest, CreateOrganizationResponse, [AccessDeniedException, AccessDeniedForDependencyException, AlreadyInOrganizationException, ConcurrentModificationException, ConstraintViolationException, InvalidInputException, ServiceException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createOrganization = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.CreateOrganization" }, CreateOrganizationRequest, CreateOrganizationResponse, [AccessDeniedException, AccessDeniedForDependencyException, AlreadyInOrganizationException, ConcurrentModificationException, ConstraintViolationException, InvalidInputException, ServiceException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an organizational unit (OU) within a root or parent OU. An OU is a container
  * for accounts that enables you to organize your accounts to apply policies according to
@@ -956,7 +956,7 @@ export class ResponsibilityTransferAlreadyInStatusException extends S.TaggedErro
  * 
  * 
  * You can only call this operation from the management account.
- */export const createOrganizationalUnit = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.CreateOrganizationalUnit" }, CreateOrganizationalUnitRequest, CreateOrganizationalUnitResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, ConcurrentModificationException, ConstraintViolationException, DuplicateOrganizationalUnitException, InvalidInputException, ParentNotFoundException, ServiceException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createOrganizationalUnit = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.CreateOrganizationalUnit" }, CreateOrganizationalUnitRequest, CreateOrganizationalUnitResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, ConcurrentModificationException, ConstraintViolationException, DuplicateOrganizationalUnitException, InvalidInputException, ParentNotFoundException, ServiceException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Declines a Handshake.
  * 
@@ -967,18 +967,18 @@ export class ResponsibilityTransferAlreadyInStatusException extends S.TaggedErro
  * 
  * You can view canceled handshakes in API responses for 30 days before they are
  * deleted.
- */export const declineHandshake = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.DeclineHandshake" }, DeclineHandshakeRequest, DeclineHandshakeResponse, [AccessDeniedException, ConcurrentModificationException, HandshakeAlreadyInStateException, HandshakeNotFoundException, InvalidHandshakeTransitionException, InvalidInputException, ServiceException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const declineHandshake = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.DeclineHandshake" }, DeclineHandshakeRequest, DeclineHandshakeResponse, [AccessDeniedException, ConcurrentModificationException, HandshakeAlreadyInStateException, HandshakeNotFoundException, InvalidHandshakeTransitionException, InvalidInputException, ServiceException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the organization. You can delete an organization only by using credentials
  * from the management account. The organization must be empty of member accounts.
- */export const deleteOrganization = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.DeleteOrganization" }, S.Struct({}), S.Struct({}), [AccessDeniedException, AWSOrganizationsNotInUseException, ConcurrentModificationException, ConstraintViolationException, InvalidInputException, OrganizationNotEmptyException, ServiceException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteOrganization = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.DeleteOrganization" }, S.Struct({}), S.Struct({}), [AccessDeniedException, AWSOrganizationsNotInUseException, ConcurrentModificationException, ConstraintViolationException, InvalidInputException, OrganizationNotEmptyException, ServiceException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes an organizational unit (OU) from a root or another OU. You must first remove
  * all accounts and child OUs from the OU that you want to delete.
  * 
  * 
  * You can only call this operation from the management account.
- */export const deleteOrganizationalUnit = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.DeleteOrganizationalUnit" }, DeleteOrganizationalUnitRequest, S.Struct({}), [AccessDeniedException, AWSOrganizationsNotInUseException, ConcurrentModificationException, InvalidInputException, OrganizationalUnitNotEmptyException, OrganizationalUnitNotFoundException, ServiceException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteOrganizationalUnit = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.DeleteOrganizationalUnit" }, DeleteOrganizationalUnitRequest, S.Struct({}), [AccessDeniedException, AWSOrganizationsNotInUseException, ConcurrentModificationException, InvalidInputException, OrganizationalUnitNotEmptyException, OrganizationalUnitNotFoundException, ServiceException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified policy from your organization. Before you perform this
  * operation, you must first detach the policy from all organizational units (OUs), roots,
@@ -986,25 +986,25 @@ export class ResponsibilityTransferAlreadyInStatusException extends S.TaggedErro
  * 
  * 
  * You can only call this operation from the management account or a member account that is a delegated administrator.
- */export const deletePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.DeletePolicy" }, DeletePolicyRequest, S.Struct({}), [AccessDeniedException, AWSOrganizationsNotInUseException, ConcurrentModificationException, InvalidInputException, PolicyInUseException, PolicyNotFoundException, ServiceException, TooManyRequestsException, UnsupportedAPIEndpointException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deletePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.DeletePolicy" }, DeletePolicyRequest, S.Struct({}), [AccessDeniedException, AWSOrganizationsNotInUseException, ConcurrentModificationException, InvalidInputException, PolicyInUseException, PolicyNotFoundException, ServiceException, TooManyRequestsException, UnsupportedAPIEndpointException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the resource policy from your organization.
  * 
  * 
  * You can only call this operation from the management account.
- */export const deleteResourcePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.DeleteResourcePolicy" }, S.Struct({}), S.Struct({}), [AccessDeniedException, AWSOrganizationsNotInUseException, ConcurrentModificationException, ConstraintViolationException, ResourcePolicyNotFoundException, ServiceException, TooManyRequestsException, UnsupportedAPIEndpointException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteResourcePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.DeleteResourcePolicy" }, S.Struct({}), S.Struct({}), [AccessDeniedException, AWSOrganizationsNotInUseException, ConcurrentModificationException, ConstraintViolationException, ResourcePolicyNotFoundException, ServiceException, TooManyRequestsException, UnsupportedAPIEndpointException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves Organizations-related information about the specified account.
  * 
  * 
  * You can only call this operation from the management account or a member account that is a delegated administrator.
- */export const describeAccount = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.DescribeAccount" }, DescribeAccountRequest, DescribeAccountResponse, [AccessDeniedException, AccountNotFoundException, AWSOrganizationsNotInUseException, InvalidInputException, ServiceException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeAccount = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.DescribeAccount" }, DescribeAccountRequest, DescribeAccountResponse, [AccessDeniedException, AccountNotFoundException, AWSOrganizationsNotInUseException, InvalidInputException, ServiceException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the current status of an asynchronous request to create an account.
  * 
  * 
  * You can only call this operation from the management account or a member account that is a delegated administrator.
- */export const describeCreateAccountStatus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.DescribeCreateAccountStatus" }, DescribeCreateAccountStatusRequest, DescribeCreateAccountStatusResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, CreateAccountStatusNotFoundException, InvalidInputException, ServiceException, TooManyRequestsException, UnsupportedAPIEndpointException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeCreateAccountStatus = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.DescribeCreateAccountStatus" }, DescribeCreateAccountStatusRequest, DescribeCreateAccountStatusResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, CreateAccountStatusNotFoundException, InvalidInputException, ServiceException, TooManyRequestsException, UnsupportedAPIEndpointException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the contents of the effective policy for specified policy type and account.
  * The effective policy is the aggregation of any policies of the specified type that the
@@ -1022,7 +1022,7 @@ export class ResponsibilityTransferAlreadyInStatusException extends S.TaggedErro
  * 
  * 
  * You can call this operation from any account in a organization.
- */export const describeEffectivePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.DescribeEffectivePolicy" }, DescribeEffectivePolicyRequest, DescribeEffectivePolicyResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, ConstraintViolationException, EffectivePolicyNotFoundException, InvalidInputException, ServiceException, TargetNotFoundException, TooManyRequestsException, UnsupportedAPIEndpointException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeEffectivePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.DescribeEffectivePolicy" }, DescribeEffectivePolicyRequest, DescribeEffectivePolicyResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, ConstraintViolationException, EffectivePolicyNotFoundException, InvalidInputException, ServiceException, TargetNotFoundException, TooManyRequestsException, UnsupportedAPIEndpointException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves information about the organization that the user's account belongs
  * to.
@@ -1036,19 +1036,19 @@ export class ResponsibilityTransferAlreadyInStatusException extends S.TaggedErro
  * Even if a policy type is shown as available in the organization, you can disable
  * it separately at the root level with DisablePolicyType. Use ListRoots to see the status of policy types for a specified
  * root.
- */export const describeOrganization = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.DescribeOrganization" }, S.Struct({}), DescribeOrganizationResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, ConcurrentModificationException, ServiceException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeOrganization = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.DescribeOrganization" }, S.Struct({}), DescribeOrganizationResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, ConcurrentModificationException, ServiceException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves information about an organizational unit (OU).
  * 
  * 
  * You can only call this operation from the management account or a member account that is a delegated administrator.
- */export const describeOrganizationalUnit = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.DescribeOrganizationalUnit" }, DescribeOrganizationalUnitRequest, DescribeOrganizationalUnitResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, InvalidInputException, OrganizationalUnitNotFoundException, ServiceException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeOrganizationalUnit = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.DescribeOrganizationalUnit" }, DescribeOrganizationalUnitRequest, DescribeOrganizationalUnitResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, InvalidInputException, OrganizationalUnitNotFoundException, ServiceException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves information about a resource policy.
  * 
  * 
  * You can only call this operation from the management account or a member account that is a delegated administrator.
- */export const describeResourcePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.DescribeResourcePolicy" }, S.Struct({}), DescribeResourcePolicyResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, ConstraintViolationException, ResourcePolicyNotFoundException, ServiceException, TooManyRequestsException, UnsupportedAPIEndpointException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeResourcePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.DescribeResourcePolicy" }, S.Struct({}), DescribeResourcePolicyResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, ConstraintViolationException, ResourcePolicyNotFoundException, ServiceException, TooManyRequestsException, UnsupportedAPIEndpointException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Detaches a policy from a target root, organizational unit (OU), or account.
  * 
@@ -1073,7 +1073,7 @@ export class ResponsibilityTransferAlreadyInStatusException extends S.TaggedErro
  * 
  * 
  * You can only call this operation from the management account or a member account that is a delegated administrator.
- */export const detachPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.DetachPolicy" }, DetachPolicyRequest, S.Struct({}), [AccessDeniedException, AWSOrganizationsNotInUseException, ConcurrentModificationException, ConstraintViolationException, InvalidInputException, PolicyChangesInProgressException, PolicyNotAttachedException, PolicyNotFoundException, ServiceException, TargetNotFoundException, TooManyRequestsException, UnsupportedAPIEndpointException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const detachPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.DetachPolicy" }, DetachPolicyRequest, S.Struct({}), [AccessDeniedException, AWSOrganizationsNotInUseException, ConcurrentModificationException, ConstraintViolationException, InvalidInputException, PolicyChangesInProgressException, PolicyNotAttachedException, PolicyNotFoundException, ServiceException, TargetNotFoundException, TooManyRequestsException, UnsupportedAPIEndpointException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Enables all features in an organization. This enables the use of organization policies
  * that can restrict the services and actions that can be called in each account. Until you
@@ -1112,7 +1112,7 @@ export class ResponsibilityTransferAlreadyInStatusException extends S.TaggedErro
  * 
  * 
  * You can only call this operation from the management account.
- */export const enableAllFeatures = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.EnableAllFeatures" }, EnableAllFeaturesRequest, EnableAllFeaturesResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, ConcurrentModificationException, ConstraintViolationException, HandshakeConstraintViolationException, InvalidInputException, ServiceException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const enableAllFeatures = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.EnableAllFeatures" }, EnableAllFeaturesRequest, EnableAllFeaturesResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, ConcurrentModificationException, ConstraintViolationException, HandshakeConstraintViolationException, InvalidInputException, ServiceException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Sends an invitation to another organization's management account to designate your
  * account with the specified responsibilities for their organization. The invitation is
@@ -1120,7 +1120,7 @@ export class ResponsibilityTransferAlreadyInStatusException extends S.TaggedErro
  * 
  * 
  * You can only call this operation from the management account.
- */export const inviteOrganizationToTransferResponsibility = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.InviteOrganizationToTransferResponsibility" }, InviteOrganizationToTransferResponsibilityRequest, InviteOrganizationToTransferResponsibilityResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, ConcurrentModificationException, ConstraintViolationException, DuplicateHandshakeException, HandshakeConstraintViolationException, InvalidInputException, ServiceException, TooManyRequestsException, UnsupportedAPIEndpointException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const inviteOrganizationToTransferResponsibility = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.InviteOrganizationToTransferResponsibility" }, InviteOrganizationToTransferResponsibilityRequest, InviteOrganizationToTransferResponsibilityResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, ConcurrentModificationException, ConstraintViolationException, DuplicateHandshakeException, HandshakeConstraintViolationException, InvalidInputException, ServiceException, TooManyRequestsException, UnsupportedAPIEndpointException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the accounts in an organization that are contained by the specified target root
  * or organizational unit (OU). If you specify the root, you get a list of all the accounts
@@ -1139,7 +1139,7 @@ export class ResponsibilityTransferAlreadyInStatusException extends S.TaggedErro
  * 
  * 
  * You can only call this operation from the management account or a member account that is a delegated administrator.
- */export const listAccountsForParent = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.ListAccountsForParent" }, ListAccountsForParentRequest, ListAccountsForParentResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, InvalidInputException, ParentNotFoundException, ServiceException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listAccountsForParent = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.ListAccountsForParent" }, ListAccountsForParentRequest, ListAccountsForParentResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, InvalidInputException, ParentNotFoundException, ServiceException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists all the accounts in an organization that have invalid effective policies. An
  * *invalid effective policy* is an effective
@@ -1148,7 +1148,7 @@ export class ResponsibilityTransferAlreadyInStatusException extends S.TaggedErro
  * 
  * 
  * You can only call this operation from the management account or a member account that is a delegated administrator.
- */export const listAccountsWithInvalidEffectivePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.ListAccountsWithInvalidEffectivePolicy" }, ListAccountsWithInvalidEffectivePolicyRequest, ListAccountsWithInvalidEffectivePolicyResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, ConstraintViolationException, EffectivePolicyNotFoundException, InvalidInputException, ServiceException, TooManyRequestsException, UnsupportedAPIEndpointException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listAccountsWithInvalidEffectivePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.ListAccountsWithInvalidEffectivePolicy" }, ListAccountsWithInvalidEffectivePolicyRequest, ListAccountsWithInvalidEffectivePolicyResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, ConstraintViolationException, EffectivePolicyNotFoundException, InvalidInputException, ServiceException, TooManyRequestsException, UnsupportedAPIEndpointException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of the Amazon Web Services services that you enabled to integrate with your
  * organization. After a service on this list creates the resources that it requires for
@@ -1161,7 +1161,7 @@ export class ResponsibilityTransferAlreadyInStatusException extends S.TaggedErro
  * 
  * 
  * You can only call this operation from the management account or a member account that is a delegated administrator.
- */export const listAWSServiceAccessForOrganization = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.ListAWSServiceAccessForOrganization" }, ListAWSServiceAccessForOrganizationRequest, ListAWSServiceAccessForOrganizationResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, ConstraintViolationException, InvalidInputException, ServiceException, TooManyRequestsException, UnsupportedAPIEndpointException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listAWSServiceAccessForOrganization = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.ListAWSServiceAccessForOrganization" }, ListAWSServiceAccessForOrganizationRequest, ListAWSServiceAccessForOrganizationResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, ConstraintViolationException, InvalidInputException, ServiceException, TooManyRequestsException, UnsupportedAPIEndpointException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists all of the organizational units (OUs) or accounts that are contained in the
  * specified parent OU or root. This operation, along with ListParents
@@ -1178,28 +1178,28 @@ export class ResponsibilityTransferAlreadyInStatusException extends S.TaggedErro
  * 
  * 
  * You can only call this operation from the management account or a member account that is a delegated administrator.
- */export const listChildren = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.ListChildren" }, ListChildrenRequest, ListChildrenResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, InvalidInputException, ParentNotFoundException, ServiceException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listChildren = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.ListChildren" }, ListChildrenRequest, ListChildrenResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, InvalidInputException, ParentNotFoundException, ServiceException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the Amazon Web Services accounts that are designated as delegated administrators in this
  * organization.
  * 
  * 
  * You can only call this operation from the management account or a member account that is a delegated administrator.
- */export const listDelegatedAdministrators = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.ListDelegatedAdministrators" }, ListDelegatedAdministratorsRequest, ListDelegatedAdministratorsResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, ConstraintViolationException, InvalidInputException, ServiceException, TooManyRequestsException, UnsupportedAPIEndpointException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listDelegatedAdministrators = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.ListDelegatedAdministrators" }, ListDelegatedAdministratorsRequest, ListDelegatedAdministratorsResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, ConstraintViolationException, InvalidInputException, ServiceException, TooManyRequestsException, UnsupportedAPIEndpointException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * List the Amazon Web Services services for which the specified account is a delegated
  * administrator.
  * 
  * 
  * You can only call this operation from the management account or a member account that is a delegated administrator.
- */export const listDelegatedServicesForAccount = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.ListDelegatedServicesForAccount" }, ListDelegatedServicesForAccountRequest, ListDelegatedServicesForAccountResponse, [AccessDeniedException, AccountNotFoundException, AccountNotRegisteredException, AWSOrganizationsNotInUseException, ConstraintViolationException, InvalidInputException, ServiceException, TooManyRequestsException, UnsupportedAPIEndpointException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listDelegatedServicesForAccount = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.ListDelegatedServicesForAccount" }, ListDelegatedServicesForAccountRequest, ListDelegatedServicesForAccountResponse, [AccessDeniedException, AccountNotFoundException, AccountNotRegisteredException, AWSOrganizationsNotInUseException, ConstraintViolationException, InvalidInputException, ServiceException, TooManyRequestsException, UnsupportedAPIEndpointException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists all the validation errors on an effective
  * policy for a specified account and policy type.
  * 
  * 
  * You can only call this operation from the management account or a member account that is a delegated administrator.
- */export const listEffectivePolicyValidationErrors = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.ListEffectivePolicyValidationErrors" }, ListEffectivePolicyValidationErrorsRequest, ListEffectivePolicyValidationErrorsResponse, [AccessDeniedException, AccountNotFoundException, AWSOrganizationsNotInUseException, ConstraintViolationException, EffectivePolicyNotFoundException, InvalidInputException, ServiceException, TooManyRequestsException, UnsupportedAPIEndpointException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listEffectivePolicyValidationErrors = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.ListEffectivePolicyValidationErrors" }, ListEffectivePolicyValidationErrorsRequest, ListEffectivePolicyValidationErrorsResponse, [AccessDeniedException, AccountNotFoundException, AWSOrganizationsNotInUseException, ConstraintViolationException, EffectivePolicyNotFoundException, InvalidInputException, ServiceException, TooManyRequestsException, UnsupportedAPIEndpointException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the recent handshakes that you have received.
  * 
@@ -1217,7 +1217,7 @@ export class ResponsibilityTransferAlreadyInStatusException extends S.TaggedErro
  * When calling List* operations, always check the `NextToken` response parameter value, even if you receive an empty result set.
  * These operations can occasionally return an empty set of results even when more results are available.
  * Continue making requests until `NextToken` returns null. A null `NextToken` value indicates that you have retrieved all available results.
- */export const listHandshakesForAccount = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.ListHandshakesForAccount" }, ListHandshakesForAccountRequest, ListHandshakesForAccountResponse, [AccessDeniedException, ConcurrentModificationException, InvalidInputException, ServiceException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listHandshakesForAccount = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.ListHandshakesForAccount" }, ListHandshakesForAccountRequest, ListHandshakesForAccountResponse, [AccessDeniedException, ConcurrentModificationException, InvalidInputException, ServiceException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists transfers that allow you to manage the specified responsibilities for another
  * organization. This operation returns both transfer invitations and transfers.
@@ -1228,7 +1228,7 @@ export class ResponsibilityTransferAlreadyInStatusException extends S.TaggedErro
  * When calling List* operations, always check the `NextToken` response parameter value, even if you receive an empty result set.
  * These operations can occasionally return an empty set of results even when more results are available.
  * Continue making requests until `NextToken` returns null. A null `NextToken` value indicates that you have retrieved all available results.
- */export const listInboundResponsibilityTransfers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.ListInboundResponsibilityTransfers" }, ListInboundResponsibilityTransfersRequest, ListInboundResponsibilityTransfersResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, ConstraintViolationException, InvalidInputException, ResponsibilityTransferNotFoundException, ServiceException, TooManyRequestsException, UnsupportedAPIEndpointException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listInboundResponsibilityTransfers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.ListInboundResponsibilityTransfers" }, ListInboundResponsibilityTransfersRequest, ListInboundResponsibilityTransfersResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, ConstraintViolationException, InvalidInputException, ResponsibilityTransferNotFoundException, ServiceException, TooManyRequestsException, UnsupportedAPIEndpointException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the list of all policies in an organization of a specified type.
  * 
@@ -1243,7 +1243,7 @@ export class ResponsibilityTransferAlreadyInStatusException extends S.TaggedErro
  * 
  * 
  * You can only call this operation from the management account or a member account that is a delegated administrator.
- */export const listPolicies = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.ListPolicies" }, ListPoliciesRequest, ListPoliciesResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, InvalidInputException, ServiceException, TooManyRequestsException, UnsupportedAPIEndpointException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listPolicies = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.ListPolicies" }, ListPoliciesRequest, ListPoliciesResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, InvalidInputException, ServiceException, TooManyRequestsException, UnsupportedAPIEndpointException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists all the roots, organizational units (OUs), and accounts that the specified
  * policy is attached to.
@@ -1259,7 +1259,7 @@ export class ResponsibilityTransferAlreadyInStatusException extends S.TaggedErro
  * 
  * 
  * You can only call this operation from the management account or a member account that is a delegated administrator.
- */export const listTargetsForPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.ListTargetsForPolicy" }, ListTargetsForPolicyRequest, ListTargetsForPolicyResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, InvalidInputException, PolicyNotFoundException, ServiceException, TooManyRequestsException, UnsupportedAPIEndpointException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTargetsForPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.ListTargetsForPolicy" }, ListTargetsForPolicyRequest, ListTargetsForPolicyResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, InvalidInputException, PolicyNotFoundException, ServiceException, TooManyRequestsException, UnsupportedAPIEndpointException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Renames the specified organizational unit (OU). The ID and ARN don't change. The child
  * OUs and accounts remain in place, and any attached policies of the OU remain
@@ -1267,7 +1267,7 @@ export class ResponsibilityTransferAlreadyInStatusException extends S.TaggedErro
  * 
  * 
  * You can only call this operation from the management account.
- */export const updateOrganizationalUnit = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.UpdateOrganizationalUnit" }, UpdateOrganizationalUnitRequest, UpdateOrganizationalUnitResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, ConcurrentModificationException, DuplicateOrganizationalUnitException, InvalidInputException, OrganizationalUnitNotFoundException, ServiceException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateOrganizationalUnit = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.UpdateOrganizationalUnit" }, UpdateOrganizationalUnitRequest, UpdateOrganizationalUnitResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, ConcurrentModificationException, DuplicateOrganizationalUnitException, InvalidInputException, OrganizationalUnitNotFoundException, ServiceException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Updates an existing policy with a new name, description, or content. If you don't
  * supply any parameter, that value remains unchanged. You can't change a policy's
@@ -1275,7 +1275,7 @@ export class ResponsibilityTransferAlreadyInStatusException extends S.TaggedErro
  * 
  * 
  * You can only call this operation from the management account or a member account that is a delegated administrator.
- */export const updatePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.UpdatePolicy" }, UpdatePolicyRequest, UpdatePolicyResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, ConcurrentModificationException, ConstraintViolationException, DuplicatePolicyException, InvalidInputException, MalformedPolicyDocumentException, PolicyChangesInProgressException, PolicyNotFoundException, ServiceException, TooManyRequestsException, UnsupportedAPIEndpointException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updatePolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.UpdatePolicy" }, UpdatePolicyRequest, UpdatePolicyResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, ConcurrentModificationException, ConstraintViolationException, DuplicatePolicyException, InvalidInputException, MalformedPolicyDocumentException, PolicyChangesInProgressException, PolicyNotFoundException, ServiceException, TooManyRequestsException, UnsupportedAPIEndpointException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Accepts a handshake by sending an `ACCEPTED` response to the sender. You
  * can view accepted handshakes in API responses for 30 days before they are
@@ -1320,7 +1320,7 @@ export class ResponsibilityTransferAlreadyInStatusException extends S.TaggedErro
  * 
  * 
  * For more information, see Responding to invitations and Enabling all features in the *Organizations User Guide*.
- */export const acceptHandshake = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.AcceptHandshake" }, AcceptHandshakeRequest, AcceptHandshakeResponse, [AccessDeniedException, AccessDeniedForDependencyException, AWSOrganizationsNotInUseException, ConcurrentModificationException, ConstraintViolationException, HandshakeAlreadyInStateException, HandshakeConstraintViolationException, HandshakeNotFoundException, InvalidHandshakeTransitionException, InvalidInputException, MasterCannotLeaveOrganizationException, ServiceException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const acceptHandshake = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.AcceptHandshake" }, AcceptHandshakeRequest, AcceptHandshakeResponse, [AccessDeniedException, AccessDeniedForDependencyException, AWSOrganizationsNotInUseException, ConcurrentModificationException, ConstraintViolationException, HandshakeAlreadyInStateException, HandshakeConstraintViolationException, HandshakeNotFoundException, InvalidHandshakeTransitionException, InvalidInputException, MasterCannotLeaveOrganizationException, ServiceException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Attaches a policy to a root, an organizational unit (OU), or an individual account.
  * How the policy affects accounts depends on the type of policy. Refer to the
@@ -1396,7 +1396,7 @@ export class ResponsibilityTransferAlreadyInStatusException extends S.TaggedErro
  * 
  * 
  * You can only call this operation from the management account or a member account that is a delegated administrator.
- */export const attachPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.AttachPolicy" }, AttachPolicyRequest, S.Struct({}), [AccessDeniedException, AWSOrganizationsNotInUseException, ConcurrentModificationException, ConstraintViolationException, DuplicatePolicyAttachmentException, InvalidInputException, PolicyChangesInProgressException, PolicyNotFoundException, PolicyTypeNotEnabledException, ServiceException, TargetNotFoundException, TooManyRequestsException, UnsupportedAPIEndpointException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const attachPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.AttachPolicy" }, AttachPolicyRequest, S.Struct({}), [AccessDeniedException, AWSOrganizationsNotInUseException, ConcurrentModificationException, ConstraintViolationException, DuplicatePolicyAttachmentException, InvalidInputException, PolicyChangesInProgressException, PolicyNotFoundException, PolicyTypeNotEnabledException, ServiceException, TargetNotFoundException, TooManyRequestsException, UnsupportedAPIEndpointException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Cancels a Handshake.
  * 
@@ -1407,7 +1407,7 @@ export class ResponsibilityTransferAlreadyInStatusException extends S.TaggedErro
  * 
  * You can view canceled handshakes in API responses for 30 days before they are
  * deleted.
- */export const cancelHandshake = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.CancelHandshake" }, CancelHandshakeRequest, CancelHandshakeResponse, [AccessDeniedException, ConcurrentModificationException, HandshakeAlreadyInStateException, HandshakeNotFoundException, InvalidHandshakeTransitionException, InvalidInputException, ServiceException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const cancelHandshake = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.CancelHandshake" }, CancelHandshakeRequest, CancelHandshakeResponse, [AccessDeniedException, ConcurrentModificationException, HandshakeAlreadyInStateException, HandshakeNotFoundException, InvalidHandshakeTransitionException, InvalidInputException, ServiceException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an Amazon Web Services account that is automatically a member of the organization whose
  * credentials made the request. This is an asynchronous request that Amazon Web Services performs in the
@@ -1504,7 +1504,7 @@ export class ResponsibilityTransferAlreadyInStatusException extends S.TaggedErro
  * information. For information about how to disable this switch for an account, see
  * Granting access to
  * your billing information and tools.
- */export const createAccount = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.CreateAccount" }, CreateAccountRequest, CreateAccountResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, ConcurrentModificationException, ConstraintViolationException, FinalizingOrganizationException, InvalidInputException, ServiceException, TooManyRequestsException, UnsupportedAPIEndpointException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createAccount = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.CreateAccount" }, CreateAccountRequest, CreateAccountResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, ConcurrentModificationException, ConstraintViolationException, FinalizingOrganizationException, InvalidInputException, ServiceException, TooManyRequestsException, UnsupportedAPIEndpointException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a policy of a specified type that you can attach to a root, an organizational
  * unit (OU), or an individual Amazon Web Services account.
@@ -1519,12 +1519,12 @@ export class ResponsibilityTransferAlreadyInStatusException extends S.TaggedErro
  * 
  * 
  * You can only call this operation from the management account or a member account that is a delegated administrator.
- */export const createPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.CreatePolicy" }, CreatePolicyRequest, CreatePolicyResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, ConcurrentModificationException, ConstraintViolationException, DuplicatePolicyException, InvalidInputException, MalformedPolicyDocumentException, PolicyTypeNotAvailableForOrganizationException, ServiceException, TooManyRequestsException, UnsupportedAPIEndpointException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.CreatePolicy" }, CreatePolicyRequest, CreatePolicyResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, ConcurrentModificationException, ConstraintViolationException, DuplicatePolicyException, InvalidInputException, MalformedPolicyDocumentException, PolicyTypeNotAvailableForOrganizationException, ServiceException, TooManyRequestsException, UnsupportedAPIEndpointException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns details for a transfer. A *transfer* is an arrangement
  * between two management accounts where one account designates the other with specified
  * responsibilities for their organization.
- */export const describeResponsibilityTransfer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.DescribeResponsibilityTransfer" }, DescribeResponsibilityTransferRequest, DescribeResponsibilityTransferResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, InvalidInputException, ResponsibilityTransferNotFoundException, ServiceException, TooManyRequestsException, UnsupportedAPIEndpointException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeResponsibilityTransfer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.DescribeResponsibilityTransfer" }, DescribeResponsibilityTransferRequest, DescribeResponsibilityTransferResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, InvalidInputException, ResponsibilityTransferNotFoundException, ServiceException, TooManyRequestsException, UnsupportedAPIEndpointException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Disables an organizational policy type in a root. A policy of a certain type can be
  * attached to entities in a root only if that type is enabled in the root. After you
@@ -1543,7 +1543,7 @@ export class ResponsibilityTransferAlreadyInStatusException extends S.TaggedErro
  * 
  * 
  * To view the status of available policy types in the organization, use ListRoots.
- */export const disablePolicyType = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.DisablePolicyType" }, DisablePolicyTypeRequest, DisablePolicyTypeResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, ConcurrentModificationException, ConstraintViolationException, InvalidInputException, PolicyChangesInProgressException, PolicyTypeNotEnabledException, RootNotFoundException, ServiceException, TooManyRequestsException, UnsupportedAPIEndpointException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const disablePolicyType = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.DisablePolicyType" }, DisablePolicyTypeRequest, DisablePolicyTypeResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, ConcurrentModificationException, ConstraintViolationException, InvalidInputException, PolicyChangesInProgressException, PolicyTypeNotEnabledException, RootNotFoundException, ServiceException, TooManyRequestsException, UnsupportedAPIEndpointException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Enables a policy type in a root. After you enable a policy type in a root, you can
  * attach policies of that type to the root, any organizational unit (OU), or account in
@@ -1562,7 +1562,7 @@ export class ResponsibilityTransferAlreadyInStatusException extends S.TaggedErro
  * You can enable a policy type in a root only if that policy type is available in the
  * organization. To view the status of available policy types in the organization, use
  * ListRoots.
- */export const enablePolicyType = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.EnablePolicyType" }, EnablePolicyTypeRequest, EnablePolicyTypeResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, ConcurrentModificationException, ConstraintViolationException, InvalidInputException, PolicyChangesInProgressException, PolicyTypeAlreadyEnabledException, PolicyTypeNotAvailableForOrganizationException, RootNotFoundException, ServiceException, TooManyRequestsException, UnsupportedAPIEndpointException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const enablePolicyType = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.EnablePolicyType" }, EnablePolicyTypeRequest, EnablePolicyTypeResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, ConcurrentModificationException, ConstraintViolationException, InvalidInputException, PolicyChangesInProgressException, PolicyTypeAlreadyEnabledException, PolicyTypeNotAvailableForOrganizationException, RootNotFoundException, ServiceException, TooManyRequestsException, UnsupportedAPIEndpointException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Sends an invitation to another account to join your organization as a member account.
  * Organizations sends email on your behalf to the email address that is associated with the
@@ -1586,7 +1586,7 @@ export class ResponsibilityTransferAlreadyInStatusException extends S.TaggedErro
  * 
  * 
  * You can only call this operation from the management account.
- */export const inviteAccountToOrganization = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.InviteAccountToOrganization" }, InviteAccountToOrganizationRequest, InviteAccountToOrganizationResponse, [AccessDeniedException, AccountOwnerNotVerifiedException, AWSOrganizationsNotInUseException, ConcurrentModificationException, ConstraintViolationException, DuplicateHandshakeException, FinalizingOrganizationException, HandshakeConstraintViolationException, InvalidInputException, ServiceException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const inviteAccountToOrganization = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.InviteAccountToOrganization" }, InviteAccountToOrganizationRequest, InviteAccountToOrganizationResponse, [AccessDeniedException, AccountOwnerNotVerifiedException, AWSOrganizationsNotInUseException, ConcurrentModificationException, ConstraintViolationException, DuplicateHandshakeException, FinalizingOrganizationException, HandshakeConstraintViolationException, InvalidInputException, ServiceException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists the root or organizational units (OUs) that serve as the immediate parent of the
  * specified child OU or account. This operation, along with ListChildren
@@ -1608,16 +1608,16 @@ export class ResponsibilityTransferAlreadyInStatusException extends S.TaggedErro
  * 
  * 
  * In the current release, a child can have only a single parent.
- */export const listParents = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.ListParents" }, ListParentsRequest, ListParentsResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, ChildNotFoundException, InvalidInputException, ServiceException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listParents = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.ListParents" }, ListParentsRequest, ListParentsResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, ChildNotFoundException, InvalidInputException, ServiceException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Moves an account from its current source parent root or organizational unit (OU) to
  * the specified destination parent root or OU.
  * 
  * 
  * You can only call this operation from the management account.
- */export const moveAccount = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.MoveAccount" }, MoveAccountRequest, S.Struct({}), [AccessDeniedException, AccountNotFoundException, AWSOrganizationsNotInUseException, ConcurrentModificationException, DestinationParentNotFoundException, DuplicateAccountException, InvalidInputException, ServiceException, SourceParentNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const moveAccount = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.MoveAccount" }, MoveAccountRequest, S.Struct({}), [AccessDeniedException, AccountNotFoundException, AWSOrganizationsNotInUseException, ConcurrentModificationException, DestinationParentNotFoundException, DuplicateAccountException, InvalidInputException, ServiceException, SourceParentNotFoundException, TooManyRequestsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Ends a transfer. A *transfer* is an arrangement between two
  * management accounts where one account designates the other with specified
  * responsibilities for their organization.
- */export const terminateResponsibilityTransfer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", uri: "/", method: "POST", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.TerminateResponsibilityTransfer" }, TerminateResponsibilityTransferRequest, TerminateResponsibilityTransferResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, ConcurrentModificationException, ConstraintViolationException, InvalidInputException, InvalidResponsibilityTransferTransitionException, ResponsibilityTransferAlreadyInStatusException, ResponsibilityTransferNotFoundException, ServiceException, TooManyRequestsException, UnsupportedAPIEndpointException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const terminateResponsibilityTransfer = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-11-28", sdkId: "Organizations", sigV4ServiceName: "organizations", name: "AWSOrganizationsV20161128.TerminateResponsibilityTransfer" }, TerminateResponsibilityTransferRequest, TerminateResponsibilityTransferResponse, [AccessDeniedException, AWSOrganizationsNotInUseException, ConcurrentModificationException, ConstraintViolationException, InvalidInputException, InvalidResponsibilityTransferTransitionException, ResponsibilityTransferAlreadyInStatusException, ResponsibilityTransferNotFoundException, ServiceException, TooManyRequestsException, UnsupportedAPIEndpointException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

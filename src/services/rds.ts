@@ -709,7 +709,7 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * parameters are updated immediately and static parameters are set to
  * `pending-reboot` to take effect on the next DB instance restart or
  * `RebootDBInstance` request.
- */export const resetDBParameterGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.ResetDBParameterGroup" }, ResetDBParameterGroupMessage, DBParameterGroupNameMessage, [DBParameterGroupNotFoundFault, InvalidDBParameterGroupStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const resetDBParameterGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.ResetDBParameterGroup" }, ResetDBParameterGroupMessage, DBParameterGroupNameMessage, [DBParameterGroupNotFoundFault, InvalidDBParameterGroupStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes a custom engine version. To run this command, make sure you meet the following prerequisites:
  * 
@@ -743,7 +743,7 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * 
  * For more information, see Deleting a
  * CEV in the *Amazon RDS User Guide*.
- */export const deleteCustomDBEngineVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DeleteCustomDBEngineVersion" }, DeleteCustomDBEngineVersionMessage, DBEngineVersion, [CustomDBEngineVersionNotFoundFault, InvalidCustomDBEngineVersionStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteCustomDBEngineVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DeleteCustomDBEngineVersion" }, DeleteCustomDBEngineVersionMessage, DBEngineVersion, [CustomDBEngineVersionNotFoundFault, InvalidCustomDBEngineVersionStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes a custom endpoint and removes it from an Amazon Aurora DB cluster.
  * 
@@ -751,7 +751,7 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * 
  * 
  * This action only applies to Aurora DB clusters.
- */export const deleteDBClusterEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DeleteDBClusterEndpoint" }, DeleteDBClusterEndpointMessage, DBClusterEndpoint, [DBClusterEndpointNotFoundFault, InvalidDBClusterEndpointStateFault, InvalidDBClusterStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteDBClusterEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DeleteDBClusterEndpoint" }, DeleteDBClusterEndpointMessage, DBClusterEndpoint, [DBClusterEndpointNotFoundFault, InvalidDBClusterEndpointStateFault, InvalidDBClusterStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes a specified DB cluster parameter group. The DB cluster parameter group to be deleted can't be associated with any DB clusters.
  * 
@@ -764,19 +764,19 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * For more information on Multi-AZ DB clusters, see Multi-AZ DB
  * cluster deployments in the Amazon RDS User
  * Guide.
- */export const deleteDBClusterParameterGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DeleteDBClusterParameterGroup" }, DeleteDBClusterParameterGroupMessage, S.Struct({}), [DBParameterGroupNotFoundFault, InvalidDBParameterGroupStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteDBClusterParameterGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DeleteDBClusterParameterGroup" }, DeleteDBClusterParameterGroupMessage, S.Struct({}), [DBParameterGroupNotFoundFault, InvalidDBParameterGroupStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes a specified DB parameter group. The DB parameter group to be deleted can't be associated with any DB instances.
- */export const deleteDBParameterGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DeleteDBParameterGroup" }, DeleteDBParameterGroupMessage, S.Struct({}), [DBParameterGroupNotFoundFault, InvalidDBParameterGroupStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteDBParameterGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DeleteDBParameterGroup" }, DeleteDBParameterGroupMessage, S.Struct({}), [DBParameterGroupNotFoundFault, InvalidDBParameterGroupStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes an Aurora Limitless Database DB shard group.
- */export const deleteDBShardGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DeleteDBShardGroup" }, DeleteDBShardGroupMessage, DBShardGroup, [DBShardGroupNotFoundFault, InvalidDBClusterStateFault, InvalidDBShardGroupStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteDBShardGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DeleteDBShardGroup" }, DeleteDBShardGroupMessage, DBShardGroup, [DBShardGroupNotFoundFault, InvalidDBClusterStateFault, InvalidDBShardGroupStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Lists all of the attributes for a customer account. The attributes include Amazon RDS quotas for the account, such as the number of DB instances allowed. The description for a quota includes the quota name, current usage toward that quota, and the quota's maximum value.
  * 
  * 
  * This command doesn't take any parameters.
- */export const describeAccountAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeAccountAttributes" }, DescribeAccountAttributesMessage, AccountAttributesMessage, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeAccountAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeAccountAttributes" }, DescribeAccountAttributesMessage, AccountAttributesMessage, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns information about endpoints for an Amazon Aurora DB cluster.
  * 
@@ -784,7 +784,7 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * 
  * 
  * This action only applies to Aurora DB clusters.
- */export const describeDBClusterEndpoints = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeDBClusterEndpoints" }, DescribeDBClusterEndpointsMessage, DBClusterEndpointMessage, [DBClusterNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeDBClusterEndpoints = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeDBClusterEndpoints" }, DescribeDBClusterEndpointsMessage, DBClusterEndpointMessage, [DBClusterNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns a list of `DBClusterParameterGroup` descriptions. If a
  * `DBClusterParameterGroupName` parameter is specified,
@@ -799,7 +799,7 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * For more information on Multi-AZ DB clusters, see Multi-AZ DB
  * cluster deployments in the Amazon RDS User
  * Guide.
- */export const describeDBClusterParameterGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeDBClusterParameterGroups" }, DescribeDBClusterParameterGroupsMessage, DBClusterParameterGroupsMessage, [DBParameterGroupNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeDBClusterParameterGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeDBClusterParameterGroups" }, DescribeDBClusterParameterGroupsMessage, DBClusterParameterGroupsMessage, [DBParameterGroupNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns the detailed parameter list for a particular DB cluster parameter group.
  * 
@@ -812,7 +812,7 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * For more information on Multi-AZ DB clusters, see Multi-AZ DB
  * cluster deployments in the Amazon RDS User
  * Guide.
- */export const describeDBClusterParameters = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeDBClusterParameters" }, DescribeDBClusterParametersMessage, DBClusterParameterGroupDetails, [DBParameterGroupNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeDBClusterParameters = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeDBClusterParameters" }, DescribeDBClusterParametersMessage, DBClusterParameterGroupDetails, [DBParameterGroupNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Describes existing Amazon Aurora DB clusters and Multi-AZ DB clusters. This API supports pagination.
  * 
@@ -828,7 +828,7 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * 
  * 
  * This operation can also return information for Amazon Neptune DB instances and Amazon DocumentDB instances.
- */export const describeDBClusters = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeDBClusters" }, DescribeDBClustersMessage, DBClusterMessage, [DBClusterNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeDBClusters = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeDBClusters" }, DescribeDBClustersMessage, DBClusterMessage, [DBClusterNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns information about DB cluster snapshots. This API action supports pagination.
  * 
@@ -841,10 +841,10 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * For more information on Multi-AZ DB clusters, see Multi-AZ DB
  * cluster deployments in the Amazon RDS User
  * Guide.
- */export const describeDBClusterSnapshots = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeDBClusterSnapshots" }, DescribeDBClusterSnapshotsMessage, DBClusterSnapshotMessage, [DBClusterSnapshotNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeDBClusterSnapshots = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeDBClusterSnapshots" }, DescribeDBClusterSnapshotsMessage, DBClusterSnapshotMessage, [DBClusterSnapshotNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Describes the properties of specific versions of DB engines.
- */export const describeDBEngineVersions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeDBEngineVersions" }, DescribeDBEngineVersionsMessage, DBEngineVersionMessage, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeDBEngineVersions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeDBEngineVersions" }, DescribeDBEngineVersionsMessage, DBEngineVersionMessage, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Describes provisioned RDS instances. This API supports pagination.
  * 
@@ -852,20 +852,20 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * 
  * 
  * This operation can also return information for Amazon Neptune DB instances and Amazon DocumentDB instances.
- */export const describeDBInstances = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeDBInstances" }, DescribeDBInstancesMessage, DBInstanceMessage, [DBInstanceNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeDBInstances = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeDBInstances" }, DescribeDBInstancesMessage, DBInstanceMessage, [DBInstanceNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns a list of `DBParameterGroup` descriptions. If a `DBParameterGroupName` is specified,
  * the list will contain only the description of the specified DB parameter group.
- */export const describeDBParameterGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeDBParameterGroups" }, DescribeDBParameterGroupsMessage, DBParameterGroupsMessage, [DBParameterGroupNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeDBParameterGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeDBParameterGroups" }, DescribeDBParameterGroupsMessage, DBParameterGroupsMessage, [DBParameterGroupNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns the detailed parameter list for a particular DB parameter group.
- */export const describeDBParameters = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeDBParameters" }, DescribeDBParametersMessage, DBParameterGroupDetails, [DBParameterGroupNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeDBParameters = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeDBParameters" }, DescribeDBParametersMessage, DBParameterGroupDetails, [DBParameterGroupNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns information about DB proxies.
- */export const describeDBProxies = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeDBProxies" }, DescribeDBProxiesRequest, DescribeDBProxiesResponse, [DBProxyNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeDBProxies = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeDBProxies" }, DescribeDBProxiesRequest, DescribeDBProxiesResponse, [DBProxyNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns information about DB proxy endpoints.
- */export const describeDBProxyEndpoints = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeDBProxyEndpoints" }, DescribeDBProxyEndpointsRequest, DescribeDBProxyEndpointsResponse, [DBProxyEndpointNotFoundFault, DBProxyNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeDBProxyEndpoints = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeDBProxyEndpoints" }, DescribeDBProxyEndpointsRequest, DescribeDBProxyEndpointsResponse, [DBProxyEndpointNotFoundFault, DBProxyNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns a list of `DBSecurityGroup` descriptions. If a `DBSecurityGroupName` is specified,
  * the list will contain only the descriptions of the specified DB security group.
@@ -878,27 +878,27 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * *Amazon EC2 User Guide*, the blog EC2-Classic Networking is Retiring –
  * Here’s How to Prepare, and Moving a DB instance not in a VPC
  * into a VPC in the *Amazon RDS User Guide*.
- */export const describeDBSecurityGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeDBSecurityGroups" }, DescribeDBSecurityGroupsMessage, DBSecurityGroupMessage, [DBSecurityGroupNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeDBSecurityGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeDBSecurityGroups" }, DescribeDBSecurityGroupsMessage, DBSecurityGroupMessage, [DBSecurityGroupNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Describes existing Aurora Limitless Database DB shard groups.
- */export const describeDBShardGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeDBShardGroups" }, DescribeDBShardGroupsMessage, DescribeDBShardGroupsResponse, [DBClusterNotFoundFault, DBShardGroupNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeDBShardGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeDBShardGroups" }, DescribeDBShardGroupsMessage, DescribeDBShardGroupsResponse, [DBClusterNotFoundFault, DBShardGroupNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns information about DB snapshots. This API action supports pagination.
- */export const describeDBSnapshots = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeDBSnapshots" }, DescribeDBSnapshotsMessage, DBSnapshotMessage, [DBSnapshotNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeDBSnapshots = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeDBSnapshots" }, DescribeDBSnapshotsMessage, DBSnapshotMessage, [DBSnapshotNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns a list of DBSubnetGroup descriptions. If a DBSubnetGroupName is specified, the list will contain only the descriptions of the specified DBSubnetGroup.
  * 
  * 
  * For an overview of CIDR ranges, go to the
  * Wikipedia Tutorial.
- */export const describeDBSubnetGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeDBSubnetGroups" }, DescribeDBSubnetGroupsMessage, DBSubnetGroupMessage, [DBSubnetGroupNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeDBSubnetGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeDBSubnetGroups" }, DescribeDBSubnetGroupsMessage, DBSubnetGroupMessage, [DBSubnetGroupNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns the default engine and system parameter information for the specified database engine.
- */export const describeEngineDefaultParameters = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeEngineDefaultParameters" }, DescribeEngineDefaultParametersMessage, DescribeEngineDefaultParametersResult, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeEngineDefaultParameters = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeEngineDefaultParameters" }, DescribeEngineDefaultParametersMessage, DescribeEngineDefaultParametersResult, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns information about a snapshot or cluster export to Amazon S3. This API operation supports
  * pagination.
- */export const describeExportTasks = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeExportTasks" }, DescribeExportTasksMessage, ExportTasksMessage, [ExportTaskNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeExportTasks = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeExportTasks" }, DescribeExportTasksMessage, ExportTasksMessage, [ExportTaskNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns information about Aurora global database clusters. This API supports pagination.
  * 
@@ -910,14 +910,14 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * 
  * 
  * This action only applies to Aurora DB clusters.
- */export const describeGlobalClusters = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeGlobalClusters" }, DescribeGlobalClustersMessage, GlobalClustersMessage, [GlobalClusterNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeGlobalClusters = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeGlobalClusters" }, DescribeGlobalClustersMessage, GlobalClustersMessage, [GlobalClusterNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Describes the available option groups.
- */export const describeOptionGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeOptionGroups" }, DescribeOptionGroupsMessage, OptionGroups, [OptionGroupNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeOptionGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeOptionGroups" }, DescribeOptionGroupsMessage, OptionGroups, [OptionGroupNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Describes the tenant databases in a DB instance that uses the multi-tenant
  * configuration. Only RDS for Oracle CDB instances are supported.
- */export const describeTenantDatabases = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeTenantDatabases" }, DescribeTenantDatabasesMessage, TenantDatabasesMessage, [DBInstanceNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeTenantDatabases = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeTenantDatabases" }, DescribeTenantDatabasesMessage, TenantDatabasesMessage, [DBInstanceNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Enables the HTTP endpoint for the DB cluster. By default, the HTTP endpoint
  * isn't enabled.
@@ -936,7 +936,7 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * 
  * This operation applies only to Aurora Serverless v2 and provisioned DB clusters. To enable the HTTP endpoint for Aurora Serverless v1 DB clusters,
  * use the `EnableHttpEndpoint` parameter of the `ModifyDBCluster` operation.
- */export const enableHttpEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.EnableHttpEndpoint" }, EnableHttpEndpointRequest, EnableHttpEndpointResponse, [InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const enableHttpEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.EnableHttpEndpoint" }, EnableHttpEndpointRequest, EnableHttpEndpointResponse, [InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Forces a failover for a DB cluster.
  * 
@@ -969,7 +969,7 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * For more information on Multi-AZ DB clusters, see Multi-AZ DB
  * cluster deployments in the Amazon RDS User
  * Guide.
- */export const failoverDBCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.FailoverDBCluster" }, FailoverDBClusterMessage, FailoverDBClusterResult, [DBClusterNotFoundFault, InvalidDBClusterStateFault, InvalidDBInstanceStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const failoverDBCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.FailoverDBCluster" }, FailoverDBClusterMessage, FailoverDBClusterResult, [DBClusterNotFoundFault, InvalidDBClusterStateFault, InvalidDBInstanceStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Changes the audit policy state of a database activity stream to either locked (default) or unlocked. A locked policy is read-only,
  * whereas an unlocked policy is read/write. If your activity stream is started and locked, you can unlock it, customize your audit policy,
@@ -978,7 +978,7 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * 
  * 
  * This operation is supported for RDS for Oracle and Microsoft SQL Server.
- */export const modifyActivityStream = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.ModifyActivityStream" }, ModifyActivityStreamRequest, ModifyActivityStreamResponse, [DBInstanceNotFoundFault, InvalidDBInstanceStateFault, ResourceNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const modifyActivityStream = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.ModifyActivityStream" }, ModifyActivityStreamRequest, ModifyActivityStreamResponse, [DBInstanceNotFoundFault, InvalidDBInstanceStateFault, ResourceNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Modifies the status of a custom engine version (CEV). You can find CEVs to modify by calling
  * `DescribeDBEngineVersions`.
@@ -997,7 +997,7 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * 
  * For more information, see Modifying CEV status
  * in the *Amazon RDS User Guide*.
- */export const modifyCustomDBEngineVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.ModifyCustomDBEngineVersion" }, ModifyCustomDBEngineVersionMessage, DBEngineVersion, [CustomDBEngineVersionNotFoundFault, InvalidCustomDBEngineVersionStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const modifyCustomDBEngineVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.ModifyCustomDBEngineVersion" }, ModifyCustomDBEngineVersionMessage, DBEngineVersion, [CustomDBEngineVersionNotFoundFault, InvalidCustomDBEngineVersionStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Modifies the properties of an endpoint in an Amazon Aurora DB cluster.
  * 
@@ -1005,7 +1005,7 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * 
  * 
  * This operation only applies to Aurora DB clusters.
- */export const modifyDBClusterEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.ModifyDBClusterEndpoint" }, ModifyDBClusterEndpointMessage, DBClusterEndpoint, [DBClusterEndpointNotFoundFault, DBInstanceNotFoundFault, InvalidDBClusterEndpointStateFault, InvalidDBClusterStateFault, InvalidDBInstanceStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const modifyDBClusterEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.ModifyDBClusterEndpoint" }, ModifyDBClusterEndpointMessage, DBClusterEndpoint, [DBClusterEndpointNotFoundFault, DBInstanceNotFoundFault, InvalidDBClusterEndpointStateFault, InvalidDBClusterStateFault, InvalidDBInstanceStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Modifies the parameters of a DB cluster parameter group. To modify more than one parameter,
  * submit a list of the following: `ParameterName`, `ParameterValue`,
@@ -1032,7 +1032,7 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * For more information on Multi-AZ DB clusters, see Multi-AZ DB
  * cluster deployments in the Amazon RDS User
  * Guide.
- */export const modifyDBClusterParameterGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.ModifyDBClusterParameterGroup" }, ModifyDBClusterParameterGroupMessage, DBClusterParameterGroupNameMessage, [DBParameterGroupNotFoundFault, InvalidDBParameterGroupStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const modifyDBClusterParameterGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.ModifyDBClusterParameterGroup" }, ModifyDBClusterParameterGroupMessage, DBClusterParameterGroupNameMessage, [DBParameterGroupNotFoundFault, InvalidDBParameterGroupStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Modifies the parameters of a DB parameter group. To modify more than one parameter,
  * submit a list of the following: `ParameterName`, `ParameterValue`, and
@@ -1050,11 +1050,11 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * *Parameter Groups* option of the Amazon RDS console or the
  * *DescribeDBParameters* command to verify
  * that your DB parameter group has been created or modified.
- */export const modifyDBParameterGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.ModifyDBParameterGroup" }, ModifyDBParameterGroupMessage, DBParameterGroupNameMessage, [DBParameterGroupNotFoundFault, InvalidDBParameterGroupStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const modifyDBParameterGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.ModifyDBParameterGroup" }, ModifyDBParameterGroupMessage, DBParameterGroupNameMessage, [DBParameterGroupNotFoundFault, InvalidDBParameterGroupStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Modifies the settings of an Aurora Limitless Database DB shard group. You can change one or more settings by
  * specifying these parameters and the new values in the request.
- */export const modifyDBShardGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.ModifyDBShardGroup" }, ModifyDBShardGroupMessage, DBShardGroup, [DBShardGroupAlreadyExistsFault, DBShardGroupNotFoundFault, InvalidDBClusterStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const modifyDBShardGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.ModifyDBShardGroup" }, ModifyDBShardGroupMessage, DBShardGroup, [DBShardGroupAlreadyExistsFault, DBShardGroupNotFoundFault, InvalidDBClusterStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Adds an attribute and values to, or removes an attribute and values from, a manual DB snapshot.
  * 
@@ -1083,7 +1083,7 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * To view which Amazon Web Services accounts have access to copy or restore a manual DB snapshot, or
  * whether a manual DB snapshot public or private, use the DescribeDBSnapshotAttributes API operation. The accounts are returned as
  * values for the `restore` attribute.
- */export const modifyDBSnapshotAttribute = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.ModifyDBSnapshotAttribute" }, ModifyDBSnapshotAttributeMessage, ModifyDBSnapshotAttributeResult, [DBSnapshotNotFoundFault, InvalidDBSnapshotStateFault, SharedSnapshotQuotaExceededFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const modifyDBSnapshotAttribute = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.ModifyDBSnapshotAttribute" }, ModifyDBSnapshotAttributeMessage, ModifyDBSnapshotAttributeResult, [DBSnapshotNotFoundFault, InvalidDBSnapshotStateFault, SharedSnapshotQuotaExceededFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Promotes a read replica DB instance to a standalone DB instance.
  * 
@@ -1103,10 +1103,10 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * 
  * 
  * - This command doesn't apply to Aurora MySQL, Aurora PostgreSQL, or RDS Custom.
- */export const promoteReadReplica = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.PromoteReadReplica" }, PromoteReadReplicaMessage, PromoteReadReplicaResult, [DBInstanceNotFoundFault, InvalidDBInstanceStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const promoteReadReplica = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.PromoteReadReplica" }, PromoteReadReplicaMessage, PromoteReadReplicaResult, [DBInstanceNotFoundFault, InvalidDBInstanceStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Promotes a read replica DB cluster to a standalone DB cluster.
- */export const promoteReadReplicaDBCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.PromoteReadReplicaDBCluster" }, PromoteReadReplicaDBClusterMessage, PromoteReadReplicaDBClusterResult, [DBClusterNotFoundFault, InvalidDBClusterStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const promoteReadReplicaDBCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.PromoteReadReplicaDBCluster" }, PromoteReadReplicaDBClusterMessage, PromoteReadReplicaDBClusterResult, [DBClusterNotFoundFault, InvalidDBClusterStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * You might need to reboot your DB cluster, usually for maintenance reasons.
  * For example, if you make certain modifications,
@@ -1124,7 +1124,7 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * For more information on Multi-AZ DB clusters, see Multi-AZ DB
  * cluster deployments in the Amazon RDS User
  * Guide.
- */export const rebootDBCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.RebootDBCluster" }, RebootDBClusterMessage, RebootDBClusterResult, [DBClusterNotFoundFault, InvalidDBClusterStateFault, InvalidDBInstanceStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const rebootDBCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.RebootDBCluster" }, RebootDBClusterMessage, RebootDBClusterResult, [DBClusterNotFoundFault, InvalidDBClusterStateFault, InvalidDBInstanceStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * You might need to reboot your DB instance, usually for maintenance reasons.
  * For example, if you make certain modifications,
@@ -1144,14 +1144,14 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * 
  * 
  * If your DB instance is part of a Multi-AZ DB cluster, you can reboot the DB cluster with the `RebootDBCluster` operation.
- */export const rebootDBInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.RebootDBInstance" }, RebootDBInstanceMessage, RebootDBInstanceResult, [DBInstanceNotFoundFault, InvalidDBInstanceStateFault, KMSKeyNotAccessibleFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const rebootDBInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.RebootDBInstance" }, RebootDBInstanceMessage, RebootDBInstanceResult, [DBInstanceNotFoundFault, InvalidDBInstanceStateFault, KMSKeyNotAccessibleFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * You might need to reboot your DB shard group, usually for maintenance reasons. For example, if you make certain modifications, reboot
  * the DB shard group for the changes to take effect.
  * 
  * 
  * This operation applies only to Aurora Limitless Database DBb shard groups.
- */export const rebootDBShardGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.RebootDBShardGroup" }, RebootDBShardGroupMessage, DBShardGroup, [DBShardGroupNotFoundFault, InvalidDBShardGroupStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const rebootDBShardGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.RebootDBShardGroup" }, RebootDBShardGroupMessage, DBShardGroup, [DBShardGroupNotFoundFault, InvalidDBShardGroupStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Detaches an Aurora secondary cluster from an Aurora global database cluster. The cluster becomes a
  * standalone cluster with read-write capability instead of being read-only and receiving data from a
@@ -1161,7 +1161,7 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * 
  * 
  * This operation only applies to Aurora DB clusters.
- */export const removeFromGlobalCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.RemoveFromGlobalCluster" }, RemoveFromGlobalClusterMessage, RemoveFromGlobalClusterResult, [DBClusterNotFoundFault, GlobalClusterNotFoundFault, InvalidDBClusterStateFault, InvalidGlobalClusterStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const removeFromGlobalCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.RemoveFromGlobalCluster" }, RemoveFromGlobalClusterMessage, RemoveFromGlobalClusterResult, [DBClusterNotFoundFault, GlobalClusterNotFoundFault, InvalidDBClusterStateFault, InvalidGlobalClusterStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Removes the asssociation of an Amazon Web Services Identity and Access Management (IAM) role from a
  * DB cluster.
@@ -1175,10 +1175,10 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * For more information on Multi-AZ DB clusters, see Multi-AZ DB
  * cluster deployments in the Amazon RDS User
  * Guide.
- */export const removeRoleFromDBCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.RemoveRoleFromDBCluster" }, RemoveRoleFromDBClusterMessage, S.Struct({}), [DBClusterNotFoundFault, DBClusterRoleNotFoundFault, InvalidDBClusterStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const removeRoleFromDBCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.RemoveRoleFromDBCluster" }, RemoveRoleFromDBClusterMessage, S.Struct({}), [DBClusterNotFoundFault, DBClusterRoleNotFoundFault, InvalidDBClusterStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Disassociates an Amazon Web Services Identity and Access Management (IAM) role from a DB instance.
- */export const removeRoleFromDBInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.RemoveRoleFromDBInstance" }, RemoveRoleFromDBInstanceMessage, S.Struct({}), [DBInstanceNotFoundFault, DBInstanceRoleNotFoundFault, InvalidDBInstanceStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const removeRoleFromDBInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.RemoveRoleFromDBInstance" }, RemoveRoleFromDBInstanceMessage, S.Struct({}), [DBInstanceNotFoundFault, DBInstanceRoleNotFoundFault, InvalidDBInstanceStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Modifies the parameters of a DB cluster parameter group to the default value. To
  * reset specific parameters submit a list of the following: `ParameterName`
@@ -1201,7 +1201,7 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * For more information on Multi-AZ DB clusters, see Multi-AZ DB
  * cluster deployments in the Amazon RDS User
  * Guide.
- */export const resetDBClusterParameterGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.ResetDBClusterParameterGroup" }, ResetDBClusterParameterGroupMessage, DBClusterParameterGroupNameMessage, [DBParameterGroupNotFoundFault, InvalidDBParameterGroupStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const resetDBClusterParameterGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.ResetDBClusterParameterGroup" }, ResetDBClusterParameterGroupMessage, DBClusterParameterGroupNameMessage, [DBParameterGroupNotFoundFault, InvalidDBParameterGroupStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Revokes ingress from a DBSecurityGroup for previously authorized IP ranges or EC2 or VPC security groups. Required
  * parameters for this API are one of CIDRIP, EC2SecurityGroupId for VPC, or (EC2SecurityGroupOwnerId and either
@@ -1215,7 +1215,7 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * *Amazon EC2 User Guide*, the blog EC2-Classic Networking is Retiring –
  * Here’s How to Prepare, and Moving a DB instance not in a VPC
  * into a VPC in the *Amazon RDS User Guide*.
- */export const revokeDBSecurityGroupIngress = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.RevokeDBSecurityGroupIngress" }, RevokeDBSecurityGroupIngressMessage, RevokeDBSecurityGroupIngressResult, [AuthorizationNotFoundFault, DBSecurityGroupNotFoundFault, InvalidDBSecurityGroupStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const revokeDBSecurityGroupIngress = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.RevokeDBSecurityGroupIngress" }, RevokeDBSecurityGroupIngressMessage, RevokeDBSecurityGroupIngressResult, [AuthorizationNotFoundFault, DBSecurityGroupNotFoundFault, InvalidDBSecurityGroupStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Starts a database activity stream to monitor activity on the database.
  * For more information, see
@@ -1225,7 +1225,7 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * 
  * Monitoring Amazon RDS with Database Activity Streams
  * in the *Amazon RDS User Guide*.
- */export const startActivityStream = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.StartActivityStream" }, StartActivityStreamRequest, StartActivityStreamResponse, [DBClusterNotFoundFault, DBInstanceNotFoundFault, InvalidDBClusterStateFault, InvalidDBInstanceStateFault, KMSKeyNotAccessibleFault, ResourceNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const startActivityStream = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.StartActivityStream" }, StartActivityStreamRequest, StartActivityStreamResponse, [DBClusterNotFoundFault, DBInstanceNotFoundFault, InvalidDBClusterStateFault, InvalidDBInstanceStateFault, KMSKeyNotAccessibleFault, ResourceNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Stops a database activity stream that was started using the Amazon Web Services console,
  * the `start-activity-stream` CLI command, or the `StartActivityStream` operation.
@@ -1238,7 +1238,7 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * or
  * Monitoring Amazon RDS with Database Activity Streams
  * in the *Amazon RDS User Guide*.
- */export const stopActivityStream = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.StopActivityStream" }, StopActivityStreamRequest, StopActivityStreamResponse, [DBClusterNotFoundFault, DBInstanceNotFoundFault, InvalidDBClusterStateFault, InvalidDBInstanceStateFault, ResourceNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const stopActivityStream = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.StopActivityStream" }, StopActivityStreamRequest, StopActivityStreamResponse, [DBClusterNotFoundFault, DBInstanceNotFoundFault, InvalidDBClusterStateFault, InvalidDBInstanceStateFault, ResourceNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Stops an Amazon Aurora DB cluster. When you stop a DB cluster, Aurora retains the DB cluster's
  * metadata, including its endpoints and DB parameter groups. Aurora also
@@ -1253,7 +1253,7 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * 
  * 
  * This operation only applies to Aurora DB clusters.
- */export const stopDBCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.StopDBCluster" }, StopDBClusterMessage, StopDBClusterResult, [DBClusterNotFoundFault, InvalidDBClusterStateFault, InvalidDBInstanceStateFault, InvalidDBShardGroupStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const stopDBCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.StopDBCluster" }, StopDBClusterMessage, StopDBClusterResult, [DBClusterNotFoundFault, InvalidDBClusterStateFault, InvalidDBInstanceStateFault, InvalidDBShardGroupStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Stops automated backup replication for a DB instance.
  * 
@@ -1263,7 +1263,7 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * 
  * For more information, see
  * Replicating Automated Backups to Another Amazon Web Services Region in the *Amazon RDS User Guide.*
- */export const stopDBInstanceAutomatedBackupsReplication = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.StopDBInstanceAutomatedBackupsReplication" }, StopDBInstanceAutomatedBackupsReplicationMessage, StopDBInstanceAutomatedBackupsReplicationResult, [DBInstanceNotFoundFault, InvalidDBInstanceStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const stopDBInstanceAutomatedBackupsReplication = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.StopDBInstanceAutomatedBackupsReplication" }, StopDBInstanceAutomatedBackupsReplicationMessage, StopDBInstanceAutomatedBackupsReplicationResult, [DBInstanceNotFoundFault, InvalidDBInstanceStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Switches over a blue/green deployment.
  * 
@@ -1277,7 +1277,7 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * Guide and Using Amazon RDS
  * Blue/Green Deployments for database updates in the Amazon Aurora
  * User Guide.
- */export const switchoverBlueGreenDeployment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.SwitchoverBlueGreenDeployment" }, SwitchoverBlueGreenDeploymentRequest, SwitchoverBlueGreenDeploymentResponse, [BlueGreenDeploymentNotFoundFault, InvalidBlueGreenDeploymentStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const switchoverBlueGreenDeployment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.SwitchoverBlueGreenDeployment" }, SwitchoverBlueGreenDeploymentRequest, SwitchoverBlueGreenDeploymentResponse, [BlueGreenDeploymentNotFoundFault, InvalidBlueGreenDeploymentStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Switches over the specified secondary DB cluster to be the new primary DB cluster in the global database cluster.
  * Switchover operations were previously called "managed planned failovers."
@@ -1294,14 +1294,14 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * 
  * This operation is intended for controlled environments, for operations such as "regional rotation" or to fall back to the original
  * primary after a global database failover.
- */export const switchoverGlobalCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.SwitchoverGlobalCluster" }, SwitchoverGlobalClusterMessage, SwitchoverGlobalClusterResult, [DBClusterNotFoundFault, GlobalClusterNotFoundFault, InvalidDBClusterStateFault, InvalidGlobalClusterStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const switchoverGlobalCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.SwitchoverGlobalCluster" }, SwitchoverGlobalClusterMessage, SwitchoverGlobalClusterResult, [DBClusterNotFoundFault, GlobalClusterNotFoundFault, InvalidDBClusterStateFault, InvalidGlobalClusterStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Switches over an Oracle standby database in an Oracle Data Guard environment, making it the new
  * primary database. Issue this command in the Region that hosts the current standby database.
- */export const switchoverReadReplica = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.SwitchoverReadReplica" }, SwitchoverReadReplicaMessage, SwitchoverReadReplicaResult, [DBInstanceNotFoundFault, InvalidDBInstanceStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const switchoverReadReplica = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.SwitchoverReadReplica" }, SwitchoverReadReplicaMessage, SwitchoverReadReplicaResult, [DBInstanceNotFoundFault, InvalidDBInstanceStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Adds a source identifier to an existing RDS event notification subscription.
- */export const addSourceIdentifierToSubscription = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.AddSourceIdentifierToSubscription" }, AddSourceIdentifierToSubscriptionMessage, AddSourceIdentifierToSubscriptionResult, [SourceNotFoundFault, SubscriptionNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const addSourceIdentifierToSubscription = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.AddSourceIdentifierToSubscription" }, AddSourceIdentifierToSubscriptionMessage, AddSourceIdentifierToSubscriptionResult, [SourceNotFoundFault, SubscriptionNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Adds metadata tags to an Amazon RDS resource. These tags can also be used with cost allocation reporting to track cost associated with Amazon RDS resources, or used in a Condition statement in an IAM policy for Amazon RDS.
  * 
@@ -1309,7 +1309,7 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * For an overview on tagging your relational database resources,
  * see Tagging Amazon RDS Resources
  * or Tagging Amazon Aurora and Amazon RDS Resources.
- */export const addTagsToResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.AddTagsToResource" }, AddTagsToResourceMessage, S.Struct({}), [BlueGreenDeploymentNotFoundFault, DBClusterNotFoundFault, DBInstanceNotFoundFault, DBProxyEndpointNotFoundFault, DBProxyNotFoundFault, DBProxyTargetGroupNotFoundFault, DBShardGroupNotFoundFault, DBSnapshotNotFoundFault, DBSnapshotTenantDatabaseNotFoundFault, IntegrationNotFoundFault, InvalidDBClusterEndpointStateFault, InvalidDBClusterStateFault, InvalidDBInstanceStateFault, TenantDatabaseNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const addTagsToResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.AddTagsToResource" }, AddTagsToResourceMessage, S.Struct({}), [BlueGreenDeploymentNotFoundFault, DBClusterNotFoundFault, DBInstanceNotFoundFault, DBProxyEndpointNotFoundFault, DBProxyNotFoundFault, DBProxyTargetGroupNotFoundFault, DBShardGroupNotFoundFault, DBSnapshotNotFoundFault, DBSnapshotTenantDatabaseNotFoundFault, IntegrationNotFoundFault, InvalidDBClusterEndpointStateFault, InvalidDBClusterStateFault, InvalidDBInstanceStateFault, TenantDatabaseNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Backtracks a DB cluster to a specific time, without creating a new DB cluster.
  * 
@@ -1323,7 +1323,7 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * 
  * 
  * This action applies only to Aurora MySQL DB clusters.
- */export const backtrackDBCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.BacktrackDBCluster" }, BacktrackDBClusterMessage, DBClusterBacktrack, [DBClusterNotFoundFault, InvalidDBClusterStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const backtrackDBCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.BacktrackDBCluster" }, BacktrackDBClusterMessage, DBClusterBacktrack, [DBClusterNotFoundFault, InvalidDBClusterStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Copies the specified DB cluster parameter group.
  * 
@@ -1332,7 +1332,7 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * 
  * You can't copy a default DB cluster parameter group. Instead, create a new custom DB cluster parameter group, which copies
  * the default parameters and values for the specified DB cluster parameter group family.
- */export const copyDBClusterParameterGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.CopyDBClusterParameterGroup" }, CopyDBClusterParameterGroupMessage, CopyDBClusterParameterGroupResult, [DBParameterGroupAlreadyExistsFault, DBParameterGroupNotFoundFault, DBParameterGroupQuotaExceededFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const copyDBClusterParameterGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.CopyDBClusterParameterGroup" }, CopyDBClusterParameterGroupMessage, CopyDBClusterParameterGroupResult, [DBParameterGroupAlreadyExistsFault, DBParameterGroupNotFoundFault, DBParameterGroupQuotaExceededFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Copies a snapshot of a DB cluster.
  * 
@@ -1384,7 +1384,7 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * For more information on Multi-AZ DB clusters, see Multi-AZ DB
  * cluster deployments in the Amazon RDS User
  * Guide.
- */export const copyDBClusterSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.CopyDBClusterSnapshot" }, CopyDBClusterSnapshotMessage, CopyDBClusterSnapshotResult, [DBClusterSnapshotAlreadyExistsFault, DBClusterSnapshotNotFoundFault, InvalidDBClusterSnapshotStateFault, InvalidDBClusterStateFault, KMSKeyNotAccessibleFault, SnapshotQuotaExceededFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const copyDBClusterSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.CopyDBClusterSnapshot" }, CopyDBClusterSnapshotMessage, CopyDBClusterSnapshotResult, [DBClusterSnapshotAlreadyExistsFault, DBClusterSnapshotNotFoundFault, InvalidDBClusterSnapshotStateFault, InvalidDBClusterStateFault, KMSKeyNotAccessibleFault, SnapshotQuotaExceededFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Copies the specified DB parameter group.
  * 
@@ -1393,7 +1393,7 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * 
  * You can't copy a default DB parameter group. Instead, create a new custom DB parameter group, which copies the default
  * parameters and values for the specified DB parameter group family.
- */export const copyDBParameterGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.CopyDBParameterGroup" }, CopyDBParameterGroupMessage, CopyDBParameterGroupResult, [DBParameterGroupAlreadyExistsFault, DBParameterGroupNotFoundFault, DBParameterGroupQuotaExceededFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const copyDBParameterGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.CopyDBParameterGroup" }, CopyDBParameterGroupMessage, CopyDBParameterGroupResult, [DBParameterGroupAlreadyExistsFault, DBParameterGroupNotFoundFault, DBParameterGroupQuotaExceededFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates a new DB cluster parameter group.
  * 
@@ -1441,7 +1441,7 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * For more information on Multi-AZ DB clusters, see Multi-AZ DB
  * cluster deployments in the Amazon RDS User
  * Guide.
- */export const createDBClusterParameterGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.CreateDBClusterParameterGroup" }, CreateDBClusterParameterGroupMessage, CreateDBClusterParameterGroupResult, [DBParameterGroupAlreadyExistsFault, DBParameterGroupQuotaExceededFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const createDBClusterParameterGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.CreateDBClusterParameterGroup" }, CreateDBClusterParameterGroupMessage, CreateDBClusterParameterGroupResult, [DBParameterGroupAlreadyExistsFault, DBParameterGroupQuotaExceededFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates a snapshot of a DB cluster.
  * 
@@ -1453,7 +1453,7 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * For more information on Multi-AZ DB clusters, see Multi-AZ DB
  * cluster deployments in the Amazon RDS User
  * Guide.
- */export const createDBClusterSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.CreateDBClusterSnapshot" }, CreateDBClusterSnapshotMessage, CreateDBClusterSnapshotResult, [DBClusterNotFoundFault, DBClusterSnapshotAlreadyExistsFault, InvalidDBClusterSnapshotStateFault, InvalidDBClusterStateFault, SnapshotQuotaExceededFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const createDBClusterSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.CreateDBClusterSnapshot" }, CreateDBClusterSnapshotMessage, CreateDBClusterSnapshotResult, [DBClusterNotFoundFault, DBClusterSnapshotAlreadyExistsFault, InvalidDBClusterSnapshotStateFault, InvalidDBClusterStateFault, SnapshotQuotaExceededFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates a new DB parameter group.
  * 
@@ -1468,11 +1468,11 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * 
  * 
  * This command doesn't apply to RDS Custom.
- */export const createDBParameterGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.CreateDBParameterGroup" }, CreateDBParameterGroupMessage, CreateDBParameterGroupResult, [DBParameterGroupAlreadyExistsFault, DBParameterGroupQuotaExceededFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const createDBParameterGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.CreateDBParameterGroup" }, CreateDBParameterGroupMessage, CreateDBParameterGroupResult, [DBParameterGroupAlreadyExistsFault, DBParameterGroupQuotaExceededFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates a snapshot of a DB instance. The source DB instance must be in the `available` or
  * `storage-optimization` state.
- */export const createDBSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.CreateDBSnapshot" }, CreateDBSnapshotMessage, CreateDBSnapshotResult, [DBInstanceNotFoundFault, DBSnapshotAlreadyExistsFault, InvalidDBInstanceStateFault, SnapshotQuotaExceededFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const createDBSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.CreateDBSnapshot" }, CreateDBSnapshotMessage, CreateDBSnapshotResult, [DBInstanceNotFoundFault, DBSnapshotAlreadyExistsFault, InvalidDBInstanceStateFault, SnapshotQuotaExceededFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes a blue/green deployment.
  * 
@@ -1482,7 +1482,7 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * Guide and Using Amazon RDS
  * Blue/Green Deployments for database updates in the Amazon Aurora
  * User Guide.
- */export const deleteBlueGreenDeployment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DeleteBlueGreenDeployment" }, DeleteBlueGreenDeploymentRequest, DeleteBlueGreenDeploymentResponse, [BlueGreenDeploymentNotFoundFault, InvalidBlueGreenDeploymentStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteBlueGreenDeployment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DeleteBlueGreenDeployment" }, DeleteBlueGreenDeploymentRequest, DeleteBlueGreenDeploymentResponse, [BlueGreenDeploymentNotFoundFault, InvalidBlueGreenDeploymentStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes a DB cluster snapshot. If the snapshot is being copied, the copy operation is terminated.
  * 
@@ -1503,7 +1503,7 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * For more information on Multi-AZ DB clusters, see Multi-AZ DB
  * cluster deployments in the Amazon RDS User
  * Guide.
- */export const deleteDBClusterSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DeleteDBClusterSnapshot" }, DeleteDBClusterSnapshotMessage, DeleteDBClusterSnapshotResult, [DBClusterSnapshotNotFoundFault, InvalidDBClusterSnapshotStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteDBClusterSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DeleteDBClusterSnapshot" }, DeleteDBClusterSnapshotMessage, DeleteDBClusterSnapshotResult, [DBClusterSnapshotNotFoundFault, InvalidDBClusterSnapshotStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes a previously provisioned DB instance.
  * When you delete a DB instance, all automated backups for that instance are deleted and can't be recovered.
@@ -1541,15 +1541,15 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * 
  * For RDS Custom DB instances, deleting the DB instance permanently deletes the EC2 instance and the associated EBS volumes. Make sure that you don't terminate or delete
  * these resources before you delete the DB instance. Otherwise, deleting the DB instance and creation of the final snapshot might fail.
- */export const deleteDBInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DeleteDBInstance" }, DeleteDBInstanceMessage, DeleteDBInstanceResult, [DBInstanceAutomatedBackupQuotaExceededFault, DBInstanceNotFoundFault, DBSnapshotAlreadyExistsFault, InvalidDBClusterStateFault, InvalidDBInstanceStateFault, KMSKeyNotAccessibleFault, SnapshotQuotaExceededFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteDBInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DeleteDBInstance" }, DeleteDBInstanceMessage, DeleteDBInstanceResult, [DBInstanceAutomatedBackupQuotaExceededFault, DBInstanceNotFoundFault, DBSnapshotAlreadyExistsFault, InvalidDBClusterStateFault, InvalidDBInstanceStateFault, KMSKeyNotAccessibleFault, SnapshotQuotaExceededFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes automated backups using the `DbiResourceId` value of the source DB instance or the Amazon Resource Name (ARN) of the automated backups.
- */export const deleteDBInstanceAutomatedBackup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DeleteDBInstanceAutomatedBackup" }, DeleteDBInstanceAutomatedBackupMessage, DeleteDBInstanceAutomatedBackupResult, [DBInstanceAutomatedBackupNotFoundFault, InvalidDBInstanceAutomatedBackupStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteDBInstanceAutomatedBackup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DeleteDBInstanceAutomatedBackup" }, DeleteDBInstanceAutomatedBackupMessage, DeleteDBInstanceAutomatedBackupResult, [DBInstanceAutomatedBackupNotFoundFault, InvalidDBInstanceAutomatedBackupStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes a `DBProxyEndpoint`. Doing so removes the ability to access the DB proxy using the
  * endpoint that you defined. The endpoint that you delete might have provided capabilities such as read/write
  * or read-only operations, or using a different VPC than the DB proxy's default VPC.
- */export const deleteDBProxyEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DeleteDBProxyEndpoint" }, DeleteDBProxyEndpointRequest, DeleteDBProxyEndpointResponse, [DBProxyEndpointNotFoundFault, InvalidDBProxyEndpointStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteDBProxyEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DeleteDBProxyEndpoint" }, DeleteDBProxyEndpointRequest, DeleteDBProxyEndpointResponse, [DBProxyEndpointNotFoundFault, InvalidDBProxyEndpointStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes a DB security group.
  * 
@@ -1564,7 +1564,7 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * *Amazon EC2 User Guide*, the blog EC2-Classic Networking is Retiring –
  * Here’s How to Prepare, and Moving a DB instance not in a VPC
  * into a VPC in the *Amazon RDS User Guide*.
- */export const deleteDBSecurityGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DeleteDBSecurityGroup" }, DeleteDBSecurityGroupMessage, S.Struct({}), [DBSecurityGroupNotFoundFault, InvalidDBSecurityGroupStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteDBSecurityGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DeleteDBSecurityGroup" }, DeleteDBSecurityGroupMessage, S.Struct({}), [DBSecurityGroupNotFoundFault, InvalidDBSecurityGroupStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes a DB snapshot. If the snapshot is being copied, the copy operation is
  * terminated.
@@ -1573,10 +1573,10 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * 
  * 
  * The DB snapshot must be in the `available` state to be deleted.
- */export const deleteDBSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DeleteDBSnapshot" }, DeleteDBSnapshotMessage, DeleteDBSnapshotResult, [DBSnapshotNotFoundFault, InvalidDBSnapshotStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteDBSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DeleteDBSnapshot" }, DeleteDBSnapshotMessage, DeleteDBSnapshotResult, [DBSnapshotNotFoundFault, InvalidDBSnapshotStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes an RDS event notification subscription.
- */export const deleteEventSubscription = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DeleteEventSubscription" }, DeleteEventSubscriptionMessage, DeleteEventSubscriptionResult, [InvalidEventSubscriptionStateFault, SubscriptionNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteEventSubscription = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DeleteEventSubscription" }, DeleteEventSubscriptionMessage, DeleteEventSubscriptionResult, [InvalidEventSubscriptionStateFault, SubscriptionNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes a global database cluster. The primary and secondary clusters must already be detached or
  * destroyed first.
@@ -1585,13 +1585,13 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * 
  * 
  * This action only applies to Aurora DB clusters.
- */export const deleteGlobalCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DeleteGlobalCluster" }, DeleteGlobalClusterMessage, DeleteGlobalClusterResult, [GlobalClusterNotFoundFault, InvalidGlobalClusterStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteGlobalCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DeleteGlobalCluster" }, DeleteGlobalClusterMessage, DeleteGlobalClusterResult, [GlobalClusterNotFoundFault, InvalidGlobalClusterStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes a zero-ETL integration with Amazon Redshift.
- */export const deleteIntegration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DeleteIntegration" }, DeleteIntegrationMessage, Integration, [IntegrationConflictOperationFault, IntegrationNotFoundFault, InvalidIntegrationStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteIntegration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DeleteIntegration" }, DeleteIntegrationMessage, Integration, [IntegrationConflictOperationFault, IntegrationNotFoundFault, InvalidIntegrationStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes an existing option group.
- */export const deleteOptionGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DeleteOptionGroup" }, DeleteOptionGroupMessage, S.Struct({}), [InvalidOptionGroupStateFault, OptionGroupNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteOptionGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DeleteOptionGroup" }, DeleteOptionGroupMessage, S.Struct({}), [InvalidOptionGroupStateFault, OptionGroupNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes a tenant database from your DB instance. This command only applies to RDS for
  * Oracle container database (CDB) instances.
@@ -1599,7 +1599,7 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * 
  * You can't delete a tenant database when it is the only tenant in the DB
  * instance.
- */export const deleteTenantDatabase = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DeleteTenantDatabase" }, DeleteTenantDatabaseMessage, DeleteTenantDatabaseResult, [DBInstanceNotFoundFault, DBSnapshotAlreadyExistsFault, InvalidDBInstanceStateFault, TenantDatabaseNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteTenantDatabase = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DeleteTenantDatabase" }, DeleteTenantDatabaseMessage, DeleteTenantDatabaseResult, [DBInstanceNotFoundFault, DBSnapshotAlreadyExistsFault, InvalidDBInstanceStateFault, TenantDatabaseNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Describes one or more blue/green deployments.
  * 
@@ -1609,7 +1609,7 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * 
  * Using Amazon RDS Blue/Green Deployments for database updates in the Amazon Aurora
  * User Guide.
- */export const describeBlueGreenDeployments = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeBlueGreenDeployments" }, DescribeBlueGreenDeploymentsRequest, DescribeBlueGreenDeploymentsResponse, [BlueGreenDeploymentNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeBlueGreenDeployments = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeBlueGreenDeployments" }, DescribeBlueGreenDeploymentsRequest, DescribeBlueGreenDeploymentsResponse, [BlueGreenDeploymentNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Lists the set of certificate authority (CA) certificates provided by Amazon RDS for this Amazon Web Services account.
  * 
@@ -1619,7 +1619,7 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * 
  * Using SSL/TLS to encrypt a connection to a DB cluster in the Amazon Aurora
  * User Guide.
- */export const describeCertificates = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeCertificates" }, DescribeCertificatesMessage, CertificateMessage, [CertificateNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeCertificates = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeCertificates" }, DescribeCertificatesMessage, CertificateMessage, [CertificateNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Displays backups for both current and deleted DB clusters. For example, use this operation to find details
  * about automated backups for previously deleted clusters. Current clusters are returned for both the
@@ -1627,7 +1627,7 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * 
  * 
  * All parameters are optional.
- */export const describeDBClusterAutomatedBackups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeDBClusterAutomatedBackups" }, DescribeDBClusterAutomatedBackupsMessage, DBClusterAutomatedBackupMessage, [DBClusterAutomatedBackupNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeDBClusterAutomatedBackups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeDBClusterAutomatedBackups" }, DescribeDBClusterAutomatedBackupsMessage, DBClusterAutomatedBackupMessage, [DBClusterAutomatedBackupNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns information about backtracks for a DB cluster.
  * 
@@ -1640,7 +1640,7 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * 
  * 
  * This action only applies to Aurora MySQL DB clusters.
- */export const describeDBClusterBacktracks = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeDBClusterBacktracks" }, DescribeDBClusterBacktracksMessage, DBClusterBacktrackMessage, [DBClusterBacktrackNotFoundFault, DBClusterNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeDBClusterBacktracks = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeDBClusterBacktracks" }, DescribeDBClusterBacktracksMessage, DBClusterBacktrackMessage, [DBClusterBacktrackNotFoundFault, DBClusterNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Displays backups for both current and deleted
  * instances. For example, use this operation to
@@ -1651,13 +1651,13 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * 
  * 
  * All parameters are optional.
- */export const describeDBInstanceAutomatedBackups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeDBInstanceAutomatedBackups" }, DescribeDBInstanceAutomatedBackupsMessage, DBInstanceAutomatedBackupMessage, [DBInstanceAutomatedBackupNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeDBInstanceAutomatedBackups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeDBInstanceAutomatedBackups" }, DescribeDBInstanceAutomatedBackupsMessage, DBInstanceAutomatedBackupMessage, [DBInstanceAutomatedBackupNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns a list of DB log files for the DB instance.
  * 
  * 
  * This command doesn't apply to RDS Custom.
- */export const describeDBLogFiles = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeDBLogFiles" }, DescribeDBLogFilesMessage, DescribeDBLogFilesResponse, [DBInstanceNotFoundFault, DBInstanceNotReadyFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeDBLogFiles = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeDBLogFiles" }, DescribeDBLogFilesMessage, DescribeDBLogFilesResponse, [DBInstanceNotFoundFault, DBInstanceNotReadyFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Describes the tenant databases that exist in a DB snapshot. This command only applies
  * to RDS for Oracle DB instances in the multi-tenant configuration.
@@ -1667,7 +1667,7 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * restoring it. You can't directly interact with the tenant databases in a DB snapshot. If
  * you restore a snapshot that was taken from DB instance using the multi-tenant
  * configuration, you restore all its tenant databases.
- */export const describeDBSnapshotTenantDatabases = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeDBSnapshotTenantDatabases" }, DescribeDBSnapshotTenantDatabasesMessage, DBSnapshotTenantDatabasesMessage, [DBSnapshotNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeDBSnapshotTenantDatabases = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeDBSnapshotTenantDatabases" }, DescribeDBSnapshotTenantDatabasesMessage, DBSnapshotTenantDatabasesMessage, [DBSnapshotNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns the default engine and system parameter information for the cluster database engine.
  * 
@@ -1675,7 +1675,7 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * For more information on Amazon Aurora, see
  * 
  * What is Amazon Aurora? in the *Amazon Aurora User Guide*.
- */export const describeEngineDefaultClusterParameters = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeEngineDefaultClusterParameters" }, DescribeEngineDefaultClusterParametersMessage, DescribeEngineDefaultClusterParametersResult, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeEngineDefaultClusterParameters = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeEngineDefaultClusterParameters" }, DescribeEngineDefaultClusterParametersMessage, DescribeEngineDefaultClusterParametersResult, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Displays a list of categories for all event source types, or, if specified, for a specified source type.
  * You can also see this list in the "Amazon RDS event categories and event messages" section of the
@@ -1684,7 +1684,7 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * 
  * *Amazon Aurora User Guide*
  * .
- */export const describeEventCategories = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeEventCategories" }, DescribeEventCategoriesMessage, EventCategoriesMessage, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeEventCategories = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeEventCategories" }, DescribeEventCategoriesMessage, EventCategoriesMessage, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns events related to DB instances, DB clusters, DB parameter groups, DB security groups, DB snapshots, DB cluster snapshots, and RDS Proxies for the past 14 days.
  * Events specific to a particular DB instance, DB cluster, DB parameter group, DB security group, DB snapshot, DB cluster snapshot group, or RDS Proxy can be
@@ -1698,17 +1698,17 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * 
  * 
  * By default, RDS returns events that were generated in the past hour.
- */export const describeEvents = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeEvents" }, DescribeEventsMessage, EventsMessage, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeEvents = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeEvents" }, DescribeEventsMessage, EventsMessage, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Lists all the subscription descriptions for a customer account. The description for a subscription includes
  * `SubscriptionName`, `SNSTopicARN`, `CustomerID`, `SourceType`, `SourceID`, `CreationTime`, and `Status`.
  * 
  * 
  * If you specify a `SubscriptionName`, lists the description for that subscription.
- */export const describeEventSubscriptions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeEventSubscriptions" }, DescribeEventSubscriptionsMessage, EventSubscriptionsMessage, [SubscriptionNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeEventSubscriptions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeEventSubscriptions" }, DescribeEventSubscriptionsMessage, EventSubscriptionsMessage, [SubscriptionNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Describe one or more zero-ETL integrations with Amazon Redshift.
- */export const describeIntegrations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeIntegrations" }, DescribeIntegrationsMessage, DescribeIntegrationsResponse, [IntegrationNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeIntegrations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeIntegrations" }, DescribeIntegrationsMessage, DescribeIntegrationsResponse, [IntegrationNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns a list of resources (for example, DB instances) that have at least one pending maintenance action.
  * 
@@ -1718,7 +1718,7 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * visible to all subsequent RDS commands. Keep this in mind when you use
  * `DescribePendingMaintenanceActions` immediately after using a previous
  * API command such as `ApplyPendingMaintenanceActions`.
- */export const describePendingMaintenanceActions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribePendingMaintenanceActions" }, DescribePendingMaintenanceActionsMessage, PendingMaintenanceActionsMessage, [ResourceNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describePendingMaintenanceActions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribePendingMaintenanceActions" }, DescribePendingMaintenanceActionsMessage, PendingMaintenanceActionsMessage, [ResourceNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns a list of the source Amazon Web Services Regions where the current Amazon Web Services Region can create a read replica,
  * copy a DB snapshot from, or replicate automated backups from.
@@ -1732,7 +1732,7 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * use the EC2 operation `DescribeRegions`. For more information, see
  * 
  * DescribeRegions in the *Amazon EC2 API Reference*.
- */export const describeSourceRegions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeSourceRegions" }, DescribeSourceRegionsMessage, SourceRegionMessage, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeSourceRegions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeSourceRegions" }, DescribeSourceRegionsMessage, SourceRegionMessage, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Disables the HTTP endpoint for the specified DB cluster. Disabling this endpoint disables RDS Data API.
  * 
@@ -1745,7 +1745,7 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * 
  * This operation applies only to Aurora Serverless v2 and provisioned DB clusters. To disable the HTTP endpoint for Aurora Serverless v1 DB clusters,
  * use the `EnableHttpEndpoint` parameter of the `ModifyDBCluster` operation.
- */export const disableHttpEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DisableHttpEndpoint" }, DisableHttpEndpointRequest, DisableHttpEndpointResponse, [InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const disableHttpEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DisableHttpEndpoint" }, DisableHttpEndpointRequest, DisableHttpEndpointResponse, [InvalidResourceStateFault, ResourceNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Promotes the specified secondary DB cluster to be the primary DB cluster in the global database cluster to fail over or switch over a global database. Switchover operations were previously called "managed planned failovers."
  * 
@@ -1798,7 +1798,7 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * 
  * For more information about switching over an Amazon Aurora global database, see
  * Performing switchovers for Aurora global databases in the *Amazon Aurora User Guide*.
- */export const failoverGlobalCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.FailoverGlobalCluster" }, FailoverGlobalClusterMessage, FailoverGlobalClusterResult, [DBClusterNotFoundFault, GlobalClusterNotFoundFault, InvalidDBClusterStateFault, InvalidGlobalClusterStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const failoverGlobalCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.FailoverGlobalCluster" }, FailoverGlobalClusterMessage, FailoverGlobalClusterResult, [DBClusterNotFoundFault, GlobalClusterNotFoundFault, InvalidDBClusterStateFault, InvalidGlobalClusterStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Lists all tags on an Amazon RDS resource.
  * 
@@ -1806,7 +1806,7 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * For an overview on tagging an Amazon RDS resource,
  * see Tagging Amazon RDS Resources in the *Amazon RDS User Guide*
  * or Tagging Amazon Aurora and Amazon RDS Resources in the *Amazon Aurora User Guide*.
- */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.ListTagsForResource" }, ListTagsForResourceMessage, TagListMessage, [BlueGreenDeploymentNotFoundFault, DBClusterNotFoundFault, DBInstanceNotFoundFault, DBProxyEndpointNotFoundFault, DBProxyNotFoundFault, DBProxyTargetGroupNotFoundFault, DBShardGroupNotFoundFault, DBSnapshotNotFoundFault, DBSnapshotTenantDatabaseNotFoundFault, IntegrationNotFoundFault, TenantDatabaseNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.ListTagsForResource" }, ListTagsForResourceMessage, TagListMessage, [BlueGreenDeploymentNotFoundFault, DBClusterNotFoundFault, DBInstanceNotFoundFault, DBProxyEndpointNotFoundFault, DBProxyNotFoundFault, DBProxyTargetGroupNotFoundFault, DBShardGroupNotFoundFault, DBSnapshotNotFoundFault, DBSnapshotTenantDatabaseNotFoundFault, IntegrationNotFoundFault, TenantDatabaseNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Override the system-default Secure Sockets Layer/Transport Layer Security (SSL/TLS)
  * certificate for Amazon RDS for new DB instances, or remove the override.
@@ -1844,7 +1844,7 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * For more information about rotating your SSL/TLS certificate for Aurora DB engines, see
  * 
  * Rotating Your SSL/TLS Certificate in the *Amazon Aurora User Guide*.
- */export const modifyCertificates = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.ModifyCertificates" }, ModifyCertificatesMessage, ModifyCertificatesResult, [CertificateNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const modifyCertificates = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.ModifyCertificates" }, ModifyCertificatesMessage, ModifyCertificatesResult, [CertificateNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Set the capacity of an Aurora Serverless v1 DB cluster to a specific value.
  * 
@@ -1876,7 +1876,7 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * 
  * 
  * This operation only applies to Aurora Serverless v1 DB clusters.
- */export const modifyCurrentDBClusterCapacity = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.ModifyCurrentDBClusterCapacity" }, ModifyCurrentDBClusterCapacityMessage, DBClusterCapacityInfo, [DBClusterNotFoundFault, InvalidDBClusterCapacityFault, InvalidDBClusterStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const modifyCurrentDBClusterCapacity = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.ModifyCurrentDBClusterCapacity" }, ModifyCurrentDBClusterCapacityMessage, DBClusterCapacityInfo, [DBClusterNotFoundFault, InvalidDBClusterCapacityFault, InvalidDBClusterStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Adds an attribute and values to, or removes an attribute and values from, a manual DB cluster snapshot.
  * 
@@ -1907,16 +1907,16 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * To view which Amazon Web Services accounts have access to copy or restore a manual DB cluster
  * snapshot, or whether a manual DB cluster snapshot is public or private, use the DescribeDBClusterSnapshotAttributes API operation. The accounts are
  * returned as values for the `restore` attribute.
- */export const modifyDBClusterSnapshotAttribute = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.ModifyDBClusterSnapshotAttribute" }, ModifyDBClusterSnapshotAttributeMessage, ModifyDBClusterSnapshotAttributeResult, [DBClusterSnapshotNotFoundFault, InvalidDBClusterSnapshotStateFault, SharedSnapshotQuotaExceededFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const modifyDBClusterSnapshotAttribute = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.ModifyDBClusterSnapshotAttribute" }, ModifyDBClusterSnapshotAttributeMessage, ModifyDBClusterSnapshotAttributeResult, [DBClusterSnapshotNotFoundFault, InvalidDBClusterSnapshotStateFault, SharedSnapshotQuotaExceededFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Changes the settings for an existing DB proxy endpoint.
- */export const modifyDBProxyEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.ModifyDBProxyEndpoint" }, ModifyDBProxyEndpointRequest, ModifyDBProxyEndpointResponse, [DBProxyEndpointAlreadyExistsFault, DBProxyEndpointNotFoundFault, InvalidDBProxyEndpointStateFault, InvalidDBProxyStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const modifyDBProxyEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.ModifyDBProxyEndpoint" }, ModifyDBProxyEndpointRequest, ModifyDBProxyEndpointResponse, [DBProxyEndpointAlreadyExistsFault, DBProxyEndpointNotFoundFault, InvalidDBProxyEndpointStateFault, InvalidDBProxyStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Modifies the properties of a `DBProxyTargetGroup`.
- */export const modifyDBProxyTargetGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.ModifyDBProxyTargetGroup" }, ModifyDBProxyTargetGroupRequest, ModifyDBProxyTargetGroupResponse, [DBProxyNotFoundFault, DBProxyTargetGroupNotFoundFault, InvalidDBProxyStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const modifyDBProxyTargetGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.ModifyDBProxyTargetGroup" }, ModifyDBProxyTargetGroupRequest, ModifyDBProxyTargetGroupResponse, [DBProxyNotFoundFault, DBProxyTargetGroupNotFoundFault, InvalidDBProxyStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Updates the recommendation status and recommended action status for the specified recommendation.
- */export const modifyDBRecommendation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.ModifyDBRecommendation" }, ModifyDBRecommendationMessage, DBRecommendationMessage, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const modifyDBRecommendation = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.ModifyDBRecommendation" }, ModifyDBRecommendationMessage, DBRecommendationMessage, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Updates a manual DB snapshot with a new engine version. The snapshot can be encrypted
  * or unencrypted, but not shared or public.
@@ -1926,7 +1926,7 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * 
  * Amazon RDS supports upgrading DB snapshots for MariaDB, MySQL, PostgreSQL, and Oracle. This operation
  * doesn't apply to RDS Custom or RDS for Db2.
- */export const modifyDBSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.ModifyDBSnapshot" }, ModifyDBSnapshotMessage, ModifyDBSnapshotResult, [DBSnapshotNotFoundFault, InvalidDBSnapshotStateFault, KMSKeyNotAccessibleFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const modifyDBSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.ModifyDBSnapshot" }, ModifyDBSnapshotMessage, ModifyDBSnapshotResult, [DBSnapshotNotFoundFault, InvalidDBSnapshotStateFault, KMSKeyNotAccessibleFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Modifies a setting for an Amazon Aurora global database cluster. You can change one or more database configuration
  * parameters by specifying these parameters and the new values in the request. For more information on
@@ -1937,13 +1937,13 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * 
  * 
  * This operation only applies to Aurora global database clusters.
- */export const modifyGlobalCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.ModifyGlobalCluster" }, ModifyGlobalClusterMessage, ModifyGlobalClusterResult, [GlobalClusterAlreadyExistsFault, GlobalClusterNotFoundFault, InvalidDBClusterStateFault, InvalidDBInstanceStateFault, InvalidGlobalClusterStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const modifyGlobalCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.ModifyGlobalCluster" }, ModifyGlobalClusterMessage, ModifyGlobalClusterResult, [GlobalClusterAlreadyExistsFault, GlobalClusterNotFoundFault, InvalidDBClusterStateFault, InvalidDBInstanceStateFault, InvalidGlobalClusterStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Modifies a zero-ETL integration with Amazon Redshift.
- */export const modifyIntegration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.ModifyIntegration" }, ModifyIntegrationMessage, Integration, [IntegrationConflictOperationFault, IntegrationNotFoundFault, InvalidIntegrationStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const modifyIntegration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.ModifyIntegration" }, ModifyIntegrationMessage, Integration, [IntegrationConflictOperationFault, IntegrationNotFoundFault, InvalidIntegrationStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Removes a source identifier from an existing RDS event notification subscription.
- */export const removeSourceIdentifierFromSubscription = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.RemoveSourceIdentifierFromSubscription" }, RemoveSourceIdentifierFromSubscriptionMessage, RemoveSourceIdentifierFromSubscriptionResult, [SourceNotFoundFault, SubscriptionNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const removeSourceIdentifierFromSubscription = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.RemoveSourceIdentifierFromSubscription" }, RemoveSourceIdentifierFromSubscriptionMessage, RemoveSourceIdentifierFromSubscriptionResult, [SourceNotFoundFault, SubscriptionNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Removes metadata tags from an Amazon RDS resource.
  * 
@@ -1951,7 +1951,7 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * For an overview on tagging an Amazon RDS resource,
  * see Tagging Amazon RDS Resources in the *Amazon RDS User Guide*
  * or Tagging Amazon Aurora and Amazon RDS Resources in the *Amazon Aurora User Guide*.
- */export const removeTagsFromResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.RemoveTagsFromResource" }, RemoveTagsFromResourceMessage, S.Struct({}), [BlueGreenDeploymentNotFoundFault, DBClusterNotFoundFault, DBInstanceNotFoundFault, DBProxyEndpointNotFoundFault, DBProxyNotFoundFault, DBProxyTargetGroupNotFoundFault, DBShardGroupNotFoundFault, DBSnapshotNotFoundFault, DBSnapshotTenantDatabaseNotFoundFault, IntegrationNotFoundFault, InvalidDBClusterEndpointStateFault, InvalidDBClusterStateFault, InvalidDBInstanceStateFault, TenantDatabaseNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const removeTagsFromResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.RemoveTagsFromResource" }, RemoveTagsFromResourceMessage, S.Struct({}), [BlueGreenDeploymentNotFoundFault, DBClusterNotFoundFault, DBInstanceNotFoundFault, DBProxyEndpointNotFoundFault, DBProxyNotFoundFault, DBProxyTargetGroupNotFoundFault, DBShardGroupNotFoundFault, DBSnapshotNotFoundFault, DBSnapshotTenantDatabaseNotFoundFault, IntegrationNotFoundFault, InvalidDBClusterEndpointStateFault, InvalidDBClusterStateFault, InvalidDBInstanceStateFault, TenantDatabaseNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Starts an Amazon Aurora DB cluster that was stopped using the Amazon Web Services console, the stop-db-cluster
  * CLI command, or the `StopDBCluster` operation.
@@ -1965,7 +1965,7 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * 
  * 
  * This operation only applies to Aurora DB clusters.
- */export const startDBCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.StartDBCluster" }, StartDBClusterMessage, StartDBClusterResult, [DBClusterNotFoundFault, InvalidDBClusterStateFault, InvalidDBInstanceStateFault, InvalidDBShardGroupStateFault, KMSKeyNotAccessibleFault, VpcEncryptionControlViolationException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const startDBCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.StartDBCluster" }, StartDBClusterMessage, StartDBClusterResult, [DBClusterNotFoundFault, InvalidDBClusterStateFault, InvalidDBInstanceStateFault, InvalidDBShardGroupStateFault, KMSKeyNotAccessibleFault, VpcEncryptionControlViolationException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Starts an Amazon RDS DB instance that was stopped using the Amazon Web Services console, the stop-db-instance CLI command, or the `StopDBInstance` operation.
  * 
@@ -1981,7 +1981,7 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * 
  * This command doesn't apply to RDS Custom, Aurora MySQL, and Aurora PostgreSQL.
  * For Aurora DB clusters, use `StartDBCluster` instead.
- */export const startDBInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.StartDBInstance" }, StartDBInstanceMessage, StartDBInstanceResult, [AuthorizationNotFoundFault, DBClusterNotFoundFault, DBInstanceNotFoundFault, DBSubnetGroupDoesNotCoverEnoughAZs, DBSubnetGroupNotFoundFault, InsufficientDBInstanceCapacityFault, InvalidDBClusterStateFault, InvalidDBInstanceStateFault, InvalidSubnet, InvalidVPCNetworkStateFault, KMSKeyNotAccessibleFault, VpcEncryptionControlViolationException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const startDBInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.StartDBInstance" }, StartDBInstanceMessage, StartDBInstanceResult, [AuthorizationNotFoundFault, DBClusterNotFoundFault, DBInstanceNotFoundFault, DBSubnetGroupDoesNotCoverEnoughAZs, DBSubnetGroupNotFoundFault, InsufficientDBInstanceCapacityFault, InvalidDBClusterStateFault, InvalidDBInstanceStateFault, InvalidSubnet, InvalidVPCNetworkStateFault, KMSKeyNotAccessibleFault, VpcEncryptionControlViolationException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Stops an Amazon RDS DB instance temporarily. When you stop a DB instance, Amazon RDS retains the DB instance's metadata,
  * including its endpoint, DB parameter group, and option group membership. Amazon RDS also retains
@@ -2000,10 +2000,10 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * 
  * This command doesn't apply to RDS Custom, Aurora MySQL, and Aurora PostgreSQL.
  * For Aurora clusters, use `StopDBCluster` instead.
- */export const stopDBInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.StopDBInstance" }, StopDBInstanceMessage, StopDBInstanceResult, [DBInstanceNotFoundFault, DBSnapshotAlreadyExistsFault, InvalidDBClusterStateFault, InvalidDBInstanceStateFault, SnapshotQuotaExceededFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const stopDBInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.StopDBInstance" }, StopDBInstanceMessage, StopDBInstanceResult, [DBInstanceNotFoundFault, DBSnapshotAlreadyExistsFault, InvalidDBClusterStateFault, InvalidDBInstanceStateFault, SnapshotQuotaExceededFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Associates an Identity and Access Management (IAM) role with a DB cluster.
- */export const addRoleToDBCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.AddRoleToDBCluster" }, AddRoleToDBClusterMessage, S.Struct({}), [DBClusterNotFoundFault, DBClusterRoleAlreadyExistsFault, DBClusterRoleQuotaExceededFault, InvalidDBClusterStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const addRoleToDBCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.AddRoleToDBCluster" }, AddRoleToDBClusterMessage, S.Struct({}), [DBClusterNotFoundFault, DBClusterRoleAlreadyExistsFault, DBClusterRoleQuotaExceededFault, InvalidDBClusterStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Associates an Amazon Web Services Identity and Access Management (IAM) role with a DB instance.
  * 
@@ -2016,14 +2016,14 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * 
  * 
  * This command doesn't apply to RDS Custom.
- */export const addRoleToDBInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.AddRoleToDBInstance" }, AddRoleToDBInstanceMessage, S.Struct({}), [DBInstanceNotFoundFault, DBInstanceRoleAlreadyExistsFault, DBInstanceRoleQuotaExceededFault, InvalidDBInstanceStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const addRoleToDBInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.AddRoleToDBInstance" }, AddRoleToDBInstanceMessage, S.Struct({}), [DBInstanceNotFoundFault, DBInstanceRoleAlreadyExistsFault, DBInstanceRoleQuotaExceededFault, InvalidDBInstanceStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Applies a pending maintenance action to a resource (for example, to a DB instance).
- */export const applyPendingMaintenanceAction = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.ApplyPendingMaintenanceAction" }, ApplyPendingMaintenanceActionMessage, ApplyPendingMaintenanceActionResult, [InvalidDBClusterStateFault, InvalidDBInstanceStateFault, ResourceNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const applyPendingMaintenanceAction = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.ApplyPendingMaintenanceAction" }, ApplyPendingMaintenanceActionMessage, ApplyPendingMaintenanceActionResult, [InvalidDBClusterStateFault, InvalidDBInstanceStateFault, ResourceNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Cancels an export task in progress that is exporting a snapshot or cluster to Amazon S3.
  * Any data that has already been written to the S3 bucket isn't removed.
- */export const cancelExportTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.CancelExportTask" }, CancelExportTaskMessage, ExportTask, [ExportTaskNotFoundFault, InvalidExportTaskStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const cancelExportTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.CancelExportTask" }, CancelExportTaskMessage, ExportTask, [ExportTaskNotFoundFault, InvalidExportTaskStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Copies the specified DB snapshot. The source DB snapshot must be in the `available` state.
  * 
@@ -2038,10 +2038,10 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * 
  * For more information about copying snapshots, see
  * Copying a DB Snapshot in the *Amazon RDS User Guide*.
- */export const copyDBSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.CopyDBSnapshot" }, CopyDBSnapshotMessage, CopyDBSnapshotResult, [CustomAvailabilityZoneNotFoundFault, DBSnapshotAlreadyExistsFault, DBSnapshotNotFoundFault, InvalidDBSnapshotStateFault, KMSKeyNotAccessibleFault, SnapshotQuotaExceededFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const copyDBSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.CopyDBSnapshot" }, CopyDBSnapshotMessage, CopyDBSnapshotResult, [CustomAvailabilityZoneNotFoundFault, DBSnapshotAlreadyExistsFault, DBSnapshotNotFoundFault, InvalidDBSnapshotStateFault, KMSKeyNotAccessibleFault, SnapshotQuotaExceededFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Copies the specified option group.
- */export const copyOptionGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.CopyOptionGroup" }, CopyOptionGroupMessage, CopyOptionGroupResult, [OptionGroupAlreadyExistsFault, OptionGroupNotFoundFault, OptionGroupQuotaExceededFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const copyOptionGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.CopyOptionGroup" }, CopyOptionGroupMessage, CopyOptionGroupResult, [OptionGroupAlreadyExistsFault, OptionGroupNotFoundFault, OptionGroupQuotaExceededFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates a new custom endpoint and associates it with an Amazon Aurora DB cluster.
  * 
@@ -2049,27 +2049,27 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * 
  * 
  * This action applies only to Aurora DB clusters.
- */export const createDBClusterEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.CreateDBClusterEndpoint" }, CreateDBClusterEndpointMessage, DBClusterEndpoint, [DBClusterEndpointAlreadyExistsFault, DBClusterEndpointQuotaExceededFault, DBClusterNotFoundFault, DBInstanceNotFoundFault, InvalidDBClusterStateFault, InvalidDBInstanceStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const createDBClusterEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.CreateDBClusterEndpoint" }, CreateDBClusterEndpointMessage, DBClusterEndpoint, [DBClusterEndpointAlreadyExistsFault, DBClusterEndpointQuotaExceededFault, DBClusterNotFoundFault, DBInstanceNotFoundFault, InvalidDBClusterStateFault, InvalidDBInstanceStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates a new DB proxy.
- */export const createDBProxy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.CreateDBProxy" }, CreateDBProxyRequest, CreateDBProxyResponse, [DBProxyAlreadyExistsFault, DBProxyQuotaExceededFault, InvalidSubnet]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const createDBProxy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.CreateDBProxy" }, CreateDBProxyRequest, CreateDBProxyResponse, [DBProxyAlreadyExistsFault, DBProxyQuotaExceededFault, InvalidSubnet]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates a `DBProxyEndpoint`. Only applies to proxies that are associated with Aurora DB clusters.
  * You can use DB proxy endpoints to specify read/write or read-only access to the DB cluster. You can also use
  * DB proxy endpoints to access a DB proxy through a different VPC than the proxy's default VPC.
- */export const createDBProxyEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.CreateDBProxyEndpoint" }, CreateDBProxyEndpointRequest, CreateDBProxyEndpointResponse, [DBProxyEndpointAlreadyExistsFault, DBProxyEndpointQuotaExceededFault, DBProxyNotFoundFault, InvalidDBProxyStateFault, InvalidSubnet]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const createDBProxyEndpoint = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.CreateDBProxyEndpoint" }, CreateDBProxyEndpointRequest, CreateDBProxyEndpointResponse, [DBProxyEndpointAlreadyExistsFault, DBProxyEndpointQuotaExceededFault, DBProxyNotFoundFault, InvalidDBProxyStateFault, InvalidSubnet]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates a zero-ETL integration with Amazon Redshift.
- */export const createIntegration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.CreateIntegration" }, CreateIntegrationMessage, Integration, [DBClusterNotFoundFault, DBInstanceNotFoundFault, IntegrationAlreadyExistsFault, IntegrationConflictOperationFault, IntegrationQuotaExceededFault, KMSKeyNotAccessibleFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const createIntegration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.CreateIntegration" }, CreateIntegrationMessage, Integration, [DBClusterNotFoundFault, DBInstanceNotFoundFault, IntegrationAlreadyExistsFault, IntegrationConflictOperationFault, IntegrationQuotaExceededFault, KMSKeyNotAccessibleFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates a new option group. You can create up to 20 option groups.
  * 
  * 
  * This command doesn't apply to RDS Custom.
- */export const createOptionGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.CreateOptionGroup" }, CreateOptionGroupMessage, CreateOptionGroupResult, [OptionGroupAlreadyExistsFault, OptionGroupQuotaExceededFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const createOptionGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.CreateOptionGroup" }, CreateOptionGroupMessage, CreateOptionGroupResult, [OptionGroupAlreadyExistsFault, OptionGroupQuotaExceededFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes an existing DB proxy.
- */export const deleteDBProxy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DeleteDBProxy" }, DeleteDBProxyRequest, DeleteDBProxyResponse, [DBProxyNotFoundFault, InvalidDBProxyStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteDBProxy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DeleteDBProxy" }, DeleteDBProxyRequest, DeleteDBProxyResponse, [DBProxyNotFoundFault, InvalidDBProxyStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes a DB subnet group.
  * 
@@ -2077,10 +2077,10 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * 
  * 
  * The specified database subnet group must not be associated with any DB instances.
- */export const deleteDBSubnetGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DeleteDBSubnetGroup" }, DeleteDBSubnetGroupMessage, S.Struct({}), [DBSubnetGroupNotFoundFault, InvalidDBSubnetGroupStateFault, InvalidDBSubnetStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteDBSubnetGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DeleteDBSubnetGroup" }, DeleteDBSubnetGroupMessage, S.Struct({}), [DBSubnetGroupNotFoundFault, InvalidDBSubnetGroupStateFault, InvalidDBSubnetStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Remove the association between one or more `DBProxyTarget` data structures and a `DBProxyTargetGroup`.
- */export const deregisterDBProxyTargets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DeregisterDBProxyTargets" }, DeregisterDBProxyTargetsRequest, DeregisterDBProxyTargetsResponse, [DBProxyNotFoundFault, DBProxyTargetGroupNotFoundFault, DBProxyTargetNotFoundFault, InvalidDBProxyStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deregisterDBProxyTargets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DeregisterDBProxyTargets" }, DeregisterDBProxyTargetsRequest, DeregisterDBProxyTargetsResponse, [DBProxyNotFoundFault, DBProxyTargetGroupNotFoundFault, DBProxyTargetNotFoundFault, InvalidDBProxyStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns a list of DB cluster snapshot attribute names and values for a manual DB cluster snapshot.
  * 
@@ -2094,16 +2094,16 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * 
  * To add or remove access for an Amazon Web Services account to copy or restore a manual DB cluster snapshot, or to make the
  * manual DB cluster snapshot public or private, use the `ModifyDBClusterSnapshotAttribute` API action.
- */export const describeDBClusterSnapshotAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeDBClusterSnapshotAttributes" }, DescribeDBClusterSnapshotAttributesMessage, DescribeDBClusterSnapshotAttributesResult, [DBClusterSnapshotNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeDBClusterSnapshotAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeDBClusterSnapshotAttributes" }, DescribeDBClusterSnapshotAttributesMessage, DescribeDBClusterSnapshotAttributesResult, [DBClusterSnapshotNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Describes the properties of specific major versions of DB engines.
- */export const describeDBMajorEngineVersions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeDBMajorEngineVersions" }, DescribeDBMajorEngineVersionsRequest, DescribeDBMajorEngineVersionsResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeDBMajorEngineVersions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeDBMajorEngineVersions" }, DescribeDBMajorEngineVersionsRequest, DescribeDBMajorEngineVersionsResponse, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns information about DB proxy target groups, represented by `DBProxyTargetGroup` data structures.
- */export const describeDBProxyTargetGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeDBProxyTargetGroups" }, DescribeDBProxyTargetGroupsRequest, DescribeDBProxyTargetGroupsResponse, [DBProxyNotFoundFault, DBProxyTargetGroupNotFoundFault, InvalidDBProxyStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeDBProxyTargetGroups = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeDBProxyTargetGroups" }, DescribeDBProxyTargetGroupsRequest, DescribeDBProxyTargetGroupsResponse, [DBProxyNotFoundFault, DBProxyTargetGroupNotFoundFault, InvalidDBProxyStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns information about `DBProxyTarget` objects. This API supports pagination.
- */export const describeDBProxyTargets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeDBProxyTargets" }, DescribeDBProxyTargetsRequest, DescribeDBProxyTargetsResponse, [DBProxyNotFoundFault, DBProxyTargetGroupNotFoundFault, DBProxyTargetNotFoundFault, InvalidDBProxyStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeDBProxyTargets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeDBProxyTargets" }, DescribeDBProxyTargetsRequest, DescribeDBProxyTargetsResponse, [DBProxyNotFoundFault, DBProxyTargetGroupNotFoundFault, DBProxyTargetNotFoundFault, InvalidDBProxyStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns a list of DB snapshot attribute names and values for a manual DB snapshot.
  * 
@@ -2117,13 +2117,13 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * 
  * To add or remove access for an Amazon Web Services account to copy or restore a manual DB snapshot, or to make the
  * manual DB snapshot public or private, use the `ModifyDBSnapshotAttribute` API action.
- */export const describeDBSnapshotAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeDBSnapshotAttributes" }, DescribeDBSnapshotAttributesMessage, DescribeDBSnapshotAttributesResult, [DBSnapshotNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeDBSnapshotAttributes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeDBSnapshotAttributes" }, DescribeDBSnapshotAttributesMessage, DescribeDBSnapshotAttributesResult, [DBSnapshotNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Describes the orderable DB instance options for a specified DB engine.
- */export const describeOrderableDBInstanceOptions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeOrderableDBInstanceOptions" }, DescribeOrderableDBInstanceOptionsMessage, OrderableDBInstanceOptionsMessage, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeOrderableDBInstanceOptions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeOrderableDBInstanceOptions" }, DescribeOrderableDBInstanceOptionsMessage, OrderableDBInstanceOptionsMessage, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Lists available reserved DB instance offerings.
- */export const describeReservedDBInstancesOfferings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeReservedDBInstancesOfferings" }, DescribeReservedDBInstancesOfferingsMessage, ReservedDBInstancesOfferingMessage, [ReservedDBInstancesOfferingNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeReservedDBInstancesOfferings = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeReservedDBInstancesOfferings" }, DescribeReservedDBInstancesOfferingsMessage, ReservedDBInstancesOfferingMessage, [ReservedDBInstancesOfferingNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Downloads all or a portion of the specified log file, up to 1 MB in size.
  * 
@@ -2136,31 +2136,31 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * This operation uses resources on database instances. Because of this, we recommend publishing database logs to CloudWatch and then
  * using the GetLogEvents operation. For more information,
  * see GetLogEvents in the *Amazon CloudWatch Logs API Reference*.
- */export const downloadDBLogFilePortion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DownloadDBLogFilePortion" }, DownloadDBLogFilePortionMessage, DownloadDBLogFilePortionDetails, [DBInstanceNotFoundFault, DBInstanceNotReadyFault, DBLogFileNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const downloadDBLogFilePortion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DownloadDBLogFilePortion" }, DownloadDBLogFilePortionMessage, DownloadDBLogFilePortionDetails, [DBInstanceNotFoundFault, DBInstanceNotReadyFault, DBLogFileNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Modifies settings for a DB instance.
  * You can change one or more database configuration parameters by specifying these parameters and the new values in the request.
  * To learn what modifications you can make to your DB instance,
  * call `DescribeValidDBInstanceModifications`
  * before you call `ModifyDBInstance`.
- */export const modifyDBInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.ModifyDBInstance" }, ModifyDBInstanceMessage, ModifyDBInstanceResult, [AuthorizationNotFoundFault, BackupPolicyNotFoundFault, CertificateNotFoundFault, DBInstanceAlreadyExistsFault, DBInstanceNotFoundFault, DBParameterGroupNotFoundFault, DBSecurityGroupNotFoundFault, DBUpgradeDependencyFailureFault, DomainNotFoundFault, InsufficientDBInstanceCapacityFault, InvalidDBClusterStateFault, InvalidDBInstanceStateFault, InvalidDBSecurityGroupStateFault, InvalidVPCNetworkStateFault, KMSKeyNotAccessibleFault, NetworkTypeNotSupported, OptionGroupNotFoundFault, ProvisionedIopsNotAvailableInAZFault, StorageQuotaExceededFault, StorageTypeNotSupportedFault, TenantDatabaseQuotaExceededFault, VpcEncryptionControlViolationException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const modifyDBInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.ModifyDBInstance" }, ModifyDBInstanceMessage, ModifyDBInstanceResult, [AuthorizationNotFoundFault, BackupPolicyNotFoundFault, CertificateNotFoundFault, DBInstanceAlreadyExistsFault, DBInstanceNotFoundFault, DBParameterGroupNotFoundFault, DBSecurityGroupNotFoundFault, DBUpgradeDependencyFailureFault, DomainNotFoundFault, InsufficientDBInstanceCapacityFault, InvalidDBClusterStateFault, InvalidDBInstanceStateFault, InvalidDBSecurityGroupStateFault, InvalidVPCNetworkStateFault, KMSKeyNotAccessibleFault, NetworkTypeNotSupported, OptionGroupNotFoundFault, ProvisionedIopsNotAvailableInAZFault, StorageQuotaExceededFault, StorageTypeNotSupportedFault, TenantDatabaseQuotaExceededFault, VpcEncryptionControlViolationException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Changes the settings for an existing DB proxy.
- */export const modifyDBProxy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.ModifyDBProxy" }, ModifyDBProxyRequest, ModifyDBProxyResponse, [DBProxyAlreadyExistsFault, DBProxyNotFoundFault, InvalidDBProxyStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const modifyDBProxy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.ModifyDBProxy" }, ModifyDBProxyRequest, ModifyDBProxyResponse, [DBProxyAlreadyExistsFault, DBProxyNotFoundFault, InvalidDBProxyStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Modifies an existing option group.
- */export const modifyOptionGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.ModifyOptionGroup" }, ModifyOptionGroupMessage, ModifyOptionGroupResult, [InvalidOptionGroupStateFault, OptionGroupNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const modifyOptionGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.ModifyOptionGroup" }, ModifyOptionGroupMessage, ModifyOptionGroupResult, [InvalidOptionGroupStateFault, OptionGroupNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Modifies an existing tenant database in a DB instance. You can change the tenant
  * database name or the master user password. This operation is supported only for RDS for
  * Oracle CDB instances using the multi-tenant configuration.
- */export const modifyTenantDatabase = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.ModifyTenantDatabase" }, ModifyTenantDatabaseMessage, ModifyTenantDatabaseResult, [DBInstanceNotFoundFault, InvalidDBInstanceStateFault, KMSKeyNotAccessibleFault, TenantDatabaseAlreadyExistsFault, TenantDatabaseNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const modifyTenantDatabase = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.ModifyTenantDatabase" }, ModifyTenantDatabaseMessage, ModifyTenantDatabaseResult, [DBInstanceNotFoundFault, InvalidDBInstanceStateFault, KMSKeyNotAccessibleFault, TenantDatabaseAlreadyExistsFault, TenantDatabaseNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Purchases a reserved DB instance offering.
- */export const purchaseReservedDBInstancesOffering = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.PurchaseReservedDBInstancesOffering" }, PurchaseReservedDBInstancesOfferingMessage, PurchaseReservedDBInstancesOfferingResult, [ReservedDBInstanceAlreadyExistsFault, ReservedDBInstanceQuotaExceededFault, ReservedDBInstancesOfferingNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const purchaseReservedDBInstancesOffering = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.PurchaseReservedDBInstancesOffering" }, PurchaseReservedDBInstancesOfferingMessage, PurchaseReservedDBInstancesOfferingResult, [ReservedDBInstanceAlreadyExistsFault, ReservedDBInstanceQuotaExceededFault, ReservedDBInstancesOfferingNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Associate one or more `DBProxyTarget` data structures with a `DBProxyTargetGroup`.
- */export const registerDBProxyTargets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.RegisterDBProxyTargets" }, RegisterDBProxyTargetsRequest, RegisterDBProxyTargetsResponse, [DBClusterNotFoundFault, DBInstanceNotFoundFault, DBProxyNotFoundFault, DBProxyTargetAlreadyRegisteredFault, DBProxyTargetGroupNotFoundFault, InsufficientAvailableIPsInSubnetFault, InvalidDBClusterStateFault, InvalidDBInstanceStateFault, InvalidDBProxyStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const registerDBProxyTargets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.RegisterDBProxyTargets" }, RegisterDBProxyTargetsRequest, RegisterDBProxyTargetsResponse, [DBClusterNotFoundFault, DBInstanceNotFoundFault, DBProxyNotFoundFault, DBProxyTargetAlreadyRegisteredFault, DBProxyTargetGroupNotFoundFault, InsufficientAvailableIPsInSubnetFault, InvalidDBClusterStateFault, InvalidDBInstanceStateFault, InvalidDBProxyStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates an Amazon Aurora DB cluster from MySQL data stored in an Amazon S3 bucket.
  * Amazon RDS must be authorized to access the Amazon S3 bucket and the data must be
@@ -2188,7 +2188,7 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * 
  * 
  * This operation only applies to Aurora DB clusters. The source DB engine must be MySQL.
- */export const restoreDBClusterFromS3 = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.RestoreDBClusterFromS3" }, RestoreDBClusterFromS3Message, RestoreDBClusterFromS3Result, [DBClusterAlreadyExistsFault, DBClusterNotFoundFault, DBClusterParameterGroupNotFoundFault, DBClusterQuotaExceededFault, DBSubnetGroupNotFoundFault, DomainNotFoundFault, InsufficientStorageClusterCapacityFault, InvalidDBClusterStateFault, InvalidDBSubnetGroupStateFault, InvalidS3BucketFault, InvalidSubnet, InvalidVPCNetworkStateFault, KMSKeyNotAccessibleFault, NetworkTypeNotSupported, StorageQuotaExceededFault, StorageTypeNotSupportedFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const restoreDBClusterFromS3 = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.RestoreDBClusterFromS3" }, RestoreDBClusterFromS3Message, RestoreDBClusterFromS3Result, [DBClusterAlreadyExistsFault, DBClusterNotFoundFault, DBClusterParameterGroupNotFoundFault, DBClusterQuotaExceededFault, DBSubnetGroupNotFoundFault, DomainNotFoundFault, InsufficientStorageClusterCapacityFault, InvalidDBClusterStateFault, InvalidDBSubnetGroupStateFault, InvalidS3BucketFault, InvalidSubnet, InvalidVPCNetworkStateFault, KMSKeyNotAccessibleFault, NetworkTypeNotSupported, StorageQuotaExceededFault, StorageTypeNotSupportedFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
  * 
@@ -2218,7 +2218,7 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * For more information on Multi-AZ DB clusters, see Multi-AZ DB
  * cluster deployments in the Amazon RDS User
  * Guide.
- */export const restoreDBClusterFromSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.RestoreDBClusterFromSnapshot" }, RestoreDBClusterFromSnapshotMessage, RestoreDBClusterFromSnapshotResult, [DBClusterAlreadyExistsFault, DBClusterParameterGroupNotFoundFault, DBClusterQuotaExceededFault, DBClusterSnapshotNotFoundFault, DBSnapshotNotFoundFault, DBSubnetGroupDoesNotCoverEnoughAZs, DBSubnetGroupNotFoundFault, DomainNotFoundFault, InsufficientDBClusterCapacityFault, InsufficientDBInstanceCapacityFault, InsufficientStorageClusterCapacityFault, InvalidDBClusterSnapshotStateFault, InvalidDBInstanceStateFault, InvalidDBSnapshotStateFault, InvalidRestoreFault, InvalidSubnet, InvalidVPCNetworkStateFault, KMSKeyNotAccessibleFault, NetworkTypeNotSupported, OptionGroupNotFoundFault, StorageQuotaExceededFault, StorageTypeNotSupportedFault, VpcEncryptionControlViolationException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const restoreDBClusterFromSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.RestoreDBClusterFromSnapshot" }, RestoreDBClusterFromSnapshotMessage, RestoreDBClusterFromSnapshotResult, [DBClusterAlreadyExistsFault, DBClusterParameterGroupNotFoundFault, DBClusterQuotaExceededFault, DBClusterSnapshotNotFoundFault, DBSnapshotNotFoundFault, DBSubnetGroupDoesNotCoverEnoughAZs, DBSubnetGroupNotFoundFault, DomainNotFoundFault, InsufficientDBClusterCapacityFault, InsufficientDBInstanceCapacityFault, InsufficientStorageClusterCapacityFault, InvalidDBClusterSnapshotStateFault, InvalidDBInstanceStateFault, InvalidDBSnapshotStateFault, InvalidRestoreFault, InvalidSubnet, InvalidVPCNetworkStateFault, KMSKeyNotAccessibleFault, NetworkTypeNotSupported, OptionGroupNotFoundFault, StorageQuotaExceededFault, StorageTypeNotSupportedFault, VpcEncryptionControlViolationException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Restores a DB cluster to an arbitrary point in time. Users can restore to any point
  * in time before `LatestRestorableTime` for up to
@@ -2250,7 +2250,7 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * For more information on Multi-AZ DB clusters, see Multi-AZ DB
  * cluster deployments in the Amazon RDS User
  * Guide.
- */export const restoreDBClusterToPointInTime = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.RestoreDBClusterToPointInTime" }, RestoreDBClusterToPointInTimeMessage, RestoreDBClusterToPointInTimeResult, [DBClusterAlreadyExistsFault, DBClusterAutomatedBackupNotFoundFault, DBClusterNotFoundFault, DBClusterParameterGroupNotFoundFault, DBClusterQuotaExceededFault, DBClusterSnapshotNotFoundFault, DBSubnetGroupNotFoundFault, DomainNotFoundFault, InsufficientDBClusterCapacityFault, InsufficientDBInstanceCapacityFault, InsufficientStorageClusterCapacityFault, InvalidDBClusterSnapshotStateFault, InvalidDBClusterStateFault, InvalidDBSnapshotStateFault, InvalidRestoreFault, InvalidSubnet, InvalidVPCNetworkStateFault, KMSKeyNotAccessibleFault, NetworkTypeNotSupported, OptionGroupNotFoundFault, StorageQuotaExceededFault, StorageTypeNotSupportedFault, VpcEncryptionControlViolationException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const restoreDBClusterToPointInTime = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.RestoreDBClusterToPointInTime" }, RestoreDBClusterToPointInTimeMessage, RestoreDBClusterToPointInTimeResult, [DBClusterAlreadyExistsFault, DBClusterAutomatedBackupNotFoundFault, DBClusterNotFoundFault, DBClusterParameterGroupNotFoundFault, DBClusterQuotaExceededFault, DBClusterSnapshotNotFoundFault, DBSubnetGroupNotFoundFault, DomainNotFoundFault, InsufficientDBClusterCapacityFault, InsufficientDBInstanceCapacityFault, InsufficientStorageClusterCapacityFault, InvalidDBClusterSnapshotStateFault, InvalidDBClusterStateFault, InvalidDBSnapshotStateFault, InvalidRestoreFault, InvalidSubnet, InvalidVPCNetworkStateFault, KMSKeyNotAccessibleFault, NetworkTypeNotSupported, OptionGroupNotFoundFault, StorageQuotaExceededFault, StorageTypeNotSupportedFault, VpcEncryptionControlViolationException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates a new DB instance from a DB snapshot. The target database is created from the source database restore point with most
  * of the source's original configuration, including the default security group and DB parameter group. By default, the new DB
@@ -2277,7 +2277,7 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * 
  * 
  * This command doesn't apply to Aurora MySQL and Aurora PostgreSQL. For Aurora, use `RestoreDBClusterFromSnapshot`.
- */export const restoreDBInstanceFromDBSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.RestoreDBInstanceFromDBSnapshot" }, RestoreDBInstanceFromDBSnapshotMessage, RestoreDBInstanceFromDBSnapshotResult, [AuthorizationNotFoundFault, BackupPolicyNotFoundFault, CertificateNotFoundFault, DBClusterSnapshotNotFoundFault, DBInstanceAlreadyExistsFault, DBParameterGroupNotFoundFault, DBSecurityGroupNotFoundFault, DBSnapshotNotFoundFault, DBSubnetGroupDoesNotCoverEnoughAZs, DBSubnetGroupNotFoundFault, DomainNotFoundFault, InstanceQuotaExceededFault, InsufficientDBInstanceCapacityFault, InvalidDBSnapshotStateFault, InvalidRestoreFault, InvalidSubnet, InvalidVPCNetworkStateFault, KMSKeyNotAccessibleFault, NetworkTypeNotSupported, OptionGroupNotFoundFault, ProvisionedIopsNotAvailableInAZFault, StorageQuotaExceededFault, StorageTypeNotSupportedFault, TenantDatabaseQuotaExceededFault, VpcEncryptionControlViolationException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const restoreDBInstanceFromDBSnapshot = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.RestoreDBInstanceFromDBSnapshot" }, RestoreDBInstanceFromDBSnapshotMessage, RestoreDBInstanceFromDBSnapshotResult, [AuthorizationNotFoundFault, BackupPolicyNotFoundFault, CertificateNotFoundFault, DBClusterSnapshotNotFoundFault, DBInstanceAlreadyExistsFault, DBParameterGroupNotFoundFault, DBSecurityGroupNotFoundFault, DBSnapshotNotFoundFault, DBSubnetGroupDoesNotCoverEnoughAZs, DBSubnetGroupNotFoundFault, DomainNotFoundFault, InstanceQuotaExceededFault, InsufficientDBInstanceCapacityFault, InvalidDBSnapshotStateFault, InvalidRestoreFault, InvalidSubnet, InvalidVPCNetworkStateFault, KMSKeyNotAccessibleFault, NetworkTypeNotSupported, OptionGroupNotFoundFault, ProvisionedIopsNotAvailableInAZFault, StorageQuotaExceededFault, StorageTypeNotSupportedFault, TenantDatabaseQuotaExceededFault, VpcEncryptionControlViolationException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Amazon Relational Database Service (Amazon RDS)
  * supports importing MySQL databases by using backup files.
@@ -2290,7 +2290,7 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * 
  * 
  * This operation doesn't apply to RDS Custom.
- */export const restoreDBInstanceFromS3 = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.RestoreDBInstanceFromS3" }, RestoreDBInstanceFromS3Message, RestoreDBInstanceFromS3Result, [AuthorizationNotFoundFault, BackupPolicyNotFoundFault, CertificateNotFoundFault, DBInstanceAlreadyExistsFault, DBParameterGroupNotFoundFault, DBSecurityGroupNotFoundFault, DBSubnetGroupDoesNotCoverEnoughAZs, DBSubnetGroupNotFoundFault, InstanceQuotaExceededFault, InsufficientDBInstanceCapacityFault, InvalidS3BucketFault, InvalidSubnet, InvalidVPCNetworkStateFault, KMSKeyNotAccessibleFault, NetworkTypeNotSupported, OptionGroupNotFoundFault, ProvisionedIopsNotAvailableInAZFault, StorageQuotaExceededFault, StorageTypeNotSupportedFault, VpcEncryptionControlViolationException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const restoreDBInstanceFromS3 = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.RestoreDBInstanceFromS3" }, RestoreDBInstanceFromS3Message, RestoreDBInstanceFromS3Result, [AuthorizationNotFoundFault, BackupPolicyNotFoundFault, CertificateNotFoundFault, DBInstanceAlreadyExistsFault, DBParameterGroupNotFoundFault, DBSecurityGroupNotFoundFault, DBSubnetGroupDoesNotCoverEnoughAZs, DBSubnetGroupNotFoundFault, InstanceQuotaExceededFault, InsufficientDBInstanceCapacityFault, InvalidS3BucketFault, InvalidSubnet, InvalidVPCNetworkStateFault, KMSKeyNotAccessibleFault, NetworkTypeNotSupported, OptionGroupNotFoundFault, ProvisionedIopsNotAvailableInAZFault, StorageQuotaExceededFault, StorageTypeNotSupportedFault, VpcEncryptionControlViolationException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Restores a DB instance to an arbitrary point in time. You can restore to any point in time before the time identified by the `LatestRestorableTime` property. You can restore to a point up to the number of days specified by the `BackupRetentionPeriod` property.
  * 
@@ -2306,7 +2306,7 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * 
  * 
  * This operation doesn't apply to Aurora MySQL and Aurora PostgreSQL. For Aurora, use `RestoreDBClusterToPointInTime`.
- */export const restoreDBInstanceToPointInTime = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.RestoreDBInstanceToPointInTime" }, RestoreDBInstanceToPointInTimeMessage, RestoreDBInstanceToPointInTimeResult, [AuthorizationNotFoundFault, BackupPolicyNotFoundFault, CertificateNotFoundFault, DBInstanceAlreadyExistsFault, DBInstanceAutomatedBackupNotFoundFault, DBInstanceNotFoundFault, DBParameterGroupNotFoundFault, DBSecurityGroupNotFoundFault, DBSubnetGroupDoesNotCoverEnoughAZs, DBSubnetGroupNotFoundFault, DomainNotFoundFault, InstanceQuotaExceededFault, InsufficientDBInstanceCapacityFault, InvalidDBInstanceStateFault, InvalidRestoreFault, InvalidSubnet, InvalidVPCNetworkStateFault, KMSKeyNotAccessibleFault, NetworkTypeNotSupported, OptionGroupNotFoundFault, PointInTimeRestoreNotEnabledFault, ProvisionedIopsNotAvailableInAZFault, StorageQuotaExceededFault, StorageTypeNotSupportedFault, TenantDatabaseQuotaExceededFault, VpcEncryptionControlViolationException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const restoreDBInstanceToPointInTime = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.RestoreDBInstanceToPointInTime" }, RestoreDBInstanceToPointInTimeMessage, RestoreDBInstanceToPointInTimeResult, [AuthorizationNotFoundFault, BackupPolicyNotFoundFault, CertificateNotFoundFault, DBInstanceAlreadyExistsFault, DBInstanceAutomatedBackupNotFoundFault, DBInstanceNotFoundFault, DBParameterGroupNotFoundFault, DBSecurityGroupNotFoundFault, DBSubnetGroupDoesNotCoverEnoughAZs, DBSubnetGroupNotFoundFault, DomainNotFoundFault, InstanceQuotaExceededFault, InsufficientDBInstanceCapacityFault, InvalidDBInstanceStateFault, InvalidRestoreFault, InvalidSubnet, InvalidVPCNetworkStateFault, KMSKeyNotAccessibleFault, NetworkTypeNotSupported, OptionGroupNotFoundFault, PointInTimeRestoreNotEnabledFault, ProvisionedIopsNotAvailableInAZFault, StorageQuotaExceededFault, StorageTypeNotSupportedFault, TenantDatabaseQuotaExceededFault, VpcEncryptionControlViolationException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Enables replication of automated backups to a different Amazon Web Services Region.
  * 
@@ -2316,7 +2316,7 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * 
  * For more information, see
  * Replicating Automated Backups to Another Amazon Web Services Region in the *Amazon RDS User Guide.*
- */export const startDBInstanceAutomatedBackupsReplication = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.StartDBInstanceAutomatedBackupsReplication" }, StartDBInstanceAutomatedBackupsReplicationMessage, StartDBInstanceAutomatedBackupsReplicationResult, [DBInstanceAutomatedBackupQuotaExceededFault, DBInstanceNotFoundFault, InvalidDBInstanceAutomatedBackupStateFault, InvalidDBInstanceStateFault, KMSKeyNotAccessibleFault, StorageTypeNotSupportedFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const startDBInstanceAutomatedBackupsReplication = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.StartDBInstanceAutomatedBackupsReplication" }, StartDBInstanceAutomatedBackupsReplicationMessage, StartDBInstanceAutomatedBackupsReplicationResult, [DBInstanceAutomatedBackupQuotaExceededFault, DBInstanceNotFoundFault, InvalidDBInstanceAutomatedBackupStateFault, InvalidDBInstanceStateFault, KMSKeyNotAccessibleFault, StorageTypeNotSupportedFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates a new Amazon Aurora DB cluster or Multi-AZ DB cluster.
  * 
@@ -2338,7 +2338,7 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * source. For more information about Multi-AZ DB clusters, see Multi-AZ DB
  * cluster deployments in the Amazon RDS User
  * Guide.
- */export const createDBCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.CreateDBCluster" }, CreateDBClusterMessage, CreateDBClusterResult, [DBClusterAlreadyExistsFault, DBClusterNotFoundFault, DBClusterParameterGroupNotFoundFault, DBClusterQuotaExceededFault, DBInstanceNotFoundFault, DBSubnetGroupDoesNotCoverEnoughAZs, DBSubnetGroupNotFoundFault, DomainNotFoundFault, GlobalClusterNotFoundFault, InsufficientDBInstanceCapacityFault, InsufficientStorageClusterCapacityFault, InvalidDBClusterStateFault, InvalidDBInstanceStateFault, InvalidDBSubnetGroupFault, InvalidDBSubnetGroupStateFault, InvalidGlobalClusterStateFault, InvalidSubnet, InvalidVPCNetworkStateFault, KMSKeyNotAccessibleFault, NetworkTypeNotSupported, OptionGroupNotFoundFault, StorageQuotaExceededFault, StorageTypeNotSupportedFault, VpcEncryptionControlViolationException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const createDBCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.CreateDBCluster" }, CreateDBClusterMessage, CreateDBClusterResult, [DBClusterAlreadyExistsFault, DBClusterNotFoundFault, DBClusterParameterGroupNotFoundFault, DBClusterQuotaExceededFault, DBInstanceNotFoundFault, DBSubnetGroupDoesNotCoverEnoughAZs, DBSubnetGroupNotFoundFault, DomainNotFoundFault, GlobalClusterNotFoundFault, InsufficientDBInstanceCapacityFault, InsufficientStorageClusterCapacityFault, InvalidDBClusterStateFault, InvalidDBInstanceStateFault, InvalidDBSubnetGroupFault, InvalidDBSubnetGroupStateFault, InvalidGlobalClusterStateFault, InvalidSubnet, InvalidVPCNetworkStateFault, KMSKeyNotAccessibleFault, NetworkTypeNotSupported, OptionGroupNotFoundFault, StorageQuotaExceededFault, StorageTypeNotSupportedFault, VpcEncryptionControlViolationException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates a new DB instance.
  * 
@@ -2355,7 +2355,7 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * For more information about creating a DB instance in an Aurora DB cluster, see
  * 
  * Creating an Amazon Aurora DB cluster in the *Amazon Aurora User Guide*.
- */export const createDBInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.CreateDBInstance" }, CreateDBInstanceMessage, CreateDBInstanceResult, [AuthorizationNotFoundFault, BackupPolicyNotFoundFault, CertificateNotFoundFault, DBClusterNotFoundFault, DBInstanceAlreadyExistsFault, DBParameterGroupNotFoundFault, DBSecurityGroupNotFoundFault, DBSubnetGroupDoesNotCoverEnoughAZs, DBSubnetGroupNotFoundFault, DomainNotFoundFault, InstanceQuotaExceededFault, InsufficientDBInstanceCapacityFault, InvalidDBClusterStateFault, InvalidSubnet, InvalidVPCNetworkStateFault, KMSKeyNotAccessibleFault, NetworkTypeNotSupported, OptionGroupNotFoundFault, ProvisionedIopsNotAvailableInAZFault, StorageQuotaExceededFault, StorageTypeNotSupportedFault, TenantDatabaseQuotaExceededFault, VpcEncryptionControlViolationException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const createDBInstance = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.CreateDBInstance" }, CreateDBInstanceMessage, CreateDBInstanceResult, [AuthorizationNotFoundFault, BackupPolicyNotFoundFault, CertificateNotFoundFault, DBClusterNotFoundFault, DBInstanceAlreadyExistsFault, DBParameterGroupNotFoundFault, DBSecurityGroupNotFoundFault, DBSubnetGroupDoesNotCoverEnoughAZs, DBSubnetGroupNotFoundFault, DomainNotFoundFault, InstanceQuotaExceededFault, InsufficientDBInstanceCapacityFault, InvalidDBClusterStateFault, InvalidSubnet, InvalidVPCNetworkStateFault, KMSKeyNotAccessibleFault, NetworkTypeNotSupported, OptionGroupNotFoundFault, ProvisionedIopsNotAvailableInAZFault, StorageQuotaExceededFault, StorageTypeNotSupportedFault, TenantDatabaseQuotaExceededFault, VpcEncryptionControlViolationException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates a new DB security group. DB security groups control access to a DB instance.
  * 
@@ -2370,13 +2370,13 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * *Amazon EC2 User Guide*, the blog EC2-Classic Networking is Retiring –
  * Here’s How to Prepare, and Moving a DB instance not in a VPC
  * into a VPC in the *Amazon RDS User Guide*.
- */export const createDBSecurityGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.CreateDBSecurityGroup" }, CreateDBSecurityGroupMessage, CreateDBSecurityGroupResult, [DBSecurityGroupAlreadyExistsFault, DBSecurityGroupNotSupportedFault, DBSecurityGroupQuotaExceededFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const createDBSecurityGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.CreateDBSecurityGroup" }, CreateDBSecurityGroupMessage, CreateDBSecurityGroupResult, [DBSecurityGroupAlreadyExistsFault, DBSecurityGroupNotSupportedFault, DBSecurityGroupQuotaExceededFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates a new DB shard group for Aurora Limitless Database. You must enable Aurora Limitless Database to create a DB shard group.
  * 
  * 
  * Valid for: Aurora DB clusters only
- */export const createDBShardGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.CreateDBShardGroup" }, CreateDBShardGroupMessage, DBShardGroup, [DBClusterNotFoundFault, DBShardGroupAlreadyExistsFault, InvalidDBClusterStateFault, InvalidVPCNetworkStateFault, MaxDBShardGroupLimitReached, NetworkTypeNotSupported, UnsupportedDBEngineVersionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const createDBShardGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.CreateDBShardGroup" }, CreateDBShardGroupMessage, DBShardGroup, [DBClusterNotFoundFault, DBShardGroupAlreadyExistsFault, InvalidDBClusterStateFault, InvalidVPCNetworkStateFault, MaxDBShardGroupLimitReached, NetworkTypeNotSupported, UnsupportedDBEngineVersionFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates an RDS event notification subscription. This operation requires a topic Amazon
  * Resource Name (ARN) created by either the RDS console, the SNS console, or the SNS API.
@@ -2410,7 +2410,7 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * For more information about subscribing to an event for Aurora DB engines, see
  * 
  * Subscribing to Amazon RDS event notification in the *Amazon Aurora User Guide*.
- */export const createEventSubscription = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.CreateEventSubscription" }, CreateEventSubscriptionMessage, CreateEventSubscriptionResult, [EventSubscriptionQuotaExceededFault, SNSInvalidTopicFault, SNSNoAuthorizationFault, SNSTopicArnNotFoundFault, SourceNotFoundFault, SubscriptionAlreadyExistFault, SubscriptionCategoryNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const createEventSubscription = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.CreateEventSubscription" }, CreateEventSubscriptionMessage, CreateEventSubscriptionResult, [EventSubscriptionQuotaExceededFault, SNSInvalidTopicFault, SNSNoAuthorizationFault, SNSTopicArnNotFoundFault, SourceNotFoundFault, SubscriptionAlreadyExistFault, SubscriptionCategoryNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates an Aurora global database
  * spread across multiple Amazon Web Services Regions. The global database
@@ -2429,11 +2429,11 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * 
  * 
  * This operation applies only to Aurora DB clusters.
- */export const createGlobalCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.CreateGlobalCluster" }, CreateGlobalClusterMessage, CreateGlobalClusterResult, [DBClusterNotFoundFault, GlobalClusterAlreadyExistsFault, GlobalClusterQuotaExceededFault, InvalidDBClusterStateFault, InvalidDBShardGroupStateFault, ResourceNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const createGlobalCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.CreateGlobalCluster" }, CreateGlobalClusterMessage, CreateGlobalClusterResult, [DBClusterNotFoundFault, GlobalClusterAlreadyExistsFault, GlobalClusterQuotaExceededFault, InvalidDBClusterStateFault, InvalidDBShardGroupStateFault, ResourceNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates a tenant database in a DB instance that uses the multi-tenant configuration.
  * Only RDS for Oracle container database (CDB) instances are supported.
- */export const createTenantDatabase = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.CreateTenantDatabase" }, CreateTenantDatabaseMessage, CreateTenantDatabaseResult, [DBInstanceNotFoundFault, InvalidDBInstanceStateFault, KMSKeyNotAccessibleFault, TenantDatabaseAlreadyExistsFault, TenantDatabaseQuotaExceededFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const createTenantDatabase = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.CreateTenantDatabase" }, CreateTenantDatabaseMessage, CreateTenantDatabaseResult, [DBInstanceNotFoundFault, InvalidDBInstanceStateFault, KMSKeyNotAccessibleFault, TenantDatabaseAlreadyExistsFault, TenantDatabaseQuotaExceededFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * The DeleteDBCluster action deletes a previously provisioned DB cluster.
  * When you delete a DB cluster, all automated backups for that DB cluster are deleted and can't be recovered.
@@ -2452,27 +2452,27 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * For more information on Multi-AZ DB clusters, see Multi-AZ DB
  * cluster deployments in the Amazon RDS User
  * Guide.
- */export const deleteDBCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DeleteDBCluster" }, DeleteDBClusterMessage, DeleteDBClusterResult, [DBClusterAutomatedBackupQuotaExceededFault, DBClusterNotFoundFault, DBClusterSnapshotAlreadyExistsFault, InvalidDBClusterSnapshotStateFault, InvalidDBClusterStateFault, InvalidGlobalClusterStateFault, KMSKeyNotAccessibleFault, SnapshotQuotaExceededFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteDBCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DeleteDBCluster" }, DeleteDBClusterMessage, DeleteDBClusterResult, [DBClusterAutomatedBackupQuotaExceededFault, DBClusterNotFoundFault, DBClusterSnapshotAlreadyExistsFault, InvalidDBClusterSnapshotStateFault, InvalidDBClusterStateFault, InvalidGlobalClusterStateFault, KMSKeyNotAccessibleFault, SnapshotQuotaExceededFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Deletes automated backups using the `DbClusterResourceId` value of the source DB cluster or the Amazon
  * Resource Name (ARN) of the automated backups.
- */export const deleteDBClusterAutomatedBackup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DeleteDBClusterAutomatedBackup" }, DeleteDBClusterAutomatedBackupMessage, DeleteDBClusterAutomatedBackupResult, [DBClusterAutomatedBackupNotFoundFault, InvalidDBClusterAutomatedBackupStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const deleteDBClusterAutomatedBackup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DeleteDBClusterAutomatedBackup" }, DeleteDBClusterAutomatedBackupMessage, DeleteDBClusterAutomatedBackupResult, [DBClusterAutomatedBackupNotFoundFault, InvalidDBClusterAutomatedBackupStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Describes all available options for the specified engine.
- */export const describeOptionGroupOptions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeOptionGroupOptions" }, DescribeOptionGroupOptionsMessage, OptionGroupOptionsMessage, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeOptionGroupOptions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeOptionGroupOptions" }, DescribeOptionGroupOptionsMessage, OptionGroupOptionsMessage, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Returns information about reserved DB instances for this account, or about a specified reserved DB instance.
- */export const describeReservedDBInstances = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeReservedDBInstances" }, DescribeReservedDBInstancesMessage, ReservedDBInstanceMessage, [ReservedDBInstanceNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeReservedDBInstances = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeReservedDBInstances" }, DescribeReservedDBInstancesMessage, ReservedDBInstanceMessage, [ReservedDBInstanceNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * You can call `DescribeValidDBInstanceModifications` to learn what modifications you can make to
  * your DB instance. You can use this information when you call `ModifyDBInstance`.
  * 
  * 
  * This command doesn't apply to RDS Custom.
- */export const describeValidDBInstanceModifications = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeValidDBInstanceModifications" }, DescribeValidDBInstanceModificationsMessage, DescribeValidDBInstanceModificationsResult, [DBInstanceNotFoundFault, InvalidDBInstanceStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeValidDBInstanceModifications = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeValidDBInstanceModifications" }, DescribeValidDBInstanceModificationsMessage, DescribeValidDBInstanceModificationsResult, [DBInstanceNotFoundFault, InvalidDBInstanceStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Modifies an existing DB subnet group. DB subnet groups must contain at least one subnet in at least two AZs in the Amazon Web Services Region.
- */export const modifyDBSubnetGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.ModifyDBSubnetGroup" }, ModifyDBSubnetGroupMessage, ModifyDBSubnetGroupResult, [DBSubnetGroupDoesNotCoverEnoughAZs, DBSubnetGroupNotFoundFault, DBSubnetQuotaExceededFault, InvalidDBSubnetGroupStateFault, InvalidSubnet, SubnetAlreadyInUse]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const modifyDBSubnetGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.ModifyDBSubnetGroup" }, ModifyDBSubnetGroupMessage, ModifyDBSubnetGroupResult, [DBSubnetGroupDoesNotCoverEnoughAZs, DBSubnetGroupNotFoundFault, DBSubnetQuotaExceededFault, InvalidDBSubnetGroupStateFault, InvalidSubnet, SubnetAlreadyInUse]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Modifies an existing RDS event notification subscription. You can't modify the source identifiers using this call. To change
  * source identifiers for a subscription, use the `AddSourceIdentifierToSubscription` and `RemoveSourceIdentifierFromSubscription` calls.
@@ -2481,7 +2481,7 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * You can see a list of the event categories for a given source type (`SourceType`)
  * in Events in the *Amazon RDS User Guide*
  * or by using the `DescribeEventCategories` operation.
- */export const modifyEventSubscription = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.ModifyEventSubscription" }, ModifyEventSubscriptionMessage, ModifyEventSubscriptionResult, [EventSubscriptionQuotaExceededFault, SNSInvalidTopicFault, SNSNoAuthorizationFault, SNSTopicArnNotFoundFault, SubscriptionCategoryNotFoundFault, SubscriptionNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const modifyEventSubscription = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.ModifyEventSubscription" }, ModifyEventSubscriptionMessage, ModifyEventSubscriptionResult, [EventSubscriptionQuotaExceededFault, SNSInvalidTopicFault, SNSNoAuthorizationFault, SNSTopicArnNotFoundFault, SubscriptionCategoryNotFoundFault, SubscriptionNotFoundFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Enables ingress to a DBSecurityGroup using one of two forms of authorization. First, EC2 or VPC security
  * groups can be added to the DBSecurityGroup if the application using the database is running on EC2 or VPC
@@ -2505,7 +2505,7 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * *Amazon EC2 User Guide*, the blog EC2-Classic Networking is Retiring –
  * Here’s How to Prepare, and Moving a DB instance not in a VPC
  * into a VPC in the *Amazon RDS User Guide*.
- */export const authorizeDBSecurityGroupIngress = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.AuthorizeDBSecurityGroupIngress" }, AuthorizeDBSecurityGroupIngressMessage, AuthorizeDBSecurityGroupIngressResult, [AuthorizationAlreadyExistsFault, AuthorizationQuotaExceededFault, DBSecurityGroupNotFoundFault, InvalidDBSecurityGroupStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const authorizeDBSecurityGroupIngress = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.AuthorizeDBSecurityGroupIngress" }, AuthorizeDBSecurityGroupIngressMessage, AuthorizeDBSecurityGroupIngressResult, [AuthorizationAlreadyExistsFault, AuthorizationQuotaExceededFault, DBSecurityGroupNotFoundFault, InvalidDBSecurityGroupStateFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates a new DB instance that acts as a read replica for an existing source DB
  * instance or Multi-AZ DB cluster. You can create a read replica for a DB instance running
@@ -2527,7 +2527,7 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * 
  * 
  * Your source DB instance or cluster must have backup retention enabled.
- */export const createDBInstanceReadReplica = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.CreateDBInstanceReadReplica" }, CreateDBInstanceReadReplicaMessage, CreateDBInstanceReadReplicaResult, [CertificateNotFoundFault, DBClusterNotFoundFault, DBInstanceAlreadyExistsFault, DBInstanceNotFoundFault, DBParameterGroupNotFoundFault, DBSecurityGroupNotFoundFault, DBSubnetGroupDoesNotCoverEnoughAZs, DBSubnetGroupNotAllowedFault, DBSubnetGroupNotFoundFault, DomainNotFoundFault, InstanceQuotaExceededFault, InsufficientDBInstanceCapacityFault, InvalidDBClusterStateFault, InvalidDBInstanceStateFault, InvalidDBSubnetGroupFault, InvalidSubnet, InvalidVPCNetworkStateFault, KMSKeyNotAccessibleFault, NetworkTypeNotSupported, OptionGroupNotFoundFault, ProvisionedIopsNotAvailableInAZFault, StorageQuotaExceededFault, StorageTypeNotSupportedFault, TenantDatabaseQuotaExceededFault, VpcEncryptionControlViolationException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const createDBInstanceReadReplica = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.CreateDBInstanceReadReplica" }, CreateDBInstanceReadReplicaMessage, CreateDBInstanceReadReplicaResult, [CertificateNotFoundFault, DBClusterNotFoundFault, DBInstanceAlreadyExistsFault, DBInstanceNotFoundFault, DBParameterGroupNotFoundFault, DBSecurityGroupNotFoundFault, DBSubnetGroupDoesNotCoverEnoughAZs, DBSubnetGroupNotAllowedFault, DBSubnetGroupNotFoundFault, DomainNotFoundFault, InstanceQuotaExceededFault, InsufficientDBInstanceCapacityFault, InvalidDBClusterStateFault, InvalidDBInstanceStateFault, InvalidDBSubnetGroupFault, InvalidSubnet, InvalidVPCNetworkStateFault, KMSKeyNotAccessibleFault, NetworkTypeNotSupported, OptionGroupNotFoundFault, ProvisionedIopsNotAvailableInAZFault, StorageQuotaExceededFault, StorageTypeNotSupportedFault, TenantDatabaseQuotaExceededFault, VpcEncryptionControlViolationException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Modifies the settings of an Amazon Aurora DB cluster or a Multi-AZ DB cluster.
  * You can change one or more settings by specifying these parameters and the new values in the
@@ -2542,7 +2542,7 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * For more information on Multi-AZ DB clusters, see Multi-AZ DB
  * cluster deployments in the Amazon RDS User
  * Guide.
- */export const modifyDBCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.ModifyDBCluster" }, ModifyDBClusterMessage, ModifyDBClusterResult, [DBClusterAlreadyExistsFault, DBClusterNotFoundFault, DBClusterParameterGroupNotFoundFault, DBInstanceAlreadyExistsFault, DBParameterGroupNotFoundFault, DBSubnetGroupNotFoundFault, DomainNotFoundFault, InvalidDBClusterStateFault, InvalidDBInstanceStateFault, InvalidDBSecurityGroupStateFault, InvalidDBSubnetGroupStateFault, InvalidGlobalClusterStateFault, InvalidSubnet, InvalidVPCNetworkStateFault, KMSKeyNotAccessibleFault, NetworkTypeNotSupported, OptionGroupNotFoundFault, StorageQuotaExceededFault, StorageTypeNotAvailableFault, StorageTypeNotSupportedFault, VpcEncryptionControlViolationException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const modifyDBCluster = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.ModifyDBCluster" }, ModifyDBClusterMessage, ModifyDBClusterResult, [DBClusterAlreadyExistsFault, DBClusterNotFoundFault, DBClusterParameterGroupNotFoundFault, DBInstanceAlreadyExistsFault, DBParameterGroupNotFoundFault, DBSubnetGroupNotFoundFault, DomainNotFoundFault, InvalidDBClusterStateFault, InvalidDBInstanceStateFault, InvalidDBSecurityGroupStateFault, InvalidDBSubnetGroupStateFault, InvalidGlobalClusterStateFault, InvalidSubnet, InvalidVPCNetworkStateFault, KMSKeyNotAccessibleFault, NetworkTypeNotSupported, OptionGroupNotFoundFault, StorageQuotaExceededFault, StorageTypeNotAvailableFault, StorageTypeNotSupportedFault, VpcEncryptionControlViolationException]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates a blue/green deployment.
  * 
@@ -2565,13 +2565,13 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * 
  * Using Amazon RDS Blue/Green Deployments for database updates in the Amazon Aurora
  * User Guide.
- */export const createBlueGreenDeployment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.CreateBlueGreenDeployment" }, CreateBlueGreenDeploymentRequest, CreateBlueGreenDeploymentResponse, [BlueGreenDeploymentAlreadyExistsFault, DBClusterNotFoundFault, DBClusterParameterGroupNotFoundFault, DBClusterQuotaExceededFault, DBInstanceNotFoundFault, DBParameterGroupNotFoundFault, InstanceQuotaExceededFault, InvalidDBClusterStateFault, InvalidDBInstanceStateFault, SourceClusterNotSupportedFault, SourceDatabaseNotSupportedFault, StorageQuotaExceededFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const createBlueGreenDeployment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.CreateBlueGreenDeployment" }, CreateBlueGreenDeploymentRequest, CreateBlueGreenDeploymentResponse, [BlueGreenDeploymentAlreadyExistsFault, DBClusterNotFoundFault, DBClusterParameterGroupNotFoundFault, DBClusterQuotaExceededFault, DBInstanceNotFoundFault, DBParameterGroupNotFoundFault, InstanceQuotaExceededFault, InvalidDBClusterStateFault, InvalidDBInstanceStateFault, SourceClusterNotSupportedFault, SourceDatabaseNotSupportedFault, StorageQuotaExceededFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates a custom DB engine version (CEV).
- */export const createCustomDBEngineVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.CreateCustomDBEngineVersion" }, CreateCustomDBEngineVersionMessage, DBEngineVersion, [CreateCustomDBEngineVersionFault, CustomDBEngineVersionAlreadyExistsFault, CustomDBEngineVersionNotFoundFault, CustomDBEngineVersionQuotaExceededFault, Ec2ImagePropertiesNotSupportedFault, InvalidCustomDBEngineVersionStateFault, KMSKeyNotAccessibleFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const createCustomDBEngineVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.CreateCustomDBEngineVersion" }, CreateCustomDBEngineVersionMessage, DBEngineVersion, [CreateCustomDBEngineVersionFault, CustomDBEngineVersionAlreadyExistsFault, CustomDBEngineVersionNotFoundFault, CustomDBEngineVersionQuotaExceededFault, Ec2ImagePropertiesNotSupportedFault, InvalidCustomDBEngineVersionStateFault, KMSKeyNotAccessibleFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Creates a new DB subnet group. DB subnet groups must contain at least one subnet in at least two AZs in the Amazon Web Services Region.
- */export const createDBSubnetGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.CreateDBSubnetGroup" }, CreateDBSubnetGroupMessage, CreateDBSubnetGroupResult, [DBSubnetGroupAlreadyExistsFault, DBSubnetGroupDoesNotCoverEnoughAZs, DBSubnetGroupQuotaExceededFault, DBSubnetQuotaExceededFault, InvalidSubnet]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const createDBSubnetGroup = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.CreateDBSubnetGroup" }, CreateDBSubnetGroupMessage, CreateDBSubnetGroupResult, [DBSubnetGroupAlreadyExistsFault, DBSubnetGroupDoesNotCoverEnoughAZs, DBSubnetGroupQuotaExceededFault, DBSubnetQuotaExceededFault, InvalidSubnet]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Starts an export of DB snapshot or DB cluster data to Amazon S3.
  * The provided IAM role must have access to the S3 bucket.
@@ -2592,7 +2592,7 @@ export class InvalidExportSourceStateFault extends S.TaggedError<InvalidExportSo
  * For more information on exporting DB cluster data, see
  * Exporting DB
  * cluster data to Amazon S3 in the *Amazon Aurora User Guide*.
- */export const startExportTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.StartExportTask" }, StartExportTaskMessage, ExportTask, [DBClusterNotFoundFault, DBClusterSnapshotNotFoundFault, DBSnapshotNotFoundFault, ExportTaskAlreadyExistsFault, IamRoleMissingPermissionsFault, IamRoleNotFoundFault, InvalidExportOnlyFault, InvalidExportSourceStateFault, InvalidS3BucketFault, KMSKeyNotAccessibleFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const startExportTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.StartExportTask" }, StartExportTaskMessage, ExportTask, [DBClusterNotFoundFault, DBClusterSnapshotNotFoundFault, DBSnapshotNotFoundFault, ExportTaskAlreadyExistsFault, IamRoleMissingPermissionsFault, IamRoleNotFoundFault, InvalidExportOnlyFault, InvalidExportSourceStateFault, InvalidS3BucketFault, KMSKeyNotAccessibleFault]), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
 /**
  * Describes the recommendations to resolve the issues for your DB instances, DB clusters, and DB parameter groups.
- */export const describeDBRecommendations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", uri: "/", method: "POST", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeDBRecommendations" }, DescribeDBRecommendationsMessage, DBRecommendationsMessage, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);
+ */export const describeDBRecommendations = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2014-10-31", sdkId: "RDS", sigV4ServiceName: "rds", name: "AmazonRDSv19.DescribeDBRecommendations" }, DescribeDBRecommendationsMessage, DBRecommendationsMessage, []), FormatAwsQueryRequest, FormatAwsQueryResponse, FormatAwsXMLError);

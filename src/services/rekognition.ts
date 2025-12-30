@@ -422,7 +422,7 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * 
  * This operation requires permissions to perform the
  * `rekognition:DeleteCollection` action.
- */export const deleteCollection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.DeleteCollection" }, DeleteCollectionRequest, DeleteCollectionResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteCollection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.DeleteCollection" }, DeleteCollectionRequest, DeleteCollectionResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This operation applies only to Amazon Rekognition Custom Labels.
  * 
@@ -441,7 +441,7 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * 
  * 
  * This operation requires permissions to perform the `rekognition:DeleteDataset` action.
- */export const deleteDataset = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.DeleteDataset" }, DeleteDatasetRequest, DeleteDatasetResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, LimitExceededException, ProvisionedThroughputExceededException, ResourceInUseException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteDataset = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.DeleteDataset" }, DeleteDatasetRequest, DeleteDatasetResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, LimitExceededException, ProvisionedThroughputExceededException, ResourceInUseException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a Amazon Rekognition project. To delete a project you must first delete all models or
  * adapters associated with the project. To delete a model or adapter, see DeleteProjectVersion.
@@ -456,7 +456,7 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * 
  * This operation requires permissions to perform the
  * `rekognition:DeleteProject` action.
- */export const deleteProject = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.DeleteProject" }, DeleteProjectRequest, DeleteProjectResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, ResourceInUseException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteProject = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.DeleteProject" }, DeleteProjectRequest, DeleteProjectResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, ResourceInUseException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes a Rekognition project model or project version, like a Amazon Rekognition Custom Labels model or a custom
  * adapter.
@@ -469,18 +469,18 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * 
  * This operation requires permissions to perform the
  * `rekognition:DeleteProjectVersion` action.
- */export const deleteProjectVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.DeleteProjectVersion" }, DeleteProjectVersionRequest, DeleteProjectVersionResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, ResourceInUseException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteProjectVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.DeleteProjectVersion" }, DeleteProjectVersionRequest, DeleteProjectVersionResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, ResourceInUseException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the stream processor identified by `Name`. You assign the value for `Name` when you create the stream processor with
  * CreateStreamProcessor. You might not be able to use the same name for a stream processor for a few seconds after calling `DeleteStreamProcessor`.
- */export const deleteStreamProcessor = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.DeleteStreamProcessor" }, DeleteStreamProcessorRequest, DeleteStreamProcessorResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, ResourceInUseException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteStreamProcessor = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.DeleteStreamProcessor" }, DeleteStreamProcessorRequest, DeleteStreamProcessorResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, ResourceInUseException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified UserID within the collection. Faces that are associated with the
  * UserID are disassociated from the UserID before deleting the specified UserID. If the
  * specified `Collection` or `UserID` is already deleted or not found, a
  * `ResourceNotFoundException` will be thrown. If the action is successful with a
  * 200 response, an empty HTTP body is returned.
- */export const deleteUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.DeleteUser" }, DeleteUserRequest, DeleteUserResponse, [AccessDeniedException, ConflictException, IdempotentParameterMismatchException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.DeleteUser" }, DeleteUserRequest, DeleteUserResponse, [AccessDeniedException, ConflictException, IdempotentParameterMismatchException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes the specified collection. You can use `DescribeCollection` to get
  * information, such as the number of faces indexed into a collection and the version of the
@@ -489,11 +489,11 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * 
  * For more information, see Describing a Collection in the
  * Amazon Rekognition Developer Guide.
- */export const describeCollection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.DescribeCollection" }, DescribeCollectionRequest, DescribeCollectionResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeCollection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.DescribeCollection" }, DescribeCollectionRequest, DescribeCollectionResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides information about a stream processor created by CreateStreamProcessor. You can get information about the input and output streams, the input parameters for the face recognition being performed,
  * and the current status of the stream processor.
- */export const describeStreamProcessor = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.DescribeStreamProcessor" }, DescribeStreamProcessorRequest, DescribeStreamProcessorResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeStreamProcessor = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.DescribeStreamProcessor" }, DescribeStreamProcessorRequest, DescribeStreamProcessorResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This operation applies only to Amazon Rekognition Custom Labels.
  * 
@@ -519,7 +519,7 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * 
  * 
  * This operation requires permissions to perform the `rekognition:ListDatasetEntries` action.
- */export const listDatasetEntries = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.ListDatasetEntries" }, ListDatasetEntriesRequest, ListDatasetEntriesResponse, [AccessDeniedException, InternalServerError, InvalidPaginationTokenException, InvalidParameterException, ProvisionedThroughputExceededException, ResourceInUseException, ResourceNotFoundException, ResourceNotReadyException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listDatasetEntries = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.ListDatasetEntries" }, ListDatasetEntriesRequest, ListDatasetEntriesResponse, [AccessDeniedException, InternalServerError, InvalidPaginationTokenException, InvalidParameterException, ProvisionedThroughputExceededException, ResourceInUseException, ResourceNotFoundException, ResourceNotReadyException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of tags in an Amazon Rekognition collection, stream processor, or Custom Labels
  * model.
@@ -527,7 +527,7 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * 
  * This operation requires permissions to perform the
  * `rekognition:ListTagsForResource` action.
- */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts the asynchronous search for faces in a collection that match the faces of persons detected in a stored video.
  * 
@@ -541,7 +541,7 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * topic is `SUCCEEDED`. If so, call GetFaceSearch and pass the job identifier
  * (`JobId`) from the initial call to `StartFaceSearch`. For more information, see
  * Searching stored videos for faces.
- */export const startFaceSearch = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.StartFaceSearch" }, StartFaceSearchRequest, StartFaceSearchResponse, [AccessDeniedException, IdempotentParameterMismatchException, InternalServerError, InvalidParameterException, InvalidS3ObjectException, LimitExceededException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException, VideoTooLargeException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startFaceSearch = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.StartFaceSearch" }, StartFaceSearchRequest, StartFaceSearchResponse, [AccessDeniedException, IdempotentParameterMismatchException, InternalServerError, InvalidParameterException, InvalidS3ObjectException, LimitExceededException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException, VideoTooLargeException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * *End of support notice:* On October 31, 2025, AWS will discontinue
  * support for Amazon Rekognition People Pathing. After October 31, 2025, you will no
@@ -564,7 +564,7 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * To get the results of the person detection operation, first check that the status value published to the Amazon SNS
  * topic is `SUCCEEDED`. If so, call GetPersonTracking and pass the job identifier
  * (`JobId`) from the initial call to `StartPersonTracking`.
- */export const startPersonTracking = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.StartPersonTracking" }, StartPersonTrackingRequest, StartPersonTrackingResponse, [AccessDeniedException, IdempotentParameterMismatchException, InternalServerError, InvalidParameterException, InvalidS3ObjectException, LimitExceededException, ProvisionedThroughputExceededException, ThrottlingException, VideoTooLargeException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startPersonTracking = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.StartPersonTracking" }, StartPersonTrackingRequest, StartPersonTrackingResponse, [AccessDeniedException, IdempotentParameterMismatchException, InternalServerError, InvalidParameterException, InvalidS3ObjectException, LimitExceededException, ProvisionedThroughputExceededException, ThrottlingException, VideoTooLargeException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This operation applies only to Amazon Rekognition Custom Labels.
  * 
@@ -589,7 +589,7 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * 
  * This operation requires permissions to perform the
  * `rekognition:StartProjectVersion` action.
- */export const startProjectVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.StartProjectVersion" }, StartProjectVersionRequest, StartProjectVersionResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, LimitExceededException, ProvisionedThroughputExceededException, ResourceInUseException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startProjectVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.StartProjectVersion" }, StartProjectVersionRequest, StartProjectVersionResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, LimitExceededException, ProvisionedThroughputExceededException, ResourceInUseException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This operation applies only to Amazon Rekognition Custom Labels.
  * 
@@ -602,10 +602,10 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * 
  * 
  * This operation requires permissions to perform the `rekognition:StopProjectVersion` action.
- */export const stopProjectVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.StopProjectVersion" }, StopProjectVersionRequest, StopProjectVersionResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, ResourceInUseException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const stopProjectVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.StopProjectVersion" }, StopProjectVersionRequest, StopProjectVersionResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, ResourceInUseException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Stops a running stream processor that was created by CreateStreamProcessor.
- */export const stopStreamProcessor = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.StopStreamProcessor" }, StopStreamProcessorRequest, StopStreamProcessorResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, ResourceInUseException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const stopStreamProcessor = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.StopStreamProcessor" }, StopStreamProcessorRequest, StopStreamProcessorResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, ResourceInUseException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes one or more tags from an Amazon Rekognition collection, stream processor, or Custom Labels
  * model.
@@ -613,7 +613,7 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * 
  * This operation requires permissions to perform the
  * `rekognition:UntagResource` action.
- */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This operation applies only to Amazon Rekognition Custom Labels.
  * 
@@ -654,7 +654,7 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * 
  * 
  * This operation requires permissions to perform the `rekognition:UpdateDatasetEntries` action.
- */export const updateDatasetEntries = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.UpdateDatasetEntries" }, UpdateDatasetEntriesRequest, UpdateDatasetEntriesResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, LimitExceededException, ProvisionedThroughputExceededException, ResourceInUseException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateDatasetEntries = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.UpdateDatasetEntries" }, UpdateDatasetEntriesRequest, UpdateDatasetEntriesResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, LimitExceededException, ProvisionedThroughputExceededException, ResourceInUseException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Associates one or more faces with an existing UserID. Takes an array of
  * `FaceIds`. Each `FaceId` that are present in the `FaceIds`
@@ -700,7 +700,7 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * 
  * - UPDATING - A UserID is being updated and there are current associations or
  * disassociations of FaceID(s) taking place.
- */export const associateFaces = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.AssociateFaces" }, AssociateFacesRequest, AssociateFacesResponse, [AccessDeniedException, ConflictException, IdempotentParameterMismatchException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const associateFaces = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.AssociateFaces" }, AssociateFacesRequest, AssociateFacesResponse, [AccessDeniedException, ConflictException, IdempotentParameterMismatchException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This operation applies only to Amazon Rekognition Custom Labels.
  * 
@@ -745,7 +745,7 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * 
  * 
  * This operation requires permissions to perform the `rekognition:CopyProjectVersion` action.
- */export const copyProjectVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.CopyProjectVersion" }, CopyProjectVersionRequest, CopyProjectVersionResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, LimitExceededException, ProvisionedThroughputExceededException, ResourceInUseException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const copyProjectVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.CopyProjectVersion" }, CopyProjectVersionRequest, CopyProjectVersionResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, LimitExceededException, ProvisionedThroughputExceededException, ResourceInUseException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a collection in an AWS Region. You can add faces to the collection using the
  * IndexFaces operation.
@@ -772,7 +772,7 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * `rekognition:CreateCollection` action. If you want to tag your collection, you
  * also require permission to perform the `rekognition:TagResource`
  * operation.
- */export const createCollection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.CreateCollection" }, CreateCollectionRequest, CreateCollectionResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, ResourceAlreadyExistsException, ServiceQuotaExceededException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createCollection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.CreateCollection" }, CreateCollectionRequest, CreateCollectionResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, ResourceAlreadyExistsException, ServiceQuotaExceededException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new Amazon Rekognition project. A project is a group of resources (datasets, model
  * versions) that you use to create and manage a Amazon Rekognition Custom Labels Model or custom adapter. You can
@@ -780,7 +780,7 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * is used by default. For adapters, you can also choose whether or not to have the project
  * auto update by using the AutoUpdate argument. This operation requires permissions to
  * perform the `rekognition:CreateProject` action.
- */export const createProject = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.CreateProject" }, CreateProjectRequest, CreateProjectResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, LimitExceededException, ProvisionedThroughputExceededException, ResourceInUseException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createProject = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.CreateProject" }, CreateProjectRequest, CreateProjectResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, LimitExceededException, ProvisionedThroughputExceededException, ResourceInUseException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new User within a collection specified by `CollectionId`. Takes
  * `UserId` as a parameter, which is a user provided ID which should be unique
@@ -792,7 +792,7 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * `CreateUser` completes only once. If the value is not supplied, the AWS SDK
  * generates an idempotency token for the requests. This prevents retries after a network error
  * results from making multiple `CreateUser` calls.
- */export const createUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.CreateUser" }, CreateUserRequest, CreateUserResponse, [AccessDeniedException, ConflictException, IdempotentParameterMismatchException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createUser = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.CreateUser" }, CreateUserRequest, CreateUserResponse, [AccessDeniedException, ConflictException, IdempotentParameterMismatchException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes faces from a collection. You specify a collection ID and an array of face IDs
  * to remove from the collection.
@@ -800,7 +800,7 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * 
  * This operation requires permissions to perform the `rekognition:DeleteFaces`
  * action.
- */export const deleteFaces = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.DeleteFaces" }, DeleteFacesRequest, DeleteFacesResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteFaces = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.DeleteFaces" }, DeleteFacesRequest, DeleteFacesResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This operation applies only to Amazon Rekognition Custom Labels.
  * 
@@ -814,7 +814,7 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * 
  * 
  * This operation requires permissions to perform the `rekognition:DeleteProjectPolicy` action.
- */export const deleteProjectPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.DeleteProjectPolicy" }, DeleteProjectPolicyRequest, DeleteProjectPolicyResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, InvalidPolicyRevisionIdException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteProjectPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.DeleteProjectPolicy" }, DeleteProjectPolicyRequest, DeleteProjectPolicyResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, InvalidPolicyRevisionIdException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes the association between a `Face` supplied in an array of
  * `FaceIds` and the User. If the User is not present already, then a
@@ -824,7 +824,7 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * already associated with a different User or not found in the collection it will be returned as
  * part of `UnsuccessfulDisassociations`. You can remove 1 - 100 face IDs from a user
  * at one time.
- */export const disassociateFaces = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.DisassociateFaces" }, DisassociateFacesRequest, DisassociateFacesResponse, [AccessDeniedException, ConflictException, IdempotentParameterMismatchException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const disassociateFaces = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.DisassociateFaces" }, DisassociateFacesRequest, DisassociateFacesResponse, [AccessDeniedException, ConflictException, IdempotentParameterMismatchException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This operation applies only to Amazon Rekognition Custom Labels.
  * 
@@ -848,7 +848,7 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * 
  * 
  * This operation requires permissions to perform the `rekognition:DistributeDatasetEntries` action.
- */export const distributeDatasetEntries = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.DistributeDatasetEntries" }, DistributeDatasetEntriesRequest, DistributeDatasetEntriesResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ResourceNotReadyException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const distributeDatasetEntries = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.DistributeDatasetEntries" }, DistributeDatasetEntriesRequest, DistributeDatasetEntriesResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ResourceNotReadyException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets the name and additional information about a celebrity based on their Amazon Rekognition ID.
  * The additional information is returned as an array of URLs. If there is no additional
@@ -861,7 +861,7 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * 
  * This operation requires permissions to perform the
  * `rekognition:GetCelebrityInfo` action.
- */export const getCelebrityInfo = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.GetCelebrityInfo" }, GetCelebrityInfoRequest, GetCelebrityInfoResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getCelebrityInfo = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.GetCelebrityInfo" }, GetCelebrityInfoRequest, GetCelebrityInfoResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets face detection results for a Amazon Rekognition Video analysis started by StartFaceDetection.
  * 
@@ -886,7 +886,7 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * 
  * Note that for the `GetFaceDetection` operation, the returned values for
  * `FaceOccluded` and `EyeDirection` will always be "null".
- */export const getFaceDetection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.GetFaceDetection" }, GetFaceDetectionRequest, GetFaceDetectionResponse, [AccessDeniedException, InternalServerError, InvalidPaginationTokenException, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getFaceDetection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.GetFaceDetection" }, GetFaceDetectionRequest, GetFaceDetectionResponse, [AccessDeniedException, InternalServerError, InvalidPaginationTokenException, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * *End of support notice:* On October 31, 2025, AWS will discontinue
  * support for Amazon Rekognition People Pathing. After October 31, 2025, you will no
@@ -937,7 +937,7 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * specified in `MaxResults`, the value of `NextToken` in the operation response contains a pagination token for getting the next set
  * of results. To get the next page of results, call `GetPersonTracking` and populate the `NextToken` request parameter with the token
  * value returned from the previous call to `GetPersonTracking`.
- */export const getPersonTracking = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.GetPersonTracking" }, GetPersonTrackingRequest, GetPersonTrackingResponse, [AccessDeniedException, InternalServerError, InvalidPaginationTokenException, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getPersonTracking = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.GetPersonTracking" }, GetPersonTrackingRequest, GetPersonTrackingResponse, [AccessDeniedException, InternalServerError, InvalidPaginationTokenException, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns list of collection IDs in your account. If the result is truncated, the
  * response also provides a `NextToken` that you can use in the subsequent request to
@@ -950,7 +950,7 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * 
  * This operation requires permissions to perform the
  * `rekognition:ListCollections` action.
- */export const listCollections = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.ListCollections" }, ListCollectionsRequest, ListCollectionsResponse, [AccessDeniedException, InternalServerError, InvalidPaginationTokenException, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listCollections = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.ListCollections" }, ListCollectionsRequest, ListCollectionsResponse, [AccessDeniedException, InternalServerError, InvalidPaginationTokenException, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns metadata for faces in the specified collection. This metadata
  * includes information such as the bounding box coordinates, the confidence (that the bounding
@@ -960,10 +960,10 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * 
  * This operation requires permissions to perform the `rekognition:ListFaces`
  * action.
- */export const listFaces = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.ListFaces" }, ListFacesRequest, ListFacesResponse, [AccessDeniedException, InternalServerError, InvalidPaginationTokenException, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listFaces = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.ListFaces" }, ListFacesRequest, ListFacesResponse, [AccessDeniedException, InternalServerError, InvalidPaginationTokenException, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of media analysis jobs. Results are sorted by `CreationTimestamp` in descending order.
- */export const listMediaAnalysisJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.ListMediaAnalysisJobs" }, ListMediaAnalysisJobsRequest, ListMediaAnalysisJobsResponse, [AccessDeniedException, InternalServerError, InvalidPaginationTokenException, InvalidParameterException, ProvisionedThroughputExceededException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listMediaAnalysisJobs = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.ListMediaAnalysisJobs" }, ListMediaAnalysisJobsRequest, ListMediaAnalysisJobsResponse, [AccessDeniedException, InternalServerError, InvalidPaginationTokenException, InvalidParameterException, ProvisionedThroughputExceededException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This operation applies only to Amazon Rekognition Custom Labels.
  * 
@@ -977,17 +977,17 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * 
  * 
  * This operation requires permissions to perform the `rekognition:ListProjectPolicies` action.
- */export const listProjectPolicies = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.ListProjectPolicies" }, ListProjectPoliciesRequest, ListProjectPoliciesResponse, [AccessDeniedException, InternalServerError, InvalidPaginationTokenException, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listProjectPolicies = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.ListProjectPolicies" }, ListProjectPoliciesRequest, ListProjectPoliciesResponse, [AccessDeniedException, InternalServerError, InvalidPaginationTokenException, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets a list of stream processors that you have created with CreateStreamProcessor.
- */export const listStreamProcessors = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.ListStreamProcessors" }, ListStreamProcessorsRequest, ListStreamProcessorsResponse, [AccessDeniedException, InternalServerError, InvalidPaginationTokenException, InvalidParameterException, ProvisionedThroughputExceededException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listStreamProcessors = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.ListStreamProcessors" }, ListStreamProcessorsRequest, ListStreamProcessorsResponse, [AccessDeniedException, InternalServerError, InvalidPaginationTokenException, InvalidParameterException, ProvisionedThroughputExceededException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns metadata of the User such as `UserID` in the specified collection.
  * Anonymous User (to reserve faces without any identity) is not returned as part of this
  * request. The results are sorted by system generated primary key ID. If the response is
  * truncated, `NextToken` is returned in the response that can be used in the
  * subsequent request to retrieve the next set of identities.
- */export const listUsers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.ListUsers" }, ListUsersRequest, ListUsersResponse, [AccessDeniedException, InternalServerError, InvalidPaginationTokenException, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listUsers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.ListUsers" }, ListUsersRequest, ListUsersResponse, [AccessDeniedException, InternalServerError, InvalidPaginationTokenException, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This operation applies only to Amazon Rekognition Custom Labels.
  * 
@@ -1019,7 +1019,7 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * 
  * 
  * This operation requires permissions to perform the `rekognition:PutProjectPolicy` action.
- */export const putProjectPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.PutProjectPolicy" }, PutProjectPolicyRequest, PutProjectPolicyResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, InvalidPolicyRevisionIdException, LimitExceededException, MalformedPolicyDocumentException, ProvisionedThroughputExceededException, ResourceAlreadyExistsException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putProjectPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.PutProjectPolicy" }, PutProjectPolicyRequest, PutProjectPolicyResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, InvalidPolicyRevisionIdException, LimitExceededException, MalformedPolicyDocumentException, ProvisionedThroughputExceededException, ResourceAlreadyExistsException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns an array of celebrities recognized in the input image. For more
  * information, see Recognizing celebrities in the Amazon Rekognition Developer Guide.
@@ -1060,7 +1060,7 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * 
  * This operation requires permissions to perform the
  * `rekognition:RecognizeCelebrities` operation.
- */export const recognizeCelebrities = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.RecognizeCelebrities" }, RecognizeCelebritiesRequest, RecognizeCelebritiesResponse, [AccessDeniedException, ImageTooLargeException, InternalServerError, InvalidImageFormatException, InvalidParameterException, InvalidS3ObjectException, ProvisionedThroughputExceededException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const recognizeCelebrities = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.RecognizeCelebrities" }, RecognizeCelebritiesRequest, RecognizeCelebritiesResponse, [AccessDeniedException, ImageTooLargeException, InternalServerError, InvalidImageFormatException, InvalidParameterException, InvalidS3ObjectException, ProvisionedThroughputExceededException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * For a given input face ID, searches for matching faces in the collection the face
  * belongs to. You get a face ID when you add a face to the collection using the IndexFaces operation. The operation compares the features of the input face with
@@ -1088,7 +1088,7 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * 
  * This operation requires permissions to perform the `rekognition:SearchFaces`
  * action.
- */export const searchFaces = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.SearchFaces" }, SearchFacesRequest, SearchFacesResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const searchFaces = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.SearchFaces" }, SearchFacesRequest, SearchFacesResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * For a given input image, first detects the largest face in the image, and then searches
  * the specified collection for matching faces. The operation compares the features of the input
@@ -1149,7 +1149,7 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * 
  * This operation requires permissions to perform the
  * `rekognition:SearchFacesByImage` action.
- */export const searchFacesByImage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.SearchFacesByImage" }, SearchFacesByImageRequest, SearchFacesByImageResponse, [AccessDeniedException, ImageTooLargeException, InternalServerError, InvalidImageFormatException, InvalidParameterException, InvalidS3ObjectException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const searchFacesByImage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.SearchFacesByImage" }, SearchFacesByImageRequest, SearchFacesByImageResponse, [AccessDeniedException, ImageTooLargeException, InternalServerError, InvalidImageFormatException, InvalidParameterException, InvalidS3ObjectException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Searches for UserIDs using a supplied image. It first detects the largest face in the
  * image, and then searches a specified collection for matching UserIDs.
@@ -1164,7 +1164,7 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * returned in an array of `UnsearchedFace` objects. If no valid face is detected in
  * the image, the response will contain an empty `UserMatches` list and no
  * `SearchedFace` object.
- */export const searchUsersByImage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.SearchUsersByImage" }, SearchUsersByImageRequest, SearchUsersByImageResponse, [AccessDeniedException, ImageTooLargeException, InternalServerError, InvalidImageFormatException, InvalidParameterException, InvalidS3ObjectException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const searchUsersByImage = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.SearchUsersByImage" }, SearchUsersByImageRequest, SearchUsersByImageResponse, [AccessDeniedException, ImageTooLargeException, InternalServerError, InvalidImageFormatException, InvalidParameterException, InvalidS3ObjectException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts asynchronous recognition of celebrities in a stored video.
  * 
@@ -1181,7 +1181,7 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * 
  * 
  * For more information, see Recognizing celebrities in the Amazon Rekognition Developer Guide.
- */export const startCelebrityRecognition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.StartCelebrityRecognition" }, StartCelebrityRecognitionRequest, StartCelebrityRecognitionResponse, [AccessDeniedException, IdempotentParameterMismatchException, InternalServerError, InvalidParameterException, InvalidS3ObjectException, LimitExceededException, ProvisionedThroughputExceededException, ThrottlingException, VideoTooLargeException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startCelebrityRecognition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.StartCelebrityRecognition" }, StartCelebrityRecognitionRequest, StartCelebrityRecognitionResponse, [AccessDeniedException, IdempotentParameterMismatchException, InternalServerError, InvalidParameterException, InvalidS3ObjectException, LimitExceededException, ProvisionedThroughputExceededException, ThrottlingException, VideoTooLargeException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts asynchronous detection of inappropriate, unwanted, or offensive content in a stored video. For a list of moderation labels in Amazon Rekognition, see
  * Using the image and video moderation APIs.
@@ -1200,7 +1200,7 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * 
  * 
  * For more information, see Moderating content in the Amazon Rekognition Developer Guide.
- */export const startContentModeration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.StartContentModeration" }, StartContentModerationRequest, StartContentModerationResponse, [AccessDeniedException, IdempotentParameterMismatchException, InternalServerError, InvalidParameterException, InvalidS3ObjectException, LimitExceededException, ProvisionedThroughputExceededException, ThrottlingException, VideoTooLargeException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startContentModeration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.StartContentModeration" }, StartContentModerationRequest, StartContentModerationResponse, [AccessDeniedException, IdempotentParameterMismatchException, InternalServerError, InvalidParameterException, InvalidS3ObjectException, LimitExceededException, ProvisionedThroughputExceededException, ThrottlingException, VideoTooLargeException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts asynchronous detection of faces in a stored video.
  * 
@@ -1218,7 +1218,7 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * 
  * For more information, see Detecting faces in a stored video in the
  * Amazon Rekognition Developer Guide.
- */export const startFaceDetection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.StartFaceDetection" }, StartFaceDetectionRequest, StartFaceDetectionResponse, [AccessDeniedException, IdempotentParameterMismatchException, InternalServerError, InvalidParameterException, InvalidS3ObjectException, LimitExceededException, ProvisionedThroughputExceededException, ThrottlingException, VideoTooLargeException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startFaceDetection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.StartFaceDetection" }, StartFaceDetectionRequest, StartFaceDetectionResponse, [AccessDeniedException, IdempotentParameterMismatchException, InternalServerError, InvalidParameterException, InvalidS3ObjectException, LimitExceededException, ProvisionedThroughputExceededException, ThrottlingException, VideoTooLargeException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts asynchronous detection of labels in a stored video.
  * 
@@ -1257,7 +1257,7 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * 
  * You can specify `MinConfidence` to control the confidence threshold for the
  * labels returned. The default is 50.
- */export const startLabelDetection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.StartLabelDetection" }, StartLabelDetectionRequest, StartLabelDetectionResponse, [AccessDeniedException, IdempotentParameterMismatchException, InternalServerError, InvalidParameterException, InvalidS3ObjectException, LimitExceededException, ProvisionedThroughputExceededException, ThrottlingException, VideoTooLargeException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startLabelDetection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.StartLabelDetection" }, StartLabelDetectionRequest, StartLabelDetectionResponse, [AccessDeniedException, IdempotentParameterMismatchException, InternalServerError, InvalidParameterException, InvalidS3ObjectException, LimitExceededException, ProvisionedThroughputExceededException, ThrottlingException, VideoTooLargeException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts asynchronous detection of text in a stored video.
  * 
@@ -1271,7 +1271,7 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * To get the results of the text detection operation, first check that the status value published to the Amazon SNS
  * topic is `SUCCEEDED`. if so, call GetTextDetection and pass the job identifier (`JobId`)
  * from the initial call to `StartTextDetection`.
- */export const startTextDetection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.StartTextDetection" }, StartTextDetectionRequest, StartTextDetectionResponse, [AccessDeniedException, IdempotentParameterMismatchException, InternalServerError, InvalidParameterException, InvalidS3ObjectException, LimitExceededException, ProvisionedThroughputExceededException, ThrottlingException, VideoTooLargeException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startTextDetection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.StartTextDetection" }, StartTextDetectionRequest, StartTextDetectionResponse, [AccessDeniedException, IdempotentParameterMismatchException, InternalServerError, InvalidParameterException, InvalidS3ObjectException, LimitExceededException, ProvisionedThroughputExceededException, ThrottlingException, VideoTooLargeException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds one or more key-value tags to an Amazon Rekognition collection, stream processor, or Custom
  * Labels model. For more information, see Tagging AWS
@@ -1280,10 +1280,10 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * 
  * This operation requires permissions to perform the `rekognition:TagResource`
  * action.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.TagResource" }, TagResourceRequest, TagResourceResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.TagResource" }, TagResourceRequest, TagResourceResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Allows you to update a stream processor. You can change some settings and regions of interest and delete certain parameters.
- */export const updateStreamProcessor = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.UpdateStreamProcessor" }, UpdateStreamProcessorRequest, UpdateStreamProcessorResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, ResourceInUseException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateStreamProcessor = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.UpdateStreamProcessor" }, UpdateStreamProcessorRequest, UpdateStreamProcessorResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, ResourceInUseException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This operation applies only to Amazon Rekognition Custom Labels.
  * 
@@ -1321,7 +1321,7 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * 
  * This operation requires permissions to perform the `rekognition:CreateDataset` action.
  * If you want to copy an existing dataset, you also require permission to perform the `rekognition:ListDatasetEntries` action.
- */export const createDataset = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.CreateDataset" }, CreateDatasetRequest, CreateDatasetResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, InvalidS3ObjectException, LimitExceededException, ProvisionedThroughputExceededException, ResourceAlreadyExistsException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createDataset = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.CreateDataset" }, CreateDatasetRequest, CreateDatasetResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, InvalidS3ObjectException, LimitExceededException, ProvisionedThroughputExceededException, ResourceAlreadyExistsException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates a new version of Amazon Rekognition project (like a Custom Labels model or a custom adapter)
  * and begins training. Models and adapters are managed as part of a Rekognition project. The
@@ -1363,7 +1363,7 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * Instead of training with a project without associated datasets,
  * we recommend that you use the manifest
  * files to create training and test datasets for the project.
- */export const createProjectVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.CreateProjectVersion" }, CreateProjectVersionRequest, CreateProjectVersionResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, LimitExceededException, ProvisionedThroughputExceededException, ResourceInUseException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createProjectVersion = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.CreateProjectVersion" }, CreateProjectVersionRequest, CreateProjectVersionResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, LimitExceededException, ProvisionedThroughputExceededException, ResourceInUseException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates an Amazon Rekognition stream processor that you can use to detect and recognize faces or to detect labels in a streaming video.
  * 
@@ -1405,7 +1405,7 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * 
  * This operation requires permissions to perform the
  * `rekognition:CreateStreamProcessor` action. If you want to tag your stream processor, you also require permission to perform the `rekognition:TagResource` operation.
- */export const createStreamProcessor = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.CreateStreamProcessor" }, CreateStreamProcessorRequest, CreateStreamProcessorResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, LimitExceededException, ProvisionedThroughputExceededException, ResourceInUseException, ServiceQuotaExceededException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createStreamProcessor = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.CreateStreamProcessor" }, CreateStreamProcessorRequest, CreateStreamProcessorResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, LimitExceededException, ProvisionedThroughputExceededException, ResourceInUseException, ServiceQuotaExceededException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This operation applies only to Amazon Rekognition Custom Labels.
  * 
@@ -1418,13 +1418,13 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * 
  * 
  * This operation requires permissions to perform the `rekognition:DescribeDataset` action.
- */export const describeDataset = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.DescribeDataset" }, DescribeDatasetRequest, DescribeDatasetResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeDataset = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.DescribeDataset" }, DescribeDatasetRequest, DescribeDatasetResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets information about your Rekognition projects.
  * 
  * 
  * This operation requires permissions to perform the `rekognition:DescribeProjects` action.
- */export const describeProjects = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.DescribeProjects" }, DescribeProjectsRequest, DescribeProjectsResponse, [AccessDeniedException, InternalServerError, InvalidPaginationTokenException, InvalidParameterException, ProvisionedThroughputExceededException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeProjects = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.DescribeProjects" }, DescribeProjectsRequest, DescribeProjectsResponse, [AccessDeniedException, InternalServerError, InvalidPaginationTokenException, InvalidParameterException, ProvisionedThroughputExceededException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This operation applies only to Amazon Rekognition Custom Labels.
  * 
@@ -1479,7 +1479,7 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * 
  * For more information, see
  * *Analyzing an image* in the Amazon Rekognition Custom Labels Developer Guide.
- */export const detectCustomLabels = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.DetectCustomLabels" }, DetectCustomLabelsRequest, DetectCustomLabelsResponse, [AccessDeniedException, ImageTooLargeException, InternalServerError, InvalidImageFormatException, InvalidParameterException, InvalidS3ObjectException, LimitExceededException, ProvisionedThroughputExceededException, ResourceNotFoundException, ResourceNotReadyException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const detectCustomLabels = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.DetectCustomLabels" }, DetectCustomLabelsRequest, DetectCustomLabelsResponse, [AccessDeniedException, ImageTooLargeException, InternalServerError, InvalidImageFormatException, InvalidParameterException, InvalidS3ObjectException, LimitExceededException, ProvisionedThroughputExceededException, ResourceNotFoundException, ResourceNotReadyException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Detects faces within an image that is provided as input.
  * 
@@ -1512,7 +1512,7 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * 
  * This operation requires permissions to perform the `rekognition:DetectFaces`
  * action.
- */export const detectFaces = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.DetectFaces" }, DetectFacesRequest, DetectFacesResponse, [AccessDeniedException, ImageTooLargeException, InternalServerError, InvalidImageFormatException, InvalidParameterException, InvalidS3ObjectException, ProvisionedThroughputExceededException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const detectFaces = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.DetectFaces" }, DetectFacesRequest, DetectFacesResponse, [AccessDeniedException, ImageTooLargeException, InternalServerError, InvalidImageFormatException, InvalidParameterException, InvalidS3ObjectException, ProvisionedThroughputExceededException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Detects text in the input image and converts it into machine-readable text.
  * 
@@ -1551,7 +1551,7 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * 
  * For more information, see Detecting text in the Amazon Rekognition Developer
  * Guide.
- */export const detectText = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.DetectText" }, DetectTextRequest, DetectTextResponse, [AccessDeniedException, ImageTooLargeException, InternalServerError, InvalidImageFormatException, InvalidParameterException, InvalidS3ObjectException, ProvisionedThroughputExceededException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const detectText = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.DetectText" }, DetectTextRequest, DetectTextResponse, [AccessDeniedException, ImageTooLargeException, InternalServerError, InvalidImageFormatException, InvalidParameterException, InvalidS3ObjectException, ProvisionedThroughputExceededException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets the celebrity recognition results for a Amazon Rekognition Video analysis started by
  * StartCelebrityRecognition.
@@ -1612,7 +1612,7 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * pagination token for getting the next set of results. To get the next page of results, call `GetCelebrityDetection`
  * and populate the `NextToken` request parameter with the token
  * value returned from the previous call to `GetCelebrityRecognition`.
- */export const getCelebrityRecognition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.GetCelebrityRecognition" }, GetCelebrityRecognitionRequest, GetCelebrityRecognitionResponse, [AccessDeniedException, InternalServerError, InvalidPaginationTokenException, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getCelebrityRecognition = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.GetCelebrityRecognition" }, GetCelebrityRecognitionRequest, GetCelebrityRecognitionResponse, [AccessDeniedException, InternalServerError, InvalidPaginationTokenException, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets the inappropriate, unwanted, or offensive content analysis results for a Amazon Rekognition Video analysis started by
  * StartContentModeration. For a list of moderation labels in Amazon Rekognition, see
@@ -1653,7 +1653,7 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * 
  * 
  * For more information, see moderating content in the Amazon Rekognition Developer Guide.
- */export const getContentModeration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.GetContentModeration" }, GetContentModerationRequest, GetContentModerationResponse, [AccessDeniedException, InternalServerError, InvalidPaginationTokenException, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getContentModeration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.GetContentModeration" }, GetContentModerationRequest, GetContentModerationResponse, [AccessDeniedException, InternalServerError, InvalidPaginationTokenException, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the results of a specific Face Liveness session. It requires the
  * `sessionId` as input, which was created using
@@ -1666,7 +1666,7 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * defined by the `AuditImagesLimit` paramater when calling
  * `CreateFaceLivenessSession`. Reference images are always returned when
  * possible.
- */export const getFaceLivenessSessionResults = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.GetFaceLivenessSessionResults" }, GetFaceLivenessSessionResultsRequest, GetFaceLivenessSessionResultsResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, SessionNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getFaceLivenessSessionResults = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.GetFaceLivenessSessionResults" }, GetFaceLivenessSessionResultsRequest, GetFaceLivenessSessionResultsResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, SessionNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets the face search results for Amazon Rekognition Video face search started by
  * StartFaceSearch. The search returns faces in a collection that match the faces
@@ -1709,11 +1709,11 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * start of the video, persons are matched.
  * You can also sort by persons by specifying `INDEX` for the `SORTBY` input
  * parameter.
- */export const getFaceSearch = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.GetFaceSearch" }, GetFaceSearchRequest, GetFaceSearchResponse, [AccessDeniedException, InternalServerError, InvalidPaginationTokenException, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getFaceSearch = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.GetFaceSearch" }, GetFaceSearchRequest, GetFaceSearchResponse, [AccessDeniedException, InternalServerError, InvalidPaginationTokenException, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the results for a given media analysis job.
  * Takes a `JobId` returned by StartMediaAnalysisJob.
- */export const getMediaAnalysisJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.GetMediaAnalysisJob" }, GetMediaAnalysisJobRequest, GetMediaAnalysisJobResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getMediaAnalysisJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.GetMediaAnalysisJob" }, GetMediaAnalysisJobRequest, GetMediaAnalysisJobResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets the segment detection results of a Amazon Rekognition Video analysis started by StartSegmentDetection.
  * 
@@ -1747,7 +1747,7 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * 
  * 
  * For more information, see Detecting video segments in stored video in the Amazon Rekognition Developer Guide.
- */export const getSegmentDetection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.GetSegmentDetection" }, GetSegmentDetectionRequest, GetSegmentDetectionResponse, [AccessDeniedException, InternalServerError, InvalidPaginationTokenException, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getSegmentDetection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.GetSegmentDetection" }, GetSegmentDetectionRequest, GetSegmentDetectionResponse, [AccessDeniedException, InternalServerError, InvalidPaginationTokenException, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets the text detection results of a Amazon Rekognition Video analysis started by StartTextDetection.
  * 
@@ -1776,7 +1776,7 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * a pagination token for getting the next set of results. To get the next page of results, call `GetTextDetection`
  * and populate the `NextToken` request parameter with the token value returned from the previous
  * call to `GetTextDetection`.
- */export const getTextDetection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.GetTextDetection" }, GetTextDetectionRequest, GetTextDetectionResponse, [AccessDeniedException, InternalServerError, InvalidPaginationTokenException, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getTextDetection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.GetTextDetection" }, GetTextDetectionRequest, GetTextDetectionResponse, [AccessDeniedException, InternalServerError, InvalidPaginationTokenException, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Detects faces in the input image and adds them to the specified collection.
  * 
@@ -1920,7 +1920,7 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * 
  * This operation requires permissions to perform the `rekognition:IndexFaces`
  * action.
- */export const indexFaces = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.IndexFaces" }, IndexFacesRequest, IndexFacesResponse, [AccessDeniedException, ImageTooLargeException, InternalServerError, InvalidImageFormatException, InvalidParameterException, InvalidS3ObjectException, ProvisionedThroughputExceededException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const indexFaces = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.IndexFaces" }, IndexFacesRequest, IndexFacesResponse, [AccessDeniedException, ImageTooLargeException, InternalServerError, InvalidImageFormatException, InvalidParameterException, InvalidS3ObjectException, ProvisionedThroughputExceededException, ResourceNotFoundException, ServiceQuotaExceededException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This operation applies only to Amazon Rekognition Custom Labels.
  * 
@@ -1934,7 +1934,7 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * 
  * Lists the labels in a dataset. Amazon Rekognition Custom Labels uses labels to describe images. For more information, see Labeling images
  * in the *Amazon Rekognition Custom Labels Developer Guide*.
- */export const listDatasetLabels = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.ListDatasetLabels" }, ListDatasetLabelsRequest, ListDatasetLabelsResponse, [AccessDeniedException, InternalServerError, InvalidPaginationTokenException, InvalidParameterException, ProvisionedThroughputExceededException, ResourceInUseException, ResourceNotFoundException, ResourceNotReadyException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listDatasetLabels = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.ListDatasetLabels" }, ListDatasetLabelsRequest, ListDatasetLabelsResponse, [AccessDeniedException, InternalServerError, InvalidPaginationTokenException, InvalidParameterException, ProvisionedThroughputExceededException, ResourceInUseException, ResourceNotFoundException, ResourceNotReadyException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Searches for UserIDs within a collection based on a `FaceId` or
  * `UserId`. This API can be used to find the closest UserID (with a highest
@@ -1942,7 +1942,7 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * or `UserId`. The operation returns an array of UserID that match the
  * `FaceId` or `UserId`, ordered by similarity score with the highest
  * similarity first.
- */export const searchUsers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.SearchUsers" }, SearchUsersRequest, SearchUsersResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const searchUsers = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.SearchUsers" }, SearchUsersRequest, SearchUsersResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts processing a stream processor. You create a stream processor by calling CreateStreamProcessor.
  * To tell `StartStreamProcessor` which stream processor to start, use the value of the `Name` field specified in the call to
@@ -1950,7 +1950,7 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * 
  * 
  * If you are using a label detection stream processor to detect labels, you need to provide a `Start selector` and a `Stop selector` to determine the length of the stream processing time.
- */export const startStreamProcessor = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.StartStreamProcessor" }, StartStreamProcessorRequest, StartStreamProcessorResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, ResourceInUseException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startStreamProcessor = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.StartStreamProcessor" }, StartStreamProcessorRequest, StartStreamProcessorResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, ResourceInUseException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Compares a face in the *source* input image with each of the 100
  * largest faces detected in the *target* input image.
@@ -2033,7 +2033,7 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * 
  * This operation requires permissions to perform the
  * `rekognition:CompareFaces` action.
- */export const compareFaces = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.CompareFaces" }, CompareFacesRequest, CompareFacesResponse, [AccessDeniedException, ImageTooLargeException, InternalServerError, InvalidImageFormatException, InvalidParameterException, InvalidS3ObjectException, ProvisionedThroughputExceededException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const compareFaces = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.CompareFaces" }, CompareFacesRequest, CompareFacesResponse, [AccessDeniedException, ImageTooLargeException, InternalServerError, InvalidImageFormatException, InvalidParameterException, InvalidS3ObjectException, ProvisionedThroughputExceededException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This API operation initiates a Face Liveness session. It returns a `SessionId`,
  * which you can use to start streaming Face Liveness video and get the results for a Face
@@ -2049,7 +2049,7 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * when `GetFaceLivenessSessionResults` is called. This number is between 0 and 4. By
  * default, it is set to 0. The limit is best effort and based on the duration of the
  * selfie-video.
- */export const createFaceLivenessSession = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.CreateFaceLivenessSession" }, CreateFaceLivenessSessionRequest, CreateFaceLivenessSessionResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createFaceLivenessSession = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.CreateFaceLivenessSession" }, CreateFaceLivenessSessionRequest, CreateFaceLivenessSessionResponse, [AccessDeniedException, InternalServerError, InvalidParameterException, ProvisionedThroughputExceededException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Lists and describes the versions of an Amazon Rekognition project. You can specify up to 10 model or
  * adapter versions in `ProjectVersionArns`. If you don't specify a value,
@@ -2058,11 +2058,11 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * 
  * This operation requires permissions to perform the `rekognition:DescribeProjectVersions`
  * action.
- */export const describeProjectVersions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.DescribeProjectVersions" }, DescribeProjectVersionsRequest, DescribeProjectVersionsResponse, [AccessDeniedException, InternalServerError, InvalidPaginationTokenException, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeProjectVersions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.DescribeProjectVersions" }, DescribeProjectVersionsRequest, DescribeProjectVersionsResponse, [AccessDeniedException, InternalServerError, InvalidPaginationTokenException, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Initiates a new media analysis job. Accepts a manifest file in an Amazon S3 bucket. The
  * output is a manifest file and a summary of the manifest stored in the Amazon S3 bucket.
- */export const startMediaAnalysisJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.StartMediaAnalysisJob" }, StartMediaAnalysisJobRequest, StartMediaAnalysisJobResponse, [AccessDeniedException, IdempotentParameterMismatchException, InternalServerError, InvalidManifestException, InvalidParameterException, InvalidS3ObjectException, LimitExceededException, ProvisionedThroughputExceededException, ResourceNotFoundException, ResourceNotReadyException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startMediaAnalysisJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.StartMediaAnalysisJob" }, StartMediaAnalysisJobRequest, StartMediaAnalysisJobResponse, [AccessDeniedException, IdempotentParameterMismatchException, InternalServerError, InvalidManifestException, InvalidParameterException, InvalidS3ObjectException, LimitExceededException, ProvisionedThroughputExceededException, ResourceNotFoundException, ResourceNotReadyException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts asynchronous detection of segment detection in a stored video.
  * 
@@ -2086,7 +2086,7 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * 
  * 
  * For more information, see Detecting video segments in stored video in the Amazon Rekognition Developer Guide.
- */export const startSegmentDetection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.StartSegmentDetection" }, StartSegmentDetectionRequest, StartSegmentDetectionResponse, [AccessDeniedException, IdempotentParameterMismatchException, InternalServerError, InvalidParameterException, InvalidS3ObjectException, LimitExceededException, ProvisionedThroughputExceededException, ThrottlingException, VideoTooLargeException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startSegmentDetection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.StartSegmentDetection" }, StartSegmentDetectionRequest, StartSegmentDetectionResponse, [AccessDeniedException, IdempotentParameterMismatchException, InternalServerError, InvalidParameterException, InvalidS3ObjectException, LimitExceededException, ProvisionedThroughputExceededException, ThrottlingException, VideoTooLargeException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Detects instances of real-world entities within an image (JPEG or PNG) provided as
  * input. This includes objects like flower, tree, and table; events like wedding, graduation,
@@ -2260,7 +2260,7 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * 
  * This operation requires permissions to perform the
  * `rekognition:DetectLabels` action.
- */export const detectLabels = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.DetectLabels" }, DetectLabelsRequest, DetectLabelsResponse, [AccessDeniedException, ImageTooLargeException, InternalServerError, InvalidImageFormatException, InvalidParameterException, InvalidS3ObjectException, ProvisionedThroughputExceededException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const detectLabels = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.DetectLabels" }, DetectLabelsRequest, DetectLabelsResponse, [AccessDeniedException, ImageTooLargeException, InternalServerError, InvalidImageFormatException, InvalidParameterException, InvalidS3ObjectException, ProvisionedThroughputExceededException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Detects unsafe content in a specified JPEG or PNG format image. Use
  * `DetectModerationLabels` to moderate images depending on your requirements. For
@@ -2285,7 +2285,7 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * 
  * You can specify an adapter to use when retrieving label predictions by providing a
  * `ProjectVersionArn` to the `ProjectVersion` argument.
- */export const detectModerationLabels = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.DetectModerationLabels" }, DetectModerationLabelsRequest, DetectModerationLabelsResponse, [AccessDeniedException, HumanLoopQuotaExceededException, ImageTooLargeException, InternalServerError, InvalidImageFormatException, InvalidParameterException, InvalidS3ObjectException, ProvisionedThroughputExceededException, ResourceNotFoundException, ResourceNotReadyException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const detectModerationLabels = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.DetectModerationLabels" }, DetectModerationLabelsRequest, DetectModerationLabelsResponse, [AccessDeniedException, HumanLoopQuotaExceededException, ImageTooLargeException, InternalServerError, InvalidImageFormatException, InvalidParameterException, InvalidS3ObjectException, ProvisionedThroughputExceededException, ResourceNotFoundException, ResourceNotReadyException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets the label detection results of a Amazon Rekognition Video analysis started by StartLabelDetection.
  * 
@@ -2383,7 +2383,7 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * 
  * If you are retrieving results while using the Amazon Simple Notification Service, note that you will receive an
  * "ERROR" notification if the job encounters an issue.
- */export const getLabelDetection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.GetLabelDetection" }, GetLabelDetectionRequest, GetLabelDetectionResponse, [AccessDeniedException, InternalServerError, InvalidPaginationTokenException, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getLabelDetection = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.GetLabelDetection" }, GetLabelDetectionRequest, GetLabelDetectionResponse, [AccessDeniedException, InternalServerError, InvalidPaginationTokenException, InvalidParameterException, ProvisionedThroughputExceededException, ResourceNotFoundException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Detects Personal Protective Equipment (PPE) worn by people detected in an image. Amazon Rekognition can detect the
  * following types of PPE.
@@ -2442,4 +2442,4 @@ export class HumanLoopQuotaExceededException extends S.TaggedError<HumanLoopQuot
  * 
  * 
  * This operation requires permissions to perform the `rekognition:DetectProtectiveEquipment` action.
- */export const detectProtectiveEquipment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", uri: "/", method: "POST", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.DetectProtectiveEquipment" }, DetectProtectiveEquipmentRequest, DetectProtectiveEquipmentResponse, [AccessDeniedException, ImageTooLargeException, InternalServerError, InvalidImageFormatException, InvalidParameterException, InvalidS3ObjectException, ProvisionedThroughputExceededException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const detectProtectiveEquipment = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-06-27", sdkId: "Rekognition", sigV4ServiceName: "rekognition", name: "RekognitionService.DetectProtectiveEquipment" }, DetectProtectiveEquipmentRequest, DetectProtectiveEquipmentResponse, [AccessDeniedException, ImageTooLargeException, InternalServerError, InvalidImageFormatException, InvalidParameterException, InvalidS3ObjectException, ProvisionedThroughputExceededException, ThrottlingException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

@@ -125,7 +125,7 @@ export class ServiceUnavailableException extends S.TaggedError<ServiceUnavailabl
  * For more information on streaming with Amazon Transcribe Medical, see
  * Transcribing
  * streaming audio.
- */export const startMedicalStreamTranscription = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/medical-stream-transcription", method: "POST", sdkId: "Transcribe Streaming", sigV4ServiceName: "transcribe", name: "Transcribe.StartMedicalStreamTranscription" }, StartMedicalStreamTranscriptionRequest, StartMedicalStreamTranscriptionResponse, [BadRequestException, ConflictException, InternalFailureException, LimitExceededException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startMedicalStreamTranscription = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/medical-stream-transcription", sdkId: "Transcribe Streaming", sigV4ServiceName: "transcribe", name: "Transcribe.StartMedicalStreamTranscription" }, StartMedicalStreamTranscriptionRequest, StartMedicalStreamTranscriptionResponse, [BadRequestException, ConflictException, InternalFailureException, LimitExceededException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts a bidirectional HTTP/2 or WebSocket stream where audio is streamed to
  * Amazon Transcribe and the transcription results are streamed to your application.
@@ -153,7 +153,7 @@ export class ServiceUnavailableException extends S.TaggedError<ServiceUnavailabl
  * 
  * 
  * For more information on streaming with Amazon Transcribe, see Transcribing streaming audio.
- */export const startStreamTranscription = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/stream-transcription", method: "POST", sdkId: "Transcribe Streaming", sigV4ServiceName: "transcribe", name: "Transcribe.StartStreamTranscription" }, StartStreamTranscriptionRequest, StartStreamTranscriptionResponse, [BadRequestException, ConflictException, InternalFailureException, LimitExceededException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startStreamTranscription = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/stream-transcription", sdkId: "Transcribe Streaming", sigV4ServiceName: "transcribe", name: "Transcribe.StartStreamTranscription" }, StartStreamTranscriptionRequest, StartStreamTranscriptionResponse, [BadRequestException, ConflictException, InternalFailureException, LimitExceededException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts a bidirectional HTTP/2 or WebSocket stream where audio is streamed to
  * Amazon Transcribe and the transcription results are streamed to your application. Use this operation
@@ -182,7 +182,7 @@ export class ServiceUnavailableException extends S.TaggedError<ServiceUnavailabl
  * 
  * 
  * For more information on streaming with Amazon Transcribe, see Transcribing streaming audio.
- */export const startCallAnalyticsStreamTranscription = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/call-analytics-stream-transcription", method: "POST", sdkId: "Transcribe Streaming", sigV4ServiceName: "transcribe", name: "Transcribe.StartCallAnalyticsStreamTranscription" }, StartCallAnalyticsStreamTranscriptionRequest, StartCallAnalyticsStreamTranscriptionResponse, [BadRequestException, ConflictException, InternalFailureException, LimitExceededException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startCallAnalyticsStreamTranscription = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/call-analytics-stream-transcription", sdkId: "Transcribe Streaming", sigV4ServiceName: "transcribe", name: "Transcribe.StartCallAnalyticsStreamTranscription" }, StartCallAnalyticsStreamTranscriptionRequest, StartCallAnalyticsStreamTranscriptionResponse, [BadRequestException, ConflictException, InternalFailureException, LimitExceededException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts a bidirectional HTTP/2 stream, where audio is streamed to
  * Amazon Web Services HealthScribe
@@ -235,4 +235,4 @@ export class ServiceUnavailableException extends S.TaggedError<ServiceUnavailabl
  * For more information on streaming with
  * Amazon Web Services HealthScribe,
  * see Amazon Web Services HealthScribe.
- */export const startMedicalScribeStream = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/medical-scribe-stream", method: "POST", sdkId: "Transcribe Streaming", sigV4ServiceName: "transcribe", name: "Transcribe.StartMedicalScribeStream" }, StartMedicalScribeStreamRequest, StartMedicalScribeStreamResponse, [BadRequestException, ConflictException, InternalFailureException, LimitExceededException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startMedicalScribeStream = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2017-10-26", uri: "/medical-scribe-stream", sdkId: "Transcribe Streaming", sigV4ServiceName: "transcribe", name: "Transcribe.StartMedicalScribeStream" }, StartMedicalScribeStreamRequest, StartMedicalScribeStreamResponse, [BadRequestException, ConflictException, InternalFailureException, LimitExceededException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

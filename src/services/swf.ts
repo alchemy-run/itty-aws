@@ -226,7 +226,7 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
  * event attribute's `cause` parameter is set to `OPERATION_NOT_PERMITTED`.
  * For details and example IAM policies, see Using IAM to Manage Access to Amazon SWF
  * Workflows in the *Amazon SWF Developer Guide*.
- */export const requestCancelWorkflowExecution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", uri: "/", method: "POST", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.RequestCancelWorkflowExecution" }, RequestCancelWorkflowExecutionInput, S.Struct({}), [OperationNotPermittedFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const requestCancelWorkflowExecution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.RequestCancelWorkflowExecution" }, RequestCancelWorkflowExecutionInput, S.Struct({}), [OperationNotPermittedFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Used by workers to tell the service that the ActivityTask identified
  * by the `taskToken` was successfully canceled. Additional `details` can
@@ -284,7 +284,7 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
  * event attribute's `cause` parameter is set to `OPERATION_NOT_PERMITTED`.
  * For details and example IAM policies, see Using IAM to Manage Access to Amazon SWF
  * Workflows in the *Amazon SWF Developer Guide*.
- */export const respondActivityTaskCanceled = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", uri: "/", method: "POST", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.RespondActivityTaskCanceled" }, RespondActivityTaskCanceledInput, S.Struct({}), [OperationNotPermittedFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const respondActivityTaskCanceled = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.RespondActivityTaskCanceled" }, RespondActivityTaskCanceledInput, S.Struct({}), [OperationNotPermittedFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Used by workers to tell the service that the ActivityTask identified
  * by the `taskToken` completed successfully with a `result` (if provided).
@@ -339,7 +339,7 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
  * event attribute's `cause` parameter is set to `OPERATION_NOT_PERMITTED`.
  * For details and example IAM policies, see Using IAM to Manage Access to Amazon SWF
  * Workflows in the *Amazon SWF Developer Guide*.
- */export const respondActivityTaskCompleted = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", uri: "/", method: "POST", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.RespondActivityTaskCompleted" }, RespondActivityTaskCompletedInput, S.Struct({}), [OperationNotPermittedFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const respondActivityTaskCompleted = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.RespondActivityTaskCompleted" }, RespondActivityTaskCompletedInput, S.Struct({}), [OperationNotPermittedFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Used by workers to tell the service that the ActivityTask identified
  * by the `taskToken` has failed with `reason` (if specified). The
@@ -384,7 +384,7 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
  * event attribute's `cause` parameter is set to `OPERATION_NOT_PERMITTED`.
  * For details and example IAM policies, see Using IAM to Manage Access to Amazon SWF
  * Workflows in the *Amazon SWF Developer Guide*.
- */export const respondActivityTaskFailed = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", uri: "/", method: "POST", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.RespondActivityTaskFailed" }, RespondActivityTaskFailedInput, S.Struct({}), [OperationNotPermittedFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const respondActivityTaskFailed = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.RespondActivityTaskFailed" }, RespondActivityTaskFailedInput, S.Struct({}), [OperationNotPermittedFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Records a `WorkflowExecutionSignaled` event in the workflow execution
  * history and creates a decision task for the workflow execution identified by the given domain,
@@ -440,7 +440,7 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
  * event attribute's `cause` parameter is set to `OPERATION_NOT_PERMITTED`.
  * For details and example IAM policies, see Using IAM to Manage Access to Amazon SWF
  * Workflows in the *Amazon SWF Developer Guide*.
- */export const signalWorkflowExecution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", uri: "/", method: "POST", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.SignalWorkflowExecution" }, SignalWorkflowExecutionInput, S.Struct({}), [OperationNotPermittedFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const signalWorkflowExecution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.SignalWorkflowExecution" }, SignalWorkflowExecutionInput, S.Struct({}), [OperationNotPermittedFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Records a `WorkflowExecutionTerminated` event and forces closure of the
  * workflow execution identified by the given domain, runId, and workflowId. The child policy,
@@ -504,7 +504,7 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
  * event attribute's `cause` parameter is set to `OPERATION_NOT_PERMITTED`.
  * For details and example IAM policies, see Using IAM to Manage Access to Amazon SWF
  * Workflows in the *Amazon SWF Developer Guide*.
- */export const terminateWorkflowExecution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", uri: "/", method: "POST", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.TerminateWorkflowExecution" }, TerminateWorkflowExecutionInput, S.Struct({}), [OperationNotPermittedFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const terminateWorkflowExecution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.TerminateWorkflowExecution" }, TerminateWorkflowExecutionInput, S.Struct({}), [OperationNotPermittedFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Undeprecates a previously deprecated *activity type*. After an activity type has
  * been undeprecated, you can create new tasks of that activity type.
@@ -563,7 +563,7 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
  * event attribute's `cause` parameter is set to `OPERATION_NOT_PERMITTED`.
  * For details and example IAM policies, see Using IAM to Manage Access to Amazon SWF
  * Workflows in the *Amazon SWF Developer Guide*.
- */export const undeprecateActivityType = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", uri: "/", method: "POST", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.UndeprecateActivityType" }, UndeprecateActivityTypeInput, S.Struct({}), [OperationNotPermittedFault, TypeAlreadyExistsFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const undeprecateActivityType = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.UndeprecateActivityType" }, UndeprecateActivityTypeInput, S.Struct({}), [OperationNotPermittedFault, TypeAlreadyExistsFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Undeprecates a previously deprecated *workflow type*. After a workflow type has
  * been undeprecated, you can create new executions of that type.
@@ -622,10 +622,10 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
  * event attribute's `cause` parameter is set to `OPERATION_NOT_PERMITTED`.
  * For details and example IAM policies, see Using IAM to Manage Access to Amazon SWF
  * Workflows in the *Amazon SWF Developer Guide*.
- */export const undeprecateWorkflowType = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", uri: "/", method: "POST", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.UndeprecateWorkflowType" }, UndeprecateWorkflowTypeInput, S.Struct({}), [OperationNotPermittedFault, TypeAlreadyExistsFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const undeprecateWorkflowType = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.UndeprecateWorkflowType" }, UndeprecateWorkflowTypeInput, S.Struct({}), [OperationNotPermittedFault, TypeAlreadyExistsFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Remove a tag from a Amazon SWF domain.
- */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", uri: "/", method: "POST", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.UntagResource" }, UntagResourceInput, S.Struct({}), [LimitExceededFault, OperationNotPermittedFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.UntagResource" }, UntagResourceInput, S.Struct({}), [LimitExceededFault, OperationNotPermittedFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the number of closed workflow executions within the given domain that meet the
  * specified filtering criteria.
@@ -689,7 +689,7 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
  * event attribute's `cause` parameter is set to `OPERATION_NOT_PERMITTED`.
  * For details and example IAM policies, see Using IAM to Manage Access to Amazon SWF
  * Workflows in the *Amazon SWF Developer Guide*.
- */export const countClosedWorkflowExecutions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", uri: "/", method: "POST", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.CountClosedWorkflowExecutions" }, CountClosedWorkflowExecutionsInput, WorkflowExecutionCount, [OperationNotPermittedFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const countClosedWorkflowExecutions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.CountClosedWorkflowExecutions" }, CountClosedWorkflowExecutionsInput, WorkflowExecutionCount, [OperationNotPermittedFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the number of open workflow executions within the given domain that meet the
  * specified filtering criteria.
@@ -753,7 +753,7 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
  * event attribute's `cause` parameter is set to `OPERATION_NOT_PERMITTED`.
  * For details and example IAM policies, see Using IAM to Manage Access to Amazon SWF
  * Workflows in the *Amazon SWF Developer Guide*.
- */export const countOpenWorkflowExecutions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", uri: "/", method: "POST", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.CountOpenWorkflowExecutions" }, CountOpenWorkflowExecutionsInput, WorkflowExecutionCount, [OperationNotPermittedFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const countOpenWorkflowExecutions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.CountOpenWorkflowExecutions" }, CountOpenWorkflowExecutionsInput, WorkflowExecutionCount, [OperationNotPermittedFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the estimated number of activity tasks in the specified task list. The count
  * returned is an approximation and isn't guaranteed to be exact. If you specify a task list that
@@ -793,7 +793,7 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
  * event attribute's `cause` parameter is set to `OPERATION_NOT_PERMITTED`.
  * For details and example IAM policies, see Using IAM to Manage Access to Amazon SWF
  * Workflows in the *Amazon SWF Developer Guide*.
- */export const countPendingActivityTasks = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", uri: "/", method: "POST", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.CountPendingActivityTasks" }, CountPendingActivityTasksInput, PendingTaskCount, [OperationNotPermittedFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const countPendingActivityTasks = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.CountPendingActivityTasks" }, CountPendingActivityTasksInput, PendingTaskCount, [OperationNotPermittedFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the estimated number of decision tasks in the specified task list. The count
  * returned is an approximation and isn't guaranteed to be exact. If you specify a task list that
@@ -833,7 +833,7 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
  * event attribute's `cause` parameter is set to `OPERATION_NOT_PERMITTED`.
  * For details and example IAM policies, see Using IAM to Manage Access to Amazon SWF
  * Workflows in the *Amazon SWF Developer Guide*.
- */export const countPendingDecisionTasks = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", uri: "/", method: "POST", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.CountPendingDecisionTasks" }, CountPendingDecisionTasksInput, PendingTaskCount, [OperationNotPermittedFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const countPendingDecisionTasks = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.CountPendingDecisionTasks" }, CountPendingDecisionTasksInput, PendingTaskCount, [OperationNotPermittedFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified *workflow type*.
  * 
@@ -891,7 +891,7 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
  * event attribute's `cause` parameter is set to `OPERATION_NOT_PERMITTED`.
  * For details and example IAM policies, see Using IAM to Manage Access to Amazon SWF
  * Workflows in the *Amazon SWF Developer Guide*.
- */export const deleteWorkflowType = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", uri: "/", method: "POST", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.DeleteWorkflowType" }, DeleteWorkflowTypeInput, S.Struct({}), [OperationNotPermittedFault, TypeNotDeprecatedFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteWorkflowType = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.DeleteWorkflowType" }, DeleteWorkflowTypeInput, S.Struct({}), [OperationNotPermittedFault, TypeNotDeprecatedFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deprecates the specified *activity type*. After an activity type has
  * been deprecated, you cannot create new tasks of that activity type. Tasks of this type that
@@ -943,7 +943,7 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
  * event attribute's `cause` parameter is set to `OPERATION_NOT_PERMITTED`.
  * For details and example IAM policies, see Using IAM to Manage Access to Amazon SWF
  * Workflows in the *Amazon SWF Developer Guide*.
- */export const deprecateActivityType = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", uri: "/", method: "POST", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.DeprecateActivityType" }, DeprecateActivityTypeInput, S.Struct({}), [OperationNotPermittedFault, TypeDeprecatedFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deprecateActivityType = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.DeprecateActivityType" }, DeprecateActivityTypeInput, S.Struct({}), [OperationNotPermittedFault, TypeDeprecatedFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deprecates the specified domain. After a domain has been deprecated it cannot be used
  * to create new workflow executions or register new types. However, you can still use visibility
@@ -991,7 +991,7 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
  * event attribute's `cause` parameter is set to `OPERATION_NOT_PERMITTED`.
  * For details and example IAM policies, see Using IAM to Manage Access to Amazon SWF
  * Workflows in the *Amazon SWF Developer Guide*.
- */export const deprecateDomain = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", uri: "/", method: "POST", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.DeprecateDomain" }, DeprecateDomainInput, S.Struct({}), [DomainDeprecatedFault, OperationNotPermittedFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deprecateDomain = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.DeprecateDomain" }, DeprecateDomainInput, S.Struct({}), [DomainDeprecatedFault, OperationNotPermittedFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deprecates the specified *workflow type*. After a workflow type has
  * been deprecated, you cannot create new executions of that type. Executions that were started
@@ -1052,7 +1052,7 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
  * event attribute's `cause` parameter is set to `OPERATION_NOT_PERMITTED`.
  * For details and example IAM policies, see Using IAM to Manage Access to Amazon SWF
  * Workflows in the *Amazon SWF Developer Guide*.
- */export const deprecateWorkflowType = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", uri: "/", method: "POST", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.DeprecateWorkflowType" }, DeprecateWorkflowTypeInput, S.Struct({}), [OperationNotPermittedFault, TypeDeprecatedFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deprecateWorkflowType = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.DeprecateWorkflowType" }, DeprecateWorkflowTypeInput, S.Struct({}), [OperationNotPermittedFault, TypeDeprecatedFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about all activities registered in the specified domain that match
  * the specified name and registration status. The result includes information like creation
@@ -1092,7 +1092,7 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
  * event attribute's `cause` parameter is set to `OPERATION_NOT_PERMITTED`.
  * For details and example IAM policies, see Using IAM to Manage Access to Amazon SWF
  * Workflows in the *Amazon SWF Developer Guide*.
- */export const listActivityTypes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", uri: "/", method: "POST", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.ListActivityTypes" }, ListActivityTypesInput, ActivityTypeInfos, [OperationNotPermittedFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listActivityTypes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.ListActivityTypes" }, ListActivityTypesInput, ActivityTypeInfos, [OperationNotPermittedFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the list of domains registered in the account. The results may be split into
  * multiple pages. To retrieve subsequent pages, make the call again using the nextPageToken
@@ -1140,7 +1140,7 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
  * event attribute's `cause` parameter is set to `OPERATION_NOT_PERMITTED`.
  * For details and example IAM policies, see Using IAM to Manage Access to Amazon SWF
  * Workflows in the *Amazon SWF Developer Guide*.
- */export const listDomains = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", uri: "/", method: "POST", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.ListDomains" }, ListDomainsInput, DomainInfos, [OperationNotPermittedFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listDomains = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.ListDomains" }, ListDomainsInput, DomainInfos, [OperationNotPermittedFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of open workflow executions in the specified domain that meet the
  * filtering criteria. The results may be split into multiple pages. To retrieve subsequent
@@ -1205,10 +1205,10 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
  * event attribute's `cause` parameter is set to `OPERATION_NOT_PERMITTED`.
  * For details and example IAM policies, see Using IAM to Manage Access to Amazon SWF
  * Workflows in the *Amazon SWF Developer Guide*.
- */export const listOpenWorkflowExecutions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", uri: "/", method: "POST", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.ListOpenWorkflowExecutions" }, ListOpenWorkflowExecutionsInput, WorkflowExecutionInfos, [OperationNotPermittedFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listOpenWorkflowExecutions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.ListOpenWorkflowExecutions" }, ListOpenWorkflowExecutionsInput, WorkflowExecutionInfos, [OperationNotPermittedFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * List tags for a given domain.
- */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", uri: "/", method: "POST", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.ListTagsForResource" }, ListTagsForResourceInput, ListTagsForResourceOutput, [LimitExceededFault, OperationNotPermittedFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.ListTagsForResource" }, ListTagsForResourceInput, ListTagsForResourceOutput, [LimitExceededFault, OperationNotPermittedFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about workflow types in the specified domain. The results may be
  * split into multiple pages that can be retrieved by making the call repeatedly.
@@ -1245,7 +1245,7 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
  * event attribute's `cause` parameter is set to `OPERATION_NOT_PERMITTED`.
  * For details and example IAM policies, see Using IAM to Manage Access to Amazon SWF
  * Workflows in the *Amazon SWF Developer Guide*.
- */export const listWorkflowTypes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", uri: "/", method: "POST", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.ListWorkflowTypes" }, ListWorkflowTypesInput, WorkflowTypeInfos, [OperationNotPermittedFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listWorkflowTypes = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.ListWorkflowTypes" }, ListWorkflowTypesInput, WorkflowTypeInfos, [OperationNotPermittedFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Used by workers to get an ActivityTask from the specified activity
  * `taskList`. This initiates a long poll, where the service holds the HTTP
@@ -1297,7 +1297,7 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
  * event attribute's `cause` parameter is set to `OPERATION_NOT_PERMITTED`.
  * For details and example IAM policies, see Using IAM to Manage Access to Amazon SWF
  * Workflows in the *Amazon SWF Developer Guide*.
- */export const pollForActivityTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", uri: "/", method: "POST", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.PollForActivityTask" }, PollForActivityTaskInput, ActivityTask, [LimitExceededFault, OperationNotPermittedFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const pollForActivityTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.PollForActivityTask" }, PollForActivityTaskInput, ActivityTask, [LimitExceededFault, OperationNotPermittedFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Used by deciders to get a DecisionTask from the specified decision
  * `taskList`. A decision task may be returned for any open workflow execution that
@@ -1367,7 +1367,7 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
  * event attribute's `cause` parameter is set to `OPERATION_NOT_PERMITTED`.
  * For details and example IAM policies, see Using IAM to Manage Access to Amazon SWF
  * Workflows in the *Amazon SWF Developer Guide*.
- */export const pollForDecisionTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", uri: "/", method: "POST", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.PollForDecisionTask" }, PollForDecisionTaskInput, DecisionTask, [LimitExceededFault, OperationNotPermittedFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const pollForDecisionTask = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.PollForDecisionTask" }, PollForDecisionTaskInput, DecisionTask, [LimitExceededFault, OperationNotPermittedFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Used by activity workers to report to the service that the ActivityTask represented by the specified `taskToken` is still making progress. The worker
  * can also specify details of the progress, for example percent complete, using the
@@ -1443,7 +1443,7 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
  * event attribute's `cause` parameter is set to `OPERATION_NOT_PERMITTED`.
  * For details and example IAM policies, see Using IAM to Manage Access to Amazon SWF
  * Workflows in the *Amazon SWF Developer Guide*.
- */export const recordActivityTaskHeartbeat = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", uri: "/", method: "POST", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.RecordActivityTaskHeartbeat" }, RecordActivityTaskHeartbeatInput, ActivityTaskStatus, [OperationNotPermittedFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const recordActivityTaskHeartbeat = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.RecordActivityTaskHeartbeat" }, RecordActivityTaskHeartbeatInput, ActivityTaskStatus, [OperationNotPermittedFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Registers a new *activity type* along with its configuration
  * settings in the specified domain.
@@ -1507,7 +1507,7 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
  * event attribute's `cause` parameter is set to `OPERATION_NOT_PERMITTED`.
  * For details and example IAM policies, see Using IAM to Manage Access to Amazon SWF
  * Workflows in the *Amazon SWF Developer Guide*.
- */export const registerActivityType = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", uri: "/", method: "POST", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.RegisterActivityType" }, RegisterActivityTypeInput, S.Struct({}), [LimitExceededFault, OperationNotPermittedFault, TypeAlreadyExistsFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const registerActivityType = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.RegisterActivityType" }, RegisterActivityTypeInput, S.Struct({}), [LimitExceededFault, OperationNotPermittedFault, TypeAlreadyExistsFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Registers a new domain.
  * 
@@ -1543,7 +1543,7 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
  * event attribute's `cause` parameter is set to `OPERATION_NOT_PERMITTED`.
  * For details and example IAM policies, see Using IAM to Manage Access to Amazon SWF
  * Workflows in the *Amazon SWF Developer Guide*.
- */export const registerDomain = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", uri: "/", method: "POST", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.RegisterDomain" }, RegisterDomainInput, S.Struct({}), [DomainAlreadyExistsFault, LimitExceededFault, OperationNotPermittedFault, TooManyTagsFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const registerDomain = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.RegisterDomain" }, RegisterDomainInput, S.Struct({}), [DomainAlreadyExistsFault, LimitExceededFault, OperationNotPermittedFault, TooManyTagsFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Registers a new *workflow type* and its configuration settings in
  * the specified domain.
@@ -1610,7 +1610,7 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
  * event attribute's `cause` parameter is set to `OPERATION_NOT_PERMITTED`.
  * For details and example IAM policies, see Using IAM to Manage Access to Amazon SWF
  * Workflows in the *Amazon SWF Developer Guide*.
- */export const registerWorkflowType = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", uri: "/", method: "POST", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.RegisterWorkflowType" }, RegisterWorkflowTypeInput, S.Struct({}), [LimitExceededFault, OperationNotPermittedFault, TypeAlreadyExistsFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const registerWorkflowType = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.RegisterWorkflowType" }, RegisterWorkflowTypeInput, S.Struct({}), [LimitExceededFault, OperationNotPermittedFault, TypeAlreadyExistsFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Add a tag to a Amazon SWF domain.
  * 
@@ -1618,7 +1618,7 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
  * 
  * 
  * Amazon SWF supports a maximum of 50 tags per resource.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", uri: "/", method: "POST", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.TagResource" }, TagResourceInput, S.Struct({}), [LimitExceededFault, OperationNotPermittedFault, TooManyTagsFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.TagResource" }, TagResourceInput, S.Struct({}), [LimitExceededFault, OperationNotPermittedFault, TooManyTagsFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Undeprecates a previously deprecated domain. After a domain has been undeprecated it can be used
  * to create new workflow executions or register new types.
@@ -1663,7 +1663,7 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
  * event attribute's `cause` parameter is set to `OPERATION_NOT_PERMITTED`.
  * For details and example IAM policies, see Using IAM to Manage Access to Amazon SWF
  * Workflows in the *Amazon SWF Developer Guide*.
- */export const undeprecateDomain = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", uri: "/", method: "POST", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.UndeprecateDomain" }, UndeprecateDomainInput, S.Struct({}), [DomainAlreadyExistsFault, OperationNotPermittedFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const undeprecateDomain = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.UndeprecateDomain" }, UndeprecateDomainInput, S.Struct({}), [DomainAlreadyExistsFault, OperationNotPermittedFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified *activity type*.
  * 
@@ -1720,7 +1720,7 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
  * event attribute's `cause` parameter is set to `OPERATION_NOT_PERMITTED`.
  * For details and example IAM policies, see Using IAM to Manage Access to Amazon SWF
  * Workflows in the *Amazon SWF Developer Guide*.
- */export const deleteActivityType = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", uri: "/", method: "POST", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.DeleteActivityType" }, DeleteActivityTypeInput, S.Struct({}), [OperationNotPermittedFault, TypeNotDeprecatedFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteActivityType = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.DeleteActivityType" }, DeleteActivityTypeInput, S.Struct({}), [OperationNotPermittedFault, TypeNotDeprecatedFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about the specified activity type. This includes configuration
  * settings provided when the type was registered and other general information about the
@@ -1772,7 +1772,7 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
  * event attribute's `cause` parameter is set to `OPERATION_NOT_PERMITTED`.
  * For details and example IAM policies, see Using IAM to Manage Access to Amazon SWF
  * Workflows in the *Amazon SWF Developer Guide*.
- */export const describeActivityType = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", uri: "/", method: "POST", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.DescribeActivityType" }, DescribeActivityTypeInput, ActivityTypeDetail, [OperationNotPermittedFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeActivityType = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.DescribeActivityType" }, DescribeActivityTypeInput, ActivityTypeDetail, [OperationNotPermittedFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about the specified domain, including description and
  * status.
@@ -1809,7 +1809,7 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
  * event attribute's `cause` parameter is set to `OPERATION_NOT_PERMITTED`.
  * For details and example IAM policies, see Using IAM to Manage Access to Amazon SWF
  * Workflows in the *Amazon SWF Developer Guide*.
- */export const describeDomain = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", uri: "/", method: "POST", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.DescribeDomain" }, DescribeDomainInput, DomainDetail, [OperationNotPermittedFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeDomain = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.DescribeDomain" }, DescribeDomainInput, DomainDetail, [OperationNotPermittedFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about the specified *workflow type*. This
  * includes configuration settings specified when the type was registered and other information
@@ -1861,7 +1861,7 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
  * event attribute's `cause` parameter is set to `OPERATION_NOT_PERMITTED`.
  * For details and example IAM policies, see Using IAM to Manage Access to Amazon SWF
  * Workflows in the *Amazon SWF Developer Guide*.
- */export const describeWorkflowType = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", uri: "/", method: "POST", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.DescribeWorkflowType" }, DescribeWorkflowTypeInput, WorkflowTypeDetail, [OperationNotPermittedFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeWorkflowType = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.DescribeWorkflowType" }, DescribeWorkflowTypeInput, WorkflowTypeDetail, [OperationNotPermittedFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns a list of closed workflow executions in the specified domain that meet the
  * filtering criteria. The results may be split into multiple pages. To retrieve subsequent
@@ -1926,7 +1926,7 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
  * event attribute's `cause` parameter is set to `OPERATION_NOT_PERMITTED`.
  * For details and example IAM policies, see Using IAM to Manage Access to Amazon SWF
  * Workflows in the *Amazon SWF Developer Guide*.
- */export const listClosedWorkflowExecutions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", uri: "/", method: "POST", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.ListClosedWorkflowExecutions" }, ListClosedWorkflowExecutionsInput, WorkflowExecutionInfos, [OperationNotPermittedFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listClosedWorkflowExecutions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.ListClosedWorkflowExecutions" }, ListClosedWorkflowExecutionsInput, WorkflowExecutionInfos, [OperationNotPermittedFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Used by deciders to tell the service that the DecisionTask identified
  * by the `taskToken` has successfully completed. The `decisions` argument
@@ -1951,7 +1951,7 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
  * see Using
  * IAM to Manage Access to Amazon SWF Workflows in the
  * *Amazon SWF Developer Guide*.
- */export const respondDecisionTaskCompleted = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", uri: "/", method: "POST", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.RespondDecisionTaskCompleted" }, RespondDecisionTaskCompletedInput, S.Struct({}), [OperationNotPermittedFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const respondDecisionTaskCompleted = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.RespondDecisionTaskCompleted" }, RespondDecisionTaskCompletedInput, S.Struct({}), [OperationNotPermittedFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns information about the specified workflow execution including its type and some
  * statistics.
@@ -1996,7 +1996,7 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
  * event attribute's `cause` parameter is set to `OPERATION_NOT_PERMITTED`.
  * For details and example IAM policies, see Using IAM to Manage Access to Amazon SWF
  * Workflows in the *Amazon SWF Developer Guide*.
- */export const describeWorkflowExecution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", uri: "/", method: "POST", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.DescribeWorkflowExecution" }, DescribeWorkflowExecutionInput, WorkflowExecutionDetail, [OperationNotPermittedFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeWorkflowExecution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.DescribeWorkflowExecution" }, DescribeWorkflowExecutionInput, WorkflowExecutionDetail, [OperationNotPermittedFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns the history of the specified workflow execution. The results may be split into
  * multiple pages. To retrieve subsequent pages, make the call again using the
@@ -2042,7 +2042,7 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
  * event attribute's `cause` parameter is set to `OPERATION_NOT_PERMITTED`.
  * For details and example IAM policies, see Using IAM to Manage Access to Amazon SWF
  * Workflows in the *Amazon SWF Developer Guide*.
- */export const getWorkflowExecutionHistory = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", uri: "/", method: "POST", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.GetWorkflowExecutionHistory" }, GetWorkflowExecutionHistoryInput, History, [OperationNotPermittedFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getWorkflowExecutionHistory = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.GetWorkflowExecutionHistory" }, GetWorkflowExecutionHistoryInput, History, [OperationNotPermittedFault, UnknownResourceFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Starts an execution of the workflow type in the specified domain using the provided
  * `workflowId` and input data.
@@ -2121,4 +2121,4 @@ export class WorkflowExecutionAlreadyStartedFault extends S.TaggedError<Workflow
  * event attribute's `cause` parameter is set to `OPERATION_NOT_PERMITTED`.
  * For details and example IAM policies, see Using IAM to Manage Access to Amazon SWF
  * Workflows in the *Amazon SWF Developer Guide*.
- */export const startWorkflowExecution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", uri: "/", method: "POST", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.StartWorkflowExecution" }, StartWorkflowExecutionInput, Run, [DefaultUndefinedFault, LimitExceededFault, OperationNotPermittedFault, TypeDeprecatedFault, UnknownResourceFault, WorkflowExecutionAlreadyStartedFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startWorkflowExecution = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-01-25", sdkId: "SWF", sigV4ServiceName: "swf", name: "SimpleWorkflowService.StartWorkflowExecution" }, StartWorkflowExecutionInput, Run, [DefaultUndefinedFault, LimitExceededFault, OperationNotPermittedFault, TypeDeprecatedFault, UnknownResourceFault, WorkflowExecutionAlreadyStartedFault]), FormatAwsJSON10Request, FormatJSONResponse, FormatAwsRestJSONError);

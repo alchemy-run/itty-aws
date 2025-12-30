@@ -104,13 +104,13 @@ export class FailedResourceAccessException extends S.TaggedError<FailedResourceA
  * 
  * For more information, see Delete a step scaling policy and Delete a target tracking scaling policy in the
  * *Application Auto Scaling User Guide*.
- */export const deleteScalingPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-02-06", uri: "/", method: "POST", sdkId: "Application Auto Scaling", sigV4ServiceName: "application-autoscaling", name: "AnyScaleFrontendService.DeleteScalingPolicy" }, DeleteScalingPolicyRequest, DeleteScalingPolicyResponse, [ConcurrentUpdateException, InternalServiceException, ObjectNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteScalingPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-02-06", sdkId: "Application Auto Scaling", sigV4ServiceName: "application-autoscaling", name: "AnyScaleFrontendService.DeleteScalingPolicy" }, DeleteScalingPolicyRequest, DeleteScalingPolicyResponse, [ConcurrentUpdateException, InternalServiceException, ObjectNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes the specified scheduled action for an Application Auto Scaling scalable target.
  * 
  * 
  * For more information, see Delete a scheduled action in the *Application Auto Scaling User Guide*.
- */export const deleteScheduledAction = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-02-06", uri: "/", method: "POST", sdkId: "Application Auto Scaling", sigV4ServiceName: "application-autoscaling", name: "AnyScaleFrontendService.DeleteScheduledAction" }, DeleteScheduledActionRequest, DeleteScheduledActionResponse, [ConcurrentUpdateException, InternalServiceException, ObjectNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteScheduledAction = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-02-06", sdkId: "Application Auto Scaling", sigV4ServiceName: "application-autoscaling", name: "AnyScaleFrontendService.DeleteScheduledAction" }, DeleteScheduledActionRequest, DeleteScheduledActionResponse, [ConcurrentUpdateException, InternalServiceException, ObjectNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deregisters an Application Auto Scaling scalable target when you have finished using it. To see which
  * resources have been registered, use DescribeScalableTargets.
@@ -120,18 +120,18 @@ export class FailedResourceAccessException extends S.TaggedError<FailedResourceA
  * 
  * Deregistering a scalable target deletes the scaling policies and the scheduled
  * actions that are associated with it.
- */export const deregisterScalableTarget = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-02-06", uri: "/", method: "POST", sdkId: "Application Auto Scaling", sigV4ServiceName: "application-autoscaling", name: "AnyScaleFrontendService.DeregisterScalableTarget" }, DeregisterScalableTargetRequest, DeregisterScalableTargetResponse, [ConcurrentUpdateException, InternalServiceException, ObjectNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deregisterScalableTarget = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-02-06", sdkId: "Application Auto Scaling", sigV4ServiceName: "application-autoscaling", name: "AnyScaleFrontendService.DeregisterScalableTarget" }, DeregisterScalableTargetRequest, DeregisterScalableTargetResponse, [ConcurrentUpdateException, InternalServiceException, ObjectNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Returns all the tags on the specified Application Auto Scaling scalable target.
  * 
  * 
  * For general information about tags, including the format and syntax, see Tagging your Amazon Web Services
  * resources in the *Amazon Web Services General Reference*.
- */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-02-06", uri: "/", method: "POST", sdkId: "Application Auto Scaling", sigV4ServiceName: "application-autoscaling", name: "AnyScaleFrontendService.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-02-06", sdkId: "Application Auto Scaling", sigV4ServiceName: "application-autoscaling", name: "AnyScaleFrontendService.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Deletes tags from an Application Auto Scaling scalable target. To delete a tag, specify the tag key and
  * the Application Auto Scaling scalable target.
- */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-02-06", uri: "/", method: "POST", sdkId: "Application Auto Scaling", sigV4ServiceName: "application-autoscaling", name: "AnyScaleFrontendService.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [ResourceNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-02-06", sdkId: "Application Auto Scaling", sigV4ServiceName: "application-autoscaling", name: "AnyScaleFrontendService.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [ResourceNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes the Application Auto Scaling scheduled actions for the specified service namespace.
  * 
@@ -141,7 +141,7 @@ export class FailedResourceAccessException extends S.TaggedError<FailedResourceA
  * 
  * 
  * For more information, see Scheduled scaling in the *Application Auto Scaling User Guide*.
- */export const describeScheduledActions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-02-06", uri: "/", method: "POST", sdkId: "Application Auto Scaling", sigV4ServiceName: "application-autoscaling", name: "AnyScaleFrontendService.DescribeScheduledActions" }, DescribeScheduledActionsRequest, DescribeScheduledActionsResponse, [ConcurrentUpdateException, InternalServiceException, InvalidNextTokenException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeScheduledActions = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-02-06", sdkId: "Application Auto Scaling", sigV4ServiceName: "application-autoscaling", name: "AnyScaleFrontendService.DescribeScheduledActions" }, DescribeScheduledActionsRequest, DescribeScheduledActionsResponse, [ConcurrentUpdateException, InternalServiceException, InvalidNextTokenException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the forecast data for a predictive scaling policy.
  * 
@@ -154,7 +154,7 @@ export class FailedResourceAccessException extends S.TaggedError<FailedResourceA
  * 
  * A minimum of 24 hours of data is required to create the initial forecasts. However,
  * having a full 14 days of historical data results in more accurate forecasts.
- */export const getPredictiveScalingForecast = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-02-06", uri: "/", method: "POST", sdkId: "Application Auto Scaling", sigV4ServiceName: "application-autoscaling", name: "AnyScaleFrontendService.GetPredictiveScalingForecast" }, GetPredictiveScalingForecastRequest, GetPredictiveScalingForecastResponse, [InternalServiceException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const getPredictiveScalingForecast = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-02-06", sdkId: "Application Auto Scaling", sigV4ServiceName: "application-autoscaling", name: "AnyScaleFrontendService.GetPredictiveScalingForecast" }, GetPredictiveScalingForecastRequest, GetPredictiveScalingForecastResponse, [InternalServiceException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates or updates a scheduled action for an Application Auto Scaling scalable target.
  * 
@@ -181,7 +181,7 @@ export class FailedResourceAccessException extends S.TaggedError<FailedResourceA
  * If a scalable target is deregistered, the scalable target is no longer available to
  * run scheduled actions. Any scheduled actions that were specified for the scalable target
  * are deleted.
- */export const putScheduledAction = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-02-06", uri: "/", method: "POST", sdkId: "Application Auto Scaling", sigV4ServiceName: "application-autoscaling", name: "AnyScaleFrontendService.PutScheduledAction" }, PutScheduledActionRequest, PutScheduledActionResponse, [ConcurrentUpdateException, InternalServiceException, LimitExceededException, ObjectNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putScheduledAction = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-02-06", sdkId: "Application Auto Scaling", sigV4ServiceName: "application-autoscaling", name: "AnyScaleFrontendService.PutScheduledAction" }, PutScheduledActionRequest, PutScheduledActionResponse, [ConcurrentUpdateException, InternalServiceException, LimitExceededException, ObjectNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Registers or updates a scalable target, which is the resource that you want to
  * scale.
@@ -229,7 +229,7 @@ export class FailedResourceAccessException extends S.TaggedError<FailedResourceA
  * capacity of the scalable target to place it within these bounds, even if you don't
  * include the `MinCapacity` or `MaxCapacity` request
  * parameters.
- */export const registerScalableTarget = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-02-06", uri: "/", method: "POST", sdkId: "Application Auto Scaling", sigV4ServiceName: "application-autoscaling", name: "AnyScaleFrontendService.RegisterScalableTarget" }, RegisterScalableTargetRequest, RegisterScalableTargetResponse, [ConcurrentUpdateException, InternalServiceException, LimitExceededException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const registerScalableTarget = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-02-06", sdkId: "Application Auto Scaling", sigV4ServiceName: "application-autoscaling", name: "AnyScaleFrontendService.RegisterScalableTarget" }, RegisterScalableTargetRequest, RegisterScalableTargetResponse, [ConcurrentUpdateException, InternalServiceException, LimitExceededException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds or edits tags on an Application Auto Scaling scalable target.
  * 
@@ -253,14 +253,14 @@ export class FailedResourceAccessException extends S.TaggedError<FailedResourceA
  * 
  * Use tags to control access to a scalable target. For more information, see Tagging support
  * for Application Auto Scaling in the *Application Auto Scaling User Guide*.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-02-06", uri: "/", method: "POST", sdkId: "Application Auto Scaling", sigV4ServiceName: "application-autoscaling", name: "AnyScaleFrontendService.TagResource" }, TagResourceRequest, TagResourceResponse, [ResourceNotFoundException, TooManyTagsException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-02-06", sdkId: "Application Auto Scaling", sigV4ServiceName: "application-autoscaling", name: "AnyScaleFrontendService.TagResource" }, TagResourceRequest, TagResourceResponse, [ResourceNotFoundException, TooManyTagsException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Gets information about the scalable targets in the specified namespace.
  * 
  * 
  * You can filter the results using `ResourceIds` and
  * `ScalableDimension`.
- */export const describeScalableTargets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-02-06", uri: "/", method: "POST", sdkId: "Application Auto Scaling", sigV4ServiceName: "application-autoscaling", name: "AnyScaleFrontendService.DescribeScalableTargets" }, DescribeScalableTargetsRequest, DescribeScalableTargetsResponse, [ConcurrentUpdateException, InternalServiceException, InvalidNextTokenException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeScalableTargets = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-02-06", sdkId: "Application Auto Scaling", sigV4ServiceName: "application-autoscaling", name: "AnyScaleFrontendService.DescribeScalableTargets" }, DescribeScalableTargetsRequest, DescribeScalableTargetsResponse, [ConcurrentUpdateException, InternalServiceException, InvalidNextTokenException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Provides descriptive information about the scaling activities in the specified namespace
  * from the previous six weeks.
@@ -271,7 +271,7 @@ export class FailedResourceAccessException extends S.TaggedError<FailedResourceA
  * 
  * 
  * For information about viewing scaling activities using the Amazon Web Services CLI, see Scaling activities for Application Auto Scaling.
- */export const describeScalingActivities = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-02-06", uri: "/", method: "POST", sdkId: "Application Auto Scaling", sigV4ServiceName: "application-autoscaling", name: "AnyScaleFrontendService.DescribeScalingActivities" }, DescribeScalingActivitiesRequest, DescribeScalingActivitiesResponse, [ConcurrentUpdateException, InternalServiceException, InvalidNextTokenException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeScalingActivities = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-02-06", sdkId: "Application Auto Scaling", sigV4ServiceName: "application-autoscaling", name: "AnyScaleFrontendService.DescribeScalingActivities" }, DescribeScalingActivitiesRequest, DescribeScalingActivitiesResponse, [ConcurrentUpdateException, InternalServiceException, InvalidNextTokenException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Describes the Application Auto Scaling scaling policies for the specified service namespace.
  * 
@@ -281,7 +281,7 @@ export class FailedResourceAccessException extends S.TaggedError<FailedResourceA
  * 
  * 
  * For more information, see Target tracking scaling policies and Step scaling policies in the *Application Auto Scaling User Guide*.
- */export const describeScalingPolicies = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-02-06", uri: "/", method: "POST", sdkId: "Application Auto Scaling", sigV4ServiceName: "application-autoscaling", name: "AnyScaleFrontendService.DescribeScalingPolicies" }, DescribeScalingPoliciesRequest, DescribeScalingPoliciesResponse, [ConcurrentUpdateException, FailedResourceAccessException, InternalServiceException, InvalidNextTokenException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeScalingPolicies = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-02-06", sdkId: "Application Auto Scaling", sigV4ServiceName: "application-autoscaling", name: "AnyScaleFrontendService.DescribeScalingPolicies" }, DescribeScalingPoliciesRequest, DescribeScalingPoliciesResponse, [ConcurrentUpdateException, FailedResourceAccessException, InternalServiceException, InvalidNextTokenException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Creates or updates a scaling policy for an Application Auto Scaling scalable target.
  * 
@@ -319,4 +319,4 @@ export class FailedResourceAccessException extends S.TaggedError<FailedResourceA
  * If a scalable target is deregistered, the scalable target is no longer available to
  * use scaling policies. Any scaling policies that were specified for the scalable target
  * are deleted.
- */export const putScalingPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-02-06", uri: "/", method: "POST", sdkId: "Application Auto Scaling", sigV4ServiceName: "application-autoscaling", name: "AnyScaleFrontendService.PutScalingPolicy" }, PutScalingPolicyRequest, PutScalingPolicyResponse, [ConcurrentUpdateException, FailedResourceAccessException, InternalServiceException, LimitExceededException, ObjectNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const putScalingPolicy = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2016-02-06", sdkId: "Application Auto Scaling", sigV4ServiceName: "application-autoscaling", name: "AnyScaleFrontendService.PutScalingPolicy" }, PutScalingPolicyRequest, PutScalingPolicyResponse, [ConcurrentUpdateException, FailedResourceAccessException, InternalServiceException, LimitExceededException, ObjectNotFoundException, ValidationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);

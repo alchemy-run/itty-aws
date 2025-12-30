@@ -135,7 +135,7 @@ export class PolicyEnforcedException extends S.TaggedError<PolicyEnforcedExcepti
  * more information about tags, see Tagging Amazon Glacier Resources.
  * This operation is idempotent. The operation will be successful, even if there are no tags
  * attached to the vault.
- */export const removeTagsFromVault = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", uri: "/{accountId}/vaults/{vaultName}/tags?operation=remove", method: "POST", sdkId: "Glacier", sigV4ServiceName: "glacier", name: "Glacier.RemoveTagsFromVault" }, RemoveTagsFromVaultInput, S.Struct({}), [InvalidParameterValueException, MissingParameterValueException, NoLongerSupportedException, ResourceNotFoundException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const removeTagsFromVault = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", uri: "/{accountId}/vaults/{vaultName}/tags?operation=remove", sdkId: "Glacier", sigV4ServiceName: "glacier", name: "Glacier.RemoveTagsFromVault" }, RemoveTagsFromVaultInput, S.Struct({}), [InvalidParameterValueException, MissingParameterValueException, NoLongerSupportedException, ResourceNotFoundException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This operation aborts a multipart upload identified by the upload ID.
  * 
@@ -225,7 +225,7 @@ export class PolicyEnforcedException extends S.TaggedError<PolicyEnforcedExcepti
  * For conceptual information and underlying REST API, see Uploading Large Archives in
  * Parts (Multipart Upload) and Complete Multipart
  * Upload in the *Amazon Glacier Developer Guide*.
- */export const completeMultipartUpload = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", uri: "/{accountId}/vaults/{vaultName}/multipart-uploads/{uploadId}", method: "POST", sdkId: "Glacier", sigV4ServiceName: "glacier", name: "Glacier.CompleteMultipartUpload" }, CompleteMultipartUploadInput, ArchiveCreationOutput, [InvalidParameterValueException, MissingParameterValueException, NoLongerSupportedException, ResourceNotFoundException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const completeMultipartUpload = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", uri: "/{accountId}/vaults/{vaultName}/multipart-uploads/{uploadId}", sdkId: "Glacier", sigV4ServiceName: "glacier", name: "Glacier.CompleteMultipartUpload" }, CompleteMultipartUploadInput, ArchiveCreationOutput, [InvalidParameterValueException, MissingParameterValueException, NoLongerSupportedException, ResourceNotFoundException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This operation completes the vault locking process by transitioning the vault lock
  * from the `InProgress` state to the `Locked` state, which causes the
@@ -245,7 +245,7 @@ export class PolicyEnforcedException extends S.TaggedError<PolicyEnforcedExcepti
  * error. If an invalid lock ID is passed in the request when the vault lock is in the
  * `InProgress` state, the operation throws an `InvalidParameter`
  * error.
- */export const completeVaultLock = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", uri: "/{accountId}/vaults/{vaultName}/lock-policy/{lockId}", method: "POST", sdkId: "Glacier", sigV4ServiceName: "glacier", name: "Glacier.CompleteVaultLock" }, CompleteVaultLockInput, S.Struct({}), [InvalidParameterValueException, MissingParameterValueException, NoLongerSupportedException, ResourceNotFoundException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const completeVaultLock = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", uri: "/{accountId}/vaults/{vaultName}/lock-policy/{lockId}", sdkId: "Glacier", sigV4ServiceName: "glacier", name: "Glacier.CompleteVaultLock" }, CompleteVaultLockInput, S.Struct({}), [InvalidParameterValueException, MissingParameterValueException, NoLongerSupportedException, ResourceNotFoundException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This operation creates a new vault with the specified name. The name of the vault
  * must be unique within a region for an AWS account. You can create up to 1,000 vaults per
@@ -534,7 +534,7 @@ export class PolicyEnforcedException extends S.TaggedError<PolicyEnforcedExcepti
  * For conceptual information and underlying REST API, see Uploading Large Archives in
  * Parts (Multipart Upload) and Initiate Multipart
  * Upload in the *Amazon Glacier Developer Guide*.
- */export const initiateMultipartUpload = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", uri: "/{accountId}/vaults/{vaultName}/multipart-uploads", method: "POST", sdkId: "Glacier", sigV4ServiceName: "glacier", name: "Glacier.InitiateMultipartUpload" }, InitiateMultipartUploadInput, InitiateMultipartUploadOutput, [InvalidParameterValueException, MissingParameterValueException, NoLongerSupportedException, ResourceNotFoundException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const initiateMultipartUpload = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", uri: "/{accountId}/vaults/{vaultName}/multipart-uploads", sdkId: "Glacier", sigV4ServiceName: "glacier", name: "Glacier.InitiateMultipartUpload" }, InitiateMultipartUploadInput, InitiateMultipartUploadOutput, [InvalidParameterValueException, MissingParameterValueException, NoLongerSupportedException, ResourceNotFoundException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This operation lists jobs for a vault, including jobs that are in-progress and jobs
  * that have recently finished. The List Job operation returns a list of these jobs sorted by job initiation
@@ -613,7 +613,7 @@ export class PolicyEnforcedException extends S.TaggedError<PolicyEnforcedExcepti
  */export const listVaults = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", uri: "/{accountId}/vaults", method: "GET", sdkId: "Glacier", sigV4ServiceName: "glacier", name: "Glacier.ListVaults" }, ListVaultsInput, ListVaultsOutput, [InvalidParameterValueException, MissingParameterValueException, NoLongerSupportedException, ResourceNotFoundException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This operation purchases a provisioned capacity unit for an AWS account.
- */export const purchaseProvisionedCapacity = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", uri: "/{accountId}/provisioned-capacity", method: "POST", sdkId: "Glacier", sigV4ServiceName: "glacier", name: "Glacier.PurchaseProvisionedCapacity" }, PurchaseProvisionedCapacityInput, PurchaseProvisionedCapacityOutput, [InvalidParameterValueException, LimitExceededException, MissingParameterValueException, NoLongerSupportedException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const purchaseProvisionedCapacity = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", uri: "/{accountId}/provisioned-capacity", sdkId: "Glacier", sigV4ServiceName: "glacier", name: "Glacier.PurchaseProvisionedCapacity" }, PurchaseProvisionedCapacityInput, PurchaseProvisionedCapacityOutput, [InvalidParameterValueException, LimitExceededException, MissingParameterValueException, NoLongerSupportedException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This operation configures an access policy for a vault and will overwrite an existing
  * policy. To configure a vault access policy, send a PUT request to the
@@ -706,7 +706,7 @@ export class PolicyEnforcedException extends S.TaggedError<PolicyEnforcedExcepti
  * For conceptual information and underlying REST API, see Uploading an Archive in Amazon
  * Glacier and Upload Archive in the
  * *Amazon Glacier Developer Guide*.
- */export const uploadArchive = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", uri: "/{accountId}/vaults/{vaultName}/archives", method: "POST", sdkId: "Glacier", sigV4ServiceName: "glacier", name: "Glacier.UploadArchive" }, UploadArchiveInput, ArchiveCreationOutput, [InvalidParameterValueException, MissingParameterValueException, NoLongerSupportedException, RequestTimeoutException, ResourceNotFoundException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const uploadArchive = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", uri: "/{accountId}/vaults/{vaultName}/archives", sdkId: "Glacier", sigV4ServiceName: "glacier", name: "Glacier.UploadArchive" }, UploadArchiveInput, ArchiveCreationOutput, [InvalidParameterValueException, MissingParameterValueException, NoLongerSupportedException, RequestTimeoutException, ResourceNotFoundException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This operation uploads a part of an archive. You can upload archive parts in any
  * order. You can also upload them in parallel. You can upload up to 10,000 parts for a
@@ -775,7 +775,7 @@ export class PolicyEnforcedException extends S.TaggedError<PolicyEnforcedExcepti
  * the vault to be exceeded, the operation throws the `LimitExceededException`
  * error. If a tag already exists on the vault under a specified key, the existing key value
  * will be overwritten. For more information about tags, see Tagging Amazon Glacier Resources.
- */export const addTagsToVault = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", uri: "/{accountId}/vaults/{vaultName}/tags?operation=add", method: "POST", sdkId: "Glacier", sigV4ServiceName: "glacier", name: "Glacier.AddTagsToVault" }, AddTagsToVaultInput, S.Struct({}), [InvalidParameterValueException, LimitExceededException, MissingParameterValueException, NoLongerSupportedException, ResourceNotFoundException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const addTagsToVault = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", uri: "/{accountId}/vaults/{vaultName}/tags?operation=add", sdkId: "Glacier", sigV4ServiceName: "glacier", name: "Glacier.AddTagsToVault" }, AddTagsToVaultInput, S.Struct({}), [InvalidParameterValueException, LimitExceededException, MissingParameterValueException, NoLongerSupportedException, ResourceNotFoundException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This operation returns information about a job you previously initiated, including
  * the job initiation date, the user who initiated the job, the job status code/message and
@@ -855,7 +855,7 @@ export class PolicyEnforcedException extends S.TaggedError<PolicyEnforcedExcepti
  * state, the operation returns an `AccessDeniedException` error. When the vault
  * lock is in the `InProgress` state you must call AbortVaultLock
  * before you can initiate a new vault lock policy.
- */export const initiateVaultLock = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", uri: "/{accountId}/vaults/{vaultName}/lock-policy", method: "POST", sdkId: "Glacier", sigV4ServiceName: "glacier", name: "Glacier.InitiateVaultLock" }, InitiateVaultLockInput, InitiateVaultLockOutput, [InvalidParameterValueException, MissingParameterValueException, NoLongerSupportedException, ResourceNotFoundException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const initiateVaultLock = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", uri: "/{accountId}/vaults/{vaultName}/lock-policy", sdkId: "Glacier", sigV4ServiceName: "glacier", name: "Glacier.InitiateVaultLock" }, InitiateVaultLockInput, InitiateVaultLockOutput, [InvalidParameterValueException, MissingParameterValueException, NoLongerSupportedException, ResourceNotFoundException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This operation lists in-progress multipart uploads for the specified vault. An
  * in-progress multipart upload is a multipart upload that has been initiated by an InitiateMultipartUpload request, but has not yet been completed or aborted.
@@ -935,4 +935,4 @@ export class PolicyEnforcedException extends S.TaggedError<PolicyEnforcedExcepti
  * or a vault retrieval. For more information about using this operation,
  * see the documentation for the underlying REST API Initiate
  * a Job.
- */export const initiateJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", uri: "/{accountId}/vaults/{vaultName}/jobs", method: "POST", sdkId: "Glacier", sigV4ServiceName: "glacier", name: "Glacier.InitiateJob" }, InitiateJobInput, InitiateJobOutput, [InsufficientCapacityException, InvalidParameterValueException, MissingParameterValueException, NoLongerSupportedException, PolicyEnforcedException, ResourceNotFoundException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const initiateJob = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2012-06-01", uri: "/{accountId}/vaults/{vaultName}/jobs", sdkId: "Glacier", sigV4ServiceName: "glacier", name: "Glacier.InitiateJob" }, InitiateJobInput, InitiateJobOutput, [InsufficientCapacityException, InvalidParameterValueException, MissingParameterValueException, NoLongerSupportedException, PolicyEnforcedException, ResourceNotFoundException, ServiceUnavailableException]), FormatJSONRequest, FormatJSONResponse, FormatAwsRestJSONError);

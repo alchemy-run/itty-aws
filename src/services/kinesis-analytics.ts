@@ -149,10 +149,10 @@ export class UnableToDetectSchemaException extends S.TaggedError<UnableToDetectS
  * 
  * This operation requires permissions to perform the
  * `kinesisanalytics:StopApplication` action.
- */export const stopApplication = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-08-14", uri: "/", method: "POST", sdkId: "Kinesis Analytics", sigV4ServiceName: "kinesisanalytics", name: "KinesisAnalytics_20150814.StopApplication" }, StopApplicationRequest, StopApplicationResponse, [ResourceInUseException, ResourceNotFoundException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const stopApplication = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-08-14", sdkId: "Kinesis Analytics", sigV4ServiceName: "kinesisanalytics", name: "KinesisAnalytics_20150814.StopApplication" }, StopApplicationRequest, StopApplicationResponse, [ResourceInUseException, ResourceNotFoundException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Removes one or more tags from a Kinesis Analytics application. For more information, see Using Tagging.
- */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-08-14", uri: "/", method: "POST", sdkId: "Kinesis Analytics", sigV4ServiceName: "kinesisanalytics", name: "KinesisAnalytics_20150814.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [ConcurrentModificationException, InvalidArgumentException, ResourceInUseException, ResourceNotFoundException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const untagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-08-14", sdkId: "Kinesis Analytics", sigV4ServiceName: "kinesisanalytics", name: "KinesisAnalytics_20150814.UntagResource" }, UntagResourceRequest, UntagResourceResponse, [ConcurrentModificationException, InvalidArgumentException, ResourceInUseException, ResourceNotFoundException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see Amazon Kinesis Data Analytics API V2 Documentation.
  * 
@@ -163,7 +163,7 @@ export class UnableToDetectSchemaException extends S.TaggedError<UnableToDetectS
  * information about using CloudWatch log streams with Amazon Kinesis Analytics
  * applications, see Working with Amazon
  * CloudWatch Logs.
- */export const addApplicationCloudWatchLoggingOption = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-08-14", uri: "/", method: "POST", sdkId: "Kinesis Analytics", sigV4ServiceName: "kinesisanalytics", name: "KinesisAnalytics_20150814.AddApplicationCloudWatchLoggingOption" }, AddApplicationCloudWatchLoggingOptionRequest, AddApplicationCloudWatchLoggingOptionResponse, [ConcurrentModificationException, InvalidArgumentException, ResourceInUseException, ResourceNotFoundException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const addApplicationCloudWatchLoggingOption = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-08-14", sdkId: "Kinesis Analytics", sigV4ServiceName: "kinesisanalytics", name: "KinesisAnalytics_20150814.AddApplicationCloudWatchLoggingOption" }, AddApplicationCloudWatchLoggingOptionRequest, AddApplicationCloudWatchLoggingOptionResponse, [ConcurrentModificationException, InvalidArgumentException, ResourceInUseException, ResourceNotFoundException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see Amazon Kinesis Data Analytics API V2 Documentation.
  * 
@@ -175,7 +175,7 @@ export class UnableToDetectSchemaException extends S.TaggedError<UnableToDetectS
  * 
  * 
  * This operation requires permissions to perform the `kinesisanalytics:DeleteApplication` action.
- */export const deleteApplication = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-08-14", uri: "/", method: "POST", sdkId: "Kinesis Analytics", sigV4ServiceName: "kinesisanalytics", name: "KinesisAnalytics_20150814.DeleteApplication" }, DeleteApplicationRequest, DeleteApplicationResponse, [ConcurrentModificationException, ResourceInUseException, ResourceNotFoundException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteApplication = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-08-14", sdkId: "Kinesis Analytics", sigV4ServiceName: "kinesisanalytics", name: "KinesisAnalytics_20150814.DeleteApplication" }, DeleteApplicationRequest, DeleteApplicationResponse, [ConcurrentModificationException, ResourceInUseException, ResourceNotFoundException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see Amazon Kinesis Data Analytics API V2 Documentation.
  * 
@@ -185,7 +185,7 @@ export class UnableToDetectSchemaException extends S.TaggedError<UnableToDetectS
  * Deletes a CloudWatch log stream from an application. For more information about
  * using CloudWatch log streams with Amazon Kinesis Analytics applications, see
  * Working with Amazon CloudWatch Logs.
- */export const deleteApplicationCloudWatchLoggingOption = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-08-14", uri: "/", method: "POST", sdkId: "Kinesis Analytics", sigV4ServiceName: "kinesisanalytics", name: "KinesisAnalytics_20150814.DeleteApplicationCloudWatchLoggingOption" }, DeleteApplicationCloudWatchLoggingOptionRequest, DeleteApplicationCloudWatchLoggingOptionResponse, [ConcurrentModificationException, InvalidArgumentException, ResourceInUseException, ResourceNotFoundException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteApplicationCloudWatchLoggingOption = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-08-14", sdkId: "Kinesis Analytics", sigV4ServiceName: "kinesisanalytics", name: "KinesisAnalytics_20150814.DeleteApplicationCloudWatchLoggingOption" }, DeleteApplicationCloudWatchLoggingOptionRequest, DeleteApplicationCloudWatchLoggingOptionResponse, [ConcurrentModificationException, InvalidArgumentException, ResourceInUseException, ResourceNotFoundException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see Amazon Kinesis Data Analytics API V2 Documentation.
  * 
@@ -193,7 +193,7 @@ export class UnableToDetectSchemaException extends S.TaggedError<UnableToDetectS
  * 
  * 
  * Deletes an InputProcessingConfiguration from an input.
- */export const deleteApplicationInputProcessingConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-08-14", uri: "/", method: "POST", sdkId: "Kinesis Analytics", sigV4ServiceName: "kinesisanalytics", name: "KinesisAnalytics_20150814.DeleteApplicationInputProcessingConfiguration" }, DeleteApplicationInputProcessingConfigurationRequest, DeleteApplicationInputProcessingConfigurationResponse, [ConcurrentModificationException, InvalidArgumentException, ResourceInUseException, ResourceNotFoundException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteApplicationInputProcessingConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-08-14", sdkId: "Kinesis Analytics", sigV4ServiceName: "kinesisanalytics", name: "KinesisAnalytics_20150814.DeleteApplicationInputProcessingConfiguration" }, DeleteApplicationInputProcessingConfigurationRequest, DeleteApplicationInputProcessingConfigurationResponse, [ConcurrentModificationException, InvalidArgumentException, ResourceInUseException, ResourceNotFoundException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see Amazon Kinesis Data Analytics API V2 Documentation.
  * 
@@ -205,7 +205,7 @@ export class UnableToDetectSchemaException extends S.TaggedError<UnableToDetectS
  * 
  * This operation requires permissions to perform the
  * `kinesisanalytics:DeleteApplicationOutput` action.
- */export const deleteApplicationOutput = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-08-14", uri: "/", method: "POST", sdkId: "Kinesis Analytics", sigV4ServiceName: "kinesisanalytics", name: "KinesisAnalytics_20150814.DeleteApplicationOutput" }, DeleteApplicationOutputRequest, DeleteApplicationOutputResponse, [ConcurrentModificationException, InvalidArgumentException, ResourceInUseException, ResourceNotFoundException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteApplicationOutput = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-08-14", sdkId: "Kinesis Analytics", sigV4ServiceName: "kinesisanalytics", name: "KinesisAnalytics_20150814.DeleteApplicationOutput" }, DeleteApplicationOutputRequest, DeleteApplicationOutputResponse, [ConcurrentModificationException, InvalidArgumentException, ResourceInUseException, ResourceNotFoundException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see Amazon Kinesis Data Analytics API V2 Documentation.
  * 
@@ -222,14 +222,14 @@ export class UnableToDetectSchemaException extends S.TaggedError<UnableToDetectS
  * 
  * This operation requires permissions to perform the `kinesisanalytics.DeleteApplicationReferenceDataSource`
  * action.
- */export const deleteApplicationReferenceDataSource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-08-14", uri: "/", method: "POST", sdkId: "Kinesis Analytics", sigV4ServiceName: "kinesisanalytics", name: "KinesisAnalytics_20150814.DeleteApplicationReferenceDataSource" }, DeleteApplicationReferenceDataSourceRequest, DeleteApplicationReferenceDataSourceResponse, [ConcurrentModificationException, InvalidArgumentException, ResourceInUseException, ResourceNotFoundException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const deleteApplicationReferenceDataSource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-08-14", sdkId: "Kinesis Analytics", sigV4ServiceName: "kinesisanalytics", name: "KinesisAnalytics_20150814.DeleteApplicationReferenceDataSource" }, DeleteApplicationReferenceDataSourceRequest, DeleteApplicationReferenceDataSourceResponse, [ConcurrentModificationException, InvalidArgumentException, ResourceInUseException, ResourceNotFoundException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Retrieves the list of key-value tags assigned to the application. For more information, see Using Tagging.
- */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-08-14", uri: "/", method: "POST", sdkId: "Kinesis Analytics", sigV4ServiceName: "kinesisanalytics", name: "KinesisAnalytics_20150814.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [ConcurrentModificationException, InvalidArgumentException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listTagsForResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-08-14", sdkId: "Kinesis Analytics", sigV4ServiceName: "kinesisanalytics", name: "KinesisAnalytics_20150814.ListTagsForResource" }, ListTagsForResourceRequest, ListTagsForResourceResponse, [ConcurrentModificationException, InvalidArgumentException, ResourceNotFoundException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * Adds one or more key-value tags to a Kinesis Analytics application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.
  * For more information, see Using Tagging.
- */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-08-14", uri: "/", method: "POST", sdkId: "Kinesis Analytics", sigV4ServiceName: "kinesisanalytics", name: "KinesisAnalytics_20150814.TagResource" }, TagResourceRequest, TagResourceResponse, [ConcurrentModificationException, InvalidArgumentException, ResourceInUseException, ResourceNotFoundException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const tagResource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-08-14", sdkId: "Kinesis Analytics", sigV4ServiceName: "kinesisanalytics", name: "KinesisAnalytics_20150814.TagResource" }, TagResourceRequest, TagResourceResponse, [ConcurrentModificationException, InvalidArgumentException, ResourceInUseException, ResourceNotFoundException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see Amazon Kinesis Data Analytics API V2 Documentation.
  * 
@@ -239,7 +239,7 @@ export class UnableToDetectSchemaException extends S.TaggedError<UnableToDetectS
  * Adds an InputProcessingConfiguration to an application. An input processor preprocesses records on the input stream
  * before the application's SQL code executes. Currently, the only input processor available is
  * AWS Lambda.
- */export const addApplicationInputProcessingConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-08-14", uri: "/", method: "POST", sdkId: "Kinesis Analytics", sigV4ServiceName: "kinesisanalytics", name: "KinesisAnalytics_20150814.AddApplicationInputProcessingConfiguration" }, AddApplicationInputProcessingConfigurationRequest, AddApplicationInputProcessingConfigurationResponse, [ConcurrentModificationException, InvalidArgumentException, ResourceInUseException, ResourceNotFoundException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const addApplicationInputProcessingConfiguration = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-08-14", sdkId: "Kinesis Analytics", sigV4ServiceName: "kinesisanalytics", name: "KinesisAnalytics_20150814.AddApplicationInputProcessingConfiguration" }, AddApplicationInputProcessingConfigurationRequest, AddApplicationInputProcessingConfigurationResponse, [ConcurrentModificationException, InvalidArgumentException, ResourceInUseException, ResourceNotFoundException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see Amazon Kinesis Data Analytics API V2 Documentation.
  * 
@@ -273,7 +273,7 @@ export class UnableToDetectSchemaException extends S.TaggedError<UnableToDetectS
  * 
  * 
  * This operation requires permissions to perform the `kinesisanalytics:AddApplicationOutput` action.
- */export const addApplicationOutput = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-08-14", uri: "/", method: "POST", sdkId: "Kinesis Analytics", sigV4ServiceName: "kinesisanalytics", name: "KinesisAnalytics_20150814.AddApplicationOutput" }, AddApplicationOutputRequest, AddApplicationOutputResponse, [ConcurrentModificationException, InvalidArgumentException, ResourceInUseException, ResourceNotFoundException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const addApplicationOutput = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-08-14", sdkId: "Kinesis Analytics", sigV4ServiceName: "kinesisanalytics", name: "KinesisAnalytics_20150814.AddApplicationOutput" }, AddApplicationOutputRequest, AddApplicationOutputResponse, [ConcurrentModificationException, InvalidArgumentException, ResourceInUseException, ResourceNotFoundException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see Amazon Kinesis Data Analytics API V2 Documentation.
  * 
@@ -296,7 +296,7 @@ export class UnableToDetectSchemaException extends S.TaggedError<UnableToDetectS
  * 
  * 
  * This operation requires permissions to perform the `kinesisanalytics:AddApplicationOutput` action.
- */export const addApplicationReferenceDataSource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-08-14", uri: "/", method: "POST", sdkId: "Kinesis Analytics", sigV4ServiceName: "kinesisanalytics", name: "KinesisAnalytics_20150814.AddApplicationReferenceDataSource" }, AddApplicationReferenceDataSourceRequest, AddApplicationReferenceDataSourceResponse, [ConcurrentModificationException, InvalidArgumentException, ResourceInUseException, ResourceNotFoundException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const addApplicationReferenceDataSource = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-08-14", sdkId: "Kinesis Analytics", sigV4ServiceName: "kinesisanalytics", name: "KinesisAnalytics_20150814.AddApplicationReferenceDataSource" }, AddApplicationReferenceDataSourceRequest, AddApplicationReferenceDataSourceResponse, [ConcurrentModificationException, InvalidArgumentException, ResourceInUseException, ResourceNotFoundException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see Amazon Kinesis Data Analytics API V2 Documentation.
  * 
@@ -321,7 +321,7 @@ export class UnableToDetectSchemaException extends S.TaggedError<UnableToDetectS
  * 
  * This operation requires permissions to perform the
  * `kinesisanalytics:ListApplications` action.
- */export const listApplications = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-08-14", uri: "/", method: "POST", sdkId: "Kinesis Analytics", sigV4ServiceName: "kinesisanalytics", name: "KinesisAnalytics_20150814.ListApplications" }, ListApplicationsRequest, ListApplicationsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const listApplications = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-08-14", sdkId: "Kinesis Analytics", sigV4ServiceName: "kinesisanalytics", name: "KinesisAnalytics_20150814.ListApplications" }, ListApplicationsRequest, ListApplicationsResponse, []), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see Amazon Kinesis Data Analytics API V2 Documentation.
  * 
@@ -345,7 +345,7 @@ export class UnableToDetectSchemaException extends S.TaggedError<UnableToDetectS
  * 
  * This operation requires permissions to perform the
  * `kinesisanalytics:StartApplication` action.
- */export const startApplication = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-08-14", uri: "/", method: "POST", sdkId: "Kinesis Analytics", sigV4ServiceName: "kinesisanalytics", name: "KinesisAnalytics_20150814.StartApplication" }, StartApplicationRequest, StartApplicationResponse, [InvalidApplicationConfigurationException, InvalidArgumentException, ResourceInUseException, ResourceNotFoundException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const startApplication = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-08-14", sdkId: "Kinesis Analytics", sigV4ServiceName: "kinesisanalytics", name: "KinesisAnalytics_20150814.StartApplication" }, StartApplicationRequest, StartApplicationResponse, [InvalidApplicationConfigurationException, InvalidArgumentException, ResourceInUseException, ResourceNotFoundException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see Amazon Kinesis Data Analytics API V2 Documentation.
  * 
@@ -385,7 +385,7 @@ export class UnableToDetectSchemaException extends S.TaggedError<UnableToDetectS
  * 
  * For introductory exercises to create an Amazon Kinesis Analytics application, see
  * Getting Started.
- */export const createApplication = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-08-14", uri: "/", method: "POST", sdkId: "Kinesis Analytics", sigV4ServiceName: "kinesisanalytics", name: "KinesisAnalytics_20150814.CreateApplication" }, CreateApplicationRequest, CreateApplicationResponse, [CodeValidationException, ConcurrentModificationException, InvalidArgumentException, LimitExceededException, ResourceInUseException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const createApplication = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-08-14", sdkId: "Kinesis Analytics", sigV4ServiceName: "kinesisanalytics", name: "KinesisAnalytics_20150814.CreateApplication" }, CreateApplicationRequest, CreateApplicationResponse, [CodeValidationException, ConcurrentModificationException, InvalidArgumentException, LimitExceededException, ResourceInUseException, TooManyTagsException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see Amazon Kinesis Data Analytics API V2 Documentation.
  * 
@@ -403,7 +403,7 @@ export class UnableToDetectSchemaException extends S.TaggedError<UnableToDetectS
  * 
  * This operation requires permission for the
  * `kinesisanalytics:UpdateApplication` action.
- */export const updateApplication = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-08-14", uri: "/", method: "POST", sdkId: "Kinesis Analytics", sigV4ServiceName: "kinesisanalytics", name: "KinesisAnalytics_20150814.UpdateApplication" }, UpdateApplicationRequest, UpdateApplicationResponse, [CodeValidationException, ConcurrentModificationException, InvalidArgumentException, ResourceInUseException, ResourceNotFoundException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const updateApplication = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-08-14", sdkId: "Kinesis Analytics", sigV4ServiceName: "kinesisanalytics", name: "KinesisAnalytics_20150814.UpdateApplication" }, UpdateApplicationRequest, UpdateApplicationResponse, [CodeValidationException, ConcurrentModificationException, InvalidArgumentException, ResourceInUseException, ResourceNotFoundException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see Amazon Kinesis Data Analytics API V2 Documentation.
  * 
@@ -430,7 +430,7 @@ export class UnableToDetectSchemaException extends S.TaggedError<UnableToDetectS
  * 
  * This operation requires permissions to perform the
  * `kinesisanalytics:AddApplicationInput` action.
- */export const addApplicationInput = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-08-14", uri: "/", method: "POST", sdkId: "Kinesis Analytics", sigV4ServiceName: "kinesisanalytics", name: "KinesisAnalytics_20150814.AddApplicationInput" }, AddApplicationInputRequest, AddApplicationInputResponse, [CodeValidationException, ConcurrentModificationException, InvalidArgumentException, ResourceInUseException, ResourceNotFoundException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const addApplicationInput = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-08-14", sdkId: "Kinesis Analytics", sigV4ServiceName: "kinesisanalytics", name: "KinesisAnalytics_20150814.AddApplicationInput" }, AddApplicationInputRequest, AddApplicationInputResponse, [CodeValidationException, ConcurrentModificationException, InvalidArgumentException, ResourceInUseException, ResourceNotFoundException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see Amazon Kinesis Data Analytics API V2 Documentation.
  * 
@@ -447,7 +447,7 @@ export class UnableToDetectSchemaException extends S.TaggedError<UnableToDetectS
  * This operation requires permissions to perform the `kinesisanalytics:DescribeApplication`
  * action. You can use `DescribeApplication` to get the current application versionId, which you need to call other
  * operations such as `Update`.
- */export const describeApplication = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-08-14", uri: "/", method: "POST", sdkId: "Kinesis Analytics", sigV4ServiceName: "kinesisanalytics", name: "KinesisAnalytics_20150814.DescribeApplication" }, DescribeApplicationRequest, DescribeApplicationResponse, [ResourceNotFoundException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const describeApplication = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-08-14", sdkId: "Kinesis Analytics", sigV4ServiceName: "kinesisanalytics", name: "KinesisAnalytics_20150814.DescribeApplication" }, DescribeApplicationRequest, DescribeApplicationResponse, [ResourceNotFoundException, UnsupportedOperationException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
 /**
  * This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see Amazon Kinesis Data Analytics API V2 Documentation.
  * 
@@ -469,4 +469,4 @@ export class UnableToDetectSchemaException extends S.TaggedError<UnableToDetectS
  * 
  * This operation requires permissions to perform the
  * `kinesisanalytics:DiscoverInputSchema` action.
- */export const discoverInputSchema = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-08-14", uri: "/", method: "POST", sdkId: "Kinesis Analytics", sigV4ServiceName: "kinesisanalytics", name: "KinesisAnalytics_20150814.DiscoverInputSchema" }, DiscoverInputSchemaRequest, DiscoverInputSchemaResponse, [InvalidArgumentException, ResourceProvisionedThroughputExceededException, ServiceUnavailableException, UnableToDetectSchemaException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
+ */export const discoverInputSchema = /*@__PURE__*/ /*#__PURE__*/ makeOperation(() => H.Operation({ version: "2015-08-14", sdkId: "Kinesis Analytics", sigV4ServiceName: "kinesisanalytics", name: "KinesisAnalytics_20150814.DiscoverInputSchema" }, DiscoverInputSchemaRequest, DiscoverInputSchemaResponse, [InvalidArgumentException, ResourceProvisionedThroughputExceededException, ServiceUnavailableException, UnableToDetectSchemaException]), FormatAwsJSON11Request, FormatJSONResponse, FormatAwsRestJSONError);
