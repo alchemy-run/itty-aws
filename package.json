@@ -10,8 +10,16 @@
     "build": "bun generate && tsc -b"
   },
   "exports": {
-    "./*": "./src/clients.gen/*.ts",
-    ".": "./src/index.ts"
+    "./*": {
+      "bun": "./src/services/*.ts",
+      "types": "./lib/services/*.d.ts",
+      "default": "./lib/services/*.js"
+    },
+    ".": {
+      "bun": "./src/index.ts",
+      "types": "./lib/index.d.ts",
+      "default": "./lib/index.js"
+    }
   },
   "dependencies": {
     "@aws-sdk/credential-providers": "^3.933.0",

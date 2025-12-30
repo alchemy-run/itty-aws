@@ -955,7 +955,7 @@ const generateClient = Effect.fn(function* (
 });
 
 const AWS_MODELS_PATH = "aws-models";
-const RESULT_ROOT_PATH = "src/clients.gen";
+const RESULT_ROOT_PATH = "src/services";
 
 BunRuntime.runMain(
   // generateClient(TEST_MODAL_PATH, TEST_OUTPUT_PATH)
