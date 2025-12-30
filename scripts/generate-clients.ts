@@ -19,8 +19,8 @@ import {
   SmithyModel,
   ServiceShape,
   GenericShape,
-  ShapeTypeMap,
-} from "./model-schema";
+  type ShapeTypeMap,
+} from "./model-schema.ts";
 import dedent from "dedent";
 import { schema } from "@effect/platform/Transferable";
 
@@ -46,7 +46,8 @@ class ModelService extends Context.Tag("ModelService")<
 
 function getSdkFlag(): Option.Option<string> {
   const idx = process.argv.indexOf("--sdk");
-  return idx !== -1 ? Option.some(process.argv[idx + 1]) : Option.none();
+  const arg = process.argv[idx + 1];
+  return idx !== -1 && arg !== undefined ? Option.some(arg) : Option.none();
 }
 
 //todo(pear): add this to a category
@@ -636,7 +637,7 @@ BunRuntime.runMain(
         Effect.gen(function* () {
           yield* Console.log(`⏩ STARTED SERVICE: ${service}`);
           const baseModelPath = path.join(rootModelsPath, service, "service");
-          const folder = (yield* fs.readDirectory(baseModelPath))[0];
+          const folder = (yield* fs.readDirectory(baseModelPath))[0]!;
           const modelPath = path.join(
             baseModelPath,
             folder,

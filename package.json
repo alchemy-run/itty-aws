@@ -25,6 +25,7 @@
     "@rsbuild/core": "^1.6.7",
     "@types/bun": "latest",
     "@types/node": "^24.10.1",
+    "@typescript/native-preview": "^7.0.0-dev.20251230.1",
     "dedent": "^1.7.0",
     "typescript": "^5"
   }
